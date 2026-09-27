@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "licensePolicy": {
+    "archive": "RCSB PDB / wwPDB structure data files are CC0 1.0.",
+    "policy": "https://www.rcsb.org/pages/usage-policy",
+    "attribution": "Retain PDB IDs and cite original structure authors/publications in product credits even though CC0 does not require attribution."
+  },
+  "targets": {
+    "naKATPase": {
+      "pdb": "9RON",
+      "title": "Human alpha1 Na+,K+-ATPase in the Na+-bound E1 state",
+      "organism": "Homo sapiens",
+      "method": "cryo-EM",
+      "resolutionAngstrom": 3.41,
+      "role": "Na+/K+-ATPase visual source",
+      "source": "https://www.rcsb.org/structure/9RON"
+    },
+    "nav15": {
+      "pdb": "9P24",
+      "title": "Structure of human cardiac sodium channel Nav1.5 in intermediate open state",
+      "organism": "Homo sapiens",
+      "method": "cryo-EM",
+      "resolutionAngstrom": 3.48,
+      "role": "Nav1.5 visual source for cardiomyocyte membrane lessons",
+      "source": "https://www.rcsb.org/structure/9P24"
+    },
+    "kir21": {
+      "pdb": "7ZDZ",
+      "title": "Cryo-EM structure of the human inward-rectifier potassium 2.1 channel (Kir2.1)",
+      "organism": "Homo sapiens",
+      "method": "cryo-EM",
+      "resolutionAngstrom": 4.3,
+      "role": "Kir2.1 visual source for resting membrane potential lessons",
+      "source": "https://www.rcsb.org/structure/7ZDZ"
+    },
+    "aqp4": {
+      "pdb": "3GD8",
+      "title": "Crystal Structure of Human Aquaporin 4 at 1.8 and its Mechanism of Conductance",
+      "organism": "Homo sapiens",
+      "method": "X-ray diffraction",
+      "resolutionAngstrom": 1.8,
+      "role": "AQP4 visual source for sodium/osmolality/neuro lessons",
+      "source": "https://www.rcsb.org/structure/3GD8"
+    }
+  },
+  "implementation": {
+    "runtimeRule": "Do not render raw atomistic structures hundreds of times across a cell. Bake a simplified ribbon/surface mesh once per protein and instance that optimized mesh.",
+    "qualityTargets": {
+      "closeup": "20k-60k triangles per unique protein",
+      "wholeCell": "1k-5k triangles per instanced transporter proxy",
+      "mobile": "LOD proxy only outside membrane close-up"
+    },
+    "physiologyRule": "Protein geometry is visual only. Existing transporter state machine continues to drive open/closed/inactivated/pump-cycle behavior."
+  }
+}
