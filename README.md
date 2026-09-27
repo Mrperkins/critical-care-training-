@@ -1,5 +1,6 @@
 # Critical Care Physiology
 
-Interactive trainer: ventilator, blood gas and labs on one simulated patient, with 3D lungs, organs and cells.
+Interactive trainers on one simulated patient, with 3D anatomy.
 
-Live site: https://mrperkins.github.io/critical-care-training-/
+- Critical Care Physiology (ventilator, blood gas, labs, cells): https://mrperkins.github.io/critical-care-training-/
+- Infarct Atlas (coronary territories and ECG localisation): https://mrperkins.github.io/critical-care-training-/infarct-atlas/
