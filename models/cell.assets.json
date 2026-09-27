@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Commercial-safe high-fidelity cell assets for the Critical Care Physiology visual overhaul.",
+  "runtimePolicy": {
+    "default": "procedural-hybrid",
+    "rule": "External meshes enhance appearance only; SyntheticPatient remains the source of physiology and educational state.",
+    "fallback": "If a high-fidelity asset fails to load, retain the existing procedural cell without blocking the lesson."
+  },
+  "selected": {
+    "genericAnimalCell": {
+      "id": "markdragan-human-cell",
+      "role": "high-fidelity whole-cell/organelle donor",
+      "title": "Human Cell",
+      "author": "markdragan",
+      "license": "CC-BY-4.0",
+      "commercialUse": true,
+      "source": "https://sketchfab.com/3d-models/human-cell-60ef7d2515b0403986ff9e8b7f234a66",
+      "verifiedMirror": "https://github.com/rizkikadafi/learn-cell/tree/main/public/human_cell",
+      "runtimeRemoteUrl": "https://raw.githubusercontent.com/rizkikadafi/learn-cell/main/public/human_cell/cell.glb",
+      "approximateTriangles": 421500,
+      "notes": "Use for generic animal-cell whole view and as a shape/material reference. Do not substitute this generic cell for cardiomyocyte or neuron anatomy."
+    },
+    "cardiomyocyteReference": {
+      "id": "bonehead14-cardiac-muscle-cell",
+      "role": "anatomy reference / future optimized cardiomyocyte donor",
+      "title": "Cardiac Muscle Cell Anatomy",
+      "author": "_Bonehead14",
+      "license": "CC-BY-4.0",
+      "commercialUse": true,
+      "source": "https://sketchfab.com/3d-models/cardiac-muscle-cell-anatomy-16e33d3b0be74b4c800cb7601fb51dd2",
+      "approximateTriangles": 51500,
+      "notes": "Good browser-friendly topology and correct cardiac-cell silhouette. Keep current physiology-driven sarcomere/T-tubule logic until a vetted copy is vendored."
+    }
+  },
+  "references": {
+    "anatocells": {
+      "title": "Animal cell",
+      "author": "AnatoCells",
+      "license": "CC-BY",
+      "source": "https://sketchfab.com/3d-models/animal-cell-e2fc495016ca4542b4ff424e22e62277",
+      "approximateTriangles": 955200,
+      "use": "Scientific/anatomical reference; heavier than preferred for mobile runtime."
+    },
+    "cellpaint": {
+      "title": "CellPAINT 2.0",
+      "license": "Free use of generated images including commercial applications; software/source terms remain upstream.",
+      "source": "https://ccsb.scripps.edu/cellpaint/",
+      "use": "Molecular crowding, membrane-protein scale, and intracellular composition reference."
+    }
+  },
+  "rejectedOrDeferred": [
+    {
+      "id": "nih-3d-animal-cell-3DPX-015797",
+      "source": "https://3d.nih.gov/entries/3DPX-015797",
+      "reason": "Do not vendor until the specific entry's reuse license is explicitly verified for commercial redistribution. NIH hosting alone is not treated as a license grant."
+    },
+    {
+      "id": "hugomilan-cardiomyocyte",
+      "reason": "CC BY-NC-SA; incompatible with commercial distribution."
+    }
+  ]
+}
