@@ -73,7 +73,9 @@ def main():
             result = subprocess.run(['node', '--check', str(path)], capture_output=True, text=True)
             if result.returncode:
                 raise AssertionError(result.stderr[-1200:])
-    subprocess.run(['node', '--check', str(ROOT / 'camera-targets.js')], check=True)
+    assert '__CCCameraTargets' in html, 'semantic camera registry missing from the bundle'
+    for ref in ('models/cell/markdragan-human-cell/cell.glb', 'models/molecular/'):
+        assert ref in html, f'loader for {ref} missing from the bundle'
     print('App syntax and malformed-replacement guard passed')
 
 

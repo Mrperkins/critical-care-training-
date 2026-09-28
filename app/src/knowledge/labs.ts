@@ -1,0 +1,186 @@
+/**
+ * Laboratory knowledge base (medical content only — no rendering, no physiology code).
+ * Each entry follows the teaching chain: what it is → where it comes from → what it does →
+ * high → low → why it matters at the bedside. Reference ranges are typical adult values;
+ * local laboratories differ.
+ */
+export type LabGroup = 'Electrolytes' | 'Kidney' | 'Metabolic' | 'Blood count' | 'Coagulation' | 'Cardiac' | 'Liver';
+export type Organ = 'brain' | 'heart' | 'lung_R' | 'lung_L' | 'liver' | 'gallbladder' | 'pancreas' | 'spleen' | 'kidney_L' | 'kidney_R' | 'bladder' | 'colon' | 'bone_marrow' | 'aorta' | 'vena_cava';
+export type Scene = 'membrane' | 'neuron' | 'blood' | 'nephron' | 'hepatocyte' | 'myocyte' | 'metabolic' | 'clot';
+
+export interface Lab {
+  id: string; name: string; abbr: string; unit: string; group: LabGroup;
+  normal: [number, number]; range: [number, number]; step: number; critical?: [number | null, number | null];
+  organs: Organ[]; scene: Scene;
+  what: string; source: string; does: string;
+  high: { label: string; causes: string[]; effects: string };
+  low: { label: string; causes: string[]; effects: string };
+  bedside: string;
+}
+
+export const LABS: Lab[] = [
+  /* ------------------------------------------------------------ electrolytes */
+  { id: 'na', name: 'Sodium', abbr: 'Na⁺', unit: 'mEq/L', group: 'Electrolytes', normal: [135, 145], range: [105, 170], step: 1, critical: [120, 160], organs: ['brain', 'kidney_L', 'kidney_R'], scene: 'neuron',
+    what: 'The main cation outside cells. Its concentration sets plasma tonicity — and so the size of every cell.', source: 'Diet; balance is set by water, not sodium: ADH, thirst and the kidney’s collecting duct control the water that dilutes it.', does: 'Holds water in the extracellular space, carries the action potential’s inward current, and drives most transport across cell membranes via the Na⁺/K⁺ pump gradient.',
+    high: { label: 'Hypernatraemia', causes: ['Water loss without access to water (elderly, intubated)', 'Diabetes insipidus', 'Osmotic diuresis', 'Hypertonic saline or bicarbonate'], effects: 'Water leaves cells: brain cells shrink → confusion, seizures, tearing of bridging veins.' },
+    low: { label: 'Hyponatraemia', causes: ['SIADH (pain, nausea, drugs, lung/brain disease)', 'Heart, liver or kidney failure', 'Thiazides', 'Excess free water, beer potomania'], effects: 'Water moves into cells: brain swells inside a rigid skull → headache, vomiting, seizures, herniation.' },
+    bedside: 'Speed matters as much as the number. Acute (< 48 h) hyponatraemia swells the brain; chronic hyponatraemia has adapted, so correcting it faster than ~8–10 mEq/L in 24 h risks osmotic demyelination.' },
+  { id: 'k', name: 'Potassium', abbr: 'K⁺', unit: 'mEq/L', group: 'Electrolytes', normal: [3.5, 5.0], range: [1.8, 9.0], step: 0.1, critical: [2.5, 6.5], organs: ['heart', 'kidney_L', 'kidney_R'], scene: 'membrane',
+    what: 'The main cation inside cells (~140 mEq/L inside, ~4 outside). Only 2 % of body potassium is in the blood.', source: 'Diet; kept inside cells by the Na⁺/K⁺-ATPase (driven by insulin and β₂ stimulation); excreted by the kidney under aldosterone.', does: 'The inside/outside ratio sets the resting membrane potential of every excitable cell — heart, nerve and muscle.',
+    high: { label: 'Hyperkalaemia', causes: ['Kidney failure', 'ACE-i/ARB, spironolactone, trimethoprim', 'Cell breakdown: rhabdomyolysis, tumour lysis, haemolysis', 'Acidosis, insulin deficiency (DKA) — shift out of cells'], effects: 'Resting potential rises toward threshold: peaked T → long PR, flat P → wide QRS → sine wave → VF or asystole.' },
+    low: { label: 'Hypokalaemia', causes: ['Diuretics', 'Vomiting, diarrhoea', 'Insulin, β₂-agonists, alkalosis (shift in)', 'Low magnesium'], effects: 'Hyperpolarised, slow-repolarising cells: flat T, U waves, arrhythmias (especially with digoxin), weakness, ileus.' },
+    bedside: 'Treat hyperkalaemia in three steps: stabilise the membrane (calcium — it does not lower K⁺), shift K⁺ into cells (insulin + dextrose, salbutamol), then remove it (binders, diuretics, dialysis).' },
+  { id: 'cl', name: 'Chloride', abbr: 'Cl⁻', unit: 'mEq/L', group: 'Electrolytes', normal: [98, 107], range: [80, 125], step: 1, organs: ['kidney_L', 'kidney_R'], scene: 'membrane',
+    what: 'The main anion outside cells.', source: 'Diet and IV fluids (0.9 % saline has 154 mEq/L); handled by the kidney alongside sodium and bicarbonate.', does: 'Balances sodium’s charge; the kidney trades Cl⁻ for HCO₃⁻, so chloride moves opposite to bicarbonate in acid–base disorders.',
+    high: { label: 'Hyperchloraemia', causes: ['Large volumes of 0.9 % saline', 'Diarrhoea (HCO₃⁻ loss)', 'Renal tubular acidosis'], effects: 'Normal-anion-gap metabolic acidosis.' },
+    low: { label: 'Hypochloraemia', causes: ['Vomiting / NG suction', 'Loop and thiazide diuretics', 'Chronic respiratory acidosis compensation'], effects: 'Maintains metabolic alkalosis — the kidney cannot excrete HCO₃⁻ without chloride.' },
+    bedside: 'Use it with Na⁺ and HCO₃⁻ for the anion gap, and to separate "gap" from "non-gap" acidosis.' },
+  { id: 'hco3', name: 'Bicarbonate (total CO₂)', abbr: 'HCO₃⁻', unit: 'mEq/L', group: 'Electrolytes', normal: [22, 29], range: [4, 45], step: 1, critical: [10, 40], organs: ['kidney_L', 'kidney_R', 'lung_R'], scene: 'metabolic',
+    what: 'The body’s main extracellular buffer; on a chemistry panel it is reported as total CO₂.', source: 'Made from CO₂ and water by carbonic anhydrase; the kidney reclaims all that is filtered and makes new HCO₃⁻ while excreting acid.', does: 'Mops up H⁺ (H⁺ + HCO₃⁻ ⇌ H₂CO₃ ⇌ CO₂ + H₂O) so the lungs can blow the acid off as CO₂.',
+    high: { label: 'Metabolic alkalosis (or compensation)', causes: ['Vomiting, diuretics', 'Compensation for chronic CO₂ retention', 'Bicarbonate / citrate load'], effects: 'Alkalaemia: low ionised calcium and potassium, arrhythmias, hypoventilation.' },
+    low: { label: 'Metabolic acidosis (or compensation)', causes: ['Lactate, ketones, toxins, uraemia (gap)', 'Diarrhoea, saline, RTA (non-gap)', 'Compensation for chronic hyperventilation'], effects: 'Acidaemia: Kussmaul breathing, poor cardiac contractility, vasodilatation, hyperkalaemia.' },
+    bedside: 'A low HCO₃⁻ on a venous chemistry panel is a prompt to calculate the anion gap and get a blood gas.' },
+  { id: 'ca', name: 'Calcium (ionised)', abbr: 'iCa²⁺', unit: 'mmol/L', group: 'Electrolytes', normal: [1.12, 1.32], range: [0.6, 2.0], step: 0.02, critical: [0.8, 1.6], organs: ['heart', 'bone_marrow', 'kidney_L'], scene: 'membrane',
+    what: 'The free, active calcium in plasma (total calcium ≈ half bound to albumin).', source: 'Bone store, gut absorption (vitamin D) and kidney reabsorption, set by parathyroid hormone.', does: 'Sets the threshold of excitable membranes, triggers muscle contraction and neurotransmitter release, and is factor IV in coagulation.',
+    high: { label: 'Hypercalcaemia', causes: ['Hyperparathyroidism', 'Cancer (bone metastases, PTHrP)', 'Vitamin D excess, thiazides'], effects: '"Stones, bones, groans, moans": short QT, dehydration from nephrogenic DI, confusion.' },
+    low: { label: 'Hypocalcaemia', causes: ['Massive transfusion (citrate)', 'Sepsis, pancreatitis', 'Low magnesium, hypoparathyroidism', 'Alkalosis (more binding to albumin)'], effects: 'Neuromuscular irritability — tingling, tetany, laryngospasm, seizures; long QT; hypotension; poor clotting.' },
+    bedside: 'Calcium raises the threshold potential. That is why IV calcium protects the heart in hyperkalaemia within minutes — without changing the potassium at all.' },
+  { id: 'mg', name: 'Magnesium', abbr: 'Mg²⁺', unit: 'mg/dL', group: 'Electrolytes', normal: [1.7, 2.3], range: [0.6, 6], step: 0.1, organs: ['heart', 'kidney_L'], scene: 'membrane',
+    what: 'A mostly intracellular cation and cofactor for ATP.', source: 'Diet; renal handling sets the level.', does: 'Stabilises membranes, runs the Na⁺/K⁺ pump, and holds potassium inside cells.',
+    high: { label: 'Hypermagnesaemia', causes: ['Kidney failure', 'Magnesium infusion (pre-eclampsia)'], effects: 'Loss of reflexes, hypotension, respiratory depression, heart block.' },
+    low: { label: 'Hypomagnesaemia', causes: ['Alcohol, malnutrition', 'Diuretics, PPIs', 'Diarrhoea, refeeding'], effects: 'Long QT and torsades; refractory low potassium and calcium.' },
+    bedside: 'If potassium will not come up, give magnesium — the kidney keeps wasting K⁺ until Mg²⁺ is replaced.' },
+  { id: 'phos', name: 'Phosphate', abbr: 'PO₄³⁻', unit: 'mg/dL', group: 'Electrolytes', normal: [2.5, 4.5], range: [0.5, 10], step: 0.1, organs: ['bone_marrow', 'kidney_L'], scene: 'membrane',
+    what: 'Mostly intracellular; the P in ATP.', source: 'Diet and bone; excreted by the kidney (regulated by PTH and FGF-23).', does: 'Energy currency (ATP), 2,3-DPG in red cells, bone mineral, buffer.',
+    high: { label: 'Hyperphosphataemia', causes: ['Kidney failure', 'Tumour lysis, rhabdomyolysis'], effects: 'Binds calcium → hypocalcaemia and calcium-phosphate deposition.' },
+    low: { label: 'Hypophosphataemia', causes: ['Refeeding syndrome', 'DKA treatment', 'Alcohol, respiratory alkalosis'], effects: 'No ATP: diaphragm weakness, failure to wean, haemolysis, heart failure.' },
+    bedside: 'Check it on day 2–3 of feeding a malnourished patient and in anyone who is failing to wean.' },
+  /* ------------------------------------------------------------ kidney */
+  { id: 'bun', name: 'Blood urea nitrogen', abbr: 'BUN', unit: 'mg/dL', group: 'Kidney', normal: [7, 20], range: [2, 150], step: 1, organs: ['kidney_L', 'kidney_R', 'liver'], scene: 'nephron',
+    what: 'The nitrogen waste from protein breakdown.', source: 'Made by the liver (urea cycle) from ammonia; filtered and partly reabsorbed by the kidney.', does: 'Carries nitrogen out of the body; part of the medullary gradient that concentrates urine.',
+    high: { label: 'Raised BUN', causes: ['Reduced GFR (AKI, CKD)', 'Dehydration (more reabsorption)', 'GI bleeding, steroids, high protein feeds'], effects: 'Uraemia: nausea, pericarditis, platelet dysfunction, encephalopathy.' },
+    low: { label: 'Low BUN', causes: ['Liver failure', 'Malnutrition', 'Overhydration, pregnancy'], effects: 'Usually a clue, not a problem.' },
+    bedside: 'BUN:creatinine > 20 suggests pre-renal (dehydration) or upper-GI bleeding.' },
+  { id: 'cr', name: 'Creatinine', abbr: 'Cr', unit: 'mg/dL', group: 'Kidney', normal: [0.6, 1.2], range: [0.3, 12], step: 0.1, organs: ['kidney_L', 'kidney_R'], scene: 'nephron',
+    what: 'A waste product of muscle creatine, made at a nearly constant rate.', source: 'Muscle mass; cleared almost entirely by glomerular filtration.', does: 'Nothing physiological — which is what makes it a useful marker of filtration.',
+    high: { label: 'Raised creatinine', causes: ['AKI: pre-renal, intrinsic (ATN), obstruction', 'CKD', 'High muscle mass, some drugs (trimethoprim)'], effects: 'Signals falling GFR: drug accumulation, fluid, potassium and acid retention.' },
+    low: { label: 'Low creatinine', causes: ['Low muscle mass (elderly, amputees, critical illness)', 'Pregnancy'], effects: 'May hide real kidney impairment.' },
+    bedside: 'Creatinine lags: after a sudden loss of GFR it takes 1–2 days to rise. Halving GFR roughly doubles creatinine — small rises from a low baseline matter.' },
+  { id: 'egfr', name: 'Estimated GFR', abbr: 'eGFR', unit: 'mL/min/1.73m²', group: 'Kidney', normal: [90, 130], range: [3, 130], step: 1, organs: ['kidney_L', 'kidney_R'], scene: 'nephron',
+    what: 'An estimate of filtration from creatinine, age and sex (CKD-EPI 2021).', source: 'Calculated — not measured.', does: 'Stages CKD and doses drugs.',
+    high: { label: 'High eGFR', causes: ['Hyperfiltration: pregnancy, early diabetes, augmented renal clearance in young trauma/sepsis'], effects: 'Antibiotics cleared faster than expected.' },
+    low: { label: 'Low eGFR', causes: ['CKD', 'AKI (unreliable until creatinine is steady)'], effects: 'Adjust drug doses; watch K⁺, acid and fluid.' },
+    bedside: 'eGFR assumes steady state. In AKI it overestimates the true GFR while creatinine is still rising.' },
+  /* ------------------------------------------------------------ metabolic */
+  { id: 'glu', name: 'Glucose', abbr: 'Glu', unit: 'mg/dL', group: 'Metabolic', normal: [70, 140], range: [20, 900], step: 5, critical: [50, 500], organs: ['pancreas', 'liver', 'brain'], scene: 'metabolic',
+    what: 'The main circulating fuel.', source: 'Gut absorption, liver glycogen breakdown and gluconeogenesis; lowered by insulin.', does: 'The brain’s obligatory fuel; drives insulin release.',
+    high: { label: 'Hyperglycaemia', causes: ['Diabetes, DKA/HHS', 'Stress, steroids, sepsis', 'Dextrose infusions'], effects: 'Osmotic diuresis → dehydration; poor wound healing and infection; each 100 mg/dL lowers measured Na⁺ ≈ 1.6.' },
+    low: { label: 'Hypoglycaemia', causes: ['Insulin or sulfonylureas', 'Liver failure, sepsis, alcohol', 'Adrenal insufficiency'], effects: 'Neuroglycopenia: confusion, seizures, coma; sympathetic surge (sweating, tachycardia).' },
+    bedside: 'Check glucose in every altered patient.' },
+  { id: 'ag', name: 'Anion gap', abbr: 'AG', unit: 'mEq/L', group: 'Metabolic', normal: [8, 12], range: [2, 40], step: 1, organs: ['kidney_L'], scene: 'metabolic',
+    what: 'Na⁺ − (Cl⁻ + HCO₃⁻): the anions we do not measure (mostly albumin).', source: 'Calculated.', does: 'Reveals hidden acids: when an unmeasured acid is added, HCO₃⁻ falls but Cl⁻ does not.',
+    high: { label: 'High anion gap', causes: ['Lactate', 'Ketones', 'Toxic alcohols, salicylate', 'Uraemia'], effects: 'A high-gap metabolic acidosis — find the acid.' },
+    low: { label: 'Low anion gap', causes: ['Low albumin (≈ −2.5 per g/dL)', 'Lithium, myeloma, bromide'], effects: 'Mostly a clue that the gap needs correcting for albumin.' },
+    bedside: 'Correct for albumin: add 2.5 for every 1 g/dL below 4. A "normal" gap with albumin 2 is really high.' },
+  { id: 'lac', name: 'Lactate', abbr: 'Lac', unit: 'mmol/L', group: 'Metabolic', normal: [0.5, 2.0], range: [0.3, 20], step: 0.1, critical: [null, 4], organs: ['liver', 'bone_marrow'], scene: 'metabolic',
+    what: 'The end product of glycolysis when pyruvate is not burned in mitochondria.', source: 'Muscle, gut, skin, red cells — every cell. Cleared mainly by the liver (Cori cycle) and kidney.', does: 'A fuel that is shuttled between tissues; a marker of the balance between production and clearance.',
+    high: { label: 'Hyperlactataemia', causes: ['Shock / hypoperfusion (type A)', 'Adrenaline, salbutamol, sepsis (aerobic glycolysis)', 'Liver failure (poor clearance)', 'Metformin, seizures, thiamine deficiency'], effects: 'High-AG metabolic acidosis; a strong marker of risk.' },
+    low: { label: 'Low lactate', causes: ['Normal'], effects: '—' },
+    bedside: 'Lactate rises when production outruns clearance. Repeat it: falling lactate is the goal of resuscitation.' },
+  { id: 'ket', name: 'Ketones (β-hydroxybutyrate)', abbr: 'BHB', unit: 'mmol/L', group: 'Metabolic', normal: [0, 0.6], range: [0, 12], step: 0.1, critical: [null, 3], organs: ['liver'], scene: 'metabolic',
+    what: 'Water-soluble fuels made from fat when insulin is low.', source: 'Liver mitochondria (from fatty acids) when insulin is absent and glucagon high.', does: 'Fuel for brain and heart in starvation.',
+    high: { label: 'Ketosis / ketoacidosis', causes: ['DKA (insulin deficiency)', 'Starvation, alcohol', 'SGLT2 inhibitors (euglycaemic DKA)'], effects: 'Strong acids → high-AG acidosis.' },
+    low: { label: 'Absent', causes: ['Normal fed state'], effects: '—' },
+    bedside: 'In DKA, insulin — not fluid alone — switches ketone production off. Ketones, not glucose, show when DKA is resolving.' },
+  /* ------------------------------------------------------------ blood count */
+  { id: 'hb', name: 'Haemoglobin', abbr: 'Hb', unit: 'g/dL', group: 'Blood count', normal: [13, 17], range: [3, 22], step: 0.5, critical: [7, null], organs: ['bone_marrow', 'spleen'], scene: 'blood',
+    what: 'The oxygen-carrying protein in red cells.', source: 'Red cells made in the bone marrow (driven by erythropoietin from the kidney), removed by the spleen after ~120 days.', does: 'Carries almost all the oxygen in blood: CaO₂ = 1.34 × Hb × SaO₂ + 0.003 × PaO₂.',
+    high: { label: 'Polycythaemia', causes: ['Chronic hypoxaemia (COPD, altitude)', 'Polycythaemia vera', 'Dehydration (relative)'], effects: 'Viscous blood → thrombosis, stroke.' },
+    low: { label: 'Anaemia', causes: ['Bleeding', 'Haemolysis', 'Iron/B12/folate deficiency, marrow failure, CKD'], effects: 'Less oxygen content with a NORMAL SpO₂ — tachycardia, breathlessness, ischaemia.' },
+    bedside: 'SpO₂ tells you how full each red cell is, not how many there are. Transfuse most stable ICU patients below 7 g/dL.' },
+  { id: 'hct', name: 'Haematocrit', abbr: 'Hct', unit: '%', group: 'Blood count', normal: [40, 50], range: [10, 65], step: 1, organs: ['bone_marrow'], scene: 'blood',
+    what: 'The fraction of blood volume that is red cells.', source: 'Same as haemoglobin (Hct ≈ 3 × Hb).', does: 'Sets oxygen capacity and blood viscosity.',
+    high: { label: 'High haematocrit', causes: ['Dehydration', 'Polycythaemia'], effects: 'Viscosity rises steeply above ~55 %.' },
+    low: { label: 'Low haematocrit', causes: ['Anaemia', 'Haemodilution'], effects: 'Lower oxygen content.' },
+    bedside: 'Right after acute bleeding the haematocrit is normal — it falls only as fluid refills the vessels.' },
+  { id: 'rbc', name: 'Red cell count', abbr: 'RBC', unit: '×10¹²/L', group: 'Blood count', normal: [4.5, 5.9], range: [1, 8], step: 0.1, organs: ['bone_marrow'], scene: 'blood',
+    what: 'The number of red cells per litre.', source: 'Bone marrow.', does: 'With MCV and Hb, classifies anaemia.',
+    high: { label: 'Erythrocytosis', causes: ['Hypoxia', 'Thalassaemia trait (many small cells)'], effects: 'As for high Hb.' },
+    low: { label: 'Low red cell count', causes: ['Anaemia of any cause'], effects: 'As for low Hb.' },
+    bedside: 'Small cells (low MCV) → iron deficiency or thalassaemia; big cells (high MCV) → B12/folate, alcohol, liver.' },
+  { id: 'wbc', name: 'White cell count', abbr: 'WBC', unit: '×10⁹/L', group: 'Blood count', normal: [4, 11], range: [0.2, 60], step: 0.1, critical: [1, 30], organs: ['bone_marrow', 'spleen'], scene: 'blood',
+    what: 'Neutrophils, lymphocytes, monocytes, eosinophils, basophils.', source: 'Bone marrow; a large pool sits along vessel walls (demarginates with stress and steroids).', does: 'Defence against infection.',
+    high: { label: 'Leucocytosis', causes: ['Infection, inflammation', 'Steroids, adrenaline (demargination)', 'Leukaemia'], effects: 'A marker, not a diagnosis.' },
+    low: { label: 'Leucopenia', causes: ['Chemotherapy', 'Overwhelming sepsis', 'Viral infection, drugs'], effects: 'Neutrophils < 0.5 × 10⁹/L: high risk of severe infection.' },
+    bedside: 'Neutropenic fever is an emergency: antibiotics within the hour.' },
+  { id: 'plt', name: 'Platelets', abbr: 'Plt', unit: '×10⁹/L', group: 'Blood count', normal: [150, 400], range: [2, 900], step: 5, critical: [20, 1000], organs: ['bone_marrow', 'spleen'], scene: 'clot',
+    what: 'Cell fragments from marrow megakaryocytes.', source: 'Bone marrow (thrombopoietin from the liver); a third sit in the spleen.', does: 'Plug holes in vessel walls and provide the surface where clotting factors assemble.',
+    high: { label: 'Thrombocytosis', causes: ['Inflammation, iron deficiency, after splenectomy', 'Myeloproliferative disease'], effects: 'Usually reactive; clotting risk when very high.' },
+    low: { label: 'Thrombocytopenia', causes: ['Sepsis/DIC, dilution', 'Heparin (HIT), drugs, ITP', 'Liver disease (splenic pooling), marrow failure'], effects: 'Bleeding: petechiae, mucosal oozing; spontaneous bleeding < 10–20 × 10⁹/L.' },
+    bedside: 'A platelet fall of > 50 % 5–10 days after starting heparin is HIT until proven otherwise — it clots, it does not bleed.' },
+  /* ------------------------------------------------------------ coagulation */
+  { id: 'pt', name: 'Prothrombin time', abbr: 'PT', unit: 's', group: 'Coagulation', normal: [11, 13.5], range: [9, 60], step: 0.5, organs: ['liver'], scene: 'clot',
+    what: 'Seconds to clot after tissue factor is added — tests the extrinsic and common pathways (VII, X, V, II, fibrinogen).', source: 'Clotting factors are made by the liver; II, VII, IX and X need vitamin K.', does: 'Measures the ability to make thrombin.',
+    high: { label: 'Prolonged PT', causes: ['Warfarin, vitamin K deficiency', 'Liver failure', 'DIC, dilution'], effects: 'Bleeding tendency.' },
+    low: { label: 'Short PT', causes: ['Not clinically important'], effects: '—' },
+    bedside: 'Factor VII has the shortest half-life (~6 h), so PT is the first test to rise in acute liver failure.' },
+  { id: 'inr', name: 'INR', abbr: 'INR', unit: '', group: 'Coagulation', normal: [0.9, 1.1], range: [0.8, 9], step: 0.1, critical: [null, 5], organs: ['liver'], scene: 'clot',
+    what: 'PT standardised across laboratories: (patient PT / normal PT)^ISI.', source: 'Calculated.', does: 'Monitors warfarin and tracks liver synthetic function.',
+    high: { label: 'High INR', causes: ['Warfarin', 'Liver failure', 'Vitamin K deficiency, DIC'], effects: 'Bleeding risk rises steeply above 4–5.' },
+    low: { label: 'Normal', causes: ['—'], effects: '—' },
+    bedside: 'For bleeding on warfarin: vitamin K plus prothrombin complex concentrate.' },
+  { id: 'aptt', name: 'Activated partial thromboplastin time', abbr: 'aPTT', unit: 's', group: 'Coagulation', normal: [25, 35], range: [18, 150], step: 1, organs: ['liver'], scene: 'clot',
+    what: 'Seconds to clot via the intrinsic pathway (XII, XI, IX, VIII) and common pathway.', source: 'Liver-made factors; factor VIII also from endothelium.', does: 'Monitors unfractionated heparin; screens for haemophilia.',
+    high: { label: 'Prolonged aPTT', causes: ['Heparin', 'Haemophilia A/B, von Willebrand', 'Lupus anticoagulant (clots in vivo!)', 'DIC, dilution'], effects: 'Bleeding (except lupus anticoagulant).' },
+    low: { label: 'Short aPTT', causes: ['Acute-phase high factor VIII'], effects: 'Not usually important.' },
+    bedside: 'Heparin infusions are titrated to an aPTT (or anti-Xa) target.' },
+  { id: 'fib', name: 'Fibrinogen', abbr: 'Fib', unit: 'mg/dL', group: 'Coagulation', normal: [200, 400], range: [40, 800], step: 10, critical: [100, null], organs: ['liver'], scene: 'clot',
+    what: 'Factor I — the protein that thrombin turns into fibrin mesh.', source: 'Liver; an acute-phase protein.', does: 'Forms the scaffold of the clot.',
+    high: { label: 'High fibrinogen', causes: ['Inflammation, pregnancy'], effects: 'Thrombosis risk marker.' },
+    low: { label: 'Low fibrinogen', causes: ['Massive haemorrhage (first factor to run out)', 'DIC', 'Liver failure'], effects: 'Clots are weak — bleeding continues.' },
+    bedside: 'In major haemorrhage keep fibrinogen above ~150–200 mg/dL with cryoprecipitate or fibrinogen concentrate.' },
+  /* ------------------------------------------------------------ cardiac */
+  { id: 'trop', name: 'Troponin (high-sensitivity)', abbr: 'hs-TnT', unit: 'ng/L', group: 'Cardiac', normal: [0, 14], range: [0, 5000], step: 5, organs: ['heart'], scene: 'myocyte',
+    what: 'A protein of the cardiac muscle contractile apparatus.', source: 'Released only when cardiomyocytes are injured.', does: 'Regulates actin–myosin interaction inside the cell.',
+    high: { label: 'Raised troponin', causes: ['Myocardial infarction (type 1)', 'Supply–demand mismatch: sepsis, tachycardia, anaemia (type 2)', 'Myocarditis, PE, kidney failure'], effects: 'Myocardial injury — the rise and fall pattern and the clinical picture decide if it is infarction.' },
+    low: { label: 'Normal', causes: ['—'], effects: '—' },
+    bedside: 'A single value means little: look for a rising or falling pattern and interpret with the ECG and the story.' },
+  { id: 'bnp', name: 'B-type natriuretic peptide', abbr: 'BNP', unit: 'pg/mL', group: 'Cardiac', normal: [0, 100], range: [0, 5000], step: 10, organs: ['heart'], scene: 'myocyte',
+    what: 'A hormone released by stretched ventricular muscle.', source: 'Ventricles, in proportion to wall stress.', does: 'Natriuresis, vasodilatation, opposes renin–angiotensin–aldosterone.',
+    high: { label: 'Raised BNP', causes: ['Heart failure', 'PE, pulmonary hypertension', 'Kidney failure, age, sepsis'], effects: 'Marks ventricular strain.' },
+    low: { label: 'Low BNP', causes: ['Normal; obesity lowers it'], effects: 'A low BNP makes heart failure unlikely as the cause of breathlessness.' },
+    bedside: 'Best used to rule out heart failure.' },
+  /* ------------------------------------------------------------ liver */
+  { id: 'ast', name: 'Aspartate aminotransferase', abbr: 'AST', unit: 'U/L', group: 'Liver', normal: [10, 40], range: [5, 5000], step: 5, organs: ['liver', 'heart'], scene: 'hepatocyte',
+    what: 'An enzyme inside liver, heart, muscle and red cells.', source: 'Leaks from injured cells (cytoplasm and mitochondria).', does: 'Transfers amino groups in metabolism.',
+    high: { label: 'Raised AST', causes: ['Hepatitis, ischaemic ("shock") liver', 'Alcohol (AST:ALT > 2)', 'Rhabdomyolysis, haemolysis, MI'], effects: 'Marks cell injury — not liver function.' },
+    low: { label: 'Normal', causes: ['—'], effects: '—' },
+    bedside: 'Thousands after an episode of hypotension = shock liver; they fall quickly once perfusion returns.' },
+  { id: 'alt', name: 'Alanine aminotransferase', abbr: 'ALT', unit: 'U/L', group: 'Liver', normal: [7, 56], range: [5, 5000], step: 5, organs: ['liver'], scene: 'hepatocyte',
+    what: 'An enzyme found mainly in hepatocytes.', source: 'Leaks from injured liver cells.', does: 'Amino-acid metabolism.',
+    high: { label: 'Raised ALT', causes: ['Viral, drug (paracetamol) or ischaemic hepatitis', 'Fatty liver'], effects: 'Liver cell injury.' },
+    low: { label: 'Normal', causes: ['—'], effects: '—' },
+    bedside: 'More liver-specific than AST. Enzymes show injury; INR, albumin and bilirubin show function.' },
+  { id: 'alp', name: 'Alkaline phosphatase', abbr: 'ALP', unit: 'U/L', group: 'Liver', normal: [44, 147], range: [20, 1500], step: 5, organs: ['liver', 'gallbladder', 'bone_marrow'], scene: 'hepatocyte',
+    what: 'An enzyme of bile-duct lining and bone-forming cells.', source: 'Biliary epithelium (induced by obstruction) and osteoblasts.', does: 'Dephosphorylation at cell membranes.',
+    high: { label: 'Raised ALP', causes: ['Biliary obstruction (stones, cancer), cholestatic drugs', 'Bone growth, Paget’s, metastases', 'Pregnancy (placenta)'], effects: 'Cholestatic pattern when it rises with bilirubin and GGT.' },
+    low: { label: 'Low ALP', causes: ['Malnutrition, zinc deficiency, hypophosphatasia'], effects: 'Rarely important.' },
+    bedside: 'ALP with GGT → liver/biliary; ALP without GGT → bone.' },
+  { id: 'bili', name: 'Bilirubin (total)', abbr: 'Bili', unit: 'mg/dL', group: 'Liver', normal: [0.1, 1.2], range: [0.1, 30], step: 0.1, organs: ['liver', 'gallbladder', 'spleen'], scene: 'hepatocyte',
+    what: 'The yellow breakdown product of haem.', source: 'Old red cells broken down in the spleen → unconjugated bilirubin → conjugated in the liver → excreted in bile.', does: 'A waste product (and antioxidant).',
+    high: { label: 'Hyperbilirubinaemia', causes: ['Haemolysis (unconjugated)', 'Hepatitis, cirrhosis', 'Biliary obstruction (conjugated)', 'Gilbert’s, sepsis'], effects: 'Jaundice; very high unconjugated bilirubin is toxic to the newborn brain.' },
+    low: { label: 'Low bilirubin', causes: ['Not important'], effects: '—' },
+    bedside: 'Split it: unconjugated = before the liver (haemolysis); conjugated = liver or bile ducts.' },
+  { id: 'alb', name: 'Albumin', abbr: 'Alb', unit: 'g/dL', group: 'Liver', normal: [3.5, 5.0], range: [1.0, 5.5], step: 0.1, organs: ['liver'], scene: 'hepatocyte',
+    what: 'The most abundant plasma protein.', source: 'Liver (≈ 12 g/day); half-life ~3 weeks.', does: 'Oncotic pressure that holds fluid in vessels; carries calcium, drugs, bilirubin; the main unmeasured anion.',
+    high: { label: 'High albumin', causes: ['Dehydration'], effects: '—' },
+    low: { label: 'Hypoalbuminaemia', causes: ['Inflammation (negative acute-phase)', 'Liver failure, malnutrition', 'Nephrotic syndrome, burns'], effects: 'Oedema; low total calcium; lower anion gap; more free drug.' },
+    bedside: 'In critical illness a low albumin is a marker of inflammation more than of nutrition.' },
+];
+export const LAB = Object.fromEntries(LABS.map((l) => [l.id, l])) as Record<string, Lab>;
+export const LAB_GROUPS: LabGroup[] = ['Electrolytes', 'Kidney', 'Metabolic', 'Blood count', 'Coagulation', 'Cardiac', 'Liver'];
+export function flagOf(l: Lab, v: number): 'low' | 'normal' | 'high' | 'critical-low' | 'critical-high' {
+  if (l.critical?.[0] != null && v <= l.critical[0]) return 'critical-low';
+  if (l.critical?.[1] != null && v >= l.critical[1]) return 'critical-high';
+  return v < l.normal[0] ? 'low' : v > l.normal[1] ? 'high' : 'normal';
+}

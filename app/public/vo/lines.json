@@ -1,0 +1,246 @@
+[
+ {
+  "id": "eom1",
+  "t": "Every pressure on a ventilator screen comes from one equation. Airway pressure equals resistance times flow, plus volume divided by compliance, plus PEEP. The ventilator is pushing gas through a tube and a tree of airways, and stretching an elastic lung that already sits at PEEP. Watch the lungs: each breath, the bases move down with the diaphragm."
+ },
+ {
+  "id": "eom2",
+  "t": "In volume control with a square wave, flow is constant during inspiration. Look at the pressure trace. It jumps up the instant flow starts. That jump is resistance times flow. After the jump, pressure keeps climbing in a straight line, because as volume goes in, the elastic lung pushes back harder. The top of that climb is the peak inspiratory pressure, PIP."
+ },
+ {
+  "id": "eom3",
+  "t": "Now an inspiratory hold. The valves close and flow drops to zero. With no flow, the resistance term disappears, so the pressure falls from the peak to a plateau. What is left is purely elastic: how hard the stretched lung and chest wall are pushing back. That is the plateau pressure. The drop from peak to plateau tells you about the airways. The plateau tells you about the lung."
+ },
+ {
+  "id": "eom4",
+  "t": "Plateau minus PEEP is the driving pressure. It is the pressure needed to fit this tidal volume into this lung. Divide the tidal volume by the driving pressure and you get static compliance. Normal is about sixty to eighty milliliters per centimeter of water. The coloured bar under the numbers splits the peak pressure into its three parts: PEEP, elastic, and resistive."
+ },
+ {
+  "id": "eom5",
+  "t": "Expiration is passive. The lung empties like a spring through a narrow tube, so flow is highest at the start and decays exponentially. The time constant, tau, is resistance times compliance. After one tau, about sixty three percent of the breath is out. After three tau, about ninety five percent. Here tau is under half a second, so the lung is empty long before the next breath."
+ },
+ {
+  "id": "rc1",
+  "t": "This is severe bronchospasm. The airways in the translucent lungs are narrowed and inflamed. Look at the pressure: the peak is high, but the plateau after the pause is almost normal. The gap between them is huge. Resistance has gone up, compliance has not. The pressure is being spent pushing gas through the airways, not stretching the alveoli."
+ },
+ {
+  "id": "rc2",
+  "t": "A bronchodilator relaxes the smooth muscle. Airway resistance depends on the fourth power of the radius, so a small increase in calibre makes a large drop in resistance. Watch the airways widen, and the peak pressure fall toward the plateau. Time is compressed here: fifteen minutes of drug effect in about fifteen seconds."
+ },
+ {
+  "id": "rc3",
+  "t": "Now a stiff, injured lung. Peak and plateau have both risen, and the gap between them is normal. The same tidal volume needs much more pressure to fit, because a large part of the lung is collapsed and the rest is stiff. That is a compliance problem."
+ },
+ {
+  "id": "rc4",
+  "t": "So, when the high-pressure alarm sounds, do an inspiratory hold. High peak with a normal plateau means resistance: kinked or bitten tube, secretions, bronchospasm. High peak with a high plateau means compliance: pneumothorax, mainstem intubation, pulmonary oedema, abdominal distension, or a stiff chest wall."
+ },
+ {
+  "id": "vp1",
+  "t": "In volume control you choose the tidal volume and the flow. The ventilator guarantees them, and pressure is whatever it takes. If the lung gets stiffer, or the airway narrows, pressure rises. That protects minute ventilation, but you must watch the pressures."
+ },
+ {
+  "id": "vp2",
+  "t": "In pressure control you choose the pressure above PEEP and the inspiratory time. The pressure trace is now a square. Flow is high at first, then decays as the lung fills and the pressure difference shrinks. Tidal volume is the result. Here it is similar to before."
+ },
+ {
+  "id": "vp3",
+  "t": "Same pressure control settings, but now in a stiff ARDS lung. The pressure is capped, so the volume falls. Look at the tidal volume: much smaller. In pressure modes, a falling tidal volume is your warning sign, just as a rising pressure is in volume modes."
+ },
+ {
+  "id": "vp4",
+  "t": "Volume control can also use a decelerating flow pattern. It delivers the volume with a lower peak pressure and a more even distribution between fast and slow lung units. The plateau does not change, because the volume and the lung are the same."
+ },
+ {
+  "id": "pe1",
+  "t": "This patient lies on their back. In ARDS, the heavy, wet lung collapses under its own weight, so the posterior, dependent regions are dark and airless. Blood still flows past them, but it picks up no oxygen. That is shunt, and it is why this patient is hypoxic despite a high FiO₂."
+ },
+ {
+  "id": "pe2",
+  "t": "Now raise PEEP to fourteen. Collapsed units need a higher pressure to open than to stay open. As PEEP rises, the dark posterior lung turns pink: those units are recruited. The same tidal volume now goes into more alveoli, so the driving pressure falls and compliance improves. Watch the oxygen saturation climb as shunt falls."
+ },
+ {
+  "id": "pe3",
+  "t": "Now PEEP twenty two. The anterior lung, which was already open, turns pale: it is over-stretched. The pressure volume loop flattens at the top, compliance falls again, and the plateau is above thirty. High intrathoracic pressure also squeezes the great veins, so venous return and blood pressure fall. More PEEP is not always better."
+ },
+ {
+  "id": "pe4",
+  "t": "The best PEEP opens the collapsed lung without over-stretching the open lung. At the bedside we look for the lowest driving pressure, an acceptable plateau, and oxygenation, while watching blood pressure. Try it yourself in explore mode."
+ },
+ {
+  "id": "au1",
+  "t": "In severe asthma the time constant is long. Look at the expiratory flow: it is still negative when the next breath begins. The lung has not finished emptying. Each breath leaves a little gas behind, until the lung sits at a higher volume. That trapped gas has pressure: intrinsic PEEP, or auto-PEEP."
+ },
+ {
+  "id": "au2",
+  "t": "An expiratory hold closes the valves at the end of expiration. The trapped alveolar pressure equilibrates with the airway, and the pressure rises above set PEEP. The difference is auto-PEEP. It adds to plateau pressure, compresses the heart, and makes the patient work harder to trigger."
+ },
+ {
+  "id": "au3",
+  "t": "The most powerful fix is expiratory time. Lower the rate, and shorten inspiration with a higher flow. Now expiratory flow reaches zero before the next breath, and the auto-PEEP disappears. Carbon dioxide may rise. In asthma that is usually accepted: permissive hypercapnia."
+ },
+ {
+  "id": "sy1",
+  "t": "In pressure support the patient starts every breath. The red dashed line is the patient’s own muscle effort, which the ventilator cannot see directly. When the effort pulls enough flow past the trigger threshold, the ventilator delivers a set pressure. It stops when flow has fallen to a set percentage of the peak flow: the cycle-off criterion."
+ },
+ {
+  "id": "sy2",
+  "t": "Here the cycle-off threshold is sixty percent. The breath ends while the red effort line is still rising: the patient is still inhaling, but the ventilator has stopped. Look for the dip in expiratory flow right after cycling, and sometimes a second breath."
+ },
+ {
+  "id": "sy3",
+  "t": "In COPD the flow decays slowly. With a cycle-off of five percent, the ventilator keeps inflating long after the patient has finished. The effort line goes negative: the patient is actively pushing to exhale against the machine. Raising the cycle-off percentage fixes it."
+ },
+ {
+  "id": "sy4",
+  "t": "Now watch the expiratory flow between breaths. Small upward bumps appear with each red effort, but no breath follows. Trapped gas means the patient must first overcome auto-PEEP before any flow reaches the sensor. These are ineffective efforts. Try the challenges to diagnose and fix each dyssynchrony yourself."
+ },
+ {
+  "id": "ox1",
+  "t": "Room air is twenty one percent oxygen. By the time it is warmed, humidified and mixed with carbon dioxide in the alveoli, the alveolar oxygen pressure is about one hundred. The alveolar gas equation says it: FiO₂ times seven hundred and thirteen, minus PaCO₂ divided by zero point eight."
+ },
+ {
+  "id": "ox2",
+  "t": "Here is one alveolar sac and its capillary basket, drawn to scale. Blood arrives from the pulmonary artery dark, about seventy percent saturated. It spreads over the alveoli in a single layer of red cells, separated from the air by a barrier thinner than one micrometre. It leaves bright red, about ninety seven percent saturated, through the pulmonary venule."
+ },
+ {
+  "id": "ox3",
+  "t": "Zoom in to a single capillary. Red cells squeeze through one at a time. They take about three quarters of a second to cross, but they are fully loaded in the first third of that time. That reserve is why a healthy person can exercise without desaturating."
+ },
+ {
+  "id": "ox4",
+  "t": "In the muscle, arterial blood gives up oxygen to the mitochondria and picks up carbon dioxide. Oxygen delivery is arterial content times cardiac output: about a thousand millilitres a minute. The tissues use about a quarter of it, so venous blood returns about seventy five percent saturated."
+ },
+ {
+  "id": "ox5",
+  "t": "Now drop the haemoglobin to six and a half. Look at the arterial gas: PaO₂ and saturation are unchanged, and the pulse oximeter still reads normal. But oxygen content has halved, because content is one point three four times haemoglobin times saturation, plus a tiny dissolved fraction. The tissues must extract more, so venous saturation falls. SpO₂ tells you how full each lorry is, not how many lorries there are."
+ },
+ {
+  "id": "hy1",
+  "t": "First, hypoventilation. Depress the drive, as an opioid would. Less fresh gas reaches the alveoli, so carbon dioxide builds up and, by the alveolar gas equation, alveolar oxygen falls. The lungs themselves are normal, so the A to a gradient stays normal. A little oxygen, or simply more ventilation, fixes it."
+ },
+ {
+  "id": "hy2",
+  "t": "Now V Q mismatch. Some alveoli get plenty of blood but little air. Blood leaving them is poorly oxygenated, and the A to a gradient widens. This is the commonest cause of hypoxaemia: pneumonia, COPD, asthma, pulmonary embolism."
+ },
+ {
+  "id": "hy3",
+  "t": "Raise the FiO₂ to forty percent. Even poorly ventilated alveoli eventually fill with oxygen-rich gas, so their blood saturates and the PaO₂ rises a lot. V Q mismatch is oxygen responsive."
+ },
+ {
+  "id": "hy4",
+  "t": "Now shunt: blood passing collapsed or flooded alveoli that receive no gas at all. The dark alveoli are airless, and the blood through them stays venous. Even at one hundred percent oxygen, the PaO₂ barely rises, because extra oxygen never reaches that blood. Shunt needs the alveoli reopened: PEEP, recruitment, treating the cause."
+ },
+ {
+  "id": "hy5",
+  "t": "Finally, dead space: alveoli that are ventilated but not perfused, shown with grey empty capillaries. They waste ventilation, so carbon dioxide clearance falls and the gap between PaCO₂ and end tidal CO₂ widens. Pulmonary embolism, low cardiac output and over-distension all do this."
+ },
+ {
+  "id": "rs1",
+  "t": "This patient has taken an opioid. Carbon dioxide has risen to the eighties, and the pH has fallen quickly. Carbon dioxide combines with water to form carbonic acid, which releases hydrogen ions. Haemoglobin and proteins buffer some of them, so bicarbonate rises only about one per ten millimetres of mercury. That is acute compensation."
+ },
+ {
+  "id": "rs2",
+  "t": "Look at the acid base map. The dot sits in the acute respiratory acidosis band. Now we will keep the ventilation the same and let two days pass."
+ },
+ {
+  "id": "rs3",
+  "t": "The kidneys have been excreting acid as ammonium and reclaiming and making new bicarbonate. Bicarbonate has risen by about three and a half per ten millimetres of mercury, and the pH is back near normal, even though the CO₂ has not changed. The dot has moved along its path into the chronic band. This is why a COPD patient can live with a PaCO₂ of sixty."
+ },
+ {
+  "id": "rs4",
+  "t": "Now reverse the opioid. Ventilation returns, and CO₂ falls within minutes. But the kidneys need days to give back the extra bicarbonate, so the patient becomes alkalaemic. The same thing happens when a chronic retainer is over-ventilated on a ventilator."
+ },
+ {
+  "id": "mt1",
+  "t": "Diabetic ketoacidosis. Ketoacids release hydrogen ions, and bicarbonate is used up buffering them. The ketone anions stay behind, unmeasured, so the anion gap, sodium minus chloride plus bicarbonate, widens. This is a high anion gap metabolic acidosis."
+ },
+ {
+  "id": "mt2",
+  "t": "The low pH drives deep, fast breathing, Kussmaul respiration. Winter’s formula predicts the expected PaCO₂: one and a half times bicarbonate plus eight, plus or minus two. If the measured CO₂ is higher, the patient is tiring or sedated: a second, respiratory, problem."
+ },
+ {
+  "id": "mt3",
+  "t": "In septic shock, lactate rises. Some comes from tissues short of oxygen, shown in magenta, but much comes from adrenaline-driven glycolysis and from a liver too poorly perfused to clear it. Lactate is a marker of stress and clearance, not simply of oxygen debt."
+ },
+ {
+  "id": "mt4",
+  "t": "Salicylate poisoning stimulates the respiratory centre directly, causing a respiratory alkalosis, and uncouples oxidative phosphorylation, adding organic acid. The CO₂ is lower than Winter’s formula predicts. Two primary disorders at once. The low CO₂ is protecting the patient: if they are intubated, it must stay low."
+ },
+ {
+  "id": "vb1",
+  "t": "An arterial gas samples blood on its way to the tissues. A venous gas samples blood that has already given up oxygen and collected carbon dioxide. In a stable patient, venous pH is about zero point zero three lower and venous CO₂ about five higher. Bicarbonate and lactate are almost the same."
+ },
+ {
+  "id": "vb2",
+  "t": "Venous PO₂ tells you only what the tissues left behind. A venous PO₂ of forty is normal, not hypoxaemia. To judge oxygenation, use the pulse oximeter or an arterial sample. The app always shows these two samples separately for that reason."
+ },
+ {
+  "id": "vb3",
+  "t": "During cardiac arrest with CPR, blood flow is so low that carbon dioxide piles up in the tissues. Venous CO₂ is far higher than arterial, and the venous pH far lower. When flow is poor, a venous gas no longer mirrors the arterial one."
+ },
+ {
+  "id": "hk1",
+  "t": "Almost all the body’s potassium is inside cells, about one hundred and forty inside against four outside. The sodium potassium pump in the membrane keeps it that way. That steep ratio sets the resting membrane potential of every heart cell, about minus eighty five millivolts."
+ },
+ {
+  "id": "hk2",
+  "t": "Now the kidneys have failed and plasma potassium is seven point four. The ratio across the membrane falls, so the resting potential rises toward the threshold. Look at the gap on the membrane gauge: it has shrunk. The ECG shows peaked T waves, flattened P waves and a widening QRS. The heart is close to an arrhythmia."
+ },
+ {
+  "id": "hk3",
+  "t": "Give intravenous calcium. Watch the numbers carefully: the potassium has not changed at all. What changed is the threshold. Calcium moves the threshold potential up, away from the resting potential, and restores the safety gap. The QRS narrows within minutes. Calcium buys time: thirty to sixty minutes."
+ },
+ {
+  "id": "hk4",
+  "t": "Now insulin with dextrose. Insulin switches on the sodium potassium pump, so potassium moves from the blood back into the cells. Plasma potassium falls by around one. Nebulised salbutamol does the same through beta two receptors. But nothing has left the body."
+ },
+ {
+  "id": "hk5",
+  "t": "Five hours later the insulin has worn off, the pumps have slowed, and potassium has leaked back out. This is the rebound. Shifting treatments are temporary. The potassium must be removed."
+ },
+ {
+  "id": "hk6",
+  "t": "Dialysis removes potassium from the body, and so do binders, and diuretics if the kidneys work. Stabilise, shift, remove: in that order, and repeat the ECG and the potassium."
+ },
+ {
+  "id": "hn1",
+  "t": "Sodium is the main solute outside cells. Cell membranes let water through freely, so water moves until the concentration inside and outside is equal. Plasma sodium therefore sets the size of every cell, and the brain is the one organ that has no room to swell."
+ },
+ {
+  "id": "hn2",
+  "t": "Drop the sodium to one hundred and eighteen over a few hours, as happens with water intoxication or after surgery. Water rushes into brain cells and they swell. Inside the skull, that means headache, vomiting, seizures and eventually herniation. This is an emergency: a small bolus of hypertonic saline, raising the sodium by four to six, pulls water back out."
+ },
+ {
+  "id": "hn3",
+  "t": "If the sodium falls slowly, over days, brain cells export their own solutes, organic osmolytes, and shrink back to a normal size. This patient has the same sodium of one hundred and eighteen, but the brain cells are no longer swollen."
+ },
+ {
+  "id": "hn4",
+  "t": "Now correct that chronic hyponatraemia too quickly: sixteen in a day. The adapted brain cells cannot re-import their osmolytes fast enough, water is pulled out, and the myelin of the pons can be destroyed. Osmotic demyelination appears days later and may be permanent. Limit correction to about eight to ten in twenty four hours."
+ },
+ {
+  "id": "an1",
+  "t": "Here is a capillary full of red cells. Each one is packed with haemoglobin, and each haemoglobin is ninety seven percent saturated with oxygen. Oxygen content is about nineteen millilitres in every decilitre of blood."
+ },
+ {
+  "id": "an2",
+  "t": "Now the haemoglobin is six and a half. There are half as many red cells, but each one is still fully saturated, so the pulse oximeter still reads ninety seven percent. The oxygen content has halved. The heart pumps faster to compensate and the tissues extract more, so venous saturation falls."
+ },
+ {
+  "id": "an3",
+  "t": "A unit of red cells raises the haemoglobin by about one gram per decilitre and restores content. Remember: a normal SpO₂ says the haemoglobin present is full, not that there is enough of it."
+ },
+ {
+  "id": "lc1",
+  "t": "Every cell makes some lactate, and the liver and kidneys clear it. A normal level of about one simply means production and clearance are matched."
+ },
+ {
+  "id": "lc2",
+  "t": "Now cardiac output falls in shock. Tissues short of oxygen turn more glucose into lactate, and a poorly perfused liver clears less. Lactate climbs. Adrenaline and sepsis raise it further, even when oxygen delivery is adequate, by speeding glycolysis."
+ },
+ {
+  "id": "lc3",
+  "t": "Restore perfusion and the balance reverses. Lactate falls over hours, as the liver clears it. A falling lactate is one of the best signs that resuscitation is working."
+ }
+]

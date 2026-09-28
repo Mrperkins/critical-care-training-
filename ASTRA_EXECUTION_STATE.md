@@ -2,16 +2,21 @@
 
 Read this file first each session. Work on `visual-overhaul` only. Update the commit, tests, and exact resume point after each coherent slice. Re-audit only if the remote branch changed outside this session.
 
+## ⚠️ SOURCE OF TRUTH — READ FIRST
+The TypeScript source now lives in `app/` (see `app/README.md`). **Do not hand-edit the minified bundle in `index.html` any more.** Edit `app/src/…`, then `cd app && npm install && npm test && npm run site` (rebuilds and copies `index.html`, `models/*.glb.txt`, `vo/*` to the repo root), then `python tools/validate_visual_assets.py`.
+All 53 earlier bundle patches (Wave 1 chrome CSS, Studio lighting/fog, cell material palette, open-cell loader + tiers, organelle/protein focus, PDB protein swap, membrane backdrop, semantic camera registry) were ported into source in the slice "Restore source of truth". `camera-targets.js` was removed: the registry is `app/src/scene/cameraTargets.ts` and is still exposed as `window.__CCCameraTargets`.
+
 ## CURRENT BRANCH
 `visual-overhaul`
 
 ## CURRENT COMMIT
-`b10650adfa26df9e65c4667075ba608d1c1923ab` published base; Kir2.1/AQP4 slices committed locally awaiting connector publication. Run `git rev-parse HEAD` for exact local state.
+Run `git rev-parse HEAD`. Last slice: "Restore source of truth: app/ source with visual-overhaul patches ported".
 
 ## LAST VERIFIED LIVE DEPLOY
 Live Pages HTML contains the Nav1.5 loader from `07e29e4`. Cell, 9RON, and 9P24 GLBs returned HTTP 200 with the expected glTF MIME type. The cloud browser has WebGL disabled, so a 3D visual check remains unavailable here.
 
 ## COMPLETED SLICES
+- Restore source of truth: `app/` holds the full source; every visual-overhaul bundle patch re-implemented in TS (`app/src/labs/cell/openAssets.tsx` loaders, `scene/cameraTargets.ts`, tiers in `labStore.visualTier`, focus in `labStore.cameraTargetId`). Studio fog is now a `fog` prop (Lines scene disables it; the fog was washing out its far views). Verified by HTTP boot + WebGL (swiftshader) screenshots: vendored cell (HIGH), nucleus focus, 9RON pump mesh in membrane focus, Lines, vent — no page errors.
 - Existing Wave 1 cell scene, asset manifest/provenance, remote high fidelity generic cell with procedural fallback (through `749dd574`); see git history. Do not recreate.
 - Vendored the pinned CC BY 4.0 generic cell GLB with original license, attribution/source notes, SHA-256 validation, and local loader; procedural fallback remains.
 - Added `camera-targets.js` with 14 semantic target IDs and a resolver; the existing cell/zoom camera path now resolves `cell.whole` / `membrane.overview` before choosing its view. All other target anchors await scene wiring.
@@ -29,7 +34,7 @@ Live Pages HTML contains the Nav1.5 loader from `07e29e4`. Cell, 9RON, and 9P24 
 Improve the reusable membrane bilayer presentation while preserving channel sites, ion trajectories, and existing transport state.
 
 ## EXACT RESUME POINT
-After confirming both PDB commits are published, inspect `iH`, `AK`, `RK`, `CK`, `PK` and `Nn` near the membrane code. Improve visual bilayer geometry/material/depth without changing simulation dimensions or membrane crossing. Keep mobile LOW inexpensive. Run `python tools/validate_visual_assets.py` before publishing. Molecular meshes are done for all four initial targets; do not repeat downloads.
+Membrane bilayer upgrade, in source: `app/src/labs/cell/patch.tsx` → `Bilayer` (instanced heads/tails), `Backdrop`, and `common.tsx` sprites. Improve bilayer geometry/material/depth without changing `SLAB` dimensions or site positions (the sim in `sim.ts` owns crossings). Keep LOW tier cheap (read `useLabUI(s => s.visualTier)`). Then `npm test && npm run site && python ../tools/validate_visual_assets.py`.
 
 ## NEXT 10 SLICES
 1. Upgrade reusable membrane bilayer and ion/protein depth.
@@ -47,12 +52,11 @@ After confirming both PDB commits are published, inspect `iH`, `AK`, `RK`, `CK`,
 - No new runtime bug confirmed in this session. The previous `var sw=var sw=` parse error was fixed in `570f0d4b`; check for regression before push.
 
 ## KNOWN BLOCKERS
-- Git HTTPS push lacks credentials. Connected GitHub app create_blob/create_tree/create_commit/update_ref successfully published vendored asset commit, then local git fetched and aligned to `9b17f76`.
-- Cloud browser has WebGL disabled (`THREE.WebGLRenderer: Error creating WebGL context`); use a GPU-enabled environment for actual scene visual QA. This is an inspection-environment limitation, not evidence of a new app bug.
-- None pending for Pages: the initial Nav1.5 404 cleared after deployment; the live file and loader were then verified by HTTP. GPU visual QA remains blocked by the cloud browser's WebGL environment.
+- None for git: pushes from this environment work with HTTPS credentials.
+- Visual QA: this environment has WebGL via swiftshader (`--use-gl=angle --use-angle=swiftshader`); slow but real. Serve the repo root with `python3 -m http.server` (binary GLBs need http, not file://).
 
 ## TESTS LAST RUN
-- `python tools/validate_visual_assets.py` passed for all four proteins: expected chain counts, identity names, materials, indices, finite/unit normals, 20k–60k triangle budgets, hashes, app syntax. `git diff --check` passed. Live/GPU validation remains subject to the previously recorded WebGL blocker.
+- `app`: `tsc --noEmit` clean; `vitest` 87/87 passed. `tools/validate_visual_assets.py` passed (4 proteins, bundle syntax, registry + loader presence). HTTP boot test: no page errors (only favicon 404).
 
 ## FILES CURRENTLY BEING EDITED
-- None after AQP4 commit. Next: membrane visuals in index.html and execution state.
+- None. Next: `app/src/labs/cell/patch.tsx` (bilayer).
