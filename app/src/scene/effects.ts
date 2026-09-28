@@ -53,3 +53,23 @@ export class MotePool {
     mesh.instanceMatrix.needsUpdate = true; return n;
   }
 }
+
+/**
+ * Tube along a smooth curve with a tapering radius. Attribute `aT` = 0→1 along the curve (for flow
+ * colouring, clots, pulse waves). Returns the geometry and the curve (for particles / labels).
+ */
+export function tubeAlong(pts: THREE.Vector3[], r0: number, r1: number, radial = 10, perUnit = 40) {
+  const curve = new THREE.CatmullRomCurve3(pts, false, 'centripetal'); const len = curve.getLength(); const n = Math.max(8, Math.round(len * perUnit));
+  const frames = curve.computeFrenetFrames(n, false); const pos: number[] = [], nor: number[] = [], tt: number[] = [], idx: number[] = []; const p = new THREE.Vector3();
+  for (let i = 0; i <= n; i++) {
+    const t = i / n; curve.getPointAt(t, p); const r = r0 + (r1 - r0) * t; const N = frames.normals[i], B = frames.binormals[i];
+    for (let j = 0; j <= radial; j++) { const a = (j / radial) * Math.PI * 2; const c = Math.cos(a), s = Math.sin(a); const nx = c * N.x + s * B.x, ny = c * N.y + s * B.y, nz = c * N.z + s * B.z; pos.push(p.x + r * nx, p.y + r * ny, p.z + r * nz); nor.push(nx, ny, nz); tt.push(t); }
+  }
+  for (let i = 0; i < n; i++) for (let j = 0; j < radial; j++) { const a = i * (radial + 1) + j, b = a + radial + 1; idx.push(a, b, a + 1, a + 1, b, b + 1); }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setAttribute('normal', new THREE.Float32BufferAttribute(nor, 3)); g.setAttribute('aT', new THREE.Float32BufferAttribute(tt, 1)); g.setIndex(idx);
+  // end caps are left open: vessels join other vessels or run into tissue
+  return { geometry: g, curve, length: len };
+}
+
+/** Frame delta used by every scene: clamped for stability; `window.__instant` (automation) jumps animations to their targets. */
+export const frameDt = (dtRaw: number) => ((typeof window !== 'undefined' && (window as unknown as { __instant?: boolean }).__instant) ? 1 : Math.min(0.05, dtRaw));

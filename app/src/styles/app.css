@@ -428,3 +428,6 @@ details.card summary{cursor:pointer;font:600 14px var(--fs);margin-bottom:6px}
 .phone .alv-legend span:nth-child(n+6){display:none}
 .phone .alv-wrap .scene-tools{bottom:auto;top:78px}.phone .alv-wrap .scene-tools .tgl:not(:first-child){display:none}
 .phone .alv-wrap .alv-hud{top:112px}
+/* ---------------------------------------------------------------- neuro */
+.btn-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.neuro-wrap .legend{bottom:10px}

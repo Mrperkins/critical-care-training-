@@ -12,7 +12,7 @@ import { useFrame } from '@react-three/fiber';
 import { CameraControls, Html } from '@react-three/drei';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { StudioCanvas, IS_PHONE, GLSL_NOISE } from '../scene/Studio';
-import { rbcGeometry, saturationColor as satColor, approach, budget, MotePool, SAT_PALETTE, type Tier } from '../scene/effects';
+import { rbcGeometry, saturationColor as satColor, approach, budget, MotePool, SAT_PALETTE, frameDt, type Tier } from '../scene/effects';
 /** this scene uses the blue→red teaching palette so O₂ loading along the capillary is visible */
 const saturationColor = (sat: number, out?: THREE.Color) => satColor(sat, out, true);
 import { registerAnchors } from '../scene/cameraTargets';
@@ -183,7 +183,7 @@ function AlveolusWorld() {
   const spawnAcc = useRef(0);
 
   useFrame((_, dtRaw) => {
-    const dt = (window as unknown as { __instant?: boolean }).__instant ? 1 : Math.min(0.05, dtRaw);
+    const dt = frameDt(dtRaw);
     const st = readAlveolar(); alvLive.st = st;
     // a new scenario is not a recruitment: resync without the glow
     if (prevSc.current !== session.sc.id) { prevSc.current = session.sc.id; st.units.forEach((u, i) => { prevKind.current[i] = u.kind; alvLive.glow[i] = 0; }); }

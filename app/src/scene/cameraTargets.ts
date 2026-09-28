@@ -5,7 +5,7 @@
  */
 import type * as THREE from 'three';
 
-export interface TargetDef { scene: 'cell' | 'body' | 'vent' | 'lines'; anchor: string; view?: 'whole' | 'zoom' }
+export interface TargetDef { scene: 'cell' | 'body' | 'vent' | 'lines' | 'neuro'; anchor: string; view?: 'whole' | 'zoom' }
 export const CAMERA_TARGETS = Object.freeze({
   'cell.whole': { scene: 'cell', anchor: 'whole', view: 'whole' },
   'cell.nucleus': { scene: 'cell', anchor: 'nucleus', view: 'whole' },
@@ -26,7 +26,15 @@ export const CAMERA_TARGETS = Object.freeze({
   'lung.edema': { scene: 'vent', anchor: 'edema', view: 'zoom' },
   'lung.collapsed': { scene: 'vent', anchor: 'collapsed', view: 'zoom' },
   'lung.recruited': { scene: 'vent', anchor: 'recruited', view: 'zoom' },
-  'brain.whole': { scene: 'body', anchor: 'brain' },
+  'brain.whole': { scene: 'neuro', anchor: 'brain', view: 'whole' },
+  'brain.cow': { scene: 'neuro', anchor: 'cow', view: 'zoom' },
+  'brain.mca_l': { scene: 'neuro', anchor: 'mca_l', view: 'zoom' },
+  'brain.mca_r': { scene: 'neuro', anchor: 'mca_r', view: 'zoom' },
+  'brain.aca': { scene: 'neuro', anchor: 'aca', view: 'zoom' },
+  'brain.pca': { scene: 'neuro', anchor: 'pca', view: 'zoom' },
+  'brain.basilar': { scene: 'neuro', anchor: 'basilar', view: 'zoom' },
+  'brain.ica_l': { scene: 'neuro', anchor: 'ica_l', view: 'zoom' },
+  'brain.ica_r': { scene: 'neuro', anchor: 'ica_r', view: 'zoom' },
 } satisfies Record<string, TargetDef>);
 export type TargetId = keyof typeof CAMERA_TARGETS;
 
