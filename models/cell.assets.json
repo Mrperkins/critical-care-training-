@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "purpose": "Commercial-safe high-fidelity cell assets for the Critical Care Physiology visual overhaul.",
   "runtimePolicy": {
-    "default": "procedural-hybrid",
+    "default": "vendored-hybrid",
     "rule": "External meshes enhance appearance only; SyntheticPatient remains the source of physiology and educational state.",
     "fallback": "If a high-fidelity asset fails to load, retain the existing procedural cell without blocking the lesson."
   },
@@ -16,9 +16,12 @@
       "commercialUse": true,
       "source": "https://sketchfab.com/3d-models/human-cell-60ef7d2515b0403986ff9e8b7f234a66",
       "verifiedMirror": "https://github.com/rizkikadafi/learn-cell/tree/main/public/human_cell",
-      "runtimeRemoteUrl": "https://raw.githubusercontent.com/rizkikadafi/learn-cell/main/public/human_cell/cell.glb",
       "approximateTriangles": 421500,
-      "notes": "Use for generic animal-cell whole view and as a shape/material reference. Do not substitute this generic cell for cardiomyocyte or neuron anatomy."
+      "notes": "Use for generic animal-cell whole view and as a shape/material reference. Do not substitute this generic cell for cardiomyocyte or neuron anatomy.",
+      "localPath": "models/cell/markdragan-human-cell/cell.glb",
+      "creator": "markdragan",
+      "modifications": "Original GLB vendored unchanged; runtime normalizes scale and adjusts material properties.",
+      "sha256": "405cf19d250b80d502682c52c9eba27d640d365069367d8e6a3c705bd08cd5de"
     },
     "cardiomyocyteReference": {
       "id": "bonehead14-cardiac-muscle-cell",

@@ -17,6 +17,11 @@ The source GLTF metadata and accompanying license file are mirrored in
 `rizkikadafi/learn-cell/public/human_cell/`, which explicitly preserve the
 author, source URL, CC-BY-4.0 license, and commercial-use allowance.
 
+The pinned GLB and accompanying license are vendored at
+`models/cell/markdragan-human-cell/`. Runtime now loads the local asset; see
+`SOURCE.md` there for the exact revision, integrity hash, and modification
+record. The original Sketchfab attribution remains visible in the cell view.
+
 Intended use here:
 - generic animal-cell whole view;
 - organelle geometry/material reference;
