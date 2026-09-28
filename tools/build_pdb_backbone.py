@@ -55,21 +55,28 @@ def ribbon(coords, center, scale, sides=12):
 
 
 def build(src, dest):
+    structure_id = Path(src).stem.split('-')[0].upper()
     structure = MMCIFParser(QUIET=True).get_structure('pdb', src)
     chains = {}
     for chain in structure[0]:
-        positions = [residue['CA'].coord.astype(float) for residue in chain if residue.has_id('CA')]
+        positions = [residue['CA'].coord.astype(float) for residue in chain
+                     if residue.has_id('CA') and residue['CA'].element == 'C']
         if len(positions) >= 20:
             chains[chain.id] = np.array(positions)
+    if not chains:
+        raise ValueError('No protein chains with at least 20 C-alpha positions found')
     all_points = np.concatenate(list(chains.values()))
+    if not np.isfinite(all_points).all():
+        raise ValueError('Non-finite source coordinates')
     center = (all_points.min(axis=0) + all_points.max(axis=0)) / 2
     scale = 2.4 / max(all_points.max(axis=0) - all_points.min(axis=0))
     blob = bytearray()
     buffer_views, accessors, meshes = [], [], []
     palettes = ([('alpha1', [.88, .67, .30, 1]), ('beta1', [.39, .72, .67, 1]), ('FXYD', [.62, .52, .82, 1])]
-                if Path(src).stem.upper() == '9RON' else
-                [(f'chain {chain_id}', color) for chain_id, color in zip(chains, [
-                    [.95, .58, .38, 1], [.39, .72, .67, 1], [.62, .52, .82, 1], [.75, .80, .42, 1]])])
+                if structure_id == '9RON' else
+                [(f'chain {chain_id}', [
+                    [.95, .58, .38, 1], [.39, .72, .67, 1], [.62, .52, .82, 1], [.75, .80, .42, 1]][i % 4])
+                 for i, chain_id in enumerate(chains)])
     materials = [
         {'name': name, 'pbrMetallicRoughness': {'baseColorFactor': color, 'metallicFactor': 0.08, 'roughnessFactor': 0.62}, 'doubleSided': True}
         for name, color in palettes
@@ -97,7 +104,7 @@ def build(src, dest):
         pos = add_array(v, 34962, 'VEC3', len(v), True)
         normal = add_array(n, 34962, 'VEC3', len(n))
         index = add_array(faces, 34963, 'SCALAR', len(faces))
-        meshes.append({'name': f'9RON chain {chain_id}', 'primitives': [{'attributes': {'POSITION': pos, 'NORMAL': normal}, 'indices': index, 'material': material}]})
+        meshes.append({'name': f'{structure_id} chain {chain_id}', 'primitives': [{'attributes': {'POSITION': pos, 'NORMAL': normal}, 'indices': index, 'material': material}]})
         triangles += len(faces) // 3
     scene = {'asset': {'version': '2.0', 'generator': 'critical-care-training PDB backbone simplifier'},
              'scene': 0, 'scenes': [{'nodes': list(range(len(meshes)))}],
