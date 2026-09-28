@@ -36,3 +36,18 @@ Regenerate with `python tools/build_pdb_backbone.py /tmp/9P24.cif models/molecul
 - **Role:** One selected Kir2.1 site at HIGH/MEDIUM quality. LOW and unselected sites retain the functional procedural proxy. This silhouette does not calculate conductance or model atomic movements.
 
 Regenerate with `python tools/build_pdb_backbone.py /tmp/7ZDZ.cif models/molecular/7zdz-backbone.glb`.
+
+
+## 3GD8 AQP4 closeup mesh
+
+- **Structure:** 3GD8, human AQP4: https://www.rcsb.org/structure/3GD8
+- **Publication:** *Crystal structure of human aquaporin 4 at 1.8 A and its mechanism of conductance*, PMID 19383790.
+- **Structural data license:** CC0 1.0 under the wwPDB/RCSB archive policy.
+- **Creator:** wwPDB depositors of 3GD8; mesh conversion by this project.
+- **Input:** https://files.rcsb.org/download/3GD8-assembly1.cif; SHA-256 `b23739eab1ddbaf32f5f5e619b8cdab2b9f84e71c31f81d8bd93e7b2b9b85687`.
+- **Assembly:** The asymmetric unit is a monomer. The shipped mesh uses biological assembly 1, a tetramer generated with documented operators 1-4, delivered by RCSB as chains A, A-2, A-3, A-4. Each monomer carries its own water pore. Glycerol, detergent, and water molecules are excluded.
+- **Modifications:** 892 C-alpha positions converted to 12 sided tubes, recentered/scaled/colored; 21,312 triangles, no external textures.
+- **Output:** `3gd8-backbone.glb`; SHA-256 `912d5e2dae745c8d3e6612de8420b1a58223902caf91d95f8c62f1e746ea2800`.
+- **Role:** One selected AQP4 site at HIGH/MEDIUM quality. LOW and unselected sites retain the existing procedural proxy. Water movement and cell volume remain governed by the existing simulation.
+
+Regenerate with `python tools/build_pdb_backbone.py /tmp/3GD8-assembly1.cif models/molecular/3gd8-backbone.glb`.

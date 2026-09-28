@@ -6,7 +6,7 @@ Read this file first each session. Work on `visual-overhaul` only. Update the co
 `visual-overhaul`
 
 ## CURRENT COMMIT
-`b10650adfa26df9e65c4667075ba608d1c1923ab` at start of Kir2.1 slice; use `git rev-parse HEAD` for latest committed state.
+`b10650adfa26df9e65c4667075ba608d1c1923ab` published base; Kir2.1/AQP4 slices committed locally awaiting connector publication. Run `git rev-parse HEAD` for exact local state.
 
 ## LAST VERIFIED LIVE DEPLOY
 Live Pages HTML contains the Nav1.5 loader from `07e29e4`. Cell, 9RON, and 9P24 GLBs returned HTTP 200 with the expected glTF MIME type. The cloud browser has WebGL disabled, so a 3D visual check remains unavailable here.
@@ -23,23 +23,25 @@ Live Pages HTML contains the Nav1.5 loader from `07e29e4`. Cell, 9RON, and 9P24 
 
 - Added Kir2.1 CC0 7ZDZ tetramer mesh (30,912 triangles), wired selected channel to existing closeup loader. Fixed Nav mesh naming and made converter palette sizes safe for multiple chains; disposed cloned visual materials on focus exit. Added reusable mesh/syntax validation.
 
+- Added AQP4 from the full 3GD8 biological assembly (four 223-residue chains, 21,312 triangles). Selected AQP4 uses this mesh at HIGH/MEDIUM, with the existing procedural proxy at LOW. No water/volume physiology changes.
+
 ## CURRENT SLICE
-Build AQP4 from biological assembly 1 of 3GD8, then wire the selected aquaporin site to its mesh.
+Improve the reusable membrane bilayer presentation while preserving channel sites, ion trajectories, and existing transport state.
 
 ## EXACT RESUME POINT
-Use already downloaded `/tmp/3GD8-assembly1.cif` (SHA-256 b23739eab1ddbaf32f5f5e619b8cdab2b9f84e71c31f81d8bd93e7b2b9b85687). It contains four protein chains A/A-2/A-3/A-4, each 223 C-alpha positions. Do not use the monomer-only asymmetric unit. Run converter, add expectedChainCount=4 to manifest, wire membrane.aqp to aqp/3gd8, then run `python tools/validate_visual_assets.py`. No broad re-audit.
+After confirming both PDB commits are published, inspect `iH`, `AK`, `RK`, `CK`, `PK` and `Nn` near the membrane code. Improve visual bilayer geometry/material/depth without changing simulation dimensions or membrane crossing. Keep mobile LOW inexpensive. Run `python tools/validate_visual_assets.py` before publishing. Molecular meshes are done for all four initial targets; do not repeat downloads.
 
 ## NEXT 10 SLICES
-1. Add AQP4 biological assembly mesh and closeup hook.
-2. Upgrade reusable membrane bilayer and ion/protein depth.
-3. Add reusable alveolar microanatomy driven by existing respiratory model.
-4. Add brain and cerebral vessel semantic geometry foundations.
-5. Add Lesson Director deterministic timeline driven by SyntheticPatient.
-6. Add first MOA data graph and UI shell.
-7. Add norepinephrine alpha-1/beta-1 MOA graph with shock context.
-8. Add hyperkalemia through shared Lesson Director.
-9. Add reusable stroke vascular state and imaging primitives.
-10. Add shared lesson curriculum metadata and progress persistence.
+1. Upgrade reusable membrane bilayer and ion/protein depth.
+2. Add reusable alveolar microanatomy driven by existing respiratory model.
+3. Add brain and cerebral vessel semantic geometry foundations.
+4. Add Lesson Director deterministic timeline driven by SyntheticPatient.
+5. Add first MOA data graph and UI shell.
+6. Add norepinephrine alpha-1/beta-1 MOA graph with shock context.
+7. Add hyperkalemia through shared Lesson Director.
+8. Add reusable stroke vascular state and imaging primitives.
+9. Add shared lesson curriculum metadata and progress persistence.
+10. Port respiratory lessons through shared director.
 
 ## KNOWN BUGS
 - No new runtime bug confirmed in this session. The previous `var sw=var sw=` parse error was fixed in `570f0d4b`; check for regression before push.
@@ -50,7 +52,7 @@ Use already downloaded `/tmp/3GD8-assembly1.cif` (SHA-256 b23739eab1ddbaf32f5f5e
 - None pending for Pages: the initial Nav1.5 404 cleared after deployment; the live file and loader were then verified by HTTP. GPU visual QA remains blocked by the cloud browser's WebGL environment.
 
 ## TESTS LAST RUN
-- `python tools/validate_visual_assets.py` passed: 9RON/9P24/7ZDZ chain counts, mesh names, material references, index ranges, finite/unit normals, triangle budgets, SHA-256, inline JS syntax and duplicate declaration guard. `git diff --check` passed. Live HTTP was previously verified through 07e29e4. GPU visual QA is still unavailable in this cloud browser.
+- `python tools/validate_visual_assets.py` passed for all four proteins: expected chain counts, identity names, materials, indices, finite/unit normals, 20k–60k triangle budgets, hashes, app syntax. `git diff --check` passed. Live/GPU validation remains subject to the previously recorded WebGL blocker.
 
 ## FILES CURRENTLY BEING EDITED
-- None after Kir2.1 commit. Next: AQP4 GLB, molecular manifest/source notes, index.html, execution state.
+- None after AQP4 commit. Next: membrane visuals in index.html and execution state.

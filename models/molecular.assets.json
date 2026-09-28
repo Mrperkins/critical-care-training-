@@ -71,7 +71,19 @@
       "method": "X-ray diffraction",
       "resolutionAngstrom": 1.8,
       "role": "AQP4 visual source for sodium/osmolality/neuro lessons",
-      "source": "https://www.rcsb.org/structure/3GD8"
+      "source": "https://www.rcsb.org/structure/3GD8",
+      "id": "3gd8-aqp4-backbone",
+      "creator": "wwPDB 3GD8 depositors; mesh conversion by project",
+      "license": "CC0-1.0",
+      "commercialUse": true,
+      "modifications": "Biological assembly 1 with four C-alpha traces converted to 12-sided tubes; recentered, scaled, chain colored. Nonprotein molecules excluded. Visual only.",
+      "localPath": "models/molecular/3gd8-backbone.glb",
+      "derivedMeshTriangles": 21312,
+      "expectedChainCount": 4,
+      "assembly": "Biological assembly 1 from RCSB, tetramer; chains A, A-2, A-3, A-4",
+      "sourceCifUrl": "https://files.rcsb.org/download/3GD8-assembly1.cif",
+      "sourceCifSha256": "b23739eab1ddbaf32f5f5e619b8cdab2b9f84e71c31f81d8bd93e7b2b9b85687",
+      "sha256": "912d5e2dae745c8d3e6612de8420b1a58223902caf91d95f8c62f1e746ea2800"
     }
   },
   "implementation": {
