@@ -411,3 +411,5 @@ details.card summary{cursor:pointer;font:600 14px var(--fs);margin-bottom:6px}
 .asset-credit{position:absolute;right:10px;bottom:8px;z-index:24;padding:4px 7px;border:1px solid rgba(210,229,238,.12);border-radius:7px;background:rgba(3,8,12,.7);font:500 9px/1.25 "IBM Plex Mono",monospace;color:rgba(222,235,241,.62);backdrop-filter:blur(8px);pointer-events:auto}.asset-credit a{color:rgba(222,235,241,.82);text-decoration:none}.asset-credit a:hover{text-decoration:underline}.phone .asset-credit{font-size:8px;right:6px;bottom:6px;max-width:45vw}
 /* ====================================================================== */
 .ch-focus button,.ch-quality button{font-size:11.5px}
+.blabel.mem-lbl{font-size:10.5px;padding:1px 7px;opacity:.92}
+.phone .blabel.mem-lbl{display:none}

@@ -78,22 +78,67 @@ void main(){
   return <mesh position={[0, 0, -SLAB.d - 0.4]} material={mat} renderOrder={-1}><planeGeometry args={[SLAB.w * 2.4, SLAB.h * 2]} /></mesh>;
 }
 
+/** Two acyl chains' worth of tail: a tapered tube, straight (saturated) or with a cis kink (unsaturated). Tail runs from y = 0 (head) to y = −len. */
+function tailGeo(kink: boolean, len = 0.36) {
+  const pts = kink ? [new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, -len * 0.45, 0), new THREE.Vector3(0.06, -len * 0.62, 0), new THREE.Vector3(0.1, -len, 0)] : [new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, -len, 0)];
+  const g = new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts, false, 'centripetal', 0.2), kink ? 10 : 4, 0.026, 6); const pos = g.attributes.position;
+  for (let i = 0; i < pos.count; i++) { const y = -pos.getY(i) / len; const k = 1 - 0.35 * y; pos.setX(i, pos.getX(i) * (kink ? 1 : k)); pos.setZ(i, pos.getZ(i) * k); } // taper toward the methyl end
+  g.computeVertexNormals(); return g;
+}
+/** Tails sway a little (lipids are fluid): per-instance phase from the instance position, bend grows toward the core. */
+function swayMaterial(color: string, uTime: { value: number }) {
+  const m = new THREE.MeshStandardMaterial({ color, roughness: 0.66, metalness: 0 });
+  m.onBeforeCompile = (sh) => { sh.uniforms.uTime = uTime; sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nuniform float uTime;').replace('#include <begin_vertex>', `#include <begin_vertex>
+      { float ph = instanceMatrix[3].x * 3.1 + instanceMatrix[3].z * 2.3; float w = clamp(-position.y / 0.36, 0.0, 1.0); transformed.x += sin(uTime * 1.7 + ph) * 0.035 * w * w; transformed.z += cos(uTime * 1.3 + ph * 1.7) * 0.03 * w * w; }`); };
+  m.customProgramCacheKey = () => 'lipid-sway'; return m;
+}
 function Bilayer({ sites }: { sites: Site[] }) {
+  const tier = useLabUI((st) => st.visualTier); const rich = tier !== 'low'; const labels = useLabelMode() === 'organelles'; const focusId = useLabUI((st) => st.cameraTargetId);
+  const uTime = useMemo(() => ({ value: 0 }), []);
+  useFrame((_, dt) => { uTime.value += Math.min(0.05, dt); });
   const d = useMemo(() => {
-    const heads: THREE.Matrix4[] = [], tails: THREE.Matrix4[] = []; const o = new THREE.Object3D(); const sp = 0.34; let s = 5; const r = () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296);
+    // Outer leaflet: mostly phosphatidylcholine + sphingomyelin (paler, more saturated tails), glycolipids carrying the glycocalyx.
+    // Inner leaflet: phosphatidylethanolamine + phosphatidylserine (PS is negatively charged) — the real bilayer is asymmetric.
+    const headsOut: THREE.Matrix4[] = [], headsIn: THREE.Matrix4[] = [], headsPS: THREE.Matrix4[] = [], straight: THREE.Matrix4[] = [], kinked: THREE.Matrix4[] = [], chol: THREE.Matrix4[] = [], sugar: THREE.Matrix4[] = [];
+    const o = new THREE.Object3D(); const sp = rich ? 0.3 : 0.34; let seed = 5; const r = () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296);
+    const blocked = (px: number, pz: number, pad = 0) => sites.some((st) => Math.hypot(px - st.pos.x, pz - st.pos.z) < PROT * (st.kind === 'pump' || st.kind === 'vrac' || st.kind === 'aqp' ? 0.78 : st.kind === 'nachan' ? 1.0 : 0.62) + pad);
     for (const side of [1, -1]) for (let x = -SLAB.w; x <= SLAB.w; x += sp) for (let z = -SLAB.d; z <= SLAB.front; z += sp) {
-      const px = x + (r() - 0.5) * 0.08 + (side < 0 ? sp / 2 : 0), pz = z + (r() - 0.5) * 0.08;
-      if (sites.some((st) => Math.hypot(px - st.pos.x, pz - st.pos.z) < PROT * (st.kind === 'pump' || st.kind === 'vrac' || st.kind === 'aqp' ? 0.78 : st.kind === 'nachan' ? 1.0 : 0.62))) continue;
-      o.position.set(px, side * 0.44, pz); o.rotation.set(0, 0, 0); o.scale.setScalar(1); o.updateMatrix(); heads.push(o.matrix.clone());
-      for (const dx of [-0.055, 0.055]) { o.position.set(px + dx, side * 0.22, pz); o.rotation.set((r() - 0.5) * 0.25, 0, (r() - 0.5) * 0.25); o.updateMatrix(); tails.push(o.matrix.clone()); }
+      const px = x + (r() - 0.5) * 0.1 + (side < 0 ? sp / 2 : 0), pz = z + (r() - 0.5) * 0.1; if (blocked(px, pz)) continue;
+      const hs = 0.85 + 0.3 * r();
+      o.position.set(px, side * (0.44 + (r() - 0.5) * 0.04), pz); o.rotation.set(0, r() * 6, 0); o.scale.set(hs, hs * 0.82, hs); o.updateMatrix();
+      (side > 0 ? headsOut : side < 0 && r() < 0.3 ? headsPS : headsIn).push(o.matrix.clone());
+      for (const dx of [-0.055, 0.055]) {
+        const kink = rich && r() < (side > 0 ? 0.35 : 0.55); // inner leaflet is more unsaturated
+        o.position.set(px + dx, side * 0.37, pz); o.scale.set(1, 1, 1); o.rotation.set((r() - 0.5) * 0.22, r() * 6, (r() - 0.5) * 0.22);
+        if (side < 0) o.rotation.x += Math.PI; // inner-leaflet tails point up into the core
+        o.updateMatrix(); (kink ? kinked : straight).push(o.matrix.clone());
+      }
+      // cholesterol (~1 per 3 lipids) nestles between tails, its OH at the head level
+      if (rich && r() < 0.3) { const cx = px + sp * 0.5, cz = pz + (r() - 0.5) * sp; if (!blocked(cx, cz, 0.05)) { o.position.set(cx, side * 0.24, cz); o.rotation.set(0, r() * 6, 0); o.scale.set(1, 1, 1); o.updateMatrix(); chol.push(o.matrix.clone()); } }
+      // glycocalyx: short branched sugar chains on some outer-leaflet lipids / proteins
+      if (rich && side > 0 && r() < 0.1) { let y = 0.6, qx = px, qz = pz; const n = 2 + Math.floor(r() * 3); for (let k = 0; k < n; k++) { qx += (r() - 0.5) * 0.1; qz += (r() - 0.5) * 0.1; y += 0.085; o.position.set(qx, y, qz); o.rotation.set(r() * 3, r() * 3, 0); const sc = 0.75 + 0.3 * r(); o.scale.set(sc, sc, sc); o.updateMatrix(); sugar.push(o.matrix.clone()); if (r() < 0.35) { o.position.set(qx + 0.1, y + 0.03, qz); o.updateMatrix(); sugar.push(o.matrix.clone()); } } }
     }
-    return { heads, tails };
-  }, [sites]);
-  const hRef = useRef<THREE.InstancedMesh>(null), tRef = useRef<THREE.InstancedMesh>(null);
-  useEffect(() => { d.heads.forEach((m, i) => hRef.current?.setMatrixAt(i, m)); d.tails.forEach((m, i) => tRef.current?.setMatrixAt(i, m)); if (hRef.current) hRef.current.instanceMatrix.needsUpdate = true; if (tRef.current) tRef.current.instanceMatrix.needsUpdate = true; }, [d]);
+    return { headsOut, headsIn, headsPS, straight, kinked, chol, sugar };
+  }, [sites, rich]);
+  const geos = useMemo(() => ({ head: new THREE.SphereGeometry(0.15, rich ? 16 : 10, rich ? 12 : 8), straight: tailGeo(false), kinked: tailGeo(true), chol: (() => { const g = new THREE.CylinderGeometry(0.045, 0.045, 0.3, 6, 1); return g; })(), sugar: new THREE.IcosahedronGeometry(0.045, 0) }), [rich]);
+  const mats = useMemo(() => ({
+    out: new THREE.MeshPhysicalMaterial({ color: '#c99a90', roughness: 0.48, clearcoat: 0.32, clearcoatRoughness: 0.3, sheen: 0.22, sheenRoughness: 0.66, sheenColor: new THREE.Color('#f7d6cd') }),
+    in: new THREE.MeshPhysicalMaterial({ color: '#c0927a', roughness: 0.5, clearcoat: 0.28, clearcoatRoughness: 0.3, sheen: 0.2, sheenRoughness: 0.66, sheenColor: new THREE.Color('#f2d2c0') }),
+    ps: new THREE.MeshPhysicalMaterial({ color: '#a8849a', roughness: 0.5, clearcoat: 0.28, clearcoatRoughness: 0.3, sheen: 0.2, sheenColor: new THREE.Color('#e6cde0') }),
+    tail: swayMaterial('#aa9067', uTime), kink: swayMaterial('#9c845c', uTime),
+    chol: new THREE.MeshStandardMaterial({ color: '#d8cfae', roughness: 0.55 }), sugar: new THREE.MeshStandardMaterial({ color: '#7f9a8c', roughness: 0.7 }),
+    core: new THREE.MeshBasicMaterial({ color: '#3a2a18', transparent: true, opacity: 0.22, depthWrite: false }),
+  }), [uTime]);
+  const sets: [keyof typeof d, THREE.BufferGeometry, THREE.Material][] = [['headsOut', geos.head, mats.out], ['headsIn', geos.head, mats.in], ['headsPS', geos.head, mats.ps], ['straight', geos.straight, mats.tail], ['kinked', geos.kinked, mats.kink], ['chol', geos.chol, mats.chol], ['sugar', geos.sugar, mats.sugar]];
+  const refs = useRef<(THREE.InstancedMesh | null)[]>([]);
+  useEffect(() => { sets.forEach(([k], i) => { const im = refs.current[i]; if (!im) return; d[k].forEach((m, j) => im.setMatrixAt(j, m)); im.instanceMatrix.needsUpdate = true; im.computeBoundingSphere(); }); }, [d]); // eslint-disable-line react-hooks/exhaustive-deps
   return (<group>
-    <instancedMesh ref={hRef} args={[new THREE.SphereGeometry(0.15, 12, 10), new THREE.MeshPhysicalMaterial({ color: '#c99a90', roughness: 0.48, clearcoat: 0.32, clearcoatRoughness: 0.3, sheen: 0.22, sheenRoughness: 0.66, sheenColor: new THREE.Color('#f7d6cd') }), d.heads.length]} />
-    <instancedMesh ref={tRef} args={[new THREE.CylinderGeometry(0.03, 0.025, 0.36, 6, 1), new THREE.MeshStandardMaterial({ color: '#aa9067', roughness: 0.72 }), d.tails.length]} />
+    {sets.map(([k, g, m], i) => d[k].length ? <instancedMesh key={k + d[k].length} ref={(r) => { refs.current[i] = r; }} args={[g, m, d[k].length]} /> : null)}
+    {/* the oily hydrophobic core seen between the two leaflets */}
+    {rich && <mesh position={[0, 0, (SLAB.front - SLAB.d) / 2]} material={mats.core} renderOrder={-0.5}><boxGeometry args={[SLAB.w * 2, 0.5, SLAB.front + SLAB.d]} /></mesh>}
+    {rich && labels && !focusId && <>
+      {([['Phospholipid heads', [SLAB.w * 0.97, 0.5, SLAB.front]], ['Fatty-acid tails · oily core', [SLAB.w * 0.97, 0.08, SLAB.front]], ['Cholesterol', [SLAB.w * 0.97, -0.22, SLAB.front]], ['Inner leaflet (PE, PS⁻)', [SLAB.w * 0.97, -0.5, SLAB.front]], ['Glycocalyx', [SLAB.w * 0.97, 0.85, SLAB.front]]] as [string, [number, number, number]][]).map(([t, p]) => <group key={t} position={p}><Html zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><div className="blabel lead lead-l mem-lbl">{t}</div></Html></group>)}
+    </>}
   </group>);
 }
 

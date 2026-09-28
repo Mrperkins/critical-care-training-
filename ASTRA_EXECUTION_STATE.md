@@ -16,6 +16,7 @@ Run `git rev-parse HEAD`. Last slice: "Restore source of truth: app/ source with
 Live Pages HTML contains the Nav1.5 loader from `07e29e4`. Cell, 9RON, and 9P24 GLBs returned HTTP 200 with the expected glTF MIME type. The cloud browser has WebGL disabled, so a 3D visual check remains unavailable here.
 
 ## COMPLETED SLICES
+- Membrane bilayer upgrade (`app/src/labs/cell/patch.tsx` → `Bilayer`): asymmetric leaflets (outer PC/sphingomyelin, inner PE + negatively charged PS), tapered saturated + cis-kinked unsaturated tails (inner leaflet more unsaturated) with a subtle GPU sway, cholesterol between tails, glycocalyx sugar chains on the outer leaflet, a translucent hydrophobic core band, and compact layer labels (Organelles label mode, hidden while a protein is focused, hidden on phones). LOW tier keeps the old cheap heads + straight tails. `SLAB` dimensions, site positions and ion crossings unchanged.
 - Restore source of truth: `app/` holds the full source; every visual-overhaul bundle patch re-implemented in TS (`app/src/labs/cell/openAssets.tsx` loaders, `scene/cameraTargets.ts`, tiers in `labStore.visualTier`, focus in `labStore.cameraTargetId`). Studio fog is now a `fog` prop (Lines scene disables it; the fog was washing out its far views). Verified by HTTP boot + WebGL (swiftshader) screenshots: vendored cell (HIGH), nucleus focus, 9RON pump mesh in membrane focus, Lines, vent — no page errors.
 - Existing Wave 1 cell scene, asset manifest/provenance, remote high fidelity generic cell with procedural fallback (through `749dd574`); see git history. Do not recreate.
 - Vendored the pinned CC BY 4.0 generic cell GLB with original license, attribution/source notes, SHA-256 validation, and local loader; procedural fallback remains.
@@ -31,32 +32,32 @@ Live Pages HTML contains the Nav1.5 loader from `07e29e4`. Cell, 9RON, and 9P24 
 - Added AQP4 from the full 3GD8 biological assembly (four 223-residue chains, 21,312 triangles). Selected AQP4 uses this mesh at HIGH/MEDIUM, with the existing procedural proxy at LOW. No water/volume physiology changes.
 
 ## CURRENT SLICE
-Improve the reusable membrane bilayer presentation while preserving channel sites, ion trajectories, and existing transport state.
+Alveolar microscene (slice 2 of the queue).
 
 ## EXACT RESUME POINT
-Membrane bilayer upgrade, in source: `app/src/labs/cell/patch.tsx` → `Bilayer` (instanced heads/tails), `Backdrop`, and `common.tsx` sprites. Improve bilayer geometry/material/depth without changing `SLAB` dimensions or site positions (the sim in `sim.ts` owns crossings). Keep LOW tier cheap (read `useLabUI(s => s.visualTier)`). Then `npm test && npm run site && python ../tools/validate_visual_assets.py`.
+Alveolar microanatomy, in source. The alveolus/capillary/RBC scene already exists in `app/src/labs/LabScene.tsx` legacy micro and `app/src/asset/micro.ts` (alveolar_sac, pulm_capillaries, rbc meshes from `pipeline/build-micro.ts`), and the vent module's lung scene is `app/src/vent/LungScene.tsx` driven by `app/src/vent/session.ts`. Build a reusable `AlveolusScene` (O₂/CO₂ movement, surfactant, fluid/edema, collapse/recruitment) whose state is read from `session` (recruitment, overdistension, shunt, PEEP) — do NOT add a second vent engine. Wire it as a new vent view (`ventView` in `app/src/app/store.ts`) and register `lung.alveolus` anchors via `scene/cameraTargets.ts`.
 
 ## NEXT 10 SLICES
-1. Upgrade reusable membrane bilayer and ion/protein depth.
-2. Add reusable alveolar microanatomy driven by existing respiratory model.
-3. Add brain and cerebral vessel semantic geometry foundations.
-4. Add Lesson Director deterministic timeline driven by SyntheticPatient.
-5. Add first MOA data graph and UI shell.
-6. Add norepinephrine alpha-1/beta-1 MOA graph with shock context.
-7. Add hyperkalemia through shared Lesson Director.
-8. Add reusable stroke vascular state and imaging primitives.
-9. Add shared lesson curriculum metadata and progress persistence.
-10. Port respiratory lessons through shared director.
+1. Alveolar microscene driven by the existing vent session.
+2. Brain + cerebral vessel semantic geometry foundations (HuBMAP brain is already in body.glb; cerebral arteries must be drawn — see `app/src/lines/vessels.ts` for the landmark-driven vessel builder pattern).
+3. Lesson Director: deterministic timeline (clock-driven, seek/pause, no chained setTimeout) that directs existing sessions; generalise `app/src/app/LessonShell.tsx`.
+4. MOA data graph (MechanismDefinition/Node/Edge) + UI shell as a new top-level mode.
+5. Norepinephrine α1/β1 MOA with shock context — reuse `lines` session (`setNore`, SVR) for the patient response.
+6. Hyperkalemia signature lesson through the Lesson Director (labs bench + cell scene + ECG).
+7. Stroke vascular state + imaging primitives (ClinicalImagingScene).
+8. Curriculum metadata + progress persistence.
+9. Port respiratory lessons through the shared director.
+10. Heart/coronary polish in the Infarct Atlas (separate app in `infarct-atlas/`; its source is NOT in this repo — see KNOWN BLOCKERS).
 
 ## KNOWN BUGS
 - No new runtime bug confirmed in this session. The previous `var sw=var sw=` parse error was fixed in `570f0d4b`; check for regression before push.
 
 ## KNOWN BLOCKERS
-- None for git: pushes from this environment work with HTTPS credentials.
+- `infarct-atlas/index.html` is a built bundle whose source is not in this repo; heart/coronary polish there needs its source added first (same restore-source step as `app/`).
 - Visual QA: this environment has WebGL via swiftshader (`--use-gl=angle --use-angle=swiftshader`); slow but real. Serve the repo root with `python3 -m http.server` (binary GLBs need http, not file://).
 
 ## TESTS LAST RUN
-- `app`: `tsc --noEmit` clean; `vitest` 87/87 passed. `tools/validate_visual_assets.py` passed (4 proteins, bundle syntax, registry + loader presence). HTTP boot test: no page errors (only favicon 404).
+- `app`: `tsc --noEmit` clean; `vitest` 87/87. `tools/validate_visual_assets.py` passed. HTTP + WebGL screenshots of membrane HIGH (bilayer, labels), Kir2.1 focus (7ZDZ mesh), LOW tier: no page errors.
 
 ## FILES CURRENTLY BEING EDITED
-- None. Next: `app/src/labs/cell/patch.tsx` (bilayer).
+- None. Next: new `app/src/vent/Alveolus*.tsx`.
