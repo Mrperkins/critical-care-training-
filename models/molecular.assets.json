@@ -31,7 +31,16 @@
       "method": "cryo-EM",
       "resolutionAngstrom": 3.48,
       "role": "Nav1.5 visual source for cardiomyocyte membrane lessons",
-      "source": "https://www.rcsb.org/structure/9P24"
+      "source": "https://www.rcsb.org/structure/9P24",
+      "id": "9p24-nav15-backbone",
+      "creator": "wwPDB 9P24 depositors; mesh conversion by project",
+      "license": "CC0-1.0",
+      "commercialUse": true,
+      "modifications": "C-alpha trace converted to a 12-sided tube; recentered, scaled, colored. Visual only.",
+      "localPath": "models/molecular/9p24-backbone.glb",
+      "derivedMeshTriangles": 30072,
+      "sourceCifSha256": "2f6a217a00ccb826cc6631808a27bbe8f731223774e577363b353de51fe28b69",
+      "sha256": "bdd598acee461ceb9250bce9c770590cedf9304907d1a4b1fc1f7c0e2d4aafed"
     },
     "kir21": {
       "pdb": "7ZDZ",

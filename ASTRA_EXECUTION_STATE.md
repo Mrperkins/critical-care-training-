@@ -6,10 +6,10 @@ Read this file first each session. Work on `visual-overhaul` only. Update the co
 `visual-overhaul`
 
 ## CURRENT COMMIT
-`4ca4219ff34cc806a966d291791a4305072307f2` at start of 9RON mesh slice. See `git rev-parse HEAD` after commit.
+`243daa50d06379aa317233c3e74ca9412a4bf685` at start of Nav1.5 mesh slice. See `git rev-parse HEAD` after commit.
 
 ## LAST VERIFIED LIVE DEPLOY
-Live Pages HTML now contains the local cell loader, registry, visual tier controls, and membrane focus controls from `4ca4219`; local GLB returned HTTP 200. The cloud browser has WebGL disabled, so a 3D visual check remains unavailable here.
+Live Pages HTML contains the 9RON loader through `243daa5`; both the cell GLB and 9RON GLB returned HTTP 200 from Pages. The cloud browser has WebGL disabled, so a 3D visual check remains unavailable here.
 
 ## COMPLETED SLICES
 - Existing Wave 1 cell scene, asset manifest/provenance, remote high fidelity generic cell with procedural fallback (through `749dd574`); see git history. Do not recreate.
@@ -19,24 +19,25 @@ Live Pages HTML now contains the local cell loader, registry, visual tier contro
 - Added HIGH/MEDIUM/LOW visual tiers. HIGH keeps the vendored cell and full particle draw, MEDIUM keeps the cell with half the free particles, LOW uses the procedural cell and a quarter of the free particle draw. Active/moving and selected particles are preserved. Mobile defaults LOW; desktop HIGH. No physiology or treatment state was changed.
 - Added membrane pump, Nav1.5, Kir2.1, and AQP4 focus buttons where those transporter sites exist. Camera derives its aim from existing patch site positions via semantic target IDs.
 - Converted CC0 9RON alpha/beta/FXYD C-alpha traces to a 31,272 triangle, 754 KB GLB. The selected pump in membrane closeup uses the mesh at HIGH/MEDIUM quality and its existing procedural proxy at LOW. Simulation pump phase moves the mesh slightly; ion transport remains in the existing state machine. Converter and integrity/provenance are included.
+- Converted CC0 9P24 Nav1.5 C-alpha trace to a 30,072 triangle, 724 KB GLB. Selected Nav1.5 uses it at HIGH/MEDIUM quality; open/inactivated state changes its highlight, and existing gating/ion movement remains authoritative. Other sites and LOW retain the procedural proxy. The converter still rebuilds 9RON identically.
 
 ## CURRENT SLICE
-Convert pinned Nav1.5 PDB 9P24 to a compact visual mesh and wire one selected closeup channel to that mesh, retaining the procedural proxy and existing gating.
+Convert pinned Kir2.1 PDB 7ZDZ to a compact visual mesh and wire one selected closeup channel to that mesh, retaining procedural proxy and existing physiology.
 
 ## EXACT RESUME POINT
-Check `git log -2` and `git status`; use `tools/build_pdb_backbone.py` for 9P24 after checking chain composition. Adapt converter or mesh material names if necessary. Wire only the selected Nav1.5 site to a single closeup mesh, keep a proxy for other sites and LOW quality. Update manifest and source record. Validate GLB triangles/hash and inline JS syntax. Publish through connected GitHub app if HTTPS git push lacks credentials.
+Check `git log -2` and `git status`; use `tools/build_pdb_backbone.py` for 7ZDZ after checking chain composition. Generalize palettes if needed (currently up to four chains). Add `membrane.kir` to the selected closeup mesh mapping, keep a proxy for other sites and LOW quality. Update manifest and source record, validate GLB and inline JS syntax, publish through connected GitHub app if HTTPS git push lacks credentials.
 
 ## NEXT 10 SLICES
-1. Add Nav1.5 simplified visual geometry and LOD hooks.
-2. Add Kir2.1 simplified visual geometry and LOD hooks.
-3. Add AQP4 simplified visual geometry and LOD hooks.
-4. Upgrade reusable membrane bilayer and ion/protein depth.
-5. Add reusable alveolar microanatomy driven by existing respiratory model.
-6. Add brain and cerebral vessel semantic geometry foundations.
-7. Add Lesson Director deterministic timeline shell driven by SyntheticPatient.
-8. Add first MOA data graph and UI shell.
-9. Add norepinephrine alpha-1/beta-1 MOA graph with synthetic shock context.
-10. Add hyperkalemia guided lesson through shared director.
+1. Add Kir2.1 simplified visual geometry and LOD hooks.
+2. Add AQP4 simplified visual geometry and LOD hooks.
+3. Upgrade reusable membrane bilayer and ion/protein depth.
+4. Add reusable alveolar microanatomy driven by existing respiratory model.
+5. Add brain and cerebral vessel semantic geometry foundations.
+6. Add Lesson Director deterministic timeline shell driven by SyntheticPatient.
+7. Add first MOA data graph and UI shell.
+8. Add norepinephrine alpha-1/beta-1 MOA graph with synthetic shock context.
+9. Add hyperkalemia guided lesson through shared director.
+10. Add reusable stroke vascular state and imaging primitives.
 
 ## KNOWN BUGS
 - No new runtime bug confirmed in this session. The previous `var sw=var sw=` parse error was fixed in `570f0d4b`; check for regression before push.
@@ -46,7 +47,7 @@ Check `git log -2` and `git status`; use `tools/build_pdb_backbone.py` for 9P24 
 - Cloud browser has WebGL disabled (`THREE.WebGLRenderer: Error creating WebGL context`); use a GPU-enabled environment for actual scene visual QA. This is an inspection-environment limitation, not evidence of a new app bug.
 
 ## TESTS LAST RUN
-- Inline JS and `camera-targets.js`: `node --check` passed; 14 named targets resolve. Generated 9RON GLB has three chain meshes, 31,272 triangles, no external images, valid glTF header; SHA-256 matches manifest. No `var sw=var sw=`; `git diff --check` passed. Earlier same-process local HTTP boot returned 200 for page, registry script, cell GLB. Pages HTML through `4ca4219` confirmed. WebGL creation failed in cloud browser, so visual and mobile 3D remain unverified.
+- Inline JS and `camera-targets.js`: `node --check` passed; 14 named targets resolve. 9RON and 9P24 GLBs have valid headers, 31,272 and 30,072 triangles, no external images, and hashes match manifest. The converter rebuilds 9RON byte for byte. No `var sw=var sw=`; `git diff --check` passed. Pages HTML and asset through `243daa5` confirmed. WebGL creation failed in cloud browser, so visual and mobile 3D remain unverified.
 
 ## FILES CURRENTLY BEING EDITED
-- None after 9RON mesh commit. Next slice likely adds `models/molecular/9p24-backbone.glb` and updates the same manifest, source notes, `index.html`, and this file.
+- None after Nav1.5 mesh commit. Next slice likely adds `models/molecular/7zdz-backbone.glb` and updates the same manifest, source notes, `index.html`, and this file.

@@ -66,9 +66,13 @@ def build(src, dest):
     scale = 2.4 / max(all_points.max(axis=0) - all_points.min(axis=0))
     blob = bytearray()
     buffer_views, accessors, meshes = [], [], []
+    palettes = ([('alpha1', [.88, .67, .30, 1]), ('beta1', [.39, .72, .67, 1]), ('FXYD', [.62, .52, .82, 1])]
+                if Path(src).stem.upper() == '9RON' else
+                [(f'chain {chain_id}', color) for chain_id, color in zip(chains, [
+                    [.95, .58, .38, 1], [.39, .72, .67, 1], [.62, .52, .82, 1], [.75, .80, .42, 1]])])
     materials = [
         {'name': name, 'pbrMetallicRoughness': {'baseColorFactor': color, 'metallicFactor': 0.08, 'roughnessFactor': 0.62}, 'doubleSided': True}
-        for name, color in [('alpha1', [.88, .67, .30, 1]), ('beta1', [.39, .72, .67, 1]), ('FXYD', [.62, .52, .82, 1])]
+        for name, color in palettes
     ]
 
     def add_array(data, target, kind, count, bounds=False):
