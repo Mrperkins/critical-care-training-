@@ -6,10 +6,10 @@ Read this file first each session. Work on `visual-overhaul` only. Update the co
 `visual-overhaul`
 
 ## CURRENT COMMIT
-`243daa50d06379aa317233c3e74ca9412a4bf685` at start of Nav1.5 mesh slice. See `git rev-parse HEAD` after commit.
+`07e29e40e0f825e2687b2c82d4f4472e2b8d1486` last implementation commit. Run `git rev-parse HEAD` for the exact state-file-only follow-up commit.
 
 ## LAST VERIFIED LIVE DEPLOY
-Live Pages HTML contains the 9RON loader through `243daa5`; both the cell GLB and 9RON GLB returned HTTP 200 from Pages. The cloud browser has WebGL disabled, so a 3D visual check remains unavailable here.
+Live Pages HTML contains the Nav1.5 loader from `07e29e4`. Cell, 9RON, and 9P24 GLBs returned HTTP 200 with the expected glTF MIME type. The cloud browser has WebGL disabled, so a 3D visual check remains unavailable here.
 
 ## COMPLETED SLICES
 - Existing Wave 1 cell scene, asset manifest/provenance, remote high fidelity generic cell with procedural fallback (through `749dd574`); see git history. Do not recreate.
@@ -45,9 +45,10 @@ Check `git log -2` and `git status`; use `tools/build_pdb_backbone.py` for 7ZDZ 
 ## KNOWN BLOCKERS
 - Git HTTPS push lacks credentials. Connected GitHub app create_blob/create_tree/create_commit/update_ref successfully published vendored asset commit, then local git fetched and aligned to `9b17f76`.
 - Cloud browser has WebGL disabled (`THREE.WebGLRenderer: Error creating WebGL context`); use a GPU-enabled environment for actual scene visual QA. This is an inspection-environment limitation, not evidence of a new app bug.
+- None pending for Pages: the initial Nav1.5 404 cleared after deployment; the live file and loader were then verified by HTTP. GPU visual QA remains blocked by the cloud browser's WebGL environment.
 
 ## TESTS LAST RUN
-- Inline JS and `camera-targets.js`: `node --check` passed; 14 named targets resolve. 9RON and 9P24 GLBs have valid headers, 31,272 and 30,072 triangles, no external images, and hashes match manifest. The converter rebuilds 9RON byte for byte. No `var sw=var sw=`; `git diff --check` passed. Pages HTML and asset through `243daa5` confirmed. WebGL creation failed in cloud browser, so visual and mobile 3D remain unverified.
+- Inline JS and `camera-targets.js`: `node --check` passed; 14 named targets resolve. 9RON and 9P24 GLBs have valid headers, 31,272 and 30,072 triangles, no external images, and hashes match manifest. The converter rebuilds 9RON byte for byte. No `var sw=var sw=`; `git diff --check` passed. Pages HTML and all three GLBs through `07e29e4` confirmed by HTTP. WebGL creation failed in cloud browser, so visual and mobile 3D remain unverified.
 
 ## FILES CURRENTLY BEING EDITED
 - None after Nav1.5 mesh commit. Next slice likely adds `models/molecular/7zdz-backbone.glb` and updates the same manifest, source notes, `index.html`, and this file.
