@@ -10,12 +10,13 @@ All 53 earlier bundle patches (Wave 1 chrome CSS, Studio lighting/fog, cell mate
 `visual-overhaul`
 
 ## CURRENT COMMIT
-Run `git rev-parse HEAD`. Last slice: "Restore source of truth: app/ source with visual-overhaul patches ported".
+Run `git rev-parse HEAD`. Last slice: "Alveolar close-up driven by the vent engine".
 
 ## LAST VERIFIED LIVE DEPLOY
 Live Pages HTML contains the Nav1.5 loader from `07e29e4`. Cell, 9RON, and 9P24 GLBs returned HTTP 200 with the expected glTF MIME type. The cloud browser has WebGL disabled, so a 3D visual check remains unavailable here.
 
 ## COMPLETED SLICES
+- Alveolar close-up (`app/src/vent/AlveolusScene.tsx`, mapping in `app/src/vent/alveolarMap.ts`, shared effects in `app/src/scene/effects.ts`). New vent view "Alveoli" (`ventView: 'alveolus'`, `ventTarget` in `app/src/app/store.ts`). 12 alveoli around an alveolar duct with shader-cut openings, a Voronoi capillary sheet on each wall, septal capillary tubes with instanced biconcave RBCs, pulmonary arteriole/venule, surfactant film (breaks into islands as function falls), fluid fill + froth, O₂/CO₂ diffusion motes, and a barrier cross-section (surfactant, lining fluid, type I cell, basement membrane, interstitium, endothelium, plasma, RBC) whose interstitium/lining thicken with the scenario. Everything is a READ of `session`: collapse = 1−open / pleural collapse / unventilated share (the same terms `updateGasParams` uses), size = regional volume, flooding = the scenario's fixed shunt above normal in wet recruitable lungs, low V/Q = `pt.p.lowVQ`, blood colour = SvO₂ → ccNormal / ccLow (blue→red teaching palette). Semantic targets `lung.whole/alveolus/capillary/rbc/membrane/edema/collapsed/recruited` in `cameraTargets.ts`; `registerAnchors('vent', …)` lets `resolveTarget` return live positions. `focusVentTarget(id)` and `window.__CCVent {session, focus, load, set}` for lessons/automation. HIGH/MEDIUM/LOW change sphere segments, capillary count and particle budgets only. `tests/alveolus.test.ts` (4): normal all aerated, ARDS dependent collapse recruited by PEEP 5→18 with larger end-expiratory size, oedema floods units that keep venous blood, PTX collapse. Screenshots (swiftshader): normal, ARDS PEEP 5/18 (recruited label), membrane normal/ARDS, oedema focus, PTX lung view unchanged, phone 390×844.
 - Membrane bilayer upgrade (`app/src/labs/cell/patch.tsx` → `Bilayer`): asymmetric leaflets (outer PC/sphingomyelin, inner PE + negatively charged PS), tapered saturated + cis-kinked unsaturated tails (inner leaflet more unsaturated) with a subtle GPU sway, cholesterol between tails, glycocalyx sugar chains on the outer leaflet, a translucent hydrophobic core band, and compact layer labels (Organelles label mode, hidden while a protein is focused, hidden on phones). LOW tier keeps the old cheap heads + straight tails. `SLAB` dimensions, site positions and ion crossings unchanged.
 - Restore source of truth: `app/` holds the full source; every visual-overhaul bundle patch re-implemented in TS (`app/src/labs/cell/openAssets.tsx` loaders, `scene/cameraTargets.ts`, tiers in `labStore.visualTier`, focus in `labStore.cameraTargetId`). Studio fog is now a `fog` prop (Lines scene disables it; the fog was washing out its far views). Verified by HTTP boot + WebGL (swiftshader) screenshots: vendored cell (HIGH), nucleus focus, 9RON pump mesh in membrane focus, Lines, vent — no page errors.
 - Existing Wave 1 cell scene, asset manifest/provenance, remote high fidelity generic cell with procedural fallback (through `749dd574`); see git history. Do not recreate.
@@ -32,13 +33,13 @@ Live Pages HTML contains the Nav1.5 loader from `07e29e4`. Cell, 9RON, and 9P24 
 - Added AQP4 from the full 3GD8 biological assembly (four 223-residue chains, 21,312 triangles). Selected AQP4 uses this mesh at HIGH/MEDIUM, with the existing procedural proxy at LOW. No water/volume physiology changes.
 
 ## CURRENT SLICE
-Alveolar microscene (slice 2 of the queue).
+Neuro / cerebral vascular foundation.
 
 ## EXACT RESUME POINT
-Alveolar microanatomy, in source. The alveolus/capillary/RBC scene already exists in `app/src/labs/LabScene.tsx` legacy micro and `app/src/asset/micro.ts` (alveolar_sac, pulm_capillaries, rbc meshes from `pipeline/build-micro.ts`), and the vent module's lung scene is `app/src/vent/LungScene.tsx` driven by `app/src/vent/session.ts`. Build a reusable `AlveolusScene` (O₂/CO₂ movement, surfactant, fluid/edema, collapse/recruitment) whose state is read from `session` (recruitment, overdistension, shunt, PEEP) — do NOT add a second vent engine. Wire it as a new vent view (`ventView` in `app/src/app/store.ts`) and register `lung.alveolus` anchors via `scene/cameraTargets.ts`.
+Build `app/src/neuro/` foundation: brain + ICA, Circle of Willis (ACoA, PCoA), ACA/MCA (M1/M2)/PCA, vertebral + basilar arteries as landmark-driven tubes (reuse the `app/src/lines/vessels.ts` builder pattern and `scene/effects.ts`), pathology primitives (occlusion, penumbra/core region, haemorrhage volume) as pure state, and `brain.*` semantic targets (`brain.whole`, `brain.cow`, `brain.mca_l`, `brain.mca_r`, `brain.aca`, `brain.pca`, `brain.basilar`) registered with `registerAnchors`. Body brain geometry is in `body.glb` (HuBMAP). No lesson yet — foundation + a viewer entry point only.
 
 ## NEXT 10 SLICES
-1. Alveolar microscene driven by the existing vent session.
+1. (done) Alveolar microscene.
 2. Brain + cerebral vessel semantic geometry foundations (HuBMAP brain is already in body.glb; cerebral arteries must be drawn — see `app/src/lines/vessels.ts` for the landmark-driven vessel builder pattern).
 3. Lesson Director: deterministic timeline (clock-driven, seek/pause, no chained setTimeout) that directs existing sessions; generalise `app/src/app/LessonShell.tsx`.
 4. MOA data graph (MechanismDefinition/Node/Edge) + UI shell as a new top-level mode.
@@ -57,7 +58,7 @@ Alveolar microanatomy, in source. The alveolus/capillary/RBC scene already exist
 - Visual QA: this environment has WebGL via swiftshader (`--use-gl=angle --use-angle=swiftshader`); slow but real. Serve the repo root with `python3 -m http.server` (binary GLBs need http, not file://).
 
 ## TESTS LAST RUN
-- `app`: `tsc --noEmit` clean; `vitest` 87/87. `tools/validate_visual_assets.py` passed. HTTP + WebGL screenshots of membrane HIGH (bilayer, labels), Kir2.1 focus (7ZDZ mesh), LOW tier: no page errors.
+- `app`: `tsc --noEmit` clean; `vitest` 91/91. `tools/validate_visual_assets.py` passed; no `var sw=var sw=`. HTTP + WebGL screenshots of the alveolar view (normal, ARDS PEEP 5/18, membrane, oedema, phone) and PTX lung view: no page errors. Screenshot note: call `window.__CCVent.session.tick()` in a loop and set `window.__instant=true` because swiftshader frame rate is too low for the sim to advance in real time.
 
 ## FILES CURRENTLY BEING EDITED
-- None. Next: new `app/src/vent/Alveolus*.tsx`.
+- None. Next: new `app/src/neuro/*`.
