@@ -13,7 +13,16 @@
       "method": "cryo-EM",
       "resolutionAngstrom": 3.41,
       "role": "Na+/K+-ATPase visual source",
-      "source": "https://www.rcsb.org/structure/9RON"
+      "source": "https://www.rcsb.org/structure/9RON",
+      "id": "9ron-na-k-atpase-backbone",
+      "creator": "wwPDB 9RON depositors; mesh conversion by project",
+      "license": "CC0-1.0",
+      "commercialUse": true,
+      "modifications": "C-alpha traces converted to 12-sided tubes; recentered, scaled, chain colored. Visual only.",
+      "localPath": "models/molecular/9ron-backbone.glb",
+      "derivedMeshTriangles": 31272,
+      "sourceCifSha256": "e18b3f96d4d30942d5a046b570801d041612507f63490d274c0201bb3db02e5b",
+      "sha256": "74f61da6dfb1b7072f2e139c2b35f2815a5309a4f6ab65d87886aabce78cdb5c"
     },
     "nav15": {
       "pdb": "9P24",
