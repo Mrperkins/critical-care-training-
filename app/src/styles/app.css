@@ -493,3 +493,5 @@ details.card summary{cursor:pointer;font:600 14px var(--fs);margin-bottom:6px}
 .wf-seq{margin:6px 0 0;padding-left:20px;display:grid;gap:4px;font-size:13px}.wf-seq li.v-ok{color:var(--ok)}.wf-seq li.v-order{color:var(--warn)}.wf-seq li.v-wrong,.wf-seq li.v-harm{color:var(--bad)}.wf-seq.ref li{color:var(--ink)}
 .linkish{background:none;border:0;color:var(--dim);padding:0;font-size:12.5px;cursor:pointer}.linkish:hover{color:var(--ink)}
 .lvl-proc{color:#7fc4d8;border-color:rgba(127,196,216,.5)}
+.iabp-svg{width:100%;height:auto;background:#05090d;border-radius:8px;margin:4px 0 8px}.iabp-trace{fill:none;stroke:#ef5a4c;stroke-width:1.8}.iabp-inf{stroke:#6fcf97;stroke-dasharray:3 3}.iabp-def{stroke:#7cc4d4;stroke-dasharray:3 3}
+.iabp-lab{font:500 9.5px var(--fm);fill:rgba(222,235,241,.75)}.iabp-lab.l{text-anchor:start;fill:rgba(222,235,241,.5)}.chip.bad{border-color:var(--bad);color:var(--bad)}

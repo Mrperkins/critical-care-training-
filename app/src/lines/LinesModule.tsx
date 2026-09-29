@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { loadBodyAsset, type BodyAsset } from '../asset/body';
 import { lines as linesSession } from './session';
+import { IabpCard } from '../procedures/IabpCard';
+import { useUI as useUIPulse } from '../app/store';
 import { loadLinesAsset, type LinesAsset } from '../asset/lines';
 import { useUI } from '../app/store';
 import { useIsPhone } from '../app/App';
@@ -38,6 +40,7 @@ export function LinesModule() {
           <NumbersCard />
           <BreathingCard />
           <TreatCard />
+          <IabpSlot />
           <StoryCard />
         </>}
         {mode === 'learn' && <LinesLearn />}
@@ -61,3 +64,6 @@ function SceneOverlay() {
     <div className="mon-tools"><button className={`tgl${frozen ? ' on' : ''}`} aria-pressed={frozen} onClick={() => set({ frozen: !frozen })}>{frozen ? 'Unfreeze monitor' : 'Freeze & measure'}</button></div>
   </>);
 }
+
+/** The balloon pump is offered where it is used: cardiogenic shock. */
+function IabpSlot() { useUIPulse((s) => s.pulse); return linesSession.sc.id === 'cardiogenic' ? <IabpCard /> : null; }

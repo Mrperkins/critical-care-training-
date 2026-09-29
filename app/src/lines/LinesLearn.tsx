@@ -1,3 +1,6 @@
+import { IABP_LESSON } from '../director/lessons/iabp';
+import { IabpCard } from '../procedures/IabpCard';
+import { useDirector } from '../director/director';
 import { LINES_WORKFLOWS } from '../workflows/linesWorkflows';
 import { DripCard } from '../workflows/DripCard';
 import { LessonShell } from '../app/LessonShell';
@@ -32,8 +35,8 @@ export function LinesLearn() {
   return (
     <LessonShell<LLesson>
       lessons={LINES_LESSONS}
-      timelines={LINES_TIMELINES}
-      timelineChildren={() => <><O2Card /><NumbersCard /><TreatCard /></>}
+      timelines={[...LINES_TIMELINES, IABP_LESSON]}
+      timelineChildren={() => <TimelineCards />}
       workflows={LINES_WORKFLOWS}
       workflowChildren={() => <><NumbersCard /><TreatCard /><DripCard /></>}
       intro="Each lesson sets up the bedside for you — patient, breathing, bed, transducer and faults — then talks you through what the monitor and the heart are doing. Everything stays live: change anything and see what happens."
@@ -44,3 +47,5 @@ export function LinesLearn() {
     </LessonShell>
   );
 }
+
+function TimelineCards() { const id = useDirector((s) => s.tl?.id); return id === IABP_LESSON.id ? <><IabpCard /><NumbersCard /></> : <><O2Card /><NumbersCard /><TreatCard /></>; }
