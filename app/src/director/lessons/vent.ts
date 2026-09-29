@@ -10,10 +10,14 @@ import { focusVentTarget } from '../../vent/AlveolusScene';
 import type { VentSettings } from '../../physiology/mechanics';
 
 const SETTLE_S = 14; // seconds of ventilation simulated before a scene is shown (≈ 3–4 breaths)
-function scene(id: string, p: Partial<VentSettings>) {
+const run = (sec: number) => { for (let i = 0; i < Math.round(sec * 20); i++) session.tick(0.05); };
+interface SceneOpts { hold?: 'i' | 'e'; fix?: 'decompress' | 'bronchodilator'; fixAfter?: number; view?: import('../../app/store').VentView }
+function scene(id: string, p: Partial<VentSettings>, o: SceneOpts = {}) {
   session.load(id); if (Object.keys(p).length) session.set(p);
-  for (let i = 0; i < SETTLE_S * 20; i++) session.tick(0.05);
-  const ui = useUI.getState(); ui.set({ ventScenario: id, pulse: ui.pulse + 1 });
+  run(SETTLE_S);
+  if (o.fix) { session.intervene(o.fix); run(o.fixAfter ?? 14); }
+  if (o.hold) { session.hold(o.hold); run(9); } // a hold happens on the next mandatory breath and is then measured
+  const ui = useUI.getState(); ui.set({ ventScenario: id, pulse: ui.pulse + 1, ...(o.view ? { ventView: o.view, ventTarget: 'lung.whole' } : {}) });
 }
 
 export const ARDS_SIGNATURE: Timeline = {
@@ -37,4 +41,43 @@ export const ARDS_SIGNATURE: Timeline = {
       say: 'The goal is in between: enough PEEP to keep the dependent lung open, small tidal volumes of about six millilitres per kilogram, a plateau below thirty and a driving pressure below fifteen. Watch the numbers as you choose.' },
   ],
 };
-export const VENT_TIMELINES: Timeline[] = [ARDS_SIGNATURE];
+
+export const COMPLIANCE_VS_RESISTANCE: Timeline = {
+  id: 'vent-ards-vs-obstruction', title: 'ARDS vs asthma / COPD: stiff lung or narrow airway?', level: 'core', module: 'vent',
+  blurb: 'Both raise the peak pressure. An inspiratory hold separates a compliance problem (plateau high) from a resistance problem (peak–plateau gap wide), and an expiratory hold finds the trapped gas.',
+  setup: () => scene('normal', { mode: 'VC', vt: 0.45, peep: 5 }, { view: 'front' }),
+  cues: [
+    { id: 'cr-1', at: 0, dur: 11, hold: true, title: 'Peak = resistance + elastance + PEEP', apply: () => scene('normal', { mode: 'VC', vt: 0.45, peep: 5 }, { hold: 'i', view: 'front' }),
+      say: 'In volume control with constant flow, the peak pressure has three parts: PEEP, the pressure to stretch the lung — volume divided by compliance — and the pressure to push flow through the airways — resistance times flow. An inspiratory hold stops the flow, and what remains is the plateau.' },
+    { id: 'cr-2', at: 12, dur: 12, hold: true, title: 'ARDS: a compliance problem', apply: () => scene('ards', { mode: 'VC', vt: 0.42, peep: 10 }, { hold: 'i', view: 'side' }),
+      say: 'In ARDS the lung is small and stiff. Peak and plateau are both high and close together: the gap between them — the resistive part — is normal. The fix is about volume and PEEP: smaller breaths, keep the plateau under thirty.' },
+    { id: 'cr-3', at: 25, dur: 12, hold: true, title: 'Asthma: a resistance problem', apply: () => scene('asthma', {}, { hold: 'i', view: 'airway' }),
+      say: 'In severe asthma the airways are narrow. The peak pressure is very high, but the plateau is only modestly raised: the big peak-to-plateau gap is resistance. Raising the peak alarm will not help; opening the airways will.' },
+    { id: 'cr-4', at: 38, dur: 12, hold: true, title: 'Air trapping and auto-PEEP', apply: () => scene('asthma', {}, { hold: 'e', view: 'airway' }),
+      say: 'Look at the flow trace: expiratory flow has not returned to zero when the next breath starts. Gas is trapped. An expiratory hold measures the pressure it creates: auto-PEEP, on top of the set PEEP. Trapped gas raises intrathoracic pressure and can drop the blood pressure.' },
+    { id: 'cr-5', at: 51, dur: 11, hold: true, title: 'Treat the airway, give time to exhale', apply: () => scene('asthma', { rr: 10 }, { fix: 'bronchodilator', hold: 'e', view: 'airway' }),
+      say: 'A bronchodilator lowers resistance and a slower rate lengthens expiration. The peak falls, the gap narrows, expiratory flow reaches zero and the auto-PEEP melts away.' },
+    { id: 'cr-6', at: 63, dur: 10, hold: true, title: 'COPD: flow limitation', apply: () => scene('copd', { rr: 22 }, { hold: 'e', view: 'airway' }),
+      say: 'In COPD the small airways collapse during expiration, limiting flow no matter how hard the patient pushes. The same rules apply: long expiratory times, modest minute ventilation, and measure the trapped pressure.' },
+  ],
+};
+
+export const TENSION_PTX: Timeline = {
+  id: 'vent-tension-ptx', title: 'Tension pneumothorax on the ventilator', level: 'core', module: 'vent',
+  blurb: 'Pleural air under pressure: the lung collapses, peak pressures climb, venous return falls and the patient goes into obstructive shock — until the chest is decompressed.',
+  setup: () => scene('normal', {}, { view: 'front' }),
+  cues: [
+    { id: 'ptx-1', at: 0, dur: 9, hold: true, target: 'lung.whole', title: 'Before', apply: () => scene('normal', {}, { view: 'front' }),
+      say: 'A ventilated patient with normal lungs. Note the peak pressure, the saturation and the blood pressure.' },
+    { id: 'ptx-2', at: 10, dur: 12, hold: true, target: 'lung.whole', title: 'Air under pressure', apply: () => scene('ptx', {}, { view: 'front' }),
+      say: 'A leak from the right lung lets air into the pleural space with every positive-pressure breath, and it cannot escape. Pleural pressure rises, the right lung collapses toward the hilum, and the mediastinum is pushed away.' },
+    { id: 'ptx-3', at: 23, dur: 10, hold: true, target: 'lung.collapsed', title: 'Shunt and falling saturation', apply: () => { scene('ptx', {}); useUI.getState().set({ ventView: 'alveolus', ventTarget: 'lung.collapsed' }); },
+      say: 'Down at the alveoli, the compressed lung has collapsed but is still perfused: blood passes through without meeting air, and the saturation falls.' },
+    { id: 'ptx-4', at: 34, dur: 11, hold: true, target: 'lung.whole', title: 'Obstructive shock', apply: () => scene('ptx', {}, { view: 'front' }),
+      say: 'The high intrathoracic pressure squeezes the great veins, venous return falls, and cardiac output with it. Peak pressures alarm high, the blood pressure drops and the heart races. This is obstructive shock: a mechanical problem that fluids and pressors cannot fix.' },
+    { id: 'ptx-5', at: 46, dur: 11, hold: true, target: 'lung.whole', title: 'Decompress', apply: () => scene('ptx', {}, { fix: 'decompress', fixAfter: 16, view: 'front' }),
+      say: 'Needle decompression, then a chest tube. The pleural air escapes, the lung re-expands, peak pressure falls, venous return and blood pressure recover, and the saturation climbs.' },
+  ],
+};
+
+export const VENT_TIMELINES: Timeline[] = [ARDS_SIGNATURE, COMPLIANCE_VS_RESISTANCE, TENSION_PTX];

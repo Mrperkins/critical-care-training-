@@ -4,6 +4,7 @@ import { lab } from './lab';
 import { useUI } from '../app/store';
 import { useAbgUI } from './abgStore';
 import { SampleCards, StationCard, AcidBaseMap, AbgInterpret } from './AbgPanel';
+import { ABG_TIMELINES } from '../director/lessons/abg';
 
 /** Replay the lesson from its last preset load up to step i (knobs accumulate; time jumps and drugs only on their own step). */
 export function applyAbgStep(lesson: AbgLesson, i: number) {
@@ -24,7 +25,7 @@ export function applyAbgStep(lesson: AbgLesson, i: number) {
 
 export function AbgLearn() {
   return (
-    <LessonShell lessons={ABG_LESSONS} apply={applyAbgStep} intro="The narrator changes causes — drive, V/Q, shunt, haemoglobin, acid load, time — and the patient model produces the gases. The anatomy on the left follows the same numbers.">
+    <LessonShell lessons={ABG_LESSONS} apply={applyAbgStep} timelines={ABG_TIMELINES} timelineChildren={() => <><SampleCards /><AcidBaseMap /><AbgInterpret /></>} intro="The narrator changes causes — drive, V/Q, shunt, haemoglobin, acid load, time — and the patient model produces the gases. The anatomy on the left follows the same numbers.">
       {() => <><SampleCards /><StationCard /><AcidBaseMap /><AbgInterpret /></>}
     </LessonShell>
   );

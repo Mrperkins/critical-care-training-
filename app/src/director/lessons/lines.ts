@@ -8,17 +8,26 @@ import type { Timeline } from '../timeline';
 import { lines } from '../../lines/session';
 import { useLinesUI, type LinesView } from '../../lines/linesStore';
 import { useUI } from '../../app/store';
+import { advance, type PatientParams } from '../../physiology/patient';
 
 const SETTLE_S = 16;
-export interface ShockScene { id: string; nore?: number; dobutamine?: number; fluids?: number; prbc?: number; tap?: boolean; view: LinesView }
+export interface ShockScene { id: string; nore?: number; dobutamine?: number; fluids?: number; prbc?: number; tap?: boolean; view: LinesView;
+  /** haemoglobin g/dL (dilution, anaemia), cardiac-output / SVR multipliers, shunt fraction (hypoxaemia) */ hb?: number; coMult?: number; svrMult?: number; shunt?: number;
+  /** other patient parameters (e.g. lactate production in sepsis) and minutes of slow physiology to run before settling (lactate, SvO₂ trends) */ params?: Partial<PatientParams>; physioMin?: number }
 export function shockScene(sc: ShockScene) {
   lines.load(sc.id);
+  if (sc.hb != null) lines.pt.p.hb = sc.hb;
+  if (sc.coMult != null) lines.pt.p.co *= sc.coMult;
+  if (sc.shunt != null) lines.pt.p.shunt = sc.shunt;
+  if (sc.svrMult != null) lines.pt.p.svr *= sc.svrMult;
+  if (sc.params) Object.assign(lines.pt.p, sc.params);
   if (sc.nore) lines.setNore(sc.nore);
   if (sc.dobutamine) lines.setDobutamine(sc.dobutamine);
   for (let i = 0; i < (sc.fluids ?? 0); i++) lines.fluid();
   for (let i = 0; i < (sc.prbc ?? 0); i++) lines.transfuse();
   if (sc.tap) lines.pericardiocentesis();
   lines.settleTherapy();
+  if (sc.physioMin) { advance(lines.pt, sc.physioMin); lines.recompute(); }
   for (let i = 0; i < SETTLE_S * 20; i++) lines.tick(0.05);
   useLinesUI.getState().set({ view: sc.view, labels: true, showTrue: false, frozen: false });
   useUI.getState().set({ pulse: useUI.getState().pulse + 1 });
@@ -58,4 +67,44 @@ export const SHOCK_STATES: Timeline = {
       say: 'Low resistance with high output: distributive. Low output with high filling pressures: cardiogenic. High filling pressures with a heart that cannot fill: obstructive. Low output with low filling pressures: hypovolaemic. The monitor tells you which lever to pull.' },
   ],
 };
-export const LINES_TIMELINES: Timeline[] = [SHOCK_STATES];
+
+export const OXYGEN_DELIVERY: Timeline = {
+  id: 'lines-oxygen-delivery', title: 'Oxygen delivery: DO₂ = CO × CaO₂', level: 'core', module: 'lines',
+  blurb: 'Haemoglobin, saturation and cardiac output each multiply into oxygen delivery. Break any one and the tissues run short — the lactate and the venous saturation tell you.',
+  setup: at({ id: 'normal', view: 'bed' }),
+  cues: [
+    { id: 'do-1', at: 0, dur: 11, hold: true, title: 'The equation', apply: at({ id: 'normal', view: 'bed' }),
+      say: 'Oxygen content is mostly haemoglobin carrying oxygen: one point three four times haemoglobin times saturation, plus a tiny dissolved amount. Delivery is content times cardiac output. Normally about a thousand millilitres a minute is delivered and a quarter is used, so venous blood returns about seventy-five percent saturated.' },
+    { id: 'do-2', at: 12, dur: 11, hold: true, title: 'Anaemia halves the content', apply: at({ id: 'normal', hb: 7, svrMult: 0.8, physioMin: 60, view: 'bed' }),
+      say: 'Halve the haemoglobin. The saturation is unchanged — the pulse oximeter looks perfect — but the oxygen content has halved. A healthy heart raises its output and thinner blood lowers the resistance, which recovers part of the delivery. The oximeter measures the percentage of haemoglobin that is full, not how much haemoglobin there is.' },
+    { id: 'do-3', at: 24, dur: 10, hold: true, title: 'A failing heart cannot compensate', apply: at({ id: 'cardiogenic', hb: 7, physioMin: 60, view: 'heart' }),
+      say: 'Give the same anaemia to a patient whose heart cannot raise its output. Now delivery falls far below what the tissues need: venous saturation drops and lactate starts to climb.' },
+    { id: 'do-4', at: 35, dur: 10, hold: true, title: 'Hypoxaemia lowers saturation', apply: at({ id: 'normal', shunt: 0.32, physioMin: 60, view: 'bed' }),
+      say: 'Now keep the haemoglobin normal but add shunt in the lungs. The saturation falls, and content falls with it — but less than you might expect, because of the shape of the dissociation curve.' },
+    { id: 'do-5', at: 46, dur: 11, hold: true, title: 'Low output: cardiogenic shock', apply: at({ id: 'cardiogenic', physioMin: 60, view: 'heart' }),
+      say: 'With normal blood but a failing pump, delivery falls in proportion to the output. The tissues extract more, venous saturation falls, and lactate rises as cells switch to anaerobic metabolism.' },
+    { id: 'do-6', at: 58, dur: 11, hold: true, title: 'High delivery, still lactic: sepsis', apply: at({ id: 'sepsis', params: { lactateProd: 3 }, physioMin: 60, view: 'wrist' }),
+      say: 'Septic shock can have a high cardiac output and high delivery, yet lactate is raised: blood is poorly distributed through the microcirculation, and the cells themselves use oxygen badly. A normal or high venous saturation does not rule out tissue hypoxia.' },
+  ],
+};
+
+export const HAEMORRHAGE_TRANSFUSION: Timeline = {
+  id: 'lines-haemorrhage-transfusion', title: 'Haemorrhagic shock and transfusion', level: 'core', module: 'lines',
+  blurb: 'Blood loss empties the tank before the haemoglobin falls; crystalloid dilutes it; blood restores both volume and oxygen content. And how to recognise a reaction.',
+  setup: at({ id: 'normal', view: 'bed' }),
+  cues: [
+    { id: 'ht-1', at: 0, dur: 9, hold: true, title: 'Before', apply: at({ id: 'normal', view: 'bed' }), say: 'A healthy adult. Note the haemoglobin, the pressures, and the oxygen delivery.' },
+    { id: 'ht-2', at: 10, dur: 12, hold: true, title: 'Early: the haemoglobin lies', apply: at({ id: 'hypovol', hb: 13.5, physioMin: 30, view: 'bed' }),
+      say: 'Rapid bleeding. What is lost is whole blood, so the haemoglobin concentration is almost unchanged at first. The problem is volume: low preload, low CVP, small stroke volume, narrow pulse pressure, a fast heart and falling delivery.' },
+    { id: 'ht-3', at: 23, dur: 12, hold: true, title: 'Crystalloid dilutes', apply: at({ id: 'hypovol', hb: 9, fluids: 2, view: 'bed' }),
+      say: 'Two litres of crystalloid restore some volume and pressure, but now the haemoglobin falls: the remaining red cells are diluted. Delivery improves less than the blood pressure suggests, and much of the crystalloid leaves the circulation within an hour.' },
+    { id: 'ht-4', at: 36, dur: 12, hold: true, title: 'Give blood', apply: at({ id: 'hypovol', hb: 9, prbc: 3, view: 'bed' }),
+      say: 'Packed red cells restore volume and oxygen-carrying capacity together. Stroke volume and pulse pressure rise, the heart slows, the haemoglobin climbs and delivery improves. In major haemorrhage, give plasma and platelets with the red cells, and calcium.' },
+    { id: 'ht-5', at: 49, dur: 12, hold: true, title: 'Watch for a reaction', apply: at({ id: 'hypovol', hb: 9, prbc: 3, view: 'wrist' }),
+      say: 'During every unit, watch the patient. Fever, rigors, a sudden fall in pressure, wheeze, urticaria, back pain or dark urine suggest a reaction. Stop the transfusion, keep the line open with saline, check the patient and the product, and follow your transfusion protocol.' },
+    { id: 'ht-6', at: 62, dur: 9, hold: true, title: 'Stop the bleeding', apply: at({ id: 'hypovol', hb: 9, prbc: 3, view: 'vessels' }),
+      say: 'Transfusion buys time. Definitive treatment is control of the bleeding: pressure, tourniquet, surgery or interventional radiology.' },
+  ],
+};
+
+export const LINES_TIMELINES: Timeline[] = [SHOCK_STATES, OXYGEN_DELIVERY, HAEMORRHAGE_TRANSFUSION];

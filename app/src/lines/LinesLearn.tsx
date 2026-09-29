@@ -5,6 +5,7 @@ import { useLinesUI } from './linesStore';
 import { useUI } from '../app/store';
 import { FlushCard, NumbersCard, SetupCard, LineCard, TreatCard } from './LinesPanel';
 import { LINES_TIMELINES } from '../director/lessons/lines';
+import { O2Card } from './O2Card';
 import { LinesNormals } from './LinesNormals';
 
 export function applyStep(d: LStepDo, fresh = false) {
@@ -30,7 +31,7 @@ export function LinesLearn() {
     <LessonShell<LLesson>
       lessons={LINES_LESSONS}
       timelines={LINES_TIMELINES}
-      timelineChildren={() => <><NumbersCard /><TreatCard /></>}
+      timelineChildren={() => <><O2Card /><NumbersCard /><TreatCard /></>}
       intro="Each lesson sets up the bedside for you — patient, breathing, bed, transducer and faults — then talks you through what the monitor and the heart are doing. Everything stays live: change anything and see what happens."
       apply={(l, i) => { if (i === 0) lines.setNore(0); applyStep(l.steps[i].do); }}
       reference={() => <LinesNormals />}
