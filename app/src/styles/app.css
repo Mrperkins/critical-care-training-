@@ -488,3 +488,8 @@ details.card summary{cursor:pointer;font:600 14px var(--fs);margin-bottom:6px}
 .us-badge{position:absolute;right:8px;bottom:6px;background:rgba(5,9,13,.7)}
 .us-map svg{width:100%;height:100%;max-height:100%}
 @media (max-width:760px){.us-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.wf-opts{display:grid;gap:6px;margin-top:6px}.wf-opt{text-align:left;background:var(--pane2);border:1px solid var(--line);border-radius:8px;padding:8px 10px;color:var(--ink);font-size:13.5px}.wf-opt:hover{border-color:var(--line2)}
+.wf-foot{display:flex;justify-content:space-between;margin-top:8px}
+.wf-seq{margin:6px 0 0;padding-left:20px;display:grid;gap:4px;font-size:13px}.wf-seq li.v-ok{color:var(--ok)}.wf-seq li.v-order{color:var(--warn)}.wf-seq li.v-wrong,.wf-seq li.v-harm{color:var(--bad)}.wf-seq.ref li{color:var(--ink)}
+.linkish{background:none;border:0;color:var(--dim);padding:0;font-size:12.5px;cursor:pointer}.linkish:hover{color:var(--ink)}
+.lvl-proc{color:#7fc4d8;border-color:rgba(127,196,216,.5)}

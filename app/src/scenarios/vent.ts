@@ -16,7 +16,7 @@ export interface LungSpec {
   right?: Partial<Compartment> & { rFixed?: number }; left?: Partial<Compartment> & { rFixed?: number };
   tension?: number;
 }
-export type Fix = 'bronchodilator' | 'suction' | 'decompress' | 'bronchoscopy' | 'paralyse';
+export type Fix = 'bronchodilator' | 'suction' | 'decompress' | 'bronchoscopy' | 'paralyse' | 'chestTube';
 export interface VentScenario {
   id: string; name: string; short: string; story: string;
   lung: LungSpec; spasm: number; effort: PatientEffort; settings: Partial<VentSettings>;

@@ -18,7 +18,7 @@ export class VentSession {
   m!: Mechanics; sc!: VentScenario; dyss: DyssId | null = null;
   effort: PatientEffort = { pmax: 0, rate: 0, ti: 1, expPush: 0 };
   // interventions / time-varying lung state
-  spasm = 0; bdT = -1; suctionT = -1; decompT = -1; bronchT = -1; paralysed = false;
+  spasm = 0; bdT = -1; suctionT = -1; decompT = -1; bronchT = -1; tubeT = -1; paralysed = false;
   baseRett = 4; baseRettQ = 1.5; baseTension = 0; baseCollapsed: [number, number] = [0, 0]; plugR: number | null = null;
   // buffers
   t = new Float64Array(N); paw = new Float32Array(N); flow = new Float32Array(N); vol = new Float32Array(N); pmus = new Float32Array(N); ph = new Uint8Array(N); palv = new Float32Array(N);
@@ -36,7 +36,7 @@ export class VentSession {
     const sc = VENT_SCENARIO[id] ?? VENT_SCENARIO.normal; this.sc = sc; this.dyss = dyss;
     const d = dyss ? DYSS[dyss] : null;
     this.effort = { ...(d ? d.effort : sc.effort) };
-    this.spasm = sc.spasm; this.bdT = -1; this.suctionT = -1; this.decompT = -1; this.bronchT = -1; this.paralysed = false;
+    this.spasm = sc.spasm; this.bdT = -1; this.suctionT = -1; this.decompT = -1; this.bronchT = -1; this.tubeT = -1; this.paralysed = false;
     const lung = buildLung(sc, this.spasm);
     this.baseRett = lung.Rett; this.baseRettQ = lung.RettQ; this.baseTension = lung.tension; this.baseCollapsed = [lung.comps[0].collapsed, lung.comps[1].collapsed];
     this.plugR = sc.lung.right && (sc.lung.right as { rFixed?: number }).rFixed != null ? (sc.lung.right as { rFixed?: number }).rFixed! : null;
@@ -65,6 +65,7 @@ export class VentSession {
     if (f === 'suction') this.suctionT = 0;
     if (f === 'decompress') this.decompT = 0;
     if (f === 'bronchoscopy') this.bronchT = 0;
+    if (f === 'chestTube') this.tubeT = 0;
     if (f === 'paralyse') { this.paralysed = true; this.m.pt = { pmax: 0, rate: 0, ti: 1, expPush: 0 }; }
     this.version++; this.changedAt = this.breathN;
   }
@@ -83,6 +84,9 @@ export class VentSession {
     });
     if (this.suctionT >= 0) { this.suctionT += dt; const f = Math.min(1, this.suctionT / 2); l.Rett = this.baseRett + (4 - this.baseRett) * f; l.RettQ = this.baseRettQ + (1.5 - this.baseRettQ) * f; }
     if (this.decompT >= 0) { this.decompT += dt; const f = Math.min(1, this.decompT / 6); l.tension = this.baseTension * (1 - Math.min(1, f * 3)); l.comps.forEach((c, k) => (c.collapsed = this.baseCollapsed[k] * (1 - 0.85 * f))); }
+    // chest drain: definitive — pleural air evacuated, tension gone and the lung fully re-expands (over ~10 s of screen time)
+    if (this.tubeT >= 0) { this.tubeT += dt; const f = Math.min(1, this.tubeT / 10); const needle = this.decompT >= 0 ? Math.min(1, this.decompT / 6) : 0;
+      l.tension = this.baseTension * (1 - Math.max(Math.min(1, f * 3), Math.min(1, needle * 3))); l.comps.forEach((c, k) => (c.collapsed = this.baseCollapsed[k] * (1 - Math.max(f, 0.85 * needle)))); }
     if (this.bronchT >= 0 && this.plugR != null) { this.bronchT += dt; const f = Math.min(1, this.bronchT / 3); this.plugR = 150 + (4 - 150) * f; if (f >= 1) this.plugR = 4; }
   }
 
