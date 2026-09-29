@@ -455,3 +455,4 @@ details.card summary{cursor:pointer;font:600 14px var(--fs);margin-bottom:6px}
 .moa-sel-row{display:grid;grid-template-columns:26px 1fr;align-items:center;gap:6px;font:500 11px var(--fm);color:var(--ink);margin-top:4px}
 .moa-sel-row i{height:6px;border-radius:3px;background:rgba(255,255,255,.08);overflow:hidden}.moa-sel-row b{display:block;height:100%;background:#a98bf0}
 .phone .moa-sel{display:none}.phone .moa-graph{padding:6px}
+.moa-edge.none{opacity:.7}

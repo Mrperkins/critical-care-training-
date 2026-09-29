@@ -35,7 +35,7 @@ export function MoaModule() {
         <DirectorPlayer />
         <Vitals def={def} />
         {mode !== 'explore' && <p className="muted small" style={{ padding: '0 4px' }}>Learn, Challenge and Simulate views for drugs are coming; the narrated mechanism above is the lesson.</p>}
-        <p className="credit">Mechanism graph: original teaching summary. Patient response: {def.patient?.engine ?? '—'} ({def.patient?.scenario}), the same engine as the Lines module — the drug layer only sets exposure.</p>
+        <p className="credit">Mechanism graph: original teaching summary. Patient response: {def.patient?.engine ?? '—'} ({def.patient?.scenario}) — an existing engine of this app; the drug layer only sets exposure.</p>
       </aside>
     </main>
   );
@@ -46,7 +46,7 @@ function MechGraph({ def }: { def: MechanismDefinition }) {
   const box = useRef<HTMLDivElement>(null); const [vertical, setVertical] = useState(false);
   useEffect(() => { const el = box.current; if (!el) return; const ro = new ResizeObserver(() => setVertical(el.clientWidth / Math.max(1, el.clientHeight) < 1.35)); ro.observe(el); return () => ro.disconnect(); }, []);
   const { W, H } = useMemo(() => { const r = ranks(def); const cols: Record<number, number> = {}; Object.values(r).forEach((k) => { cols[k] = (cols[k] ?? 0) + 1; }); const steps = Math.max(...Object.values(r)), wide = Math.max(...Object.values(cols));
-    return vertical ? { W: Math.max(600, 214 * wide + 180), H: 84 * steps + 90 } : { W: 200 * steps + 220, H: Math.max(360, 92 * wide + 80) }; }, [def, vertical]);
+    return vertical ? { W: Math.max(820, 214 * wide + 180), H: Math.max(720, 84 * steps + 90) } : { W: 200 * steps + 220, H: Math.max(360, 92 * wide + 80) }; }, [def, vertical]);
   const placed = useMemo(() => layout(def, W, H, vertical), [def, W, H, vertical]); const at = Object.fromEntries(placed.map((p) => [p.node.id, p]));
   const lit = useMoa((s) => s.lit); const hover = useMoa((s) => s.hover); const set = useMoa.getState().set;
   const on = (id: string) => at[id].rank <= lit;
@@ -62,10 +62,10 @@ function MechGraph({ def }: { def: MechanismDefinition }) {
         {def.edges.map((e, i) => {
           const a = at[e.from], b = at[e.to];
           const [x1, y1, x2, y2] = vertical ? [a.x, a.y + NH / 2, b.x, b.y - NH / 2 - 4] : [a.x + NW / 2, a.y, b.x - NW / 2 - 4, b.y]; const mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
-          const d = vertical ? `M${x1},${y1} C${x1},${my} ${x2},${my} ${x2},${y2}` : `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`; const live = on(e.from) && on(e.to); const inh = e.sign < 0;
+          const d = vertical ? `M${x1},${y1} C${x1},${my} ${x2},${my} ${x2},${y2}` : `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`; const none = e.effect === 'none'; const live = on(e.from) && on(e.to) && !none; const inh = e.sign < 0;
           return (
-            <g key={i} className={`moa-edge${live ? ' live' : ''}${inh ? ' inh' : ''}`} style={{ color: inh ? '#6fb7ff' : '#d3b27a' }}>
-              <path d={d} fill="none" stroke="currentColor" strokeWidth={live ? 2.2 : 1.2} markerEnd={inh ? 'url(#bar)' : 'url(#arr)'} />
+            <g key={i} className={`moa-edge${live ? ' live' : ''}${inh ? ' inh' : ''}${none ? ' none' : ''}`} style={{ color: none ? '#8a939a' : inh ? '#6fb7ff' : '#d3b27a' }}>
+              <path d={d} fill="none" stroke="currentColor" strokeWidth={live ? 2.2 : 1.2} strokeDasharray={none ? '5 5' : undefined} markerEnd={none ? undefined : inh ? 'url(#bar)' : 'url(#arr)'} />
               {live && [0, 0.33, 0.66].map((o) => <circle key={o} r="3.6" fill="currentColor" filter="url(#glow)"><animateMotion dur="1.6s" begin={`${o * 1.6}s`} repeatCount="indefinite" path={d} /></circle>)}
               {e.label && <text x={mx + (vertical ? 6 : 0)} y={my - 6} className="moa-elbl" textAnchor={vertical ? 'start' : 'middle'}>{e.label}</text>}
             </g>

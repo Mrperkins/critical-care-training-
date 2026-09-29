@@ -11,7 +11,7 @@ export interface MechNode {
   /** semantic camera target in a 3D scene (scene/cameraTargets.ts), when one exists */ target?: string;
   /** explicit column override (else computed from the graph) */ rank?: number;
 }
-export interface MechEdge { from: string; to: string; sign: 1 | -1; label?: string }
+export interface MechEdge { from: string; to: string; sign: 1 | -1; label?: string; /** drawn dashed with no signal: a teaching 'does NOT change this' link */ effect?: 'none' }
 export interface Readout { id: string; label: string; value: number; unit: string; digits?: number }
 export interface PatientAdapter {
   /** which existing engine answers (for the credit line) */ engine: string;
