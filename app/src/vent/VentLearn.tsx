@@ -6,6 +6,9 @@ import { Loops } from './Waveforms';
 import { LessonShell } from '../app/LessonShell';
 import { VENT_WORKFLOWS } from '../workflows/chestTube';
 import { DrainCard } from '../workflows/DrainCard';
+import { NeedleCard } from '../procedures/NeedleCard';
+import { NEEDLE_LESSON } from '../director/lessons/needle';
+import { useDirector } from '../director/director';
 import { VENT_TIMELINES } from '../director/lessons/vent';
 import { VentNormals } from '../app/Normals';
 
@@ -26,7 +29,7 @@ export function applyLessonStep(lesson: Lesson, i: number) {
 
 export function VentLearn() {
   return (
-    <LessonShell lessons={VENT_LESSONS} apply={applyLessonStep} timelines={VENT_TIMELINES} timelineChildren={() => <><VentNumbersCard /><GasCard compact /></>} workflows={VENT_WORKFLOWS} workflowChildren={(w) => <>{w.id === 'wf-drain-check' && <DrainCard />}<VentNumbersCard /><GasCard compact /></>} reference={() => <VentNormals />} intro="The narrator changes the ventilator and the patient; everything you see is the simulation responding. Pause at any point and take the controls.">
+    <LessonShell lessons={VENT_LESSONS} apply={applyLessonStep} timelines={[...VENT_TIMELINES, NEEDLE_LESSON]} timelineChildren={() => <TimelineCards />} workflows={VENT_WORKFLOWS} workflowChildren={(w) => <>{w.id === 'wf-drain-check' && <DrainCard />}{w.id === 'wf-chest-tube' && <NeedleCard />}<VentNumbersCard /><GasCard compact /></>} reference={() => <VentNormals />} intro="The narrator changes the ventilator and the patient; everything you see is the simulation responding. Pause at any point and take the controls.">
       {(l, i) => { const st = l.steps[i]; return <>
         {st.focus && <p className="focus">Watch: {st.focus.map((f) => ({ pressure: 'pressure trace', flow: 'flow trace', volume: 'volume trace', loops: 'loops', numbers: 'numbers', lungs: 'the lungs', gas: 'SpO₂ and blood gas' }[f])).join(' · ')}</p>}
         <VentNumbersCard />
@@ -37,3 +40,5 @@ export function VentLearn() {
     </LessonShell>
   );
 }
+
+function TimelineCards() { const id = useDirector((s) => s.tl?.id); return <>{id === NEEDLE_LESSON.id && <NeedleCard />}<VentNumbersCard /><GasCard compact /></>; }

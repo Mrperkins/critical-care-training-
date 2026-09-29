@@ -12,7 +12,7 @@ import type { VentSettings } from '../../physiology/mechanics';
 const SETTLE_S = 14; // seconds of ventilation simulated before a scene is shown (≈ 3–4 breaths)
 const run = (sec: number) => { for (let i = 0; i < Math.round(sec * 20); i++) session.tick(0.05); };
 interface SceneOpts { hold?: 'i' | 'e'; fix?: 'decompress' | 'bronchodilator'; fixAfter?: number; view?: import('../../app/store').VentView }
-function scene(id: string, p: Partial<VentSettings>, o: SceneOpts = {}) {
+export function scene(id: string, p: Partial<VentSettings>, o: SceneOpts = {}) {
   session.load(id); if (Object.keys(p).length) session.set(p);
   run(SETTLE_S);
   if (o.fix) { session.intervene(o.fix); run(o.fixAfter ?? 14); }
