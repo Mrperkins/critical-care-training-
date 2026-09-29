@@ -11,6 +11,7 @@ import { Heart, DT, type Resp } from './synth';
 import { Transducer, CM_H2O_TO_MMHG, readFlush, FAULTS, type Fault, type Stopcock } from './transducer';
 
 export type LineId = 'art' | 'cvp';
+export type PushKind = 'phenylephrine' | 'epinephrine';
 export type Action = 'aspirate' | 'flushForward' | 'straighten' | 'inflateBag' | 'closeStopcock' | 'reconnect' | 'shortenTubing' | 'withdraw';
 export const ACTIONS: Record<Action, { label: string; fixes: Fault[] }> = {
   aspirate: { label: 'Off to patient: aspirate / flush to waste, re-flush', fixes: ['smallBubble', 'largeBubble', 'clot'] },
@@ -48,7 +49,7 @@ export class LinesSession {
   heart!: Heart; art!: Transducer; cvp!: Transducer;
   resp: Resp = { mode: 'spont', rr: 14, swing: 3.5 }; vt = 8;
   setup: Setup = { bedH: 70, hob: 30, transH: axisHeight(70, 30) };
-  pressor = 0; pressorTarget = 0; /** dobutamine effect level (1 ≙ 5 µg/kg/min) */ ino = 0; inoTarget = 0; relief = 0; reliefTarget = 0; physioSpeed = 30; private acc = 0; private numAcc = 0;
+  pressor = 0; pressorTarget = 0; /** dobutamine effect level (1 ≙ 5 µg/kg/min) */ ino = 0; inoTarget = 0; relief = 0; reliefTarget = 0; /** push-dose vasopressor boluses (screen seconds on the heart clock) */ boluses: { kind: PushKind; mcg: number; t0: number }[] = []; physioSpeed = 30; private bolusAcc = 0; private acc = 0; private numAcc = 0;
   version = 0; frozen = false;
   // display ring buffer
   t = new Float64Array(N); ecg = new Float32Array(N); artD = new Float32Array(N); cvpD = new Float32Array(N); artT = new Float32Array(N); cvpT = new Float32Array(N); ao = new Float32Array(N); pit = new Float32Array(N); insp = new Uint8Array(N);
@@ -63,7 +64,7 @@ export class LinesSession {
   load(id: string) {
     const sc = SCENARIO[id] ?? SCENARIO.normal; this.sc = sc; this.morph = { ...sc.morph };
     this.setup = { bedH: 70, hob: 30, transH: axisHeight(70, 30) };
-    this.pt = createPatient({ ...sc.params }); this.pressor = this.pressorTarget = 0; this.ino = this.inoTarget = 0; this.acc = 0; this.numAcc = 0; this.sub = 0; // accumulators restart with the patient so a reload is reproducible this.relief = this.reliefTarget = 0;
+    this.pt = createPatient({ ...sc.params }); this.pressor = this.pressorTarget = 0; this.ino = this.inoTarget = 0; this.acc = 0; this.numAcc = 0; this.sub = 0; this.relief = this.reliefTarget = 0; this.boluses = []; this.bolusAcc = 0; // accumulators and therapies restart with the patient so a reload is reproducible
     const onVent = id === 'hypovol' || id === 'sepsis' || id === 'cardiogenic';
     this.setVent(onVent ? 'ppv' : 'spont', false);
     this.recompute(true);
@@ -89,13 +90,13 @@ export class LinesSession {
     this.morph.tamponade = tam;
     // pericardiocentesis: lift the compression
     const relieved = this.relief;
-    const nr = this.noreReflex(p0);
+    const nr = this.noreReflex(p0); const bo = this.bolusEffect();
     const p = { ...p0,
       // norepinephrine (α1 ≫ β1) saturates (Emax); the baroreflex slows the heart as pressure rises;
       // dobutamine (β1 ≫ β2): contractility ↑ → output ↑, mild arteriolar dilation, some tachycardia
-      svr: p0.svr * this.noreSvrFactor() * (1 - 0.14 * this.ino),
-      hr: p0.hr * nr.hr * (1 + 0.1 * this.ino) * (1 - 0.22 * relieved),
-      co: p0.co * nr.co * (1 + 0.38 * this.ino) + (5 - p0.co) * relieved * (this.sc.morph.tamponade ? 1 : 0),
+      svr: p0.svr * this.noreSvrFactor() * (1 - 0.14 * this.ino) * bo.svr,
+      hr: p0.hr * nr.hr * (1 + 0.1 * this.ino) * (1 - 0.22 * relieved) * bo.hr,
+      co: p0.co * nr.co * (1 + 0.38 * this.ino) * bo.co + (5 - p0.co) * relieved * (this.sc.morph.tamponade ? 1 : 0),
       cvp: p0.cvp + (7 - p0.cvp) * relieved * (this.sc.morph.tamponade ? 1 : 0),
     };
     const s = derive({ ...this.pt, p });
@@ -122,7 +123,23 @@ export class LinesSession {
     return { hr: (1 + 0.05 * e / NORE_EMAX) * (1 - vagal), co: (1 + 0.04 * e / NORE_EMAX) * (1 - 0.5 * vagal) * (1 - 0.05 * e) };
   }
   /** SVR the circulation is running with (all therapies applied) */
-  effectiveSvr() { return this.pt.p.svr * this.noreSvrFactor() * (1 - 0.14 * this.ino); }
+  effectiveSvr() { return this.pt.p.svr * this.noreSvrFactor() * (1 - 0.14 * this.ino) * this.bolusEffect().svr; }
+  /**
+   * Push-dose vasopressor bolus (teaching model, time-compressed: onset ≈ 8 s, fades over ~1 min of screen time).
+   * Phenylephrine (pure α1): SVR ↑, reflex slowing, output slightly ↓. Epinephrine (α + β): SVR ↑ less, HR and output ↑.
+   * Effects scale with dose relative to a typical bolus (phenylephrine 100 µg, epinephrine 10 µg) and saturate.
+   */
+  pushDose(kind: PushKind, mcg: number) { this.boluses.push({ kind, mcg, t0: this.heart?.t ?? 0 }); this.note(`${kind === 'phenylephrine' ? 'Phenylephrine' : 'Epinephrine'} ${mcg} µg IV push`); this.recompute(); this.version++; }
+  bolusEffect(t = this.heart?.t ?? 0) {
+    let svr = 1, hr = 1, co = 1;
+    for (const b of this.boluses) {
+      const dt = t - b.t0; if (dt < 0) continue; const std = b.kind === 'phenylephrine' ? 100 : 10; const tau = b.kind === 'phenylephrine' ? 60 : 35;
+      const a = Math.min(2, b.mcg / std) * (1 - Math.exp(-dt / 8)) * Math.exp(-dt / tau); if (a < 1e-3) continue;
+      if (b.kind === 'phenylephrine') { svr *= 1 + 0.45 * a; hr *= 1 - 0.12 * a; co *= 1 - 0.04 * a; }
+      else { svr *= 1 + 0.18 * a; hr *= 1 + 0.12 * a; co *= 1 + 0.18 * a; }
+    }
+    return { svr, hr, co };
+  }
   /** 500 mL crystalloid. Preload-responsive patients gain stroke volume; a full or failing heart only gains CVP. */
   fluid() {
     const p = this.pt.p; const noReserve = (this.morph.lvFail ?? 0) > 0.3 || (this.morph.rvLoad ?? 0) > 0.3 || (this.morph.tamponade ?? 0) > 0.3;
@@ -196,6 +213,7 @@ export class LinesSession {
     this.acc += dt * this.physioSpeed;
     if (this.acc > 2 || Math.abs(this.pressor - oldP) > 0.004 || Math.abs(this.ino - oldI) > 0.004 || Math.abs(this.relief - oldR) > 0.004) { if (this.acc > 2) { advance(this.pt, this.acc / 60); this.acc = 0; } this.recompute(); }
     if (this.nibpDue > 0 && this.heart.t >= this.nibpDue) { this.nibpDue = -1; const n = this.num; const j = (x: number) => Math.round(x + (this.heart.rnd() - 0.5) * 4); this.nibp = { s: j(n.tSys - 6), d: j(n.tDia + 3), m: j(n.tMap), at: this.heart.t }; }
+    if (this.boluses.length) { this.bolusAcc += dt; if (this.bolusAcc > 0.25) { this.bolusAcc = 0; const t = this.heart.t; this.boluses = this.boluses.filter((b) => t - b.t0 < (b.kind === 'phenylephrine' ? 60 : 35) * 7); this.recompute(); } }
     this.numAcc += dt; if (this.numAcc > 0.5) { this.numAcc = 0; this.measure(); }
   }
 

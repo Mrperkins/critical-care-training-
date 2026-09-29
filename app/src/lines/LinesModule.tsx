@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { loadBodyAsset, type BodyAsset } from '../asset/body';
+import { lines as linesSession } from './session';
 import { loadLinesAsset, type LinesAsset } from '../asset/lines';
 import { useUI } from '../app/store';
 import { useIsPhone } from '../app/App';
@@ -13,6 +14,7 @@ import { LinesSim } from './LinesSim';
 
 export function LinesModule() {
   const [assets, setAssets] = useState<{ body: BodyAsset; lines: LinesAsset } | null>(null); const [err, setErr] = useState<string | null>(null);
+  useEffect(() => { (window as unknown as { __CCLines: unknown }).__CCLines = { session: linesSession, run: (sec: number) => { for (let k = 0; k < sec * 20; k++) linesSession.tick(0.05); } }; }, []);
   useEffect(() => { Promise.all([loadBodyAsset(), loadLinesAsset()]).then(([body, lines]) => setAssets({ body, lines })).catch((e) => { console.error(e); setErr(String(e?.message || e)); }); }, []);
   const mode = useUI((s) => s.mode); const phone = useIsPhone();
   return (

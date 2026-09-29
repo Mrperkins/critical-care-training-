@@ -43,3 +43,12 @@ describe('chest tube workflow drives the real vent session', () => {
     expect(b.pip).toBeGreaterThan(a.pip); expect(b.map).toBeLessThanOrEqual(a.map + 0.5);
   });
 });
+
+import { DOPES } from '../src/workflows/chestTube';
+describe('DOPES workflow on the vent session', () => {
+  it('ETT obstruction: high peak with a normal gap-to-plateau pattern; suction closes the gap', () => {
+    DOPES.setup(); const a = run(10); DOPES.effects!.suction(); const b = run(12);
+    expect(a.pip - a.pplat).toBeGreaterThan(8); expect(b.pip).toBeLessThan(a.pip - 5); expect(b.pip - b.pplat).toBeLessThan(a.pip - a.pplat);
+    expect(evaluate(DOPES, DOPES.steps.map((s) => s.id), true).score).toBe(100);
+  });
+});

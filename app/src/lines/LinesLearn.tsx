@@ -1,3 +1,5 @@
+import { LINES_WORKFLOWS } from '../workflows/linesWorkflows';
+import { DripCard } from '../workflows/DripCard';
 import { LessonShell } from '../app/LessonShell';
 import { LINES_LESSONS, type LLesson, type LStepDo } from './lessons';
 import { lines, axisHeight } from './session';
@@ -32,6 +34,8 @@ export function LinesLearn() {
       lessons={LINES_LESSONS}
       timelines={LINES_TIMELINES}
       timelineChildren={() => <><O2Card /><NumbersCard /><TreatCard /></>}
+      workflows={LINES_WORKFLOWS}
+      workflowChildren={() => <><NumbersCard /><TreatCard /><DripCard /></>}
       intro="Each lesson sets up the bedside for you — patient, breathing, bed, transducer and faults — then talks you through what the monitor and the heart are doing. Everything stays live: change anything and see what happens."
       apply={(l, i) => { if (i === 0) lines.setNore(0); applyStep(l.steps[i].do); }}
       reference={() => <LinesNormals />}

@@ -40,4 +40,32 @@ export const CHEST_TUBE: Workflow = {
   },
   debrief: 'Tension is a clinical diagnosis treated with immediate decompression; the drain is the definitive fix. The same ventilator numbers that raised the alarm — peak AND plateau pressure, SpO₂, blood pressure — confirm the result.',
 };
-export const VENT_WORKFLOWS: Workflow[] = [CHEST_TUBE];
+
+export const DOPES: Workflow = {
+  id: 'wf-dopes', module: 'vent', level: 'core',
+  title: 'Ventilated patient desaturating: DOPES',
+  blurb: 'Displacement, Obstruction, Pneumothorax, Equipment, Stacking — work through them in a safe order, and let the inspiratory hold tell resistance from compliance.',
+  context: 'Day 5 of ventilation. High-pressure alarm, SpO₂ 88 % and falling, patient coughing. The tube is taped at 22 cm at the teeth.',
+  setup: () => { session.load('ett'); },
+  steps: [
+    { id: 'o2', label: 'FiO₂ 1.0; if unsure, disconnect and hand-ventilate with a bag', why: 'Bagging takes the ventilator (Equipment) and breath stacking out of the equation at once, and lets you feel the resistance.' },
+    { id: 'displacement', label: 'Displacement: tube depth at the teeth, capnography waveform, chest rise', why: 'Lost EtCO₂ waveform = the tube is out until proven otherwise. Here it is still there at 22 cm.' },
+    { id: 'hold', label: 'Inspiratory hold: compare peak and plateau', why: 'Peak high with a NORMAL plateau means the pressure is being lost across resistance (tube or airways), not a stiff lung or chest.' },
+    { id: 'suction', label: 'Obstruction: pass a suction catheter', why: 'It meets resistance and thick secretions come back — the tube was partly blocked.', critical: true },
+    { id: 'ptx', label: 'Pneumothorax: breath sounds and chest movement equal? (ultrasound lung sliding)', why: 'Excluded here — but a ventilated patient with high pressures and hypotension has tension until proven otherwise.' },
+    { id: 'reassess', label: 'Reconnect and reassess: peak pressure, SpO₂, tidal volume', why: 'The peak–plateau gap should close once the tube is clear.' },
+  ],
+  anyOrder: [['displacement', 'hold']],
+  distractors: [
+    { id: 'alarm', label: 'Raise the high-pressure alarm limit', why: 'The alarm is telling you the tube is blocking. Silencing it removes the warning, not the problem.', critical: true },
+    { id: 'sedate', label: 'Give more sedation for “fighting the ventilator”', why: 'Treats the patient’s response to a blocked tube, not the tube. Check the machine and the airway first.' },
+    { id: 'paralyse', label: 'Paralyse to bring the pressures down', why: 'Masks the cause; with a blocked tube the peak pressure stays high anyway.', critical: true },
+    { id: 'peep', label: 'Raise PEEP for the desaturation', why: 'A blocked tube is a resistance problem; more PEEP adds pressure without opening the tube.' },
+  ],
+  effects: {
+    o2: () => session.set({ fio2: 1 }), hold: () => session.hold('i'), suction: () => session.intervene('suction'),
+    paralyse: () => session.intervene('paralyse'), peep: () => session.set({ peep: (session.m.s.peep ?? 5) + 5 }),
+  },
+  debrief: 'Oxygen first, then a fixed order — Displacement, Obstruction, Pneumothorax, Equipment, Stacking. The inspiratory hold splits resistance (high peak, normal plateau) from compliance (both high).',
+};
+export const VENT_WORKFLOWS: Workflow[] = [CHEST_TUBE, DOPES];
