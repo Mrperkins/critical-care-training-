@@ -11,7 +11,10 @@ import { useLabUI, type VisualTier } from '../labs/labStore';
 import { useUI } from '../app/store';
 import { director, useDirector } from '../director/director';
 import { DirectorPlayer } from '../director/Player';
-import { NEURO_LESSONS } from '../director/lessons/neuro';
+import { NEURO_LESSONS as BASE_NEURO } from '../director/lessons/neuro';
+import { ICP_LESSON } from '../director/lessons/icp';
+import { IcpCard } from './IcpCard';
+const NEURO_LESSONS = [...BASE_NEURO, ICP_LESSON];
 
 const hm = (m: number) => (m < 60 ? `${Math.round(m)} min` : `${Math.floor(m / 60)} h ${String(Math.round(m % 60)).padStart(2, '0')} min`);
 
@@ -49,6 +52,7 @@ export function NeuroModule() {
         <TimeCard />
         <TissueCard />
         <SystemicCard />
+        <IcpIfMass />
         <NeuroExplain />
         </>}
         {body && <p className="credit">Brain: {body.mapping.attribution.creators}, {body.mapping.attribution.data} — CC BY 4.0. Cerebral arteries are drawn from standard neurovascular anatomy onto that brain (schematic; calibres ×1.6). Perfusion thresholds (CBF ≈ 50 normal, &lt;20 penumbra, &lt;10 core) and infarct timing are teaching approximations, not a prediction for any patient.</p>}
@@ -162,7 +166,7 @@ function NeuroExplain() {
 function NeuroLearn() {
   const tl = useDirector((s) => s.tl); const active = tl && NEURO_LESSONS.some((l) => l.id === tl.id);
   useEffect(() => () => { if (NEURO_LESSONS.some((l) => l.id === useDirector.getState().tl?.id)) director.unload(); }, []);
-  if (active) return <div className="chal-run"><DirectorPlayer onExit={() => undefined} /><NeuroExamCard /><TissueCard /></div>;
+  if (active) return <div className="chal-run"><DirectorPlayer onExit={() => undefined} />{tl!.id === ICP_LESSON.id ? <IcpCard /> : <><NeuroExamCard /><TissueCard /></>}</div>;
   return (
     <div className="chal-list">
       <section className="card"><div className="eyebrow">Guided learning</div><h2 className="h2">Narrated lessons on the live brain</h2><p className="muted">Each lesson is a timeline: scrub it, pause it, or jump between steps — the brain is rebuilt exactly for that moment.</p></section>
@@ -170,3 +174,5 @@ function NeuroLearn() {
     </div>
   );
 }
+
+function IcpIfMass() { const h = useNeuroUI((s) => !!s.state.hemorrhage); return h ? <IcpCard /> : null; }

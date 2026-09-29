@@ -508,3 +508,5 @@ details.card summary{cursor:pointer;font:600 14px var(--fs);margin-bottom:6px}
 .phone .cxr-wrap{grid-template-columns:1fr;flex:none}.cxr-panel{width:100%}.phone .cxr-panel{max-height:none;height:auto}.phone .cxr-find{font-size:12px}
 .cta-levels{flex:none}.cta-grid{grid-template-columns:repeat(2,minmax(0,1fr));flex:none}.cta-grid .img-panel{aspect-ratio:1/0.72}.cta-find{flex:none}
 .phone .cta-grid{grid-template-columns:1fr}
+.icp-figs{display:grid;grid-template-columns:1fr 1fr;gap:8px}.icp-curve{fill:none;stroke:var(--info);stroke-width:1.8}.icp-pt{fill:var(--gold)}.icp-thr{stroke:rgba(224,100,90,.5);stroke-dasharray:3 3}.icp-wave{fill:none;stroke:#e9d27a;stroke-width:1.6}.icp-iris{fill:#5a7c8f}.icp-pupil{fill:#050607}.icp-pupils{max-width:320px}.icp-controls summary{cursor:pointer;color:var(--dim);margin:6px 0}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.phone .icp-figs{grid-template-columns:1fr}
