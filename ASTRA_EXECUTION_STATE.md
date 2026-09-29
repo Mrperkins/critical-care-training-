@@ -10,12 +10,13 @@ All 53 earlier bundle patches (Wave 1 chrome CSS, Studio lighting/fog, cell mate
 `visual-overhaul`
 
 ## CURRENT COMMIT
-Run `git rev-parse HEAD`. Last slice: "Lesson Director".
+Run `git rev-parse HEAD`. Last slice: "Hyperkalaemia signature lesson".
 
 ## LAST VERIFIED LIVE DEPLOY
 Live Pages HTML contains the Nav1.5 loader from `07e29e4`. Cell, 9RON, and 9P24 GLBs returned HTTP 200 with the expected glTF MIME type. The cloud browser has WebGL disabled, so a 3D visual check remains unavailable here.
 
 ## COMPLETED SLICES
+- Hyperkalaemia signature lesson (`app/src/director/lessons/hyperkalemia.ts`, Labs › Learn, listed as "Signature" above the step lessons via new `LessonShell` props `timelines` / `timelineChildren`). Runs on the ONE labs-bench patient: K⁺ tween 4.2 → 8.4 → 9.2 (peaked T → wide QRS → sine), calcium (K⁺ unchanged, gap to threshold 3 → 9 mV, QRS narrows), insulin shift, 5-h rebound, dialysis. Time-passing cues snapshot the patient at cue start and each tween frame restores + fast-forwards u × minutes, so seeking is exact. Camera focus per scene (membrane overview → Na/K pump → Kir2.1 → Nav1.5); `CellHud` no longer clears camera focus while a Director lesson is running. `tests/hyperk.test.ts` (2).
 - Lesson Director (`app/src/director/`): `timeline.ts` (pure: `Cue {at, dur, say, voice, title, target, apply, tween, hold}`, `resolve(tl,t)` rebuilds the world for any t, `advance(tl,t0,t1)` for playback, `stepTimeline` for narrated step lessons with `absolute` seeking); `director.ts` (single rAF clock, play/pause/seek/step/rate/mute, narration = pre-rendered `vo/` clip → speechSynthesis → captions, `hold` waits for narration but is capped at 20 s so blocked autoplay never freezes a lesson; `window.__CCDirector`); `Player.tsx` (captions, scrubber with step ticks, transport). `app/src/app/LessonShell.tsx` now runs every module's lessons on it (setTimeout auto-advance chain removed). First authored timeline: `director/lessons/neuro.ts` "Time is brain" (circle → M1 clot → core/penumbra growth → MAP 60 vs 90 → thrombectomy at 4 h freezes the core) in Brain › Learn; the director's `target` drives the brain camera. `tests/director.test.ts` (5): seek == play, backwards seek, targets, absolute steps, lesson determinism.
 - Infarct Atlas polish (first pass): territory overlay steps back to a contour + faint veil as injury develops, so the tissue shader's dusky → pale mottled infarct reads as tissue (was a lilac sticker). Added `window.__IA { app, seek(0–1), territory(id) }` — deterministic seek along the Normal → MI sequence for the Lesson Director and automated checks. Existing flow particles, thrombus, coronary occlusion shading and ECG unchanged. vitest 27/27.
 - Infarct Atlas source recovered: `infarct-atlas-app/` (React/R3F/esbuild, same stack as `app/`) is now the source of truth for `/infarct-atlas/index.html`. Build with `cd infarct-atlas-app && npm ci && npm run site`; rebuilding from the vendored source reproduces the deployed page byte-for-byte. vitest 27/27, tsc clean. The HuBMAP source GLB for `npm run asset` is not committed (download instructions in its README). `copy-site.mjs` refuses to publish a bundle with a duplicated `var x=var x=` declaration.
@@ -38,10 +39,10 @@ Live Pages HTML contains the Nav1.5 loader from `07e29e4`. Cell, 9RON, and 9P24 
 - Added AQP4 from the full 3GD8 biological assembly (four 223-residue chains, 21,312 triangles). Selected AQP4 uses this mesh at HIGH/MEDIUM, with the existing procedural proxy at LOW. No water/volume physiology changes.
 
 ## CURRENT SLICE
-Hyperkalemia signature lesson on the Lesson Director.
+MOA framework (mechanism graph + UI shell).
 
 ## EXACT RESUME POINT
-Author `app/src/director/lessons/hyperkalemia.ts`: timeline over the labs bench (`app/src/labs/bench.ts`, K⁺ via `bench.set('k', …)`), the cell scene (membrane focus via `useLabUI.cameraTargetId`: `membrane.kir`, `membrane.nak_atpase`, `membrane.nav`) and the ECG it already draws; tween K⁺ 4 → 8.5 (peaked T → PR/QRS widening → sine wave), then calcium (membrane stabilisation), insulin/glucose + salbutamol (shift), binding/dialysis (removal). Use the existing bench treatments; do NOT add a new potassium model. Wire into Labs › Learn next to the existing LessonShell list.
+Create `app/src/moa/`: `types.ts` (`MechanismDefinition { id, drug, class, nodes: MechNode[], edges: MechEdge[], patientEffects }`, `MechNode { id, kind: 'drug'|'receptor'|'channel'|'enzyme'|'messenger'|'cell-effect'|'organ-effect'|'vital', label, target?: semantic camera id }`, `MechEdge { from, to, sign: +1|-1, label }`), `layout.ts` (deterministic layered graph layout), `MoaView.tsx` (SVG graph with animated signal pulses along edges, synced to a Director timeline built from the graph: `moaTimeline(def)`), and a top-level entry (Labs › MOA or its own module button). Patient response must come from existing sessions (lines session for haemodynamics: `setNore`, SVR) — no new haemodynamic engine. Next slice uses it for norepinephrine.
 
 ## NEXT 10 SLICES
 1. (done) Alveolar microscene.
@@ -49,7 +50,7 @@ Author `app/src/director/lessons/hyperkalemia.ts`: timeline over the labs bench 
 3. (done) Lesson Director: deterministic timeline (clock-driven, seek/pause, no chained setTimeout) that directs existing sessions; generalise `app/src/app/LessonShell.tsx`.
 4. MOA data graph (MechanismDefinition/Node/Edge) + UI shell as a new top-level mode.
 5. Norepinephrine α1/β1 MOA with shock context — reuse `lines` session (`setNore`, SVR) for the patient response.
-6. Hyperkalemia signature lesson through the Lesson Director (labs bench + cell scene + ECG).
+6. (done) Hyperkalemia signature lesson through the Lesson Director (labs bench + cell scene + ECG).
 7. Stroke vascular state + imaging primitives (ClinicalImagingScene).
 8. Curriculum metadata + progress persistence.
 9. Port respiratory lessons through the shared director.

@@ -6,6 +6,7 @@ import { derive } from '../physiology/patient';
 import { useLabUI } from './labStore';
 import { useUI } from '../app/store';
 import { LabCard, Consequences } from './LabPanel';
+import { LAB_TIMELINES } from '../director/lessons/hyperkalemia';
 
 export function applyLabStep(lesson: LabLesson, i: number) {
   let start = 0; for (let k = i; k >= 0; k--) if (lesson.steps[k].setup?.reset) { start = k; break; }
@@ -26,5 +27,5 @@ export function applyLabStep(lesson: LabLesson, i: number) {
   bench.running = false; useLabUI.getState().set({ lab, view }); useUI.getState().set({ pulse: useUI.getState().pulse + 1 });
 }
 export function LabLearn() {
-  return <LessonShell lessons={LAB_LESSONS} apply={applyLabStep} reference={() => <LabNormals />} intro="The narrator changes lab values and gives treatments on the same patient model; the cells, the ECG and the numbers respond.">{() => <><Consequences /><LabCard /></>}</LessonShell>;
+  return <LessonShell lessons={LAB_LESSONS} apply={applyLabStep} timelines={LAB_TIMELINES} timelineChildren={() => <><LabCard /><Consequences /></>} reference={() => <LabNormals />} intro="The narrator changes lab values and gives treatments on the same patient model; the cells, the ECG and the numbers respond.">{() => <><Consequences /><LabCard /></>}</LessonShell>;
 }

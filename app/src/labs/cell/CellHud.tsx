@@ -34,11 +34,13 @@ export function goCellView(v: CellView) {
   setTimeout(() => { useLabUI.getState().set({ cellView: v, picked: null }); setTimeout(() => useLabUI.getState().set({ veil: 0 }), 120); }, 260);
 }
 
+import { useDirector } from '../../director/director';
+
 export function CellHud() {
   useUI((s) => s.pulse); const ui = useLabUI(); const m = live.model;
   // restart the story when the lab or its first step changes
   const sig = m ? m.labId + '|' + m.chain.map((c) => c.focus.kind + (c.tone ?? '')).join(',') + '|' + m.headline.split(' ')[0] : '';
-  const last = useRef(''); useEffect(() => { if (sig !== last.current) { last.current = sig; useLabUI.getState().set({ step: 0, chipFocus: null, cameraTargetId: null }); } }, [sig]);
+  const last = useRef(''); useEffect(() => { if (sig !== last.current) { last.current = sig; useLabUI.getState().set({ step: 0, chipFocus: null, ...(useDirector.getState().tl ? {} : { cameraTargetId: null }) }); } }, [sig]); // a running lesson owns the camera
   useEffect(() => {
     if (!ui.autoplay) return; const id = setInterval(() => { const s = useLabUI.getState(); if (s.autoplay && live.model) s.set({ step: (s.step + 1) % Math.max(1, live.model.chain.length) }); }, 5200);
     return () => clearInterval(id);
