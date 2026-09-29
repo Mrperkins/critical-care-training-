@@ -511,3 +511,9 @@ details.card summary{cursor:pointer;font:600 14px var(--fs);margin-bottom:6px}
 .icp-figs{display:grid;grid-template-columns:1fr 1fr;gap:8px}.icp-curve{fill:none;stroke:var(--info);stroke-width:1.8}.icp-pt{fill:var(--gold)}.icp-thr{stroke:rgba(224,100,90,.5);stroke-dasharray:3 3}.icp-wave{fill:none;stroke:#e9d27a;stroke-width:1.6}.icp-iris{fill:#5a7c8f}.icp-pupil{fill:#050607}.icp-pupils{max-width:320px}.icp-controls summary{cursor:pointer;color:var(--dim);margin:6px 0}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .phone .icp-figs{grid-template-columns:1fr}
 .moa-groups{display:grid;gap:8px}.moa-group .eyebrow{margin-bottom:4px}
+.dir-links{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:10px}
+.moa-node.e-dim,.moa-edge.dim{opacity:.18}.moa-node.e-focus rect{stroke-width:3;stroke:#fff}.moa-node.e-adverse rect{stroke:#e0645a;stroke-width:2.4;stroke-opacity:1}.moa-adv{font:700 13px var(--fb);fill:#e0645a}.moa-node{cursor:pointer}
+.moa-modes .nd-row{margin:4px 0}.moa-return{text-align:left;color:var(--ink);border-color:rgba(211,178,122,.5);cursor:pointer}.moa-return b{color:var(--gold)}
+.cmp{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:8px}.cmp th,.cmp td{padding:4px 6px;border-bottom:1px solid var(--line);text-align:left}.cmp td.up{color:var(--warn)}.cmp td.dn{color:var(--info)}.cmp small{color:var(--mute)}
+.tc-on{fill:#6fb7ff}.tc-pk{fill:#d3b27a}.tc-du{fill:#a98bf0}.tc-grid{stroke:rgba(255,255,255,.08)}
+.tc-svg{max-width:380px}

@@ -1,4 +1,7 @@
 /** Transport + captions for the Lesson Director. */
+import { LESSON_DRUGS } from '../moa/meta';
+import { MECH } from '../moa/registry';
+import { openDrug } from '../app/navigate';
 import { useDirector, director } from './director';
 import { duration, steps, stepIndexAt } from './timeline';
 
@@ -26,6 +29,7 @@ export function DirectorPlayer({ onExit }: { onExit?: () => void }) {
         <button className={`act${muted ? '' : ' done'}`} onClick={() => director.setMuted(!muted)}>{muted ? 'Voice off' : 'Voice on'}</button>
         <button className="act" onClick={() => director.setRate(rate >= 2 ? 0.75 : rate + 0.25)}>{rate.toFixed(2).replace(/0$/, '')}×</button>
       </div>
+      {(LESSON_DRUGS[tl.id]?.length ?? 0) > 0 && <div className="dir-links"><span className="muted small">Drug mechanisms in this lesson:</span> {LESSON_DRUGS[tl.id].map((id) => <button key={id} className="chip" onClick={() => openDrug(id)}>{MECH[id]?.drug ?? id} →</button>)}</div>}
     </section>
   );
 }

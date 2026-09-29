@@ -15,7 +15,10 @@ export interface ShellLesson { id: string; title: string; level: string; blurb: 
 export function LessonShell<L extends ShellLesson>({ lessons, apply, intro, children, reference, timelines, timelineChildren, workflows, workflowChildren }: { lessons: L[]; apply: (l: L, i: number) => void; intro: string; children?: (l: L, i: number) => ReactNode; reference?: () => ReactNode; timelines?: Timeline[]; timelineChildren?: () => ReactNode; workflows?: Workflow[]; workflowChildren?: (wf: Workflow) => ReactNode }) {
   const [tab, setTab] = useState<'lessons' | 'normals'>('lessons');
   const [lesson, setLesson] = useState<L | null>(null); const [sig, setSig] = useState<Timeline | null>(null); const [wf, setWf] = useState<Workflow | null>(null);
-  useEffect(() => { if (sig) director.load(sig, true); return () => { if (sig) director.unload(); }; }, [sig]);
+  // adopt a lesson that was loaded from elsewhere (e.g. "back to the lesson" from a drug mechanism) instead of reloading it
+  const dtl = useDirector((s) => s.tl);
+  useEffect(() => { if (!sig && !lesson && dtl && timelines?.some((x) => x.id === dtl.id)) setSig(timelines.find((x) => x.id === dtl.id)!); }, [dtl]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { if (sig && useDirector.getState().tl?.id !== sig.id) director.load(sig, true); return () => { if (sig) director.unload(); }; }, [sig]);
   const tl = useMemo(() => lesson && stepTimeline(lesson.id, lesson.title, lesson.steps.map((st, k) => ({ id: st.id, title: st.title, say: st.say, voice: st.id, apply: () => apply(lesson, k) }))), [lesson]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => { if (tl) director.load(tl, true); return () => director.unload(); }, [tl]);
   const t = useDirector((s) => s.t); const i = tl ? Math.max(0, stepIndexAt(tl, t)) : 0;
