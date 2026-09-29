@@ -10,12 +10,13 @@ All 53 earlier bundle patches (Wave 1 chrome CSS, Studio lighting/fog, cell mate
 `visual-overhaul`
 
 ## CURRENT COMMIT
-Run `git rev-parse HEAD`. Last slice: "Neuro / cerebral vascular foundation".
+Run `git rev-parse HEAD`. Last slice: "Recover Infarct Atlas source".
 
 ## LAST VERIFIED LIVE DEPLOY
 Live Pages HTML contains the Nav1.5 loader from `07e29e4`. Cell, 9RON, and 9P24 GLBs returned HTTP 200 with the expected glTF MIME type. The cloud browser has WebGL disabled, so a 3D visual check remains unavailable here.
 
 ## COMPLETED SLICES
+- Infarct Atlas source recovered: `infarct-atlas-app/` (React/R3F/esbuild, same stack as `app/`) is now the source of truth for `/infarct-atlas/index.html`. Build with `cd infarct-atlas-app && npm ci && npm run site`; rebuilding from the vendored source reproduces the deployed page byte-for-byte. vitest 27/27, tsc clean. The HuBMAP source GLB for `npm run asset` is not committed (download instructions in its README). `copy-site.mjs` refuses to publish a bundle with a duplicated `var x=var x=` declaration.
 - Neuro / cerebral vascular foundation (`app/src/neuro/`): new top-level "Brain" module. `anatomy.ts` — brain frame from the body.glb brain geometry (geometry is pre-baked to body space; do NOT use the node transform), ICA (cervical → siphon → terminus), vertebrals, basilar, Circle of Willis (A1, ACoA, PCoA, P1), M1 → M2 superior/inferior → cortical branches, A2/pericallosal + callosomarginal, P2 + temporal branch, SCA, PICA; `territoryAt` / `peripheryAt` with `TERRITORY_CORE` + `TERRITORY_RADIUS`. `perfusion.ts` — pure, seekable primitives: `territoryFlow` (circle collaterals incl. hypoplastic ACoA/PCoA and fetal PCA, leptomeningeal grade, M2 division occlusions affect only their half), `systemicFactor` (MAP/CPP pressure-passive collaterals, PaCO₂ reactivity, hypoxia), `timeToInfarct(cbf)`, `territoryStates` (core/penumbra mL and shading radii, recanalization freezes core), `hemorrhageShape`, `neuroSummary`. `neuroStore.ts` presets (M1 L/R, M2, ICA ± isolated circle, basilar, P2, ICH, SAH), deterministic clock `setNeuroMinutes`, `recanalize`. `NeuroScene.tsx` — brain surface (winding flipped to outward — the source mesh is inside-out), gyri shader, territory core/penumbra shading with irregular borders, vessel tubes coloured by perfusion with clots and flow particles, pial branches snapped to the cortex, ICH/SAH primitives, `brain.*` targets (`whole, cow, mca_l, mca_r, aca, pca, basilar, ica_l, ica_r`) registered via `registerAnchors('neuro')`. `window.__CCNeuro {store, load, minutes, recanalize, focus}`. `tests/neuro.test.ts` (11).
 - Global effects library started in `app/src/scene/effects.ts`: `rbcGeometry`, `saturationColor` (+ teaching palette), `approach`, `budget(tier)`, `MotePool`, `tubeAlong`, `frameDt` (honours `window.__instant`). Used by the alveolar and neuro scenes; port older scenes opportunistically.
 - Alveolar close-up (`app/src/vent/AlveolusScene.tsx`, mapping in `app/src/vent/alveolarMap.ts`, shared effects in `app/src/scene/effects.ts`). New vent view "Alveoli" (`ventView: 'alveolus'`, `ventTarget` in `app/src/app/store.ts`). 12 alveoli around an alveolar duct with shader-cut openings, a Voronoi capillary sheet on each wall, septal capillary tubes with instanced biconcave RBCs, pulmonary arteriole/venule, surfactant film (breaks into islands as function falls), fluid fill + froth, O₂/CO₂ diffusion motes, and a barrier cross-section (surfactant, lining fluid, type I cell, basement membrane, interstitium, endothelium, plasma, RBC) whose interstitium/lining thicken with the scenario. Everything is a READ of `session`: collapse = 1−open / pleural collapse / unventilated share (the same terms `updateGasParams` uses), size = regional volume, flooding = the scenario's fixed shunt above normal in wet recruitable lungs, low V/Q = `pt.p.lowVQ`, blood colour = SvO₂ → ccNormal / ccLow (blue→red teaching palette). Semantic targets `lung.whole/alveolus/capillary/rbc/membrane/edema/collapsed/recruited` in `cameraTargets.ts`; `registerAnchors('vent', …)` lets `resolveTarget` return live positions. `focusVentTarget(id)` and `window.__CCVent {session, focus, load, set}` for lessons/automation. HIGH/MEDIUM/LOW change sphere segments, capillary count and particle budgets only. `tests/alveolus.test.ts` (4): normal all aerated, ARDS dependent collapse recruited by PEEP 5→18 with larger end-expiratory size, oedema floods units that keep venous blood, PTX collapse. Screenshots (swiftshader): normal, ARDS PEEP 5/18 (recruited label), membrane normal/ARDS, oedema focus, PTX lung view unchanged, phone 390×844.
@@ -35,10 +36,10 @@ Live Pages HTML contains the Nav1.5 loader from `07e29e4`. Cell, 9RON, and 9P24 
 - Added AQP4 from the full 3GD8 biological assembly (four 223-residue chains, 21,312 triangles). Selected AQP4 uses this mesh at HIGH/MEDIUM, with the existing procedural proxy at LOW. No water/volume physiology changes.
 
 ## CURRENT SLICE
-Infarct Atlas source recovery (blocker triage), then coronary/heart polish.
+Coronary / heart polish in the Infarct Atlas (`infarct-atlas-app/src/components/HeartScene.tsx`, `src/engine/shaders.ts`).
 
 ## EXACT RESUME POINT
-`infarct-atlas/index.html` is a built bundle with no source in this repo. Check the user's other repos (`list_repos`) / git history for its source; if none, document the blocker in this file and move to the Lesson Director (deterministic timeline over `setNeuroMinutes`, vent `__CCVent`, lines session) — do NOT hand-edit the bundle.
+Polish pass on the heart: coronary tube material (clearcoat, flow particles using the same approach as `app/src/scene/effects.ts`), culprit clot + downstream flow loss, territory shading. Validate with `tools/app-shot.py` (adapt to http://localhost:8811/infarct-atlas/). Then the Lesson Director.
 
 ## NEXT 10 SLICES
 1. (done) Alveolar microscene.
@@ -50,13 +51,12 @@ Infarct Atlas source recovery (blocker triage), then coronary/heart polish.
 7. Stroke vascular state + imaging primitives (ClinicalImagingScene).
 8. Curriculum metadata + progress persistence.
 9. Port respiratory lessons through the shared director.
-10. Heart/coronary polish in the Infarct Atlas (separate app in `infarct-atlas/`; its source is NOT in this repo — see KNOWN BLOCKERS).
+10. Heart/coronary polish in the Infarct Atlas (source now in `infarct-atlas-app/`).
 
 ## KNOWN BUGS
 - No new runtime bug confirmed in this session. The previous `var sw=var sw=` parse error was fixed in `570f0d4b`; check for regression before push.
 
 ## KNOWN BLOCKERS
-- `infarct-atlas/index.html` is a built bundle whose source is not in this repo; heart/coronary polish there needs its source added first (same restore-source step as `app/`).
 - Visual QA: this environment has WebGL via swiftshader (`--use-gl=angle --use-angle=swiftshader`); slow but real. Serve the repo root with `python3 -m http.server` (binary GLBs need http, not file://).
 
 ## TESTS LAST RUN

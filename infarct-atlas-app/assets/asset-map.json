@@ -1,0 +1,169 @@
+{
+ "$comment": "Maps source GLB mesh names to canonical anatomical ids. To swap the heart asset, drop a new source GLB in assets/source/, point `source` at it, adjust these patterns, and run `npm run asset`.",
+ "source": "assets/source/VH_M_Heart_v1.1.glb",
+ "attribution": {
+  "title": "3D Reference Organ for Heart, Male (HuBMAP / Human Reference Atlas)",
+  "creators": "Kristen Browne; Heidi Schlehlein",
+  "data": "Visible Human Male, U.S. National Library of Medicine",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "doi": "https://doi.org/10.48539/HBM373.VSTV.568",
+  "sourceUrl": "https://github.com/hubmapconsortium/ccf-releases/tree/main/v1.1/models",
+  "changes": "Re-centred and scaled; coronary meshes renamed. The source mesh labelled as a second diagonal follows the left atrioventricular groove from the left main bifurcation, so it is used as the course of the proximal circumflex. The circumflex, a second diagonal, a second obtuse marginal, septal perforators and a posterolateral branch are added along the model's own grooves and surfaces. Territory masks, perfusion, epicardial fat and ambient-occlusion attributes are baked; meshopt-compressed."
+ },
+ "scale": 10,
+ "rules": [
+  {
+   "match": "VH_M_heart_left_ventricle$",
+   "id": "myocardium_LV",
+   "role": "myocardium"
+  },
+  {
+   "match": "VH_M_heart_right_ventricle$",
+   "id": "myocardium_RV",
+   "role": "myocardium"
+  },
+  {
+   "match": "VH_M_interventricular_septum$",
+   "id": "myocardium_septum",
+   "role": "myocardium"
+  },
+  {
+   "match": "VH_M_left_cardiac_atrium$",
+   "id": "atrium_LA",
+   "role": "atrium",
+   "simplify": 0.45
+  },
+  {
+   "match": "VH_M_right_cardiac_atrium$",
+   "id": "atrium_RA",
+   "role": "atrium",
+   "simplify": 0.4
+  },
+  {
+   "match": "VH_M_ascending_aorta$",
+   "id": "vessel_aorta_ascending",
+   "role": "greatArtery"
+  },
+  {
+   "match": "VH_M_aortic_arch$",
+   "id": "vessel_aorta_arch",
+   "role": "greatArtery"
+  },
+  {
+   "match": "VH_M_pulmonary_trunk$",
+   "id": "vessel_pulmonary_trunk",
+   "role": "greatArtery"
+  },
+  {
+   "match": "VH_M_pulmonary_artery_L$",
+   "id": "vessel_pulmonary_artery_L",
+   "role": "greatArtery"
+  },
+  {
+   "match": "VH_M_pulmonary_artery_R$",
+   "id": "vessel_pulmonary_artery_R",
+   "role": "greatArtery"
+  },
+  {
+   "match": "VH_M_superior_vena_cava$",
+   "id": "vessel_svc",
+   "role": "greatVein",
+   "simplify": 0.5
+  },
+  {
+   "match": "VH_M_inferior_vena_cava_a$",
+   "id": "vessel_ivc",
+   "role": "greatVein",
+   "simplify": 0.5
+  },
+  {
+   "match": "VH_M_pulmonary_vein_(.*)$",
+   "id": "vessel_pulmonary_vein_$1",
+   "role": "greatVein",
+   "simplify": 0.6
+  },
+  {
+   "match": "VH_M_left_coronary_artery$",
+   "id": "coronary_LM",
+   "role": "coronary",
+   "vessel": "LM",
+   "simplify": 0.35
+  },
+  {
+   "match": "VH_M_left_anterior_descending_artery$",
+   "id": "coronary_LAD",
+   "role": "coronary",
+   "vessel": "LAD"
+  },
+  {
+   "match": "VH_M_diagonal_branch_of_anterior_descending_branch_of_left_coronary_artery$",
+   "id": "coronary_LAD_D1",
+   "role": "coronary",
+   "vessel": "D1"
+  },
+  {
+   "match": "VH_M_diagonal_branch_of_left_anterior_descending_artery$",
+   "id": "guide_LCx",
+   "role": "guide"
+  },
+  {
+   "match": "VH_M_left_marginal_branch$",
+   "id": "coronary_OM1",
+   "role": "coronary",
+   "vessel": "OM1"
+  },
+  {
+   "match": "VH_M_right_coronary_artery$",
+   "id": "coronary_RCA",
+   "role": "coronary",
+   "vessel": "RCA"
+  },
+  {
+   "match": "VH_M_right_marginal_artery$",
+   "id": "coronary_AM",
+   "role": "coronary",
+   "vessel": "AM"
+  },
+  {
+   "match": "VH_M_right_posterior_descending_artery$",
+   "id": "coronary_PDA",
+   "role": "coronary",
+   "vessel": "PDA"
+  },
+  {
+   "match": "VH_M_(great_cardiac_vein|middle_cardiac_vein|anterior_cardiac_vein|small_cardiac_vein|posterior_vein_of_left_ventricle|oblique_vein_of_left_atrium)$",
+   "id": "vein_$1",
+   "role": "cardiacVein"
+  },
+  {
+   "match": "VH_M_coronary_sinus$",
+   "id": "vein_coronary_sinus",
+   "role": "cardiacVein"
+  },
+  {
+   "match": "VH_M_mitral_valve$",
+   "id": "landmark_mitral",
+   "role": "landmark"
+  },
+  {
+   "match": "VH_M_aortic_valve$",
+   "id": "landmark_aortic",
+   "role": "landmark"
+  },
+  {
+   "match": ".*",
+   "id": null,
+   "role": "drop"
+  }
+ ],
+ "authoredVessels": [
+  "LCx",
+  "D2",
+  "OM2",
+  "S1",
+  "S2",
+  "S3",
+  "PLB"
+ ]
+}

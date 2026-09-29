@@ -1,0 +1,2 @@
+[{"js":"__app.getState().set({territoryId:'posterior',dominance:'left',seq:1,seqPlaying:false,scene:{highlightVessel:true,flow:true,occlusion:1,perfusionLoss:1,injury:1,ecgMorph:1,emphasizeAffected:true,emphasizeReciprocal:true,showExtraLeads:true,camera:'territory'}})","wait":7000},
+ {"js":"__app.getState().set({territoryId:'anteroseptal',dominance:'right',cutaway:true})","wait":8000}]

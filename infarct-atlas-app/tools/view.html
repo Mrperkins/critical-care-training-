@@ -1,0 +1,18 @@
+<!doctype html><html><body style="margin:0;background:#111"><canvas id="c" width="1400" height="900"></canvas>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from 'three';import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+const r=new THREE.WebGLRenderer({canvas:document.getElementById('c'),antialias:true,preserveDrawingBuffer:true});r.outputColorSpace=THREE.SRGBColorSpace;
+const sc=new THREE.Scene();sc.background=new THREE.Color('#1a1a1e');const pm=new THREE.PMREMGenerator(r);sc.environment=pm.fromScene(new RoomEnvironment(),0.04).texture;
+const cam=new THREE.PerspectiveCamera(30,1400/900,0.001,10);
+const {MeshoptDecoder}=await import('three/addons/libs/meshopt_decoder.module.js');const ld=new GLTFLoader();ld.setMeshoptDecoder(MeshoptDecoder);const g=await ld.loadAsync(new URLSearchParams(location.search).get('f'));
+const hide=(new URLSearchParams(location.search).get('hide')||'').split(',').filter(Boolean);
+const colors={vein:'#3050ff',sinus:'#3050ff',left_coronary_artery:'#ffffff',left_anterior:'#ffd000',right_coronary:'#00e0ff',right_posterior:'#ff00ff',diagonal:'#00ff66',marginal:'#ff8800',left_coronary_artery:'#ffffff',septum:'#4466ff',left_ventricle:'#aa5544',right_ventricle:'#aa7766',atrium:'#886655'};
+const leg=[];const pal=['#ff0000','#00ff00','#0080ff','#ffff00','#ff00ff','#00ffff','#ff8000','#ffffff','#8000ff'];let pi=0;
+g.scene.traverse(o=>{if(o.isMesh){const n=o.name;if(new URLSearchParams(location.search).get('pal')&&/^coronary_/.test(n)){const c=pal[pi++%pal.length];leg.push(c+' '+n);o.material=new THREE.MeshStandardMaterial({color:c,roughness:.5});return}if(hide.some(h=>n.includes(h))){o.visible=false;return}let c=null;for(const k in colors)if(n.includes(k)){c=colors[k]}o.material=new THREE.MeshStandardMaterial({color:c||'#b06060',roughness:0.5})}});
+sc.add(g.scene);const box=new THREE.Box3();g.scene.updateMatrixWorld(true);g.scene.traverse(o=>{if(o.isMesh&&o.visible&&/cardiac_atrium|ventricle|septum/.test(o.name))box.expandByObject(o)});if(box.isEmpty())g.scene.traverse(o=>{if(o.isMesh&&/myocardium|atrium/.test(o.name))box.expandByObject(o)});const ctr=box.getCenter(new THREE.Vector3());window.ctr=ctr;
+const views=JSON.parse(new URLSearchParams(location.search).get('v')||'[[0,0,1]]');const d=parseFloat(new URLSearchParams(location.search).get('d')||'0.3');
+const cols=Math.min(2,views.length),rows=Math.ceil(views.length/cols);const W=1400/cols,H=900/rows;r.setScissorTest(true);
+views.forEach((v,i)=>{cam.aspect=W/H;cam.updateProjectionMatrix();cam.position.set(ctr.x+v[0]*d,ctr.y+v[1]*d,ctr.z+v[2]*d);cam.up.set(0,Math.abs(v[1])>0.9?0:1,Math.abs(v[1])>0.9?-Math.sign(v[1]):0);cam.lookAt(ctr);const cx=i%cols,cy=rows-1-Math.floor(i/cols);r.setViewport(cx*W,cy*H,W,H);r.setScissor(cx*W,cy*H,W,H);r.render(sc,cam)});
+window.leg=leg;document.title='done';
+</script></body></html>
