@@ -3,6 +3,7 @@ import { loadBodyAsset, type BodyAsset } from '../asset/body';
 import { Knob, Seg } from '../vent/VentPanel';
 import { NeuroScene } from './NeuroScene';
 import { ClinicalImagingScene } from './imaging/ClinicalImagingScene';
+import { NeuroExamCard } from './ExamCard';
 import { useNeuroUI, NEURO_PRESETS, loadNeuroPreset, setNeuroMinutes, recanalize, type NeuroPreset } from './neuroStore';
 import { neuroSummary, hemorrhageShape, effectiveHemorrhage, sbpOf, type CollateralGrade } from './perfusion';
 import { TERRITORIES, TERRITORY_NAME } from './anatomy';
@@ -44,6 +45,7 @@ export function NeuroModule() {
       <aside className="side-pane">
         {mode === 'learn' ? <NeuroLearn /> : <>
         <PresetCard />
+        <NeuroExamCard />
         <TimeCard />
         <TissueCard />
         <SystemicCard />
@@ -160,7 +162,7 @@ function NeuroExplain() {
 function NeuroLearn() {
   const tl = useDirector((s) => s.tl); const active = tl && NEURO_LESSONS.some((l) => l.id === tl.id);
   useEffect(() => () => { if (NEURO_LESSONS.some((l) => l.id === useDirector.getState().tl?.id)) director.unload(); }, []);
-  if (active) return <div className="chal-run"><DirectorPlayer onExit={() => undefined} /><TissueCard /></div>;
+  if (active) return <div className="chal-run"><DirectorPlayer onExit={() => undefined} /><NeuroExamCard /><TissueCard /></div>;
   return (
     <div className="chal-list">
       <section className="card"><div className="eyebrow">Guided learning</div><h2 className="h2">Narrated lessons on the live brain</h2><p className="muted">Each lesson is a timeline: scrub it, pause it, or jump between steps — the brain is rebuilt exactly for that moment.</p></section>

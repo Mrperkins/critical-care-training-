@@ -473,3 +473,10 @@ details.card summary{cursor:pointer;font:600 14px var(--fs);margin-bottom:6px}
 /* ---------------------------------------------------------------- congenital heart */
 .dir{padding:0 6px;border-radius:5px}.dir-lr{color:#ffb39a}.dir-rl{color:#9fb8ff}.dir-bi{color:#f0dc6a}.dir-none{color:var(--dim)}
 .moa-ctx{margin-top:10px}.moa-ctx .seg{margin:6px 0;flex-wrap:wrap}
+/* neuro exam */
+.exam-row{display:flex;gap:12px;align-items:flex-start}
+.pt-fig{width:170px;flex:0 0 170px;background:#0b1015;border:1px solid var(--line2);border-radius:10px}
+.pt-skin{fill:#caa28e}.pt-body{fill:#2c3d4d}.pt-limb{stroke:#caa28e;stroke-width:9;stroke-linecap:round}.pt-limb.weak{stroke:#e0735a}
+.pt-bubble{fill:#f3efe8}.pt-say{font:600 7px var(--fb);fill:#1b2430}.pt-side{font:600 9px var(--fm);fill:rgba(222,235,241,.6)}.pt-vf{fill:#f3efe8}.pt-coma{font:700 12px var(--fm);fill:#ff8a8a}
+.exam-list{margin:0;padding-left:16px;font-size:13px;line-height:1.5}
+.phone .exam-row{flex-direction:column}.phone .pt-fig{width:100%;flex:none;max-height:220px}
