@@ -5,7 +5,10 @@ import { loadBodyAsset, type BodyAsset } from '../asset/body';
 import { Knob } from '../vent/VentPanel';
 import { director, useDirector } from '../director/director';
 import { DirectorPlayer } from '../director/Player';
-import { ABDOMEN_LESSONS } from '../director/lessons/abdomen';
+import { ABDOMEN_LESSONS as BASE_LESSONS } from '../director/lessons/abdomen';
+import { DISSECTION_LESSON } from '../director/lessons/dissection';
+import { ImpulseCard } from './ImpulseCard';
+const ABDOMEN_LESSONS = [...BASE_LESSONS, DISSECTION_LESSON];
 import { useUI } from '../app/store';
 import { AbdomenScene } from './AbdomenScene';
 import { UltrasoundScene } from './UltrasoundScene';
@@ -104,7 +107,7 @@ function FindingsCard() {
 function AbdLearn() {
   const tl = useDirector((s) => s.tl); const active = tl && ABDOMEN_LESSONS.some((l) => l.id === tl.id);
   useEffect(() => () => { if (ABDOMEN_LESSONS.some((l) => l.id === useDirector.getState().tl?.id)) director.unload(); }, []);
-  if (active) return <div className="chal-run"><DirectorPlayer onExit={() => undefined} /><FastCard /><ShockCard /></div>;
+  if (active) return <div className="chal-run"><DirectorPlayer onExit={() => undefined} />{tl!.id === DISSECTION_LESSON.id ? <><ImpulseCard /><FindingsCard /></> : <><FastCard /><ShockCard /></>}</div>;
   return (
     <div className="chal-list">
       <section className="card"><div className="eyebrow">Guided learning</div><h2 className="h2">The abdomen as a source of shock</h2><p className="muted">Narrated lessons that move one abdominal state through time while the anatomy, the ultrasound windows and the haemorrhage estimate respond.</p></section>

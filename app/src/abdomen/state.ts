@@ -90,7 +90,7 @@ export function abdomenFindings(st: AbdomenState): string[] {
   if (st.aaa.diameterCm >= 3) f.push(`Abdominal aortic aneurysm ${st.aaa.diameterCm.toFixed(1)} cm${st.aaa.diameterCm >= 5.5 ? ' (above the usual repair threshold)' : ''}`);
   if (st.aaa.rupture !== 'none') f.push(st.aaa.rupture === 'contained' ? 'Contained rupture into the retroperitoneum' : 'Free intraperitoneal rupture');
   if (st.dissection) { const d = st.dissection; f.push(`Aortic dissection, Stanford type ${d.type}${d.type === 'A' ? ' (ascending aorta involved — surgical emergency)' : ' (descending only)'}, extending to the ${d.extent === 'thoracic' ? 'thoracic aorta' : d.extent === 'renal' ? 'renal arteries' : 'iliac arteries'}; false lumen ${d.falseLumen}`);
-    const m = d.malperfusion; const mal = [m.renalL && 'left kidney', m.renalR && 'right kidney', m.mesenteric && 'bowel'].filter(Boolean); if (mal.length) f.push(`Malperfusion: ${mal.join(', ')} fed from a thrombosed false lumen`); }
+    const m = d.malperfusion; const mal = [m.renalL && 'left kidney', m.renalR && 'right kidney', m.mesenteric && 'bowel'].filter(Boolean); if (mal.length) f.push(`Malperfusion: ${mal.join(', ')} — branch supplied from the false lumen with poor flow`); }
   if (st.freeAir) f.push('Free air under the diaphragm — perforated viscus');
   if (st.obstruction !== 'none') f.push(`${st.obstruction === 'small' ? 'Small' : 'Large'}-bowel obstruction: dilated loops, vomiting, distension`);
   if (st.ischaemia > 0.05) f.push(`Mesenteric ischaemia — pain out of proportion to the examination${st.ischaemia > 0.6 ? '; bowel infarcting, lactate rising' : ''}`);
