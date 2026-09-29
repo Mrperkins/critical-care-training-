@@ -18,12 +18,12 @@ function fresh(scenario: string) {
   Object.assign(s.pt.p, structuredClone(base[scenario])); s.pressor = s.pressorTarget = 0; s.recompute(); return s;
 }
 export function linesVitals(s: LinesSession): Readout[] {
-  const c = s.circ; const p = s.pt.p; const co = (c.sv * c.hr) / 1000; const map = c.cvp + (co * 1000 / 60) * c.R;
+  const c = s.circ; const co = (c.sv * c.hr) / 1000; const map = c.cvp + (co * 1000 / 60) * c.R;
   return [
     { id: 'map', label: 'MAP', value: map, unit: 'mmHg' },
     { id: 'hr', label: 'Heart rate', value: c.hr, unit: '/min' },
     { id: 'co', label: 'Cardiac output', value: co, unit: 'L/min', digits: 1 },
-    { id: 'svr', label: 'SVR', value: p.svr * (1 + 0.85 * s.pressor), unit: 'dyn·s/cm⁵' },
+    { id: 'svr', label: 'SVR', value: s.effectiveSvr(), unit: 'dyn·s/cm⁵' },
     { id: 'cvp', label: 'CVP', value: c.cvp, unit: 'mmHg' },
   ];
 }

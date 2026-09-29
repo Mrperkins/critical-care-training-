@@ -4,7 +4,7 @@ import { SHOCK_STATES } from '../src/director/lessons/lines';
 import { lines } from '../src/lines/session';
 import { useLinesUI } from '../src/lines/linesStore';
 
-const snap = (t: number) => { resolve(SHOCK_STATES, t); const n = lines.num; const co = (lines.circ.sv * lines.circ.hr) / 1000; return { map: n.map, pp: n.pp, dia: n.dia, cvp: n.cvp, hr: n.hr, ppv: n.ppv ?? 0, spv: n.spv ?? 0, co, svr: lines.pt.p.svr * (1 + 0.85 * lines.pressor) * (1 - 0.14 * lines.ino), view: useLinesUI.getState().view }; };
+const snap = (t: number) => { resolve(SHOCK_STATES, t); const n = lines.num; const co = (lines.circ.sv * lines.circ.hr) / 1000; return { map: n.map, pp: n.pp, dia: n.dia, cvp: n.cvp, hr: n.hr, ppv: n.ppv ?? 0, spv: n.spv ?? 0, co, svr: lines.effectiveSvr(), view: useLinesUI.getState().view }; };
 
 describe('shock-states lesson on the real Lines session', () => {
   const normal = snap(1), sep = snap(11), sepN = snap(23), card = snap(34), cardD = snap(46), tamp = snap(57), tampPara = snap(70), tampTap = snap(80), hypo = snap(91), hypoT = snap(104);

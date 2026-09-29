@@ -35,6 +35,14 @@ export interface Numbers {
 export interface Alarm { id: string; text: string; level: 'high' | 'med' }
 
 const N = 250 * 24;
+/**
+ * Norepinephrine vasoconstriction: saturating (Hill/Emax) dose–response on SVR.
+ * Effect = Emax · D^n / (EC50^n + D^n), D in µg/kg/min. Teaching parameters: at 0.1 the SVR rises
+ * ~55 %, and by 0.5 it approaches its ceiling (≈ +120 %). Replaces an unbounded linear response.
+ */
+export const NORE_EMAX = 1.25, NORE_EC50 = 0.12, NORE_HILL = 1.3;
+export function noreEffect(dose: number) { if (dose <= 0) return 0; const x = dose ** NORE_HILL; return (NORE_EMAX * x) / (NORE_EC50 ** NORE_HILL + x); }
+
 export class LinesSession {
   pt!: PatientState; snap!: Snapshot; sc!: LinesScenario; morph!: Morph; circ!: Circ;
   heart!: Heart; art!: Transducer; cvp!: Transducer;
@@ -81,11 +89,13 @@ export class LinesSession {
     this.morph.tamponade = tam;
     // pericardiocentesis: lift the compression
     const relieved = this.relief;
+    const nr = this.noreReflex(p0);
     const p = { ...p0,
+      // norepinephrine (α1 ≫ β1) saturates (Emax); the baroreflex slows the heart as pressure rises;
       // dobutamine (β1 ≫ β2): contractility ↑ → output ↑, mild arteriolar dilation, some tachycardia
-      svr: p0.svr * (1 + 0.85 * this.pressor) * (1 - 0.14 * this.ino),
-      hr: p0.hr * (1 + 0.04 * this.pressor) * (1 + 0.1 * this.ino) * (1 - 0.22 * relieved),
-      co: p0.co * (1 + 0.06 * this.pressor) * (1 + 0.38 * this.ino) + (5 - p0.co) * relieved * (this.sc.morph.tamponade ? 1 : 0),
+      svr: p0.svr * this.noreSvrFactor() * (1 - 0.14 * this.ino),
+      hr: p0.hr * nr.hr * (1 + 0.1 * this.ino) * (1 - 0.22 * relieved),
+      co: p0.co * nr.co * (1 + 0.38 * this.ino) + (5 - p0.co) * relieved * (this.sc.morph.tamponade ? 1 : 0),
       cvp: p0.cvp + (7 - p0.cvp) * relieved * (this.sc.morph.tamponade ? 1 : 0),
     };
     const s = derive({ ...this.pt, p });
@@ -95,6 +105,24 @@ export class LinesSession {
     if (!first && this.heart) this.heart.setCirc(this.circ);
   }
 
+  /** SVR multiplier from the current norepinephrine level */
+  noreSvrFactor() { return 1 + noreEffect(this.pressor * 0.15); }
+  /**
+   * Baroreflex to norepinephrine: vagal slowing in proportion to how far the vasoconstriction would push
+   * MAP (≈ CVP + CO·SVR/80) above the reflex set point (~88 mmHg). A hypotensive patient being restored
+   * toward the set point gets little slowing; a normotensive one slows markedly. Returns the reflex
+   * heart-rate factor and the output factor (β1 push, fewer beats only partly offset by bigger strokes,
+   * and the afterload cost of a higher SVR).
+   */
+  noreReflex(p0: { co: number; svr: number; cvp: number }) {
+    const e = noreEffect(this.pressor * 0.15); if (e <= 0) return { hr: 1, co: 1 };
+    const SET = 88; const map0 = p0.cvp + (p0.co * p0.svr) / 80, map1 = p0.cvp + (p0.co * p0.svr * (1 + e)) / 80;
+    const over = Math.max(0, map1 - Math.max(map0, SET)) / SET;
+    const vagal = 0.45 * Math.min(0.6, over);
+    return { hr: (1 + 0.05 * e / NORE_EMAX) * (1 - vagal), co: (1 + 0.04 * e / NORE_EMAX) * (1 - 0.5 * vagal) * (1 - 0.05 * e) };
+  }
+  /** SVR the circulation is running with (all therapies applied) */
+  effectiveSvr() { return this.pt.p.svr * this.noreSvrFactor() * (1 - 0.14 * this.ino); }
   /** 500 mL crystalloid. Preload-responsive patients gain stroke volume; a full or failing heart only gains CVP. */
   fluid() {
     const p = this.pt.p; const noReserve = (this.morph.lvFail ?? 0) > 0.3 || (this.morph.rvLoad ?? 0) > 0.3 || (this.morph.tamponade ?? 0) > 0.3;
