@@ -172,7 +172,9 @@ export class LinesSession {
   zero(id: LineId) {
     // monitors average the signal for ~1 s when zeroing: wait for the trace to settle at 0 after opening to air
     const L = this.line(id); const arr = id === 'art' ? this.artD : this.cvpD; let sum = 0, n = 0; for (let b = 0; b < Math.min(this.count, 250); b++) { sum += arr[this.at(b)]; n++; }
-    L.zero(n ? sum / n + L.zeroRef : undefined); if (L.fault === 'drift' && L.stopcock === 'air') L.fault = 'none'; this.note(`${id === 'art' ? 'Arterial' : 'CVP'} transducer zeroed ${L.stopcock === 'air' ? '(open to air ✓)' : '— WHILE OPEN TO THE PATIENT ✗'}`); this.version++; }
+    // open to air the monitor waits for a flat, non-pulsatile signal before accepting the zero, so it captures the settled
+    // reading (only the transducer's own offset); open to the patient it captures whatever it is averaging — the classic error
+    if (L.stopcock === 'air') L.zero(L.drift); else L.zero(n ? sum / n + L.zeroRef : undefined); if (L.fault === 'drift' && L.stopcock === 'air') L.fault = 'none'; this.note(`${id === 'art' ? 'Arterial' : 'CVP'} transducer zeroed ${L.stopcock === 'air' ? '(open to air ✓)' : '— WHILE OPEN TO THE PATIENT ✗'}`); this.version++; }
   flush(id: LineId) { this.line(id).fastFlush(this.heart.t); this.version++; }
   /** Carry out a bedside fix. Returns what happened (right fix, wrong fix, or a harmful one). */
   act(id: LineId, a: Action): { ok: boolean; text: string } {

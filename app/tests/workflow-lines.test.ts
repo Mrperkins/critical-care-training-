@@ -45,3 +45,21 @@ describe('Lines workflows', () => {
     lines.load('normal'); const n1 = run(6).hr; expect(n1).toBeCloseTo(n0, 6); expect(lines.boluses.length).toBe(0);
   });
 });
+
+import { ART_LINE } from '../src/workflows/linesWorkflows';
+describe('arterial line workflow on the transducer model', () => {
+  const doAll = (ids: string[]) => ids.forEach((id) => ART_LINE.effects![id]?.());
+  it('fixing level, zero and damping brings the monitor back to the true pressure', () => {
+    ART_LINE.setup(); const a = run(6);
+    expect(a.sys - a.tSys).toBeGreaterThan(10); // underdamped + below-axis over-read
+    doAll(['level', 'air', 'zero', 'back', 'fix']); const b = run(6);
+    expect(Math.abs(b.map - b.tMap)).toBeLessThan(2); expect(Math.abs(b.sys - b.tSys)).toBeLessThan(5); expect(lines.art.fault).toBe('none');
+  });
+  it('zeroing open to the patient makes a normal patient read falsely low', () => {
+    ART_LINE.setup(); run(4); doAll(['level', 'zeroPatient']); const c = run(4);
+    expect(c.map).toBeLessThan(c.tMap - 25); expect(c.tMap).toBeGreaterThan(70);
+  });
+  it('flushing the bubble forward does not fix it', () => {
+    ART_LINE.setup(); run(2); const r = lines.act('art', 'flushForward'); expect(r.ok).toBe(false); expect(lines.art.fault).toBe('smallBubble');
+  });
+});

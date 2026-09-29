@@ -93,5 +93,38 @@ export const PUSH_DOSE: Workflow = {
   debrief: 'Dilute, label, small dose, watch — and use the time to fix the cause or start an infusion.',
 };
 
-export const LINES_WORKFLOWS: Workflow[] = [BLOOD_ADMIN, NORE_INFUSION, PUSH_DOSE];
+export const ART_LINE: Workflow = {
+  id: 'wf-artline', module: 'lines', level: 'core',
+  title: 'Arterial line: level, zero, flush test, fix',
+  blurb: 'An over-reading arterial line: find out whether the number or the patient is wrong — levelling, zeroing, the square-wave test and the fix, on the live transducer.',
+  context: 'New radial arterial line. The monitor shows a spiky systolic of about 150 while the patient looks well. The transducer has slipped down the pole; nobody has checked the damping.',
+  setup: () => { lines.load('normal'); lines.setup.transH = lines.axis - 10; lines.setFault('art', 'smallBubble'); lines.setStopcock('art', 'patient'); },
+  steps: [
+    { id: 'cuff', label: 'Cross-check with a cuff pressure', why: 'Cuff and arterial MEAN pressures should agree closely; systolic can legitimately differ. A large disagreement means check the system before treating.' },
+    { id: 'level', label: 'Level the transducer to the phlebostatic axis', why: '4th intercostal space, mid-chest. Every 10 cm below the axis adds about 7 mmHg to every reading.' },
+    { id: 'air', label: 'Stopcock off to the patient, open to air', why: 'Zeroing sets atmospheric pressure as 0 — the transducer must see air, not the patient.' },
+    { id: 'zero', label: 'Zero on the monitor', why: 'Removes electrical and hydrostatic offset in the transducer itself.', critical: true },
+    { id: 'back', label: 'Cap the port, stopcock back to the patient', why: 'An open port reads atmospheric pressure (a flat zero) and can bleed or entrain air.', critical: true },
+    { id: 'flushTest', label: 'Square-wave (fast-flush) test', why: 'Pull the flush: after the square wave, 1.5–2 oscillations before the trace returns is optimal. More = underdamped (over-reads systolic), fewer = overdamped (under-reads systolic).' },
+    { id: 'fix', label: 'Underdamped: off to the patient, aspirate / flush the bubble to waste', why: 'A small bubble drops the natural frequency and the trace rings. It must leave through the side port, never toward the patient.' },
+    { id: 'retest', label: 'Repeat the flush test, then trust the trace', why: 'Now the systolic and diastolic are believable; the mean was the most robust number all along.' },
+  ],
+  anyOrder: [['cuff', 'level']],
+  distractors: [
+    { id: 'zeroPatient', label: 'Zero with the stopcock still open to the patient', why: 'The monitor subtracts the patient’s own pressure as if it were zero: every reading drops by tens of mmHg and a normal patient suddenly looks shocked.', critical: true },
+    { id: 'flushFwd', label: 'Flush the bubble forward into the artery', why: 'Air from a radial line can travel retrograde to the brain. Always flush air out of the side port to waste.', critical: true },
+    { id: 'bed', label: 'Level the transducer to the mattress', why: 'The reference is the heart (phlebostatic axis), not the bed — raising the head of the bed moves the axis.' },
+    { id: 'treat', label: 'Start a vasodilator for the high systolic', why: 'Treating an artefact. Check level, zero and damping first.' },
+  ],
+  effects: {
+    cuff: () => lines.startNibp(), level: () => lines.levelToAxis(),
+    air: () => lines.setStopcock('art', 'air'), zero: () => lines.zero('art'), back: () => lines.setStopcock('art', 'patient'),
+    flushTest: () => lines.flush('art'), fix: () => { lines.act('art', 'aspirate'); }, retest: () => lines.flush('art'),
+    zeroPatient: () => { lines.setStopcock('art', 'patient'); lines.zero('art'); }, flushFwd: () => { lines.act('art', 'flushForward'); },
+    bed: () => { lines.setup.transH = lines.setup.bedH; lines.version++; },
+  },
+  debrief: 'Before treating an arterial number: is it levelled, zeroed and properly damped? The mean pressure survives damping errors best; levelling errors shift every number.',
+};
+
+export const LINES_WORKFLOWS: Workflow[] = [BLOOD_ADMIN, NORE_INFUSION, PUSH_DOSE, ART_LINE];
 export const DRIP_EXAMPLE = { kg: KG, neConc: NE_CONC, neRate: NE_RATE, peConc: PE_CONC };
