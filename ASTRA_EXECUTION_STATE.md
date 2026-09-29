@@ -10,12 +10,13 @@ All 53 earlier bundle patches (Wave 1 chrome CSS, Studio lighting/fog, cell mate
 `visual-overhaul`
 
 ## CURRENT COMMIT
-Run `git rev-parse HEAD`. Last slice: "Initial MOA set".
+Run `git rev-parse HEAD`. Last slice: "Stroke time machine + ClinicalImagingScene".
 
 ## LAST VERIFIED LIVE DEPLOY
 Live Pages HTML contains the Nav1.5 loader from `07e29e4`. Cell, 9RON, and 9P24 GLBs returned HTTP 200 with the expected glTF MIME type. The cloud browser has WebGL disabled, so a 3D visual check remains unavailable here.
 
 ## COMPLETED SLICES
+- Stroke time machine + ClinicalImagingScene. `neuro/imaging/synth.ts` renders four synthetic, labelled teaching images from the SAME neuro state (pure functions → RGBA; radiological L/R): non-contrast CT (brain window; cortical ribbon, deep grey nuclei, ventricles, Sylvian/interhemispheric CSF, skull; loss of grey–white differentiation then hypodensity as the core ages; hyperdense vessel sign at the clot; ICH hyperdense clot + oedema rim + midline shift; SAH in the suprasellar cistern and Sylvian fissures), CTA MIP (vessel projection with cut-off and faint retrograde filling from `vesselFlow.ts`), CT perfusion CBF and Tmax (from `territoryStates`/`cbfAt`, grey vs white flow, noise texture), plus "core (CBF < 30 %) / Tmax > 6 s / mismatch" summary. `ClinicalImagingScene.tsx` (2×2 grid, slice-level slider) behind a "3D anatomy | CT · CTA · perfusion" toggle in Brain. `vesselPerfusion` moved to `neuro/vesselFlow.ts` (shared by 3D + CTA). Time machine: TissueCard "Final core if the artery is reopened now / in 1 h / in 3 h / never" (pure what-if from `neuroSummary`), and a Director lesson `STROKE_TIME_MACHINE` (onset → transport → door/NCCT → CTA → CTP → thrombectomy at 150 min → 24 h). `tests/imaging.test.ts` (5).
 - Initial MOA set: epinephrine, vasopressin (V1a/V2, K-ATP), phenylephrine (reflex bradycardia), dobutamine (cardiogenic) in `moa/defs/vasoactive.ts` via `hemoAdapter` (moves the SAME `LinesSession` inputs — SVR, HR, CO — from cached scenario base params); calcium and insulin + dextrose in `moa/defs/electrolyte.ts` via `benchAdapter.ts` (labs bench: K⁺, resting potential, threshold, gap, QRS from the existing cell/ECG models; calcium: K⁺ 7.8 unchanged, gap → 13 mV). Dashed `effect: 'none'` edges for teaching "does not change". `tests/moa-set.test.ts` (7): graph validity + direction of every vital change. Note: the electrolyte demos run on the shared labs `bench` singleton, so opening them resets the Labs patient.
 - MOA framework (`app/src/moa/`): `types.ts` (MechanismDefinition / MechNode kinds / signed MechEdge / PatientAdapter / selectivity), `layout.ts` (longest-path causal layering + barycentre rows; horizontal or vertical, chosen from the pane aspect), `moaTimeline.ts` (mechanism → Director timeline: dose ramps with the first layer, chain lights layer by layer with narration, summary), `moaStore.ts`, `MoaModule.tsx` (new top-level "Drugs" module: SVG graph with glowing live nodes, animated signal pulses, inhibitory bar ends, hover explanations, receptor-activity bars, patient-response card, DirectorPlayer), `linesAdapter.ts` (private instance of the EXISTING `LinesSession` — steady-state exposure so seeking is exact; the drug layer never computes haemodynamics). `window.__CCMoa`. `tests/moa.test.ts` (4).
 - Norepinephrine MOA demo (`moa/defs/norepinephrine.ts`): α1 → Gq → PLC → IP₃/DAG → Ca²⁺–calmodulin → MLCK → arteriolar + venous constriction; β1 → Gs → AC → cAMP → PKA → L-type Ca²⁺ → contractility / SA rate; baroreflex offsets rate; SVR afterload vs preload on CO; MAP. Septic shock on the Lines engine: 0 → 0.08 µg/kg/min takes MAP 53 → 77 with SVR 650 → 945 and HR 116 → 118.
@@ -42,10 +43,10 @@ Live Pages HTML contains the Nav1.5 loader from `07e29e4`. Cell, 9RON, and 9P24 
 - Added AQP4 from the full 3GD8 biological assembly (four 223-residue chains, 21,312 triangles). Selected AQP4 uses this mesh at HIGH/MEDIUM, with the existing procedural proxy at LOW. No water/volume physiology changes.
 
 ## CURRENT SLICE
-Stroke time machine + ClinicalImagingScene.
+LVO flagship lesson, then ICH/SAH lessons.
 
 ## EXACT RESUME POINT
-Build on `app/src/neuro/`: (1) "time machine" = a Director timeline family over `setNeuroMinutes` with scrub-to-any-minute, onset → door → CT → decision → reperfusion markers, and side-by-side "reperfuse now vs later" core volumes from `neuroSummary`; (2) `app/src/neuro/imaging/ClinicalImagingScene.tsx` — synthetic, clearly-labelled teaching images generated from the SAME neuro state: axial non-contrast CT slice (hyperdense MCA sign, loss of grey-white differentiation when core exists, ICH hyperdensity, SAH in cisterns), CTA MIP (vessel cutoff), CT perfusion maps (CBF / Tmax colour from `territoryStates`). Render via a slice of the brain mesh + territory classification (reuse `territoryAt`, `peripheryAt`). No patient images, no copied atlases.
+LVO lesson (`director/lessons/neuro.ts`): recognition (large-vessel signs from the M1 territory: aphasia/neglect by side, gaze deviation, hemiparesis), CTA confirmation, the collateral-grade decision on CTP (use `collaterals` + `perfusionSummary` mismatch), and transfer-time trade-offs (drip-and-ship vs mothership using the what-if numbers). Then ICH lesson (ABC/2 volume, BP target effect on growth — add `growth` to Hemorrhage as a pure function of time and SBP, no new engine), SAH lesson (Hunt–Hess/Fisher-style grading shown as text, vasospasm window days 3–14 as timeline, nimodipine MOA link). Each lesson: Director timeline + tests for determinism and the clinical direction of each step.
 
 ## NEXT 10 SLICES
 1. (done) Alveolar microscene.
@@ -54,7 +55,7 @@ Build on `app/src/neuro/`: (1) "time machine" = a Director timeline family over 
 4. (done) MOA data graph (MechanismDefinition/Node/Edge) + UI shell as a new top-level mode.
 5. (done) Norepinephrine α1/β1 MOA with shock context — reuse `lines` session (`setNore`, SVR) for the patient response.
 6. (done) Hyperkalemia signature lesson through the Lesson Director (labs bench + cell scene + ECG).
-7. Stroke vascular state + imaging primitives (ClinicalImagingScene).
+7. (done) Stroke vascular state + imaging primitives (ClinicalImagingScene).
 8. Curriculum metadata + progress persistence.
 9. Port respiratory lessons through the shared director.
 10. Heart/coronary polish in the Infarct Atlas (source now in `infarct-atlas-app/`).
@@ -67,7 +68,7 @@ Build on `app/src/neuro/`: (1) "time machine" = a Director timeline family over 
 - Visual QA: this environment has WebGL via swiftshader (`--use-gl=angle --use-angle=swiftshader`); slow but real. Serve the repo root with `python3 -m http.server` (binary GLBs need http, not file://).
 
 ## TESTS LAST RUN
-- `app`: `tsc --noEmit` clean; `vitest` 120/120 (moa-set 7, moa 4, hyperk 2). Drugs module screenshots desktop + phone: no page errors. Earlier: `vitest` 107/107 (director 5, neuro 11). Director screenshots: vent Learn step 2 (player), Brain Learn at 0:30 and 1:16 — no page errors. Earlier: `vitest` 102/102. Brain module screenshots: normal, CoW from below, L M1 at 90 min and 8 h (lateral), basilar, ICH, SAH — no page errors. Earlier: `vitest` 91/91. `tools/validate_visual_assets.py` passed; no `var sw=var sw=`. HTTP + WebGL screenshots of the alveolar view (normal, ARDS PEEP 5/18, membrane, oedema, phone) and PTX lung view: no page errors. Screenshot note: call `window.__CCVent.session.tick()` in a loop and set `window.__instant=true` because swiftshader frame rate is too low for the sim to advance in real time.
+- `app`: `tsc --noEmit` clean; `vitest` 125/125 (imaging 5, moa-set 7, moa 4, hyperk 2). Imaging screenshots: M1 at 75 min basal + 8 h, ICH, SAH — no page errors. Drugs module screenshots desktop + phone: no page errors. Earlier: `vitest` 107/107 (director 5, neuro 11). Director screenshots: vent Learn step 2 (player), Brain Learn at 0:30 and 1:16 — no page errors. Earlier: `vitest` 102/102. Brain module screenshots: normal, CoW from below, L M1 at 90 min and 8 h (lateral), basilar, ICH, SAH — no page errors. Earlier: `vitest` 91/91. `tools/validate_visual_assets.py` passed; no `var sw=var sw=`. HTTP + WebGL screenshots of the alveolar view (normal, ARDS PEEP 5/18, membrane, oedema, phone) and PTX lung view: no page errors. Screenshot note: call `window.__CCVent.session.tick()` in a loop and set `window.__instant=true` because swiftshader frame rate is too low for the sim to advance in real time.
 
 ## FILES CURRENTLY BEING EDITED
 - None.

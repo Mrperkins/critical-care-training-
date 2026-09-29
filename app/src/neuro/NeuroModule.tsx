@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { loadBodyAsset, type BodyAsset } from '../asset/body';
 import { Knob, Seg } from '../vent/VentPanel';
 import { NeuroScene } from './NeuroScene';
+import { ClinicalImagingScene } from './imaging/ClinicalImagingScene';
 import { useNeuroUI, NEURO_PRESETS, loadNeuroPreset, setNeuroMinutes, recanalize, type NeuroPreset } from './neuroStore';
 import { neuroSummary, hemorrhageShape, type CollateralGrade } from './perfusion';
 import { TERRITORIES, TERRITORY_NAME } from './anatomy';
@@ -28,7 +29,7 @@ export function NeuroModule() {
   useEffect(() => { loadBodyAsset().then(setBody).catch((e) => { console.error(e); setErr(String(e?.message || e)); }); }, []);
   useEffect(() => { (window as unknown as { __CCNeuro: unknown }).__CCNeuro = { store: useNeuroUI, load: loadNeuroPreset, minutes: setNeuroMinutes, recanalize, focus: (id: string) => useNeuroUI.getState().set({ target: id }), body: () => body }; }, [body]);
   useStrokeClock();
-  const mode = useUI((s) => s.mode);
+  const mode = useUI((s) => s.mode); const view = useNeuroUI((s) => s.view);
   // the Lesson Director's camera target drives the brain camera
   const dTarget = useDirector((s) => s.target);
   useEffect(() => { if (dTarget?.startsWith('brain.')) useNeuroUI.getState().set({ target: dTarget }); }, [dTarget]);
@@ -36,7 +37,7 @@ export function NeuroModule() {
     <main className="stage">
       <section className="scene-pane">
         <div className="scene-wrap neuro-wrap">
-          {body ? <NeuroScene body={body} /> : <div className="loading">{err ? `Could not load anatomy: ${err}` : 'Loading anatomy…'}</div>}
+          {view === 'imaging' ? <ClinicalImagingScene /> : body ? <NeuroScene body={body} /> : <div className="loading">{err ? `Could not load anatomy: ${err}` : 'Loading anatomy…'}</div>}
           <NeuroOverlay />
         </div>
       </section>
@@ -57,8 +58,10 @@ export function NeuroModule() {
 const FOCUS: [string, string][] = [['brain.whole', 'Brain'], ['brain.cow', 'Circle of Willis'], ['brain.mca_l', 'L MCA'], ['brain.mca_r', 'R MCA'], ['brain.aca', 'ACA'], ['brain.pca', 'PCA'], ['brain.basilar', 'Basilar'], ['brain.ica_l', 'L ICA']];
 function NeuroOverlay() {
   const target = useNeuroUI((s) => s.target); const labels = useNeuroUI((s) => s.labels); const glass = useNeuroUI((s) => s.glass); const set = useNeuroUI.getState().set;
-  const tier = useLabUI((s) => s.visualTier);
+  const tier = useLabUI((s) => s.visualTier); const view3d = useNeuroUI((s) => s.view) === '3d';
   return (<>
+    <div className="view-btns"><button className={view3d ? 'on' : ''} onClick={() => set({ view: '3d' })}>3D anatomy</button><button className={!view3d ? 'on' : ''} onClick={() => set({ view: 'imaging' })}>CT · CTA · perfusion</button></div>
+    {!view3d ? null : <>
     <div className="scene-tools">
       <button className={`tgl${labels ? ' on' : ''}`} onClick={() => set({ labels: !labels })}>Labels</button>
       <button className={`tgl${glass ? ' on' : ''}`} onClick={() => set({ glass: !glass })}>{glass ? 'Glass brain' : 'Solid brain'}</button>
@@ -68,6 +71,7 @@ function NeuroOverlay() {
       <div className="seg small ch-quality" role="group" aria-label="Visual quality">{(['high', 'medium', 'low'] as VisualTier[]).map((k) => <button key={k} className={tier === k ? 'on' : ''} onClick={() => useLabUI.getState().set({ visualTier: k })}>{k[0].toUpperCase() + k.slice(1)}</button>)}</div>
     </div>
     <div className="legend"><span><i style={{ background: '#c81e2a' }} />Perfused</span><span><i style={{ background: '#3a2a3e' }} />No flow</span><span><i style={{ background: '#ed9e2e' }} />Penumbra</span><span><i style={{ background: '#c71f52' }} />Core</span><span><i style={{ background: '#4b0c12' }} />Clot / blood</span></div>
+  </>}
   </>);
 }
 
@@ -103,6 +107,10 @@ function TissueCard() {
   const s = neuroSummary(st, sys); const affected = TERRITORIES.filter((t) => s.territories[t].coreMl + s.territories[t].penumbraMl > 0.5);
   const h = st.hemorrhage ? hemorrhageShape(st.hemorrhage) : null;
   if (!affected.length && !h) return null;
+  // time machine: the same patient's final core for different reperfusion times (pure — nothing is changed)
+  const occl = Object.keys(st.occlusion).length > 0 && st.recanalizedAt == null;
+  const finalCore = (at: number | null) => neuroSummary({ ...st, minutes: 1440, recanalizedAt: at }, sys).coreMl;
+  const whatIf: [string, number][] | null = occl ? [['now', finalCore(st.minutes)], ['in 1 h', finalCore(st.minutes + 60)], ['in 3 h', finalCore(st.minutes + 180)], ['never', finalCore(null)]] : null;
   const fx = (v: number) => (v >= 10 ? Math.round(v) : v.toFixed(1));
   return (
     <section className="card nums">
@@ -112,6 +120,7 @@ function TissueCard() {
         <div className="num"><span className="nl">Mismatch</span><span className="nv">{Number.isFinite(s.mismatch) ? s.mismatch.toFixed(1) : '∞'}</span><span className="nu">ratio</span></div>
         <div className="num"><span className="nl">Worst CBF</span><span className="nv">{Math.round(Math.min(...affected.map((t) => s.territories[t].cbfDeep)))}</span><span className="nu">mL/100 g/min</span></div>
       </div>}
+      {whatIf && <div className="whatif"><div className="eyebrow">Final core if the artery is reopened…</div><div className="numgrid">{whatIf.map(([l, v]) => <div key={l} className="num"><span className="nl">{l}</span><span className="nv">{fx(v)}</span><span className="nu">mL</span></div>)}</div></div>}
       {affected.map((t) => <p key={t} className="muted small">{TERRITORY_NAME[t]}: deep CBF {Math.round(s.territories[t].cbfDeep)}, border {Math.round(s.territories[t].cbfBorder)} — core {fx(s.territories[t].coreMl)} mL, penumbra {fx(s.territories[t].penumbraMl)} mL</p>)}
       {h && st.hemorrhage && <div className="numgrid">
         <div className="num"><span className="nl">{st.hemorrhage.kind === 'ich' ? 'ICH volume' : 'SAH blood'}</span><span className="nv">{st.hemorrhage.volumeMl}</span><span className="nu">mL</span></div>

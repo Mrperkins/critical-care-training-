@@ -35,10 +35,12 @@ export interface NeuroUI {
   preset: NeuroPreset; state: NeuroState; sys: Systemic;
   /** semantic camera target (brain.*) */ target: string;
   labels: boolean; glass: boolean; playing: boolean;
+  /** 3D anatomy or synthetic clinical imaging */ view: '3d' | 'imaging';
+  /** axial slice level for imaging (local brain units, −1 base … +1 vertex) */ slice: number;
   set: (p: Partial<NeuroUI>) => void;
 }
 export const useNeuroUI = create<NeuroUI>((set) => ({
-  preset: 'none', state: emptyNeuro(), sys: { ...DEFAULT_SYSTEMIC }, target: 'brain.whole', labels: true, glass: true, playing: false,
+  preset: 'none', state: emptyNeuro(), sys: { ...DEFAULT_SYSTEMIC }, target: 'brain.whole', labels: true, glass: true, playing: false, view: '3d', slice: -0.3,
   set: (p) => set(p),
 }));
 /** Deterministic clock: lessons call this with a time; the play button calls it with dt. */
