@@ -40,3 +40,15 @@ describe('Lesson Director timeline', () => {
     resolve(TIME_IS_BRAIN, 50); expect(useNeuroUI.getState().sys.map).toBe(60); resolve(TIME_IS_BRAIN, 60); expect(useNeuroUI.getState().sys.map).toBe(90);
   });
 });
+
+describe('absolute timelines', () => {
+  it('a later apply is not overwritten by an earlier finished tween', async () => {
+    const { resolve } = await import('../src/director/timeline');
+    let x = 0; const tl = { id: 'abs', title: 'abs', absolute: true, cues: [
+      { id: 'a', at: 0, dur: 4, apply: () => { x = 0; }, tween: (u: number) => { x = 10 * u; } },
+      { id: 'b', at: 5, apply: () => { x = -1; } },
+      { id: 'c', at: 8, dur: 2, tween: (u: number) => { x = -1 - u; } },
+    ] };
+    resolve(tl, 2); expect(x).toBe(5); resolve(tl, 6); expect(x).toBe(-1); resolve(tl, 9); expect(x).toBe(-1.5);
+  });
+});

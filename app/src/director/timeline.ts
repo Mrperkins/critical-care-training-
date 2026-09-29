@@ -37,7 +37,11 @@ export function targetAt(tl: Timeline, t: number) { let id: string | null = null
 /** Rebuild the world at time t from scratch (used by seek). */
 export function resolve(tl: Timeline, t: number) {
   tl.setup?.();
-  if (tl.absolute) { const past = sorted(tl).filter((c) => c.at <= t + 1e-9); const a = [...past].reverse().find((c) => c.apply); a?.apply?.(); past.forEach((c) => c.tween?.(c.dur ? Math.min(1, (t - c.at) / c.dur) : 1)); return; }
+  if (tl.absolute) {
+    // the latest cue with `apply` defines the world; only tweens from that cue onward still act on it
+    const past = sorted(tl).filter((c) => c.at <= t + 1e-9); let i = past.length - 1; while (i >= 0 && !past[i].apply) i--;
+    past[i]?.apply?.(); past.slice(Math.max(0, i)).forEach((c) => c.tween?.(c.dur ? Math.min(1, (t - c.at) / c.dur) : 1)); return;
+  }
   for (const c of sorted(tl)) {
     if (c.at > t + 1e-9) break;
     c.apply?.();

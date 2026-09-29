@@ -27,10 +27,10 @@ export function fluidDistribution(st: AbdomenState) {
   const src = (['liver', 'spleen'] as const).map((o) => ({ o, g: st.injury[o] ?? 0 }));
   const fromLiver = src[0].g, fromSpleen = src[1].g; const tot = Math.max(1e-6, fromLiver + fromSpleen);
   // Morison's pouch is the most dependent upper-abdominal space; blood from the spleen reaches it via the left paracolic gutter only once the splenorenal space fills
-  const liverShare = fromLiver / tot || 0.5, spleenShare = fromSpleen / tot || 0.5; const V = st.freeFluidMl;
-  const ruq = V * (0.35 * liverShare + 0.18 * spleenShare) * sat(V, 150);
+  const none = fromLiver + fromSpleen <= 0; const liverShare = none ? 0.5 : fromLiver / tot, spleenShare = none ? 0.5 : fromSpleen / tot; const V = st.freeFluidMl;
+  const ruq = V * (0.4 * liverShare + 0.18 * spleenShare) * sat(V, 150);
   const luq = V * (0.08 * liverShare + 0.3 * spleenShare) * sat(V, 150);
-  const pelvis = V * 0.35 * sat(V, 80);
+  const pelvis = V * 0.35 * sat(V, 350); // reached via the paracolic gutters once the upper spaces overflow
   const gutters = Math.max(0, V - ruq - luq - pelvis);
   return { ruq, luq, pelvis, gutters };
 }

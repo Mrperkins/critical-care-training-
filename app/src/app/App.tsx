@@ -53,7 +53,7 @@ export function App() {
     <div className={`app m-${module}${phone ? ' phone' : ''}`}>
       <header className="topbar">
         <div className="brand"><Mark /><div><div className="b1">Critical Care Physiology</div><div className="b2">one patient · lungs · blood · cells · lines</div></div></div>
-        <nav className="modules">{MODULES.map(([k, l]) => <button key={k} className={module === k ? 'on' : ''} onClick={() => useUI.getState().set({ module: k })}>{l}</button>)}</nav>
+        <nav className="modules" ref={(n) => { n?.querySelector('button.on')?.scrollIntoView?.({ block: 'nearest', inline: 'nearest' }); }}>{MODULES.map(([k, l]) => <button key={k} className={module === k ? 'on' : ''} onClick={() => useUI.getState().set({ module: k })}>{l}</button>)}</nav>
         <Seg value={mode} options={MODES} onChange={(v) => useUI.getState().set({ mode: v })} />
       </header>
       {module === 'vent' && <VentModule />}

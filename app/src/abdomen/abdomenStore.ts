@@ -14,8 +14,9 @@ export const ABD_PRESETS: { id: AbdPreset; name: string; short: string; make: ()
   { id: 'mesenteric', name: 'Mesenteric ischaemia', short: 'Pain out of proportion; SMA occlusion', make: () => ({ ...emptyAbdomen(), ischaemia: 0.35 }) },
   { id: 'pancreatitis', name: 'Acute pancreatitis', short: 'Epigastric pain to the back', make: () => ({ ...emptyAbdomen(), pancreatitis: 0.8, freeFluidMl: 150, fluidKind: 'ascites' }) },
 ];
-export interface AbdUI { preset: AbdPreset; base: AbdomenState; minutes: number; target: string; labels: boolean; set: (p: Partial<AbdUI>) => void }
-export const useAbdUI = create<AbdUI>((set) => ({ preset: 'spleen4', base: ABD_PRESETS[1].make(), minutes: 30, target: 'abdomen.whole', labels: true, set: (p) => set(p) }));
+export type AbdView = '3d' | 'us';
+export interface AbdUI { preset: AbdPreset; base: AbdomenState; minutes: number; target: string; labels: boolean; view: AbdView; set: (p: Partial<AbdUI>) => void }
+export const useAbdUI = create<AbdUI>((set) => ({ preset: 'spleen4', base: ABD_PRESETS[1].make(), minutes: 30, target: 'abdomen.whole', labels: true, view: '3d', set: (p) => set(p) }));
 export const loadAbdPreset = (id: AbdPreset) => useAbdUI.getState().set({ preset: id, base: ABD_PRESETS.find((p) => p.id === id)!.make(), minutes: id === 'normal' ? 0 : 30 });
 /** the state on screen: the base condition advanced by `minutes` (pure → seekable) */
 export const currentAbdomen = (s: Pick<AbdUI, 'base' | 'minutes'> = useAbdUI.getState()) => evolve(s.base, s.minutes);

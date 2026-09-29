@@ -29,14 +29,19 @@ export const ABD = {
   aaa: V(0.05, 2.25, -0.02), retro: V(0.42, 2.35, -0.45), liver: V(-0.45, 3.7, 0.2), spleen: V(0.82, 3.7, -0.37), pancreas: V(0.2, 3.4, 0.1), bowel: V(0, 1.8, 0.6), diaphragm: V(0, 4.3, 0.2),
 };
 registerAnchors('abdomen', () => ABD);
+const FADEABLE = ['liver', 'gallbladder', 'bowel', 'stomach', 'colon', 'spleen'];
+const HIDE: Record<string, string[]> = {
+  'abdomen.ruq': ['liver', 'gallbladder', 'colon', 'bowel'], 'abdomen.luq': ['stomach', 'colon', 'bowel'], 'abdomen.pelvis': ['bowel', 'colon'],
+  'abdomen.aorta': ['bowel', 'stomach', 'colon'], 'abdomen.retroperitoneum': ['bowel', 'stomach', 'colon'], 'abdomen.pancreas': ['bowel', 'stomach', 'colon'],
+};
 
 const blob = (() => { const g = mergeVertices(new THREE.IcosahedronGeometry(1, 5).deleteAttribute('normal').deleteAttribute('uv')); const p = g.attributes.position as THREE.BufferAttribute; const v = new THREE.Vector3(); for (let i = 0; i < p.count; i++) { v.fromBufferAttribute(p, i); const k = 1 + 0.14 * Math.sin(v.x * 4.3 + v.y * 2.1) * Math.cos(v.z * 3.7 - v.y * 1.3); p.setXYZ(i, v.x * k, v.y * k, v.z * k); } g.computeVertexNormals(); return g; })();
 const mlToR = (ml: number) => Math.cbrt((3 * Math.max(0, ml)) / (4 * Math.PI)) / 10; // mL (cm³) → dm radius
 
 function Pathology({ st }: { st: AbdomenState }) {
   const d = fluidDistribution(st);
-  const fluidColor = st.fluidKind === 'blood' ? '#6e0d14' : st.fluidKind === 'enteric' ? '#8a7a3a' : '#d9c77a';
-  const fluid = useMemo(() => new THREE.MeshPhysicalMaterial({ color: fluidColor, roughness: 0.15, clearcoat: 1, transparent: true, opacity: 0.82, depthWrite: false }), [fluidColor]);
+  const fluidColor = st.fluidKind === 'blood' ? '#b0101f' : st.fluidKind === 'enteric' ? '#8a7a3a' : '#d9c77a';
+  const fluid = useMemo(() => new THREE.MeshPhysicalMaterial({ color: fluidColor, roughness: 0.15, clearcoat: 1, transparent: true, opacity: 0.85, depthWrite: false, emissive: fluidColor, emissiveIntensity: 0.3 }), [fluidColor]);
   const retro = useMemo(() => new THREE.MeshPhysicalMaterial({ color: '#5a0a12', roughness: 0.5, transparent: true, opacity: 0.62, depthWrite: false }), []);
   const air = useMemo(() => new THREE.MeshPhysicalMaterial({ color: '#dff4ff', roughness: 0.05, transparent: true, opacity: 0.55, emissive: '#6fb7ff', emissiveIntensity: 0.4, depthWrite: false }), []);
   const aaaMat = useMemo(() => new THREE.MeshPhysicalMaterial({ color: '#c0392b', roughness: 0.4, clearcoat: 0.5, transparent: true, opacity: 0.9 }), []);
@@ -76,10 +81,14 @@ function Abdomen({ body }: { body: BodyAsset }) {
   const dil = Math.round(Math.min(1, st.distension + (st.obstruction === 'small' ? 0.3 : 0)) * 10) / 10;
   const bowelGeo = useMemo(() => tubeAlong(bowelPts, 0.1 * (1 + 0.8 * dil), 0.1 * (1 + 0.8 * dil), 12, 24).geometry, [bowelPts, dil]);
   useEffect(() => () => bowelGeo.dispose(), [bowelGeo]);
-  const target = useAbdUI((s) => s.target); const deep = ['abdomen.aorta', 'abdomen.retroperitoneum', 'abdomen.pancreas'].includes(target); const fade = useRef(1);
+  // organs that stand between the camera and the space a view is about fade out of the way
+  const target = useAbdUI((s) => s.target); const hide = HIDE[target] ?? []; const fade = useRef<Record<string, number>>({});
   useFrame((c, dtRaw) => {
-    const dt = frameDt(dtRaw); fade.current = approach(fade.current, deep ? 0.16 : 1, 4, dt);
-    for (const m of [bowelMat, stomachMat, mats.colon]) { m.transparent = true; m.opacity = (m === mats.colon ? 0.9 : 1) * fade.current; m.depthWrite = fade.current > 0.6; }     bowelMat.color.set('#e2aa9c').lerp(new THREE.Color('#3a1a2a'), Math.min(1, st.ischaemia * 1.2));
+    const dt = frameDt(dtRaw);
+    const all: Record<string, THREE.MeshPhysicalMaterial> = { ...mats, bowel: bowelMat, stomach: stomachMat };
+    for (const k of FADEABLE) { const m = all[k]; if (!m) continue; const base = ORGANS[k]?.opacity ?? 1; const f = (fade.current[k] = approach(fade.current[k] ?? 1, hide.includes(k) ? 0.18 : 1, 4, dt));
+      m.transparent = true; m.opacity = base * f; m.depthWrite = base * f > 0.6; }
+     bowelMat.color.set('#e2aa9c').lerp(new THREE.Color('#3a1a2a'), Math.min(1, st.ischaemia * 1.2));
     mats.pancreas.color.set('#d8b48a').lerp(new THREE.Color('#d0542e'), st.pancreatitis);
     const pulse = 0.5 + 0.5 * Math.sin(c.clock.elapsedTime * 5);
     for (const o of ['liver', 'spleen'] as const) { const g = st.injury[o] ?? 0; mats[o].emissive.set('#ff2a2a'); mats[o].emissiveIntensity = g > 0 ? 0.06 * g * pulse : 0; }
@@ -113,7 +122,7 @@ function Labels({ st }: { st: AbdomenState }) {
 /** each view: what to look at, from which direction, and how much (w × h, dm) must fit on screen */
 const VIEW: Record<string, { tgt: THREE.Vector3; dir: THREE.Vector3; size: [number, number] }> = {
   'abdomen.whole': { tgt: ABD.whole, dir: V(0.08, 0.1, 1), size: [3.3, 5.0] },
-  'abdomen.ruq': { tgt: ABD.ruq, dir: V(-0.75, 0.2, 0.7), size: [1.9, 1.9] },
+  'abdomen.ruq': { tgt: ABD.ruq, dir: V(-0.55, 0.05, 0.85), size: [2.2, 2.2] },
   'abdomen.luq': { tgt: ABD.luq, dir: V(0.8, 0.2, 0.6), size: [1.9, 1.9] },
   'abdomen.pelvis': { tgt: ABD.pelvis, dir: V(0.1, 0.45, 1), size: [2.0, 1.6] },
   'abdomen.aorta': { tgt: ABD.aaa, dir: V(0.45, 0.15, 1), size: [2.4, 3.0] },

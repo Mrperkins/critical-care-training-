@@ -141,7 +141,7 @@ input[type=range]{height:28px}
 .phone .topbar{padding:8px 16px;gap:8px}
 .phone .brand .b2{display:none}
 .phone .b1{font-size:16px}
-.phone .modules{order:3;width:100%;justify-content:space-between}
+.phone .modules{order:3;width:100%;min-width:0;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.phone .modules::-webkit-scrollbar{display:none}.phone .modules button{flex:0 0 auto;white-space:nowrap}.phone .topbar{max-width:100vw}.phone .topbar>*{min-width:0}
 .phone .topbar>.seg{order:4;width:100%;justify-content:space-between}
 .phone .topbar>.seg button{flex:1;padding:6px 4px}
 .phone .stage{display:block;overflow:auto;height:100%}
@@ -481,3 +481,10 @@ details.card summary{cursor:pointer;font:600 14px var(--fs);margin-bottom:6px}
 .exam-list{margin:0;padding-left:16px;font-size:13px;line-height:1.5}
 .phone .exam-row{flex-direction:column}.phone .pt-fig{width:100%;flex:none;max-height:220px}
 .fast-list{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:6px;font-size:13px}.fast-list li{padding:6px 8px;border-radius:8px;background:var(--pane2);color:var(--dim)}.fast-list li.pos{color:var(--ink);box-shadow:inset 3px 0 0 var(--bad)}.fw-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--line2);margin-right:6px}.fast-list li.pos .fw-dot{background:var(--bad)}.nv.small{font-size:12px}
+.us-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.us-panel{flex-direction:column}.us-frame{position:relative;max-width:100%;max-height:calc(100% - 22px);width:100%}.us-frame canvas{width:100%;height:100%;display:block}
+.us-lab{position:absolute;transform:translate(-50%,-50%);font:500 9.5px var(--fm);color:#e9f3f7;background:rgba(5,9,13,.55);padding:1px 5px;border-radius:6px;pointer-events:none;white-space:nowrap}.us-lab.fl{color:#ffb4ab;border:1px solid rgba(224,100,90,.6)}
+.us-orient,.us-depth{position:absolute;top:4px;font:500 9.5px var(--fm);color:rgba(222,235,241,.7)}.us-orient{left:6px}.us-depth{right:6px}
+.us-badge{position:absolute;right:8px;bottom:6px;background:rgba(5,9,13,.7)}
+.us-map svg{width:100%;height:100%;max-height:100%}
+@media (max-width:760px){.us-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
