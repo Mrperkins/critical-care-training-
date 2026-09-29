@@ -5,7 +5,7 @@
  */
 import type * as THREE from 'three';
 
-export interface TargetDef { scene: 'cell' | 'body' | 'vent' | 'lines' | 'neuro'; anchor: string; view?: 'whole' | 'zoom' }
+export interface TargetDef { scene: 'cell' | 'body' | 'vent' | 'lines' | 'neuro' | 'heart'; anchor: string; view?: 'whole' | 'zoom' }
 export const CAMERA_TARGETS = Object.freeze({
   'cell.whole': { scene: 'cell', anchor: 'whole', view: 'whole' },
   'cell.nucleus': { scene: 'cell', anchor: 'nucleus', view: 'whole' },
@@ -18,6 +18,15 @@ export const CAMERA_TARGETS = Object.freeze({
   'membrane.kir': { scene: 'cell', anchor: 'kchan', view: 'zoom' },
   'membrane.aqp': { scene: 'cell', anchor: 'aqp', view: 'zoom' },
   'heart.whole': { scene: 'body', anchor: 'heart' },
+  'heart.four_chamber': { scene: 'heart', anchor: 'four_chamber', view: 'whole' },
+  'heart.septum': { scene: 'heart', anchor: 'septum', view: 'zoom' },
+  'heart.vsd': { scene: 'heart', anchor: 'vsd', view: 'zoom' },
+  'heart.asd': { scene: 'heart', anchor: 'asd', view: 'zoom' },
+  'heart.pfo': { scene: 'heart', anchor: 'pfo', view: 'zoom' },
+  'heart.lv': { scene: 'heart', anchor: 'lv', view: 'zoom' },
+  'heart.rv': { scene: 'heart', anchor: 'rv', view: 'zoom' },
+  'heart.pulmonary_outflow': { scene: 'heart', anchor: 'outflow', view: 'zoom' },
+  'heart.pda': { scene: 'heart', anchor: 'pda', view: 'zoom' },
   'lung.whole': { scene: 'vent', anchor: 'lung', view: 'whole' },
   'lung.alveolus': { scene: 'vent', anchor: 'alveolus', view: 'zoom' },
   'lung.capillary': { scene: 'vent', anchor: 'capillary', view: 'zoom' },

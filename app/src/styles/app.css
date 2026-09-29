@@ -470,3 +470,5 @@ details.card summary{cursor:pointer;font:600 14px var(--fs);margin-bottom:6px}
 .img-note{width:100%;margin:0;font:500 9.5px var(--fm);color:rgba(222,235,241,.45)}
 .phone .imaging{padding-top:48px}.phone .img-grid{gap:6px}.phone .img-sum{flex-wrap:wrap;gap:8px}
 .whatif{margin:10px 0 4px}.whatif .numgrid{margin-top:6px}
+/* ---------------------------------------------------------------- congenital heart */
+.dir{padding:0 6px;border-radius:5px}.dir-lr{color:#ffb39a}.dir-rl{color:#9fb8ff}.dir-bi{color:#f0dc6a}.dir-none{color:var(--dim)}
