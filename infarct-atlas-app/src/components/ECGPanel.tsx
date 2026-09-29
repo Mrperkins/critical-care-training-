@@ -17,7 +17,7 @@ interface Cell { id: LeadId; x: number; y: number; w: number; h: number; secs: n
 export function ECGPanel() {
   const cv = useRef<HTMLCanvasElement>(null!);
   const cells = useRef<Cell[]>([]);
-  const morph = useRef(0);
+  const morph = useRef(0); const rep = useRef(0);
   const extraOpen = useApp((s) => s.scene.showExtraLeads || s.showExtra);
 
   useEffect(() => {
@@ -35,6 +35,7 @@ export function ECGPanel() {
       const T = tid ? TERRITORY[tid] : null;
       const target = quizCase ? (st.quiz.revealed ? st.scene.ecgMorph : 0.82) : st.scene.ecgMorph;
       morph.current += (target - morph.current) * (1 - Math.exp(-0.05 * 16));
+      rep.current += ((st.scene.reperfusion ?? 0) - rep.current) * (1 - Math.exp(-0.05 * 16));
       const m = T ? morph.current : 0;
       const hideAnswers = !!quizCase && !st.quiz.revealed;
       const affected = new Set<LeadId>(T && st.scene.emphasizeAffected && !hideAnswers ? T.affectedLeads : []);
@@ -81,7 +82,7 @@ export function ECGPanel() {
           if (Math.abs(x - cursor) < 10 && x > cursor) { pen = false; continue; }
           let t = win + x / pxPerS; if (t > now) t -= cell.secs;
           const tb = ((t % RR) + RR) % RR;
-          const v = sample(cell.id, tb, T?.ecgPattern ?? null, m);
+          const v = sample(cell.id, tb, T?.ecgPattern ?? null, m, rep.current);
           const y = base - v * pxPerMv;
           if (!pen) { ctx.moveTo(cell.x + x, y); pen = true; } else ctx.lineTo(cell.x + x, y);
         }
@@ -90,7 +91,7 @@ export function ECGPanel() {
         ctx.font = `600 ${Math.max(11, mm * 3.2)}px "IBM Plex Mono", ui-monospace, monospace`;
         ctx.fillStyle = isA ? '#a3240f' : isR ? '#23498c' : '#3a3632'; ctx.fillText(LEAD[cell.id].label, cell.x + 6, cell.y + Math.max(13, mm * 3.6));
         if ((isA || isR) && T && cell.secs < 5) {
-          const d = stDeviationMm(cell.id, T.ecgPattern, m);
+          const d = stDeviationMm(cell.id, T.ecgPattern, m, rep.current);
           ctx.font = `500 ${Math.max(10, mm * 2.7)}px "IBM Plex Mono", ui-monospace, monospace`;
           const full = `ST ${d >= 0 ? '↑' : '↓'}${Math.abs(d).toFixed(1)} mm`, short = `${d >= 0 ? '↑' : '↓'}${Math.abs(d).toFixed(1)}`;
           const lw = ctx.measureText(LEAD[cell.id].label + '  ').width + 10;
@@ -102,7 +103,7 @@ export function ECGPanel() {
       if (showExtra) { ctx.font = `500 ${Math.max(10, mm * 2.6)}px "IBM Plex Sans", system-ui, sans-serif`; ctx.fillStyle = '#6d5f55'; ctx.fillText('Posterior (V7–V9) and right-sided (V3R–V4R) leads', 6, (grid.length + 1) * rowH - 4); }
       ctx.font = `500 ${Math.max(10, mm * 2.6)}px "IBM Plex Mono", ui-monospace, monospace`; ctx.fillStyle = '#6d5f55';
       ctx.fillText(narrow ? '25 mm/s · 10 mm/mV' : '25 mm/s · 10 mm/mV · HR 72', 6, rows * rowH + 17);
-      if (T && !hideAnswers) { const lbl = m < 0.05 ? 'Normal ECG' : m < 0.4 ? 'Hyperacute phase' : m < 0.8 ? 'Acute ST elevation' : narrow ? 'Evolving STEMI' : 'Evolving STEMI (Q waves forming)'; ctx.textAlign = 'right'; ctx.fillText(lbl, W - 8, rows * rowH + 17); ctx.textAlign = 'left'; }
+      if (T && !hideAnswers) { const lbl = rep.current > 0.5 && m > 0.5 ? (narrow ? 'Reperfused' : 'Reperfused: ST resolving, T inversion, Q waves remain') : m < 0.05 ? 'Normal ECG' : m < 0.4 ? 'Hyperacute phase' : m < 0.8 ? 'Acute ST elevation' : narrow ? 'Evolving STEMI' : 'Evolving STEMI (Q waves forming)'; ctx.textAlign = 'right'; ctx.fillText(lbl, W - 8, rows * rowH + 17); ctx.textAlign = 'left'; }
     };
     draw();
     return () => cancelAnimationFrame(raf);

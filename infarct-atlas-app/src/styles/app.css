@@ -189,3 +189,8 @@ button.pri{background:var(--ink)!important;color:#141416!important;border-color:
 .lesson-pick{min-width:0}
 .lesson-pick select{min-width:0;flex:1;max-width:100%}
 .side-pane,.side-body,.info{min-width:0}
+/* signature lesson */
+.sig-lesson{display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:100%;margin:0 0 14px;padding:10px 12px;border:1px solid rgba(211,178,122,.45);border-radius:10px;background:rgba(211,178,122,.08);color:var(--ink);text-align:left;cursor:pointer}
+.sig-lesson span{font:500 10px var(--mono,monospace);letter-spacing:.08em;text-transform:uppercase;color:#d3b27a}.sig-lesson b{font-size:15px}.sig-lesson small{color:var(--dim);font-size:12px}
+.linkish{background:none;border:0;color:var(--dim);padding:0;margin-bottom:8px;cursor:pointer}
+.lesson-scrub{width:100%;margin:10px 0 4px}

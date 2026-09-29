@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { loadHeartAsset, type HeartAsset } from '../asset/heartAsset';
+import { LessonPlayer } from '../lesson/Player';
+import { STEMI_CULPRIT } from '../lesson/stemi';
 import { useApp, sequenceScene, NORMAL_SCENE, SEQ_KEYS, type Mode } from '../engine/store';
 import { clock } from '../engine/clock';
 import { HeartScene, selectTerritory, selectLead } from './HeartScene';
@@ -198,6 +200,11 @@ function ExplorePanel() {
 
 /* ---------------------------------------------------------------- lesson */
 function LessonPanel() {
+  const [sig, setSig] = useState(false);
+  if (sig) return <LessonPlayer tl={STEMI_CULPRIT} onExit={() => { setSig(false); applyLessonStep(useApp.getState().territoryId ?? 'inferior', 0); }} />;
+  return <TerritoryLesson onSignature={() => setSig(true)} />;
+}
+function TerritoryLesson({ onSignature }: { onSignature: () => void }) {
   const tid = useApp((s) => s.territoryId) ?? 'inferior'; const i = useApp((s) => s.lessonStep); const dom = useApp((s) => s.dominance);
   const steps = useMemo(() => buildLesson(TERRITORY[tid], dom), [tid, dom]);
   const [auto, setAuto] = useState(false);
@@ -205,6 +212,7 @@ function LessonPanel() {
   const st = steps[i];
   return (
     <div className="info lesson">
+      <button className="sig-lesson" onClick={onSignature}><span>Signature lesson</span><b>STEMI: find the culprit</b><small>anatomy, reciprocal and posterior leads, dominance, reperfusion</small></button>
       <div className="lesson-pick">
         <label htmlFor="lessonSel" className="eyebrow">Lesson</label>
         <select id="lessonSel" value={tid} onChange={(e) => applyLessonStep(e.target.value, 0)}>{TERRITORIES.map((t) => <option key={t.id} value={t.id}>{t.name} STEMI</option>)}</select>

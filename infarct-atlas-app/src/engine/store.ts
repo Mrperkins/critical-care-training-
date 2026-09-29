@@ -16,6 +16,8 @@ export interface SceneDirectives {
   emphasizeReciprocal: boolean;
   showExtraLeads: boolean;
   camera: 'overview' | 'territory' | 'vessel' | 'free';
+  /** 0 → 1 the culprit artery has been reopened (PCI / lysis) */
+  reperfusion?: number;
 }
 
 export const NORMAL_SCENE: SceneDirectives = {

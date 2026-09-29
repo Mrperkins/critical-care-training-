@@ -10,12 +10,13 @@ All 53 earlier bundle patches (Wave 1 chrome CSS, Studio lighting/fog, cell mate
 `visual-overhaul`
 
 ## CURRENT COMMIT
-Run `git rev-parse HEAD`. Last slice: "Flagship lessons: acidosis, DKA, ARDS vs obstruction, tension PTX, DO₂, haemorrhage/transfusion".
+Run `git rev-parse HEAD`. Last slice: "STEMI culprit lesson (Infarct Atlas) + reperfusion".
 
 ## LAST VERIFIED LIVE DEPLOY
 Live Pages HTML contains the Nav1.5 loader from `07e29e4`. Cell, 9RON, and 9P24 GLBs returned HTTP 200 with the expected glTF MIME type. The cloud browser has WebGL disabled, so a 3D visual check remains unavailable here.
 
 ## COMPLETED SLICES
+- STEMI / culprit-vessel flagship (Infarct Atlas, Guided lesson › "Signature lesson"): `infarct-atlas-app/src/lesson/{timeline.ts, stemi.ts, Player.tsx}` — local copy of the deterministic timeline model (apps stay independently buildable), single rAF clock, scrub/step/replay, optional speech that never gates the clock, `window.__IALesson`. Ten scenes: normal → inferior STEMI → reciprocal aVL → RCA culprit when right-dominant → circumflex when left-dominant (dominance toggle, culprit ambiguity) → posterior extension with V7–V9 → RV infarct with V4R → extensive anterior (LAD) → primary PCI reperfusion → time is muscle. NEW reperfusion in the atlas: `SceneDirectives.reperfusion`, ECG model `sample(..., rep)`: ST elevation resolves (−85 %), hyperacute T gone, Q waves persist, reperfusion T inversion; label "Reperfused…". `infarct-atlas-app/tests/stemi-lesson.test.ts` (4); atlas vitest 31/31.
 - Six more flagship Director lessons (all "Signature" entries in their module's Learn list, deterministic scene rebuilds, tests for direction + exact seek):
   - `director/lessons/abg.ts` on AbgLab — "Respiratory vs metabolic acidosis" (normal → acute opioid resp. acidosis → 3-day renal compensation → metabolic acidosis with Winter's compensation → same on a fixed ventilator (compensation removed) → reading the pattern) and "DKA" (ketoacids/AG, osmotic diuresis, K high vs total-body deficit, fluids, insulin infusion re-dosed via `seq`, K falls, AG closes). `tests/abg-lessons.test.ts` (4).
   - `director/lessons/vent.ts` — "ARDS vs asthma/COPD" (inspiratory/expiratory holds via `session.hold`, ARDS high Pplat normal gap vs asthma wide gap + auto-PEEP, bronchodilator + slower rate, COPD at RR 22 trapping; views side/airway) and "Tension pneumothorax" (tension 9, SpO₂ 91, MAP 38 → alveolar collapsed view → decompress → recovery). Vent `scene()` gained hold / fix / view options. `tests/vent-lessons2.test.ts` (3).
@@ -53,10 +54,10 @@ Live Pages HTML contains the Nav1.5 loader from `07e29e4`. Cell, 9RON, and 9P24 
 - Added AQP4 from the full 3GD8 biological assembly (four 223-residue chains, 21,312 triangles). Selected AQP4 uses this mesh at HIGH/MEDIUM, with the existing procedural proxy at LOW. No water/volume physiology changes.
 
 ## CURRENT SLICE
-STEMI / culprit-vessel lesson (flagship 8) inside the Infarct Atlas.
+Stroke patient / neuro-exam experience (lesion-driven synthetic exam).
 
 ## EXACT RESUME POINT
-`infarct-atlas-app/` has its own React app, store (`src/engine/store.ts`: territoryId, culpritIndex, dominance, seq, scene directives, focus) and `window.__IA.seek`. It does NOT share `app/`'s Director. Add a small deterministic lesson player to the atlas (copy the pure `timeline.ts` model — or import it via a relative path `../../app/src/director/timeline` if esbuild resolves it; prefer a shared copy in `infarct-atlas-app/src/lesson/timeline.ts` to keep the apps independent) and author "STEMI: find the culprit": inferior STEMI (RCA vs LCx by dominance toggle → culprit ambiguity), reciprocal changes in aVL, posterior extension with V1–V3 depression and posterior leads, anterior STEMI proximal vs mid LAD, reperfusion (seq back toward normal perfusion; injury resolving). Cues set territoryId / culpritIndex / dominance / seq / focus / showExtra. Tests in `infarct-atlas-app/tests/`. Build with `cd infarct-atlas-app && npm test && npm run site`.
+New pure `app/src/neuro/exam.ts`: `neuroExam(state, sys, { dominant: 'L' | 'R' })` → deficits derived from territory core/penumbra (penumbra = dysfunctional but salvageable → deficit present while occluded, resolves on reperfusion; core → permanent): face (lower-face weakness contralateral; MCA), arm/leg power 0–5 contralateral (MCA arm/face > leg; ACA leg > arm), pronator drift, gaze deviation toward lesion (large MCA/frontal eye field), aphasia (dominant MCA: superior division → expressive, inferior → receptive, M1 → global), neglect (non-dominant MCA), dysarthria, hemianopia (PCA contralateral), sensory loss, ataxia/coordination (VB: cerebellar), consciousness (large bilateral/brainstem → GCS↓; large MCA with oedema later), plus NIHSS-style item scores and total. Hemorrhage: ICH basal ganglia → contralateral hemiparesis + GCS by volume. Card `NeuroExamCard` in Brain explore + lesson children, and a simple patient figure (SVG body: face droop, arm drift, gaze arrows) `neuro/PatientFigure.tsx`. Compare "without vs with reperfusion" from identical start (use neuroSummary with/without recanalizedAt). Tests: left M1 → right hemiparesis + aphasia (dominant L), right M1 → left hemiparesis + neglect, M2 superior vs inferior aphasia type, PCA → hemianopia only, basilar → coma/quadriparesis, reperfusion reduces deficits but core-related ones persist.
 
 ## NEXT 10 SLICES
 1. (done) Alveolar microscene.

@@ -64,7 +64,11 @@ function stShape(t: number) {
 }
 
 /** ECG voltage (mV) for one lead at time t (s) within the beat. */
-export function sample(leadId: LeadId, t: number, pattern: ECGPattern | null, morph: number): number {
+/**
+ * @param rep reperfusion 0–1: ST elevation resolves (most of it), hyperacute T waves go, Q waves from
+ * necrosis that already happened remain, and the facing leads develop terminal T-wave inversion.
+ */
+export function sample(leadId: LeadId, t: number, pattern: ECGPattern | null, morph: number, rep = 0): number {
   const lead = LEAD[leadId];
   const k = lead.gain;
   const q0 = T_QRS;
@@ -83,8 +87,9 @@ export function sample(leadId: LeadId, t: number, pattern: ECGPattern | null, mo
     const inj = (u: Vec3, mv: number) => {
       const lp = localProj(u, lead) * k;
       let w = 0;
-      w += s.st * mv * lp * stShape(t);
-      w += s.hyper * pattern.hyperacuteMv * lp * tWave(t) * 1.6;
+      w += s.st * (1 - 0.85 * rep) * mv * lp * stShape(t);
+      w += s.hyper * (1 - rep) * pattern.hyperacuteMv * lp * tWave(t) * 1.6;
+      w -= rep * s.st * 0.55 * mv * lp * tWave(t) * 1.3; // reperfusion T-wave inversion
       // Necrosis: early forces toward the infarct are lost (Q waves), R height falls.
       w -= s.q * pattern.necrosisMv * lp * (g(t, q0 + 0.022, 0.011) * 1.4 + 0.55 * g(t, q0 + 0.045, 0.012));
       return w;
@@ -92,22 +97,22 @@ export function sample(leadId: LeadId, t: number, pattern: ECGPattern | null, mo
     v += inj(pattern.injury, pattern.injuryMv);
     if (pattern.injury2 && pattern.injury2Mv) {
       const lp = localProj(pattern.injury2, lead) * k;
-      v += s.st * pattern.injury2Mv * lp * stShape(t) + s.hyper * pattern.hyperacuteMv * 0.6 * lp * tWave(t);
+      v += s.st * (1 - 0.85 * rep) * pattern.injury2Mv * lp * stShape(t) + s.hyper * (1 - rep) * pattern.hyperacuteMv * 0.6 * lp * tWave(t);
     }
   }
   return v;
 }
 
 /** ST deviation in millimetres (10 mm/mV) at J+60 ms. */
-export function stDeviationMm(leadId: LeadId, pattern: ECGPattern | null, morph = 1): number {
-  const base = sample(leadId, T_J - 0.12, pattern, morph); // PR baseline ≈ 0
-  return (sample(leadId, T_ST, pattern, morph) - base) * 10;
+export function stDeviationMm(leadId: LeadId, pattern: ECGPattern | null, morph = 1, rep = 0): number {
+  const base = sample(leadId, T_J - 0.12, pattern, morph, rep); // PR baseline ≈ 0
+  return (sample(leadId, T_ST, pattern, morph, rep) - base) * 10;
 }
 
 /** Deepest negative deflection in the first 40 ms of the QRS (mm). */
-export function qDepthMm(leadId: LeadId, pattern: ECGPattern | null, morph = 1): number {
+export function qDepthMm(leadId: LeadId, pattern: ECGPattern | null, morph = 1, rep = 0): number {
   let m = 0;
-  for (let t = T_QRS; t < T_QRS + 0.04; t += 0.001) m = Math.min(m, sample(leadId, t, pattern, morph));
+  for (let t = T_QRS; t < T_QRS + 0.04; t += 0.001) m = Math.min(m, sample(leadId, t, pattern, morph, rep));
   return -m * 10;
 }
 
