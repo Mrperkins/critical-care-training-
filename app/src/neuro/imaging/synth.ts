@@ -9,7 +9,7 @@
  */
 import * as THREE from 'three';
 import { buildCerebralVessels, DEFAULT_BRAIN_FRAME, territoryAt, peripheryAt, toLocal, type TerritoryId } from '../anatomy';
-import { territoryStates, cbfAt, hemorrhageShape, CBF_NORMAL, type NeuroState, type Systemic, DEFAULT_SYSTEMIC, type TerritoryState } from '../perfusion';
+import { territoryStates, cbfAt, hemorrhageShape, effectiveHemorrhage, CBF_NORMAL, type NeuroState, type Systemic, DEFAULT_SYSTEMIC, type TerritoryState } from '../perfusion';
 import { vesselPerfusion } from '../vesselFlow';
 
 export type Modality = 'ncct' | 'cta' | 'cbf' | 'tmax';
@@ -26,7 +26,7 @@ const fbm = (x: number, y: number) => 0.5 * vnoise(x, y) + 0.25 * vnoise(x * 2.1
 interface Ctx { st: NeuroState; ts: Record<TerritoryId, TerritoryState>; ly: number; ischMin: number; reopened: boolean; shift: number; ich: { c: THREE.Vector3; r: THREE.Vector3 } | null }
 function ctx(st: NeuroState, sys: Systemic, ly: number): Ctx {
   const reopened = st.recanalizedAt != null && st.minutes >= st.recanalizedAt;
-  const h = st.hemorrhage; const hs = h ? hemorrhageShape(h) : null; const H = DEFAULT_BRAIN_FRAME.h;
+  const h = effectiveHemorrhage(st, sys); const hs = h ? hemorrhageShape(h) : null; const H = DEFAULT_BRAIN_FRAME.h;
   return { st, ts: territoryStates(st, sys), ly, ischMin: reopened ? st.recanalizedAt! : st.minutes, reopened,
     shift: hs && h?.kind === 'ich' ? (hs.shiftMm / 100) / H.x * -Math.sign(h.at[0] || 1) : 0,
     ich: h && h.kind === 'ich' && hs ? { c: new THREE.Vector3(...h.at), r: new THREE.Vector3(hs.rCm / 10 / H.x, hs.rCm / 10 / H.y, hs.rCm / 10 / H.z) } : null };
@@ -99,7 +99,8 @@ function ctaSegments(st: NeuroState, ly: number, slab: number): Seg[] {
     for (let i = 0; i <= n; i++) {
       const u = i / n; toLocal(DEFAULT_BRAIN_FRAME, curve.getPointAt(u), l); const p: [number, number] = [l.x, -l.z];
       const vis = f.clotT != null && u > f.clotT ? f.down : f.up; const inSlab = Math.abs(l.y - ly) < slab || Math.abs(prevY - ly) < slab;
-      if (prev && inSlab) out.push({ a: prev, b: p, r: (v.r0 + (v.r1 - v.r0) * u) / DEFAULT_BRAIN_FRAME.h.x * 0.75, v: vis });
+      const narrow = 1 - 0.6 * Math.min(0.95, st.spasm?.[v.id] ?? 0);
+      if (prev && inSlab) out.push({ a: prev, b: p, r: (v.r0 + (v.r1 - v.r0) * u) / DEFAULT_BRAIN_FRAME.h.x * 0.75 * narrow, v: vis });
       prev = p; prevY = l.y;
     }
   }

@@ -14,7 +14,7 @@ import { registerAnchors } from '../scene/cameraTargets';
 import { useLabUI } from '../labs/labStore';
 import { useNeuroUI } from './neuroStore';
 import { buildCerebralVessels, brainFrameFromMesh, toBody, toLocal, TERRITORIES, TERRITORY_CORE, TERRITORY_RADIUS, type BrainFrame, type CerebralVessel, type TerritoryId } from './anatomy';
-import { territoryStates, hemorrhageShape } from './perfusion';
+import { territoryStates, hemorrhageShape, effectiveHemorrhage } from './perfusion';
 import { vesselPerfusion } from './vesselFlow';
 
 /* ------------------------------------------------------------------ brain surface shader (mirrors anatomy.territoryAt) */
@@ -174,7 +174,7 @@ function Brain({ body, frame }: { body: BodyAsset; frame: BrainFrame }) {
 }
 
 function Hemorrhage({ frame }: { frame: BrainFrame }) {
-  const h = useNeuroUI((s) => s.state.hemorrhage);
+  const st = useNeuroUI((s) => s.state); const sys = useNeuroUI((s) => s.sys); const h = effectiveHemorrhage(st, sys);
   const mat = useMemo(() => new THREE.MeshPhysicalMaterial({ color: '#5e0a10', roughness: 0.55, clearcoat: 0.4, transparent: true, opacity: 0.94 }), []);
   const sahMat = useMemo(() => new THREE.MeshPhysicalMaterial({ color: '#8a1219', roughness: 0.35, clearcoat: 0.5, transparent: true, opacity: 0.85, depthWrite: false }), []);
   const blob = useMemo(() => { const g = new THREE.IcosahedronGeometry(1, 12); const p = g.attributes.position as THREE.BufferAttribute; const v = new THREE.Vector3();

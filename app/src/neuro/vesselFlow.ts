@@ -18,7 +18,8 @@ export function vesselPerfusion(vs: CerebralVessel[], st: NeuroState): VesselFlo
     const o = occ(v.id); const inflow = blockedAbove(v) || (v.kind !== 'neck' && v.kind !== 'circle' && !!v.territory) ? refill(v) : 1;
     // circle vessels keep flowing (in whichever direction) unless they are themselves occluded
     const up = v.kind === 'circle' && !v.territory ? 1 : inflow;
-    out[v.id] = o > 0.05 ? { up: v.kind === 'neck' || !v.parent ? 1 : Math.max(up, 0.9), down: v.territory ? refill(v) : 0.1, clotT: 0.35 } : { up, down: up, clotT: null };
+    const sp = 1 - Math.min(0.95, st.spasm?.[v.id] ?? 0); // spasm narrows without a clot
+    out[v.id] = o > 0.05 ? { up: v.kind === 'neck' || !v.parent ? 1 : Math.max(up, 0.9), down: v.territory ? refill(v) : 0.1, clotT: 0.35 } : { up: up * sp, down: up * sp, clotT: null };
   }
   return out;
 }

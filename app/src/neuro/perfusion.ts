@@ -25,6 +25,8 @@ export interface NeuroState {
   /** anatomical variants: hypoplastic communicating arteries */
   variants?: { acomHypoplastic?: boolean; pcomHypoplastic?: { R?: boolean; L?: boolean }; fetalPCA?: { R?: boolean; L?: boolean } };
   hemorrhage?: Hemorrhage | null;
+  /** vasospasm: fractional narrowing per vessel id (after SAH); unlike a clot it is not removed by recanalization */
+  spasm?: Record<string, number>;
 }
 export interface Hemorrhage { kind: 'ich' | 'sah'; /** local brain coordinates */ at: [number, number, number]; volumeMl: number }
 export interface Systemic { map: number; paco2: number; sao2: number; icp?: number }
@@ -41,7 +43,7 @@ export interface TerritoryFlow {
 }
 /** Fraction of normal inflow reaching each territory (direct antegrade vs collateral). Pure graph logic. */
 export function territoryFlow(st: NeuroState, occluded = true): Record<TerritoryId, TerritoryFlow> {
-  const p = (id: string) => (occluded ? 1 - Math.min(1, st.occlusion[id] ?? 0) : 1);
+  const p = (id: string) => (occluded ? 1 - Math.min(1, st.occlusion[id] ?? 0) : 1) * (1 - Math.min(0.95, st.spasm?.[id] ?? 0));
   const v = st.variants ?? {};
   const acom = v.acomHypoplastic ? 0.15 : 0.85;
   const pcom = (S: 'R' | 'L') => (v.pcomHypoplastic?.[S] ? 0.08 : 0.45);
@@ -141,6 +143,21 @@ export function territoryStates(st: NeuroState, sys: Systemic = DEFAULT_SYSTEMIC
     };
   }
   return out;
+}
+
+/**
+ * Haematoma expansion (ICH): most growth happens in the first hours and more of it at high systolic
+ * pressure. Teaching approximation: V(t) = V₀ · (1 + g · (1 − e^(−t/90))), g = 0.08 + 0.45 · clamp((SBP − 140)/80).
+ * SBP is estimated from MAP (≈ MAP × 1.45). SAH volume is taken as given.
+ */
+export const sbpOf = (sys: Systemic) => sys.map * 1.45;
+export function hemorrhageVolume(h: Hemorrhage, minutes: number, sys: Systemic = DEFAULT_SYSTEMIC) {
+  if (h.kind !== 'ich') return h.volumeMl;
+  const g = 0.08 + 0.45 * Math.max(0, Math.min(1, (sbpOf(sys) - 140) / 80));
+  return h.volumeMl * (1 + g * (1 - Math.exp(-Math.max(0, minutes) / 90)));
+}
+export function effectiveHemorrhage(st: NeuroState, sys: Systemic = DEFAULT_SYSTEMIC): Hemorrhage | null {
+  return st.hemorrhage ? { ...st.hemorrhage, volumeMl: hemorrhageVolume(st.hemorrhage, st.minutes, sys) } : null;
 }
 
 /** Hemorrhage geometry and a first-order mass-effect estimate (ABC/2 volume → sphere). */

@@ -4,7 +4,7 @@ import { Knob, Seg } from '../vent/VentPanel';
 import { NeuroScene } from './NeuroScene';
 import { ClinicalImagingScene } from './imaging/ClinicalImagingScene';
 import { useNeuroUI, NEURO_PRESETS, loadNeuroPreset, setNeuroMinutes, recanalize, type NeuroPreset } from './neuroStore';
-import { neuroSummary, hemorrhageShape, type CollateralGrade } from './perfusion';
+import { neuroSummary, hemorrhageShape, effectiveHemorrhage, sbpOf, type CollateralGrade } from './perfusion';
 import { TERRITORIES, TERRITORY_NAME } from './anatomy';
 import { useLabUI, type VisualTier } from '../labs/labStore';
 import { useUI } from '../app/store';
@@ -87,17 +87,17 @@ function PresetCard() {
 
 function TimeCard() {
   const st = useNeuroUI((s) => s.state); const playing = useNeuroUI((s) => s.playing); const set = useNeuroUI.getState().set;
-  const occluded = Object.keys(st.occlusion).length > 0; if (!occluded) return null;
+  const occluded = Object.keys(st.occlusion).length > 0; if (!occluded && st.hemorrhage?.kind !== 'ich') return null;
   return (
     <section className="card">
       <div className="card-h"><h3>Time since onset</h3><span className="muted small">{hm(st.minutes)}</span></div>
       <Knob label="Minutes" value={Math.round(st.minutes)} min={0} max={1440} step={10} fmt={hm} onChange={(v) => { set({ playing: false }); setNeuroMinutes(v); }} />
       <div className="btn-row">
         <button className={`tgl${playing ? ' on' : ''}`} onClick={() => set({ playing: !playing })}>{playing ? 'Pause' : 'Play (20 min/s)'}</button>
-        <button className="tgl" disabled={st.recanalizedAt != null} onClick={recanalize}>{st.recanalizedAt != null ? `Reopened at ${hm(st.recanalizedAt)}` : 'Reopen the artery'}</button>
+        {occluded && <button className="tgl" disabled={st.recanalizedAt != null} onClick={recanalize}>{st.recanalizedAt != null ? `Reopened at ${hm(st.recanalizedAt)}` : 'Reopen the artery'}</button>}
         {st.recanalizedAt != null && <button className="tgl" onClick={() => set({ state: { ...st, recanalizedAt: null } })}>Undo</button>}
       </div>
-      <div className="card-h" style={{ marginTop: 10 }}><h3>Collaterals</h3><Seg<CollateralGrade> small value={st.collaterals} options={[['poor', 'Poor'], ['moderate', 'Moderate'], ['good', 'Good']]} onChange={(c) => set({ state: { ...st, collaterals: c } })} /></div>
+      {occluded && <div className="card-h" style={{ marginTop: 10 }}><h3>Collaterals</h3><Seg<CollateralGrade> small value={st.collaterals} options={[['poor', 'Poor'], ['moderate', 'Moderate'], ['good', 'Good']]} onChange={(c) => set({ state: { ...st, collaterals: c } })} /></div>}
     </section>
   );
 }
@@ -105,7 +105,7 @@ function TimeCard() {
 function TissueCard() {
   const st = useNeuroUI((s) => s.state); const sys = useNeuroUI((s) => s.sys);
   const s = neuroSummary(st, sys); const affected = TERRITORIES.filter((t) => s.territories[t].coreMl + s.territories[t].penumbraMl > 0.5);
-  const h = st.hemorrhage ? hemorrhageShape(st.hemorrhage) : null;
+  const eh = effectiveHemorrhage(st, sys); const h = eh ? hemorrhageShape(eh) : null;
   if (!affected.length && !h) return null;
   // time machine: the same patient's final core for different reperfusion times (pure — nothing is changed)
   const occl = Object.keys(st.occlusion).length > 0 && st.recanalizedAt == null;
@@ -123,7 +123,7 @@ function TissueCard() {
       {whatIf && <div className="whatif"><div className="eyebrow">Final core if the artery is reopened…</div><div className="numgrid">{whatIf.map(([l, v]) => <div key={l} className="num"><span className="nl">{l}</span><span className="nv">{fx(v)}</span><span className="nu">mL</span></div>)}</div></div>}
       {affected.map((t) => <p key={t} className="muted small">{TERRITORY_NAME[t]}: deep CBF {Math.round(s.territories[t].cbfDeep)}, border {Math.round(s.territories[t].cbfBorder)} — core {fx(s.territories[t].coreMl)} mL, penumbra {fx(s.territories[t].penumbraMl)} mL</p>)}
       {h && st.hemorrhage && <div className="numgrid">
-        <div className="num"><span className="nl">{st.hemorrhage.kind === 'ich' ? 'ICH volume' : 'SAH blood'}</span><span className="nv">{st.hemorrhage.volumeMl}</span><span className="nu">mL</span></div>
+        <div className="num"><span className="nl">{st.hemorrhage.kind === 'ich' ? 'ICH volume' : 'SAH blood'}</span><span className="nv">{Math.round(eh!.volumeMl)}</span><span className="nu">mL{st.hemorrhage.kind === 'ich' ? ` · SBP ≈ ${Math.round(sbpOf(sys))}` : ''}</span></div>
         <div className="num"><span className="nl">Radius</span><span className="nv">{h.rCm.toFixed(1)}</span><span className="nu">cm</span></div>
         {st.hemorrhage.kind === 'ich' && <div className="num"><span className="nl">Midline shift</span><span className="nv">{h.shiftMm.toFixed(0)}</span><span className="nu">mm (est.)</span></div>}
       </div>}
