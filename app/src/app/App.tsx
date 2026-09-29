@@ -15,6 +15,7 @@ import { LabModule } from '../labs/LabModule';
 import { bench } from '../labs/bench';
 import { LinesModule } from '../lines/LinesModule';
 import { NeuroModule } from '../neuro/NeuroModule';
+import { MoaModule } from '../moa/MoaModule';
 import { lines } from '../lines/session';
 
 export function useIsPhone() {
@@ -40,7 +41,7 @@ function useEngine() {
   }, []);
 }
 
-const MODULES: [Module, string][] = [['vent', 'Ventilator'], ['abg', 'Blood gas'], ['labs', 'Labs'], ['lines', 'Lines'], ['neuro', 'Brain']];
+const MODULES: [Module, string][] = [['vent', 'Ventilator'], ['abg', 'Blood gas'], ['labs', 'Labs'], ['lines', 'Lines'], ['neuro', 'Brain'], ['moa', 'Drugs']];
 const MODES: [Mode, string][] = [['explore', 'Explore'], ['learn', 'Learn'], ['challenge', 'Challenge'], ['sim', 'Simulate']];
 
 export function App() {
@@ -58,6 +59,7 @@ export function App() {
       {module === 'labs' && <LabModule />}
       {module === 'lines' && <LinesModule />}
       {module === 'neuro' && <NeuroModule />}
+      {module === 'moa' && <MoaModule />}
     </div>
   );
 }

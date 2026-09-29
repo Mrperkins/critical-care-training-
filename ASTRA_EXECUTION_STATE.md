@@ -10,12 +10,14 @@ All 53 earlier bundle patches (Wave 1 chrome CSS, Studio lighting/fog, cell mate
 `visual-overhaul`
 
 ## CURRENT COMMIT
-Run `git rev-parse HEAD`. Last slice: "Hyperkalaemia signature lesson".
+Run `git rev-parse HEAD`. Last slice: "MOA framework + norepinephrine demo".
 
 ## LAST VERIFIED LIVE DEPLOY
 Live Pages HTML contains the Nav1.5 loader from `07e29e4`. Cell, 9RON, and 9P24 GLBs returned HTTP 200 with the expected glTF MIME type. The cloud browser has WebGL disabled, so a 3D visual check remains unavailable here.
 
 ## COMPLETED SLICES
+- MOA framework (`app/src/moa/`): `types.ts` (MechanismDefinition / MechNode kinds / signed MechEdge / PatientAdapter / selectivity), `layout.ts` (longest-path causal layering + barycentre rows; horizontal or vertical, chosen from the pane aspect), `moaTimeline.ts` (mechanism → Director timeline: dose ramps with the first layer, chain lights layer by layer with narration, summary), `moaStore.ts`, `MoaModule.tsx` (new top-level "Drugs" module: SVG graph with glowing live nodes, animated signal pulses, inhibitory bar ends, hover explanations, receptor-activity bars, patient-response card, DirectorPlayer), `linesAdapter.ts` (private instance of the EXISTING `LinesSession` — steady-state exposure so seeking is exact; the drug layer never computes haemodynamics). `window.__CCMoa`. `tests/moa.test.ts` (4).
+- Norepinephrine MOA demo (`moa/defs/norepinephrine.ts`): α1 → Gq → PLC → IP₃/DAG → Ca²⁺–calmodulin → MLCK → arteriolar + venous constriction; β1 → Gs → AC → cAMP → PKA → L-type Ca²⁺ → contractility / SA rate; baroreflex offsets rate; SVR afterload vs preload on CO; MAP. Septic shock on the Lines engine: 0 → 0.08 µg/kg/min takes MAP 53 → 77 with SVR 650 → 945 and HR 116 → 118.
 - Hyperkalaemia signature lesson (`app/src/director/lessons/hyperkalemia.ts`, Labs › Learn, listed as "Signature" above the step lessons via new `LessonShell` props `timelines` / `timelineChildren`). Runs on the ONE labs-bench patient: K⁺ tween 4.2 → 8.4 → 9.2 (peaked T → wide QRS → sine), calcium (K⁺ unchanged, gap to threshold 3 → 9 mV, QRS narrows), insulin shift, 5-h rebound, dialysis. Time-passing cues snapshot the patient at cue start and each tween frame restores + fast-forwards u × minutes, so seeking is exact. Camera focus per scene (membrane overview → Na/K pump → Kir2.1 → Nav1.5); `CellHud` no longer clears camera focus while a Director lesson is running. `tests/hyperk.test.ts` (2).
 - Lesson Director (`app/src/director/`): `timeline.ts` (pure: `Cue {at, dur, say, voice, title, target, apply, tween, hold}`, `resolve(tl,t)` rebuilds the world for any t, `advance(tl,t0,t1)` for playback, `stepTimeline` for narrated step lessons with `absolute` seeking); `director.ts` (single rAF clock, play/pause/seek/step/rate/mute, narration = pre-rendered `vo/` clip → speechSynthesis → captions, `hold` waits for narration but is capped at 20 s so blocked autoplay never freezes a lesson; `window.__CCDirector`); `Player.tsx` (captions, scrubber with step ticks, transport). `app/src/app/LessonShell.tsx` now runs every module's lessons on it (setTimeout auto-advance chain removed). First authored timeline: `director/lessons/neuro.ts` "Time is brain" (circle → M1 clot → core/penumbra growth → MAP 60 vs 90 → thrombectomy at 4 h freezes the core) in Brain › Learn; the director's `target` drives the brain camera. `tests/director.test.ts` (5): seek == play, backwards seek, targets, absolute steps, lesson determinism.
 - Infarct Atlas polish (first pass): territory overlay steps back to a contour + faint veil as injury develops, so the tissue shader's dusky → pale mottled infarct reads as tissue (was a lilac sticker). Added `window.__IA { app, seek(0–1), territory(id) }` — deterministic seek along the Normal → MI sequence for the Lesson Director and automated checks. Existing flow particles, thrombus, coronary occlusion shading and ECG unchanged. vitest 27/27.
@@ -39,17 +41,17 @@ Live Pages HTML contains the Nav1.5 loader from `07e29e4`. Cell, 9RON, and 9P24 
 - Added AQP4 from the full 3GD8 biological assembly (four 223-residue chains, 21,312 triangles). Selected AQP4 uses this mesh at HIGH/MEDIUM, with the existing procedural proxy at LOW. No water/volume physiology changes.
 
 ## CURRENT SLICE
-MOA framework (mechanism graph + UI shell).
+Rest of the initial MOA set.
 
 ## EXACT RESUME POINT
-Create `app/src/moa/`: `types.ts` (`MechanismDefinition { id, drug, class, nodes: MechNode[], edges: MechEdge[], patientEffects }`, `MechNode { id, kind: 'drug'|'receptor'|'channel'|'enzyme'|'messenger'|'cell-effect'|'organ-effect'|'vital', label, target?: semantic camera id }`, `MechEdge { from, to, sign: +1|-1, label }`), `layout.ts` (deterministic layered graph layout), `MoaView.tsx` (SVG graph with animated signal pulses along edges, synced to a Director timeline built from the graph: `moaTimeline(def)`), and a top-level entry (Labs › MOA or its own module button). Patient response must come from existing sessions (lines session for haemodynamics: `setNore`, SVR) — no new haemodynamic engine. Next slice uses it for norepinephrine.
+Add defs in `app/src/moa/defs/` + register in `moa/registry.ts`: epinephrine (β1/β2/α1, dose-dependent), vasopressin (V1 → Gq, catecholamine-independent), phenylephrine (pure α1, reflex bradycardia), dobutamine (β1 inotropy, β2 vasodilation), calcium (hyperK membrane stabilisation — link target `membrane.nav`), insulin (Na⁺/K⁺-ATPase shift — `membrane.nak_atpase`). Haemodynamic drugs need a Lines adapter per drug: extend `linesAdapter.ts` with a generic `pressorAdapter({ svr, hr, co })` that sets the SAME `LinesSession` parameters (no new engine); electrolyte drugs use the labs bench. Add a test per def (graph valid, direction of vital change).
 
 ## NEXT 10 SLICES
 1. (done) Alveolar microscene.
 2. (done) Brain + cerebral vessel semantic geometry foundations (HuBMAP brain is already in body.glb; cerebral arteries must be drawn — see `app/src/lines/vessels.ts` for the landmark-driven vessel builder pattern).
 3. (done) Lesson Director: deterministic timeline (clock-driven, seek/pause, no chained setTimeout) that directs existing sessions; generalise `app/src/app/LessonShell.tsx`.
-4. MOA data graph (MechanismDefinition/Node/Edge) + UI shell as a new top-level mode.
-5. Norepinephrine α1/β1 MOA with shock context — reuse `lines` session (`setNore`, SVR) for the patient response.
+4. (done) MOA data graph (MechanismDefinition/Node/Edge) + UI shell as a new top-level mode.
+5. (done) Norepinephrine α1/β1 MOA with shock context — reuse `lines` session (`setNore`, SVR) for the patient response.
 6. (done) Hyperkalemia signature lesson through the Lesson Director (labs bench + cell scene + ECG).
 7. Stroke vascular state + imaging primitives (ClinicalImagingScene).
 8. Curriculum metadata + progress persistence.
@@ -57,13 +59,14 @@ Create `app/src/moa/`: `types.ts` (`MechanismDefinition { id, drug, class, nodes
 10. Heart/coronary polish in the Infarct Atlas (source now in `infarct-atlas-app/`).
 
 ## KNOWN BUGS
+- Lines engine norepinephrine response is linear and steep (sepsis: 0.3 µg/kg/min → MAP ≈ 152). The MOA demo stays at 0.08. A saturating (Emax) pressor curve in `lines/session.ts` `recompute` would fix both; it changes Lines behaviour, so do it as its own slice with Lines tests.
 - No new runtime bug confirmed in this session. The previous `var sw=var sw=` parse error was fixed in `570f0d4b`; check for regression before push.
 
 ## KNOWN BLOCKERS
 - Visual QA: this environment has WebGL via swiftshader (`--use-gl=angle --use-angle=swiftshader`); slow but real. Serve the repo root with `python3 -m http.server` (binary GLBs need http, not file://).
 
 ## TESTS LAST RUN
-- `app`: `tsc --noEmit` clean; `vitest` 107/107 (director 5, neuro 11). Director screenshots: vent Learn step 2 (player), Brain Learn at 0:30 and 1:16 — no page errors. Earlier: `vitest` 102/102. Brain module screenshots: normal, CoW from below, L M1 at 90 min and 8 h (lateral), basilar, ICH, SAH — no page errors. Earlier: `vitest` 91/91. `tools/validate_visual_assets.py` passed; no `var sw=var sw=`. HTTP + WebGL screenshots of the alveolar view (normal, ARDS PEEP 5/18, membrane, oedema, phone) and PTX lung view: no page errors. Screenshot note: call `window.__CCVent.session.tick()` in a loop and set `window.__instant=true` because swiftshader frame rate is too low for the sim to advance in real time.
+- `app`: `tsc --noEmit` clean; `vitest` 113/113 (moa 4, hyperk 2). Drugs module screenshots desktop + phone: no page errors. Earlier: `vitest` 107/107 (director 5, neuro 11). Director screenshots: vent Learn step 2 (player), Brain Learn at 0:30 and 1:16 — no page errors. Earlier: `vitest` 102/102. Brain module screenshots: normal, CoW from below, L M1 at 90 min and 8 h (lateral), basilar, ICH, SAH — no page errors. Earlier: `vitest` 91/91. `tools/validate_visual_assets.py` passed; no `var sw=var sw=`. HTTP + WebGL screenshots of the alveolar view (normal, ARDS PEEP 5/18, membrane, oedema, phone) and PTX lung view: no page errors. Screenshot note: call `window.__CCVent.session.tick()` in a loop and set `window.__instant=true` because swiftshader frame rate is too low for the sim to advance in real time.
 
 ## FILES CURRENTLY BEING EDITED
 - None.
