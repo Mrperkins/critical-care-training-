@@ -12,7 +12,7 @@ describe('initial MOA set', () => {
     for (const d of MECHANISMS) {
       const ids = new Set(d.nodes.map((n) => n.id)); const r = ranks(d);
       d.edges.forEach((e) => { expect(ids.has(e.from) && ids.has(e.to), `${d.id} ${e.from}→${e.to}`).toBe(true); expect(r[e.to], `${d.id} ${e.from}→${e.to}`).toBeGreaterThan(r[e.from]); });
-      expect(d.nodes.filter((n) => n.explain).length, d.id).toBeGreaterThan(2); expect(d.patient ?? d.contexts?.[0]?.patient, d.id).toBeTruthy();
+      expect(d.nodes.filter((n) => n.explain).length, d.id).toBeGreaterThan(2); expect(d.patient ?? d.contexts?.[0]?.patient ?? d.patientNote, d.id).toBeTruthy();
     }
   });
   it('epinephrine: output, rate and pressure rise', () => { const a = before('epinephrine'), b = after('epinephrine'); expect(b.co).toBeGreaterThan(a.co); expect(b.hr).toBeGreaterThan(a.hr); expect(b.map).toBeGreaterThan(a.map + 10); });

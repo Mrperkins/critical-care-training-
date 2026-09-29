@@ -41,13 +41,13 @@ export function noreAdapter(scenario = 'sepsis', maxDose = 0.3): PatientAdapter 
  * Any other vasoactive drug: fractional change of the session's SVR, heart rate and contractile output
  * at the demo dose (data in the drug definition), scaled by exposure.
  */
-export function hemoAdapter(o: { scenario: string; svr?: number; hr?: number; co?: number; dose: (u: number) => string }): PatientAdapter {
+export function hemoAdapter(o: { scenario: string; svr?: number; hr?: number; co?: number; /** fractional change of the filling pressure (venodilation / preload) */ cvp?: number; dose: (u: number) => string }): PatientAdapter {
   return {
     engine: 'Lines circulation (Windkessel + shared patient)', scenario: o.scenario,
     setup: () => { fresh(o.scenario); },
     exposure: (u) => {
       const s = fresh(o.scenario); const b = base[o.scenario]; const x = Math.max(0, Math.min(1, u));
-      s.pt.p.svr = b.svr * (1 + (o.svr ?? 0) * x); s.pt.p.hr = b.hr * (1 + (o.hr ?? 0) * x); s.pt.p.co = b.co * (1 + (o.co ?? 0) * x); s.recompute();
+      s.pt.p.svr = b.svr * (1 + (o.svr ?? 0) * x); s.pt.p.hr = b.hr * (1 + (o.hr ?? 0) * x); s.pt.p.co = b.co * (1 + (o.co ?? 0) * x); s.pt.p.cvp = b.cvp * (1 + (o.cvp ?? 0) * x); s.recompute();
     },
     readouts: () => linesVitals(S()),
     doseLabel: o.dose,

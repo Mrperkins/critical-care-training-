@@ -26,6 +26,8 @@ export interface MechanismDefinition {
   nodes: MechNode[]; edges: MechEdge[];
   /** receptor selectivity shown as a bar chart (0–1 relative activity) */ selectivity?: { receptor: string; activity: number }[];
   patient?: PatientAdapter;
+  /** shown instead of a patient response when no existing engine models this drug's target yet (never invent one here) */
+  patientNote?: string;
   /** the same drug in different patients (state-dependent response); the first is the default */
   contexts?: { id: string; label: string; note: string; patient: PatientAdapter }[];
   /** closing narration once the whole chain is lit */ summary?: string;

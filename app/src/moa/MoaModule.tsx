@@ -5,7 +5,7 @@ import { Seg } from '../vent/VentPanel';
 import { director, useDirector } from '../director/director';
 import { DirectorPlayer } from '../director/Player';
 import { useMoa } from './moaStore';
-import { MECHANISMS, MECH, withContext } from './registry';
+import { MECH, MOA_GROUPS, withContext } from './registry';
 import { snapshotBench, restoreBench } from './benchAdapter';
 import { layout, ranks } from './layout';
 import { moaTimeline } from './moaTimeline';
@@ -35,14 +35,14 @@ export function MoaModule() {
       </section>
       <aside className="side-pane">
         <section className="card story">
-          <div className="chips" role="list">{MECHANISMS.map((m) => <button key={m.id} role="listitem" className={`chip${m.id === defId ? ' on' : ''}`} onClick={() => useMoa.getState().set({ defId: m.id, ctx: null })}>{m.drug}</button>)}</div>
+          <div className="moa-groups">{MOA_GROUPS.map((g) => <div key={g.label} className="moa-group"><div className="eyebrow">{g.label}</div><div className="chips" role="list">{g.ids.map((id) => MECH[id]).map((m) => <button key={m.id} role="listitem" className={`chip${m.id === defId ? ' on' : ''}`} aria-pressed={m.id === defId} onClick={() => useMoa.getState().set({ defId: m.id, ctx: null })}>{m.drug}</button>)}</div></div>)}</div>
           <p className="muted" style={{ marginTop: 10 }}>{def.drugClass}</p>
           {def.contexts && <div className="moa-ctx"><div className="eyebrow">Same drug, different patient</div><Seg small value={ctx ?? def.contexts[0].id} options={def.contexts.map((c) => [c.id, c.label] as [string, string])} onChange={(v) => useMoa.getState().set({ ctx: v })} /><p className="muted small">{(def.contexts.find((c) => c.id === ctx) ?? def.contexts[0]).note}</p></div>}
         </section>
         <DirectorPlayer />
         <Vitals def={def} />
         {mode !== 'explore' && <p className="muted small" style={{ padding: '0 4px' }}>Learn, Challenge and Simulate views for drugs are coming; the narrated mechanism above is the lesson.</p>}
-        <p className="credit">Mechanism graph: original teaching summary. Patient response: {def.patient?.engine ?? '—'} ({def.patient?.scenario}) — an existing engine of this app; the drug layer only sets exposure.</p>
+        <p className="credit">Mechanism graph: original teaching summary. Patient response: {def.patient ? <>{def.patient.engine} ({def.patient.scenario}) — an existing engine of this app; the drug layer only sets exposure.</> : 'none yet (see above).'}</p>
       </aside>
     </main>
   );
@@ -108,7 +108,7 @@ function Selectivity({ def }: { def: MechanismDefinition }) {
 function Vitals({ def }: { def: MechanismDefinition }) {
   useUI((s) => s.pulse); useDirector((s) => s.t);
   const u = useMoa((s) => s.exposure);
-  if (!def.patient) return null; const r = def.patient.readouts();
+  if (!def.patient) return def.patientNote ? <section className="card nums"><div className="card-h"><h3>Patient response</h3></div><p className="muted small">{def.patientNote}</p></section> : null; const r = def.patient.readouts();
   const fx = (v: number, d = 0) => v.toFixed(d);
   return (
     <section className="card nums">

@@ -57,3 +57,14 @@ export function sodiumAdapter(o: { scenario: string; na: number; maxDoses: numbe
     doseLabel: (u) => (u <= 0 ? 'before treatment' : `3 % saline ${Math.round(o.maxDoses * 100 * u)} mL`),
   };
 }
+
+/** A drug that raises plasma K⁺ by a known amount (e.g. succinylcholine): the bench's own K input, with the membrane and ECG read-outs. */
+export function kRiseAdapter(o: { scenario: string; k0: number; rise: number; label: string }): PatientAdapter {
+  const read = electrolyteAdapter({ scenario: o.scenario, k: o.k0, drug: 'calcium', minutes: 1 }).readouts;
+  return {
+    engine: 'Labs bench (shared patient, membrane and ECG model)', scenario: o.scenario,
+    setup: () => { bench.reset(); bench.pt.p.renal = 1; bench.set('k', o.k0); bench.running = false; },
+    exposure: (u) => { bench.reset(); bench.set('k', o.k0 + o.rise * Math.max(0, Math.min(1, u))); bench.running = false; bench.snap = derive(bench.pt); bench.version++; },
+    readouts: read, doseLabel: (u) => (u <= 0 ? 'before the dose' : o.label),
+  };
+}

@@ -451,8 +451,8 @@ details.card summary{cursor:pointer;font:600 14px var(--fs);margin-bottom:6px}
 .moa-elbl{font:500 9.5px var(--fm);fill:rgba(222,235,241,.6)}
 .moa-key{display:flex;flex-wrap:wrap;gap:12px;font:500 10px var(--fm);color:var(--dim)}.moa-key i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:5px;vertical-align:-1px}.moa-key i.inh{background:#6fb7ff;height:3px;border-radius:0;vertical-align:2px}
 .moa-tip{position:absolute;left:18px;right:18px;bottom:40px;padding:9px 12px;border:1px solid var(--line2);border-radius:10px;background:rgba(4,9,13,.9);font-size:13px;color:var(--ink)}
-.moa-sel{position:absolute;right:16px;top:14px;width:170px;padding:8px 10px;border:1px solid rgba(210,229,238,.14);border-radius:10px;background:rgba(3,8,12,.7)}
-.moa-sel-row{display:grid;grid-template-columns:26px 1fr;align-items:center;gap:6px;font:500 11px var(--fm);color:var(--ink);margin-top:4px}
+.moa-sel{position:absolute;right:16px;bottom:34px;width:210px;padding:8px 10px;border:1px solid rgba(210,229,238,.14);border-radius:10px;background:rgba(3,8,12,.7)}
+.moa-sel-row{display:grid;grid-template-columns:minmax(0,1.1fr) 1fr;align-items:center;gap:6px;font:500 11px var(--fm);color:var(--ink);margin-top:4px}
 .moa-sel-row i{height:6px;border-radius:3px;background:rgba(255,255,255,.08);overflow:hidden}.moa-sel-row b{display:block;height:100%;background:#a98bf0}
 .phone .moa-sel{display:none}.phone .moa-graph{padding:6px}
 .moa-edge.none{opacity:.7}
@@ -510,3 +510,4 @@ details.card summary{cursor:pointer;font:600 14px var(--fs);margin-bottom:6px}
 .phone .cta-grid{grid-template-columns:1fr}
 .icp-figs{display:grid;grid-template-columns:1fr 1fr;gap:8px}.icp-curve{fill:none;stroke:var(--info);stroke-width:1.8}.icp-pt{fill:var(--gold)}.icp-thr{stroke:rgba(224,100,90,.5);stroke-dasharray:3 3}.icp-wave{fill:none;stroke:#e9d27a;stroke-width:1.6}.icp-iris{fill:#5a7c8f}.icp-pupil{fill:#050607}.icp-pupils{max-width:320px}.icp-controls summary{cursor:pointer;color:var(--dim);margin:6px 0}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .phone .icp-figs{grid-template-columns:1fr}
+.moa-groups{display:grid;gap:8px}.moa-group .eyebrow{margin-bottom:4px}
