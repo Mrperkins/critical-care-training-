@@ -472,3 +472,4 @@ details.card summary{cursor:pointer;font:600 14px var(--fs);margin-bottom:6px}
 .whatif{margin:10px 0 4px}.whatif .numgrid{margin-top:6px}
 /* ---------------------------------------------------------------- congenital heart */
 .dir{padding:0 6px;border-radius:5px}.dir-lr{color:#ffb39a}.dir-rl{color:#9fb8ff}.dir-bi{color:#f0dc6a}.dir-none{color:var(--dim)}
+.moa-ctx{margin-top:10px}.moa-ctx .seg{margin:6px 0;flex-wrap:wrap}

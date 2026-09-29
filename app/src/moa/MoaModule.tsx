@@ -1,10 +1,12 @@
 /** Drugs module: mechanism graph (SVG) + patient response from an existing engine + Lesson Director. */
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useUI } from '../app/store';
+import { Seg } from '../vent/VentPanel';
 import { director, useDirector } from '../director/director';
 import { DirectorPlayer } from '../director/Player';
 import { useMoa } from './moaStore';
-import { MECHANISMS, MECH } from './registry';
+import { MECHANISMS, MECH, withContext } from './registry';
+import { snapshotBench, restoreBench } from './benchAdapter';
 import { layout, ranks } from './layout';
 import { moaTimeline } from './moaTimeline';
 import type { MechKind, MechanismDefinition } from './types';
@@ -15,9 +17,13 @@ const KIND: Record<MechKind, { c: string; name: string }> = {
   cell: { c: '#ff8a8a', name: 'Cell effect' }, organ: { c: '#e65a5a', name: 'Organ effect' }, vital: { c: '#f2eee8', name: 'Vital sign' },
 };
 const NW = 176, NH = 46;
+/** squeeze a label into the node box when it would overflow (approximate glyph width in px) */
+const fit = (t: string, w: number) => (t.length * w > NW - 12 ? { textLength: NW - 12, lengthAdjust: 'spacingAndGlyphs' as const } : {});
 
 export function MoaModule() {
-  const defId = useMoa((s) => s.defId); const def = MECH[defId];
+  const defId = useMoa((s) => s.defId); const ctx = useMoa((s) => s.ctx); const def = useMemo(() => withContext(MECH[defId], ctx), [defId, ctx]);
+  // bench-based demos borrow the Labs patient: remember it on entry, give it back on exit
+  useEffect(() => { snapshotBench(); return () => restoreBench(); }, []);
   const tl = useMemo(() => moaTimeline(def), [def]);
   const mode = useUI((s) => s.mode);
   useEffect(() => { director.load(tl, false); director.seek(0); return () => director.unload(); }, [tl]);
@@ -29,8 +35,9 @@ export function MoaModule() {
       </section>
       <aside className="side-pane">
         <section className="card story">
-          <div className="chips" role="list">{MECHANISMS.map((m) => <button key={m.id} role="listitem" className={`chip${m.id === defId ? ' on' : ''}`} onClick={() => useMoa.getState().set({ defId: m.id })}>{m.drug}</button>)}</div>
+          <div className="chips" role="list">{MECHANISMS.map((m) => <button key={m.id} role="listitem" className={`chip${m.id === defId ? ' on' : ''}`} onClick={() => useMoa.getState().set({ defId: m.id, ctx: null })}>{m.drug}</button>)}</div>
           <p className="muted" style={{ marginTop: 10 }}>{def.drugClass}</p>
+          {def.contexts && <div className="moa-ctx"><div className="eyebrow">Same drug, different patient</div><Seg small value={ctx ?? def.contexts[0].id} options={def.contexts.map((c) => [c.id, c.label] as [string, string])} onChange={(v) => useMoa.getState().set({ ctx: v })} /><p className="muted small">{(def.contexts.find((c) => c.id === ctx) ?? def.contexts[0]).note}</p></div>}
         </section>
         <DirectorPlayer />
         <Vitals def={def} />
@@ -46,7 +53,7 @@ function MechGraph({ def }: { def: MechanismDefinition }) {
   const box = useRef<HTMLDivElement>(null); const [vertical, setVertical] = useState(false);
   useEffect(() => { const el = box.current; if (!el) return; const ro = new ResizeObserver(() => setVertical(el.clientWidth / Math.max(1, el.clientHeight) < 1.35)); ro.observe(el); return () => ro.disconnect(); }, []);
   const { W, H } = useMemo(() => { const r = ranks(def); const cols: Record<number, number> = {}; Object.values(r).forEach((k) => { cols[k] = (cols[k] ?? 0) + 1; }); const steps = Math.max(...Object.values(r)), wide = Math.max(...Object.values(cols));
-    return vertical ? { W: Math.max(820, 214 * wide + 180), H: Math.max(720, 84 * steps + 90) } : { W: 200 * steps + 220, H: Math.max(360, 92 * wide + 80) }; }, [def, vertical]);
+    return vertical ? { W: Math.max(820, 214 * Math.min(4, wide) + 180), H: Math.max(720, (wide > 4 ? 120 : 84) * steps + 90) } : { W: 200 * steps + 220, H: Math.max(360, 92 * wide + 80) }; }, [def, vertical]);
   const placed = useMemo(() => layout(def, W, H, vertical), [def, W, H, vertical]); const at = Object.fromEntries(placed.map((p) => [p.node.id, p]));
   const lit = useMoa((s) => s.lit); const hover = useMoa((s) => s.hover); const set = useMoa.getState().set;
   const on = (id: string) => at[id].rank <= lit;
@@ -76,8 +83,8 @@ function MechGraph({ def }: { def: MechanismDefinition }) {
           return (
             <g key={p.node.id} className={`moa-node${live ? ' live' : ''}${hover === p.node.id ? ' hover' : ''}`} transform={`translate(${p.x - NW / 2},${p.y - NH / 2})`} onMouseEnter={() => set({ hover: p.node.id })} onMouseLeave={() => set({ hover: null })} onClick={() => set({ hover: p.node.id })}>
               <rect width={NW} height={NH} rx="10" fill={live ? k.c : 'rgba(255,255,255,.04)'} fillOpacity={live ? 0.2 : 1} stroke={k.c} strokeOpacity={live ? 0.95 : 0.35} strokeWidth={live ? 1.6 : 1} filter={live ? 'url(#glow)' : undefined} />
-              <text x={NW / 2} y={p.node.sub ? 19 : 28} textAnchor="middle" className="moa-lbl">{p.node.label}</text>
-              {p.node.sub && <text x={NW / 2} y={35} textAnchor="middle" className="moa-sub">{p.node.sub}</text>}
+              <text x={NW / 2} y={p.node.sub ? 19 : 28} textAnchor="middle" className="moa-lbl" {...fit(p.node.label, 7.4)}>{p.node.label}</text>
+              {p.node.sub && <text x={NW / 2} y={35} textAnchor="middle" className="moa-sub" {...fit(p.node.sub, 5.8)}>{p.node.sub}</text>}
             </g>
           );
         })}

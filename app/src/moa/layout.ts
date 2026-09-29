@@ -24,6 +24,12 @@ export function layout(def: MechanismDefinition, W = 1000, H = 520, vertical = f
   });
   function bary(id: string) { const ps = def.edges.filter((e) => e.to === id).map((e) => rowOf[e.from]).filter((x) => x != null); return ps.length ? ps.reduce((a, b) => a + b, 0) / ps.length : 0.5; }
   const padX = 90, padY = 36; const along = (k: number) => (maxR ? k / maxR : 0.5);
+  // vertical flow with a crowded layer: split it into two staggered lines so labels stay readable
+  if (vertical) {
+    const step = maxR ? (H - 2 * padY) / maxR : 0;
+    return def.nodes.map((n) => { const col = cols[r[n.id]]; const i = col.indexOf(n); const two = col.length > 4; const per = two ? Math.ceil(col.length / 2) : col.length; const line = two ? Math.floor(i / per) : 0; const j = two ? i % per : i; const cnt = two ? (line === 0 ? per : col.length - per) : col.length;
+      return { node: n, rank: r[n.id], row: rowOf[n.id], x: padX + ((j + 0.5) / cnt) * (W - 2 * padX), y: padY + along(r[n.id]) * (H - 2 * padY) + (two ? (line - 0.5) * step * 0.55 : 0) }; });
+  }
   return def.nodes.map((n) => vertical
     ? { node: n, rank: r[n.id], row: rowOf[n.id], x: padX + rowOf[n.id] * (W - 2 * padX), y: padY + along(r[n.id]) * (H - 2 * padY) }
     : { node: n, rank: r[n.id], row: rowOf[n.id], x: padX + along(r[n.id]) * (W - 2 * padX), y: padY + rowOf[n.id] * (H - 2 * padY) });
