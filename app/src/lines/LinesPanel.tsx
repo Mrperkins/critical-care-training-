@@ -98,6 +98,8 @@ export function TreatCard() {
       <div className="actions">
         <button className="act" onClick={() => { lines.fluid(); bump(); }}>Fluid 500 mL</button>
         <label className="sl sel nore"><span>Norepinephrine</span><select value={lines.noreDose} onChange={(e) => { lines.setNore(+e.target.value); bump(); }}>{[0, 0.05, 0.1, 0.2, 0.3].map((d) => <option key={d} value={d}>{d === 0 ? 'Off' : `${d} µg/kg/min`}</option>)}</select></label>
+        <label className="sl sel nore"><span>Dobutamine</span><select value={lines.dobutamineDose} onChange={(e) => { lines.setDobutamine(+e.target.value); bump(); }}>{[0, 2.5, 5, 10].map((d) => <option key={d} value={d}>{d === 0 ? 'Off' : `${d} µg/kg/min`}</option>)}</select></label>
+        <button className="act" onClick={() => { lines.transfuse(); bump(); }}>PRBC 1 unit</button>
         {lines.sc.morph.tamponade ? <button className="act" onClick={() => { lines.pericardiocentesis(); bump(); }}>Pericardiocentesis</button> : null}
         <button className="act" onClick={() => { lines.startNibp(); bump(); }}>Cycle NIBP cuff</button>
       </div>

@@ -40,7 +40,7 @@ export class LinesSession {
   heart!: Heart; art!: Transducer; cvp!: Transducer;
   resp: Resp = { mode: 'spont', rr: 14, swing: 3.5 }; vt = 8;
   setup: Setup = { bedH: 70, hob: 30, transH: axisHeight(70, 30) };
-  pressor = 0; pressorTarget = 0; relief = 0; reliefTarget = 0; physioSpeed = 30; private acc = 0; private numAcc = 0;
+  pressor = 0; pressorTarget = 0; /** dobutamine effect level (1 ≙ 5 µg/kg/min) */ ino = 0; inoTarget = 0; relief = 0; reliefTarget = 0; physioSpeed = 30; private acc = 0; private numAcc = 0;
   version = 0; frozen = false;
   // display ring buffer
   t = new Float64Array(N); ecg = new Float32Array(N); artD = new Float32Array(N); cvpD = new Float32Array(N); artT = new Float32Array(N); cvpT = new Float32Array(N); ao = new Float32Array(N); pit = new Float32Array(N); insp = new Uint8Array(N);
@@ -55,7 +55,7 @@ export class LinesSession {
   load(id: string) {
     const sc = SCENARIO[id] ?? SCENARIO.normal; this.sc = sc; this.morph = { ...sc.morph };
     this.setup = { bedH: 70, hob: 30, transH: axisHeight(70, 30) };
-    this.pt = createPatient({ ...sc.params }); this.pressor = this.pressorTarget = 0; this.relief = this.reliefTarget = 0;
+    this.pt = createPatient({ ...sc.params }); this.pressor = this.pressorTarget = 0; this.ino = this.inoTarget = 0; this.acc = 0; this.numAcc = 0; this.sub = 0; // accumulators restart with the patient so a reload is reproducible this.relief = this.reliefTarget = 0;
     const onVent = id === 'hypovol' || id === 'sepsis' || id === 'cardiogenic';
     this.setVent(onVent ? 'ppv' : 'spont', false);
     this.recompute(true);
@@ -82,9 +82,10 @@ export class LinesSession {
     // pericardiocentesis: lift the compression
     const relieved = this.relief;
     const p = { ...p0,
-      svr: p0.svr * (1 + 0.85 * this.pressor),
-      hr: p0.hr * (1 + 0.04 * this.pressor) * (1 - 0.22 * relieved),
-      co: p0.co * (1 + 0.06 * this.pressor) + (5 - p0.co) * relieved * (this.sc.morph.tamponade ? 1 : 0),
+      // dobutamine (β1 ≫ β2): contractility ↑ → output ↑, mild arteriolar dilation, some tachycardia
+      svr: p0.svr * (1 + 0.85 * this.pressor) * (1 - 0.14 * this.ino),
+      hr: p0.hr * (1 + 0.04 * this.pressor) * (1 + 0.1 * this.ino) * (1 - 0.22 * relieved),
+      co: p0.co * (1 + 0.06 * this.pressor) * (1 + 0.38 * this.ino) + (5 - p0.co) * relieved * (this.sc.morph.tamponade ? 1 : 0),
       cvp: p0.cvp + (7 - p0.cvp) * relieved * (this.sc.morph.tamponade ? 1 : 0),
     };
     const s = derive({ ...this.pt, p });
@@ -105,6 +106,12 @@ export class LinesSession {
   get noreDose() { return Math.round(this.pressorTarget * 0.15 * 100) / 100; }
   setNore(dose: number) { const was = this.noreDose; this.pressorTarget = dose / 0.15; this.note(dose === 0 ? 'Norepinephrine stopped' : was === 0 ? `Norepinephrine started at ${dose} µg/kg/min` : `Norepinephrine ${dose > was ? 'increased' : 'decreased'} to ${dose} µg/kg/min`); this.version++; }
   setPressor(on: boolean) { this.setNore(on ? 0.1 : 0); }
+  get dobutamineDose() { return Math.round(this.inoTarget * 5 * 10) / 10; }
+  setDobutamine(dose: number) { const was = this.dobutamineDose; this.inoTarget = Math.max(0, Math.min(2, dose / 5)); this.note(dose === 0 ? 'Dobutamine stopped' : was === 0 ? `Dobutamine started at ${dose} µg/kg/min` : `Dobutamine ${dose > was ? 'increased' : 'decreased'} to ${dose} µg/kg/min`); this.version++; }
+  /** 1 unit packed red cells: the volume effect of a bolus plus ≈ 1 g/dL haemoglobin */
+  transfuse() { const p = this.pt.p; p.hb = Math.min(16, p.hb + 1); this.fluid(); this.log[0] = { ...this.log[0], text: 'PRBC 1 unit given' }; }
+  /** jump therapy responses to their targets (used by lessons for a deterministic steady state) */
+  settleTherapy() { this.pressor = this.pressorTarget; this.ino = this.inoTarget; this.relief = this.reliefTarget; this.recompute(); }
   pericardiocentesis() { if (!this.sc.morph.tamponade) return; this.reliefTarget = 1; this.note('Pericardiocentesis — 120 mL of blood-stained fluid drained'); this.version++; }
   note(text: string) { this.log.unshift({ t: this.heart?.t ?? 0, text }); if (this.log.length > 12) this.log.pop(); }
 
@@ -154,12 +161,12 @@ export class LinesSession {
   tick(realDt: number) {
     const dt = Math.min(0.1, realDt); const steps = Math.round(dt / DT);
     // therapy responses (seconds)
-    const k = Math.min(1, dt / 12); const oldP = this.pressor, oldR = this.relief;
-    this.pressor += (this.pressorTarget - this.pressor) * k; this.relief += (this.reliefTarget - this.relief) * Math.min(1, dt / 6);
+    const k = Math.min(1, dt / 12); const oldP = this.pressor, oldR = this.relief, oldI = this.ino;
+    this.pressor += (this.pressorTarget - this.pressor) * k; this.ino += (this.inoTarget - this.ino) * k; this.relief += (this.reliefTarget - this.relief) * Math.min(1, dt / 6);
     for (let i = 0; i < steps; i++) this.stepOnce();
     // slow physiology on the shared engine
     this.acc += dt * this.physioSpeed;
-    if (this.acc > 2 || Math.abs(this.pressor - oldP) > 0.004 || Math.abs(this.relief - oldR) > 0.004) { if (this.acc > 2) { advance(this.pt, this.acc / 60); this.acc = 0; } this.recompute(); }
+    if (this.acc > 2 || Math.abs(this.pressor - oldP) > 0.004 || Math.abs(this.ino - oldI) > 0.004 || Math.abs(this.relief - oldR) > 0.004) { if (this.acc > 2) { advance(this.pt, this.acc / 60); this.acc = 0; } this.recompute(); }
     if (this.nibpDue > 0 && this.heart.t >= this.nibpDue) { this.nibpDue = -1; const n = this.num; const j = (x: number) => Math.round(x + (this.heart.rnd() - 0.5) * 4); this.nibp = { s: j(n.tSys - 6), d: j(n.tDia + 3), m: j(n.tMap), at: this.heart.t }; }
     this.numAcc += dt; if (this.numAcc > 0.5) { this.numAcc = 0; this.measure(); }
   }
