@@ -143,9 +143,11 @@ export function territoryMaterial() {
         float w = smoothstep(0.08, 0.6, vW2);
         float edge = smoothstep(0.1, 0.22, vW2) * (1.0 - smoothstep(0.22, 0.36, vW2));
         float fres = pow(1.0 - abs(dot(normalize(vN), normalize(vV))), 1.5);
-        vec3 ischemic = uColor; vec3 injured = mix(uColor, vec3(0.85,0.8,0.86), 0.45);
+        vec3 ischemic = uColor; vec3 injured = mix(uColor, vec3(0.62,0.5,0.66), 0.35);
         vec3 c = mix(ischemic, injured, uStage);
-        float a = (w * (0.26 + 0.18*fres) + edge * 0.55) * uAlpha + uHover * (w*0.18 + edge*0.5);
+        // once the tissue itself shows injury (dusky → pale, mottled) the overlay steps back to a contour + faint veil
+        float fill = w * (0.26 + 0.18*fres) * (1.0 - 0.72*uStage);
+        float a = (fill + edge * 0.6) * uAlpha + uHover * (w*0.18 + edge*0.5);
         gl_FragColor = vec4(c + edge*0.25, a);
         #include <colorspace_fragment>
       }`,

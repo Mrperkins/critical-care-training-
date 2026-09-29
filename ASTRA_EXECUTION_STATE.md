@@ -10,12 +10,13 @@ All 53 earlier bundle patches (Wave 1 chrome CSS, Studio lighting/fog, cell mate
 `visual-overhaul`
 
 ## CURRENT COMMIT
-Run `git rev-parse HEAD`. Last slice: "Recover Infarct Atlas source".
+Run `git rev-parse HEAD`. Last slice: "Infarct Atlas heart polish + seek hook".
 
 ## LAST VERIFIED LIVE DEPLOY
 Live Pages HTML contains the Nav1.5 loader from `07e29e4`. Cell, 9RON, and 9P24 GLBs returned HTTP 200 with the expected glTF MIME type. The cloud browser has WebGL disabled, so a 3D visual check remains unavailable here.
 
 ## COMPLETED SLICES
+- Infarct Atlas polish (first pass): territory overlay steps back to a contour + faint veil as injury develops, so the tissue shader's dusky → pale mottled infarct reads as tissue (was a lilac sticker). Added `window.__IA { app, seek(0–1), territory(id) }` — deterministic seek along the Normal → MI sequence for the Lesson Director and automated checks. Existing flow particles, thrombus, coronary occlusion shading and ECG unchanged. vitest 27/27.
 - Infarct Atlas source recovered: `infarct-atlas-app/` (React/R3F/esbuild, same stack as `app/`) is now the source of truth for `/infarct-atlas/index.html`. Build with `cd infarct-atlas-app && npm ci && npm run site`; rebuilding from the vendored source reproduces the deployed page byte-for-byte. vitest 27/27, tsc clean. The HuBMAP source GLB for `npm run asset` is not committed (download instructions in its README). `copy-site.mjs` refuses to publish a bundle with a duplicated `var x=var x=` declaration.
 - Neuro / cerebral vascular foundation (`app/src/neuro/`): new top-level "Brain" module. `anatomy.ts` — brain frame from the body.glb brain geometry (geometry is pre-baked to body space; do NOT use the node transform), ICA (cervical → siphon → terminus), vertebrals, basilar, Circle of Willis (A1, ACoA, PCoA, P1), M1 → M2 superior/inferior → cortical branches, A2/pericallosal + callosomarginal, P2 + temporal branch, SCA, PICA; `territoryAt` / `peripheryAt` with `TERRITORY_CORE` + `TERRITORY_RADIUS`. `perfusion.ts` — pure, seekable primitives: `territoryFlow` (circle collaterals incl. hypoplastic ACoA/PCoA and fetal PCA, leptomeningeal grade, M2 division occlusions affect only their half), `systemicFactor` (MAP/CPP pressure-passive collaterals, PaCO₂ reactivity, hypoxia), `timeToInfarct(cbf)`, `territoryStates` (core/penumbra mL and shading radii, recanalization freezes core), `hemorrhageShape`, `neuroSummary`. `neuroStore.ts` presets (M1 L/R, M2, ICA ± isolated circle, basilar, P2, ICH, SAH), deterministic clock `setNeuroMinutes`, `recanalize`. `NeuroScene.tsx` — brain surface (winding flipped to outward — the source mesh is inside-out), gyri shader, territory core/penumbra shading with irregular borders, vessel tubes coloured by perfusion with clots and flow particles, pial branches snapped to the cortex, ICH/SAH primitives, `brain.*` targets (`whole, cow, mca_l, mca_r, aca, pca, basilar, ica_l, ica_r`) registered via `registerAnchors('neuro')`. `window.__CCNeuro {store, load, minutes, recanalize, focus}`. `tests/neuro.test.ts` (11).
 - Global effects library started in `app/src/scene/effects.ts`: `rbcGeometry`, `saturationColor` (+ teaching palette), `approach`, `budget(tier)`, `MotePool`, `tubeAlong`, `frameDt` (honours `window.__instant`). Used by the alveolar and neuro scenes; port older scenes opportunistically.
@@ -36,15 +37,15 @@ Live Pages HTML contains the Nav1.5 loader from `07e29e4`. Cell, 9RON, and 9P24 
 - Added AQP4 from the full 3GD8 biological assembly (four 223-residue chains, 21,312 triangles). Selected AQP4 uses this mesh at HIGH/MEDIUM, with the existing procedural proxy at LOW. No water/volume physiology changes.
 
 ## CURRENT SLICE
-Coronary / heart polish in the Infarct Atlas (`infarct-atlas-app/src/components/HeartScene.tsx`, `src/engine/shaders.ts`).
+Lesson Director (deterministic, seekable timeline; no setTimeout chains; narration with TTS fallback).
 
 ## EXACT RESUME POINT
-Polish pass on the heart: coronary tube material (clearcoat, flow particles using the same approach as `app/src/scene/effects.ts`), culprit clot + downstream flow loss, territory shading. Validate with `tools/app-shot.py` (adapt to http://localhost:8811/infarct-atlas/). Then the Lesson Director.
+Create `app/src/director/` — `Timeline { duration, cues: Cue[] }`, `Cue { at, dur?, target?: semantic camera id, set?: (t) => void, say?: string }`, a pure `stateAt(timeline, t)` resolver and a `Director` clock (play/pause/seek/rate) driven by rAF. Adapters call the existing semantic hooks: vent `focusVentTarget` + `session.set`/`load`, neuro `setNeuroMinutes`/`loadNeuroPreset`/target, lines session. Narration: existing `vo/` audio if present, else `speechSynthesis`, else captions only. Generalise `app/src/app/LessonShell.tsx` onto it. First consumer: the hyperkalemia lesson (next slice).
 
 ## NEXT 10 SLICES
 1. (done) Alveolar microscene.
 2. (done) Brain + cerebral vessel semantic geometry foundations (HuBMAP brain is already in body.glb; cerebral arteries must be drawn — see `app/src/lines/vessels.ts` for the landmark-driven vessel builder pattern).
-3. Lesson Director: deterministic timeline (clock-driven, seek/pause, no chained setTimeout) that directs existing sessions; generalise `app/src/app/LessonShell.tsx`.
+3. (in progress) Lesson Director: deterministic timeline (clock-driven, seek/pause, no chained setTimeout) that directs existing sessions; generalise `app/src/app/LessonShell.tsx`.
 4. MOA data graph (MechanismDefinition/Node/Edge) + UI shell as a new top-level mode.
 5. Norepinephrine α1/β1 MOA with shock context — reuse `lines` session (`setNore`, SVR) for the patient response.
 6. Hyperkalemia signature lesson through the Lesson Director (labs bench + cell scene + ECG).
