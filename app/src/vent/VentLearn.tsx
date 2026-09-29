@@ -5,6 +5,7 @@ import { loadVentScenario, VentNumbersCard, GasCard, Interventions, VentControls
 import { Loops } from './Waveforms';
 import { LessonShell } from '../app/LessonShell';
 import { VENT_WORKFLOWS } from '../workflows/chestTube';
+import { DrainCard } from '../workflows/DrainCard';
 import { VENT_TIMELINES } from '../director/lessons/vent';
 import { VentNormals } from '../app/Normals';
 
@@ -25,7 +26,7 @@ export function applyLessonStep(lesson: Lesson, i: number) {
 
 export function VentLearn() {
   return (
-    <LessonShell lessons={VENT_LESSONS} apply={applyLessonStep} timelines={VENT_TIMELINES} timelineChildren={() => <><VentNumbersCard /><GasCard compact /></>} workflows={VENT_WORKFLOWS} workflowChildren={() => <><VentNumbersCard /><GasCard compact /></>} reference={() => <VentNormals />} intro="The narrator changes the ventilator and the patient; everything you see is the simulation responding. Pause at any point and take the controls.">
+    <LessonShell lessons={VENT_LESSONS} apply={applyLessonStep} timelines={VENT_TIMELINES} timelineChildren={() => <><VentNumbersCard /><GasCard compact /></>} workflows={VENT_WORKFLOWS} workflowChildren={(w) => <>{w.id === 'wf-drain-check' && <DrainCard />}<VentNumbersCard /><GasCard compact /></>} reference={() => <VentNormals />} intro="The narrator changes the ventilator and the patient; everything you see is the simulation responding. Pause at any point and take the controls.">
       {(l, i) => { const st = l.steps[i]; return <>
         {st.focus && <p className="focus">Watch: {st.focus.map((f) => ({ pressure: 'pressure trace', flow: 'flow trace', volume: 'volume trace', loops: 'loops', numbers: 'numbers', lungs: 'the lungs', gas: 'SpO₂ and blood gas' }[f])).join(' · ')}</p>}
         <VentNumbersCard />

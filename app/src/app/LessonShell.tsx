@@ -12,7 +12,7 @@ export interface ShellLesson { id: string; title: string; level: string; blurb: 
  * each step is a cue on a deterministic clock (seekable, pausable, no timer chains);
  * `apply(lesson, i)` puts the live model into the step's state.
  */
-export function LessonShell<L extends ShellLesson>({ lessons, apply, intro, children, reference, timelines, timelineChildren, workflows, workflowChildren }: { lessons: L[]; apply: (l: L, i: number) => void; intro: string; children?: (l: L, i: number) => ReactNode; reference?: () => ReactNode; timelines?: Timeline[]; timelineChildren?: () => ReactNode; workflows?: Workflow[]; workflowChildren?: () => ReactNode }) {
+export function LessonShell<L extends ShellLesson>({ lessons, apply, intro, children, reference, timelines, timelineChildren, workflows, workflowChildren }: { lessons: L[]; apply: (l: L, i: number) => void; intro: string; children?: (l: L, i: number) => ReactNode; reference?: () => ReactNode; timelines?: Timeline[]; timelineChildren?: () => ReactNode; workflows?: Workflow[]; workflowChildren?: (wf: Workflow) => ReactNode }) {
   const [tab, setTab] = useState<'lessons' | 'normals'>('lessons');
   const [lesson, setLesson] = useState<L | null>(null); const [sig, setSig] = useState<Timeline | null>(null); const [wf, setWf] = useState<Workflow | null>(null);
   useEffect(() => { if (sig) director.load(sig, true); return () => { if (sig) director.unload(); }; }, [sig]);
@@ -21,7 +21,7 @@ export function LessonShell<L extends ShellLesson>({ lessons, apply, intro, chil
   const t = useDirector((s) => s.t); const i = tl ? Math.max(0, stepIndexAt(tl, t)) : 0;
   const tabs = reference && <div className="seg learn-tabs" role="tablist">{([['lessons', 'Lessons'], ['normals', 'Normal values']] as const).map(([k, l]) => <button key={k} role="tab" aria-selected={tab === k} className={tab === k ? 'on' : ''} onClick={() => setTab(k)}>{l}</button>)}</div>;
   if (!lesson && tab === 'normals' && reference) return <div className="chal-list">{tabs}{reference()}</div>;
-  if (wf) return <WorkflowRunner wf={wf} onExit={() => setWf(null)}>{workflowChildren?.()}</WorkflowRunner>;
+  if (wf) return <WorkflowRunner wf={wf} onExit={() => setWf(null)}>{workflowChildren?.(wf)}</WorkflowRunner>;
   if (sig) return (
     <div className="chal-run">
       <DirectorPlayer onExit={() => setSig(null)} />

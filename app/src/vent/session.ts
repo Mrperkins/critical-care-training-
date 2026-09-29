@@ -19,6 +19,7 @@ export class VentSession {
   effort: PatientEffort = { pmax: 0, rate: 0, ti: 1, expPush: 0 };
   // interventions / time-varying lung state
   spasm = 0; bdT = -1; suctionT = -1; decompT = -1; bronchT = -1; tubeT = -1; paralysed = false;
+  /** chest drain occluded (kink / clot / clamp) while the lung still leaks air: tension re-accumulates */ drainBlocked = false; reTension = 0;
   baseRett = 4; baseRettQ = 1.5; baseTension = 0; baseCollapsed: [number, number] = [0, 0]; plugR: number | null = null;
   // buffers
   t = new Float64Array(N); paw = new Float32Array(N); flow = new Float32Array(N); vol = new Float32Array(N); pmus = new Float32Array(N); ph = new Uint8Array(N); palv = new Float32Array(N);
@@ -36,7 +37,7 @@ export class VentSession {
     const sc = VENT_SCENARIO[id] ?? VENT_SCENARIO.normal; this.sc = sc; this.dyss = dyss;
     const d = dyss ? DYSS[dyss] : null;
     this.effort = { ...(d ? d.effort : sc.effort) };
-    this.spasm = sc.spasm; this.bdT = -1; this.suctionT = -1; this.decompT = -1; this.bronchT = -1; this.tubeT = -1; this.paralysed = false;
+    this.spasm = sc.spasm; this.bdT = -1; this.suctionT = -1; this.decompT = -1; this.bronchT = -1; this.tubeT = -1; this.paralysed = false; this.drainBlocked = false; this.reTension = 0; this.circuitFault = 'none';
     const lung = buildLung(sc, this.spasm);
     this.baseRett = lung.Rett; this.baseRettQ = lung.RettQ; this.baseTension = lung.tension; this.baseCollapsed = [lung.comps[0].collapsed, lung.comps[1].collapsed];
     this.plugR = sc.lung.right && (sc.lung.right as { rFixed?: number }).rFixed != null ? (sc.lung.right as { rFixed?: number }).rFixed! : null;
@@ -59,6 +60,16 @@ export class VentSession {
     this.version++; this.changedAt = this.breathN;
   }
   hold(kind: 'i' | 'e') { this.m.holdReq = kind; }
+  /** Circuit faults for the low-pressure alarm: none, a cuff leak (gas escapes around the cuff), or a disconnection at the wye. */
+  circuitFault: 'none' | 'cuffLeak' | 'disconnect' | 'both' = 'none';
+  circuit(f: 'none' | 'cuffLeak' | 'disconnect' | 'both') {
+    this.circuitFault = f; this.m.disconnected = f === 'disconnect' || f === 'both'; this.m.lung.leak = f === 'cuffLeak' || f === 'both' ? 0.12 : 0;
+    this.version++; this.changedAt = this.breathN;
+  }
+  /** Occlude / reopen an inserted chest drain (kink, clot, clamp). Only matters once a drain is in. */
+  setDrainBlocked(b: boolean) { this.drainBlocked = b; this.version++; this.changedAt = this.breathN; }
+  /** Pleural pressure now (cmH₂O, relative to the relaxed chest): chest-wall recoil − muscle effort + trapped air. */
+  pleural() { return this.m.pcw(); }
 
   intervene(f: Fix | 'bronchodilator') {
     if (f === 'bronchodilator') this.bdT = 0;
@@ -86,7 +97,10 @@ export class VentSession {
     if (this.decompT >= 0) { this.decompT += dt; const f = Math.min(1, this.decompT / 6); l.tension = this.baseTension * (1 - Math.min(1, f * 3)); l.comps.forEach((c, k) => (c.collapsed = this.baseCollapsed[k] * (1 - 0.85 * f))); }
     // chest drain: definitive — pleural air evacuated, tension gone and the lung fully re-expands (over ~10 s of screen time)
     if (this.tubeT >= 0) { this.tubeT += dt; const f = Math.min(1, this.tubeT / 10); const needle = this.decompT >= 0 ? Math.min(1, this.decompT / 6) : 0;
-      l.tension = this.baseTension * (1 - Math.max(Math.min(1, f * 3), Math.min(1, needle * 3))); l.comps.forEach((c, k) => (c.collapsed = this.baseCollapsed[k] * (1 - Math.max(f, 0.85 * needle)))); }
+      l.tension = this.baseTension * (1 - Math.max(Math.min(1, f * 3), Math.min(1, needle * 3))); l.comps.forEach((c, k) => (c.collapsed = this.baseCollapsed[k] * (1 - Math.max(f, 0.85 * needle))));
+      // an occluded drain on positive pressure with an ongoing leak: air accumulates again (~20 s of screen time to full tension); clears over ~6 s once patent
+      this.reTension = this.drainBlocked ? Math.min(1, this.reTension + dt / 20) : Math.max(0, this.reTension - dt / 6);
+      if (this.reTension > 0) { l.tension = Math.max(l.tension, this.baseTension * this.reTension); l.comps.forEach((c, k) => (c.collapsed = Math.max(c.collapsed, 0.8 * this.baseCollapsed[k] * this.reTension))); } }
     if (this.bronchT >= 0 && this.plugR != null) { this.bronchT += dt; const f = Math.min(1, this.bronchT / 3); this.plugR = 150 + (4 - 150) * f; if (f >= 1) this.plugR = 4; }
   }
 

@@ -116,6 +116,8 @@ export class Mechanics {
   stats: BreathStats | null = null; history: BreathStats[] = [];
   apnea = false; lastQ = 0; lastPaw = 0; lastPmus = 0; lastPalv: [number, number] = [0, 0];
   breathTimes: number[] = [];
+  /** circuit open at the patient wye / ETT connector: the machine keeps cycling into the room and the lung empties to atmosphere */
+  disconnected = false;
 
   constructor(s: VentSettings = { ...DEFAULT_SETTINGS }, lung: LungModel = normalLung(), pt: PatientEffort = { pmax: 0, rate: 0, ti: 1, expPush: 0 }) {
     this.s = s; this.lung = lung; this.pt = pt;
@@ -316,6 +318,13 @@ export class Mechanics {
       if (this.phase === 'low') this.relPeak = Math.min(this.relPeak, qY);
     }
 
+    // ---- disconnection: what the ventilator sees is its own flow escaping (a small open-circuit pressure, nothing returning
+    // through the expiratory limb); the patient's lung empties to atmosphere through the tube and loses its PEEP
+    if (this.disconnected) {
+      const r = this.flowsForPaw(0); qs = r.qs;
+      const machineQ = this.phase === 'insp' ? Math.max(0, qY) : 0;
+      paw = 0.25 + 1.2 * machineQ; qY = machineQ;
+    }
     // ---- integrate volumes (with expiratory flow limitation)
     for (let k = 0; k < 2; k++) {
       const c = this.lung.comps[k]; if (!c.connected) { this.V[k] = Math.max(0, this.V[k] - this.V[k] * dt * 2); qs[k] = 0; continue; }
@@ -324,7 +333,7 @@ export class Mechanics {
       if (c.collapsed > 0) v1 = Math.min(v1, Math.max(v0, (1 - c.collapsed) * 1.2));
       this.V[k] = v1; qs[k] = (v1 - v0) / dt; // flow at the airway is only what actually moved
     }
-    const qPt = qs[0] + qs[1]; if (this.phase === 'exp' || this.phase === 'low') qY = qPt - (qPt < 0 ? 0 : 0);
+    const qPt = qs[0] + qs[1]; if (!this.disconnected && (this.phase === 'exp' || this.phase === 'low')) qY = qPt - (qPt < 0 ? 0 : 0);
     // measured exhaled volume excludes gas lost around the cuff
     if (qY > 0) this.bVolIn += qY * dt; else this.bVolOut += -qY * dt * (1 - Math.min(0.6, this.lung.leak * 2));
     this.dispVol += (qY > 0 ? qY : qY * (1 - Math.min(0.6, this.lung.leak * 2))) * dt;
