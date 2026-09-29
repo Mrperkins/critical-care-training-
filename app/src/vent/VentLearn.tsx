@@ -4,6 +4,7 @@ import { VENT_LESSONS, type Lesson, type StepSetup } from '../lessons/vent';
 import { loadVentScenario, VentNumbersCard, GasCard, Interventions, VentControls } from './VentPanel';
 import { Loops } from './Waveforms';
 import { LessonShell } from '../app/LessonShell';
+import { VENT_TIMELINES } from '../director/lessons/vent';
 import { VentNormals } from '../app/Normals';
 
 /** Apply a lesson up to step i: the last scenario load, then every settings change after it, then this step's action. */
@@ -23,7 +24,7 @@ export function applyLessonStep(lesson: Lesson, i: number) {
 
 export function VentLearn() {
   return (
-    <LessonShell lessons={VENT_LESSONS} apply={applyLessonStep} reference={() => <VentNormals />} intro="The narrator changes the ventilator and the patient; everything you see is the simulation responding. Pause at any point and take the controls.">
+    <LessonShell lessons={VENT_LESSONS} apply={applyLessonStep} timelines={VENT_TIMELINES} timelineChildren={() => <><VentNumbersCard /><GasCard compact /></>} reference={() => <VentNormals />} intro="The narrator changes the ventilator and the patient; everything you see is the simulation responding. Pause at any point and take the controls.">
       {(l, i) => { const st = l.steps[i]; return <>
         {st.focus && <p className="focus">Watch: {st.focus.map((f) => ({ pressure: 'pressure trace', flow: 'flow trace', volume: 'volume trace', loops: 'loops', numbers: 'numbers', lungs: 'the lungs', gas: 'SpO₂ and blood gas' }[f])).join(' · ')}</p>}
         <VentNumbersCard />

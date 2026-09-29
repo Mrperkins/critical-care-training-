@@ -400,9 +400,9 @@ const CAM: Record<string, (a: Record<string, THREE.Vector3>) => [THREE.Vector3, 
   'lung.capillary': (a) => [a.capillary.clone().add(new THREE.Vector3(0.35, 0.55, 2.3)), a.capillary.clone()],
   'lung.rbc': (a) => [a.rbc.clone().add(new THREE.Vector3(0.2, 0.5, 1.25)), a.rbc.clone().add(new THREE.Vector3(0, 0.15, -0.2))],
   'lung.membrane': () => [MEMBRANE_AT.clone().add(new THREE.Vector3(1.1, 0.9, IS_PHONE ? 7.5 : 5.4)), MEMBRANE_AT.clone().add(new THREE.Vector3(0.2, -0.05, 0))],
-  'lung.edema': (a) => [a.edema.clone().add(new THREE.Vector3(0.3, 0.6, 2.4)), a.edema.clone()],
-  'lung.collapsed': (a) => [a.collapsed.clone().add(new THREE.Vector3(0.3, 0.6, 2.4)), a.collapsed.clone()],
-  'lung.recruited': (a) => [a.recruited.clone().add(new THREE.Vector3(0.3, 0.6, 2.4)), a.recruited.clone()],
+  'lung.edema': (a) => [a.edema.clone().add(new THREE.Vector3(0.45, 0.8, IS_PHONE ? 4.2 : 3.2)), a.edema.clone()],
+  'lung.collapsed': (a) => [a.collapsed.clone().add(new THREE.Vector3(0.45, 0.8, IS_PHONE ? 4.2 : 3.2)), a.collapsed.clone()],
+  'lung.recruited': (a) => [a.recruited.clone().add(new THREE.Vector3(0.45, 0.8, IS_PHONE ? 4.2 : 3.2)), a.recruited.clone()],
 };
 function Rig() {
   const cc = useRef<CameraControls>(null); const target = useUI((s) => s.ventTarget); const first = useRef(true);
