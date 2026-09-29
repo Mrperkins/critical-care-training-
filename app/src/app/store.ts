@@ -2,7 +2,7 @@ import { create } from 'zustand';
 
 export type Module = 'vent' | 'abg' | 'labs' | 'lines' | 'neuro' | 'moa' | 'heart' | 'abdomen';
 export type Mode = 'explore' | 'learn' | 'challenge' | 'sim';
-export type VentView = 'front' | 'side' | 'airway' | 'base' | 'alveolus' | 'xray';
+export type VentView = 'front' | 'side' | 'airway' | 'base' | 'alveolus' | 'xray' | 'lus';
 
 export interface UIState {
   module: Module; mode: Mode;

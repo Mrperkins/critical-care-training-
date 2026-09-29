@@ -79,5 +79,27 @@ def main():
     print('App syntax and malformed-replacement guard passed')
 
 
+def validate_real_images():
+    """Real clinical images: every file hashed, licence on the whitelist, attribution complete."""
+    base = ROOT / 'imaging' / 'real'
+    man = json.loads((base / 'manifest.json').read_text())
+    ok = set(man['accepted'])
+    listed = set()
+    for it in man['items']:
+        assert it['license'] in ok, f"{it['file']}: licence {it['license']} not accepted"
+        assert 'NC' not in it['license'] and 'ND' not in it['license'], it['file']
+        for key in ('author', 'source', 'licenseUrl', 'changes', 'caption'):
+            assert it.get(key), f"{it['file']}: missing {key}"
+        for k in ('file', 'poster'):
+            if k in it:
+                data = (base / it[k]).read_bytes()
+                assert hashlib.sha256(data).hexdigest() == it[k + 'Sha256'], f'{it[k]}: checksum mismatch'
+                listed.add(it[k])
+    on_disk = {p.name for p in base.iterdir() if p.suffix.lower() in ('.jpg', '.jpeg', '.png', '.mp4', '.webm', '.gif')}
+    assert on_disk == listed, f'unlisted or missing real images: {sorted(on_disk ^ listed)}'
+    print(f'Real images: {len(man["items"])} items, licences and checksums valid')
+
+
 if __name__ == '__main__':
     main()
+    validate_real_images()

@@ -1,0 +1,151 @@
+{
+ "about": "Real, openly licensed clinical images shown beside the synthetic ones. Only CC0 / public domain / CC BY / MIT / Apache-2.0 material is accepted; NC, ND, share-alike-only, research-only or unclear sources are rejected. Teaching use only; not diagnostic.",
+ "accepted": [
+  "CC0",
+  "Public Domain",
+  "CC BY 2.0",
+  "CC BY 3.0",
+  "CC BY 4.0",
+  "MIT",
+  "Apache-2.0"
+ ],
+ "items": [
+  {
+   "file": "cxr-mhh-ventilated-bilateral.jpg",
+   "kind": "xray",
+   "id": "3fd337c1",
+   "title": "Portable AP film, ventilated patient",
+   "caption": "Endotracheal tube in the trachea, ECG leads and lines; patchy airspace opacities in both lungs (COVID-19 pneumonia) — the pattern the ARDS lesson draws.",
+   "look": [
+    "Tube tip above the carina",
+    "Bilateral patchy opacities",
+    "Heart size not enlarged",
+    "Lines and leads crossing the film"
+   ],
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Institute for Diagnostic and Interventional Radiology, Hannover Medical School (MHH), Germany",
+   "source": "COVID-19 Image Repository — https://github.com/ml-workgroup/covid-19-image-repository (copy retrieved from https://github.com/ieee8023/covid-chestxray-dataset, images/<id>.jpg)",
+   "changes": "Converted to greyscale JPEG, downscaled to 1000 px.",
+   "fileSha256": "b8a0507782b6552e9172f1b3c024665a81cea38a71994d0fd5a7614277fa43c1"
+  },
+  {
+   "file": "cxr-mhh-severe-bilateral.jpg",
+   "kind": "xray",
+   "id": "98c24e39",
+   "title": "Portable AP film, severe bilateral disease",
+   "caption": "Dense opacities in both lungs with many tubes, lines and leads over the chest — typical of a sick ICU patient; the lines are not lung disease.",
+   "look": [
+    "Opacities in both lungs",
+    "Many external lines — follow each one",
+    "Borders of heart and diaphragm blurred"
+   ],
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Institute for Diagnostic and Interventional Radiology, Hannover Medical School (MHH), Germany",
+   "source": "COVID-19 Image Repository — https://github.com/ml-workgroup/covid-19-image-repository (copy retrieved from https://github.com/ieee8023/covid-chestxray-dataset, images/<id>.jpg)",
+   "changes": "Converted to greyscale JPEG, downscaled to 1000 px.",
+   "fileSha256": "2df921b157946e0fa03a1f545d273577dfd62fdcfcb0c73c7a3faa9dd3d25e00"
+  },
+  {
+   "file": "cxr-mhh-portable-clear.jpg",
+   "kind": "xray",
+   "id": "bfefde5d",
+   "title": "Bedside film, lungs largely clear",
+   "caption": "A bedside (\"Bettaufnahme\") film with largely clear lungs and an implanted port in the left upper chest — a baseline to compare against.",
+   "look": [
+    "Lung markings reach the periphery",
+    "Sharp heart and diaphragm borders",
+    "Port catheter from the left chest wall"
+   ],
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Institute for Diagnostic and Interventional Radiology, Hannover Medical School (MHH), Germany",
+   "source": "COVID-19 Image Repository — https://github.com/ml-workgroup/covid-19-image-repository (copy retrieved from https://github.com/ieee8023/covid-chestxray-dataset, images/<id>.jpg)",
+   "changes": "Converted to greyscale JPEG, downscaled to 1000 px.",
+   "fileSha256": "d40ad884cd69fe7cefb2b0bc7e0a972912dede895c18a8891521c86f1216bb78"
+  },
+  {
+   "file": "lus-alines-vieira2020.mp4",
+   "poster": "lus-alines-vieira2020.jpg",
+   "kind": "lus",
+   "id": "alines",
+   "title": "A-lines: aerated lung",
+   "caption": "Longitudinal anterior chest scan in aerated lung: horizontal repeats of the pleural line (A-lines). Faint in this clip.",
+   "look": [
+    "Bright pleural line",
+    "Horizontal repeats at equal spacing",
+    "No vertical B-lines"
+   ],
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Ana Luisa Silveira Vieira, José Muniz Pazeli Júnior, Marcus Gomes Bastos",
+   "source": "“Role of point-of-care ultrasound during the COVID-19 pandemic: our recommendations in the management of dialytic patients”, The Ultrasound Journal 12:30 (2020), https://doi.org/10.1186/s13089-020-00177-4 (clip via https://github.com/jannisborn/covid19_ultrasound)",
+   "changes": "Cropped (dataset), first 3.5 s re-encoded to H.264 480 px, contrast and brightness increased; poster frame at 1.2 s.",
+   "fileSha256": "7e0a70d4fb22629f01b03a1f8734244ac2c1704e9d7121a5f5c32f6193e722a3",
+   "posterSha256": "e86997ba99960864ca8b6d4db48db76ddfbe98a168dadfe24715cc95a16446d3"
+  },
+  {
+   "file": "lus-blines-volpicelli2020.mp4",
+   "poster": "lus-blines-volpicelli2020.jpg",
+   "kind": "lus",
+   "id": "blines",
+   "title": "B-lines",
+   "caption": "Right lateral chest in COVID-19 pneumonia: vertical bright B-lines from the pleural line to the bottom of the screen, alternating with A-lines, and a thickened pleura.",
+   "look": [
+    "Vertical lines from the pleura",
+    "They reach the bottom of the screen",
+    "They move with lung sliding"
+   ],
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Giovanni Volpicelli, Luna Gargani",
+   "source": "“Sonographic signs and patterns of COVID-19 pneumonia”, The Ultrasound Journal 12:22 (2020), https://doi.org/10.1186/s13089-020-00171-w (clip via https://github.com/jannisborn/covid19_ultrasound)",
+   "changes": "Cropped (dataset), first 3.5 s re-encoded to H.264 480 px; poster frame at 1.2 s.",
+   "fileSha256": "8322522ed4c6d3a4cf8ef2f23f3f2f555b60562da8dc4f089b43101302e5c12b",
+   "posterSha256": "16f02bb06a897dbe868b8fe732285647514cbd1b4ff0c8fab2693a43ca89540c"
+  },
+  {
+   "file": "lus-whitelung-testa2012.mp4",
+   "poster": "lus-whitelung-testa2012.jpg",
+   "kind": "lus",
+   "id": "whitelung",
+   "title": "White lung: confluent B-lines",
+   "caption": "H1N1 pneumonia, lateral mid-chest: confluent B-lines (\"white lung\") with superficial consolidation and a thickened pleural line.",
+   "look": [
+    "No black gaps between B-lines",
+    "Irregular pleural line",
+    "Small subpleural consolidations"
+   ],
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+   "author": "Americo Testa, Gino Soldati, Roberto Copetti, Rosangela Giannuzzi, Grazia Portale, Nicolò Gentiloni-Silveri",
+   "source": "“Early recognition of the 2009 pandemic influenza A (H1N1) pneumonia by chest ultrasound”, Critical Care 16:R30 (2012), https://doi.org/10.1186/cc11201 (clip via https://github.com/jannisborn/covid19_ultrasound)",
+   "changes": "Cropped (dataset), first 3.5 s re-encoded to H.264 480 px; poster frame at 1.2 s.",
+   "fileSha256": "23d6bf77febe8115fd75cc222e793b5677b83a0a9d02ac420bd6e11879a32798",
+   "posterSha256": "f9e9ce5824e1657ca653b5e2bd86009aa3f6a014e31c34bbdbf534f8622912c1"
+  }
+ ],
+ "rejected": [
+  {
+   "source": "Open Critical Care anesthesia POCUS pocket card (2022)",
+   "reason": "No licence stated; images credited “courtesy of” third parties (JACC, austincc.edu, echocardiographer.org). Used for facts only, in our own words."
+  },
+  {
+   "source": "COVID-BLUES lung ultrasound dataset",
+   "reason": "CC BY-NC-ND 4.0"
+  },
+  {
+   "source": "covid19_ultrasound clips attributed to “charlotte” (source id 14)",
+   "reason": "Licence listed but origin not identifiable — unclear."
+  },
+  {
+   "source": "Radiopaedia-derived images in covid-chestxray-dataset",
+   "reason": "CC BY-NC-SA"
+  },
+  {
+   "source": "covid19_ultrasound clip “Pneu_prospective_file3” (The Ultrasound Journal / Critical Ultrasound Journal 4:16, 2012, doi 10.1186/2036-7902-4-16)",
+   "reason": "Listed as CC BY 2.0, but the article page could not be read to confirm authors and licence (rate-limited) — not included until verified."
+  }
+ ]
+}
