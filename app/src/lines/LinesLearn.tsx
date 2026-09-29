@@ -1,4 +1,6 @@
 import { IABP_LESSON } from '../director/lessons/iabp';
+import { CENTRAL_LINE, CENTRAL_LINE_LESSON } from '../procedures/centralLineFlow';
+import { CentralLineCard } from '../procedures/CentralLineCard';
 import { IabpCard } from '../procedures/IabpCard';
 import { useDirector } from '../director/director';
 import { LINES_WORKFLOWS } from '../workflows/linesWorkflows';
@@ -35,10 +37,10 @@ export function LinesLearn() {
   return (
     <LessonShell<LLesson>
       lessons={LINES_LESSONS}
-      timelines={[...LINES_TIMELINES, IABP_LESSON]}
+      timelines={[...LINES_TIMELINES, IABP_LESSON, CENTRAL_LINE_LESSON]}
       timelineChildren={() => <TimelineCards />}
-      workflows={LINES_WORKFLOWS}
-      workflowChildren={() => <><NumbersCard /><TreatCard /><DripCard /></>}
+      workflows={[...LINES_WORKFLOWS, CENTRAL_LINE]}
+      workflowChildren={(w) => w.id === CENTRAL_LINE.id ? <><CentralLineCard /><NumbersCard /></> : <><NumbersCard /><TreatCard /><DripCard /></>}
       intro="Each lesson sets up the bedside for you — patient, breathing, bed, transducer and faults — then talks you through what the monitor and the heart are doing. Everything stays live: change anything and see what happens."
       apply={(l, i) => { if (i === 0) lines.setNore(0); applyStep(l.steps[i].do); }}
       reference={() => <LinesNormals />}
@@ -48,4 +50,4 @@ export function LinesLearn() {
   );
 }
 
-function TimelineCards() { const id = useDirector((s) => s.tl?.id); return id === IABP_LESSON.id ? <><IabpCard /><NumbersCard /></> : <><O2Card /><NumbersCard /><TreatCard /></>; }
+function TimelineCards() { const id = useDirector((s) => s.tl?.id); return id === IABP_LESSON.id ? <><IabpCard /><NumbersCard /></> : id === CENTRAL_LINE_LESSON.id ? <><CentralLineCard /><NumbersCard /></> : <><O2Card /><NumbersCard /><TreatCard /></>; }

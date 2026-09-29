@@ -22,18 +22,8 @@ export const US_WINDOWS: { id: UsWindow; short: string; name: string; plane: str
 /** anechoic stripe thickness (mm) for a window's free-fluid volume: zero until the window is positive */
 export function stripeMm(ml: number, positive: boolean) { return positive ? Math.min(35, 1.5 + Math.sqrt(Math.max(0, ml - 40))) : 0; }
 
-/* deterministic noise */
-const hash = (x: number, y: number) => { const s = Math.sin(x * 127.1 + y * 311.7) * 43758.5453; return s - Math.floor(s); };
-function vnoise(x: number, y: number) { const i = Math.floor(x), j = Math.floor(y), f = x - i, g = y - j; const u = f * f * (3 - 2 * f), v = g * g * (3 - 2 * g);
-  return (hash(i, j) * (1 - u) + hash(i + 1, j) * u) * (1 - v) + (hash(i, j + 1) * (1 - u) + hash(i + 1, j + 1) * u) * v; }
-const ell = (x: number, z: number, cx: number, cz: number, rx: number, rz: number) => ((x - cx) / rx) ** 2 + ((z - cz) / rz) ** 2;
-const band = (d: number, w: number) => Math.max(0, 1 - Math.abs(d) / w); // bright line profile
-const clamp = (x: number, a = 0, b = 1) => Math.max(a, Math.min(b, x));
-
-type Kind = 'tissue' | 'fluid' | 'none';
-interface Px { e: number; k: Kind }
-/** tissue echo (0–1) at lateral x cm (screen-left negative), depth z cm */
-type Scene = (x: number, z: number) => Px;
+import { vnoise, ell, band, clamp, renderCurvilinear, curviUV, type UsPx, type UsScene } from '../scene/ultrasound/bmode';
+type Px = UsPx; type Scene = UsScene;
 
 function fluidEcho(st: AbdomenState) { return st.fluidKind === 'blood' ? 0.06 : st.fluidKind === 'enteric' ? 0.12 : 0.015; }
 function wall(z: number): Px | null { // skin, fat, muscle layers
@@ -133,20 +123,8 @@ export function renderUs(win: UsWindow, st: AbdomenState, size = 240): UsImage {
   const meta = US_WINDOWS.find((w) => w.id === win)!; const fast = fastExam(st); const fw = fast.find((w) => w.id === win);
   const ml = fw?.ml ?? 0, positive = !!fw?.positive; const mm = win === 'aorta' ? 0 : stripeMm(ml, positive);
   const scene = win === 'ruq' ? ruq(st, mm) : win === 'luq' ? luq(st, mm) : win === 'pelvis' ? pelvis(st, mm) : win === 'pericardial' ? subxiphoid(st, mm) : aorta(st);
-  const D = meta.depthCm, R0 = 2.6, half = 0.62; const Wcm = (R0 + D) * Math.sin(half) * 1.04; const Hcm = D + 0.4;
-  const W = size, H = Math.round(size * (Hcm / (2 * Wcm))); const rgba = new Uint8ClampedArray(W * H * 4); let fluidPx = 0;
-  for (let j = 0; j < H; j++) for (let i = 0; i < W; i++) {
-    const X = ((i + 0.5) / W - 0.5) * 2 * Wcm, Zs = ((j + 0.5) / H) * Hcm; const zA = Zs + R0; const r = Math.hypot(X, zA), th = Math.atan2(X, zA);
-    const o = (j * W + i) * 4; let v = 0;
-    if (Math.abs(th) < half && r >= R0 && r <= R0 + D) {
-      const depth = r - R0, lat = th * (R0 + depth); const p = scene(lat, depth); if (p.k === 'fluid') fluidPx++;
-      const speck = 0.35 + 1.25 * (0.62 * vnoise(lat * 4 + 11, depth * 9) + 0.38 * vnoise(lat * 9 + 3, depth * 21)) * (0.82 + 0.36 * hash(i, j)); // laterally elongated speckle
-      const tgc = 1 - 0.28 * (depth / D); const edge = clamp((half - Math.abs(th)) / 0.04);
-      v = clamp(p.e * speck * tgc) * edge;
-    }
-    const g = Math.round(255 * Math.pow(v, 0.85)); rgba[o] = g; rgba[o + 1] = g; rgba[o + 2] = Math.min(255, g + 3); rgba[o + 3] = 255;
-  }
-  return { rgba, w: W, h: H, depthCm: D, stripeMm: mm, fluidPx, ml, positive };
+  const r = renderCurvilinear(scene, meta.depthCm, size);
+  return { rgba: r.rgba, w: r.w, h: r.h, depthCm: meta.depthCm, stripeMm: mm, fluidPx: r.fluidPx, ml, positive };
 }
 
 /** structure labels in window centimetres (lateral x, depth z); `fluid` labels appear only when that window shows fluid */
@@ -158,8 +136,4 @@ export const US_LABELS: Record<UsWindow, { t: string; x: number; z: number; flui
   aorta: [{ t: 'Aorta', x: 0.9, z: 4.6 }, { t: 'IVC', x: -2.4, z: 5.4 }, { t: 'Vertebral body', x: 0.2, z: 12.2 }],
 };
 /** window cm → normalised image position (0–1) for overlays */
-export function usUV(win: UsWindow, x: number, z: number) {
-  const D = US_WINDOWS.find((w) => w.id === win)!.depthCm; const R0 = 2.6, half = 0.62; const Wcm = (R0 + D) * Math.sin(half) * 1.04, Hcm = D + 0.4;
-  const th = x / (R0 + z); const X = (R0 + z) * Math.sin(th), Z = (R0 + z) * Math.cos(th) - R0;
-  return { u: 0.5 + X / (2 * Wcm), v: Z / Hcm };
-}
+export function usUV(win: UsWindow, x: number, z: number) { return curviUV(US_WINDOWS.find((w) => w.id === win)!.depthCm, x, z); }
