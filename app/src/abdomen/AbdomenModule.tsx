@@ -1,4 +1,5 @@
 /** Abdomen module: trauma / vascular / surgical abdomen on the shared body, driven by one pure state. */
+import { CtaScene } from './CtaScene';
 import { useEffect, useMemo, useState } from 'react';
 import { loadBodyAsset, type BodyAsset } from '../asset/body';
 import { Knob } from '../vent/VentPanel';
@@ -25,7 +26,7 @@ export function AbdomenModule() {
   return (
     <main className="stage">
       <section className="scene-pane">
-        <div className="scene-wrap">{view === 'us' ? <UltrasoundScene /> : body ? <AbdomenScene body={body} /> : <div className="loading">{err ? `Could not load anatomy: ${err}` : 'Loading anatomy…'}</div>}<AbdOverlay /></div>
+        <div className="scene-wrap">{view === 'us' ? <UltrasoundScene /> : view === 'cta' ? <CtaScene /> : body ? <AbdomenScene body={body} /> : <div className="loading">{err ? `Could not load anatomy: ${err}` : 'Loading anatomy…'}</div>}<AbdOverlay /></div>
       </section>
       <aside className="side-pane">
         {mode === 'learn' ? <AbdLearn /> : <><PresetCard /><TimeCard /><FastCard /><ShockCard /><FindingsCard /></>}
@@ -39,8 +40,8 @@ function AbdOverlay() {
   const target = useAbdUI((s) => s.target); const labels = useAbdUI((s) => s.labels); const view = useAbdUI((s) => s.view); const set = useAbdUI.getState().set; const st = useAbdomen(); const sc = shockClass(st);
   return (<>
     <div className="scene-tools">{view === '3d' && <button className={`tgl${labels ? ' on' : ''}`} onClick={() => set({ labels: !labels })}>Labels</button>}</div>
-    <div className="view-btns">{([['3d', '3D anatomy'], ['us', 'Ultrasound · FAST']] as [AbdView, string][]).map(([k, l]) => <button key={k} className={view === k ? 'on' : ''} onClick={() => set({ view: k })}>{l}</button>)}</div>
-    {view === 'us' ? null : <>
+    <div className="view-btns">{([['3d', '3D anatomy'], ['us', 'Ultrasound · FAST'], ['cta', 'CT angiogram']] as [AbdView, string][]).map(([k, l]) => <button key={k} className={view === k ? 'on' : ''} onClick={() => set({ view: k })}>{l}</button>)}</div>
+    {view !== '3d' ? null : <>
     <div className="alv-hud">
       <div className="alv-row"><span>Time</span><b>{Math.round(st.minutes)} min</b></div>
       <div className="alv-row"><span>Free fluid</span><b>{Math.round(st.freeFluidMl)} mL</b></div>

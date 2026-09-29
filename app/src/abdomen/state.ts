@@ -9,7 +9,8 @@ export interface AbdomenState {
   /** intraperitoneal free fluid, mL, and what it is */ freeFluidMl: number; fluidKind: FluidKind;
   /** retroperitoneal haematoma, mL */ retroMl: number;
   aaa: { diameterCm: number; rupture: 'none' | 'contained' | 'free' };
-  dissection: boolean;
+  /** aortic dissection (null = none): Stanford type, how far distally it runs, false-lumen flow, branches fed only by a thrombosed false lumen */
+  dissection: Dissection | null;
   freeAir: boolean;
   obstruction: 'none' | 'small' | 'large';
   /** bowel distension 0–1 */ distension: number;
@@ -17,7 +18,8 @@ export interface AbdomenState {
   /** pancreatic inflammation 0–1 */ pancreatitis: number;
   /** minutes since the event (bleeding accumulates, ischaemia progresses) */ minutes: number;
 }
-export const emptyAbdomen = (): AbdomenState => ({ injury: {}, freeFluidMl: 0, fluidKind: 'blood', retroMl: 0, aaa: { diameterCm: 2, rupture: 'none' }, dissection: false, freeAir: false, obstruction: 'none', distension: 0, ischaemia: 0, pancreatitis: 0, minutes: 0 });
+export interface Dissection { type: 'A' | 'B'; extent: 'thoracic' | 'renal' | 'iliac'; falseLumen: 'patent' | 'thrombosed'; malperfusion: { renalL?: boolean; renalR?: boolean; mesenteric?: boolean } }
+export const emptyAbdomen = (): AbdomenState => ({ injury: {}, freeFluidMl: 0, fluidKind: 'blood', retroMl: 0, aaa: { diameterCm: 2, rupture: 'none' }, dissection: null, freeAir: false, obstruction: 'none', distension: 0, ischaemia: 0, pancreatitis: 0, minutes: 0 });
 
 /** bleeding rate (mL/min) from an injured organ grade — solid organs bleed more with grade */
 export const bleedRate = (organ: Organ, grade: number) => (grade <= 0 ? 0 : (organ === 'spleen' ? 3 : organ === 'liver' ? 3.5 : organ.startsWith('kidney') ? 4 : 2) * grade ** 1.6);
@@ -87,7 +89,8 @@ export function abdomenFindings(st: AbdomenState): string[] {
   if (st.retroMl > 200) f.push('Retroperitoneal haematoma — FAST does not see it; flank / back pain, Grey Turner sign late');
   if (st.aaa.diameterCm >= 3) f.push(`Abdominal aortic aneurysm ${st.aaa.diameterCm.toFixed(1)} cm${st.aaa.diameterCm >= 5.5 ? ' (above the usual repair threshold)' : ''}`);
   if (st.aaa.rupture !== 'none') f.push(st.aaa.rupture === 'contained' ? 'Contained rupture into the retroperitoneum' : 'Free intraperitoneal rupture');
-  if (st.dissection) f.push('Aortic dissection flap');
+  if (st.dissection) { const d = st.dissection; f.push(`Aortic dissection, Stanford type ${d.type}${d.type === 'A' ? ' (ascending aorta involved — surgical emergency)' : ' (descending only)'}, extending to the ${d.extent === 'thoracic' ? 'thoracic aorta' : d.extent === 'renal' ? 'renal arteries' : 'iliac arteries'}; false lumen ${d.falseLumen}`);
+    const m = d.malperfusion; const mal = [m.renalL && 'left kidney', m.renalR && 'right kidney', m.mesenteric && 'bowel'].filter(Boolean); if (mal.length) f.push(`Malperfusion: ${mal.join(', ')} fed from a thrombosed false lumen`); }
   if (st.freeAir) f.push('Free air under the diaphragm — perforated viscus');
   if (st.obstruction !== 'none') f.push(`${st.obstruction === 'small' ? 'Small' : 'Large'}-bowel obstruction: dilated loops, vomiting, distension`);
   if (st.ischaemia > 0.05) f.push(`Mesenteric ischaemia — pain out of proportion to the examination${st.ischaemia > 0.6 ? '; bowel infarcting, lactate rising' : ''}`);

@@ -506,3 +506,5 @@ details.card summary{cursor:pointer;font:600 14px var(--fs);margin-bottom:6px}
 .cl-art{fill:rgba(216,72,63,.25)}
 .cxr-wrap{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:12px;flex:1;min-height:0;align-items:start}.cxr-panel{aspect-ratio:1/1.08;max-height:100%}.cxr-find{background:rgba(12,14,16,.8);border:1px solid rgba(210,229,238,.1);border-radius:10px;padding:10px 12px}.cxr-find h4{margin:0 0 6px;font:600 12px var(--fm);letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}.cxr-find ul{margin:0;padding-left:16px;display:grid;gap:4px;font-size:12.5px;color:var(--ink)}
 .phone .cxr-wrap{grid-template-columns:1fr;flex:none}.cxr-panel{width:100%}.phone .cxr-panel{max-height:none;height:auto}.phone .cxr-find{font-size:12px}
+.cta-levels{flex:none}.cta-grid{grid-template-columns:repeat(2,minmax(0,1fr));flex:none}.cta-grid .img-panel{aspect-ratio:1/0.72}.cta-find{flex:none}
+.phone .cta-grid{grid-template-columns:1fr}
