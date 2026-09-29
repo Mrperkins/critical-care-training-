@@ -65,7 +65,7 @@ export function tubeAlong(pts: THREE.Vector3[], r0: number, r1: number, radial =
     const t = i / n; curve.getPointAt(t, p); const r = r0 + (r1 - r0) * t; const N = frames.normals[i], B = frames.binormals[i];
     for (let j = 0; j <= radial; j++) { const a = (j / radial) * Math.PI * 2; const c = Math.cos(a), s = Math.sin(a); const nx = c * N.x + s * B.x, ny = c * N.y + s * B.y, nz = c * N.z + s * B.z; pos.push(p.x + r * nx, p.y + r * ny, p.z + r * nz); nor.push(nx, ny, nz); tt.push(t); }
   }
-  for (let i = 0; i < n; i++) for (let j = 0; j < radial; j++) { const a = i * (radial + 1) + j, b = a + radial + 1; idx.push(a, b, a + 1, a + 1, b, b + 1); }
+  for (let i = 0; i < n; i++) for (let j = 0; j < radial; j++) { const a = i * (radial + 1) + j, b = a + radial + 1; idx.push(a, a + 1, b, a + 1, b + 1, b); } // counter-clockwise seen from outside (T × angle-direction = outward)
   const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setAttribute('normal', new THREE.Float32BufferAttribute(nor, 3)); g.setAttribute('aT', new THREE.Float32BufferAttribute(tt, 1)); g.setIndex(idx);
   // end caps are left open: vessels join other vessels or run into tissue
   return { geometry: g, curve, length: len };

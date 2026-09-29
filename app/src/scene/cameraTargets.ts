@@ -5,7 +5,7 @@
  */
 import type * as THREE from 'three';
 
-export interface TargetDef { scene: 'cell' | 'body' | 'vent' | 'lines' | 'neuro' | 'heart'; anchor: string; view?: 'whole' | 'zoom' }
+export interface TargetDef { scene: 'cell' | 'body' | 'vent' | 'lines' | 'neuro' | 'heart' | 'abdomen'; anchor: string; view?: 'whole' | 'zoom' }
 export const CAMERA_TARGETS = Object.freeze({
   'cell.whole': { scene: 'cell', anchor: 'whole', view: 'whole' },
   'cell.nucleus': { scene: 'cell', anchor: 'nucleus', view: 'whole' },
@@ -27,6 +27,17 @@ export const CAMERA_TARGETS = Object.freeze({
   'heart.rv': { scene: 'heart', anchor: 'rv', view: 'zoom' },
   'heart.pulmonary_outflow': { scene: 'heart', anchor: 'outflow', view: 'zoom' },
   'heart.pda': { scene: 'heart', anchor: 'pda', view: 'zoom' },
+  'abdomen.whole': { scene: 'abdomen', anchor: 'whole', view: 'whole' },
+  'abdomen.ruq': { scene: 'abdomen', anchor: 'ruq', view: 'zoom' },
+  'abdomen.luq': { scene: 'abdomen', anchor: 'luq', view: 'zoom' },
+  'abdomen.pelvis': { scene: 'abdomen', anchor: 'pelvis', view: 'zoom' },
+  'abdomen.aorta': { scene: 'abdomen', anchor: 'aaa', view: 'zoom' },
+  'abdomen.retroperitoneum': { scene: 'abdomen', anchor: 'retro', view: 'zoom' },
+  'abdomen.liver': { scene: 'abdomen', anchor: 'liver', view: 'zoom' },
+  'abdomen.spleen': { scene: 'abdomen', anchor: 'spleen', view: 'zoom' },
+  'abdomen.pancreas': { scene: 'abdomen', anchor: 'pancreas', view: 'zoom' },
+  'abdomen.bowel': { scene: 'abdomen', anchor: 'bowel', view: 'zoom' },
+  'abdomen.diaphragm': { scene: 'abdomen', anchor: 'diaphragm', view: 'zoom' },
   'lung.whole': { scene: 'vent', anchor: 'lung', view: 'whole' },
   'lung.alveolus': { scene: 'vent', anchor: 'alveolus', view: 'zoom' },
   'lung.capillary': { scene: 'vent', anchor: 'capillary', view: 'zoom' },

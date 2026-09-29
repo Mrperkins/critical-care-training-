@@ -480,3 +480,4 @@ details.card summary{cursor:pointer;font:600 14px var(--fs);margin-bottom:6px}
 .pt-bubble{fill:#f3efe8}.pt-say{font:600 7px var(--fb);fill:#1b2430}.pt-side{font:600 9px var(--fm);fill:rgba(222,235,241,.6)}.pt-vf{fill:#f3efe8}.pt-coma{font:700 12px var(--fm);fill:#ff8a8a}
 .exam-list{margin:0;padding-left:16px;font-size:13px;line-height:1.5}
 .phone .exam-row{flex-direction:column}.phone .pt-fig{width:100%;flex:none;max-height:220px}
+.fast-list{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:6px;font-size:13px}.fast-list li{padding:6px 8px;border-radius:8px;background:var(--pane2);color:var(--dim)}.fast-list li.pos{color:var(--ink);box-shadow:inset 3px 0 0 var(--bad)}.fw-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--line2);margin-right:6px}.fast-list li.pos .fw-dot{background:var(--bad)}.nv.small{font-size:12px}

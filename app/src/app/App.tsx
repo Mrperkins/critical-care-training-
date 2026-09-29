@@ -17,6 +17,7 @@ import { LinesModule } from '../lines/LinesModule';
 import { NeuroModule } from '../neuro/NeuroModule';
 import { MoaModule } from '../moa/MoaModule';
 import { HeartModule } from '../heart/HeartModule';
+import { AbdomenModule } from '../abdomen/AbdomenModule';
 import { lines } from '../lines/session';
 
 export function useIsPhone() {
@@ -42,7 +43,7 @@ function useEngine() {
   }, []);
 }
 
-const MODULES: [Module, string][] = [['vent', 'Ventilator'], ['abg', 'Blood gas'], ['labs', 'Labs'], ['lines', 'Lines'], ['heart', 'Heart'], ['neuro', 'Brain'], ['moa', 'Drugs']];
+const MODULES: [Module, string][] = [['vent', 'Ventilator'], ['abg', 'Blood gas'], ['labs', 'Labs'], ['lines', 'Lines'], ['heart', 'Heart'], ['abdomen', 'Abdomen'], ['neuro', 'Brain'], ['moa', 'Drugs']];
 const MODES: [Mode, string][] = [['explore', 'Explore'], ['learn', 'Learn'], ['challenge', 'Challenge'], ['sim', 'Simulate']];
 
 export function App() {
@@ -62,6 +63,7 @@ export function App() {
       {module === 'neuro' && <NeuroModule />}
       {module === 'moa' && <MoaModule />}
       {module === 'heart' && <HeartModule />}
+      {module === 'abdomen' && <AbdomenModule />}
     </div>
   );
 }
