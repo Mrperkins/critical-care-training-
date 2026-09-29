@@ -6,6 +6,10 @@ import { useNeuroUI, NEURO_PRESETS, loadNeuroPreset, setNeuroMinutes, recanalize
 import { neuroSummary, hemorrhageShape, type CollateralGrade } from './perfusion';
 import { TERRITORIES, TERRITORY_NAME } from './anatomy';
 import { useLabUI, type VisualTier } from '../labs/labStore';
+import { useUI } from '../app/store';
+import { director, useDirector } from '../director/director';
+import { DirectorPlayer } from '../director/Player';
+import { NEURO_LESSONS } from '../director/lessons/neuro';
 
 const hm = (m: number) => (m < 60 ? `${Math.round(m)} min` : `${Math.floor(m / 60)} h ${String(Math.round(m % 60)).padStart(2, '0')} min`);
 
@@ -24,6 +28,10 @@ export function NeuroModule() {
   useEffect(() => { loadBodyAsset().then(setBody).catch((e) => { console.error(e); setErr(String(e?.message || e)); }); }, []);
   useEffect(() => { (window as unknown as { __CCNeuro: unknown }).__CCNeuro = { store: useNeuroUI, load: loadNeuroPreset, minutes: setNeuroMinutes, recanalize, focus: (id: string) => useNeuroUI.getState().set({ target: id }), body: () => body }; }, [body]);
   useStrokeClock();
+  const mode = useUI((s) => s.mode);
+  // the Lesson Director's camera target drives the brain camera
+  const dTarget = useDirector((s) => s.target);
+  useEffect(() => { if (dTarget?.startsWith('brain.')) useNeuroUI.getState().set({ target: dTarget }); }, [dTarget]);
   return (
     <main className="stage">
       <section className="scene-pane">
@@ -33,11 +41,13 @@ export function NeuroModule() {
         </div>
       </section>
       <aside className="side-pane">
+        {mode === 'learn' ? <NeuroLearn /> : <>
         <PresetCard />
         <TimeCard />
         <TissueCard />
         <SystemicCard />
         <NeuroExplain />
+        </>}
         {body && <p className="credit">Brain: {body.mapping.attribution.creators}, {body.mapping.attribution.data} — CC BY 4.0. Cerebral arteries are drawn from standard neurovascular anatomy onto that brain (schematic; calibres ×1.6). Perfusion thresholds (CBF ≈ 50 normal, &lt;20 penumbra, &lt;10 core) and infarct timing are teaching approximations, not a prediction for any patient.</p>}
       </aside>
     </main>
@@ -136,4 +146,16 @@ function NeuroExplain() {
     sah: 'Aneurysmal SAH: blood fills the basal cisterns around the circle and tracks up the Sylvian fissures.',
   };
   return <section className="card"><div className="card-h"><h3>Why</h3></div><p className="muted">{txt[preset] ?? 'Posterior circulation stroke: occipital cortex loses its supply; the MCA may partly cover the border.'}</p></section>;
+}
+
+function NeuroLearn() {
+  const tl = useDirector((s) => s.tl); const active = tl && NEURO_LESSONS.some((l) => l.id === tl.id);
+  useEffect(() => () => { if (NEURO_LESSONS.some((l) => l.id === useDirector.getState().tl?.id)) director.unload(); }, []);
+  if (active) return <div className="chal-run"><DirectorPlayer onExit={() => undefined} /><TissueCard /></div>;
+  return (
+    <div className="chal-list">
+      <section className="card"><div className="eyebrow">Guided learning</div><h2 className="h2">Narrated lessons on the live brain</h2><p className="muted">Each lesson is a timeline: scrub it, pause it, or jump between steps — the brain is rebuilt exactly for that moment.</p></section>
+      {NEURO_LESSONS.map((l) => <button key={l.id} className="chal-item" onClick={() => director.load(l, true)}><span className={`lvl lvl-${l.level}`}>{l.level}</span><span className="ci-t">{l.title}<small className="ci-b">{l.blurb}</small></span><span className="ci-k">{l.cues.length} steps</span></button>)}
+    </div>
+  );
 }

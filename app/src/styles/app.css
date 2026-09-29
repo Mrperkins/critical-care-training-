@@ -431,3 +431,10 @@ details.card summary{cursor:pointer;font:600 14px var(--fs);margin-bottom:6px}
 /* ---------------------------------------------------------------- neuro */
 .btn-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 .neuro-wrap .legend{bottom:10px}
+/* ---------------------------------------------------------------- lesson director */
+.dir-track{position:relative;margin:12px 0 6px}
+.dir-track input[type=range]{width:100%}
+.dir-ticks{position:relative;height:10px;margin-top:-2px}
+.dir-ticks button{position:absolute;top:0;width:8px;height:8px;margin-left:-4px;border-radius:50%;border:1px solid var(--line2);background:transparent;padding:0}
+.dir-ticks button.past{background:rgba(211,178,122,.45)}.dir-ticks button.on{background:var(--gold);border-color:var(--gold)}
+.dir-time{display:flex;justify-content:space-between;font:500 10.5px var(--fm);color:var(--dim);margin-top:4px}

@@ -10,12 +10,13 @@ All 53 earlier bundle patches (Wave 1 chrome CSS, Studio lighting/fog, cell mate
 `visual-overhaul`
 
 ## CURRENT COMMIT
-Run `git rev-parse HEAD`. Last slice: "Infarct Atlas heart polish + seek hook".
+Run `git rev-parse HEAD`. Last slice: "Lesson Director".
 
 ## LAST VERIFIED LIVE DEPLOY
 Live Pages HTML contains the Nav1.5 loader from `07e29e4`. Cell, 9RON, and 9P24 GLBs returned HTTP 200 with the expected glTF MIME type. The cloud browser has WebGL disabled, so a 3D visual check remains unavailable here.
 
 ## COMPLETED SLICES
+- Lesson Director (`app/src/director/`): `timeline.ts` (pure: `Cue {at, dur, say, voice, title, target, apply, tween, hold}`, `resolve(tl,t)` rebuilds the world for any t, `advance(tl,t0,t1)` for playback, `stepTimeline` for narrated step lessons with `absolute` seeking); `director.ts` (single rAF clock, play/pause/seek/step/rate/mute, narration = pre-rendered `vo/` clip → speechSynthesis → captions, `hold` waits for narration but is capped at 20 s so blocked autoplay never freezes a lesson; `window.__CCDirector`); `Player.tsx` (captions, scrubber with step ticks, transport). `app/src/app/LessonShell.tsx` now runs every module's lessons on it (setTimeout auto-advance chain removed). First authored timeline: `director/lessons/neuro.ts` "Time is brain" (circle → M1 clot → core/penumbra growth → MAP 60 vs 90 → thrombectomy at 4 h freezes the core) in Brain › Learn; the director's `target` drives the brain camera. `tests/director.test.ts` (5): seek == play, backwards seek, targets, absolute steps, lesson determinism.
 - Infarct Atlas polish (first pass): territory overlay steps back to a contour + faint veil as injury develops, so the tissue shader's dusky → pale mottled infarct reads as tissue (was a lilac sticker). Added `window.__IA { app, seek(0–1), territory(id) }` — deterministic seek along the Normal → MI sequence for the Lesson Director and automated checks. Existing flow particles, thrombus, coronary occlusion shading and ECG unchanged. vitest 27/27.
 - Infarct Atlas source recovered: `infarct-atlas-app/` (React/R3F/esbuild, same stack as `app/`) is now the source of truth for `/infarct-atlas/index.html`. Build with `cd infarct-atlas-app && npm ci && npm run site`; rebuilding from the vendored source reproduces the deployed page byte-for-byte. vitest 27/27, tsc clean. The HuBMAP source GLB for `npm run asset` is not committed (download instructions in its README). `copy-site.mjs` refuses to publish a bundle with a duplicated `var x=var x=` declaration.
 - Neuro / cerebral vascular foundation (`app/src/neuro/`): new top-level "Brain" module. `anatomy.ts` — brain frame from the body.glb brain geometry (geometry is pre-baked to body space; do NOT use the node transform), ICA (cervical → siphon → terminus), vertebrals, basilar, Circle of Willis (A1, ACoA, PCoA, P1), M1 → M2 superior/inferior → cortical branches, A2/pericallosal + callosomarginal, P2 + temporal branch, SCA, PICA; `territoryAt` / `peripheryAt` with `TERRITORY_CORE` + `TERRITORY_RADIUS`. `perfusion.ts` — pure, seekable primitives: `territoryFlow` (circle collaterals incl. hypoplastic ACoA/PCoA and fetal PCA, leptomeningeal grade, M2 division occlusions affect only their half), `systemicFactor` (MAP/CPP pressure-passive collaterals, PaCO₂ reactivity, hypoxia), `timeToInfarct(cbf)`, `territoryStates` (core/penumbra mL and shading radii, recanalization freezes core), `hemorrhageShape`, `neuroSummary`. `neuroStore.ts` presets (M1 L/R, M2, ICA ± isolated circle, basilar, P2, ICH, SAH), deterministic clock `setNeuroMinutes`, `recanalize`. `NeuroScene.tsx` — brain surface (winding flipped to outward — the source mesh is inside-out), gyri shader, territory core/penumbra shading with irregular borders, vessel tubes coloured by perfusion with clots and flow particles, pial branches snapped to the cortex, ICH/SAH primitives, `brain.*` targets (`whole, cow, mca_l, mca_r, aca, pca, basilar, ica_l, ica_r`) registered via `registerAnchors('neuro')`. `window.__CCNeuro {store, load, minutes, recanalize, focus}`. `tests/neuro.test.ts` (11).
@@ -37,15 +38,15 @@ Live Pages HTML contains the Nav1.5 loader from `07e29e4`. Cell, 9RON, and 9P24 
 - Added AQP4 from the full 3GD8 biological assembly (four 223-residue chains, 21,312 triangles). Selected AQP4 uses this mesh at HIGH/MEDIUM, with the existing procedural proxy at LOW. No water/volume physiology changes.
 
 ## CURRENT SLICE
-Lesson Director (deterministic, seekable timeline; no setTimeout chains; narration with TTS fallback).
+Hyperkalemia signature lesson on the Lesson Director.
 
 ## EXACT RESUME POINT
-Create `app/src/director/` — `Timeline { duration, cues: Cue[] }`, `Cue { at, dur?, target?: semantic camera id, set?: (t) => void, say?: string }`, a pure `stateAt(timeline, t)` resolver and a `Director` clock (play/pause/seek/rate) driven by rAF. Adapters call the existing semantic hooks: vent `focusVentTarget` + `session.set`/`load`, neuro `setNeuroMinutes`/`loadNeuroPreset`/target, lines session. Narration: existing `vo/` audio if present, else `speechSynthesis`, else captions only. Generalise `app/src/app/LessonShell.tsx` onto it. First consumer: the hyperkalemia lesson (next slice).
+Author `app/src/director/lessons/hyperkalemia.ts`: timeline over the labs bench (`app/src/labs/bench.ts`, K⁺ via `bench.set('k', …)`), the cell scene (membrane focus via `useLabUI.cameraTargetId`: `membrane.kir`, `membrane.nak_atpase`, `membrane.nav`) and the ECG it already draws; tween K⁺ 4 → 8.5 (peaked T → PR/QRS widening → sine wave), then calcium (membrane stabilisation), insulin/glucose + salbutamol (shift), binding/dialysis (removal). Use the existing bench treatments; do NOT add a new potassium model. Wire into Labs › Learn next to the existing LessonShell list.
 
 ## NEXT 10 SLICES
 1. (done) Alveolar microscene.
 2. (done) Brain + cerebral vessel semantic geometry foundations (HuBMAP brain is already in body.glb; cerebral arteries must be drawn — see `app/src/lines/vessels.ts` for the landmark-driven vessel builder pattern).
-3. (in progress) Lesson Director: deterministic timeline (clock-driven, seek/pause, no chained setTimeout) that directs existing sessions; generalise `app/src/app/LessonShell.tsx`.
+3. (done) Lesson Director: deterministic timeline (clock-driven, seek/pause, no chained setTimeout) that directs existing sessions; generalise `app/src/app/LessonShell.tsx`.
 4. MOA data graph (MechanismDefinition/Node/Edge) + UI shell as a new top-level mode.
 5. Norepinephrine α1/β1 MOA with shock context — reuse `lines` session (`setNore`, SVR) for the patient response.
 6. Hyperkalemia signature lesson through the Lesson Director (labs bench + cell scene + ECG).
@@ -61,7 +62,7 @@ Create `app/src/director/` — `Timeline { duration, cues: Cue[] }`, `Cue { at, 
 - Visual QA: this environment has WebGL via swiftshader (`--use-gl=angle --use-angle=swiftshader`); slow but real. Serve the repo root with `python3 -m http.server` (binary GLBs need http, not file://).
 
 ## TESTS LAST RUN
-- `app`: `tsc --noEmit` clean; `vitest` 102/102 (neuro 11). Brain module screenshots: normal, CoW from below, L M1 at 90 min and 8 h (lateral), basilar, ICH, SAH — no page errors. Earlier: `vitest` 91/91. `tools/validate_visual_assets.py` passed; no `var sw=var sw=`. HTTP + WebGL screenshots of the alveolar view (normal, ARDS PEEP 5/18, membrane, oedema, phone) and PTX lung view: no page errors. Screenshot note: call `window.__CCVent.session.tick()` in a loop and set `window.__instant=true` because swiftshader frame rate is too low for the sim to advance in real time.
+- `app`: `tsc --noEmit` clean; `vitest` 107/107 (director 5, neuro 11). Director screenshots: vent Learn step 2 (player), Brain Learn at 0:30 and 1:16 — no page errors. Earlier: `vitest` 102/102. Brain module screenshots: normal, CoW from below, L M1 at 90 min and 8 h (lateral), basilar, ICH, SAH — no page errors. Earlier: `vitest` 91/91. `tools/validate_visual_assets.py` passed; no `var sw=var sw=`. HTTP + WebGL screenshots of the alveolar view (normal, ARDS PEEP 5/18, membrane, oedema, phone) and PTX lung view: no page errors. Screenshot note: call `window.__CCVent.session.tick()` in a loop and set `window.__instant=true` because swiftshader frame rate is too low for the sim to advance in real time.
 
 ## FILES CURRENTLY BEING EDITED
 - None.
