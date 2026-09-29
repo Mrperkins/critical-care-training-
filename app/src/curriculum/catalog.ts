@@ -1,0 +1,146 @@
+/**
+ * Curriculum catalog: metadata for every Director lesson, step lesson and workflow, and the concept tags
+ * of every challenge (for weak-topic detection and remediation). Data only — no lesson code here.
+ * Objectives are our own words. Sources are titles of guidelines, landmark trials and textbooks (for the
+ * learner to look up), never quoted text. Certification tags mark topic ALIGNMENT with the FP-C / CCP-C
+ * (IBSC) and CFRN (BCEN) content areas; NAEMT tags name the NAEMT course whose scope the topic touches.
+ */
+export type Domain = 'Cardiology' | 'Respiratory' | 'Haemodynamics & shock' | 'Acid–base & labs' | 'Neuro' | 'Trauma & haemorrhage' | 'Renal & metabolic'
+  | 'Pharmacology' | 'Ventilation' | 'Blood' | 'Procedures' | 'Devices' | 'Imaging & POCUS' | 'Paediatric' | 'Neonatal' | 'OB';
+export const DOMAINS: Domain[] = ['Ventilation', 'Respiratory', 'Haemodynamics & shock', 'Cardiology', 'Acid–base & labs', 'Renal & metabolic', 'Neuro', 'Trauma & haemorrhage', 'Blood', 'Pharmacology', 'Procedures', 'Devices', 'Imaging & POCUS', 'Paediatric', 'Neonatal', 'OB'];
+export type Cert = 'FP-C' | 'CCP-C' | 'CFRN';
+export const CERTS: Cert[] = ['FP-C', 'CCP-C', 'CFRN'];
+export type Naemt = 'PHTLS' | 'AMLS' | 'TECC' | 'TCCC' | 'EPC' | 'GEMS' | 'AHDR';
+export const NAEMT: { id: Naemt; name: string }[] = [
+  { id: 'PHTLS', name: 'Prehospital Trauma Life Support' }, { id: 'AMLS', name: 'Advanced Medical Life Support' }, { id: 'TECC', name: 'Tactical Emergency Casualty Care' },
+  { id: 'TCCC', name: 'Tactical Combat Casualty Care' }, { id: 'EPC', name: 'Emergency Pediatric Care' }, { id: 'GEMS', name: 'Geriatric Education for EMS' }, { id: 'AHDR', name: 'All Hazards Disaster Response' },
+];
+export type Kind = 'director' | 'step' | 'workflow';
+export type Difficulty = 'core' | 'intermediate' | 'advanced';
+export interface Entry {
+  id: string; kind: Kind; module: 'vent' | 'abg' | 'labs' | 'lines' | 'neuro' | 'heart' | 'abdomen'; domains: Domain[]; certs: Cert[]; naemt: Naemt[];
+  objectives: string[]; sources: string[]; reviewed: string; difficulty: Difficulty; prereq: string[]; protocol?: string;
+}
+const ALL: Cert[] = ['FP-C', 'CCP-C', 'CFRN'];
+const R = '2026-09-29';
+const e = (id: string, kind: Kind, module: Entry['module'], domains: Domain[], difficulty: Difficulty, naemt: Naemt[], objectives: string[], sources: string[], prereq: string[] = [], protocol?: string): Entry =>
+  ({ id, kind, module, domains, certs: ALL, naemt, objectives, sources, reviewed: R, difficulty, prereq, protocol });
+
+const S = {
+  ards: 'ARDS Network: lower vs traditional tidal volumes (NEJM 2000)', hess: 'Hess & Kacmarek — Essentials of Mechanical Ventilation', west: 'West — Respiratory Physiology: The Essentials',
+  guyton: 'Guyton & Hall — Textbook of Medical Physiology', ssc: 'Surviving Sepsis Campaign international guidelines (2021)', berend: 'Berend, de Vries & Gans — physiological approach to acid–base disturbances (NEJM 2014)',
+  dka: 'Hyperglycemic crises in adults with diabetes — consensus report (Diabetes Care 2024)', hyperk: 'UK Kidney Association — treatment of acute hyperkalaemia in adults (2020)', na: 'European clinical practice guideline on hyponatraemia (2014)',
+  aabb: 'AABB international guidelines for red-cell transfusion (JAMA 2023)', proppr: 'PROPPR trial (JAMA 2015)', crash2: 'CRASH-2 trial (Lancet 2010)', atls: 'ATLS Student Course Manual, 10th ed. (American College of Surgeons)',
+  bts: 'BTS guideline for pleural disease (Thorax 2023)', gardner: 'Gardner — dynamic response requirements for direct blood-pressure measurement (Anesthesiology 1981)', michard: 'Michard et al. — pulse-pressure variation and fluid responsiveness (AJRCCM 2000)',
+  iabp: 'IABP-SHOCK II trial (NEJM 2012)', asaCvc: 'ASA practice guidelines for central venous access (Anesthesiology 2020)', aseCvc: 'ASE/SCA guidelines for ultrasound-guided vascular cannulation (2011)',
+  ais: 'AHA/ASA early management of acute ischaemic stroke — 2019 update', defuse: 'DEFUSE 3 and DAWN thrombectomy trials (NEJM 2018)', ich: 'AHA/ASA guideline for spontaneous intracerebral haemorrhage (2022)', sah: 'AHA/ASA guideline for aneurysmal subarachnoid haemorrhage (2023)',
+  btf: 'Brain Trauma Foundation guidelines for severe TBI, 4th ed. (2016)', evd: 'Neurocritical Care Society — insertion and management of external ventricular drains (2016)', aorta: 'ACC/AHA guideline for the diagnosis and management of aortic disease (2022)',
+  aaa: 'SVS practice guidelines for abdominal aortic aneurysm (2018)', acep: 'ACEP emergency ultrasound guidelines', blue: 'Lichtenstein & Mezière — the BLUE protocol (Chest 2008)', lus: 'International evidence-based recommendations for point-of-care lung ultrasound (Intensive Care Med 2012)',
+  acs: 'ESC guidelines for acute coronary syndromes (2023)', achd: 'AHA/ACC guideline for adults with congenital heart disease (2018)', ismp: 'ISMP safe practice guidelines for adult IV push medications (2015)',
+};
+
+export const CATALOG: Entry[] = [
+  // ---------------------------------------------------------------- Director (signature) lessons
+  e('vent-ards-signature', 'director', 'vent', ['Ventilation', 'Respiratory'], 'intermediate', ['AMLS'], ['Explain shunt from collapsed, perfused alveoli', 'Show how PEEP recruits and when it overdistends', 'Set tidal volume and PEEP to keep plateau and driving pressure low'], [S.ards, S.hess], ['eom', 'peep']),
+  e('vent-ards-vs-obstruction', 'director', 'vent', ['Ventilation', 'Respiratory'], 'intermediate', ['AMLS'], ['Use inspiratory and expiratory holds to separate compliance from resistance', 'Recognise auto-PEEP and treat it with time to exhale'], [S.hess, S.west], ['rc']),
+  e('vent-tension-ptx', 'director', 'vent', ['Ventilation', 'Trauma & haemorrhage'], 'core', ['PHTLS', 'TECC', 'TCCC'], ['Recognise tension on the ventilator (peak and plateau up, hypotension)', 'Link pleural pressure to venous return and obstructive shock', 'Decompress before imaging'], [S.atls], [], 'Local protocol decides the decompression site and device.'),
+  e('vent-needle', 'director', 'vent', ['Procedures', 'Trauma & haemorrhage'], 'advanced', ['PHTLS', 'TECC', 'TCCC'], ['Choose a decompression site and stay over the rib below', 'Relate chest-wall thickness and catheter length to failure', 'Treat the needle as a bridge to a drain'], [S.atls], ['vent-tension-ptx'], 'Site and catheter length follow local protocol.'),
+  e('abg-resp-vs-metabolic', 'director', 'abg', ['Acid–base & labs', 'Respiratory'], 'core', ['AMLS'], ['Separate respiratory from metabolic acidosis on a gas', 'Predict acute and chronic compensation', 'Explain why fixed ventilation removes respiratory compensation'], [S.berend], ['resp']),
+  e('abg-dka', 'director', 'abg', ['Renal & metabolic', 'Acid–base & labs'], 'intermediate', ['AMLS'], ['Trace insulin deficiency to ketoacids and an anion gap', 'Explain the potassium paradox (high plasma, low total body)', 'Sequence fluids, potassium and insulin'], [S.dka, S.berend], ['metab']),
+  e('hyperk-signature', 'director', 'labs', ['Renal & metabolic', 'Cardiology'], 'core', ['AMLS'], ['Explain how potassium changes the resting membrane potential and the ECG', 'Order stabilise → shift → remove', 'Expect rebound after shifting treatments'], [S.hyperk], ['hyperk']),
+  e('lines-shock-states', 'director', 'lines', ['Haemodynamics & shock'], 'core', ['AMLS', 'PHTLS'], ['Recognise distributive, cardiogenic, obstructive and hypovolaemic patterns on an arterial line and CVP', 'Match each to its first treatment'], [S.ssc, S.guyton], ['ln-art', 'ln-cvp']),
+  e('lines-oxygen-delivery', 'director', 'lines', ['Haemodynamics & shock', 'Blood'], 'intermediate', ['AMLS'], ['Calculate DO₂ from cardiac output, haemoglobin and saturation', 'Explain why a normal SpO₂ can hide low oxygen delivery', 'Interpret lactate as supply versus demand'], [S.guyton, S.ssc], ['o2path']),
+  e('lines-haemorrhage-transfusion', 'director', 'lines', ['Trauma & haemorrhage', 'Blood'], 'core', ['PHTLS', 'TECC', 'TCCC'], ['Explain why haemoglobin is normal early in bleeding', 'Show dilution from crystalloid and the effect of blood', 'Recognise transfusion reactions'], [S.aabb, S.proppr, S.crash2], ['lines-shock-states']),
+  e('lines-iabp', 'director', 'lines', ['Devices', 'Cardiology'], 'advanced', [], ['Read a 1:2 arterial trace with balloon assist', 'Identify the four timing errors by shape', 'Explain why late deflation is the most harmful'], [S.iabp], ['ln-art']),
+  e('lines-cvc', 'director', 'lines', ['Procedures', 'Imaging & POCUS'], 'advanced', [], ['Tell vein from artery by compression, pulsatility and pressure', 'Keep the needle tip — not the shaft — in view', 'Confirm the wire in the vein before dilating'], [S.asaCvc, S.aseCvc], ['ln-setup']),
+  e('neuro-time-is-brain', 'director', 'neuro', ['Neuro'], 'core', ['AMLS'], ['Relate collateral flow and blood pressure to core and penumbra growth', 'Explain why time to reperfusion matters'], [S.ais]),
+  e('neuro-time-machine', 'director', 'neuro', ['Neuro', 'Imaging & POCUS'], 'intermediate', ['AMLS'], ['Read CT, CTA and perfusion in a large-vessel occlusion', 'Compare outcomes with early, late and no reperfusion'], [S.ais, S.defuse], ['neuro-time-is-brain']),
+  e('neuro-lvo', 'director', 'neuro', ['Neuro'], 'intermediate', ['AMLS'], ['Recognise cortical signs of a large-vessel occlusion', 'Use collaterals and imaging to decide on transfer'], [S.ais, S.defuse], ['neuro-time-is-brain']),
+  e('neuro-ich', 'director', 'neuro', ['Neuro'], 'intermediate', ['AMLS'], ['Estimate haematoma volume (ABC/2)', 'Relate blood pressure to haematoma growth'], [S.ich]),
+  e('neuro-sah', 'director', 'neuro', ['Neuro'], 'advanced', ['AMLS'], ['Recognise subarachnoid blood on CT', 'Explain delayed ischaemia from vasospasm and the role of nimodipine'], [S.sah]),
+  e('neuro-icp', 'director', 'neuro', ['Neuro', 'Devices'], 'advanced', ['PHTLS', 'AMLS'], ['Describe the pressure–volume curve and CPP', 'Recognise uncal herniation and the Cushing response', 'Level and manage an EVD'], [S.btf, S.evd], ['neuro-ich']),
+  e('heart-vsd', 'director', 'heart', ['Cardiology', 'Paediatric'], 'advanced', ['EPC'], ['Predict shunt direction from pulmonary and systemic resistance', 'Explain left-ventricular volume load and Eisenmenger physiology'], [S.achd]),
+  e('abd-fast', 'director', 'abdomen', ['Trauma & haemorrhage', 'Imaging & POCUS'], 'core', ['PHTLS'], ['Know where free fluid collects when supine', 'Know what FAST cannot see (retroperitoneum, early small bleeds)'], [S.atls, S.acep]),
+  e('abd-aaa', 'director', 'abdomen', ['Trauma & haemorrhage', 'Haemodynamics & shock'], 'intermediate', ['AMLS', 'GEMS'], ['Recognise contained vs free AAA rupture', 'Understand why FAST can be negative in retroperitoneal bleeding'], [S.aaa], ['abd-fast']),
+  e('abd-dissection', 'director', 'abdomen', ['Cardiology', 'Imaging & POCUS'], 'advanced', ['AMLS'], ['Classify dissection (Stanford A vs B) on CTA', 'Recognise malperfusion', 'Order anti-impulse therapy: rate, then pressure'], [S.aorta]),
+  // ---------------------------------------------------------------- step lessons
+  e('eom', 'step', 'vent', ['Ventilation'], 'core', [], ['Apply the equation of motion to PIP, plateau and PEEP', 'Measure compliance, resistance and the time constant'], [S.hess]),
+  e('rc', 'step', 'vent', ['Ventilation'], 'core', ['AMLS'], ['Use an inspiratory hold to separate resistance from compliance'], [S.hess], ['eom']),
+  e('vcpc', 'step', 'vent', ['Ventilation'], 'intermediate', [], ['Compare what volume and pressure control guarantee'], [S.hess], ['eom']),
+  e('peep', 'step', 'vent', ['Ventilation', 'Respiratory'], 'intermediate', [], ['Relate PEEP to recruitment, overdistension and oxygenation'], [S.ards, S.hess], ['eom']),
+  e('auto', 'step', 'vent', ['Ventilation', 'Respiratory'], 'intermediate', ['AMLS'], ['Detect and measure auto-PEEP', 'Lengthen expiration to reduce it'], [S.hess], ['rc']),
+  e('sync', 'step', 'vent', ['Ventilation'], 'advanced', [], ['Recognise triggering and cycling dyssynchrony on waveforms'], [S.hess], ['vcpc']),
+  e('o2path', 'step', 'abg', ['Respiratory', 'Blood'], 'core', [], ['Follow oxygen from air to mitochondria', 'Separate PaO₂, saturation and content'], [S.west]),
+  e('hypox', 'step', 'abg', ['Respiratory'], 'core', ['AMLS'], ['Distinguish hypoventilation, V/Q mismatch, shunt and dead space'], [S.west], ['o2path']),
+  e('resp', 'step', 'abg', ['Acid–base & labs'], 'core', ['AMLS'], ['Relate CO₂ to pH and renal compensation'], [S.berend]),
+  e('metab', 'step', 'abg', ['Acid–base & labs'], 'core', ['AMLS'], ['Use the anion gap and respiratory compensation'], [S.berend], ['resp']),
+  e('vbg', 'step', 'abg', ['Acid–base & labs'], 'intermediate', [], ['Know when a venous gas can replace an arterial one'], [S.berend], ['resp']),
+  e('hyperk', 'step', 'labs', ['Renal & metabolic'], 'core', ['AMLS'], ['Stabilise, shift and remove potassium'], [S.hyperk]),
+  e('hypona', 'step', 'labs', ['Renal & metabolic', 'Neuro'], 'intermediate', ['AMLS'], ['Relate sodium to brain-cell volume', 'Avoid overcorrection of chronic hyponatraemia'], [S.na]),
+  e('anaemia', 'step', 'labs', ['Blood'], 'core', [], ['Explain why the oximeter cannot see anaemia'], [S.aabb, S.guyton]),
+  e('lactate', 'step', 'labs', ['Haemodynamics & shock'], 'core', ['AMLS'], ['Interpret lactate as production versus clearance'], [S.ssc]),
+  e('ln-setup', 'step', 'lines', ['Devices'], 'core', [], ['Trace pressure from the vessel to the monitor', 'Level to the phlebostatic axis'], [S.gardner]),
+  e('ln-art', 'step', 'lines', ['Haemodynamics & shock', 'Devices'], 'core', [], ['Read the arterial waveform and its dicrotic notch', 'Relate shape to vascular tone'], [S.gardner], ['ln-setup']),
+  e('ln-cvp', 'step', 'lines', ['Haemodynamics & shock', 'Devices'], 'intermediate', [], ['Identify a, c, v waves and x, y descents', 'Measure at end-expiration'], [S.guyton], ['ln-setup']),
+  e('ln-level', 'step', 'lines', ['Devices'], 'core', [], ['Level and zero correctly; predict the error when you do not'], [S.gardner], ['ln-setup']),
+  e('ln-damp', 'step', 'lines', ['Devices'], 'intermediate', [], ['Use the square-wave test to judge damping'], [S.gardner], ['ln-level']),
+  e('ln-heartlung', 'step', 'lines', ['Haemodynamics & shock', 'Ventilation'], 'advanced', [], ['Use pulse-pressure variation and know when it misleads', 'Recognise pulsus paradoxus'], [S.michard], ['ln-art']),
+  e('ln-disease', 'step', 'lines', ['Cardiology', 'Haemodynamics & shock'], 'advanced', [], ['Recognise valve and rhythm disease on arterial and CVP traces'], [S.guyton], ['ln-cvp']),
+  // ---------------------------------------------------------------- workflows (procedures)
+  e('wf-chest-tube', 'workflow', 'vent', ['Procedures', 'Trauma & haemorrhage'], 'advanced', ['PHTLS', 'TECC', 'TCCC'], ['Decompress, then place a drain safely in the triangle of safety'], [S.atls, S.bts], ['vent-tension-ptx'], 'Performed within scope and local protocol.'),
+  e('wf-drain-check', 'workflow', 'vent', ['Procedures', 'Devices'], 'core', ['PHTLS'], ['Assess a drain from patient to unit', 'Interpret tidaling and bubbling; never clamp a bubbling drain'], [S.bts]),
+  e('wf-dopes', 'workflow', 'vent', ['Ventilation', 'Devices'], 'core', ['AMLS'], ['Work through displacement, obstruction, pneumothorax, equipment and stacking'], [S.hess]),
+  e('wf-low-pressure', 'workflow', 'vent', ['Ventilation', 'Devices'], 'core', [], ['Find an open circuit or cuff leak from the ventilator numbers'], [S.hess]),
+  e('wf-blood', 'workflow', 'lines', ['Blood', 'Procedures'], 'core', ['PHTLS'], ['Give blood safely: identity check, set, monitoring, reactions'], [S.aabb]),
+  e('wf-nore', 'workflow', 'lines', ['Pharmacology', 'Haemodynamics & shock'], 'core', ['AMLS'], ['Calculate and start a weight-based vasopressor infusion safely'], [S.ssc, S.ismp]),
+  e('wf-push', 'workflow', 'lines', ['Pharmacology'], 'advanced', ['AMLS'], ['Prepare, label and give a push-dose pressor without dilution errors'], [S.ismp]),
+  e('wf-artline', 'workflow', 'lines', ['Devices'], 'core', [], ['Level, zero and damping-check an arterial line'], [S.gardner], ['ln-level']),
+  e('wf-central-line', 'workflow', 'lines', ['Procedures', 'Imaging & POCUS'], 'advanced', [], ['Place an ultrasound-guided IJ line with vein confirmation before dilation'], [S.asaCvc, S.aseCvc], ['lines-cvc']),
+];
+export const CATALOG_BY_ID: Record<string, Entry> = Object.fromEntries(CATALOG.map((x) => [x.id, x]));
+
+/* ---------------------------------------------------------------- concepts for challenges → remediation */
+export type Target = { lesson: string } | { drug: string };
+export const CONCEPTS: Record<string, { name: string; remediate: Target[] }> = {
+  'resistance-compliance': { name: 'Resistance vs compliance', remediate: [{ lesson: 'vent-ards-vs-obstruction' }, { lesson: 'rc' }] },
+  'auto-peep': { name: 'Auto-PEEP and air trapping', remediate: [{ lesson: 'auto' }, { drug: 'albuterol' }] },
+  dyssynchrony: { name: 'Patient–ventilator dyssynchrony', remediate: [{ lesson: 'sync' }] },
+  'lung-protection': { name: 'Lung-protective ventilation', remediate: [{ lesson: 'vent-ards-signature' }, { lesson: 'peep' }] },
+  'tension-ptx': { name: 'Tension pneumothorax', remediate: [{ lesson: 'vent-tension-ptx' }, { lesson: 'vent-needle' }] },
+  'airway-obstruction': { name: 'Tube / airway obstruction', remediate: [{ lesson: 'wf-dopes' }] },
+  hypoxaemia: { name: 'Mechanisms of hypoxaemia', remediate: [{ lesson: 'hypox' }, { lesson: 'o2path' }] },
+  'resp-acid-base': { name: 'Respiratory acid–base', remediate: [{ lesson: 'abg-resp-vs-metabolic' }, { lesson: 'resp' }] },
+  'metabolic-acidosis': { name: 'Metabolic acidosis', remediate: [{ lesson: 'metab' }, { lesson: 'abg-dka' }] },
+  dka: { name: 'DKA', remediate: [{ lesson: 'abg-dka' }, { drug: 'insulin' }] },
+  potassium: { name: 'Potassium', remediate: [{ lesson: 'hyperk-signature' }, { drug: 'calcium' }] },
+  sodium: { name: 'Sodium and water', remediate: [{ lesson: 'hypona' }, { drug: 'hypertonic' }] },
+  'o2-content': { name: 'Oxygen content and delivery', remediate: [{ lesson: 'lines-oxygen-delivery' }, { lesson: 'anaemia' }] },
+  lactate: { name: 'Lactate', remediate: [{ lesson: 'lactate' }] },
+  'shock-states': { name: 'Shock states', remediate: [{ lesson: 'lines-shock-states' }, { drug: 'norepinephrine' }] },
+  haemorrhage: { name: 'Haemorrhage and transfusion', remediate: [{ lesson: 'lines-haemorrhage-transfusion' }, { lesson: 'wf-blood' }, { drug: 'txa' }] },
+  coagulation: { name: 'Coagulation and reversal', remediate: [{ drug: 'pcc' }, { drug: 'vitamink' }, { drug: 'protamine' }] },
+  'ca-mg-phos': { name: 'Calcium, magnesium, phosphate', remediate: [{ drug: 'calcium' }] },
+  transducer: { name: 'Transducer levelling, zeroing, damping', remediate: [{ lesson: 'ln-level' }, { lesson: 'ln-damp' }, { lesson: 'wf-artline' }] },
+  waveforms: { name: 'Arterial and CVP waveforms', remediate: [{ lesson: 'ln-art' }, { lesson: 'ln-cvp' }, { lesson: 'ln-disease' }] },
+  'fluid-responsiveness': { name: 'Fluid responsiveness', remediate: [{ lesson: 'ln-heartlung' }] },
+  toxicology: { name: 'Toxicology acid–base', remediate: [{ lesson: 'abg-resp-vs-metabolic' }] },
+  resuscitation: { name: 'Arrest and post-arrest physiology', remediate: [{ lesson: 'lines-oxygen-delivery' }, { lesson: 'metab' }] },
+};
+export const CHALLENGE_CONCEPTS: Record<string, string[]> = {
+  // ventilator
+  'vent-alarm-ett': ['airway-obstruction', 'resistance-compliance'], 'vent-alarm-ptx': ['tension-ptx'], 'vent-alarm-plug': ['airway-obstruction', 'hypoxaemia'],
+  'vent-dys-autopeep': ['auto-peep'], 'vent-dys-fs': ['dyssynchrony'], 'vent-dys-dt': ['dyssynchrony'], 'vent-dys-ie': ['dyssynchrony', 'auto-peep'],
+  'vent-dys-pc': ['dyssynchrony'], 'vent-dys-dc': ['dyssynchrony'], 'vent-dys-st': ['dyssynchrony', 'lung-protection'], 'vent-goal-ards': ['lung-protection'], 'vent-goal-asthma': ['auto-peep', 'resistance-compliance'],
+  // blood gas
+  'abg-opioid': ['resp-acid-base', 'toxicology'], 'abg-dka': ['dka', 'metabolic-acidosis'], 'abg-asthma': ['resp-acid-base', 'auto-peep'], 'abg-sepsis': ['metabolic-acidosis', 'lactate', 'shock-states'],
+  'abg-edema': ['hypoxaemia'], 'abg-copd': ['resp-acid-base'], 'abg-salicylate': ['toxicology', 'metabolic-acidosis'], 'abg-arrest': ['resuscitation', 'metabolic-acidosis'], 'abg-rosc': ['resuscitation'],
+  // labs
+  'lab-k-hd': ['potassium'], 'lab-na-acute': ['sodium'], 'lab-na-chronic': ['sodium'], 'lab-anaemia': ['o2-content'], 'lab-lactate': ['lactate'], 'lab-hypo': ['dka'],
+  'lab-inr': ['coagulation'], 'lab-hit': ['coagulation'], 'lab-ca-mtp': ['ca-mg-phos', 'haemorrhage'], 'lab-mg': ['ca-mg-phos'], 'lab-aki': ['potassium', 'metabolic-acidosis'], 'lab-dka': ['dka', 'potassium'], 'lab-phos': ['ca-mg-phos'],
+  // lines
+  'lines-c-bubble': ['transducer'], 'lines-c-hob': ['transducer'], 'lines-c-openair': ['transducer'], 'lines-c-clot': ['transducer'], 'lines-c-zero': ['transducer'], 'lines-c-bag': ['transducer'],
+  'lines-c-migrated': ['waveforms'], 'lines-c-transport': ['transducer'], 'lines-c-read-tamp': ['waveforms', 'shock-states'], 'lines-c-read-chb': ['waveforms'], 'lines-c-read-ar': ['waveforms'], 'lines-c-read-as': ['waveforms'],
+  'lines-c-ppv-af': ['fluid-responsiveness'], 'lines-c-goal-fluid': ['haemorrhage', 'shock-states'], 'lines-c-goal-sepsis': ['shock-states'],
+};
+/** Where a challenge lives, for "try it again". */
+export const challengeModule = (id: string) => (id.startsWith('vent-') ? 'vent' : id.startsWith('abg-') ? 'abg' : id.startsWith('lab-') ? 'labs' : 'lines') as 'vent' | 'abg' | 'labs' | 'lines';

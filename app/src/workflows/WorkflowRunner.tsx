@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { evaluate, options, type Workflow } from './workflow';
 
-export function WorkflowRunner({ wf, onExit, children }: { wf: Workflow; onExit: () => void; children?: ReactNode }) {
+export function WorkflowRunner({ wf, onExit, onDone, children }: { wf: Workflow; onExit: () => void; onDone?: () => void; children?: ReactNode }) {
   const [chosen, setChosen] = useState<string[]>([]); const [finished, setFinished] = useState(false);
   useEffect(() => { wf.setup(); setChosen([]); setFinished(false); }, [wf]);
   useEffect(() => { (window as unknown as { __CCWorkflow: unknown }).__CCWorkflow = { wf, choose: (id: string) => pick(id), finish: () => setFinished(true), reset: () => { wf.setup(); setChosen([]); setFinished(false); } }; }); // eslint-disable-line react-hooks/exhaustive-deps
@@ -13,6 +13,7 @@ export function WorkflowRunner({ wf, onExit, children }: { wf: Workflow; onExit:
   const last = chosen[chosen.length - 1]; const lastA = last ? all.get(last) : null;
   const verdict = (id: string) => (!isStep(id) ? (all.get(id)!.critical ? 'harm' : 'wrong') : res.outOfOrder.includes(id) ? 'order' : 'ok');
   const done = res.missing.length === 0 || finished;
+  useEffect(() => { if (done && chosen.length) onDone?.(); }, [done]); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <div className="chal-run wf">
       <section className="card">

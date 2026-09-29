@@ -1,3 +1,4 @@
+import { useProgress } from '../curriculum/progress';
 import { useMemo, useState } from 'react';
 import { lab } from './lab';
 import { useUI } from '../app/store';
@@ -56,7 +57,7 @@ export function AbgChallenge() {
         {a2 != null && <div className="reveal">{caseData.it.steps.filter((s) => s.key === 'comp' || s.key === 'ag').map((s) => <p key={s.key} style={{ margin: '0 0 6px' }}><b>{s.title}.</b> {s.text}</p>)}</div>}
       </section>}
       {a1 != null && (a2 != null || caseData.comp < 0) && <section className="card"><h3>3 · What will you do?</h3>
-        <div className="opts">{caseData.order.map((k) => { const l = caseData.act.options[k]; return <button key={l} disabled={a3 != null} className={`opt${a3 != null && k === caseData.act.answer ? ' right' : ''}${a3 === k && k !== caseData.act.answer ? ' wrong' : ''}`} onClick={() => { setA3(k); mark(k === caseData.act.answer); setBefore({ ...lab.snap, vbg: { ...lab.snap.vbg } }); caseData.act.apply(lab); lab.fastForward(caseData.act.ffMin); useUI.getState().set({ pulse: useUI.getState().pulse + 1 }); }}>{l}</button>; })}</div>
+        <div className="opts">{caseData.order.map((k) => { const l = caseData.act.options[k]; return <button key={l} disabled={a3 != null} className={`opt${a3 != null && k === caseData.act.answer ? ' right' : ''}${a3 === k && k !== caseData.act.answer ? ' wrong' : ''}`} onClick={() => { setA3(k); mark(k === caseData.act.answer); useProgress.getState().record(`abg-${caseData.p.id}`, k === caseData.act.answer && a1 === caseData.primary); setBefore({ ...lab.snap, vbg: { ...lab.snap.vbg } }); caseData.act.apply(lab); lab.fastForward(caseData.act.ffMin); useUI.getState().set({ pulse: useUI.getState().pulse + 1 }); }}>{l}</button>; })}</div>
         {a3 != null && <div className="reveal"><b>{a3 === caseData.act.answer ? 'Right.' : `Best: ${caseData.act.options[caseData.act.answer]}.`}</b> {caseData.act.explain} <em>The model has run the correct treatment for {caseData.act.ffMin >= 60 ? `${caseData.act.ffMin / 60} h` : `${caseData.act.ffMin} min`}:</em>
           {before && <AbgTable rows={[{ t: 'Before', g: before, fio2: 0 }, { t: 'After', g: lab.snap, fio2: 0 }]} />}
         </div>}

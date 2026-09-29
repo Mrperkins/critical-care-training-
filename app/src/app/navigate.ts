@@ -8,6 +8,11 @@ import { useUI } from './store';
 import { director, useDirector } from '../director/director';
 import { lessonById } from '../director/lessonIndex';
 import { useMoa } from '../moa/moaStore';
+import { create } from 'zustand';
+import { CATALOG_BY_ID, challengeModule } from '../curriculum/catalog';
+
+/** A step lesson or workflow to open once its module's LessonShell mounts (they keep their own local state). */
+export const usePendingOpen = create<{ kind: 'step' | 'workflow' | null; id: string | null; set: (p: { kind: 'step' | 'workflow' | null; id: string | null }) => void }>((set) => ({ kind: null, id: null, set: (p) => set(p) }));
 
 export function openDrug(defId: string) {
   const tl = useDirector.getState().tl; const t = useDirector.getState().t;
@@ -16,7 +21,14 @@ export function openDrug(defId: string) {
   useUI.getState().set({ module: 'moa', mode: 'explore' });
 }
 export function openLesson(lessonId: string, t = 0) {
-  const hit = lessonById(lessonId); if (!hit) return;
+  const hit = lessonById(lessonId);
+  if (!hit) { // a step lesson or a workflow: switch module, let its LessonShell open it
+    const e = CATALOG_BY_ID[lessonId]; if (!e || e.kind === 'director') return;
+    usePendingOpen.getState().set({ kind: e.kind, id: lessonId }); useUI.getState().set({ module: e.module, mode: 'learn' }); return;
+  }
   useUI.getState().set({ module: hit.module, mode: 'learn' });
   setTimeout(() => { director.load(hit.tl, false); director.seek(t, false); }, 0);
 }
+
+/** Challenges keep their own state per module: open that module's challenge list. */
+export function openChallenge(id: string) { useUI.getState().set({ module: challengeModule(id), mode: 'challenge' }); }

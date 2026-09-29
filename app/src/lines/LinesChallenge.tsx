@@ -1,3 +1,4 @@
+import { useProgress } from '../curriculum/progress';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useUI } from '../app/store';
 import { lines } from './session';
@@ -46,7 +47,7 @@ function Run({ c, onExit, onDone }: { c: LCase; onExit: () => void; onDone: () =
         <h2 className="h2">{c.title}</h2>
         <p>{c.brief}</p>
         <h3 className="q">{c.question}</h3>
-        <div className="opts">{opts.map(({ x, i }) => <button key={i} disabled={answered && right} className={`opt${answered && i === c.answer && right ? ' right' : ''}${pick === i && i !== c.answer ? ' wrong' : ''}`} onClick={() => setPick(i)}>{x}</button>)}</div>
+        <div className="opts">{opts.map(({ x, i }) => <button key={i} disabled={answered && right} className={`opt${answered && i === c.answer && right ? ' right' : ''}${pick === i && i !== c.answer ? ' wrong' : ''}`} onClick={() => { if (pick == null) useProgress.getState().record(`lines-${c.id}`, i === c.answer); setPick(i); }}>{x}</button>)}</div>
         {answered && <p className={`explain ${right ? 'ok' : 'bad'}`}>{right ? c.explain : 'Not quite — look again at the waveform, the fast-flush test and the level, then try another answer.'}</p>}
         {answered && right && c.kind === 'fix' && <p className="muted small">{solved ? '✓ Fixed — the monitor matches the true pressures again.' : 'Now fix it at the bedside with the controls below. The case is solved when the monitor matches the patient again.'}</p>}
         {answered && right && c.kind === 'goal' && <ul className="goals">{c.goals!.map((g) => <li key={g.label} className={g.test(lines) ? 'ok' : ''}>{g.test(lines) ? '✓' : '○'} {g.label}</li>)}{solved && <li className="ok">✓ Targets held — well done.</li>}</ul>}

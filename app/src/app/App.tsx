@@ -1,3 +1,5 @@
+import { CurriculumModule } from '../curriculum/CurriculumModule';
+import { initProgressTracking } from '../curriculum/track';
 import { useEffect, useState } from 'react';
 import { useUI, type Module, type Mode } from './store';
 import { session } from '../vent/session';
@@ -45,11 +47,11 @@ function useEngine() {
   }, []);
 }
 
-const MODULES: [Module, string][] = [['vent', 'Ventilator'], ['abg', 'Blood gas'], ['labs', 'Labs'], ['lines', 'Lines'], ['heart', 'Heart'], ['abdomen', 'Abdomen'], ['neuro', 'Brain'], ['moa', 'Drugs']];
+const MODULES: [Module, string][] = [['vent', 'Ventilator'], ['abg', 'Blood gas'], ['labs', 'Labs'], ['lines', 'Lines'], ['heart', 'Heart'], ['abdomen', 'Abdomen'], ['neuro', 'Brain'], ['moa', 'Drugs'], ['curriculum', 'Curriculum']];
 const MODES: [Mode, string][] = [['explore', 'Explore'], ['learn', 'Learn'], ['challenge', 'Challenge'], ['sim', 'Simulate']];
 
 export function App() {
-  useEngine();
+  useEngine(); useEffect(() => initProgressTracking(), []);
   const module = useUI((s) => s.module); const mode = useUI((s) => s.mode); const phone = useIsPhone();
   return (
     <div className={`app m-${module}${phone ? ' phone' : ''}`}>
@@ -66,6 +68,7 @@ export function App() {
       {module === 'moa' && <MoaModule />}
       {module === 'heart' && <HeartModule />}
       {module === 'abdomen' && <AbdomenModule />}
+      {module === 'curriculum' && <CurriculumModule />}
     </div>
   );
 }

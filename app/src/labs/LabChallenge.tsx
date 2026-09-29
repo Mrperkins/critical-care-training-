@@ -1,3 +1,4 @@
+import { useProgress } from '../curriculum/progress';
 import { useMemo, useState } from 'react';
 import { bench } from './bench';
 import { useLabUI } from './labStore';
@@ -24,7 +25,7 @@ export function LabChallenge() {
         <div className="panelrow">{shown.map((id) => { const l = LAB[id]; const v = bench.value(id); return <span key={id} className={`labchip f-${flagOf(l, v)}`}><span>{l.abbr}</span><b>{fmt(l, v)}</b><small>{l.unit}</small></span>; })}</div>
       </section>
       <section className="card"><h3>{c.q}</h3>
-        <div className="opts">{order.map((k) => <button key={k} disabled={pick != null} className={`opt${pick != null && k === c.answer ? ' right' : ''}${pick === k && k !== c.answer ? ' wrong' : ''}`} onClick={() => { setPick(k); setScore((s) => ({ r: s.r + (k === c.answer ? 1 : 0), n: s.n + 1 })); }}>{c.options[k]}</button>)}</div>
+        <div className="opts">{order.map((k) => <button key={k} disabled={pick != null} className={`opt${pick != null && k === c.answer ? ' right' : ''}${pick === k && k !== c.answer ? ' wrong' : ''}`} onClick={() => { setPick(k); useProgress.getState().record(`lab-${c.id}`, k === c.answer); setScore((s) => ({ r: s.r + (k === c.answer ? 1 : 0), n: s.n + 1 })); }}>{c.options[k]}</button>)}</div>
         {pick != null && <div className="reveal"><b>{pick === c.answer ? 'Right.' : `Best: ${c.options[c.answer]}.`}</b> {c.explain}</div>}
         {pick != null && <div className="actions" style={{ marginTop: 10 }}><button className="act primary" onClick={() => { setPick(null); setI(i + 1); }}>Next case →</button></div>}
       </section>

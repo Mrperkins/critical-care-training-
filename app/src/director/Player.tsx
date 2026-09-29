@@ -2,6 +2,8 @@
 import { LESSON_DRUGS } from '../moa/meta';
 import { MECH } from '../moa/registry';
 import { openDrug } from '../app/navigate';
+import { useProgress } from '../curriculum/progress';
+import { CATALOG_BY_ID } from '../curriculum/catalog';
 import { useDirector, director } from './director';
 import { duration, steps, stepIndexAt } from './timeline';
 
@@ -28,8 +30,14 @@ export function DirectorPlayer({ onExit }: { onExit?: () => void }) {
         <button className="act" onClick={() => director.step(1)} aria-label="Next step">→</button>
         <button className={`act${muted ? '' : ' done'}`} onClick={() => director.setMuted(!muted)}>{muted ? 'Voice off' : 'Voice on'}</button>
         <button className="act" onClick={() => director.setRate(rate >= 2 ? 0.75 : rate + 0.25)}>{rate.toFixed(2).replace(/0$/, '')}×</button>
+        {CATALOG_BY_ID[tl.id] && <BookmarkBtn id={tl.id} t={t} title={`${tl.title} · ${cur?.title ?? ''}`} />}
       </div>
       {(LESSON_DRUGS[tl.id]?.length ?? 0) > 0 && <div className="dir-links"><span className="muted small">Drug mechanisms in this lesson:</span> {LESSON_DRUGS[tl.id].map((id) => <button key={id} className="chip" onClick={() => openDrug(id)}>{MECH[id]?.drug ?? id} →</button>)}</div>}
     </section>
   );
+}
+
+function BookmarkBtn({ id, t, title }: { id: string; t: number; title: string }) {
+  const on = useProgress((s) => s.bookmarks.some((b) => b.lessonId === id && Math.abs(b.t - t) < 2));
+  return <button className={`act${on ? ' done' : ''}`} aria-pressed={on} onClick={() => useProgress.getState().toggleBookmark({ lessonId: id, t, title })} title="Bookmark this moment">{on ? '★' : '☆'}</button>;
 }

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-export type Module = 'vent' | 'abg' | 'labs' | 'lines' | 'neuro' | 'moa' | 'heart' | 'abdomen';
+export type Module = 'vent' | 'abg' | 'labs' | 'lines' | 'neuro' | 'moa' | 'heart' | 'abdomen' | 'curriculum';
 export type Mode = 'explore' | 'learn' | 'challenge' | 'sim';
 export type VentView = 'front' | 'side' | 'airway' | 'base' | 'alveolus' | 'xray' | 'lus';
 

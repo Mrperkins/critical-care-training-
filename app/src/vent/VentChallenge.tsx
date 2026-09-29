@@ -1,3 +1,4 @@
+import { useProgress } from '../curriculum/progress';
 import { useEffect, useMemo, useState } from 'react';
 import { session } from './session';
 import { useUI } from '../app/store';
@@ -67,7 +68,7 @@ function ChallengeRun({ c, onExit, onDone }: { c: VC; onExit: () => void; onDone
       {(c.kind === 'dyss' || c.kind === 'alarm') && (
         <section className="card">
           <h3>{d ? 'What is the waveform telling you?' : c.question}</h3>
-          <div className="opts">{options.map((o, i) => <button key={o} disabled={pick != null} className={`opt${pick != null && i === answer ? ' right' : ''}${pick === i && i !== answer ? ' wrong' : ''}`} onClick={() => { setPick(i); if (d) useUI.getState().set({ showPmus: true }); }}>{o}</button>)}</div>
+          <div className="opts">{options.map((o, i) => <button key={o} disabled={pick != null} className={`opt${pick != null && i === answer ? ' right' : ''}${pick === i && i !== answer ? ' wrong' : ''}`} onClick={() => { setPick(i); useProgress.getState().record(`vent-${c.id}`, i === answer); if (d) useUI.getState().set({ showPmus: true }); }}>{o}</button>)}</div>
           {pick != null && <div className="reveal"><b>{pick === answer ? 'Correct.' : `It's ${options[answer]}.`}</b> {d ? <>{d.clue} <em>The dashed red trace now shows the patient’s own muscle effort — the thing the ventilator cannot see.</em></> : c.explain}</div>}
         </section>
       )}

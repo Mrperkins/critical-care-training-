@@ -1,0 +1,71 @@
+import { describe, it, expect } from 'vitest';
+import { CATALOG, CATALOG_BY_ID, CONCEPTS, CHALLENGE_CONCEPTS, CERTS } from '../src/curriculum/catalog';
+import { weakTopics, domainProgress, missingPrereqs, useProgress } from '../src/curriculum/progress';
+import { TITLES } from '../src/curriculum/titles';
+import { LESSON_HOSTS } from '../src/director/lessonIndex';
+import { VENT_LESSONS } from '../src/lessons/vent';
+import { ABG_LESSONS } from '../src/lessons/abg';
+import { LAB_LESSONS } from '../src/lessons/labs';
+import { LINES_LESSONS } from '../src/lines/lessons';
+import { VENT_WORKFLOWS } from '../src/workflows/chestTube';
+import { LINES_WORKFLOWS } from '../src/workflows/linesWorkflows';
+import { CENTRAL_LINE } from '../src/procedures/centralLineFlow';
+import { VENT_CHALLENGES } from '../src/scenarios/ventChallenges';
+import { LAB_CASES } from '../src/scenarios/labCases';
+import { LINES_CASES } from '../src/lines/cases';
+import { ABG_ACTIONS } from '../src/scenarios/abgChallenges';
+import { MECH } from '../src/moa/registry';
+
+describe('curriculum catalog', () => {
+  it('covers every Director lesson, step lesson and workflow — and nothing else', () => {
+    const ids = [...LESSON_HOSTS.flatMap((h) => h.timelines.map((t) => t.id)), ...[...VENT_LESSONS, ...ABG_LESSONS, ...LAB_LESSONS, ...LINES_LESSONS].map((l) => (l as { id: string }).id), ...[...VENT_WORKFLOWS, ...LINES_WORKFLOWS, CENTRAL_LINE].map((w) => w.id)];
+    expect(new Set(ids).size).toBe(ids.length);
+    expect(CATALOG.map((e) => e.id).sort()).toEqual([...ids].sort());
+  });
+  it('every entry has objectives, sources, certification tags, a reviewed date and a title; prerequisites resolve and come earlier in difficulty or are core', () => {
+    for (const e of CATALOG) {
+      expect(e.objectives.length, e.id).toBeGreaterThanOrEqual(1); expect(e.sources.length, e.id).toBeGreaterThanOrEqual(1); expect(e.certs.every((c) => CERTS.includes(c))).toBe(true);
+      expect(e.reviewed).toMatch(/^\d{4}-\d{2}-\d{2}$/); expect(TITLES[e.id], e.id).toBeTruthy();
+      for (const p of e.prereq) { expect(CATALOG_BY_ID[p], `${e.id} → ${p}`).toBeTruthy(); expect(p).not.toBe(e.id); }
+    }
+  });
+  it('every challenge is tagged with concepts, and every concept remediates to a real lesson or drug', () => {
+    const chal = [...VENT_CHALLENGES.map((c) => `vent-${c.id}`), ...LAB_CASES.map((c) => `lab-${c.id}`), ...LINES_CASES.map((c) => `lines-${(c as { id: string }).id}`), ...Object.keys(ABG_ACTIONS).map((k) => `abg-${k}`)];
+    for (const c of chal) { expect(CHALLENGE_CONCEPTS[c], c).toBeTruthy(); for (const k of CHALLENGE_CONCEPTS[c]) expect(CONCEPTS[k], `${c}:${k}`).toBeTruthy(); }
+    expect(Object.keys(CHALLENGE_CONCEPTS).sort()).toEqual([...chal].sort());
+    for (const [k, v] of Object.entries(CONCEPTS)) for (const r of v.remediate) { if ('lesson' in r) expect(CATALOG_BY_ID[r.lesson], `${k}:${r.lesson}`).toBeTruthy(); else expect(MECH[r.drug], `${k}:${r.drug}`).toBeTruthy(); }
+  });
+  it('Paediatric / Neonatal / OB are in the taxonomy (empty ones are shown, not dropped)', () => {
+    const d = domainProgress({}); for (const x of ['Paediatric', 'Neonatal', 'OB']) expect(d.some((y) => y.domain === x)).toBe(true);
+    expect(d.find((y) => y.domain === 'Neonatal')!.entries.length).toBe(0);
+  });
+});
+
+describe('progress', () => {
+  it('weak topics come from the latest attempt per challenge and point at remediation', () => {
+    const now = '2026-09-29T00:00:00Z';
+    const w = weakTopics({ 'vent-alarm-ptx': [{ ok: false, at: now }], 'lab-k-hd': [{ ok: false, at: now }, { ok: true, at: now }], 'lines-c-zero': [{ ok: false, at: now }], 'lines-c-hob': [{ ok: false, at: now }] });
+    expect(w.map((x) => x.concept)).toEqual(['transducer', 'tension-ptx']); expect(w[0].missed).toBe(2); expect(w.some((x) => x.concept === 'potassium')).toBe(false);
+    expect(weakTopics({})).toEqual([]);
+  });
+  it('the store works without browser storage; completion, bookmarks and attempts update; prerequisites report', () => {
+    const p = useProgress.getState(); p.reset();
+    p.markComplete('eom'); p.toggleBookmark({ lessonId: 'vent-ards-signature', t: 43, title: 'x' }); p.record('vent-goal-ards', false);
+    const s = useProgress.getState(); expect(s.completed.eom).toBeTruthy(); expect(s.bookmarks).toHaveLength(1); expect(s.attempts['vent-goal-ards']).toHaveLength(1);
+    s.toggleBookmark({ lessonId: 'vent-ards-signature', t: 43.5, title: 'x' }); expect(useProgress.getState().bookmarks).toHaveLength(0);
+    expect(missingPrereqs(CATALOG_BY_ID['vent-ards-signature'], useProgress.getState().completed)).toEqual(['peep']);
+  });
+  it('playing a lesson to the end marks it complete; deep links open step lessons and workflows in their module', async () => {
+    const { initProgressTracking } = await import('../src/curriculum/track');
+    const { director } = await import('../src/director/director');
+    const { duration } = await import('../src/director/timeline');
+    const { openLesson, usePendingOpen } = await import('../src/app/navigate');
+    const { useUI } = await import('../src/app/store');
+    const { lessonById } = await import('../src/director/lessonIndex');
+    useProgress.getState().reset(); initProgressTracking();
+    const tl = lessonById('neuro-icp')!.tl; director.load(tl, false); director.seek(duration(tl));
+    expect(useProgress.getState().completed['neuro-icp']).toBeTruthy(); director.unload();
+    openLesson('ln-damp'); expect(useUI.getState().module).toBe('lines'); expect(usePendingOpen.getState()).toMatchObject({ kind: 'step', id: 'ln-damp' });
+    openLesson('wf-drain-check'); expect(useUI.getState().module).toBe('vent'); expect(usePendingOpen.getState()).toMatchObject({ kind: 'workflow', id: 'wf-drain-check' });
+  });
+});
