@@ -1,26 +1,17 @@
 /** Four synthetic teaching images of the current neuro state, with a slice-level control. */
-import { useEffect, useRef } from 'react';
+import { ImagePanel } from '../../scene/imaging/ImagePanel';
 import { useNeuroUI } from '../neuroStore';
 import { render, perfusionSummary, MODALITY_NAME, type Modality } from './synth';
 import { IS_PHONE } from '../../scene/Studio';
 
 const MODS: Modality[] = ['ncct', 'cta', 'cbf', 'tmax'];
 function Panel({ mod }: { mod: Modality }) {
-  const ref = useRef<HTMLCanvasElement>(null); const st = useNeuroUI((s) => s.state); const sys = useNeuroUI((s) => s.sys); const ly = useNeuroUI((s) => s.slice);
-  useEffect(() => {
-    const id = requestAnimationFrame(() => {
-      const c = ref.current; if (!c) return; const size = IS_PHONE ? 150 : 210; const img = render(mod, st, ly, size, sys);
-      c.width = size; c.height = size; const ctx = c.getContext('2d')!; const d = ctx.createImageData(size, size); d.data.set(img.rgba); ctx.putImageData(d, 0, 0);
-    });
-    return () => cancelAnimationFrame(id);
-  }, [mod, st, ly, sys]);
+  const st = useNeuroUI((s) => s.state); const sys = useNeuroUI((s) => s.sys); const ly = useNeuroUI((s) => s.slice); const size = IS_PHONE ? 150 : 210;
   return (
-    <figure className="img-panel">
-      <canvas ref={ref} aria-label={MODALITY_NAME[mod]} />
-      <figcaption>{MODALITY_NAME[mod]}</figcaption>
+    <ImagePanel draw={() => render(mod, st, ly, size, sys)} deps={[mod, st, ly, sys]} caption={MODALITY_NAME[mod]}>
       <span className="img-side l">R</span><span className="img-side r">L</span>
       {(mod === 'cbf' || mod === 'tmax') && <span className="img-scale"><i />{mod === 'cbf' ? 'low → high flow' : 'short → long delay'}</span>}
-    </figure>
+    </ImagePanel>
   );
 }
 export function ClinicalImagingScene() {

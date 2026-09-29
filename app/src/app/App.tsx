@@ -3,6 +3,7 @@ import { useUI, type Module, type Mode } from './store';
 import { session } from '../vent/session';
 import { loadRespAsset, type RespAsset } from '../asset/resp';
 import { LungScene } from '../vent/LungScene';
+import { CxrScene } from '../vent/CxrScene';
 import { AlveolusScene, AlveolusHud, focusVentTarget } from '../vent/AlveolusScene';
 import { Scalars, Loops } from '../vent/Waveforms';
 import { VentControls, VentNumbersCard, GasCard, ExplainCard, ScenarioPicker, ScenarioStory, Interventions, Seg, loadVentScenario } from '../vent/VentPanel';
@@ -73,12 +74,12 @@ function VentModule() {
   // semantic hook for lessons, the Lesson Director and automated checks (same calls the buttons make)
   useEffect(() => { (window as unknown as { __CCVent: unknown }).__CCVent = { session, focus: focusVentTarget, load: loadVentScenario, set: (p: Record<string, number>) => session.set(p) }; }, []);
   useEffect(() => { loadRespAsset().then(setAsset).catch((e) => { console.error(e); setErr(String(e?.message || e)); }); }, []);
-  const mode = useUI((s) => s.mode); const showLoops = useUI((s) => s.showLoops); const phone = useIsPhone(); const alv = useUI((s) => s.ventView === 'alveolus');
+  const mode = useUI((s) => s.mode); const showLoops = useUI((s) => s.showLoops); const phone = useIsPhone(); const alv = useUI((s) => s.ventView === 'alveolus'); const xray = useUI((s) => s.ventView === 'xray');
   return (
     <main className="stage">
       <section className="scene-pane">
         <div className={`scene-wrap${alv ? ' alv-wrap' : ''}`}>
-          {alv ? <AlveolusScene /> : asset ? <LungScene asset={asset} /> : <div className="loading">{err ? `Could not load the lung model: ${err}` : 'Loading lungs…'}</div>}
+          {xray ? <CxrScene /> : alv ? <AlveolusScene /> : asset ? <LungScene asset={asset} /> : <div className="loading">{err ? `Could not load the lung model: ${err}` : 'Loading lungs…'}</div>}
           <SceneOverlay />
         </div>
         <div className="wave-wrap"><Scalars height={phone ? 210 : undefined} /></div>
@@ -109,9 +110,9 @@ function SceneOverlay() {
   return (
     <>
       <div className="view-btns">
-        {([['front', 'Front'], ['side', 'Side'], ['airway', 'Airways'], ['base', 'Bases'], ['alveolus', 'Alveoli']] as const).map(([k, l]) => <button key={k} className={view === k ? 'on' : ''} onClick={() => (k === 'alveolus' ? focusVentTarget('lung.alveolus') : set({ ventView: k, ventTarget: 'lung.whole' }))}>{l}</button>)}
+        {([['front', 'Front'], ['side', 'Side'], ['airway', 'Airways'], ['base', 'Bases'], ['alveolus', 'Alveoli'], ['xray', 'X-ray']] as const).map(([k, l]) => <button key={k} className={view === k ? 'on' : ''} onClick={() => (k === 'alveolus' ? focusVentTarget('lung.alveolus') : set({ ventView: k, ventTarget: 'lung.whole' }))}>{l}</button>)}
       </div>
-      {view === 'alveolus' ? <AlveolusHud /> : <div className="legend">
+      {view === 'xray' ? null : view === 'alveolus' ? <AlveolusHud /> : <div className="legend">
         <span><i className="lg-air" />Aerated</span><span><i className="lg-col" />Collapsed</span><span><i className="lg-over" />Over-stretched</span><span><i className="lg-in" />Gas in</span><span><i className="lg-out" />Gas out</span>
       </div>}
       <div className="scene-tools">
