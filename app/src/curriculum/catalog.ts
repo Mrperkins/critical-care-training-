@@ -43,7 +43,7 @@ export const CATALOG: Entry[] = [
   // ---------------------------------------------------------------- Director (signature) lessons
   e('vent-ards-signature', 'director', 'vent', ['Ventilation', 'Respiratory'], 'intermediate', ['AMLS'], ['Explain shunt from collapsed, perfused alveoli', 'Show how PEEP recruits and when it overdistends', 'Set tidal volume and PEEP to keep plateau and driving pressure low'], [S.ards, S.hess], ['eom', 'peep']),
   e('vent-ards-vs-obstruction', 'director', 'vent', ['Ventilation', 'Respiratory'], 'intermediate', ['AMLS'], ['Use inspiratory and expiratory holds to separate compliance from resistance', 'Recognise auto-PEEP and treat it with time to exhale'], [S.hess, S.west], ['rc']),
-  e('vent-tension-ptx', 'director', 'vent', ['Ventilation', 'Trauma & haemorrhage'], 'core', ['PHTLS', 'TECC', 'TCCC'], ['Recognise tension on the ventilator (peak and plateau up, hypotension)', 'Link pleural pressure to venous return and obstructive shock', 'Decompress before imaging'], [S.atls], [], 'Local protocol decides the decompression site and device.'),
+  e('vent-tension-ptx', 'director', 'vent', ['Ventilation', 'Trauma & haemorrhage'], 'core', ['PHTLS', 'TECC', 'TCCC'], ['Recognise tension on the ventilator (peak and plateau up, hypotension)', 'Link pleural pressure to venous return and obstructive shock', 'Decompress before imaging', 'Read absent sliding, barcode M-mode and the film — and the lung point after decompression'], [S.atls, S.lus, S.blue], [], 'Local protocol decides the decompression site and device.'),
   e('vent-needle', 'director', 'vent', ['Procedures', 'Trauma & haemorrhage'], 'advanced', ['PHTLS', 'TECC', 'TCCC'], ['Choose a decompression site and stay over the rib below', 'Relate chest-wall thickness and catheter length to failure', 'Treat the needle as a bridge to a drain'], [S.atls], ['vent-tension-ptx'], 'Site and catheter length follow local protocol.'),
   e('abg-resp-vs-metabolic', 'director', 'abg', ['Acid–base & labs', 'Respiratory'], 'core', ['AMLS'], ['Separate respiratory from metabolic acidosis on a gas', 'Predict acute and chronic compensation', 'Explain why fixed ventilation removes respiratory compensation'], [S.berend], ['resp']),
   e('abg-dka', 'director', 'abg', ['Renal & metabolic', 'Acid–base & labs'], 'intermediate', ['AMLS'], ['Trace insulin deficiency to ketoacids and an anion gap', 'Explain the potassium paradox (high plasma, low total body)', 'Sequence fluids, potassium and insulin'], [S.dka, S.berend], ['metab']),
@@ -125,6 +125,14 @@ export const CONCEPTS: Record<string, { name: string; remediate: Target[] }> = {
   'fluid-responsiveness': { name: 'Fluid responsiveness', remediate: [{ lesson: 'ln-heartlung' }] },
   toxicology: { name: 'Toxicology acid–base', remediate: [{ lesson: 'abg-resp-vs-metabolic' }] },
   resuscitation: { name: 'Arrest and post-arrest physiology', remediate: [{ lesson: 'lines-oxygen-delivery' }, { lesson: 'metab' }] },
+  fast: { name: 'FAST exam', remediate: [{ lesson: 'abd-fast' }] },
+  aortic: { name: 'Aneurysm and dissection', remediate: [{ lesson: 'abd-aaa' }, { lesson: 'abd-dissection' }] },
+  'anti-impulse': { name: 'Anti-impulse therapy', remediate: [{ lesson: 'abd-dissection' }, { drug: 'esmolol' }] },
+  'stroke-localisation': { name: 'Stroke localisation', remediate: [{ lesson: 'neuro-time-is-brain' }, { lesson: 'neuro-lvo' }] },
+  'stroke-imaging': { name: 'Stroke imaging and reperfusion', remediate: [{ lesson: 'neuro-lvo' }, { lesson: 'neuro-time-machine' }, { drug: 'thrombolytic' }] },
+  icp: { name: 'ICP, CPP and herniation', remediate: [{ lesson: 'neuro-icp' }, { drug: 'hypertonic' }, { drug: 'mannitol' }] },
+  shunts: { name: 'Shunts and Qp:Qs', remediate: [{ lesson: 'heart-vsd' }] },
+  'chest-imaging': { name: 'Chest X-ray and lung ultrasound', remediate: [{ lesson: 'vent-tension-ptx' }] },
 };
 export const CHALLENGE_CONCEPTS: Record<string, string[]> = {
   // ventilator
@@ -141,6 +149,14 @@ export const CHALLENGE_CONCEPTS: Record<string, string[]> = {
   'lines-c-bubble': ['transducer'], 'lines-c-hob': ['transducer'], 'lines-c-openair': ['transducer'], 'lines-c-clot': ['transducer'], 'lines-c-zero': ['transducer'], 'lines-c-bag': ['transducer'],
   'lines-c-migrated': ['waveforms'], 'lines-c-transport': ['transducer'], 'lines-c-read-tamp': ['waveforms', 'shock-states'], 'lines-c-read-chb': ['waveforms'], 'lines-c-read-ar': ['waveforms'], 'lines-c-read-as': ['waveforms'],
   'lines-c-ppv-af': ['fluid-responsiveness'], 'lines-c-goal-fluid': ['haemorrhage', 'shock-states'], 'lines-c-goal-sepsis': ['shock-states'],
+  // scene cases (challenge/sceneCases.ts)
+  'case-abd-fast-early': ['fast'], 'case-abd-fast-spleen': ['fast', 'haemorrhage'], 'case-abd-aaa': ['aortic', 'fast', 'haemorrhage'], 'case-abd-dissect-a': ['aortic', 'anti-impulse'], 'case-abd-dissect-b': ['aortic'],
+  'case-neuro-m1l': ['stroke-localisation', 'stroke-imaging'], 'case-neuro-m1r': ['stroke-localisation'], 'case-neuro-p2r': ['stroke-localisation'], 'case-neuro-basilar': ['stroke-localisation', 'stroke-imaging'],
+  'case-neuro-uncal': ['icp'], 'case-neuro-cushing': ['icp'], 'case-neuro-evd': ['icp', 'transducer'],
+  'case-heart-vsd': ['shunts'], 'case-heart-asd': ['shunts'], 'case-heart-eisenmenger': ['shunts', 'hypoxaemia'], 'case-heart-pfo': ['shunts'],
+  'case-img-cxr-tension': ['chest-imaging', 'tension-ptx'], 'case-img-lus-plug': ['chest-imaging', 'airway-obstruction'], 'case-img-lus-asthma': ['chest-imaging', 'auto-peep'], 'case-img-cxr-edema': ['chest-imaging', 'hypoxaemia'], 'case-img-cxr-ards': ['chest-imaging', 'lung-protection'],
 };
 /** Where a challenge lives, for "try it again". */
-export const challengeModule = (id: string) => (id.startsWith('vent-') ? 'vent' : id.startsWith('abg-') ? 'abg' : id.startsWith('lab-') ? 'labs' : 'lines') as 'vent' | 'abg' | 'labs' | 'lines';
+const CASE_MODULE = { abd: 'abdomen', neuro: 'neuro', heart: 'heart', img: 'vent' } as const;
+export type ChallengeModule = 'vent' | 'abg' | 'labs' | 'lines' | 'abdomen' | 'neuro' | 'heart';
+export const challengeModule = (id: string): ChallengeModule => (id.startsWith('case-') ? CASE_MODULE[id.split('-')[1] as keyof typeof CASE_MODULE] : id.startsWith('vent-') ? 'vent' : id.startsWith('abg-') ? 'abg' : id.startsWith('lab-') ? 'labs' : 'lines');

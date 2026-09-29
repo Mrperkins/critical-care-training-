@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { CaseChallenge } from '../challenge/CaseChallenge';
 import { loadBodyAsset, type BodyAsset } from '../asset/body';
 import { Knob, Seg } from '../vent/VentPanel';
 import { NeuroScene } from './NeuroScene';
@@ -46,7 +47,7 @@ export function NeuroModule() {
         </div>
       </section>
       <aside className="side-pane">
-        {mode === 'learn' ? <NeuroLearn /> : <>
+        {mode === 'challenge' ? <CaseChallenge module="neuro" /> : mode === 'learn' ? <NeuroLearn /> : <>
         <PresetCard />
         <NeuroExamCard />
         <TimeCard />

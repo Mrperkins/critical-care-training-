@@ -5,6 +5,7 @@ import { lusFromVent, lusSummary, lusScene, renderMmode, LUS_ZONES, LUS_W, LUS_D
 import { renderLinear } from '../scene/ultrasound/bmode';
 import { RealExamples } from '../scene/imaging/RealExamples';
 import { IS_PHONE } from '../scene/Studio';
+import { useHideFindings } from '../challenge/caseStore';
 
 function useZones() {
   const key = (zs: LusZone[]) => JSON.stringify(zs);
@@ -14,7 +15,7 @@ function useZones() {
 }
 function draw(c: HTMLCanvasElement | null, img: { rgba: Uint8ClampedArray; w: number; h: number }) { if (!c) return; if (c.width !== img.w) { c.width = img.w; c.height = img.h; } const ctx = c.getContext('2d')!; const d = ctx.createImageData(img.w, img.h); d.data.set(img.rgba); ctx.putImageData(d, 0, 0); }
 
-function Zone({ z, on, pick }: { z: LusZone; on: boolean; pick: () => void }) {
+function Zone({ z, on, pick, hide }: { z: LusZone; on: boolean; pick: () => void; hide: boolean }) {
   const ref = useRef<HTMLCanvasElement>(null); const size = IS_PHONE ? 110 : 150;
   useEffect(() => {
     let raf = 0, last = 0; const t0 = performance.now(); const reduce = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -23,25 +24,25 @@ function Zone({ z, on, pick }: { z: LusZone; on: boolean; pick: () => void }) {
   }, [z, size]);
   const name = LUS_ZONES.find((x) => x.id === z.id)!.name;
   return (
-    <button className={`lus-zone${on ? ' on' : ''}`} onClick={pick} aria-pressed={on} aria-label={`${name}: ${z.pattern}`}>
+    <button className={`lus-zone${on ? ' on' : ''}`} onClick={pick} aria-pressed={on} aria-label={hide ? name : `${name}: ${z.pattern}`}>
       <canvas ref={ref} />
       <span className="lus-name">{name}</span>
-      <span className={`lus-tag ${z.sliding ? 'ok' : 'bad'}`}>{z.sliding ? 'sliding' : z.lungPulse ? 'lung pulse' : 'no sliding'}{z.bLines >= 3 ? ` · ${z.white ? 'white lung' : `${z.bLines} B-lines`}` : ''}{z.lungPoint ? ' · lung point' : ''}</span>
+      {!hide && <span className={`lus-tag ${z.sliding ? 'ok' : 'bad'}`}>{z.sliding ? 'sliding' : z.lungPulse ? 'lung pulse' : 'no sliding'}{z.bLines >= 3 ? ` · ${z.white ? 'white lung' : `${z.bLines} B-lines`}` : ''}{z.lungPoint ? ' · lung point' : ''}</span>}
     </button>
   );
 }
 
 export function LusScene() {
-  const zs = useZones(); const [sel, setSel] = useState<LusZoneId>('R-ant'); const z = zs.find((x) => x.id === sel)!; const mref = useRef<HTMLCanvasElement>(null);
+  const hide = useHideFindings(); const zs = useZones(); const [sel, setSel] = useState<LusZoneId>('R-ant'); const z = zs.find((x) => x.id === sel)!; const mref = useRef<HTMLCanvasElement>(null);
   useEffect(() => draw(mref.current, renderMmode(z, 220, 150)), [z]);
   return (
     <div className="imaging lus-view">
-      <div className="lus-grid">{zs.map((x) => <Zone key={x.id} z={x} on={x.id === sel} pick={() => setSel(x.id)} />)}</div>
+      <div className="lus-grid">{zs.map((x) => <Zone key={x.id} z={x} on={x.id === sel} pick={() => setSel(x.id)} hide={hide} />)}</div>
       <div className="lus-side">
-        <figure className="img-panel lus-m"><canvas ref={mref} aria-label={`M-mode, ${z.mmode}`} /><figcaption>M-mode · {z.mmode}</figcaption></figure>
-        <section className="cxr-find"><h4>{LUS_ZONES.find((x) => x.id === sel)!.name}</h4><p className="small">{z.pattern}.</p><h4>Reading</h4><ul>{lusSummary(zs).map((l) => <li key={l}>{l}</li>)}</ul></section>
+        <figure className="img-panel lus-m"><canvas ref={mref} aria-label={hide ? 'M-mode' : `M-mode, ${z.mmode}`} /><figcaption>M-mode{hide ? '' : ` · ${z.mmode}`}</figcaption></figure>
+        <section className="cxr-find"><h4>{LUS_ZONES.find((x) => x.id === sel)!.name}</h4>{hide ? <p className="muted small">Reading hidden while you answer — tap each zone and watch the pleural line and the M-mode.</p> : <><p className="small">{z.pattern}.</p><h4>Reading</h4><ul>{lusSummary(zs).map((l) => <li key={l}>{l}</li>)}</ul></>}</section>
       </div>
-      <RealExamples kind="lus" title="Real lung ultrasound" />
+      {!hide && <RealExamples kind="lus" title="Real lung ultrasound" />}
       <div className="img-bar"><p className="img-note">Synthetic lung ultrasound drawn from the ventilator model’s state (linear probe, 4 × 6 cm). Patterns follow standard lung-ultrasound teaching; not patient images except the labelled real clips.</p></div>
     </div>
   );

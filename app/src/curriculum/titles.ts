@@ -11,6 +11,7 @@ import { VENT_CHALLENGES } from '../scenarios/ventChallenges';
 import { LAB_CASES } from '../scenarios/labCases';
 import { LINES_CASES } from '../lines/cases';
 import { ABG_PRESETS } from '../scenarios/abg';
+import { SCENE_CASES } from '../challenge/sceneCases';
 
 export const TITLES: Record<string, string> = {};
 for (const h of LESSON_HOSTS) for (const t of h.timelines) TITLES[t.id] = t.title;
@@ -20,4 +21,5 @@ for (const c of VENT_CHALLENGES as { id: string; title: string }[]) TITLES[`vent
 for (const c of LAB_CASES) TITLES[`lab-${c.id}`] = c.story.split('.')[0];
 for (const c of LINES_CASES as { id: string; title: string }[]) TITLES[`lines-${c.id}`] = c.title;
 for (const p of ABG_PRESETS) TITLES[`abg-${p.id}`] = p.name;
+for (const c of SCENE_CASES) TITLES[c.id] = c.title;
 export const titleOf = (id: string) => TITLES[id] ?? id;

@@ -534,3 +534,14 @@ details.card summary{cursor:pointer;font:600 14px var(--fs);margin-bottom:6px}
 .cur-row{display:grid;grid-template-columns:18px minmax(0,1fr) auto auto auto;gap:8px;align-items:center}.cur-t{text-align:left;color:var(--ink)}.cur-st{color:var(--mute)}.cur-list li.done .cur-st{color:var(--ok)}
 .cur-detail{margin:6px 0 4px 26px;padding:8px 10px;background:var(--pane2);border-radius:8px}.cur-detail ul{margin:2px 0 6px;padding-left:18px}.cur-detail p{margin:4px 0}.cur-detail .linkish{margin-right:10px}
 .phone .cur-cols{grid-template-columns:1fr}.phone .cur-row{grid-template-columns:18px minmax(0,1fr) auto}.phone .cur-row .muted.small,.phone .cur-row .lvl{display:none}
+
+/* scene-based challenge cases + remediation */
+.case-facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px 12px;margin:10px 0 0}
+.case-facts>div{display:flex;flex-direction:column;min-width:0}
+.case-facts dt{font-size:11px;letter-spacing:.04em;text-transform:uppercase;opacity:.65;min-height:1em}
+.case-facts dd{margin:0;font-size:14px;overflow-wrap:anywhere}
+.case-score{margin-top:12px;font-size:14px}
+.remediate{margin-top:10px;padding:10px 12px;border-radius:10px;border:1px solid rgba(224,100,90,.35);background:rgba(224,100,90,.07)}
+.remediate .rem-row{margin-top:6px}
+.remediate .chips{margin-top:4px}
+.tick.miss{color:#e0645a}

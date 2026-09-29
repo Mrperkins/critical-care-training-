@@ -12,7 +12,7 @@ import { create } from 'zustand';
 import { CATALOG_BY_ID, challengeModule } from '../curriculum/catalog';
 
 /** A step lesson or workflow to open once its module's LessonShell mounts (they keep their own local state). */
-export const usePendingOpen = create<{ kind: 'step' | 'workflow' | null; id: string | null; set: (p: { kind: 'step' | 'workflow' | null; id: string | null }) => void }>((set) => ({ kind: null, id: null, set: (p) => set(p) }));
+export const usePendingOpen = create<{ kind: 'step' | 'workflow' | 'challenge' | null; id: string | null; set: (p: { kind: 'step' | 'workflow' | 'challenge' | null; id: string | null }) => void }>((set) => ({ kind: null, id: null, set: (p) => set(p) }));
 
 export function openDrug(defId: string) {
   const tl = useDirector.getState().tl; const t = useDirector.getState().t;
@@ -30,5 +30,10 @@ export function openLesson(lessonId: string, t = 0) {
   setTimeout(() => { director.load(hit.tl, false); director.seek(t, false); }, 0);
 }
 
-/** Challenges keep their own state per module: open that module's challenge list. */
-export function openChallenge(id: string) { useUI.getState().set({ module: challengeModule(id), mode: 'challenge' }); }
+/** Open a challenge in its module; the module's challenge view starts that exact case when it can (pending store). */
+export function openChallenge(id: string) { usePendingOpen.getState().set({ kind: 'challenge', id }); useUI.getState().set({ module: challengeModule(id), mode: 'challenge' }); }
+/** For challenge views: take the pending challenge id if it matches `accept`, clearing it. */
+export function takePendingChallenge(accept: (id: string) => boolean): string | null {
+  const p = usePendingOpen.getState(); if (p.kind !== 'challenge' || !p.id || !accept(p.id)) return null;
+  const id = p.id; p.set({ kind: null, id: null }); return id;
+}

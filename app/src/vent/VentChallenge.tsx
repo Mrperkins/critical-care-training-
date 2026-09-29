@@ -7,6 +7,10 @@ import { DYSS, DYSSYNCHRONIES } from '../scenarios/dyssynchrony';
 import { loadVentScenario, VentControls, VentNumbersCard, Interventions, GasCard } from './VentPanel';
 import { Loops } from './Waveforms';
 import { ventNumbers } from './numbers';
+import { CaseList, CaseRun } from '../challenge/CaseChallenge';
+import { CASE_BY_ID, casesFor, type SceneCase } from '../challenge/sceneCases';
+import { Remediate } from '../challenge/Remediate';
+import { takePendingChallenge, usePendingOpen } from '../app/navigate';
 
 const store = { get: (k: string) => { try { return localStorage.getItem(k); } catch { return null; } }, set: (k: string, v: string) => { try { localStorage.setItem(k, v); } catch { /* private mode */ } } };
 const seeded = <T,>(arr: T[], seed: string) => { let h = 0; for (const c of seed) h = (h * 31 + c.charCodeAt(0)) >>> 0; const a = [...arr]; for (let i = a.length - 1; i > 0; i--) { h = (h * 1103515245 + 12345) >>> 0; const j = h % (i + 1); [a[i], a[j]] = [a[j], a[i]]; } return a; };
@@ -14,7 +18,14 @@ const seeded = <T,>(arr: T[], seed: string) => { let h = 0; for (const c of seed
 export function VentChallenge() {
   const [cur, setCur] = useState<VC | null>(null);
   const done = useMemo(() => new Set((store.get('ccp.vent.done') ?? '').split(',').filter(Boolean)), [cur]);
+  const [img, setImg] = useState<SceneCase | null>(null);
   const start = (c: VC) => { loadVentScenario(c.scenario, c.dyss ?? null); if (c.settings) session.set(c.settings); useUI.getState().set({ showPmus: false }); setCur(c); };
+  const pend = usePendingOpen((s) => s.id);
+  useEffect(() => {
+    const id = takePendingChallenge((x) => x.startsWith('vent-') || CASE_BY_ID[x]?.module === 'vent'); if (!id) return;
+    if (CASE_BY_ID[id]) { setCur(null); setImg(CASE_BY_ID[id]); } else { const c = VENT_CHALLENGES.find((x) => `vent-${x.id}` === id); if (c) { setImg(null); start(c); } }
+  }, [pend]); // eslint-disable-line react-hooks/exhaustive-deps
+  if (img) { const list = casesFor('vent'); const next = list[list.indexOf(img) + 1]; return <CaseRun key={img.id} c={img} onExit={() => { setImg(null); useUI.getState().set({ ventView: 'front' }); }} onNext={next ? () => setImg(next) : undefined} />; }
   if (!cur) return (
     <div className="chal-list">
       <section className="card"><div className="eyebrow">Challenge</div><h2 className="h2">Read the machine, fix the patient</h2><p className="muted">Each case runs on the live lung model. Nothing is scripted: when you change a setting, the problem gets better or worse because the physics says so.</p></section>
@@ -23,6 +34,7 @@ export function VentChallenge() {
           <span className={`lvl lvl-${c.level}`}>{c.level}</span><span className="ci-t">{c.title}</span><span className="ci-k">{c.kind === 'dyss' ? 'Dyssynchrony' : c.kind === 'alarm' ? 'Alarm' : 'Targets'}</span>{done.has(c.id) && <span className="tick">✓</span>}
         </button>
       ))}
+      <CaseList module="vent" embedded onStart={setImg} />
     </div>
   );
   return <ChallengeRun key={cur.id} c={cur} onExit={() => setCur(null)} onDone={() => { done.add(cur.id); store.set('ccp.vent.done', [...done].join(',')); }} />;
@@ -70,6 +82,7 @@ function ChallengeRun({ c, onExit, onDone }: { c: VC; onExit: () => void; onDone
           <h3>{d ? 'What is the waveform telling you?' : c.question}</h3>
           <div className="opts">{options.map((o, i) => <button key={o} disabled={pick != null} className={`opt${pick != null && i === answer ? ' right' : ''}${pick === i && i !== answer ? ' wrong' : ''}`} onClick={() => { setPick(i); useProgress.getState().record(`vent-${c.id}`, i === answer); if (d) useUI.getState().set({ showPmus: true }); }}>{o}</button>)}</div>
           {pick != null && <div className="reveal"><b>{pick === answer ? 'Correct.' : `It's ${options[answer]}.`}</b> {d ? <>{d.clue} <em>The dashed red trace now shows the patient’s own muscle effort — the thing the ventilator cannot see.</em></> : c.explain}</div>}
+          {pick != null && <Remediate id={`vent-${c.id}`} ok={pick === answer} />}
         </section>
       )}
       {c.kind === 'alarm' && pick != null && c.action && (

@@ -1,5 +1,7 @@
 /** Abdomen module: trauma / vascular / surgical abdomen on the shared body, driven by one pure state. */
 import { CtaScene } from './CtaScene';
+import { CaseChallenge } from '../challenge/CaseChallenge';
+import { useHideFindings } from '../challenge/caseStore';
 import { useEffect, useMemo, useState } from 'react';
 import { loadBodyAsset, type BodyAsset } from '../asset/body';
 import { Knob } from '../vent/VentPanel';
@@ -32,7 +34,7 @@ export function AbdomenModule() {
         <div className="scene-wrap">{view === 'us' ? <UltrasoundScene /> : view === 'cta' ? <CtaScene /> : body ? <AbdomenScene body={body} /> : <div className="loading">{err ? `Could not load anatomy: ${err}` : 'Loading anatomy…'}</div>}<AbdOverlay /></div>
       </section>
       <aside className="side-pane">
-        {mode === 'learn' ? <AbdLearn /> : <><PresetCard /><TimeCard /><FastCard /><ShockCard /><FindingsCard /></>}
+        {mode === 'challenge' ? <CaseChallenge module="abdomen" /> : mode === 'learn' ? <AbdLearn /> : <><PresetCard /><TimeCard /><FastCard /><ShockCard /><FindingsCard /></>}
         <p className="credit">Solid organs: HuBMAP 3D reference organs (CC BY 4.0) via the shared body model. Stomach, bowel, diaphragm, peritoneal fluid and pathology are drawn procedurally. Bleeding rates, FAST thresholds and the haemorrhage-class table are teaching approximations, not clinical rules.</p>
       </aside>
     </main>
@@ -40,17 +42,17 @@ export function AbdomenModule() {
 }
 
 function AbdOverlay() {
-  const target = useAbdUI((s) => s.target); const labels = useAbdUI((s) => s.labels); const view = useAbdUI((s) => s.view); const set = useAbdUI.getState().set; const st = useAbdomen(); const sc = shockClass(st);
+  const target = useAbdUI((s) => s.target); const labels = useAbdUI((s) => s.labels); const view = useAbdUI((s) => s.view); const set = useAbdUI.getState().set; const st = useAbdomen(); const sc = shockClass(st); const hide = useHideFindings();
   return (<>
     <div className="scene-tools">{view === '3d' && <button className={`tgl${labels ? ' on' : ''}`} onClick={() => set({ labels: !labels })}>Labels</button>}</div>
     <div className="view-btns">{([['3d', '3D anatomy'], ['us', 'Ultrasound · FAST'], ['cta', 'CT angiogram']] as [AbdView, string][]).map(([k, l]) => <button key={k} className={view === k ? 'on' : ''} onClick={() => set({ view: k })}>{l}</button>)}</div>
     {view !== '3d' ? null : <>
-    <div className="alv-hud">
+    {!hide && <div className="alv-hud">
       <div className="alv-row"><span>Time</span><b>{Math.round(st.minutes)} min</b></div>
       <div className="alv-row"><span>Free fluid</span><b>{Math.round(st.freeFluidMl)} mL</b></div>
       {st.retroMl > 0 && <div className="alv-row"><span>Retroperitoneal</span><b>{Math.round(st.retroMl)} mL</b></div>}
       <div className="alv-row"><span>Haemorrhage class</span><b>{['I', 'II', 'III', 'IV'][sc.cls - 1]}</b></div>
-    </div>
+    </div>}
     <div className="alv-focus"><div className="seg small ch-focus" role="group" aria-label="Focus">{FOCUS.map(([id, l]) => <button key={id} className={target === id ? 'on' : ''} onClick={() => set({ target: id })}>{l}</button>)}</div></div>
     <div className="legend"><span><i style={{ background: '#b0101f' }} />Blood</span><span><i style={{ background: '#8a7a3a' }} />Enteric</span><span><i style={{ background: '#d9c77a' }} />Ascites</span><span><i style={{ background: '#dff4ff' }} />Free air</span></div>
   </>}</>);

@@ -1,5 +1,7 @@
 /** Congenital heart module: shunt physiology on a live four-chamber heart. */
 import { useEffect, useMemo } from 'react';
+import { CaseChallenge } from '../challenge/CaseChallenge';
+import { useHideFindings } from '../challenge/caseStore';
 import { useUI } from '../app/store';
 import { Knob, Seg } from '../vent/VentPanel';
 import { HeartScene } from './HeartScene';
@@ -25,7 +27,7 @@ export function HeartModule() {
         <div className="scene-wrap"><HeartScene /><HeartOverlay /></div>
       </section>
       <aside className="side-pane">
-        {mode === 'learn' ? <HeartLearn /> : <><PresetCard /><ControlsCard /><HemoCard /><WhyCard /></>}
+        {mode === 'challenge' ? <CaseChallenge module="heart" /> : mode === 'learn' ? <HeartLearn /> : <><PresetCard /><ControlsCard /><HemoCard /><WhyCard /></>}
         <p className="credit">Schematic four-chamber cutaway drawn procedurally. Flows, pressures and saturations come from a simplified two-circuit model (orifice flow across restrictive defects, conductance across atrial defects, systemic flow held constant) — a teaching model, not a patient calculator.</p>
       </aside>
     </main>
@@ -35,20 +37,20 @@ export function HeartModule() {
 function HeartOverlay() {
   const target = useHeartUI((s) => s.target); const flow = useHeartUI((s) => s.mode); const labels = useHeartUI((s) => s.labels); const set = useHeartUI.getState().set;
   const input = useHeartUI((s) => s.input); const s = useMemo(() => solveShunt(input), [input]); const tier = useLabUI((s) => s.visualTier);
-  const pct = (x: number) => `${Math.round(x * 100)}%`;
+  const pct = (x: number) => `${Math.round(x * 100)}%`; const hide = useHideFindings();
   return (<>
     <div className="scene-tools">
       <button className={`tgl${labels ? ' on' : ''}`} onClick={() => set({ labels: !labels })}>Labels</button>
       <div className="seg small" role="group" aria-label="Flow colour">{([['sat', 'O₂ saturation'], ['doppler', 'Colour Doppler']] as [FlowMode, string][]).map(([k, l]) => <button key={k} className={flow === k ? 'on' : ''} onClick={() => set({ mode: k })}>{l}</button>)}</div>
     </div>
-    <div className="alv-hud">
+    {!hide && <div className="alv-hud">
       <div className="alv-row"><span>Shunt</span><b className={`dir dir-${s.direction === 'L→R' ? 'lr' : s.direction === 'R→L' ? 'rl' : s.direction === 'bidirectional' ? 'bi' : 'none'}`}>{s.direction === 'none' ? 'none' : s.direction}</b></div>
       <div className="alv-row"><span>Qp : Qs</span><b>{s.qpqs.toFixed(1)} : 1</b></div>
       {s.gradient > 0 && s.input.lesion !== 'asd' && <div className="alv-row"><span>Jet velocity</span><b>{s.velocity.toFixed(1)} m/s</b></div>}
       <div className="alv-row"><span>RV / LV systolic</span><b>{Math.round(s.p.rvSys)} / {Math.round(s.p.lvSys)}</b></div>
       <div className="alv-row"><span>PA mean</span><b>{Math.round(s.p.paMean)} mmHg</b></div>
       <div className="alv-row"><span>SpO₂ (pre / post)</span><b>{pct(s.sat.ao)}{s.input.lesion === 'pda' ? ` / ${pct(s.sat.aoPost)}` : ''}</b></div>
-    </div>
+    </div>}
     <div className="alv-focus">
       <div className="seg small ch-focus" role="group" aria-label="Focus">{FOCUS.map(([id, l]) => <button key={id} className={target === id ? 'on' : ''} onClick={() => set({ target: id })}>{l}</button>)}</div>
       <div className="seg small ch-quality" role="group" aria-label="Visual quality">{(['high', 'medium', 'low'] as VisualTier[]).map((k) => <button key={k} className={tier === k ? 'on' : ''} onClick={() => useLabUI.getState().set({ visualTier: k })}>{k[0].toUpperCase() + k.slice(1)}</button>)}</div>

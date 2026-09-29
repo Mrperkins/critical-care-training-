@@ -15,6 +15,7 @@ import { LAB_CASES } from '../src/scenarios/labCases';
 import { LINES_CASES } from '../src/lines/cases';
 import { ABG_ACTIONS } from '../src/scenarios/abgChallenges';
 import { MECH } from '../src/moa/registry';
+import { SCENE_CASES } from '../src/challenge/sceneCases';
 
 describe('curriculum catalog', () => {
   it('covers every Director lesson, step lesson and workflow — and nothing else', () => {
@@ -30,7 +31,7 @@ describe('curriculum catalog', () => {
     }
   });
   it('every challenge is tagged with concepts, and every concept remediates to a real lesson or drug', () => {
-    const chal = [...VENT_CHALLENGES.map((c) => `vent-${c.id}`), ...LAB_CASES.map((c) => `lab-${c.id}`), ...LINES_CASES.map((c) => `lines-${(c as { id: string }).id}`), ...Object.keys(ABG_ACTIONS).map((k) => `abg-${k}`)];
+    const chal = [...VENT_CHALLENGES.map((c) => `vent-${c.id}`), ...LAB_CASES.map((c) => `lab-${c.id}`), ...LINES_CASES.map((c) => `lines-${(c as { id: string }).id}`), ...Object.keys(ABG_ACTIONS).map((k) => `abg-${k}`), ...SCENE_CASES.map((c) => c.id)];
     for (const c of chal) { expect(CHALLENGE_CONCEPTS[c], c).toBeTruthy(); for (const k of CHALLENGE_CONCEPTS[c]) expect(CONCEPTS[k], `${c}:${k}`).toBeTruthy(); }
     expect(Object.keys(CHALLENGE_CONCEPTS).sort()).toEqual([...chal].sort());
     for (const [k, v] of Object.entries(CONCEPTS)) for (const r of v.remediate) { if ('lesson' in r) expect(CATALOG_BY_ID[r.lesson], `${k}:${r.lesson}`).toBeTruthy(); else expect(MECH[r.drug], `${k}:${r.drug}`).toBeTruthy(); }

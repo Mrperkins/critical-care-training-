@@ -5,7 +5,7 @@
  */
 import type { Timeline } from '../timeline';
 import { useAbdUI, ABD_PRESETS, type AbdPreset } from '../../abdomen/abdomenStore';
-import { useCtaUI } from '../../abdomen/CtaScene';
+import { useCtaUI } from '../../abdomen/ctaStore';
 import type { CtaLevel } from '../../abdomen/cta';
 import { shockScene } from './lines';
 

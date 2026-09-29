@@ -1,5 +1,8 @@
 import { useProgress } from '../curriculum/progress';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { Remediate } from '../challenge/Remediate';
+import { takePendingChallenge, usePendingOpen } from '../app/navigate';
+
 import { lab } from './lab';
 import { useUI } from '../app/store';
 import { ABG_PRESETS } from '../scenarios/abg';
@@ -24,8 +27,12 @@ export function AbgChallenge() {
   const [round, setRound] = useState(0); const [score, setScore] = useState({ right: 0, total: 0 });
   const [a1, setA1] = useState<number | null>(null); const [a2, setA2] = useState<number | null>(null); const [a3, setA3] = useState<number | null>(null);
   const [before, setBefore] = useState<Snapshot | null>(null);
+  // a deep link (Curriculum › Retry) asks for one preset; later rounds are random again
+  const [forced, setForced] = useState<string | null>(null);
+  const pend = usePendingOpen((s) => s.id);
+  useEffect(() => { const id = takePendingChallenge((x) => x.startsWith('abg-')); if (id) { setForced(id.slice(4)); setA1(null); setA2(null); setA3(null); setBefore(null); setRound((r) => r + 1); } }, [pend]);
   const caseData = useMemo(() => {
-    const pool = ABG_PRESETS.filter((p) => p.id !== 'normal'); const p = pool[Math.floor(rnd() * pool.length)];
+    const pool = ABG_PRESETS.filter((p) => p.id !== 'normal'); const p = pool.find((x) => x.id === forced) ?? pool[Math.floor(rnd() * pool.length)];
     lab.load(p.id);
     // vary severity ±15 % so no two cases look identical
     const pp = lab.pt.p; for (const k of ['drive', 'ketoneProd', 'lactateProd', 'otherUA', 'lowVQ', 'shunt'] as const) (pp as unknown as Record<string, number>)[k] = (pp as unknown as Record<string, number>)[k] * (0.85 + 0.3 * rnd());
@@ -37,7 +44,7 @@ export function AbgChallenge() {
     const act = ABG_ACTIONS[p.id]; const order = [0, 1, 2, 3].sort(() => rnd() - 0.5);
     return { p, it, primary: primary < 0 ? 5 : primary, compOpts, comp: it.primary.length > 1 ? -1 : comp, act, order, snap: { ...g, vbg: { ...g.vbg } } };
   }, [round]); // eslint-disable-line react-hooks/exhaustive-deps
-  const next = () => { setA1(null); setA2(null); setA3(null); setBefore(null); setRound(round + 1); };
+  const next = () => { setForced(null); setA1(null); setA2(null); setA3(null); setBefore(null); setRound(round + 1); };
   const mark = (ok: boolean) => setScore((s) => ({ right: s.right + (ok ? 1 : 0), total: s.total + 1 }));
   const g = caseData.snap;
   return (
@@ -61,6 +68,7 @@ export function AbgChallenge() {
         {a3 != null && <div className="reveal"><b>{a3 === caseData.act.answer ? 'Right.' : `Best: ${caseData.act.options[caseData.act.answer]}.`}</b> {caseData.act.explain} <em>The model has run the correct treatment for {caseData.act.ffMin >= 60 ? `${caseData.act.ffMin / 60} h` : `${caseData.act.ffMin} min`}:</em>
           {before && <AbgTable rows={[{ t: 'Before', g: before, fio2: 0 }, { t: 'After', g: lab.snap, fio2: 0 }]} />}
         </div>}
+        {a3 != null && <Remediate id={`abg-${caseData.p.id}`} ok={a3 === caseData.act.answer && a1 === caseData.primary} />}
       </section>}
       {a3 != null && <button className="act primary" onClick={next}>Next case →</button>}
       <SampleCards />

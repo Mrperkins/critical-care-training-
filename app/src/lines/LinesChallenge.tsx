@@ -1,6 +1,9 @@
 import { useProgress } from '../curriculum/progress';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useUI } from '../app/store';
+import { Remediate } from '../challenge/Remediate';
+import { takePendingChallenge, usePendingOpen } from '../app/navigate';
+
 import { lines } from './session';
 import { LINES_CASES, systemOK, type LCase } from './cases';
 import { applyStep } from './LinesLearn';
@@ -14,6 +17,8 @@ export function LinesChallenge() {
   const [cur, setCur] = useState<LCase | null>(null);
   const done = useMemo(() => new Set((store.get('ccp.lines.done') ?? '').split(',').filter(Boolean)), [cur]);
   const start = (c: LCase) => { lines.setNore(0); applyStep(c.setup, true); useLinesUI.getState().set({ labels: c.kind !== 'read', showTrue: false }); setCur(c); };
+  const pend = usePendingOpen((s) => s.id);
+  useEffect(() => { const id = takePendingChallenge((x) => x.startsWith('lines-')); const c = id ? LINES_CASES.find((x) => `lines-${x.id}` === id) : undefined; if (c) start(c); }, [pend]); // eslint-disable-line react-hooks/exhaustive-deps
   if (!cur) return (
     <div className="chal-list">
       <section className="card"><div className="eyebrow">Challenge</div><h2 className="h2">Trust the line — or fix it</h2><p className="muted">Troubleshoot the monitoring system, read the physiology from the waveforms, and treat to targets. Faults are hidden: use the fast-flush test, the level, the cuff and the waveform shape to find them.</p></section>
@@ -49,6 +54,7 @@ function Run({ c, onExit, onDone }: { c: LCase; onExit: () => void; onDone: () =
         <h3 className="q">{c.question}</h3>
         <div className="opts">{opts.map(({ x, i }) => <button key={i} disabled={answered && right} className={`opt${answered && i === c.answer && right ? ' right' : ''}${pick === i && i !== c.answer ? ' wrong' : ''}`} onClick={() => { if (pick == null) useProgress.getState().record(`lines-${c.id}`, i === c.answer); setPick(i); }}>{x}</button>)}</div>
         {answered && <p className={`explain ${right ? 'ok' : 'bad'}`}>{right ? c.explain : 'Not quite — look again at the waveform, the fast-flush test and the level, then try another answer.'}</p>}
+        {answered && !right && <Remediate id={`lines-${c.id}`} ok={false} />}
         {answered && right && c.kind === 'fix' && <p className="muted small">{solved ? '✓ Fixed — the monitor matches the true pressures again.' : 'Now fix it at the bedside with the controls below. The case is solved when the monitor matches the patient again.'}</p>}
         {answered && right && c.kind === 'goal' && <ul className="goals">{c.goals!.map((g) => <li key={g.label} className={g.test(lines) ? 'ok' : ''}>{g.test(lines) ? '✓' : '○'} {g.label}</li>)}{solved && <li className="ok">✓ Targets held — well done.</li>}</ul>}
         {solved && <div className="actions"><button className="act primary" onClick={onExit}>Next challenge →</button></div>}
