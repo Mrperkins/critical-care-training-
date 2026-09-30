@@ -80,24 +80,49 @@ def main():
 
 
 def validate_real_images():
-    """Real clinical images: every file hashed, licence on the whitelist, attribution complete."""
+    """Real clinical media: licence on the whitelist, checksums, real media signatures, provenance, docs in sync."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location('clinical_media', Path(__file__).resolve().parent / 'clinical_media.py')
+    cm = importlib.util.module_from_spec(spec); spec.loader.exec_module(cm)
     base = ROOT / 'imaging' / 'real'
     man = json.loads((base / 'manifest.json').read_text())
     ok = set(man['accepted'])
     listed = set()
     for it in man['items']:
         assert it['license'] in ok, f"{it['file']}: licence {it['license']} not accepted"
-        assert 'NC' not in it['license'] and 'ND' not in it['license'], it['file']
+        assert not re.search(r'\b(NC|ND|SA)\b', it['license']), it['file']
         for key in ('author', 'source', 'licenseUrl', 'changes', 'caption'):
             assert it.get(key), f"{it['file']}: missing {key}"
-        for k in ('file', 'poster'):
+        if 'provenance' in it:  # media ingested by tools/clinical_media.py
+            p = it['provenance']
+            for key in ('pageUrl', 'originalUrl', 'retrieved', 'originalFormat', 'originalSha256', 'licenseEvidence', 'verifiedBy'):
+                assert p.get(key), f"{it['id']}: provenance missing {key}"
+            q = it.get('quiz')
+            assert it.get('teach') and q and 0 <= q['answer'] < len(q['options']), f"{it['id']}: teaching content incomplete"
+            if it['file'].endswith('.mp4'):
+                assert it.get('webm') and it.get('poster'), f"{it['id']}: MP4 needs a WebM and a poster"
+        for k in ('file', 'poster', 'webm', 'original'):
             if k in it:
-                data = (base / it[k]).read_bytes()
+                path = base / it[k]
+                data = path.read_bytes()
                 assert hashlib.sha256(data).hexdigest() == it[k + 'Sha256'], f'{it[k]}: checksum mismatch'
+                kind = cm.sniff(path)
+                want = {'.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.mp4': 'video/mp4', '.webm': 'video/webm', '.ogv': 'video/ogg', '.avi': 'video/x-msvideo'}[path.suffix.lower()]
+                assert kind == want, f'{it[k]}: bytes are {kind}, extension says {want}'
                 listed.add(it[k])
-    on_disk = {p.name for p in base.iterdir() if p.suffix.lower() in ('.jpg', '.jpeg', '.png', '.mp4', '.webm', '.gif')}
+    for it in man.get('pending', []):
+        assert it['licenseClaimed'] in ok, f"{it['id']}: claimed licence not accepted"
+        assert it.get('pageUrl') and it.get('fetch') and it.get('quiz') and it.get('teach'), f"{it['id']}: pending entry incomplete"
+        assert not any(base.glob(it['id'] + '.*')), f"{it['id']}: media on disk but still pending — run the ingest"
+    media = ('.jpg', '.jpeg', '.png', '.mp4', '.webm', '.gif', '.ogv', '.avi', '.mov')
+    on_disk = {p.name for p in base.iterdir() if p.suffix.lower() in media}
+    src = base / 'source'
+    if src.exists():
+        on_disk |= {'source/' + p.name for p in src.iterdir() if p.suffix.lower() in media}  # *.fetch.json = fetch records
     assert on_disk == listed, f'unlisted or missing real images: {sorted(on_disk ^ listed)}'
-    print(f'Real images: {len(man["items"])} items, licences and checksums valid')
+    for name, fn in cm.DOCS.items():
+        assert (base / name).read_text() == fn(man), f'imaging/real/{name} is stale — run: python tools/clinical_media.py docs'
+    print(f'Real images: {len(man["items"])} items ({len(man.get("pending", []))} pending), licences, checksums, signatures and docs valid')
 
 
 if __name__ == '__main__':

@@ -571,3 +571,25 @@ details.card summary{cursor:pointer;font:600 14px var(--fs);margin-bottom:6px}
 .skip-link:focus{left:8px}
 /* phones: keep the scene toggles clear of the focus chips at the bottom */
 .phone.m-heart .scene-tools,.phone.m-abdomen .scene-tools{top:44px;bottom:auto}
+
+/* real clinical cases (RealCase): media, overlays, one-line attribution, attempt-then-reveal */
+.rc-pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px;margin-top:8px}.rc-pair:empty{display:none}
+.rcase{background:rgba(12,14,16,.72);border:1px solid rgba(210,229,238,.12);border-radius:10px;overflow:hidden;margin-top:6px;max-width:100%}
+.rc-frame{position:relative;background:#000;display:flex;justify-content:center;line-height:0}
+.rc-frame img,.rc-frame video{display:block;max-width:100%;max-height:min(58vh,520px);width:auto;height:auto;object-fit:contain}
+.rc-ov{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.rc-mk{fill:none;stroke-width:2}.rc-mk.landmark{stroke:#7fc4d8}.rc-mk.pathology{stroke:#e0645a;stroke-dasharray:5 3}
+.rc-lab{position:absolute;transform:translate(-50%,-120%);font:600 10.5px/1.2 var(--fm);padding:2px 5px;border-radius:4px;background:rgba(0,0,0,.72);white-space:nowrap;pointer-events:none}
+.rc-lab.landmark{color:#9fd6e6}.rc-lab.pathology{color:#f08a80}
+.rc-bar{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:6px 8px;border-top:1px solid rgba(210,229,238,.08)}
+.rc-bar .chip{padding:3px 9px;font-size:11.5px}.rc-bar .chip:disabled{opacity:.4}
+.rc-credit{margin-left:auto;font:500 10.5px var(--fm);color:var(--dim)}
+.linklike{background:none;border:0;padding:0;color:var(--gold);text-decoration:underline;cursor:pointer;font:inherit}
+.rc-info{padding:6px 10px;font-size:11.5px;border-top:1px solid rgba(210,229,238,.08);overflow-wrap:anywhere}.rc-info p{margin:0 0 4px}.rc-info a{color:var(--gold)}
+.rc-body{padding:8px 10px 10px;font-size:12.5px}.rc-body h4{margin:0 0 6px;font:600 13px var(--fs,inherit)}.rc-body p{margin:0 0 6px}
+.rc-q{font-weight:600}.rc-opts{display:grid;gap:5px}
+.rc-opt{text-align:left;background:var(--pane2);border:1px solid var(--line2);border-radius:8px;padding:6px 9px;color:var(--ink);font-size:12.5px;cursor:pointer}
+.rc-opt:disabled{cursor:default}.rc-opt.ok{border-color:var(--ok)}.rc-opt.bad{border-color:var(--bad)}.rc-opt.dim{opacity:.55}
+.rc-teach{margin:4px 0 0;padding-left:18px}.rc-teach li{margin-bottom:3px}
+.card.rc-wrap{padding:10px}
+.us-view:has(.rcase) .us-grid{flex:none}.imaging .rc-frame img,.imaging .rc-frame video{max-height:min(46vh,420px)}

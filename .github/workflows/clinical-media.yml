@@ -1,0 +1,44 @@
+# Fetch the staged real clinical media (imaging/real/manifest.json → "pending"), verify each licence from the source
+# itself (Wikimedia Commons API / the article page), transcode, validate and commit to visual-overhaul.
+# Manual only: Actions → "Fetch clinical media" → Run workflow. Never runs on, or pushes to, main.
+name: Fetch clinical media
+on:
+  workflow_dispatch:
+    inputs:
+      only:
+        description: 'Space-separated pending ids (blank = all pending)'
+        required: false
+        default: ''
+permissions:
+  contents: write
+jobs:
+  fetch:
+    if: github.ref == 'refs/heads/visual-overhaul'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: visual-overhaul
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install -q numpy
+      - name: Offline self-test
+        run: python tools/test_clinical_media.py
+      - name: Fetch originals with licence evidence
+        run: python tools/clinical_media.py fetch --out "$RUNNER_TEMP/media" ${{ inputs.only && format('--only {0}', inputs.only) || '' }}
+      - name: Ingest (verify, transcode, promote)
+        run: python tools/clinical_media.py ingest --from "$RUNNER_TEMP/media"
+      - name: Validate
+        run: python tools/validate_visual_assets.py
+      - name: Keep the fetch record
+        run: mkdir -p imaging/real/source && for d in "$RUNNER_TEMP"/media/*/; do cp "$d/meta.json" "imaging/real/source/$(basename "$d").fetch.json"; done
+      - name: Commit to visual-overhaul
+        run: |
+          git config user.name "clinical-media-bot"
+          git config user.email "clinical-media-bot@users.noreply.github.com"
+          git add imaging/real
+          git diff --cached --quiet && { echo "nothing new"; exit 0; }
+          git commit -m "Real clinical media fetched and verified from source (tools/clinical_media.py)"
+          git push origin HEAD:visual-overhaul

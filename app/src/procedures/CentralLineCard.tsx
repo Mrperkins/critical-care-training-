@@ -7,6 +7,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { Knob } from '../vent/VentPanel';
 import { useUI } from '../app/store';
 import { renderLinear, linearUV } from '../scene/ultrasound/bmode';
+import { RealCase } from '../scene/imaging/RealCase';
 import { clScene, clState, vesselCheck, CL_WIDTH, CL_DEPTH, type ClInput } from './centralLine';
 import { useCl, setCl, clPatient } from './clStore';
 
@@ -67,6 +68,7 @@ export function CentralLineCard() {
       <Knob label="Needle angle to skin" value={input.angle} min={20} max={70} step={5} unit="°" onChange={(v) => setCl({ angle: v })} />
       <Knob label="Advance" value={input.advance} min={0} max={5} step={0.1} unit=" cm" onChange={(v) => setCl({ advance: v })} />
       <p className="muted small" style={{ marginTop: 6 }}>Synthetic, schematic ultrasound generated from the model — not patient images. Distances are illustrative; follow your institution’s procedure and supervision requirements.</p>
+      <RealCase kind="ijv" title="Real IJ scan" />
     </section>
   );
 }

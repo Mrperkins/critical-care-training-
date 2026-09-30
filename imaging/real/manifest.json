@@ -146,6 +146,180 @@
   {
    "source": "covid19_ultrasound clip “Pneu_prospective_file3” (The Ultrasound Journal / Critical Ultrasound Journal 4:16, 2012, doi 10.1186/2036-7902-4-16)",
    "reason": "Listed as CC BY 2.0, but the article page could not be read to confirm authors and licence (rate-limited) — not included until verified."
+  },
+  {
+   "source": "CC BY-SA alternative IVC clip offered in the asset bundle",
+   "reason": "Share-alike is not on this project’s accepted list — kept out, as the bundle recommends."
+  }
+ ],
+ "pending": [
+  {
+   "id": "ptx-expiratory",
+   "kind": "ptx",
+   "type": "xray",
+   "modality": "Chest X-ray",
+   "finding": "pneumothorax",
+   "title": "Pneumothorax — film taken in expiration",
+   "caption": "A real chest film of a pneumothorax taken in expiration. Breathing out shrinks the lung but not the pleural air, so the edge of the lung stands out.",
+   "look": [
+    "A thin white line — the edge of the lung — separate from the chest wall",
+    "No lung markings between that line and the chest wall",
+    "The other side: markings reach the periphery",
+    "Mediastinum and trachea: pushed away from the air means tension"
+   ],
+   "teach": [
+    "Most pneumothoraces show on an ordinary inspiratory film; an expiratory film is not routine.",
+    "Tension is a clinical diagnosis — a crashing patient gets decompressed, not a film.",
+    "Skin folds and the scapula edge mimic a pleural line: lung markings continue past a fold, not past the lung edge."
+   ],
+   "quiz": {
+    "q": "Which sign confirms the pneumothorax on this film?",
+    "options": [
+     "A thin lung-edge line with no lung markings beyond it",
+     "Blunting of the costophrenic angle",
+     "One hemithorax whiter than the other",
+     "A widened mediastinum"
+    ],
+    "answer": 0,
+    "explain": "The visceral pleura (edge of the lung) seen as a line, with black, markingless air between it and the chest wall, is the sign. Blunting suggests fluid; a white hemithorax suggests fluid, collapse or consolidation."
+   },
+   "marks": [],
+   "fetch": {
+    "type": "commons",
+    "title": "File:Expired_X-ray_of_pneumothorax.jpg"
+   },
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Expired_X-ray_of_pneumothorax.jpg",
+   "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Expired_X-ray_of_pneumothorax.jpg",
+   "licenseClaimed": "CC0",
+   "claimedBy": "Asset bundle supplied by the course author, 2026-09-30. Not yet verified against the source page — the ingest tool records the verification."
+  },
+  {
+   "id": "fast-ruq-positive",
+   "kind": "fast",
+   "type": "ultrasound",
+   "modality": "FAST",
+   "finding": "free intraperitoneal fluid",
+   "title": "Positive FAST — right upper quadrant",
+   "caption": "A real hepatorenal (RUQ) view from a trauma FAST: a black, anechoic stripe of free fluid between the liver and the right kidney in Morison’s pouch.",
+   "look": [
+    "Liver in the near field",
+    "Right kidney below it",
+    "Morison’s pouch — the potential space between them",
+    "A black (anechoic) stripe of free fluid in that space"
+   ],
+   "teach": [
+    "Supine, Morison’s pouch is the lowest upper-abdominal space, so fluid gathers there first.",
+    "In an unstable trauma patient a positive FAST points to the abdomen as the bleeding source — theatre or angiography.",
+    "A negative FAST does not rule out injury: small volumes and retroperitoneal bleeding are missed. Repeat it when things change.",
+    "Clotted blood can look grey rather than black."
+   ],
+   "quiz": {
+    "q": "What is the black stripe between liver and kidney?",
+    "options": [
+     "Free intraperitoneal fluid in Morison’s pouch",
+     "Normal perirenal fat",
+     "The inferior vena cava",
+     "A rib shadow"
+    ],
+    "answer": 0,
+    "explain": "Fluid is anechoic (black). Between liver and kidney it sits in the hepatorenal recess — in trauma, blood until proven otherwise. Rib shadows are black bands that run from the probe straight down through everything."
+   },
+   "marks": [],
+   "fetch": {
+    "type": "commons",
+    "title": "File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv"
+   },
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv",
+   "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/70/Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv",
+   "articleDoi": "10.1186/1757-7241-17-34",
+   "licenseClaimed": "CC BY 2.0",
+   "claimedBy": "Asset bundle supplied by the course author, 2026-09-30. Not yet verified against the source page — the ingest tool records the verification."
+  },
+  {
+   "id": "ivc-2026-video-s1",
+   "kind": "ivc",
+   "type": "ultrasound",
+   "modality": "IVC POCUS",
+   "finding": "IVC traced into the right atrium",
+   "title": "IVC — long axis into the right atrium",
+   "caption": "A real subcostal long-axis scan following the inferior vena cava through the liver into the right atrium.",
+   "look": [
+    "The liver as the window",
+    "The IVC running into the right atrium (cavo-atrial junction)",
+    "A hepatic vein joining near the junction",
+    "Diameter change with breathing"
+   ],
+   "teach": [
+    "Prove it is the IVC by following it into the right atrium — the aorta lies deeper and to the left and never enters the heart.",
+    "Measure 1–2 cm below the hepatic-vein junction, at right angles to the vessel.",
+    "Small and collapsing fits a low right-atrial pressure; wide and fixed fits a high one.",
+    "It does not reliably predict who will respond to fluid: positive-pressure ventilation, raised abdominal pressure, RV failure, tricuspid regurgitation and vigorous breathing all change it.",
+    "Read it with the lungs, the heart, the patient and the trend — never alone."
+   ],
+   "quiz": {
+    "q": "A wide IVC that barely changes with breathing most directly tells you…",
+    "options": [
+     "Right-atrial pressure is high",
+     "The patient will respond to a fluid bolus",
+     "The patient is hypovolaemic",
+     "Cardiac output is low"
+    ],
+    "answer": 0,
+    "explain": "IVC size reflects right-atrial pressure. That can be high from volume, RV failure, tamponade, tricuspid regurgitation or positive pressure — it is not a verdict on fluid responsiveness."
+   },
+   "marks": [],
+   "fetch": {
+    "type": "springer",
+    "article": "https://link.springer.com/article/10.1186/s44348-026-00078-5",
+    "esm": 1
+   },
+   "pageUrl": "https://link.springer.com/article/10.1186/s44348-026-00078-5",
+   "articleDoi": "10.1186/s44348-026-00078-5",
+   "licenseClaimed": "CC BY 4.0",
+   "claimedBy": "Asset bundle supplied by the course author, 2026-09-30. Not yet verified against the source page — the ingest tool records the verification."
+  },
+  {
+   "id": "ijv-2026-video-s2",
+   "kind": "ijv",
+   "type": "ultrasound",
+   "modality": "Vascular access POCUS",
+   "finding": "IJV compressibility beside the carotid",
+   "title": "Internal jugular vein — compressibility",
+   "caption": "A real neck scan of the internal jugular vein and carotid artery: the vein collapses under probe pressure while the artery stays round.",
+   "look": [
+    "Carotid artery — round, thick-walled, pulsatile",
+    "Internal jugular vein — larger, thin-walled, oval",
+    "The vein collapses with gentle pressure; the artery does not",
+    "How the two lie: the vein lateral and superficial, often overlapping the artery"
+   ],
+   "teach": [
+    "Compressibility, shape and wall thickness identify the vein — confirm with a steady compression, not a glance.",
+    "Doppler colour shows direction relative to the probe, not artery or vein: red and blue alone prove nothing.",
+    "Veins can look pulsatile from transmitted pulsation; an artery still will not collapse.",
+    "Where the vein sits over the artery, a needle through both walls reaches the carotid — keep the tip in view.",
+    "A collapsing IJ in a hypovolaemic patient is a small target; head-down tilt fills it."
+   ],
+   "quiz": {
+    "q": "Which finding best identifies the vein?",
+    "options": [
+     "It collapses completely with gentle probe pressure",
+     "It shows blue on colour Doppler",
+     "It pulsates",
+     "It is the deeper vessel"
+    ],
+    "answer": 0,
+    "explain": "Veins collapse under light pressure; arteries do not. Colour depends on flow direction relative to the probe, veins can pulsate, and depth varies between people."
+   },
+   "marks": [],
+   "fetch": {
+    "type": "springer",
+    "article": "https://link.springer.com/article/10.1186/s44348-026-00078-5",
+    "esm": 2
+   },
+   "pageUrl": "https://link.springer.com/article/10.1186/s44348-026-00078-5",
+   "articleDoi": "10.1186/s44348-026-00078-5",
+   "licenseClaimed": "CC BY 4.0",
+   "claimedBy": "Asset bundle supplied by the course author, 2026-09-30. Not yet verified against the source page — the ingest tool records the verification."
   }
  ]
 }

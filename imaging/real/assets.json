@@ -1,0 +1,127 @@
+[
+ {
+  "id": "3fd337c1",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest X-ray",
+  "finding": "Portable AP film, ventilated patient",
+  "license": "CC BY 3.0",
+  "licenseVerified": true,
+  "sourceUrl": "COVID-19 Image Repository — https://github.com/ml-workgroup/covid-19-image-repository (copy retrieved from https://github.com/ieee8023/covid-chestxray-dataset, images/<id>.jpg)",
+  "localSources": {
+   "image": "imaging/real/cxr-mhh-ventilated-bilateral.jpg"
+  }
+ },
+ {
+  "id": "98c24e39",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest X-ray",
+  "finding": "Portable AP film, severe bilateral disease",
+  "license": "CC BY 3.0",
+  "licenseVerified": true,
+  "sourceUrl": "COVID-19 Image Repository — https://github.com/ml-workgroup/covid-19-image-repository (copy retrieved from https://github.com/ieee8023/covid-chestxray-dataset, images/<id>.jpg)",
+  "localSources": {
+   "image": "imaging/real/cxr-mhh-severe-bilateral.jpg"
+  }
+ },
+ {
+  "id": "bfefde5d",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest X-ray",
+  "finding": "Bedside film, lungs largely clear",
+  "license": "CC BY 3.0",
+  "licenseVerified": true,
+  "sourceUrl": "COVID-19 Image Repository — https://github.com/ml-workgroup/covid-19-image-repository (copy retrieved from https://github.com/ieee8023/covid-chestxray-dataset, images/<id>.jpg)",
+  "localSources": {
+   "image": "imaging/real/cxr-mhh-portable-clear.jpg"
+  }
+ },
+ {
+  "id": "alines",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Lung ultrasound",
+  "finding": "A-lines: aerated lung",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "“Role of point-of-care ultrasound during the COVID-19 pandemic: our recommendations in the management of dialytic patients”, The Ultrasound Journal 12:30 (2020), https://doi.org/10.1186/s13089-020-00177-4 (clip via https://github.com/jannisborn/covid19_ultrasound)",
+  "localSources": {
+   "poster": "imaging/real/lus-alines-vieira2020.jpg",
+   "mp4": "imaging/real/lus-alines-vieira2020.mp4"
+  }
+ },
+ {
+  "id": "blines",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Lung ultrasound",
+  "finding": "B-lines",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "“Sonographic signs and patterns of COVID-19 pneumonia”, The Ultrasound Journal 12:22 (2020), https://doi.org/10.1186/s13089-020-00171-w (clip via https://github.com/jannisborn/covid19_ultrasound)",
+  "localSources": {
+   "poster": "imaging/real/lus-blines-volpicelli2020.jpg",
+   "mp4": "imaging/real/lus-blines-volpicelli2020.mp4"
+  }
+ },
+ {
+  "id": "whitelung",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Lung ultrasound",
+  "finding": "White lung: confluent B-lines",
+  "license": "CC BY 2.0",
+  "licenseVerified": true,
+  "sourceUrl": "“Early recognition of the 2009 pandemic influenza A (H1N1) pneumonia by chest ultrasound”, Critical Care 16:R30 (2012), https://doi.org/10.1186/cc11201 (clip via https://github.com/jannisborn/covid19_ultrasound)",
+  "localSources": {
+   "poster": "imaging/real/lus-whitelung-testa2012.jpg",
+   "mp4": "imaging/real/lus-whitelung-testa2012.mp4"
+  }
+ },
+ {
+  "id": "ptx-expiratory",
+  "status": "pending",
+  "type": "xray",
+  "modality": "Chest X-ray",
+  "finding": "pneumothorax",
+  "license": "CC0",
+  "licenseVerified": false,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Expired_X-ray_of_pneumothorax.jpg",
+  "localSources": {}
+ },
+ {
+  "id": "fast-ruq-positive",
+  "status": "pending",
+  "type": "ultrasound",
+  "modality": "FAST",
+  "finding": "free intraperitoneal fluid",
+  "license": "CC BY 2.0",
+  "licenseVerified": false,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv",
+  "localSources": {}
+ },
+ {
+  "id": "ivc-2026-video-s1",
+  "status": "pending",
+  "type": "ultrasound",
+  "modality": "IVC POCUS",
+  "finding": "IVC traced into the right atrium",
+  "license": "CC BY 4.0",
+  "licenseVerified": false,
+  "sourceUrl": "https://link.springer.com/article/10.1186/s44348-026-00078-5",
+  "localSources": {}
+ },
+ {
+  "id": "ijv-2026-video-s2",
+  "status": "pending",
+  "type": "ultrasound",
+  "modality": "Vascular access POCUS",
+  "finding": "IJV compressibility beside the carotid",
+  "license": "CC BY 4.0",
+  "licenseVerified": false,
+  "sourceUrl": "https://link.springer.com/article/10.1186/s44348-026-00078-5",
+  "localSources": {}
+ }
+]

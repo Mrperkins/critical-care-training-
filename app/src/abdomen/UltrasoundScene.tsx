@@ -5,6 +5,7 @@ import { renderUs, US_WINDOWS, US_LABELS, usUV, type UsWindow } from './ultrasou
 import { IS_PHONE } from '../scene/Studio';
 import type { AbdomenState } from './state';
 import { useHideFindings } from '../challenge/caseStore';
+import { RealCase } from '../scene/imaging/RealCase';
 
 function UsPanel({ win, st }: { win: UsWindow; st: AbdomenState }) {
   const ref = useRef<HTMLCanvasElement>(null); const meta = US_WINDOWS.find((w) => w.id === win)!;
@@ -41,10 +42,11 @@ function ProbeMap({ st }: { st: AbdomenState }) {
   );
 }
 export function UltrasoundScene() {
-  const base = useAbdUI((s) => s.base); const minutes = useAbdUI((s) => s.minutes); const st = useMemo(() => currentAbdomen({ base, minutes }), [base, minutes]);
+  const base = useAbdUI((s) => s.base); const minutes = useAbdUI((s) => s.minutes); const st = useMemo(() => currentAbdomen({ base, minutes }), [base, minutes]); const hide = useHideFindings();
   return (
     <div className="imaging us-view">
       <div className="img-grid us-grid">{US_WINDOWS.map((w) => <UsPanel key={w.id} win={w.id} st={st} />)}<ProbeMap st={st} /></div>
+      {!hide && <div className="rc-pair"><RealCase kind="fast" title="Real positive FAST" /><RealCase kind="ivc" title="Real IVC scan" /></div>}
       <div className="img-bar"><p className="img-note">Synthetic teaching ultrasound generated from the model state — not patient scans. Free fluid is black (anechoic); FAST sees only intraperitoneal and pericardial fluid, never the retroperitoneum.</p></div>
     </div>
   );

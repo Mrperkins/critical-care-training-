@@ -17,6 +17,7 @@ import { FlushCard, NumbersCard, SetupCard, LineCard, TreatCard } from './LinesP
 import { LINES_TIMELINES } from '../director/lessons/lines';
 import { O2Card } from './O2Card';
 import { LinesNormals } from './LinesNormals';
+import { RealCase } from '../scene/imaging/RealCase';
 
 export function applyStep(d: LStepDo, fresh = false) {
   const ui = useLinesUI.getState();
@@ -48,7 +49,7 @@ export function LinesLearn() {
       apply={(l, i) => { if (i === 0) lines.setNore(0); applyStep(l.steps[i].do); }}
       reference={() => <LinesNormals />}
     >
-      {(l, i) => { const d = l.steps[i].do; return <>{d.flush && <FlushCard />}{(d.below != null || d.fromHob != null || d.hob != null) && <SetupCard />}{d.zeroWrong && <LineCard id={d.zeroWrong} faults={false} />}<NumbersCard /></>; }}
+      {(l, i) => { const d = l.steps[i].do; return <>{d.flush && <FlushCard />}{(d.below != null || d.fromHob != null || d.hob != null) && <SetupCard />}{d.zeroWrong && <LineCard id={d.zeroWrong} faults={false} />}<NumbersCard />{l.id === 'ln-heartlung' && <RealCase kind="ivc" title="Real IVC scan" card />}</>; }}
     </LessonShell>
   );
 }
