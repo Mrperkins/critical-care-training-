@@ -72,13 +72,13 @@ Live Pages HTML contains the Nav1.5 loader from `07e29e4`. Cell, 9RON, and 9P24 
 - Added AQP4 from the full 3GD8 biological assembly (four 223-residue chains, 21,312 triangles). Selected AQP4 uses this mesh at HIGH/MEDIUM, with the existing procedural proxy at LOW. No water/volume physiology changes.
 
 ## CURRENT SLICE
-Accessibility / performance pass.
+Full regression / visual QA, then live-site check.
 
 ## EXACT RESUME POINT
-Directive order remaining: accessibility/performance → full regression/visual QA → live-site check.
-1. Accessibility: keyboard reachability of every module's controls (view buttons, chips, knobs), focus-visible styles, aria-labels on canvases (imaging panels have captions; check 3D canvases), colour-contrast of muted text, `prefers-reduced-motion` for waveforms / ultrasound animation / auto-rotating scenes, touch target sizes on phone.
-2. Performance: lazy-load heavy modules if bundle allows (bundle 2.18 MB), pause RAF loops of hidden modules, cap DPR on phones, check imaging render cost (LUS four zones animate at 7 fps).
-Explore: Heart / Abdomen / Brain explore panes already expose presets + controls; add a per-module "Reset" if the QA pass finds a stuck state.
+Directive order remaining: full regression/visual QA → live-site check.
+1. Visual QA sweep: every module × mode × desktop/phone screenshot (Playwright + swiftshader, serve the repo root on :8811), every Director lesson at 3 timestamps, every imaging view, every workflow; log page errors; fix clipping/overlap.
+2. Live-site check after push: https://mrperkins.github.io/critical-care-training-/ serves the new build (doctype present, `imaging/real/manifest.json` 200, models 200).
+Remaining from a11y: a skip link; confirm 3D mesh picking (Labs organs) has button equivalents in each module; bundle is one 2.2 MB inline script (code-splitting needs ESM output + separate files — only if phone load time is a problem).
 Follow-ups (not blocking): real pneumothorax film and real FAST / IJ / IVC clips need a reachable CC0/CC BY source (Wikimedia is blocked from the shell); coagulation engine in SyntheticPatient (then real adapters for TXA / PCC / vitamin K / protamine); NCCT ventricle size from hydrocephalus (the `hydrocephalus` ICP flag currently adds no volume for an ICH); malpositioned ETT; abdomen lesson branches; voice tracks; vent "goal" challenges do not record attempts.
 
 ## NEXT 10 SLICES
