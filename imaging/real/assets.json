@@ -139,5 +139,16 @@
    "poster": "imaging/real/ijv-2026-video-s2.jpg",
    "mp4": "imaging/real/ijv-2026-video-s2.mp4"
   }
+ },
+ {
+  "id": "lus-lung-point-gillman",
+  "status": "pending",
+  "type": "ultrasound",
+  "modality": "Lung ultrasound",
+  "finding": "lung point (pneumothorax)",
+  "license": "CC BY 2.0",
+  "licenseVerified": false,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv",
+  "localSources": {}
  }
 ]

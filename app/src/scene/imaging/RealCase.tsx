@@ -52,9 +52,9 @@ export function RealCaseCard({ it }: { it: RealItem }) {
       <div className="rc-bar">
         {isVideo && <button className="chip" onClick={() => setPlaying(!playing)} aria-pressed={!playing}>{playing ? '❚❚ Pause' : '▶ Play'}</button>}
         {has('landmark') && <button className={`chip${layers.landmark ? ' on' : ''}`} disabled={!answered} aria-pressed={layers.landmark} onClick={() => toggle('landmark')}>Show landmarks</button>}
-        {has('pathology') && <button className={`chip${layers.pathology ? ' on' : ''}`} disabled={!answered} aria-pressed={layers.pathology} onClick={() => toggle('pathology')}>Show pathology</button>}
+        {has('pathology') && <button className={`chip${layers.pathology ? ' on' : ''}`} disabled={!answered} aria-pressed={layers.pathology} onClick={() => toggle('pathology')}>{it.findingLabel ?? 'Show pathology'}</button>}
         <span className="rc-credit">
-          Real clinical {isVideo ? 'clip' : 'image'} · {cc0 ? 'CC0' : it.license} ·{' '}
+          Real clinical {isVideo ? 'clip' : 'image'} · {it.credit ?? (cc0 ? 'CC0' : it.license)} ·{' '}
           <button className="linklike" onClick={() => setInfo(!info)} aria-expanded={info}>Source</button>
         </span>
       </div>

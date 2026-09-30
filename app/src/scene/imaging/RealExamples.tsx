@@ -9,9 +9,9 @@ export interface RealMark { layer: 'landmark' | 'pathology'; label: string; shap
 export interface RealItem {
   file: string; poster?: string; webm?: string; posterAt?: number;
   /** xray / lus: comparison strips; ptx / fast / ivc / ijv: single-case teaching items (RealCase) */
-  kind: 'xray' | 'lus' | 'ptx' | 'fast' | 'ivc' | 'ijv'; id: string; title: string; caption: string; look: string[];
+  kind: 'xray' | 'lus' | 'ptx' | 'fast' | 'ivc' | 'ijv' | 'ptxlus'; id: string; title: string; caption: string; look: string[];
   teach?: string[]; quiz?: { q: string; options: string[]; answer: number; explain: string }; marks?: RealMark[];
-  license: string; licenseUrl: string; author: string; source: string; changes: string; credit?: string;
+  license: string; licenseUrl: string; author: string; source: string; changes: string; credit?: string; /** button text for the pathology layer, e.g. “Show the collapse point” */ findingLabel?: string;
   provenance?: { pageUrl: string; originalUrl: string; doi?: string; retrieved: string };
 }
 let cache: Promise<RealItem[]> | null = null;

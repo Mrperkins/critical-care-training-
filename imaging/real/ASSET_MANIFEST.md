@@ -83,18 +83,18 @@ so ingested media appear without rebuilding `index.html`. Overlay marks (`marks`
 | Modifications | Cropped (dataset), first 3.5 s re-encoded to H.264 480 px; poster frame at 1.2 s. |
 | Required attribution | Americo Testa, Gino Soldati, Roberto Copetti, Rosangela Giannuzzi, Grazia Portale, Nicolò Gentiloni-Silveri. “Early recognition of the 2009 pandemic influenza A (H1N1) pneumonia by chest ultrasound”, Critical Care 16:R30 (2012), https://doi.org/10.1186/cc11201 (clip via https://github.com/jannisborn/covid19_ultrasound). CC BY 2.0. |
 
-## ptx-expiratory — Pneumothorax — film taken in expiration
+## ptx-expiratory — Left pneumothorax — film taken in expiration
 
 | Field | Value |
 |---|---|
 | Local file(s) | `imaging/real/ptx-expiratory.jpg` |
 | Clinical purpose | pneumothorax (ptx) |
-| Creator / authors | Mikael Häggström , M.D. Author info - Reusing images - Conflicts of interest: None Mikael Häggström , M.D. Consent note : Written informed consent was obtained from the individual, including online publication. |
-| Source | Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Expired_X-ray_of_pneumothorax.jpg |
+| Creator / authors | Mikael Häggström, M.D. |
+| Source | Wikimedia Commons, own work (5 March 2018) — https://commons.wikimedia.org/wiki/File:Expired_X-ray_of_pneumothorax.jpg |
 | Licence | CC0 — http://creativecommons.org/publicdomain/zero/1.0/deed.en |
 | Modifications | None — the displayed file is the original, byte for byte. |
-| Required attribution | Mikael Häggström , M.D. Author info - Reusing images - Conflicts of interest: None Mikael Häggström , M.D. Consent note : Written informed consent was obtained from the individual, including online publication.. Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Expired_X-ray_of_pneumothorax.jpg. CC0. |
-| Original title | edit Anteroposterior, inspired. Original image . Lateral, inspired. Original image . Anteroposterior, expired. These are two X-rays taken at the same time of a  |
+| Required attribution | Mikael Häggström, M.D.. Wikimedia Commons, own work (5 March 2018) — https://commons.wikimedia.org/wiki/File:Expired_X-ray_of_pneumothorax.jpg. CC0. |
+| Original title | Expired X-ray of pneumothorax — anteroposterior film taken in expiration (the Commons page also shows the inspiratory AP and lateral films of the same patient) |
 | Source page | https://commons.wikimedia.org/wiki/File:Expired_X-ray_of_pneumothorax.jpg |
 | Original media URL | https://upload.wikimedia.org/wikipedia/commons/c/c6/Expired_X-ray_of_pneumothorax.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original |
 | DOI | — |
@@ -113,10 +113,10 @@ so ingested media appear without rebuilding `index.html`. Overlay marks (`marks`
 | Local file(s) | `imaging/real/fast-ruq-positive.mp4` · `imaging/real/fast-ruq-positive.webm` · `imaging/real/fast-ruq-positive.jpg` · `imaging/real/source/fast-ruq-positive-source.ogv` |
 | Clinical purpose | free intraperitoneal fluid (fast) |
 | Creator / authors | Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A |
-| Source | Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv (from https://doi.org/10.1186/1757-7241-17-34) |
+| Source | “Clinician performed resuscitative ultrasonography for the initial evaluation and resuscitation of trauma”, Scandinavian Journal of Trauma, Resuscitation and Emergency Medicine 17:34 (2009), https://doi.org/10.1186/1757-7241-17-34 — supplementary video S1 (“Positive FAST of Hepatorenal Fossa”), via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv |
 | Licence | CC BY 2.0 — https://creativecommons.org/licenses/by/2.0 |
-| Modifications | Original OGV (theora, 720×480, 0 fps, 6.002 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio removed; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s. |
-| Required attribution | Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A. Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv (from https://doi.org/10.1186/1757-7241-17-34). CC BY 2.0. |
+| Modifications | Original Ogg Theora (720×480 stored with 8:9 pixels, shown at 4:3; 29.97 fps; 6.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) with the same frames, pixel aspect and length; Vorbis audio removed; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s. |
+| Required attribution | Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A. “Clinician performed resuscitative ultrasonography for the initial evaluation and resuscitation of trauma”, Scandinavian Journal of Trauma, Resuscitation and Emergency Medicine 17:34 (2009), https://doi.org/10.1186/1757-7241-17-34 — supplementary video S1 (“Positive FAST of Hepatorenal Fossa”), via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv. CC BY 2.0. |
 | Original title | Positive FAST of Hepatorenal Fossa. Resuscitative ultrasound video of the hepatorenal fossa demonstrating free intra-peritoneal fluid seen as a hypoechoic strip |
 | Source page | https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv |
 | Original media URL | https://upload.wikimedia.org/wikipedia/commons/7/70/Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original |
@@ -129,17 +129,17 @@ so ingested media appear without rebuilding `index.html`. Overlay marks (`marks`
 | Licence evidence | Wikimedia Commons API extmetadata for File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AClinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
 | Verified by | tools/clinical_media.py fetch |
 
-## ivc-2026-video-s1 — IVC — long axis into the right atrium
+## ivc-2026-video-s1 — IVC — long axis under the liver
 
 | Field | Value |
 |---|---|
 | Local file(s) | `imaging/real/ivc-2026-video-s1.mp4` · `imaging/real/ivc-2026-video-s1.webm` · `imaging/real/ivc-2026-video-s1.jpg` |
 | Clinical purpose | IVC traced into the right atrium (ivc) |
 | Creator / authors | Nathan C. Shaul, Alan M. Smeltz, Evan J. Raff, Shawn Jia, Lauriane Guichard, Daniel J. Rosenkrans, Jay W. Schoenherr, Jacob D. Acton, Duncan J. McLean, Mark E. Henry, Alexander Doyal |
-| Source | “Point-of-care ultrasound to evaluate volume status in congestive heart failure”, Journal of cardiovascular imaging 34:17 (2026), https://doi.org/10.1186/s44348-026-00078-5 — supplementary item 1, https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM1_ESM.avi |
+| Source | “Point-of-care ultrasound to evaluate volume status in congestive heart failure”, Journal of Cardiovascular Imaging 34:17 (2026), https://doi.org/10.1186/s44348-026-00078-5 — supplementary item 1, https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM1_ESM.avi |
 | Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
-| Modifications | Original AVI (mpeg4, 1692×1692, 23.833 fps, 15.902 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; downscaled 1692×1692 → 1280 px wide (aspect kept); audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s. |
-| Required attribution | Nathan C. Shaul, Alan M. Smeltz, Evan J. Raff, Shawn Jia, Lauriane Guichard, Daniel J. Rosenkrans, Jay W. Schoenherr, Jacob D. Acton, Duncan J. McLean, Mark E. Henry, Alexander Doyal. “Point-of-care ultrasound to evaluate volume status in congestive heart failure”, Journal of cardiovascular imaging 34:17 (2026), https://doi.org/10.1186/s44348-026-00078-5 — supplementary item 1, https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM1_ESM.avi. CC BY 4.0. |
+| Modifications | Original AVI (mpeg4, 1692×1692, 23.833 fps, 15.902 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; downscaled 1692×1692 → 1280 px wide (aspect kept); audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 9.0 s. |
+| Required attribution | Nathan C. Shaul, Alan M. Smeltz, Evan J. Raff, Shawn Jia, Lauriane Guichard, Daniel J. Rosenkrans, Jay W. Schoenherr, Jacob D. Acton, Duncan J. McLean, Mark E. Henry, Alexander Doyal. “Point-of-care ultrasound to evaluate volume status in congestive heart failure”, Journal of Cardiovascular Imaging 34:17 (2026), https://doi.org/10.1186/s44348-026-00078-5 — supplementary item 1, https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM1_ESM.avi. CC BY 4.0. |
 | Original title | Point-of-care ultrasound to evaluate volume status in congestive heart failure |
 | Source page | https://doi.org/10.1186/s44348-026-00078-5 |
 | Original media URL | https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM1_ESM.avi |
@@ -152,17 +152,17 @@ so ingested media appear without rebuilding `index.html`. Overlay marks (`marks`
 | Licence evidence | Europe PMC full text of PMC13343992 (doi 10.1186/s44348-026-00078-5), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original auth”; supplementary item 1 caption checked for a separate credit. |
 | Verified by | tools/clinical_media.py fetch |
 
-## ijv-2026-video-s2 — Internal jugular vein — compressibility
+## ijv-2026-video-s2 — Internal jugular vein — long axis and collapse point
 
 | Field | Value |
 |---|---|
 | Local file(s) | `imaging/real/ijv-2026-video-s2.mp4` · `imaging/real/ijv-2026-video-s2.webm` · `imaging/real/ijv-2026-video-s2.jpg` · `imaging/real/source/ijv-2026-video-s2-source.avi` |
 | Clinical purpose | IJV compressibility beside the carotid (ijv) |
 | Creator / authors | Nathan C. Shaul, Alan M. Smeltz, Evan J. Raff, Shawn Jia, Lauriane Guichard, Daniel J. Rosenkrans, Jay W. Schoenherr, Jacob D. Acton, Duncan J. McLean, Mark E. Henry, Alexander Doyal |
-| Source | “Point-of-care ultrasound to evaluate volume status in congestive heart failure”, Journal of cardiovascular imaging 34:17 (2026), https://doi.org/10.1186/s44348-026-00078-5 — supplementary item 2, https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM2_ESM.avi |
+| Source | “Point-of-care ultrasound to evaluate volume status in congestive heart failure”, Journal of Cardiovascular Imaging 34:17 (2026), https://doi.org/10.1186/s44348-026-00078-5 — supplementary item 2, https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM2_ESM.avi |
 | Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
-| Modifications | Original AVI (mpeg4, 1692×1692, 17.333 fps, 15.404 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; downscaled 1692×1692 → 1280 px wide (aspect kept); audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s. |
-| Required attribution | Nathan C. Shaul, Alan M. Smeltz, Evan J. Raff, Shawn Jia, Lauriane Guichard, Daniel J. Rosenkrans, Jay W. Schoenherr, Jacob D. Acton, Duncan J. McLean, Mark E. Henry, Alexander Doyal. “Point-of-care ultrasound to evaluate volume status in congestive heart failure”, Journal of cardiovascular imaging 34:17 (2026), https://doi.org/10.1186/s44348-026-00078-5 — supplementary item 2, https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM2_ESM.avi. CC BY 4.0. |
+| Modifications | Original AVI (mpeg4, 1692×1692, 17.333 fps, 15.404 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; downscaled 1692×1692 → 1280 px wide (aspect kept); audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 10.0 s. |
+| Required attribution | Nathan C. Shaul, Alan M. Smeltz, Evan J. Raff, Shawn Jia, Lauriane Guichard, Daniel J. Rosenkrans, Jay W. Schoenherr, Jacob D. Acton, Duncan J. McLean, Mark E. Henry, Alexander Doyal. “Point-of-care ultrasound to evaluate volume status in congestive heart failure”, Journal of Cardiovascular Imaging 34:17 (2026), https://doi.org/10.1186/s44348-026-00078-5 — supplementary item 2, https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM2_ESM.avi. CC BY 4.0. |
 | Original title | Point-of-care ultrasound to evaluate volume status in congestive heart failure |
 | Source page | https://doi.org/10.1186/s44348-026-00078-5 |
 | Original media URL | https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM2_ESM.avi |
@@ -174,6 +174,14 @@ so ingested media appear without rebuilding `index.html`. Overlay marks (`marks`
 | Original preserved | imaging/real/source/ijv-2026-video-s2-source.avi |
 | Licence evidence | Europe PMC full text of PMC13343992 (doi 10.1186/s44348-026-00078-5), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original auth”; supplementary item 2 caption checked for a separate credit. |
 | Verified by | tools/clinical_media.py fetch |
+
+## Pending — staged, not yet in the app
+
+Teaching content is written; the media has not been downloaded and the licence has not been verified from the source.
+
+| ID | Finding | Claimed licence | Source page |
+|---|---|---|---|
+| lus-lung-point-gillman | lung point (pneumothorax) | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv |
 
 ## Considered and rejected
 

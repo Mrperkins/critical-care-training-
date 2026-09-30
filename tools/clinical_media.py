@@ -327,8 +327,9 @@ def ingest_image(it: dict, orig: Path, kind: str) -> tuple[dict, str, dict]:
 
 def credit_line(meta: dict, lic: str) -> str:
     who = meta.get('authors') or 'Unknown author'
-    names = [n.strip() for n in re.split(r',| and ', who) if n.strip()]
-    lead = names[0].split()[-1] + ' et al.' if len(names) > 2 else ' & '.join(n.split()[-1] for n in names) if names else who
+    names = [n.strip() for n in re.split(r',| and ', who.replace(', M.D.', '')) if n.strip()]
+    sur = lambda n: n.split()[0] if re.fullmatch(r'[A-Z]{1,3}', n.split()[-1]) and len(n.split()) > 1 else n.replace(', M.D.', '').split()[-1]  # 'Gillman L' or 'Nathan C. Shaul'
+    lead = sur(names[0]) + ' et al.' if len(names) > 2 else ' & '.join(sur(n) for n in names) if names else who
     year = (re.search(r'\d{4}', meta.get('published') or '') or [''])[0]
     pub = meta.get('publication') or ('Wikimedia Commons' if 'wikimedia' in meta.get('pageUrl', '') else '')
     return ', '.join(x for x in (lead, pub, year) if x) + f' · {lic}'

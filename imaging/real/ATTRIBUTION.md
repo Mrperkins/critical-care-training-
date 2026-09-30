@@ -45,32 +45,32 @@ Real, openly licensed clinical images shown beside the synthetic ones. Only CC0 
 - Changes: Cropped (dataset), first 3.5 s re-encoded to H.264 480 px; poster frame at 1.2 s.
 
 ## ptx-expiratory.jpg
-- Pneumothorax — film taken in expiration — A real chest film of a pneumothorax taken in expiration. Breathing out shrinks the lung but not the pleural air, so the edge of the lung stands out.
-- Author: Mikael Häggström , M.D. Author info - Reusing images - Conflicts of interest: None Mikael Häggström , M.D. Consent note : Written informed consent was obtained from the individual, including online publication.
-- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Expired_X-ray_of_pneumothorax.jpg
+- Left pneumothorax — film taken in expiration — Upright AP film taken in expiration. The “Sin” marker (sinister = left) sits over the image right, so the patient’s left is on your right. At the top of the left chest is black air with no lung markings, above a thin white line where the edge of the left upper lobe has fallen away from the chest wall — a left apical pneumothorax. The trachea and mediastinum stay central: not tension.
+- Author: Mikael Häggström, M.D.
+- Source: Wikimedia Commons, own work (5 March 2018) — https://commons.wikimedia.org/wiki/File:Expired_X-ray_of_pneumothorax.jpg
 - Licence: CC0 (http://creativecommons.org/publicdomain/zero/1.0/deed.en)
 - Changes: None — the displayed file is the original, byte for byte.
 
 ## fast-ruq-positive.mp4
-- Positive FAST — right upper quadrant — A real hepatorenal (RUQ) view from a trauma FAST: a black, anechoic stripe of free fluid between the liver and the right kidney in Morison’s pouch.
+- Positive FAST — right upper quadrant — Right-upper-quadrant (hepatorenal) view, probe marker toward the head. Liver in the near field, right kidney beneath it, and between them a thin black crescent of free fluid in Morison’s pouch. The probe then sweeps toward the liver tip, where more fluid shows.
 - Author: Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A
-- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv (from https://doi.org/10.1186/1757-7241-17-34)
+- Source: “Clinician performed resuscitative ultrasonography for the initial evaluation and resuscitation of trauma”, Scandinavian Journal of Trauma, Resuscitation and Emergency Medicine 17:34 (2009), https://doi.org/10.1186/1757-7241-17-34 — supplementary video S1 (“Positive FAST of Hepatorenal Fossa”), via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv
 - Licence: CC BY 2.0 (https://creativecommons.org/licenses/by/2.0)
-- Changes: Original OGV (theora, 720×480, 0 fps, 6.002 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio removed; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s.
+- Changes: Original Ogg Theora (720×480 stored with 8:9 pixels, shown at 4:3; 29.97 fps; 6.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) with the same frames, pixel aspect and length; Vorbis audio removed; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s.
 
 ## ivc-2026-video-s1.mp4
-- IVC — long axis into the right atrium — A real subcostal long-axis scan following the inferior vena cava through the liver into the right atrium.
+- IVC — long axis under the liver — Subxiphoid long-axis scan. The inferior vena cava is the dark tube running across the screen deep to the liver, with a hepatic vein above it. The patient’s head is to the screen left: followed that way, the IVC reaches its junction with the right atrium. The probe rocks during the clip, so the view changes.
 - Author: Nathan C. Shaul, Alan M. Smeltz, Evan J. Raff, Shawn Jia, Lauriane Guichard, Daniel J. Rosenkrans, Jay W. Schoenherr, Jacob D. Acton, Duncan J. McLean, Mark E. Henry, Alexander Doyal
-- Source: “Point-of-care ultrasound to evaluate volume status in congestive heart failure”, Journal of cardiovascular imaging 34:17 (2026), https://doi.org/10.1186/s44348-026-00078-5 — supplementary item 1, https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM1_ESM.avi
+- Source: “Point-of-care ultrasound to evaluate volume status in congestive heart failure”, Journal of Cardiovascular Imaging 34:17 (2026), https://doi.org/10.1186/s44348-026-00078-5 — supplementary item 1, https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM1_ESM.avi
 - Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
-- Changes: Original AVI (mpeg4, 1692×1692, 23.833 fps, 15.902 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; downscaled 1692×1692 → 1280 px wide (aspect kept); audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s.
+- Changes: Original AVI (mpeg4, 1692×1692, 23.833 fps, 15.902 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; downscaled 1692×1692 → 1280 px wide (aspect kept); audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 9.0 s.
 
 ## ijv-2026-video-s2.mp4
-- Internal jugular vein — compressibility — A real neck scan of the internal jugular vein and carotid artery: the vein collapses under probe pressure while the artery stays round.
+- Internal jugular vein — long axis and collapse point — Long-axis neck scan with a linear probe. The internal jugular vein is the superficial dark tube; the carotid artery runs deeper and parallel to it. Where the vein’s walls come together is its collapse point. With probe pressure the vein flattens while the carotid stays open and pulses.
 - Author: Nathan C. Shaul, Alan M. Smeltz, Evan J. Raff, Shawn Jia, Lauriane Guichard, Daniel J. Rosenkrans, Jay W. Schoenherr, Jacob D. Acton, Duncan J. McLean, Mark E. Henry, Alexander Doyal
-- Source: “Point-of-care ultrasound to evaluate volume status in congestive heart failure”, Journal of cardiovascular imaging 34:17 (2026), https://doi.org/10.1186/s44348-026-00078-5 — supplementary item 2, https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM2_ESM.avi
+- Source: “Point-of-care ultrasound to evaluate volume status in congestive heart failure”, Journal of Cardiovascular Imaging 34:17 (2026), https://doi.org/10.1186/s44348-026-00078-5 — supplementary item 2, https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM2_ESM.avi
 - Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
-- Changes: Original AVI (mpeg4, 1692×1692, 17.333 fps, 15.404 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; downscaled 1692×1692 → 1280 px wide (aspect kept); audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s.
+- Changes: Original AVI (mpeg4, 1692×1692, 17.333 fps, 15.404 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; downscaled 1692×1692 → 1280 px wide (aspect kept); audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 10.0 s.
 
 ## Considered and rejected
 

@@ -131,43 +131,121 @@
    "type": "xray",
    "modality": "Chest X-ray",
    "finding": "pneumothorax",
-   "title": "Pneumothorax — film taken in expiration",
-   "caption": "A real chest film of a pneumothorax taken in expiration. Breathing out shrinks the lung but not the pleural air, so the edge of the lung stands out.",
+   "title": "Left pneumothorax — film taken in expiration",
+   "caption": "Upright AP film taken in expiration. The “Sin” marker (sinister = left) sits over the image right, so the patient’s left is on your right. At the top of the left chest is black air with no lung markings, above a thin white line where the edge of the left upper lobe has fallen away from the chest wall — a left apical pneumothorax. The trachea and mediastinum stay central: not tension.",
    "look": [
-    "A thin white line — the edge of the lung — separate from the chest wall",
-    "No lung markings between that line and the chest wall",
-    "The other side: markings reach the periphery",
-    "Mediastinum and trachea: pushed away from the air means tension"
+    "The “Sin” marker: patient’s left is on the image right",
+    "Left apex: black, markingless air",
+    "The lung edge — a thin white line just above the ECG electrode ring",
+    "Right lung: markings reach the chest wall",
+    "Trachea central; below the left diaphragm, stomach gas with a flat fluid level"
    ],
    "teach": [
-    "Most pneumothoraces show on an ordinary inspiratory film; an expiratory film is not routine.",
-    "Tension is a clinical diagnosis — a crashing patient gets decompressed, not a film.",
-    "Skin folds and the scapula edge mimic a pleural line: lung markings continue past a fold, not past the lung edge."
+    "Breathing out shrinks the lung but not the trapped pleural air, so a small pneumothorax is easier to see — expiratory films are not routine; an ordinary inspiratory film shows most.",
+    "Upright, pleural air rises to the apex; supine, it collects in front and at the base (the deep sulcus sign) instead.",
+    "Follow the markings to where they stop — skin folds, the scapula edge and external wires make lines too, but lung markings continue past them.",
+    "Tension is a clinical diagnosis — a crashing patient gets decompressed, not a film. Here the mediastinum is central."
    ],
    "quiz": {
-    "q": "Which sign confirms the pneumothorax on this film?",
+    "q": "Where is the pneumothorax on this film?",
     "options": [
-     "A thin lung-edge line with no lung markings beyond it",
-     "Blunting of the costophrenic angle",
-     "One hemithorax whiter than the other",
-     "A widened mediastinum"
+     "Left apex",
+     "Right apex",
+     "Left base",
+     "Both lungs"
     ],
     "answer": 0,
-    "explain": "The visceral pleura (edge of the lung) seen as a line, with black, markingless air between it and the chest wall, is the sign. Blunting suggests fluid; a white hemithorax suggests fluid, collapse or consolidation."
+    "explain": "The “Sin” (left) marker is on the image right. On that side the top of the chest is black with no markings above a thin lung-edge line. The black area under the left diaphragm is stomach gas — it has a flat fluid level and sits below the diaphragm."
    },
-   "marks": [],
+   "marks": [
+    {
+     "layer": "pathology",
+     "label": "Lung edge (visceral pleura)",
+     "shape": "line",
+     "x": 0.66,
+     "y": 0.43,
+     "pts": [
+      [
+       0.593,
+       0.426
+      ],
+      [
+       0.644,
+       0.428
+      ],
+      [
+       0.714,
+       0.433
+      ],
+      [
+       0.783,
+       0.428
+      ]
+     ],
+     "lx": 0.66,
+     "ly": 0.465
+    },
+    {
+     "layer": "pathology",
+     "label": "Pleural air — no markings",
+     "shape": "ellipse",
+     "x": 0.679,
+     "y": 0.329,
+     "rx": 0.08,
+     "ry": 0.095
+    },
+    {
+     "layer": "landmark",
+     "label": "“Sin” = patient’s left",
+     "shape": "point",
+     "x": 0.889,
+     "y": 0.063,
+     "lx": 0.84,
+     "ly": 0.12
+    },
+    {
+     "layer": "landmark",
+     "label": "Trachea — central",
+     "shape": "point",
+     "x": 0.5,
+     "y": 0.209
+    },
+    {
+     "layer": "landmark",
+     "label": "Right lung: markings to the edge",
+     "shape": "point",
+     "x": 0.159,
+     "y": 0.456
+    },
+    {
+     "layer": "landmark",
+     "label": "ECG electrode (outside the chest)",
+     "shape": "point",
+     "x": 0.741,
+     "y": 0.426,
+     "lx": 0.8,
+     "ly": 0.395
+    },
+    {
+     "layer": "landmark",
+     "label": "Stomach gas under the diaphragm",
+     "shape": "point",
+     "x": 0.752,
+     "y": 0.817
+    }
+   ],
    "file": "ptx-expiratory.jpg",
    "license": "CC0",
    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-   "author": "Mikael Häggström , M.D. Author info - Reusing images - Conflicts of interest: None Mikael Häggström , M.D. Consent note : Written informed consent was obtained from the individual, including online publication.",
-   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Expired_X-ray_of_pneumothorax.jpg",
-   "credit": "Häggström et al., Wikimedia Commons, 2018 · CC0",
+   "author": "Mikael Häggström, M.D.",
+   "source": "Wikimedia Commons, own work (5 March 2018) — https://commons.wikimedia.org/wiki/File:Expired_X-ray_of_pneumothorax.jpg",
+   "credit": "Häggström, Wikimedia Commons, 2018 · CC0",
    "changes": "None — the displayed file is the original, byte for byte.",
    "provenance": {
     "pageUrl": "https://commons.wikimedia.org/wiki/File:Expired_X-ray_of_pneumothorax.jpg",
     "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Expired_X-ray_of_pneumothorax.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
     "doi": "",
-    "originalTitle": "edit Anteroposterior, inspired. Original image . Lateral, inspired. Original image . Anteroposterior, expired. These are two X-rays taken at the same time of a ",
+    "originalTitle": "Expired X-ray of pneumothorax — anteroposterior film taken in expiration (the Commons page also shows the inspiratory AP and lateral films of the same patient)",
     "published": "2018-03-05",
     "retrieved": "2026-09-30T18:32Z",
     "originalName": "Expired_X-ray_of_pneumothorax.jpg",
@@ -193,12 +271,13 @@
    "modality": "FAST",
    "finding": "free intraperitoneal fluid",
    "title": "Positive FAST — right upper quadrant",
-   "caption": "A real hepatorenal (RUQ) view from a trauma FAST: a black, anechoic stripe of free fluid between the liver and the right kidney in Morison’s pouch.",
+   "caption": "Right-upper-quadrant (hepatorenal) view, probe marker toward the head. Liver in the near field, right kidney beneath it, and between them a thin black crescent of free fluid in Morison’s pouch. The probe then sweeps toward the liver tip, where more fluid shows.",
    "look": [
-    "Liver in the near field",
-    "Right kidney below it",
-    "Morison’s pouch — the potential space between them",
-    "A black (anechoic) stripe of free fluid in that space"
+    "Liver — fine, even texture at the top of the fan",
+    "Right kidney — bright central sinus, darker cortex",
+    "Morison’s pouch — the interface between liver and kidney",
+    "A black (anechoic) crescent there = free fluid",
+    "Later frames: more fluid near the liver tip"
    ],
    "teach": [
     "Supine, Morison’s pouch is the lowest upper-abdominal space, so fluid gathers there first.",
@@ -217,7 +296,64 @@
     "answer": 0,
     "explain": "Fluid is anechoic (black). Between liver and kidney it sits in the hepatorenal recess — in trauma, blood until proven otherwise. Rib shadows are black bands that run from the probe straight down through everything."
    },
-   "marks": [],
+   "marks": [
+    {
+     "layer": "landmark",
+     "label": "Liver",
+     "shape": "ellipse",
+     "x": 0.54,
+     "y": 0.2,
+     "rx": 0.12,
+     "ry": 0.12
+    },
+    {
+     "layer": "landmark",
+     "label": "Right kidney",
+     "shape": "ellipse",
+     "x": 0.49,
+     "y": 0.52,
+     "rx": 0.13,
+     "ry": 0.095,
+     "lx": 0.49,
+     "ly": 0.6
+    },
+    {
+     "layer": "landmark",
+     "label": "Morison’s pouch",
+     "shape": "point",
+     "x": 0.405,
+     "y": 0.415,
+     "lx": 0.3,
+     "ly": 0.44
+    },
+    {
+     "layer": "pathology",
+     "label": "Free fluid (anechoic)",
+     "shape": "line",
+     "x": 0.52,
+     "y": 0.39,
+     "pts": [
+      [
+       0.41,
+       0.42
+      ],
+      [
+       0.47,
+       0.396
+      ],
+      [
+       0.55,
+       0.388
+      ],
+      [
+       0.625,
+       0.398
+      ]
+     ],
+     "lx": 0.6,
+     "ly": 0.35
+    }
+   ],
    "file": "fast-ruq-positive.mp4",
    "webm": "fast-ruq-positive.webm",
    "poster": "fast-ruq-positive.jpg",
@@ -226,9 +362,9 @@
    "license": "CC BY 2.0",
    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
    "author": "Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A",
-   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv (from https://doi.org/10.1186/1757-7241-17-34)",
-   "credit": "L et al., Wikimedia Commons, 2009 · CC BY 2.0",
-   "changes": "Original OGV (theora, 720×480, 0 fps, 6.002 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio removed; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s.",
+   "source": "“Clinician performed resuscitative ultrasonography for the initial evaluation and resuscitation of trauma”, Scandinavian Journal of Trauma, Resuscitation and Emergency Medicine 17:34 (2009), https://doi.org/10.1186/1757-7241-17-34 — supplementary video S1 (“Positive FAST of Hepatorenal Fossa”), via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv",
+   "credit": "Gillman et al., Scand J Trauma Resusc Emerg Med 2009 · CC BY 2.0",
+   "changes": "Original Ogg Theora (720×480 stored with 8:9 pixels, shown at 4:3; 29.97 fps; 6.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) with the same frames, pixel aspect and length; Vorbis audio removed; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s.",
    "provenance": {
     "pageUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv",
     "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/70/Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
@@ -273,13 +409,14 @@
    "type": "ultrasound",
    "modality": "IVC POCUS",
    "finding": "IVC traced into the right atrium",
-   "title": "IVC — long axis into the right atrium",
-   "caption": "A real subcostal long-axis scan following the inferior vena cava through the liver into the right atrium.",
+   "title": "IVC — long axis under the liver",
+   "caption": "Subxiphoid long-axis scan. The inferior vena cava is the dark tube running across the screen deep to the liver, with a hepatic vein above it. The patient’s head is to the screen left: followed that way, the IVC reaches its junction with the right atrium. The probe rocks during the clip, so the view changes.",
    "look": [
-    "The liver as the window",
-    "The IVC running into the right atrium (cavo-atrial junction)",
-    "A hepatic vein joining near the junction",
-    "Diameter change with breathing"
+    "Liver on top as the window",
+    "IVC — the dark tube running across the screen, deep to the liver",
+    "A hepatic vein in the liver above it",
+    "Screen left = toward the head and the right atrium",
+    "Diameter change with breathing — judge it over several breaths, not one frame"
    ],
    "teach": [
     "Prove it is the IVC by following it into the right atrium — the aorta lies deeper and to the left and never enters the heart.",
@@ -299,17 +436,78 @@
     "answer": 0,
     "explain": "IVC size reflects right-atrial pressure. That can be high from volume, RV failure, tamponade, tricuspid regurgitation or positive pressure — it is not a verdict on fluid responsiveness."
    },
-   "marks": [],
+   "marks": [
+    {
+     "layer": "landmark",
+     "label": "Liver",
+     "shape": "ellipse",
+     "x": 0.531,
+     "y": 0.43,
+     "rx": 0.1,
+     "ry": 0.08
+    },
+    {
+     "layer": "landmark",
+     "label": "Hepatic vein",
+     "shape": "line",
+     "x": 0.51,
+     "y": 0.38,
+     "pts": [
+      [
+       0.461,
+       0.395
+      ],
+      [
+       0.555,
+       0.367
+      ]
+     ],
+     "lx": 0.56,
+     "ly": 0.35
+    },
+    {
+     "layer": "landmark",
+     "label": "IVC (long axis)",
+     "shape": "line",
+     "x": 0.48,
+     "y": 0.57,
+     "pts": [
+      [
+       0.281,
+       0.57
+      ],
+      [
+       0.477,
+       0.57
+      ],
+      [
+       0.672,
+       0.578
+      ]
+     ],
+     "lx": 0.52,
+     "ly": 0.6
+    },
+    {
+     "layer": "landmark",
+     "label": "← toward the right atrium",
+     "shape": "point",
+     "x": 0.25,
+     "y": 0.57,
+     "lx": 0.3,
+     "ly": 0.545
+    }
+   ],
    "file": "ivc-2026-video-s1.mp4",
    "webm": "ivc-2026-video-s1.webm",
    "poster": "ivc-2026-video-s1.jpg",
-   "posterAt": 1.0,
+   "posterAt": 9.0,
    "license": "CC BY 4.0",
    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
    "author": "Nathan C. Shaul, Alan M. Smeltz, Evan J. Raff, Shawn Jia, Lauriane Guichard, Daniel J. Rosenkrans, Jay W. Schoenherr, Jacob D. Acton, Duncan J. McLean, Mark E. Henry, Alexander Doyal",
-   "source": "“Point-of-care ultrasound to evaluate volume status in congestive heart failure”, Journal of cardiovascular imaging 34:17 (2026), https://doi.org/10.1186/s44348-026-00078-5 — supplementary item 1, https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM1_ESM.avi",
-   "credit": "Shaul et al., Journal of cardiovascular imaging, 2026 · CC BY 4.0",
-   "changes": "Original AVI (mpeg4, 1692×1692, 23.833 fps, 15.902 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; downscaled 1692×1692 → 1280 px wide (aspect kept); audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s.",
+   "source": "“Point-of-care ultrasound to evaluate volume status in congestive heart failure”, Journal of Cardiovascular Imaging 34:17 (2026), https://doi.org/10.1186/s44348-026-00078-5 — supplementary item 1, https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM1_ESM.avi",
+   "credit": "Shaul et al., J Cardiovasc Imaging 2026 · CC BY 4.0",
+   "changes": "Original AVI (mpeg4, 1692×1692, 23.833 fps, 15.902 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; downscaled 1692×1692 → 1280 px wide (aspect kept); audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 9.0 s.",
    "provenance": {
     "pageUrl": "https://doi.org/10.1186/s44348-026-00078-5",
     "originalUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM1_ESM.avi",
@@ -345,7 +543,7 @@
    },
    "fileSha256": "d7b8a6e7a95c53f412d8695abdaf1c1cb2b8db9b4b0222eb7e28eeaa2c564637",
    "webmSha256": "aa30ccf44d357286f511e408119f73ff740b3135409760c23a4d1499d343c062",
-   "posterSha256": "2858d40e807e94b3b9f10e4b8e794de24ccdae9d06931dce0c049e04fd0743a6"
+   "posterSha256": "04384fc6e415d9b19f9b547ca6b9f0cb4b2693c17ba90d67dff382722f2a61a4"
   },
   {
    "kind": "ijv",
@@ -353,20 +551,21 @@
    "type": "ultrasound",
    "modality": "Vascular access POCUS",
    "finding": "IJV compressibility beside the carotid",
-   "title": "Internal jugular vein — compressibility",
-   "caption": "A real neck scan of the internal jugular vein and carotid artery: the vein collapses under probe pressure while the artery stays round.",
+   "title": "Internal jugular vein — long axis and collapse point",
+   "caption": "Long-axis neck scan with a linear probe. The internal jugular vein is the superficial dark tube; the carotid artery runs deeper and parallel to it. Where the vein’s walls come together is its collapse point. With probe pressure the vein flattens while the carotid stays open and pulses.",
    "look": [
-    "Carotid artery — round, thick-walled, pulsatile",
-    "Internal jugular vein — larger, thin-walled, oval",
-    "The vein collapses with gentle pressure; the artery does not",
-    "How the two lie: the vein lateral and superficial, often overlapping the artery"
+    "Sternocleidomastoid on top",
+    "IJV — the superficial dark tube",
+    "Carotid — the deeper, parallel tube that keeps its shape",
+    "Collapse point — where the vein’s walls meet",
+    "Under pressure: the vein flattens; the artery pulses and stays open"
    ],
    "teach": [
-    "Compressibility, shape and wall thickness identify the vein — confirm with a steady compression, not a glance.",
+    "In long axis both vessels are tubes, so shape cannot separate them — use depth, compressibility and pulsatility, and check in short axis too.",
     "Doppler colour shows direction relative to the probe, not artery or vein: red and blue alone prove nothing.",
     "Veins can look pulsatile from transmitted pulsation; an artery still will not collapse.",
-    "Where the vein sits over the artery, a needle through both walls reaches the carotid — keep the tip in view.",
-    "A collapsing IJ in a hypovolaemic patient is a small target; head-down tilt fills it."
+    "Where the vein sits over the artery, a needle through both walls of the vein reaches the carotid — keep the tip in view.",
+    "The collapse point moves with volume and breathing: head-down tilt or a Valsalva fills the vein and gives a bigger target."
    ],
    "quiz": {
     "q": "Which finding best identifies the vein?",
@@ -379,18 +578,69 @@
     "answer": 0,
     "explain": "Veins collapse under light pressure; arteries do not. Colour depends on flow direction relative to the probe, veins can pulsate, and depth varies between people."
    },
-   "marks": [],
+   "marks": [
+    {
+     "layer": "landmark",
+     "label": "Sternocleidomastoid",
+     "shape": "point",
+     "x": 0.5,
+     "y": 0.269
+    },
+    {
+     "layer": "landmark",
+     "label": "Internal jugular vein",
+     "shape": "ellipse",
+     "x": 0.619,
+     "y": 0.394,
+     "rx": 0.11,
+     "ry": 0.035,
+     "lx": 0.66,
+     "ly": 0.36
+    },
+    {
+     "layer": "landmark",
+     "label": "Carotid artery (deeper)",
+     "shape": "line",
+     "x": 0.5,
+     "y": 0.468,
+     "pts": [
+      [
+       0.263,
+       0.468
+      ],
+      [
+       0.5,
+       0.468
+      ],
+      [
+       0.737,
+       0.468
+      ]
+     ],
+     "lx": 0.38,
+     "ly": 0.515
+    },
+    {
+     "layer": "pathology",
+     "label": "Collapse point",
+     "shape": "point",
+     "x": 0.505,
+     "y": 0.395,
+     "lx": 0.45,
+     "ly": 0.395
+    }
+   ],
    "file": "ijv-2026-video-s2.mp4",
    "webm": "ijv-2026-video-s2.webm",
    "poster": "ijv-2026-video-s2.jpg",
-   "posterAt": 1.0,
+   "posterAt": 10.0,
    "original": "source/ijv-2026-video-s2-source.avi",
    "license": "CC BY 4.0",
    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
    "author": "Nathan C. Shaul, Alan M. Smeltz, Evan J. Raff, Shawn Jia, Lauriane Guichard, Daniel J. Rosenkrans, Jay W. Schoenherr, Jacob D. Acton, Duncan J. McLean, Mark E. Henry, Alexander Doyal",
-   "source": "“Point-of-care ultrasound to evaluate volume status in congestive heart failure”, Journal of cardiovascular imaging 34:17 (2026), https://doi.org/10.1186/s44348-026-00078-5 — supplementary item 2, https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM2_ESM.avi",
-   "credit": "Shaul et al., Journal of cardiovascular imaging, 2026 · CC BY 4.0",
-   "changes": "Original AVI (mpeg4, 1692×1692, 17.333 fps, 15.404 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; downscaled 1692×1692 → 1280 px wide (aspect kept); audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s.",
+   "source": "“Point-of-care ultrasound to evaluate volume status in congestive heart failure”, Journal of Cardiovascular Imaging 34:17 (2026), https://doi.org/10.1186/s44348-026-00078-5 — supplementary item 2, https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM2_ESM.avi",
+   "credit": "Shaul et al., J Cardiovasc Imaging 2026 · CC BY 4.0",
+   "changes": "Original AVI (mpeg4, 1692×1692, 17.333 fps, 15.404 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; downscaled 1692×1692 → 1280 px wide (aspect kept); audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 10.0 s.",
    "provenance": {
     "pageUrl": "https://doi.org/10.1186/s44348-026-00078-5",
     "originalUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM2_ESM.avi",
@@ -426,8 +676,9 @@
    },
    "fileSha256": "e69780b1a5c8047ad1a9f3eafa387f49b9e50161f0cc4d57dcc123ad5a2c3d4c",
    "webmSha256": "a5918d7fd037a9d5d206d14f3889b71b7cc3c01fa112fe69ab81baf4d5dae2d3",
-   "posterSha256": "1d77c40da6876968337e9ee25f9d780b195d84aa19f6181053fcf4a2a088d9ce",
-   "originalSha256": "b3a187cbb258f9e7ae8434043069602d1a4035891b02087bbe7aa885538c324a"
+   "posterSha256": "7bd0d603db564b046fe850b49ba70581c06b78a5fce93af2842ae981f514178f",
+   "originalSha256": "b3a187cbb258f9e7ae8434043069602d1a4035891b02087bbe7aa885538c324a",
+   "findingLabel": "Show the collapse point"
   }
  ],
  "rejected": [
@@ -454,6 +705,49 @@
   {
    "source": "CC BY-SA alternative IVC clip offered in the asset bundle",
    "reason": "Share-alike is not on this project’s accepted list — kept out, as the bundle recommends."
+  }
+ ],
+ "pending": [
+  {
+   "id": "lus-lung-point-gillman",
+   "kind": "ptxlus",
+   "type": "ultrasound",
+   "modality": "Lung ultrasound",
+   "finding": "lung point (pneumothorax)",
+   "title": "Lung point — pneumothorax on ultrasound",
+   "caption": "A real lung-ultrasound clip of a lung point: the place where sliding lung meets still pleural air, the ultrasound sign that confirms a pneumothorax.",
+   "look": [
+    "The bright pleural line between two rib shadows",
+    "One part of the screen: shimmering, sliding pleura",
+    "The other part: still pleura with only A-lines",
+    "The lung point — where the two meet, moving in and out with breathing"
+   ],
+   "teach": [
+    "Absent sliding alone is not a pneumothorax: pleurodesis, apnoea, mainstem intubation and adhesions stop sliding too.",
+    "B-lines or a lung pulse where you look rule out a pneumothorax at that spot — the pleurae are touching.",
+    "A lung point confirms a pneumothorax, and where it sits hints at its size: the further lateral and posterior, the bigger.",
+    "In a crashing patient with absent sliding and no lung point, treat the patient, not the scan."
+   ],
+   "quiz": {
+    "q": "Which finding confirms a pneumothorax?",
+    "options": [
+     "A lung point",
+     "Absent lung sliding",
+     "A-lines",
+     "Absent B-lines"
+    ],
+    "answer": 0,
+    "explain": "Absent sliding, A-lines and no B-lines all fit a pneumothorax but have other causes. A lung point — sliding lung meeting still pleural air at one spot — is specific."
+   },
+   "marks": [],
+   "fetch": {
+    "type": "commons",
+    "title": "File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv"
+   },
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv",
+   "articleDoi": "10.1186/1757-7241-17-34",
+   "licenseClaimed": "CC BY 2.0",
+   "claimedBy": "Suggested by the course author, 2026-09-30, as the lung-point clip of the same Gillman et al. collection. Verified by the fetch."
   }
  ]
 }
