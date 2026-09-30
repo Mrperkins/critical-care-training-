@@ -8,7 +8,7 @@ import { useUI } from '../../app/store';
 import { useAbgUI } from '../../abg/abgStore';
 import type { DrugId } from '../../physiology/patient';
 
-interface AbgScene { preset: string; metab?: number; vent?: { rr: number; vt: number }; drugs?: DrugId[]; ff?: number; /** treatment sequence: a drug id, or minutes to fast-forward */ seq?: (DrugId | number)[]; station?: string; knobs?: Partial<Record<'drive' | 'fio2', number>> }
+interface AbgScene { preset: string; metab?: number; vent?: { rr: number; vt: number }; drugs?: DrugId[]; ff?: number; /** treatment sequence: a drug id, or minutes to fast-forward */ seq?: (DrugId | number)[]; station?: string; knobs?: Partial<Record<'drive' | 'fio2' | 'lowVQ' | 'vdAlv' | 'maxVE', number>> }
 export function abgScene(s: AbgScene) {
   lab.load(s.preset);
   if (s.knobs) for (const [k, v] of Object.entries(s.knobs)) lab.set(k as never, v as number);

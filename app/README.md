@@ -14,6 +14,21 @@ python ../tools/validate_visual_assets.py   # molecular GLB integrity + bundle s
 
 - `src/` — React + react-three-fiber app (modules: vent, abg, labs, lines).
 - `public/models/*.glb` — built anatomy (from `pipeline/`); `public/vo/vo.json` — narration.
+
+### Narration
+Every Director cue and step lesson has a clip id (cue id / step id); lessons without a clip fall back to the
+browser's speech synthesis. To (re)render after changing lesson text:
+
+```
+npx tsx scripts/vo-lines.ts                     # collect every narrated line → public/vo/lines.json
+pip install --break-system-packages kokoro-onnx soundfile
+# model files (Apache-2.0): kokoro-v1.0.int8.onnx + voices-v1.0.bin from github.com/thewh1teagle/kokoro-onnx releases
+python3 scripts/vo_render.py <model.onnx> <voices.bin> <cache_dir>   # renders only new or changed lines (hashes.json)
+npx tsx scripts/vo-pack.ts <cache_dir>          # packs clips into public/vo/vo.json
+npm run site
+```
+New clips use Kokoro-82M, voice `bf_emma`, encoded like the originals (MP3, 22.05 kHz mono, 24 kb/s).
+Abbreviations are expanded for speech in `vo_render.py` (`SAY`).
 - `pipeline/` rebuilds anatomy from the HuBMAP Visible Human GLBs, which are not committed
   (`assets/source/`, ~90 MB; https://github.com/hubmapconsortium/ccf-3d-reference-object-library).
 - Repo-root assets the build does not own and fetches at runtime: `models/cell/…` (CC BY 4.0

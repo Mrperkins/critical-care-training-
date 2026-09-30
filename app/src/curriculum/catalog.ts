@@ -27,6 +27,11 @@ const e = (id: string, kind: Kind, module: Entry['module'], domains: Domain[], d
   ({ id, kind, module, domains, certs: ALL, naemt, objectives, sources, reviewed: R, difficulty, prereq, protocol });
 
 const S = {
+  apnoea: 'Benumof — critical haemoglobin desaturation during apnoea (Anesthesiology 1997)', patelApnoea: 'Patel et al. — apnoea-induced hypoxia in healthy paediatric patients (Can J Anaesth 1994)', dasObstetric: 'OAA/DAS guidelines for obstetric difficult and failed intubation (Anaesthesia 2015)',
+  cote: 'Coté — A Practice of Anesthesia for Infants and Children', croup: 'Bjornson & Johnson — croup in children (CMAJ 2013)',
+  nrp: 'AHA/AAP Neonatal Resuscitation Program and ILCOR neonatal life support consensus (2020)', pphn: 'AHA/ATS guidelines for pediatric pulmonary hypertension (Circulation 2015)',
+  pregPhys: 'Soma-Pillay et al. — physiological changes in pregnancy (Cardiovasc J Afr 2016)', asthmaPreg: 'GINA — global strategy for asthma management: asthma in pregnancy',
+  arrestPreg: 'AHA scientific statement — cardiac arrest in pregnancy (Circulation 2015)', pph: 'RCOG Green-top Guideline 52 — prevention and management of postpartum haemorrhage', woman: 'WOMAN trial — tranexamic acid for postpartum haemorrhage (Lancet 2017)',
   ards: 'ARDS Network: lower vs traditional tidal volumes (NEJM 2000)', hess: 'Hess & Kacmarek — Essentials of Mechanical Ventilation', west: 'West — Respiratory Physiology: The Essentials',
   guyton: 'Guyton & Hall — Textbook of Medical Physiology', ssc: 'Surviving Sepsis Campaign international guidelines (2021)', berend: 'Berend, de Vries & Gans — physiological approach to acid–base disturbances (NEJM 2014)',
   dka: 'Hyperglycemic crises in adults with diabetes — consensus report (Diabetes Care 2024)', hyperk: 'UK Kidney Association — treatment of acute hyperkalaemia in adults (2020)', na: 'European clinical practice guideline on hyponatraemia (2014)',
@@ -40,6 +45,12 @@ const S = {
 };
 
 export const CATALOG: Entry[] = [
+  // ---------------------------------------------------------------- special populations
+  e('pop-apnoea', 'director', 'abg', ['Paediatric', 'Neonatal', 'OB', 'Respiratory'], 'core', ['EPC', 'AMLS'], ['Explain where oxygen is stored during apnoea and why pre-oxygenation matters', 'Explain the “cliff” in the saturation curve', 'Predict faster desaturation in infants, children, pregnancy and obesity'], [S.apnoea, S.patelApnoea, S.dasObstetric], []),
+  e('peds-airway', 'director', 'vent', ['Paediatric', 'Ventilation'], 'core', ['EPC'], ['Apply radius-to-the-fourth-power to airway swelling in infants vs adults', 'Explain why crying worsens obstruction', 'Recognise the endotracheal tube as a resistance and the first thing to check'], [S.cote, S.croup], []),
+  e('neo-transition', 'director', 'heart', ['Neonatal', 'Cardiology'], 'intermediate', ['EPC'], ['Describe the change from fetal to newborn circulation', 'Use pre-ductal saturation targets in the first ten minutes', 'Recognise PPHN from pre- and post-ductal saturations and know what lowers pulmonary resistance'], [S.nrp, S.pphn], []),
+  e('ob-gas', 'director', 'abg', ['OB', 'Acid–base & labs'], 'core', ['AMLS'], ['Interpret a blood gas against pregnancy normals (PaCO₂ ≈ 30, HCO₃⁻ ≈ 20)', 'Recognise a “normal” PaCO₂ as retention in a pregnant asthmatic'], [S.pregPhys, S.asthmaPreg], ['abg-resp-vs-metabolic']),
+  e('ob-circulation', 'director', 'lines', ['OB', 'Haemodynamics & shock', 'Trauma & haemorrhage'], 'intermediate', ['AMLS', 'PHTLS'], ['Explain aortocaval compression and left uterine displacement', 'Use the shock index to recognise postpartum haemorrhage before hypotension', 'Sequence the response to postpartum haemorrhage'], [S.pregPhys, S.arrestPreg, S.pph, S.woman], [], 'Follow local obstetric haemorrhage and maternal resuscitation protocols.'),
   // ---------------------------------------------------------------- Director (signature) lessons
   e('vent-ards-signature', 'director', 'vent', ['Ventilation', 'Respiratory'], 'intermediate', ['AMLS'], ['Explain shunt from collapsed, perfused alveoli', 'Show how PEEP recruits and when it overdistends', 'Set tidal volume and PEEP to keep plateau and driving pressure low'], [S.ards, S.hess], ['eom', 'peep']),
   e('vent-ards-vs-obstruction', 'director', 'vent', ['Ventilation', 'Respiratory'], 'intermediate', ['AMLS'], ['Use inspiratory and expiratory holds to separate compliance from resistance', 'Recognise auto-PEEP and treat it with time to exhale'], [S.hess, S.west], ['rc']),
@@ -133,6 +144,11 @@ export const CONCEPTS: Record<string, { name: string; remediate: Target[] }> = {
   icp: { name: 'ICP, CPP and herniation', remediate: [{ lesson: 'neuro-icp' }, { drug: 'hypertonic' }, { drug: 'mannitol' }] },
   shunts: { name: 'Shunts and Qp:Qs', remediate: [{ lesson: 'heart-vsd' }] },
   'chest-imaging': { name: 'Chest X-ray and lung ultrasound', remediate: [{ lesson: 'vent-tension-ptx' }] },
+  'apnoea-reserve': { name: 'Oxygen reserve during apnoea', remediate: [{ lesson: 'pop-apnoea' }] },
+  'paed-airway': { name: 'The paediatric airway', remediate: [{ lesson: 'peds-airway' }, { lesson: 'wf-dopes' }] },
+  'newborn-transition': { name: 'Newborn transition and PPHN', remediate: [{ lesson: 'neo-transition' }] },
+  'pregnancy-physiology': { name: 'Physiology of pregnancy', remediate: [{ lesson: 'ob-gas' }, { lesson: 'ob-circulation' }] },
+  'obstetric-haemorrhage': { name: 'Postpartum haemorrhage', remediate: [{ lesson: 'ob-circulation' }, { drug: 'txa' }] },
 };
 export const CHALLENGE_CONCEPTS: Record<string, string[]> = {
   // ventilator
@@ -155,8 +171,11 @@ export const CHALLENGE_CONCEPTS: Record<string, string[]> = {
   'case-neuro-uncal': ['icp'], 'case-neuro-cushing': ['icp'], 'case-neuro-evd': ['icp', 'transducer'],
   'case-heart-vsd': ['shunts'], 'case-heart-asd': ['shunts'], 'case-heart-eisenmenger': ['shunts', 'hypoxaemia'], 'case-heart-pfo': ['shunts'],
   'case-img-cxr-tension': ['chest-imaging', 'tension-ptx'], 'case-img-lus-plug': ['chest-imaging', 'airway-obstruction'], 'case-img-lus-asthma': ['chest-imaging', 'auto-peep'], 'case-img-cxr-edema': ['chest-imaging', 'hypoxaemia'], 'case-img-cxr-ards': ['chest-imaging', 'lung-protection'],
+  'abg-pregnant': ['pregnancy-physiology'], 'abg-pregAsthma': ['pregnancy-physiology', 'resp-acid-base'],
+  'case-abg-apnoea-infant': ['apnoea-reserve'], 'case-vent-croup': ['paed-airway'], 'case-heart-pphn': ['newborn-transition'], 'case-heart-pphn-atrial': ['newborn-transition', 'shunts'],
+  'case-abg-apnoea-preg': ['apnoea-reserve', 'pregnancy-physiology'], 'case-lines-aortocaval': ['pregnancy-physiology'], 'case-lines-pph': ['obstetric-haemorrhage', 'pregnancy-physiology'],
 };
 /** Where a challenge lives, for "try it again". */
-const CASE_MODULE = { abd: 'abdomen', neuro: 'neuro', heart: 'heart', img: 'vent' } as const;
+const CASE_MODULE = { abd: 'abdomen', neuro: 'neuro', heart: 'heart', img: 'vent', vent: 'vent', abg: 'abg', lines: 'lines' } as const;
 export type ChallengeModule = 'vent' | 'abg' | 'labs' | 'lines' | 'abdomen' | 'neuro' | 'heart';
 export const challengeModule = (id: string): ChallengeModule => (id.startsWith('case-') ? CASE_MODULE[id.split('-')[1] as keyof typeof CASE_MODULE] : id.startsWith('vent-') ? 'vent' : id.startsWith('abg-') ? 'abg' : id.startsWith('lab-') ? 'labs' : 'lines');

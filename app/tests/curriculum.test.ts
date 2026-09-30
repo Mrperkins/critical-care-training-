@@ -36,9 +36,8 @@ describe('curriculum catalog', () => {
     expect(Object.keys(CHALLENGE_CONCEPTS).sort()).toEqual([...chal].sort());
     for (const [k, v] of Object.entries(CONCEPTS)) for (const r of v.remediate) { if ('lesson' in r) expect(CATALOG_BY_ID[r.lesson], `${k}:${r.lesson}`).toBeTruthy(); else expect(MECH[r.drug], `${k}:${r.drug}`).toBeTruthy(); }
   });
-  it('Paediatric / Neonatal / OB are in the taxonomy (empty ones are shown, not dropped)', () => {
-    const d = domainProgress({}); for (const x of ['Paediatric', 'Neonatal', 'OB']) expect(d.some((y) => y.domain === x)).toBe(true);
-    expect(d.find((y) => y.domain === 'Neonatal')!.entries.length).toBe(0);
+  it('Paediatric / Neonatal / OB are in the taxonomy and each has lessons', () => {
+    const d = domainProgress({}); for (const x of ['Paediatric', 'Neonatal', 'OB']) { expect(d.some((y) => y.domain === x)).toBe(true); expect(d.find((y) => y.domain === x)!.entries.length, x).toBeGreaterThanOrEqual(2); }
   });
 });
 

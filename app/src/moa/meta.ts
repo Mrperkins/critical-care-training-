@@ -94,5 +94,8 @@ export const LESSON_DRUGS: Record<string, string[]> = {
   'vent-ards-vs-obstruction': ['albuterol', 'ipratropium'],
   'vent-tension-ptx': [],
   'vent-ards-signature': ['propofol', 'rocuronium'],
+  'ob-circulation': ['txa'],
+  'ob-gas': ['albuterol'],
+  'pop-apnoea': ['rocuronium', 'succinylcholine'],
 };
 export const lessonsForDrug = (id: string) => Object.entries(LESSON_DRUGS).filter(([, ds]) => ds.includes(id)).map(([l]) => l);

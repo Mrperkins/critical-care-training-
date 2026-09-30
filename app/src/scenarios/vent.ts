@@ -103,6 +103,12 @@ export const VENT_SCENARIOS: VentScenario[] = [
   },
 ];
 export const VENT_SCENARIO = Object.fromEntries(VENT_SCENARIOS.map((s) => [s.id, s])) as Record<string, VentScenario>;
+/**
+ * The same healthy lungs behind a smaller endotracheal tube (internal diameter, mm; reference 8.0). Laminar term
+ * ∝ 1/r⁴, turbulent term ∝ 1/r⁵. Not listed in the picker — used by the paediatric airway lesson.
+ */
+export const ettScenarioId = (idMm: number) => `normal-ett${Math.round(idMm * 10)}`;
+for (const idMm of [7, 6]) VENT_SCENARIO[ettScenarioId(idMm)] = { ...VENT_SCENARIO.normal, id: ettScenarioId(idMm), name: `Normal lungs, ${idMm}.0 mm tube`, short: `${idMm}.0 mm tube`, lung: { Rett: 4 * (8 / idMm) ** 4, RettQ: 1.5 * (8 / idMm) ** 5 } };
 
 /** Build the mechanics lung for a scenario at a given bronchospasm level (0–1, after any bronchodilator). */
 export function buildLung(sc: VentScenario, spasm: number): LungModel {

@@ -21,4 +21,8 @@ export const ABG_ACTIONS: Record<string, AbgAction> = {
     explain: 'During CPR, EtCO₂ tracks cardiac output. Better compressions raise flow and EtCO₂; hyperventilation raises intrathoracic pressure and lowers coronary perfusion.', apply: (l) => l.set('co', 2.0) },
   rosc: { options: ['Ventilate to normocapnia; titrate FiO₂ to SpO₂ 92–98 %', 'Keep FiO₂ 1.0', 'Hyperventilate to a PaCO₂ of 25', 'Routine bicarbonate'], answer: 0, ffMin: 60,
     explain: 'After ROSC avoid both hypoxaemia and hyperoxia, and aim for normocapnia — hypocapnia constricts cerebral vessels.', apply: (l) => { l.set('fio2', 0.4); l.setVent(16, 0.5); } },
+  pregnant: { options: ['No treatment: this is the normal compensated respiratory alkalosis of pregnancy', 'Rebreathe into a bag to raise the CO₂', 'Sodium bicarbonate for the low HCO₃⁻', 'Start oxygen for the respiratory alkalosis'], answer: 0, ffMin: 30,
+    explain: 'At term PaCO₂ ≈ 30 and HCO₃⁻ ≈ 20 are expected: progesterone drives breathing and the kidneys compensate. Judge a pregnant woman’s gas against pregnancy normals.', apply: () => undefined },
+  pregAsthma: { options: ['Treat as life-threatening: bronchodilators, steroids, magnesium, senior help — prepare for ventilation', 'Reassure — the PaCO₂ is normal', 'Sedate to slow her breathing', 'Sodium bicarbonate'], answer: 0, ffMin: 45,
+    explain: 'Her baseline PaCO₂ is ≈ 30, so 40–45 is retention and the pH is already acidaemic. A “normal” CO₂ in a pregnant asthmatic means she is tiring.', apply: (l) => { l.pt.p.lowVQ = 0.12; l.pt.p.vdAlv = 0.12; l.pt.p.maxVE = 40; l.pt.p.drive = 1; } },
 };

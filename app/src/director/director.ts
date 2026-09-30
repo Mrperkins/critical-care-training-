@@ -21,7 +21,8 @@ function narrate(c: Cue) {
   stopNarration(); const st = useDirector.getState(); if (!c.say || st.muted) return;
   const token = ++narrationToken; const done = () => { if (token === narrationToken) useDirector.getState().set({ speaking: false }); };
   st.set({ speaking: true });
-  if (c.voice && voice.has(c.voice)) { voice.play(c.voice, done); return; }
+  const clip = c.voice ?? c.id; // pre-rendered clips are keyed by cue id unless the cue names one
+  if (voice.has(clip)) { voice.play(clip, done); return; }
   if (typeof speechSynthesis !== 'undefined' && typeof SpeechSynthesisUtterance !== 'undefined') {
     utter = new SpeechSynthesisUtterance(c.say); utter.rate = Math.min(1.4, 0.98 * st.rate); utter.onend = done; utter.onerror = done; speechSynthesis.speak(utter); return;
   }

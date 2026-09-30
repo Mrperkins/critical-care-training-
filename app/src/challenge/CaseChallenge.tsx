@@ -15,14 +15,16 @@ const HEAD: Record<CaseModule, [string, string]> = {
   abdomen: ['Read the scan, treat the patient', 'FAST and CT angiography drawn from the abdominal model. Findings text is hidden until you answer.'],
   neuro: ['Localise, then decide', 'Stroke and raised-ICP cases from the brain model: the exam and vital signs come from the same state as the 3D brain.'],
   heart: ['Follow the blood', 'Shunt cases from the two-circuit heart model. Watch where the flow goes and what colour it is.'],
-  vent: ['Imaging: X-ray and lung ultrasound', 'Films and scans drawn from the live ventilator patient. The written reading is hidden until you answer.'],
+  vent: ['Imaging and airway', 'Films and scans drawn from the live ventilator patient, and the child’s airway. The written reading is hidden until you answer.'],
+  abg: ['Oxygen reserve', 'Apnoea cases for infants and pregnancy, drawn from the oxygen-store model on the blood-gas patient.'],
+  lines: ['Pregnancy', 'Obstetric cases on the live circulation: position and postpartum haemorrhage.'],
 };
 
 export function CaseList({ module, onStart, embedded }: { module: CaseModule; onStart: (c: SceneCase) => void; embedded?: boolean }) {
   const attempts = useProgress((s) => s.attempts); const cases = casesFor(module);
   return (
     <>
-      <section className="card"><div className="eyebrow">{embedded ? 'Imaging cases' : 'Challenge'}</div><h2 className="h2">{HEAD[module][0]}</h2><p className="muted">{HEAD[module][1]}</p></section>
+      <section className="card"><div className="eyebrow">{embedded ? 'More cases' : 'Challenge'}</div><h2 className="h2">{HEAD[module][0]}</h2><p className="muted">{HEAD[module][1]}</p></section>
       {cases.map((c) => { const a = attempts[c.id]; const last = a?.[a.length - 1]; return (
         <button key={c.id} className="chal-item" onClick={() => onStart(c)}>
           <span className={`lvl lvl-${c.level}`}>{c.level}</span><span className="ci-t">{c.title}</span><span className="ci-k">{c.questions.length} questions</span>

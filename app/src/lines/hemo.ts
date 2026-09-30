@@ -8,6 +8,7 @@
  * compliance mL/mmHg.
  */
 import type { PatientParams, Snapshot } from '../physiology/patient';
+import { PREGNANT, SUPINE } from '../populations/obstetric';
 
 export type Rhythm = 'sinus' | 'af' | 'chb' | 'pvc';
 export interface Morph {
@@ -35,7 +36,7 @@ export interface Morph {
 }
 
 export interface LinesScenario {
-  id: string; name: string; short: string; group: 'Baseline' | 'Shock' | 'Rhythm' | 'Valves & pericardium' | 'Arteries';
+  id: string; name: string; short: string; group: 'Baseline' | 'Shock' | 'Rhythm' | 'Valves & pericardium' | 'Arteries' | 'Pregnancy';
   blurb: string; params: Partial<PatientParams>; morph: Morph;
   /** cause → effect, one line each; the monitor features the learner should find */
   story: string[];
@@ -96,6 +97,14 @@ export const SCENARIOS: LinesScenario[] = [
     blurb: 'Isolated systolic hypertension from arterial stiffening.',
     story: ['A stiff aorta cannot stretch to store each stroke volume → systolic pressure climbs, diastolic falls', 'The pressure wave travels faster and its reflection from the periphery returns during systole, adding a late systolic peak', 'Pulse pressure widens (> 60 mmHg) even with a normal mean'],
     look: ['Wide pulse pressure', 'Late systolic peak (reflected wave)'] },
+  { id: 'pregnant', name: 'Term pregnancy (left uterine displacement)', short: 'Term pregnancy', group: 'Pregnancy', params: { ...PREGNANT }, morph: {},
+    blurb: '38 weeks, lying with the uterus displaced to the left.',
+    story: ['Cardiac output rises ≈ 40 % (≈ 6.8 L/min): larger stroke volume and a heart rate ≈ 15 beats faster', 'Progesterone and the low-resistance placenta lower SVR: diastolic pressure is a little low', 'Blood volume ≈ 6.5 L — a reserve that hides early bleeding'],
+    look: ['Heart rate high-normal, diastolic pressure low-normal', 'Wide-ish pulse pressure from a big stroke volume'] },
+  { id: 'pregSupine', name: 'Term pregnancy, supine (aortocaval compression)', short: 'Supine at term', group: 'Pregnancy', params: { ...SUPINE }, morph: {},
+    blurb: 'The same woman lying flat on her back.',
+    story: ['The gravid uterus squeezes the inferior vena cava against the spine: venous return falls', 'Stroke volume and output drop by up to a third → hypotension and a compensatory tachycardia', 'The placenta has no autoregulation: its flow falls with maternal pressure', 'Displacing the uterus to the left (manually or with a 15–30° tilt) restores venous return'],
+    look: ['Low CVP, narrow pulse pressure, faster heart rate', 'Pressure recovers within a minute of left uterine displacement'] },
 ];
 export const SCENARIO = Object.fromEntries(SCENARIOS.map((s) => [s.id, s])) as Record<string, LinesScenario>;
 

@@ -1,4 +1,6 @@
 import { IABP_LESSON } from '../director/lessons/iabp';
+import { OB_CIRCULATION_LESSON } from '../director/lessons/populations';
+import { ObCard } from '../populations/Cards';
 import { CENTRAL_LINE, CENTRAL_LINE_LESSON } from '../procedures/centralLineFlow';
 import { CentralLineCard } from '../procedures/CentralLineCard';
 import { IabpCard } from '../procedures/IabpCard';
@@ -37,7 +39,7 @@ export function LinesLearn() {
   return (
     <LessonShell<LLesson>
       lessons={LINES_LESSONS}
-      timelines={[...LINES_TIMELINES, IABP_LESSON, CENTRAL_LINE_LESSON]}
+      timelines={[...LINES_TIMELINES, IABP_LESSON, CENTRAL_LINE_LESSON, OB_CIRCULATION_LESSON]}
       timelineChildren={() => <TimelineCards />}
       workflows={[...LINES_WORKFLOWS, CENTRAL_LINE]}
       workflowChildren={(w) => w.id === CENTRAL_LINE.id ? <><CentralLineCard /><NumbersCard /></> : <><NumbersCard /><TreatCard /><DripCard /></>}
@@ -50,4 +52,4 @@ export function LinesLearn() {
   );
 }
 
-function TimelineCards() { const id = useDirector((s) => s.tl?.id); return id === IABP_LESSON.id ? <><IabpCard /><NumbersCard /></> : id === CENTRAL_LINE_LESSON.id ? <><CentralLineCard /><NumbersCard /></> : <><O2Card /><NumbersCard /><TreatCard /></>; }
+function TimelineCards() { const id = useDirector((s) => s.tl?.id); return id === IABP_LESSON.id ? <><IabpCard /><NumbersCard /></> : id === CENTRAL_LINE_LESSON.id ? <><CentralLineCard /><NumbersCard /></> : id === OB_CIRCULATION_LESSON.id ? <><ObCard /><NumbersCard /><TreatCard /></> : <><O2Card /><NumbersCard /><TreatCard /></>; }

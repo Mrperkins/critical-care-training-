@@ -1,6 +1,8 @@
 import { useProgress } from '../curriculum/progress';
 import { useEffect, useMemo, useState } from 'react';
 import { Remediate } from '../challenge/Remediate';
+import { CaseList, CaseRun } from '../challenge/CaseChallenge';
+import { CASE_BY_ID, casesFor, type SceneCase } from '../challenge/sceneCases';
 import { takePendingChallenge, usePendingOpen } from '../app/navigate';
 
 import { lab } from './lab';
@@ -22,7 +24,14 @@ const PRIMARY: [string, (d: Disorder[], hagma: boolean) => boolean][] = [
 ];
 let seed = Date.now() % 100000; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
 
+/** Random blood-gas cases, plus the scene-based oxygen-reserve cases (listed underneath). */
 export function AbgChallenge() {
+  const [cur, setCur] = useState<SceneCase | null>(null); const pend = usePendingOpen((s) => s.id);
+  useEffect(() => { const id = takePendingChallenge((x) => CASE_BY_ID[x]?.module === 'abg'); if (id) setCur(CASE_BY_ID[id]); }, [pend]);
+  if (cur) { const list = casesFor('abg'); const nx = list[list.indexOf(cur) + 1]; return <CaseRun key={cur.id} c={cur} onExit={() => setCur(null)} onNext={nx ? () => setCur(nx) : undefined} />; }
+  return <><GasChallenge /><div className="chal-list" style={{ marginTop: 10 }}><CaseList module="abg" embedded onStart={setCur} /></div></>;
+}
+function GasChallenge() {
   useUI((s) => s.pulse);
   const [round, setRound] = useState(0); const [score, setScore] = useState({ right: 0, total: 0 });
   const [a1, setA1] = useState<number | null>(null); const [a2, setA2] = useState<number | null>(null); const [a3, setA3] = useState<number | null>(null);

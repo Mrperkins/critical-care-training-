@@ -1,5 +1,8 @@
 /** Congenital heart module: shunt physiology on a live four-chamber heart. */
 import { useEffect, useMemo } from 'react';
+import { NEO_TRANSITION_LESSON } from '../director/lessons/populations';
+import { NeoCard } from '../populations/Cards';
+function NeoSlot() { const neo = useHeartUI((s) => (s.input.qs ?? 5) < 2); return neo ? <NeoCard /> : null; }
 import { CaseChallenge } from '../challenge/CaseChallenge';
 import { useHideFindings } from '../challenge/caseStore';
 import { useUI } from '../app/store';
@@ -13,7 +16,7 @@ import { HEART_LESSONS } from '../director/lessons/heart';
 import { SAT_PALETTE } from '../scene/effects';
 import { useLabUI, type VisualTier } from '../labs/labStore';
 
-const PRESETS: [HeartPresetId, string][] = [['normal', 'Normal'], ['vsdSmall', 'Small VSD'], ['vsdLarge', 'Large VSD'], ['vsdEisen', 'VSD · Eisenmenger'], ['asd', 'ASD'], ['pfo', 'PFO'], ['pfoValsalva', 'PFO · Valsalva'], ['pda', 'PDA']];
+const PRESETS: [HeartPresetId, string][] = [['normal', 'Normal'], ['vsdSmall', 'Small VSD'], ['vsdLarge', 'Large VSD'], ['vsdEisen', 'VSD · Eisenmenger'], ['asd', 'ASD'], ['pfo', 'PFO'], ['pfoValsalva', 'PFO · Valsalva'], ['pda', 'PDA'], ['newborn', 'Newborn · closing duct'], ['pphn', 'Newborn · PPHN']];
 const FOCUS: [string, string][] = [['heart.four_chamber', '4-chamber'], ['heart.septum', 'Septum'], ['heart.vsd', 'VSD'], ['heart.asd', 'ASD / PFO'], ['heart.lv', 'LV'], ['heart.rv', 'RV'], ['heart.pulmonary_outflow', 'Pulmonary outflow'], ['heart.pda', 'Duct']];
 
 export function HeartModule() {
@@ -27,7 +30,7 @@ export function HeartModule() {
         <div className="scene-wrap"><HeartScene /><HeartOverlay /></div>
       </section>
       <aside className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
-        {mode === 'challenge' ? <CaseChallenge module="heart" /> : mode === 'learn' ? <HeartLearn /> : <><PresetCard /><ControlsCard /><HemoCard /><WhyCard /></>}
+        {mode === 'challenge' ? <CaseChallenge module="heart" /> : mode === 'learn' ? <HeartLearn /> : <><PresetCard /><ControlsCard /><NeoSlot /><HemoCard /><WhyCard /></>}
         <p className="credit">Schematic four-chamber cutaway drawn procedurally. Flows, pressures and saturations come from a simplified two-circuit model (orifice flow across restrictive defects, conductance across atrial defects, systemic flow held constant) — a teaching model, not a patient calculator.</p>
       </aside>
     </main>
@@ -66,13 +69,19 @@ function PresetCard() {
   return <section className="card story"><div className="chips" role="group" aria-label="Presets">{PRESETS.map(([id, l]) => <button key={id} className={`chip${preset === id ? ' on' : ''}`} onClick={() => loadHeartPreset(id)}>{l}</button>)}</div></section>;
 }
 function ControlsCard() {
-  const inp = useHeartUI((s) => s.input);
+  const inp = useHeartUI((s) => s.input); const neo = (inp.qs ?? 5) < 2;
   return (
     <section className="card">
       <div className="card-h"><h3>Defect & circulation</h3><Seg<LesionKind> small value={inp.lesion} options={[['none', 'None'], ['vsd', 'VSD'], ['asd', 'ASD'], ['pfo', 'PFO'], ['pda', 'PDA']]} onChange={(l) => setHeartInput({ lesion: l, sizeMm: l === 'none' ? 0 : inp.sizeMm || 8 })} /></div>
       {inp.lesion !== 'none' && <Knob label="Defect size" value={inp.sizeMm} min={1} max={inp.lesion === 'asd' ? 30 : 20} step={1} unit=" mm" onChange={(v) => setHeartInput({ sizeMm: v })} hint="Bigger hole → more flow for the same gradient" />}
+      <div className="nd-row"><span className="muted small">Patient</span><Seg small value={neo ? 'neo' : 'adult'} options={[['adult', 'Adult'], ['neo', 'Newborn']]} onChange={(v) => setHeartInput(v === 'neo' ? { qs: 0.6, svr: 60, pvr: Math.min(150, inp.pvr * 3.3) } : { qs: 5, svr: 18, pvr: Math.max(0.5, Math.min(22, inp.pvr / 3.3)) })} /></div>
+      {neo ? <>
+        <Knob label="PVR" value={inp.pvr} min={2} max={150} step={1} unit=" WU" onChange={(v) => setHeartInput({ pvr: v })} hint="Newborn scale (output ≈ 0.6 L/min). Very high before the first breath; falls over hours to days. Stays high in PPHN." />
+        <Knob label="SVR" value={inp.svr} min={30} max={100} step={1} unit=" WU" onChange={(v) => setHeartInput({ svr: v })} hint="Newborn scale: ≈ 60 gives a mean aortic pressure ≈ 40 mmHg at term" />
+      </> : <>
       <Knob label="PVR" value={inp.pvr} min={0.5} max={22} step={0.5} unit=" WU" onChange={(v) => setHeartInput({ pvr: v })} hint="Pulmonary vascular resistance (normal 1–2). Rises with years of overcirculation." />
       <Knob label="SVR" value={inp.svr} min={8} max={30} step={1} unit=" WU" onChange={(v) => setHeartInput({ svr: v })} hint="Systemic vascular resistance (normal 15–20)" />
+      </>}
       <Knob label="Right atrial load" value={inp.raLoad ?? 0} min={0} max={20} step={1} unit=" mmHg" onChange={(v) => setHeartInput({ raLoad: v })} hint="Valsalva, coughing, pulmonary embolism" />
     </section>
   );
@@ -109,14 +118,15 @@ function WhyCard() {
   return <section className="card"><div className="card-h"><h3>Why</h3></div><p className="muted">{t[L]}</p></section>;
 }
 
+const HEART_LEARN = [...HEART_LESSONS, NEO_TRANSITION_LESSON];
 function HeartLearn() {
-  const tl = useDirector((s) => s.tl); const active = tl && HEART_LESSONS.some((l) => l.id === tl.id);
-  useEffect(() => () => { if (HEART_LESSONS.some((l) => l.id === useDirector.getState().tl?.id)) director.unload(); }, []);
-  if (active) return <div className="chal-run"><DirectorPlayer onExit={() => undefined} /><HemoCard /></div>;
+  const tl = useDirector((s) => s.tl); const active = tl && HEART_LEARN.some((l) => l.id === tl.id);
+  useEffect(() => () => { if (HEART_LEARN.some((l) => l.id === useDirector.getState().tl?.id)) director.unload(); }, []);
+  if (active) return <div className="chal-run"><DirectorPlayer onExit={() => undefined} />{tl.id === NEO_TRANSITION_LESSON.id && <NeoCard />}<HemoCard /></div>;
   return (
     <div className="chal-list">
       <section className="card"><div className="eyebrow">Guided learning</div><h2 className="h2">Congenital heart on a live circulation</h2><p className="muted">Narrated lessons that change the defect and the resistances while the heart, the flow and the numbers respond.</p></section>
-      {HEART_LESSONS.map((l) => <button key={l.id} className="chal-item" onClick={() => director.load(l, true)}><span className={`lvl lvl-${l.level}`}>{l.level}</span><span className="ci-t">{l.title}<small className="ci-b">{l.blurb}</small></span><span className="ci-k">{l.cues.length} steps</span></button>)}
+      {HEART_LEARN.map((l) => <button key={l.id} className="chal-item" onClick={() => director.load(l, true)}><span className={`lvl lvl-${l.level}`}>{l.level}</span><span className="ci-t">{l.title}<small className="ci-b">{l.blurb}</small></span><span className="ci-k">{l.cues.length} steps</span></button>)}
     </div>
   );
 }

@@ -23,11 +23,12 @@ import { scene as ventScene } from '../director/lessons/vent';
 import { cxrFromVent, cxrFindings } from '../vent/cxr';
 import { lusFromVent } from '../vent/lus';
 import { ventNumbers } from '../vent/numbers';
+import { POP_CASES } from './populationCases';
 
-export type CaseModule = 'abdomen' | 'neuro' | 'heart' | 'vent';
+export type CaseModule = 'abdomen' | 'neuro' | 'heart' | 'vent' | 'abg' | 'lines';
 export interface CaseQ { q: string; options: [string, string, string, string]; answer: 0 | 1 | 2 | 3; explain: string }
 export interface SceneCase {
-  /** 'case-<abd|neuro|heart|img>-…' — the middle part says which module it runs in */
+  /** 'case-<abd|neuro|heart|img|vent|abg|lines>-…' — the middle part says which module it runs in */
   id: string; module: CaseModule; level: 'Novice' | 'Intermediate' | 'Advanced' | 'Expert';
   title: string; story: string;
   setup: () => void;
@@ -75,7 +76,7 @@ const ventFacts = (): [string, string][] => {
   return [['Peak pressure', `${Math.round(n.pip)} cmH₂O`], ['SpO₂', `${Math.round(s.spo2 * 100)}%`], ['BP', `${Math.round(s.sbp)}/${Math.round(s.dbp)}`], ['HR', `${Math.round(s.hr)}`]];
 };
 
-export const SCENE_CASES: SceneCase[] = [
+const BASE_CASES: SceneCase[] = [
   // ---------------------------------------------------------------- abdomen
   {
     id: 'case-abd-fast-early', module: 'abdomen', level: 'Novice', title: 'Negative FAST, left-sided impact',
@@ -337,5 +338,6 @@ export const SCENE_CASES: SceneCase[] = [
   },
 ];
 
+export const SCENE_CASES: SceneCase[] = [...BASE_CASES, ...POP_CASES];
 export const CASE_BY_ID: Record<string, SceneCase> = Object.fromEntries(SCENE_CASES.map((c) => [c.id, c]));
 export const casesFor = (m: CaseModule) => SCENE_CASES.filter((c) => c.module === m);

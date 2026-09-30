@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { ApnoeaCard } from '../populations/Cards';
 import { loadRespAsset, type RespAsset } from '../asset/resp';
 import { loadMicroAsset, type MicroAsset } from '../asset/micro';
 import { AbgScene } from './AbgScene';
@@ -34,6 +35,7 @@ export function AbgModule() {
           <AbgTime />
           <AcidBaseMap />
           <AbgInterpret />
+          <ApnoeaCard />
         </>}
         {mode === 'learn' && <AbgLearn />}
         {mode === 'challenge' && <AbgChallenge />}

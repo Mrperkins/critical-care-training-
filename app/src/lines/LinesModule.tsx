@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { ObCard } from '../populations/Cards';
+function PregSlot() { useUI((s) => s.pulse); return linesSession.sc.group === 'Pregnancy' ? <ObCard /> : null; }
 import { loadBodyAsset, type BodyAsset } from '../asset/body';
 import { lines as linesSession } from './session';
 import { IabpCard } from '../procedures/IabpCard';
@@ -42,6 +44,7 @@ export function LinesModule() {
           <TreatCard />
           <IabpSlot />
           <StoryCard />
+          <PregSlot />
         </>}
         {mode === 'learn' && <LinesLearn />}
         {mode === 'challenge' && <LinesChallenge />}

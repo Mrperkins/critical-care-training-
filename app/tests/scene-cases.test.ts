@@ -15,7 +15,7 @@ describe('scene challenge cases', () => {
   it('every case is well formed, tagged, titled and routed to its module', () => {
     expect(SCENE_CASES.length).toBeGreaterThanOrEqual(20);
     for (const c of SCENE_CASES) {
-      expect(c.id).toMatch(/^case-(abd|neuro|heart|img)-/); expect(challengeModule(c.id)).toBe(c.module); expect(titleOf(c.id)).toBe(c.title);
+      expect(c.id).toMatch(/^case-(abd|neuro|heart|img|vent|abg|lines)-/); expect(challengeModule(c.id)).toBe(c.module); expect(titleOf(c.id)).toBe(c.title);
       expect(CHALLENGE_CONCEPTS[c.id], c.id).toBeTruthy(); expect(c.questions.length).toBeGreaterThanOrEqual(2);
       for (const q of c.questions) { expect(new Set(q.options).size).toBe(4); expect(q.explain.length).toBeGreaterThan(40); }
     }
@@ -30,7 +30,7 @@ describe('scene challenge cases', () => {
       const f = c.facts(); expect(f.length, c.id).toBeGreaterThanOrEqual(2); for (const [, v] of f) expect(v, c.id).not.toMatch(/NaN|undefined/);
       if (c.module === 'neuro') for (const [, v] of f) expect(v).not.toMatch(/toward the lesion/);
     }
-    expect(useUI.getState().ventView).toBe('xray');
+    CASE_BY_ID['case-img-cxr-ards'].setup(); expect(useUI.getState().ventView).toBe('xray');
     CASE_BY_ID['case-img-lus-plug'].setup(); expect(useUI.getState().ventView).toBe('lus');
   });
   it('findings stay hidden while a case is answered', () => {

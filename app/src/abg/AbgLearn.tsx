@@ -1,4 +1,7 @@
 import { LessonShell } from '../app/LessonShell';
+import { OB_GAS_LESSON, APNOEA_LESSON } from '../director/lessons/populations';
+import { ApnoeaCard } from '../populations/Cards';
+import { useDirector } from '../director/director';
 import { ABG_LESSONS, type AbgLesson, type AbgSetup } from '../lessons/abg';
 import { lab } from './lab';
 import { useUI } from '../app/store';
@@ -23,9 +26,10 @@ export function applyAbgStep(lesson: AbgLesson, i: number) {
   useAbgUI.getState().set({ station }); useUI.getState().set({ pulse: useUI.getState().pulse + 1 });
 }
 
+function PopCards() { const id = useDirector((s) => s.tl?.id); return id === APNOEA_LESSON.id ? <ApnoeaCard /> : null; }
 export function AbgLearn() {
   return (
-    <LessonShell lessons={ABG_LESSONS} apply={applyAbgStep} timelines={ABG_TIMELINES} timelineChildren={() => <><SampleCards /><AcidBaseMap /><AbgInterpret /></>} intro="The narrator changes causes — drive, V/Q, shunt, haemoglobin, acid load, time — and the patient model produces the gases. The anatomy on the left follows the same numbers.">
+    <LessonShell lessons={ABG_LESSONS} apply={applyAbgStep} timelines={[...ABG_TIMELINES, OB_GAS_LESSON, APNOEA_LESSON]} timelineChildren={() => <><PopCards /><SampleCards /><AcidBaseMap /><AbgInterpret /></>} intro="The narrator changes causes — drive, V/Q, shunt, haemoglobin, acid load, time — and the patient model produces the gases. The anatomy on the left follows the same numbers.">
       {() => <><SampleCards /><StationCard /><AcidBaseMap /><AbgInterpret /></>}
     </LessonShell>
   );

@@ -552,3 +552,16 @@ details.card summary{cursor:pointer;font:600 14px var(--fs);margin-bottom:6px}
 .phone .view-btns{left:8px;right:8px;flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .phone .view-btns::-webkit-scrollbar{display:none}
 .phone .view-btns button{flex:none}
+
+/* special-population cards */
+.pop-svg{width:100%;height:auto;display:block;margin:6px 0}
+.pop-grid{stroke:rgba(255,255,255,.07)}.pop-thr{stroke:rgba(224,100,90,.55);stroke-dasharray:4 3}
+.pop-ax{fill:var(--mute);font:10px var(--fm)}.pop-lab{font:600 10.5px var(--fb)}
+.pop-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle}
+.pop-tab{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.5px}.pop-tab td,.pop-tab th{padding:4px 6px;border-top:1px solid var(--line);text-align:left;vertical-align:top}.pop-tab th{color:var(--mute);font-weight:500;font-size:11px}.pop-tab tr.on td{background:rgba(211,178,122,.07)}
+.pop-airways{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:6px 0}.pop-airways figure{margin:0;text-align:center}.pop-airways svg{width:100%;max-width:150px;height:auto}
+.pop-wall{fill:#3a2a2e}.pop-swell{fill:#b8434b}.pop-lumen{fill:#05070a;stroke:rgba(255,255,255,.25)}
+.pop-big{display:block;font:600 20px/1.2 var(--fm);color:var(--ink)}.pop-big.bad{color:var(--bad)}
+.pop-sats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:6px 0}.pop-sats>div{display:flex;flex-direction:column;min-width:0}
+.pop-band{fill:rgba(111,207,151,.22);stroke:rgba(111,207,151,.6)}.pop-cursor{stroke:var(--gold);stroke-width:1.5}
+.pop-bv{fill:rgba(224,100,90,.28)}.pop-bv-np{fill:rgba(224,100,90,.5)}.pop-loss{fill:#05070a;stroke:var(--bad);stroke-dasharray:3 2}

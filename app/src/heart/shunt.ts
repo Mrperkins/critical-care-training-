@@ -1,3 +1,4 @@
+import { NEO } from '../populations/neonatal';
 /**
  * Congenital shunt physiology — a simplified two-circuit model (pure, deterministic).
  *
@@ -132,5 +133,7 @@ export const HEART_PRESETS = {
   pfo: { lesion: 'pfo', sizeMm: 6, pvr: 1.5, svr: 18 },
   pfoValsalva: { lesion: 'pfo', sizeMm: 6, pvr: 1.5, svr: 18, raLoad: 12 },
   pda: { lesion: 'pda', sizeMm: 5, pvr: 1.5, svr: 18 },
+  newborn: { ...NEO.closingDuct },
+  pphn: { ...NEO.pphn },
 } satisfies Record<string, ShuntInput>;
 export type HeartPresetId = keyof typeof HEART_PRESETS;

@@ -10,6 +10,8 @@ import { NeedleCard } from '../procedures/NeedleCard';
 import { NEEDLE_LESSON } from '../director/lessons/needle';
 import { useDirector } from '../director/director';
 import { VENT_TIMELINES } from '../director/lessons/vent';
+import { PEDS_AIRWAY_LESSON } from '../director/lessons/populations';
+import { AirwayCard } from '../populations/Cards';
 import { VentNormals } from '../app/Normals';
 
 /** Apply a lesson up to step i: the last scenario load, then every settings change after it, then this step's action. */
@@ -29,7 +31,7 @@ export function applyLessonStep(lesson: Lesson, i: number) {
 
 export function VentLearn() {
   return (
-    <LessonShell lessons={VENT_LESSONS} apply={applyLessonStep} timelines={[...VENT_TIMELINES, NEEDLE_LESSON]} timelineChildren={() => <TimelineCards />} workflows={VENT_WORKFLOWS} workflowChildren={(w) => <>{w.id === 'wf-drain-check' && <DrainCard />}{w.id === 'wf-chest-tube' && <NeedleCard />}<VentNumbersCard /><GasCard compact /></>} reference={() => <VentNormals />} intro="The narrator changes the ventilator and the patient; everything you see is the simulation responding. Pause at any point and take the controls.">
+    <LessonShell lessons={VENT_LESSONS} apply={applyLessonStep} timelines={[...VENT_TIMELINES, NEEDLE_LESSON, PEDS_AIRWAY_LESSON]} timelineChildren={() => <TimelineCards />} workflows={VENT_WORKFLOWS} workflowChildren={(w) => <>{w.id === 'wf-drain-check' && <DrainCard />}{w.id === 'wf-chest-tube' && <NeedleCard />}<VentNumbersCard /><GasCard compact /></>} reference={() => <VentNormals />} intro="The narrator changes the ventilator and the patient; everything you see is the simulation responding. Pause at any point and take the controls.">
       {(l, i) => { const st = l.steps[i]; return <>
         {st.focus && <p className="focus">Watch: {st.focus.map((f) => ({ pressure: 'pressure trace', flow: 'flow trace', volume: 'volume trace', loops: 'loops', numbers: 'numbers', lungs: 'the lungs', gas: 'SpO₂ and blood gas' }[f])).join(' · ')}</p>}
         <VentNumbersCard />
@@ -41,4 +43,4 @@ export function VentLearn() {
   );
 }
 
-function TimelineCards() { const id = useDirector((s) => s.tl?.id); return <>{id === NEEDLE_LESSON.id && <NeedleCard />}<VentNumbersCard /><GasCard compact /></>; }
+function TimelineCards() { const id = useDirector((s) => s.tl?.id); return <>{id === NEEDLE_LESSON.id && <NeedleCard />}{id === PEDS_AIRWAY_LESSON.id && <AirwayCard />}<VentNumbersCard /><GasCard compact /></>; }
