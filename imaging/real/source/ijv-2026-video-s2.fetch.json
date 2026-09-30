@@ -1,0 +1,22 @@
+{
+ "pmcid": "PMC13343992",
+ "mediaName": "44348_2026_78_MOESM2_ESM.avi",
+ "pageUrl": "https://doi.org/10.1186/s44348-026-00078-5",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseEvidence": "Europe PMC full text of PMC13343992 (doi 10.1186/s44348-026-00078-5), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original auth”; supplementary item 2 caption checked for a separate credit.",
+ "authors": "Nathan C. Shaul, Alan M. Smeltz, Evan J. Raff, Shawn Jia, Lauriane Guichard, Daniel J. Rosenkrans, Jay W. Schoenherr, Jacob D. Acton, Duncan J. McLean, Mark E. Henry, Alexander Doyal",
+ "title": "Point-of-care ultrasound to evaluate volume status in congestive heart failure",
+ "publication": "Journal of cardiovascular imaging",
+ "published": "2026-07-07",
+ "doi": "10.1186/s44348-026-00078-5",
+ "volume": "34",
+ "firstpage": "17",
+ "description": "Additional file 2: Video S2. Identification of the internal jugular vein (IJV) collapse point. The internal carotid artery can be seen deep to the IJV and its identity confirmed by its pulsatility. The identity of the IJV can also be confirmed by applying pressure to test for its collapsibility.",
+ "thirdParty": false,
+ "originalUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM2_ESM.avi",
+ "originalName": "44348_2026_78_MOESM2_ESM.avi",
+ "id": "ijv-2026-video-s2",
+ "retrieved": "2026-09-30T18:45Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

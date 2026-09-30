@@ -266,38 +266,10 @@
    "webmSha256": "5e67e92e0dc7516f07a31ed9bf6b5e5c82c8039ac2c0abadde9fbc2d9cfb86ce",
    "posterSha256": "fa8cce9bd8cbca37e7fe0fff6a0a19f5012a59a7647bb25d466cf567d9fbde4d",
    "originalSha256": "0f923551b28a5fc167f9aa9de9eb7e07cfda0ca4899aa394ad8d141a71eec7ab"
-  }
- ],
- "rejected": [
-  {
-   "source": "Open Critical Care anesthesia POCUS pocket card (2022)",
-   "reason": "No licence stated; images credited “courtesy of” third parties (JACC, austincc.edu, echocardiographer.org). Used for facts only, in our own words."
   },
   {
-   "source": "COVID-BLUES lung ultrasound dataset",
-   "reason": "CC BY-NC-ND 4.0"
-  },
-  {
-   "source": "covid19_ultrasound clips attributed to “charlotte” (source id 14)",
-   "reason": "Licence listed but origin not identifiable — unclear."
-  },
-  {
-   "source": "Radiopaedia-derived images in covid-chestxray-dataset",
-   "reason": "CC BY-NC-SA"
-  },
-  {
-   "source": "covid19_ultrasound clip “Pneu_prospective_file3” (The Ultrasound Journal / Critical Ultrasound Journal 4:16, 2012, doi 10.1186/2036-7902-4-16)",
-   "reason": "Listed as CC BY 2.0, but the article page could not be read to confirm authors and licence (rate-limited) — not included until verified."
-  },
-  {
-   "source": "CC BY-SA alternative IVC clip offered in the asset bundle",
-   "reason": "Share-alike is not on this project’s accepted list — kept out, as the bundle recommends."
-  }
- ],
- "pending": [
-  {
-   "id": "ivc-2026-video-s1",
    "kind": "ivc",
+   "id": "ivc-2026-video-s1",
    "type": "ultrasound",
    "modality": "IVC POCUS",
    "finding": "IVC traced into the right atrium",
@@ -328,19 +300,56 @@
     "explain": "IVC size reflects right-atrial pressure. That can be high from volume, RV failure, tamponade, tricuspid regurgitation or positive pressure — it is not a verdict on fluid responsiveness."
    },
    "marks": [],
-   "fetch": {
-    "type": "springer",
-    "article": "https://link.springer.com/article/10.1186/s44348-026-00078-5",
-    "esm": 1
+   "file": "ivc-2026-video-s1.mp4",
+   "webm": "ivc-2026-video-s1.webm",
+   "poster": "ivc-2026-video-s1.jpg",
+   "posterAt": 1.0,
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Nathan C. Shaul, Alan M. Smeltz, Evan J. Raff, Shawn Jia, Lauriane Guichard, Daniel J. Rosenkrans, Jay W. Schoenherr, Jacob D. Acton, Duncan J. McLean, Mark E. Henry, Alexander Doyal",
+   "source": "“Point-of-care ultrasound to evaluate volume status in congestive heart failure”, Journal of cardiovascular imaging 34:17 (2026), https://doi.org/10.1186/s44348-026-00078-5 — supplementary item 1, https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM1_ESM.avi",
+   "credit": "Shaul et al., Journal of cardiovascular imaging, 2026 · CC BY 4.0",
+   "changes": "Original AVI (mpeg4, 1692×1692, 23.833 fps, 15.902 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; downscaled 1692×1692 → 1280 px wide (aspect kept); audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1186/s44348-026-00078-5",
+    "originalUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM1_ESM.avi",
+    "doi": "10.1186/s44348-026-00078-5",
+    "originalTitle": "Point-of-care ultrasound to evaluate volume status in congestive heart failure",
+    "published": "2026-07-07",
+    "retrieved": "2026-09-30T18:44Z",
+    "originalName": "44348_2026_78_MOESM1_ESM.avi",
+    "originalFormat": "video/x-msvideo",
+    "originalBytes": 22471814,
+    "originalSha256": "bdcb64796fee4ca68aee6cb59894084caf6598d8360fbd2df49aaadd5cfbcdcd",
+    "preserved": null,
+    "licenseEvidence": "Europe PMC full text of PMC13343992 (doi 10.1186/s44348-026-00078-5), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original auth”; supplementary item 1 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "sourceVideo": {
+      "w": 1692,
+      "h": 1692,
+      "codec": "mpeg4",
+      "duration": 15.902,
+      "fps": 23.833,
+      "audio": false
+     },
+     "mp4": {
+      "w": 1280,
+      "h": 1280,
+      "codec": "h264",
+      "duration": 15.902,
+      "fps": 23.833,
+      "audio": false
+     }
+    }
    },
-   "pageUrl": "https://link.springer.com/article/10.1186/s44348-026-00078-5",
-   "articleDoi": "10.1186/s44348-026-00078-5",
-   "licenseClaimed": "CC BY 4.0",
-   "claimedBy": "Asset bundle supplied by the course author, 2026-09-30. Not yet verified against the source page — the ingest tool records the verification."
+   "fileSha256": "d7b8a6e7a95c53f412d8695abdaf1c1cb2b8db9b4b0222eb7e28eeaa2c564637",
+   "webmSha256": "aa30ccf44d357286f511e408119f73ff740b3135409760c23a4d1499d343c062",
+   "posterSha256": "2858d40e807e94b3b9f10e4b8e794de24ccdae9d06931dce0c049e04fd0743a6"
   },
   {
-   "id": "ijv-2026-video-s2",
    "kind": "ijv",
+   "id": "ijv-2026-video-s2",
    "type": "ultrasound",
    "modality": "Vascular access POCUS",
    "finding": "IJV compressibility beside the carotid",
@@ -371,15 +380,80 @@
     "explain": "Veins collapse under light pressure; arteries do not. Colour depends on flow direction relative to the probe, veins can pulsate, and depth varies between people."
    },
    "marks": [],
-   "fetch": {
-    "type": "springer",
-    "article": "https://link.springer.com/article/10.1186/s44348-026-00078-5",
-    "esm": 2
+   "file": "ijv-2026-video-s2.mp4",
+   "webm": "ijv-2026-video-s2.webm",
+   "poster": "ijv-2026-video-s2.jpg",
+   "posterAt": 1.0,
+   "original": "source/ijv-2026-video-s2-source.avi",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Nathan C. Shaul, Alan M. Smeltz, Evan J. Raff, Shawn Jia, Lauriane Guichard, Daniel J. Rosenkrans, Jay W. Schoenherr, Jacob D. Acton, Duncan J. McLean, Mark E. Henry, Alexander Doyal",
+   "source": "“Point-of-care ultrasound to evaluate volume status in congestive heart failure”, Journal of cardiovascular imaging 34:17 (2026), https://doi.org/10.1186/s44348-026-00078-5 — supplementary item 2, https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM2_ESM.avi",
+   "credit": "Shaul et al., Journal of cardiovascular imaging, 2026 · CC BY 4.0",
+   "changes": "Original AVI (mpeg4, 1692×1692, 17.333 fps, 15.404 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; downscaled 1692×1692 → 1280 px wide (aspect kept); audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1186/s44348-026-00078-5",
+    "originalUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM2_ESM.avi",
+    "doi": "10.1186/s44348-026-00078-5",
+    "originalTitle": "Point-of-care ultrasound to evaluate volume status in congestive heart failure",
+    "published": "2026-07-07",
+    "retrieved": "2026-09-30T18:45Z",
+    "originalName": "44348_2026_78_MOESM2_ESM.avi",
+    "originalFormat": "video/x-msvideo",
+    "originalBytes": 7257102,
+    "originalSha256": "b3a187cbb258f9e7ae8434043069602d1a4035891b02087bbe7aa885538c324a",
+    "preserved": "imaging/real/source/ijv-2026-video-s2-source.avi",
+    "licenseEvidence": "Europe PMC full text of PMC13343992 (doi 10.1186/s44348-026-00078-5), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original auth”; supplementary item 2 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "sourceVideo": {
+      "w": 1692,
+      "h": 1692,
+      "codec": "mpeg4",
+      "duration": 15.404,
+      "fps": 17.333,
+      "audio": false
+     },
+     "mp4": {
+      "w": 1280,
+      "h": 1280,
+      "codec": "h264",
+      "duration": 15.404,
+      "fps": 17.333,
+      "audio": false
+     }
+    }
    },
-   "pageUrl": "https://link.springer.com/article/10.1186/s44348-026-00078-5",
-   "articleDoi": "10.1186/s44348-026-00078-5",
-   "licenseClaimed": "CC BY 4.0",
-   "claimedBy": "Asset bundle supplied by the course author, 2026-09-30. Not yet verified against the source page — the ingest tool records the verification."
+   "fileSha256": "e69780b1a5c8047ad1a9f3eafa387f49b9e50161f0cc4d57dcc123ad5a2c3d4c",
+   "webmSha256": "a5918d7fd037a9d5d206d14f3889b71b7cc3c01fa112fe69ab81baf4d5dae2d3",
+   "posterSha256": "1d77c40da6876968337e9ee25f9d780b195d84aa19f6181053fcf4a2a088d9ce",
+   "originalSha256": "b3a187cbb258f9e7ae8434043069602d1a4035891b02087bbe7aa885538c324a"
+  }
+ ],
+ "rejected": [
+  {
+   "source": "Open Critical Care anesthesia POCUS pocket card (2022)",
+   "reason": "No licence stated; images credited “courtesy of” third parties (JACC, austincc.edu, echocardiographer.org). Used for facts only, in our own words."
+  },
+  {
+   "source": "COVID-BLUES lung ultrasound dataset",
+   "reason": "CC BY-NC-ND 4.0"
+  },
+  {
+   "source": "covid19_ultrasound clips attributed to “charlotte” (source id 14)",
+   "reason": "Licence listed but origin not identifiable — unclear."
+  },
+  {
+   "source": "Radiopaedia-derived images in covid-chestxray-dataset",
+   "reason": "CC BY-NC-SA"
+  },
+  {
+   "source": "covid19_ultrasound clip “Pneu_prospective_file3” (The Ultrasound Journal / Critical Ultrasound Journal 4:16, 2012, doi 10.1186/2036-7902-4-16)",
+   "reason": "Listed as CC BY 2.0, but the article page could not be read to confirm authors and licence (rate-limited) — not included until verified."
+  },
+  {
+   "source": "CC BY-SA alternative IVC clip offered in the asset bundle",
+   "reason": "Share-alike is not on this project’s accepted list — kept out, as the bundle recommends."
   }
  ]
 }

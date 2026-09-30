@@ -111,24 +111,33 @@
  },
  {
   "id": "ivc-2026-video-s1",
-  "status": "pending",
+  "status": "ready",
   "type": "ultrasound",
   "modality": "IVC POCUS",
   "finding": "IVC traced into the right atrium",
   "license": "CC BY 4.0",
-  "licenseVerified": false,
-  "sourceUrl": "https://link.springer.com/article/10.1186/s44348-026-00078-5",
-  "localSources": {}
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1186/s44348-026-00078-5",
+  "localSources": {
+   "webm": "imaging/real/ivc-2026-video-s1.webm",
+   "poster": "imaging/real/ivc-2026-video-s1.jpg",
+   "mp4": "imaging/real/ivc-2026-video-s1.mp4"
+  }
  },
  {
   "id": "ijv-2026-video-s2",
-  "status": "pending",
+  "status": "ready",
   "type": "ultrasound",
   "modality": "Vascular access POCUS",
   "finding": "IJV compressibility beside the carotid",
   "license": "CC BY 4.0",
-  "licenseVerified": false,
-  "sourceUrl": "https://link.springer.com/article/10.1186/s44348-026-00078-5",
-  "localSources": {}
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1186/s44348-026-00078-5",
+  "localSources": {
+   "original": "imaging/real/source/ijv-2026-video-s2-source.avi",
+   "webm": "imaging/real/ijv-2026-video-s2.webm",
+   "poster": "imaging/real/ijv-2026-video-s2.jpg",
+   "mp4": "imaging/real/ijv-2026-video-s2.mp4"
+  }
  }
 ]

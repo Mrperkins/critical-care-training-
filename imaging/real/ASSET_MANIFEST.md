@@ -129,14 +129,51 @@ so ingested media appear without rebuilding `index.html`. Overlay marks (`marks`
 | Licence evidence | Wikimedia Commons API extmetadata for File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AClinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
 | Verified by | tools/clinical_media.py fetch |
 
-## Pending — staged, not yet in the app
+## ivc-2026-video-s1 — IVC — long axis into the right atrium
 
-Teaching content is written; the media has not been downloaded and the licence has not been verified from the source.
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/ivc-2026-video-s1.mp4` · `imaging/real/ivc-2026-video-s1.webm` · `imaging/real/ivc-2026-video-s1.jpg` |
+| Clinical purpose | IVC traced into the right atrium (ivc) |
+| Creator / authors | Nathan C. Shaul, Alan M. Smeltz, Evan J. Raff, Shawn Jia, Lauriane Guichard, Daniel J. Rosenkrans, Jay W. Schoenherr, Jacob D. Acton, Duncan J. McLean, Mark E. Henry, Alexander Doyal |
+| Source | “Point-of-care ultrasound to evaluate volume status in congestive heart failure”, Journal of cardiovascular imaging 34:17 (2026), https://doi.org/10.1186/s44348-026-00078-5 — supplementary item 1, https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM1_ESM.avi |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
+| Modifications | Original AVI (mpeg4, 1692×1692, 23.833 fps, 15.902 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; downscaled 1692×1692 → 1280 px wide (aspect kept); audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s. |
+| Required attribution | Nathan C. Shaul, Alan M. Smeltz, Evan J. Raff, Shawn Jia, Lauriane Guichard, Daniel J. Rosenkrans, Jay W. Schoenherr, Jacob D. Acton, Duncan J. McLean, Mark E. Henry, Alexander Doyal. “Point-of-care ultrasound to evaluate volume status in congestive heart failure”, Journal of cardiovascular imaging 34:17 (2026), https://doi.org/10.1186/s44348-026-00078-5 — supplementary item 1, https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM1_ESM.avi. CC BY 4.0. |
+| Original title | Point-of-care ultrasound to evaluate volume status in congestive heart failure |
+| Source page | https://doi.org/10.1186/s44348-026-00078-5 |
+| Original media URL | https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM1_ESM.avi |
+| DOI | 10.1186/s44348-026-00078-5 |
+| Published | 2026-07-07 |
+| Retrieved | 2026-09-30T18:44Z |
+| Original format | video/x-msvideo · 22,471,814 bytes · `44348_2026_78_MOESM1_ESM.avi` |
+| Original SHA-256 | `bdcb64796fee4ca68aee6cb59894084caf6598d8360fbd2df49aaadd5cfbcdcd` |
+| Original preserved | No — larger than 15 MB; URL and checksum recorded instead |
+| Licence evidence | Europe PMC full text of PMC13343992 (doi 10.1186/s44348-026-00078-5), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original auth”; supplementary item 1 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
 
-| ID | Finding | Claimed licence | Source page |
-|---|---|---|---|
-| ivc-2026-video-s1 | IVC traced into the right atrium | CC BY 4.0 (unverified) | https://link.springer.com/article/10.1186/s44348-026-00078-5 |
-| ijv-2026-video-s2 | IJV compressibility beside the carotid | CC BY 4.0 (unverified) | https://link.springer.com/article/10.1186/s44348-026-00078-5 |
+## ijv-2026-video-s2 — Internal jugular vein — compressibility
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/ijv-2026-video-s2.mp4` · `imaging/real/ijv-2026-video-s2.webm` · `imaging/real/ijv-2026-video-s2.jpg` · `imaging/real/source/ijv-2026-video-s2-source.avi` |
+| Clinical purpose | IJV compressibility beside the carotid (ijv) |
+| Creator / authors | Nathan C. Shaul, Alan M. Smeltz, Evan J. Raff, Shawn Jia, Lauriane Guichard, Daniel J. Rosenkrans, Jay W. Schoenherr, Jacob D. Acton, Duncan J. McLean, Mark E. Henry, Alexander Doyal |
+| Source | “Point-of-care ultrasound to evaluate volume status in congestive heart failure”, Journal of cardiovascular imaging 34:17 (2026), https://doi.org/10.1186/s44348-026-00078-5 — supplementary item 2, https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM2_ESM.avi |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
+| Modifications | Original AVI (mpeg4, 1692×1692, 17.333 fps, 15.404 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; downscaled 1692×1692 → 1280 px wide (aspect kept); audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s. |
+| Required attribution | Nathan C. Shaul, Alan M. Smeltz, Evan J. Raff, Shawn Jia, Lauriane Guichard, Daniel J. Rosenkrans, Jay W. Schoenherr, Jacob D. Acton, Duncan J. McLean, Mark E. Henry, Alexander Doyal. “Point-of-care ultrasound to evaluate volume status in congestive heart failure”, Journal of cardiovascular imaging 34:17 (2026), https://doi.org/10.1186/s44348-026-00078-5 — supplementary item 2, https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM2_ESM.avi. CC BY 4.0. |
+| Original title | Point-of-care ultrasound to evaluate volume status in congestive heart failure |
+| Source page | https://doi.org/10.1186/s44348-026-00078-5 |
+| Original media URL | https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM2_ESM.avi |
+| DOI | 10.1186/s44348-026-00078-5 |
+| Published | 2026-07-07 |
+| Retrieved | 2026-09-30T18:45Z |
+| Original format | video/x-msvideo · 7,257,102 bytes · `44348_2026_78_MOESM2_ESM.avi` |
+| Original SHA-256 | `b3a187cbb258f9e7ae8434043069602d1a4035891b02087bbe7aa885538c324a` |
+| Original preserved | imaging/real/source/ijv-2026-video-s2-source.avi |
+| Licence evidence | Europe PMC full text of PMC13343992 (doi 10.1186/s44348-026-00078-5), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original auth”; supplementary item 2 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
 
 ## Considered and rejected
 
