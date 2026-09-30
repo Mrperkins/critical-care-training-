@@ -59,12 +59,32 @@ def main():
         check('Video S1' in s1['description'] and 'Video S2' in s2['description'] and not s1['thirdParty'], 'supplementary captions found, no third-party credit')
         check(cm.parse_springer(SPRINGER.replace('Video S2.', 'Video S2 courtesy of X.'), 'u', 2)['thirdParty'], 'third-party credit in a caption is flagged')
 
+        jats = '''<article xmlns:xlink="http://www.w3.org/1999/xlink"><front><article-meta>
+<contrib-group><contrib contrib-type="author"><name><surname>Shaul</surname><given-names>NC</given-names></name></contrib></contrib-group>
+<permissions><license xlink:href="https://creativecommons.org/licenses/by/4.0/"><license-p>This article is licensed under a Creative Commons Attribution 4.0 International License.</license-p></license></permissions>
+</article-meta></front><back><sec><supplementary-material id="MOESM1"><label>Supplementary Material 1</label><caption><p>Video S1. The inferior vena cava.</p></caption><media xlink:href="44348_2026_78_MOESM1_ESM.avi"/></supplementary-material>
+<supplementary-material id="MOESM2"><caption><p>Video S2. The IJV collapse point.</p></caption><media xlink:href="44348_2026_78_MOESM2_ESM.avi"/></supplementary-material></sec></back></article>'''
+        search = {'resultList': {'result': [{'doi': '10.1186/s44348-026-00078-5', 'pmcid': 'PMC1', 'title': 'POCUS volume status.', 'firstPublicationDate': '2026-07-07', 'journalInfo': {'journal': {'title': 'J Cardiovasc Imaging'}}}]}}
+        e2 = cm.parse_epmc(search, jats, '10.1186/s44348-026-00078-5', 2)
+        check(e2['license'] == 'CC BY 4.0' and e2['mediaName'].endswith('MOESM2_ESM.avi') and 'Video S2' in e2['description'] and e2['authors'] == 'NC Shaul' and not e2['thirdParty'], 'Europe PMC licence, author and supplementary item parsed')
         page = tmp / 'page.jpg'; page.write_text('<!DOCTYPE html><html>error</html>')
         try:
             cm.sniff(page); check(False, 'HTML saved as .jpg is rejected')
         except SystemExit:
             check(True, 'HTML saved as .jpg is rejected')
 
+        # self-test entries cloned from the real teaching items (shipped or pending), so real media is never disturbed
+        mp = root / 'imaging/real/manifest.json'; man = json.loads(mp.read_text())
+        pool = {i['id']: i for i in man['items'] + man.get('pending', [])}
+        claims = {'ptx-expiratory': 'CC0', 'fast-ruq-positive': 'CC BY 2.0', 'ivc-2026-video-s1': 'CC BY 4.0', 'ijv-2026-video-s2': 'CC BY 4.0'}
+        keep = ('kind', 'type', 'modality', 'finding', 'title', 'caption', 'look', 'teach', 'quiz', 'marks', 'fetch')
+        man['pending'] = [{**{k: pool[i][k] for k in keep if k in pool[i]}, 'fetch': pool[i].get('fetch') or {'type': 'commons', 'title': 'x'},
+                           'id': i, 'licenseClaimed': claims[i], 'pageUrl': 'https://example.invalid', 'claimedBy': 'self-test'} for i in claims]
+        man['items'] = [i for i in man['items'] if i['id'] not in claims]
+        for i in claims:
+            for f in list((root / 'imaging/real').glob(i + '.*')) + list((root / 'imaging/real/source').glob(i + '*')):
+                f.unlink()
+        mp.write_text(json.dumps(man, indent=1, ensure_ascii=False) + '\n'); cm.write_docs(man)
         # throwaway test-pattern media standing in for the downloads (never shipped)
         src = tmp / 'dl'
         for pid, kind in (('ptx-expiratory', 'img'), ('fast-ruq-positive', 'ogv'), ('ivc-2026-video-s1', 'avi')):

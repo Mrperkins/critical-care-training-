@@ -1,0 +1,2 @@
+Fetch the remaining pending items (IVC Video S1, IJV Video S2) from doi 10.1186/s44348-026-00078-5.
+Attempt 3: publisher page, then Europe PMC full text + supplementary archive.

@@ -106,7 +106,7 @@ def probe(p: Path) -> dict:
     j = json.loads(out.stdout)
     v = next(s for s in j['streams'] if s['codec_type'] == 'video')
     dur = float(j['format'].get('duration') or v.get('duration') or 0)
-    rate = v.get('avg_frame_rate') or v.get('r_frame_rate') or '0/1'
+    rate = next((r for r in (v.get('avg_frame_rate'), v.get('r_frame_rate')) if r and not r.startswith('0/')), '0/1')
     n, d = (float(x) for x in rate.split('/')) if '/' in rate else (float(rate), 1.0)
     return {'w': int(v['width']), 'h': int(v['height']), 'codec': v['codec_name'], 'duration': round(dur, 3), 'fps': round(n / d, 3) if d else 0,
             'audio': any(s['codec_type'] == 'audio' for s in j['streams'])}
@@ -148,9 +148,52 @@ def parse_commons(doc: dict, api: str, title: str) -> dict:
         'license': lic, 'licenseUrl': val('LicenseUrl') or LICENSE_URLS.get(lic or '', ''),
         'licenseEvidence': f"Wikimedia Commons API extmetadata for {title}: LicenseShortName = “{val('LicenseShortName')}”, "
                            f"UsageTerms = “{val('UsageTerms')}” ({api})",
-        'authors': val('Artist'), 'credit': val('Credit'), 'published': val('DateTimeOriginal') or val('DateTime'),
+        'authors': re.split(r'\s+(?:Author info|Consent note|Reusing images)\b', val('Artist'))[0].replace(' ,', ',').strip(' -'), 'credit': val('Credit'), 'published': val('DateTimeOriginal') or val('DateTime'),
         'description': val('ImageDescription'), 'restrictions': val('Restrictions'),
     }
+
+
+EPMC = 'https://www.ebi.ac.uk/europepmc/webservices/rest'
+
+
+def parse_epmc(search: dict, xml: str, doi: str, esm: int) -> dict:
+    """Europe PMC record + JATS full text: licence element, authors, and supplementary item <esm> with its caption."""
+    import xml.etree.ElementTree as ET
+    res = [r for r in search.get('resultList', {}).get('result', []) if (r.get('doi') or '').lower() == doi.lower()]
+    assert res, f'{doi}: not found in Europe PMC'
+    r = res[0]; root = ET.fromstring(xml); XL = '{http://www.w3.org/1999/xlink}href'
+    lic_el = root.find('.//permissions/license')
+    assert lic_el is not None, f'{doi}: no <license> in the full text'
+    lic_txt = strip_tags(ET.tostring(lic_el, encoding='unicode'))
+    lic = norm_license(lic_el.get(XL, '')) or next((norm_license(u) for u in re.findall(r'https?://creativecommons\.org/[a-z/]+\d\.\d/?', ET.tostring(lic_el, encoding='unicode'))), None)
+    sups = root.findall('.//supplementary-material')
+    pick = [x for x in sups if any(re.search(rf'MOESM{esm}_ESM', m.get(XL, '')) for m in x.iter('media'))] or (sups[esm - 1:esm] if len(sups) >= esm else [])
+    assert pick, f'{doi}: supplementary item {esm} not in the full text'
+    sup = pick[0]; media = next(sup.iter('media')); href = media.get(XL)
+    caption = strip_tags(ET.tostring(sup, encoding='unicode'))[:900]
+    authors = [strip_tags(' '.join(filter(None, [n.findtext('given-names'), n.findtext('surname')]))) for n in root.findall('.//contrib[@contrib-type="author"]/name')]
+    return {
+        'pmcid': r['pmcid'], 'mediaName': href, 'pageUrl': f"https://doi.org/{doi}",
+        'license': lic, 'licenseUrl': LICENSE_URLS.get(lic or '', ''),
+        'licenseEvidence': f"Europe PMC full text of {r['pmcid']} (doi {doi}), <license>: “{lic_txt[:300]}”; supplementary item {esm} caption checked for a separate credit.",
+        'authors': ', '.join(authors) or r.get('authorString', ''), 'title': strip_tags(r.get('title', '')).rstrip('.'),
+        'publication': (r.get('journalInfo') or {}).get('journal', {}).get('title', ''), 'published': r.get('firstPublicationDate', ''), 'doi': doi,
+        'volume': (r.get('journalInfo') or {}).get('volume', ''), 'firstpage': r.get('pageInfo', ''),
+        'description': caption, 'thirdParty': bool(THIRD_PARTY.search(caption)),
+    }
+
+
+def fetch_epmc(doi: str, esm: int) -> tuple[dict, bytes]:
+    import io, zipfile
+    q = f'{EPMC}/search?' + urllib.parse.urlencode({'query': f'DOI:"{doi}"', 'resultType': 'core', 'format': 'json'})
+    search = json.loads(get(q)); pmcid = search['resultList']['result'][0]['pmcid']
+    meta = parse_epmc(search, get(f'{EPMC}/{pmcid}/fullTextXML').decode('utf-8'), doi, esm)
+    zurl = f'{EPMC}/{pmcid}/supplementaryFiles'
+    z = zipfile.ZipFile(io.BytesIO(get(zurl)))
+    names = [n for n in z.namelist() if Path(n).name == Path(meta['mediaName']).name]
+    assert names, f"{pmcid}: {meta['mediaName']} not in the supplementary archive ({z.namelist()[:12]})"
+    meta.update(originalUrl=f"{zurl} → {names[0]}", originalName=Path(names[0]).name)
+    return meta, z.read(names[0])
 
 
 def parse_springer(page: str, url: str, esm: int) -> dict:
@@ -184,10 +227,25 @@ def fetch_one(it: dict, out: Path) -> dict:
         if it.get('articleDoi'):
             meta['doi'] = it['articleDoi']
     elif f['type'] == 'springer':
-        meta = parse_springer(get(f['article']).decode('utf-8', 'replace'), f['article'], f['esm'])
+        data = None
+        try:
+            page = get(f['article']).decode('utf-8', 'replace')
+            try:
+                meta = parse_springer(page, f['article'], f['esm'])
+            except AssertionError as e:
+                t = re.search(r'<title>(.*?)</title>', page, re.S)
+                raise AssertionError(f"{e} (page {len(page):,} chars, title “{(t.group(1).strip() if t else '?')[:80]}”)")
+        except BaseException as e:  # publisher page blocked or changed → the same article through Europe PMC
+            gh('warning', it['id'], f'publisher page unusable, trying Europe PMC: {type(e).__name__}: {e}')
+            meta, data = fetch_epmc(it['articleDoi'], f['esm'])
+        if data is not None:
+            return finish_fetch(it, d, meta, data)
     else:
         raise SystemExit(f"{it['id']}: unknown fetch type {f['type']}")
-    data = get(meta['originalUrl'])
+    return finish_fetch(it, d, meta, get(meta['originalUrl']))
+
+
+def finish_fetch(it: dict, d: Path, meta: dict, data: bytes) -> dict:
     kind = None
     (d / 'probe.bin').write_bytes(data[:64]); kind = sniff(d / 'probe.bin'); (d / 'probe.bin').unlink()
     if meta.get('sha1'):
