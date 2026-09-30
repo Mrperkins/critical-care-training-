@@ -322,8 +322,9 @@ def asset_manifest_md(m: dict) -> str:
            'Generated from `manifest.json` by `tools/clinical_media.py docs`; do not edit by hand. Every file here is checked by',
            '`tools/validate_visual_assets.py` (licence on the accepted list, SHA-256, media signature, no unlisted files).', '',
            f"Accepted licences: {', '.join(m['accepted'])}. Rejected: NC, ND, share-alike, research-only or unclear terms.", '',
-           'Adding the pending media: run the GitHub Action **Fetch clinical media** on `visual-overhaul` (it reads each licence from the',
-           'source — the Commons API or the article page — downloads the originals, transcodes and commits), or put `original.<ext>` and a',
+           'Adding the pending media: create `imaging/real/fetch-request.txt` on `visual-overhaul` (any text). That starts the GitHub Action',
+           '**Fetch clinical media**, which reads each licence from the source — the Commons API or the article page — downloads the',
+           'originals, transcodes, validates and commits. Or put `original.<ext>` and a',
            '`meta.json` in `DIR/<id>/` and run `python tools/clinical_media.py ingest --from DIR`. The app reads `manifest.json` at run time,',
            'so ingested media appear without rebuilding `index.html`. Overlay marks (`marks`) are added after viewing the real frames.', '']
     for it in m['items']:

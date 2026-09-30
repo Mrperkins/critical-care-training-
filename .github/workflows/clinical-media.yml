@@ -1,8 +1,13 @@
 # Fetch the staged real clinical media (imaging/real/manifest.json → "pending"), verify each licence from the source
 # itself (Wikimedia Commons API / the article page), transcode, validate and commit to visual-overhaul.
-# Manual only: Actions → "Fetch clinical media" → Run workflow. Never runs on, or pushes to, main.
+# Start it by creating or editing imaging/real/fetch-request.txt on visual-overhaul (GitHub: Add file → Create new
+# file; any text). GitHub only offers the "Run workflow" button for workflows on the default branch, so the file is
+# the trigger while this lives on visual-overhaul. Never runs on, or pushes to, main.
 name: Fetch clinical media
 on:
+  push:
+    branches: [visual-overhaul]
+    paths: ['imaging/real/fetch-request.txt']
   workflow_dispatch:
     inputs:
       only:
@@ -27,7 +32,7 @@ jobs:
       - name: Offline self-test
         run: python tools/test_clinical_media.py
       - name: Fetch originals with licence evidence
-        run: python tools/clinical_media.py fetch --out "$RUNNER_TEMP/media" ${{ inputs.only && format('--only {0}', inputs.only) || '' }}
+        run: python tools/clinical_media.py fetch --out "$RUNNER_TEMP/media" ${{ github.event.inputs.only && format('--only {0}', github.event.inputs.only) || '' }}
       - name: Ingest (verify, transcode, promote)
         run: python tools/clinical_media.py ingest --from "$RUNNER_TEMP/media"
       - name: Validate
@@ -38,6 +43,7 @@ jobs:
         run: |
           git config user.name "clinical-media-bot"
           git config user.email "clinical-media-bot@users.noreply.github.com"
+          git rm -q --ignore-unmatch imaging/real/fetch-request.txt
           git add imaging/real
           git diff --cached --quiet && { echo "nothing new"; exit 0; }
           git commit -m "Real clinical media fetched and verified from source (tools/clinical_media.py)"

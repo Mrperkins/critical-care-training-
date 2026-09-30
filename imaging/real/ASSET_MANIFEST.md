@@ -5,8 +5,9 @@ Generated from `manifest.json` by `tools/clinical_media.py docs`; do not edit by
 
 Accepted licences: CC0, Public Domain, CC BY 2.0, CC BY 3.0, CC BY 4.0, MIT, Apache-2.0. Rejected: NC, ND, share-alike, research-only or unclear terms.
 
-Adding the pending media: run the GitHub Action **Fetch clinical media** on `visual-overhaul` (it reads each licence from the
-source — the Commons API or the article page — downloads the originals, transcodes and commits), or put `original.<ext>` and a
+Adding the pending media: create `imaging/real/fetch-request.txt` on `visual-overhaul` (any text). That starts the GitHub Action
+**Fetch clinical media**, which reads each licence from the source — the Commons API or the article page — downloads the
+originals, transcodes, validates and commits. Or put `original.<ext>` and a
 `meta.json` in `DIR/<id>/` and run `python tools/clinical_media.py ingest --from DIR`. The app reads `manifest.json` at run time,
 so ingested media appear without rebuilding `index.html`. Overlay marks (`marks`) are added after viewing the real frames.
 
