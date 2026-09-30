@@ -4,7 +4,7 @@ Renders narration clips for every line in public/vo/lines.json that has no clip 
 with an offline neural voice (Kokoro-82M, Apache-2.0, voice bf_emma), then encodes each clip like the
 existing ones (MP3, 22.05 kHz mono, 24 kb/s). Clips go to a cache folder; scripts/vo-pack.ts packs them.
 
-usage: python3 scripts/vo_render.py <model.onnx> <voices.bin> <cache_dir> [--only id1,id2]
+usage: python3 scripts/vo_render.py <model.onnx> <voices.bin> <cache_dir> [--only id1,id2] [--replace-originals]
 """
 import hashlib, json, os, re, subprocess, sys
 from pathlib import Path
@@ -42,7 +42,7 @@ def main():
         if only is not None and l['id'] not in only: continue
         mp3 = cache / f"{l['id']}.mp3"
         # an original clip (no hash recorded) is kept; ours are re-rendered only if the text changed
-        if l['id'] in packed and l['id'] not in hashes: continue
+        if l['id'] in packed and l['id'] not in hashes and '--replace-originals' not in sys.argv: continue
         if hashes.get(l['id']) == h and (mp3.exists() or l['id'] in packed): continue
         todo.append((l, h))
     print(len(todo), 'clips to render', flush=True)

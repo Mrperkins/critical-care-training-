@@ -1,4 +1,8 @@
 import { LessonShell } from '../app/LessonShell';
+import { COAG_LESSON } from '../director/lessons/coag';
+import { CoagCard } from './CoagCard';
+import { useDirector } from '../director/director';
+function TlCards() { const id = useDirector((s) => s.tl?.id); return id === COAG_LESSON.id ? <><CoagCard /><LabCard /></> : <><LabCard /><Consequences /></>; }
 import { LabNormals } from '../app/Normals';
 import { LAB_LESSONS, type LabLesson, type LabSetup } from '../lessons/labs';
 import { bench } from './bench';
@@ -27,5 +31,5 @@ export function applyLabStep(lesson: LabLesson, i: number) {
   bench.running = false; useLabUI.getState().set({ lab, view }); useUI.getState().set({ pulse: useUI.getState().pulse + 1 });
 }
 export function LabLearn() {
-  return <LessonShell lessons={LAB_LESSONS} apply={applyLabStep} timelines={LAB_TIMELINES} timelineChildren={() => <><LabCard /><Consequences /></>} reference={() => <LabNormals />} intro="The narrator changes lab values and gives treatments on the same patient model; the cells, the ECG and the numbers respond.">{() => <><Consequences /><LabCard /></>}</LessonShell>;
+  return <LessonShell lessons={LAB_LESSONS} apply={applyLabStep} timelines={[...LAB_TIMELINES, COAG_LESSON]} timelineChildren={() => <TlCards />} reference={() => <LabNormals />} intro="The narrator changes lab values and gives treatments on the same patient model; the cells, the ECG and the numbers respond.">{() => <><Consequences /><LabCard /></>}</LessonShell>;
 }

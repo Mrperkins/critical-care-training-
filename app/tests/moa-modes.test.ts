@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { MECHANISMS, MECH } from '../src/moa/registry';
+import { withContext } from '../src/moa/registry';
 import { branches, emphasis, descendants, ancestors, compare, mainDrug } from '../src/moa/modes';
 import { ADVERSE, TIMECOURSE, LESSON_DRUGS, lessonsForDrug } from '../src/moa/meta';
 import { lessonById, LESSON_HOSTS } from '../src/director/lessonIndex';
@@ -26,7 +27,7 @@ describe('MOA modes (pure)', () => {
   it('compare: norepinephrine vs phenylephrine both raise MAP; phenylephrine slows the heart more', () => {
     const r = compare(MECH.norepinephrine, MECH.phenylephrine); const map = r.rows.find((x) => x.id === 'map')!, hr = r.rows.find((x) => x.id === 'hr')!;
     expect(map.a).toBeGreaterThan(0); expect(map.b).toBeGreaterThan(0); expect(hr.b).toBeLessThan(hr.a);
-    expect(compare(MECH.txa, MECH.pcc).rows).toEqual([]);
+    const c = compare(withContext(MECH.txa, 'lysis'), withContext(MECH.pcc, 'withk')); expect(c.rows.map((x) => x.id)).toContain('inr'); expect(c.sameScenario).toBe(false);
   });
 });
 

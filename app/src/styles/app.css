@@ -565,3 +565,5 @@ details.card summary{cursor:pointer;font:600 14px var(--fs);margin-bottom:6px}
 .pop-sats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:6px 0}.pop-sats>div{display:flex;flex-direction:column;min-width:0}
 .pop-band{fill:rgba(111,207,151,.22);stroke:rgba(111,207,151,.6)}.pop-cursor{stroke:var(--gold);stroke-width:1.5}
 .pop-bv{fill:rgba(224,100,90,.28)}.pop-bv-np{fill:rgba(224,100,90,.5)}.pop-loss{fill:#05070a;stroke:var(--bad);stroke-dasharray:3 2}
+.coag-trace{fill:rgba(224,100,90,.32);stroke:#e0645a;stroke-width:1.2}
+.num.bad .nv{color:var(--bad)}

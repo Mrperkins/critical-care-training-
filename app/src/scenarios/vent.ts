@@ -16,13 +16,15 @@ export interface LungSpec {
   right?: Partial<Compartment> & { rFixed?: number }; left?: Partial<Compartment> & { rFixed?: number };
   tension?: number;
 }
-export type Fix = 'bronchodilator' | 'suction' | 'decompress' | 'bronchoscopy' | 'paralyse' | 'chestTube';
+export type Fix = 'bronchodilator' | 'suction' | 'decompress' | 'bronchoscopy' | 'paralyse' | 'chestTube' | 'withdrawTube';
 export interface VentScenario {
   id: string; name: string; short: string; story: string;
   lung: LungSpec; spasm: number; effort: PatientEffort; settings: Partial<VentSettings>;
   /** gas exchange: base shunt and how much shunt collapsed (recruitable) lung adds */
   gas: Partial<PatientParams> & { recruitShunt?: number };
   fixes: Fix[];
+  /** endotracheal tube tip: in the trachea (default) or down the right main bronchus (left lung not ventilated) */
+  ett?: 'trachea' | 'rightMain';
   look: string[];   // what to notice on the waveforms / 3D
   teach: string[];  // key physiology
 }
@@ -100,6 +102,14 @@ export const VENT_SCENARIOS: VentScenario[] = [
     gas: { shunt: 0.05, lowVQ: 0.05 }, fixes: ['bronchoscopy'],
     look: ['Pplat rises: the whole tidal volume goes into one lung.', 'Right lung does not move; right-sided shunt drops the SpO₂.'],
     teach: ['Absorption atelectasis behind a plug creates shunt — O₂ helps little.', 'Suction / bronchoscopy, then recruit.'],
+  },
+  {
+    id: 'mainstem', name: 'Right mainstem intubation', short: 'Tube too deep', story: 'Intubated in the field; after the move to the stretcher, SpO₂ is falling and the peak pressure has risen. Breath sounds are quiet on the left.',
+    lung: {}, spasm: 0, effort: PASSIVE, ett: 'rightMain',
+    settings: { mode: 'VC', vt: 0.45, rr: 16, peep: 5, fio2: 0.5, flow: 55, pattern: 'square' },
+    gas: { shunt: 0.04, lowVQ: 0.05 }, fixes: ['withdrawTube'],
+    look: ['Pplat rises: the whole tidal volume goes into the right lung.', 'Left lung does not move; shunt drops the SpO₂.', 'Film: tube tip below the carina, left lung collapsing. Lung ultrasound: lung pulse, no sliding on the left.'],
+    teach: ['The right main bronchus is wider and more vertical, so a deep tube goes right.', 'Check the tube depth at the teeth (≈ 21 cm women, 23 cm men as a guide), listen in both axillae, and look at the film.', 'Withdraw the tube 1–2 cm with the cuff down, then recruit the left lung.'],
   },
 ];
 export const VENT_SCENARIO = Object.fromEntries(VENT_SCENARIOS.map((s) => [s.id, s])) as Record<string, VentScenario>;

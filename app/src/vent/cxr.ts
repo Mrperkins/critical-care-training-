@@ -24,13 +24,13 @@ export function cxrFromVent(S: VentSession): CxrState {
     const c = m.lung.comps[k]; const closed = 1 - m.openFrac(k); // recruitable units collapsed now (0 … rec)
     const base = id === 'ards' ? 0.3 : id === 'edema' ? 0.2 : id === 'obesity' ? 0.05 : 0;
     const opacity = clamp(base + (rec > 0 ? (closed / rec) * (id === 'obesity' ? 0.35 : 0.55) : 0));
-    const plug = k === 0 && S.plugR != null ? clamp((S.plugR - 4) / 146) : 0;
+    const plug = k === 0 && S.plugR != null ? clamp((S.plugR - 4) / 146) : k === 1 && S.mainstem ? clamp(0.3 + S.mainstemT / 25) : 0; // absorption atelectasis behind the blocked bronchus
     return { ptx: id === 'ptx' ? clamp(c.collapsed) : 0, atelectasis: plug, opacity, effusion: id === 'edema' ? 0.45 : 0 };
   }) as [CxrSide, CxrSide];
   const auto = m.ventilation().autoPeep;
   const hyper = id === 'asthma' || id === 'copd' ? clamp((id === 'copd' ? 0.55 : 0.3) + auto / 12) : 0;
   return { side, tension: m.lung.tension, edema: id === 'edema' ? 1 : 0, ards: id === 'ards' ? 1 : 0, hyperinflation: hyper, habitus: id === 'obesity' ? 1 : 0,
-    ctr: id === 'edema' ? 0.62 : hyper > 0 ? 0.42 : 0.47, ett: { aboveCarinaCm: 4.5 }, drain: S.tubeT >= 0, needle: S.decompT >= 0 };
+    ctr: id === 'edema' ? 0.62 : hyper > 0 ? 0.42 : 0.47, ett: { aboveCarinaCm: S.mainstem ? -2.5 : 4.5 }, drain: S.tubeT >= 0, needle: S.decompT >= 0 };
 }
 
 /** Geometry shared by the renderer and the tests (x ∈ [−1, 1], image-left = patient right; y ∈ [0, 1] top → bottom). */
@@ -114,7 +114,7 @@ export function pixel(st: CxrState, g: ReturnType<typeof geometry>, x: number, y
   // trachea and main bronchi (air columns)
   const tx = g.shift * 0.7;
   if (y < g.carinaY && y > 0.02 && Math.abs(x - tx) < 0.034) v = Math.min(v, 0.22);
-  if (y >= g.carinaY && y < 0.44) { const t = (y - g.carinaY) / 0.11; for (const b of [-1, 1]) { const bx = tx + b * t * (b < 0 ? 0.15 : 0.19); if (Math.abs(x - bx) < 0.02 && !(b < 0 && st.side[0].atelectasis > 0.5)) v = Math.min(v, 0.24); } }
+  if (y >= g.carinaY && y < 0.44) { const t = (y - g.carinaY) / 0.11; for (const b of [-1, 1]) { const bx = tx + b * t * (b < 0 ? 0.15 : 0.19); if (Math.abs(x - bx) < 0.02 && !(b < 0 && st.side[0].atelectasis > 0.5) && !(b > 0 && st.side[1].atelectasis > 0.5)) v = Math.min(v, 0.24); } }
   // abdomen below the domes; gastric bubble under the left dome
   if (y >= dy && Math.abs(x) < 0.9) { v = 0.5 + 0.04 * vnoise(x * 3, y * 3); if (k === 1 && ((x - 0.36) / 0.13) ** 2 + ((y - domeY(g, 1, 0.36) - 0.045) / 0.04) ** 2 < 1) v = 0.22; }
   // spine
@@ -124,7 +124,8 @@ export function pixel(st: CxrState, g: ReturnType<typeof geometry>, x: number, y
   if (ax > 0.1 && ax < 0.9 && y < dy + 0.03) for (let n = 0; n < 10; n++) { const ry = 0.1 + n * 0.068 * spread + 0.12 * ax * ax - 0.02 * ax; v += 0.09 * clamp(1 - Math.abs(y - ry) / 0.011); }
   v += 0.2 * clamp(1 - Math.abs(y - (0.088 - 0.035 * ax)) / 0.012) * (ax > 0.07 && ax < 0.62 ? 1 : 0);
   // devices: ETT radio-opaque stripe, chest drain toward the apex, decompression catheter
-  if (st.ett) { const tip = g.carinaY - st.ett.aboveCarinaCm * 0.021; if (y < tip && Math.abs(Math.abs(x - tx) - 0.017) < 0.005) v = 0.95; }
+  if (st.ett) { const tip = g.carinaY - st.ett.aboveCarinaCm * 0.021; const cx = y <= g.carinaY ? tx : tx - ((y - g.carinaY) / 0.11) * 0.15; // below the carina the tube follows the right main bronchus
+    if (y < tip && Math.abs(Math.abs(x - cx) - 0.017) < 0.005) v = 0.95; }
   if (st.drain) { const tt = (y - 0.2) / 0.45; if (tt >= 0 && tt <= 1 && Math.abs(x - (-0.5 - 0.3 * tt * tt)) < 0.011) v = 0.9; }
   if (st.needle && Math.abs(x + 0.45) < 0.006 && y > 0.18 && y < 0.24) v = 0.95;
   return clamp(v + grain);
@@ -145,7 +146,7 @@ export function cxrFindings(st: CxrState): string[] {
   else if (!st.edema && op > 0.12) f.push('Basal opacity from dependent collapse (low lung volumes).');
   if (st.hyperinflation > 0.25) f.push('Hyperinflated, hyperlucent lungs with low, flat hemidiaphragms and a narrow heart.');
   if (st.habitus) f.push('Soft-tissue shadow over both lungs and low volumes (habitus) — do not over-read as consolidation.');
-  if (st.ett) f.push(`Endotracheal tube tip ${st.ett.aboveCarinaCm.toFixed(1)} cm above the carina.`);
+  if (st.ett) f.push(st.ett.aboveCarinaCm < 0 ? `Endotracheal tube tip ${Math.abs(st.ett.aboveCarinaCm).toFixed(1)} cm BELOW the carina, in the right main bronchus — too deep.` : `Endotracheal tube tip ${st.ett.aboveCarinaCm.toFixed(1)} cm above the carina.`);
   if (st.drain) f.push('Right chest drain directed toward the apex.'); if (st.needle && !st.drain) f.push('Decompression catheter in the right 2nd intercostal space.');
   if (!f.some((l) => /pneumothorax|collapse|oedema|ARDS|opacit|Hyperinflated|effusion|shift/.test(l))) f.push('Clear lungs, normal heart size, no pneumothorax.');
   return f;

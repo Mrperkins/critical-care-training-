@@ -83,6 +83,7 @@ export function Interventions() {
       {(sc.lung.rSpasm ?? 0) > 0 && <button className={`act${session.bdT >= 0 ? ' done' : ''}`} onClick={() => act('bronchodilator')}>{session.bdT >= 0 ? `Bronchodilator ${Math.round(session.bdEffect() * 100)} %` : 'Give bronchodilator'}</button>}
       {sc.fixes.includes('suction') && <button className={`act${session.suctionT >= 0 ? ' done' : ''}`} onClick={() => act('suction')}>Suction the ETT</button>}
       {sc.fixes.includes('decompress') && <button className={`act${session.decompT >= 0 ? ' done' : ''}`} onClick={() => act('decompress')}>Needle decompression</button>}
+      {sc.fixes.includes('withdrawTube') && <button className={`act${session.withdrawT >= 0 ? ' done' : ''}`} onClick={() => act('withdrawTube')}>Withdraw tube 2 cm</button>}
       {sc.fixes.includes('bronchoscopy') && <button className={`act${session.bronchT >= 0 ? ' done' : ''}`} onClick={() => act('bronchoscopy')}>Bronchoscopy</button>}
       {hasEffort && <button className="act" onClick={() => act('paralyse')}>Deep sedation</button>}
     </div>
@@ -161,7 +162,7 @@ export function ScenarioPicker() {
 }
 export function loadVentScenario(id: string, dyss: Parameters<typeof session.load>[1] = null) {
   session.load(id, dyss); const sc = VENT_SCENARIO[id];
-  const view = sc.lung.rSpasm || id === 'ett' || id === 'plug' ? 'airway' : id === 'ards' || id === 'obesity' || id === 'edema' ? 'side' : 'front';
+  const view = sc.lung.rSpasm || id === 'ett' || id === 'plug' || id === 'mainstem' ? 'airway' : id === 'ards' || id === 'obesity' || id === 'edema' ? 'side' : 'front';
   useUI.getState().set({ ventScenario: id, ventView: view, showPmus: session.m.pt.pmax > 0, pulse: useUI.getState().pulse + 1 });
 }
 export function ScenarioStory() {

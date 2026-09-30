@@ -1,10 +1,9 @@
 /**
- * Haemostasis drugs. This app has no coagulation engine yet, so these are mechanism graphs only, with a
- * clearly shown note instead of an invented patient response. Original teaching text.
+ * Haemostasis drugs. The patient response comes from the coagulation engine inside the shared patient
+ * (physiology/coag.ts) through coagAdapter — INR, aPTT, fibrinogen, clot strength and lysis. Original teaching text.
  */
 import type { MechanismDefinition } from '../types';
-
-const NOTE = 'No coagulation model in this app yet — mechanism only. Patient response (INR, clot strength, bleeding) will come from a shared coagulation engine, not from this drug card.';
+import { coagAdapter } from '../coagAdapter';
 
 export const TXA: MechanismDefinition = {
   id: 'txa', drug: 'Tranexamic acid', drugClass: 'Antifibrinolytic (lysine analogue)',
@@ -23,7 +22,10 @@ export const TXA: MechanismDefinition = {
     { from: 'txa', to: 'lbs', sign: -1 }, { from: 'lbs', to: 'plg', sign: 1 }, { from: 'plg', to: 'pl', sign: 1 }, { from: 'pl', to: 'lys', sign: 1 }, { from: 'lys', to: 'clot', sign: -1 },
     { from: 'clot', to: 'bleed', sign: -1 }, { from: 'txa', to: 'form', sign: 1, effect: 'none' },
   ],
-  patientNote: NOTE,
+  contexts: [
+    { id: 'lysis', label: 'Trauma, clot breaking down (within 3 h)', note: 'Hyperfibrinolysis: clots dissolve and fibrinogen is consumed. Tranexamic acid cuts lysis and protects the fibrinogen left.', patient: coagAdapter({ scenario: 'Major trauma, hyperfibrinolysis', preset: 'traumaLysis', drugs: ['txa'], minutes: 60 }) },
+    { id: 'normal', label: 'No fibrinolysis', note: 'With no clot breakdown there is nothing to block: INR, aPTT and clot strength do not change — tranexamic acid does not make clots form.', patient: coagAdapter({ scenario: 'Normal clotting', preset: 'normal', drugs: ['txa'], minutes: 60 }) },
+  ],
   summary: 'It stops clots being dissolved; it does not make clots form. Timing matters. High doses can cause seizures.',
 };
 
@@ -44,7 +46,10 @@ export const PCC: MechanismDefinition = {
     { from: 'pcc', to: 'f', sign: 1 }, { from: 'pcc', to: 'pcs', sign: 1 }, { from: 'f', to: 'thr', sign: 1 }, { from: 'thr', to: 'inr', sign: -1 }, { from: 'thr', to: 'clot', sign: 1 },
     { from: 'vk', to: 'f', sign: 1 }, { from: 'thr', to: 'thromb', sign: 1 },
   ],
-  patientNote: NOTE,
+  contexts: [
+    { id: 'withk', label: 'PCC + IV vitamin K', note: 'The INR falls within minutes and stays down, because vitamin K lets the liver replace the factors as the concentrate is used up.', patient: coagAdapter({ scenario: 'Warfarin, INR ≈ 6.5, bleeding', preset: 'warfarinBleed', drugs: ['pcc', 'vitkIV'], minutes: 1440 }) },
+    { id: 'alone', label: 'PCC alone', note: 'Factor VII from the concentrate lasts about six hours: without vitamin K the INR climbs back over the next day.', patient: coagAdapter({ scenario: 'Warfarin, INR ≈ 6.5, bleeding', preset: 'warfarinBleed', drugs: ['pcc'], minutes: 1440 }) },
+  ],
   summary: 'Immediate replacement of the vitamin-K-dependent factors, sustained by giving vitamin K at the same time.',
 };
 
@@ -63,7 +68,10 @@ export const VITAMIN_K: MechanismDefinition = {
   edges: [
     { from: 'warf', to: 'vkor', sign: -1 }, { from: 'vk', to: 'ggcx', sign: 1 }, { from: 'vkor', to: 'ggcx', sign: 1 }, { from: 'ggcx', to: 'gla', sign: 1 }, { from: 'gla', to: 'thr', sign: 1 }, { from: 'thr', to: 'inr', sign: -1 },
   ],
-  patientNote: NOTE,
+  contexts: [
+    { id: 'iv', label: 'IV vitamin K', note: 'New factors must be made: the INR starts to fall within hours and approaches normal by about a day.', patient: coagAdapter({ scenario: 'Warfarin, INR ≈ 6.5', preset: 'warfarinBleed', drugs: ['vitkIV'], minutes: 1440 }) },
+    { id: 'oral', label: 'Oral vitamin K', note: 'Absorbed over hours, so the fall in INR starts later.', patient: coagAdapter({ scenario: 'Warfarin, INR ≈ 6.5', preset: 'warfarinBleed', drugs: ['vitkOral'], minutes: 1440 }) },
+  ],
   summary: 'Vitamin K lets the liver make working factors again, so the effect is delayed by hours. IV is faster than oral; give it slowly.',
 };
 
@@ -84,6 +92,10 @@ export const PROTAMINE: MechanismDefinition = {
     { from: 'pro', to: 'cx', sign: 1 }, { from: 'hep', to: 'cx', sign: 1 }, { from: 'cx', to: 'at', sign: -1 }, { from: 'at', to: 'coag', sign: -1 }, { from: 'coag', to: 'aptt', sign: -1 },
     { from: 'cx', to: 'lmwh', sign: 1 }, { from: 'pro', to: 'adv', sign: 1 },
   ],
-  patientNote: NOTE,
+  contexts: [
+    { id: 'ufh', label: 'UFH, infusion stopped', note: 'Protamine binds heparin at once: the aPTT returns to normal within minutes.', patient: coagAdapter({ scenario: 'Heparin bolus, bleeding', preset: 'heparinHigh', drugs: ['protamine'], minutes: 120 }) },
+    { id: 'running', label: 'UFH, infusion still running', note: 'Protamine only neutralises the heparin already there: if the infusion keeps running, the aPTT climbs again.', patient: coagAdapter({ scenario: 'Heparin infusion', preset: 'heparin', drugs: ['protamine'], minutes: 120 }) },
+    { id: 'lmwh', label: 'LMWH', note: 'Protamine reverses only about 60 % of low-molecular-weight heparin: the anti-Xa effect and aPTT stay partly raised.', patient: coagAdapter({ scenario: 'Treatment-dose LMWH', preset: 'lmwh', drugs: ['protamine'], minutes: 120 }) },
+  ],
   summary: 'A charge-based antidote: it neutralises unfractionated heparin completely and low-molecular-weight heparin only partly. Too much protamine is itself anticoagulant; fast injection causes hypotension.',
 };

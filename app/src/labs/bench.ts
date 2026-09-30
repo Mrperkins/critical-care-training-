@@ -3,7 +3,8 @@
  * SyntheticPatient (not a separate toy model), so consequences — membrane potential, ECG,
  * cell volume, oxygen content, anion gap, eGFR — come from the same physiology engine.
  */
-import { createPatient, derive, advance, give, type PatientState, type Snapshot, type DrugId } from '../physiology/patient';
+import { createPatient, derive, advance, give, syncCoag, type PatientState, type Snapshot, type DrugId } from '../physiology/patient';
+import { COAG_PRESETS, coagGive, type CoagPresetId, type CoagDrug } from '../physiology/coag';
 import { LAB, type Lab } from '../knowledge/labs';
 
 export class LabBench {
@@ -26,6 +27,8 @@ export class LabBench {
   /** Move a lab to value v by changing the patient (the cause), then re-derive. */
   set(id: string, v: number) {
     const p = this.pt.p; const st = this.pt;
+    // typing a clotting value by hand takes over from the coagulation engine
+    if (st.coag && ['pt', 'inr', 'aptt', 'fib', 'plt'].includes(id)) st.coag = undefined;
     switch (id) {
       case 'na': p.cl -= p.na - v; p.na = v; // teaching simplification: strong-ion difference held constant so the acid–base state does not change
         if (this.naMode === 'chronic') st.naBrain = v; st.naHist = [{ t: st.t, na: v }]; break;
@@ -48,6 +51,10 @@ export class LabBench {
     }
     this.snap = derive(st); this.version++;
   }
+  /** Give the patient a coagulation state (engine on): its INR, aPTT, fibrinogen and platelets now come from the engine. */
+  startCoag(id: CoagPresetId) { this.pt.coag = COAG_PRESETS[id].make(); syncCoag(this.pt); this.snap = derive(this.pt); this.version++; }
+  /** Haemostatic drug or blood product into the coagulation engine (starts it at normal if it was off). */
+  coag(d: CoagDrug, dose = 1) { if (!this.pt.coag) this.startCoag('normal'); coagGive(this.pt.coag!, d, dose); syncCoag(this.pt); this.running = true; this.snap = derive(this.pt); this.version++; }
   give(d: DrugId, dose = 1) { give(this.pt, d, dose); this.running = true; this.snap = derive(this.pt); this.version++; }
   tick(realDt: number) { if (!this.running) return; this.acc += Math.min(0.1, realDt) * this.physioSpeed; if (this.acc > 3) { advance(this.pt, this.acc / 60); this.snap = derive(this.pt); this.acc = 0; this.version++; } }
   fastForward(min: number) { advance(this.pt, min); this.snap = derive(this.pt); this.version++; }

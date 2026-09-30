@@ -95,6 +95,7 @@ export const LESSON_DRUGS: Record<string, string[]> = {
   'vent-tension-ptx': [],
   'vent-ards-signature': ['propofol', 'rocuronium'],
   'ob-circulation': ['txa'],
+  'labs-coag': ['pcc', 'vitamink', 'protamine', 'txa'],
   'ob-gas': ['albuterol'],
   'pop-apnoea': ['rocuronium', 'succinylcholine'],
 };

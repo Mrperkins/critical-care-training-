@@ -424,6 +424,22 @@
   "t": "The goal is in between: enough PEEP to keep the dependent lung open, small tidal volumes of about six millilitres per kilogram, a plateau below thirty and a driving pressure below fifteen. Watch the numbers as you choose."
  },
  {
+  "id": "ards-8",
+  "t": "On a portable film at a PEEP of five, both lungs are white with patchy opacities and air bronchograms, and the heart is a normal size. That is the pattern of ARDS, not of heart failure."
+ },
+ {
+  "id": "ards-9",
+  "t": "At a PEEP of sixteen the same lungs look clearer, because collapsed units have opened and now hold air. The film changes with the ventilator settings, not only with the disease."
+ },
+ {
+  "id": "ards-10",
+  "t": "With a probe on the side of the chest at a PEEP of five, the B-lines merge into a white lung, and the dependent lung under the probe is consolidated and airless."
+ },
+ {
+  "id": "ards-11",
+  "t": "At sixteen there are fewer B-lines and the consolidation has gone: the same recruitment you saw at the alveoli, seen at the bedside in seconds."
+ },
+ {
   "id": "cr-1",
   "t": "In volume control with constant flow, the peak pressure has three parts: PEEP, the pressure to stretch the lung — volume divided by compliance — and the pressure to push flow through the airways — resistance times flow. An inspiratory hold stops the flow, and what remains is the plateau."
  },
@@ -446,6 +462,14 @@
  {
   "id": "cr-6",
   "t": "In COPD the small airways collapse during expiration, limiting flow no matter how hard the patient pushes. The same rules apply: long expiratory times, modest minute ventilation, and measure the trapped pressure."
+ },
+ {
+  "id": "cr-7",
+  "t": "The films tell the same story. The asthmatic lungs are hyperinflated: dark, over-expanded, with low flat diaphragms and a narrow heart, because trapped air cannot get out. The ARDS film was white."
+ },
+ {
+  "id": "cr-8",
+  "t": "On ultrasound the asthmatic lung slides, with A-lines only: full of air, with no fluid. The ARDS lung showed B-lines everywhere. A stiff lung and a narrow airway look different at the bedside."
  },
  {
   "id": "ptx-1",
@@ -674,6 +698,42 @@
  {
   "id": "hks-8",
   "t": "Removal is the cure: dialysis, gut binders, or diuretics if the kidneys still work. Stabilise, shift, remove. Then repeat the ECG and the potassium."
+ },
+ {
+  "id": "co-1",
+  "t": "When a vessel tears, platelets plug the hole, and clotting factors made by the liver generate thrombin, which weaves fibrinogen into a fibrin mesh. The trace shows a clot forming on time and staying firm."
+ },
+ {
+  "id": "co-2",
+  "t": "Warfarin blocks the recycling of vitamin K, so the liver makes clotting factors that cannot work. Here only about seven percent of factors two, seven, nine and ten are active. The INR is over six, the clot forms late and weak, and this patient is bleeding."
+ },
+ {
+  "id": "co-3",
+  "t": "Prothrombin complex concentrate replaces those four factors directly. Thirty minutes later the INR is close to normal and the clot forms on time."
+ },
+ {
+  "id": "co-4",
+  "t": "But factor seven lasts only about six hours. Without vitamin K the liver still cannot make working factors, and a day later the INR has climbed back toward three."
+ },
+ {
+  "id": "co-5",
+  "t": "Give intravenous vitamin K with the concentrate, and the liver takes over as the concentrate is used up. A day later the INR is still normal."
+ },
+ {
+  "id": "co-6",
+  "t": "Heparin works differently. It supercharges antithrombin, which switches off thrombin and factor ten A. The INR hardly moves, but the aPTT is several times normal."
+ },
+ {
+  "id": "co-7",
+  "t": "Protamine is strongly positive and binds the negative heparin chains. Within minutes the aPTT is back to normal. If an infusion were still running it would climb again, so stop the heparin first."
+ },
+ {
+  "id": "co-8",
+  "t": "Major trauma can switch on fibrinolysis: clots break down almost as fast as they form, and fibrinogen is consumed. The trace rises, then melts away, and fibrinogen falls toward one hundred."
+ },
+ {
+  "id": "co-9",
+  "t": "Tranexamic acid stops plasminogen binding to fibrin, so clots hold; it works best within three hours of injury. Replacing fibrinogen, with cryoprecipitate or concentrate, restores the strength of the clot."
  },
  {
   "id": "sh-0",
@@ -1214,5 +1274,73 @@
  {
   "id": "ad-10",
   "t": "Type A: control the pressure and get to cardiac surgery. Type B with rupture, malperfusion or uncontrollable pain: endovascular repair. Uncomplicated type B: impulse control, monitoring and repeat imaging."
+ },
+ {
+  "id": "so-1",
+  "t": "A grade two splenic laceration an hour after a fall. There is blood around the spleen and the FAST is positive, but the heart rate and pressure are normal and the bleeding has slowed. Stable patients like this usually get a CT and are managed without an operation, with close observation."
+ },
+ {
+  "id": "so-2",
+  "t": "A grade four injury bleeds faster. Thirty minutes in, three FAST windows are positive and she is in class two shock: the heart rate is up, the pressure still normal."
+ },
+ {
+  "id": "so-3",
+  "t": "A litre of blood restores her circulating volume and the heart rate settles, for now. The blood already in the abdomen stays there. How she responds over the next half hour sorts patients into three groups."
+ },
+ {
+  "id": "so-4",
+  "t": "Forty five minutes later she has bled the transfused blood away and the class is climbing again. A transient responder is still bleeding: she needs haemorrhage control, by angioembolisation if it is immediately available and she is safe to go there, otherwise the operating room."
+ },
+ {
+  "id": "so-5",
+  "t": "A grade five liver injury. An hour and a half in, a litre of blood has made no difference: she is in class three shock. No response means an operation now, with damage control surgery, packing and a massive transfusion protocol."
+ },
+ {
+  "id": "so-6",
+  "t": "Once the bleeding is controlled, the loss stops growing. The fluid in the abdomen is still there on ultrasound, but transfusion can finally catch up, and the haemorrhage class falls."
+ },
+ {
+  "id": "me-1",
+  "t": "A seventy eight year old with atrial fibrillation and sudden, severe central abdominal pain. The abdomen is soft and hardly tender. Pain out of proportion to the examination is the classic early sign, and the bowel still looks normal."
+ },
+ {
+  "id": "me-2",
+  "t": "A clot from the fibrillating left atrium has lodged in the superior mesenteric artery, which supplies most of the small bowel. On the CT angiogram the artery, just in front of the aorta, does not fill with contrast."
+ },
+ {
+  "id": "me-3",
+  "t": "Hours later the small bowel wall stops enhancing. Early in the course the lactate can still be normal, so a normal lactate does not rule this out."
+ },
+ {
+  "id": "me-4",
+  "t": "Once the bowel infarcts it turns dusky, gas appears in its wall, the lining sloughs, and bacteria and toxins reach the blood. Peritonitis, acidosis and shock follow, and the abdomen finally becomes tender."
+ },
+ {
+  "id": "me-5",
+  "t": "On CT, gas now lies in the bowel wall. The treatment is time: urgent revascularisation, by embolectomy or an endovascular route, resection of dead bowel, fluids, antibiotics and anticoagulation. Every hour of delay costs bowel."
+ },
+ {
+  "id": "sb-1",
+  "t": "Small bowel obstruction, most often from adhesions after previous surgery, or a hernia. Above the block the bowel dilates with fluid and gas, she vomits, and the abdomen distends."
+ },
+ {
+  "id": "sb-2",
+  "t": "On CT the loops are wide and full of fluid, with gas floating on top: air fluid levels. Surgeons look for the transition point, where dilated bowel meets collapsed bowel, and for signs that the blood supply is failing."
+ },
+ {
+  "id": "sb-3",
+  "t": "Litres of fluid are trapped in the bowel wall and lumen, or lost as vomit. She becomes dry, with a rising heart rate and falling urine output. Decompress with a nasogastric tube, replace the fluid, and watch for strangulation."
+ },
+ {
+  "id": "sb-4",
+  "t": "Perforation: a hole in the gut lets air and bowel content into the peritoneum. Lying flat, the air rises to the front of the abdomen; sitting up, it collects under the diaphragm."
+ },
+ {
+  "id": "sb-5",
+  "t": "On ultrasound, free air makes a bright line with reverberations that hides what lies behind it, over the liver in the upper abdomen. The fluid in these windows is not blood but gut content, so a positive scan here means peritonitis, not haemorrhage."
+ },
+ {
+  "id": "sb-6",
+  "t": "On CT the air sits in front of the liver and bowel, outside the gut. Perforation with peritonitis needs resuscitation, antibiotics and an operation."
  }
 ]

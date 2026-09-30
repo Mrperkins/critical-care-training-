@@ -12,6 +12,7 @@
  * anaemia lowers CaO₂ without touching SaO₂, and falling cardiac output lowers ScvO₂.
  */
 import { PATM, PH2O, sat, p50, o2Content, alveolarPO2, solveAcidBase, po2ForSat, satStd } from './blood';
+import { stepCoag, coagLabs, type CoagState, type CoagLabs } from './coag';
 
 /* ================================================================== types */
 export interface PatientParams {
@@ -57,6 +58,8 @@ export interface PatientState {
   naBrain: number;        // Na the brain is adapted to (osmolytes; ~48 h)
   naHist: { t: number; na: number }[];
   drugs: Drug[];
+  /** optional coagulation engine (physiology/coag.ts); when present it drives inr / ptt / fibrinogen / plt */
+  coag?: CoagState;
   vent: VentInput | null;
 }
 
@@ -64,6 +67,8 @@ export interface PatientState {
 export interface VentInput { vte: number; rr: number; fio2: number; peep: number; pmean: number; pplat: number; autoPeep: number }
 
 export interface Snapshot {
+  /** present when the patient has a coagulation engine */
+  coag?: CoagLabs;
   // ventilation
   rr: number; vt: number; ve: number; va: number; vdvt: number; spontaneous: boolean;
   // gases
@@ -276,6 +281,7 @@ export function derive(st: PatientState): Snapshot {
     hb: p.hb, hct: p.hb * 3, wbc: p.wbc, plt: p.plt, inr: p.inr, ptt: p.ptt, pt: 12.5 * p.inr ** (1 / 1.0), fibrinogen: p.fibrinogen, trop: p.trop, bnp: p.bnp, ast: p.ast, alt: p.alt, alp: p.alp, bili: p.bili,
     rmp, threshold: thr, gap: thr - rmp, kEffective: kEffective(k, p.ca, caDose), cellVolume, odsRisk, naRate24,
     active,
+    ...(st.coag ? { coag: coagLabs(st.coag) } : {}),
   };
 }
 
@@ -319,6 +325,7 @@ export function advance(st: PatientState, minutes: number, vent: VentInput | nul
     if (dial > 0) p.cr = Math.max(0.6, p.cr - p.cr * dt / 400);
     // brain osmolyte adaptation (≈ 48 h)
     st.naBrain += (p.na - st.naBrain) * Math.min(1, dt / 1700);
+    if (st.coag) { stepCoag(st.coag, dt, p.hepatic); syncCoag(st); }
     st.t += dt;
     if (!st.naHist.length || st.t - st.naHist[st.naHist.length - 1].t >= 30) { st.naHist.push({ t: st.t, na: p.na }); if (st.naHist.length > 200) st.naHist.shift(); }
     // expire finished drugs
@@ -331,3 +338,6 @@ export function advance(st: PatientState, minutes: number, vent: VentInput | nul
 export function settle(st: PatientState, minutes = 240) { const keepT = st.t; advance(st, minutes); st.t = keepT; st.naHist = [{ t: keepT, na: st.p.na }]; return derive(st); }
 
 export { satStd, po2ForSat };
+
+/** Copy the coagulation engine's results into the patient's lab parameters (every existing reader uses these). */
+export function syncCoag(st: PatientState) { if (!st.coag) return; const L = coagLabs(st.coag); st.p.inr = L.inr; st.p.ptt = L.aptt; st.p.fibrinogen = L.fib; st.p.plt = L.plt; }

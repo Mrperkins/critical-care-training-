@@ -21,6 +21,7 @@ export class VentSession {
   spasm = 0; bdT = -1; suctionT = -1; decompT = -1; bronchT = -1; tubeT = -1; paralysed = false;
   /** chest drain occluded (kink / clot / clamp) while the lung still leaks air: tension re-accumulates */ drainBlocked = false; reTension = 0;
   baseRett = 4; baseRettQ = 1.5; baseTension = 0; baseCollapsed: [number, number] = [0, 0]; plugR: number | null = null;
+  /** tube tip in the right main bronchus: the left lung is shut off (time since, s); withdrawTube restores it */ mainstem = false; mainstemT = 0; withdrawT = -1;
   // buffers
   t = new Float64Array(N); paw = new Float32Array(N); flow = new Float32Array(N); vol = new Float32Array(N); pmus = new Float32Array(N); ph = new Uint8Array(N); palv = new Float32Array(N);
   head = 0; count = 0; private acc = 0; private sampleEvery = 0.01;
@@ -40,6 +41,7 @@ export class VentSession {
     this.spasm = sc.spasm; this.bdT = -1; this.suctionT = -1; this.decompT = -1; this.bronchT = -1; this.tubeT = -1; this.paralysed = false; this.drainBlocked = false; this.reTension = 0; this.circuitFault = 'none';
     const lung = buildLung(sc, this.spasm);
     this.baseRett = lung.Rett; this.baseRettQ = lung.RettQ; this.baseTension = lung.tension; this.baseCollapsed = [lung.comps[0].collapsed, lung.comps[1].collapsed];
+    this.mainstem = sc.ett === 'rightMain'; this.mainstemT = 0; this.withdrawT = -1;
     this.plugR = sc.lung.right && (sc.lung.right as { rFixed?: number }).rFixed != null ? (sc.lung.right as { rFixed?: number }).rFixed! : null;
     const s: VentSettings = { ...scenarioSettings(sc), ...(d ? d.bad : {}) };
     this.m = new Mechanics(s, lung, this.effort);
@@ -77,6 +79,7 @@ export class VentSession {
     if (f === 'decompress') this.decompT = 0;
     if (f === 'bronchoscopy') this.bronchT = 0;
     if (f === 'chestTube') this.tubeT = 0;
+    if (f === 'withdrawTube') this.withdrawT = 0;
     if (f === 'paralyse') { this.paralysed = true; this.m.pt = { pmax: 0, rate: 0, ti: 1, expPush: 0 }; }
     this.version++; this.changedAt = this.breathN;
   }
@@ -90,7 +93,7 @@ export class VentSession {
     if (this.bdT >= 0) this.bdT += dt;
     const sp = this.spasmNow(); const rs = sc.lung.rSpasm ?? 0;
     l.comps.forEach((c, k) => {
-      const fixed = k === 0 && this.plugR != null ? this.plugR : (sc.lung.rFixed ?? (k === 0 ? 4 : 4.5));
+      const fixed = k === 0 && this.plugR != null ? this.plugR : k === 1 && this.mainstem ? 150 : (sc.lung.rFixed ?? (k === 0 ? 4 : 4.5));
       c.R = fixed + rs * sp;
     });
     if (this.suctionT >= 0) { this.suctionT += dt; const f = Math.min(1, this.suctionT / 2); l.Rett = this.baseRett + (4 - this.baseRett) * f; l.RettQ = this.baseRettQ + (1.5 - this.baseRettQ) * f; }
@@ -101,6 +104,9 @@ export class VentSession {
       // an occluded drain on positive pressure with an ongoing leak: air accumulates again (~20 s of screen time to full tension); clears over ~6 s once patent
       this.reTension = this.drainBlocked ? Math.min(1, this.reTension + dt / 20) : Math.max(0, this.reTension - dt / 6);
       if (this.reTension > 0) { l.tension = Math.max(l.tension, this.baseTension * this.reTension); l.comps.forEach((c, k) => (c.collapsed = Math.max(c.collapsed, 0.8 * this.baseCollapsed[k] * this.reTension))); } }
+    if (this.mainstem) this.mainstemT += dt;
+    l.comps[1].connected = !this.mainstem; // the tube tip sits past the left main bronchus: the left lung is excluded
+    if (this.withdrawT >= 0) { this.withdrawT += dt; if (this.withdrawT > 1.5) this.mainstem = false; }
     if (this.bronchT >= 0 && this.plugR != null) { this.bronchT += dt; const f = Math.min(1, this.bronchT / 3); this.plugR = 150 + (4 - 150) * f; if (f >= 1) this.plugR = 4; }
   }
 

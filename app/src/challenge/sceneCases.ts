@@ -7,7 +7,8 @@
  * Questions and explanations are this app's own teaching wording (not protocol text).
  */
 import { useUI } from '../app/store';
-import { loadAbdPreset, useAbdUI, currentAbdomen } from '../abdomen/abdomenStore';
+import { loadAbdPreset, useAbdUI, currentAbdomen, ABD_PRESETS } from '../abdomen/abdomenStore';
+const ABD_PRESETS_BY = (id: string) => ABD_PRESETS.find((p) => p.id === id)!.make();
 import { fastExam, shockClass, abdomenFindings } from '../abdomen/state';
 import { ctaFindings, type CtaLevel } from '../abdomen/cta';
 import { useCtaUI } from '../abdomen/ctaStore';
@@ -142,6 +143,30 @@ const BASE_CASES: SceneCase[] = [
         explain: 'Malperfusion, rupture, refractory pain or uncontrolled hypertension turn an uncomplicated type B into a complicated one, which is treated by covering the entry tear.' },
     ],
     verify: () => { abd('dissectB', 30, 'cta'); const s = currentAbdomen(); return !!s.dissection?.malperfusion.renalL && ctaFindings(s, 'renal').some((f) => /Left kidney poorly enhancing/.test(f)) && abdomenFindings(s).some((f) => /Malperfusion/.test(f)); },
+  },
+  {
+    id: 'case-abd-transient', module: 'abdomen', level: 'Advanced', title: 'Better after blood — then worse',
+    story: 'Grade IV splenic injury. After one litre of blood half an hour ago her heart rate had settled. It is climbing again and the FAST stripes are wider.',
+    setup: () => { loadAbdPreset('spleen4'); useAbdUI.getState().set({ base: { ...useAbdUI.getState().base, transfusedMl: 1000 }, minutes: 75, view: '3d', target: 'abdomen.luq' }); mode('abdomen'); }, facts: abdVitals,
+    questions: [
+      { q: 'How has she responded to blood?', options: ['Transient responder: she improved, then bled the blood away — still bleeding', 'Responder: stable, observe', 'Non-responder: no change at all', 'Over-transfused'], answer: 0,
+        explain: 'A transient response means ongoing haemorrhage at a rate the transfusion only briefly matched.' },
+      { q: 'What does she need?', options: ['Haemorrhage control: embolisation if immediately available and safe, otherwise the operating room', 'Another litre of crystalloid and a repeat FAST in an hour', 'Observation on the ward', 'A CT of the head first'], answer: 0,
+        explain: 'Blood buys time; only stopping the bleeding fixes it. Unstable patients go to the operating room rather than the CT or angiography suite.' },
+    ],
+    verify: () => { const b = { ...ABD_PRESETS_BY('spleen4'), transfusedMl: 1000 }; return shockClass(currentAbdomen({ base: b, minutes: 30 })).cls === 1 && shockClass(currentAbdomen({ base: b, minutes: 75 })).cls >= 2; },
+  },
+  {
+    id: 'case-abd-mesenteric', module: 'abdomen', level: 'Advanced', title: 'Severe pain, soft abdomen',
+    story: '78-year-old in atrial fibrillation, off anticoagulation, with an hour of severe central abdominal pain. The abdomen is soft. Lactate 1.4. The CT angiogram is on the screen at the renal level.',
+    setup: () => { loadAbdPreset('normal'); useAbdUI.getState().set({ base: { ...useAbdUI.getState().base, ischaemia: 0.05 }, minutes: 60, view: 'cta', target: 'abdomen.bowel' }); useCtaUI.getState().set('renal'); mode('abdomen'); }, facts: abdVitals,
+    questions: [
+      { q: 'What does the CT show?', options: ['The superior mesenteric artery does not fill: embolic occlusion', 'A normal CT — the pain is functional', 'An aortic dissection', 'Free air'], answer: 0,
+        explain: 'The SMA should be a bright dot in front of the aorta. An embolus from the left atrium has blocked it.' },
+      { q: 'The lactate is normal. Is that reassuring?', options: ['No — lactate often stays normal until the bowel is infarcting', 'Yes — ischaemia always raises lactate early', 'Yes — it excludes infarction', 'Only if the pain improves'], answer: 0,
+        explain: 'Early ischaemia may not raise the systemic lactate. Pain out of proportion plus an embolic source needs urgent CT angiography and revascularisation.' },
+    ],
+    verify: () => { const b = { ...ABD_PRESETS_BY('normal'), ischaemia: 0.05 }; return ctaFindings(currentAbdomen({ base: b, minutes: 60 }), 'renal').some((f) => /does not fill/.test(f)); },
   },
   // ---------------------------------------------------------------- brain
   {
@@ -337,6 +362,18 @@ const BASE_CASES: SceneCase[] = [
         explain: 'Lung-protective ventilation limits stretch of the small “baby lung” that remains aerated.' },
     ],
     verify: () => { img('ards', 'xray'); return cxrFindings(cxrFromVent(session)).some((x) => /ARDS pattern/.test(x)); },
+  },
+  {
+    id: 'case-img-mainstem', module: 'vent', level: 'Intermediate', title: 'Desaturation after the move',
+    story: 'Intubated at the scene. After moving to the aircraft stretcher the saturation falls and the peak pressure has risen. Breath sounds are quieter on the left. A film was taken on arrival.',
+    setup: () => { img('mainstem', 'xray'); mode('vent'); }, facts: ventFacts,
+    questions: [
+      { q: 'What does the film show?', options: ['The tube tip is below the carina in the right main bronchus, and the left lung is collapsing', 'A left tension pneumothorax', 'A left pleural effusion', 'The tube is in the oesophagus'], answer: 0,
+        explain: 'The right main bronchus is wider and more vertical, so a tube pushed too far goes right. The left lung gets no ventilation and collapses as its gas is absorbed.' },
+      { q: 'What do you do?', options: ['Deflate the cuff, withdraw the tube 1–2 cm, re-check depth and breath sounds, then recruit', 'Needle decompress the left chest', 'Increase the PEEP and FiO₂ only', 'Exchange the tube for a larger one'], answer: 0,
+        explain: 'Pulling the tip back above the carina re-opens the left main bronchus; the collapsed lung then needs a few breaths or a recruitment manoeuvre. Note the depth at the teeth.' },
+    ],
+    verify: () => { img('mainstem', 'xray'); const f = cxrFindings(cxrFromVent(session)); const z = lusFromVent(session); return f.some((x) => /BELOW the carina/.test(x)) && f.some((x) => /^Left lung collapse/.test(x)) && z.find((x) => x.id === 'L-ant')!.lungPulse; },
   },
 ];
 

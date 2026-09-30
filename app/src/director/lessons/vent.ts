@@ -40,6 +40,14 @@ export const ARDS_SIGNATURE: Timeline = {
       say: 'Push PEEP to twenty-four and the least dependent alveoli are overstretched. Their walls thin, they compress the capillaries around them, and the plateau pressure climbs past thirty.' },
     { id: 'ards-7', at: 66, dur: 10, hold: true, target: 'lung.whole', title: 'The target', apply: () => { scene('ards', { peep: 14, vt: 0.42 }); focusVentTarget('lung.whole'); },
       say: 'The goal is in between: enough PEEP to keep the dependent lung open, small tidal volumes of about six millilitres per kilogram, a plateau below thirty and a driving pressure below fifteen. Watch the numbers as you choose.' },
+    { id: 'ards-8', at: 77, dur: 12, hold: true, title: 'The film at PEEP five', apply: () => scene('ards', { peep: 5, vt: 0.42 }, { view: 'xray' }),
+      say: 'On a portable film at a PEEP of five, both lungs are white with patchy opacities and air bronchograms, and the heart is a normal size. That is the pattern of ARDS, not of heart failure.' },
+    { id: 'ards-9', at: 90, dur: 12, hold: true, title: 'The film after recruitment', apply: () => scene('ards', { peep: 16, vt: 0.42 }, { view: 'xray' }),
+      say: 'At a PEEP of sixteen the same lungs look clearer, because collapsed units have opened and now hold air. The film changes with the ventilator settings, not only with the disease.' },
+    { id: 'ards-10', at: 103, dur: 12, hold: true, title: 'The probe at PEEP five', apply: () => { scene('ards', { peep: 5, vt: 0.42 }, { view: 'lus' }); useLusUI.getState().set('R-lat'); },
+      say: 'With a probe on the side of the chest at a PEEP of five, the B-lines merge into a white lung, and the dependent lung under the probe is consolidated and airless.' },
+    { id: 'ards-11', at: 116, dur: 12, hold: true, title: 'The probe after recruitment', apply: () => { scene('ards', { peep: 16, vt: 0.42 }, { view: 'lus' }); useLusUI.getState().set('R-lat'); },
+      say: 'At sixteen there are fewer B-lines and the consolidation has gone: the same recruitment you saw at the alveoli, seen at the bedside in seconds.' },
   ],
 };
 
@@ -60,6 +68,10 @@ export const COMPLIANCE_VS_RESISTANCE: Timeline = {
       say: 'A bronchodilator lowers resistance and a slower rate lengthens expiration. The peak falls, the gap narrows, expiratory flow reaches zero and the auto-PEEP melts away.' },
     { id: 'cr-6', at: 63, dur: 10, hold: true, title: 'COPD: flow limitation', apply: () => scene('copd', { rr: 22 }, { hold: 'e', view: 'airway' }),
       say: 'In COPD the small airways collapse during expiration, limiting flow no matter how hard the patient pushes. The same rules apply: long expiratory times, modest minute ventilation, and measure the trapped pressure.' },
+    { id: 'cr-7', at: 74, dur: 12, hold: true, title: 'Two films, two problems', apply: () => scene('asthma', {}, { view: 'xray' }),
+      say: 'The films tell the same story. The asthmatic lungs are hyperinflated: dark, over-expanded, with low flat diaphragms and a narrow heart, because trapped air cannot get out. The ARDS film was white.' },
+    { id: 'cr-8', at: 87, dur: 12, hold: true, title: 'The ultrasound difference', apply: () => { scene('asthma', {}, { view: 'lus' }); useLusUI.getState().set('R-ant'); },
+      say: 'On ultrasound the asthmatic lung slides, with A-lines only: full of air, with no fluid. The ARDS lung showed B-lines everywhere. A stiff lung and a narrow airway look different at the bedside.' },
   ],
 };
 

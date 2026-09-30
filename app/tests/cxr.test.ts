@@ -52,3 +52,27 @@ describe('chest X-ray from the vent session', () => {
     const a = renderCxr(normal.st, 90), b = renderCxr(JSON.parse(JSON.stringify(normal.st)), 90); expect(Buffer.from(a.rgba).equals(Buffer.from(b.rgba))).toBe(true);
   });
 });
+
+import { VentSession } from '../src/vent/session';
+import { lusFromVent } from '../src/vent/lus';
+import { ventNumbers } from '../src/vent/numbers';
+import { resolve as resolveTl } from '../src/director/timeline';
+import { ARDS_SIGNATURE, COMPLIANCE_VS_RESISTANCE } from '../src/director/lessons/vent';
+import { session as liveSession } from '../src/vent/session';
+import { useUI as ui } from '../src/app/store';
+describe('right mainstem intubation', () => {
+  it('left lung excluded: plateau up, shunt, film shows the tip below the carina and left collapse, ultrasound shows a left lung pulse; withdrawing fixes it', () => {
+    const S = new VentSession('mainstem'); for (let i = 0; i < 600; i++) S.tick(0.05); const n = ventNumbers(S);
+    const N = new VentSession('normal'); for (let i = 0; i < 600; i++) N.tick(0.05); const q = ventNumbers(N);
+    expect(n.pplat).toBeGreaterThan(q.pplat + 2.5); expect(S.snap.spo2).toBeLessThan(N.snap.spo2 - 0.04);
+    const st = cxrFromVent(S); expect(st.ett!.aboveCarinaCm).toBeLessThan(0); expect(st.side[1].atelectasis).toBeGreaterThan(0.5);
+    const z = lusFromVent(S); expect(z.find((x) => x.id === 'L-ant')!.lungPulse).toBe(true); expect(z.find((x) => x.id === 'R-ant')!.sliding).toBe(true);
+    S.intervene('withdrawTube'); for (let i = 0; i < 600; i++) S.tick(0.05); expect(cxrFromVent(S).ett!.aboveCarinaCm).toBeGreaterThan(0); expect(S.snap.spo2).toBeGreaterThan(0.97);
+  });
+  it('ARDS lessons: film and probe clear as PEEP recruits; asthma film is hyperinflated with A-lines', () => {
+    resolveTl(ARDS_SIGNATURE, 78); const a5 = cxrFromVent(liveSession).side[0].opacity; expect(ui.getState().ventView).toBe('xray');
+    resolveTl(ARDS_SIGNATURE, 91); const a16 = cxrFromVent(liveSession).side[0].opacity; expect(a16).toBeLessThan(a5 - 0.2);
+    resolveTl(ARDS_SIGNATURE, 104); const b5 = lusFromVent(liveSession).find((z) => z.id === 'R-lat')!.bLines; resolveTl(ARDS_SIGNATURE, 117); const b16 = lusFromVent(liveSession).find((z) => z.id === 'R-lat')!.bLines; expect(b16).toBeLessThan(b5); expect(ui.getState().ventView).toBe('lus');
+    resolveTl(COMPLIANCE_VS_RESISTANCE, 75); expect(cxrFromVent(liveSession).hyperinflation).toBeGreaterThan(0.2); resolveTl(COMPLIANCE_VS_RESISTANCE, 88); expect(lusFromVent(liveSession).every((z) => z.aLines && z.sliding)).toBe(true);
+  });
+});

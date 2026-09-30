@@ -17,6 +17,8 @@ export interface AbdomenState {
   /** superior-mesenteric ischaemia 0–1 */ ischaemia: number;
   /** pancreatic inflammation 0–1 */ pancreatitis: number;
   /** minutes since the event (bleeding accumulates, ischaemia progresses) */ minutes: number;
+  /** blood given, mL (restores circulating volume; the blood already in the abdomen stays there) */ transfusedMl?: number;
+  /** minute at which surgery / embolisation stopped the bleeding (null = still bleeding) */ controlledAt?: number | null;
 }
 export interface Dissection { type: 'A' | 'B'; extent: 'thoracic' | 'renal' | 'iliac'; falseLumen: 'patent' | 'thrombosed'; malperfusion: { renalL?: boolean; renalR?: boolean; mesenteric?: boolean } }
 export const emptyAbdomen = (): AbdomenState => ({ injury: {}, freeFluidMl: 0, fluidKind: 'blood', retroMl: 0, aaa: { diameterCm: 2, rupture: 'none' }, dissection: null, freeAir: false, obstruction: 'none', distension: 0, ischaemia: 0, pancreatitis: 0, minutes: 0 });
@@ -52,10 +54,12 @@ export function fastExam(st: AbdomenState): FastWindow[] {
 
 /** Blood lost so far, mL (intraperitoneal blood + retroperitoneal). */
 export const bloodLoss = (st: AbdomenState) => (st.fluidKind === 'blood' ? st.freeFluidMl : 0) + st.retroMl;
+/** Circulating deficit: blood lost minus blood given (drives the haemorrhage class). */
+export const circulatingDeficit = (st: AbdomenState) => Math.max(0, bloodLoss(st) - (st.transfusedMl ?? 0));
 export interface ShockClass { cls: 1 | 2 | 3 | 4; lossMl: number; lossPct: number; hr: number; sbp: number; rr: number; urine: number; mental: string }
 /** Haemorrhage class from estimated loss (70 kg, 5 L blood volume). Vital-sign trends are the classic teaching table — individual patients differ. */
 export function shockClass(st: AbdomenState): ShockClass {
-  const loss = bloodLoss(st); const pct = loss / 5000;
+  const loss = circulatingDeficit(st); const pct = loss / 5000;
   const cls = (pct < 0.15 ? 1 : pct < 0.3 ? 2 : pct < 0.4 ? 3 : 4) as 1 | 2 | 3 | 4;
   // piecewise-linear through the classic table: pressure holds through class II and falls in III–IV
   const at = (ys: number[]) => Math.round(lerpTable(pct, [0, 0.15, 0.3, 0.4, 0.5], ys));
@@ -73,7 +77,9 @@ export function evolve(st: AbdomenState, minutes: number): AbdomenState {
   let rate = 0; for (const [o, g] of Object.entries(s.injury)) if (o === 'liver' || o === 'spleen') rate += bleedRate(o as Organ, g ?? 0);
   // clot and falling pressure slow the bleed over time: rate·e^(−t/τ), integrated exactly so that
   // evolve(evolve(s, a), b) equals evolve(s, a + b) (seekable lessons)
-  s.freeFluidMl += rate * TAMP * (Math.exp(-s.minutes / TAMP) - Math.exp(-(s.minutes + dt) / TAMP));
+  // surgery / embolisation stops the solid-organ bleed at `controlledAt` (still exact under splitting)
+  const end = s.controlledAt != null ? Math.min(s.minutes + dt, Math.max(s.minutes, s.controlledAt)) : s.minutes + dt;
+  s.freeFluidMl += rate * TAMP * (Math.exp(-s.minutes / TAMP) - Math.exp(-end / TAMP));
   if (s.aaa.rupture === 'contained') s.retroMl += 12 * dt;
   if (s.aaa.rupture === 'free') { s.freeFluidMl += 90 * dt; s.fluidKind = 'blood'; }
   for (const k of ['kidney_L', 'kidney_R'] as const) s.retroMl += bleedRate(k, s.injury[k] ?? 0) * dt * 0.8;
@@ -84,7 +90,8 @@ export function evolve(st: AbdomenState, minutes: number): AbdomenState {
 /** Plain-language findings for the side panel. */
 export function abdomenFindings(st: AbdomenState): string[] {
   const f: string[] = []; const sc = shockClass(st); const fast = fastExam(st);
-  if (bloodLoss(st) > 100) f.push(`Estimated blood loss ${Math.round(bloodLoss(st))} mL — class ${['I', 'II', 'III', 'IV'][sc.cls - 1]}`);
+  if (bloodLoss(st) > 100) f.push(`Estimated blood loss ${Math.round(bloodLoss(st))} mL${st.transfusedMl ? `, ${Math.round(st.transfusedMl)} mL of blood given` : ''} — class ${['I', 'II', 'III', 'IV'][sc.cls - 1]}`);
+  if (st.controlledAt != null && st.minutes >= st.controlledAt) f.push('Bleeding controlled (surgery / embolisation): the loss no longer grows');
   const pos = fast.filter((w) => w.positive).map((w) => w.id.toUpperCase()); if (st.freeFluidMl > 0) f.push(pos.length ? `FAST positive: ${pos.join(', ')}` : 'FAST negative so far (too little free fluid)');
   if (st.retroMl > 200) f.push('Retroperitoneal haematoma — FAST does not see it; flank / back pain, Grey Turner sign late');
   if (st.aaa.diameterCm >= 3) f.push(`Abdominal aortic aneurysm ${st.aaa.diameterCm.toFixed(1)} cm${st.aaa.diameterCm >= 5.5 ? ' (above the usual repair threshold)' : ''}`);
@@ -93,7 +100,7 @@ export function abdomenFindings(st: AbdomenState): string[] {
     const m = d.malperfusion; const mal = [m.renalL && 'left kidney', m.renalR && 'right kidney', m.mesenteric && 'bowel'].filter(Boolean); if (mal.length) f.push(`Malperfusion: ${mal.join(', ')} — branch supplied from the false lumen with poor flow`); }
   if (st.freeAir) f.push('Free air under the diaphragm — perforated viscus');
   if (st.obstruction !== 'none') f.push(`${st.obstruction === 'small' ? 'Small' : 'Large'}-bowel obstruction: dilated loops, vomiting, distension`);
-  if (st.ischaemia > 0.05) f.push(`Mesenteric ischaemia — pain out of proportion to the examination${st.ischaemia > 0.6 ? '; bowel infarcting, lactate rising' : ''}`);
+  if (st.ischaemia > 0.05) f.push(`Mesenteric ischaemia — pain out of proportion to the examination${st.ischaemia > 0.6 ? '; bowel infarcting, gas in the bowel wall, lactate rising' : st.ischaemia > 0.3 ? '; bowel wall no longer enhancing' : ''}`);
   if (st.pancreatitis > 0.05) f.push('Acute pancreatitis — swollen pancreas, peripancreatic fluid, epigastric pain to the back');
   for (const [o, g] of Object.entries(st.injury)) if ((g ?? 0) > 0) f.push(`${o.replace('_', ' ')} injury grade ${g}`);
   return f;

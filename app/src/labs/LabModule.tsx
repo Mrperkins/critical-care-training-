@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { CoagCard } from './CoagCard';
 import { loadBodyAsset, type BodyAsset } from '../asset/body';
 import { loadMicroAsset, type MicroAsset } from '../asset/micro';
 import { LabScene } from './LabScene';
@@ -37,7 +38,7 @@ export function LabModule() {
         </div>
       </section>
       <aside className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
-        {mode === 'explore' && <><LabList /><LabCard />{view === 'cell' && sceneOf(lab) && <CellStory />}{view === 'cell' && bloodKindOf(lab) && <BloodStory />}<Consequences /></>}
+        {mode === 'explore' && <><LabList /><LabCard />{LAB[lab]?.group === 'Coagulation' && <CoagCard interactive />}{view === 'cell' && sceneOf(lab) && <CellStory />}{view === 'cell' && bloodKindOf(lab) && <BloodStory />}<Consequences /></>}
         {mode === 'learn' && <LabLearn />}
         {mode === 'challenge' && <LabChallenge />}
         {mode === 'sim' && <LabSim />}

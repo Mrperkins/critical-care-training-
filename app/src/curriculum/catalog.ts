@@ -27,6 +27,8 @@ const e = (id: string, kind: Kind, module: Entry['module'], domains: Domain[], d
   ({ id, kind, module, domains, certs: ALL, naemt, objectives, sources, reviewed: R, difficulty, prereq, protocol });
 
 const S = {
+  esvsMes: 'ESVS clinical practice guidelines on the management of diseases of the mesenteric arteries and veins (2017)', wses: 'WSES guidelines on adhesive small bowel obstruction (Bologna guidelines, 2017)',
+  accBleed: 'ACC expert consensus decision pathway on bleeding in patients on oral anticoagulants (JACC 2020)',
   apnoea: 'Benumof — critical haemoglobin desaturation during apnoea (Anesthesiology 1997)', patelApnoea: 'Patel et al. — apnoea-induced hypoxia in healthy paediatric patients (Can J Anaesth 1994)', dasObstetric: 'OAA/DAS guidelines for obstetric difficult and failed intubation (Anaesthesia 2015)',
   cote: 'Coté — A Practice of Anesthesia for Infants and Children', croup: 'Bjornson & Johnson — croup in children (CMAJ 2013)',
   nrp: 'AHA/AAP Neonatal Resuscitation Program and ILCOR neonatal life support consensus (2020)', pphn: 'AHA/ATS guidelines for pediatric pulmonary hypertension (Circulation 2015)',
@@ -45,6 +47,10 @@ const S = {
 };
 
 export const CATALOG: Entry[] = [
+  e('labs-coag', 'director', 'labs', ['Blood', 'Pharmacology', 'Trauma & haemorrhage'], 'intermediate', ['AMLS', 'PHTLS'], ['Explain INR, aPTT, fibrinogen and clot lysis from the clotting system', 'Reverse warfarin with PCC plus vitamin K and explain the rebound without it', 'Reverse heparin with protamine; know LMWH is only partly reversed', 'Use tranexamic acid and fibrinogen replacement in traumatic hyperfibrinolysis'], [S.accBleed, S.crash2], ['hyperk-signature'], 'Reversal agents and doses follow local protocol.'),
+  e('abd-solid-organ', 'director', 'abdomen', ['Trauma & haemorrhage', 'Haemodynamics & shock'], 'intermediate', ['PHTLS', 'TECC'], ['Relate injury grade to bleeding rate', 'Classify responders, transient responders and non-responders to blood', 'Match the response to observation, embolisation or surgery'], [S.atls, S.proppr], ['abd-fast'], 'Destination and haemorrhage control follow local trauma protocols.'),
+  e('abd-mesenteric', 'director', 'abdomen', ['Renal & metabolic', 'Imaging & POCUS'], 'advanced', ['AMLS', 'GEMS'], ['Recognise pain out of proportion to the examination', 'Read SMA occlusion and bowel-wall changes on CT angiography', 'Explain why a normal lactate does not exclude ischaemia'], [S.esvsMes], []),
+  e('abd-obstruction', 'director', 'abdomen', ['Renal & metabolic', 'Imaging & POCUS'], 'core', ['AMLS'], ['Recognise obstruction (dilated loops, air–fluid levels) and the fluid it sequesters', 'Recognise free air on ultrasound and CT', 'Distinguish enteric fluid from blood on a positive scan'], [S.wses], []),
   // ---------------------------------------------------------------- special populations
   e('pop-apnoea', 'director', 'abg', ['Paediatric', 'Neonatal', 'OB', 'Respiratory'], 'core', ['EPC', 'AMLS'], ['Explain where oxygen is stored during apnoea and why pre-oxygenation matters', 'Explain the “cliff” in the saturation curve', 'Predict faster desaturation in infants, children, pregnancy and obesity'], [S.apnoea, S.patelApnoea, S.dasObstetric], []),
   e('peds-airway', 'director', 'vent', ['Paediatric', 'Ventilation'], 'core', ['EPC'], ['Apply radius-to-the-fourth-power to airway swelling in infants vs adults', 'Explain why crying worsens obstruction', 'Recognise the endotracheal tube as a resistance and the first thing to check'], [S.cote, S.croup], []),
@@ -129,7 +135,7 @@ export const CONCEPTS: Record<string, { name: string; remediate: Target[] }> = {
   lactate: { name: 'Lactate', remediate: [{ lesson: 'lactate' }] },
   'shock-states': { name: 'Shock states', remediate: [{ lesson: 'lines-shock-states' }, { drug: 'norepinephrine' }] },
   haemorrhage: { name: 'Haemorrhage and transfusion', remediate: [{ lesson: 'lines-haemorrhage-transfusion' }, { lesson: 'wf-blood' }, { drug: 'txa' }] },
-  coagulation: { name: 'Coagulation and reversal', remediate: [{ drug: 'pcc' }, { drug: 'vitamink' }, { drug: 'protamine' }] },
+  coagulation: { name: 'Coagulation and reversal', remediate: [{ lesson: 'labs-coag' }, { drug: 'pcc' }, { drug: 'vitamink' }, { drug: 'protamine' }] },
   'ca-mg-phos': { name: 'Calcium, magnesium, phosphate', remediate: [{ drug: 'calcium' }] },
   transducer: { name: 'Transducer levelling, zeroing, damping', remediate: [{ lesson: 'ln-level' }, { lesson: 'ln-damp' }, { lesson: 'wf-artline' }] },
   waveforms: { name: 'Arterial and CVP waveforms', remediate: [{ lesson: 'ln-art' }, { lesson: 'ln-cvp' }, { lesson: 'ln-disease' }] },
@@ -137,6 +143,8 @@ export const CONCEPTS: Record<string, { name: string; remediate: Target[] }> = {
   toxicology: { name: 'Toxicology acid–base', remediate: [{ lesson: 'abg-resp-vs-metabolic' }] },
   resuscitation: { name: 'Arrest and post-arrest physiology', remediate: [{ lesson: 'lines-oxygen-delivery' }, { lesson: 'metab' }] },
   fast: { name: 'FAST exam', remediate: [{ lesson: 'abd-fast' }] },
+  'acute-abdomen': { name: 'Obstruction, perforation and ischaemia', remediate: [{ lesson: 'abd-obstruction' }, { lesson: 'abd-mesenteric' }] },
+  'solid-organ': { name: 'Solid-organ injury and response to blood', remediate: [{ lesson: 'abd-solid-organ' }, { drug: 'txa' }] },
   aortic: { name: 'Aneurysm and dissection', remediate: [{ lesson: 'abd-aaa' }, { lesson: 'abd-dissection' }] },
   'anti-impulse': { name: 'Anti-impulse therapy', remediate: [{ lesson: 'abd-dissection' }, { drug: 'esmolol' }] },
   'stroke-localisation': { name: 'Stroke localisation', remediate: [{ lesson: 'neuro-time-is-brain' }, { lesson: 'neuro-lvo' }] },
@@ -166,11 +174,11 @@ export const CHALLENGE_CONCEPTS: Record<string, string[]> = {
   'lines-c-migrated': ['waveforms'], 'lines-c-transport': ['transducer'], 'lines-c-read-tamp': ['waveforms', 'shock-states'], 'lines-c-read-chb': ['waveforms'], 'lines-c-read-ar': ['waveforms'], 'lines-c-read-as': ['waveforms'],
   'lines-c-ppv-af': ['fluid-responsiveness'], 'lines-c-goal-fluid': ['haemorrhage', 'shock-states'], 'lines-c-goal-sepsis': ['shock-states'],
   // scene cases (challenge/sceneCases.ts)
-  'case-abd-fast-early': ['fast'], 'case-abd-fast-spleen': ['fast', 'haemorrhage'], 'case-abd-aaa': ['aortic', 'fast', 'haemorrhage'], 'case-abd-dissect-a': ['aortic', 'anti-impulse'], 'case-abd-dissect-b': ['aortic'],
+  'case-abd-fast-early': ['fast'], 'case-abd-fast-spleen': ['fast', 'haemorrhage', 'solid-organ'], 'case-abd-aaa': ['aortic', 'fast', 'haemorrhage'], 'case-abd-dissect-a': ['aortic', 'anti-impulse'], 'case-abd-dissect-b': ['aortic'], 'case-abd-transient': ['solid-organ', 'haemorrhage'], 'case-abd-mesenteric': ['acute-abdomen'],
   'case-neuro-m1l': ['stroke-localisation', 'stroke-imaging'], 'case-neuro-m1r': ['stroke-localisation'], 'case-neuro-p2r': ['stroke-localisation'], 'case-neuro-basilar': ['stroke-localisation', 'stroke-imaging'],
   'case-neuro-uncal': ['icp'], 'case-neuro-cushing': ['icp'], 'case-neuro-evd': ['icp', 'transducer'],
   'case-heart-vsd': ['shunts'], 'case-heart-asd': ['shunts'], 'case-heart-eisenmenger': ['shunts', 'hypoxaemia'], 'case-heart-pfo': ['shunts'],
-  'case-img-cxr-tension': ['chest-imaging', 'tension-ptx'], 'case-img-lus-plug': ['chest-imaging', 'airway-obstruction'], 'case-img-lus-asthma': ['chest-imaging', 'auto-peep'], 'case-img-cxr-edema': ['chest-imaging', 'hypoxaemia'], 'case-img-cxr-ards': ['chest-imaging', 'lung-protection'],
+  'case-img-cxr-tension': ['chest-imaging', 'tension-ptx'], 'case-img-lus-plug': ['chest-imaging', 'airway-obstruction'], 'case-img-lus-asthma': ['chest-imaging', 'auto-peep'], 'case-img-cxr-edema': ['chest-imaging', 'hypoxaemia'], 'case-img-cxr-ards': ['chest-imaging', 'lung-protection'], 'case-img-mainstem': ['chest-imaging', 'airway-obstruction'],
   'abg-pregnant': ['pregnancy-physiology'], 'abg-pregAsthma': ['pregnancy-physiology', 'resp-acid-base'],
   'case-abg-apnoea-infant': ['apnoea-reserve'], 'case-vent-croup': ['paed-airway'], 'case-heart-pphn': ['newborn-transition'], 'case-heart-pphn-atrial': ['newborn-transition', 'shunts'],
   'case-abg-apnoea-preg': ['apnoea-reserve', 'pregnancy-physiology'], 'case-lines-aortocaval': ['pregnancy-physiology'], 'case-lines-pph': ['obstetric-haemorrhage', 'pregnancy-physiology'],

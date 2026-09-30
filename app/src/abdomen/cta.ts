@@ -99,6 +99,8 @@ export function ctaHU(st: AbdomenState, level: CtaLevel, x: number, y: number): 
   if (rupt === 'free' && (level === 'infrarenal' || level === 'bifurcation')) { for (const s of [-1, 1]) if (e2(x, y, s * 0.62, 0.02, 0.1, 0.22) < 1) return HU.blood; } // blood in the paracolic gutters
   // psoas
   for (const s of [-1, 1]) if (e2(x, y, s * (level === 'bifurcation' ? 0.26 : 0.19), 0.33, level === 'renal' ? 0.05 : 0.08, 0.07) < 1) return HU.muscle;
+  // pneumoperitoneum: free air rises in front of the liver and bowel (supine)
+  if (st.freeAir && level !== 'bifurcation' && y < -0.36 && e2(x, y, -0.1, -0.5, 0.5, 0.14) < 1 && body < 0.86) return HU.air;
   const mal = st.dissection?.malperfusion ?? {};
   if (level === 'celiac') {
     if (e2(x, y, -0.4, -0.06, 0.5, 0.48) < 1 && x < 0.05) return HU.liver;
@@ -116,11 +118,17 @@ export function ctaHU(st: AbdomenState, level: CtaLevel, x: number, y: number): 
       // renal artery from the aorta to the hilum
       const t = (x - ax) / (kx - ax); const ly = ay + t * (ky - 0.03 - ay); if (t > 0 && t < 0.85 && Math.abs(y - ly) < 0.011) return poor ? HU.blood : HU.contrast;
     }
-    if (e2(x, y, ax, 0.0, 0.022, 0.022) < 1) return mal.mesenteric ? HU.blood : HU.contrast; // SMA
+    if (e2(x, y, ax, 0.0, 0.022, 0.022) < 1) return mal.mesenteric || st.ischaemia > 0 ? HU.blood : HU.contrast; // SMA (occluded by an embolus, or fed by a false lumen)
     if (e2(x, y, 0.02, 0.05, 0.1, 0.018) < 1) return 110; // left renal vein between SMA and aorta
   }
   // bowel loops (anterior abdomen)
-  if (e2(x, y, 0, -0.26, 0.72, 0.3) < 1) { const n = vnoise(x * 5 + 3, y * 5 + (level === 'infrarenal' ? 2 : 5)); if (n > 0.55) { const wall = n < 0.6; return wall ? (mal.mesenteric ? 35 : HU.bowel + 30) : vnoise(x * 11, y * 11) > 0.7 ? HU.air : HU.fluid + 15; } }
+  if (e2(x, y, 0, -0.26, 0.72, 0.3) < 1) {
+    // small-bowel obstruction: wide, fluid-filled loops with air–fluid levels; ischaemia: pale wall, then gas in the wall
+    const sbo = st.obstruction === 'small'; const thr = sbo ? 0.4 : 0.55; const n = vnoise(x * (sbo ? 3.2 : 5) + 3, y * (sbo ? 3.2 : 5) + (level === 'infrarenal' ? 2 : 5));
+    if (n > thr) { const wall = n < thr + 0.05; const isch = st.ischaemia; const pale = mal.mesenteric || isch > 0.3;
+      if (wall) return isch > 0.6 && vnoise(x * 40, y * 40) > 0.6 ? HU.air : pale ? 35 : HU.bowel + 30;
+      if (sbo) return y < -0.3 + 0.1 * vnoise(x * 2, 1) ? HU.air : HU.fluid + 5; // air–fluid levels: gas floats on the fluid
+      return vnoise(x * 11, y * 11) > 0.7 ? HU.air : HU.fluid + 15; } }
   return HU.fat + 30 * vnoise(x * 4, y * 4);
 }
 
@@ -154,5 +162,9 @@ export function ctaFindings(st: AbdomenState, level: CtaLevel): string[] {
   if (level === 'infrarenal' && st.aaa.rupture === 'contained') f.push('Retroperitoneal haematoma beside the aneurysm, high-attenuation crescent in the thrombus: contained rupture.');
   if (level === 'infrarenal' && st.aaa.rupture === 'free') f.push('Active contrast extravasation and blood in the paracolic gutters: free rupture.');
   if (!f.length) f.push(level === 'chest' ? 'Normal calibre ascending and descending aorta; no flap.' : `Normal calibre aorta (${D.toFixed(1)} cm); no flap, no haematoma.`);
+  if (st.ischaemia > 0 && level === 'renal') f.push('The superior mesenteric artery does not fill with contrast: embolic occlusion.');
+  if (st.ischaemia > 0.3 && level !== 'chest') f.push(st.ischaemia > 0.6 ? 'Bowel wall not enhancing, with gas in the wall (pneumatosis): infarction.' : 'Small-bowel wall enhancing poorly: ischaemia.');
+  if (st.obstruction === 'small' && level !== 'chest') f.push('Dilated, fluid-filled small-bowel loops with air–fluid levels: obstruction.');
+  if (st.freeAir && level !== 'chest' && level !== 'bifurcation') f.push('Free air in front of the liver and bowel, outside the gut: pneumoperitoneum.');
   return f;
 }
