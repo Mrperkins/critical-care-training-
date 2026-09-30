@@ -25,7 +25,7 @@ export function AbgModule() {
           </div>
         </div>
       </section>
-      <aside className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
+      <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         {mode === 'explore' && <>
           <AbgPresets />
           <AbgStory />

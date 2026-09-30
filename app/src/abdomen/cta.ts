@@ -58,6 +58,8 @@ function vessel(x: number, y: number, cx: number, cy: number, diamCm: number, o:
 }
 
 /** Hounsfield units at image point (x ∈ [−1, 1] image-left = patient right; y ∈ [−0.72, 0.72], anterior up). Pure. */
+/** centres of dilated small-bowel loops in obstruction (anterior abdomen, clear of the aorta) */
+const SBO_LOOPS: [number, number][] = [[-0.5, -0.3], [-0.26, -0.4], [0.02, -0.44], [0.3, -0.38], [0.54, -0.26], [-0.36, -0.12], [0.4, -0.08], [-0.6, -0.08], [0.14, -0.2], [-0.12, -0.18]];
 export function ctaHU(st: AbdomenState, level: CtaLevel, x: number, y: number): number {
   const chest = level === 'chest';
   const body = e2(x, y, 0, 0.02, chest ? 0.95 : 0.9, chest ? 0.62 : 0.64);
@@ -124,7 +126,11 @@ export function ctaHU(st: AbdomenState, level: CtaLevel, x: number, y: number): 
   // bowel loops (anterior abdomen)
   if (e2(x, y, 0, -0.26, 0.72, 0.3) < 1) {
     // small-bowel obstruction: wide, fluid-filled loops with air–fluid levels; ischaemia: pale wall, then gas in the wall
-    const sbo = st.obstruction === 'small'; const thr = sbo ? 0.4 : 0.55; const n = vnoise(x * (sbo ? 3.2 : 5) + 3, y * (sbo ? 3.2 : 5) + (level === 'infrarenal' ? 2 : 5));
+    const sbo = st.obstruction === 'small';
+    if (sbo) { // dilated loops: round, fluid-filled, each with its own gas cap (air–fluid level)
+      for (const [cx, cy] of SBO_LOOPS) { const d = Math.hypot(x - cx, y - cy); if (d < 0.11) { if (d > 0.095) return HU.bowel + 30; return y < cy - 0.045 ? HU.air : HU.fluid + 5; } }
+    }
+    const thr = 0.55; const n = vnoise(x * (sbo ? 3.2 : 5) + 3, y * (sbo ? 3.2 : 5) + (level === 'infrarenal' ? 2 : 5));
     if (n > thr) { const wall = n < thr + 0.05; const isch = st.ischaemia; const pale = mal.mesenteric || isch > 0.3;
       if (wall) return isch > 0.6 && vnoise(x * 40, y * 40) > 0.6 ? HU.air : pale ? 35 : HU.bowel + 30;
       if (sbo) return y < -0.3 + 0.1 * vnoise(x * 2, 1) ? HU.air : HU.fluid + 5; // air–fluid levels: gas floats on the fluid

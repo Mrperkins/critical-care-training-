@@ -34,7 +34,7 @@ export function AbdomenModule() {
       <section className="scene-pane">
         <div className="scene-wrap">{view === 'us' ? <UltrasoundScene /> : view === 'cta' ? <CtaScene /> : body ? <AbdomenScene body={body} /> : <div className="loading">{err ? `Could not load anatomy: ${err}` : 'Loading anatomy…'}</div>}<AbdOverlay /></div>
       </section>
-      <aside className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
+      <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         {mode === 'challenge' ? <CaseChallenge module="abdomen" /> : mode === 'learn' ? <AbdLearn /> : <><PresetCard /><TimeCard /><FastCard /><ShockCard /><FindingsCard /></>}
         <p className="credit">Solid organs: HuBMAP 3D reference organs (CC BY 4.0) via the shared body model. Stomach, bowel, diaphragm, peritoneal fluid and pathology are drawn procedurally. Bleeding rates, FAST thresholds and the haemorrhage-class table are teaching approximations, not clinical rules.</p>
       </aside>

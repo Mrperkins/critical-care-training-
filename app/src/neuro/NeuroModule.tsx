@@ -46,7 +46,7 @@ export function NeuroModule() {
           <NeuroOverlay />
         </div>
       </section>
-      <aside className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
+      <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         {mode === 'challenge' ? <CaseChallenge module="neuro" /> : mode === 'learn' ? <NeuroLearn /> : <>
         <PresetCard />
         <NeuroExamCard />

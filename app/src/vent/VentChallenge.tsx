@@ -1,5 +1,5 @@
 import { useProgress } from '../curriculum/progress';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { session } from './session';
 import { useUI } from '../app/store';
 import { VENT_CHALLENGES, type VentChallenge as VC } from '../scenarios/ventChallenges';
@@ -50,7 +50,11 @@ function ChallengeRun({ c, onExit, onDone }: { c: VC; onExit: () => void; onDone
   const n = ventNumbers(session); const g = session.snap;
 
   const okNow = (d != null && pick != null && d.metric(r) <= d.threshold && since >= 6) || (c.kind === 'goal' && !!c.goals && c.goals.every((gl) => gl.test(n, g)) && since >= 6);
-  useEffect(() => { if (okNow && !solved) { setSolved(true); onDone(); } }, [okNow, solved, onDone]);
+  useEffect(() => { if (okNow && !solved) { setSolved(true); onDone(); if (c.kind === 'goal') useProgress.getState().record(`vent-${c.id}`, true); } }, [okNow, solved, onDone]); // eslint-disable-line react-hooks/exhaustive-deps
+  // a target challenge left unsolved after changing settings counts as a miss (feeds Curriculum › Weak topics)
+  const touched = useRef(false); useEffect(() => { if (since > 0 && session.changedAt > 0) touched.current = true; });
+  useEffect(() => () => { if (c.kind === 'goal' && !solvedRef.current && touched.current) useProgress.getState().record(`vent-${c.id}`, false); }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  const solvedRef = useRef(false); solvedRef.current = solved;
   let status: JSX.Element | null = null;
   if (d && pick != null) {
     const v = d.metric(r); const pct = Math.min(1, v / (d.threshold * 3));

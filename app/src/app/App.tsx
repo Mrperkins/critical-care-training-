@@ -55,6 +55,7 @@ export function App() {
   const module = useUI((s) => s.module); const mode = useUI((s) => s.mode); const phone = useIsPhone();
   return (
     <div className={`app m-${module}${phone ? ' phone' : ''}`}>
+      <a className="skip-link" href="#controls" onClick={(e) => { e.preventDefault(); const el = document.getElementById('controls'); el?.focus(); el?.scrollIntoView({ block: 'start' }); }}>Skip to controls</a>
       <header className="topbar">
         <div className="brand"><Mark /><div><h1 className="b1">Critical Care Physiology</h1><div className="b2">one patient · lungs · blood · cells · lines</div></div></div>
         <nav className="modules" ref={(n) => { n?.querySelector('button.on')?.scrollIntoView?.({ block: 'nearest', inline: 'nearest' }); }}>{MODULES.map(([k, l]) => <button key={k} className={module === k ? 'on' : ''} onClick={() => useUI.getState().set({ module: k })}>{l}</button>)}</nav>
@@ -88,7 +89,7 @@ function VentModule() {
         </div>
         <div className="wave-wrap"><Scalars height={phone ? 210 : undefined} /></div>
       </section>
-      <aside className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
+      <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         {mode === 'explore' && <>
           <ScenarioPicker />
           <ScenarioStory />

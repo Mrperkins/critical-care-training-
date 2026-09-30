@@ -77,7 +77,8 @@ export class Heart {
       const inSysPending = !!pending && Math.abs(t + 0.09 - pending.t) < 0.25 && pending.pvc;
       this.a.push({ tp: t, cannon: inSys || inSysPending });
       if (c.rhythm === 'sinus' || c.rhythm === 'pvc') {
-        const refractory = !!lastV && t + 0.16 - lastV.tq < 0.36;
+        // ventricular refractory period shortens at fast rates (children, sinus tachycardia): 0.36 s at adult rates
+        const refractory = !!lastV && t + 0.16 - lastV.tq < Math.min(0.36, Math.max(0.2, 0.62 * RR));
         if (!refractory) {
           this.conducted++;
           this.pendingV.push({ t: t + 0.16, pvc: false, escape: false });

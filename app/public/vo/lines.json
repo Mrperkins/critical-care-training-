@@ -924,6 +924,30 @@
   "t": "Treat the cause and the volume together: uterine massage and uterotonic drugs for an atonic uterus, the commonest cause; tranexamic acid early; warmed blood and products; calcium; and early obstetric and anaesthetic help. Here, blood restores her output."
  },
  {
+  "id": "ps-1",
+  "t": "A well four year old weighing sixteen kilos. The heart rate is about a hundred and the systolic pressure about ninety. Her whole blood volume is only about eighty millilitres per kilo, around one point three litres. A child’s small heart cannot raise its stroke volume much, so output depends on heart rate."
+ },
+ {
+  "id": "ps-2",
+  "t": "She has lost about two hundred millilitres, fifteen percent of her volume. The heart rate climbs past the normal range, the pulse pressure narrows, and capillary refill slows. The blood pressure has not fallen at all."
+ },
+ {
+  "id": "ps-3",
+  "t": "At a quarter of her volume she is pale, mottled and tachycardic above one hundred and fifty, with a capillary refill of four seconds. Her systolic pressure is still normal. This is compensated shock, and it must be recognised now, from the heart rate and the skin."
+ },
+ {
+  "id": "ps-4",
+  "t": "Beyond about a third, vasoconstriction can no longer hold the pressure, and it falls below seventy plus twice her age. Hypotension in a child is a late sign: she has lost nearly forty percent of her blood."
+ },
+ {
+  "id": "ps-5",
+  "t": "Now the heart rate falls. In a shocked child, bradycardia is not improvement: it means the heart is failing from lack of oxygen, and cardiac arrest is close."
+ },
+ {
+  "id": "ps-6",
+  "t": "Treat with blood in boluses of about ten millilitres per kilo, reassessing heart rate, pressure and refill after each, while the bleeding is controlled. After two boluses her pressure and heart rate have recovered. Doses and volumes follow your paediatric protocol."
+ },
+ {
   "id": "tib-1",
   "t": "Two internal carotids and two vertebral arteries feed the brain. At its base, the Circle of Willis links them, so flow can reroute around a blocked feeder."
  },
@@ -1081,7 +1105,7 @@
  },
  {
   "id": "icp-9",
-  "t": "A different cause: after subarachnoid haemorrhage, blood blocks the drainage of cerebrospinal fluid. The ventricles fill with fluid that is still being made, and the pressure rises without any midline shift."
+  "t": "A different cause: after subarachnoid haemorrhage, blood blocks the drainage of cerebrospinal fluid. The ventricles fill with fluid that is still being made and balloon on the scan, and the pressure rises without any midline shift."
  },
  {
   "id": "icp-10",

@@ -14,7 +14,8 @@ import { APNOEA_BY_ID, apnoeaCurve } from '../physiology/apnoea';
 import { compareAirways } from '../populations/airway';
 import { NEO } from '../populations/neonatal';
 import { pphParams, shockIndex } from '../populations/obstetric';
-import { setApnoea, setAirway, setNeo, setOb } from '../populations/popStore';
+import { setApnoea, setAirway, setNeo, setOb, setPeds } from '../populations/popStore';
+import { childParams, CHILD_NORMS } from '../populations/paediatric';
 
 const mode = (m: CaseModule) => useUI.getState().set({ module: m, mode: 'challenge' });
 const spo2At = (id: string, min: number) => { const c = apnoeaCurve(APNOEA_BY_ID[id], { minutes: 10 }); const i = Math.round((min * 60) / 2); return c.spo2[Math.min(i, c.spo2.length - 1)]; };
@@ -51,6 +52,18 @@ export const POP_CASES: SceneCase[] = [
         explain: 'Turbulent flow through the narrowed segment needs pressure that rises with the fifth power of the radius (× 32). Keep the child calm and upright, with a parent.' },
     ],
     verify: () => { const [inf, ad] = compareAirways(1); return Math.round(inf.laminar) === 16 && Math.round(inf.turbulent) === 32 && ad.laminar < 4; },
+  },
+  {
+    id: 'case-lines-child-shock', card: 'peds', module: 'lines', level: 'Intermediate', title: 'A quiet, pale four-year-old',
+    story: 'Four-year-old (16 kg) hit by a car 40 minutes ago. Quiet, pale and cool. The arterial line is in. Her blood pressure is reassuring, says a colleague.',
+    setup: () => { shockScene({ id: 'child', view: 'bed', params: childParams(0.25) }); setPeds({ lossFrac: 0.25, bloodMlKg: 0 }); mode('lines'); }, facts: obFacts,
+    questions: [
+      { q: 'Is she in shock?', options: ['Yes — compensated shock: tachycardia, narrow pulse pressure, cool skin with a normal pressure', 'No — the systolic pressure is normal for her age', 'Only if the capillary refill exceeds 6 s', 'Not until she becomes hypotensive'], answer: 0,
+        explain: 'Children maintain their pressure with tachycardia and intense vasoconstriction until about a third of their blood volume is lost. Hypotension is late.' },
+      { q: 'What if her heart rate starts to fall without treatment?', options: ['Pre-arrest: the failing, hypoxic heart is slowing — act now', 'She is improving', 'Pain relief is working', 'Normal for sleep'], answer: 0,
+        explain: 'In a shocked child bradycardia is an ominous sign that the heart is running out of oxygen.' },
+    ],
+    verify: () => { shockScene({ id: 'child', view: 'bed', params: childParams(0.25) }); const n = lines.num; return n.tSys >= CHILD_NORMS.sbpLow && n.hr > CHILD_NORMS.hr[1] && n.tSys - n.tDia < 35; },
   },
   // ---------------------------------------------------------------- neonatal
   {

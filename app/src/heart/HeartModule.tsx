@@ -29,7 +29,7 @@ export function HeartModule() {
       <section className="scene-pane">
         <div className="scene-wrap"><HeartScene /><HeartOverlay /></div>
       </section>
-      <aside className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
+      <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         {mode === 'challenge' ? <CaseChallenge module="heart" /> : mode === 'learn' ? <HeartLearn /> : <><PresetCard /><ControlsCard /><NeoSlot /><HemoCard /><WhyCard /></>}
         <p className="credit">Schematic four-chamber cutaway drawn procedurally. Flows, pressures and saturations come from a simplified two-circuit model (orifice flow across restrictive defects, conductance across atrial defects, systemic flow held constant) — a teaching model, not a patient calculator.</p>
       </aside>

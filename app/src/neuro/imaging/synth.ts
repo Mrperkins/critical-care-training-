@@ -23,7 +23,7 @@ function vnoise(x: number, y: number) { const i = Math.floor(x), j = Math.floor(
 const fbm = (x: number, y: number) => 0.5 * vnoise(x, y) + 0.25 * vnoise(x * 2.1, y * 2.1) + 0.125 * vnoise(x * 4.3, y * 4.3);
 
 /* ------------------------------------------------------------------ tissue at a point */
-interface Ctx { st: NeuroState; ts: Record<TerritoryId, TerritoryState>; ly: number; ischMin: number; reopened: boolean; shift: number; ich: { c: THREE.Vector3; r: THREE.Vector3 } | null }
+interface Ctx { st: NeuroState; ts: Record<TerritoryId, TerritoryState>; ly: number; ischMin: number; reopened: boolean; shift: number; ich: { c: THREE.Vector3; r: THREE.Vector3 } | null; /** lateral-ventricle size (1 = normal) */ vscale?: number }
 function ctx(st: NeuroState, sys: Systemic, ly: number): Ctx {
   const reopened = st.recanalizedAt != null && st.minutes >= st.recanalizedAt;
   const h = effectiveHemorrhage(st, sys); const hs = h ? hemorrhageShape(h) : null; const H = DEFAULT_BRAIN_FRAME.h;
@@ -60,10 +60,12 @@ export function hu(c: Ctx, l: THREE.Vector3): number {
   if (vy > -0.3 && vy < 0.32) {
     const lvl = 1 - Math.abs(vy - 0.02) / 0.3;                      // ventricles are largest mid-height
     const cx = 0.07 + 0.09 * Math.max(0, -q.z) + 0.04 * Math.max(0, q.z - 0.15); // bodies splay laterally toward the occipital horns
-    const hw = (0.028 + 0.035 * lvl) * (q.z > 0.18 ? 1.35 : 1);         // frontal horns a little fuller
-    if (q.z > -0.48 && q.z < 0.36 && Math.abs(ax - cx) < hw * Math.min(1, (0.36 - q.z) / 0.06) * Math.min(1, (q.z + 0.48) / 0.1)) return 6;
+    const vs = Math.min(1.9, c.vscale ?? 1); const hw = (0.028 + 0.035 * lvl) * (q.z > 0.18 ? 1.35 : 1) * vs ** 0.75; // frontal horns a little fuller; hydrocephalus balloons them
+    if (ax > 0.012 && q.z > -0.48 && q.z < 0.36 && Math.abs(ax - cx) < hw * Math.min(1, (0.36 - q.z) / 0.06) * Math.min(1, (q.z + 0.48) / 0.1)) return 6;
   }
-  if (vy < -0.08 && vy > -0.42 && ax < 0.018 && Math.abs(q.z - 0.02) < 0.13) return 6;
+  if (vy < -0.08 && vy > -0.42 && ax < 0.018 * (c.vscale ?? 1) && Math.abs(q.z - 0.02) < 0.13) return 6;
+  // temporal horns: slit-like normally, rounded and visible early in hydrocephalus
+  if ((c.vscale ?? 1) > 1.3 && vy < -0.25 && vy > -0.5 && Math.abs(ax - 0.33) < 0.02 * (c.vscale ?? 1) && Math.abs(q.z - 0.0) < 0.07) return 6;
   // Sylvian fissure: from the lateral surface in to the insula, nearly transverse, slightly posterior-sloping
   if (vy < 0.05 && vy > -0.58 && ax > 0.5 && ax < 0.97) { const zc = 0.07 - 0.12 * (ax - 0.5) + 0.03 * (fbm(ax * 9, vy * 9) - 0.5); if (Math.abs(q.z - zc) < 0.016 + 0.012 * (ax - 0.5)) return 8; }
   if (ax < 0.012 && (q.z > 0.38 || q.z < -0.46) && vy > -0.45) return 8;
@@ -120,8 +122,8 @@ function segDist(px: number, py: number, s: Seg) { const dx = s.b[0] - s.a[0], d
 
 /* ------------------------------------------------------------------ render */
 export interface Rendered { rgba: Uint8ClampedArray; w: number; h: number }
-export function render(mod: Modality, st: NeuroState, ly: number, size = 200, sys: Systemic = DEFAULT_SYSTEMIC): Rendered {
-  const c = ctx(st, sys, ly); const px = new Uint8ClampedArray(size * size * 4); const l = new THREE.Vector3();
+export function render(mod: Modality, st: NeuroState, ly: number, size = 200, sys: Systemic = DEFAULT_SYSTEMIC, vscale = 1): Rendered {
+  const c = { ...ctx(st, sys, ly), vscale }; const px = new Uint8ClampedArray(size * size * 4); const l = new THREE.Vector3();
   const segs = mod === 'cta' ? ctaSegments(st, ly, 0.45) : [];
   const clots = mod === 'ncct' ? clotSegments(st, ly) : [];
   for (let j = 0; j < size; j++) for (let i = 0; i < size; i++) {

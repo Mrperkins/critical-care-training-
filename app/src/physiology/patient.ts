@@ -275,7 +275,7 @@ export function derive(st: PatientState): Snapshot {
     pao2: ox.pao2, paco2: st.paco2, pAO2: ox.pAO2, aaGrad: ox.pAO2 - ox.pao2, pf: ox.pao2 / fio2, sao2, spo2, etco2,
     pH: ab.pH, hco3, sbe, cao2: ox.ca, do2: ox.do2, vo2: ox.vo2, o2debt: ox.debt, pvo2: ox.pvo2, svo2: ox.svo2, cvo2: ox.cv, p50: ox.P50, ccNormal: ox.ccNormal, ccLow: ox.ccLow, demandVO2: p.vo2 * (1 + 0.1 * (p.tempC - 37)),
     vbg: { site: 'peripheral venous', pH: vab.pH, pco2: st.paco2 + gap, po2: pvPer, so2: sat(pvPer, ox.P50), hco3: vab.hco3, lactate: st.lactate },
-    co, hr: p.hr * (co < 3.5 ? 1 + (3.5 - co) * 0.15 : 1), map, sbp: map + pp * 2 / 3, dbp: map - pp / 3,
+    co, hr: p.hr * (co < 3.5 * bsaRatio(p) ? 1 + (3.5 * bsaRatio(p) - co) / bsaRatio(p) * 0.15 : 1), map, sbp: map + pp * 2 / 3, dbp: map - pp / 3,
     lactate: st.lactate, ketones: st.ketones, ag, agCorr, na: p.na, naCorr, k, cl, ca: p.ca, mg: p.mg, phos: p.phos, glucose: p.glucose,
     bun: p.bun, cr: p.cr, egfr: egfr(p.cr, p.age, p.sex), albumin: p.albumin,
     hb: p.hb, hct: p.hb * 3, wbc: p.wbc, plt: p.plt, inr: p.inr, ptt: p.ptt, pt: 12.5 * p.inr ** (1 / 1.0), fibrinogen: p.fibrinogen, trop: p.trop, bnp: p.bnp, ast: p.ast, alt: p.alt, alp: p.alp, bili: p.bili,
@@ -341,3 +341,7 @@ export { satStd, po2ForSat };
 
 /** Copy the coagulation engine's results into the patient's lab parameters (every existing reader uses these). */
 export function syncCoag(st: PatientState) { if (!st.coag) return; const L = coagLabs(st.coag); st.p.inr = L.inr; st.p.ptt = L.aptt; st.p.fibrinogen = L.fib; st.p.plt = L.plt; }
+
+/** Body surface area (Mosteller), m², and relative to the default adult (175 cm, 75 kg) — scales 'normal' output for children. */
+export const bsa = (p: Pick<PatientParams, 'heightCm' | 'weightKg'>) => Math.sqrt((p.heightCm * p.weightKg) / 3600);
+export const bsaRatio = (p: Pick<PatientParams, 'heightCm' | 'weightKg'>) => bsa(p) / Math.sqrt((175 * 75) / 3600);

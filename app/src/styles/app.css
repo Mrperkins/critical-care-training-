@@ -420,14 +420,14 @@ details.card summary{cursor:pointer;font:600 14px var(--fs);margin-bottom:6px}
 .alv-focus .seg{flex-wrap:wrap;pointer-events:auto;background:rgba(3,8,12,.66);backdrop-filter:blur(8px)}
 .alv-legend{bottom:10px}
 .alv-note{position:absolute;right:12px;bottom:10px;font:500 9.5px var(--fm);color:rgba(222,235,241,.5);letter-spacing:.04em}
-.phone .alv-hud{top:44px;left:8px;min-width:0;padding:5px 8px;font-size:9.5px}
+.phone .alv-hud{top:auto;bottom:64px;left:8px;min-width:0;padding:5px 8px;font-size:9.5px;opacity:.92}
 .phone .alv-hud .alv-row:nth-child(n+5){display:none}
 .phone .alv-focus{left:6px;right:6px;bottom:22px}.phone .alv-focus .ch-quality{display:none}
 .phone .alv-focus .ch-focus{flex-wrap:nowrap;overflow-x:auto;max-width:100%;scrollbar-width:none}.phone .alv-focus .ch-focus button{white-space:nowrap;flex:0 0 auto}
 .phone .alv-note{display:none}
 .phone .alv-legend span:nth-child(n+6){display:none}
 .phone .alv-wrap .scene-tools{bottom:auto;top:78px}.phone .alv-wrap .scene-tools .tgl:not(:first-child){display:none}
-.phone .alv-wrap .alv-hud{top:112px}
+.phone .alv-wrap .alv-hud{top:112px;bottom:auto}
 /* ---------------------------------------------------------------- neuro */
 .btn-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 .neuro-wrap .legend{bottom:10px}
@@ -567,3 +567,7 @@ details.card summary{cursor:pointer;font:600 14px var(--fs);margin-bottom:6px}
 .pop-bv{fill:rgba(224,100,90,.28)}.pop-bv-np{fill:rgba(224,100,90,.5)}.pop-loss{fill:#05070a;stroke:var(--bad);stroke-dasharray:3 2}
 .coag-trace{fill:rgba(224,100,90,.32);stroke:#e0645a;stroke-width:1.2}
 .num.bad .nv{color:var(--bad)}
+.skip-link{position:absolute;left:-9999px;top:8px;z-index:200;background:var(--gold);color:#111;padding:8px 12px;border-radius:8px;font-weight:600;text-decoration:none}
+.skip-link:focus{left:8px}
+/* phones: keep the scene toggles clear of the focus chips at the bottom */
+.phone.m-heart .scene-tools,.phone.m-abdomen .scene-tools{top:44px;bottom:auto}

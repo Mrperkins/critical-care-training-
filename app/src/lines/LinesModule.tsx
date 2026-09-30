@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ObCard } from '../populations/Cards';
-function PregSlot() { useUI((s) => s.pulse); return linesSession.sc.group === 'Pregnancy' ? <ObCard /> : null; }
+function PregSlot() { useUI((s) => s.pulse); return linesSession.sc.group === 'Pregnancy' ? <ObCard /> : linesSession.sc.group === 'Children' ? <PedsCard /> : null; }
+import { PedsCard } from '../populations/PedsCard';
 import { loadBodyAsset, type BodyAsset } from '../asset/body';
 import { lines as linesSession } from './session';
 import { IabpCard } from '../procedures/IabpCard';
@@ -31,7 +32,7 @@ export function LinesModule() {
         </div>
         <div className="wave-wrap"><Monitor height={phone ? 230 : 260} /></div>
       </section>
-      <aside className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
+      <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         {mode === 'explore' && <>
           <ScenarioPicker />
           <ExplainCard />

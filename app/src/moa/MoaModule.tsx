@@ -41,7 +41,7 @@ export function MoaModule() {
       <section className="scene-pane">
         <div className="scene-wrap moa-wrap"><MechGraph def={def} /><Selectivity def={def} /></div>
       </section>
-      <aside className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
+      <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         <ReturnBanner />
         <section className="card story">
           <div className="moa-groups">{MOA_GROUPS.map((g) => <div key={g.label} className="moa-group"><div className="eyebrow">{g.label}</div><div className="chips" role="group" aria-label={g.label}>{g.ids.map((id) => MECH[id]).map((m) => <button key={m.id} className={`chip${m.id === defId ? ' on' : ''}`} aria-pressed={m.id === defId} onClick={() => useMoa.getState().set({ defId: m.id, ctx: null })}>{m.drug}</button>)}</div></div>)}</div>

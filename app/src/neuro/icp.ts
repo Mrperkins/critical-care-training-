@@ -12,6 +12,7 @@ export interface EvdSettings { open: boolean; /** drip-chamber height above the 
 export interface IcpInput {
   /** head-of-bed elevation, degrees */ headUp: number; /** brain water removed by osmotherapy, mL */ osmoMl: number;
   /** obstructive hydrocephalus (blood in the ventricles / aqueduct after SAH or IVH) */ hydrocephalus: boolean;
+  /** minutes since CSF outflow blocked (default: the state's minutes, at least 2 h — so switching it on for a fresh bleed shows established hydrocephalus) */ hydroMin?: number;
   evd: EvdSettings | null; /** the haematoma has been evacuated / decompressive craniectomy */ decompressed: boolean; age: 'young' | 'old';
 }
 export const ICP_DEFAULT: IcpInput = { headUp: 30, osmoMl: 0, hydrocephalus: false, evd: null, decompressed: false, age: 'young' };
@@ -35,7 +36,7 @@ export function icpVolumes(st: NeuroState, sys: Systemic, inp: IcpInput, evdRemo
   const periHaem = ich * 0.6 * (1 - Math.exp(-hrs / 24)); // perihaematomal oedema over the first day(s)
   const core = neuroSummary(st, { ...sys, icp: 10 }).coreMl; // infarct swelling from the stroke itself — not fed back from this ICP (that would be circular)
   const infarctOedema = core * 0.22 * Math.max(0, Math.min(1, (hrs - 12) / 48)); // malignant swelling after large infarcts, day 2–4
-  const csf = inp.hydrocephalus ? Math.min(60, 0.3 * st.minutes) : 0; // CSF keeps being made (~20 mL/h) with nowhere to go
+  const csf = inp.hydrocephalus ? Math.min(60, 0.3 * (inp.hydroMin ?? Math.max(st.minutes, 120))) : 0; // CSF keeps being made (~20 mL/h) with nowhere to go
   const cbv = 1.2 * ((sys.paco2 ?? 40) - 40); // CO₂ dilates or constricts the cerebral vessels
   const relief = Math.min(8, inp.headUp * 0.2) + inp.osmoMl + evdRemoved;
   const buffer = inp.age === 'old' ? 40 : 25; // atrophy leaves more room
@@ -121,4 +122,14 @@ export function icpFindings(s: IcpState): string[] {
     else if (s.evd.drainingMlH > 0) f.push(`EVD draining CSF: ICP settles at the chamber height (${Math.round(s.evd.effectiveHeightMmHg)} mmHg).`);
   }
   return f;
+}
+
+/**
+ * Relative size of the lateral ventricles on CT (1 = normal): trapped CSF enlarges them (drained CSF shrinks them
+ * back); swelling from a mass or oedema compresses them toward slits.
+ */
+export function ventricleScale(st: NeuroState, sys: Systemic = DEFAULT_SYSTEMIC, inp: IcpInput = ICP_DEFAULT): number {
+  const s = icpState(st, sys, inp); const trapped = Math.max(0, s.vol.csf - (s.evd?.removedMl ?? 0));
+  const squeeze = Math.max(0, Math.min(1, (s.vol.mass + s.vol.edema - s.vol.buffer * 0.3) / 40));
+  return Math.max(0.35, Math.min(2.4, (1 + trapped / 35) * (1 - 0.55 * squeeze)));
 }

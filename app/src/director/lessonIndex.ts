@@ -15,13 +15,13 @@ import { ABDOMEN_LESSONS } from './lessons/abdomen';
 import { DISSECTION_LESSON } from './lessons/dissection';
 import { COAG_LESSON } from './lessons/coag';
 import { ABDOMEN_LESSONS_2 } from './lessons/abdomen2';
-import { APNOEA_LESSON, PEDS_AIRWAY_LESSON, NEO_TRANSITION_LESSON, OB_GAS_LESSON, OB_CIRCULATION_LESSON } from './lessons/populations';
+import { APNOEA_LESSON, PEDS_AIRWAY_LESSON, NEO_TRANSITION_LESSON, OB_GAS_LESSON, OB_CIRCULATION_LESSON, PEDS_SHOCK_LESSON } from './lessons/populations';
 
 export const LESSON_HOSTS: { module: Module; timelines: Timeline[] }[] = [
   { module: 'vent', timelines: [...VENT_TIMELINES, NEEDLE_LESSON, PEDS_AIRWAY_LESSON] },
   { module: 'abg', timelines: [...ABG_TIMELINES, OB_GAS_LESSON, APNOEA_LESSON] },
   { module: 'labs', timelines: [...LAB_TIMELINES, COAG_LESSON] },
-  { module: 'lines', timelines: [...LINES_TIMELINES, IABP_LESSON, CENTRAL_LINE_LESSON, OB_CIRCULATION_LESSON] },
+  { module: 'lines', timelines: [...LINES_TIMELINES, IABP_LESSON, CENTRAL_LINE_LESSON, OB_CIRCULATION_LESSON, PEDS_SHOCK_LESSON] },
   { module: 'neuro', timelines: [...NEURO_LESSONS, ICP_LESSON] },
   { module: 'heart', timelines: [...HEART_LESSONS, NEO_TRANSITION_LESSON] },
   { module: 'abdomen', timelines: [...ABDOMEN_LESSONS, DISSECTION_LESSON, ...ABDOMEN_LESSONS_2] },

@@ -7,8 +7,9 @@
  * Units: pressure mmHg, volume mL, time s, resistance mmHg·s/mL (SVR dyn·s·cm⁻⁵ ÷ 1333),
  * compliance mL/mmHg.
  */
-import type { PatientParams, Snapshot } from '../physiology/patient';
+import { bsaRatio, type PatientParams, type Snapshot } from '../physiology/patient';
 import { PREGNANT, SUPINE } from '../populations/obstetric';
+import { CHILD_BASE } from '../populations/paediatric';
 
 export type Rhythm = 'sinus' | 'af' | 'chb' | 'pvc';
 export interface Morph {
@@ -36,7 +37,7 @@ export interface Morph {
 }
 
 export interface LinesScenario {
-  id: string; name: string; short: string; group: 'Baseline' | 'Shock' | 'Rhythm' | 'Valves & pericardium' | 'Arteries' | 'Pregnancy';
+  id: string; name: string; short: string; group: 'Baseline' | 'Shock' | 'Rhythm' | 'Valves & pericardium' | 'Arteries' | 'Pregnancy' | 'Children';
   blurb: string; params: Partial<PatientParams>; morph: Morph;
   /** cause → effect, one line each; the monitor features the learner should find */
   story: string[];
@@ -105,6 +106,10 @@ export const SCENARIOS: LinesScenario[] = [
     blurb: 'The same woman lying flat on her back.',
     story: ['The gravid uterus squeezes the inferior vena cava against the spine: venous return falls', 'Stroke volume and output drop by up to a third → hypotension and a compensatory tachycardia', 'The placenta has no autoregulation: its flow falls with maternal pressure', 'Displacing the uterus to the left (manually or with a 15–30° tilt) restores venous return'],
     look: ['Low CVP, narrow pulse pressure, faster heart rate', 'Pressure recovers within a minute of left uterine displacement'] },
+  { id: 'child', name: 'Child, 4 years (16 kg)', short: 'Child (4 y)', group: 'Children', params: { ...CHILD_BASE }, morph: {},
+    blurb: 'A well 4-year-old with an arterial line — the bedside figure is adult-sized; the numbers are a child’s.',
+    story: ['Small stroke volume (≈ 25 mL): output depends on heart rate', 'Smaller, stiffer-walled aorta for its size: a pulse pressure similar to an adult’s from a much smaller beat', 'Circulating volume ≈ 80 mL/kg — about 1.3 L'],
+    look: ['Heart rate ≈ 100 is normal at this age', 'Systolic pressure ≈ 90; lower limit ≈ 70 + 2 × age'] },
 ];
 export const SCENARIO = Object.fromEntries(SCENARIOS.map((s) => [s.id, s])) as Record<string, LinesScenario>;
 
@@ -130,8 +135,9 @@ export function circFrom(s: Snapshot, p: PatientParams, m: Morph, extra: { volum
   const sv = (co * 1000) / hr;
   // afterload: SVR in dyn·s·cm⁻⁵ → mmHg·s/mL. MAP = CVP + CO·R holds for the Windkessel exactly.
   const R = p.svr / 1333;
-  const C = 1.6 * (1 - 0.5 * clamp(stiff, -0.5, 1)) * (1 + 0.25 * (1 - Math.min(1, p.svr / 1150)));
-  const Zc = 0.05 * (1 + 0.6 * clamp(stiff, 0, 1));
+  // a child's aorta is smaller: less compliance, higher characteristic impedance (scaled by body surface area; adults unchanged)
+  const size = Math.min(1, bsaRatio(p) / 0.9); const C = 1.6 * (1 - 0.5 * clamp(stiff, -0.5, 1)) * (1 + 0.25 * (1 - Math.min(1, p.svr / 1150))) * size ** 1.1;
+  const Zc = 0.05 * (1 + 0.6 * clamp(stiff, 0, 1)) / Math.sqrt(size);
   const et = Math.max(0.17, 0.413 - 0.0017 * hr + 0.07 * as - 0.03 * lv + 0.02 * ar);
   const vol = extra.volume;
   return {

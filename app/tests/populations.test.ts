@@ -86,3 +86,20 @@ describe('special-population lessons seek exactly', () => {
     const a = (() => { resolve(OB_CIRCULATION_LESSON, 55); return lines.num.tMap; })(); resolve(OB_CIRCULATION_LESSON, 2); resolve(OB_CIRCULATION_LESSON, 55); expect(lines.num.tMap).toBeCloseTo(a, 6);
   });
 });
+
+import { PEDS_SHOCK_LESSON } from '../src/director/lessons/populations';
+import { CHILD_NORMS } from '../src/populations/paediatric';
+import { SCENARIO } from '../src/lines/hemo';
+describe('paediatric shock on the Lines monitor', () => {
+  it('size-scaled engine: a child has a child’s pulse and rate; adults are unchanged', () => {
+    lines.load('child'); for (let i = 0; i < 320; i++) lines.tick(0.05); const c = { ...lines.num };
+    expect(c.hr).toBeGreaterThan(95); expect(c.hr).toBeLessThan(115); expect(c.tSys).toBeGreaterThan(85); expect(c.tSys - c.tDia).toBeGreaterThan(30);
+    lines.load('normal'); for (let i = 0; i < 320; i++) lines.tick(0.05); expect(lines.num.hr).toBeCloseTo(72, 0); expect(SCENARIO.child.group).toBe('Children');
+  });
+  it('rate climbs and the pressure holds to ≈ 30 %; falls below 70 + 2 × age by 38 %; bradycardia at 46 %; blood restores it', () => {
+    const n = (t: number) => { resolve(PEDS_SHOCK_LESSON, t); return { ...lines.num }; };
+    const a = n(1), b = n(15), c = n(28), d = n(42), e = n(56), f = n(69);
+    expect(b.hr).toBeGreaterThan(CHILD_NORMS.hr[1]); expect(c.hr).toBeGreaterThan(145); expect(c.tSys).toBeGreaterThanOrEqual(CHILD_NORMS.sbpLow); expect(c.tSys - c.tDia).toBeLessThan(a.tSys - a.tDia);
+    expect(d.tSys).toBeLessThan(CHILD_NORMS.sbpLow); expect(e.hr).toBeLessThan(80); expect(f.tSys).toBeGreaterThan(CHILD_NORMS.sbpLow + 10); expect(f.hr).toBeLessThan(c.hr);
+  });
+});

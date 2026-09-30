@@ -28,6 +28,7 @@ const e = (id: string, kind: Kind, module: Entry['module'], domains: Domain[], d
 
 const S = {
   esvsMes: 'ESVS clinical practice guidelines on the management of diseases of the mesenteric arteries and veins (2017)', wses: 'WSES guidelines on adhesive small bowel obstruction (Bologna guidelines, 2017)',
+  pals: 'AHA Pediatric Advanced Life Support provider manual (2020)',
   accBleed: 'ACC expert consensus decision pathway on bleeding in patients on oral anticoagulants (JACC 2020)',
   apnoea: 'Benumof — critical haemoglobin desaturation during apnoea (Anesthesiology 1997)', patelApnoea: 'Patel et al. — apnoea-induced hypoxia in healthy paediatric patients (Can J Anaesth 1994)', dasObstetric: 'OAA/DAS guidelines for obstetric difficult and failed intubation (Anaesthesia 2015)',
   cote: 'Coté — A Practice of Anesthesia for Infants and Children', croup: 'Bjornson & Johnson — croup in children (CMAJ 2013)',
@@ -53,6 +54,7 @@ export const CATALOG: Entry[] = [
   e('abd-obstruction', 'director', 'abdomen', ['Renal & metabolic', 'Imaging & POCUS'], 'core', ['AMLS'], ['Recognise obstruction (dilated loops, air–fluid levels) and the fluid it sequesters', 'Recognise free air on ultrasound and CT', 'Distinguish enteric fluid from blood on a positive scan'], [S.wses], []),
   // ---------------------------------------------------------------- special populations
   e('pop-apnoea', 'director', 'abg', ['Paediatric', 'Neonatal', 'OB', 'Respiratory'], 'core', ['EPC', 'AMLS'], ['Explain where oxygen is stored during apnoea and why pre-oxygenation matters', 'Explain the “cliff” in the saturation curve', 'Predict faster desaturation in infants, children, pregnancy and obesity'], [S.apnoea, S.patelApnoea, S.dasObstetric], []),
+  e('peds-shock', 'director', 'lines', ['Paediatric', 'Haemodynamics & shock', 'Trauma & haemorrhage'], 'core', ['EPC', 'PHTLS'], ['Recognise compensated shock in a child from heart rate, pulse pressure and capillary refill', 'Know hypotension (below 70 + 2 × age) is late and bradycardia pre-arrest', 'Resuscitate with measured blood boluses and reassessment'], [S.atls, S.pals], [], 'Paediatric fluid and blood volumes follow local protocol.'),
   e('peds-airway', 'director', 'vent', ['Paediatric', 'Ventilation'], 'core', ['EPC'], ['Apply radius-to-the-fourth-power to airway swelling in infants vs adults', 'Explain why crying worsens obstruction', 'Recognise the endotracheal tube as a resistance and the first thing to check'], [S.cote, S.croup], []),
   e('neo-transition', 'director', 'heart', ['Neonatal', 'Cardiology'], 'intermediate', ['EPC'], ['Describe the change from fetal to newborn circulation', 'Use pre-ductal saturation targets in the first ten minutes', 'Recognise PPHN from pre- and post-ductal saturations and know what lowers pulmonary resistance'], [S.nrp, S.pphn], []),
   e('ob-gas', 'director', 'abg', ['OB', 'Acid–base & labs'], 'core', ['AMLS'], ['Interpret a blood gas against pregnancy normals (PaCO₂ ≈ 30, HCO₃⁻ ≈ 20)', 'Recognise a “normal” PaCO₂ as retention in a pregnant asthmatic'], [S.pregPhys, S.asthmaPreg], ['abg-resp-vs-metabolic']),
@@ -153,6 +155,7 @@ export const CONCEPTS: Record<string, { name: string; remediate: Target[] }> = {
   shunts: { name: 'Shunts and Qp:Qs', remediate: [{ lesson: 'heart-vsd' }] },
   'chest-imaging': { name: 'Chest X-ray and lung ultrasound', remediate: [{ lesson: 'vent-tension-ptx' }] },
   'apnoea-reserve': { name: 'Oxygen reserve during apnoea', remediate: [{ lesson: 'pop-apnoea' }] },
+  'paed-shock': { name: 'Shock in children', remediate: [{ lesson: 'peds-shock' }] },
   'paed-airway': { name: 'The paediatric airway', remediate: [{ lesson: 'peds-airway' }, { lesson: 'wf-dopes' }] },
   'newborn-transition': { name: 'Newborn transition and PPHN', remediate: [{ lesson: 'neo-transition' }] },
   'pregnancy-physiology': { name: 'Physiology of pregnancy', remediate: [{ lesson: 'ob-gas' }, { lesson: 'ob-circulation' }] },
@@ -181,7 +184,7 @@ export const CHALLENGE_CONCEPTS: Record<string, string[]> = {
   'case-img-cxr-tension': ['chest-imaging', 'tension-ptx'], 'case-img-lus-plug': ['chest-imaging', 'airway-obstruction'], 'case-img-lus-asthma': ['chest-imaging', 'auto-peep'], 'case-img-cxr-edema': ['chest-imaging', 'hypoxaemia'], 'case-img-cxr-ards': ['chest-imaging', 'lung-protection'], 'case-img-mainstem': ['chest-imaging', 'airway-obstruction'],
   'abg-pregnant': ['pregnancy-physiology'], 'abg-pregAsthma': ['pregnancy-physiology', 'resp-acid-base'],
   'case-abg-apnoea-infant': ['apnoea-reserve'], 'case-vent-croup': ['paed-airway'], 'case-heart-pphn': ['newborn-transition'], 'case-heart-pphn-atrial': ['newborn-transition', 'shunts'],
-  'case-abg-apnoea-preg': ['apnoea-reserve', 'pregnancy-physiology'], 'case-lines-aortocaval': ['pregnancy-physiology'], 'case-lines-pph': ['obstetric-haemorrhage', 'pregnancy-physiology'],
+  'case-abg-apnoea-preg': ['apnoea-reserve', 'pregnancy-physiology'], 'case-lines-aortocaval': ['pregnancy-physiology'], 'case-lines-pph': ['obstetric-haemorrhage', 'pregnancy-physiology'], 'case-lines-child-shock': ['paed-shock'],
 };
 /** Where a challenge lives, for "try it again". */
 const CASE_MODULE = { abd: 'abdomen', neuro: 'neuro', heart: 'heart', img: 'vent', vent: 'vent', abg: 'abg', lines: 'lines' } as const;

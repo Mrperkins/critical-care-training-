@@ -22,7 +22,7 @@ export function CurriculumModule() {
   const weak = useMemo(() => weakTopics(p.attempts), [p.attempts]);
   const total = CATALOG.length, done = CATALOG.filter((e) => p.completed[e.id]).length;
   return (
-    <main className="stage curriculum-stage">
+    <main id="controls" tabIndex={-1} className="stage curriculum-stage">
       <div className="cur-page">
         <section className="card">
           <div className="eyebrow">Curriculum</div><h2 className="h2">Everything in the app, by topic and certification</h2>

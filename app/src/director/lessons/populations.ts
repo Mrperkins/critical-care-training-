@@ -13,7 +13,8 @@ import { useHeartUI } from '../../heart/heartStore';
 import type { ShuntInput } from '../../heart/shunt';
 import { NEO } from '../../populations/neonatal';
 import { pphParams } from '../../populations/obstetric';
-import { setApnoea, setAirway, setNeo, setOb } from '../../populations/popStore';
+import { setApnoea, setAirway, setNeo, setOb, setPeds } from '../../populations/popStore';
+import { childParams } from '../../populations/paediatric';
 
 /* ------------------------------------------------------------------ apnoea (Blood gas module) */
 const ap = (shown: string[], highlight: string | null, preox = true, headUp = false, preset = 'normal') => () => { abgScene({ preset }); setApnoea({ shown, highlight, preox, headUp }); };
@@ -133,5 +134,27 @@ export const OB_CIRCULATION_LESSON: Timeline = {
       say: 'Beyond about a third of her volume the vasoconstriction runs out, and the pressure falls fast. This is late. She needs blood, not more crystalloid, and the bleeding stopped.' },
     { id: 'oc-7', at: 80, dur: 14, hold: true, title: 'Stop the bleeding, replace blood', apply: oc('pregnant', 1800, 3),
       say: 'Treat the cause and the volume together: uterine massage and uterotonic drugs for an atonic uterus, the commonest cause; tranexamic acid early; warmed blood and products; calcium; and early obstetric and anaesthetic help. Here, blood restores her output.' },
+  ],
+};
+
+/* ------------------------------------------------------------------ paediatric shock (Lines module) */
+const ps = (lossFrac: number, bloodMlKg = 0) => () => { shockScene({ id: 'child', view: 'bed', params: childParams(lossFrac, bloodMlKg) }); setPeds({ lossFrac, bloodMlKg }); };
+export const PEDS_SHOCK_LESSON: Timeline = {
+  id: 'peds-shock', title: 'Shock in a child: the pressure is the last thing to go', level: 'core', module: 'lines',
+  blurb: 'A 4-year-old losing blood on the live monitor: heart rate and capillary refill change first, the pressure holds until a third of the volume is gone, then falls — and bradycardia means arrest is close.',
+  setup: ps(0),
+  cues: [
+    { id: 'ps-1', at: 0, dur: 13, hold: true, title: 'A well four year old', apply: ps(0),
+      say: 'A well four year old weighing sixteen kilos. The heart rate is about a hundred and the systolic pressure about ninety. Her whole blood volume is only about eighty millilitres per kilo, around one point three litres. A child’s small heart cannot raise its stroke volume much, so output depends on heart rate.' },
+    { id: 'ps-2', at: 14, dur: 12, hold: true, title: 'Fifteen percent lost', apply: ps(0.15),
+      say: 'She has lost about two hundred millilitres, fifteen percent of her volume. The heart rate climbs past the normal range, the pulse pressure narrows, and capillary refill slows. The blood pressure has not fallen at all.' },
+    { id: 'ps-3', at: 27, dur: 13, hold: true, title: 'Compensated shock', apply: ps(0.25),
+      say: 'At a quarter of her volume she is pale, mottled and tachycardic above one hundred and fifty, with a capillary refill of four seconds. Her systolic pressure is still normal. This is compensated shock, and it must be recognised now, from the heart rate and the skin.' },
+    { id: 'ps-4', at: 41, dur: 13, hold: true, title: 'Decompensation', apply: ps(0.38),
+      say: 'Beyond about a third, vasoconstriction can no longer hold the pressure, and it falls below seventy plus twice her age. Hypotension in a child is a late sign: she has lost nearly forty percent of her blood.' },
+    { id: 'ps-5', at: 55, dur: 12, hold: true, title: 'Bradycardia: arrest is close', apply: ps(0.46),
+      say: 'Now the heart rate falls. In a shocked child, bradycardia is not improvement: it means the heart is failing from lack of oxygen, and cardiac arrest is close.' },
+    { id: 'ps-6', at: 68, dur: 13, hold: true, title: 'Blood, in small measured boluses', apply: ps(0.38, 20),
+      say: 'Treat with blood in boluses of about ten millilitres per kilo, reassessing heart rate, pressure and refill after each, while the bleeding is controlled. After two boluses her pressure and heart rate have recovered. Doses and volumes follow your paediatric protocol.' },
   ],
 };

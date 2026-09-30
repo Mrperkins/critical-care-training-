@@ -10,7 +10,8 @@ import { useProgress } from '../curriculum/progress';
 import { takePendingChallenge, usePendingOpen } from '../app/navigate';
 import { Remediate } from './Remediate';
 import { ApnoeaCard, AirwayCard, NeoCard, ObCard } from '../populations/Cards';
-const CARD = { apnoea: ApnoeaCard, airway: AirwayCard, neo: NeoCard, ob: ObCard };
+import { PedsCard } from '../populations/PedsCard';
+const CARD = { apnoea: ApnoeaCard, airway: AirwayCard, neo: NeoCard, ob: ObCard, peds: PedsCard };
 
 const shuffle = (n: number, seed: string) => { let h = 0; for (const c of seed) h = (h * 31 + c.charCodeAt(0)) >>> 0; const a = Array.from({ length: n }, (_, i) => i); for (let i = n - 1; i > 0; i--) { h = (h * 1103515245 + 12345) >>> 0; const j = h % (i + 1); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const HEAD: Record<CaseModule, [string, string]> = {
