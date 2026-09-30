@@ -56,7 +56,7 @@ export function App() {
   return (
     <div className={`app m-${module}${phone ? ' phone' : ''}`}>
       <header className="topbar">
-        <div className="brand"><Mark /><div><div className="b1">Critical Care Physiology</div><div className="b2">one patient · lungs · blood · cells · lines</div></div></div>
+        <div className="brand"><Mark /><div><h1 className="b1">Critical Care Physiology</h1><div className="b2">one patient · lungs · blood · cells · lines</div></div></div>
         <nav className="modules" ref={(n) => { n?.querySelector('button.on')?.scrollIntoView?.({ block: 'nearest', inline: 'nearest' }); }}>{MODULES.map(([k, l]) => <button key={k} className={module === k ? 'on' : ''} onClick={() => useUI.getState().set({ module: k })}>{l}</button>)}</nav>
         <Seg value={mode} options={MODES} onChange={(v) => useUI.getState().set({ mode: v })} />
       </header>
@@ -88,7 +88,7 @@ function VentModule() {
         </div>
         <div className="wave-wrap"><Scalars height={phone ? 210 : undefined} /></div>
       </section>
-      <aside className="side-pane">
+      <aside className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         {mode === 'explore' && <>
           <ScenarioPicker />
           <ScenarioStory />
@@ -113,17 +113,17 @@ function SceneOverlay() {
   const set = useUI.getState().set;
   return (
     <>
-      <div className="view-btns">
+      <div className="view-btns" ref={(n) => { const b = n?.querySelector<HTMLElement>('button.on'); if (n && b && n.scrollWidth > n.clientWidth) n.scrollLeft = b.offsetLeft - 8; }}>
         {([['front', 'Front'], ['side', 'Side'], ['airway', 'Airways'], ['base', 'Bases'], ['alveolus', 'Alveoli'], ['xray', 'X-ray'], ['lus', 'Lung US']] as const).map(([k, l]) => <button key={k} className={view === k ? 'on' : ''} onClick={() => (k === 'alveolus' ? focusVentTarget('lung.alveolus') : set({ ventView: k, ventTarget: 'lung.whole' }))}>{l}</button>)}
       </div>
       {view === 'xray' || view === 'lus' ? null : view === 'alveolus' ? <AlveolusHud /> : <div className="legend">
         <span><i className="lg-air" />Aerated</span><span><i className="lg-col" />Collapsed</span><span><i className="lg-over" />Over-stretched</span><span><i className="lg-in" />Gas in</span><span><i className="lg-out" />Gas out</span>
       </div>}
-      <div className="scene-tools">
+      {view !== 'xray' && view !== 'lus' && <div className="scene-tools">
         <button className={`tgl${labels ? ' on' : ''}`} onClick={() => set({ labels: !labels })}>Labels</button>
         <button className={`tgl${pm ? ' on' : ''}`} onClick={() => set({ showPmus: !pm })}>Patient effort</button>
         <button className={`tgl${loops ? ' on' : ''}`} onClick={() => set({ showLoops: !loops })}>Loops</button>
-      </div>
+      </div>}
     </>
   );
 }

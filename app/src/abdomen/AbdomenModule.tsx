@@ -33,7 +33,7 @@ export function AbdomenModule() {
       <section className="scene-pane">
         <div className="scene-wrap">{view === 'us' ? <UltrasoundScene /> : view === 'cta' ? <CtaScene /> : body ? <AbdomenScene body={body} /> : <div className="loading">{err ? `Could not load anatomy: ${err}` : 'Loading anatomy…'}</div>}<AbdOverlay /></div>
       </section>
-      <aside className="side-pane">
+      <aside className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         {mode === 'challenge' ? <CaseChallenge module="abdomen" /> : mode === 'learn' ? <AbdLearn /> : <><PresetCard /><TimeCard /><FastCard /><ShockCard /><FindingsCard /></>}
         <p className="credit">Solid organs: HuBMAP 3D reference organs (CC BY 4.0) via the shared body model. Stomach, bowel, diaphragm, peritoneal fluid and pathology are drawn procedurally. Bleeding rates, FAST thresholds and the haemorrhage-class table are teaching approximations, not clinical rules.</p>
       </aside>
@@ -60,7 +60,7 @@ function AbdOverlay() {
 
 function PresetCard() {
   const preset = useAbdUI((s) => s.preset); const p = ABD_PRESETS.find((x) => x.id === preset)!;
-  return <section className="card story"><div className="chips" role="list">{ABD_PRESETS.map((x) => <button key={x.id} role="listitem" className={`chip${preset === x.id ? ' on' : ''}`} onClick={() => loadAbdPreset(x.id as AbdPreset)}>{x.name}</button>)}</div><p className="muted small" style={{ marginTop: 8 }}>{p.short}</p></section>;
+  return <section className="card story"><div className="chips" role="group" aria-label="Presets">{ABD_PRESETS.map((x) => <button key={x.id} className={`chip${preset === x.id ? ' on' : ''}`} onClick={() => loadAbdPreset(x.id as AbdPreset)}>{x.name}</button>)}</div><p className="muted small" style={{ marginTop: 8 }}>{p.short}</p></section>;
 }
 function TimeCard() {
   const minutes = useAbdUI((s) => s.minutes); const base = useAbdUI((s) => s.base);

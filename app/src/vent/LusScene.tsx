@@ -19,9 +19,10 @@ function Zone({ z, on, pick, hide }: { z: LusZone; on: boolean; pick: () => void
   const ref = useRef<HTMLCanvasElement>(null); const size = IS_PHONE ? 110 : 150;
   useEffect(() => {
     let raf = 0, last = 0; const t0 = performance.now(); const reduce = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const f = (now: number) => { if (now - last > (reduce ? 1e9 : 140)) { last = now; draw(ref.current, renderLinear(lusScene(z, (now - t0) / 1000), LUS_W, LUS_D, size)); } raf = requestAnimationFrame(f); };
+    const every = reduce ? 1e9 : on ? 140 : 700; // the zone being read animates smoothly; the other three tick slowly (each frame costs ~10–20 ms)
+    const f = (now: number) => { if (now - last > every) { last = now; draw(ref.current, renderLinear(lusScene(z, (now - t0) / 1000), LUS_W, LUS_D, size)); } raf = requestAnimationFrame(f); };
     draw(ref.current, renderLinear(lusScene(z, 0), LUS_W, LUS_D, size)); raf = requestAnimationFrame(f); return () => cancelAnimationFrame(raf);
-  }, [z, size]);
+  }, [z, size, on]);
   const name = LUS_ZONES.find((x) => x.id === z.id)!.name;
   return (
     <button className={`lus-zone${on ? ' on' : ''}`} onClick={pick} aria-pressed={on} aria-label={hide ? name : `${name}: ${z.pattern}`}>

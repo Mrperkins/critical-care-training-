@@ -34,7 +34,9 @@ export function CaseList({ module, onStart, embedded }: { module: CaseModule; on
 
 export function CaseRun({ c, onExit, onNext }: { c: SceneCase; onExit: () => void; onNext?: () => void }) {
   const [facts, setFacts] = useState<[string, string][]>([]);
-  useEffect(() => { c.setup(); setFacts(c.facts()); useCaseUI.getState().set({ active: c.id, revealed: false }); return () => useCaseUI.getState().set({ active: null, revealed: false }); }, [c]);
+  useEffect(() => { c.setup(); setFacts(c.facts()); useCaseUI.getState().set({ active: c.id, revealed: false });
+    // phones stack the picture above the questions: start at the picture
+    if (typeof document !== 'undefined' && document.querySelector('.app.phone')) document.querySelector('.scene-pane')?.scrollIntoView?.({ block: 'start' }); return () => useCaseUI.getState().set({ active: null, revealed: false }); }, [c]);
   const [qi, setQi] = useState(0); const [picks, setPicks] = useState<number[]>([]);
   const q = c.questions[qi]; const order = useMemo(() => shuffle(q.options.length, `${c.id}:${qi}`), [c.id, qi, q.options.length]);
   const pick = picks[qi]; const done = picks.length === c.questions.length; const right = picks.filter((p, i) => p === c.questions[i].answer).length;

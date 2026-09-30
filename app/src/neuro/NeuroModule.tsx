@@ -46,7 +46,7 @@ export function NeuroModule() {
           <NeuroOverlay />
         </div>
       </section>
-      <aside className="side-pane">
+      <aside className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         {mode === 'challenge' ? <CaseChallenge module="neuro" /> : mode === 'learn' ? <NeuroLearn /> : <>
         <PresetCard />
         <NeuroExamCard />
@@ -86,7 +86,7 @@ function PresetCard() {
   const preset = useNeuroUI((s) => s.preset); const cur = NEURO_PRESETS.find((p) => p.id === preset)!;
   return (
     <section className="card story">
-      <div className="chips" role="list">{NEURO_PRESETS.map((p) => <button key={p.id} role="listitem" className={`chip${preset === p.id ? ' on' : ''}`} onClick={() => loadNeuroPreset(p.id as NeuroPreset)}>{p.name}</button>)}</div>
+      <div className="chips" role="group" aria-label="Presets">{NEURO_PRESETS.map((p) => <button key={p.id} className={`chip${preset === p.id ? ' on' : ''}`} onClick={() => loadNeuroPreset(p.id as NeuroPreset)}>{p.name}</button>)}</div>
       <p className="muted" style={{ marginTop: 10 }}>{cur.short}</p>
     </section>
   );

@@ -113,7 +113,7 @@ export function NumbersCard({ hideTrue }: { hideTrue?: boolean } = {}) {
   return (
     <section className="card">
       <div className="card-h"><h3>Monitor vs true pressure</h3><span className="muted small">what the screen says vs what is in the vessel</span></div>
-      <table className="ln-tab"><thead><tr><th /><th>Monitor</th><th>True (radial / tip)</th><th>Central aorta</th></tr></thead><tbody>
+      <table className="ln-tab"><thead><tr><th><span className="sr-only">Pressure</span></th><th>Monitor</th><th>True (radial / tip)</th><th>Central aorta</th></tr></thead><tbody>
         <tr><td>Systolic</td><td className={d(n.sys, n.tSys) ? 'bad' : ''}>{r0(n.sys)}</td><td>{r0(n.tSys)}</td><td>{r0(n.aoSys)}</td></tr>
         <tr><td>Diastolic</td><td className={d(n.dia, n.tDia) ? 'bad' : ''}>{r0(n.dia)}</td><td>{r0(n.tDia)}</td><td>{r0(n.aoDia)}</td></tr>
         <tr><td>MAP</td><td className={d(n.map, n.tMap) ? 'bad' : ''}>{r0(n.map)}</td><td>{r0(n.tMap)}</td><td>{r0(n.aoMap)}</td></tr>

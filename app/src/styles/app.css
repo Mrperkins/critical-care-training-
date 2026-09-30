@@ -1,7 +1,7 @@
 :root{
   color-scheme: dark;
   --bg:#0a0a0c; --pane:#111215; --pane2:#16171b; --card:#141519; --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.16);
-  --ink:#ebe7e1; --dim:#a39f98; --mute:#6f6c67;
+  --ink:#ebe7e1; --dim:#a39f98; --mute:#8e8a83;
   --gold:#d3b27a; --ok:#6fcf97; --warn:#e9b949; --bad:#e0645a; --info:#7cc4d4;
   --p:#e9b949; --q:#5cc8b0; --v:#9fb2ff; --mus:#e0645a;
   --fs:"Source Serif 4", Georgia, serif; --fb:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif; --fm:"IBM Plex Mono", ui-monospace, Menlo, monospace;
@@ -11,7 +11,7 @@ html,body,#root{height:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 var(--fb);-webkit-font-smoothing:antialiased}
 button{font:inherit;color:inherit;cursor:pointer}
 button:disabled{cursor:default}
-:focus-visible{outline:1px solid var(--gold);outline-offset:2px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 h2,h3{margin:0}
 .muted{color:var(--dim)} .small{font-size:12px}
 .eyebrow{font:500 10.5px var(--fm);letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:0 0 4px}
@@ -21,7 +21,7 @@ h2,h3{margin:0}
 .topbar{display:flex;align-items:center;gap:18px;padding:10px 18px;border-bottom:1px solid var(--line);background:rgba(10,10,12,.92);flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:10px;margin-right:auto;min-width:0}
 .brand svg{width:28px;height:28px;color:var(--gold);flex:none}
-.b1{font:600 19px/1 var(--fs)}
+.b1{font:600 19px/1 var(--fs);margin:0}
 .b2{font:500 10px/1.3 var(--fm);color:var(--mute);letter-spacing:.14em;text-transform:uppercase;margin-top:4px}
 .modules{display:flex;gap:2px}
 .modules button{background:none;border:0;border-bottom:1px solid transparent;padding:8px 10px;color:var(--dim);font-weight:500}
@@ -525,7 +525,7 @@ details.card summary{cursor:pointer;font:600 14px var(--fs);margin-bottom:6px}
 .lus-zone.on{border-color:var(--gold)}.lus-zone canvas{width:100%;display:block}.lus-name{position:absolute;left:6px;top:4px;font:500 10px var(--fm);color:rgba(222,235,241,.85);text-transform:uppercase}
 .lus-tag{display:block;font:500 10.5px var(--fm);padding:4px 6px;background:rgba(12,14,16,.9)}.lus-tag.ok{color:var(--ok)}.lus-tag.bad{color:var(--bad)}
 .lus-side{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:10px;flex:none;align-items:start}.lus-m canvas{width:100%;aspect-ratio:220/150}
-.phone .lus-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.phone .lus-side{grid-template-columns:1fr}
+.phone .lus-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}.phone .lus-name{font-size:8px;left:4px;right:4px;white-space:normal;line-height:1.15}.phone .lus-tag{font-size:9px;padding:3px 4px}.phone .lus-side{grid-template-columns:1fr}
 .cxr-view .cxr-wrap{flex:none;grid-template-columns:auto minmax(200px,1fr)}.cxr-view .cxr-panel{height:min(56vh,520px);width:auto;max-width:100%;aspect-ratio:1/1.08}.phone .cxr-view .cxr-wrap{grid-template-columns:1fr}.phone .cxr-view .cxr-panel{height:auto;width:100%}
 .curriculum-stage{display:block;overflow:auto}.cur-page{max-width:1100px;margin:0 auto;padding:14px 16px;display:grid;gap:10px}
 .cur-sum{display:flex;align-items:center;gap:10px;margin:6px 0}.cur-bar{flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,.08);overflow:hidden;margin:4px 0}.cur-bar i{display:block;height:100%;background:var(--ok)}
@@ -545,3 +545,10 @@ details.card summary{cursor:pointer;font:600 14px var(--fs);margin-bottom:6px}
 .remediate .rem-row{margin-top:6px}
 .remediate .chips{margin-top:4px}
 .tick.miss{color:#e0645a}
+
+/* accessibility: honour reduced motion for CSS animation / transitions (3D and traces are content and keep their own pause controls) */
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+/* phones: one scrollable row of view buttons instead of wrapping over the picture */
+.phone .view-btns{left:8px;right:8px;flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.phone .view-btns::-webkit-scrollbar{display:none}
+.phone .view-btns button{flex:none}

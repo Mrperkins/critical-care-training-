@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { Canvas } from '@react-three/fiber';
 import { Environment, Lightformer } from '@react-three/drei';
-import type { ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 
 export const IS_PHONE = typeof window !== 'undefined' && window.matchMedia('(max-width: 640px)').matches;
 export const damp = (cur: number, tgt: number, rate: number, dt: number) => THREE.MathUtils.lerp(cur, tgt, 1 - Math.exp(-rate * dt));
@@ -26,9 +26,21 @@ export function StudioLights({ warm = 1 }: { warm?: number }) {
   );
 }
 
-export function StudioCanvas({ children, camera, className = 'scene-canvas', fog = true }: { children: ReactNode; camera: { position: [number, number, number]; fov?: number }; className?: string; fog?: boolean }) {
+/** True while the element is on screen (phones stack the scene above the side pane; reading the pane scrolls it away). */
+export function useOnScreen<T extends Element>() {
+  const ref = useRef<T>(null); const [on, setOn] = useState(true);
+  useEffect(() => { const el = ref.current; if (!el || typeof IntersectionObserver === 'undefined') return; const io = new IntersectionObserver((es) => setOn(es.some((e) => e.isIntersecting)), { threshold: 0.01 }); io.observe(el); return () => io.disconnect(); }, []);
+  return [ref, on] as const;
+}
+
+export function StudioCanvas({ children, camera, className = 'scene-canvas', fog = true, label = 'Interactive 3D anatomy' }: { children: ReactNode; camera: { position: [number, number, number]; fov?: number }; className?: string; fog?: boolean; label?: string }) {
+  // stop drawing while scrolled out of view (battery on phones); the physiology engines keep their own clock
+  const [ref, onScreen] = useOnScreen<HTMLDivElement>();
   return (
     <Canvas
+      ref={ref as never}
+      role="img" aria-label={label}
+      frameloop={onScreen ? 'always' : 'never'}
       className={className}
       dpr={IS_PHONE ? [1, 1.4] : [1, 2]}
       gl={{ antialias: true, alpha: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 0.93, powerPreference: 'high-performance', preserveDrawingBuffer: false }}

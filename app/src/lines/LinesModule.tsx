@@ -29,7 +29,7 @@ export function LinesModule() {
         </div>
         <div className="wave-wrap"><Monitor height={phone ? 230 : 260} /></div>
       </section>
-      <aside className="side-pane">
+      <aside className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         {mode === 'explore' && <>
           <ScenarioPicker />
           <ExplainCard />

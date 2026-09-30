@@ -154,8 +154,8 @@ export function ExplainCard() {
 export function ScenarioPicker() {
   const cur = useUI((s) => s.ventScenario);
   return (
-    <div className="chips" role="list">
-      {VENT_SCENARIOS.map((sc) => <button key={sc.id} role="listitem" className={`chip${cur === sc.id ? ' on' : ''}`} onClick={() => loadVentScenario(sc.id)}>{sc.name}</button>)}
+    <div className="chips" role="group" aria-label="Scenarios">
+      {VENT_SCENARIOS.map((sc) => <button key={sc.id} className={`chip${cur === sc.id ? ' on' : ''}`} onClick={() => loadVentScenario(sc.id)}>{sc.name}</button>)}
     </div>
   );
 }

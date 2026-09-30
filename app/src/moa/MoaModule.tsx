@@ -41,10 +41,10 @@ export function MoaModule() {
       <section className="scene-pane">
         <div className="scene-wrap moa-wrap"><MechGraph def={def} /><Selectivity def={def} /></div>
       </section>
-      <aside className="side-pane">
+      <aside className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         <ReturnBanner />
         <section className="card story">
-          <div className="moa-groups">{MOA_GROUPS.map((g) => <div key={g.label} className="moa-group"><div className="eyebrow">{g.label}</div><div className="chips" role="list">{g.ids.map((id) => MECH[id]).map((m) => <button key={m.id} role="listitem" className={`chip${m.id === defId ? ' on' : ''}`} aria-pressed={m.id === defId} onClick={() => useMoa.getState().set({ defId: m.id, ctx: null })}>{m.drug}</button>)}</div></div>)}</div>
+          <div className="moa-groups">{MOA_GROUPS.map((g) => <div key={g.label} className="moa-group"><div className="eyebrow">{g.label}</div><div className="chips" role="group" aria-label={g.label}>{g.ids.map((id) => MECH[id]).map((m) => <button key={m.id} className={`chip${m.id === defId ? ' on' : ''}`} aria-pressed={m.id === defId} onClick={() => useMoa.getState().set({ defId: m.id, ctx: null })}>{m.drug}</button>)}</div></div>)}</div>
           <p className="muted" style={{ marginTop: 10 }}>{def.drugClass}</p>
           {def.contexts && <div className="moa-ctx"><div className="eyebrow">Same drug, different patient</div><Seg small value={ctx ?? def.contexts[0].id} options={def.contexts.map((c) => [c.id, c.label] as [string, string])} onChange={(v) => useMoa.getState().set({ ctx: v })} /><p className="muted small">{(def.contexts.find((c) => c.id === ctx) ?? def.contexts[0]).note}</p></div>}
         </section>
@@ -77,7 +77,7 @@ function MechGraph({ def }: { def: MechanismDefinition }) {
   const hv = hover ? def.nodes.find((n) => n.id === hover) : null;
   return (
     <div className="moa-graph" ref={box}>
-      <svg preserveAspectRatio="xMidYMid meet" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`${def.drug} mechanism of action`}>
+      <svg preserveAspectRatio="xMidYMid meet" viewBox={`0 0 ${W} ${H}`} role="group" aria-label={`${def.drug} mechanism of action`}>
         <defs>
           <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor" /></marker>
           <marker id="bar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M5,0 L5,10" stroke="currentColor" strokeWidth="3" /></marker>

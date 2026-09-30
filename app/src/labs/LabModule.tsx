@@ -36,7 +36,7 @@ export function LabModule() {
           {view === 'cell' && sceneOf(lab) ? (assets && <CellHud />) : view === 'cell' && bloodKindOf(lab) ? (assets && <BloodHud />) : <div className="scene-tools"><span className="tgl on">{view === 'body' ? 'Tap an organ to see its labs' : 'Microscopic view'}</span>{view === 'cell' && <LabelsToggle />}{view === 'cell' && <LegacyKey />}</div>}
         </div>
       </section>
-      <aside className="side-pane">
+      <aside className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         {mode === 'explore' && <><LabList /><LabCard />{view === 'cell' && sceneOf(lab) && <CellStory />}{view === 'cell' && bloodKindOf(lab) && <BloodStory />}<Consequences /></>}
         {mode === 'learn' && <LabLearn />}
         {mode === 'challenge' && <LabChallenge />}

@@ -26,7 +26,7 @@ export function HeartModule() {
       <section className="scene-pane">
         <div className="scene-wrap"><HeartScene /><HeartOverlay /></div>
       </section>
-      <aside className="side-pane">
+      <aside className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         {mode === 'challenge' ? <CaseChallenge module="heart" /> : mode === 'learn' ? <HeartLearn /> : <><PresetCard /><ControlsCard /><HemoCard /><WhyCard /></>}
         <p className="credit">Schematic four-chamber cutaway drawn procedurally. Flows, pressures and saturations come from a simplified two-circuit model (orifice flow across restrictive defects, conductance across atrial defects, systemic flow held constant) — a teaching model, not a patient calculator.</p>
       </aside>
@@ -63,7 +63,7 @@ function HeartOverlay() {
 
 function PresetCard() {
   const preset = useHeartUI((s) => s.preset);
-  return <section className="card story"><div className="chips" role="list">{PRESETS.map(([id, l]) => <button key={id} role="listitem" className={`chip${preset === id ? ' on' : ''}`} onClick={() => loadHeartPreset(id)}>{l}</button>)}</div></section>;
+  return <section className="card story"><div className="chips" role="group" aria-label="Presets">{PRESETS.map(([id, l]) => <button key={id} className={`chip${preset === id ? ' on' : ''}`} onClick={() => loadHeartPreset(id)}>{l}</button>)}</div></section>;
 }
 function ControlsCard() {
   const inp = useHeartUI((s) => s.input);
