@@ -175,13 +175,28 @@ so ingested media appear without rebuilding `index.html`. Overlay marks (`marks`
 | Licence evidence | Europe PMC full text of PMC13343992 (doi 10.1186/s44348-026-00078-5), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original auth”; supplementary item 2 caption checked for a separate credit. |
 | Verified by | tools/clinical_media.py fetch |
 
-## Pending — staged, not yet in the app
+## lus-lung-point-gillman — Lung point — pneumothorax on ultrasound
 
-Teaching content is written; the media has not been downloaded and the licence has not been verified from the source.
-
-| ID | Finding | Claimed licence | Source page |
-|---|---|---|---|
-| lus-lung-point-gillman | lung point (pneumothorax) | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv |
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/lus-lung-point-gillman.mp4` · `imaging/real/lus-lung-point-gillman.webm` · `imaging/real/lus-lung-point-gillman.jpg` · `imaging/real/source/lus-lung-point-gillman-source.ogv` |
+| Clinical purpose | lung point (pneumothorax) (ptxlus) |
+| Creator / authors | Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A |
+| Source | Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv (from https://doi.org/10.1186/1757-7241-17-34) |
+| Licence | CC BY 2.0 — https://creativecommons.org/licenses/by/2.0 |
+| Modifications | Original OGV (theora, 640×480, 10.0 fps, 6.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s. |
+| Required attribution | Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A. Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv (from https://doi.org/10.1186/1757-7241-17-34). CC BY 2.0. |
+| Original title | Lung Point. Resuscitative ultrasound video illustrating the lung point – the lateral limit of the pneumothorax. The lung can be seen sliding in from the right w |
+| Source page | https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv |
+| Original media URL | https://upload.wikimedia.org/wikipedia/commons/c/c2/Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original |
+| DOI | 10.1186/1757-7241-17-34 |
+| Published | 2009 |
+| Retrieved | 2026-09-30T18:53Z |
+| Original format | video/ogg · 228,567 bytes · `Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv` |
+| Original SHA-256 | `1c293788664a00add01a46703b4df8c26b13deea152d35ce72ee3b70f94d9d2a` |
+| Original preserved | imaging/real/source/lus-lung-point-gillman-source.ogv |
+| Licence evidence | Wikimedia Commons API extmetadata for File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AClinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
+| Verified by | tools/clinical_media.py fetch |
 
 ## Considered and rejected
 

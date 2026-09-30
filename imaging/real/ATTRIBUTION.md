@@ -72,6 +72,13 @@ Real, openly licensed clinical images shown beside the synthetic ones. Only CC0 
 - Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
 - Changes: Original AVI (mpeg4, 1692×1692, 17.333 fps, 15.404 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; downscaled 1692×1692 → 1280 px wide (aspect kept); audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 10.0 s.
 
+## lus-lung-point-gillman.mp4
+- Lung point — pneumothorax on ultrasound — A real lung-ultrasound clip of a lung point: the place where sliding lung meets still pleural air, the ultrasound sign that confirms a pneumothorax.
+- Author: Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A
+- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv (from https://doi.org/10.1186/1757-7241-17-34)
+- Licence: CC BY 2.0 (https://creativecommons.org/licenses/by/2.0)
+- Changes: Original OGV (theora, 640×480, 10.0 fps, 6.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s.
+
 ## Considered and rejected
 
 - Open Critical Care anesthesia POCUS pocket card (2022): No licence stated; images credited “courtesy of” third parties (JACC, austincc.edu, echocardiographer.org). Used for facts only, in our own words.

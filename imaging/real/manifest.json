@@ -679,38 +679,10 @@
    "posterSha256": "7bd0d603db564b046fe850b49ba70581c06b78a5fce93af2842ae981f514178f",
    "originalSha256": "b3a187cbb258f9e7ae8434043069602d1a4035891b02087bbe7aa885538c324a",
    "findingLabel": "Show the collapse point"
-  }
- ],
- "rejected": [
-  {
-   "source": "Open Critical Care anesthesia POCUS pocket card (2022)",
-   "reason": "No licence stated; images credited “courtesy of” third parties (JACC, austincc.edu, echocardiographer.org). Used for facts only, in our own words."
   },
   {
-   "source": "COVID-BLUES lung ultrasound dataset",
-   "reason": "CC BY-NC-ND 4.0"
-  },
-  {
-   "source": "covid19_ultrasound clips attributed to “charlotte” (source id 14)",
-   "reason": "Licence listed but origin not identifiable — unclear."
-  },
-  {
-   "source": "Radiopaedia-derived images in covid-chestxray-dataset",
-   "reason": "CC BY-NC-SA"
-  },
-  {
-   "source": "covid19_ultrasound clip “Pneu_prospective_file3” (The Ultrasound Journal / Critical Ultrasound Journal 4:16, 2012, doi 10.1186/2036-7902-4-16)",
-   "reason": "Listed as CC BY 2.0, but the article page could not be read to confirm authors and licence (rate-limited) — not included until verified."
-  },
-  {
-   "source": "CC BY-SA alternative IVC clip offered in the asset bundle",
-   "reason": "Share-alike is not on this project’s accepted list — kept out, as the bundle recommends."
-  }
- ],
- "pending": [
-  {
-   "id": "lus-lung-point-gillman",
    "kind": "ptxlus",
+   "id": "lus-lung-point-gillman",
    "type": "ultrasound",
    "modality": "Lung ultrasound",
    "finding": "lung point (pneumothorax)",
@@ -740,14 +712,80 @@
     "explain": "Absent sliding, A-lines and no B-lines all fit a pneumothorax but have other causes. A lung point — sliding lung meeting still pleural air at one spot — is specific."
    },
    "marks": [],
-   "fetch": {
-    "type": "commons",
-    "title": "File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv"
+   "file": "lus-lung-point-gillman.mp4",
+   "webm": "lus-lung-point-gillman.webm",
+   "poster": "lus-lung-point-gillman.jpg",
+   "posterAt": 1.0,
+   "original": "source/lus-lung-point-gillman-source.ogv",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+   "author": "Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv (from https://doi.org/10.1186/1757-7241-17-34)",
+   "credit": "Gillman et al., Wikimedia Commons, 2009 · CC BY 2.0",
+   "changes": "Original OGV (theora, 640×480, 10.0 fps, 6.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "10.1186/1757-7241-17-34",
+    "originalTitle": "Lung Point. Resuscitative ultrasound video illustrating the lung point – the lateral limit of the pneumothorax. The lung can be seen sliding in from the right w",
+    "published": "2009",
+    "retrieved": "2026-09-30T18:53Z",
+    "originalName": "Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv",
+    "originalFormat": "video/ogg",
+    "originalBytes": 228567,
+    "originalSha256": "1c293788664a00add01a46703b4df8c26b13deea152d35ce72ee3b70f94d9d2a",
+    "preserved": "imaging/real/source/lus-lung-point-gillman-source.ogv",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AClinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "sourceVideo": {
+      "w": 640,
+      "h": 480,
+      "codec": "theora",
+      "duration": 6.0,
+      "fps": 10.0,
+      "audio": false
+     },
+     "mp4": {
+      "w": 640,
+      "h": 480,
+      "codec": "h264",
+      "duration": 6.0,
+      "fps": 10.0,
+      "audio": false
+     }
+    }
    },
-   "pageUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv",
-   "articleDoi": "10.1186/1757-7241-17-34",
-   "licenseClaimed": "CC BY 2.0",
-   "claimedBy": "Suggested by the course author, 2026-09-30, as the lung-point clip of the same Gillman et al. collection. Verified by the fetch."
+   "fileSha256": "cb2e9a0c468c40dca8e7503fd1fcf4eb430da1df86ad4f51739a3eefc914115a",
+   "webmSha256": "9ede4f9792c9d96142119429fcd46a33be0a6edc75b0799ca6810bfe2d034101",
+   "posterSha256": "f00fcd6289456198aa5cf6dd5b1d0b92312c56ea07526d06202073a6154f7c20",
+   "originalSha256": "1c293788664a00add01a46703b4df8c26b13deea152d35ce72ee3b70f94d9d2a"
+  }
+ ],
+ "rejected": [
+  {
+   "source": "Open Critical Care anesthesia POCUS pocket card (2022)",
+   "reason": "No licence stated; images credited “courtesy of” third parties (JACC, austincc.edu, echocardiographer.org). Used for facts only, in our own words."
+  },
+  {
+   "source": "COVID-BLUES lung ultrasound dataset",
+   "reason": "CC BY-NC-ND 4.0"
+  },
+  {
+   "source": "covid19_ultrasound clips attributed to “charlotte” (source id 14)",
+   "reason": "Licence listed but origin not identifiable — unclear."
+  },
+  {
+   "source": "Radiopaedia-derived images in covid-chestxray-dataset",
+   "reason": "CC BY-NC-SA"
+  },
+  {
+   "source": "covid19_ultrasound clip “Pneu_prospective_file3” (The Ultrasound Journal / Critical Ultrasound Journal 4:16, 2012, doi 10.1186/2036-7902-4-16)",
+   "reason": "Listed as CC BY 2.0, but the article page could not be read to confirm authors and licence (rate-limited) — not included until verified."
+  },
+  {
+   "source": "CC BY-SA alternative IVC clip offered in the asset bundle",
+   "reason": "Share-alike is not on this project’s accepted list — kept out, as the bundle recommends."
   }
  ]
 }
