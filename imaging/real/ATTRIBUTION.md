@@ -44,6 +44,20 @@ Real, openly licensed clinical images shown beside the synthetic ones. Only CC0 
 - Licence: CC BY 2.0 (https://creativecommons.org/licenses/by/2.0/)
 - Changes: Cropped (dataset), first 3.5 s re-encoded to H.264 480 px; poster frame at 1.2 s.
 
+## ptx-expiratory.jpg
+- Pneumothorax — film taken in expiration — A real chest film of a pneumothorax taken in expiration. Breathing out shrinks the lung but not the pleural air, so the edge of the lung stands out.
+- Author: Mikael Häggström , M.D. Author info - Reusing images - Conflicts of interest: None Mikael Häggström , M.D. Consent note : Written informed consent was obtained from the individual, including online publication.
+- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Expired_X-ray_of_pneumothorax.jpg
+- Licence: CC0 (http://creativecommons.org/publicdomain/zero/1.0/deed.en)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## fast-ruq-positive.mp4
+- Positive FAST — right upper quadrant — A real hepatorenal (RUQ) view from a trauma FAST: a black, anechoic stripe of free fluid between the liver and the right kidney in Morison’s pouch.
+- Author: Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A
+- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv (from https://doi.org/10.1186/1757-7241-17-34)
+- Licence: CC BY 2.0 (https://creativecommons.org/licenses/by/2.0)
+- Changes: Original OGV (theora, 720×480, 0 fps, 6.002 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio removed; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s.
+
 ## Considered and rejected
 
 - Open Critical Care anesthesia POCUS pocket card (2022): No licence stated; images credited “courtesy of” third parties (JACC, austincc.edu, echocardiographer.org). Used for facts only, in our own words.

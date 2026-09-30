@@ -124,38 +124,10 @@
    "changes": "Cropped (dataset), first 3.5 s re-encoded to H.264 480 px; poster frame at 1.2 s.",
    "fileSha256": "23d6bf77febe8115fd75cc222e793b5677b83a0a9d02ac420bd6e11879a32798",
    "posterSha256": "f9e9ce5824e1657ca653b5e2bd86009aa3f6a014e31c34bbdbf534f8622912c1"
-  }
- ],
- "rejected": [
-  {
-   "source": "Open Critical Care anesthesia POCUS pocket card (2022)",
-   "reason": "No licence stated; images credited “courtesy of” third parties (JACC, austincc.edu, echocardiographer.org). Used for facts only, in our own words."
   },
   {
-   "source": "COVID-BLUES lung ultrasound dataset",
-   "reason": "CC BY-NC-ND 4.0"
-  },
-  {
-   "source": "covid19_ultrasound clips attributed to “charlotte” (source id 14)",
-   "reason": "Licence listed but origin not identifiable — unclear."
-  },
-  {
-   "source": "Radiopaedia-derived images in covid-chestxray-dataset",
-   "reason": "CC BY-NC-SA"
-  },
-  {
-   "source": "covid19_ultrasound clip “Pneu_prospective_file3” (The Ultrasound Journal / Critical Ultrasound Journal 4:16, 2012, doi 10.1186/2036-7902-4-16)",
-   "reason": "Listed as CC BY 2.0, but the article page could not be read to confirm authors and licence (rate-limited) — not included until verified."
-  },
-  {
-   "source": "CC BY-SA alternative IVC clip offered in the asset bundle",
-   "reason": "Share-alike is not on this project’s accepted list — kept out, as the bundle recommends."
-  }
- ],
- "pending": [
-  {
-   "id": "ptx-expiratory",
    "kind": "ptx",
+   "id": "ptx-expiratory",
    "type": "xray",
    "modality": "Chest X-ray",
    "finding": "pneumothorax",
@@ -184,18 +156,39 @@
     "explain": "The visceral pleura (edge of the lung) seen as a line, with black, markingless air between it and the chest wall, is the sign. Blunting suggests fluid; a white hemithorax suggests fluid, collapse or consolidation."
    },
    "marks": [],
-   "fetch": {
-    "type": "commons",
-    "title": "File:Expired_X-ray_of_pneumothorax.jpg"
+   "file": "ptx-expiratory.jpg",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "author": "Mikael Häggström , M.D. Author info - Reusing images - Conflicts of interest: None Mikael Häggström , M.D. Consent note : Written informed consent was obtained from the individual, including online publication.",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Expired_X-ray_of_pneumothorax.jpg",
+   "credit": "Häggström et al., Wikimedia Commons, 2018 · CC0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Expired_X-ray_of_pneumothorax.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Expired_X-ray_of_pneumothorax.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "edit Anteroposterior, inspired. Original image . Lateral, inspired. Original image . Anteroposterior, expired. These are two X-rays taken at the same time of a ",
+    "published": "2018-03-05",
+    "retrieved": "2026-09-30T18:32Z",
+    "originalName": "Expired_X-ray_of_pneumothorax.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 703393,
+    "originalSha256": "cdc3a924ad281d8b317a93ab42f7bfafb7d159d14dfe64a9a16851461a85bde5",
+    "preserved": "imaging/real/ptx-expiratory.jpg (identical to the original)",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Expired_X-ray_of_pneumothorax.jpg: LicenseShortName = “CC0”, UsageTerms = “Creative Commons Zero, Public Domain Dedication” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AExpired_X-ray_of_pneumothorax.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 1569,
+      "h": 1579
+     }
+    }
    },
-   "pageUrl": "https://commons.wikimedia.org/wiki/File:Expired_X-ray_of_pneumothorax.jpg",
-   "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Expired_X-ray_of_pneumothorax.jpg",
-   "licenseClaimed": "CC0",
-   "claimedBy": "Asset bundle supplied by the course author, 2026-09-30. Not yet verified against the source page — the ingest tool records the verification."
+   "fileSha256": "cdc3a924ad281d8b317a93ab42f7bfafb7d159d14dfe64a9a16851461a85bde5"
   },
   {
-   "id": "fast-ruq-positive",
    "kind": "fast",
+   "id": "fast-ruq-positive",
    "type": "ultrasound",
    "modality": "FAST",
    "finding": "free intraperitoneal fluid",
@@ -225,16 +218,83 @@
     "explain": "Fluid is anechoic (black). Between liver and kidney it sits in the hepatorenal recess — in trauma, blood until proven otherwise. Rib shadows are black bands that run from the probe straight down through everything."
    },
    "marks": [],
-   "fetch": {
-    "type": "commons",
-    "title": "File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv"
+   "file": "fast-ruq-positive.mp4",
+   "webm": "fast-ruq-positive.webm",
+   "poster": "fast-ruq-positive.jpg",
+   "posterAt": 1.0,
+   "original": "source/fast-ruq-positive-source.ogv",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+   "author": "Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv (from https://doi.org/10.1186/1757-7241-17-34)",
+   "credit": "L et al., Wikimedia Commons, 2009 · CC BY 2.0",
+   "changes": "Original OGV (theora, 720×480, 0 fps, 6.002 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio removed; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/70/Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "10.1186/1757-7241-17-34",
+    "originalTitle": "Positive FAST of Hepatorenal Fossa. Resuscitative ultrasound video of the hepatorenal fossa demonstrating free intra-peritoneal fluid seen as a hypoechoic strip",
+    "published": "2009",
+    "retrieved": "2026-09-30T18:32Z",
+    "originalName": "Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv",
+    "originalFormat": "video/ogg",
+    "originalBytes": 545090,
+    "originalSha256": "0f923551b28a5fc167f9aa9de9eb7e07cfda0ca4899aa394ad8d141a71eec7ab",
+    "preserved": "imaging/real/source/fast-ruq-positive-source.ogv",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AClinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "sourceVideo": {
+      "w": 720,
+      "h": 480,
+      "codec": "theora",
+      "duration": 6.002,
+      "fps": 0,
+      "audio": true
+     },
+     "mp4": {
+      "w": 720,
+      "h": 480,
+      "codec": "h264",
+      "duration": 5.973,
+      "fps": 29.97,
+      "audio": false
+     }
+    }
    },
-   "pageUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv",
-   "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/70/Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv",
-   "articleDoi": "10.1186/1757-7241-17-34",
-   "licenseClaimed": "CC BY 2.0",
-   "claimedBy": "Asset bundle supplied by the course author, 2026-09-30. Not yet verified against the source page — the ingest tool records the verification."
+   "fileSha256": "c283ac141a39f56e4eabbf8540a2481be1f10a04a8e416dc189d78133c3038b9",
+   "webmSha256": "5e67e92e0dc7516f07a31ed9bf6b5e5c82c8039ac2c0abadde9fbc2d9cfb86ce",
+   "posterSha256": "fa8cce9bd8cbca37e7fe0fff6a0a19f5012a59a7647bb25d466cf567d9fbde4d",
+   "originalSha256": "0f923551b28a5fc167f9aa9de9eb7e07cfda0ca4899aa394ad8d141a71eec7ab"
+  }
+ ],
+ "rejected": [
+  {
+   "source": "Open Critical Care anesthesia POCUS pocket card (2022)",
+   "reason": "No licence stated; images credited “courtesy of” third parties (JACC, austincc.edu, echocardiographer.org). Used for facts only, in our own words."
   },
+  {
+   "source": "COVID-BLUES lung ultrasound dataset",
+   "reason": "CC BY-NC-ND 4.0"
+  },
+  {
+   "source": "covid19_ultrasound clips attributed to “charlotte” (source id 14)",
+   "reason": "Licence listed but origin not identifiable — unclear."
+  },
+  {
+   "source": "Radiopaedia-derived images in covid-chestxray-dataset",
+   "reason": "CC BY-NC-SA"
+  },
+  {
+   "source": "covid19_ultrasound clip “Pneu_prospective_file3” (The Ultrasound Journal / Critical Ultrasound Journal 4:16, 2012, doi 10.1186/2036-7902-4-16)",
+   "reason": "Listed as CC BY 2.0, but the article page could not be read to confirm authors and licence (rate-limited) — not included until verified."
+  },
+  {
+   "source": "CC BY-SA alternative IVC clip offered in the asset bundle",
+   "reason": "Share-alike is not on this project’s accepted list — kept out, as the bundle recommends."
+  }
+ ],
+ "pending": [
   {
    "id": "ivc-2026-video-s1",
    "kind": "ivc",
