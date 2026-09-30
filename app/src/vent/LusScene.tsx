@@ -6,6 +6,9 @@ import { renderLinear } from '../scene/ultrasound/bmode';
 import { RealExamples } from '../scene/imaging/RealExamples';
 import { IS_PHONE } from '../scene/Studio';
 import { useHideFindings } from '../challenge/caseStore';
+import { create } from 'zustand';
+/** selected probe zone (lessons can point the probe) */
+export const useLusUI = create<{ zone: LusZoneId; set: (z: LusZoneId) => void }>((set) => ({ zone: 'R-ant', set: (zone) => set({ zone }) }));
 
 function useZones() {
   const key = (zs: LusZone[]) => JSON.stringify(zs);
@@ -34,7 +37,7 @@ function Zone({ z, on, pick, hide }: { z: LusZone; on: boolean; pick: () => void
 }
 
 export function LusScene() {
-  const hide = useHideFindings(); const zs = useZones(); const [sel, setSel] = useState<LusZoneId>('R-ant'); const z = zs.find((x) => x.id === sel)!; const mref = useRef<HTMLCanvasElement>(null);
+  const hide = useHideFindings(); const zs = useZones(); const sel = useLusUI((s) => s.zone); const setSel = useLusUI.getState().set; const z = zs.find((x) => x.id === sel)!; const mref = useRef<HTMLCanvasElement>(null);
   useEffect(() => draw(mref.current, renderMmode(z, 220, 150)), [z]);
   return (
     <div className="imaging lus-view">

@@ -197,7 +197,7 @@ function Labels({ s }: { s: ShuntState }) {
   return (<>
     {tag(V(-1.0, 1.45), 'RA')}{tag(V(1.0, 1.52), 'LA')}{tag(V(-0.95, -1.6), 'RV')}{tag(V(0.85, -1.85), 'LV')}
     {tag(V(-0.03, -0.75), 'Ventricular septum')}{tag(new THREE.Vector3(0.12, 2.1, -0.25), 'Aorta', 't-art')}{tag(new THREE.Vector3(-0.75, 2.0, -0.75), 'Pulmonary artery', 't-ven')}
-    {!IS_PHONE && tag(new THREE.Vector3(-1.1, 2.7, -0.3), 'SVC')}{!IS_PHONE && tag(new THREE.Vector3(2.15, 1.45, -0.45), 'Pulmonary veins')}
+    {!IS_PHONE && tag(new THREE.Vector3(-1.1, 2.15, -0.3), 'SVC')}{!IS_PHONE && tag(new THREE.Vector3(2.15, 1.45, -0.45), 'Pulmonary veins')}
     {L === 'vsd' && tag(V(-0.03, 0.22), `VSD ${s.input.sizeMm} mm${dir}`, 't-teal')}
     {L === 'asd' && tag(V(-0.02, 1.35), `ASD ${s.input.sizeMm} mm${dir}`, 't-teal')}
     {L === 'pfo' && tag(V(-0.02, 1.35), s.rl > 0.05 ? 'PFO flap open · R→L' : 'PFO flap closed', 't-teal')}

@@ -9,6 +9,7 @@ import { resolve } from '../src/director/timeline';
 import { TENSION_PTX } from '../src/director/lessons/vent';
 import { session } from '../src/vent/session';
 import { lusFromVent } from '../src/vent/lus';
+import { useLusUI } from '../src/vent/LusScene';
 
 describe('scene challenge cases', () => {
   it('every case is well formed, tagged, titled and routed to its module', () => {
@@ -49,6 +50,7 @@ describe('tension PTX lesson imaging cues', () => {
   it('lung ultrasound and film before decompression, a lung point after', () => {
     resolve(TENSION_PTX, 60); expect(useUI.getState().ventView).toBe('lus'); expect(lusFromVent(session).find((z) => z.id === 'R-ant')!.sliding).toBe(false);
     resolve(TENSION_PTX, 72); expect(useUI.getState().ventView).toBe('xray');
-    resolve(TENSION_PTX, 85); expect(useUI.getState().ventView).toBe('lus'); expect(session.m.lung.tension).toBeLessThan(0.5); const z = lusFromVent(session); expect(z.find((x) => x.id === 'R-lat')!.lungPoint).toBe(true); expect(z.find((x) => x.id === 'L-ant')!.sliding).toBe(true);
+    resolve(TENSION_PTX, 85); expect(useUI.getState().ventView).toBe('lus'); expect(session.m.lung.tension).toBeLessThan(0.5); const z = lusFromVent(session); expect(z.find((x) => x.id === 'R-lat')!.lungPoint).toBe(true); expect(z.find((x) => x.id === 'L-ant')!.sliding).toBe(true); expect(useLusUI.getState().zone).toBe('R-lat');
+    resolve(TENSION_PTX, 60); expect(useLusUI.getState().zone).toBe('R-ant');
   });
 });

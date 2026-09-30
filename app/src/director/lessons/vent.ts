@@ -8,6 +8,7 @@ import { session } from '../../vent/session';
 import { useUI } from '../../app/store';
 import { focusVentTarget } from '../../vent/AlveolusScene';
 import type { VentSettings } from '../../physiology/mechanics';
+import { useLusUI } from '../../vent/LusScene';
 
 const SETTLE_S = 14; // seconds of ventilation simulated before a scene is shown (≈ 3–4 breaths)
 const run = (sec: number) => { for (let i = 0; i < Math.round(sec * 20); i++) session.tick(0.05); };
@@ -77,11 +78,11 @@ export const TENSION_PTX: Timeline = {
       say: 'The high intrathoracic pressure squeezes the great veins, venous return falls, and cardiac output with it. Peak pressures alarm high, the blood pressure drops and the heart races. This is obstructive shock: a mechanical problem that fluids and pressors cannot fix.' },
     { id: 'ptx-5', at: 46, dur: 11, hold: true, target: 'lung.whole', title: 'Decompress', apply: () => scene('ptx', {}, { fix: 'decompress', fixAfter: 16, view: 'front' }),
       say: 'Needle decompression, then a chest tube. The pleural air escapes, the lung re-expands, peak pressure falls, venous return and blood pressure recover, and the saturation climbs.' },
-    { id: 'ptx-6', at: 58, dur: 12, hold: true, title: 'What the probe would have shown', apply: () => scene('ptx', {}, { view: 'lus' }),
+    { id: 'ptx-6', at: 58, dur: 12, hold: true, title: 'What the probe would have shown', apply: () => { scene('ptx', {}, { view: 'lus' }); useLusUI.getState().set('R-ant'); },
       say: 'Back to the moment before decompression, seen with a linear probe on the front of the chest. On the right the bright pleural line does not shimmer: no sliding, only A-line echoes, and the M-mode is a barcode. On the left the lung slides and the M-mode looks like a seashore. Ultrasound takes seconds, but it confirms — it should never delay decompression in a crashing patient.' },
     { id: 'ptx-7', at: 71, dur: 11, hold: true, title: 'What the film would have shown', apply: () => scene('ptx', {}, { view: 'xray' }),
       say: 'The same moment on a portable film: a pleural edge with no lung markings beyond it, a flattened right hemidiaphragm, and the mediastinum pushed to the left. A film like this is a teaching picture; tension is treated on clinical signs.' },
-    { id: 'ptx-8', at: 83, dur: 12, hold: true, title: 'A lung point as the lung returns', apply: () => scene('ptx', {}, { fix: 'decompress', fixAfter: 16, view: 'lus' }),
+    { id: 'ptx-8', at: 83, dur: 12, hold: true, title: 'A lung point as the lung returns', apply: () => { scene('ptx', {}, { fix: 'decompress', fixAfter: 16, view: 'lus' }); useLusUI.getState().set('R-lat'); },
       say: 'After decompression the tension is gone, but a little air is still trapped at the front of the chest. Anteriorly there is still no sliding. Move the probe laterally: at one spot sliding appears and disappears with each breath — a lung point, the edge of the remaining air. It confirms a pneumothorax, and it moves outward as the drain lets the lung come back.' },
   ],
 };
