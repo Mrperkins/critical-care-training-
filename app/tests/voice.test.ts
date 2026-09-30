@@ -20,9 +20,10 @@ describe('narration', () => {
   it('clip ids are unique across lessons', () => {
     const seen = new Map<string, string>(); for (const x of [...cues, ...steps]) { const p = seen.get(x.id); if (p != null) expect(p, x.id).toBe(x.t); seen.set(x.id, x.t); }
   });
-  it('every clip in vo.json belongs to a current line; the new scenes are all voiced', () => {
+  it('every clip in vo.json belongs to a current line; every line — including every new scene — has a clip', () => {
     for (const id of Object.keys(vo)) expect(byId.has(id), id).toBe(true);
     const fresh = cues.filter((c) => /^(ptx|ap|pa|nt|og|oc)-/.test(c.id)); expect(fresh.length).toBe(44);
     for (const c of fresh) expect(vo[c.id], c.id).toBeTruthy();
+    for (const l of lines) expect(vo[l.id], `no clip for ${l.id}: run scripts/vo_render.py + vo-pack.ts`).toBeTruthy();
   });
 });

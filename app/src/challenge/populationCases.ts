@@ -27,7 +27,7 @@ const obFacts = (): [string, string][] => { const n = lines.num; return [['HR', 
 export const POP_CASES: SceneCase[] = [
   // ---------------------------------------------------------------- paediatric
   {
-    id: 'case-abg-apnoea-infant', module: 'abg', level: 'Intermediate', title: 'The laryngoscopy that takes too long',
+    id: 'case-abg-apnoea-infant', module: 'abg', card: 'apnoea', level: 'Intermediate', title: 'The laryngoscopy that takes too long',
     story: 'Three-month-old (6 kg), well pre-oxygenated and paralysed for intubation. Your colleague is still looking at the cords 75 seconds after the last breath. The saturation still reads high.',
     setup: () => { abgScene({ preset: 'normal' }); setApnoea({ shown: ['adult', 'child', 'infant'], highlight: 'infant', preox: true, headUp: false }); mode('abg'); },
     facts: () => [['Weight', '6 kg'], ['Pre-oxygenated', 'yes, tight seal'], ['Since last breath', '75 s'], ['SpO₂ now', pct(spo2At('infant', 1.25))]],
@@ -40,7 +40,7 @@ export const POP_CASES: SceneCase[] = [
     verify: () => { const left = t90('infant') - 1.25; return spo2At('infant', 1.25) >= 0.93 && left > 0.2 && left < 1 && t90('adult') > 3 * t90('infant'); },
   },
   {
-    id: 'case-vent-croup', module: 'vent', level: 'Novice', title: 'Barking cough, stridor',
+    id: 'case-vent-croup', module: 'vent', card: 'airway', level: 'Novice', title: 'Barking cough, stridor',
     story: 'Two-year-old with a barking cough and stridor at rest, frightened and starting to cry. The subglottis has about a millimetre of swelling all round.',
     setup: () => { ventScene('normal', {}, { view: 'airway' }); setAirway({ swellMm: 1, crying: false }); mode('vent'); },
     facts: () => { const [inf] = compareAirways(1); return [['Airway diameter (normal)', `${inf.d} mm`], ['After swelling', `${inf.swollen} mm`], ['Area left', `${Math.round(inf.areaLeft * 100)} %`]]; },
@@ -54,7 +54,7 @@ export const POP_CASES: SceneCase[] = [
   },
   // ---------------------------------------------------------------- neonatal
   {
-    id: 'case-heart-pphn', module: 'heart', level: 'Advanced', title: 'Pink hand, blue feet',
+    id: 'case-heart-pphn', module: 'heart', card: 'neo', level: 'Advanced', title: 'Pink hand, blue feet',
     story: 'Term newborn, meconium at delivery, now four hours old and hard to oxygenate. Two probes: right hand and a foot.',
     setup: () => { neo(NEO.pphn); mode('heart'); }, facts: neoFacts,
     questions: [
@@ -66,7 +66,7 @@ export const POP_CASES: SceneCase[] = [
     verify: () => { const s = solveShunt(NEO.pphn); const t = solveShunt(NEO.pphnTreated); return s.sat.ao - s.sat.aoPost > 0.15 && s.rl > 0 && t.sat.ao - t.sat.aoPost < 0.03; },
   },
   {
-    id: 'case-heart-pphn-atrial', module: 'heart', level: 'Expert', title: 'Both probes low, no difference',
+    id: 'case-heart-pphn-atrial', module: 'heart', card: 'neo', level: 'Expert', title: 'Both probes low, no difference',
     story: 'Same baby a few hours later. The right hand and the foot now read the same — and both are low. A colleague says the difference has gone, so the PPHN is better.',
     setup: () => { neo(NEO.pphnAtrial); mode('heart'); }, facts: neoFacts,
     questions: [
@@ -79,7 +79,7 @@ export const POP_CASES: SceneCase[] = [
   },
   // ---------------------------------------------------------------- obstetric
   {
-    id: 'case-abg-apnoea-preg', module: 'abg', level: 'Advanced', title: 'Emergency intubation at 38 weeks',
+    id: 'case-abg-apnoea-preg', module: 'abg', card: 'apnoea', level: 'Advanced', title: 'Emergency intubation at 38 weeks',
     story: 'Rapid-sequence induction at term for eclamptic seizures. Pre-oxygenated well. Four minutes into a difficult laryngoscopy the saturation is still high.',
     setup: () => { abgScene({ preset: 'pregnant' }); setApnoea({ shown: ['adult', 'pregnant'], highlight: 'pregnant', preox: true, headUp: false }); mode('abg'); },
     facts: () => [['Gestation', '38 weeks'], ['Since last breath', '4 min'], ['SpO₂ now', pct(spo2At('pregnant', 4))]],
@@ -92,7 +92,7 @@ export const POP_CASES: SceneCase[] = [
     verify: () => { const c = apnoeaCurve(APNOEA_BY_ID.pregnant, { minutes: 15 }); return spo2At('pregnant', 4) > 0.95 && c.t90! > 4 && c.t90! < 6 && t90('adult') - c.t90! > 2 && apnoeaCurve(APNOEA_BY_ID.pregnant, { minutes: 15, headUp: true }).t90! > c.t90!; },
   },
   {
-    id: 'case-lines-aortocaval', module: 'lines', level: 'Novice', title: 'Faint on the stretcher at 36 weeks',
+    id: 'case-lines-aortocaval', module: 'lines', card: 'ob', level: 'Novice', title: 'Faint on the stretcher at 36 weeks',
     story: '36 weeks pregnant, transferred for reduced fetal movements. Lying flat on the stretcher she becomes pale, sweaty and light-headed.',
     setup: () => { shockScene({ id: 'pregSupine', view: 'bed' }); setOb({ lossMl: null, supine: true }); mode('lines'); }, facts: obFacts,
     questions: [
@@ -104,7 +104,7 @@ export const POP_CASES: SceneCase[] = [
     verify: () => { shockScene({ id: 'pregSupine', view: 'bed' }); const sup = lines.num.tMap; shockScene({ id: 'pregnant', view: 'bed' }); const tilt = lines.num.tMap; return tilt - sup > 10 && sup < 75; },
   },
   {
-    id: 'case-lines-pph', module: 'lines', level: 'Advanced', title: 'Bleeding after delivery, pressure “fine”',
+    id: 'case-lines-pph', module: 'lines', card: 'ob', level: 'Advanced', title: 'Bleeding after delivery, pressure “fine”',
     story: 'Thirty minutes after a vaginal delivery, a soft uterus and ongoing bleeding. The estimated loss is nearly two litres. The midwife says the blood pressure is fine.',
     setup: () => { shockScene({ id: 'pregnant', view: 'bed', params: pphParams(1800) }); setOb({ lossMl: 1800, supine: false }); mode('lines'); }, facts: obFacts,
     questions: [

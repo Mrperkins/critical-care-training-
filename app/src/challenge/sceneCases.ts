@@ -35,6 +35,8 @@ export interface SceneCase {
   facts: () => [string, string][];
   questions: CaseQ[];
   verify: () => boolean;
+  /** teaching card shown once the case has been answered */
+  card?: 'apnoea' | 'airway' | 'neo' | 'ob';
 }
 
 const mode = (m: CaseModule) => useUI.getState().set({ module: m, mode: 'challenge' });

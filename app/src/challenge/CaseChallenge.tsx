@@ -9,6 +9,8 @@ import { useCaseUI } from './caseStore';
 import { useProgress } from '../curriculum/progress';
 import { takePendingChallenge, usePendingOpen } from '../app/navigate';
 import { Remediate } from './Remediate';
+import { ApnoeaCard, AirwayCard, NeoCard, ObCard } from '../populations/Cards';
+const CARD = { apnoea: ApnoeaCard, airway: AirwayCard, neo: NeoCard, ob: ObCard };
 
 const shuffle = (n: number, seed: string) => { let h = 0; for (const c of seed) h = (h * 31 + c.charCodeAt(0)) >>> 0; const a = Array.from({ length: n }, (_, i) => i); for (let i = n - 1; i > 0; i--) { h = (h * 1103515245 + 12345) >>> 0; const j = h % (i + 1); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const HEAD: Record<CaseModule, [string, string]> = {
@@ -61,6 +63,7 @@ export function CaseRun({ c, onExit, onNext }: { c: SceneCase; onExit: () => voi
         {done && <>
           <div className="case-score"><b>{right} of {c.questions.length}</b> right. {right === c.questions.length ? 'The written findings are now shown beside the image.' : 'The written findings are now shown — compare them with what you read.'}</div>
           <Remediate id={c.id} ok={right === c.questions.length} />
+          {c.card && (() => { const Card = CARD[c.card]; return <div style={{ marginTop: 10 }}><Card /></div>; })()}
           <div className="actions" style={{ marginTop: 10 }}>{onNext && <button className="act primary" onClick={onNext}>Next case →</button>}<button className="act" onClick={onExit}>All cases</button></div>
         </>}
       </section>
