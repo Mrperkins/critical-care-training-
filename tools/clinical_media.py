@@ -27,6 +27,7 @@ import subprocess
 import sys
 import urllib.parse
 import urllib.request
+import urllib.error
 from pathlib import Path
 
 import os
@@ -176,28 +177,51 @@ def parse_springer(page: str, url: str, esm: int) -> dict:
     }
 
 
+def fetch_one(it: dict, out: Path) -> dict:
+    f = it['fetch']; d = out / it['id']; d.mkdir(exist_ok=True)
+    if f['type'] == 'commons':
+        doc, api = commons_meta(f['title']); meta = parse_commons(doc, api, f['title'])
+        if it.get('articleDoi'):
+            meta['doi'] = it['articleDoi']
+    elif f['type'] == 'springer':
+        meta = parse_springer(get(f['article']).decode('utf-8', 'replace'), f['article'], f['esm'])
+    else:
+        raise SystemExit(f"{it['id']}: unknown fetch type {f['type']}")
+    data = get(meta['originalUrl'])
+    kind = None
+    (d / 'probe.bin').write_bytes(data[:64]); kind = sniff(d / 'probe.bin'); (d / 'probe.bin').unlink()
+    if meta.get('sha1'):
+        assert hashlib.sha1(data).hexdigest() == meta['sha1'], f"{it['id']}: download does not match the Commons SHA-1"
+    ext = Path(urllib.parse.unquote(meta['originalName'])).suffix.lower() or '.bin'
+    (d / f'original{ext}').write_bytes(data)
+    meta.update(id=it['id'], retrieved=dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%dT%H:%MZ'), verifiedBy='tools/clinical_media.py fetch')
+    (d / 'meta.json').write_text(json.dumps(meta, indent=1, ensure_ascii=False) + '\n')
+    return {'bytes': len(data), 'kind': kind, 'license': meta['license'], 'url': meta['originalUrl']}
+
+
+def gh(level: str, title: str, msg: str) -> None:
+    """GitHub Actions annotation (readable from the checks API without log access)."""
+    print(f"::{level} title={title}::{msg.replace(chr(10), ' ')[:900]}", flush=True)
+
+
 def cmd_fetch(a) -> None:
-    m = load(); out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
+    m = load(); out = Path(a.out); out.mkdir(parents=True, exist_ok=True); ok = 0; todo = 0
     for it in m.get('pending', []):
         if a.only and it['id'] not in a.only:
             continue
-        f = it['fetch']; d = out / it['id']; d.mkdir(exist_ok=True)
-        if f['type'] == 'commons':
-            doc, api = commons_meta(f['title']); meta = parse_commons(doc, api, f['title'])
-            if it.get('articleDoi'):
-                meta['doi'] = it['articleDoi']
-        elif f['type'] == 'springer':
-            meta = parse_springer(get(f['article']).decode('utf-8', 'replace'), f['article'], f['esm'])
-        else:
-            raise SystemExit(f"{it['id']}: unknown fetch type {f['type']}")
-        data = get(meta['originalUrl'])
-        if meta.get('sha1'):
-            assert hashlib.sha1(data).hexdigest() == meta['sha1'], f"{it['id']}: download does not match the Commons SHA-1"
-        ext = Path(urllib.parse.unquote(meta['originalName'])).suffix.lower() or '.bin'
-        (d / f'original{ext}').write_bytes(data)
-        meta.update(id=it['id'], retrieved=dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%dT%H:%MZ'), verifiedBy='tools/clinical_media.py fetch')
-        (d / 'meta.json').write_text(json.dumps(meta, indent=1, ensure_ascii=False) + '\n')
-        print(f"{it['id']}: {len(data):,} bytes · licence {meta['license']} · {meta['originalUrl']}")
+        todo += 1
+        try:
+            r = fetch_one(it, out); ok += 1
+            gh('notice', it['id'], f"fetched {r['bytes']:,} bytes ({r['kind']}), licence {r['license']} from {r['url']}")
+        except BaseException as e:  # keep going: one blocked source must not stop the others
+            shutil.rmtree(out / it['id'], ignore_errors=True)
+            detail = f"{type(e).__name__}: {e}"
+            if isinstance(e, urllib.error.HTTPError):
+                detail += f" · url {e.url} · body {e.read()[:200]!r}"
+            gh('error', it['id'], detail)
+    print(f'fetched {ok}/{todo}')
+    if todo and not ok:
+        raise SystemExit(1)
 
 
 # ── ingest ──────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -252,59 +276,68 @@ def credit_line(meta: dict, lic: str) -> str:
     return ', '.join(x for x in (lead, pub, year) if x) + f' · {lic}'
 
 
+def ingest_one(it: dict, d: Path, m: dict, accepted: set) -> None:
+    meta = json.loads((d / 'meta.json').read_text())
+    origs = [p for p in d.iterdir() if p.name.startswith('original')]
+    assert len(origs) == 1, f'{d}: expected exactly one original.* file'
+    orig = origs[0]; kind = sniff(orig)
+    lic = norm_license(meta.get('license', ''))
+    assert lic in accepted and 'NC' not in lic and 'ND' not in lic and 'SA' not in lic, f"{it['id']}: licence {meta.get('license')!r} is not accepted"
+    assert lic == it['licenseClaimed'], f"{it['id']}: source says {lic}, the bundle claimed {it['licenseClaimed']} — check before using"
+    assert meta.get('licenseEvidence') and meta.get('authors') and meta.get('pageUrl'), f"{it['id']}: licence evidence, authors and source page are required"
+    assert not meta.get('thirdParty'), f"{it['id']}: the supplementary caption carries a separate credit — needs a manual licence check"
+    assert (kind.startswith('image/') and it['type'] == 'xray') or (kind.startswith('video/') and it['type'] == 'ultrasound'), f"{it['id']}: got {kind}"
+    try:
+        files, changes, qc = ingest_image(it, orig, kind) if kind.startswith('image/') else ingest_video(it, orig)
+    except BaseException:
+        for p in REAL.glob(it['id'] + '.*'):
+            p.unlink()
+        raise
+    preserved = None
+    if changes.startswith('None'):
+        preserved = f"imaging/real/{files['file']} (identical to the original)"
+    elif orig.stat().st_size <= KEEP_ORIGINAL_MAX:
+        keep = SRC / f"{it['id']}-source{orig.suffix.lower()}"; shutil.copyfile(orig, keep); files['original'] = f'source/{keep.name}'
+        preserved = f'imaging/real/source/{keep.name}'
+    title = meta.get('title') or meta.get('description', '')[:160]
+    doi = f" https://doi.org/{meta['doi']}" if meta.get('doi') else ''
+    if meta.get('title'):
+        vol = f" {meta.get('volume', '')}{':' + meta['firstpage'] if meta.get('firstpage') else ''}" if meta.get('volume') else ''
+        esm = f"supplementary item {it['fetch']['esm']}, " if it['fetch'].get('esm') else ''
+        src_txt = f"“{meta['title']}”, {meta.get('publication', '')}{vol} ({(meta.get('published') or '')[:4]}),{doi} — {esm}{meta['originalUrl']}"
+    else:
+        src_txt = f"Wikimedia Commons — {meta['pageUrl']}" + (f" (from{doi})" if doi else '')
+    item = {**{k: it[k] for k in ('kind', 'id', 'type', 'modality', 'finding', 'title', 'caption', 'look', 'teach', 'quiz', 'marks')}, **files,
+            'license': lic, 'licenseUrl': meta.get('licenseUrl') or LICENSE_URLS[lic], 'author': meta['authors'], 'source': src_txt,
+            'credit': credit_line(meta, lic), 'changes': changes,
+            'provenance': {'pageUrl': meta['pageUrl'], 'originalUrl': meta['originalUrl'], 'doi': meta.get('doi', ''), 'originalTitle': title,
+                           'published': meta.get('published', ''), 'retrieved': meta['retrieved'], 'originalName': urllib.parse.unquote(meta['originalName']),
+                           'originalFormat': kind, 'originalBytes': orig.stat().st_size, 'originalSha256': sha256(orig), 'preserved': preserved,
+                           'licenseEvidence': meta['licenseEvidence'], 'verifiedBy': meta.get('verifiedBy', 'manual'), 'qc': qc}}
+    for k in ('file', 'webm', 'poster', 'original'):
+        if isinstance(files.get(k), str):
+            item[k + 'Sha256'] = sha256(REAL / files[k])
+    m['items'].append(item); m['pending'].remove(it)
+    print(f"{it['id']}: ingested ({lic}); {changes}")
+
+
 def cmd_ingest(a) -> None:
     m = load(); accepted = set(m['accepted']); base = Path(getattr(a, 'from'))
-    SRC.mkdir(exist_ok=True); done = []
+    SRC.mkdir(exist_ok=True); done, failed = [], []
     for it in list(m.get('pending', [])):
         d = base / it['id']
         if (a.only and it['id'] not in a.only) or not (d / 'meta.json').exists():
             continue
-        meta = json.loads((d / 'meta.json').read_text())
-        origs = [p for p in d.iterdir() if p.name.startswith('original')]
-        assert len(origs) == 1, f'{d}: expected exactly one original.* file'
-        orig = origs[0]; kind = sniff(orig)
-        lic = norm_license(meta.get('license', ''))
-        assert lic in accepted and 'NC' not in lic and 'ND' not in lic and 'SA' not in lic, f"{it['id']}: licence {meta.get('license')!r} is not accepted"
-        assert lic == it['licenseClaimed'], f"{it['id']}: source says {lic}, the bundle claimed {it['licenseClaimed']} — check before using"
-        assert meta.get('licenseEvidence') and meta.get('authors') and meta.get('pageUrl'), f"{it['id']}: licence evidence, authors and source page are required"
-        assert not meta.get('thirdParty'), f"{it['id']}: the supplementary caption carries a separate credit — needs a manual licence check"
-        assert (kind.startswith('image/') and it['type'] == 'xray') or (kind.startswith('video/') and it['type'] == 'ultrasound'), f"{it['id']}: got {kind}"
         try:
-            files, changes, qc = ingest_image(it, orig, kind) if kind.startswith('image/') else ingest_video(it, orig)
-        except BaseException:
-            for p in REAL.glob(it['id'] + '.*'):
-                p.unlink()
-            raise
-        preserved = None
-        if changes.startswith('None'):
-            preserved = f"imaging/real/{files['file']} (identical to the original)"
-        elif orig.stat().st_size <= KEEP_ORIGINAL_MAX:
-            keep = SRC / f"{it['id']}-source{orig.suffix.lower()}"; shutil.copyfile(orig, keep); files['original'] = f'source/{keep.name}'
-            preserved = f'imaging/real/source/{keep.name}'
-        title = meta.get('title') or meta.get('description', '')[:160]
-        doi = f" https://doi.org/{meta['doi']}" if meta.get('doi') else ''
-        if meta.get('title'):
-            vol = f" {meta.get('volume', '')}{':' + meta['firstpage'] if meta.get('firstpage') else ''}" if meta.get('volume') else ''
-            esm = f"supplementary item {it['fetch']['esm']}, " if it['fetch'].get('esm') else ''
-            src_txt = f"“{meta['title']}”, {meta.get('publication', '')}{vol} ({(meta.get('published') or '')[:4]}),{doi} — {esm}{meta['originalUrl']}"
-        else:
-            src_txt = f"Wikimedia Commons — {meta['pageUrl']}" + (f" (from{doi})" if doi else '')
-        item = {**{k: it[k] for k in ('kind', 'id', 'type', 'modality', 'finding', 'title', 'caption', 'look', 'teach', 'quiz', 'marks')}, **files,
-                'license': lic, 'licenseUrl': meta.get('licenseUrl') or LICENSE_URLS[lic], 'author': meta['authors'], 'source': src_txt,
-                'credit': credit_line(meta, lic), 'changes': changes,
-                'provenance': {'pageUrl': meta['pageUrl'], 'originalUrl': meta['originalUrl'], 'doi': meta.get('doi', ''), 'originalTitle': title,
-                               'published': meta.get('published', ''), 'retrieved': meta['retrieved'], 'originalName': urllib.parse.unquote(meta['originalName']),
-                               'originalFormat': kind, 'originalBytes': orig.stat().st_size, 'originalSha256': sha256(orig), 'preserved': preserved,
-                               'licenseEvidence': meta['licenseEvidence'], 'verifiedBy': meta.get('verifiedBy', 'manual'), 'qc': qc}}
-        for k in ('file', 'webm', 'poster', 'original'):
-            if isinstance(files.get(k), str):
-                item[k + 'Sha256'] = sha256(REAL / files[k])
-        m['items'].append(item); m['pending'].remove(it); done.append(it['id'])
-        print(f"{it['id']}: ingested ({lic}); {changes}")
+            ingest_one(it, d, m, accepted); done.append(it['id'])
+        except (AssertionError, SystemExit, subprocess.CalledProcessError) as e:
+            failed.append(it['id']); gh('error', it['id'], f'ingest refused: {e}')
     if not m.get('pending'):
         m.pop('pending', None)
     save(m); write_docs(m)
     print(f'ingested {len(done)}: {", ".join(done) or "nothing"}')
+    if failed and not done:
+        raise SystemExit(1)
 
 
 # ── docs ────────────────────────────────────────────────────────────────────────────────────────────────────────

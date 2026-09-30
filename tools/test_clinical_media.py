@@ -84,7 +84,7 @@ def main():
         mj = json.loads((bad / 'meta.json').read_text()); mj['license'] = 'CC BY-SA 4.0'; (bad / 'meta.json').write_text(json.dumps(mj))
         try:
             cm.main(['ingest', '--from', str(src), '--only', 'ijv-2026-video-s2']); check(False, 'share-alike licence is refused')
-        except AssertionError:
+        except SystemExit:
             check(True, 'share-alike licence is refused')
 
         cm.main(['ingest', '--from', str(src), '--only', 'ptx-expiratory', 'fast-ruq-positive', 'ivc-2026-video-s1'])
