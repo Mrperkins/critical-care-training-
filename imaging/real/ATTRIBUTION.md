@@ -73,11 +73,11 @@ Real, openly licensed clinical images shown beside the synthetic ones. Only CC0 
 - Changes: Original AVI (mpeg4, 1692×1692, 17.333 fps, 15.404 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; downscaled 1692×1692 → 1280 px wide (aspect kept); audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 10.0 s.
 
 ## lus-lung-point-gillman.mp4
-- Lung point — pneumothorax on ultrasound — A real lung-ultrasound clip of a lung point: the place where sliding lung meets still pleural air, the ultrasound sign that confirms a pneumothorax.
+- Lung point — pneumothorax on ultrasound — Real trauma scan over the right upper chest with a linear probe. The lung point is the edge of the pneumothorax: on one side of it the pleura is still (air), and with each breath the lung slides in from the screen right and back out again.
 - Author: Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A
-- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv (from https://doi.org/10.1186/1757-7241-17-34)
+- Source: “Clinician performed resuscitative ultrasonography for the initial evaluation and resuscitation of trauma”, Scandinavian Journal of Trauma, Resuscitation and Emergency Medicine 17:34 (2009), https://doi.org/10.1186/1757-7241-17-34 — supplementary video S7 (“Lung Point”), via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv
 - Licence: CC BY 2.0 (https://creativecommons.org/licenses/by/2.0)
-- Changes: Original OGV (theora, 640×480, 10.0 fps, 6.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s.
+- Changes: Original Ogg Theora (640×480, 10 fps, 6.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; the scanner’s top status bar (study number, date, mechanism) blacked out; no crop, mirroring, speed change or other filtering. Poster = frame at 1.0 s.
 
 ## Considered and rejected
 

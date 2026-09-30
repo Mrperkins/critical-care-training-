@@ -593,3 +593,4 @@ details.card summary{cursor:pointer;font:600 14px var(--fs);margin-bottom:6px}
 .rc-teach{margin:4px 0 0;padding-left:18px}.rc-teach li{margin-bottom:3px}
 .card.rc-wrap{padding:10px}
 .us-view:has(.rcase) .us-grid{flex:none}.imaging .rc-frame img,.imaging .rc-frame video{max-height:min(46vh,420px)}
+.rc-media{position:relative;display:inline-block;max-width:100%;line-height:0}

@@ -183,7 +183,7 @@
       ]
      ],
      "lx": 0.66,
-     "ly": 0.465
+     "ly": 0.5
     },
     {
      "layer": "pathology",
@@ -687,12 +687,12 @@
    "modality": "Lung ultrasound",
    "finding": "lung point (pneumothorax)",
    "title": "Lung point — pneumothorax on ultrasound",
-   "caption": "A real lung-ultrasound clip of a lung point: the place where sliding lung meets still pleural air, the ultrasound sign that confirms a pneumothorax.",
+   "caption": "Real trauma scan over the right upper chest with a linear probe. The lung point is the edge of the pneumothorax: on one side of it the pleura is still (air), and with each breath the lung slides in from the screen right and back out again.",
    "look": [
-    "The bright pleural line between two rib shadows",
-    "One part of the screen: shimmering, sliding pleura",
-    "The other part: still pleura with only A-lines",
-    "The lung point — where the two meet, moving in and out with breathing"
+    "The bright pleural line under the chest wall",
+    "Where the pleura stays still — only A-lines beneath",
+    "Lung sliding in from the screen right with each breath",
+    "The lung point — the spot where the two meet, moving with breathing"
    ],
    "teach": [
     "Absent sliding alone is not a pneumothorax: pleurodesis, apnoea, mainstem intubation and adhesions stop sliding too.",
@@ -716,13 +716,12 @@
    "webm": "lus-lung-point-gillman.webm",
    "poster": "lus-lung-point-gillman.jpg",
    "posterAt": 1.0,
-   "original": "source/lus-lung-point-gillman-source.ogv",
    "license": "CC BY 2.0",
    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
    "author": "Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A",
-   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv (from https://doi.org/10.1186/1757-7241-17-34)",
-   "credit": "Gillman et al., Wikimedia Commons, 2009 · CC BY 2.0",
-   "changes": "Original OGV (theora, 640×480, 10.0 fps, 6.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s.",
+   "source": "“Clinician performed resuscitative ultrasonography for the initial evaluation and resuscitation of trauma”, Scandinavian Journal of Trauma, Resuscitation and Emergency Medicine 17:34 (2009), https://doi.org/10.1186/1757-7241-17-34 — supplementary video S7 (“Lung Point”), via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv",
+   "credit": "Gillman et al., Scand J Trauma Resusc Emerg Med 2009 · CC BY 2.0",
+   "changes": "Original Ogg Theora (640×480, 10 fps, 6.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; the scanner’s top status bar (study number, date, mechanism) blacked out; no crop, mirroring, speed change or other filtering. Poster = frame at 1.0 s.",
    "provenance": {
     "pageUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv",
     "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
@@ -734,7 +733,7 @@
     "originalFormat": "video/ogg",
     "originalBytes": 228567,
     "originalSha256": "1c293788664a00add01a46703b4df8c26b13deea152d35ce72ee3b70f94d9d2a",
-    "preserved": "imaging/real/source/lus-lung-point-gillman-source.ogv",
+    "preserved": null,
     "licenseEvidence": "Wikimedia Commons API extmetadata for File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AClinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
     "verifiedBy": "tools/clinical_media.py fetch",
     "qc": {
@@ -754,12 +753,12 @@
       "fps": 10.0,
       "audio": false
      }
-    }
+    },
+    "notPreservedReason": "The original’s top bar shows a study number, date and mechanism; it is not redistributed here — the Commons URL and SHA-256 identify it."
    },
-   "fileSha256": "cb2e9a0c468c40dca8e7503fd1fcf4eb430da1df86ad4f51739a3eefc914115a",
-   "webmSha256": "9ede4f9792c9d96142119429fcd46a33be0a6edc75b0799ca6810bfe2d034101",
-   "posterSha256": "f00fcd6289456198aa5cf6dd5b1d0b92312c56ea07526d06202073a6154f7c20",
-   "originalSha256": "1c293788664a00add01a46703b4df8c26b13deea152d35ce72ee3b70f94d9d2a"
+   "fileSha256": "84067ba016b08e847e40b1bad5d266ca06bf6c8dec24008f0339c6700dd406cb",
+   "webmSha256": "96ee2346ea49e7e8841a357385e86cf49e65a62511463beac7182bc1121912f3",
+   "posterSha256": "14fb6233ff59cb0379922f74c2640b5da08655c84bf0dc107a00ccf848f701cf"
   }
  ],
  "rejected": [
