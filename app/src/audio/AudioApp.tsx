@@ -2,9 +2,11 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { EPISODES, MENTAL_REPS } from './catalog';
 import { DOMAIN_LABELS, LEVELS, MASTERY, MASTERY_BY_ID } from './mastery';
 import { masteryScore, useAudioProgress } from './progress';
+import { duePrompts, REVIEW_PROMPTS } from './review';
+import { RepVisual } from './RepVisual';
 import type { AudioEpisode, MentalRep } from './types';
 
-type Page = 'home' | 'listen' | 'reps' | 'mastery';
+type Page = 'home' | 'listen' | 'reps' | 'review' | 'mastery';
 
 const fmt = (n: number) => `${Math.floor(n / 60)}:${String(Math.floor(n % 60)).padStart(2, '0')}`;
 
@@ -22,6 +24,7 @@ export function AudioApp() {
           <Nav icon="⌂" label="Home" on={page === 'home'} onClick={() => { setEpisode(null); setRep(null); setPage('home'); }} />
           <Nav icon="◉" label="Listen" on={page === 'listen'} onClick={() => { setEpisode(null); setRep(null); setPage('listen'); }} />
           <Nav icon="↻" label="Mental Reps" on={page === 'reps'} onClick={() => { setEpisode(null); setRep(null); setPage('reps'); }} />
+          <Nav icon="◇" label="Review" on={page === 'review'} onClick={() => { setEpisode(null); setRep(null); setPage('review'); }} />
           <Nav icon="◎" label="Mastery" on={page === 'mastery'} onClick={() => { setEpisode(null); setRep(null); setPage('mastery'); }} />
         </nav>
         <div className="aa-level"><span>MASTERy PATH</span><b>{done} sessions completed</b><small>Expert-level literacy + reasoning. Bedside expertise still requires supervised clinical practice.</small></div>
@@ -32,7 +35,8 @@ export function AudioApp() {
          rep ? <RepPlayer rep={rep} onBack={() => setRep(null)} /> :
          page === 'home' ? <Home onEpisode={setEpisode} onRep={setRep} navigate={setPage} /> :
          page === 'listen' ? <Listen onEpisode={setEpisode} /> :
-         page === 'reps' ? <Reps onRep={setRep} /> : <Mastery />}
+         page === 'reps' ? <Reps onRep={setRep} /> :
+         page === 'review' ? <Review /> : <Mastery />}
       </main>
     </div>
   );
@@ -44,7 +48,7 @@ function Nav({ icon, label, on, onClick }: { icon: string; label: string; on: bo
 
 function Home({ onEpisode, onRep, navigate }: { onEpisode: (e: AudioEpisode) => void; onRep: (r: MentalRep) => void; navigate: (p: Page) => void }) {
   const p = useAudioProgress(); const featured = EPISODES[0], rep = MENTAL_REPS[2];
-  const mastery = Object.values(p.mastery).filter((x) => x.exposures).length;
+  const mastery = Object.values(p.mastery).filter((x) => x.exposures).length; const due = duePrompts(p.mastery).length;
   return <div className="aa-page">
     <header className="aa-hero"><div><span className="aa-kicker">VOICE-FIRST CRITICAL CARE</span><h1>Build the way experts think.</h1><p>Natural-voice rounds, ICU literacy, unfolding cases and guided procedural mental rehearsal — all mapped to the same critical-care mastery graph.</p></div>
       <div className="aa-voice"><span>VOICE STANDARD</span><b>Natural human-quality narration</b><small>No browser TTS. Production lessons require reviewed, pre-rendered premium neural voice or clinician-recorded audio.</small></div>
@@ -54,6 +58,7 @@ function Home({ onEpisode, onRep, navigate }: { onEpisode: (e: AudioEpisode) => 
       <button onClick={() => navigate('reps')}><span>MENTAL REPS</span><b>{MENTAL_REPS.length}</b><small>Guided procedural visualization</small></button>
       <button onClick={() => navigate('mastery')}><span>MASTERY GRAPH</span><b>{MASTERY.length}</b><small>{mastery} concepts touched so far</small></button>
     </section>
+    <section className="aa-reviewcall"><div><span className="aa-kicker">RETRIEVAL + CALIBRATION</span><h2>{due} review{due === 1 ? '' : 's'} due</h2><p>Answer from memory, then rate how certain you were. The system tracks both correctness and confidence because expert reasoning requires calibration, not just accuracy.</p></div><button className="aa-secondary" onClick={() => navigate('review')}>Review now →</button></section>
     <section className="aa-section"><div className="aa-section-h"><div><span className="aa-kicker">CONTINUE LEARNING</span><h2>{featured.title}</h2></div><button className="aa-primary" onClick={() => onEpisode(featured)}>▶ Start round</button></div>
       <div className="aa-feature">
         <div className="aa-orbit" aria-hidden="true"><i /><i /><i /><b>RV</b></div>
@@ -88,6 +93,23 @@ function Reps({ onRep }: { onRep: (r: MentalRep) => void }) {
       <span className="aa-rep-icon">{r.id.includes('blood') ? '◒' : r.id.includes('efast') ? '◩' : r.id.includes('art') ? '∿' : r.id.includes('chest') ? '◐' : '✚'}</span>
       <b>{r.title}</b><small>{r.subtitle}</small><em>Level {r.level} · {r.minutes} min · {r.beats.length} beats</em>
     </button>)}</div>
+  </div>;
+}
+
+function Review() {
+  const p = useAudioProgress(); const [cursor, setCursor] = useState(0); const [choice, setChoice] = useState<number | null>(null); const [confidence, setConfidence] = useState(60); const [revealed, setRevealed] = useState(false);
+  const due = duePrompts(p.mastery); const pool = due.length ? due : REVIEW_PROMPTS; const q = pool[cursor % pool.length];
+  const submit = () => { if (choice == null) return; p.recordConcept(q.concept, choice === q.answer, confidence); setRevealed(true); };
+  const next = () => { setChoice(null); setConfidence(60); setRevealed(false); setCursor((x) => x + 1); };
+  const c = MASTERY_BY_ID[q.concept]; const correct = choice === q.answer;
+  const calibration = !revealed ? '' : correct && confidence <= 40 ? 'Correct, but you were under-confident — useful knowledge that is not yet fluent.' : !correct && confidence >= 80 ? 'High-confidence miss — prioritize this concept. These are the blind spots expert training should expose.' : correct && confidence >= 80 ? 'Correct and well calibrated.' : !correct ? 'Missed with appropriate uncertainty. Review the model, then retrieve it again later.' : 'Correct. Keep building retrieval strength.';
+  return <div className="aa-page"><PageHead kicker="SPACED REVIEW" title="Accuracy is only half the signal." body="Retrieve first. Then tell the system how confident you were. Reviews recur sooner when accuracy or confidence calibration is weak." />
+    <div className="aa-reviewmeta"><span>{due.length ? `${due.length} due now` : 'No reviews overdue — optional practice'}</span><span>{c?.name}</span><span>Level {c?.level}</span></div>
+    <section className="aa-reviewcard"><span className="aa-kicker">QUESTION {cursor + 1}</span><h2>{q.question}</h2>
+      <div className="aa-reviewopts">{q.options.map((o, i) => <button key={o} disabled={revealed} className={revealed ? i === q.answer ? 'ok' : i === choice ? 'bad' : '' : choice === i ? 'on' : ''} onClick={() => setChoice(i)}><span>{String.fromCharCode(65 + i)}</span>{o}</button>)}</div>
+      <div className="aa-confidence"><div><b>How confident are you?</b><span>{confidence}%</span></div><input type="range" min="20" max="100" step="20" value={confidence} disabled={revealed} onChange={(e) => setConfidence(+e.target.value)} /><div className="aa-conf-labels"><span>guessing</span><span>certain</span></div></div>
+      {!revealed ? <button className="aa-primary" disabled={choice == null} onClick={submit}>Commit answer</button> : <div className="aa-reviewresult"><b>{correct ? 'Correct.' : 'Not quite.'}</b><p>{q.explain}</p><em>{calibration}</em><button className="aa-primary" onClick={next}>Next review →</button></div>}
+    </section>
   </div>;
 }
 
@@ -132,7 +154,7 @@ function RepPlayer({ rep, onBack }: { rep: MentalRep; onBack: () => void }) {
   return <div className="aa-page aa-rehearsal"><button className="aa-backbtn" onClick={onBack}>← Mental Reps</button>
     <div className="aa-rephead"><span className="aa-kicker">GUIDED PROCEDURAL VISUALIZATION</span><h1>{rep.title}</h1><p>{rep.subtitle}</p><div className="aa-warning"><b>Training boundary</b><span>{rep.disclaimer}</span></div></div>
     <div className="aa-repstage">
-      <div className={`aa-visual ${beat.danger ? 'danger' : ''}`}><span>{beat.visual ? beat.visual.replaceAll('-', ' ') : beat.phase}</span><div className="aa-target"><i /><i /><b>{i + 1}</b></div><small>VISUAL CUE · {beat.phase.toUpperCase()}</small></div>
+      <div className={`aa-visual ${beat.danger ? 'danger' : ''}`}><RepVisual beat={beat} /><small className="aa-vphase">VISUAL CUE · {beat.phase.toUpperCase()}</small></div>
       <section><div className="aa-stepcount">BEAT {i + 1} OF {rep.beats.length}</div><h2>{beat.title}</h2><p className="aa-narration">{beat.narration}</p>
         {beat.pauseSeconds && <div className="aa-pause">Pause · {beat.pauseSeconds} seconds</div>}
         {beat.prompt && <div className="aa-prompt"><b>Mentally answer before moving on</b><p>{beat.prompt}</p></div>}
