@@ -4,6 +4,7 @@ import { DOMAIN_LABELS, LEVELS, MASTERY, MASTERY_BY_ID } from './mastery';
 import { masteryScore, useAudioProgress } from './progress';
 import { duePrompts, REVIEW_PROMPTS } from './review';
 import { RepVisual } from './RepVisual';
+import { bridgeFor } from './bridges';
 import type { AudioEpisode, MentalRep } from './types';
 
 type Page = 'home' | 'listen' | 'reps' | 'review' | 'mastery';
@@ -118,9 +119,10 @@ function Mastery() {
   const rows = useMemo(() => MASTERY.filter((c) => (!level || c.level === level) && (!q || (c.name + c.summary + DOMAIN_LABELS[c.domain]).toLowerCase().includes(q.toLowerCase()))), [q, level]);
   return <div className="aa-page"><PageHead kicker="MASTERY GRAPH" title="Expert is a network, not a checklist." body="Concepts unlock progressively and recur across audio, visual physiology, cases and Mental Reps. Mastery means being able to predict, interpret and revise — not merely define." />
     <div className="aa-filters"><input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search concepts…" aria-label="Search mastery concepts" /><div className="aa-pills">{LEVELS.map((l) => <button key={l.level} className={level === l.level ? 'on' : ''} onClick={() => setLevel(level === l.level ? null : l.level)}>L{l.level}</button>)}</div></div>
-    <div className="aa-concepts">{rows.map((c) => { const s = p.mastery[c.id], score = masteryScore(s); return <article key={c.id}><div className="aa-c-top"><span>L{c.level} · {DOMAIN_LABELS[c.domain]}</span><b>{score}%</b></div><h3>{c.name}</h3><p>{c.summary}</p>
+    <div className="aa-concepts">{rows.map((c) => { const s = p.mastery[c.id], score = masteryScore(s), bridge = bridgeFor(c.id); return <article key={c.id}><div className="aa-c-top"><span>L{c.level} · {DOMAIN_LABELS[c.domain]}</span><b>{score}%</b></div><h3>{c.name}</h3><p>{c.summary}</p>
       <div className="aa-meter"><i style={{ width: `${score}%` }} /></div>
       <small>{s?.exposures ?? 0} exposures · {c.performance[0]}</small>
+      {bridge && <a className="aa-visual-link" href={bridge.href}><b>See it visually →</b><span>{bridge.note}</span></a>}
     </article>; })}</div>
   </div>;
 }
@@ -144,7 +146,7 @@ function EpisodePlayer({ episode, onBack }: { episode: AudioEpisode; onBack: () 
     <section className="aa-transcript"><div><span className="aa-kicker">NOW LEARNING</span><h2>{ch.title}</h2>{ch.prompt && <div className="aa-prompt"><b>Think before continuing</b><p>{ch.prompt}</p></div>}</div>
       <div className="aa-chapters">{episode.chapters.map((x, i) => <button key={x.id} className={i === chapter ? 'on' : ''} onClick={() => setChapter(i)}><span>{i + 1}</span><b>{x.title}</b><small>{fmt(x.seconds)}</small></button>)}</div>
     </section>
-    <section className="aa-section"><h2>Concepts in this session</h2><div className="aa-linkcards">{episode.concepts.map((id) => { const c = MASTERY_BY_ID[id]; return c ? <div key={id}><b>{c.name}</b><small>L{c.level} · {DOMAIN_LABELS[c.domain]}</small></div> : null; })}</div>
+    <section className="aa-section"><h2>Concepts in this session</h2><div className="aa-linkcards">{episode.concepts.map((id) => { const c = MASTERY_BY_ID[id], bridge = bridgeFor(id); return c ? <div key={id}><b>{c.name}</b><small>L{c.level} · {DOMAIN_LABELS[c.domain]}</small>{bridge && <a href={bridge.href}>See it visually →</a>}</div> : null; })}</div>
       <button className="aa-primary" onClick={() => p.completeEpisode(episode.id, episode.concepts)}>Mark session complete</button></section>
   </div>;
 }
