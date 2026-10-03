@@ -1,38 +1,40 @@
 {
- "name": "physio",
- "private": true,
- "type": "module",
- "scripts": {
-  "test": "vitest run",
-  "typecheck": "tsc --noEmit",
-  "build": "tsx scripts/build-app.ts",
-  "site": "tsx scripts/label-index.ts && tsx scripts/review-packet.ts && tsx scripts/build-app.ts && node scripts/copy-site.mjs",
-  "asset:body": "tsx pipeline/build-body.ts",
-  "asset:resp": "tsx pipeline/build-resp.ts",
-  "asset:micro": "tsx pipeline/build-micro.ts",
-  "asset:lines": "tsx pipeline/build-lines.ts"
- },
- "dependencies": {
-  "@react-three/drei": "9.99.7",
-  "@react-three/fiber": "8.15.19",
-  "react": "18.3.1",
-  "react-dom": "18.3.1",
-  "three": "0.160.0",
-  "zustand": "4.5.2"
- },
- "devDependencies": {
-  "@gltf-transform/core": "^4.0.8",
-  "@gltf-transform/extensions": "^4.0.8",
-  "@gltf-transform/functions": "^4.0.8",
-  "@types/node": "^20.19.43",
-  "@types/react": "18.3.3",
-  "@types/react-dom": "18.3.0",
-  "@types/three": "0.160.0",
-  "esbuild": "0.20.2",
-  "meshoptimizer": "^0.21.0",
-  "three-mesh-bvh": "^0.7.5",
-  "tsx": "4.10.5",
-  "typescript": "5.4.5",
-  "vitest": "1.6.0"
- }
+  "name": "physio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "build": "tsx scripts/build-app.ts",
+    "site": "tsx scripts/audio-voice-lines.ts && tsx scripts/label-index.ts && tsx scripts/review-packet.ts && tsx scripts/build-app.ts && node scripts/copy-site.mjs",
+    "asset:body": "tsx pipeline/build-body.ts",
+    "asset:resp": "tsx pipeline/build-resp.ts",
+    "asset:micro": "tsx pipeline/build-micro.ts",
+    "asset:lines": "tsx pipeline/build-lines.ts",
+    "audio:lines": "tsx scripts/audio-voice-lines.ts",
+    "audio:voice:validate": "python3 scripts/audio_voice_validate.py"
+  },
+  "dependencies": {
+    "@react-three/drei": "9.99.7",
+    "@react-three/fiber": "8.15.19",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "three": "0.160.0",
+    "zustand": "4.5.2"
+  },
+  "devDependencies": {
+    "@gltf-transform/core": "^4.0.8",
+    "@gltf-transform/extensions": "^4.0.8",
+    "@gltf-transform/functions": "^4.0.8",
+    "@types/node": "^20.19.43",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
+    "@types/three": "0.160.0",
+    "esbuild": "0.20.2",
+    "meshoptimizer": "^0.21.0",
+    "three-mesh-bvh": "^0.7.5",
+    "tsx": "4.10.5",
+    "typescript": "5.4.5",
+    "vitest": "1.6.0"
+  }
 }
