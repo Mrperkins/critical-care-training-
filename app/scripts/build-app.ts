@@ -35,6 +35,8 @@ const audioRes = await build({
 const audioJs = audioRes.outputFiles.find((f) => f.path.endsWith('.js'))!.text;
 const audioCss = audioRes.outputFiles.find((f) => f.path.endsWith('.css'))?.text ?? '';
 const audioDir = path.join(pub, 'audio'); fs.mkdirSync(audioDir, { recursive: true });
+const audioVoice = path.join(ROOT, 'public/audio/voice');
+if (fs.existsSync(audioVoice)) fs.cpSync(audioVoice, path.join(audioDir, 'voice'), { recursive: true, force: true });
 const audioHead = `<!doctype html>
 <html lang="en">
 <meta charset="utf-8">
