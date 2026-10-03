@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import type { MentalRepBeat } from './types';
 
 export function RepVisual({ beat }: { beat: MentalRepBeat }) {
@@ -21,7 +22,7 @@ export function RepVisual({ beat }: { beat: MentalRepBeat }) {
   return <Focus phase={beat.phase} />;
 }
 
-function Frame({ title, children, real = false }: { title: string; children: React.ReactNode; real?: boolean }) {
+function Frame({ title, children, real = false }: { title: string; children: ReactNode; real?: boolean }) {
   return <div className={`rviz${real ? ' real' : ''}`}><div className="rviz-title">{title}</div>{children}</div>;
 }
 function Focus({ phase }: { phase: string }) { return <Frame title={phase}><svg viewBox="0 0 600 420"><circle className="rv-ring" cx="300" cy="210" r="120"/><circle className="rv-ring gold" cx="300" cy="210" r="70"/><path className="rv-line" d="M80 210h440M300 50v320"/><circle className="rv-dot" cx="300" cy="210" r="8"/></svg></Frame>; }
