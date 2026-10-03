@@ -1,12 +1,27 @@
 import { createRoot } from 'react-dom/client';
 import { App } from './app/App';
 import './styles/app.css';
-import { useUI } from './app/store';
+import { useUI, type Module, type Mode } from './app/store';
+import { openLesson } from './app/navigate';
 import { session } from './vent/session';
 import { lab } from './abg/lab';
 import { useAbgUI } from './abg/abgStore';
 
 createRoot(document.getElementById('root')!).render(<App />);
+
+// Deep links used by Critical Care Audio to hand a concept back to the visual product.
+const qp = new URLSearchParams(location.search);
+const linkedLesson = qp.get('lesson');
+if (linkedLesson) setTimeout(() => openLesson(linkedLesson), 0);
+else {
+  const modules: Module[] = ['vent','abg','labs','lines','neuro','moa','heart','abdomen','curriculum'];
+  const modes: Mode[] = ['explore','learn','challenge','sim'];
+  const module = qp.get('module') as Module | null, mode = qp.get('mode') as Mode | null;
+  const patch: Partial<ReturnType<typeof useUI.getState>> = {};
+  if (module && modules.includes(module)) patch.module = module;
+  if (mode && modes.includes(mode)) patch.mode = mode;
+  if (Object.keys(patch).length) useUI.getState().set(patch);
+}
 // offline support (published site only: the service worker file sits next to index.html)
 if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost') && !(window as unknown as { __NO_SW__?: boolean }).__NO_SW__)
   window.addEventListener('load', () => { navigator.serviceWorker.register('sw.js').catch(() => undefined); });
