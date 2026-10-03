@@ -6,17 +6,18 @@ import { IS_PHONE } from '../scene/Studio';
 import type { AbdomenState } from './state';
 import { useHideFindings } from '../challenge/caseStore';
 import { RealCase } from '../scene/imaging/RealCase';
+import { useSceneLabelMode } from '../scene/labels';
 
 function UsPanel({ win, st }: { win: UsWindow; st: AbdomenState }) {
   const ref = useRef<HTMLCanvasElement>(null); const meta = US_WINDOWS.find((w) => w.id === win)!;
   const img = useMemo(() => renderUs(win, st, IS_PHONE ? 180 : 260), [win, st]);
   useEffect(() => { const c = ref.current; if (!c) return; c.width = img.w; c.height = img.h; const ctx = c.getContext('2d')!; const d = ctx.createImageData(img.w, img.h); d.data.set(img.rgba); ctx.putImageData(d, 0, 0); }, [img]);
-  const hide = useHideFindings(); const coronal = meta.plane.startsWith('coronal'); const show = img.fluidPx > 0 && !hide;
+  const labelMode = useSceneLabelMode(); const hide = useHideFindings(); const coronal = meta.plane.startsWith('coronal'); const show = img.fluidPx > 0 && !hide;
   return (
     <figure className="img-panel us-panel">
       <div className="us-frame" style={{ aspectRatio: `${img.w} / ${img.h}` }}>
         <canvas ref={ref} aria-label={meta.name} />
-        {US_LABELS[win].filter((l) => (l.fluid ? show : !IS_PHONE)).map((l) => { const p = usUV(win, l.x, l.z); return <span key={l.t} className={`us-lab${l.fluid ? ' fl' : ''}`} style={{ left: `${p.u * 100}%`, top: `${p.v * 100}%` }}>{l.t}</span>; })}
+        {labelMode !== 'off' && US_LABELS[win].filter((l) => (l.fluid ? show : !IS_PHONE)).map((l) => { const p = usUV(win, l.x, l.z); return <span key={l.t} className={`us-lab${l.fluid ? ' fl' : ''}`} style={{ left: `${p.u * 100}%`, top: `${p.v * 100}%` }}>{l.t}</span>; })}
         {!IS_PHONE && <><span className="us-orient">{coronal ? '◀ head' : 'R · L'}</span><span className="us-depth">{img.depthCm} cm</span></>}
       </div>
       <figcaption>{IS_PHONE ? meta.short : meta.name}</figcaption>

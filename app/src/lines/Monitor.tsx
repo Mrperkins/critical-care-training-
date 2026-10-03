@@ -7,6 +7,7 @@
 import { useEffect, useRef } from 'react';
 import { lines } from './session';
 import { useLinesUI } from './linesStore';
+import { useLabels } from '../scene/labels';
 
 const COL = { ecg: '#46e08a', art: '#ff5a57', cvp: '#57b6ff', grid: 'rgba(255,255,255,0.07)', text: 'rgba(255,255,255,0.55)', trueA: 'rgba(255,190,188,0.75)', trueC: 'rgba(190,225,255,0.75)', insp: 'rgba(255,255,255,0.04)', ee: 'rgba(87,182,255,0.12)' };
 const MONO = '"IBM Plex Mono", ui-monospace, monospace';
@@ -72,7 +73,7 @@ export function Monitor({ height, compact }: { height?: number; compact?: boolea
         ctx.fillStyle = '#05070a'; ctx.fillRect(X(tNow) + 1, ch.y0, 6, ch.hgt);
       }
       // annotations for the latest complete beat
-      if (ui.labels) annotate(ctx, S, tNow, W, narrow, X, chans[1].y0, chans[1].hgt, scale.art, chans[2].y0, chans[2].hgt, scale.cvp);
+      if (ui.labels && useLabels.getState().mode !== 'off') annotate(ctx, S, tNow, W, narrow, X, chans[1].y0, chans[1].hgt, scale.art, chans[2].y0, chans[2].hgt, scale.cvp);
       // measuring cursor (frozen)
       if (frozenSrc.current && cursor.current != null) {
         const cx = cursor.current; ctx.strokeStyle = 'rgba(255,255,255,0.7)'; ctx.setLineDash([4, 3]); ctx.beginPath(); ctx.moveTo(cx, top); ctx.lineTo(cx, h - 2); ctx.stroke(); ctx.setLineDash([]);

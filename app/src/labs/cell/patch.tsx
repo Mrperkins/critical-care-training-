@@ -1,6 +1,8 @@
 /** Membrane close-up: a strip of lipid bilayer with named proteins, labelled ions, the charge layer and the pump's ATP. */
 import { useEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
+import { LabelChip } from '../../scene/labels';
+import { labelKey as labelKeyOf } from '../../scene/labelInfo';
 import { useFrame, useThree } from '@react-three/fiber';
 import { Html } from '@react-three/drei';
 import { useLabUI, useLabelMode } from '../labStore';
@@ -137,7 +139,7 @@ function Bilayer({ sites }: { sites: Site[] }) {
     {/* the oily hydrophobic core seen between the two leaflets */}
     {rich && <mesh position={[0, 0, (SLAB.front - SLAB.d) / 2]} material={mats.core} renderOrder={-0.5}><boxGeometry args={[SLAB.w * 2, 0.5, SLAB.front + SLAB.d]} /></mesh>}
     {rich && labels && !focusId && <>
-      {([['Phospholipid heads', [SLAB.w * 0.97, 0.5, SLAB.front]], ['Fatty-acid tails · oily core', [SLAB.w * 0.97, 0.08, SLAB.front]], ['Cholesterol', [SLAB.w * 0.97, -0.22, SLAB.front]], ['Inner leaflet (PE, PS⁻)', [SLAB.w * 0.97, -0.5, SLAB.front]], ['Glycocalyx', [SLAB.w * 0.97, 0.85, SLAB.front]]] as [string, [number, number, number]][]).map(([t, p]) => <group key={t} position={p}><Html zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><div className="blabel lead lead-l mem-lbl">{t}</div></Html></group>)}
+      {([['Phospholipid heads', [SLAB.w * 0.97, 0.5, SLAB.front]], ['Fatty-acid tails · oily core', [SLAB.w * 0.97, 0.08, SLAB.front]], ['Cholesterol', [SLAB.w * 0.97, -0.22, SLAB.front]], ['Inner leaflet (PE, PS⁻)', [SLAB.w * 0.97, -0.5, SLAB.front]], ['Glycocalyx', [SLAB.w * 0.97, 0.85, SLAB.front]]] as [string, [number, number, number]][]).map(([t, p]) => <group key={t} position={p}><Html zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><LabelChip className="blabel lead lead-l mem-lbl" text={t} /></Html></group>)}
     </>}
   </group>);
 }
@@ -185,9 +187,9 @@ function PatchLabels({ sim, cellType }: { sim: CellSim; cellType: CellType }) {
     if (zoneI.current) zoneI.current.textContent = list('inside') + (sp('osm') ? ` · osmolytes ${Math.round(m.osmolytes * 100)} %` : '');
   });
   return (<group>
-    {sim.sites.map((s, i) => <group key={i} position={[s.pos.x, i % 2 ? (s.kind === 'pump' ? -3.0 : -2.05) : (s.kind === 'pump' ? 2.2 : 1.95), s.pos.z]}><Html center zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><div className={`plabel tk-${s.kind}`} ref={(r) => { refs.current[i] = r; }}><b>{TRANSPORTERS[s.kind].short}</b><i /></div></Html></group>)}
-    <group position={[-SLAB.w * 0.62, SLAB.h + 0.25, 0]}><Html zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><div className="zonebig out"><b>Outside the cell</b><span>extracellular fluid</span><em ref={zoneO} /></div></Html></group>
-    <group position={[-SLAB.w * 0.08, -SLAB.h + 0.35, 0]}><Html zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><div className="zonebig in"><b>Inside the cell</b><span>cytosol{cellType === 'cardiac' ? ' of a heart muscle cell' : cellType === 'neuron' ? ' of a nerve cell' : ' of a cell'}</span><em ref={zoneI} /></div></Html></group>
+    {sim.sites.map((s, i) => <group key={i} position={[s.pos.x, i % 2 ? (s.kind === 'pump' ? -3.0 : -2.05) : (s.kind === 'pump' ? 2.2 : 1.95), s.pos.z]}><Html center zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><LabelChip className={`plabel tk-${s.kind}`} ref={(r) => { refs.current[i] = r as unknown as HTMLDivElement; }} important info={labelKeyOf(TRANSPORTERS[s.kind].short)} text={<><b>{TRANSPORTERS[s.kind].short}</b><i /></>} /></Html></group>)}
+    <group position={[-SLAB.w * 0.62, SLAB.h + 0.25, 0]}><Html zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><LabelChip className="zonebig out" important info="extracellular fluid" text={<><b>Outside the cell</b><span>extracellular fluid</span><em ref={zoneO} /></>} /></Html></group>
+    <group position={[-SLAB.w * 0.08, -SLAB.h + 0.35, 0]}><Html zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><LabelChip className="zonebig in" important info="cytosol" text={<><b>Inside the cell</b><span>cytosol{cellType === 'cardiac' ? ' of a heart muscle cell' : cellType === 'neuron' ? ' of a nerve cell' : ' of a cell'}</span><em ref={zoneI} /></>} /></Html></group>
   </group>);
 }
 function siteLine(s: Site, pumpRate: number, sim: CellSim): string {

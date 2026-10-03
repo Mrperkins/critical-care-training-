@@ -23,6 +23,7 @@ import { MoaModule } from '../moa/MoaModule';
 import { HeartModule } from '../heart/HeartModule';
 import { AbdomenModule } from '../abdomen/AbdomenModule';
 import { lines } from '../lines/session';
+import { SceneWrap } from '../scene/labels';
 
 export function useIsPhone() {
   const q = '(max-width: 760px)';
@@ -83,10 +84,10 @@ function VentModule() {
   return (
     <main className="stage">
       <section className="scene-pane">
-        <div className={`scene-wrap${alv ? ' alv-wrap' : ''}`}>
+        <SceneWrap className={alv ? 'alv-wrap' : ''}>
           {lus ? <LusScene /> : xray ? <CxrScene /> : alv ? <AlveolusScene /> : asset ? <LungScene asset={asset} /> : <div className="loading">{err ? `Could not load the lung model: ${err}` : 'Loading lungs…'}</div>}
           <SceneOverlay />
-        </div>
+        </SceneWrap>
         <div className="wave-wrap"><Scalars height={phone ? 210 : undefined} /></div>
       </section>
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
@@ -110,7 +111,7 @@ function VentModule() {
 }
 
 function SceneOverlay() {
-  const view = useUI((s) => s.ventView); const labels = useUI((s) => s.labels); const pm = useUI((s) => s.showPmus); const loops = useUI((s) => s.showLoops);
+  const view = useUI((s) => s.ventView); const pm = useUI((s) => s.showPmus); const loops = useUI((s) => s.showLoops);
   const set = useUI.getState().set;
   return (
     <>
@@ -121,7 +122,6 @@ function SceneOverlay() {
         <span><i className="lg-air" />Aerated</span><span><i className="lg-col" />Collapsed</span><span><i className="lg-over" />Over-stretched</span><span><i className="lg-in" />Gas in</span><span><i className="lg-out" />Gas out</span>
       </div>}
       {view !== 'xray' && view !== 'lus' && <div className="scene-tools">
-        <button className={`tgl${labels ? ' on' : ''}`} onClick={() => set({ labels: !labels })}>Labels</button>
         <button className={`tgl${pm ? ' on' : ''}`} onClick={() => set({ showPmus: !pm })}>Patient effort</button>
         <button className={`tgl${loops ? ' on' : ''}`} onClick={() => set({ showLoops: !loops })}>Loops</button>
       </div>}

@@ -10,6 +10,7 @@ import { CameraControls, Html } from '@react-three/drei';
 import type { BodyAsset } from '../asset/body';
 import type { MicroAsset } from '../asset/micro';
 import { StudioCanvas, GLSL_TRIPLANAR, tissueTexture, IS_PHONE, damp } from '../scene/Studio';
+import { LabelChip } from '../scene/labels';
 import { makeGrid, marchingCubes, taubin } from '../scene/iso';
 import { bench } from './bench';
 import { cellSpec, type CellSpec, type Body } from './cellSpec';
@@ -71,7 +72,7 @@ function BodyMap({ body }: { body: BodyAsset }) {
     <group>
       <mesh geometry={M.skin.geometry} material={skin} renderOrder={10} />
       {Object.keys(ORGAN_COLOR).filter((k) => M[k]).map((k) => <mesh key={k} geometry={M[k].geometry} material={mats[k]} onClick={(e) => pick(e, k)} onPointerOver={(e) => { e.stopPropagation(); document.body.style.cursor = 'pointer'; }} onPointerOut={() => (document.body.style.cursor = '')} />)}
-      {organs.slice(0, 1).map((o) => body.mapping.centres[o] && <Html key={o} position={body.mapping.centres[o] as never} center zIndexRange={[20, 0]}><div className="tag3d">{LAB[sel].abbr} · {o.replace('_', ' ').replace(/ [LR]$/, '')}</div></Html>)}
+      {organs.slice(0, 1).map((o) => body.mapping.centres[o] && <Html key={o} position={body.mapping.centres[o] as never} center zIndexRange={[20, 0]}><LabelChip className="tag3d" important info={o.replace('_', ' ').replace(/ [LR]$/, '')} text={`${LAB[sel].abbr} · ${o.replace('_', ' ').replace(/ [LR]$/, '')}`} /></Html>)}
     </group>
   );
 }
@@ -129,7 +130,7 @@ function LegacyLabels({ kind, spec }: { kind: Body; spec: SpecRef }) {
   const on = useLabUI((s) => s.labelsOn); const list = LEGACY_LABELS[kind]; const hurtRef = useRef<THREE.Group>(null);
   useFrame(() => { if (hurtRef.current) hurtRef.current.visible = spec.current.injury > 0.05; });
   if (!on || !list) return null;
-  return <group>{list.map(([t, p]) => { const hurt = t.startsWith('Injured'); return <group key={t} position={p} ref={hurt ? hurtRef : undefined}><Html center zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><div className={`blabel${hurt ? ' b-bad' : ''}`}>{t}</div></Html></group>; })}</group>;
+  return <group>{list.map(([t, p]) => { const hurt = t.startsWith('Injured'); return <group key={t} position={p} ref={hurt ? hurtRef : undefined}><Html center zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><LabelChip className={`blabel${hurt ? ' b-bad' : ''}`} text={t} important={hurt} /></Html></group>; })}</group>;
 }
 
 /* ------------------------------------------------------------------ generic cell (electrolytes, metabolism) */

@@ -13,6 +13,7 @@ import type { RespAsset } from '../asset/resp';
 import { polylineAt } from '../asset/resp';
 import type { MicroAsset, P3 } from '../asset/micro';
 import { StudioCanvas, GLSL_TRIPLANAR, tissueTexture, IS_PHONE, damp } from '../scene/Studio';
+import { LabelChip } from '../scene/labels';
 import { lungMaterial, airwayMaterial, makeLungUniforms } from '../vent/LungScene';
 import { lab } from './lab';
 import { useAbgUI, type Station } from './abgStore';
@@ -367,7 +368,7 @@ function Kidney({ resp }: { resp: RespAsset }) {
 /* ------------------------------------------------------------------ labels + camera */
 function Label({ pos, text, station, tone }: { pos: THREE.Vector3 | [number, number, number]; text: string; station: Station; tone?: string }) {
   const cur = useAbgUI((s) => s.station); if (cur !== station) return null;
-  return <Html position={pos as never} center zIndexRange={[20, 0]}><div className={`tag3d${tone ? ' t-' + tone : ''}`}>{text}</div></Html>;
+  return <Html position={pos as never} center zIndexRange={[20, 0]}><LabelChip className={`tag3d${tone ? ' t-' + tone : ''}`} text={text} /></Html>;
 }
 export const STATIONS: Record<Station, { tgt: [number, number, number]; dir: [number, number, number]; size: [number, number] }> = {
   lung: { tgt: [LUNG_POS.x, 0.2, 0], dir: [0.1, 0.12, 1], size: [3.0, 3.6] },

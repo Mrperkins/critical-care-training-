@@ -8,6 +8,7 @@ import type { Snapshot, PatientState } from '../../physiology/patient';
 import { drugEffect, restingPotential, thresholdPotential } from '../../physiology/patient';
 import { ecgShape } from '../../physiology/ecg';
 import { LAB } from '../../knowledge/labs';
+import { registerLabelInfo } from '../../scene/labelInfo';
 
 /** which physiology the scene teaches: membrane potential (K⁺, Ca²⁺, Mg²⁺ …) or cell volume (Na⁺) */
 export type Story = 'membrane' | 'volume';
@@ -39,6 +40,8 @@ export const TRANSPORTERS: Record<TransporterKind, TransporterDef> = {
   aqp: { kind: 'aqp', name: 'Aquaporin-4 water channel', short: 'Aquaporin', what: 'Lets water cross in seconds. Water always moves toward the side with more dissolved particles.', color: '#5fb4ff' },
   vrac: { kind: 'vrac', name: 'Osmolyte channel (VRAC)', short: 'Osmolyte channel', what: 'Over ~48 h brain cells shed (or rebuild) organic osmolytes so their volume returns to normal.', color: '#35c2b2' },
 };
+registerLabelInfo(Object.fromEntries(Object.values(TRANSPORTERS).map((t) => [t.short, `${t.name}. ${t.what}`])));
+
 
 export type Focus = { kind: 'species'; key: SpeciesKey; side?: 'in' | 'out' } | { kind: 'transporter'; t: TransporterKind } | { kind: 'vm' } | { kind: 'threshold' } | { kind: 'volume' } | { kind: 'none' };
 export interface ChainStep { text: string; focus: Focus; tone?: 'bad' | 'good' | 'info' }

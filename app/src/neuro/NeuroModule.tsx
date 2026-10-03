@@ -15,6 +15,7 @@ import { DirectorPlayer } from '../director/Player';
 import { NEURO_LESSONS as BASE_NEURO } from '../director/lessons/neuro';
 import { ICP_LESSON } from '../director/lessons/icp';
 import { IcpCard } from './IcpCard';
+import { SceneWrap } from '../scene/labels';
 const NEURO_LESSONS = [...BASE_NEURO, ICP_LESSON];
 
 const hm = (m: number) => (m < 60 ? `${Math.round(m)} min` : `${Math.floor(m / 60)} h ${String(Math.round(m % 60)).padStart(2, '0')} min`);
@@ -41,10 +42,10 @@ export function NeuroModule() {
   return (
     <main className="stage">
       <section className="scene-pane">
-        <div className="scene-wrap neuro-wrap">
+        <SceneWrap className="neuro-wrap">
           {view === 'imaging' ? <ClinicalImagingScene /> : body ? <NeuroScene body={body} /> : <div className="loading">{err ? `Could not load anatomy: ${err}` : 'Loading anatomy…'}</div>}
           <NeuroOverlay />
-        </div>
+        </SceneWrap>
       </section>
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         {mode === 'challenge' ? <CaseChallenge module="neuro" /> : mode === 'learn' ? <NeuroLearn /> : <>
@@ -64,13 +65,12 @@ export function NeuroModule() {
 
 const FOCUS: [string, string][] = [['brain.whole', 'Brain'], ['brain.cow', 'Circle of Willis'], ['brain.mca_l', 'L MCA'], ['brain.mca_r', 'R MCA'], ['brain.aca', 'ACA'], ['brain.pca', 'PCA'], ['brain.basilar', 'Basilar'], ['brain.ica_l', 'L ICA']];
 function NeuroOverlay() {
-  const target = useNeuroUI((s) => s.target); const labels = useNeuroUI((s) => s.labels); const glass = useNeuroUI((s) => s.glass); const set = useNeuroUI.getState().set;
+  const target = useNeuroUI((s) => s.target); const glass = useNeuroUI((s) => s.glass); const set = useNeuroUI.getState().set;
   const tier = useLabUI((s) => s.visualTier); const view3d = useNeuroUI((s) => s.view) === '3d';
   return (<>
     <div className="view-btns"><button className={view3d ? 'on' : ''} onClick={() => set({ view: '3d' })}>3D anatomy</button><button className={!view3d ? 'on' : ''} onClick={() => set({ view: 'imaging' })}>CT · CTA · perfusion</button></div>
     {!view3d ? null : <>
     <div className="scene-tools">
-      <button className={`tgl${labels ? ' on' : ''}`} onClick={() => set({ labels: !labels })}>Labels</button>
       <button className={`tgl${glass ? ' on' : ''}`} onClick={() => set({ glass: !glass })}>{glass ? 'Glass brain' : 'Solid brain'}</button>
     </div>
     <div className="alv-focus">

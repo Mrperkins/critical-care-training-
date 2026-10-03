@@ -14,10 +14,6 @@ import { OPEN_CELL_CREDIT } from './openAssets';
 import type { CellView } from './build';
 
 /** Master labels on/off switch (shared by every microscopic view). */
-export function LabelsToggle() {
-  const on = useLabUI((s) => s.labelsOn);
-  return <button className={`tgl${on ? ' on' : ''}`} aria-pressed={on} onClick={() => useLabUI.getState().set({ labelsOn: !on })}>Labels: {on ? 'On' : 'Off'}</button>;
-}
 /** Collapsible header for the readout panel. */
 export function GaugeHead({ title, short, value, bad }: { title: string; short: string; value: React.ReactNode; bad?: boolean }) {
   const open = useLabUI((s) => s.gaugeOpen);
@@ -56,7 +52,6 @@ export function CellHud() {
         {ui.cellView === 'whole' && <div className="seg small ch-focus" role="group" aria-label="Focus on organelle">{([['cell.nucleus', 'Nucleus', 'nucleus'], ['cell.mitochondria', 'Mito', 'mito'], ['cell.er', 'ER', 'rer'], ['cell.golgi', 'Golgi', 'golgi']] as const).filter(([, , a]) => getCell(ui.cellType ?? m.cellType).anchors.some((x) => x.key === a)).map(([id, l]) => <button key={id} className={ui.cameraTargetId === id ? 'on' : ''} onClick={() => ui.set({ cameraTargetId: ui.cameraTargetId === id ? null : id, cellView: 'whole', autoplay: false })}>{l}</button>)}</div>}
         {ui.cellView === 'zoom' && <div className="seg small ch-focus" role="group" aria-label="Focus on membrane protein">{([['membrane.nak_atpase', 'Na/K pump', 'pump'], ['membrane.nav', 'Nav1.5', 'nachan'], ['membrane.kir', 'Kir2.1', 'kchan'], ['membrane.aqp', 'AQP4', 'aqp']] as const).filter(([, , k]) => live.patch?.sites.some((x) => x.kind === k)).map(([id, l]) => <button key={id} className={ui.cameraTargetId === id ? 'on' : ''} onClick={() => ui.set({ cameraTargetId: ui.cameraTargetId === id ? null : id, autoplay: false })}>{l}</button>)}</div>}
         <div className="seg small ch-quality" role="group" aria-label="Cell visual quality">{([['high', 'High'], ['medium', 'Medium'], ['low', 'Low']] as [VisualTier, string][]).map(([k, l]) => <button key={k} className={ui.visualTier === k ? 'on' : ''} onClick={() => ui.set({ visualTier: k })}>{l}</button>)}</div>
-        <LabelsToggle />
         {ui.labelsOn && <div className="seg small ch-labels" role="group" aria-label="Which labels">{([['organelles', 'Organelles'], ['transport', 'Transport']] as [LabelMode, string][]).map(([k, l]) => <button key={k} className={ui.labelMode === k ? 'on' : ''} onClick={() => ui.set({ labelMode: k })}>{l}</button>)}</div>}
       </div>
       {m.story === 'membrane' ? <VmPanel m={m} focus={cur?.focus} /> : <VolumePanel m={m} focus={cur?.focus} />}

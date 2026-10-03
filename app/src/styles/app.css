@@ -594,3 +594,34 @@ details.card summary{cursor:pointer;font:600 14px var(--fs);margin-bottom:6px}
 .card.rc-wrap{padding:10px}
 .us-view:has(.rcase) .us-grid{flex:none}.imaging .rc-frame img,.imaging .rc-frame video{max-height:min(46vh,420px)}
 .rc-media{position:relative;display:inline-block;max-width:100%;line-height:0}
+
+/* ── shared 3D labels: buttons with hover/tap descriptions, dots mode, info card ─────────────────────────────── */
+:where(button.lchip){appearance:none;margin:0;font:inherit;color:inherit;background:none;border:0;padding:0;text-align:inherit;line-height:inherit}
+button.lchip{pointer-events:auto;cursor:pointer;touch-action:manipulation}
+button.lchip:hover,button.lchip:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+button.lchip.ldot{position:relative;width:13px;height:13px;min-width:0;padding:0;border-radius:50%;border-width:2px;border-style:solid;transform:none;font-size:0;
+  background:radial-gradient(circle,#f6f2ea 0 2px,rgba(10,10,12,.82) 2.6px)}
+button.lchip.ldot::before{content:"";position:absolute;inset:-11px;border-radius:50%} /* bigger touch target */
+button.lchip.ldot.olabel{transform:none!important}
+.linfo{position:absolute;z-index:40;width:min(290px,calc(100% - 16px));background:rgba(12,14,17,.95);border:1px solid rgba(210,229,238,.22);border-radius:10px;
+  padding:8px 11px 9px;color:var(--ink);font-size:12.5px;line-height:1.45;box-shadow:0 8px 28px rgba(0,0,0,.45);pointer-events:none}
+.linfo.pinned{pointer-events:auto;border-color:rgba(230,196,120,.55)}
+.linfo-h{display:flex;align-items:flex-start;gap:8px;margin-bottom:3px}.linfo-h b{flex:1;font-size:13px}
+.linfo p{margin:0;color:var(--dim)}
+.linfo-x{background:none;border:0;color:var(--dim);font-size:18px;line-height:1;padding:0 2px;cursor:pointer}
+/* scene toolbar: label mode + full screen */
+.scene-tools2{position:absolute;right:10px;top:50%;transform:translateY(-50%);z-index:35;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.st-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;height:36px;min-width:36px;background:rgba(10,12,14,.8);border:1px solid var(--line2);border-radius:999px;color:var(--ink);
+  font:500 12px var(--fb);padding:0 9px;cursor:pointer;backdrop-filter:blur(4px)}
+.st-btn .st-txt{display:none}
+.st-btn:hover .st-txt,.st-btn:focus-visible .st-txt{display:inline}
+.st-btn:hover,.st-btn:focus-visible{border-color:var(--gold)}
+.st-ico{font:600 12px var(--fm);min-width:16px;text-align:center}.st-fs .st-ico{font-size:16px}.st-lab.m-off{color:var(--dim)}
+.st-lab.m-dots .st-ico{letter-spacing:-1px}
+/* full screen: native, or a fixed overlay where the API is missing (iPhone) */
+.scene-wrap:fullscreen{background:#05090d}
+.scene-wrap.fs-pseudo{position:fixed!important;inset:0;z-index:1000;width:100vw;height:100vh!important;height:100dvh!important;min-height:0!important;background:#05090d}
+html.fs-lock,html.fs-lock body{overflow:hidden}
+.scene-wrap.fs-on .scene-tools2{right:14px}
+button.lchip.ldot::after{display:none}
+.st-hint{position:absolute;right:58px;top:50%;transform:translateY(-50%);z-index:36;background:rgba(10,12,14,.9);border:1px solid var(--line2);border-radius:8px;padding:6px 10px;font-size:12px;color:var(--ink);max-width:min(240px,60%);pointer-events:none}

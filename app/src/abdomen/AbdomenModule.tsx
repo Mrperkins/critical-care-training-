@@ -17,6 +17,7 @@ import { AbdomenScene } from './AbdomenScene';
 import { UltrasoundScene } from './UltrasoundScene';
 import { useAbdUI, loadAbdPreset, currentAbdomen, ABD_PRESETS, type AbdPreset, type AbdView } from './abdomenStore';
 import { fastExam, shockClass, abdomenFindings, type AbdomenState } from './state';
+import { SceneWrap } from '../scene/labels';
 
 const FOCUS: [string, string][] = [['abdomen.whole', 'Whole'], ['abdomen.ruq', 'RUQ'], ['abdomen.luq', 'LUQ'], ['abdomen.pelvis', 'Pelvis'], ['abdomen.aorta', 'Aorta'], ['abdomen.retroperitoneum', 'Retroperitoneum'], ['abdomen.pancreas', 'Pancreas'], ['abdomen.bowel', 'Bowel'], ['abdomen.diaphragm', 'Diaphragm']];
 const useAbdomen = () => { const base = useAbdUI((s) => s.base); const minutes = useAbdUI((s) => s.minutes); return useMemo(() => currentAbdomen({ base, minutes }), [base, minutes]); };
@@ -32,7 +33,7 @@ export function AbdomenModule() {
   return (
     <main className="stage">
       <section className="scene-pane">
-        <div className="scene-wrap">{view === 'us' ? <UltrasoundScene /> : view === 'cta' ? <CtaScene /> : body ? <AbdomenScene body={body} /> : <div className="loading">{err ? `Could not load anatomy: ${err}` : 'Loading anatomy…'}</div>}<AbdOverlay /></div>
+        <SceneWrap>{view === 'us' ? <UltrasoundScene /> : view === 'cta' ? <CtaScene /> : body ? <AbdomenScene body={body} /> : <div className="loading">{err ? `Could not load anatomy: ${err}` : 'Loading anatomy…'}</div>}<AbdOverlay /></SceneWrap>
       </section>
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         {mode === 'challenge' ? <CaseChallenge module="abdomen" /> : mode === 'learn' ? <AbdLearn /> : <><PresetCard /><TimeCard /><FastCard /><ShockCard /><FindingsCard /></>}
@@ -43,9 +44,8 @@ export function AbdomenModule() {
 }
 
 function AbdOverlay() {
-  const target = useAbdUI((s) => s.target); const labels = useAbdUI((s) => s.labels); const view = useAbdUI((s) => s.view); const set = useAbdUI.getState().set; const st = useAbdomen(); const sc = shockClass(st); const hide = useHideFindings();
+  const target = useAbdUI((s) => s.target); const view = useAbdUI((s) => s.view); const set = useAbdUI.getState().set; const st = useAbdomen(); const sc = shockClass(st); const hide = useHideFindings();
   return (<>
-    <div className="scene-tools">{view === '3d' && <button className={`tgl${labels ? ' on' : ''}`} onClick={() => set({ labels: !labels })}>Labels</button>}</div>
     <div className="view-btns">{([['3d', '3D anatomy'], ['us', 'Ultrasound · FAST'], ['cta', 'CT angiogram']] as [AbdView, string][]).map(([k, l]) => <button key={k} className={view === k ? 'on' : ''} onClick={() => set({ view: k })}>{l}</button>)}</div>
     {view !== '3d' ? null : <>
     {!hide && <div className="alv-hud">

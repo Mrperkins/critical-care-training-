@@ -12,6 +12,7 @@ import { useFrame } from '@react-three/fiber';
 import { CameraControls, Html } from '@react-three/drei';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { StudioCanvas, IS_PHONE, GLSL_NOISE } from '../scene/Studio';
+import { LabelChip } from '../scene/labels';
 import { rbcGeometry, saturationColor as satColor, approach, budget, MotePool, SAT_PALETTE, frameDt, type Tier } from '../scene/effects';
 /** this scene uses the blue→red teaching palette so O₂ loading along the capillary is visible */
 const saturationColor = (sat: number, out?: THREE.Color) => satColor(sat, out, true);
@@ -357,9 +358,9 @@ function BarrierLabels() {
   const ws = barrierWidths(st); let x = -0.2;
   const tags = LAYERS.map((l, i) => { const c = x + ws[i] / 2; x += ws[i]; return { l: l.label, x: c, i }; });
   return (<>
-    <Html position={[-0.2 - GAS_W * 0.55, 0.75, 0]} center zIndexRange={[20, 0]}><div className="tag3d t-teal">Alveolar gas</div></Html>
-    {tags.map((t) => <Html key={t.l} position={[t.x, 0.62 - t.i * 0.19, BD / 2 + 0.02]} center zIndexRange={[20, 0]}><div className="tag3d tk">{t.l}</div></Html>)}
-    <Html position={[x + 0.2, -0.75, 0.3]} center zIndexRange={[20, 0]}><div className="tag3d t-red">Red cell</div></Html>
+    <Html position={[-0.2 - GAS_W * 0.55, 0.75, 0]} center zIndexRange={[20, 0]}><LabelChip className="tag3d t-teal" text="Alveolar gas" /></Html>
+    {tags.map((t) => <Html key={t.l} position={[t.x, 0.62 - t.i * 0.19, BD / 2 + 0.02]} center zIndexRange={[20, 0]}><LabelChip className="tag3d tk" text={t.l} /></Html>)}
+    <Html position={[x + 0.2, -0.75, 0.3]} center zIndexRange={[20, 0]}><LabelChip className="tag3d t-red" text="Red cell" /></Html>
   </>);
 }
 
@@ -377,7 +378,7 @@ function Callouts() {
   const rec = alvLive.glow.findIndex((g) => g > 0.2); if (rec >= 0) tags.push({ p: UNITS[rec].c.clone().add(new THREE.Vector3(0, R0 * 0.8, 0.4)), t: 'Recruited', c: 't-teal' });
   if (!IS_PHONE) tags.push({ p: new THREE.Vector3(-2.85, 0.0, 0.3), t: 'Alveolar duct' });
   if (!IS_PHONE) { tags.push({ p: new THREE.Vector3(-2.3, -1.95, -0.9), t: 'Arteriole (from RV)', c: 't-ven' }); tags.push({ p: new THREE.Vector3(3.05, 1.55, -0.9), t: 'Venule (to LA)', c: 't-art' }); }
-  return (<>{tags.map((g) => <Html key={g.t} position={g.p as never} center zIndexRange={[20, 0]}><div className={`tag3d${g.c ? ' ' + g.c : ''}`}>{g.t}</div></Html>)}</>);
+  return (<>{tags.map((g) => <Html key={g.t} position={g.p as never} center zIndexRange={[20, 0]}><LabelChip className={`tag3d${g.c ? ' ' + g.c : ''}`} text={g.t} /></Html>)}</>);
 }
 
 /* ------------------------------------------------------------------ semantic camera targets */

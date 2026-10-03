@@ -12,6 +12,7 @@ import { useFrame, useThree } from '@react-three/fiber';
 import { CameraControls, Html } from '@react-three/drei';
 import type { BodyAsset } from '../asset/body';
 import { StudioCanvas, IS_PHONE } from '../scene/Studio';
+import { LabelChip } from '../scene/labels';
 import { tubeAlong, approach, frameDt } from '../scene/effects';
 import { registerAnchors } from '../scene/cameraTargets';
 import { useAbdUI, currentAbdomen } from './abdomenStore';
@@ -107,15 +108,15 @@ function Abdomen({ body }: { body: BodyAsset }) {
 
 function Labels({ st }: { st: AbdomenState }) {
   const on = useAbdUI((s) => s.labels); if (!on) return null; const d = fluidDistribution(st);
-  const tag = (p: THREE.Vector3, t: string, c = '') => <Html key={t} position={p} center zIndexRange={[20, 0]}><div className={`tag3d tk ${c}`}>{t}</div></Html>;
+  const tag = (p: THREE.Vector3, t: string, c = '', info?: string) => <Html key={info ?? t} position={p} center zIndexRange={[20, 0]}><LabelChip className={`tag3d tk ${c}`} text={t} info={info} important={c === 't-red' || !!info} /></Html>;
   return (<>
     {tag(V(-0.55, 4.05, 0.9), 'Liver')}{tag(V(1.15, 3.95, -0.3), 'Spleen')}{tag(V(0.55, 4.25, 0.55), 'Stomach')}{tag(V(0.3, 3.2, 0.4), 'Pancreas')}
     {!IS_PHONE && tag(V(-0.85, 2.7, -0.4), 'R kidney')}{!IS_PHONE && tag(V(0.95, 2.75, -0.5), 'L kidney')}{tag(V(0.25, 1.6, -0.1), 'Aorta', 't-art')}{!IS_PHONE && tag(V(-0.4, 1.6, -0.1), 'IVC', 't-ven')}
     {tag(V(0.0, 1.35, 0.95), 'Small bowel')}{!IS_PHONE && tag(V(1.25, 1.1, 0.7), 'Colon')}{tag(V(0.0, 0.25, 0.6), 'Bladder')}{!IS_PHONE && tag(V(-1.25, 4.35, 0.2), 'Diaphragm')}
     {d.ruq > 45 && tag(ABD.ruq.clone().add(V(-0.45, 0.15, 0.6)), 'Morison’s pouch', 't-red')}{d.luq > 45 && tag(ABD.luq.clone().add(V(0.3, -0.35, 0.3)), 'Splenorenal', 't-red')}{d.pelvis > 36 && tag(ABD.pelvis.clone().add(V(0.5, -0.1, 0.4)), 'Pelvic fluid', 't-red')}
     {st.retroMl > 200 && tag(ABD.retro.clone().add(V(0.6, -0.4, -0.2)), 'Retroperitoneal haematoma', 't-red')}
-    {st.aaa.diameterCm > 3 && tag(ABD.aaa.clone().add(V(0.45, 0.2, 0.3)), `AAA ${st.aaa.diameterCm.toFixed(1)} cm`, 't-art')}
-    {st.freeAir && tag(V(0, 4.55, 0.5), 'Free air', 't-teal')}
+    {st.aaa.diameterCm > 3 && tag(ABD.aaa.clone().add(V(0.45, 0.2, 0.3)), `AAA ${st.aaa.diameterCm.toFixed(1)} cm`, 't-art', 'aaa')}
+    {st.freeAir && tag(V(0, 4.55, 0.5), 'Free air', 't-teal', 'free air')}
   </>);
 }
 

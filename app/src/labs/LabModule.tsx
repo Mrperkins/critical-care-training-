@@ -13,9 +13,10 @@ import { LAB } from '../knowledge/labs';
 import { sceneOf } from './cell/model';
 import { cellSpec } from './cellSpec';
 import { bench } from './bench';
-import { CellHud, CellStory, LabelsToggle } from './cell/CellHud';
+import { CellHud, CellStory } from './cell/CellHud';
 import { BloodHud, BloodStory } from './blood/BloodHud';
 import { bloodKindOf } from './blood/model';
+import { SceneWrap } from '../scene/labels';
 
 function LegacyKey() {
   useUI((s) => s.pulse); const lab = useLabUI((s) => s.lab); const on = useLabUI((s) => s.labelsOn); if (!on) return null;
@@ -31,11 +32,11 @@ export function LabModule() {
   return (
     <main className={`stage${view === 'cell' && (sceneOf(lab) || bloodKindOf(lab)) ? ' cellmode' : ''}`}>
       <section className="scene-pane">
-        <div className="scene-wrap">
+        <SceneWrap>
           {assets ? <LabScene body={assets.body} micro={assets.micro} /> : <div className="loading">{err ? `Could not load anatomy: ${err}` : 'Loading anatomy…'}</div>}
           <div className="view-btns"><button className={view === 'body' ? 'on' : ''} onClick={() => useLabUI.getState().set({ view: 'body' })}>Body</button><button className={view === 'cell' ? 'on' : ''} onClick={() => useLabUI.getState().set({ view: 'cell' })}>Cells · {LAB[lab].abbr}</button></div>
-          {view === 'cell' && sceneOf(lab) ? (assets && <CellHud />) : view === 'cell' && bloodKindOf(lab) ? (assets && <BloodHud />) : <div className="scene-tools"><span className="tgl on">{view === 'body' ? 'Tap an organ to see its labs' : 'Microscopic view'}</span>{view === 'cell' && <LabelsToggle />}{view === 'cell' && <LegacyKey />}</div>}
-        </div>
+          {view === 'cell' && sceneOf(lab) ? (assets && <CellHud />) : view === 'cell' && bloodKindOf(lab) ? (assets && <BloodHud />) : <div className="scene-tools"><span className="tgl on">{view === 'body' ? 'Tap an organ to see its labs' : 'Microscopic view'}</span>{view === 'cell' && <LegacyKey />}</div>}
+        </SceneWrap>
       </section>
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         {mode === 'explore' && <><LabList /><LabCard />{LAB[lab]?.group === 'Coagulation' && <CoagCard interactive />}{view === 'cell' && sceneOf(lab) && <CellStory />}{view === 'cell' && bloodKindOf(lab) && <BloodStory />}<Consequences /></>}

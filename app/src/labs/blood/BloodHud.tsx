@@ -6,7 +6,7 @@
 import { useEffect, useRef } from 'react';
 import { useUI } from '../../app/store';
 import { useLabUI } from '../labStore';
-import { LabelsToggle, GaugeHead } from '../cell/CellHud';
+import { GaugeHead } from '../cell/CellHud';
 import { blood } from './BloodScene';
 import { NORMAL_SEAL, type BloodModel, type BloodFocus } from './model';
 
@@ -24,7 +24,6 @@ export function BloodHud() {
   const n = m.chain.length; const step = ((ui.step % n) + n) % n; const cur = m.chain[step];
   return (
     <div className="cellhud">
-      <div className="ch-views"><LabelsToggle /></div>
       {m.kind === 'clot' ? <ClotPanel m={m} focus={cur?.focus} /> : <O2Panel m={m} focus={cur?.focus} />}
       <div className="ch-bottom">
         <Legend m={m} />

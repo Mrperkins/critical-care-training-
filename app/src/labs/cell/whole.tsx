@@ -4,6 +4,7 @@
  */
 import { useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
+import { LabelChip, useSceneLabelMode } from '../../scene/labels';
 import { useFrame, useThree } from '@react-three/fiber';
 import { Html } from '@react-three/drei';
 import { useLabUI, useLabelMode } from '../labStore';
@@ -65,11 +66,11 @@ function OrganelleLabels({ built }: { built: BuiltCell }) {
     }
   });
   if (mode !== 'organelles') return null;
-  return (<group>{keep.map((a, i) => <group key={a.key} position={a.pos} ref={(r) => { groups.current[i] = r; }}><Html zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><div className="oanc"><i className="odot" /><span className="oline" ref={(r) => { lines.current[i] = r; }} /><div className="olabel" ref={(r) => { labels.current[i] = r; }}>{a.label}</div></div></Html></group>)}</group>);
+  return (<group>{keep.map((a, i) => <group key={a.key} position={a.pos} ref={(r) => { groups.current[i] = r; }}><Html zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><div className="oanc"><i className="odot" /><span className="oline" ref={(r) => { lines.current[i] = r; }} /><LabelChip className="olabel" ref={(r) => { labels.current[i] = r as unknown as HTMLDivElement; }} text={a.label} info={`cell ${a.key}`} /></div></Html></group>)}</group>);
 }
 
 function TransportLabels({ sim, built }: { sim: CellSim; built: BuiltCell }) {
-  const mode = useLabelMode(); const on = mode === 'transport';
+  const mode = useLabelMode(); const on = mode === 'transport'; const shown = useSceneLabelMode() !== 'off';
   const kinds = useMemo(() => [...new Set(sim.sites.map((s) => s.kind))] as TransporterKind[], [sim]);
   const refs = useRef<(THREE.Group | null)[]>([]); const three = useThree(); const pick = useRef<Record<string, number>>({}); const clock = useRef(0);
   const tracer = useRef<THREE.Group>(null); const tracerText = useRef<HTMLDivElement>(null); const tracerP = useRef<Particle | null>(null);
@@ -90,8 +91,8 @@ function TransportLabels({ sim, built }: { sim: CellSim; built: BuiltCell }) {
   if (!on) return null;
   const o = built.def.out; const outside = new THREE.Vector3(o.cx - o.rx * 0.75, built.def.cut + 0.6, -o.rz * 0.55);
   return (<group>
-    {kinds.map((k, i) => <group key={k} ref={(r) => { refs.current[i] = r; }}><Html center zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><div className={`tag3d tk tk-${k}`}>{TRANSPORTERS[k].short}</div></Html></group>)}
-    <group position={outside}><Html center zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><div className="tag3d zone">Outside · extracellular fluid</div></Html></group>
-    <group ref={tracer}><Html zIndexRange={[21, 0]} style={{ pointerEvents: 'none' }}><div className="tracer" ref={tracerText} /></Html></group>
+    {kinds.map((k, i) => <group key={k} ref={(r) => { refs.current[i] = r; }}><Html center zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><LabelChip className={`tag3d tk tk-${k}`} text={TRANSPORTERS[k].short} /></Html></group>)}
+    <group position={outside}><Html center zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><LabelChip className="tag3d zone" text="Outside · extracellular fluid" info="extracellular fluid" /></Html></group>
+    {shown && <group ref={tracer}><Html zIndexRange={[21, 0]} style={{ pointerEvents: 'none' }}><div className="tracer" ref={tracerText} /></Html></group>}
   </group>);
 }

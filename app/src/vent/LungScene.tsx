@@ -10,6 +10,7 @@ import { CameraControls, Html } from '@react-three/drei';
 import type { RespAsset } from '../asset/resp';
 import { polylineAt } from '../asset/resp';
 import { StudioCanvas, GLSL_TRIPLANAR, tissueTexture, IS_PHONE, damp } from '../scene/Studio';
+import { LabelChip } from '../scene/labels';
 import { session } from './session';
 import { useUI } from '../app/store';
 
@@ -232,7 +233,7 @@ function Callouts({ asset, plugPos }: { asset: RespAsset; plugPos: THREE.Vector3
   if (!show) return null;
   const mp = asset.mapping; const L = mp.lobes;
   const tag = (pos: THREE.Vector3 | [number, number, number], text: string, key: string) => (
-    <Html key={key} position={pos as never} center distanceFactor={IS_PHONE ? 7 : 6} zIndexRange={[20, 0]}><div className="tag3d">{text}</div></Html>
+    <Html key={key} position={pos as never} center distanceFactor={IS_PHONE ? 7 : 6} zIndexRange={[20, 0]}><LabelChip className="tag3d" text={text} /></Html>
   );
   const out: JSX.Element[] = [];
   if (scId === 'ett') out.push(tag(polylineAt(mp.ett.centreline, 0.75), 'Secretions narrow the tube', 'ett'));

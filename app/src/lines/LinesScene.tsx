@@ -10,6 +10,7 @@ import * as THREE from 'three';
 import { useFrame, useThree } from '@react-three/fiber';
 import { CameraControls, Html } from '@react-three/drei';
 import { StudioCanvas, damp, IS_PHONE } from '../scene/Studio';
+import { LabelChip } from '../scene/labels';
 import type { BodyAsset } from '../asset/body';
 import type { LinesAsset } from '../asset/lines';
 import { lines } from './session';
@@ -149,14 +150,14 @@ function Patient({ body, asset }: { body: BodyAsset; asset: LinesAsset }) {
     const solid = skinM.opacity > 0.97; if (skinM.depthWrite !== solid) { skinM.depthWrite = solid; skinM.transparent = !solid; skinM.needsUpdate = true; }
     void st;
   });
-  const lbl = (text: string, p: V3 | THREE.Vector3, cls = '') => <group position={p as never}><Html center zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><div className={`blabel ${cls}`}>{text}</div></Html></group>;
+  const lbl = (text: string, p: V3 | THREE.Vector3, cls = '', info?: string) => <group position={p as never}><Html center zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><LabelChip className={`blabel ${cls}`} text={text} info={info} important={cls.includes('b-bad')} /></Html></group>;
   const heartClose = view === 'heart';
   return (
     <group ref={outer}>
       <mesh geometry={body.meshes.skin.geometry} material={skinM} renderOrder={10} />
       <mesh geometry={artTree} material={artM} /><mesh geometry={venTree} material={venM} />
-      {labels && view === 'vessels' && VESSEL_LABELS.map((l) => { const v = vessels.find((x) => x.id === l.id); if (!v) return null; const p = new THREE.CatmullRomCurve3(v.pts, false, 'centripetal').getPointAt(l.t); return <group key={l.id} position={bendPoint(p, lines.setup.hob)}><Html zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><div className={`blabel lead ${v.side === 'R' ? 'lead-l' : 'lead-r'} ${v.kind === 'artery' ? 'b-rbc' : 'b-o2'}`}>{l.text ?? v.name}</div></Html></group>; })}
-      {labels && view === 'vessels' && ([['Aorta', [0.14, 2.6, 0.2], 'r', 'b-rbc'], ['Inferior vena cava', [-0.2, 2.4, 0.1], 'l', 'b-o2'], ['Superior vena cava', [-0.3, 5.35, 0.2], 'l', 'b-o2'], ['Portal vein', [-0.2, 3.55, 0.25], 'l', 'b-plt'], ['Renal artery & vein', [0.6, 2.85, 0.05], 'r', ''], ['Pulmonary artery', [0.25, 5.3, 0.2], 'r', 'b-o2'], ['Celiac trunk / SMA', [0.12, 3.55, 0.4], 'r', 'b-rbc'], ['Iliac veins', [-0.3, 1.2, 0.2], 'l', 'b-o2']] as [string, V3, string, string][]).map(([t, p, side, c]) => <group key={t} position={bendPoint(new THREE.Vector3(...p), lines.setup.hob)}><Html zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><div className={`blabel lead lead-${side} ${c}`}>{t}</div></Html></group>)}
+      {labels && view === 'vessels' && VESSEL_LABELS.map((l) => { const v = vessels.find((x) => x.id === l.id); if (!v) return null; const p = new THREE.CatmullRomCurve3(v.pts, false, 'centripetal').getPointAt(l.t); return <group key={l.id} position={bendPoint(p, lines.setup.hob)}><Html zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><LabelChip className={`blabel lead ${v.side === 'R' ? 'lead-l' : 'lead-r'} ${v.kind === 'artery' ? 'b-rbc' : 'b-o2'}`} text={l.text ?? v.name} /></Html></group>; })}
+      {labels && view === 'vessels' && ([['Aorta', [0.14, 2.6, 0.2], 'r', 'b-rbc'], ['Inferior vena cava', [-0.2, 2.4, 0.1], 'l', 'b-o2'], ['Superior vena cava', [-0.3, 5.35, 0.2], 'l', 'b-o2'], ['Portal vein', [-0.2, 3.55, 0.25], 'l', 'b-plt'], ['Renal artery & vein', [0.6, 2.85, 0.05], 'r', ''], ['Pulmonary artery', [0.25, 5.3, 0.2], 'r', 'b-o2'], ['Celiac trunk / SMA', [0.12, 3.55, 0.4], 'r', 'b-rbc'], ['Iliac veins', [-0.3, 1.2, 0.2], 'l', 'b-o2']] as [string, V3, string, string][]).map(([t, p, side, c]) => <group key={t} position={bendPoint(new THREE.Vector3(...p), lines.setup.hob)}><Html zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><LabelChip className={`blabel lead lead-${side} ${c}`} text={t} /></Html></group>)}
       <group ref={inner}>
         {(['ra', 'la', 'rv', 'lv'] as const).map((k) => <mesh key={k} ref={(r) => { chambers.current[k] = r; }} geometry={M[k].geometry} material={mats[k]} renderOrder={5} />)}
         <mesh ref={(r) => { chambers.current.septum = r; }} geometry={M.septum.geometry} material={mats.lv} renderOrder={5} />
@@ -180,18 +181,18 @@ function Patient({ body, asset }: { body: BodyAsset; asset: LinesAsset }) {
           {lbl('Aorta', [0.35, 5.55, 0.45], 'b-rbc')}
           {lbl('Pulmonary artery', [0.55, 5.25, 0.5], 'b-o2')}
           {lbl('Superior vena cava', [-0.75, 5.5, 0.3], 'b-o2')}
-          {lbl(cvcKey ? 'Catheter tip — in the RV!' : 'CVC tip at the cavo-atrial junction', tipPos.clone().add(new THREE.Vector3(-0.55, -0.12, 0.3)), cvcKey ? 'b-bad' : '')}
+          {lbl(cvcKey ? 'Catheter tip — in the RV!' : 'CVC tip at the cavo-atrial junction', tipPos.clone().add(new THREE.Vector3(-0.55, -0.12, 0.3)), cvcKey ? 'b-bad' : '', cvcKey ? 'cvc tip in the rv' : 'cvc tip')}
         </>}
         {labels && view === 'neck' && <>
           {lbl('Right internal jugular vein', [-1.25, 6.55, 0.35], 'b-o2')}
           {lbl('Common carotid artery', [0.35, 6.75, 0.3], 'b-rbc')}
           {lbl('Central line enters here', CVC_ENTRY.clone().add(new THREE.Vector3(-0.35, 0.25, 0.2)))}
           {lbl('Superior vena cava', [-0.75, 5.45, 0.3], 'b-o2')}
-          {lbl(cvcKey ? 'Tip in the RV!' : 'Tip: cavo-atrial junction', tipPos.clone().add(new THREE.Vector3(-0.45, -0.1, 0.3)), cvcKey ? 'b-bad' : '')}
+          {lbl(cvcKey ? 'Tip in the RV!' : 'Tip: cavo-atrial junction', tipPos.clone().add(new THREE.Vector3(-0.45, -0.1, 0.3)), cvcKey ? 'b-bad' : '', cvcKey ? 'cvc tip in the rv' : 'cvc tip')}
         </>}
         {labels && view === 'wrist' && <>
           {lbl('Radial artery', wrist.clone().add(new THREE.Vector3(0.1, 0.9, 0.3)), 'b-rbc')}
-          {lbl(lines.art.fault === 'clot' ? 'Clot at the catheter tip' : '20 G arterial cannula', wrist.clone().add(new THREE.Vector3(-0.45, -0.15, 0.3)), lines.art.fault === 'clot' ? 'b-bad' : '')}
+          {lbl(lines.art.fault === 'clot' ? 'Clot at the catheter tip' : '20 G arterial cannula', wrist.clone().add(new THREE.Vector3(-0.45, -0.15, 0.3)), lines.art.fault === 'clot' ? 'b-bad' : '', lines.art.fault === 'clot' ? 'catheter clot' : 'arterial cannula')}
         </>}
         {labels && view === 'bed' && <>
           {lbl('Central line (right IJ)', CVC_ENTRY.clone().add(new THREE.Vector3(-0.6, 0.35, 0.4)), 'b-o2')}
@@ -255,10 +256,10 @@ function Pole({ asset }: { asset: LinesAsset }) {
     <mesh position={axisWorld}><sphereGeometry args={[0.12, 16, 12]} /><meshBasicMaterial color="#e9b949" /></mesh>
     {Math.abs(levelErr) >= 1.5 && <mesh position={[axisWorld.x, (th + axisH) / 2, axisWorld.z]}><cylinderGeometry args={[0.02, 0.02, Math.abs(axisH - th), 6]} /><meshBasicMaterial color="#e0645a" /></mesh>}
     {labels && (view === 'bed' || view === 'level') && <>
-      <group position={[axisWorld.x, axisWorld.y + 0.45, axisWorld.z]}><Html center zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><div className="blabel b-plt">Phlebostatic axis</div></Html></group>
-      <group position={[POLE.x + 0.4, th + 0.75, POLE.z + 0.6]}><Html center zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><div className={`blabel ${Math.abs(levelErr) < 1.5 ? '' : 'b-bad'}`}>{Math.abs(levelErr) < 1.5 ? (IS_PHONE ? 'Transducers level' : 'Transducers level with the axis') : `${IS_PHONE ? '' : 'Transducer '}${Math.abs(levelErr).toFixed(0)} cm ${levelErr > 0 ? 'below' : 'above'} axis → ${levelErr > 0 ? '+' : '−'}${Math.abs(lines.hydro()).toFixed(1)} mmHg`}</div></Html></group>
-      {!IS_PHONE && <group position={[POLE.x + 1.6, 15.2, POLE.z]}><Html center zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><div className={`blabel ${bag < 250 ? 'b-bad' : ''}`}>Pressure bag {Math.round(bag)} mmHg</div></Html></group>}
-      {aF === 'openAir' && <group position={[tA.x - 0.4, tA.y - 0.5, tA.z]}><Html center zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><div className="blabel b-bad">Stopcock open to air</div></Html></group>}
+      <group position={[axisWorld.x, axisWorld.y + 0.45, axisWorld.z]}><Html center zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><LabelChip className="blabel b-plt" text="Phlebostatic axis" /></Html></group>
+      <group position={[POLE.x + 0.4, th + 0.75, POLE.z + 0.6]}><Html center zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><LabelChip className={`blabel ${Math.abs(levelErr) < 1.5 ? '' : 'b-bad'}`} info="transducer level" important text={Math.abs(levelErr) < 1.5 ? (IS_PHONE ? 'Transducers level' : 'Transducers level with the axis') : `${IS_PHONE ? '' : 'Transducer '}${Math.abs(levelErr).toFixed(0)} cm ${levelErr > 0 ? 'below' : 'above'} axis → ${levelErr > 0 ? '+' : '−'}${Math.abs(lines.hydro()).toFixed(1)} mmHg`} /></Html></group>
+      {!IS_PHONE && <group position={[POLE.x + 1.6, 15.2, POLE.z]}><Html center zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><LabelChip className={`blabel ${bag < 250 ? 'b-bad' : ''}`} info="pressure bag" important text={`Pressure bag ${Math.round(bag)} mmHg`} /></Html></group>}
+      {aF === 'openAir' && <group position={[tA.x - 0.4, tA.y - 0.5, tA.z]}><Html center zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><LabelChip className="blabel b-bad" important text="Stopcock open to air" /></Html></group>}
     </>}
   </group>);
 }

@@ -9,6 +9,7 @@ import { useFrame } from '@react-three/fiber';
 import { CameraControls, Html } from '@react-three/drei';
 import type { BodyAsset } from '../asset/body';
 import { StudioCanvas, IS_PHONE, GLSL_NOISE } from '../scene/Studio';
+import { LabelChip } from '../scene/labels';
 import { tubeAlong, budget, approach, frameDt, type Tier } from '../scene/effects';
 import { registerAnchors } from '../scene/cameraTargets';
 import { useLabUI } from '../labs/labStore';
@@ -144,7 +145,7 @@ function VesselLabels({ vs }: { vs: CerebralVessel[] }) {
     ? [['m1_L', 0.6, 'MCA'], ['basilar', 0.5, 'Basilar'], ['a2_L', 0.35, 'ACA'], ['p2_L', 0.6, 'PCA']]
     : [['ica_L', 0.2, 'Internal carotid'], ['m1_L', 0.65, 'Middle cerebral (M1)'], ['a2_R', 0.3, 'Anterior cerebral'], ['p2_L', 0.6, 'Posterior cerebral'], ['basilar', 0.4, 'Basilar'], ['vert_R', 0.3, 'Vertebral']];
   return (<>{pick.map(([id, t, label]) => { const v = vs.find((x) => x.id === id); if (!v) return null; const p = new THREE.CatmullRomCurve3(v.pts, false, 'centripetal').getPointAt(t);
-    return <Html key={id} position={p} center zIndexRange={[20, 0]}><div className="tag3d tk t-art">{label}</div></Html>; })}</>);
+    return <Html key={id} position={p} center zIndexRange={[20, 0]}><LabelChip className="tag3d tk t-art" text={label} /></Html>; })}</>);
 }
 
 /* ------------------------------------------------------------------ brain + pathology */
@@ -192,7 +193,7 @@ function TerritoryTags({ frame }: { frame: BrainFrame }) {
   const on = useNeuroUI((s) => s.labels); const state = useNeuroUI((s) => s.state); const sys = useNeuroUI((s) => s.sys);
   if (!on) return null; const ts = territoryStates(state, sys);
   return (<>{TERRITORIES.filter((t) => ts[t].coreMl + ts[t].penumbraMl > 0.5).map((t) => { const c = TERRITORY_CORE[t]; const p = toBody(frame, [c[0] * 1.5, c[1] + 0.35, c[2]]);
-    return <Html key={t} position={p} center zIndexRange={[20, 0]}><div className="tag3d t-red">Core {Math.round(ts[t].coreMl)} mL · penumbra {Math.round(ts[t].penumbraMl)} mL</div></Html>; })}</>);
+    return <Html key={t} position={p} center zIndexRange={[20, 0]}><LabelChip className="tag3d t-red" info="core and penumbra" important text={`Core ${Math.round(ts[t].coreMl)} mL · penumbra ${Math.round(ts[t].penumbraMl)} mL`} /></Html>; })}</>);
 }
 
 /* ------------------------------------------------------------------ camera + anchors */

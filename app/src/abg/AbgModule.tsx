@@ -9,6 +9,7 @@ import { AbgPresets, AbgStory, SampleCards, AbgControls, AbgTime, AbgInterpret, 
 import { AbgLearn } from './AbgLearn';
 import { AbgChallenge } from './AbgChallenge';
 import { AbgSim } from './AbgSim';
+import { SceneWrap } from '../scene/labels';
 
 export function AbgModule() {
   const [assets, setAssets] = useState<{ resp: RespAsset; micro: MicroAsset } | null>(null); const [err, setErr] = useState<string | null>(null);
@@ -17,13 +18,13 @@ export function AbgModule() {
   return (
     <main className="stage">
       <section className="scene-pane">
-        <div className="scene-wrap">
+        <SceneWrap>
           {assets ? <AbgScene resp={assets.resp} micro={assets.micro} /> : <div className="loading">{err ? `Could not load anatomy: ${err}` : 'Loading anatomy…'}</div>}
           <StationNav />
           <div className="legend">
             <span><i style={{ background: '#b3120d' }} />Oxygenated blood</span><span><i style={{ background: '#3a0617' }} />Deoxygenated</span><span><i style={{ background: '#d6ecff' }} />O₂</span><span><i style={{ background: '#f2b25c' }} />CO₂</span><span><i style={{ background: '#e16ad0' }} />Lactate</span><span><i style={{ background: '#5fd0c4' }} />HCO₃⁻</span>
           </div>
-        </div>
+        </SceneWrap>
       </section>
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         {mode === 'explore' && <>

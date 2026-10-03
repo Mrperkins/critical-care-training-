@@ -18,6 +18,7 @@ import { useUI } from '../../app/store';
 import type { MicroAsset } from '../../asset/micro';
 import { bloodModel, type BloodModel, type BloodFocus } from './model';
 import { GLSL_NOISE } from '../../scene/Studio';
+import { LabelChip } from '../../scene/labels';
 
 export const L = 9, R = 1.3, CY = 0.35;
 const MAXR = 200, MAXW = 22, MAXP = 80, MAXO = 140, MAXB = 40, MAXPLUG = 70;
@@ -159,7 +160,7 @@ export function BloodScene({ micro }: { micro: MicroAsset }) {
     show('o2', !isClot); for (const k of ['wall', 'plasma', 'inlet', 'outlet', 'tissue']) show(k, true);
   });
 
-  const lbl = (k: string, text: string, pos: [number, number, number], cls = '') => <group key={k} ref={(r) => { tr.current[k] = r; }} position={pos}><Html center zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><div ref={(d) => { tv.current[k] = d; }} className={`blabel ${cls}`} style={{ display: 'none' }}>{text}</div></Html></group>;
+  const lbl = (k: string, text: string, pos: [number, number, number], cls = '') => <group key={k} ref={(r) => { tr.current[k] = r; }} position={pos}><Html center zIndexRange={[20, 0]} style={{ pointerEvents: 'none' }}><LabelChip ref={(d) => { tv.current[k] = d as unknown as HTMLDivElement; }} className={`blabel ${cls}`} style={{ display: 'none' }} text={text} important={cls.includes('b-bad')} /></Html></group>;
   return (
     <group>
       <mesh geometry={back} material={backM} />

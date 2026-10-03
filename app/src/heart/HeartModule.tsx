@@ -15,6 +15,7 @@ import { DirectorPlayer } from '../director/Player';
 import { HEART_LESSONS } from '../director/lessons/heart';
 import { SAT_PALETTE } from '../scene/effects';
 import { useLabUI, type VisualTier } from '../labs/labStore';
+import { SceneWrap } from '../scene/labels';
 
 const PRESETS: [HeartPresetId, string][] = [['normal', 'Normal'], ['vsdSmall', 'Small VSD'], ['vsdLarge', 'Large VSD'], ['vsdEisen', 'VSD · Eisenmenger'], ['asd', 'ASD'], ['pfo', 'PFO'], ['pfoValsalva', 'PFO · Valsalva'], ['pda', 'PDA'], ['newborn', 'Newborn · closing duct'], ['pphn', 'Newborn · PPHN']];
 const FOCUS: [string, string][] = [['heart.four_chamber', '4-chamber'], ['heart.septum', 'Septum'], ['heart.vsd', 'VSD'], ['heart.asd', 'ASD / PFO'], ['heart.lv', 'LV'], ['heart.rv', 'RV'], ['heart.pulmonary_outflow', 'Pulmonary outflow'], ['heart.pda', 'Duct']];
@@ -27,7 +28,7 @@ export function HeartModule() {
   return (
     <main className="stage">
       <section className="scene-pane">
-        <div className="scene-wrap"><HeartScene /><HeartOverlay /></div>
+        <SceneWrap><HeartScene /><HeartOverlay /></SceneWrap>
       </section>
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         {mode === 'challenge' ? <CaseChallenge module="heart" /> : mode === 'learn' ? <HeartLearn /> : <><PresetCard /><ControlsCard /><NeoSlot /><HemoCard /><WhyCard /></>}
@@ -38,12 +39,11 @@ export function HeartModule() {
 }
 
 function HeartOverlay() {
-  const target = useHeartUI((s) => s.target); const flow = useHeartUI((s) => s.mode); const labels = useHeartUI((s) => s.labels); const set = useHeartUI.getState().set;
+  const target = useHeartUI((s) => s.target); const flow = useHeartUI((s) => s.mode); const set = useHeartUI.getState().set;
   const input = useHeartUI((s) => s.input); const s = useMemo(() => solveShunt(input), [input]); const tier = useLabUI((s) => s.visualTier);
   const pct = (x: number) => `${Math.round(x * 100)}%`; const hide = useHideFindings();
   return (<>
     <div className="scene-tools">
-      <button className={`tgl${labels ? ' on' : ''}`} onClick={() => set({ labels: !labels })}>Labels</button>
       <div className="seg small" role="group" aria-label="Flow colour">{([['sat', 'O₂ saturation'], ['doppler', 'Colour Doppler']] as [FlowMode, string][]).map(([k, l]) => <button key={k} className={flow === k ? 'on' : ''} onClick={() => set({ mode: k })}>{l}</button>)}</div>
     </div>
     {!hide && <div className="alv-hud">

@@ -15,6 +15,7 @@ import { snapshotBench, restoreBench } from './benchAdapter';
 import { layout, ranks } from './layout';
 import { moaTimeline } from './moaTimeline';
 import type { MechKind, MechanismDefinition } from './types';
+import { SceneWrap } from '../scene/labels';
 
 const KIND: Record<MechKind, { c: string; name: string }> = {
   drug: { c: '#d3b27a', name: 'Drug' }, receptor: { c: '#a98bf0', name: 'Receptor' }, transducer: { c: '#5fd0c4', name: 'G protein / transducer' },
@@ -39,7 +40,7 @@ export function MoaModule() {
   return (
     <main className="stage moa-stage">
       <section className="scene-pane">
-        <div className="scene-wrap moa-wrap"><MechGraph def={def} /><Selectivity def={def} /></div>
+        <SceneWrap className="moa-wrap" labels={false}><MechGraph def={def} /><Selectivity def={def} /></SceneWrap>
       </section>
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         <ReturnBanner />
