@@ -313,13 +313,28 @@ so ingested media appear without rebuilding `index.html`. Overlay marks (`marks`
 | Licence evidence | Wikimedia Commons API extmetadata for File:Chest X-ray of pneumothorax.png: LicenseShortName = “CC BY 4.0”, UsageTerms = “Creative Commons Attribution 4.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AChest+X-ray+of+pneumothorax.png&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
 | Verified by | tools/clinical_media.py fetch |
 
-## Pending — staged, not yet in the app
+## lus-sliding-gillman2012 — Normal lung sliding
 
-Teaching content is written; the media has not been downloaded and the licence has not been verified from the source.
-
-| ID | Finding | Claimed licence | Source page |
-|---|---|---|---|
-| lus-sliding-gillman2012 | normal lung sliding | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv |
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/lus-sliding-gillman2012.mp4` · `imaging/real/lus-sliding-gillman2012.webm` · `imaging/real/lus-sliding-gillman2012.jpg` |
+| Clinical purpose | normal lung sliding (ptxlus) |
+| Creator / authors | Gillman L, Kirkpatrick A |
+| Source | Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv (from https://doi.org/10.1186/1757-7241-20-18) |
+| Licence | CC BY 2.0 — https://creativecommons.org/licenses/by/2.0 |
+| Modifications | Original OGV (theora, 640×480, 29.97 fps, 5.58 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; the scanner’s top status bar blacked out; frame timing normalised to a constant 29.97 fps (irregular source timestamps; speed unchanged); audio removed; no crop, mirroring, speed change or other filtering. Poster = frame at 1.0 s. |
+| Required attribution | Gillman L, Kirkpatrick A. Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv (from https://doi.org/10.1186/1757-7241-20-18). CC BY 2.0. |
+| Original title | Normal Lung Sliding. The hallmark of lung ultrasound illustrating the normal lung. The pleural line is seen below the rib shadows on either side. Lung sliding,  |
+| Source page | https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv |
+| Original media URL | https://upload.wikimedia.org/wikipedia/commons/a/ae/Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original |
+| DOI | 10.1186/1757-7241-20-18 |
+| Published | 2012 |
+| Retrieved | 2026-10-03T20:01Z |
+| Original format | video/ogg · 714,531 bytes · `Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv` |
+| Original SHA-256 | `44407556f0a526d14653a31b8331e27189b0e087cce92c3e9c76c4156e2e733d` |
+| Original preserved | Not redistributed here because the scanner status bar may show identifiers; the source URL and SHA-256 identify the original. |
+| Licence evidence | Wikimedia Commons API extmetadata for File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3APortable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
+| Verified by | tools/clinical_media.py fetch |
 
 ## Considered and rejected
 

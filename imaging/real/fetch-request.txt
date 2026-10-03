@@ -1,1 +1,0 @@
-Retry: normal lung sliding (Gillman & Kirkpatrick 2012 S1) — constant-rate fallback, status bar masked, original not kept.
