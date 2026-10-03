@@ -31,6 +31,8 @@ jobs:
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install -q numpy
       - name: Offline self-test
         run: python tools/test_clinical_media.py
+      - name: Discover candidates (lines starting 'discover' in the request file)
+        run: python tools/clinical_media.py discover --request imaging/real/fetch-request.txt --out imaging/real/source/discover.json
       - name: Fetch originals with licence evidence
         run: python tools/clinical_media.py fetch --out "$RUNNER_TEMP/media" ${{ github.event.inputs.only && format('--only {0}', github.event.inputs.only) || '' }}
       - name: Ingest (verify, transcode, promote)
@@ -38,7 +40,7 @@ jobs:
       - name: Validate
         run: python tools/validate_visual_assets.py
       - name: Keep the fetch record
-        run: mkdir -p imaging/real/source && for d in "$RUNNER_TEMP"/media/*/; do cp "$d/meta.json" "imaging/real/source/$(basename "$d").fetch.json"; done
+        run: shopt -s nullglob; mkdir -p imaging/real/source && for d in "$RUNNER_TEMP"/media/*/; do cp "$d/meta.json" "imaging/real/source/$(basename "$d").fetch.json"; done
       - name: Commit to visual-overhaul
         run: |
           git config user.name "clinical-media-bot"

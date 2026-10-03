@@ -469,14 +469,46 @@ def write_docs(m: dict) -> None:
         (REAL / name).write_text(fn(m))
 
 
+# ── discover (open internet): candidate files on Commons with their licence and description ───────────────────
+def commons_query(params: dict) -> list[dict]:
+    q = {'action': 'query', 'format': 'json', 'formatversion': '2', 'prop': 'imageinfo', 'iiprop': 'url|size|mime|extmetadata', **params}
+    doc = json.loads(get('https://commons.wikimedia.org/w/api.php?' + urllib.parse.urlencode(q)))
+    out = []
+    for pg in doc.get('query', {}).get('pages', []):
+        ii = (pg.get('imageinfo') or [{}])[0]; em = ii.get('extmetadata', {}); val = lambda k: strip_tags(em.get(k, {}).get('value', ''))
+        out.append({'title': pg['title'], 'license': norm_license(val('LicenseShortName')) or val('LicenseShortName'), 'mime': ii.get('mime'), 'bytes': ii.get('size'),
+                    'width': ii.get('width'), 'height': ii.get('height'), 'duration': ii.get('duration'), 'artist': val('Artist')[:160], 'date': val('DateTimeOriginal')[:40],
+                    'description': val('ImageDescription')[:600], 'url': ii.get('descriptionurl')})
+    return out
+
+
+def cmd_discover(a) -> None:
+    """Lines in the request file: `discover prefix: File:...` or `discover search: words` → JSON list of candidates."""
+    req = Path(a.request).read_text() if Path(a.request).exists() else ''
+    jobs = re.findall(r'^discover (prefix|search):\s*(.+?)\s*$', req, re.M)
+    if not jobs:
+        print('no discover lines'); return
+    res = {}
+    for kind, term in jobs:
+        try:
+            params = ({'generator': 'prefixsearch', 'gpssearch': term, 'gpsnamespace': '6', 'gpslimit': '50'} if kind == 'prefix'
+                      else {'generator': 'search', 'gsrsearch': term, 'gsrnamespace': '6', 'gsrlimit': '40'})
+            res[f'{kind}: {term}'] = commons_query(params)
+            gh('notice', 'discover', f"{kind} “{term}”: {len(res[f'{kind}: {term}'])} files")
+        except BaseException as e:
+            res[f'{kind}: {term}'] = {'error': f'{type(e).__name__}: {e}'}; gh('error', 'discover', f'{term}: {e}')
+    Path(a.out).parent.mkdir(parents=True, exist_ok=True); Path(a.out).write_text(json.dumps(res, indent=1, ensure_ascii=False) + '\n')
+
+
 def main(argv: list[str] | None = None) -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest='cmd', required=True)
     f = sub.add_parser('fetch'); f.add_argument('--out', required=True); f.add_argument('--only', nargs='*')
     i = sub.add_parser('ingest'); i.add_argument('--from', required=True); i.add_argument('--only', nargs='*')
     sub.add_parser('docs')
+    d = sub.add_parser('discover'); d.add_argument('--request', required=True); d.add_argument('--out', required=True)
     a = ap.parse_args(argv)
-    {'fetch': cmd_fetch, 'ingest': cmd_ingest, 'docs': lambda _a: write_docs(load())}[a.cmd](a)
+    {'fetch': cmd_fetch, 'ingest': cmd_ingest, 'discover': cmd_discover, 'docs': lambda _a: write_docs(load())}[a.cmd](a)
 
 
 if __name__ == '__main__':
