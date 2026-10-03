@@ -1,8 +1,0 @@
-Discovery run: list candidate CC0 / CC BY clips and films on Wikimedia Commons (no download).
-discover prefix: File:Clinician-performed-resuscitative-ultrasonography
-discover search: pericardial effusion ultrasound filetype:video
-discover search: cardiac tamponade echocardiography filetype:video
-discover search: lung sliding ultrasound filetype:video
-discover search: pneumothorax ultrasound filetype:video
-discover search: Chest X-ray of pneumothorax
-discover search: B-lines lung ultrasound filetype:video
