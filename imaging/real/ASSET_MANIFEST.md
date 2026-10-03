@@ -198,6 +198,121 @@ so ingested media appear without rebuilding `index.html`. Overlay marks (`marks`
 | Licence evidence | Wikimedia Commons API extmetadata for File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AClinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
 | Verified by | tools/clinical_media.py fetch |
 
+## lus-absent-sliding-gillman — Absent lung sliding
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/lus-absent-sliding-gillman.mp4` · `imaging/real/lus-absent-sliding-gillman.webm` · `imaging/real/lus-absent-sliding-gillman.jpg` · `imaging/real/source/lus-absent-sliding-gillman-source.ogv` |
+| Clinical purpose | absent lung sliding (ptxlus) |
+| Creator / authors | Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A |
+| Source | Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S4.ogv (from https://doi.org/10.1186/1757-7241-17-34) |
+| Licence | CC BY 2.0 — https://creativecommons.org/licenses/by/2.0 |
+| Modifications | Original OGV (theora, 640×480, 30.0 fps, 6.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s. |
+| Required attribution | Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A. Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S4.ogv (from https://doi.org/10.1186/1757-7241-17-34). CC BY 2.0. |
+| Original title | Absent Lung Sliding. Resuscitative ultrasound video illustrating the absence of lung sliding suggestive of a pneumothorax. |
+| Source page | https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S4.ogv |
+| Original media URL | https://upload.wikimedia.org/wikipedia/commons/f/f8/Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S4.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original |
+| DOI | 10.1186/1757-7241-17-34 |
+| Published | 2009 |
+| Retrieved | 2026-10-03T19:50Z |
+| Original format | video/ogg · 633,978 bytes · `Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S4.ogv` |
+| Original SHA-256 | `f64ed53a080b543f3bfec484c17b227afab1ed4611db4b80b38840ff51ff0a63` |
+| Original preserved | imaging/real/source/lus-absent-sliding-gillman-source.ogv |
+| Licence evidence | Wikimedia Commons API extmetadata for File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S4.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AClinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S4.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
+| Verified by | tools/clinical_media.py fetch |
+
+## ivc-collapse-gillman — IVC collapsing with each breath
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/ivc-collapse-gillman.mp4` · `imaging/real/ivc-collapse-gillman.webm` · `imaging/real/ivc-collapse-gillman.jpg` · `imaging/real/source/ivc-collapse-gillman-source.ogv` |
+| Clinical purpose | IVC collapsing with breathing (ivc) |
+| Creator / authors | Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A |
+| Source | Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S8.ogv (from https://doi.org/10.1186/1757-7241-17-34) |
+| Licence | CC BY 2.0 — https://creativecommons.org/licenses/by/2.0 |
+| Modifications | Original OGV (theora, 720×480, 29.97 fps, 6.002 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio removed; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s. |
+| Required attribution | Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A. Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S8.ogv (from https://doi.org/10.1186/1757-7241-17-34). CC BY 2.0. |
+| Original title | Ultrasound Assessment of Volume Status. Resuscitative ultrasound video illustrating complete collapse of the IVC with respiration, suggestive of hypovolemia. |
+| Source page | https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S8.ogv |
+| Original media URL | https://upload.wikimedia.org/wikipedia/commons/6/6d/Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S8.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original |
+| DOI | 10.1186/1757-7241-17-34 |
+| Published | 2009 |
+| Retrieved | 2026-10-03T19:50Z |
+| Original format | video/ogg · 1,573,758 bytes · `Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S8.ogv` |
+| Original SHA-256 | `26d6850215ba6d61a920d57eacd74eb8af781794d2e7f7edbd4d8dc14d29f7ed` |
+| Original preserved | imaging/real/source/ivc-collapse-gillman-source.ogv |
+| Licence evidence | Wikimedia Commons API extmetadata for File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S8.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AClinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S8.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
+| Verified by | tools/clinical_media.py fetch |
+
+## pleural-fluid-gillman — Large pleural effusion
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/pleural-fluid-gillman.mp4` · `imaging/real/pleural-fluid-gillman.webm` · `imaging/real/pleural-fluid-gillman.jpg` · `imaging/real/source/pleural-fluid-gillman-source.ogv` |
+| Clinical purpose | pleural effusion (pleuraleff) |
+| Creator / authors | Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A |
+| Source | Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S2.ogv (from https://doi.org/10.1186/1757-7241-17-34) |
+| Licence | CC BY 2.0 — https://creativecommons.org/licenses/by/2.0 |
+| Modifications | Original OGV (theora, 640×480, 30.0 fps, 10.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s. |
+| Required attribution | Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A. Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S2.ogv (from https://doi.org/10.1186/1757-7241-17-34). CC BY 2.0. |
+| Original title | Pleural Fluid. Resuscitative ultrasound video of a large pleural collection. |
+| Source page | https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S2.ogv |
+| Original media URL | https://upload.wikimedia.org/wikipedia/commons/3/39/Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S2.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original |
+| DOI | 10.1186/1757-7241-17-34 |
+| Published | 2009 |
+| Retrieved | 2026-10-03T19:51Z |
+| Original format | video/ogg · 1,579,529 bytes · `Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S2.ogv` |
+| Original SHA-256 | `9c0eff55d99fd3754359ea0c2552a9ab73f81169476611e08e743e0e1bee2979` |
+| Original preserved | imaging/real/source/pleural-fluid-gillman-source.ogv |
+| Licence evidence | Wikimedia Commons API extmetadata for File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S2.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AClinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S2.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
+| Verified by | tools/clinical_media.py fetch |
+
+## tamponade-ginghina — Cardiac tamponade — right-heart collapse
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/tamponade-ginghina.mp4` · `imaging/real/tamponade-ginghina.webm` · `imaging/real/tamponade-ginghina.jpg` · `imaging/real/source/tamponade-ginghina-source.ogv` |
+| Clinical purpose | cardiac tamponade (tamponade) |
+| Creator / authors | Ginghina C, Beladan C, Iancu M, Calin A, Popescu B |
+| Source | Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Respiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv |
+| Licence | CC BY 2.0 — https://creativecommons.org/licenses/by/2.0 |
+| Modifications | Original OGV (theora, 352×288, 25.0 fps, 0.803 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio removed; no crop, mirroring, speed change or filtering. Poster = frame at 0.3 s. |
+| Required attribution | Ginghina C, Beladan C, Iancu M, Calin A, Popescu B. Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Respiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv. CC BY 2.0. |
+| Original title | Phasic variation in cardiac volumes caused by cardiac tamponade, visualized in transthoracic apical 4 chamber view. The intermittent collapse of the free walls  |
+| Source page | https://commons.wikimedia.org/wiki/File:Respiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv |
+| Original media URL | https://upload.wikimedia.org/wikipedia/commons/c/c1/Respiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original |
+| DOI | — |
+| Published | 2009 |
+| Retrieved | 2026-10-03T19:51Z |
+| Original format | video/ogg · 177,592 bytes · `Respiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv` |
+| Original SHA-256 | `129691d5a07ded8944670359d35986dca61dc4b79d5a2aa9d5ff14a6ee7c5362` |
+| Original preserved | imaging/real/source/tamponade-ginghina-source.ogv |
+| Licence evidence | Wikimedia Commons API extmetadata for File:Respiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3ARespiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
+| Verified by | tools/clinical_media.py fetch |
+
+## ptx-series-bonilla — Pneumothorax — before and after a chest tube
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/ptx-series-bonilla.jpg` · `imaging/real/source/ptx-series-bonilla-source.png` |
+| Clinical purpose | pneumothorax before and after a chest tube (ptxseries) |
+| Creator / authors | Alex Bonilla, Alexander J. Blair, Suliman M. Alamro, Rebecca A. Ward, Michael B. Feldman, Richard A. Dutko, Theodora K. Karagounis, Adam L. Johnson, Erik E. Folch & Jatin M. Vyas |
+| Source | Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Chest_X-ray_of_pneumothorax.png |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0 |
+| Modifications | Converted to JPEG; padded by one black pixel to even dimensions; no crop, mirroring or filtering. |
+| Required attribution | Alex Bonilla, Alexander J. Blair, Suliman M. Alamro, Rebecca A. Ward, Michael B. Feldman, Richard A. Dutko, Theodora K. Karagounis, Adam L. Johnson, Erik E. Folch & Jatin M. Vyas. Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Chest_X-ray_of_pneumothorax.png. CC BY 4.0. |
+| Original title | Chest X-ray at initial presentation demonstrating a right-sided pneumothorax (arrow) and resolving right-sided pneumothorax after pigtail chest tube placement f |
+| Source page | https://commons.wikimedia.org/wiki/File:Chest_X-ray_of_pneumothorax.png |
+| Original media URL | https://upload.wikimedia.org/wikipedia/commons/9/9f/Chest_X-ray_of_pneumothorax.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original |
+| DOI | — |
+| Published | 2019-05-04 |
+| Retrieved | 2026-10-03T19:51Z |
+| Original format | image/png · 759,015 bytes · `Chest X-ray of pneumothorax.png` |
+| Original SHA-256 | `a1cf308751177271b79933dc907c4461818e7438f0b55627986ed454871c1dfe` |
+| Original preserved | imaging/real/source/ptx-series-bonilla-source.png |
+| Licence evidence | Wikimedia Commons API extmetadata for File:Chest X-ray of pneumothorax.png: LicenseShortName = “CC BY 4.0”, UsageTerms = “Creative Commons Attribution 4.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AChest+X-ray+of+pneumothorax.png&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
+| Verified by | tools/clinical_media.py fetch |
+
 ## Pending — staged, not yet in the app
 
 Teaching content is written; the media has not been downloaded and the licence has not been verified from the source.
@@ -205,11 +320,6 @@ Teaching content is written; the media has not been downloaded and the licence h
 | ID | Finding | Claimed licence | Source page |
 |---|---|---|---|
 | lus-sliding-gillman2012 | normal lung sliding | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv |
-| lus-absent-sliding-gillman | absent lung sliding | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S4.ogv |
-| ivc-collapse-gillman | IVC collapsing with breathing | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S8.ogv |
-| pleural-fluid-gillman | pleural effusion | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S2.ogv |
-| tamponade-ginghina | cardiac tamponade | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Respiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv |
-| ptx-series-bonilla | pneumothorax before and after a chest tube | CC BY 4.0 (unverified) | https://commons.wikimedia.org/wiki/File:Chest_X-ray_of_pneumothorax.png |
 
 ## Considered and rejected
 

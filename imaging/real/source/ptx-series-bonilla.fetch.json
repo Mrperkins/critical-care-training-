@@ -1,0 +1,21 @@
+{
+ "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Chest_X-ray_of_pneumothorax.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+ "pageUrl": "https://commons.wikimedia.org/wiki/File:Chest_X-ray_of_pneumothorax.png",
+ "originalName": "Chest X-ray of pneumothorax.png",
+ "mime": "image/png",
+ "bytes": 759015,
+ "sha1": "5299a8a279b4a75e4db63cffe442c5ffb6e8dc45",
+ "width": 1181,
+ "height": 1818,
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+ "licenseEvidence": "Wikimedia Commons API extmetadata for File:Chest X-ray of pneumothorax.png: LicenseShortName = “CC BY 4.0”, UsageTerms = “Creative Commons Attribution 4.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AChest+X-ray+of+pneumothorax.png&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+ "authors": "Alex Bonilla, Alexander J. Blair, Suliman M. Alamro, Rebecca A. Ward, Michael B. Feldman, Richard A. Dutko, Theodora K. Karagounis, Adam L. Johnson, Erik E. Folch & Jatin M. Vyas",
+ "credit": "https://jmedicalcasereports.biomedcentral.com/articles/10.1186/s13256-019-2215-4",
+ "published": "2019-05-04",
+ "description": "Chest X-ray at initial presentation demonstrating a right-sided pneumothorax (arrow) and resolving right-sided pneumothorax after pigtail chest tube placement for initial (a) and recurrent (b) spontaneous pneumothorax. (c) Sustained recovery from recurrent spontaneous pneumothorax two weeks after the removal of chest tubes",
+ "restrictions": "",
+ "id": "ptx-series-bonilla",
+ "retrieved": "2026-10-03T19:51Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

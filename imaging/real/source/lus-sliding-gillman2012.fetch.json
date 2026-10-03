@@ -1,0 +1,22 @@
+{
+ "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+ "pageUrl": "https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv",
+ "originalName": "Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv",
+ "mime": "application/ogg",
+ "bytes": 714531,
+ "sha1": "549901fcff47cf68a7d81adc7668b23cefe9ac1c",
+ "width": 640,
+ "height": 480,
+ "license": "CC BY 2.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+ "licenseEvidence": "Wikimedia Commons API extmetadata for File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3APortable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+ "authors": "Gillman L, Kirkpatrick A",
+ "credit": "Gillman L, Kirkpatrick A (2012). \" Portable bedside ultrasound: the visual stethoscope of the 21st century \". Scandinavian Journal of Trauma, Resuscitation and Emergency Medicine . DOI : 10.1186/1757-7241-20-18 . PMID 22400903 . PMC : 3352312 .",
+ "published": "2012",
+ "description": "Normal Lung Sliding. The hallmark of lung ultrasound illustrating the normal lung. The pleural line is seen below the rib shadows on either side. Lung sliding, the visual equivalent of breath sounds, can be seen as motion at the pleural line.",
+ "restrictions": "",
+ "doi": "10.1186/1757-7241-20-18",
+ "id": "lus-sliding-gillman2012",
+ "retrieved": "2026-10-03T19:50Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}
