@@ -644,3 +644,5 @@ button.lchip.ldot.q-hint{border-color:var(--gold)!important;animation:qpulse 1s 
 .gloss-seen{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}.gloss-seen .linklike{font-size:12px}
 .st-gloss .st-ico{font-size:10px;letter-spacing:-.5px}.st-gloss.on{border-color:var(--gold);color:var(--gold)}
 .phone .gloss{inset:6px 52px 6px 6px}
+.offline-card .chips{margin-top:6px}.offline-card .chip:disabled{opacity:.55}
+.scene-wrap .imaging{padding-right:58px}.phone .scene-wrap .imaging{padding-right:52px}

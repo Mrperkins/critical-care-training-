@@ -543,7 +543,8 @@
    },
    "fileSha256": "d7b8a6e7a95c53f412d8695abdaf1c1cb2b8db9b4b0222eb7e28eeaa2c564637",
    "webmSha256": "aa30ccf44d357286f511e408119f73ff740b3135409760c23a4d1499d343c062",
-   "posterSha256": "04384fc6e415d9b19f9b547ca6b9f0cb4b2693c17ba90d67dff382722f2a61a4"
+   "posterSha256": "04384fc6e415d9b19f9b547ca6b9f0cb4b2693c17ba90d67dff382722f2a61a4",
+   "order": 1
   },
   {
    "kind": "ijv",
@@ -758,7 +759,8 @@
    },
    "fileSha256": "84067ba016b08e847e40b1bad5d266ca06bf6c8dec24008f0339c6700dd406cb",
    "webmSha256": "96ee2346ea49e7e8841a357385e86cf49e65a62511463beac7182bc1121912f3",
-   "posterSha256": "14fb6233ff59cb0379922f74c2640b5da08655c84bf0dc107a00ccf848f701cf"
+   "posterSha256": "14fb6233ff59cb0379922f74c2640b5da08655c84bf0dc107a00ccf848f701cf",
+   "order": 3
   },
   {
    "kind": "ptxlus",
@@ -887,7 +889,8 @@
    "fileSha256": "2e877ab8e61b962ee020892d43cd13e8ce79e679bd34efff3409c3ee36326cd2",
    "webmSha256": "991f2e2b3cfe6035becc68ced71b4318839c70af48b023da868f05d813f6a99c",
    "posterSha256": "bdf3f0151cb34f3f110114bf9029f0d4ca75f0f11cc42aab5a0c17dac4c75127",
-   "findingLabel": "Show the finding"
+   "findingLabel": "Show the finding",
+   "order": 2
   },
   {
    "kind": "ivc",
@@ -1000,7 +1003,8 @@
    "fileSha256": "2fdb570ceef3619485ab1feb43b0152344fa2bd53684357023abec7b6ad9bde8",
    "webmSha256": "86bf4a4f312f8c4572b8d9c0324fb051f063911ebc28a4cd51a6467c71d01d81",
    "posterSha256": "72117b3a2c47e1ac490b4f3883e505cb8f839282a51a79f326442ee4b4f35faa",
-   "originalSha256": "26d6850215ba6d61a920d57eacd74eb8af781794d2e7f7edbd4d8dc14d29f7ed"
+   "originalSha256": "26d6850215ba6d61a920d57eacd74eb8af781794d2e7f7edbd4d8dc14d29f7ed",
+   "order": 2
   },
   {
    "kind": "pleuraleff",
@@ -1296,7 +1300,7 @@
    "modality": "Lung ultrasound",
    "finding": "normal lung sliding",
    "title": "Normal lung sliding",
-   "caption": "A real scan of normal lung: the bright pleural line between two rib shadows, shimmering back and forth as the patient breathes.",
+   "caption": "Linear-probe scan at the right lung apex (the authors’ on-screen note reads “R apex batwing sign”). The bright pleural line runs across the middle of the screen and shimmers back and forth with each breath — normal lung sliding.",
    "look": [
     "Two rib shadows — the “bat sign”",
     "The pleural line just below the ribs",
@@ -1319,7 +1323,38 @@
     "answer": 0,
     "explain": "Sliding needs the visceral pleura to move against the parietal pleura, so they must be in contact there. It says nothing about effusions elsewhere or about ventilation being adequate."
    },
-   "marks": [],
+   "marks": [
+    {
+     "layer": "landmark",
+     "label": "Chest wall",
+     "shape": "point",
+     "x": 0.52,
+     "y": 0.24
+    },
+    {
+     "layer": "landmark",
+     "label": "Pleural line — watch it shimmer",
+     "shape": "line",
+     "x": 0.52,
+     "y": 0.5,
+     "pts": [
+      [
+       0.32,
+       0.508
+      ],
+      [
+       0.52,
+       0.5
+      ],
+      [
+       0.72,
+       0.49
+      ]
+     ],
+     "lx": 0.52,
+     "ly": 0.47
+    }
+   ],
    "file": "lus-sliding-gillman2012.mp4",
    "webm": "lus-sliding-gillman2012.webm",
    "poster": "lus-sliding-gillman2012.jpg",
@@ -1327,8 +1362,8 @@
    "license": "CC BY 2.0",
    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
    "author": "Gillman L, Kirkpatrick A",
-   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv (from https://doi.org/10.1186/1757-7241-20-18)",
-   "credit": "Gillman & Kirkpatrick, Wikimedia Commons, 2012 · CC BY 2.0",
+   "source": "“Portable bedside ultrasound: the visual stethoscope of the 21st century”, Scandinavian Journal of Trauma, Resuscitation and Emergency Medicine 20:18 (2012), https://doi.org/10.1186/1757-7241-20-18 — supplementary video S1 (“Normal Lung Sliding”), via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv",
+   "credit": "Gillman & Kirkpatrick, Scand J Trauma Resusc Emerg Med 2012 · CC BY 2.0",
    "changes": "Original OGV (theora, 640×480, 29.97 fps, 5.58 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; the scanner’s top status bar blacked out; frame timing normalised to a constant 29.97 fps (irregular source timestamps; speed unchanged); audio removed; no crop, mirroring, speed change or other filtering. Poster = frame at 1.0 s.",
    "provenance": {
     "pageUrl": "https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv",
@@ -1366,7 +1401,8 @@
    },
    "fileSha256": "838181bd698876597a84424f1c5ecb492cc655ad76f504d6f0e3fda89fae5026",
    "webmSha256": "768d6d201234016e90685365f11fc8963dc58ec3aca208ba73b85a13f295fdab",
-   "posterSha256": "3e917d3ca6d7098b3a89fda97c63749928a6d1966b6e71a324ad6f36dffb873a"
+   "posterSha256": "3e917d3ca6d7098b3a89fda97c63749928a6d1966b6e71a324ad6f36dffb873a",
+   "order": 1
   }
  ],
  "rejected": [

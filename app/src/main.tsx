@@ -7,6 +7,9 @@ import { lab } from './abg/lab';
 import { useAbgUI } from './abg/abgStore';
 
 createRoot(document.getElementById('root')!).render(<App />);
+// offline support (published site only: the service worker file sits next to index.html)
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost') && !(window as unknown as { __NO_SW__?: boolean }).__NO_SW__)
+  window.addEventListener('load', () => { navigator.serviceWorker.register('sw.js').catch(() => undefined); });
 // hooks for automated checks
 (window as unknown as Record<string, unknown>).__ui = useUI;
 (window as unknown as Record<string, unknown>).__vent = session;

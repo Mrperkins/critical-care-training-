@@ -86,7 +86,7 @@ export function RealCaseCard({ it }: { it: RealItem }) {
 /** Every shipped item of this kind, as cases. Nothing renders until the media is ingested. */
 export function RealCase({ kind, title, card }: { kind: RealItem['kind']; title?: string; card?: boolean }) {
   const [items, setItems] = useState<RealItem[]>([]);
-  useEffect(() => { let on = true; loadReal().then((x) => on && setItems(x.filter((i) => i.kind === kind))); return () => { on = false; }; }, [kind]);
+  useEffect(() => { let on = true; loadReal().then((x) => on && setItems(x.filter((i) => i.kind === kind).sort((a, b) => (a.order ?? 99) - (b.order ?? 99)))); return () => { on = false; }; }, [kind]);
   if (!items.length) return null;
   return (
     <section className={`real rc-wrap${card ? ' card' : ''}`}>

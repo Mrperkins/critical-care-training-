@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 /** Overlay mark, normalised 0–1 to the media frame. Landmarks = normal anatomy; pathology = the finding. */
 export interface RealMark { layer: 'landmark' | 'pathology'; label: string; shape: 'ellipse' | 'line' | 'point'; x: number; y: number; rx?: number; ry?: number; pts?: [number, number][]; lx?: number; ly?: number }
 export interface RealItem {
-  file: string; poster?: string; webm?: string; posterAt?: number;
+  file: string; poster?: string; webm?: string; posterAt?: number; /** display order within a kind */ order?: number;
   /** xray / lus: comparison strips; ptx / fast / ivc / ijv: single-case teaching items (RealCase) */
   kind: 'xray' | 'lus' | 'ptx' | 'fast' | 'ivc' | 'ijv' | 'ptxlus' | 'pleuraleff' | 'tamponade' | 'ptxseries'; id: string; title: string; caption: string; look: string[];
   teach?: string[]; quiz?: { q: string; options: string[]; answer: number; explain: string }; marks?: RealMark[];

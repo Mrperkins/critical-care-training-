@@ -115,9 +115,9 @@ Real, openly licensed clinical images shown beside the synthetic ones. Only CC0 
 - Changes: Converted to JPEG; padded by one black pixel to even dimensions; no crop, mirroring or filtering.
 
 ## lus-sliding-gillman2012.mp4
-- Normal lung sliding — A real scan of normal lung: the bright pleural line between two rib shadows, shimmering back and forth as the patient breathes.
+- Normal lung sliding — Linear-probe scan at the right lung apex (the authors’ on-screen note reads “R apex batwing sign”). The bright pleural line runs across the middle of the screen and shimmers back and forth with each breath — normal lung sliding.
 - Author: Gillman L, Kirkpatrick A
-- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv (from https://doi.org/10.1186/1757-7241-20-18)
+- Source: “Portable bedside ultrasound: the visual stethoscope of the 21st century”, Scandinavian Journal of Trauma, Resuscitation and Emergency Medicine 20:18 (2012), https://doi.org/10.1186/1757-7241-20-18 — supplementary video S1 (“Normal Lung Sliding”), via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv
 - Licence: CC BY 2.0 (https://creativecommons.org/licenses/by/2.0)
 - Changes: Original OGV (theora, 640×480, 29.97 fps, 5.58 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; the scanner’s top status bar blacked out; frame timing normalised to a constant 29.97 fps (irregular source timestamps; speed unchanged); audio removed; no crop, mirroring, speed change or other filtering. Poster = frame at 1.0 s.
 

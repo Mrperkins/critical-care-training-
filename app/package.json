@@ -6,7 +6,7 @@
   "test": "vitest run",
   "typecheck": "tsc --noEmit",
   "build": "tsx scripts/build-app.ts",
-  "site": "tsx scripts/label-index.ts && tsx scripts/build-app.ts && node scripts/copy-site.mjs",
+  "site": "tsx scripts/label-index.ts && tsx scripts/review-packet.ts && tsx scripts/build-app.ts && node scripts/copy-site.mjs",
   "asset:body": "tsx pipeline/build-body.ts",
   "asset:resp": "tsx pipeline/build-resp.ts",
   "asset:micro": "tsx pipeline/build-micro.ts",

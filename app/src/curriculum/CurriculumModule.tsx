@@ -5,6 +5,7 @@ import { useProgress, weakTopics, domainProgress, missingPrereqs } from './progr
 import { titleOf } from './titles';
 import { openLesson, openDrug, openChallenge } from '../app/navigate';
 import { MECH } from '../moa/registry';
+import { OfflineCard } from '../app/Offline';
 
 const KIND: Record<Kind, string> = { director: 'Signature', step: 'Step lesson', workflow: 'Procedure' };
 const MOD: Record<Entry['module'], string> = { vent: 'Ventilator', abg: 'Blood gas', labs: 'Labs', lines: 'Lines', neuro: 'Brain', heart: 'Heart', abdomen: 'Abdomen' };
@@ -35,6 +36,7 @@ export function CurriculumModule() {
           <Chips label="Kind" all={['director', 'step', 'workflow'] as Kind[]} value={kind} onChange={setKind} />
           <label className="cur-hide"><input type="checkbox" checked={hideDone} onChange={(e) => setHideDone(e.target.checked)} /> Hide completed</label>
         </section>
+        <OfflineCard />
 
         <div className="cur-cols">
           <section className="card">

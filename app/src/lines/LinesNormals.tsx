@@ -3,7 +3,7 @@ import { useUI } from '../app/store';
 import { lines } from './session';
 
 type Row = { label: string; normal: string; unit: string; note?: string; live?: () => number | null; band?: [number | null, number | null]; digits?: number };
-const G: { title: string; blurb?: string; rows: Row[] }[] = [
+export const LINES_NORMALS: { title: string; blurb?: string; rows: Row[] }[] = [
   { title: 'Arterial pressure', blurb: 'Radial arterial line in an adult. Treat the MAP: it is the least affected by damping and by where the catheter sits.', rows: [
     { label: 'Systolic', normal: '90–140', unit: 'mmHg', note: 'Radial systolic runs a few to 15 mmHg higher than central aortic (peripheral amplification; less in the elderly).', live: () => lines.num.sys, band: [90, 140] },
     { label: 'Diastolic', normal: '60–90', unit: 'mmHg', live: () => lines.num.dia, band: [60, 90] },
@@ -33,7 +33,7 @@ export function LinesNormals() {
   return (
     <div className="normals">
       <p className="muted small">Typical adult values; local protocols differ. The right-hand column is the simulated patient right now, as the monitor measures it.</p>
-      {G.map((g) => (
+      {LINES_NORMALS.map((g) => (
         <section key={g.title} className="card">
           <h3 className="nm-h">{g.title}</h3>{g.blurb && <p className="muted small nm-b">{g.blurb}</p>}
           <div className="nm-table" role="table">
