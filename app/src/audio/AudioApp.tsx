@@ -99,13 +99,14 @@ function Reps({ onRep }: { onRep: (r: MentalRep) => void }) {
 
 function Review() {
   const p = useAudioProgress(); const [cursor, setCursor] = useState(0); const [choice, setChoice] = useState<number | null>(null); const [confidence, setConfidence] = useState(60); const [revealed, setRevealed] = useState(false);
-  const due = duePrompts(p.mastery); const pool = due.length ? due : REVIEW_PROMPTS; const q = pool[cursor % pool.length];
+  const [sessionIds] = useState(() => { const d = duePrompts(useAudioProgress.getState().mastery); return (d.length ? d : REVIEW_PROMPTS).map((q) => q.id); });
+  const liveDue = duePrompts(p.mastery); const pool = sessionIds.map((id) => REVIEW_PROMPTS.find((q) => q.id === id)!).filter(Boolean); const q = pool[cursor % pool.length];
   const submit = () => { if (choice == null) return; p.recordConcept(q.concept, choice === q.answer, confidence); setRevealed(true); };
   const next = () => { setChoice(null); setConfidence(60); setRevealed(false); setCursor((x) => x + 1); };
   const c = MASTERY_BY_ID[q.concept]; const correct = choice === q.answer;
   const calibration = !revealed ? '' : correct && confidence <= 40 ? 'Correct, but you were under-confident — useful knowledge that is not yet fluent.' : !correct && confidence >= 80 ? 'High-confidence miss — prioritize this concept. These are the blind spots expert training should expose.' : correct && confidence >= 80 ? 'Correct and well calibrated.' : !correct ? 'Missed with appropriate uncertainty. Review the model, then retrieve it again later.' : 'Correct. Keep building retrieval strength.';
   return <div className="aa-page"><PageHead kicker="SPACED REVIEW" title="Accuracy is only half the signal." body="Retrieve first. Then tell the system how confident you were. Reviews recur sooner when accuracy or confidence calibration is weak." />
-    <div className="aa-reviewmeta"><span>{due.length ? `${due.length} due now` : 'No reviews overdue — optional practice'}</span><span>{c?.name}</span><span>Level {c?.level}</span></div>
+    <div className="aa-reviewmeta"><span>{liveDue.length ? `${liveDue.length} due now` : 'No reviews overdue — optional practice'}</span><span>{c?.name}</span><span>Level {c?.level}</span></div>
     <section className="aa-reviewcard"><span className="aa-kicker">QUESTION {cursor + 1}</span><h2>{q.question}</h2>
       <div className="aa-reviewopts">{q.options.map((o, i) => <button key={o} disabled={revealed} className={revealed ? i === q.answer ? 'ok' : i === choice ? 'bad' : '' : choice === i ? 'on' : ''} onClick={() => setChoice(i)}><span>{String.fromCharCode(65 + i)}</span>{o}</button>)}</div>
       <div className="aa-confidence"><div><b>How confident are you?</b><span>{confidence}%</span></div><input type="range" min="20" max="100" step="20" value={confidence} disabled={revealed} onChange={(e) => setConfidence(+e.target.value)} /><div className="aa-conf-labels"><span>guessing</span><span>certain</span></div></div>
