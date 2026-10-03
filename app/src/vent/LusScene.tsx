@@ -47,7 +47,8 @@ export function LusScene() {
         <figure className="img-panel lus-m"><canvas ref={mref} aria-label={hide ? 'M-mode' : `M-mode, ${z.mmode}`} /><figcaption>M-mode{hide ? '' : ` · ${z.mmode}`}</figcaption></figure>
         <section className="cxr-find"><h4>{LUS_ZONES.find((x) => x.id === sel)!.name}</h4>{hide ? <p className="muted small">Reading hidden while you answer — tap each zone and watch the pleural line and the M-mode.</p> : <><p className="small">{z.pattern}.</p><h4>Reading</h4><ul>{lusSummary(zs).map((l) => <li key={l}>{l}</li>)}</ul></>}</section>
       </div>
-      {!hide && zs.some((x) => x.lungPoint || (!x.sliding && !x.lungPulse)) && <RealCase kind="ptxlus" title="Real lung point" />}
+      {!hide && zs.some((x) => x.lungPoint || (!x.sliding && !x.lungPulse)) && <RealCase kind="ptxlus" title="Real pneumothorax ultrasound" />}
+      {!hide && zs.some((x) => x.effusion > 0.05) && <RealCase kind="pleuraleff" title="Real pleural effusion" />}
       {!hide && <RealExamples kind="lus" title="Real lung ultrasound" />}
       <div className="img-bar"><p className="img-note">Synthetic lung ultrasound drawn from the ventilator model’s state (linear probe, 4 × 6 cm). Patterns follow standard lung-ultrasound teaching; not patient images except the labelled real clips.</p></div>
     </div>

@@ -625,3 +625,13 @@ html.fs-lock,html.fs-lock body{overflow:hidden}
 .scene-wrap.fs-on .scene-tools2{right:14px}
 button.lchip.ldot::after{display:none}
 .st-hint{position:absolute;right:58px;top:50%;transform:translateY(-50%);z-index:36;background:rgba(10,12,14,.9);border:1px solid var(--line2);border-radius:8px;padding:6px 10px;font-size:12px;color:var(--ink);max-width:min(240px,60%);pointer-events:none}
+.lquiz{position:absolute;left:50%;top:54px;transform:translateX(-50%);z-index:38;width:min(380px,calc(100% - 90px));background:rgba(12,14,17,.95);border:1px solid rgba(230,196,120,.5);border-radius:12px;padding:9px 12px;font-size:12.5px;box-shadow:0 8px 28px rgba(0,0,0,.45)}
+.lquiz p{margin:4px 0 0;line-height:1.4}.lquiz .ok{color:var(--ok)}.lquiz .bad{color:var(--bad)}
+.lquiz-h{display:flex;align-items:baseline;gap:8px}.lquiz-h b{flex:1;font-size:15px}.lquiz-score{font:600 12px var(--fm);color:var(--gold)}
+.lquiz-b{display:flex;gap:6px;justify-content:flex-end;margin-top:7px}.lquiz-b .chip{padding:3px 10px;font-size:12px}
+.st-quiz.on{border-color:var(--gold);color:var(--gold)}
+button.lchip.ldot.q-ok{border-color:var(--ok)!important;box-shadow:0 0 0 4px rgba(90,200,120,.35)}
+button.lchip.ldot.q-bad{border-color:var(--bad)!important;box-shadow:0 0 0 4px rgba(224,100,90,.35)}
+button.lchip.ldot.q-hint{border-color:var(--gold)!important;animation:qpulse 1s ease-in-out infinite}
+@keyframes qpulse{0%,100%{box-shadow:0 0 0 0 rgba(230,196,120,.6)}50%{box-shadow:0 0 0 9px rgba(230,196,120,0)}}
+.phone .lquiz{top:44px;width:calc(100% - 70px)}

@@ -10,11 +10,11 @@ const src = (d: string): string[] => fs.readdirSync(d, { withFileTypes: true }).
 describe('real clinical media', () => {
   it('every RealCase kind used in a lesson has shipped or staged media', () => {
     const used = new Set(src('src').flatMap((f) => [...fs.readFileSync(f, 'utf8').matchAll(/<RealCase kind="(\w+)"/g)].map((m) => m[1])));
-    expect([...used].sort()).toEqual(['fast', 'ijv', 'ivc', 'ptx', 'ptxlus']);
+    expect([...used].sort()).toEqual(['fast', 'ijv', 'ivc', 'pleuraleff', 'ptx', 'ptxlus', 'ptxseries', 'tamponade']);
     for (const k of used) expect(all.some((i) => i.kind === k), k).toBe(true);
   });
   it('teaching items commit before reveal: a quiz with a valid answer, look-fors and teaching points', () => {
-    for (const it of all.filter((i) => ['ptx', 'fast', 'ivc', 'ijv', 'ptxlus'].includes(i.kind))) {
+    for (const it of all.filter((i) => ['ptx', 'fast', 'ivc', 'ijv', 'ptxlus', 'pleuraleff', 'tamponade', 'ptxseries'].includes(i.kind))) {
       expect(it.quiz, it.id).toBeTruthy();
       expect(it.quiz!.answer).toBeGreaterThanOrEqual(0); expect(it.quiz!.answer).toBeLessThan(it.quiz!.options.length);
       expect(new Set(it.quiz!.options).size).toBe(it.quiz!.options.length);
@@ -46,8 +46,7 @@ describe('real clinical media — frame-specific teaching', () => {
       expect(by[id], id).toBeTruthy(); expect(by[id].marks!.length).toBeGreaterThanOrEqual(3);
       if (id !== 'ptx-expiratory') { expect(by[id].webm).toMatch(/\.webm$/); expect(by[id].file).toMatch(/\.mp4$/); expect(by[id].posterAt).toBeGreaterThan(0); }
     }
-    expect((man.pending ?? []).map((p) => p.kind)).not.toEqual(expect.arrayContaining(['ptx']));
-    for (const k of ['ptx', 'fast', 'ivc', 'ijv']) expect((man.pending ?? []).some((p) => p.kind === k)).toBe(false);
+    for (const id of ['ptx-expiratory', 'fast-ruq-positive', 'ivc-2026-video-s1', 'ijv-2026-video-s2']) expect((man.pending ?? []).some((p) => p.id === id)).toBe(false);
   });
   it('the pneumothorax is taught as LEFT, and its pathology marks sit on the image right (the “Sin” side)', () => {
     const p = by['ptx-expiratory'];

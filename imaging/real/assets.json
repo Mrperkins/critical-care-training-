@@ -154,5 +154,71 @@
    "poster": "imaging/real/lus-lung-point-gillman.jpg",
    "mp4": "imaging/real/lus-lung-point-gillman.mp4"
   }
+ },
+ {
+  "id": "lus-sliding-gillman2012",
+  "status": "pending",
+  "type": "ultrasound",
+  "modality": "Lung ultrasound",
+  "finding": "normal lung sliding",
+  "license": "CC BY 2.0",
+  "licenseVerified": false,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv",
+  "localSources": {}
+ },
+ {
+  "id": "lus-absent-sliding-gillman",
+  "status": "pending",
+  "type": "ultrasound",
+  "modality": "Lung ultrasound",
+  "finding": "absent lung sliding",
+  "license": "CC BY 2.0",
+  "licenseVerified": false,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S4.ogv",
+  "localSources": {}
+ },
+ {
+  "id": "ivc-collapse-gillman",
+  "status": "pending",
+  "type": "ultrasound",
+  "modality": "IVC POCUS",
+  "finding": "IVC collapsing with breathing",
+  "license": "CC BY 2.0",
+  "licenseVerified": false,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S8.ogv",
+  "localSources": {}
+ },
+ {
+  "id": "pleural-fluid-gillman",
+  "status": "pending",
+  "type": "ultrasound",
+  "modality": "Thoracic ultrasound",
+  "finding": "pleural effusion",
+  "license": "CC BY 2.0",
+  "licenseVerified": false,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S2.ogv",
+  "localSources": {}
+ },
+ {
+  "id": "tamponade-ginghina",
+  "status": "pending",
+  "type": "ultrasound",
+  "modality": "Echocardiography",
+  "finding": "cardiac tamponade",
+  "license": "CC BY 2.0",
+  "licenseVerified": false,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Respiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv",
+  "localSources": {}
+ },
+ {
+  "id": "ptx-series-bonilla",
+  "status": "pending",
+  "type": "xray",
+  "modality": "Chest X-ray",
+  "finding": "pneumothorax before and after a chest tube",
+  "license": "CC BY 4.0",
+  "licenseVerified": false,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chest_X-ray_of_pneumothorax.png",
+  "localSources": {}
  }
 ]

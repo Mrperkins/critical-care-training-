@@ -198,6 +198,19 @@ so ingested media appear without rebuilding `index.html`. Overlay marks (`marks`
 | Licence evidence | Wikimedia Commons API extmetadata for File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AClinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
 | Verified by | tools/clinical_media.py fetch |
 
+## Pending — staged, not yet in the app
+
+Teaching content is written; the media has not been downloaded and the licence has not been verified from the source.
+
+| ID | Finding | Claimed licence | Source page |
+|---|---|---|---|
+| lus-sliding-gillman2012 | normal lung sliding | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv |
+| lus-absent-sliding-gillman | absent lung sliding | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S4.ogv |
+| ivc-collapse-gillman | IVC collapsing with breathing | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S8.ogv |
+| pleural-fluid-gillman | pleural effusion | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S2.ogv |
+| tamponade-ginghina | cardiac tamponade | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Respiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv |
+| ptx-series-bonilla | pneumothorax before and after a chest tube | CC BY 4.0 (unverified) | https://commons.wikimedia.org/wiki/File:Chest_X-ray_of_pneumothorax.png |
+
 ## Considered and rejected
 
 - Open Critical Care anesthesia POCUS pocket card (2022): No licence stated; images credited “courtesy of” third parties (JACC, austincc.edu, echocardiographer.org). Used for facts only, in our own words.

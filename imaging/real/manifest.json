@@ -786,5 +786,245 @@
    "source": "CC BY-SA alternative IVC clip offered in the asset bundle",
    "reason": "Share-alike is not on this project’s accepted list — kept out, as the bundle recommends."
   }
+ ],
+ "pending": [
+  {
+   "id": "lus-sliding-gillman2012",
+   "kind": "ptxlus",
+   "type": "ultrasound",
+   "modality": "Lung ultrasound",
+   "finding": "normal lung sliding",
+   "title": "Normal lung sliding",
+   "caption": "A real scan of normal lung: the bright pleural line between two rib shadows, shimmering back and forth as the patient breathes.",
+   "look": [
+    "Two rib shadows — the “bat sign”",
+    "The pleural line just below the ribs",
+    "Shimmering movement along the pleural line",
+    "A-lines below it in aerated lung"
+   ],
+   "teach": [
+    "Sliding means the two pleural layers are touching at that spot — a pneumothorax is ruled out under the probe.",
+    "Check the front of the chest first when supine: that is where pleural air rises.",
+    "Sliding can be absent without a pneumothorax (apnoea, mainstem intubation, pleurodesis, adhesions)."
+   ],
+   "quiz": {
+    "q": "What does visible lung sliding under the probe tell you?",
+    "options": [
+     "No pneumothorax at this spot",
+     "The lung is fully aerated",
+     "There is no pleural effusion",
+     "The patient is breathing adequately"
+    ],
+    "answer": 0,
+    "explain": "Sliding needs the visceral pleura to move against the parietal pleura, so they must be in contact there. It says nothing about effusions elsewhere or about ventilation being adequate."
+   },
+   "marks": [],
+   "fetch": {
+    "type": "commons",
+    "title": "File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv"
+   },
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv",
+   "licenseClaimed": "CC BY 2.0",
+   "claimedBy": "Found by the Commons discovery run (imaging/real/source/discover.json), 2026-10-03; licence verified by the fetch.",
+   "articleDoi": "10.1186/1757-7241-20-18"
+  },
+  {
+   "id": "lus-absent-sliding-gillman",
+   "kind": "ptxlus",
+   "type": "ultrasound",
+   "modality": "Lung ultrasound",
+   "finding": "absent lung sliding",
+   "title": "Absent lung sliding",
+   "caption": "A real scan where the pleural line stays still with each breath — the pattern of a pneumothorax, until a lung point confirms it.",
+   "look": [
+    "The pleural line between the rib shadows",
+    "No shimmer or to-and-fro movement",
+    "A-lines persist below",
+    "No B-lines"
+   ],
+   "teach": [
+    "Absent sliding fits a pneumothorax but is not specific: apnoea, mainstem intubation, pleurodesis and adhesions also stop it.",
+    "Look for a lung point to confirm, and for B-lines or a lung pulse to exclude.",
+    "In a crashing patient with absent sliding and a tension picture, decompress — do not wait for a lung point."
+   ],
+   "quiz": {
+    "q": "Absent sliding with A-lines and no B-lines means…",
+    "options": [
+     "A pneumothorax is likely — look for a lung point",
+     "A pneumothorax is certain",
+     "The lung is normal",
+     "There is a pleural effusion"
+    ],
+    "answer": 0,
+    "explain": "This pattern is suggestive, not proof. The lung point is the specific sign; B-lines or a lung pulse exclude a pneumothorax at that spot."
+   },
+   "marks": [],
+   "fetch": {
+    "type": "commons",
+    "title": "File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S4.ogv"
+   },
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S4.ogv",
+   "licenseClaimed": "CC BY 2.0",
+   "claimedBy": "Found by the Commons discovery run (imaging/real/source/discover.json), 2026-10-03; licence verified by the fetch.",
+   "articleDoi": "10.1186/1757-7241-17-34"
+  },
+  {
+   "id": "ivc-collapse-gillman",
+   "kind": "ivc",
+   "type": "ultrasound",
+   "modality": "IVC POCUS",
+   "finding": "IVC collapsing with breathing",
+   "title": "IVC collapsing with each breath",
+   "caption": "A real scan of a small inferior vena cava that collapses completely as the patient breathes in — the picture of a low right-atrial pressure.",
+   "look": [
+    "The IVC passing through the liver",
+    "Near-complete collapse on inspiration",
+    "Re-expansion on expiration",
+    "Compare with the wide, fixed IVC of heart failure"
+   ],
+   "teach": [
+    "Collapse with spontaneous breaths fits a low right-atrial pressure, as in hypovolaemia.",
+    "It is not a reliable test of fluid responsiveness on its own, and the pattern reverses on positive-pressure ventilation.",
+    "Vigorous breathing can collapse a normal IVC; look at the whole patient."
+   ],
+   "quiz": {
+    "q": "A small IVC that collapses completely on inspiration most directly suggests…",
+    "options": [
+     "Low right-atrial pressure",
+     "Pericardial tamponade",
+     "Right-ventricular failure",
+     "Fluid overload"
+    ],
+    "answer": 0,
+    "explain": "A small, collapsing IVC fits a low right-atrial pressure. Tamponade, RV failure and overload all give a wide, fixed IVC."
+   },
+   "marks": [],
+   "fetch": {
+    "type": "commons",
+    "title": "File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S8.ogv"
+   },
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S8.ogv",
+   "licenseClaimed": "CC BY 2.0",
+   "claimedBy": "Found by the Commons discovery run (imaging/real/source/discover.json), 2026-10-03; licence verified by the fetch.",
+   "articleDoi": "10.1186/1757-7241-17-34"
+  },
+  {
+   "id": "pleural-fluid-gillman",
+   "kind": "pleuraleff",
+   "type": "ultrasound",
+   "modality": "Thoracic ultrasound",
+   "finding": "pleural effusion",
+   "title": "Large pleural effusion",
+   "caption": "A real scan of a large pleural collection: a black (anechoic) space above the diaphragm, with lung floating in it.",
+   "look": [
+    "The diaphragm and liver or spleen below",
+    "A black fluid space above the diaphragm",
+    "Collapsed lung moving within the fluid",
+    "The spine visible through the fluid"
+   ],
+   "teach": [
+    "Fluid is anechoic; above the diaphragm it is pleural, below it is in the abdomen.",
+    "Normally air hides the spine above the diaphragm — seeing it there (the spine sign) means fluid.",
+    "In trauma, a haemothorax looks the same; clot can be grey."
+   ],
+   "quiz": {
+    "q": "Seeing the spine continue above the diaphragm means…",
+    "options": [
+     "Fluid in the pleural space",
+     "Normal aerated lung",
+     "A pneumothorax",
+     "Free air under the diaphragm"
+    ],
+    "answer": 0,
+    "explain": "Aerated lung scatters the beam and hides the spine. Fluid transmits sound, so the spine shows through it."
+   },
+   "marks": [],
+   "fetch": {
+    "type": "commons",
+    "title": "File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S2.ogv"
+   },
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S2.ogv",
+   "licenseClaimed": "CC BY 2.0",
+   "claimedBy": "Found by the Commons discovery run (imaging/real/source/discover.json), 2026-10-03; licence verified by the fetch.",
+   "articleDoi": "10.1186/1757-7241-17-34"
+  },
+  {
+   "id": "tamponade-ginghina",
+   "kind": "tamponade",
+   "type": "ultrasound",
+   "modality": "Echocardiography",
+   "finding": "cardiac tamponade",
+   "title": "Cardiac tamponade — right-heart collapse",
+   "caption": "A real apical four-chamber echo in cardiac tamponade: pericardial fluid around the heart, with the free walls of the right atrium and ventricle collapsing inward in diastole.",
+   "look": [
+    "Black pericardial fluid around the heart",
+    "Right atrium and ventricle on the screen left",
+    "Their free walls buckling inward",
+    "The pattern repeating with every beat"
+   ],
+   "teach": [
+    "Tamponade is a clinical diagnosis supported by echo: hypotension, raised JVP and pulsus paradoxus with an effusion.",
+    "Right-atrial collapse in systole and right-ventricular collapse in diastole show the pericardial pressure exceeds right-heart pressure.",
+    "A plethoric IVC fits; treatment is drainage — fluids only buy time."
+   ],
+   "quiz": {
+    "q": "Which echo sign shows the effusion is compressing the heart?",
+    "options": [
+     "Diastolic collapse of the right-heart free walls",
+     "A small IVC",
+     "A thick left-ventricular wall",
+     "Mitral regurgitation"
+    ],
+    "answer": 0,
+    "explain": "Right-heart chambers have the lowest pressure, so they collapse first when pericardial pressure rises. In tamponade the IVC is wide, not small."
+   },
+   "marks": [],
+   "fetch": {
+    "type": "commons",
+    "title": "File:Respiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv"
+   },
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Respiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv",
+   "licenseClaimed": "CC BY 2.0",
+   "claimedBy": "Found by the Commons discovery run (imaging/real/source/discover.json), 2026-10-03; licence verified by the fetch."
+  },
+  {
+   "id": "ptx-series-bonilla",
+   "kind": "ptxseries",
+   "type": "xray",
+   "modality": "Chest X-ray",
+   "finding": "pneumothorax before and after a chest tube",
+   "title": "Pneumothorax — before and after a chest tube",
+   "caption": "Real films from one patient: a right-sided pneumothorax (arrowed), then re-expansion after a small-bore (pigtail) chest tube, a recurrence, and recovery two weeks later.",
+   "look": [
+    "The arrowed lung edge on the first film",
+    "Lung re-expanding with the pigtail in place",
+    "The tube tip in the pleural space",
+    "The final film with markings to the edge"
+   ],
+   "teach": [
+    "A small-bore pigtail catheter is enough for most spontaneous pneumothoraces.",
+    "Re-expansion is judged by lung markings returning to the chest wall.",
+    "Recurrence is common; surgery or pleurodesis is considered after a second episode."
+   ],
+   "quiz": {
+    "q": "How do you know the lung has re-expanded?",
+    "options": [
+     "Lung markings reach the chest wall again",
+     "The chest tube is visible",
+     "The trachea is central",
+     "The heart looks smaller"
+    ],
+    "answer": 0,
+    "explain": "The pneumothorax is the markingless space between lung edge and chest wall; when markings reach the wall again, the lung is up."
+   },
+   "marks": [],
+   "fetch": {
+    "type": "commons",
+    "title": "File:Chest X-ray of pneumothorax.png"
+   },
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Chest_X-ray_of_pneumothorax.png",
+   "licenseClaimed": "CC BY 4.0",
+   "claimedBy": "Found by the Commons discovery run (imaging/real/source/discover.json), 2026-10-03; licence verified by the fetch."
+  }
  ]
 }
