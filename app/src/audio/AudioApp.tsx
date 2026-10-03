@@ -5,6 +5,7 @@ import { masteryScore, useAudioProgress } from './progress';
 import { duePrompts, REVIEW_PROMPTS } from './review';
 import { RepVisual } from './RepVisual';
 import { bridgeFor } from './bridges';
+import { recommendedEpisode, recommendedRep } from './recommend';
 import type { AudioEpisode, MentalRep } from './types';
 
 type Page = 'home' | 'listen' | 'reps' | 'review' | 'mastery';
@@ -48,7 +49,7 @@ function Nav({ icon, label, on, onClick }: { icon: string; label: string; on: bo
 }
 
 function Home({ onEpisode, onRep, navigate }: { onEpisode: (e: AudioEpisode) => void; onRep: (r: MentalRep) => void; navigate: (p: Page) => void }) {
-  const p = useAudioProgress(); const featured = EPISODES[0], rep = MENTAL_REPS[2];
+  const p = useAudioProgress(); const featured = recommendedEpisode(p.mastery, p.completed), rep = recommendedRep(p.mastery, p.repCompleted);
   const mastery = Object.values(p.mastery).filter((x) => x.exposures).length; const due = duePrompts(p.mastery).length;
   return <div className="aa-page">
     <header className="aa-hero"><div><span className="aa-kicker">VOICE-FIRST CRITICAL CARE</span><h1>Build the way experts think.</h1><p>Natural-voice rounds, ICU literacy, unfolding cases and guided procedural mental rehearsal — all mapped to the same critical-care mastery graph.</p></div>
@@ -60,14 +61,14 @@ function Home({ onEpisode, onRep, navigate }: { onEpisode: (e: AudioEpisode) => 
       <button onClick={() => navigate('mastery')}><span>MASTERY GRAPH</span><b>{MASTERY.length}</b><small>{mastery} concepts touched so far</small></button>
     </section>
     <section className="aa-reviewcall"><div><span className="aa-kicker">RETRIEVAL + CALIBRATION</span><h2>{due} review{due === 1 ? '' : 's'} due</h2><p>Answer from memory, then rate how certain you were. The system tracks both correctness and confidence because expert reasoning requires calibration, not just accuracy.</p></div><button className="aa-secondary" onClick={() => navigate('review')}>Review now →</button></section>
-    <section className="aa-section"><div className="aa-section-h"><div><span className="aa-kicker">CONTINUE LEARNING</span><h2>{featured.title}</h2></div><button className="aa-primary" onClick={() => onEpisode(featured)}>▶ Start round</button></div>
+    <section className="aa-section"><div className="aa-section-h"><div><span className="aa-kicker">RECOMMENDED FOR YOU</span><h2>{featured.title}</h2></div><button className="aa-primary" onClick={() => onEpisode(featured)}>▶ Start round</button></div>
       <div className="aa-feature">
         <div className="aa-orbit" aria-hidden="true"><i /><i /><i /><b>RV</b></div>
         <div><p>{featured.subtitle}</p><div className="aa-tags"><span>Level {featured.level}</span><span>{featured.minutes} min</span><span>{featured.concepts.length} concepts</span><span className="voice">Natural voice sample</span></div>
           <h3>After this round</h3><ul>{featured.outcomes.map((x) => <li key={x}>{x}</li>)}</ul></div>
       </div>
     </section>
-    <section className="aa-section"><div className="aa-section-h"><div><span className="aa-kicker">MENTAL REP</span><h2>{rep.title}</h2></div><button className="aa-secondary" onClick={() => onRep(rep)}>Begin rehearsal →</button></div>
+    <section className="aa-section"><div className="aa-section-h"><div><span className="aa-kicker">RECOMMENDED MENTAL REP</span><h2>{rep.title}</h2></div><button className="aa-secondary" onClick={() => onRep(rep)}>Begin rehearsal →</button></div>
       <p className="aa-muted">{rep.subtitle} Calm, guided narration walks you through setup, orientation, decision points, confirmation and failure recognition.</p>
     </section>
     <section className="aa-levels">{LEVELS.map((l) => <div key={l.level}><span>{l.level}</span><b>{l.name}</b><small>{l.description}</small></div>)}</section>
