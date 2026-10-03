@@ -767,7 +767,7 @@
    "modality": "Lung ultrasound",
    "finding": "absent lung sliding",
    "title": "Absent lung sliding",
-   "caption": "A real scan where the pleural line stays still with each breath — the pattern of a pneumothorax, until a lung point confirms it.",
+   "caption": "Linear-probe scan over the front of the chest. The bright pleural line between two rib shadows stays still as the patient breathes — no shimmer. Late in the clip the probe slides along the chest.",
    "look": [
     "The pleural line between the rib shadows",
     "No shimmer or to-and-fro movement",
@@ -790,18 +790,66 @@
     "answer": 0,
     "explain": "This pattern is suggestive, not proof. The lung point is the specific sign; B-lines or a lung pulse exclude a pneumothorax at that spot."
    },
-   "marks": [],
+   "marks": [
+    {
+     "layer": "landmark",
+     "label": "Pleural line",
+     "shape": "line",
+     "x": 0.56,
+     "y": 0.48,
+     "pts": [
+      [
+       0.47,
+       0.472
+      ],
+      [
+       0.56,
+       0.48
+      ],
+      [
+       0.65,
+       0.492
+      ]
+     ],
+     "lx": 0.56,
+     "ly": 0.445
+    },
+    {
+     "layer": "landmark",
+     "label": "Rib shadow",
+     "shape": "point",
+     "x": 0.33,
+     "y": 0.62
+    },
+    {
+     "layer": "landmark",
+     "label": "Rib shadow",
+     "shape": "point",
+     "x": 0.76,
+     "y": 0.62
+    },
+    {
+     "layer": "pathology",
+     "label": "Still — no sliding",
+     "shape": "ellipse",
+     "x": 0.56,
+     "y": 0.48,
+     "rx": 0.11,
+     "ry": 0.035,
+     "lx": 0.56,
+     "ly": 0.56
+    }
+   ],
    "file": "lus-absent-sliding-gillman.mp4",
    "webm": "lus-absent-sliding-gillman.webm",
    "poster": "lus-absent-sliding-gillman.jpg",
    "posterAt": 1.0,
-   "original": "source/lus-absent-sliding-gillman-source.ogv",
    "license": "CC BY 2.0",
    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
    "author": "Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A",
-   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S4.ogv (from https://doi.org/10.1186/1757-7241-17-34)",
-   "credit": "Gillman et al., Wikimedia Commons, 2009 · CC BY 2.0",
-   "changes": "Original OGV (theora, 640×480, 30.0 fps, 6.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s.",
+   "source": "“Clinician performed resuscitative ultrasonography for the initial evaluation and resuscitation of trauma”, Scandinavian Journal of Trauma, Resuscitation and Emergency Medicine 17:34 (2009), https://doi.org/10.1186/1757-7241-17-34 — supplementary video S4 (“Absent Lung Sliding”), via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S4.ogv",
+   "credit": "Gillman et al., Scand J Trauma Resusc Emerg Med 2009 · CC BY 2.0",
+   "changes": "Original OGV (theora, 640×480, 30.0 fps, 6.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; the scanner’s top status bar (patient name, number, date) blacked out; audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s.",
    "provenance": {
     "pageUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S4.ogv",
     "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S4.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
@@ -813,7 +861,7 @@
     "originalFormat": "video/ogg",
     "originalBytes": 633978,
     "originalSha256": "f64ed53a080b543f3bfec484c17b227afab1ed4611db4b80b38840ff51ff0a63",
-    "preserved": "imaging/real/source/lus-absent-sliding-gillman-source.ogv",
+    "preserved": null,
     "licenseEvidence": "Wikimedia Commons API extmetadata for File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S4.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AClinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S4.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
     "verifiedBy": "tools/clinical_media.py fetch",
     "qc": {
@@ -833,12 +881,13 @@
       "fps": 30.0,
       "audio": false
      }
-    }
+    },
+    "notPreservedReason": "The original’s top bar shows a patient name, number and date; it is not redistributed here — the Commons URL and SHA-256 identify it."
    },
-   "fileSha256": "263326d3fb0169cd4ca576a9326b713536c6db74595845f0f376024cb100194b",
-   "webmSha256": "e20a3703dcd5f236aed20d0baed043f3b338277bac64fe2f556368199d04fd44",
-   "posterSha256": "485368de3f47daaed014f1a5e519fa212b0ebee31bb8c1044e56545e21adf4b7",
-   "originalSha256": "f64ed53a080b543f3bfec484c17b227afab1ed4611db4b80b38840ff51ff0a63"
+   "fileSha256": "2e877ab8e61b962ee020892d43cd13e8ce79e679bd34efff3409c3ee36326cd2",
+   "webmSha256": "991f2e2b3cfe6035becc68ced71b4318839c70af48b023da868f05d813f6a99c",
+   "posterSha256": "bdf3f0151cb34f3f110114bf9029f0d4ca75f0f11cc42aab5a0c17dac4c75127",
+   "findingLabel": "Show the finding"
   },
   {
    "kind": "ivc",
@@ -847,7 +896,7 @@
    "modality": "IVC POCUS",
    "finding": "IVC collapsing with breathing",
    "title": "IVC collapsing with each breath",
-   "caption": "A real scan of a small inferior vena cava that collapses completely as the patient breathes in — the picture of a low right-atrial pressure.",
+   "caption": "Subxiphoid scan through the liver. The IVC is the dark band crossing the middle of the screen; it narrows almost to nothing with each breath in and reopens on breathing out.",
    "look": [
     "The IVC passing through the liver",
     "Near-complete collapse on inspiration",
@@ -870,18 +919,51 @@
     "answer": 0,
     "explain": "A small, collapsing IVC fits a low right-atrial pressure. Tamponade, RV failure and overload all give a wide, fixed IVC."
    },
-   "marks": [],
+   "marks": [
+    {
+     "layer": "landmark",
+     "label": "Liver",
+     "shape": "ellipse",
+     "x": 0.5,
+     "y": 0.26,
+     "rx": 0.15,
+     "ry": 0.12
+    },
+    {
+     "layer": "landmark",
+     "label": "IVC (open on expiration)",
+     "shape": "line",
+     "x": 0.5,
+     "y": 0.456,
+     "pts": [
+      [
+       0.4,
+       0.47
+      ],
+      [
+       0.5,
+       0.456
+      ],
+      [
+       0.62,
+       0.44
+      ]
+     ],
+     "lx": 0.5,
+     "ly": 0.52
+    }
+   ],
    "file": "ivc-collapse-gillman.mp4",
    "webm": "ivc-collapse-gillman.webm",
    "poster": "ivc-collapse-gillman.jpg",
-   "posterAt": 1.0,
+   "posterAt": 1.5,
    "original": "source/ivc-collapse-gillman-source.ogv",
    "license": "CC BY 2.0",
    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
    "author": "Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A",
-   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S8.ogv (from https://doi.org/10.1186/1757-7241-17-34)",
-   "credit": "Gillman et al., Wikimedia Commons, 2009 · CC BY 2.0",
-   "changes": "Original OGV (theora, 720×480, 29.97 fps, 6.002 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio removed; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s.",
+   "source": "“Clinician performed resuscitative ultrasonography for the initial evaluation and resuscitation of trauma”, Scandinavian Journal of Trauma, Resuscitation and Emergency Medicine 17:34 (2009), https://doi.org/10.1186/1757-7241-17-34 — supplementary video S8 (“Ultrasound Assessment of Volume Status”), via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S8.ogv",
+   "credit": "Gillman et al., Scand J Trauma Resusc Emerg Med 2009 · CC BY 2.0",
+   "changes": "Original OGV (theora, 720×480, 29.97 fps, 6.002 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio removed; no crop, mirroring, speed change or filtering. Poster = frame at 1.5 s.",
    "provenance": {
     "pageUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S8.ogv",
     "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S8.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
@@ -917,7 +999,7 @@
    },
    "fileSha256": "2fdb570ceef3619485ab1feb43b0152344fa2bd53684357023abec7b6ad9bde8",
    "webmSha256": "86bf4a4f312f8c4572b8d9c0324fb051f063911ebc28a4cd51a6467c71d01d81",
-   "posterSha256": "3d54a47a17a133e0ba7971e98856cf7cc76dca22bb27dc8d5d6b52110dc79ac0",
+   "posterSha256": "72117b3a2c47e1ac490b4f3883e505cb8f839282a51a79f326442ee4b4f35faa",
    "originalSha256": "26d6850215ba6d61a920d57eacd74eb8af781794d2e7f7edbd4d8dc14d29f7ed"
   },
   {
@@ -927,7 +1009,7 @@
    "modality": "Thoracic ultrasound",
    "finding": "pleural effusion",
    "title": "Large pleural effusion",
-   "caption": "A real scan of a large pleural collection: a black (anechoic) space above the diaphragm, with lung floating in it.",
+   "caption": "A resuscitative scan of a large pleural collection, as published. Look for the black, anechoic fluid and the tissue that moves within it with breathing. (No overlays: the published caption does not name the structures, so we have not guessed them.)",
    "look": [
     "The diaphragm and liver or spleen below",
     "A black fluid space above the diaphragm",
@@ -959,8 +1041,8 @@
    "license": "CC BY 2.0",
    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
    "author": "Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A",
-   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S2.ogv (from https://doi.org/10.1186/1757-7241-17-34)",
-   "credit": "Gillman et al., Wikimedia Commons, 2009 · CC BY 2.0",
+   "source": "“Clinician performed resuscitative ultrasonography for the initial evaluation and resuscitation of trauma”, Scandinavian Journal of Trauma, Resuscitation and Emergency Medicine 17:34 (2009), https://doi.org/10.1186/1757-7241-17-34 — supplementary video S2 (“Pleural Fluid”), via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S2.ogv",
+   "credit": "Gillman et al., Scand J Trauma Resusc Emerg Med 2009 · CC BY 2.0",
    "changes": "Original OGV (theora, 640×480, 30.0 fps, 10.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s.",
    "provenance": {
     "pageUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S2.ogv",
@@ -1007,7 +1089,7 @@
    "modality": "Echocardiography",
    "finding": "cardiac tamponade",
    "title": "Cardiac tamponade — right-heart collapse",
-   "caption": "A real apical four-chamber echo in cardiac tamponade: pericardial fluid around the heart, with the free walls of the right atrium and ventricle collapsing inward in diastole.",
+   "caption": "Apical four-chamber echo in a patient with cardiac tamponade, as published: the free walls of the right atrium and right ventricle collapse intermittently. The clip is one short loop — watch it repeat. (No overlays: the loop is small and we have not guessed chamber positions.)",
    "look": [
     "Black pericardial fluid around the heart",
     "Right atrium and ventricle on the screen left",
@@ -1039,8 +1121,8 @@
    "license": "CC BY 2.0",
    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
    "author": "Ginghina C, Beladan C, Iancu M, Calin A, Popescu B",
-   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Respiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv",
-   "credit": "Ginghina et al., Wikimedia Commons, 2009 · CC BY 2.0",
+   "source": "“Respiratory maneuvers in echocardiography: a review of clinical applications”, Cardiovascular Ultrasound 7:42 (2009), https://doi.org/10.1186/1476-7120-7-42 — supplementary video 11, via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Respiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv",
+   "credit": "Ginghina et al., Cardiovasc Ultrasound 2009 · CC BY 2.0",
    "changes": "Original OGV (theora, 352×288, 25.0 fps, 0.803 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio removed; no crop, mirroring, speed change or filtering. Poster = frame at 0.3 s.",
    "provenance": {
     "pageUrl": "https://commons.wikimedia.org/wiki/File:Respiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv",
@@ -1087,7 +1169,7 @@
    "modality": "Chest X-ray",
    "finding": "pneumothorax before and after a chest tube",
    "title": "Pneumothorax — before and after a chest tube",
-   "caption": "Real films from one patient: a right-sided pneumothorax (arrowed), then re-expansion after a small-bore (pigtail) chest tube, a recurrence, and recovery two weeks later.",
+   "caption": "Three rows from one patient (the “L” marker is on the image right, so the pneumothorax on the image left is the right lung). A: first episode — arrows on the lung edge — then the lung re-expanded with a pigtail catheter. B: recurrence and re-expansion. C: two weeks after the tubes came out.",
    "look": [
     "The arrowed lung edge on the first film",
     "Lung re-expanding with the pigtail in place",
@@ -1110,14 +1192,78 @@
     "answer": 0,
     "explain": "The pneumothorax is the markingless space between lung edge and chest wall; when markings reach the wall again, the lung is up."
    },
-   "marks": [],
+   "marks": [
+    {
+     "layer": "landmark",
+     "label": "Initial film",
+     "shape": "point",
+     "x": 0.288,
+     "y": 0.022
+    },
+    {
+     "layer": "landmark",
+     "label": "With pigtail drain",
+     "shape": "point",
+     "x": 0.77,
+     "y": 0.022
+    },
+    {
+     "layer": "landmark",
+     "label": "Recurrence",
+     "shape": "point",
+     "x": 0.288,
+     "y": 0.347
+    },
+    {
+     "layer": "landmark",
+     "label": "With drain",
+     "shape": "point",
+     "x": 0.77,
+     "y": 0.347
+    },
+    {
+     "layer": "landmark",
+     "label": "Two weeks later",
+     "shape": "point",
+     "x": 0.288,
+     "y": 0.688
+    },
+    {
+     "layer": "pathology",
+     "label": "Lung edge",
+     "shape": "point",
+     "x": 0.179,
+     "y": 0.088
+    },
+    {
+     "layer": "pathology",
+     "label": "Lung edge",
+     "shape": "point",
+     "x": 0.159,
+     "y": 0.177
+    },
+    {
+     "layer": "pathology",
+     "label": "Lung edge",
+     "shape": "point",
+     "x": 0.162,
+     "y": 0.435
+    },
+    {
+     "layer": "pathology",
+     "label": "Lung edge",
+     "shape": "point",
+     "x": 0.141,
+     "y": 0.521
+    }
+   ],
    "file": "ptx-series-bonilla.jpg",
    "original": "source/ptx-series-bonilla-source.png",
    "license": "CC BY 4.0",
    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
    "author": "Alex Bonilla, Alexander J. Blair, Suliman M. Alamro, Rebecca A. Ward, Michael B. Feldman, Richard A. Dutko, Theodora K. Karagounis, Adam L. Johnson, Erik E. Folch & Jatin M. Vyas",
-   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Chest_X-ray_of_pneumothorax.png",
-   "credit": "Bonilla et al., Wikimedia Commons, 2019 · CC BY 4.0",
+   "source": "Bonilla A et al., Journal of Medical Case Reports 13 (2019), https://doi.org/10.1186/s13256-019-2215-4 — figure, via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Chest_X-ray_of_pneumothorax.png",
+   "credit": "Bonilla et al., J Med Case Rep 2019 · CC BY 4.0",
    "changes": "Converted to JPEG; padded by one black pixel to even dimensions; no crop, mirroring or filtering.",
    "provenance": {
     "pageUrl": "https://commons.wikimedia.org/wiki/File:Chest_X-ray_of_pneumothorax.png",
@@ -1209,7 +1355,9 @@
    "pageUrl": "https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv",
    "licenseClaimed": "CC BY 2.0",
    "claimedBy": "Found by the Commons discovery run (imaging/real/source/discover.json), 2026-10-03; licence verified by the fetch.",
-   "articleDoi": "10.1186/1757-7241-20-18"
+   "articleDoi": "10.1186/1757-7241-20-18",
+   "maskTop": 27,
+   "keepOriginal": false
   }
  ]
 }

@@ -295,20 +295,33 @@ def even_pad_scale(w: int, h: int) -> tuple[str, str]:
 
 def ingest_video(it: dict, orig: Path) -> tuple[dict, str, dict]:
     src = probe(orig); vf, how = even_pad_scale(src['w'], src['h'])
+    notes = []
+    if it.get('maskTop'):  # scanner status bar with identifiers (name, number, date): black it out
+        vf = f"drawbox=x=0:y=0:w=iw:h={int(it['maskTop'])}:color=black:t=fill" + ('' if vf == 'null' else ',' + vf)
+        notes.append('the scanner’s top status bar blacked out')
     mp4, webm, poster = REAL / f"{it['id']}.mp4", REAL / f"{it['id']}.webm", REAL / f"{it['id']}.jpg"
-    common = ['-i', str(orig), '-map', '0:v:0', '-an', '-vf', vf, '-fps_mode', 'passthrough']
-    ff(*common, '-c:v', 'libx264', '-crf', '20', '-preset', 'medium', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', '-video_track_timescale', '90000', str(mp4))
-    ff(*common, '-c:v', 'libvpx-vp9', '-crf', '30', '-b:v', '0', '-row-mt', '1', '-pix_fmt', 'yuv420p', str(webm))
+    def encode(timing: list) -> None:
+        common = ['-i', str(orig), '-map', '0:v:0', '-an', '-vf', vf, *timing]
+        ff(*common, '-c:v', 'libx264', '-crf', '20', '-preset', 'medium', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', '-video_track_timescale', '90000', str(mp4))
+        ff(*common, '-c:v', 'libvpx-vp9', '-crf', '30', '-b:v', '0', '-row-mt', '1', '-pix_fmt', 'yuv420p', str(webm))
+        for p in (mp4, webm):
+            decodes_clean(p)
+    try:
+        encode(['-fps_mode', 'passthrough'])
+    except AssertionError as e:  # irregular source timestamps: normalise to the source's nominal rate (speed unchanged)
+        if 'dts' not in str(e) or not src['fps']:
+            raise
+        encode(['-fps_mode', 'cfr', '-r', f"{src['fps']:g}"]); notes.append(f"frame timing normalised to a constant {src['fps']:g} fps (irregular source timestamps; speed unchanged)")
     t = min(1.0, src['duration'] / 3)
     ff('-ss', f'{t:.2f}', '-i', str(mp4), '-frames:v', '1', '-q:v', '3', str(poster))
     for p in (mp4, webm):
-        decodes_clean(p); o = probe(p)
+        o = probe(p)
         assert abs(o['duration'] - src['duration']) <= max(0.12, 0.02 * src['duration']), f'{p.name}: duration {o["duration"]} vs source {src["duration"]}'
         assert abs(o['w'] / o['h'] - src['w'] / src['h']) < 0.01, f'{p.name}: aspect ratio changed'
-    o = probe(mp4)
+    o = probe(mp4); extra = '; '.join(([how] if how else []) + notes)
     changes = (f"Original {orig.suffix.lstrip('.').upper()} ({src['codec']}, {src['w']}×{src['h']}, {src['fps']} fps, {src['duration']} s) re-encoded to H.264 MP4 (CRF 20) "
-               f"and VP9 WebM (CRF 30) at the original frame rate and length; {how + '; ' if how else ''}audio {'removed' if src['audio'] else 'none in the source'}; "
-               f"no crop, mirroring, speed change or filtering. Poster = frame at {t:.1f} s.")
+               f"and VP9 WebM (CRF 30) at the original frame rate and length; {extra + '; ' if extra else ''}audio {'removed' if src['audio'] else 'none in the source'}; "
+               f"no crop, mirroring, speed change or other filtering. Poster = frame at {t:.1f} s.")
     files = {'file': mp4.name, 'webm': webm.name, 'poster': poster.name, 'posterAt': round(t, 2)}
     return files, changes, {'sourceVideo': src, 'mp4': o}
 
@@ -355,7 +368,7 @@ def ingest_one(it: dict, d: Path, m: dict, accepted: set) -> None:
     preserved = None
     if changes.startswith('None'):
         preserved = f"imaging/real/{files['file']} (identical to the original)"
-    elif orig.stat().st_size <= KEEP_ORIGINAL_MAX:
+    elif orig.stat().st_size <= KEEP_ORIGINAL_MAX and it.get('keepOriginal', True):
         keep = SRC / f"{it['id']}-source{orig.suffix.lower()}"; shutil.copyfile(orig, keep); files['original'] = f'source/{keep.name}'
         preserved = f'imaging/real/source/{keep.name}'
     title = meta.get('title') or meta.get('description', '')[:160]
@@ -371,7 +384,7 @@ def ingest_one(it: dict, d: Path, m: dict, accepted: set) -> None:
             'credit': credit_line(meta, lic), 'changes': changes,
             'provenance': {'pageUrl': meta['pageUrl'], 'originalUrl': meta['originalUrl'], 'doi': meta.get('doi', ''), 'originalTitle': title,
                            'published': meta.get('published', ''), 'retrieved': meta['retrieved'], 'originalName': urllib.parse.unquote(meta['originalName']),
-                           'originalFormat': kind, 'originalBytes': orig.stat().st_size, 'originalSha256': sha256(orig), 'preserved': preserved,
+                           'originalFormat': kind, 'originalBytes': orig.stat().st_size, 'originalSha256': sha256(orig), 'preserved': preserved, **({'notPreservedReason': 'Not redistributed here because the scanner status bar may show identifiers; the source URL and SHA-256 identify the original.'} if it.get('keepOriginal') is False else {}),
                            'licenseEvidence': meta['licenseEvidence'], 'verifiedBy': meta.get('verifiedBy', 'manual'), 'qc': qc}}
     for k in ('file', 'webm', 'poster', 'original'):
         if isinstance(files.get(k), str):
@@ -432,7 +445,7 @@ def asset_manifest_md(m: dict) -> str:
             out += [f"| Original title | {p['originalTitle']} |", f"| Source page | {p['pageUrl']} |", f"| Original media URL | {p['originalUrl']} |",
                     f"| DOI | {p['doi'] or '—'} |", f"| Published | {p['published'] or '—'} |", f"| Retrieved | {p['retrieved']} |",
                     f"| Original format | {p['originalFormat']} · {p['originalBytes']:,} bytes · `{p['originalName']}` |",
-                    f"| Original SHA-256 | `{p['originalSha256']}` |", f"| Original preserved | {p['preserved'] or 'No — larger than 15 MB; URL and checksum recorded instead'} |",
+                    f"| Original SHA-256 | `{p['originalSha256']}` |", f"| Original preserved | {p['preserved'] or p.get('notPreservedReason') or 'No — larger than 15 MB; URL and checksum recorded instead'} |",
                     f"| Licence evidence | {p['licenseEvidence']} |", f"| Verified by | {p['verifiedBy']} |"]
         out.append('')
     if m.get('pending'):

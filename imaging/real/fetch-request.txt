@@ -1,1 +1,1 @@
-Retry: normal lung sliding (Gillman & Kirkpatrick 2012 S1) with a 90 kHz MP4 timescale.
+Retry: normal lung sliding (Gillman & Kirkpatrick 2012 S1) — constant-rate fallback, status bar masked, original not kept.

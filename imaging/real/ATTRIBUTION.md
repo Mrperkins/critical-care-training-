@@ -80,37 +80,37 @@ Real, openly licensed clinical images shown beside the synthetic ones. Only CC0 
 - Changes: Original Ogg Theora (640×480, 10 fps, 6.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; the scanner’s top status bar (study number, date, mechanism) blacked out; no crop, mirroring, speed change or other filtering. Poster = frame at 1.0 s.
 
 ## lus-absent-sliding-gillman.mp4
-- Absent lung sliding — A real scan where the pleural line stays still with each breath — the pattern of a pneumothorax, until a lung point confirms it.
+- Absent lung sliding — Linear-probe scan over the front of the chest. The bright pleural line between two rib shadows stays still as the patient breathes — no shimmer. Late in the clip the probe slides along the chest.
 - Author: Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A
-- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S4.ogv (from https://doi.org/10.1186/1757-7241-17-34)
+- Source: “Clinician performed resuscitative ultrasonography for the initial evaluation and resuscitation of trauma”, Scandinavian Journal of Trauma, Resuscitation and Emergency Medicine 17:34 (2009), https://doi.org/10.1186/1757-7241-17-34 — supplementary video S4 (“Absent Lung Sliding”), via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S4.ogv
 - Licence: CC BY 2.0 (https://creativecommons.org/licenses/by/2.0)
-- Changes: Original OGV (theora, 640×480, 30.0 fps, 6.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s.
+- Changes: Original OGV (theora, 640×480, 30.0 fps, 6.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; the scanner’s top status bar (patient name, number, date) blacked out; audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s.
 
 ## ivc-collapse-gillman.mp4
-- IVC collapsing with each breath — A real scan of a small inferior vena cava that collapses completely as the patient breathes in — the picture of a low right-atrial pressure.
+- IVC collapsing with each breath — Subxiphoid scan through the liver. The IVC is the dark band crossing the middle of the screen; it narrows almost to nothing with each breath in and reopens on breathing out.
 - Author: Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A
-- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S8.ogv (from https://doi.org/10.1186/1757-7241-17-34)
+- Source: “Clinician performed resuscitative ultrasonography for the initial evaluation and resuscitation of trauma”, Scandinavian Journal of Trauma, Resuscitation and Emergency Medicine 17:34 (2009), https://doi.org/10.1186/1757-7241-17-34 — supplementary video S8 (“Ultrasound Assessment of Volume Status”), via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S8.ogv
 - Licence: CC BY 2.0 (https://creativecommons.org/licenses/by/2.0)
-- Changes: Original OGV (theora, 720×480, 29.97 fps, 6.002 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio removed; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s.
+- Changes: Original OGV (theora, 720×480, 29.97 fps, 6.002 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio removed; no crop, mirroring, speed change or filtering. Poster = frame at 1.5 s.
 
 ## pleural-fluid-gillman.mp4
-- Large pleural effusion — A real scan of a large pleural collection: a black (anechoic) space above the diaphragm, with lung floating in it.
+- Large pleural effusion — A resuscitative scan of a large pleural collection, as published. Look for the black, anechoic fluid and the tissue that moves within it with breathing. (No overlays: the published caption does not name the structures, so we have not guessed them.)
 - Author: Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A
-- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S2.ogv (from https://doi.org/10.1186/1757-7241-17-34)
+- Source: “Clinician performed resuscitative ultrasonography for the initial evaluation and resuscitation of trauma”, Scandinavian Journal of Trauma, Resuscitation and Emergency Medicine 17:34 (2009), https://doi.org/10.1186/1757-7241-17-34 — supplementary video S2 (“Pleural Fluid”), via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S2.ogv
 - Licence: CC BY 2.0 (https://creativecommons.org/licenses/by/2.0)
 - Changes: Original OGV (theora, 640×480, 30.0 fps, 10.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s.
 
 ## tamponade-ginghina.mp4
-- Cardiac tamponade — right-heart collapse — A real apical four-chamber echo in cardiac tamponade: pericardial fluid around the heart, with the free walls of the right atrium and ventricle collapsing inward in diastole.
+- Cardiac tamponade — right-heart collapse — Apical four-chamber echo in a patient with cardiac tamponade, as published: the free walls of the right atrium and right ventricle collapse intermittently. The clip is one short loop — watch it repeat. (No overlays: the loop is small and we have not guessed chamber positions.)
 - Author: Ginghina C, Beladan C, Iancu M, Calin A, Popescu B
-- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Respiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv
+- Source: “Respiratory maneuvers in echocardiography: a review of clinical applications”, Cardiovascular Ultrasound 7:42 (2009), https://doi.org/10.1186/1476-7120-7-42 — supplementary video 11, via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Respiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv
 - Licence: CC BY 2.0 (https://creativecommons.org/licenses/by/2.0)
 - Changes: Original OGV (theora, 352×288, 25.0 fps, 0.803 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio removed; no crop, mirroring, speed change or filtering. Poster = frame at 0.3 s.
 
 ## ptx-series-bonilla.jpg
-- Pneumothorax — before and after a chest tube — Real films from one patient: a right-sided pneumothorax (arrowed), then re-expansion after a small-bore (pigtail) chest tube, a recurrence, and recovery two weeks later.
+- Pneumothorax — before and after a chest tube — Three rows from one patient (the “L” marker is on the image right, so the pneumothorax on the image left is the right lung). A: first episode — arrows on the lung edge — then the lung re-expanded with a pigtail catheter. B: recurrence and re-expansion. C: two weeks after the tubes came out.
 - Author: Alex Bonilla, Alexander J. Blair, Suliman M. Alamro, Rebecca A. Ward, Michael B. Feldman, Richard A. Dutko, Theodora K. Karagounis, Adam L. Johnson, Erik E. Folch & Jatin M. Vyas
-- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Chest_X-ray_of_pneumothorax.png
+- Source: Bonilla A et al., Journal of Medical Case Reports 13 (2019), https://doi.org/10.1186/s13256-019-2215-4 — figure, via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Chest_X-ray_of_pneumothorax.png
 - Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0)
 - Changes: Converted to JPEG; padded by one black pixel to even dimensions; no crop, mirroring or filtering.
 
