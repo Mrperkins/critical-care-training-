@@ -70,7 +70,6 @@ export const EPISODES: AudioEpisode[] = [
     ],
     status: 'planned', outcomes: ['Balance lung recruitment and RV load while explicitly stating uncertainty and tradeoffs.'],
   },
-,
   {
     id: 'literacy-stressed-volume', title: 'ICU Literacy: stressed volume',
     subtitle: 'Why venoconstriction can change effective preload without adding a drop of fluid.',
@@ -239,7 +238,6 @@ export const MENTAL_REPS: MentalRep[] = [
       { id: 'debrief', phase: 'debrief', title: 'Mental anchor', narration: 'Indication, anatomy, complete setup, controlled pleural entry, connection, patient response, system response, and continuous troubleshooting.' },
     ],
   },
-,
   {
     id: 'rep-central-line', title: 'Ultrasound-guided IJ central line', subtitle: 'Scan, identify, track the tip, confirm the vessel, control the wire, then dilate.',
     level: 3, domain: 'procedures', minutes: 16, concepts: ['central-line', 'medication-safety'],
