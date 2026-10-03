@@ -1,0 +1,33 @@
+name: Audio Mastery CI
+
+on:
+  push:
+    branches: [audio-mastery]
+  pull_request:
+    branches: [visual-overhaul]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - run: npm run typecheck
+      - run: npm run site
+      - name: Assert standalone audio build
+        run: |
+          test -s dist/pub/audio/index.html
+          grep -q "Critical Care Audio" dist/pub/audio/index.html
