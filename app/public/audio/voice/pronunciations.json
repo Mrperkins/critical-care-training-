@@ -1,0 +1,31 @@
+{
+  "purpose": "Provider-neutral pronunciation glossary for premium narration. Visible transcript stays canonical; renderers may use these spoken forms.",
+  "terms": {
+    "ARDS": "A R D S",
+    "CRRT": "C R R T",
+    "CVP": "C V P",
+    "DO₂": "D O 2",
+    "ECMO": "E C M O",
+    "EtCO₂": "end tidal C O 2",
+    "EVD": "E V D",
+    "FiO₂": "F I O 2",
+    "IJV": "I J V",
+    "IO": "I O",
+    "MAP": "map",
+    "MTP": "M T P",
+    "PaCO₂": "P A C O 2",
+    "PaO₂": "P A O 2",
+    "PAOP": "P A O P",
+    "PEEP": "peep",
+    "POCUS": "point of care ultrasound",
+    "PVR": "P V R",
+    "RASS": "rass",
+    "RV": "right ventricle",
+    "SpO₂": "S P O 2",
+    "SvO₂": "S V O 2",
+    "VO₂": "V O 2",
+    "lusitropy": "loo-SIT-ruh-pee",
+    "transmural": "trans-MYOOR-al",
+    "vasoplegia": "vay-zoh-PLEE-jee-uh"
+  }
+}
