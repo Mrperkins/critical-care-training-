@@ -10,6 +10,7 @@
 import { forwardRef, useCallback, useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { create } from 'zustand';
 import { describeLabel, labelKey } from './labelInfo';
+import { Glossary } from './Glossary';
 
 export type LabelMode = 'all' | 'dots' | 'off';
 (globalThis as unknown as { __CCLabels?: unknown }).__CCLabels = { describe: describeLabel, key: labelKey };
@@ -175,6 +176,7 @@ function useFullscreen(el: React.RefObject<HTMLElement>) {
 /** Scene container used by every module: full-screen button, label-mode switch, and the label info card. */
 export function SceneWrap({ className = '', children, labels = true }: { className?: string; children: ReactNode; labels?: boolean }) {
   const ref = useRef<HTMLDivElement>(null); const fs = useFullscreen(ref); const mode = useSceneLabelMode(); const setMode = useLabels((s) => s.setMode);
+  const [gloss, setGloss] = useState(false);
   useDeclutter(ref, mode); const quizOn = useLabels((s) => !!s.quiz && s.quiz.host === ref.current);
   const [host, setHost] = useState<HTMLElement | null>(null); const [hint, setHint] = useState<string | null>(null);
   useEffect(() => { if (!hint) return; const t = setTimeout(() => setHint(null), 2400); return () => clearTimeout(t); }, [hint]);
@@ -192,12 +194,16 @@ export function SceneWrap({ className = '', children, labels = true }: { classNa
           title="Name that structure — find each named structure among the dots" aria-label={quizOn ? 'Stop the name-that-structure drill' : 'Name that structure drill'}>
           <span className="st-ico" aria-hidden="true">?</span><span className="st-txt">{quizOn ? 'Stop drill' : 'Name it'}</span>
         </button>}
+        {labels && <button type="button" className={`st-btn st-gloss${gloss ? ' on' : ''}`} aria-pressed={gloss} onClick={() => setGloss(!gloss)} title="Glossary — search every labelled structure" aria-label="Glossary">
+          <span className="st-ico" aria-hidden="true">A–Z</span><span className="st-txt">Glossary</span>
+        </button>}
         <button type="button" className="st-btn st-fs" onClick={fs.toggle} aria-pressed={fs.active} title={fs.active ? 'Exit full screen (Esc)' : 'Full screen'} aria-label={fs.active ? 'Exit full screen' : 'Full screen'}>
           <span className="st-ico" aria-hidden="true">{fs.active ? '⤡' : '⤢'}</span><span className="st-txt">{fs.active ? 'Exit' : 'Full screen'}</span>
         </button>
       </div>
       {hint && <div className="st-hint" role="status">{hint}</div>}
       <QuizBanner host={host} />
+      {gloss && <Glossary onClose={() => setGloss(false)} />}
       <LabelInfoCard host={host} />
     </div>
   );

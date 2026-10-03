@@ -1,0 +1,1530 @@
+[
+ {
+  "title": "AAA — abdominal aortic aneurysm",
+  "desc": "Abdominal aortic aneurysm — the aorta wider than 3 cm. Rupture risk rises sharply with size.",
+  "modules": [
+   "abdomen"
+  ],
+  "aka": []
+ },
+ {
+  "title": "ACoA",
+  "desc": "Anterior communicating artery — joins the two anterior cerebral arteries; the commonest site of berry aneurysms.",
+  "modules": [
+   "neuro"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Aerated alveolus",
+  "desc": "An open, ventilated air sac taking part in gas exchange.",
+  "modules": [
+   "vent"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Afferent arteriole (blood in)",
+  "desc": "Brings blood into the glomerulus; it constricts or dilates to hold filtration steady.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Alveolar duct",
+  "desc": "Small airway leading into a cluster of alveoli.",
+  "modules": [
+   "vent",
+   "abg"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Alveolar gas",
+  "desc": "The gas in the air sacs, where oxygen and carbon dioxide exchange with capillary blood.",
+  "modules": [
+   "vent"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Anterior tibial → dorsalis pedis",
+  "desc": "Runs down the front of the leg to the top of the foot, where the dorsalis pedis pulse is felt.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Aorta",
+  "desc": "The main artery leaving the left ventricle. Arterial lines and blood pressure measure the pressure in its branches.",
+  "modules": [
+   "lines",
+   "heart",
+   "abdomen"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Aquaporin",
+  "desc": "Aquaporin-4 water channel. Lets water cross in seconds. Water always moves toward the side with more dissolved particles.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Arterial cannula",
+  "desc": "A 20-gauge cannula in the radial artery. Its trace is only as good as its patency, flush and zeroing.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Arterial end",
+  "desc": "Blood enters the capillary oxygen-rich at arterial pressure.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Arteriole — an ABG samples this blood",
+  "desc": "Arterial blood: an arterial blood gas measures the oxygen, CO₂ and acid–base status delivered to the tissues.",
+  "modules": [
+   "abg"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Arteriole (from RV)",
+  "desc": "Pulmonary arteriole bringing deoxygenated blood from the right ventricle to the capillaries.",
+  "modules": [
+   "vent"
+  ],
+  "aka": []
+ },
+ {
+  "title": "ASD — atrial septal defect",
+  "desc": "Atrial septal defect — a hole between the atria. Usually a left-to-right shunt that loads the right heart.",
+  "modules": [
+   "heart"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Axon",
+  "desc": "Carries the nerve impulse away from the cell body.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Axon hillock",
+  "desc": "Where the axon leaves the cell body; signals are summed here.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Basement membrane",
+  "desc": "Shared support layer between the alveolar and capillary cells.",
+  "modules": [
+   "vent"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Basilar",
+  "desc": "Basilar artery — formed by the two vertebral arteries; it supplies the brainstem and back of the brain.",
+  "modules": [
+   "neuro"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Basilic vein",
+  "desc": "Superficial vein on the inner side of the arm; a common PICC route.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Bile canaliculus",
+  "desc": "Tiny channel between liver cells carrying bile toward the bile ducts.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Bladder",
+  "desc": "In the pelvis. A full bladder is a good window for seeing pelvic free fluid on ultrasound.",
+  "modules": [
+   "abdomen"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Blood around the cells",
+  "desc": "Capillary blood bringing oxygen and carrying released markers away.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Blood escaping",
+  "desc": "Bleeding continues until the plug and fibrin seal the vessel.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Bone marrow",
+  "desc": "Makes red cells, white cells and platelets; counts fall when it is suppressed or replaced.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Bowman’s capsule",
+  "desc": "The cup around the glomerulus that collects the filtrate.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Brachial artery",
+  "desc": "Main arm artery at the elbow crease; used for manual blood-pressure measurement.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Brachial vein",
+  "desc": "Deep vein paired with the brachial artery.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Brain",
+  "desc": "Uses about a fifth of the body’s oxygen and has no fuel stores, so it depends on steady flow and glucose.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Branch to a neighbouring cell",
+  "desc": "Junction to a neighbouring cell.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Ca²⁺ channel",
+  "desc": "L-type Ca²⁺ channel. Opens during each beat; the Ca²⁺ that enters triggers contraction.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Capillary: RBCs load O₂ in the first third of their transit",
+  "desc": "Red cells normally finish loading oxygen early in the capillary, leaving reserve time for exercise or thickened membranes.",
+  "modules": [
+   "abg"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Cardiac muscle cells",
+  "desc": "Heart muscle cells, joined end to end so the beat spreads as one.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Celiac trunk / SMA",
+  "desc": "The first two gut branches of the abdominal aorta: celiac (stomach, liver, spleen) and superior mesenteric (small bowel, right colon).",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Cell membrane",
+  "desc": "A lipid bilayer that keeps ions apart; channels and pumps in it control what crosses.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Central line (right IJ)",
+  "desc": "Central venous catheter in the right internal jugular vein, transduced to give the CVP trace on the monitor.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Central line enters here",
+  "desc": "Puncture site for the right internal jugular approach: the straightest route to the SVC and right atrium.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Centrioles",
+  "desc": "Organises the spindle that separates chromosomes when the cell divides.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Cephalic vein",
+  "desc": "Superficial vein on the outer (thumb) side of the arm.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Cholesterol",
+  "desc": "Sits among the lipids and stiffens the membrane.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Clot at the catheter tip",
+  "desc": "Clot at the cannula tip damps the trace: systolic falls, diastolic rises, and the dicrotic notch disappears. Aspirate and flush.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Collapsed",
+  "desc": "Alveolus with no air (atelectasis): blood flowing past it is not oxygenated — shunt.",
+  "modules": [
+   "vent"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Colon",
+  "desc": "Large bowel framing the abdomen; it can perforate or lose its blood supply.",
+  "modules": [
+   "abdomen"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Common carotid artery",
+  "desc": "Main artery of the neck, medial and deep to the internal jugular vein; pulsatile and not compressible.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Common iliac artery",
+  "desc": "One of the two branches the aorta splits into at the level of the umbilicus.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Core and penumbra",
+  "desc": "Core: tissue already dead. Penumbra: tissue that is failing but salvageable if blood flow returns soon.",
+  "modules": [
+   "neuro"
+  ],
+  "aka": []
+ },
+ {
+  "title": "CVC tip at the cavo-atrial junction",
+  "desc": "Central line tip at the cavo-atrial junction (lower SVC). Here it reads true central venous pressure and is safe for vasopressors.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "CVC tip in the right ventricle",
+  "desc": "The catheter has gone too far — into the right ventricle. Expect ectopics and a ventricular-shaped pressure trace; pull it back to the cavo-atrial junction.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Cytosol",
+  "desc": "The fluid inside the cell: high potassium, low sodium and calcium.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Deep femoral (profunda) artery",
+  "desc": "Deep branch of the femoral artery supplying the thigh.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Dendrite",
+  "desc": "Receives signals from other nerve cells.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Dendrites",
+  "desc": "Branches that receive signals from other nerve cells.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Dendritic spines (synapses land here)",
+  "desc": "Small knobs on dendrites where synapses land.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Dependent lung",
+  "desc": "The lowest lung regions (the back, when supine), where oedema and collapse concentrate under gravity.",
+  "modules": [
+   "vent"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Diaphragm",
+  "desc": "Dome-shaped muscle separating chest from abdomen; fluid is looked for just above and below it on ultrasound.",
+  "modules": [
+   "abdomen"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Efferent arteriole (blood out)",
+  "desc": "Carries blood out of the glomerulus; its tone helps set filtration pressure.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Endothelium (vessel wall)",
+  "desc": "The single cell layer lining blood vessels; it controls leak, tone and clotting.",
+  "modules": [
+   "labs",
+   "vent"
+  ],
+  "aka": [
+   "Endothelium"
+  ]
+ },
+ {
+  "title": "External carotid → superficial temporal",
+  "desc": "Supplies the face and scalp; its terminal branch, the superficial temporal, is felt in front of the ear.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "External iliac artery",
+  "desc": "Continues from the common iliac into the leg as the femoral artery.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "External jugular vein",
+  "desc": "Superficial neck vein crossing the sternocleidomastoid; its filling is a rough bedside sign of venous pressure.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Extracellular fluid",
+  "desc": "The fluid outside cells (plasma and interstitial fluid): high sodium and chloride, low potassium.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Facial artery",
+  "desc": "Branch of the external carotid crossing the jaw in front of the masseter.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Facial vein",
+  "desc": "Drains the face into the internal jugular vein.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Fatty-acid tails · oily core",
+  "desc": "The oily middle of the bilayer that ions cannot cross without a channel or pump.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Femoral → popliteal vein",
+  "desc": "The deep vein of the thigh, continuing behind the knee as the popliteal vein; a common site for DVT.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Femoral artery",
+  "desc": "Main leg artery in the groin; an alternative arterial-line site and a pulse to feel in shock.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Femoral vein",
+  "desc": "Large vein in the groin, medial to the femoral artery; a quick central-access site in emergencies.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Fibrin mesh",
+  "desc": "Fibrin strands from the clotting cascade bind the plug into a firm clot.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Flooded",
+  "desc": "Alveolus filled with fluid (oedema or pus): no gas exchange, a shunt that extra oxygen barely helps.",
+  "modules": [
+   "vent"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Free air",
+  "desc": "Gas outside the bowel, under the diaphragm — a sign of perforation needing surgery.",
+  "modules": [
+   "abdomen"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Free ribosomes",
+  "desc": "Free ribosomes make proteins that stay inside the cell.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Glomerulus (capillary loops)",
+  "desc": "A knot of capillaries where plasma is filtered into the tubule.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Glycocalyx",
+  "desc": "A sugar coat on the outer surface; in vessels it helps keep fluid inside the circulation.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Glycogen granules",
+  "desc": "Stored glucose, released when the cell needs fuel quickly.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Golgi apparatus",
+  "desc": "Sorts, finishes and ships proteins made in the ER.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Great saphenous vein",
+  "desc": "Long superficial vein on the inner leg, from the ankle to the groin.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Heart",
+  "desc": "Injured heart muscle releases troponin; a stretched heart releases natriuretic peptides.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Hepatocytes (liver cells)",
+  "desc": "Liver cells that make proteins and clotting factors, process drugs and store glycogen.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Iliac veins",
+  "desc": "Drain the legs and pelvis into the inferior vena cava.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Inferior vena cava",
+  "desc": "Drains the legs and abdomen into the right atrium. On ultrasound its size and change with breathing reflect right-atrial pressure.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Initial segment (spike starts here)",
+  "desc": "Axon initial segment — packed with sodium channels; the action potential starts here.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Injured cells leak AST/ALT",
+  "desc": "Damaged liver cells release their enzymes (AST, ALT) into the blood.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Inner leaflet (PE, PS⁻)",
+  "desc": "The inner lipid layer, rich in negatively charged phosphatidylserine.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Intercalated disc → next heart cell",
+  "desc": "Intercalated disc — junctions that link heart cells mechanically and electrically.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Internal carotid artery",
+  "desc": "Branch of the common carotid that supplies most of the brain hemisphere.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Internal iliac artery",
+  "desc": "Supplies the pelvic organs; a source of bleeding in pelvic fractures.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Internal jugular vein",
+  "desc": "Drains the brain and face; lies beside the carotid artery and collapses with probe pressure.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Interstitium",
+  "desc": "Space between alveolus and capillary. It swells with fluid in oedema and thickens in fibrosis, slowing gas diffusion.",
+  "modules": [
+   "vent"
+  ],
+  "aka": []
+ },
+ {
+  "title": "IVC",
+  "desc": "Inferior vena cava — carries blood from the lower body to the right atrium, just right of the aorta.",
+  "modules": [
+   "abdomen"
+  ],
+  "aka": []
+ },
+ {
+  "title": "K⁺ channel",
+  "desc": "K⁺ leak channel (Kir2.1). Open at rest. K⁺ leaks out down its gradient and takes positive charge with it — this sets the resting potential.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Kidney",
+  "desc": "Filters about 180 L of plasma a day; creatinine and urea rise when filtration falls.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "L kidney",
+  "desc": "Left kidney — retroperitoneal, behind the spleen and bowel.",
+  "modules": [
+   "abdomen"
+  ],
+  "aka": []
+ },
+ {
+  "title": "LA",
+  "desc": "Left atrium — receives oxygenated blood from the four pulmonary veins and fills the left ventricle through the mitral valve.",
+  "modules": [
+   "heart"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Left ventricle",
+  "desc": "Thick-walled pump that generates systemic pressure and pushes blood into the aorta.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Lining fluid",
+  "desc": "Thin liquid layer on the alveolar surface. It thickens and floods in pulmonary oedema.",
+  "modules": [
+   "vent"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Lipofuscin (aging pigment)",
+  "desc": "Brownish wear-and-tear pigment that builds up in long-lived cells.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Liver",
+  "desc": "Largest solid organ, under the right ribs. Makes clotting factors and albumin, clears lactate and drugs; a common source of bleeding in blunt trauma.",
+  "modules": [
+   "abdomen",
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Low V/Q",
+  "desc": "Alveolus that gets less air than blood. Oxygen falls but improves with supplemental oxygen.",
+  "modules": [
+   "vent"
+  ],
+  "aka": []
+ },
+ {
+  "title": "LV",
+  "desc": "Left ventricle — the high-pressure pump for the whole body; its wall is about three times thicker than the right ventricle’s.",
+  "modules": [
+   "heart"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Lymphocyte",
+  "desc": "White cell of the adaptive immune system (T and B cells).",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Lysosome",
+  "desc": "Lysosome — breaks down worn-out parts and engulfed material.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Median cubital vein",
+  "desc": "Links cephalic and basilic veins at the elbow — the usual venepuncture site.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Microtubules (cytoskeleton)",
+  "desc": "Microtubules — internal scaffolding and tracks for moving cargo.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Mitochondria (~30 % of the cell)",
+  "desc": "Mitochondria make ATP using oxygen. Heart cells are packed with them because they never rest.",
+  "modules": [
+   "labs"
+  ],
+  "aka": [
+   "Mitochondrion (cristae)"
+  ]
+ },
+ {
+  "title": "Mitochondria (make ATP)",
+  "desc": "Make ATP from oxygen and fuel; without oxygen the cell falls back on inefficient glycolysis and makes lactate.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Morison’s pouch",
+  "desc": "The space between liver and right kidney — the lowest upper-abdominal space when supine, so free fluid collects here first.",
+  "modules": [
+   "abdomen"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Mucus plug",
+  "desc": "Mucus blocking a bronchus: the lung beyond it collapses and shunts blood, so oxygen falls.",
+  "modules": [
+   "vent"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Myelin sheath (glial cell)",
+  "desc": "Insulating wrap from glial cells that speeds conduction.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Myofibrils (sarcomeres)",
+  "desc": "Bundles of sarcomeres — the contractile machinery of a muscle cell.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Na⁺ channel",
+  "desc": "Voltage-gated Na⁺ channel (Nav1.5). Opens at threshold to fire the cell. If the resting potential drifts up, its inactivation gate shuts and stays shut.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Na⁺/K⁺ pump",
+  "desc": "Na⁺/K⁺-ATPase (sodium–potassium pump). Uses one ATP to push 3 Na⁺ out and bring 2 K⁺ in. Sped up by insulin and β₂-agonists; needs Mg²⁺.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Na⁺/K⁺ pumps (in the membrane)",
+  "desc": "Use ATP to keep sodium out and potassium in, maintaining the resting potential and cell volume.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Neurofilaments & microtubules",
+  "desc": "Neurofilaments and microtubules — the axon’s skeleton and transport tracks.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Neuron cell body",
+  "desc": "The part of a nerve cell containing the nucleus.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Neutrophil (white cell)",
+  "desc": "The commonest white cell; first to arrive at infection and injury.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Nissl bodies (rough ER)",
+  "desc": "Nissl bodies — stacks of rough ER that make a neuron’s proteins.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Node of Ranvier",
+  "desc": "Node of Ranvier — a gap in the myelin where the impulse is regenerated.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Nuclear envelope & pores",
+  "desc": "Double membrane around the nucleus; its pores let RNA and proteins in and out.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Nucleolus",
+  "desc": "Inside the nucleus; builds ribosomes.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Nucleus",
+  "desc": "Holds the cell’s DNA and controls which proteins are made.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "O₂ leaving for the tissue",
+  "desc": "Oxygen unloads from haemoglobin where tissue oxygen levels are low.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Osmolyte channel",
+  "desc": "Osmolyte channel (VRAC). Over ~48 h brain cells shed (or rebuild) organic osmolytes so their volume returns to normal.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Outside the cell",
+  "desc": "Extracellular fluid — high in sodium and chloride, low in potassium.",
+  "modules": [
+   "labs"
+  ],
+  "aka": [
+   "Fluid around the cell"
+  ]
+ },
+ {
+  "title": "Pancreas",
+  "desc": "Lies behind the stomach across the spine. Inflamed in pancreatitis, it can leak fluid into the retroperitoneum.",
+  "modules": [
+   "abdomen",
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "PDA — patent ductus arteriosus",
+  "desc": "Patent ductus arteriosus — the fetal channel between the pulmonary artery and aorta that normally closes after birth.",
+  "modules": [
+   "heart"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Pelvic fluid",
+  "desc": "Free fluid behind the bladder (or uterus) — the lowest part of the peritoneal cavity.",
+  "modules": [
+   "abdomen"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Peroxisome",
+  "desc": "Peroxisome — breaks down fatty acids and toxic peroxides.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "PFO — patent foramen ovale",
+  "desc": "Patent foramen ovale — a flap-valve between the atria left over from fetal life. It opens right-to-left when right-atrial pressure exceeds left (e.g. high PEEP, PE).",
+  "modules": [
+   "heart"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Phlebostatic axis",
+  "desc": "Fourth intercostal space, mid-axillary line — the level of the right atrium. Transducers are levelled here.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Phospholipid heads",
+  "desc": "Water-loving heads facing the fluid on each side of the membrane.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Plasma",
+  "desc": "The liquid part of blood, carrying dissolved gases, proteins, electrolytes and clotting factors.",
+  "modules": [
+   "labs",
+   "vent"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Platelet",
+  "desc": "Cell fragment that sticks to exposed collagen and starts a clot.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Platelet plug",
+  "desc": "Platelets stacked at the injury — the first, temporary seal.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Pleural air",
+  "desc": "Air between the lung and chest wall (pneumothorax). Under tension it compresses the lung and kinks venous return.",
+  "modules": [
+   "vent"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Popliteal artery",
+  "desc": "Artery behind the knee, continuing from the femoral.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Portal vein",
+  "desc": "Carries blood from the gut and spleen to the liver; not a systemic vein.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Posterior tibial artery",
+  "desc": "Runs behind the inner ankle bone, where its pulse is felt.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Pressure bag",
+  "desc": "Pressurised flush bag (about 300 mmHg) that keeps the line open with a slow continuous flush. Below about 250 mmHg blood can back up the line.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Pulmonary arteriole: mixed venous blood",
+  "desc": "Blood returning from the whole body, low in oxygen and high in CO₂, arriving to be re-oxygenated.",
+  "modules": [
+   "abg"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Pulmonary artery",
+  "desc": "Carries deoxygenated blood from the right ventricle to the lungs. A pulmonary-artery catheter sits here.",
+  "modules": [
+   "lines",
+   "heart"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Pulmonary veins",
+  "desc": "Four veins that return oxygenated blood from the lungs to the left atrium.",
+  "modules": [
+   "heart"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Pulmonary venule: arterialised blood",
+  "desc": "Blood leaving the lung after gas exchange, now carrying oxygen at arterial levels.",
+  "modules": [
+   "abg"
+  ],
+  "aka": []
+ },
+ {
+  "title": "R kidney",
+  "desc": "Right kidney — retroperitoneal, so bleeding from it does not show on FAST.",
+  "modules": [
+   "abdomen"
+  ],
+  "aka": []
+ },
+ {
+  "title": "RA",
+  "desc": "Right atrium — receives venous blood from the body and passes it through the tricuspid valve to the right ventricle.",
+  "modules": [
+   "heart"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Radial arterial line",
+  "desc": "Cannula in the radial artery, transduced to give beat-to-beat blood pressure and easy blood sampling.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Radial artery",
+  "desc": "Wrist artery on the thumb side; the usual arterial-line and ABG site because the hand also has the ulnar supply.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Recruited",
+  "desc": "An alveolus reopened by pressure (PEEP or a recruitment manoeuvre).",
+  "modules": [
+   "vent"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Red blood cell",
+  "desc": "Carries oxygen bound to haemoglobin and gives some of it up in the tissues.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Red cell",
+  "desc": "Red blood cell — carries oxygen bound to haemoglobin.",
+  "modules": [
+   "vent"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Renal artery & vein",
+  "desc": "Supply and drainage of the kidney; the kidneys receive about a fifth of the cardiac output.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Renal vein: reclaimed / new HCO₃⁻",
+  "desc": "The kidney returns filtered bicarbonate and makes new bicarbonate, correcting metabolic acidosis over hours to days.",
+  "modules": [
+   "abg"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Retroperitoneal haematoma",
+  "desc": "Blood behind the peritoneum (e.g. from the aorta, kidney or pelvis). FAST cannot see it; CT can.",
+  "modules": [
+   "abdomen"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Right atrium",
+  "desc": "Collects venous blood from the body (via the superior and inferior venae cavae) and the heart itself. Its pressure is the central venous pressure.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Right internal jugular vein",
+  "desc": "Large vein lateral to the carotid in the neck; the usual site for an ultrasound-guided central line.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Right ventricle",
+  "desc": "Thin-walled pump that sends blood into the low-pressure lungs. It copes poorly with a sudden rise in pulmonary pressure (PE, high PEEP, ARDS).",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Rough ER + ribosomes",
+  "desc": "Rough endoplasmic reticulum — studded with ribosomes that make proteins for membranes and export.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "RV",
+  "desc": "Right ventricle — pumps blood into the pulmonary artery and lungs; thin-walled and sensitive to afterload.",
+  "modules": [
+   "heart"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Sarcoplasmic reticulum",
+  "desc": "Sarcoplasmic reticulum — stores calcium and releases it to trigger each contraction.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Secretions narrow the tube",
+  "desc": "Secretions inside the endotracheal tube raise airway resistance: peak pressure rises while plateau pressure stays the same.",
+  "modules": [
+   "vent"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Sinusoid (blood)",
+  "desc": "Leaky liver capillary where blood bathes the hepatocytes.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Small bowel",
+  "desc": "About 6 m of bowel in the middle of the abdomen; obstruction or loss of blood supply (mesenteric ischaemia) makes it dilate and leak.",
+  "modules": [
+   "abdomen"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Small saphenous vein",
+  "desc": "Superficial vein on the back of the calf, joining the popliteal vein.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Smooth ER",
+  "desc": "Smooth endoplasmic reticulum — makes lipids and stores calcium.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Spleen",
+  "desc": "Under the left ribs; blood-filled and the organ most often injured in blunt abdominal trauma.",
+  "modules": [
+   "abdomen"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Splenorenal",
+  "desc": "The space between spleen and left kidney, the left-upper-quadrant FAST window.",
+  "modules": [
+   "abdomen"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Stomach",
+  "desc": "Upper-left abdomen. Air in it is normal; air outside it (free air) means a perforation.",
+  "modules": [
+   "abdomen"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Stopcock open to air",
+  "desc": "The transducer is open to atmosphere, so the monitor reads zero. Turn the stopcock back to the patient.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Striations (sarcomeres)",
+  "desc": "Repeating contractile units that give heart and skeletal muscle their striped look.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Subclavian → axillary artery",
+  "desc": "Supplies the arm; it lies just behind the subclavian vein.",
+  "modules": [
+   "lines"
+  ],
+  "aka": [
+   "Subclavian artery"
+  ]
+ },
+ {
+  "title": "Subclavian → axillary vein",
+  "desc": "Runs under the clavicle into the arm; an alternative central-line site with lower infection risk but a pneumothorax risk.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Superior vena cava",
+  "desc": "Drains the head, neck and arms into the right atrium. A central line’s tip belongs in its lower part, near the right atrium.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Surfactant",
+  "desc": "A film that lowers surface tension so small alveoli stay open. Deficient in premature lungs and damaged in ARDS.",
+  "modules": [
+   "vent"
+  ],
+  "aka": []
+ },
+ {
+  "title": "SVC",
+  "desc": "Superior vena cava — drains the upper body into the right atrium; the target vessel for a central line tip.",
+  "modules": [
+   "heart"
+  ],
+  "aka": []
+ },
+ {
+  "title": "T-tubules (at each Z line)",
+  "desc": "T-tubules carry the electrical signal deep into the cell so all sarcomeres contract together.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Tear — collagen exposed",
+  "desc": "A break in the vessel wall exposes collagen, which triggers platelets and clotting.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Tibial veins",
+  "desc": "Deep veins of the calf, paired with the tibial arteries.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Tissue (muscle) — uses the O₂",
+  "desc": "Working tissue takes up oxygen; how much depends on its demand and the flow it receives.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Transducer level",
+  "desc": "Where the transducer sits relative to the phlebostatic axis. Every 10 cm below the axis adds about 7.4 mmHg to the reading; above, it subtracts.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Transport vesicles",
+  "desc": "Small membrane bubbles carrying proteins between compartments and to the surface.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Tricuspid valve",
+  "desc": "Three-leaflet valve between the right atrium and right ventricle. If it leaks, the CVP waveform shows tall v waves.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Tubule — filtrate → urine",
+  "desc": "Reabsorbs most of the filtrate — water, sodium, bicarbonate, glucose — and adjusts what stays as urine.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Type I cell",
+  "desc": "Very flat cell forming most of the alveolar wall — the thin barrier gas crosses.",
+  "modules": [
+   "vent"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Ulnar artery",
+  "desc": "Wrist artery on the little-finger side; the back-up supply to the hand when the radial artery is cannulated.",
+  "modules": [
+   "lines"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Urine: H⁺ excreted as NH₄⁺ / H₂PO₄⁻",
+  "desc": "Acid leaves the body in urine bound to ammonia and phosphate buffers.",
+  "modules": [
+   "abg"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Venous end",
+  "desc": "Blood leaves the capillary with less oxygen and more CO₂.",
+  "modules": [
+   "labs"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Ventilation: fresh gas in, CO₂ out",
+  "desc": "Breathing replaces alveolar gas: it brings oxygen in and washes carbon dioxide out. CO₂ removal depends on minute ventilation.",
+  "modules": [
+   "abg"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Ventricular septum",
+  "desc": "The muscular wall between the ventricles. It bows toward the left when the right ventricle is pressure- or volume-overloaded.",
+  "modules": [
+   "heart"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Venule — a VBG samples this blood",
+  "desc": "Venous blood: a venous gas tracks pH and CO₂ reasonably well but says little about oxygenation.",
+  "modules": [
+   "abg"
+  ],
+  "aka": []
+ },
+ {
+  "title": "Venule (to LA)",
+  "desc": "Pulmonary venule carrying oxygenated blood back toward the left atrium.",
+  "modules": [
+   "vent"
+  ],
+  "aka": []
+ },
+ {
+  "title": "VSD — ventricular septal defect",
+  "desc": "Ventricular septal defect — a hole in the septum between the ventricles. Flow normally runs left to right; it reverses if right-sided pressures exceed left.",
+  "modules": [
+   "heart"
+  ],
+  "aka": []
+ }
+]

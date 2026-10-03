@@ -3,26 +3,13 @@ import fs from 'node:fs';
 import { describeLabel, labelKey } from '../src/scene/labelInfo';
 import '../src/labs/cell/model'; // registers the transporter descriptions
 import { TRANSPORTERS } from '../src/labs/cell/model';
+import { scrapeLabels } from '../scripts/labelScrape';
+import { buildIndex } from '../scripts/label-index';
 
 const read = (f: string) => fs.readFileSync(`src/${f}`, 'utf8');
 const all = (re: RegExp, s: string, g = 1) => [...s.matchAll(re)].map((m) => m[g]);
 
-/** Every static label text in the 3D scenes, scraped from the source so new labels are caught. */
-function inventory(): string[] {
-  const out: string[] = [];
-  const lines = read('lines/LinesScene.tsx'), blood = read('labs/blood/BloodScene.tsx');
-  out.push(...all(/lbl\('([^']+)',/g, lines), ...all(/\['([^']+)', \[[-\d.]+, [-\d.]+, [-\d.]+\], '[lr]'/g, lines));
-  out.push(...all(/lbl\('[a-z0-9]+', '([^']+)'/g, blood));
-  out.push(...all(/name: '([^']+)'/g, read('lines/vessels.ts')), ...all(/text: '([^']+)'/g, read('lines/vessels.ts')));
-  for (const f of ['heart/HeartScene.tsx', 'abdomen/AbdomenScene.tsx']) out.push(...all(/tag\((?:V\([^)]*\)|new THREE\.Vector3\([^)]*\)|ABD\.[a-z]+\.clone\(\)\.add\(V\([^)]*\)\)), '([^'`]+)'/g, read(f)));
-  out.push(...all(/tag\([^\n]*?, '([^']+)', '[a-z]+'\)\)/g, read('vent/LungScene.tsx')));
-  const alv = read('vent/AlveolusScene.tsx'); out.push(...all(/\bt: '([^']+)'/g, alv), ...all(/label: '([^']+)'/g, alv), 'Alveolar gas', 'Red cell');
-  out.push(...all(/text="([^"]+)"/g, read('abg/AbgScene.tsx')));
-  out.push(...all(/\['[a-z0-9_]+', [\d.]+, '([^']+)'\]/g, read('neuro/NeuroScene.tsx')));
-  out.push(...all(/\['([^']+)', \[[-\d.]+, [-\d.]+, [-\d.]+\]\]/g, read('labs/LabScene.tsx')));
-  out.push(...all(/\['([^']+)', \[SLAB/g, read('labs/cell/patch.tsx')));
-  return [...new Set(out)].filter((t) => t.length > 1);
-}
+const inventory = () => [...new Set(scrapeLabels().filter((x) => !x.info).map((x) => x.text))];
 
 describe('label descriptions', () => {
   it('scrapes a realistic number of labels', () => { expect(inventory().length).toBeGreaterThan(120); });
@@ -45,5 +32,10 @@ describe('label descriptions', () => {
     expect(labelKey('M1')).toBe('m1'); expect(labelKey('Middle cerebral (M1)')).toBe('middle cerebral (m1)');
     expect(labelKey('Pressure bag 300 mmHg')).toBe('pressure bag'); expect(labelKey('→ Venous end')).toBe('venous end');
     expect(labelKey('Fatty-acid tails · oily core')).toBe('fatty-acid tails');
+  });
+  it('every scraped label (incl. organelles and dynamic keys) resolves, and the glossary index is up to date', () => {
+    expect(scrapeLabels().filter((x) => !describeLabel(x.info ?? labelKey(x.text), x.text)).map((x) => x.text)).toEqual([]);
+    const saved = JSON.parse(fs.readFileSync('src/scene/labelIndex.json', 'utf8'));
+    expect(saved).toEqual(buildIndex()); // run: npx tsx scripts/label-index.ts
   });
 });

@@ -297,7 +297,7 @@ def ingest_video(it: dict, orig: Path) -> tuple[dict, str, dict]:
     src = probe(orig); vf, how = even_pad_scale(src['w'], src['h'])
     mp4, webm, poster = REAL / f"{it['id']}.mp4", REAL / f"{it['id']}.webm", REAL / f"{it['id']}.jpg"
     common = ['-i', str(orig), '-map', '0:v:0', '-an', '-vf', vf, '-fps_mode', 'passthrough']
-    ff(*common, '-c:v', 'libx264', '-crf', '20', '-preset', 'medium', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', str(mp4))
+    ff(*common, '-c:v', 'libx264', '-crf', '20', '-preset', 'medium', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', '-video_track_timescale', '90000', str(mp4))
     ff(*common, '-c:v', 'libvpx-vp9', '-crf', '30', '-b:v', '0', '-row-mt', '1', '-pix_fmt', 'yuv420p', str(webm))
     t = min(1.0, src['duration'] / 3)
     ff('-ss', f'{t:.2f}', '-i', str(mp4), '-frames:v', '1', '-q:v', '3', str(poster))
