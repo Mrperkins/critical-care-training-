@@ -179,10 +179,10 @@ describe('critical care audio mastery model', () => {
     const required: Record<string, RegExp[]> = {
       'rep-push-dose-pressor': [/read the label/i, /expel one milliliter/i, /nine milliliters/i, /one hundred micrograms/i, /label it/i],
       'rep-blood': [/in-line filter/i, /close the clamps/i, /visible air (?:is )?clear|clear(?:ed)? visible air/i, /patient identifiers/i, /stop flow immediately/i],
-      'rep-art-line': [/radial styloid/i, /flexor carpi radialis/i, /true needle tip/i, /fourth intercostal space/i, /mid-axillary line/i, /open to atmosphere/i, /aortic-valve closure/i],
+      'rep-art-line': [/radial styloid/i, /flexor carpi radialis/i, /thirty- to forty-five-degree angle/i, /true needle tip/i, /catheter-over-wire/i, /angiocatheter/i, /about two millimeters/i, /fourth intercostal space/i, /mid-axillary line/i, /open to atmosphere/i, /aortic-valve closure/i],
       'rep-efast': [/mid-axillary line/i, /hepatorenal recess/i, /posterior axillary line/i, /pubic bone/i, /xiphoid process/i, /two rib shadows/i],
-      'rep-chest-tube': [/sternal angle/i, /second rib/i, /fifth intercostal space/i, /sixth rib/i, /pectoralis major/i, /latissimus dorsi/i, /gloved finger/i, /side hole/i],
-      'rep-central-line': [/clavicle/i, /sternocleidomastoid/i, /carotid/i, /compressible/i, /maximal sterile barrier/i, /sterile probe cover/i, /pre-flush each catheter lumen/i, /probe midpoint/i, /true needle tip/i, /guidewire/i, /dilator/i, /wire completely/i],
+      'rep-chest-tube': [/sternal angle/i, /second rib/i, /fourth intercostal space/i, /fifth intercostal space/i, /fifth rib for a fourth-space/i, /sixth rib for a fifth-space/i, /pectoralis major/i, /latissimus dorsi/i, /one-and-a-half- to two-centimeter/i, /gloved finger/i, /side hole/i],
+      'rep-central-line': [/clavicle/i, /sternocleidomastoid/i, /carotid/i, /compressible/i, /maximal sterile barrier/i, /sterile probe cover/i, /pre-flush each catheter lumen/i, /forty-five-degree angle/i, /probe midpoint/i, /true needle tip/i, /J-tipped guidewire/i, /ten to fifteen centimeters/i, /dilator/i, /leave it in place/i, /vascular\/surgical consultation/i, /wire completely/i],
       'rep-io': [/patella/i, /tibial tuberosity/i, /two centimeters medial/i, /five millimeters/i, /ninety degrees/i, /one to two centimeters/i, /medullary space/i, /five to ten milliliters/i, /distal foot/i, /compartment compromise/i],
       'rep-vent-emergency': [/disconnect the ventilator/i, /manual resuscitation bag/i, /suction catheter/i, /peak inspiratory pressure/i, /plateau pressure/i, /expiratory flow/i],
       'rep-evd': [/tragus/i, /cartilaginous projection/i, /ear canal/i, /patient-to-drain/i, /horizontal/i, /re-level/i],
