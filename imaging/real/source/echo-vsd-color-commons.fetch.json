@@ -1,0 +1,21 @@
+{
+ "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/79/Ventricular_Septal_Defect.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+ "pageUrl": "https://commons.wikimedia.org/wiki/File:Ventricular_Septal_Defect.jpg",
+ "originalName": "Ventricular Septal Defect.jpg",
+ "mime": "image/jpeg",
+ "bytes": 54926,
+ "sha1": "72603ee8cb44d862402fdecba0350cff8bac46f1",
+ "width": 636,
+ "height": 434,
+ "license": "Public Domain",
+ "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+ "licenseEvidence": "Wikimedia Commons API extmetadata for File:Ventricular Septal Defect.jpg: LicenseShortName = “Public domain”, UsageTerms = “Public domain” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AVentricular+Septal+Defect.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+ "authors": "",
+ "credit": "",
+ "published": "2005-05-15 04:55:42",
+ "description": "",
+ "restrictions": "",
+ "id": "echo-vsd-color-commons",
+ "retrieved": "2026-10-04T03:25Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

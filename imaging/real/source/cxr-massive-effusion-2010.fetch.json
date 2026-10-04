@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC3018363",
+ "pageUrl": "https://doi.org/10.1186/1746-1596-5-82",
+ "license": "CC BY 2.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+ "licenseText": "This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<url>http://creativecommons.org/licenses/by/2.0</url>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.",
+ "authors": "Maounis N, Chorti M, Legaki S, Ellina E, Emmanouilidou A, Demonakou M, Tsiafaki X.",
+ "title": "Metastasis to the breast from an adenocarcinoma of the lung with extensive micropapillary component: a case report and review of the literature",
+ "publication": "Diagnostic pathology",
+ "published": "2010-12-17",
+ "doi": "10.1186/1746-1596-5-82",
+ "volume": "5",
+ "firstpage": "82",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC3018363.1/1746-1596-5-82-1.jpg",
+ "originalName": "1746-1596-5-82-1.jpg",
+ "description": "Figure 1 Imaging techniques . a) Chest x-ray : Massive pleural effusion occupying most of the left hemithorax with evident displacement of the mediastinum to the right (blue arrow). b) Chest computed tomography: The left lung is atelectatic and compressed by massive pleural effusion (red arrow). The mediastinum and the trachea are severely displaced to the right. A few lymph nodes can be seen, deeply in the left axilla. Additionally, some paratracheal lymph nodes can be observed (yellow arrow). c) Chest computed tomography: A 3,5 × 4,5 cm peripheral lesion, on the left upper lobe, with relative abnormal contour and extension into the surrounding parenchyma. The tumor is in contact to the splanchnic pleura and approached the parietal pleura, possibly invading it (green arrow). d) Digital mammography: Diffuse asymmetrical density in the subalveolar region and the upper outer quadrant of the left breast.",
+ "thirdParty": false,
+ "figure": "F1",
+ "licenseEvidence": "Europe PMC full text of PMC3018363 (doi 10.1186/1746-1596-5-82), <license>: “This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<url>http://creativecommons.org/licenses/by/2.0</url>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.”; Figure 1 caption checked for a separate credit.",
+ "id": "cxr-massive-effusion-2010",
+ "retrieved": "2026-10-04T03:25Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

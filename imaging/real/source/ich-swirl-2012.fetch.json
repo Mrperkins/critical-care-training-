@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC3517489",
+ "pageUrl": "https://doi.org/10.1186/1471-2377-12-109",
+ "license": "CC BY 2.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+ "licenseText": "This is an Open Access article distributed under the terms of the Creative Commons Attribution License ( http://creativecommons.org/licenses/by/2.0 ), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.",
+ "authors": "Selariu E, Zia E, Brizzi M, Abul-Kasim K.",
+ "title": "Swirl sign in intracerebral haemorrhage: definition, prevalence, reliability and prognostic value",
+ "publication": "BMC neurology",
+ "published": "2012-09-26",
+ "doi": "10.1186/1471-2377-12-109",
+ "volume": "12",
+ "firstpage": "109",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC3517489.1/1471-2377-12-109-1.jpg",
+ "originalName": "1471-2377-12-109-1.jpg",
+ "description": "Figure 1 Different examples of swirl sign and swirl sign mimics. Axial images of 6 different patients with ICH. ( a – c ) Show different forms of swirl sign; well defined in a, irregular in b, and streak-like in c . ( d ) Shows homogeneously hyperattenuated left-sided putaminal haemorrhage with no swirl sign. ( e ) Shows right-sided subacute frontal haemorrhage with lower attenuation (black arrow) at the outer posterior portion indicating beginning resorption (clot retraction) that should not be addressed as swirl sign. ( f ) Shows left-sided subacute frontal haemorrhage with multiple blood-fluid levels (short arrows) that should not be addressed as swirl sign.",
+ "thirdParty": false,
+ "figure": "F1",
+ "licenseEvidence": "Europe PMC full text of PMC3517489 (doi 10.1186/1471-2377-12-109), <license>: “This is an Open Access article distributed under the terms of the Creative Commons Attribution License ( http://creativecommons.org/licenses/by/2.0 ), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.”; Figure 1 caption checked for a separate credit.",
+ "id": "ich-swirl-2012",
+ "retrieved": "2026-10-04T03:25Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

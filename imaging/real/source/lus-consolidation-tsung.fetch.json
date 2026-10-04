@@ -1,0 +1,21 @@
+{
+ "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/48/Prospective-application-of-clinician-performed-lung-ultrasonography-during-the-2009-H1N1-influenza-2036-7902-4-16-S3.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+ "pageUrl": "https://commons.wikimedia.org/wiki/File:Prospective-application-of-clinician-performed-lung-ultrasonography-during-the-2009-H1N1-influenza-2036-7902-4-16-S3.ogv",
+ "originalName": "Prospective-application-of-clinician-performed-lung-ultrasonography-during-the-2009-H1N1-influenza-2036-7902-4-16-S3.ogv",
+ "mime": "application/ogg",
+ "bytes": 693650,
+ "sha1": "b37c3996ef1d24142d4fdfef97e707be34faeb6f",
+ "width": 640,
+ "height": 480,
+ "license": "CC BY 2.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+ "licenseEvidence": "Wikimedia Commons API extmetadata for File:Prospective-application-of-clinician-performed-lung-ultrasonography-during-the-2009-H1N1-influenza-2036-7902-4-16-S3.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AProspective-application-of-clinician-performed-lung-ultrasonography-during-the-2009-H1N1-influenza-2036-7902-4-16-S3.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+ "authors": "Tsung J, Kessler D, Shah V",
+ "credit": "Tsung J, Kessler D, Shah V (2012). \" Prospective application of clinician-performed lung ultrasonography during the 2009 H1N1 influenza A pandemic: distinguishing viral from bacterial pneumonia \". Critical Ultrasound Journal . DOI : 10.1186/2036-7902-4-16 . PMID 22862998 . PMC : 3439382 .",
+ "published": "2012",
+ "description": "Title: Rt anterior middle lobe lung consolidation with air bronchograms. Description:Rt anterior middle lobe lung consolidation with air bronchograms consistent with bacterial pneumonia lung ultrasound pattern.",
+ "restrictions": "",
+ "id": "lus-consolidation-tsung",
+ "retrieved": "2026-10-04T03:25Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

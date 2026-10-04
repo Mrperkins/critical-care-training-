@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC2946581",
+ "pageUrl": "https://doi.org/10.1155/2010/168408",
+ "license": "CC BY 3.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+ "licenseText": "https://creativecommons.org/licenses/by/3.0/ This is an open access article distributed under the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.",
+ "authors": "Isabel Kuo, Theodore Long, Nathan Nguyen, Bharat Chaudry, Michael Karp, Nerses Sanossian",
+ "title": "Ruptured intracranial mycotic aneurysm in infective endocarditis: a natural history",
+ "publication": "Case reports in medicine",
+ "published": "2010-09-22",
+ "doi": "10.1155/2010/168408",
+ "volume": "2010",
+ "firstpage": "168408",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC2946581.1/CRM2010-168408.003.jpg",
+ "originalName": "CRM2010-168408.003.jpg",
+ "description": "Figure 3 Progression of the ruptured Mycotic Aneurysm: (a) initial subarachnoid hemorrhage after 6 days IV antibiotics. Note interhemispheric hemorrhage. (b) Repeat noncontrast CT Brain 12 hours later, intraparenchymal hemorrhage is marked by arrow. Note prominent basal ganglia calcifications.",
+ "thirdParty": false,
+ "figure": "fig3",
+ "licenseEvidence": "Europe PMC full text of PMC2946581 (doi 10.1155/2010/168408), <license>: “https://creativecommons.org/licenses/by/3.0/ This is an open access article distributed under the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.”; Figure 3 caption checked for a separate credit.",
+ "id": "ich-sah-to-iph-2010",
+ "retrieved": "2026-10-04T03:25Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

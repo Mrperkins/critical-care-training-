@@ -1,0 +1,145 @@
+"""Offline self-test for tools/clinical_media.py: source parsers on fixture responses, then a full ingest of
+throwaway test-pattern media into a temporary copy of imaging/real/ (nothing in the repo is touched).
+
+    python tools/test_clinical_media.py
+"""
+import json
+import os
+import shutil
+import subprocess
+import sys
+import tempfile
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+
+COMMONS = {'query': {'pages': [{'title': 'File:X.jpg', 'imageinfo': [{
+    'url': 'https://upload.wikimedia.org/wikipedia/commons/c/c6/X.jpg', 'descriptionurl': 'https://commons.wikimedia.org/wiki/File:X.jpg',
+    'sha1': 'abc', 'size': 1000, 'mime': 'image/jpeg', 'width': 800, 'height': 1000,
+    'extmetadata': {'LicenseShortName': {'value': 'CC0'}, 'LicenseUrl': {'value': 'http://creativecommons.org/publicdomain/zero/1.0/deed.en'},
+                    'UsageTerms': {'value': 'Creative Commons Zero, Public Domain Dedication'},
+                    'Artist': {'value': '<a href="//commons.wikimedia.org/wiki/User:Someone">A. Person</a>'},
+                    'DateTimeOriginal': {'value': '2020-01-02'}, 'ImageDescription': {'value': 'An <b>expiratory</b> film'}}}]}]}}
+
+SPRINGER = '''<html><head>
+<meta name="citation_title" content="Point-of-care ultrasound to evaluate volume status">
+<meta name="citation_author" content="Alex One"><meta name="citation_author" content="Bo Two"><meta name="citation_author" content="Cy Three">
+<meta name="citation_journal_title" content="Some Journal"><meta name="citation_publication_date" content="2026/03/01">
+<meta name="citation_doi" content="10.1186/s44348-026-00078-5"><meta name="citation_volume" content="4"><meta name="citation_firstpage" content="12">
+</head><body>
+<div id="MOESM1"><h3><a href="https://static-content.springer.com/esm/art%3A10.1186%2Fs44348-026-00078-5/MediaObjects/44348_2026_78_MOESM1_ESM.avi">Supplementary Material 1</a></h3>
+<p>Video S1. IVC followed to the right atrium.</p></div>
+<div id="MOESM2"><h3><a href="https://static-content.springer.com/esm/art%3A10.1186%2Fs44348-026-00078-5/MediaObjects/44348_2026_78_MOESM2_ESM.avi">Supplementary Material 2</a></h3>
+<p>Video S2. IJV and carotid; the vein collapses.</p></div>
+<p>Rights and permissions</p><p>Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use.
+<a href="http://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</a></p></body></html>'''
+
+
+def check(cond, msg):
+    if not cond:
+        raise SystemExit('FAIL: ' + msg)
+    print('ok  ', msg)
+
+
+def main():
+    tmp = Path(tempfile.mkdtemp())
+    try:
+        root = tmp / 'repo'; (root / 'imaging').mkdir(parents=True)
+        shutil.copytree(HERE.parent / 'imaging' / 'real', root / 'imaging' / 'real')
+        os.environ['CLINICAL_MEDIA_ROOT'] = str(root)
+        sys.path.insert(0, str(HERE)); import clinical_media as cm  # noqa: E402
+
+        check(cm.norm_license('CC0') == 'CC0' and cm.norm_license('cc-by-2.0') == 'CC BY 2.0' and cm.norm_license('CC BY 4.0 International') == 'CC BY 4.0', 'licence names normalise')
+        check(cm.norm_license('https://creativecommons.org/licenses/by-nc/4.0/') == 'CC BY NC 4.0', 'NC licence URL is recognised as NC')
+        c = cm.parse_commons(COMMONS, 'API', 'File:X.jpg')
+        check(c['license'] == 'CC0' and c['authors'] == 'A. Person' and 'LicenseShortName = “CC0”' in c['licenseEvidence'], 'Commons metadata parsed with evidence')
+        s1 = cm.parse_springer(SPRINGER, 'https://link.springer.com/article/10.1186/s44348-026-00078-5', 1)
+        s2 = cm.parse_springer(SPRINGER, 'https://link.springer.com/article/10.1186/s44348-026-00078-5', 2)
+        check(s1['license'] == 'CC BY 4.0' and s1['originalUrl'].endswith('MOESM1_ESM.avi') and s2['originalUrl'].endswith('MOESM2_ESM.avi'), 'Springer licence and supplementary links parsed')
+        check('Video S1' in s1['description'] and 'Video S2' in s2['description'] and not s1['thirdParty'], 'supplementary captions found, no third-party credit')
+        check(cm.parse_springer(SPRINGER.replace('Video S2.', 'Video S2 courtesy of X.'), 'u', 2)['thirdParty'], 'third-party credit in a caption is flagged')
+
+        jats = '''<article xmlns:xlink="http://www.w3.org/1999/xlink"><front><article-meta>
+<contrib-group><contrib contrib-type="author"><name><surname>Shaul</surname><given-names>NC</given-names></name></contrib></contrib-group>
+<permissions><license xlink:href="https://creativecommons.org/licenses/by/4.0/"><license-p>This article is licensed under a Creative Commons Attribution 4.0 International License.</license-p></license></permissions>
+</article-meta></front><back><sec><supplementary-material id="MOESM1"><label>Supplementary Material 1</label><caption><p>Video S1. The inferior vena cava.</p></caption><media xlink:href="44348_2026_78_MOESM1_ESM.avi"/></supplementary-material>
+<supplementary-material id="MOESM2"><caption><p>Video S2. The IJV collapse point.</p></caption><media xlink:href="44348_2026_78_MOESM2_ESM.avi"/></supplementary-material></sec></back></article>'''
+        search = {'resultList': {'result': [{'doi': '10.1186/s44348-026-00078-5', 'pmcid': 'PMC1', 'title': 'POCUS volume status.', 'firstPublicationDate': '2026-07-07', 'journalInfo': {'journal': {'title': 'J Cardiovasc Imaging'}}}]}}
+        e2 = cm.parse_epmc(search, jats, '10.1186/s44348-026-00078-5', 2)
+        check(e2['license'] == 'CC BY 4.0' and e2['mediaName'].endswith('MOESM2_ESM.avi') and 'Video S2' in e2['description'] and e2['authors'] == 'NC Shaul' and not e2['thirdParty'], 'Europe PMC licence, author and supplementary item parsed')
+        import xml.etree.ElementTree as ET
+        figx = '''<article xmlns:xlink="http://www.w3.org/1999/xlink"><front><article-meta><permissions><license><license-p>Distributed under the Creative Commons Attribution 4.0 License.</license-p></license></permissions></article-meta></front>
+<body><fig id="F1"><label>Figure 1</label><caption><p>Non-contrast CT: hyperdense left MCA.</p></caption><graphic xlink:href="cr-1-g001"/></fig>
+<fig id="F2"><label>Figure 2</label><caption><p>Reprinted with permission from Smith et al.</p></caption><graphic xlink:href="cr-1-g002"/></fig>
+<fig id="F3"><label>Figure 3</label><caption><p>CTA.</p></caption><permissions><copyright-statement>© Elsevier 2019</copyright-statement></permissions><graphic xlink:href="cr-1-g003"/></fig></body></article>'''
+        figs = cm.jats_figures(figx)
+        check([f['thirdParty'] for f in figs] == [False, True, True] and figs[0]['href'] == 'cr-1-g001' and 'hyperdense' in figs[0]['caption'], 'figures listed; reprinted / separately copyrighted figures flagged')
+        check(cm.jats_license(ET.fromstring(figx))[0] == 'CC BY 4.0', 'licence stated only in words is read')
+        check(cm.jats_license(ET.fromstring(figx.replace('Attribution 4.0', 'Attribution-NonCommercial 4.0')))[0] is None, 'NonCommercial wording is not accepted')
+        vf, said = cm.region_filters({'crop': [0.5, 0, 0.5, 1], 'maskRects': [[0, 0, 0.2, 0.05]]})
+        check(vf[-1].startswith('crop=') and 'drawbox' in vf[0] and len(said) == 2, 'panel crop and masks are documented')
+        page = tmp / 'page.jpg'; page.write_text('<!DOCTYPE html><html>error</html>')
+        try:
+            cm.sniff(page); check(False, 'HTML saved as .jpg is rejected')
+        except SystemExit:
+            check(True, 'HTML saved as .jpg is rejected')
+
+        # self-test entries cloned from the real teaching items (shipped or pending), so real media is never disturbed
+        mp = root / 'imaging/real/manifest.json'; man = json.loads(mp.read_text())
+        pool = {i['id']: i for i in man['items'] + man.get('pending', [])}
+        claims = {'ptx-expiratory': 'CC0', 'fast-ruq-positive': 'CC BY 2.0', 'ivc-2026-video-s1': 'CC BY 4.0', 'ijv-2026-video-s2': 'CC BY 4.0'}
+        keep = ('kind', 'type', 'modality', 'finding', 'title', 'caption', 'look', 'teach', 'quiz', 'marks', 'fetch')
+        man['pending'] = [{**{k: pool[i][k] for k in keep if k in pool[i]}, 'fetch': pool[i].get('fetch') or {'type': 'commons', 'title': 'x'},
+                           'id': i, 'licenseClaimed': claims[i], 'pageUrl': 'https://example.invalid', 'claimedBy': 'self-test'} for i in claims]
+        man['items'] = [i for i in man['items'] if i['id'] not in claims]
+        for i in claims:
+            for f in list((root / 'imaging/real').glob(i + '.*')) + list((root / 'imaging/real/source').glob(i + '*')):
+                f.unlink()
+        mp.write_text(json.dumps(man, indent=1, ensure_ascii=False) + '\n'); cm.write_docs(man)
+        # throwaway test-pattern media standing in for the downloads (never shipped)
+        src = tmp / 'dl'
+        for pid, kind in (('ptx-expiratory', 'img'), ('fast-ruq-positive', 'ogv'), ('ivc-2026-video-s1', 'avi')):
+            d = src / pid; d.mkdir(parents=True)
+            if kind == 'img':
+                subprocess.run(['ffmpeg', '-v', 'error', '-f', 'lavfi', '-i', 'testsrc=s=801x1001', '-frames:v', '1', str(d / 'original.jpg')], check=True)
+                meta = {**c, 'license': 'CC0'}
+            else:
+                codec = ['-c:v', 'libtheora'] if kind == 'ogv' else ['-c:v', 'mjpeg']
+                subprocess.run(['ffmpeg', '-v', 'error', '-f', 'lavfi', '-i', 'testsrc=s=641x481:r=25:d=3', '-f', 'lavfi', '-i', 'sine=d=3', '-shortest', *codec,
+                                str(d / f'original.{kind}')], check=True)
+                meta = {**(s1 if kind == 'avi' else c), 'license': 'CC BY 2.0' if kind == 'ogv' else 'CC BY 4.0'}
+            meta.update(id=pid, retrieved='2026-09-30T00:00Z', originalName=f'original.{kind}', sha1=None)
+            (d / 'meta.json').write_text(json.dumps(meta))
+        # a licence mismatch must stop ingest
+        bad = src / 'ijv-2026-video-s2'; shutil.copytree(src / 'ivc-2026-video-s1', bad)
+        mj = json.loads((bad / 'meta.json').read_text()); mj['license'] = 'CC BY-SA 4.0'; (bad / 'meta.json').write_text(json.dumps(mj))
+        try:
+            cm.main(['ingest', '--from', str(src), '--only', 'ijv-2026-video-s2']); check(False, 'share-alike licence is refused')
+        except SystemExit:
+            check(True, 'share-alike licence is refused')
+
+        cm.main(['ingest', '--from', str(src), '--only', 'ptx-expiratory', 'fast-ruq-positive', 'ivc-2026-video-s1'])
+        m = json.loads((root / 'imaging/real/manifest.json').read_text())
+        ids = {i['id']: i for i in m['items']}
+        check({'ptx-expiratory', 'fast-ruq-positive', 'ivc-2026-video-s1'} <= set(ids) and [p['id'] for p in m['pending']] == ['ijv-2026-video-s2'], 'ingested items promoted, the refused one stays pending')
+        check(ids['ptx-expiratory']['changes'].startswith('None') and ids['ptx-expiratory']['provenance']['preserved'], 'small JPEG shipped byte-for-byte')
+        f = ids['fast-ruq-positive']; q = f['provenance']['qc']
+        check(f['file'].endswith('.mp4') and f['webm'].endswith('.webm') and f['poster'].endswith('.jpg') and f.get('original', '').startswith('source/'), 'MP4, WebM, poster and preserved source')
+        check(q['mp4']['w'] == 642 and q['mp4']['h'] == 482 and abs(q['mp4']['duration'] - 3) < 0.15 and not q['mp4']['audio'], 'odd size padded (not cropped), length kept, audio dropped')
+        check('no crop, mirroring' in f['changes'] and f['credit'].endswith('CC BY 2.0'), 'changes and credit recorded')
+        sys.argv = ['v']; import importlib.util
+        spec = importlib.util.spec_from_file_location('v', HERE / 'validate_visual_assets.py'); v = importlib.util.module_from_spec(spec); spec.loader.exec_module(v)
+        v.ROOT = root; v.validate_real_images()
+        check(True, 'validator accepts the ingested set')
+        (root / 'imaging/real/stray.webm').write_bytes(b'x')
+        try:
+            v.validate_real_images(); check(False, 'validator rejects unlisted media')
+        except AssertionError:
+            check(True, 'validator rejects unlisted media')
+    finally:
+        shutil.rmtree(tmp)
+    print('clinical media self-test passed')
+
+
+if __name__ == '__main__':
+    main()

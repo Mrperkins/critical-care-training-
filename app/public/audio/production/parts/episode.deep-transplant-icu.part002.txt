@@ -1,0 +1,39 @@
+The integration move is this: The patient’s immune state, graft physiology and drug exposure are inseparable.
+
+Keep these terms available in your mental model: rejection, opportunistic infection, allograft.
+
+What expert-level use of this concept looks like is this: Build a broader differential for shock, hypoxemia and organ dysfunction in transplant recipients. Avoid stopping immunosuppression or attributing graft dysfunction to rejection without context.
+
+Reasoning checkpoint. Do not just repeat the statement: Build a broader differential for shock, hypoxemia and organ dysfunction in transplant recipients. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Avoid stopping immunosuppression or attributing graft dysfunction to rejection without context. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Transplant critical-care physiology to Immunosuppression & opportunistic infection. Immune deficits and immunosuppressive drugs reshape infection timing, presentation, diagnostic yield and antimicrobial strategy.
+
+The relationship matters because Different immune deficits predispose to different organisms and alter inflammatory presentation. Immunosuppressants also create renal, neurologic, metabolic and drug-interaction toxicity. At the bedside, match infection risk to the immune defect and timeline while checking for drug toxicity and interaction.
+
+Now connect Transplant critical-care physiology to Source control. Definitive management of infected material, devitalized tissue or an infected device can be as important as antimicrobial therapy.
+
+The relationship matters because Antibiotics cannot sterilize every infected collection, necrotic tissue or infected device. Persistent nidus can sustain inflammatory and microbial burden despite apparently appropriate antimicrobial therapy. At the bedside, ask early whether drainage, debridement, device removal or surgery is required and whether it is actually happening.
+
+Stress-test the model. Imagine the patient changes in a way that makes calling every graft problem rejection tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Stopping immunosuppression reflexively during critical illness.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Graft dysfunction is not automatically rejection.
+
+Transplant critical-care physiology. Transplant recipients combine altered anatomy/physiology, immunosuppression, unusual infection risk, rejection and drug-interaction problems.
+
+Build the mechanism first. Transplanted organs have altered anatomy, denervation or surgical connections while rejection, infection, ischemia and medication toxicity can produce overlapping dysfunction.
+
+At the bedside, use time-from-transplant, organ type, immunosuppression and prior complications to shape the differential.
+
+Two traps to actively avoid: Calling every graft problem rejection. And: Stopping immunosuppression reflexively during critical illness.
+
+The integration move is this: The patient’s immune state, graft physiology and drug exposure are inseparable.
+
+Keep these terms available in your mental model: rejection, opportunistic infection, allograft.
+
+What expert-level use of this concept looks like is this: Build a broader differential for shock, hypoxemia and organ dysfunction in transplant recipients. Avoid stopping immunosuppression or attributing graft dysfunction to rejection without context.

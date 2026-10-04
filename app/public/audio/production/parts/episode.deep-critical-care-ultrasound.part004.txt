@@ -1,0 +1,37 @@
+Reasoning checkpoint. Do not just repeat the statement: Predict effects of positive pressure and volume changes on a preload-limited circulation. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Cardiac tamponade physiology to Ventricular interdependence. The ventricles share a septum and constrained pericardial space, so pressure or volume loading of one changes filling and geometry of the other.
+
+The relationship matters because The ventricles share a septum and a constrained pericardial space. Acute RV pressure or volume loading can shift the septum and reduce LV diastolic filling. At the bedside, a falling LV stroke volume in RV failure may occur despite apparently adequate intravascular volume because geometry, not supply, is limiting filling.
+
+Now connect Cardiac tamponade physiology to Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+The relationship matters because Shock is inadequate effective tissue perfusion and oxygen utilization, not merely hypotension. Flow, vascular tone, capacitance, congestion and extraction can fail in different combinations. At the bedside, phenotype the circulation repeatedly. A patient can move from one dominant mechanism to another during resuscitation.
+
+Stress-test the model. Imagine the patient changes in a way that makes waiting for the complete classic triad tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring how positive pressure can further reduce venous return.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Pleural and lung patterns across zones.
+
+Critical-care lung ultrasound. Lung ultrasound uses pleural and artifact patterns to evaluate interstitial syndrome, consolidation, effusion and pneumothorax.
+
+Build the mechanism first. Lung ultrasound uses pleural motion and reverberation/consolidation artifacts to infer air-fluid-tissue relationships near the pleural surface.
+
+At the bedside, scan multiple standardized zones and combine A-lines, B-lines, consolidation, effusion and pleural signs with mechanics and clinical context.
+
+Two traps to actively avoid: Treating B-lines as synonymous with cardiogenic edema. And: Using one negative window to exclude focal lung disease.
+
+The integration move is this: Lung ultrasound is a pattern map that becomes diagnostic only after physiology and distribution are considered.
+
+Keep these terms available in your mental model: A-lines, B-lines, consolidation, shred sign.
+
+What expert-level use of this concept looks like is this: Use patterns across zones rather than one isolated artifact. Integrate ultrasound with mechanics and clinical context.
+
+Reasoning checkpoint. Do not just repeat the statement: Use patterns across zones rather than one isolated artifact. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Integrate ultrasound with mechanics and clinical context. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Critical-care lung ultrasound to Pneumothorax ultrasound. Pleural ultrasound combines sliding, B-lines, M-mode patterns and lung point rather than relying on a single sign.

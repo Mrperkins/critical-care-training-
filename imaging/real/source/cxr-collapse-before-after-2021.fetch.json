@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC8709957",
+ "pageUrl": "https://doi.org/10.1186/s12890-021-01789-9",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original auth",
+ "authors": "N. Benkalfate, S. Dirou, P. Germaud, C. Defrance, A. Cavailles, T. Pigeanne, M. Robert, T. Madjer, F. Corne, L. Cellerin, C. Sagan, F. X. Blanc",
+ "title": "Total unilateral pulmonary collapse secondary to allergic bronchopulmonary aspergillosis: a case series of an unusual cause of complete atelectasis",
+ "publication": "BMC pulmonary medicine",
+ "published": "2021-12-24",
+ "doi": "10.1186/s12890-021-01789-9",
+ "volume": "21",
+ "firstpage": "425",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC8709957.1/12890_2021_1789_Fig1_HTML.jpg",
+ "originalName": "12890_2021_1789_Fig1_HTML.jpg",
+ "description": "Fig. 1 Chest X-ray of case #2 ( A , B ), #4 ( C , D ), and #5 ( E , F ) at the time of initial presentation, showing total lung atelectasis ( A , C , E ), and after treatment with flexible bronchoscopy and corticosteroids ( B , D , F ), showing a significant improvement",
+ "thirdParty": false,
+ "figure": "Fig1",
+ "licenseEvidence": "Europe PMC full text of PMC8709957 (doi 10.1186/s12890-021-01789-9), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original auth”; Fig. 1 caption checked for a separate credit.",
+ "id": "cxr-collapse-before-after-2021",
+ "retrieved": "2026-10-04T03:25Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

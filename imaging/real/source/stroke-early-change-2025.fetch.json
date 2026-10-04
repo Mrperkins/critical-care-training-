@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC12295507",
+ "pageUrl": "https://doi.org/10.7759/cureus.86726",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+ "authors": "Takayuki Inomata, Koji Nakaya, Takaya Sasaki, Hiroto Shiozaki, Yasuto Noda",
+ "title": "The Role of Comprehensive Brain Perfusion and Whole-Body CT Using Split-Bolus Injection in Diagnosing Multiple Thromboembolism in a Wake-Up Stroke Patient: A Case Report",
+ "publication": "Cureus",
+ "published": "2025-06-25",
+ "doi": "10.7759/cureus.86726",
+ "volume": "17",
+ "firstpage": "e86726",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12295507.1/cureus-0017-00000086726-i01.jpg",
+ "originalName": "cureus-0017-00000086726-i01.jpg",
+ "description": "Figure 1 Non-contrast axial brain CT image. (a) A hyperdense sign is observed in the right middle cerebral artery (green circle); (b) loss of gray-white matter differentiation (green arrow). The Alberta Stroke Program Early CT Score (ASPECTS) was rated as 4/10 points.",
+ "thirdParty": false,
+ "figure": "FIG1",
+ "licenseEvidence": "Europe PMC full text of PMC12295507 (doi 10.7759/cureus.86726), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 1 caption checked for a separate credit.",
+ "id": "stroke-early-change-2025",
+ "retrieved": "2026-10-04T03:24Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

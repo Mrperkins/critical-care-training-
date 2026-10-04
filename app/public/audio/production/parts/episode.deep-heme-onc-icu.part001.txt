@@ -1,0 +1,41 @@
+You're listening to Thrombosis, thrombocytopenia and oncologic emergencies. HIT, hypercoagulability, tumor lysis, leukostasis and critical-care hematology without lab-number tunnel vision.
+
+This is a level 5 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to reason about thrombosis risk independently from routine coagulation numbers; and recognize metabolic and rheologic oncologic syndromes requiring disease-specific therapy.
+
+Now: HIT: low platelets, high thrombosis risk.
+
+Heparin-induced thrombocytopenia. HIT is an immune prothrombotic disorder in which falling platelets signal thrombosis risk rather than simple bleeding risk.
+
+Build the mechanism first. HIT antibodies activate platelets through PF4 complexes, making thrombocytopenia a marker of a strongly prothrombotic immune syndrome.
+
+At the bedside, estimate pretest probability first, stop heparin and use appropriate non-heparin anticoagulation when probability warrants while confirmatory testing proceeds.
+
+Two traps to actively avoid: Ordering HIT testing for every ICU platelet fall. And: Withholding anticoagulation simply because the platelet count is low in likely HIT.
+
+The integration move is this: The feared complication is thrombosis, not the platelet number itself.
+
+Keep these terms available in your mental model: 4Ts, PF4, non-heparin anticoagulation.
+
+What expert-level use of this concept looks like is this: Estimate pretest probability before ordering confirmatory tests. Stop heparin and manage thrombosis risk when clinical probability is meaningful.
+
+Reasoning checkpoint. Do not just repeat the statement: Estimate pretest probability before ordering confirmatory tests. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Stop heparin and manage thrombosis risk when clinical probability is meaningful. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Heparin-induced thrombocytopenia to Hypercoagulability in critical illness. Critical illness can create thrombosis through inflammation, malignancy, immobility, devices and immune mechanisms even when coagulation labs appear abnormal.
+
+The relationship matters because Inflammation, malignancy, immobility, endothelial injury and devices can shift critical illness toward thrombosis even when routine coagulation tests appear prolonged. At the bedside, assess VTE/device thrombosis risk independently from PT/aPTT and adapt prophylaxis or treatment to bleeding risk and mechanism.
+
+Stress-test the model. Imagine the patient changes in a way that makes ordering hit testing for every icu platelet fall tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Withholding anticoagulation simply because the platelet count is low in likely HIT.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Hypercoagulability in critical illness.
+
+Hypercoagulability in critical illness. Critical illness can create thrombosis through inflammation, malignancy, immobility, devices and immune mechanisms even when coagulation labs appear abnormal.
+
+Build the mechanism first. Inflammation, malignancy, immobility, endothelial injury and devices can shift critical illness toward thrombosis even when routine coagulation tests appear prolonged.

@@ -1,0 +1,33 @@
+The relationship matters because Pulmonary vascular resistance reflects the combined behavior of alveolar and extra-alveolar vessels and is affected by lung volume, oxygen, CO2, pH and pulmonary vascular disease. At the bedside, both severe derecruitment and overdistension can raise RV afterload. Hypoxemia, hypercapnia and acidosis can compound the problem.
+
+Now connect Right ventricular failure to Ventricular interdependence. The ventricles share a septum and constrained pericardial space, so pressure or volume loading of one changes filling and geometry of the other.
+
+The relationship matters because The ventricles share a septum and a constrained pericardial space. Acute RV pressure or volume loading can shift the septum and reduce LV diastolic filling. At the bedside, a falling LV stroke volume in RV failure may occur despite apparently adequate intravascular volume because geometry, not supply, is limiting filling.
+
+Stress-test the model. Imagine the patient changes in a way that makes reflexively giving fluid to every hypotensive rv patient tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Focusing on systemic pressure while ignoring worsening RV dilation and congestion.
+
+Ventricular interdependence. The ventricles share a septum and constrained pericardial space, so pressure or volume loading of one changes filling and geometry of the other.
+
+Build the mechanism first. The ventricles share a septum and a constrained pericardial space. Acute RV pressure or volume loading can shift the septum and reduce LV diastolic filling.
+
+At the bedside, a falling LV stroke volume in RV failure may occur despite apparently adequate intravascular volume because geometry, not supply, is limiting filling.
+
+Two traps to actively avoid: Treating LV output and RV function as separate systems. And: Calling septal flattening a descriptive echo finding without hemodynamic meaning.
+
+The integration move is this: When one ventricle enlarges or its pressure rises, ask what that does to the other ventricle’s filling conditions.
+
+Keep these terms available in your mental model: septal shift, pericardial constraint.
+
+What expert-level use of this concept looks like is this: Use septal position and loading conditions to explain falling LV output during RV distension.
+
+Reasoning checkpoint. Do not just repeat the statement: Use septal position and loading conditions to explain falling LV output during RV distension. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Ventricular interdependence to Cardiac tamponade physiology. Pericardial pressure constrains chamber filling, couples the ventricles and makes venous return highly sensitive to pressure gradients.
+
+The relationship matters because When pericardial pressure approaches chamber filling pressure, diastolic filling becomes constrained and the ventricles compete within a fixed space. At the bedside, interpret echo and hemodynamics together, especially respiratory variation, chamber collapse and venous congestion.
+
+Now connect Ventricular interdependence to Positive-pressure ventilation & circulation. Positive intrathoracic pressure changes venous return, ventricular transmural pressures and pulmonary vascular resistance.
+
+The relationship matters because Positive intrathoracic pressure can reduce the gradient for venous return, change transmural ventricular pressures and alter P V R depending on lung volume and recruitability. At the bedside, post-intubation hypotension may reflect vasodilation, reduced venous return, increased RV afterload, auto-peep or previously compensated shock becoming unmasked.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating lv output and rv function as separate systems tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Calling septal flattening a descriptive echo finding without hemodynamic meaning.

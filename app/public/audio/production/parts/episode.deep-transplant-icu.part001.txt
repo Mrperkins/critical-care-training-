@@ -1,0 +1,45 @@
+You're listening to The transplant patient in the ICU. Rejection, infection, altered anatomy, drug toxicity and diagnostic humility.
+
+This is a level 5 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to build a transplant-specific differential without premature closure; and integrate immune defect, drug exposure, graft physiology and infection timing.
+
+Now: The host is different.
+
+Immunosuppression & opportunistic infection. Immune deficits and immunosuppressive drugs reshape infection timing, presentation, diagnostic yield and antimicrobial strategy.
+
+Build the mechanism first. Different immune deficits predispose to different organisms and alter inflammatory presentation. Immunosuppressants also create renal, neurologic, metabolic and drug-interaction toxicity.
+
+At the bedside, match infection risk to the immune defect and timeline while checking for drug toxicity and interaction.
+
+Two traps to actively avoid: Expecting fever or leukocytosis to be reliable. And: Ignoring antimicrobial–immunosuppressant interactions.
+
+The integration move is this: The host response may be muted even when infection is severe.
+
+Keep these terms available in your mental model: neutropenia, calcineurin inhibitor, opportunistic infection.
+
+What expert-level use of this concept looks like is this: Match likely pathogens to the host immune defect and time course. Recognize major drug-toxicity and interaction risks during critical illness.
+
+Reasoning checkpoint. Do not just repeat the statement: Match likely pathogens to the host immune defect and time course. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize major drug-toxicity and interaction risks during critical illness. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Immunosuppression & opportunistic infection to Transplant critical-care physiology. Transplant recipients combine altered anatomy/physiology, immunosuppression, unusual infection risk, rejection and drug-interaction problems.
+
+The relationship matters because Transplanted organs have altered anatomy, denervation or surgical connections while rejection, infection, ischemia and medication toxicity can produce overlapping dysfunction. At the bedside, use time-from-transplant, organ type, immunosuppression and prior complications to shape the differential.
+
+Stress-test the model. Imagine the patient changes in a way that makes expecting fever or leukocytosis to be reliable tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring antimicrobial–immunosuppressant interactions.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Time from transplant changes the differential.
+
+Transplant critical-care physiology. Transplant recipients combine altered anatomy/physiology, immunosuppression, unusual infection risk, rejection and drug-interaction problems.
+
+Build the mechanism first. Transplanted organs have altered anatomy, denervation or surgical connections while rejection, infection, ischemia and medication toxicity can produce overlapping dysfunction.
+
+At the bedside, use time-from-transplant, organ type, immunosuppression and prior complications to shape the differential.
+
+Two traps to actively avoid: Calling every graft problem rejection. And: Stopping immunosuppression reflexively during critical illness.

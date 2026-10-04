@@ -1,0 +1,239 @@
+You're listening to Asthma, COPD and the ventilator: let the patient exhale. Resistance, time constants, auto-peep, dynamic hyperinflation and dyssynchrony.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to recognize dynamic hyperinflation before it causes hemodynamic collapse; and use ventilator timing and waveforms to correct obstructive mechanics and synchrony.
+
+Now: Expiratory flow limitation.
+
+Severe asthma & COPD physiology. Expiratory flow limitation creates dynamic hyperinflation, intrinsic peep and potentially severe hemodynamic consequences.
+
+Build the mechanism first. Asthma and COPD create expiratory flow limitation; when expiratory time is insufficient, trapped gas raises end-expiratory alveolar pressure and thoracic volume.
+
+At the bedside, look for expiratory flow failing to reach baseline, rising pressures and hemodynamic compromise; reduce air trapping by addressing obstruction and allowing time to exhale.
+
+Two traps to actively avoid: Responding to hypercapnia by reflexively increasing rate. And: Mistaking high peak pressure from resistance for poor compliance.
+
+The integration move is this: In obstructive disease, time is a ventilator setting.
+
+Keep these terms available in your mental model: dynamic hyperinflation, intrinsic peep, time constant.
+
+What expert-level use of this concept looks like is this: Recognize air trapping from waveforms and expiratory flow. Prioritize expiratory time and avoid ventilation strategies that worsen hyperinflation.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize air trapping from waveforms and expiratory flow. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Prioritize expiratory time and avoid ventilation strategies that worsen hyperinflation. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Severe asthma & COPD physiology to Auto-peep & dynamic hyperinflation. Incomplete exhalation leaves positive alveolar pressure at end expiration, increasing work of breathing and intrathoracic pressure.
+
+The relationship matters because Intrinsic peep is residual positive alveolar pressure caused by incomplete exhalation and dynamic hyperinflation, increasing inspiratory threshold load and intrathoracic pressure. At the bedside, detect it from flow curves and appropriate expiratory holds, then reduce minute-ventilation demand or increase expiratory time as physiology permits.
+
+Now connect Severe asthma & COPD physiology to Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+The relationship matters because Acute ventilator deterioration can originate from the patient, tube, circuit or machine. Peak and plateau pressures help separate resistance from compliance when measurements are trustworthy. At the bedside, look at the patient first, rescue oxygenation/ventilation if the device cannot be trusted, then trace from patient to tube to circuit to machine.
+
+Stress-test the model. Imagine the patient changes in a way that makes responding to hypercapnia by reflexively increasing rate tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Mistaking high peak pressure from resistance for poor compliance.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Dynamic hyperinflation and intrinsic peep.
+
+Auto-peep & dynamic hyperinflation. Incomplete exhalation leaves positive alveolar pressure at end expiration, increasing work of breathing and intrathoracic pressure.
+
+Build the mechanism first. Intrinsic peep is residual positive alveolar pressure caused by incomplete exhalation and dynamic hyperinflation, increasing inspiratory threshold load and intrathoracic pressure.
+
+At the bedside, detect it from flow curves and appropriate expiratory holds, then reduce minute-ventilation demand or increase expiratory time as physiology permits.
+
+Two traps to actively avoid: Adding external peep without understanding the auto-peep mechanism. And: Increasing respiratory rate when breath stacking is already present.
+
+The integration move is this: The next breath should not begin before the previous one has physically had time to leave.
+
+Keep these terms available in your mental model: expiratory flow, breath stacking, intrinsic peep.
+
+What expert-level use of this concept looks like is this: Identify auto-peep on expiratory flow and hold maneuvers. Reduce minute-ventilation demand and extend expiratory time when physiology allows.
+
+Reasoning checkpoint. Do not just repeat the statement: Identify auto-peep on expiratory flow and hold maneuvers. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Reduce minute-ventilation demand and extend expiratory time when physiology allows. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Auto-peep & dynamic hyperinflation to Positive-pressure ventilation & circulation. Positive intrathoracic pressure changes venous return, ventricular transmural pressures and pulmonary vascular resistance.
+
+The relationship matters because Positive intrathoracic pressure can reduce the gradient for venous return, change transmural ventricular pressures and alter P V R depending on lung volume and recruitability. At the bedside, post-intubation hypotension may reflect vasodilation, reduced venous return, increased RV afterload, auto-peep or previously compensated shock becoming unmasked.
+
+Now connect Auto-peep & dynamic hyperinflation to Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+The relationship matters because Acute ventilator deterioration can originate from the patient, tube, circuit or machine. Peak and plateau pressures help separate resistance from compliance when measurements are trustworthy. At the bedside, look at the patient first, rescue oxygenation/ventilation if the device cannot be trusted, then trace from patient to tube to circuit to machine.
+
+Stress-test the model. Imagine the patient changes in a way that makes adding external peep without understanding the auto-peep mechanism tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Increasing respiratory rate when breath stacking is already present.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: When trapped gas becomes shock.
+
+Positive-pressure ventilation & circulation. Positive intrathoracic pressure changes venous return, ventricular transmural pressures and pulmonary vascular resistance.
+
+Build the mechanism first. Positive intrathoracic pressure can reduce the gradient for venous return, change transmural ventricular pressures and alter P V R depending on lung volume and recruitability.
+
+At the bedside, post-intubation hypotension may reflect vasodilation, reduced venous return, increased RV afterload, auto-peep or previously compensated shock becoming unmasked.
+
+Two traps to actively avoid: Attributing every post-intubation pressure drop to induction medication. And: Assuming positive pressure has a single predictable effect on both ventricles.
+
+The integration move is this: Think preload, RV afterload and LV transmural afterload separately.
+
+Keep these terms available in your mental model: transmural pressure, mean airway pressure.
+
+What expert-level use of this concept looks like is this: Predict why induction and positive pressure can precipitate hypotension. Distinguish effects on RV preload, RV afterload and LV transmural afterload.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict why induction and positive pressure can precipitate hypotension. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Distinguish effects on RV preload, RV afterload and LV transmural afterload. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Positive-pressure ventilation & circulation to Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+The relationship matters because The RV is thin-walled and highly sensitive to acute afterload. When it dilates, wall stress rises, coronary perfusion can fall and septal shift can reduce LV filling. At the bedside, track systemic pressure, venous congestion, echo geometry, oxygenation, CO2, acid-base status and ventilator pressures together. Small changes in P V R or intrathoracic pressure can have large hemodynamic consequences.
+
+Now connect Positive-pressure ventilation & circulation to Pulmonary vascular resistance. Resistance faced by the RV, influenced by lung volume, oxygenation, CO2, pH, pulmonary vascular disease and mechanical ventilation.
+
+The relationship matters because Pulmonary vascular resistance reflects the combined behavior of alveolar and extra-alveolar vessels and is affected by lung volume, oxygen, CO2, pH and pulmonary vascular disease. At the bedside, both severe derecruitment and overdistension can raise RV afterload. Hypoxemia, hypercapnia and acidosis can compound the problem.
+
+Stress-test the model. Imagine the patient changes in a way that makes attributing every post-intubation pressure drop to induction medication tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Assuming positive pressure has a single predictable effect on both ventricles.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Read the waveforms.
+
+Ventilator synchrony & waveform reasoning. Patient-ventilator dyssynchrony reflects mismatch between neural demand and ventilator timing, flow, cycling or pressure delivery.
+
+Build the mechanism first. Dyssynchrony occurs when ventilator trigger, flow, inspiratory time or cycling does not match the patient’s neural respiratory demand.
+
+At the bedside, use waveform pattern and bedside observation to distinguish trigger delay, flow starvation, premature/late cycling and double triggering before escalating sedation.
+
+Two traps to actively avoid: Calling every struggle “agitation.” And: Suppressing respiratory drive without correcting a mismatched ventilator setting.
+
+The integration move is this: Synchrony is a patient-machine control problem, not merely a sedation problem.
+
+Keep these terms available in your mental model: trigger, flow starvation, double triggering, cycling.
+
+What expert-level use of this concept looks like is this: Diagnose dyssynchrony from pressure/flow waveforms before deepening sedation. Correct ventilator mechanics or patient drive according to the mechanism.
+
+Reasoning checkpoint. Do not just repeat the statement: Diagnose dyssynchrony from pressure/flow waveforms before deepening sedation. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Correct ventilator mechanics or patient drive according to the mechanism. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Ventilator synchrony & waveform reasoning to ICU analgesia, sedation & synchrony. Sedation strategy balances analgesia, comfort, ventilator synchrony, neurologic assessment, hemodynamics and delirium risk.
+
+The relationship matters because Analgesics and sedatives alter pain, awareness, respiratory drive, vascular tone and neurologic assessment. Deep sedation is a physiologic intervention with downstream consequences. At the bedside, separate pain, anxiety, delirium, dyssynchrony and hypoxemia before escalating sedation; use an explicit target and reassess it.
+
+Now connect Ventilator synchrony & waveform reasoning to Mechanical power. Energy delivered to the respiratory system over time from pressure, volume, flow and respiratory rate.
+
+The relationship matters because Mechanical power expresses the energy transferred from the ventilator to the respiratory system per unit time. Pressure, tidal volume, flow and respiratory rate all contribute. At the bedside, a patient may have an acceptable tidal volume and plateau pressure yet receive a high cumulative energy load because of rate, flow or excessive pressure swings.
+
+Stress-test the model. Imagine the patient changes in a way that makes calling every struggle “agitation.” tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Suppressing respiratory drive without correcting a mismatched ventilator setting.
+
+Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+Build the mechanism first. Acute ventilator deterioration can originate from the patient, tube, circuit or machine. Peak and plateau pressures help separate resistance from compliance when measurements are trustworthy.
+
+At the bedside, look at the patient first, rescue oxygenation/ventilation if the device cannot be trusted, then trace from patient to tube to circuit to machine.
+
+Two traps to actively avoid: Staring at the ventilator while the patient deteriorates. And: Treating every high-pressure alarm as bronchospasm.
+
+The integration move is this: Use pressure pattern, capnography, exam and circuit inspection to localize the problem quickly.
+
+Keep these terms available in your mental model: DOPES, peak pressure, plateau pressure, auto-peep.
+
+What expert-level use of this concept looks like is this: Separate resistance, compliance, circuit and patient problems using waveforms and bedside examination. Prioritize oxygenation and manual ventilation when the device or circuit cannot be trusted.
+
+Reasoning checkpoint. Do not just repeat the statement: Separate resistance, compliance, circuit and patient problems using waveforms and bedside examination. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Prioritize oxygenation and manual ventilation when the device or circuit cannot be trusted. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Ventilator emergency troubleshooting to Dead space. Ventilation that does not effectively participate in CO2 exchange, from conducting airways or ventilated but poorly perfused alveoli.
+
+The relationship matters because Dead-space ventilation reaches regions that do not effectively eliminate CO2 because perfusion is absent or inadequate, or because gas remains in conducting airways. At the bedside, rising minute-ventilation requirement, widening PaCO2–EtCO2 gap or unexpectedly low EtCO2 can signal increasing dead space when ventilation is otherwise unchanged.
+
+Now connect Ventilator emergency troubleshooting to peep. Positive end-expiratory pressure used to preserve recruitment and oxygenation, with important mechanical and hemodynamic effects.
+
+The relationship matters because peep can prevent end-expiratory collapse and recruit unstable lung units, but can also overdistend already-open units and transmit pressure to the thorax. At the bedside, judge a peep change by oxygenation, compliance, driving pressure, hemodynamics and the disease’s recruitability rather than by oxygen saturation alone.
+
+Stress-test the model. Imagine the patient changes in a way that makes staring at the ventilator while the patient deteriorates tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Treating every high-pressure alarm as bronchospasm.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Ventilate less aggressively to ventilate better.
+
+Severe asthma & COPD physiology. Expiratory flow limitation creates dynamic hyperinflation, intrinsic peep and potentially severe hemodynamic consequences.
+
+Build the mechanism first. Asthma and COPD create expiratory flow limitation; when expiratory time is insufficient, trapped gas raises end-expiratory alveolar pressure and thoracic volume.
+
+At the bedside, look for expiratory flow failing to reach baseline, rising pressures and hemodynamic compromise; reduce air trapping by addressing obstruction and allowing time to exhale.
+
+Two traps to actively avoid: Responding to hypercapnia by reflexively increasing rate. And: Mistaking high peak pressure from resistance for poor compliance.
+
+The integration move is this: In obstructive disease, time is a ventilator setting.
+
+Keep these terms available in your mental model: dynamic hyperinflation, intrinsic peep, time constant.
+
+What expert-level use of this concept looks like is this: Recognize air trapping from waveforms and expiratory flow. Prioritize expiratory time and avoid ventilation strategies that worsen hyperinflation.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize air trapping from waveforms and expiratory flow. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Prioritize expiratory time and avoid ventilation strategies that worsen hyperinflation. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Severe asthma & COPD physiology to Auto-peep & dynamic hyperinflation. Incomplete exhalation leaves positive alveolar pressure at end expiration, increasing work of breathing and intrathoracic pressure.
+
+The relationship matters because Intrinsic peep is residual positive alveolar pressure caused by incomplete exhalation and dynamic hyperinflation, increasing inspiratory threshold load and intrathoracic pressure. At the bedside, detect it from flow curves and appropriate expiratory holds, then reduce minute-ventilation demand or increase expiratory time as physiology permits.
+
+Now connect Severe asthma & COPD physiology to Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+The relationship matters because Acute ventilator deterioration can originate from the patient, tube, circuit or machine. Peak and plateau pressures help separate resistance from compliance when measurements are trustworthy. At the bedside, look at the patient first, rescue oxygenation/ventilation if the device cannot be trusted, then trace from patient to tube to circuit to machine.
+
+Stress-test the model. Imagine the patient changes in a way that makes responding to hypercapnia by reflexively increasing rate tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Mistaking high peak pressure from resistance for poor compliance.
+
+Auto-peep & dynamic hyperinflation. Incomplete exhalation leaves positive alveolar pressure at end expiration, increasing work of breathing and intrathoracic pressure.
+
+Build the mechanism first. Intrinsic peep is residual positive alveolar pressure caused by incomplete exhalation and dynamic hyperinflation, increasing inspiratory threshold load and intrathoracic pressure.
+
+At the bedside, detect it from flow curves and appropriate expiratory holds, then reduce minute-ventilation demand or increase expiratory time as physiology permits.
+
+Two traps to actively avoid: Adding external peep without understanding the auto-peep mechanism. And: Increasing respiratory rate when breath stacking is already present.
+
+The integration move is this: The next breath should not begin before the previous one has physically had time to leave.
+
+Keep these terms available in your mental model: expiratory flow, breath stacking, intrinsic peep.
+
+What expert-level use of this concept looks like is this: Identify auto-peep on expiratory flow and hold maneuvers. Reduce minute-ventilation demand and extend expiratory time when physiology allows.
+
+Reasoning checkpoint. Do not just repeat the statement: Identify auto-peep on expiratory flow and hold maneuvers. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Reduce minute-ventilation demand and extend expiratory time when physiology allows. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Auto-peep & dynamic hyperinflation to Positive-pressure ventilation & circulation. Positive intrathoracic pressure changes venous return, ventricular transmural pressures and pulmonary vascular resistance.
+
+The relationship matters because Positive intrathoracic pressure can reduce the gradient for venous return, change transmural ventricular pressures and alter P V R depending on lung volume and recruitability. At the bedside, post-intubation hypotension may reflect vasodilation, reduced venous return, increased RV afterload, auto-peep or previously compensated shock becoming unmasked.
+
+Now connect Auto-peep & dynamic hyperinflation to Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+The relationship matters because Acute ventilator deterioration can originate from the patient, tube, circuit or machine. Peak and plateau pressures help separate resistance from compliance when measurements are trustworthy. At the bedside, look at the patient first, rescue oxygenation/ventilation if the device cannot be trusted, then trace from patient to tube to circuit to machine.
+
+Stress-test the model. Imagine the patient changes in a way that makes adding external peep without understanding the auto-peep mechanism tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Increasing respiratory rate when breath stacking is already present.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you recognize dynamic hyperinflation before it causes hemodynamic collapse?
+
+Can you use ventilator timing and waveforms to correct obstructive mechanics and synchrony?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

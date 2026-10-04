@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC12907301",
+ "pageUrl": "https://doi.org/10.3389/fcvm.2026.1747104",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY) . The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journ",
+ "authors": "Xu Z, Ding B, Wu J, Wang H, Chen Z, Wang Z.",
+ "title": "Zero anticoagulation, zero thrombolysis: successful management of massive pulmonary embolism following hemorrhagic transformation of acute ischemic stroke: a case report",
+ "publication": "Frontiers in cardiovascular medicine",
+ "published": "2026-02-02",
+ "doi": "10.3389/fcvm.2026.1747104",
+ "volume": "13",
+ "firstpage": "1747104",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12907301.1/fcvm-13-1747104-g001.jpg",
+ "originalName": "fcvm-13-1747104-g001.jpg",
+ "description": "Figure 1 Non-contrast head CT images. (A) Day 4 after cerebral thrombectomy: initial development of patchy high-density areas (arrows), indicative of early hemorrhagic transformation. (B) Day 6 after cerebral thrombectomy: progressive expansion and coalescence of the hemorrhage (arrows). (C) Day 12 after cerebral thrombectomy: slight reduction in the size and density of the hemorrhage (arrows). (D) Day 17 after cerebral thrombectomy (pre-pulmonary intervention): re-expansion of the hemorrhage (arrows). (E) Day 7 after pulmonary thrombectomy: stability of the intracranial hemorrhage, confirming no procedure-related exacerbation (arrows).",
+ "thirdParty": false,
+ "figure": "F1",
+ "licenseEvidence": "Europe PMC full text of PMC12907301 (doi 10.3389/fcvm.2026.1747104), <license>: “This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY) . The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journ”; Figure 1 caption checked for a separate credit.",
+ "id": "stroke-hemorrhagic-transformation-2026",
+ "retrieved": "2026-10-04T03:25Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

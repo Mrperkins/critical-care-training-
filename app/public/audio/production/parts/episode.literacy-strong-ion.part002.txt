@@ -1,0 +1,39 @@
+Reasoning checkpoint. Do not just repeat the statement: Use the framework to explain hyperchloremic acidosis and effects of albumin without treating it as a competing religion to bicarbonate-based analysis. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating stewart and traditional approaches as mutually exclusive tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Using a complex framework when a simpler analysis already explains the patient.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Weak acids and albumin.
+
+Strong-ion approach. A physicochemical framework using strong-ion difference, total weak acids and PCO2 to explain acid-base state.
+
+Build the mechanism first. The physicochemical framework explains acid-base state through PCO2, strong-ion difference and total weak acids. Chloride-rich states lower SID and can create metabolic acidosis.
+
+At the bedside, use the model to understand hyperchloremia and hypoalbuminemia while still translating findings into familiar bicarbonate and anion-gap language.
+
+Two traps to actively avoid: Treating Stewart and traditional approaches as mutually exclusive. And: Using a complex framework when a simpler analysis already explains the patient.
+
+The integration move is this: Different frameworks should converge on the same physiology, not compete for identity.
+
+Keep these terms available in your mental model: SID, Atot.
+
+What expert-level use of this concept looks like is this: Use the framework to explain hyperchloremic acidosis and effects of albumin without treating it as a competing religion to bicarbonate-based analysis.
+
+Reasoning checkpoint. Do not just repeat the statement: Use the framework to explain hyperchloremic acidosis and effects of albumin without treating it as a competing religion to bicarbonate-based analysis. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating stewart and traditional approaches as mutually exclusive tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Using a complex framework when a simpler analysis already explains the patient.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Translate between frameworks.
+
+Strong-ion approach. A physicochemical framework using strong-ion difference, total weak acids and PCO2 to explain acid-base state.
+
+Build the mechanism first. The physicochemical framework explains acid-base state through PCO2, strong-ion difference and total weak acids. Chloride-rich states lower SID and can create metabolic acidosis.
+
+At the bedside, use the model to understand hyperchloremia and hypoalbuminemia while still translating findings into familiar bicarbonate and anion-gap language.

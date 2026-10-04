@@ -1,0 +1,1370 @@
+[
+ {
+  "id": "eom1",
+  "t": "Every pressure on a ventilator screen comes from one equation. Airway pressure equals resistance times flow, plus volume divided by compliance, plus PEEP. The ventilator is pushing gas through a tube and a tree of airways, and stretching an elastic lung that already sits at PEEP. Watch the lungs: each breath, the bases move down with the diaphragm."
+ },
+ {
+  "id": "eom2",
+  "t": "In volume control with a square wave, flow is constant during inspiration. Look at the pressure trace. It jumps up the instant flow starts. That jump is resistance times flow. After the jump, pressure keeps climbing in a straight line, because as volume goes in, the elastic lung pushes back harder. The top of that climb is the peak inspiratory pressure, PIP."
+ },
+ {
+  "id": "eom3",
+  "t": "Now an inspiratory hold. The valves close and flow drops to zero. With no flow, the resistance term disappears, so the pressure falls from the peak to a plateau. What is left is purely elastic: how hard the stretched lung and chest wall are pushing back. That is the plateau pressure. The drop from peak to plateau tells you about the airways. The plateau tells you about the lung."
+ },
+ {
+  "id": "eom4",
+  "t": "Plateau minus PEEP is the driving pressure. It is the pressure needed to fit this tidal volume into this lung. Divide the tidal volume by the driving pressure and you get static compliance. Normal is about sixty to eighty milliliters per centimeter of water. The coloured bar under the numbers splits the peak pressure into its three parts: PEEP, elastic, and resistive."
+ },
+ {
+  "id": "eom5",
+  "t": "Expiration is passive. The lung empties like a spring through a narrow tube, so flow is highest at the start and decays exponentially. The time constant, tau, is resistance times compliance. After one tau, about sixty three percent of the breath is out. After three tau, about ninety five percent. Here tau is under half a second, so the lung is empty long before the next breath."
+ },
+ {
+  "id": "rc1",
+  "t": "This is severe bronchospasm. The airways in the translucent lungs are narrowed and inflamed. Look at the pressure: the peak is high, but the plateau after the pause is almost normal. The gap between them is huge. Resistance has gone up, compliance has not. The pressure is being spent pushing gas through the airways, not stretching the alveoli."
+ },
+ {
+  "id": "rc2",
+  "t": "A bronchodilator relaxes the smooth muscle. Airway resistance depends on the fourth power of the radius, so a small increase in calibre makes a large drop in resistance. Watch the airways widen, and the peak pressure fall toward the plateau. Time is compressed here: fifteen minutes of drug effect in about fifteen seconds."
+ },
+ {
+  "id": "rc3",
+  "t": "Now a stiff, injured lung. Peak and plateau have both risen, and the gap between them is normal. The same tidal volume needs much more pressure to fit, because a large part of the lung is collapsed and the rest is stiff. That is a compliance problem."
+ },
+ {
+  "id": "rc4",
+  "t": "So, when the high-pressure alarm sounds, do an inspiratory hold. High peak with a normal plateau means resistance: kinked or bitten tube, secretions, bronchospasm. High peak with a high plateau means compliance: pneumothorax, mainstem intubation, pulmonary oedema, abdominal distension, or a stiff chest wall."
+ },
+ {
+  "id": "vp1",
+  "t": "In volume control you choose the tidal volume and the flow. The ventilator guarantees them, and pressure is whatever it takes. If the lung gets stiffer, or the airway narrows, pressure rises. That protects minute ventilation, but you must watch the pressures."
+ },
+ {
+  "id": "vp2",
+  "t": "In pressure control you choose the pressure above PEEP and the inspiratory time. The pressure trace is now a square. Flow is high at first, then decays as the lung fills and the pressure difference shrinks. Tidal volume is the result. Here it is similar to before."
+ },
+ {
+  "id": "vp3",
+  "t": "Same pressure control settings, but now in a stiff ARDS lung. The pressure is capped, so the volume falls. Look at the tidal volume: much smaller. In pressure modes, a falling tidal volume is your warning sign, just as a rising pressure is in volume modes."
+ },
+ {
+  "id": "vp4",
+  "t": "Volume control can also use a decelerating flow pattern. It delivers the volume with a lower peak pressure and a more even distribution between fast and slow lung units. The plateau does not change, because the volume and the lung are the same."
+ },
+ {
+  "id": "pe1",
+  "t": "This patient lies on their back. In ARDS, the heavy, wet lung collapses under its own weight, so the posterior, dependent regions are dark and airless. Blood still flows past them, but it picks up no oxygen. That is shunt, and it is why this patient is hypoxic despite a high FiO₂."
+ },
+ {
+  "id": "pe2",
+  "t": "Now raise PEEP to fourteen. Collapsed units need a higher pressure to open than to stay open. As PEEP rises, the dark posterior lung turns pink: those units are recruited. The same tidal volume now goes into more alveoli, so the driving pressure falls and compliance improves. Watch the oxygen saturation climb as shunt falls."
+ },
+ {
+  "id": "pe3",
+  "t": "Now PEEP twenty two. The anterior lung, which was already open, turns pale: it is over-stretched. The pressure volume loop flattens at the top, compliance falls again, and the plateau is above thirty. High intrathoracic pressure also squeezes the great veins, so venous return and blood pressure fall. More PEEP is not always better."
+ },
+ {
+  "id": "pe4",
+  "t": "The best PEEP opens the collapsed lung without over-stretching the open lung. At the bedside we look for the lowest driving pressure, an acceptable plateau, and oxygenation, while watching blood pressure. Try it yourself in explore mode."
+ },
+ {
+  "id": "au1",
+  "t": "In severe asthma the time constant is long. Look at the expiratory flow: it is still negative when the next breath begins. The lung has not finished emptying. Each breath leaves a little gas behind, until the lung sits at a higher volume. That trapped gas has pressure: intrinsic PEEP, or auto-PEEP."
+ },
+ {
+  "id": "au2",
+  "t": "An expiratory hold closes the valves at the end of expiration. The trapped alveolar pressure equilibrates with the airway, and the pressure rises above set PEEP. The difference is auto-PEEP. It adds to plateau pressure, compresses the heart, and makes the patient work harder to trigger."
+ },
+ {
+  "id": "au3",
+  "t": "The most powerful fix is expiratory time. Lower the rate, and shorten inspiration with a higher flow. Now expiratory flow reaches zero before the next breath, and the auto-PEEP disappears. Carbon dioxide may rise. In asthma that is usually accepted: permissive hypercapnia."
+ },
+ {
+  "id": "sy1",
+  "t": "In pressure support the patient starts every breath. The red dashed line is the patient’s own muscle effort, which the ventilator cannot see directly. When the effort pulls enough flow past the trigger threshold, the ventilator delivers a set pressure. It stops when flow has fallen to a set percentage of the peak flow: the cycle-off criterion."
+ },
+ {
+  "id": "sy2",
+  "t": "Here the cycle-off threshold is sixty percent. The breath ends while the red effort line is still rising: the patient is still inhaling, but the ventilator has stopped. Look for the dip in expiratory flow right after cycling, and sometimes a second breath."
+ },
+ {
+  "id": "sy3",
+  "t": "In COPD the flow decays slowly. With a cycle-off of five percent, the ventilator keeps inflating long after the patient has finished. The effort line goes negative: the patient is actively pushing to exhale against the machine. Raising the cycle-off percentage fixes it."
+ },
+ {
+  "id": "sy4",
+  "t": "Now watch the expiratory flow between breaths. Small upward bumps appear with each red effort, but no breath follows. Trapped gas means the patient must first overcome auto-PEEP before any flow reaches the sensor. These are ineffective efforts. Try the challenges to diagnose and fix each dyssynchrony yourself."
+ },
+ {
+  "id": "ox1",
+  "t": "Room air is twenty one percent oxygen. By the time it is warmed, humidified and mixed with carbon dioxide in the alveoli, the alveolar oxygen pressure is about one hundred. The alveolar gas equation says it: FiO₂ times seven hundred and thirteen, minus PaCO₂ divided by zero point eight."
+ },
+ {
+  "id": "ox2",
+  "t": "Here is one alveolar sac and its capillary basket, drawn to scale. Blood arrives from the pulmonary artery dark, about seventy percent saturated. It spreads over the alveoli in a single layer of red cells, separated from the air by a barrier thinner than one micrometre. It leaves bright red, about ninety seven percent saturated, through the pulmonary venule."
+ },
+ {
+  "id": "ox3",
+  "t": "Zoom in to a single capillary. Red cells squeeze through one at a time. They take about three quarters of a second to cross, but they are fully loaded in the first third of that time. That reserve is why a healthy person can exercise without desaturating."
+ },
+ {
+  "id": "ox4",
+  "t": "In the muscle, arterial blood gives up oxygen to the mitochondria and picks up carbon dioxide. Oxygen delivery is arterial content times cardiac output: about a thousand millilitres a minute. The tissues use about a quarter of it, so venous blood returns about seventy five percent saturated."
+ },
+ {
+  "id": "ox5",
+  "t": "Now drop the haemoglobin to six and a half. Look at the arterial gas: PaO₂ and saturation are unchanged, and the pulse oximeter still reads normal. But oxygen content has halved, because content is one point three four times haemoglobin times saturation, plus a tiny dissolved fraction. The tissues must extract more, so venous saturation falls. SpO₂ tells you how full each lorry is, not how many lorries there are."
+ },
+ {
+  "id": "hy1",
+  "t": "First, hypoventilation. Depress the drive, as an opioid would. Less fresh gas reaches the alveoli, so carbon dioxide builds up and, by the alveolar gas equation, alveolar oxygen falls. The lungs themselves are normal, so the A to a gradient stays normal. A little oxygen, or simply more ventilation, fixes it."
+ },
+ {
+  "id": "hy2",
+  "t": "Now V Q mismatch. Some alveoli get plenty of blood but little air. Blood leaving them is poorly oxygenated, and the A to a gradient widens. This is the commonest cause of hypoxaemia: pneumonia, COPD, asthma, pulmonary embolism."
+ },
+ {
+  "id": "hy3",
+  "t": "Raise the FiO₂ to forty percent. Even poorly ventilated alveoli eventually fill with oxygen-rich gas, so their blood saturates and the PaO₂ rises a lot. V Q mismatch is oxygen responsive."
+ },
+ {
+  "id": "hy4",
+  "t": "Now shunt: blood passing collapsed or flooded alveoli that receive no gas at all. The dark alveoli are airless, and the blood through them stays venous. Even at one hundred percent oxygen, the PaO₂ barely rises, because extra oxygen never reaches that blood. Shunt needs the alveoli reopened: PEEP, recruitment, treating the cause."
+ },
+ {
+  "id": "hy5",
+  "t": "Finally, dead space: alveoli that are ventilated but not perfused, shown with grey empty capillaries. They waste ventilation, so carbon dioxide clearance falls and the gap between PaCO₂ and end tidal CO₂ widens. Pulmonary embolism, low cardiac output and over-distension all do this."
+ },
+ {
+  "id": "rs1",
+  "t": "This patient has taken an opioid. Carbon dioxide has risen to the eighties, and the pH has fallen quickly. Carbon dioxide combines with water to form carbonic acid, which releases hydrogen ions. Haemoglobin and proteins buffer some of them, so bicarbonate rises only about one per ten millimetres of mercury. That is acute compensation."
+ },
+ {
+  "id": "rs2",
+  "t": "Look at the acid base map. The dot sits in the acute respiratory acidosis band. Now we will keep the ventilation the same and let two days pass."
+ },
+ {
+  "id": "rs3",
+  "t": "The kidneys have been excreting acid as ammonium and reclaiming and making new bicarbonate. Bicarbonate has risen by about three and a half per ten millimetres of mercury, and the pH is back near normal, even though the CO₂ has not changed. The dot has moved along its path into the chronic band. This is why a COPD patient can live with a PaCO₂ of sixty."
+ },
+ {
+  "id": "rs4",
+  "t": "Now reverse the opioid. Ventilation returns, and CO₂ falls within minutes. But the kidneys need days to give back the extra bicarbonate, so the patient becomes alkalaemic. The same thing happens when a chronic retainer is over-ventilated on a ventilator."
+ },
+ {
+  "id": "mt1",
+  "t": "Diabetic ketoacidosis. Ketoacids release hydrogen ions, and bicarbonate is used up buffering them. The ketone anions stay behind, unmeasured, so the anion gap, sodium minus chloride plus bicarbonate, widens. This is a high anion gap metabolic acidosis."
+ },
+ {
+  "id": "mt2",
+  "t": "The low pH drives deep, fast breathing, Kussmaul respiration. Winter’s formula predicts the expected PaCO₂: one and a half times bicarbonate plus eight, plus or minus two. If the measured CO₂ is higher, the patient is tiring or sedated: a second, respiratory, problem."
+ },
+ {
+  "id": "mt3",
+  "t": "In septic shock, lactate rises. Some comes from tissues short of oxygen, shown in magenta, but much comes from adrenaline-driven glycolysis and from a liver too poorly perfused to clear it. Lactate is a marker of stress and clearance, not simply of oxygen debt."
+ },
+ {
+  "id": "mt4",
+  "t": "Salicylate poisoning stimulates the respiratory centre directly, causing a respiratory alkalosis, and uncouples oxidative phosphorylation, adding organic acid. The CO₂ is lower than Winter’s formula predicts. Two primary disorders at once. The low CO₂ is protecting the patient: if they are intubated, it must stay low."
+ },
+ {
+  "id": "vb1",
+  "t": "An arterial gas samples blood on its way to the tissues. A venous gas samples blood that has already given up oxygen and collected carbon dioxide. In a stable patient, venous pH is about zero point zero three lower and venous CO₂ about five higher. Bicarbonate and lactate are almost the same."
+ },
+ {
+  "id": "vb2",
+  "t": "Venous PO₂ tells you only what the tissues left behind. A venous PO₂ of forty is normal, not hypoxaemia. To judge oxygenation, use the pulse oximeter or an arterial sample. The app always shows these two samples separately for that reason."
+ },
+ {
+  "id": "vb3",
+  "t": "During cardiac arrest with CPR, blood flow is so low that carbon dioxide piles up in the tissues. Venous CO₂ is far higher than arterial, and the venous pH far lower. When flow is poor, a venous gas no longer mirrors the arterial one."
+ },
+ {
+  "id": "hk1",
+  "t": "Almost all the body’s potassium is inside cells, about one hundred and forty inside against four outside. The sodium potassium pump in the membrane keeps it that way. That steep ratio sets the resting membrane potential of every heart cell, about minus eighty five millivolts."
+ },
+ {
+  "id": "hk2",
+  "t": "Now the kidneys have failed and plasma potassium is seven point four. The ratio across the membrane falls, so the resting potential rises toward the threshold. Look at the gap on the membrane gauge: it has shrunk. The ECG shows peaked T waves, flattened P waves and a widening QRS. The heart is close to an arrhythmia."
+ },
+ {
+  "id": "hk3",
+  "t": "Give intravenous calcium. Watch the numbers carefully: the potassium has not changed at all. What changed is the threshold. Calcium moves the threshold potential up, away from the resting potential, and restores the safety gap. The QRS narrows within minutes. Calcium buys time: thirty to sixty minutes."
+ },
+ {
+  "id": "hk4",
+  "t": "Now insulin with dextrose. Insulin switches on the sodium potassium pump, so potassium moves from the blood back into the cells. Plasma potassium falls by around one. Nebulised salbutamol does the same through beta two receptors. But nothing has left the body."
+ },
+ {
+  "id": "hk5",
+  "t": "Five hours later the insulin has worn off, the pumps have slowed, and potassium has leaked back out. This is the rebound. Shifting treatments are temporary. The potassium must be removed."
+ },
+ {
+  "id": "hk6",
+  "t": "Dialysis removes potassium from the body, and so do binders, and diuretics if the kidneys work. Stabilise, shift, remove: in that order, and repeat the ECG and the potassium."
+ },
+ {
+  "id": "hn1",
+  "t": "Sodium is the main solute outside cells. Cell membranes let water through freely, so water moves until the concentration inside and outside is equal. Plasma sodium therefore sets the size of every cell, and the brain is the one organ that has no room to swell."
+ },
+ {
+  "id": "hn2",
+  "t": "Drop the sodium to one hundred and eighteen over a few hours, as happens with water intoxication or after surgery. Water rushes into brain cells and they swell. Inside the skull, that means headache, vomiting, seizures and eventually herniation. This is an emergency: a small bolus of hypertonic saline, raising the sodium by four to six, pulls water back out."
+ },
+ {
+  "id": "hn3",
+  "t": "If the sodium falls slowly, over days, brain cells export their own solutes, organic osmolytes, and shrink back to a normal size. This patient has the same sodium of one hundred and eighteen, but the brain cells are no longer swollen."
+ },
+ {
+  "id": "hn4",
+  "t": "Now correct that chronic hyponatraemia too quickly: sixteen in a day. The adapted brain cells cannot re-import their osmolytes fast enough, water is pulled out, and the myelin of the pons can be destroyed. Osmotic demyelination appears days later and may be permanent. Limit correction to about eight to ten in twenty four hours."
+ },
+ {
+  "id": "an1",
+  "t": "Here is a capillary full of red cells. Each one is packed with haemoglobin, and each haemoglobin is ninety seven percent saturated with oxygen. Oxygen content is about nineteen millilitres in every decilitre of blood."
+ },
+ {
+  "id": "an2",
+  "t": "Now the haemoglobin is six and a half. There are half as many red cells, but each one is still fully saturated, so the pulse oximeter still reads ninety seven percent. The oxygen content has halved. The heart pumps faster to compensate and the tissues extract more, so venous saturation falls."
+ },
+ {
+  "id": "an3",
+  "t": "A unit of red cells raises the haemoglobin by about one gram per decilitre and restores content. Remember: a normal SpO₂ says the haemoglobin present is full, not that there is enough of it."
+ },
+ {
+  "id": "lc1",
+  "t": "Every cell makes some lactate, and the liver and kidneys clear it. A normal level of about one simply means production and clearance are matched."
+ },
+ {
+  "id": "lc2",
+  "t": "Now cardiac output falls in shock. Tissues short of oxygen turn more glucose into lactate, and a poorly perfused liver clears less. Lactate climbs. Adrenaline and sepsis raise it further, even when oxygen delivery is adequate, by speeding glycolysis."
+ },
+ {
+  "id": "lc3",
+  "t": "Restore perfusion and the balance reverses. Lactate falls over hours, as the liver clears it. A falling lactate is one of the best signs that resuscitation is working."
+ },
+ {
+  "id": "ln-setup-1",
+  "t": "An arterial line is a short cannula in an artery — here the right radial — joined by stiff, saline-filled tubing to a pressure transducer. The fluid column transmits every pressure change to the transducer, which turns it into the waveform and the numbers on the monitor."
+ },
+ {
+  "id": "ln-setup-2",
+  "t": "A 20-gauge cannula sits in the radial artery at the wrist. A bag of saline squeezed to 300 mmHg pushes about 3 mL an hour through the line, so blood cannot back up and clot. The bag must stay above the patient’s systolic pressure."
+ },
+ {
+  "id": "ln-setup-3",
+  "t": "The central venous catheter enters the right internal jugular vein and runs down through the superior vena cava. Its tip should sit at the cavo-atrial junction, where the SVC meets the right atrium. The pressure there is the central venous pressure — essentially right-atrial pressure."
+ },
+ {
+  "id": "ln-setup-4",
+  "t": "Watch the chambers. The atria contract just after each P wave, the ventricles after each QRS. The right atrium glows brighter as its pressure rises, and a pulse wave runs from the aorta to the wrist — it arrives about a tenth of a second after the heart ejects."
+ },
+ {
+  "id": "ln-setup-5",
+  "t": "All the pressures are measured against one reference point: the phlebostatic axis — the fourth intercostal space in the mid-axillary line, roughly the level of the right atrium. The transducer’s air–fluid interface, the zeroing stopcock, must sit level with it."
+ },
+ {
+  "id": "ln-art-1",
+  "t": "The steep upstroke is the left ventricle ejecting into the aorta. The rounded top is the systolic peak. As ejection ends the aortic valve snaps shut, making the dicrotic notch. Then pressure runs off through the arterioles until the next beat: that low point is the diastolic pressure."
+ },
+ {
+  "id": "ln-art-2",
+  "t": "The radial systolic peak is taller and spikier than in the central aorta and diastolic slightly lower, so the pulse pressure is wider — the wave steepens as it travels out to smaller, stiffer arteries. The mean pressure hardly changes, which is one reason MAP is the number to trust for decisions. Compare the columns in the table: radial versus central aorta."
+ },
+ {
+  "id": "ln-art-3",
+  "t": "This patient is in vasodilated septic shock. Resistance is so low that blood runs off before the valve even closes: the notch slides down toward the diastolic level, diastolic pressure falls and MAP is below 65."
+ },
+ {
+  "id": "ln-art-4",
+  "t": "Norepinephrine restores vascular tone. Watch diastolic pressure and MAP climb and the notch rise back up the downstroke."
+ },
+ {
+  "id": "ln-art-5",
+  "t": "An older, hypertensive patient: the stiff aorta cannot stretch to absorb each stroke, and the reflected wave returns early, during systole. Systolic pressure climbs, diastolic falls, and the pulse pressure widens past 60 mmHg — with a late systolic shoulder."
+ },
+ {
+  "id": "ln-cvp-1",
+  "t": "The a wave follows the P wave: the atrium contracts. The small c wave comes just after the QRS, as the closing tricuspid valve bulges back into the atrium. The x descent is the atrium relaxing and the valve ring being pulled down. The v wave is the atrium filling against the closed valve, near the end of the T wave. The y descent is the valve opening and blood rushing into the ventricle."
+ },
+ {
+  "id": "ln-cvp-2",
+  "t": "The shaded bands are breaths in. Breathing spontaneously, each breath in lowers the pressure in the chest, so the whole CVP trace dips. The monitor’s number averages every phase, so it reads a little low."
+ },
+ {
+  "id": "ln-cvp-3",
+  "t": "The monitor is frozen. Drag across the CVP trace and read the pressure at end-expiration — just before a shaded breath begins — at the base of the c wave. That is the value to record. Compare it with the monitor’s mean."
+ },
+ {
+  "id": "ln-cvp-4",
+  "t": "With positive-pressure ventilation, inspiration raises the pressure in the chest, so the CVP rises with each breath. End-expiration is now the lowest part of the respiratory cycle — still just before the next breath. The rule stays the same: read at end-expiration."
+ },
+ {
+  "id": "ln-cvp-5",
+  "t": "Complete heart block: atria and ventricles beat independently. When the atrium happens to contract while the tricuspid valve is shut, the blood is pushed back up the jugular: a giant cannon a wave."
+ },
+ {
+  "id": "ln-cvp-6",
+  "t": "Atrial fibrillation: the atria quiver and never contract as one, so the a wave disappears. You see only c and v, and the arterial pulse varies with every irregular R-R interval."
+ },
+ {
+  "id": "ln-cvp-7",
+  "t": "Severe tricuspid regurgitation: the right ventricle pumps backwards into the atrium in every systole. The x descent is filled in by a giant c-v wave that can look almost like a ventricular trace."
+ },
+ {
+  "id": "ln-level-1",
+  "t": "The transducers are level with the phlebostatic axis. Levelling and zeroing are different jobs: levelling sets the reference height; zeroing tells the monitor what atmospheric pressure reads."
+ },
+ {
+  "id": "ln-level-2",
+  "t": "The transducer has slipped 10 cm below the axis. The extra 10 cm of saline adds 10 × 0.74 = 7.4 mmHg to every reading. An arterial MAP of 95 becomes 102 — but a CVP of 5 becomes 12, more than double. Low transducer, high reading."
+ },
+ {
+  "id": "ln-level-3",
+  "t": "The line was levelled with the bed flat. Now the head of the bed goes up to 30 degrees: the chest — and the phlebostatic axis — rises about 27 cm, but the transducer on the pole stays where it was. Every pressure now reads about 20 mmHg high. Re-level after any change in bed height or position."
+ },
+ {
+  "id": "ln-level-4",
+  "t": "Zeroing: turn the stopcock off to the patient and open to air, press zero, then turn it back. The monitor now knows what atmospheric pressure looks like at the level of the stopcock."
+ },
+ {
+  "id": "ln-level-5",
+  "t": "This line was zeroed while the stopcock was still open to the patient. The monitor subtracted the patient’s own pressure: the trace sits around zero and swings negative. The shape is right; the numbers are wrong. Zero again, open to air."
+ },
+ {
+  "id": "ln-damp-1",
+  "t": "Pull the flush for a second and let go. The trace jumps to the bag pressure, drops back, bounces one and a half to two times, then the waveform resumes. That is an optimally damped system: trust the systolic and diastolic values."
+ },
+ {
+  "id": "ln-damp-2",
+  "t": "Extra extension tubing and stopcocks lower the natural frequency of the line. Now the flush bounces many times, and each heartbeat sets the line ringing: a spiky systolic overshoot. Systolic reads too high, diastolic slightly low — MAP is the least affected. It gets worse at faster heart rates."
+ },
+ {
+  "id": "ln-damp-3",
+  "t": "A tiny air bubble is very compliant. It drops the natural frequency sharply, so the line resonates and overshoots. Turn the stopcock off to the patient and flush the bubble out through the side port to waste."
+ },
+ {
+  "id": "ln-damp-4",
+  "t": "A clot at the tip, a kink, a large bubble or a soft pressure bag absorbs the pulse. The flush slides back with no bounce, the notch disappears, systolic reads low and diastolic high. MAP still holds — until the line blocks completely."
+ },
+ {
+  "id": "ln-damp-5",
+  "t": "An overdamped arterial line with sluggish blood return: aspirate first, then flush. Flushing a clot forward can embolise into the hand; flushing a bubble toward the patient puts air into the circulation — from a radial line it can even travel back up to the brain. Always clear air out of the side port to waste."
+ },
+ {
+  "id": "ln-hl-1",
+  "t": "This patient has lost blood and is on the ventilator. Each positive-pressure breath squeezes blood out of the lungs into the left heart, then limits venous return for the next few beats. An underfilled heart is sensitive to that: the pulse pressure swings by more than 13 %."
+ },
+ {
+  "id": "ln-hl-2",
+  "t": "Three 500 mL boluses. Stroke volume rises, the heart moves up the steep part of its Starling curve onto the flat part, and the variation shrinks. The patient was fluid-responsive."
+ },
+ {
+  "id": "ln-hl-3",
+  "t": "PPV only predicts fluid response with controlled breaths of at least 8 mL/kg, a regular rhythm, no spontaneous effort and a closed chest — and it is unreliable with very stiff lungs, RV failure or raised abdominal pressure. Here the patient breathes on their own: the variation is meaningless."
+ },
+ {
+  "id": "ln-hl-4",
+  "t": "In atrial fibrillation every beat has a different filling time, so pulse pressure varies whatever the volume status. PPV cannot be used."
+ },
+ {
+  "id": "ln-hl-5",
+  "t": "Cardiac tamponade, breathing spontaneously. The pericardium limits total heart volume: when the right heart fills on inspiration, the septum bows left and the left ventricle ejects less. Systolic pressure falls more than 10 mmHg with every breath in, the CVP is high, and there is no y descent."
+ },
+ {
+  "id": "ln-hl-6",
+  "t": "Pericardiocentesis. As the fluid comes off, the paradox disappears, the CVP falls, the y descent returns and the heart rate slows."
+ },
+ {
+  "id": "ln-dz-1",
+  "t": "A narrow valve slows ejection: the upstroke is slow and late (pulsus tardus), the peak small (parvus), often with an anacrotic shoulder, and the notch is faint."
+ },
+ {
+  "id": "ln-dz-2",
+  "t": "Blood falls back into the ventricle in diastole: diastolic pressure is very low, and the ventricle ejects a huge stroke — a steep upstroke, a wide pulse pressure, often a double systolic peak, and no notch."
+ },
+ {
+  "id": "ln-dz-3",
+  "t": "Cardiogenic shock: a weak ventricle ejects slowly against high resistance. The upstroke is sluggish, the pulse pressure narrow, and the CVP high. Little pulse-pressure variation: more fluid will not help."
+ },
+ {
+  "id": "ln-dz-4",
+  "t": "A premature beat fires before the ventricle has filled: a small or absent pulse. The pause that follows lets the next beat fill more, and it is bigger than normal."
+ },
+ {
+  "id": "ln-dz-5",
+  "t": "Massive pulmonary embolism: the right ventricle is pressure-loaded. The CVP is high with large a and v waves, the left heart is underfilled and the arterial pulse is narrow."
+ },
+ {
+  "id": "ards-1",
+  "t": "Acute respiratory distress syndrome. The lungs are inflamed, heavy with protein-rich fluid, and the dependent regions at the back have collapsed. At a PEEP of five, look at how little of the lung is aerated."
+ },
+ {
+  "id": "ards-2",
+  "t": "Zoom in to a cluster of alveoli. The upper units are open. The dependent ones at the bottom are collapsed or flooded, and blood keeps flowing past them."
+ },
+ {
+  "id": "ards-3",
+  "t": "Follow the red cells past a collapsed alveolus: they leave as blue as they arrived. This is shunt. Extra oxygen cannot reach these units, which is why the saturation barely moves when you raise the FiO2."
+ },
+ {
+  "id": "ards-4",
+  "t": "Across the membrane, the interstitium is swollen and the lining fluid is thick. Surfactant is broken into islands, so alveoli collapse at the end of every breath."
+ },
+ {
+  "id": "ards-5",
+  "t": "Now drop the tidal volume to six millilitres per kilogram and raise the PEEP to sixteen. Pressure at end-expiration holds the dependent alveoli open. Collapsed units re-inflate, the shunt falls, and the blood leaving them turns red."
+ },
+ {
+  "id": "ards-6",
+  "t": "Push PEEP to twenty-four and the least dependent alveoli are overstretched. Their walls thin, they compress the capillaries around them, and the plateau pressure climbs past thirty."
+ },
+ {
+  "id": "ards-7",
+  "t": "The goal is in between: enough PEEP to keep the dependent lung open, small tidal volumes of about six millilitres per kilogram, a plateau below thirty and a driving pressure below fifteen. Watch the numbers as you choose."
+ },
+ {
+  "id": "ards-8",
+  "t": "On a portable film at a PEEP of five, both lungs are white with patchy opacities and air bronchograms, and the heart is a normal size. That is the pattern of ARDS, not of heart failure."
+ },
+ {
+  "id": "ards-9",
+  "t": "At a PEEP of sixteen the same lungs look clearer, because collapsed units have opened and now hold air. The film changes with the ventilator settings, not only with the disease."
+ },
+ {
+  "id": "ards-10",
+  "t": "With a probe on the side of the chest at a PEEP of five, the B-lines merge into a white lung, and the dependent lung under the probe is consolidated and airless."
+ },
+ {
+  "id": "ards-11",
+  "t": "At sixteen there are fewer B-lines and the consolidation has gone: the same recruitment you saw at the alveoli, seen at the bedside in seconds."
+ },
+ {
+  "id": "cr-1",
+  "t": "In volume control with constant flow, the peak pressure has three parts: PEEP, the pressure to stretch the lung — volume divided by compliance — and the pressure to push flow through the airways — resistance times flow. An inspiratory hold stops the flow, and what remains is the plateau."
+ },
+ {
+  "id": "cr-2",
+  "t": "In ARDS the lung is small and stiff. Peak and plateau are both high and close together: the gap between them — the resistive part — is normal. The fix is about volume and PEEP: smaller breaths, keep the plateau under thirty."
+ },
+ {
+  "id": "cr-3",
+  "t": "In severe asthma the airways are narrow. The peak pressure is very high, but the plateau is only modestly raised: the big peak-to-plateau gap is resistance. Raising the peak alarm will not help; opening the airways will."
+ },
+ {
+  "id": "cr-4",
+  "t": "Look at the flow trace: expiratory flow has not returned to zero when the next breath starts. Gas is trapped. An expiratory hold measures the pressure it creates: auto-PEEP, on top of the set PEEP. Trapped gas raises intrathoracic pressure and can drop the blood pressure."
+ },
+ {
+  "id": "cr-5",
+  "t": "A bronchodilator lowers resistance and a slower rate lengthens expiration. The peak falls, the gap narrows, expiratory flow reaches zero and the auto-PEEP melts away."
+ },
+ {
+  "id": "cr-6",
+  "t": "In COPD the small airways collapse during expiration, limiting flow no matter how hard the patient pushes. The same rules apply: long expiratory times, modest minute ventilation, and measure the trapped pressure."
+ },
+ {
+  "id": "cr-7",
+  "t": "The films tell the same story. The asthmatic lungs are hyperinflated: dark, over-expanded, with low flat diaphragms and a narrow heart, because trapped air cannot get out. The ARDS film was white."
+ },
+ {
+  "id": "cr-8",
+  "t": "On ultrasound the asthmatic lung slides, with A-lines only: full of air, with no fluid. The ARDS lung showed B-lines everywhere. A stiff lung and a narrow airway look different at the bedside."
+ },
+ {
+  "id": "ptx-1",
+  "t": "A ventilated patient with normal lungs. Note the peak pressure, the saturation and the blood pressure."
+ },
+ {
+  "id": "ptx-2",
+  "t": "A leak from the right lung lets air into the pleural space with every positive-pressure breath, and it cannot escape. Pleural pressure rises, the right lung collapses toward the hilum, and the mediastinum is pushed away."
+ },
+ {
+  "id": "ptx-3",
+  "t": "Down at the alveoli, the compressed lung has collapsed but is still perfused: blood passes through without meeting air, and the saturation falls."
+ },
+ {
+  "id": "ptx-4",
+  "t": "The high intrathoracic pressure squeezes the great veins, venous return falls, and cardiac output with it. Peak pressures alarm high, the blood pressure drops and the heart races. This is obstructive shock: a mechanical problem that fluids and pressors cannot fix."
+ },
+ {
+  "id": "ptx-5",
+  "t": "Needle decompression, then a chest tube. The pleural air escapes, the lung re-expands, peak pressure falls, venous return and blood pressure recover, and the saturation climbs."
+ },
+ {
+  "id": "ptx-6",
+  "t": "Back to the moment before decompression, seen with a linear probe on the front of the chest. On the right the bright pleural line does not shimmer: no sliding, only A-line echoes, and the M-mode is a barcode. On the left the lung slides and the M-mode looks like a seashore. Ultrasound takes seconds, but it confirms — it should never delay decompression in a crashing patient."
+ },
+ {
+  "id": "ptx-7",
+  "t": "The same moment on a portable film: a pleural edge with no lung markings beyond it, a flattened right hemidiaphragm, and the mediastinum pushed to the left. A film like this is a teaching picture; tension is treated on clinical signs."
+ },
+ {
+  "id": "ptx-8",
+  "t": "After decompression the tension is gone, but a little air is still trapped at the front of the chest. Anteriorly there is still no sliding. Move the probe laterally: at one spot sliding appears and disappears with each breath — a lung point, the edge of the remaining air. It confirms a pneumothorax, and it moves outward as the drain lets the lung come back."
+ },
+ {
+  "id": "nd-1",
+  "t": "A ventilated patient with a right tension pneumothorax: high peak and plateau pressures, falling saturation, blood pressure collapsing. The treatment is to let the pleural air out — now."
+ },
+ {
+  "id": "nd-2",
+  "t": "Two recognised sites: the second intercostal space in the mid-clavicular line, and the fourth or fifth space at the anterior or mid-axillary line, inside the safe triangle. Stay lateral to the nipple line and above it."
+ },
+ {
+  "id": "nd-3",
+  "t": "Look at the rib above: its lower edge hides the intercostal vein, artery and nerve. A needle under the upper rib risks bleeding into the chest you are trying to decompress. Go over the top of the rib below."
+ },
+ {
+  "id": "nd-4",
+  "t": "Anteriorly the needle crosses the pectoral muscles. In a heavier patient a five-centimetre catheter ends in muscle. No air, no change — and the attempt looks done when it is not."
+ },
+ {
+  "id": "nd-5",
+  "t": "At the fourth or fifth space laterally, with a longer catheter, over the rib below and perpendicular to the skin: a rush of air as the pleura is crossed. Stop there, advance the catheter off the needle. Watch the peak pressure, the saturation and the blood pressure recover."
+ },
+ {
+  "id": "nd-6",
+  "t": "Too close to the sternum and you meet the internal thoracic artery, then the heart. Too low and the diaphragm, liver or spleen are in the way. Landmarks matter more than speed."
+ },
+ {
+  "id": "nd-7",
+  "t": "A needle is a bridge. Catheters kink and dislodge, and the tension can return. Reassess often, and follow with a finger thoracostomy or a chest drain."
+ },
+ {
+  "id": "pa-1",
+  "t": "A child’s airway is not just a smaller copy of an adult’s. It is narrower and softer, and resistance to flow depends on the radius raised to the fourth power. Halve the radius, and the resistance rises sixteen times."
+ },
+ {
+  "id": "pa-2",
+  "t": "Take one millimetre of swelling all the way round. In an adult airway of eight millimetres, the lumen falls to six, and resistance rises about three times. In an infant airway of four millimetres, it falls to two, and resistance rises sixteen times. The same swelling, a very different child."
+ },
+ {
+  "id": "pa-3",
+  "t": "When a frightened child cries and gasps, flow through the narrowed segment turns turbulent, and the pressure needed rises with the fifth power of the radius: thirty two times. Keeping the child calm, on a parent’s lap, is part of the treatment."
+ },
+ {
+  "id": "pa-4",
+  "t": "Just below the vocal cords sits the cricoid, the only complete ring of cartilage in the airway. Swelling there, from infection or from a tube that is too big, has nowhere to go but inward."
+ },
+ {
+  "id": "pa-5",
+  "t": "The same law applies to the endotracheal tube. These lungs are healthy and unchanged; only the tube is smaller, seven millimetres instead of eight. Watch the peak pressure: the gap between peak and plateau, the pressure spent on resistance, grows."
+ },
+ {
+  "id": "pa-6",
+  "t": "At six millimetres that resistive pressure has roughly tripled. A child’s tube may be three and a half millimetres, so a little secretion or a kink takes away a large share of its radius. That is why the tube is the first thing to check when a ventilated child deteriorates."
+ },
+ {
+  "id": "pa-7",
+  "t": "Back to the eight millimetre tube, and the resistive gap closes. Check the tube, then the patient, then the machine."
+ },
+ {
+  "id": "ac-1",
+  "t": "pH is set by the ratio of bicarbonate to carbon dioxide. The lungs control carbon dioxide within minutes; the kidneys control bicarbonate over days. Normal: pH seven point four, PaCO2 forty, bicarbonate twenty-four."
+ },
+ {
+  "id": "ac-2",
+  "t": "An opioid overdose. Breathing slows, carbon dioxide accumulates, and the pH falls. Bicarbonate barely moves — about one for every ten of CO2 — because the kidneys have not had time. Watch the end-tidal CO2 and the respiratory rate: the cause is on the monitor."
+ },
+ {
+  "id": "ac-3",
+  "t": "Leave the same hypoventilation for three days. The kidneys retain bicarbonate — about four for every ten of CO2 — and the pH climbs back toward normal while the CO2 stays high. That is renal compensation, and it takes days."
+ },
+ {
+  "id": "ac-4",
+  "t": "Now a metabolic acidosis: twelve millimoles of acid added, bicarbonate used up to buffer it. Within minutes the lungs respond — deeper, faster breathing lowers the CO2. Expected PaCO2 is one and a half times the bicarbonate plus eight, give or take two."
+ },
+ {
+  "id": "ac-5",
+  "t": "Put the same patient on a ventilator set to a normal minute ventilation. The compensation is taken away: CO2 rises back toward forty and the pH drops sharply. A metabolic acidosis on the ventilator needs a higher minute ventilation, not a normal one."
+ },
+ {
+  "id": "ac-6",
+  "t": "First the pH: acid or alkaline. Then which value explains it: a high CO2 is respiratory, a low bicarbonate is metabolic. Then check the other value: is the compensation what you expect? If not, there is a second process."
+ },
+ {
+  "id": "dka-1",
+  "t": "Without insulin, cells cannot take up glucose, so the liver makes more and fat is broken down. Fatty acids are turned into ketoacids. Glucose is over five hundred; the patient is vomiting and breathing deeply."
+ },
+ {
+  "id": "dka-2",
+  "t": "Ketoacids use up bicarbonate. The unmeasured ketone anions widen the anion gap. The lungs compensate with Kussmaul breathing, driving the CO2 down."
+ },
+ {
+  "id": "dka-3",
+  "t": "Glucose spills into the urine and drags water and sodium with it. By the time the patient arrives, several litres have been lost, and the kidneys are underperfused."
+ },
+ {
+  "id": "dka-4",
+  "t": "Plasma potassium is high, because acidosis and the lack of insulin push potassium out of cells. But the diuresis has been washing it out for days: total-body potassium is low. Insulin will reveal the deficit."
+ },
+ {
+  "id": "dka-5",
+  "t": "The first treatment is fluid. Volume restores perfusion and lets the kidneys clear glucose and ketones."
+ },
+ {
+  "id": "dka-6",
+  "t": "Insulin stops ketone production and moves potassium back into the cells. Glucose and the anion gap fall — and so does potassium, often below normal. Check it before insulin, and replace it: if potassium is low, give potassium first."
+ },
+ {
+  "id": "dka-7",
+  "t": "Keep the insulin infusion running until the anion gap closes, adding dextrose as glucose falls. The glucose normalises long before the acidosis does."
+ },
+ {
+  "id": "og-1",
+  "t": "First, a non-pregnant adult breathing room air: a pH of seven point four, a carbon dioxide of forty, a bicarbonate of about twenty four."
+ },
+ {
+  "id": "og-2",
+  "t": "Now a healthy woman at thirty eight weeks. Progesterone makes the respiratory centre more sensitive, so she breathes more: carbon dioxide about thirty. Over weeks her kidneys excrete bicarbonate, down to about twenty, and the pH sits just above normal. For her, this is normal."
+ },
+ {
+  "id": "og-3",
+  "t": "The low maternal carbon dioxide widens the gradient across the placenta, so the fetus can offload its own. Her oxygen is normal or a little high, because less carbon dioxide in the alveoli leaves room for more oxygen."
+ },
+ {
+  "id": "og-4",
+  "t": "Plasma volume rises by nearly half and red cell mass by about a quarter, so haemoglobin falls to around eleven. Oxygen content is lower, and a higher cardiac output makes up the difference."
+ },
+ {
+  "id": "og-5",
+  "t": "Now a pregnant woman with severe asthma. Her carbon dioxide reads in the forties, which looks normal, but her own normal is thirty. She is retaining carbon dioxide, and with little bicarbonate to buffer it, her pH has already fallen to about seven point three. She is tiring."
+ },
+ {
+  "id": "og-6",
+  "t": "Treat her as severe: bronchodilators, steroids and magnesium, senior help early, and keep her saturation at ninety five percent or more, because the baby’s oxygen depends on hers. As the airways open, her carbon dioxide falls back toward her own normal."
+ },
+ {
+  "id": "ap-1",
+  "t": "When breathing stops, the body lives on the oxygen it already holds: a little in the blood, and the gas left in the lungs at the end of a breath, the functional residual capacity. Breathing room air, a healthy adult falls below ninety percent in about a minute."
+ },
+ {
+  "id": "ap-2",
+  "t": "Breathing pure oxygen through a tight seal for three minutes washes the nitrogen out of that lung volume and replaces it with oxygen. Now the same adult stays above ninety percent for about eight minutes. Nothing else we do buys as much time."
+ },
+ {
+  "id": "ap-3",
+  "t": "Look at the shape. The saturation hardly moves while the lung store drains, because the top of the dissociation curve is flat. Once alveolar oxygen falls to about sixty, the curve turns steep and the saturation falls off a cliff. Stop and re-oxygenate before the edge, not after it."
+ },
+ {
+  "id": "ap-4",
+  "t": "At term the uterus pushes the diaphragm up, so the functional residual capacity is about a fifth smaller, while mother, placenta and baby consume more oxygen. The tank is smaller and drains faster: about five minutes instead of eight, and the baby shares the deficit."
+ },
+ {
+  "id": "ap-5",
+  "t": "Lying flat, the weight of the abdomen and chest wall squeezes the lungs, and more tissue uses more oxygen. Even well pre-oxygenated, this patient may have under four minutes."
+ },
+ {
+  "id": "ap-6",
+  "t": "A four year old uses nearly twice as much oxygen per kilo as an adult, from a smaller lung volume per kilo. Pre-oxygenated, the saturation holds for about three minutes. On room air, it is seconds."
+ },
+ {
+  "id": "ap-7",
+  "t": "Infants are faster still. Their soft chest wall lets the lung volume collapse once they are asleep or paralysed, and their oxygen use per kilo is the highest of any age. Under two minutes is typical. Fetal haemoglobin holds oxygen tightly, which helps the newborn a little, but the reserve is tiny."
+ },
+ {
+  "id": "ap-8",
+  "t": "What buys time: a good seal and full pre-oxygenation, head-up positioning in obesity and pregnancy, oxygen flowing through the nose during the attempt, and a plan agreed beforehand: the time or saturation at which you stop, and ventilate."
+ },
+ {
+  "id": "hks-1",
+  "t": "Heart muscle cells hold about one hundred and forty millimoles of potassium inside, against about four outside. That gradient, leaking out through potassium channels, holds the resting membrane near minus eighty-five millivolts."
+ },
+ {
+  "id": "hks-2",
+  "t": "The sodium potassium pump spends ATP to carry two potassium ions in for every three sodium ions out. Keep an eye on it; it becomes a treatment later."
+ },
+ {
+  "id": "hks-3",
+  "t": "With the kidneys failing, plasma potassium rises. The outward leak weakens, the resting potential creeps toward threshold, and the ECG changes in order: tall peaked T waves, then a longer PR and flattened P waves, then a widening QRS."
+ },
+ {
+  "id": "hks-4",
+  "t": "Above about nine, the widened QRS runs into the T wave. This sine-wave pattern comes just before ventricular fibrillation or asystole."
+ },
+ {
+  "id": "hks-5",
+  "t": "Calcium goes in first. Potassium stays exactly where it was. Calcium raises the threshold potential, re-opening the gap between rest and threshold, and the QRS narrows within minutes. It buys roughly thirty to sixty minutes."
+ },
+ {
+  "id": "hks-6",
+  "t": "Insulin with dextrose drives the sodium potassium pump harder, moving potassium back into cells. Plasma potassium falls by about one. Nebulised salbutamol works the same way. None of it has left the body."
+ },
+ {
+  "id": "hks-7",
+  "t": "Hours later the insulin has worn off and potassium leaks back out of the cells. Shifting is temporary."
+ },
+ {
+  "id": "hks-8",
+  "t": "Removal is the cure: dialysis, gut binders, or diuretics if the kidneys still work. Stabilise, shift, remove. Then repeat the ECG and the potassium."
+ },
+ {
+  "id": "co-1",
+  "t": "When a vessel tears, platelets plug the hole, and clotting factors made by the liver generate thrombin, which weaves fibrinogen into a fibrin mesh. The trace shows a clot forming on time and staying firm."
+ },
+ {
+  "id": "co-2",
+  "t": "Warfarin blocks the recycling of vitamin K, so the liver makes clotting factors that cannot work. Here only about seven percent of factors two, seven, nine and ten are active. The INR is over six, the clot forms late and weak, and this patient is bleeding."
+ },
+ {
+  "id": "co-3",
+  "t": "Prothrombin complex concentrate replaces those four factors directly. Thirty minutes later the INR is close to normal and the clot forms on time."
+ },
+ {
+  "id": "co-4",
+  "t": "But factor seven lasts only about six hours. Without vitamin K the liver still cannot make working factors, and a day later the INR has climbed back toward three."
+ },
+ {
+  "id": "co-5",
+  "t": "Give intravenous vitamin K with the concentrate, and the liver takes over as the concentrate is used up. A day later the INR is still normal."
+ },
+ {
+  "id": "co-6",
+  "t": "Heparin works differently. It supercharges antithrombin, which switches off thrombin and factor ten A. The INR hardly moves, but the aPTT is several times normal."
+ },
+ {
+  "id": "co-7",
+  "t": "Protamine is strongly positive and binds the negative heparin chains. Within minutes the aPTT is back to normal. If an infusion were still running it would climb again, so stop the heparin first."
+ },
+ {
+  "id": "co-8",
+  "t": "Major trauma can switch on fibrinolysis: clots break down almost as fast as they form, and fibrinogen is consumed. The trace rises, then melts away, and fibrinogen falls toward one hundred."
+ },
+ {
+  "id": "co-9",
+  "t": "Tranexamic acid stops plasminogen binding to fibrin, so clots hold; it works best within three hours of injury. Replacing fibrinogen, with cryoprecipitate or concentrate, restores the strength of the clot."
+ },
+ {
+  "id": "sh-0",
+  "t": "Blood pressure is flow times resistance: mean arterial pressure is cardiac output times systemic vascular resistance, plus the venous pressure. Shock is inadequate tissue perfusion, and every type breaks a different part of that equation. This is a normal patient for comparison."
+ },
+ {
+  "id": "sh-1",
+  "t": "Septic shock. Inflammatory mediators relax the arterioles, so resistance collapses. The heart speeds up and output is normal or high. On the arterial line the diastolic pressure is low, the pulse pressure is wide for the mean pressure, and the dicrotic notch sits low on the downstroke."
+ },
+ {
+  "id": "sh-2",
+  "t": "After fluid, norepinephrine constricts the arterioles through alpha-1 receptors. Resistance rises, the diastolic pressure and mean pressure come up, and the heart rate barely changes. The target is a mean pressure of about sixty-five."
+ },
+ {
+  "id": "sh-3",
+  "t": "Cardiogenic shock. A failing left ventricle ejects a small stroke volume, so the pulse pressure is narrow. Blood backs up: filling pressures and the CVP are high. Resistance rises as the body tries to hold the pressure, which makes the weak heart work harder."
+ },
+ {
+  "id": "sh-4",
+  "t": "Dobutamine stimulates beta-1 receptors on the myocardium. Contractility and stroke volume rise and resistance falls a little, so cardiac output climbs. Pressure may not rise much; a vasopressor is often needed alongside. Fluids would only raise the CVP further."
+ },
+ {
+  "id": "sh-5",
+  "t": "Cardiac tamponade. Fluid in the pericardium squeezes the heart from outside, so the chambers cannot fill. The CVP is high, the pressures in all four chambers move toward the same value, and the stroke volume is small. The heart is fast, the pulse pressure narrow."
+ },
+ {
+  "id": "sh-6",
+  "t": "Watch the arterial trace with breathing. On inspiration the right heart fills, the septum bulges left, and the left ventricle fills even less: systolic pressure drops more than ten millimetres of mercury. That exaggerated fall is pulsus paradoxus."
+ },
+ {
+  "id": "sh-7",
+  "t": "Draining even a small volume of pericardial fluid releases the heart. Filling recovers, the CVP falls, stroke volume and cardiac output return, and the paradox disappears."
+ },
+ {
+  "id": "sh-8",
+  "t": "Haemorrhagic shock. With too little blood, venous return and preload fall: the CVP is low, the stroke volume small and the pulse pressure narrow. Resistance and heart rate rise to compensate. On the ventilator, each breath squeezes the small preload further, so the pulse pressure varies widely with breathing — a high pulse pressure variation."
+ },
+ {
+  "id": "sh-9",
+  "t": "Give volume, and in haemorrhage give blood: it restores preload and oxygen-carrying capacity together. Stroke volume rises, the pulse pressure widens, the variation with breathing shrinks and the heart slows. Stopping the bleeding is the definitive treatment."
+ },
+ {
+  "id": "sh-10",
+  "t": "Low resistance with high output: distributive. Low output with high filling pressures: cardiogenic. High filling pressures with a heart that cannot fill: obstructive. Low output with low filling pressures: hypovolaemic. The monitor tells you which lever to pull."
+ },
+ {
+  "id": "do-1",
+  "t": "Oxygen content is mostly haemoglobin carrying oxygen: one point three four times haemoglobin times saturation, plus a tiny dissolved amount. Delivery is content times cardiac output. Normally about a thousand millilitres a minute is delivered and a quarter is used, so venous blood returns about seventy-five percent saturated."
+ },
+ {
+  "id": "do-2",
+  "t": "Halve the haemoglobin. The saturation is unchanged — the pulse oximeter looks perfect — but the oxygen content has halved. A healthy heart raises its output and thinner blood lowers the resistance, which recovers part of the delivery. The oximeter measures the percentage of haemoglobin that is full, not how much haemoglobin there is."
+ },
+ {
+  "id": "do-3",
+  "t": "Give the same anaemia to a patient whose heart cannot raise its output. Now delivery falls far below what the tissues need: venous saturation drops and lactate starts to climb."
+ },
+ {
+  "id": "do-4",
+  "t": "Now keep the haemoglobin normal but add shunt in the lungs. The saturation falls, and content falls with it — but less than you might expect, because of the shape of the dissociation curve."
+ },
+ {
+  "id": "do-5",
+  "t": "With normal blood but a failing pump, delivery falls in proportion to the output. The tissues extract more, venous saturation falls, and lactate rises as cells switch to anaerobic metabolism."
+ },
+ {
+  "id": "do-6",
+  "t": "Septic shock can have a high cardiac output and high delivery, yet lactate is raised: blood is poorly distributed through the microcirculation, and the cells themselves use oxygen badly. A normal or high venous saturation does not rule out tissue hypoxia."
+ },
+ {
+  "id": "ht-1",
+  "t": "A healthy adult. Note the haemoglobin, the pressures, and the oxygen delivery."
+ },
+ {
+  "id": "ht-2",
+  "t": "Rapid bleeding. What is lost is whole blood, so the haemoglobin concentration is almost unchanged at first. The problem is volume: low preload, low CVP, small stroke volume, narrow pulse pressure, a fast heart and falling delivery."
+ },
+ {
+  "id": "ht-3",
+  "t": "Two litres of crystalloid restore some volume and pressure, but now the haemoglobin falls: the remaining red cells are diluted. Delivery improves less than the blood pressure suggests, and much of the crystalloid leaves the circulation within an hour."
+ },
+ {
+  "id": "ht-4",
+  "t": "Packed red cells restore volume and oxygen-carrying capacity together. Stroke volume and pulse pressure rise, the heart slows, the haemoglobin climbs and delivery improves. In major haemorrhage, give plasma and platelets with the red cells, and calcium."
+ },
+ {
+  "id": "ht-5",
+  "t": "During every unit, watch the patient. Fever, rigors, a sudden fall in pressure, wheeze, urticaria, back pain or dark urine suggest a reaction. Stop the transfusion, keep the line open with saline, check the patient and the product, and follow your transfusion protocol."
+ },
+ {
+  "id": "ht-6",
+  "t": "Transfusion buys time. Definitive treatment is control of the bleeding: pressure, tourniquet, surgery or interventional radiology."
+ },
+ {
+  "id": "iabp-1",
+  "t": "A failing left ventricle, low cardiac output. A balloon in the descending aorta inflates in diastole and deflates just before systole: it pushes blood back toward the coronaries while the heart relaxes, and leaves an emptier aorta for the next beat to eject into."
+ },
+ {
+  "id": "iabp-2",
+  "t": "At one-to-two every other beat is assisted, so the trace compares itself. Find the unassisted systole, the dicrotic notch, then the diastolic augmentation — ideally as high as systole or higher."
+ },
+ {
+  "id": "iabp-3",
+  "t": "Deflation drops the pressure just before the next beat: the balloon-assisted end-diastolic pressure should be lower than the patient’s own, and the assisted systole lower than the unassisted one. That is the afterload reduction."
+ },
+ {
+  "id": "iabp-4",
+  "t": "Inflate too early and the balloon meets a ventricle that is still ejecting. The notch disappears, the aortic valve closes early and stroke volume falls."
+ },
+ {
+  "id": "iabp-5",
+  "t": "Inflate late and you see the notch, then a gap, then a smaller augmentation. Less diastolic pressure means less coronary benefit."
+ },
+ {
+  "id": "iabp-6",
+  "t": "Deflate too early and the augmentation falls away in mid-diastole; the pressure drifts back up before the next beat, so there is no afterload reduction — the assisted systole is no lower."
+ },
+ {
+  "id": "iabp-7",
+  "t": "Deflate late and the ventricle starts ejecting against a balloon that is still full. The assisted end-diastolic pressure is higher than the patient’s own: afterload and myocardial oxygen demand go up."
+ },
+ {
+  "id": "iabp-8",
+  "t": "Now read one yourself. Name the timing error from its shape, then try the next trace."
+ },
+ {
+  "id": "cvc-1",
+  "t": "Transverse view of the right side of the neck, lateral on the left of the screen. Two black circles: the internal jugular vein, lateral and superficial, under the sternocleidomastoid — and the carotid artery, medial and deeper, with a thick bright wall."
+ },
+ {
+  "id": "cvc-2",
+  "t": "Press gently. The vein flattens and disappears; the artery stays round and keeps pulsing. If the vein will not compress, think thrombus."
+ },
+ {
+  "id": "cvc-3",
+  "t": "Tilt head-down and the vein grows. In a hypovolaemic patient it is small and soft, and it collapses in front of the needle."
+ },
+ {
+  "id": "cvc-4",
+  "t": "Out of plane the beam is a thin slice. The bright dot is wherever the needle crosses it — here the shaft, at the front of the vein. The side view shows the truth: the tip is well over a centimetre deeper, already through the back wall."
+ },
+ {
+  "id": "cvc-5",
+  "t": "Instead, slide the probe with the needle so the dot you see is the tip. Advance a little, find the tip, advance again — until it sits in the middle of the vein and dark blood fills the syringe."
+ },
+ {
+  "id": "cvc-6",
+  "t": "Turn to long axis with the needle in plane and the whole shaft and tip are visible entering the vein. Harder to hold steady, but no guessing about depth."
+ },
+ {
+  "id": "cvc-7",
+  "t": "Aim too medially and the needle finds the carotid. Do not trust colour — in shock and hypoxaemia arterial blood can look dark. A pulsatile flow and an arterial pressure on the transducer settle it. Remove the needle and compress."
+ },
+ {
+  "id": "cvc-8",
+  "t": "Turn the head too far and the vein rolls over the artery. A needle that goes through both walls of the vein arrives in the carotid. Keep the tip in view."
+ },
+ {
+  "id": "cvc-9",
+  "t": "Before any dilator: find the wire as a bright echo inside the vein, in short axis and again in long axis. Only then dilate — to the depth of the vessel, never beyond — and keep hold of the wire until the catheter is in."
+ },
+ {
+  "id": "oc-1",
+  "t": "At term the heart pumps about forty percent more blood: a bigger stroke volume, and a heart rate fifteen beats faster. The placenta is a low resistance circuit and progesterone relaxes vessels, so diastolic pressure runs a little low. Her blood volume is about six and a half litres."
+ },
+ {
+  "id": "oc-2",
+  "t": "Lay her flat, and the heavy uterus compresses the inferior vena cava against the spine. Less blood returns to the heart, output falls by up to a third, and the pressure drops. The placenta cannot autoregulate, so the baby feels the fall first."
+ },
+ {
+  "id": "oc-3",
+  "t": "Push the uterus up and to her left, or tilt her fifteen to thirty degrees, and venous return comes back within a minute. In a collapsed woman beyond about twenty weeks, this goes with the first compressions."
+ },
+ {
+  "id": "oc-4",
+  "t": "After delivery she bleeds. A litre is only about fifteen percent of her expanded volume, so the pressure barely changes and the heart rate creeps up. The shock index, heart rate divided by systolic pressure, is already close to one."
+ },
+ {
+  "id": "oc-5",
+  "t": "At nearly two litres she is compensating hard: a fast heart rate, a narrow pulse pressure, cool hands. The systolic pressure is still around ninety. Young pregnant women hold their pressure until very late; a shock index well above one tells the truth."
+ },
+ {
+  "id": "oc-6",
+  "t": "Beyond about a third of her volume the vasoconstriction runs out, and the pressure falls fast. This is late. She needs blood, not more crystalloid, and the bleeding stopped."
+ },
+ {
+  "id": "oc-7",
+  "t": "Treat the cause and the volume together: uterine massage and uterotonic drugs for an atonic uterus, the commonest cause; tranexamic acid early; warmed blood and products; calcium; and early obstetric and anaesthetic help. Here, blood restores her output."
+ },
+ {
+  "id": "ps-1",
+  "t": "A well four year old weighing sixteen kilos. The heart rate is about a hundred and the systolic pressure about ninety. Her whole blood volume is only about eighty millilitres per kilo, around one point three litres. A child’s small heart cannot raise its stroke volume much, so output depends on heart rate."
+ },
+ {
+  "id": "ps-2",
+  "t": "She has lost about two hundred millilitres, fifteen percent of her volume. The heart rate climbs past the normal range, the pulse pressure narrows, and capillary refill slows. The blood pressure has not fallen at all."
+ },
+ {
+  "id": "ps-3",
+  "t": "At a quarter of her volume she is pale, mottled and tachycardic above one hundred and fifty, with a capillary refill of four seconds. Her systolic pressure is still normal. This is compensated shock, and it must be recognised now, from the heart rate and the skin."
+ },
+ {
+  "id": "ps-4",
+  "t": "Beyond about a third, vasoconstriction can no longer hold the pressure, and it falls below seventy plus twice her age. Hypotension in a child is a late sign: she has lost nearly forty percent of her blood."
+ },
+ {
+  "id": "ps-5",
+  "t": "Now the heart rate falls. In a shocked child, bradycardia is not improvement: it means the heart is failing from lack of oxygen, and cardiac arrest is close."
+ },
+ {
+  "id": "ps-6",
+  "t": "Treat with blood in boluses of about ten millilitres per kilo, reassessing heart rate, pressure and refill after each, while the bleeding is controlled. After two boluses her pressure and heart rate have recovered. Doses and volumes follow your paediatric protocol."
+ },
+ {
+  "id": "tib-1",
+  "t": "Two internal carotids and two vertebral arteries feed the brain. At its base, the Circle of Willis links them, so flow can reroute around a blocked feeder."
+ },
+ {
+  "id": "tib-2",
+  "t": "A thrombus lodges in the left middle cerebral artery, beyond the circle. Nothing in the ring can bypass it. Flow past the clot stops."
+ },
+ {
+  "id": "tib-3",
+  "t": "The deep territory, fed only by end arteries, dies within minutes. That is the core, in magenta. Around it, tissue fed thinly by collaterals from the anterior and posterior cerebral arteries is silent but alive. That is the penumbra, in amber."
+ },
+ {
+  "id": "tib-4",
+  "t": "Hour by hour, penumbra converts to core. The lower the flow in a region, the sooner it infarcts."
+ },
+ {
+  "id": "tib-5",
+  "t": "Ischaemic vessels have lost autoregulation, so collateral flow follows blood pressure. Let the mean arterial pressure fall to sixty and the core grows faster."
+ },
+ {
+  "id": "tib-6",
+  "t": "Restore the pressure, and the penumbra holds on longer."
+ },
+ {
+  "id": "tib-7",
+  "t": "Thrombectomy at four hours restores flow. The core that already died stays. Everything still in the penumbra is saved. That difference is the reason for speed."
+ },
+ {
+  "id": "tib-8",
+  "t": "The same clot, a different outcome. The size of the final infarct is set by collaterals, blood pressure and, above all, time to reperfusion."
+ },
+ {
+  "id": "tm-1",
+  "t": "Minute zero. A clot blocks the left middle cerebral artery. Right-sided weakness and aphasia start at once."
+ },
+ {
+  "id": "tm-2",
+  "t": "While the crew recognises a large-vessel stroke and transports, the core is already growing from the deep territory outward."
+ },
+ {
+  "id": "tm-3",
+  "t": "At the hospital the first scan is a non-contrast CT, to exclude bleeding. There is no haemorrhage. Look for the hyperdense clot in the left middle cerebral artery, and subtle loss of grey–white differentiation in the deep grey matter."
+ },
+ {
+  "id": "tm-4",
+  "t": "The CT angiogram shows the cut-off: contrast stops at the clot, and the branches beyond fill only faintly, backwards, through collaterals."
+ },
+ {
+  "id": "tm-5",
+  "t": "Perfusion maps separate tissue that is already lost, with very low blood flow, from tissue that is only delayed. A large delayed area around a small core is a mismatch — salvageable brain."
+ },
+ {
+  "id": "tm-6",
+  "t": "The patient goes for thrombectomy. At two and a half hours from onset the clot is pulled out and flow returns."
+ },
+ {
+  "id": "tm-7",
+  "t": "A day later, the final infarct is the core that existed at reperfusion. Everything that was still penumbra has been saved."
+ },
+ {
+  "id": "tm-8",
+  "t": "Use the numbers under the images: the same patient, reopened an hour later, keeps a larger infarct. Minutes at every step — scene, door, scan, groin — become brain."
+ },
+ {
+  "id": "lvo-1",
+  "t": "A left middle cerebral artery occlusion takes out the language cortex and the motor strip for face and arm. Expect aphasia, right-sided weakness worse in face and arm than leg, and the eyes deviated toward the left — toward the lesion."
+ },
+ {
+  "id": "lvo-2",
+  "t": "On the right, the same clot causes left-sided weakness with neglect: the patient ignores the left side of the world and may deny the weakness. Cortical signs like these, with a dense deficit, suggest a large vessel rather than a small lacune."
+ },
+ {
+  "id": "lvo-3",
+  "t": "Back to the left-sided stroke. The angiogram shows where contrast stops. That is the target for thrombectomy."
+ },
+ {
+  "id": "lvo-4",
+  "t": "With poor collaterals, almost the whole territory is already core by ninety minutes. The perfusion maps show little left to save."
+ },
+ {
+  "id": "lvo-5",
+  "t": "With good collaterals, the same clot at the same time leaves a small core and a large penumbra. These patients can benefit even many hours later."
+ },
+ {
+  "id": "lvo-6",
+  "t": "For a moderate-collateral patient, look at the final-core numbers: reopening now, in one hour, or in three hours. A detour to a hospital that cannot do thrombectomy usually costs that hour. That is why large-vessel screening in the field matters."
+ },
+ {
+  "id": "ich-1",
+  "t": "A hypertensive bleed in the left basal ganglia. On non-contrast CT fresh blood is bright. This is why every stroke gets a scan before any clot-dissolving drug."
+ },
+ {
+  "id": "ich-2",
+  "t": "Bedside volume estimate: multiply the largest diameter by the perpendicular diameter by the number of slices with blood, in centimetres, and halve it. Thirty millilitres is a common threshold for a worse outcome."
+ },
+ {
+  "id": "ich-3",
+  "t": "Many haematomas keep growing in the first few hours. With a systolic pressure near one hundred and ninety, watch the volume and the midline shift climb."
+ },
+ {
+  "id": "ich-4",
+  "t": "Rewind and lower the systolic pressure to about one hundred and forty from the start. The same bleed grows less. Early, smooth pressure control and reversing any anticoagulant are the core of the first hour."
+ },
+ {
+  "id": "ich-5",
+  "t": "A growing clot pushes the midline across and raises intracranial pressure. Falling consciousness, a new blown pupil or vomiting means the mass effect is winning."
+ },
+ {
+  "id": "sah-1",
+  "t": "A ruptured aneurysm on the circle of Willis fills the basal cisterns and the Sylvian fissures with blood: the bright star shape around the circle on non-contrast CT. The story is a sudden, worst-ever headache."
+ },
+ {
+  "id": "sah-2",
+  "t": "Most aneurysms arise at branch points of the circle: the anterior communicating, the posterior communicating origin, and the middle cerebral bifurcation. Securing the aneurysm early prevents a re-bleed."
+ },
+ {
+  "id": "sah-3",
+  "t": "Days later, blood breakdown products make the arteries around the circle constrict. Narrowed vessels on angiography, and delayed ischaemia in their territories: a new deficit or falling consciousness between day three and day fourteen."
+ },
+ {
+  "id": "sah-4",
+  "t": "Keep the patient euvolaemic, avoid hypotension, give nimodipine, and watch closely for a new deficit so spasm can be treated early."
+ },
+ {
+  "id": "icp-1",
+  "t": "The skull holds brain, blood and cerebrospinal fluid. Its volume is fixed, so anything new — a haematoma, swelling, trapped fluid — has to be paid for by pushing something else out."
+ },
+ {
+  "id": "icp-2",
+  "t": "A twenty millilitre haematoma. Cerebrospinal fluid moves down into the spinal canal and venous blood leaves the skull. The pressure barely moves: this is the flat part of the curve."
+ },
+ {
+  "id": "icp-3",
+  "t": "At about fifty millilitres the buffers are used up. Every extra millilitre now raises the pressure steeply. The waveform shows it too: the second peak rises above the first as the brain stiffens."
+ },
+ {
+  "id": "icp-4",
+  "t": "Blood reaches the brain at the mean arterial pressure minus the intracranial pressure. Let the blood pressure fall to a mean of seventy and the perfusion pressure drops toward forty: ischaemia without any blocked artery."
+ },
+ {
+  "id": "icp-5",
+  "t": "More volume, and the midline shifts. The medial temporal lobe is pushed over the tentorial edge and compresses the third nerve: the pupil on the side of the mass dilates and stops reacting, the opposite limbs weaken and consciousness falls."
+ },
+ {
+  "id": "icp-6",
+  "t": "When the brainstem itself is squeezed, the body drives the blood pressure up to keep perfusing it, the heart slows and breathing becomes irregular. This is late, and it means herniation is under way."
+ },
+ {
+  "id": "icp-7",
+  "t": "Head up thirty degrees with the neck straight, so veins drain. Hyperosmolar therapy draws water out of the brain. A short period of lower carbon dioxide constricts the vessels — useful as a bridge, harmful if prolonged, because it cuts blood flow too."
+ },
+ {
+  "id": "icp-8",
+  "t": "The definitive answer is to remove the volume or open the box: evacuate the clot, or take off a piece of skull. The curve flattens and the pupils recover if it is in time."
+ },
+ {
+  "id": "icp-9",
+  "t": "A different cause: after subarachnoid haemorrhage, blood blocks the drainage of cerebrospinal fluid. The ventricles fill with fluid that is still being made and balloon on the scan, and the pressure rises without any midline shift."
+ },
+ {
+  "id": "icp-10",
+  "t": "An external ventricular drain, zeroed at the tragus — level with the foramen of Monro. Open at fifteen centimetres of water, fluid drains whenever the pressure exceeds that height, and the pressure settles there."
+ },
+ {
+  "id": "icp-11",
+  "t": "Raise the head of the bed without moving the chamber and the drain is now effectively fifteen centimetres too low. It overdrains: the ventricles collapse and bridging veins can tear. Re-level every time the patient or the bed moves."
+ },
+ {
+  "id": "icp-12",
+  "t": "Left clamped after a transfer, nothing drains and the pressure climbs back. Clamp only for the time the protocol allows, and read the pressure against the patient, not the clock."
+ },
+ {
+  "id": "vsd-1",
+  "t": "A well child with a loud, harsh murmur at the lower left sternal border that lasts all through systole. The heart itself looks normal in size."
+ },
+ {
+  "id": "vsd-2",
+  "t": "Here is the cause: a small hole in the ventricular septum, just below the aortic valve."
+ },
+ {
+  "id": "vsd-3",
+  "t": "In systole the left ventricle generates about one hundred and twenty millimetres of mercury, the right about twenty-five. Across a small hole that gradient drives a jet near five metres per second. On colour Doppler it aliases into a mosaic. Loud murmur, small shunt."
+ },
+ {
+  "id": "vsd-4",
+  "t": "Now a large defect. Pressures on the two sides move closer, so the jet is slower and the murmur can be softer — yet far more blood crosses. Pulmonary flow is more than twice systemic flow."
+ },
+ {
+  "id": "vsd-5",
+  "t": "The shunted blood goes straight out through the pulmonary artery. The lungs carry the extra flow at higher pressure: the infant breathes fast, sweats with feeds and fails to gain weight."
+ },
+ {
+  "id": "vsd-6",
+  "t": "All that extra pulmonary blood returns to the left atrium and left ventricle, which dilate. A VSD volume-loads the LEFT heart, even though the hole feeds the right ventricle."
+ },
+ {
+  "id": "vsd-7",
+  "t": "Left unrepaired, years of high flow and pressure remodel the small pulmonary arteries and resistance climbs. Watch the right ventricle thicken, the gradient shrink, flow become bidirectional, and finally reverse: right to left."
+ },
+ {
+  "id": "vsd-8",
+  "t": "Now deoxygenated blood enters the aorta. The patient is cyanosed and clubbed, and the murmur has faded. At this stage closing the hole would remove the right ventricle’s only escape valve, so repair is no longer possible."
+ },
+ {
+  "id": "vsd-9",
+  "t": "Closed in infancy, before the pulmonary vessels remodel, the circulation returns to two separate circuits and the heart remodels back toward normal. Many small muscular defects close on their own."
+ },
+ {
+  "id": "nt-1",
+  "t": "Before birth the lungs are full of fluid and their vessels are tightly constricted, so pulmonary resistance is very high. The placenta, not the lungs, supplies oxygen. Blood from the right heart bypasses the lungs through the foramen ovale and the ductus arteriosus."
+ },
+ {
+  "id": "nt-2",
+  "t": "With the first breaths, air replaces lung fluid and oxygen relaxes the pulmonary vessels. Resistance falls steeply, pulmonary blood flow rises, and flow through the ductus turns around: now it runs from the aorta into the pulmonary artery."
+ },
+ {
+  "id": "nt-3",
+  "t": "Saturation rises slowly after birth. A healthy baby may be only sixty to sixty five percent at one minute, and eighty to eighty five at five. Measure on the right hand or wrist, which is supplied before the ductus, and aim for the target band, not a hundred percent."
+ },
+ {
+  "id": "nt-4",
+  "t": "Over hours to days the ductus constricts and closes, and the flap of the foramen ovale is held shut by the higher left atrial pressure. Two circuits now run in series, as in the adult."
+ },
+ {
+  "id": "nt-5",
+  "t": "In persistent pulmonary hypertension of the newborn, the pulmonary vessels stay constricted. Pulmonary pressure stays close to or above aortic pressure, and blood crosses the ductus from right to left, into the descending aorta. The right hand stays pink while the feet are blue: compare a pre-ductal and a post-ductal probe."
+ },
+ {
+  "id": "nt-6",
+  "t": "Hypoxia, acidosis, cold and a high carbon dioxide all constrict the pulmonary vessels further. More blood bypasses the lungs, the baby becomes more hypoxic and acidotic, and resistance climbs again."
+ },
+ {
+  "id": "nt-7",
+  "t": "Treatment breaks the circle: oxygen, gentle ventilation to a normal carbon dioxide, warmth, correcting acidosis, surfactant where the lungs need it, and inhaled nitric oxide, which relaxes only the pulmonary vessels. As resistance falls, ductal flow turns left to right and the difference disappears."
+ },
+ {
+  "id": "nt-8",
+  "t": "One trap. If the right heart struggles and right atrial pressure rises, blood also crosses the foramen ovale from right to left. Then the hand and the foot are both low, with no difference between them. A low pre-ductal saturation still needs an explanation."
+ },
+ {
+  "id": "fast-1",
+  "t": "Lying flat, free fluid in the abdomen runs to the lowest spaces: between the liver and the right kidney, around the spleen, and down into the pelvis. The FAST exam puts a probe over each of those, plus under the ribs to see the pericardium."
+ },
+ {
+  "id": "fast-2",
+  "t": "This is the same normal abdomen as ultrasound. Liver sits against kidney, spleen against kidney, the bladder is black because urine reflects no echoes, and the pericardium hugs the heart. No black stripe anywhere."
+ },
+ {
+  "id": "fast-3",
+  "t": "A liver laceration two minutes after the crash. Blood is already leaking, but a few tens of millilitres spread thinly and every window still looks negative. An early negative scan does not rule out injury: repeat it."
+ },
+ {
+  "id": "fast-4",
+  "t": "A few minutes later a black stripe opens between liver and kidney. The hepatorenal space is the most dependent upper-abdominal space when supine, so the right upper quadrant is usually positive first."
+ },
+ {
+  "id": "fast-5",
+  "t": "In the anatomy the pool sits exactly where the probe was looking: tucked behind the liver, in front of the right kidney."
+ },
+ {
+  "id": "fast-6",
+  "t": "A grade four splenic injury. On the left, blood collects around the spleen and under the diaphragm before it reaches the kidney, so the left window must include the space above the spleen."
+ },
+ {
+  "id": "fast-7",
+  "t": "Untreated, the bleed keeps going. Watch the left stripe widen, the right upper quadrant and then the pelvis fill, and the haemorrhage class climb in the side panel. Blood pressure holds until a third or more of the blood volume is gone."
+ },
+ {
+  "id": "fast-8",
+  "t": "A different patient: an aneurysm has ruptured into the retroperitoneum, behind the lining of the abdomen. More than a litre is lost, yet not a drop is free in the peritoneal cavity."
+ },
+ {
+  "id": "fast-9",
+  "t": "Every FAST window is negative. The clue is elsewhere: a wide aorta on the separate aortic view, back or flank pain, and shock with no free fluid. Pelvic fractures and kidney injuries bleed into the same hidden space."
+ },
+ {
+  "id": "fast-10",
+  "t": "Positive in a shocked trauma patient: the abdomen is a likely source. Negative: not proof of safety — it may be early, the fluid may be retroperitoneal, or the view may be poor. Repeat it when the patient changes."
+ },
+ {
+  "id": "aaa-1",
+  "t": "The abdominal aorta below the renal arteries is normally about two centimetres wide. An aneurysm is a permanent widening to three centimetres or more."
+ },
+ {
+  "id": "aaa-2",
+  "t": "Aneurysms grow slowly, often silently. Wall tension rises with radius, so the wider it gets the faster it tends to grow and the higher the rupture risk; above about five and a half centimetres repair usually outweighs the risk of waiting."
+ },
+ {
+  "id": "aaa-3",
+  "t": "A transverse bedside scan measures it outer wall to outer wall. Much of the sac is lined with grey thrombus; the flowing lumen is the smaller black circle inside."
+ },
+ {
+  "id": "aaa-4",
+  "t": "Sudden back or flank pain and a faint. The sac has torn at the back, into the retroperitoneum, where the surrounding tissue can tamponade it for a while."
+ },
+ {
+  "id": "aaa-5",
+  "t": "The haematoma grows behind the peritoneum. Heart rate climbs while pressure is still near normal. This window is the chance to get the patient to repair."
+ },
+ {
+  "id": "aaa-6",
+  "t": "The FAST windows are black-stripe free, because none of this blood is intraperitoneal. The aortic view shows the wide sac with a dark cuff of haematoma beside it."
+ },
+ {
+  "id": "aaa-7",
+  "t": "If the tear opens into the peritoneal cavity there is nothing left to contain it. Within minutes every FAST window fills and the patient moves to class four haemorrhage."
+ },
+ {
+  "id": "aaa-8",
+  "t": "Outcome depends on control of the aorta, in the operating theatre or the endovascular suite. Many teams accept a lower blood pressure while the patient stays conscious, to avoid pushing more blood out of the hole before it is controlled."
+ },
+ {
+  "id": "ad-1",
+  "t": "Sudden, severe, tearing pain between the shoulder blades. Hypertensive and tachycardic. A pressure difference between the arms, or a pulse deficit, raises the suspicion. The test is a CT angiogram from the chest to the groins."
+ },
+ {
+  "id": "ad-2",
+  "t": "At the level of the pulmonary artery, look first at the ascending aorta in front. A flap here is Stanford type A: it can tear into the pericardium, the coronaries or the aortic valve. That is a surgical emergency."
+ },
+ {
+  "id": "ad-3",
+  "t": "In this patient the ascending aorta is clean and round. The flap is only in the descending aorta, beside the spine: Stanford type B. Most are managed medically unless they are complicated."
+ },
+ {
+  "id": "ad-4",
+  "t": "Follow it down. The flap divides the aorta into two channels. The true lumen is usually the smaller, denser one; the false lumen is larger and fills more slowly. Which lumen feeds each branch matters."
+ },
+ {
+  "id": "ad-5",
+  "t": "Compare the kidneys. The left one barely enhances: its artery arises from a false lumen that is not delivering blood. Malperfusion of a kidney, the bowel or a leg turns an uncomplicated type B into a complicated one."
+ },
+ {
+  "id": "ad-6",
+  "t": "The flap continues into the left common iliac artery. Check the leg pulses and the groin: a cold, pulseless leg is another malperfusion sign."
+ },
+ {
+  "id": "ad-7",
+  "t": "Treatment starts with impulse control. A short-acting beta-blocker brings the heart rate to about sixty, reducing the force of each ejection on the torn wall. Watch the rate fall while the pressure is still high."
+ },
+ {
+  "id": "ad-8",
+  "t": "Only then add a vasodilator to bring the systolic pressure below about one hundred and twenty, as far as perfusion allows: urine output, mental state and the malperfused organs set the floor."
+ },
+ {
+  "id": "ad-9",
+  "t": "Give the vasodilator alone and the baroreflex answers with tachycardia and a harder, faster ejection — more shear on the flap. Beta-blockade before vasodilation."
+ },
+ {
+  "id": "ad-10",
+  "t": "Type A: control the pressure and get to cardiac surgery. Type B with rupture, malperfusion or uncontrollable pain: endovascular repair. Uncomplicated type B: impulse control, monitoring and repeat imaging."
+ },
+ {
+  "id": "so-1",
+  "t": "A grade two splenic laceration an hour after a fall. There is blood around the spleen and the FAST is positive, but the heart rate and pressure are normal and the bleeding has slowed. Stable patients like this usually get a CT and are managed without an operation, with close observation."
+ },
+ {
+  "id": "so-2",
+  "t": "A grade four injury bleeds faster. Thirty minutes in, three FAST windows are positive and she is in class two shock: the heart rate is up, the pressure still normal."
+ },
+ {
+  "id": "so-3",
+  "t": "A litre of blood restores her circulating volume and the heart rate settles, for now. The blood already in the abdomen stays there. How she responds over the next half hour sorts patients into three groups."
+ },
+ {
+  "id": "so-4",
+  "t": "Forty five minutes later she has bled the transfused blood away and the class is climbing again. A transient responder is still bleeding: she needs haemorrhage control, by angioembolisation if it is immediately available and she is safe to go there, otherwise the operating room."
+ },
+ {
+  "id": "so-5",
+  "t": "A grade five liver injury. An hour and a half in, a litre of blood has made no difference: she is in class three shock. No response means an operation now, with damage control surgery, packing and a massive transfusion protocol."
+ },
+ {
+  "id": "so-6",
+  "t": "Once the bleeding is controlled, the loss stops growing. The fluid in the abdomen is still there on ultrasound, but transfusion can finally catch up, and the haemorrhage class falls."
+ },
+ {
+  "id": "me-1",
+  "t": "A seventy eight year old with atrial fibrillation and sudden, severe central abdominal pain. The abdomen is soft and hardly tender. Pain out of proportion to the examination is the classic early sign, and the bowel still looks normal."
+ },
+ {
+  "id": "me-2",
+  "t": "A clot from the fibrillating left atrium has lodged in the superior mesenteric artery, which supplies most of the small bowel. On the CT angiogram the artery, just in front of the aorta, does not fill with contrast."
+ },
+ {
+  "id": "me-3",
+  "t": "Hours later the small bowel wall stops enhancing. Early in the course the lactate can still be normal, so a normal lactate does not rule this out."
+ },
+ {
+  "id": "me-4",
+  "t": "Once the bowel infarcts it turns dusky, gas appears in its wall, the lining sloughs, and bacteria and toxins reach the blood. Peritonitis, acidosis and shock follow, and the abdomen finally becomes tender."
+ },
+ {
+  "id": "me-5",
+  "t": "On CT, gas now lies in the bowel wall. The treatment is time: urgent revascularisation, by embolectomy or an endovascular route, resection of dead bowel, fluids, antibiotics and anticoagulation. Every hour of delay costs bowel."
+ },
+ {
+  "id": "sb-1",
+  "t": "Small bowel obstruction, most often from adhesions after previous surgery, or a hernia. Above the block the bowel dilates with fluid and gas, she vomits, and the abdomen distends."
+ },
+ {
+  "id": "sb-2",
+  "t": "On CT the loops are wide and full of fluid, with gas floating on top: air fluid levels. Surgeons look for the transition point, where dilated bowel meets collapsed bowel, and for signs that the blood supply is failing."
+ },
+ {
+  "id": "sb-3",
+  "t": "Litres of fluid are trapped in the bowel wall and lumen, or lost as vomit. She becomes dry, with a rising heart rate and falling urine output. Decompress with a nasogastric tube, replace the fluid, and watch for strangulation."
+ },
+ {
+  "id": "sb-4",
+  "t": "Perforation: a hole in the gut lets air and bowel content into the peritoneum. Lying flat, the air rises to the front of the abdomen; sitting up, it collects under the diaphragm."
+ },
+ {
+  "id": "sb-5",
+  "t": "On ultrasound, free air makes a bright line with reverberations that hides what lies behind it, over the liver in the upper abdomen. The fluid in these windows is not blood but gut content, so a positive scan here means peritonitis, not haemorrhage."
+ },
+ {
+  "id": "sb-6",
+  "t": "On CT the air sits in front of the liver and bowel, outside the gut. Perforation with peritonitis needs resuscitation, antibiotics and an operation."
+ }
+]

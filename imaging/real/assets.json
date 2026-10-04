@@ -1,0 +1,701 @@
+[
+ {
+  "id": "3fd337c1",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest X-ray",
+  "finding": "Portable AP film, ventilated patient",
+  "license": "CC BY 3.0",
+  "licenseVerified": true,
+  "sourceUrl": "COVID-19 Image Repository — https://github.com/ml-workgroup/covid-19-image-repository (copy retrieved from https://github.com/ieee8023/covid-chestxray-dataset, images/<id>.jpg)",
+  "localSources": {
+   "image": "imaging/real/cxr-mhh-ventilated-bilateral.jpg"
+  }
+ },
+ {
+  "id": "98c24e39",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest X-ray",
+  "finding": "Portable AP film, severe bilateral disease",
+  "license": "CC BY 3.0",
+  "licenseVerified": true,
+  "sourceUrl": "COVID-19 Image Repository — https://github.com/ml-workgroup/covid-19-image-repository (copy retrieved from https://github.com/ieee8023/covid-chestxray-dataset, images/<id>.jpg)",
+  "localSources": {
+   "image": "imaging/real/cxr-mhh-severe-bilateral.jpg"
+  }
+ },
+ {
+  "id": "bfefde5d",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest X-ray",
+  "finding": "Bedside film, lungs largely clear",
+  "license": "CC BY 3.0",
+  "licenseVerified": true,
+  "sourceUrl": "COVID-19 Image Repository — https://github.com/ml-workgroup/covid-19-image-repository (copy retrieved from https://github.com/ieee8023/covid-chestxray-dataset, images/<id>.jpg)",
+  "localSources": {
+   "image": "imaging/real/cxr-mhh-portable-clear.jpg"
+  }
+ },
+ {
+  "id": "alines",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Lung ultrasound",
+  "finding": "A-lines: aerated lung",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "“Role of point-of-care ultrasound during the COVID-19 pandemic: our recommendations in the management of dialytic patients”, The Ultrasound Journal 12:30 (2020), https://doi.org/10.1186/s13089-020-00177-4 (clip via https://github.com/jannisborn/covid19_ultrasound)",
+  "localSources": {
+   "poster": "imaging/real/lus-alines-vieira2020.jpg",
+   "mp4": "imaging/real/lus-alines-vieira2020.mp4"
+  }
+ },
+ {
+  "id": "blines",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Lung ultrasound",
+  "finding": "B-lines",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "“Sonographic signs and patterns of COVID-19 pneumonia”, The Ultrasound Journal 12:22 (2020), https://doi.org/10.1186/s13089-020-00171-w (clip via https://github.com/jannisborn/covid19_ultrasound)",
+  "localSources": {
+   "poster": "imaging/real/lus-blines-volpicelli2020.jpg",
+   "mp4": "imaging/real/lus-blines-volpicelli2020.mp4"
+  }
+ },
+ {
+  "id": "whitelung",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Lung ultrasound",
+  "finding": "White lung: confluent B-lines",
+  "license": "CC BY 2.0",
+  "licenseVerified": true,
+  "sourceUrl": "“Early recognition of the 2009 pandemic influenza A (H1N1) pneumonia by chest ultrasound”, Critical Care 16:R30 (2012), https://doi.org/10.1186/cc11201 (clip via https://github.com/jannisborn/covid19_ultrasound)",
+  "localSources": {
+   "poster": "imaging/real/lus-whitelung-testa2012.jpg",
+   "mp4": "imaging/real/lus-whitelung-testa2012.mp4"
+  }
+ },
+ {
+  "id": "ptx-expiratory",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest X-ray",
+  "finding": "pneumothorax",
+  "license": "CC0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Expired_X-ray_of_pneumothorax.jpg",
+  "localSources": {
+   "image": "imaging/real/ptx-expiratory.jpg"
+  }
+ },
+ {
+  "id": "fast-ruq-positive",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "FAST",
+  "finding": "free intraperitoneal fluid",
+  "license": "CC BY 2.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv",
+  "localSources": {
+   "original": "imaging/real/source/fast-ruq-positive-source.ogv",
+   "webm": "imaging/real/fast-ruq-positive.webm",
+   "poster": "imaging/real/fast-ruq-positive.jpg",
+   "mp4": "imaging/real/fast-ruq-positive.mp4"
+  }
+ },
+ {
+  "id": "ivc-2026-video-s1",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "IVC POCUS",
+  "finding": "IVC traced into the right atrium",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1186/s44348-026-00078-5",
+  "localSources": {
+   "webm": "imaging/real/ivc-2026-video-s1.webm",
+   "poster": "imaging/real/ivc-2026-video-s1.jpg",
+   "mp4": "imaging/real/ivc-2026-video-s1.mp4"
+  }
+ },
+ {
+  "id": "ijv-2026-video-s2",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Vascular access POCUS",
+  "finding": "IJV compressibility beside the carotid",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1186/s44348-026-00078-5",
+  "localSources": {
+   "original": "imaging/real/source/ijv-2026-video-s2-source.avi",
+   "webm": "imaging/real/ijv-2026-video-s2.webm",
+   "poster": "imaging/real/ijv-2026-video-s2.jpg",
+   "mp4": "imaging/real/ijv-2026-video-s2.mp4"
+  }
+ },
+ {
+  "id": "lus-lung-point-gillman",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Lung ultrasound",
+  "finding": "lung point (pneumothorax)",
+  "license": "CC BY 2.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv",
+  "localSources": {
+   "webm": "imaging/real/lus-lung-point-gillman.webm",
+   "poster": "imaging/real/lus-lung-point-gillman.jpg",
+   "mp4": "imaging/real/lus-lung-point-gillman.mp4"
+  }
+ },
+ {
+  "id": "lus-absent-sliding-gillman",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Lung ultrasound",
+  "finding": "absent lung sliding",
+  "license": "CC BY 2.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S4.ogv",
+  "localSources": {
+   "webm": "imaging/real/lus-absent-sliding-gillman.webm",
+   "poster": "imaging/real/lus-absent-sliding-gillman.jpg",
+   "mp4": "imaging/real/lus-absent-sliding-gillman.mp4"
+  }
+ },
+ {
+  "id": "ivc-collapse-gillman",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "IVC POCUS",
+  "finding": "IVC collapsing with breathing",
+  "license": "CC BY 2.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S8.ogv",
+  "localSources": {
+   "original": "imaging/real/source/ivc-collapse-gillman-source.ogv",
+   "webm": "imaging/real/ivc-collapse-gillman.webm",
+   "poster": "imaging/real/ivc-collapse-gillman.jpg",
+   "mp4": "imaging/real/ivc-collapse-gillman.mp4"
+  }
+ },
+ {
+  "id": "pleural-fluid-gillman",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Thoracic ultrasound",
+  "finding": "pleural effusion",
+  "license": "CC BY 2.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S2.ogv",
+  "localSources": {
+   "original": "imaging/real/source/pleural-fluid-gillman-source.ogv",
+   "webm": "imaging/real/pleural-fluid-gillman.webm",
+   "poster": "imaging/real/pleural-fluid-gillman.jpg",
+   "mp4": "imaging/real/pleural-fluid-gillman.mp4"
+  }
+ },
+ {
+  "id": "tamponade-ginghina",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Echocardiography",
+  "finding": "cardiac tamponade",
+  "license": "CC BY 2.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Respiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv",
+  "localSources": {
+   "original": "imaging/real/source/tamponade-ginghina-source.ogv",
+   "webm": "imaging/real/tamponade-ginghina.webm",
+   "poster": "imaging/real/tamponade-ginghina.jpg",
+   "mp4": "imaging/real/tamponade-ginghina.mp4"
+  }
+ },
+ {
+  "id": "ptx-series-bonilla",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest X-ray",
+  "finding": "pneumothorax before and after a chest tube",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chest_X-ray_of_pneumothorax.png",
+  "localSources": {
+   "original": "imaging/real/source/ptx-series-bonilla-source.png",
+   "image": "imaging/real/ptx-series-bonilla.jpg"
+  }
+ },
+ {
+  "id": "lus-sliding-gillman2012",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Lung ultrasound",
+  "finding": "normal lung sliding",
+  "license": "CC BY 2.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv",
+  "localSources": {
+   "webm": "imaging/real/lus-sliding-gillman2012.webm",
+   "poster": "imaging/real/lus-sliding-gillman2012.jpg",
+   "mp4": "imaging/real/lus-sliding-gillman2012.mp4"
+  }
+ },
+ {
+  "id": "stroke-hmcas-2025",
+  "status": "ready",
+  "type": "ct",
+  "modality": "Non-contrast head CT",
+  "finding": "hyperdense middle cerebral artery sign",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.7759/cureus.86726",
+  "localSources": {
+   "original": "imaging/real/source/stroke-hmcas-2025-source.jpg",
+   "image": "imaging/real/stroke-hmcas-2025.jpg"
+  }
+ },
+ {
+  "id": "stroke-early-change-2025",
+  "status": "ready",
+  "type": "ct",
+  "modality": "Non-contrast head CT",
+  "finding": "early ischaemic change (loss of grey–white differentiation)",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.7759/cureus.86726",
+  "localSources": {
+   "original": "imaging/real/source/stroke-early-change-2025-source.jpg",
+   "image": "imaging/real/stroke-early-change-2025.jpg"
+  }
+ },
+ {
+  "id": "stroke-cta-m1-2025",
+  "status": "ready",
+  "type": "ct",
+  "modality": "CT angiography",
+  "finding": "right M1 occlusion on CTA",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.7759/cureus.98724",
+  "localSources": {
+   "image": "imaging/real/stroke-cta-m1-2025.jpg"
+  }
+ },
+ {
+  "id": "stroke-ctp-mismatch-2025",
+  "status": "ready",
+  "type": "ct",
+  "modality": "CT perfusion",
+  "finding": "core–penumbra mismatch",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.7759/cureus.98724",
+  "localSources": {
+   "image": "imaging/real/stroke-ctp-mismatch-2025.jpg"
+  }
+ },
+ {
+  "id": "stroke-infarct-24h-2025",
+  "status": "ready",
+  "type": "ct",
+  "modality": "Non-contrast head CT",
+  "finding": "established infarct at 24 h",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.7759/cureus.98724",
+  "localSources": {
+   "image": "imaging/real/stroke-infarct-24h-2025.jpg"
+  }
+ },
+ {
+  "id": "stroke-malignant-edema-2023",
+  "status": "ready",
+  "type": "ct",
+  "modality": "Non-contrast head CT",
+  "finding": "malignant brain oedema after MCA infarction",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1186/s40001-023-01414-x",
+  "localSources": {
+   "original": "imaging/real/source/stroke-malignant-edema-2023-source.jpg",
+   "image": "imaging/real/stroke-malignant-edema-2023.jpg"
+  }
+ },
+ {
+  "id": "stroke-mass-effect-2021",
+  "status": "ready",
+  "type": "ct",
+  "modality": "Non-contrast head CT",
+  "finding": "large MCA infarct with mass effect",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1097/md.0000000000024496",
+  "localSources": {
+   "original": "imaging/real/source/stroke-mass-effect-2021-source.jpg",
+   "image": "imaging/real/stroke-mass-effect-2021.jpg"
+  }
+ },
+ {
+  "id": "stroke-hemorrhagic-transformation-2026",
+  "status": "ready",
+  "type": "ct",
+  "modality": "Non-contrast head CT (serial)",
+  "finding": "haemorrhagic transformation of an infarct",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.3389/fcvm.2026.1747104",
+  "localSources": {
+   "image": "imaging/real/stroke-hemorrhagic-transformation-2026.jpg"
+  }
+ },
+ {
+  "id": "stroke-hmcas-vs-cta-2022",
+  "status": "ready",
+  "type": "ct",
+  "modality": "Non-contrast CT with CTA MIP",
+  "finding": "hyperdense MCA sign compared with CTA",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1007/s00415-022-11500-5",
+  "localSources": {
+   "image": "imaging/real/stroke-hmcas-vs-cta-2022.jpg"
+  }
+ },
+ {
+  "id": "stroke-ctp-m1-mirza",
+  "status": "ready",
+  "type": "ct",
+  "modality": "CT perfusion",
+  "finding": "perfusion deficit in M1 occlusion",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:CT_perfusion_in_M1_artery_occlusion.png",
+  "localSources": {
+   "original": "imaging/real/source/stroke-ctp-m1-mirza-source.png",
+   "image": "imaging/real/stroke-ctp-m1-mirza.jpg"
+  }
+ },
+ {
+  "id": "ich-swirl-2012",
+  "status": "ready",
+  "type": "ct",
+  "modality": "Non-contrast head CT",
+  "finding": "swirl sign in acute intracerebral haemorrhage",
+  "license": "CC BY 2.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1186/1471-2377-12-109",
+  "localSources": {
+   "image": "imaging/real/ich-swirl-2012.jpg"
+  }
+ },
+ {
+  "id": "ich-spot-sign-2016",
+  "status": "ready",
+  "type": "ct",
+  "modality": "CT angiography",
+  "finding": "spot sign",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1186/s13054-016-1432-0",
+  "localSources": {
+   "image": "imaging/real/ich-spot-sign-2016.jpg"
+  }
+ },
+ {
+  "id": "ich-deep-locations-2016",
+  "status": "ready",
+  "type": "ct",
+  "modality": "Non-contrast head CT",
+  "finding": "typical sites of hypertensive haemorrhage",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1186/s13054-016-1432-0",
+  "localSources": {
+   "image": "imaging/real/ich-deep-locations-2016.jpg"
+  }
+ },
+ {
+  "id": "ich-ivh-commons",
+  "status": "ready",
+  "type": "ct",
+  "modality": "Non-contrast head CT",
+  "finding": "intracerebral haemorrhage with intraventricular extension",
+  "license": "Public Domain",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrage_(CT_scan).jpg",
+  "localSources": {
+   "image": "imaging/real/ich-ivh-commons.jpg"
+  }
+ },
+ {
+  "id": "ich-thalamic-hydro-yadav",
+  "status": "ready",
+  "type": "ct",
+  "modality": "Non-contrast head CT",
+  "finding": "thalamic haemorrhage with hydrocephalus",
+  "license": "CC BY 2.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrhage.jpg",
+  "localSources": {
+   "image": "imaging/real/ich-thalamic-hydro-yadav.jpg"
+  }
+ },
+ {
+  "id": "ich-cerebellar-yadav",
+  "status": "ready",
+  "type": "ct",
+  "modality": "Non-contrast head CT",
+  "finding": "posterior fossa haemorrhage with hydrocephalus",
+  "license": "CC BY 2.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Posterior_fossa_hemorrhage.jpg",
+  "localSources": {
+   "image": "imaging/real/ich-cerebellar-yadav.jpg"
+  }
+ },
+ {
+  "id": "ich-sah-to-iph-2010",
+  "status": "ready",
+  "type": "ct",
+  "modality": "Non-contrast head CT (serial)",
+  "finding": "rebleeding: subarachnoid then intraparenchymal haemorrhage",
+  "license": "CC BY 3.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1155/2010/168408",
+  "localSources": {
+   "image": "imaging/real/ich-sah-to-iph-2010.jpg"
+  }
+ },
+ {
+  "id": "sah-ct-mirza",
+  "status": "ready",
+  "type": "ct",
+  "modality": "Non-contrast head CT",
+  "finding": "subarachnoid haemorrhage",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:CT_of_subarachnoid_hemorrhage.png",
+  "localSources": {
+   "original": "imaging/real/source/sah-ct-mirza-source.png",
+   "image": "imaging/real/sah-ct-mirza.jpg"
+  }
+ },
+ {
+  "id": "cxr-chf-haggstrom",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest X-ray (PA)",
+  "finding": "congestive heart failure (cardiogenic pulmonary oedema)",
+  "license": "CC0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chest_radiograph_of_a_lung_with_Kerley_B_lines.jpg",
+  "localSources": {
+   "image": "imaging/real/cxr-chf-haggstrom.jpg"
+  }
+ },
+ {
+  "id": "cxr-hps-edema-cdc",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest X-ray (AP)",
+  "finding": "non-cardiogenic pulmonary oedema with effusions (hantavirus)",
+  "license": "Public Domain",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:6077_lores.jpg",
+  "localSources": {
+   "image": "imaging/real/cxr-hps-edema-cdc.jpg"
+  }
+ },
+ {
+  "id": "cxr-ards-2019",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest X-ray (portable AP)",
+  "finding": "acute respiratory distress syndrome",
+  "license": "CC BY 3.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.7759/cureus.3997",
+  "localSources": {
+   "image": "imaging/real/cxr-ards-2019.jpg"
+  }
+ },
+ {
+  "id": "cxr-left-collapse-child-2013",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest X-ray (supine AP, child)",
+  "finding": "complete left lung collapse",
+  "license": "CC BY 2.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1186/1471-2431-13-209",
+  "localSources": {
+   "image": "imaging/real/cxr-left-collapse-child-2013.jpg"
+  }
+ },
+ {
+  "id": "cxr-collapse-before-after-2021",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest X-ray (AP)",
+  "finding": "total right lung collapse, before and after bronchoscopy",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1186/s12890-021-01789-9",
+  "localSources": {
+   "original": "imaging/real/source/cxr-collapse-before-after-2021-source.jpg",
+   "image": "imaging/real/cxr-collapse-before-after-2021.jpg"
+  }
+ },
+ {
+  "id": "cxr-massive-effusion-2010",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest X-ray (PA)",
+  "finding": "massive left pleural effusion with mediastinal shift",
+  "license": "CC BY 2.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1186/1746-1596-5-82",
+  "localSources": {
+   "original": "imaging/real/source/cxr-massive-effusion-2010-source.jpg",
+   "image": "imaging/real/cxr-massive-effusion-2010.jpg"
+  }
+ },
+ {
+  "id": "aaa-us-sagittal-haggstrom",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Bedside aortic ultrasound",
+  "finding": "abdominal aortic aneurysm",
+  "license": "CC0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_sagittal_plane.jpg",
+  "localSources": {
+   "image": "imaging/real/aaa-us-sagittal-haggstrom.jpg"
+  }
+ },
+ {
+  "id": "aaa-us-axial-haggstrom",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Bedside aortic ultrasound",
+  "finding": "abdominal aortic aneurysm",
+  "license": "CC0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_axial_plane.jpg",
+  "localSources": {
+   "image": "imaging/real/aaa-us-axial-haggstrom.jpg"
+  }
+ },
+ {
+  "id": "aaa-us-thrombus-haggstrom",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Bedside aortic ultrasound",
+  "finding": "abdominal aortic aneurysm",
+  "license": "CC0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_with_mural_thrombus.jpg",
+  "localSources": {
+   "image": "imaging/real/aaa-us-thrombus-haggstrom.jpg"
+  }
+ },
+ {
+  "id": "lus-blines-gargani",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Lung ultrasound",
+  "finding": "blines",
+  "license": "CC BY 2.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv",
+  "localSources": {
+   "original": "imaging/real/source/lus-blines-gargani-source.ogv",
+   "webm": "imaging/real/lus-blines-gargani.webm",
+   "poster": "imaging/real/lus-blines-gargani.jpg",
+   "mp4": "imaging/real/lus-blines-gargani.mp4"
+  }
+ },
+ {
+  "id": "lus-progression-h7n9",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Lung ultrasound",
+  "finding": "progression",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lung-ultrasound-imaging-in-avian-influenza-A-(H7N9)-respiratory-failure-2036-7902-6-6-S1.ogv",
+  "localSources": {
+   "original": "imaging/real/source/lus-progression-h7n9-source.ogv",
+   "webm": "imaging/real/lus-progression-h7n9.webm",
+   "poster": "imaging/real/lus-progression-h7n9.jpg",
+   "mp4": "imaging/real/lus-progression-h7n9.mp4"
+  }
+ },
+ {
+  "id": "lus-hepatisation-gillman",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Lung ultrasound",
+  "finding": "consolidation",
+  "license": "CC BY 2.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv",
+  "localSources": {
+   "original": "imaging/real/source/lus-hepatisation-gillman-source.ogv",
+   "webm": "imaging/real/lus-hepatisation-gillman.webm",
+   "poster": "imaging/real/lus-hepatisation-gillman.jpg",
+   "mp4": "imaging/real/lus-hepatisation-gillman.mp4"
+  }
+ },
+ {
+  "id": "lus-confluent-tsung",
+  "status": "pending",
+  "type": "ultrasound",
+  "modality": "Lung ultrasound",
+  "finding": "confluent_blines",
+  "license": "CC BY 2.0",
+  "licenseVerified": false,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Prospective-application-of-clinician-performed-lung-ultrasonography-during-the-2009-H1N1-influenza-2036-7902-4-16-S2.ogv",
+  "localSources": {}
+ },
+ {
+  "id": "lus-consolidation-tsung",
+  "status": "pending",
+  "type": "ultrasound",
+  "modality": "Lung ultrasound",
+  "finding": "consolidation",
+  "license": "CC BY 2.0",
+  "licenseVerified": false,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Prospective-application-of-clinician-performed-lung-ultrasonography-during-the-2009-H1N1-influenza-2036-7902-4-16-S3.ogv",
+  "localSources": {}
+ },
+ {
+  "id": "echo-vsd-color-commons",
+  "status": "pending",
+  "type": "echo",
+  "modality": "Echocardiography with colour Doppler",
+  "finding": "ventricular septal defect",
+  "license": "Public Domain",
+  "licenseVerified": false,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ventricular_Septal_Defect.jpg",
+  "localSources": {}
+ },
+ {
+  "id": "echo-asd-secundum-commons",
+  "status": "pending",
+  "type": "echo",
+  "modality": "Echocardiography (subcostal)",
+  "finding": "secundum atrial septal defect",
+  "license": "Public Domain",
+  "licenseVerified": false,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Echokardiogram_von_Atriumseptumdefekt_(Ostium_secundum).jpg",
+  "localSources": {}
+ }
+]

@@ -1,0 +1,3304 @@
+{
+  "generatedAt": "2026-10-04T05:51:38.677Z",
+  "maxCharsPerPart": 4400,
+  "episodes": [
+    {
+      "episodeId": "rounds-rv-intubation",
+      "title": "Why intubation can crash the failing RV",
+      "format": "rounds",
+      "domain": "cardiac",
+      "declaredMinutes": 12,
+      "totalChars": 27801,
+      "totalWords": 3988,
+      "parts": [
+        {
+          "id": "episode.rounds-rv-intubation.part001",
+          "index": 0,
+          "chars": 4187,
+          "words": 615
+        },
+        {
+          "id": "episode.rounds-rv-intubation.part002",
+          "index": 1,
+          "chars": 4167,
+          "words": 609
+        },
+        {
+          "id": "episode.rounds-rv-intubation.part003",
+          "index": 2,
+          "chars": 4394,
+          "words": 616
+        },
+        {
+          "id": "episode.rounds-rv-intubation.part004",
+          "index": 3,
+          "chars": 4326,
+          "words": 607
+        },
+        {
+          "id": "episode.rounds-rv-intubation.part005",
+          "index": 4,
+          "chars": 4181,
+          "words": 610
+        },
+        {
+          "id": "episode.rounds-rv-intubation.part006",
+          "index": 5,
+          "chars": 4388,
+          "words": 608
+        },
+        {
+          "id": "episode.rounds-rv-intubation.part007",
+          "index": 6,
+          "chars": 2146,
+          "words": 323
+        }
+      ]
+    },
+    {
+      "episodeId": "dose-normal-spo2",
+      "title": "A normal SpO₂ can still hide terrible oxygen delivery",
+      "format": "daily-dose",
+      "domain": "hemodynamics",
+      "declaredMinutes": 6,
+      "totalChars": 3491,
+      "totalWords": 546,
+      "parts": [
+        {
+          "id": "episode.dose-normal-spo2.part001",
+          "index": 0,
+          "chars": 3491,
+          "words": 546
+        }
+      ]
+    },
+    {
+      "episodeId": "literacy-transmural",
+      "title": "ICU Literacy: transmural pressure",
+      "format": "icu-literacy",
+      "domain": "foundations",
+      "declaredMinutes": 9,
+      "totalChars": 8248,
+      "totalWords": 1184,
+      "parts": [
+        {
+          "id": "episode.literacy-transmural.part001",
+          "index": 0,
+          "chars": 4357,
+          "words": 632
+        },
+        {
+          "id": "episode.literacy-transmural.part002",
+          "index": 1,
+          "chars": 3889,
+          "words": 552
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-shock",
+      "title": "Shock is a flow problem before it is a blood-pressure problem",
+      "format": "deep-dive",
+      "domain": "hemodynamics",
+      "declaredMinutes": 38,
+      "totalChars": 25797,
+      "totalWords": 3705,
+      "parts": [
+        {
+          "id": "episode.deep-shock.part001",
+          "index": 0,
+          "chars": 4303,
+          "words": 628
+        },
+        {
+          "id": "episode.deep-shock.part002",
+          "index": 1,
+          "chars": 4342,
+          "words": 631
+        },
+        {
+          "id": "episode.deep-shock.part003",
+          "index": 2,
+          "chars": 4328,
+          "words": 630
+        },
+        {
+          "id": "episode.deep-shock.part004",
+          "index": 3,
+          "chars": 4269,
+          "words": 594
+        },
+        {
+          "id": "episode.deep-shock.part005",
+          "index": 4,
+          "chars": 4354,
+          "words": 610
+        },
+        {
+          "id": "episode.deep-shock.part006",
+          "index": 5,
+          "chars": 4191,
+          "words": 612
+        }
+      ]
+    },
+    {
+      "episodeId": "case-ards-rv",
+      "title": "Audio Case: ARDS + RV failure",
+      "format": "audio-case",
+      "domain": "multisystem",
+      "declaredMinutes": 22,
+      "totalChars": 25327,
+      "totalWords": 3624,
+      "parts": [
+        {
+          "id": "episode.case-ards-rv.part001",
+          "index": 0,
+          "chars": 4307,
+          "words": 631
+        },
+        {
+          "id": "episode.case-ards-rv.part002",
+          "index": 1,
+          "chars": 4304,
+          "words": 616
+        },
+        {
+          "id": "episode.case-ards-rv.part003",
+          "index": 2,
+          "chars": 4115,
+          "words": 571
+        },
+        {
+          "id": "episode.case-ards-rv.part004",
+          "index": 3,
+          "chars": 4085,
+          "words": 577
+        },
+        {
+          "id": "episode.case-ards-rv.part005",
+          "index": 4,
+          "chars": 4368,
+          "words": 617
+        },
+        {
+          "id": "episode.case-ards-rv.part006",
+          "index": 5,
+          "chars": 4138,
+          "words": 612
+        }
+      ]
+    },
+    {
+      "episodeId": "literacy-stressed-volume",
+      "title": "ICU Literacy: stressed volume",
+      "format": "icu-literacy",
+      "domain": "hemodynamics",
+      "declaredMinutes": 11,
+      "totalChars": 14263,
+      "totalWords": 2098,
+      "parts": [
+        {
+          "id": "episode.literacy-stressed-volume.part001",
+          "index": 0,
+          "chars": 4389,
+          "words": 652
+        },
+        {
+          "id": "episode.literacy-stressed-volume.part002",
+          "index": 1,
+          "chars": 4185,
+          "words": 610
+        },
+        {
+          "id": "episode.literacy-stressed-volume.part003",
+          "index": 2,
+          "chars": 4055,
+          "words": 583
+        },
+        {
+          "id": "episode.literacy-stressed-volume.part004",
+          "index": 3,
+          "chars": 1628,
+          "words": 253
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-lactate",
+      "title": "Lactate is not a tissue-hypoxia meter",
+      "format": "rounds",
+      "domain": "renal-metabolic",
+      "declaredMinutes": 16,
+      "totalChars": 18710,
+      "totalWords": 2640,
+      "parts": [
+        {
+          "id": "episode.rounds-lactate.part001",
+          "index": 0,
+          "chars": 4356,
+          "words": 617
+        },
+        {
+          "id": "episode.rounds-lactate.part002",
+          "index": 1,
+          "chars": 4337,
+          "words": 604
+        },
+        {
+          "id": "episode.rounds-lactate.part003",
+          "index": 2,
+          "chars": 4268,
+          "words": 595
+        },
+        {
+          "id": "episode.rounds-lactate.part004",
+          "index": 3,
+          "chars": 4118,
+          "words": 581
+        },
+        {
+          "id": "episode.rounds-lactate.part005",
+          "index": 4,
+          "chars": 1623,
+          "words": 243
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-crrt",
+      "title": "CRRT without memorizing the machine",
+      "format": "deep-dive",
+      "domain": "renal-metabolic",
+      "declaredMinutes": 42,
+      "totalChars": 27163,
+      "totalWords": 3911,
+      "parts": [
+        {
+          "id": "episode.deep-crrt.part001",
+          "index": 0,
+          "chars": 4349,
+          "words": 640
+        },
+        {
+          "id": "episode.deep-crrt.part002",
+          "index": 1,
+          "chars": 4360,
+          "words": 627
+        },
+        {
+          "id": "episode.deep-crrt.part003",
+          "index": 2,
+          "chars": 4232,
+          "words": 610
+        },
+        {
+          "id": "episode.deep-crrt.part004",
+          "index": 3,
+          "chars": 4339,
+          "words": 609
+        },
+        {
+          "id": "episode.deep-crrt.part005",
+          "index": 4,
+          "chars": 4234,
+          "words": 611
+        },
+        {
+          "id": "episode.deep-crrt.part006",
+          "index": 5,
+          "chars": 4058,
+          "words": 573
+        },
+        {
+          "id": "episode.deep-crrt.part007",
+          "index": 6,
+          "chars": 1579,
+          "words": 241
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-pac",
+      "title": "Pulmonary artery catheters: numbers only matter if the waveforms are real",
+      "format": "deep-dive",
+      "domain": "imaging-monitoring",
+      "declaredMinutes": 48,
+      "totalChars": 22756,
+      "totalWords": 3266,
+      "parts": [
+        {
+          "id": "episode.deep-pac.part001",
+          "index": 0,
+          "chars": 4377,
+          "words": 636
+        },
+        {
+          "id": "episode.deep-pac.part002",
+          "index": 1,
+          "chars": 4364,
+          "words": 614
+        },
+        {
+          "id": "episode.deep-pac.part003",
+          "index": 2,
+          "chars": 4373,
+          "words": 629
+        },
+        {
+          "id": "episode.deep-pac.part004",
+          "index": 3,
+          "chars": 4253,
+          "words": 615
+        },
+        {
+          "id": "episode.deep-pac.part005",
+          "index": 4,
+          "chars": 4161,
+          "words": 584
+        },
+        {
+          "id": "episode.deep-pac.part006",
+          "index": 5,
+          "chars": 1218,
+          "words": 188
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-ecmo",
+      "title": "ECMO: follow the blood",
+      "format": "deep-dive",
+      "domain": "multisystem",
+      "declaredMinutes": 50,
+      "totalChars": 26857,
+      "totalWords": 3943,
+      "parts": [
+        {
+          "id": "episode.deep-ecmo.part001",
+          "index": 0,
+          "chars": 4248,
+          "words": 637
+        },
+        {
+          "id": "episode.deep-ecmo.part002",
+          "index": 1,
+          "chars": 4331,
+          "words": 638
+        },
+        {
+          "id": "episode.deep-ecmo.part003",
+          "index": 2,
+          "chars": 4236,
+          "words": 623
+        },
+        {
+          "id": "episode.deep-ecmo.part004",
+          "index": 3,
+          "chars": 4103,
+          "words": 586
+        },
+        {
+          "id": "episode.deep-ecmo.part005",
+          "index": 4,
+          "chars": 4366,
+          "words": 643
+        },
+        {
+          "id": "episode.deep-ecmo.part006",
+          "index": 5,
+          "chars": 4341,
+          "words": 627
+        },
+        {
+          "id": "episode.deep-ecmo.part007",
+          "index": 6,
+          "chars": 1220,
+          "words": 189
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-sedation",
+      "title": "The agitated ventilated patient: do not reflexively deepen sedation",
+      "format": "rounds",
+      "domain": "pharmacology",
+      "declaredMinutes": 18,
+      "totalChars": 15557,
+      "totalWords": 2162,
+      "parts": [
+        {
+          "id": "episode.rounds-sedation.part001",
+          "index": 0,
+          "chars": 4384,
+          "words": 614
+        },
+        {
+          "id": "episode.rounds-sedation.part002",
+          "index": 1,
+          "chars": 4397,
+          "words": 600
+        },
+        {
+          "id": "episode.rounds-sedation.part003",
+          "index": 2,
+          "chars": 4357,
+          "words": 601
+        },
+        {
+          "id": "episode.rounds-sedation.part004",
+          "index": 3,
+          "chars": 2413,
+          "words": 347
+        }
+      ]
+    },
+    {
+      "episodeId": "case-sepsis-crrt",
+      "title": "Audio Case: septic shock + AKI + fluid accumulation",
+      "format": "audio-case",
+      "domain": "multisystem",
+      "declaredMinutes": 26,
+      "totalChars": 19508,
+      "totalWords": 2808,
+      "parts": [
+        {
+          "id": "episode.case-sepsis-crrt.part001",
+          "index": 0,
+          "chars": 4284,
+          "words": 625
+        },
+        {
+          "id": "episode.case-sepsis-crrt.part002",
+          "index": 1,
+          "chars": 4397,
+          "words": 623
+        },
+        {
+          "id": "episode.case-sepsis-crrt.part003",
+          "index": 2,
+          "chars": 4199,
+          "words": 600
+        },
+        {
+          "id": "episode.case-sepsis-crrt.part004",
+          "index": 3,
+          "chars": 4255,
+          "words": 615
+        },
+        {
+          "id": "episode.case-sepsis-crrt.part005",
+          "index": 4,
+          "chars": 2365,
+          "words": 345
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-fluid-responsiveness",
+      "title": "Fluid responsive does not mean give fluid",
+      "format": "rounds",
+      "domain": "hemodynamics",
+      "declaredMinutes": 16,
+      "totalChars": 23869,
+      "totalWords": 3502,
+      "parts": [
+        {
+          "id": "episode.rounds-fluid-responsiveness.part001",
+          "index": 0,
+          "chars": 4385,
+          "words": 656
+        },
+        {
+          "id": "episode.rounds-fluid-responsiveness.part002",
+          "index": 1,
+          "chars": 4294,
+          "words": 624
+        },
+        {
+          "id": "episode.rounds-fluid-responsiveness.part003",
+          "index": 2,
+          "chars": 4302,
+          "words": 628
+        },
+        {
+          "id": "episode.rounds-fluid-responsiveness.part004",
+          "index": 3,
+          "chars": 4105,
+          "words": 592
+        },
+        {
+          "id": "episode.rounds-fluid-responsiveness.part005",
+          "index": 4,
+          "chars": 4221,
+          "words": 617
+        },
+        {
+          "id": "episode.rounds-fluid-responsiveness.part006",
+          "index": 5,
+          "chars": 2552,
+          "words": 385
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-driving-pressure",
+      "title": "Driving pressure: why the same tidal volume is not the same breath",
+      "format": "rounds",
+      "domain": "respiratory",
+      "declaredMinutes": 15,
+      "totalChars": 17439,
+      "totalWords": 2542,
+      "parts": [
+        {
+          "id": "episode.rounds-driving-pressure.part001",
+          "index": 0,
+          "chars": 4375,
+          "words": 644
+        },
+        {
+          "id": "episode.rounds-driving-pressure.part002",
+          "index": 1,
+          "chars": 4349,
+          "words": 625
+        },
+        {
+          "id": "episode.rounds-driving-pressure.part003",
+          "index": 2,
+          "chars": 4186,
+          "words": 601
+        },
+        {
+          "id": "episode.rounds-driving-pressure.part004",
+          "index": 3,
+          "chars": 4396,
+          "words": 648
+        },
+        {
+          "id": "episode.rounds-driving-pressure.part005",
+          "index": 4,
+          "chars": 125,
+          "words": 24
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-mechanical-power",
+      "title": "Mechanical power: the ventilator delivers energy, not just breaths",
+      "format": "deep-dive",
+      "domain": "respiratory",
+      "declaredMinutes": 32,
+      "totalChars": 18888,
+      "totalWords": 2755,
+      "parts": [
+        {
+          "id": "episode.deep-mechanical-power.part001",
+          "index": 0,
+          "chars": 4312,
+          "words": 647
+        },
+        {
+          "id": "episode.deep-mechanical-power.part002",
+          "index": 1,
+          "chars": 4201,
+          "words": 608
+        },
+        {
+          "id": "episode.deep-mechanical-power.part003",
+          "index": 2,
+          "chars": 4252,
+          "words": 609
+        },
+        {
+          "id": "episode.deep-mechanical-power.part004",
+          "index": 3,
+          "chars": 4227,
+          "words": 609
+        },
+        {
+          "id": "episode.deep-mechanical-power.part005",
+          "index": 4,
+          "chars": 1888,
+          "words": 282
+        }
+      ]
+    },
+    {
+      "episodeId": "literacy-strong-ion",
+      "title": "ICU Literacy: strong-ion difference without the religion",
+      "format": "icu-literacy",
+      "domain": "renal-metabolic",
+      "declaredMinutes": 20,
+      "totalChars": 13894,
+      "totalWords": 1988,
+      "parts": [
+        {
+          "id": "episode.literacy-strong-ion.part001",
+          "index": 0,
+          "chars": 4085,
+          "words": 588
+        },
+        {
+          "id": "episode.literacy-strong-ion.part002",
+          "index": 1,
+          "chars": 4297,
+          "words": 619
+        },
+        {
+          "id": "episode.literacy-strong-ion.part003",
+          "index": 2,
+          "chars": 4217,
+          "words": 585
+        },
+        {
+          "id": "episode.literacy-strong-ion.part004",
+          "index": 3,
+          "chars": 1289,
+          "words": 196
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-septic-shock",
+      "title": "Septic shock is more than low SVR",
+      "format": "rounds",
+      "domain": "infectious",
+      "declaredMinutes": 22,
+      "totalChars": 22122,
+      "totalWords": 3149,
+      "parts": [
+        {
+          "id": "episode.rounds-septic-shock.part001",
+          "index": 0,
+          "chars": 4285,
+          "words": 623
+        },
+        {
+          "id": "episode.rounds-septic-shock.part002",
+          "index": 1,
+          "chars": 4197,
+          "words": 580
+        },
+        {
+          "id": "episode.rounds-septic-shock.part003",
+          "index": 2,
+          "chars": 4292,
+          "words": 620
+        },
+        {
+          "id": "episode.rounds-septic-shock.part004",
+          "index": 3,
+          "chars": 4304,
+          "words": 612
+        },
+        {
+          "id": "episode.rounds-septic-shock.part005",
+          "index": 4,
+          "chars": 4179,
+          "words": 581
+        },
+        {
+          "id": "episode.rounds-septic-shock.part006",
+          "index": 5,
+          "chars": 855,
+          "words": 133
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-cardiogenic-shock",
+      "title": "Cardiogenic shock: pressure, flow and congestion",
+      "format": "deep-dive",
+      "domain": "cardiac",
+      "declaredMinutes": 42,
+      "totalChars": 23901,
+      "totalWords": 3415,
+      "parts": [
+        {
+          "id": "episode.deep-cardiogenic-shock.part001",
+          "index": 0,
+          "chars": 4272,
+          "words": 620
+        },
+        {
+          "id": "episode.deep-cardiogenic-shock.part002",
+          "index": 1,
+          "chars": 4380,
+          "words": 614
+        },
+        {
+          "id": "episode.deep-cardiogenic-shock.part003",
+          "index": 2,
+          "chars": 4309,
+          "words": 629
+        },
+        {
+          "id": "episode.deep-cardiogenic-shock.part004",
+          "index": 3,
+          "chars": 4262,
+          "words": 593
+        },
+        {
+          "id": "episode.deep-cardiogenic-shock.part005",
+          "index": 4,
+          "chars": 4379,
+          "words": 616
+        },
+        {
+          "id": "episode.deep-cardiogenic-shock.part006",
+          "index": 5,
+          "chars": 2289,
+          "words": 343
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-massive-pe",
+      "title": "Massive PE: the lung can be clear while the circulation collapses",
+      "format": "rounds",
+      "domain": "cardiac",
+      "declaredMinutes": 20,
+      "totalChars": 23149,
+      "totalWords": 3303,
+      "parts": [
+        {
+          "id": "episode.rounds-massive-pe.part001",
+          "index": 0,
+          "chars": 4371,
+          "words": 624
+        },
+        {
+          "id": "episode.rounds-massive-pe.part002",
+          "index": 1,
+          "chars": 4280,
+          "words": 607
+        },
+        {
+          "id": "episode.rounds-massive-pe.part003",
+          "index": 2,
+          "chars": 4246,
+          "words": 612
+        },
+        {
+          "id": "episode.rounds-massive-pe.part004",
+          "index": 3,
+          "chars": 4214,
+          "words": 595
+        },
+        {
+          "id": "episode.rounds-massive-pe.part005",
+          "index": 4,
+          "chars": 4384,
+          "words": 611
+        },
+        {
+          "id": "episode.rounds-massive-pe.part006",
+          "index": 5,
+          "chars": 1644,
+          "words": 254
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-tamponade",
+      "title": "Tamponade is a pressure problem, not a Beck-triad trivia question",
+      "format": "rounds",
+      "domain": "cardiac",
+      "declaredMinutes": 17,
+      "totalChars": 16239,
+      "totalWords": 2312,
+      "parts": [
+        {
+          "id": "episode.rounds-tamponade.part001",
+          "index": 0,
+          "chars": 4383,
+          "words": 628
+        },
+        {
+          "id": "episode.rounds-tamponade.part002",
+          "index": 1,
+          "chars": 4290,
+          "words": 601
+        },
+        {
+          "id": "episode.rounds-tamponade.part003",
+          "index": 2,
+          "chars": 4388,
+          "words": 626
+        },
+        {
+          "id": "episode.rounds-tamponade.part004",
+          "index": 3,
+          "chars": 3172,
+          "words": 457
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-vasoactives",
+      "title": "Vasopressors and inotropes by physiology",
+      "format": "deep-dive",
+      "domain": "pharmacology",
+      "declaredMinutes": 45,
+      "totalChars": 30522,
+      "totalWords": 4339,
+      "parts": [
+        {
+          "id": "episode.deep-vasoactives.part001",
+          "index": 0,
+          "chars": 4357,
+          "words": 616
+        },
+        {
+          "id": "episode.deep-vasoactives.part002",
+          "index": 1,
+          "chars": 4298,
+          "words": 628
+        },
+        {
+          "id": "episode.deep-vasoactives.part003",
+          "index": 2,
+          "chars": 4124,
+          "words": 566
+        },
+        {
+          "id": "episode.deep-vasoactives.part004",
+          "index": 3,
+          "chars": 4091,
+          "words": 581
+        },
+        {
+          "id": "episode.deep-vasoactives.part005",
+          "index": 4,
+          "chars": 4376,
+          "words": 631
+        },
+        {
+          "id": "episode.deep-vasoactives.part006",
+          "index": 5,
+          "chars": 4108,
+          "words": 587
+        },
+        {
+          "id": "episode.deep-vasoactives.part007",
+          "index": 6,
+          "chars": 4349,
+          "words": 605
+        },
+        {
+          "id": "episode.deep-vasoactives.part008",
+          "index": 7,
+          "chars": 805,
+          "words": 125
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-coagulopathy",
+      "title": "Coagulopathy: stop treating INR as the clot",
+      "format": "rounds",
+      "domain": "hematology",
+      "declaredMinutes": 22,
+      "totalChars": 14826,
+      "totalWords": 2012,
+      "parts": [
+        {
+          "id": "episode.rounds-coagulopathy.part001",
+          "index": 0,
+          "chars": 4396,
+          "words": 595
+        },
+        {
+          "id": "episode.rounds-coagulopathy.part002",
+          "index": 1,
+          "chars": 4245,
+          "words": 573
+        },
+        {
+          "id": "episode.rounds-coagulopathy.part003",
+          "index": 2,
+          "chars": 4329,
+          "words": 586
+        },
+        {
+          "id": "episode.rounds-coagulopathy.part004",
+          "index": 3,
+          "chars": 1850,
+          "words": 258
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-dka-potassium",
+      "title": "DKA potassium: the serum number lies about the body store",
+      "format": "rounds",
+      "domain": "endocrine",
+      "declaredMinutes": 18,
+      "totalChars": 14604,
+      "totalWords": 2032,
+      "parts": [
+        {
+          "id": "episode.rounds-dka-potassium.part001",
+          "index": 0,
+          "chars": 4299,
+          "words": 598
+        },
+        {
+          "id": "episode.rounds-dka-potassium.part002",
+          "index": 1,
+          "chars": 4257,
+          "words": 597
+        },
+        {
+          "id": "episode.rounds-dka-potassium.part003",
+          "index": 2,
+          "chars": 4220,
+          "words": 571
+        },
+        {
+          "id": "episode.rounds-dka-potassium.part004",
+          "index": 3,
+          "chars": 1822,
+          "words": 266
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-acute-liver-failure",
+      "title": "Acute liver failure: the liver, brain and circulation fail together",
+      "format": "deep-dive",
+      "domain": "gi-hepatic",
+      "declaredMinutes": 40,
+      "totalChars": 25973,
+      "totalWords": 3616,
+      "parts": [
+        {
+          "id": "episode.deep-acute-liver-failure.part001",
+          "index": 0,
+          "chars": 4326,
+          "words": 598
+        },
+        {
+          "id": "episode.deep-acute-liver-failure.part002",
+          "index": 1,
+          "chars": 4103,
+          "words": 570
+        },
+        {
+          "id": "episode.deep-acute-liver-failure.part003",
+          "index": 2,
+          "chars": 4252,
+          "words": 587
+        },
+        {
+          "id": "episode.deep-acute-liver-failure.part004",
+          "index": 3,
+          "chars": 4320,
+          "words": 590
+        },
+        {
+          "id": "episode.deep-acute-liver-failure.part005",
+          "index": 4,
+          "chars": 4250,
+          "words": 614
+        },
+        {
+          "id": "episode.deep-acute-liver-failure.part006",
+          "index": 5,
+          "chars": 4372,
+          "words": 605
+        },
+        {
+          "id": "episode.deep-acute-liver-failure.part007",
+          "index": 6,
+          "chars": 338,
+          "words": 52
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-gi-bleed",
+      "title": "The crashing GI bleed",
+      "format": "rounds",
+      "domain": "gi-hepatic",
+      "declaredMinutes": 20,
+      "totalChars": 19172,
+      "totalWords": 2600,
+      "parts": [
+        {
+          "id": "episode.rounds-gi-bleed.part001",
+          "index": 0,
+          "chars": 4357,
+          "words": 592
+        },
+        {
+          "id": "episode.rounds-gi-bleed.part002",
+          "index": 1,
+          "chars": 4352,
+          "words": 569
+        },
+        {
+          "id": "episode.rounds-gi-bleed.part003",
+          "index": 2,
+          "chars": 4374,
+          "words": 588
+        },
+        {
+          "id": "episode.rounds-gi-bleed.part004",
+          "index": 3,
+          "chars": 4196,
+          "words": 571
+        },
+        {
+          "id": "episode.rounds-gi-bleed.part005",
+          "index": 4,
+          "chars": 1885,
+          "words": 280
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-pancreatitis",
+      "title": "Severe pancreatitis is a multisystem ICU disease",
+      "format": "rounds",
+      "domain": "gi-hepatic",
+      "declaredMinutes": 20,
+      "totalChars": 22541,
+      "totalWords": 3184,
+      "parts": [
+        {
+          "id": "episode.rounds-pancreatitis.part001",
+          "index": 0,
+          "chars": 4285,
+          "words": 598
+        },
+        {
+          "id": "episode.rounds-pancreatitis.part002",
+          "index": 1,
+          "chars": 4333,
+          "words": 627
+        },
+        {
+          "id": "episode.rounds-pancreatitis.part003",
+          "index": 2,
+          "chars": 4331,
+          "words": 624
+        },
+        {
+          "id": "episode.rounds-pancreatitis.part004",
+          "index": 3,
+          "chars": 4095,
+          "words": 573
+        },
+        {
+          "id": "episode.rounds-pancreatitis.part005",
+          "index": 4,
+          "chars": 4179,
+          "words": 565
+        },
+        {
+          "id": "episode.rounds-pancreatitis.part006",
+          "index": 5,
+          "chars": 1308,
+          "words": 197
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-icu-nutrition",
+      "title": "ICU nutrition is not just calories",
+      "format": "rounds",
+      "domain": "gi-hepatic",
+      "declaredMinutes": 18,
+      "totalChars": 14878,
+      "totalWords": 2039,
+      "parts": [
+        {
+          "id": "episode.rounds-icu-nutrition.part001",
+          "index": 0,
+          "chars": 4317,
+          "words": 597
+        },
+        {
+          "id": "episode.rounds-icu-nutrition.part002",
+          "index": 1,
+          "chars": 4347,
+          "words": 574
+        },
+        {
+          "id": "episode.rounds-icu-nutrition.part003",
+          "index": 2,
+          "chars": 4041,
+          "words": 564
+        },
+        {
+          "id": "episode.rounds-icu-nutrition.part004",
+          "index": 3,
+          "chars": 2167,
+          "words": 304
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-hhs",
+      "title": "HHS: hyperosmolality is the neurologic problem",
+      "format": "rounds",
+      "domain": "endocrine",
+      "declaredMinutes": 18,
+      "totalChars": 16920,
+      "totalWords": 2377,
+      "parts": [
+        {
+          "id": "episode.rounds-hhs.part001",
+          "index": 0,
+          "chars": 4291,
+          "words": 602
+        },
+        {
+          "id": "episode.rounds-hhs.part002",
+          "index": 1,
+          "chars": 4207,
+          "words": 587
+        },
+        {
+          "id": "episode.rounds-hhs.part003",
+          "index": 2,
+          "chars": 4190,
+          "words": 571
+        },
+        {
+          "id": "episode.rounds-hhs.part004",
+          "index": 3,
+          "chars": 4226,
+          "words": 617
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-adrenal-crisis",
+      "title": "Adrenal crisis hiding inside refractory shock",
+      "format": "rounds",
+      "domain": "endocrine",
+      "declaredMinutes": 14,
+      "totalChars": 14437,
+      "totalWords": 2037,
+      "parts": [
+        {
+          "id": "episode.rounds-adrenal-crisis.part001",
+          "index": 0,
+          "chars": 4361,
+          "words": 617
+        },
+        {
+          "id": "episode.rounds-adrenal-crisis.part002",
+          "index": 1,
+          "chars": 4113,
+          "words": 590
+        },
+        {
+          "id": "episode.rounds-adrenal-crisis.part003",
+          "index": 2,
+          "chars": 4327,
+          "words": 582
+        },
+        {
+          "id": "episode.rounds-adrenal-crisis.part004",
+          "index": 3,
+          "chars": 1630,
+          "words": 248
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-thyroid-emergencies",
+      "title": "Thyroid emergencies at both extremes",
+      "format": "deep-dive",
+      "domain": "endocrine",
+      "declaredMinutes": 32,
+      "totalChars": 24456,
+      "totalWords": 3354,
+      "parts": [
+        {
+          "id": "episode.deep-thyroid-emergencies.part001",
+          "index": 0,
+          "chars": 4292,
+          "words": 585
+        },
+        {
+          "id": "episode.deep-thyroid-emergencies.part002",
+          "index": 1,
+          "chars": 4369,
+          "words": 606
+        },
+        {
+          "id": "episode.deep-thyroid-emergencies.part003",
+          "index": 2,
+          "chars": 4274,
+          "words": 589
+        },
+        {
+          "id": "episode.deep-thyroid-emergencies.part004",
+          "index": 3,
+          "chars": 4113,
+          "words": 555
+        },
+        {
+          "id": "episode.deep-thyroid-emergencies.part005",
+          "index": 4,
+          "chars": 4306,
+          "words": 571
+        },
+        {
+          "id": "episode.deep-thyroid-emergencies.part006",
+          "index": 5,
+          "chars": 3092,
+          "words": 448
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-toxic-alcohols",
+      "title": "Toxic alcohols: follow the metabolites",
+      "format": "deep-dive",
+      "domain": "toxicology",
+      "declaredMinutes": 34,
+      "totalChars": 21292,
+      "totalWords": 3063,
+      "parts": [
+        {
+          "id": "episode.deep-toxic-alcohols.part001",
+          "index": 0,
+          "chars": 4360,
+          "words": 633
+        },
+        {
+          "id": "episode.deep-toxic-alcohols.part002",
+          "index": 1,
+          "chars": 4222,
+          "words": 586
+        },
+        {
+          "id": "episode.deep-toxic-alcohols.part003",
+          "index": 2,
+          "chars": 4224,
+          "words": 610
+        },
+        {
+          "id": "episode.deep-toxic-alcohols.part004",
+          "index": 3,
+          "chars": 4294,
+          "words": 626
+        },
+        {
+          "id": "episode.deep-toxic-alcohols.part005",
+          "index": 4,
+          "chars": 4184,
+          "words": 608
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-salicylates",
+      "title": "Salicylates: do not steal the patient’s compensatory ventilation",
+      "format": "rounds",
+      "domain": "toxicology",
+      "declaredMinutes": 20,
+      "totalChars": 21210,
+      "totalWords": 2967,
+      "parts": [
+        {
+          "id": "episode.rounds-salicylates.part001",
+          "index": 0,
+          "chars": 4363,
+          "words": 610
+        },
+        {
+          "id": "episode.rounds-salicylates.part002",
+          "index": 1,
+          "chars": 4145,
+          "words": 562
+        },
+        {
+          "id": "episode.rounds-salicylates.part003",
+          "index": 2,
+          "chars": 4165,
+          "words": 585
+        },
+        {
+          "id": "episode.rounds-salicylates.part004",
+          "index": 3,
+          "chars": 4353,
+          "words": 605
+        },
+        {
+          "id": "episode.rounds-salicylates.part005",
+          "index": 4,
+          "chars": 4176,
+          "words": 605
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-cardiotoxic-overdose",
+      "title": "Cardiotoxic overdose: when the shock mechanism is the antidote map",
+      "format": "deep-dive",
+      "domain": "toxicology",
+      "declaredMinutes": 40,
+      "totalChars": 21095,
+      "totalWords": 2958,
+      "parts": [
+        {
+          "id": "episode.deep-cardiotoxic-overdose.part001",
+          "index": 0,
+          "chars": 4380,
+          "words": 607
+        },
+        {
+          "id": "episode.deep-cardiotoxic-overdose.part002",
+          "index": 1,
+          "chars": 4193,
+          "words": 587
+        },
+        {
+          "id": "episode.deep-cardiotoxic-overdose.part003",
+          "index": 2,
+          "chars": 4083,
+          "words": 568
+        },
+        {
+          "id": "episode.deep-cardiotoxic-overdose.part004",
+          "index": 3,
+          "chars": 4246,
+          "words": 610
+        },
+        {
+          "id": "episode.deep-cardiotoxic-overdose.part005",
+          "index": 4,
+          "chars": 4185,
+          "words": 586
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-transplant-icu",
+      "title": "The transplant patient in the ICU",
+      "format": "deep-dive",
+      "domain": "transplant",
+      "declaredMinutes": 42,
+      "totalChars": 22156,
+      "totalWords": 3018,
+      "parts": [
+        {
+          "id": "episode.deep-transplant-icu.part001",
+          "index": 0,
+          "chars": 4357,
+          "words": 581
+        },
+        {
+          "id": "episode.deep-transplant-icu.part002",
+          "index": 1,
+          "chars": 4339,
+          "words": 572
+        },
+        {
+          "id": "episode.deep-transplant-icu.part003",
+          "index": 2,
+          "chars": 4141,
+          "words": 558
+        },
+        {
+          "id": "episode.deep-transplant-icu.part004",
+          "index": 3,
+          "chars": 4197,
+          "words": 571
+        },
+        {
+          "id": "episode.deep-transplant-icu.part005",
+          "index": 4,
+          "chars": 4274,
+          "words": 608
+        },
+        {
+          "id": "episode.deep-transplant-icu.part006",
+          "index": 5,
+          "chars": 838,
+          "words": 128
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-burns",
+      "title": "Major burns: resuscitation without fluid creep",
+      "format": "deep-dive",
+      "domain": "trauma-burns",
+      "declaredMinutes": 38,
+      "totalChars": 22658,
+      "totalWords": 3177,
+      "parts": [
+        {
+          "id": "episode.deep-burns.part001",
+          "index": 0,
+          "chars": 4356,
+          "words": 615
+        },
+        {
+          "id": "episode.deep-burns.part002",
+          "index": 1,
+          "chars": 4363,
+          "words": 599
+        },
+        {
+          "id": "episode.deep-burns.part003",
+          "index": 2,
+          "chars": 4162,
+          "words": 589
+        },
+        {
+          "id": "episode.deep-burns.part004",
+          "index": 3,
+          "chars": 4293,
+          "words": 601
+        },
+        {
+          "id": "episode.deep-burns.part005",
+          "index": 4,
+          "chars": 4207,
+          "words": 579
+        },
+        {
+          "id": "episode.deep-burns.part006",
+          "index": 5,
+          "chars": 1267,
+          "words": 194
+        }
+      ]
+    },
+    {
+      "episodeId": "case-polytrauma-tbi",
+      "title": "Audio Case: hemorrhagic shock + severe TBI",
+      "format": "audio-case",
+      "domain": "trauma-burns",
+      "declaredMinutes": 28,
+      "totalChars": 24595,
+      "totalWords": 3422,
+      "parts": [
+        {
+          "id": "episode.case-polytrauma-tbi.part001",
+          "index": 0,
+          "chars": 4276,
+          "words": 562
+        },
+        {
+          "id": "episode.case-polytrauma-tbi.part002",
+          "index": 1,
+          "chars": 4347,
+          "words": 602
+        },
+        {
+          "id": "episode.case-polytrauma-tbi.part003",
+          "index": 2,
+          "chars": 4251,
+          "words": 601
+        },
+        {
+          "id": "episode.case-polytrauma-tbi.part004",
+          "index": 3,
+          "chars": 4221,
+          "words": 571
+        },
+        {
+          "id": "episode.case-polytrauma-tbi.part005",
+          "index": 4,
+          "chars": 4335,
+          "words": 618
+        },
+        {
+          "id": "episode.case-polytrauma-tbi.part006",
+          "index": 5,
+          "chars": 3155,
+          "words": 468
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-ob-hemorrhage",
+      "title": "Obstetric hemorrhage: pregnancy can hide the shock",
+      "format": "rounds",
+      "domain": "obstetric",
+      "declaredMinutes": 20,
+      "totalChars": 14857,
+      "totalWords": 2015,
+      "parts": [
+        {
+          "id": "episode.rounds-ob-hemorrhage.part001",
+          "index": 0,
+          "chars": 4264,
+          "words": 580
+        },
+        {
+          "id": "episode.rounds-ob-hemorrhage.part002",
+          "index": 1,
+          "chars": 4093,
+          "words": 548
+        },
+        {
+          "id": "episode.rounds-ob-hemorrhage.part003",
+          "index": 2,
+          "chars": 4259,
+          "words": 564
+        },
+        {
+          "id": "episode.rounds-ob-hemorrhage.part004",
+          "index": 3,
+          "chars": 2235,
+          "words": 323
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-preeclampsia",
+      "title": "Preeclampsia and eclampsia: a multisystem endothelial disease",
+      "format": "deep-dive",
+      "domain": "obstetric",
+      "declaredMinutes": 34,
+      "totalChars": 19965,
+      "totalWords": 2754,
+      "parts": [
+        {
+          "id": "episode.deep-preeclampsia.part001",
+          "index": 0,
+          "chars": 4275,
+          "words": 592
+        },
+        {
+          "id": "episode.deep-preeclampsia.part002",
+          "index": 1,
+          "chars": 4366,
+          "words": 612
+        },
+        {
+          "id": "episode.deep-preeclampsia.part003",
+          "index": 2,
+          "chars": 4241,
+          "words": 569
+        },
+        {
+          "id": "episode.deep-preeclampsia.part004",
+          "index": 3,
+          "chars": 4239,
+          "words": 579
+        },
+        {
+          "id": "episode.deep-preeclampsia.part005",
+          "index": 4,
+          "chars": 2836,
+          "words": 402
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-peripartum-cm",
+      "title": "Peripartum cardiomyopathy: when “normal postpartum” is heart failure",
+      "format": "rounds",
+      "domain": "obstetric",
+      "declaredMinutes": 17,
+      "totalChars": 11414,
+      "totalWords": 1597,
+      "parts": [
+        {
+          "id": "episode.rounds-peripartum-cm.part001",
+          "index": 0,
+          "chars": 4240,
+          "words": 585
+        },
+        {
+          "id": "episode.rounds-peripartum-cm.part002",
+          "index": 1,
+          "chars": 4351,
+          "words": 612
+        },
+        {
+          "id": "episode.rounds-peripartum-cm.part003",
+          "index": 2,
+          "chars": 2819,
+          "words": 400
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-pediatric-shock",
+      "title": "Pediatric shock: hypotension is late",
+      "format": "deep-dive",
+      "domain": "peds-neonatal",
+      "declaredMinutes": 34,
+      "totalChars": 20897,
+      "totalWords": 2983,
+      "parts": [
+        {
+          "id": "episode.deep-pediatric-shock.part001",
+          "index": 0,
+          "chars": 4385,
+          "words": 624
+        },
+        {
+          "id": "episode.deep-pediatric-shock.part002",
+          "index": 1,
+          "chars": 4329,
+          "words": 628
+        },
+        {
+          "id": "episode.deep-pediatric-shock.part003",
+          "index": 2,
+          "chars": 4350,
+          "words": 606
+        },
+        {
+          "id": "episode.deep-pediatric-shock.part004",
+          "index": 3,
+          "chars": 4375,
+          "words": 619
+        },
+        {
+          "id": "episode.deep-pediatric-shock.part005",
+          "index": 4,
+          "chars": 3450,
+          "words": 506
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-neonatal-transition",
+      "title": "From placenta to lungs: neonatal transition",
+      "format": "deep-dive",
+      "domain": "peds-neonatal",
+      "declaredMinutes": 32,
+      "totalChars": 21784,
+      "totalWords": 3153,
+      "parts": [
+        {
+          "id": "episode.deep-neonatal-transition.part001",
+          "index": 0,
+          "chars": 4334,
+          "words": 642
+        },
+        {
+          "id": "episode.deep-neonatal-transition.part002",
+          "index": 1,
+          "chars": 4285,
+          "words": 611
+        },
+        {
+          "id": "episode.deep-neonatal-transition.part003",
+          "index": 2,
+          "chars": 4301,
+          "words": 632
+        },
+        {
+          "id": "episode.deep-neonatal-transition.part004",
+          "index": 3,
+          "chars": 4338,
+          "words": 603
+        },
+        {
+          "id": "episode.deep-neonatal-transition.part005",
+          "index": 4,
+          "chars": 4391,
+          "words": 641
+        },
+        {
+          "id": "episode.deep-neonatal-transition.part006",
+          "index": 5,
+          "chars": 125,
+          "words": 24
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-congenital-heart",
+      "title": "Critical congenital heart disease without memorizing twenty lesions",
+      "format": "deep-dive",
+      "domain": "peds-neonatal",
+      "declaredMinutes": 45,
+      "totalChars": 17911,
+      "totalWords": 2608,
+      "parts": [
+        {
+          "id": "episode.deep-congenital-heart.part001",
+          "index": 0,
+          "chars": 4341,
+          "words": 649
+        },
+        {
+          "id": "episode.deep-congenital-heart.part002",
+          "index": 1,
+          "chars": 4196,
+          "words": 606
+        },
+        {
+          "id": "episode.deep-congenital-heart.part003",
+          "index": 2,
+          "chars": 4196,
+          "words": 608
+        },
+        {
+          "id": "episode.deep-congenital-heart.part004",
+          "index": 3,
+          "chars": 4344,
+          "words": 613
+        },
+        {
+          "id": "episode.deep-congenital-heart.part005",
+          "index": 4,
+          "chars": 826,
+          "words": 132
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-pediatric-airway",
+      "title": "The pediatric airway has less reserve than you think",
+      "format": "rounds",
+      "domain": "peds-neonatal",
+      "declaredMinutes": 18,
+      "totalChars": 13445,
+      "totalWords": 1903,
+      "parts": [
+        {
+          "id": "episode.rounds-pediatric-airway.part001",
+          "index": 0,
+          "chars": 4202,
+          "words": 586
+        },
+        {
+          "id": "episode.rounds-pediatric-airway.part002",
+          "index": 1,
+          "chars": 4052,
+          "words": 581
+        },
+        {
+          "id": "episode.rounds-pediatric-airway.part003",
+          "index": 2,
+          "chars": 4338,
+          "words": 608
+        },
+        {
+          "id": "episode.rounds-pediatric-airway.part004",
+          "index": 3,
+          "chars": 847,
+          "words": 128
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-vent-liberation",
+      "title": "Liberating the patient from the ventilator",
+      "format": "deep-dive",
+      "domain": "recovery",
+      "declaredMinutes": 38,
+      "totalChars": 23488,
+      "totalWords": 3242,
+      "parts": [
+        {
+          "id": "episode.deep-vent-liberation.part001",
+          "index": 0,
+          "chars": 4389,
+          "words": 613
+        },
+        {
+          "id": "episode.deep-vent-liberation.part002",
+          "index": 1,
+          "chars": 4247,
+          "words": 574
+        },
+        {
+          "id": "episode.deep-vent-liberation.part003",
+          "index": 2,
+          "chars": 4086,
+          "words": 573
+        },
+        {
+          "id": "episode.deep-vent-liberation.part004",
+          "index": 3,
+          "chars": 4170,
+          "words": 575
+        },
+        {
+          "id": "episode.deep-vent-liberation.part005",
+          "index": 4,
+          "chars": 4394,
+          "words": 598
+        },
+        {
+          "id": "episode.deep-vent-liberation.part006",
+          "index": 5,
+          "chars": 2192,
+          "words": 309
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-icu-weakness",
+      "title": "The patient survived the ICU—now they cannot stand",
+      "format": "rounds",
+      "domain": "recovery",
+      "declaredMinutes": 18,
+      "totalChars": 15433,
+      "totalWords": 2119,
+      "parts": [
+        {
+          "id": "episode.rounds-icu-weakness.part001",
+          "index": 0,
+          "chars": 4352,
+          "words": 603
+        },
+        {
+          "id": "episode.rounds-icu-weakness.part002",
+          "index": 1,
+          "chars": 4339,
+          "words": 584
+        },
+        {
+          "id": "episode.rounds-icu-weakness.part003",
+          "index": 2,
+          "chars": 4354,
+          "words": 607
+        },
+        {
+          "id": "episode.rounds-icu-weakness.part004",
+          "index": 3,
+          "chars": 2382,
+          "words": 325
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-iabp",
+      "title": "IABP timing: make the waveform tell you what the balloon is doing",
+      "format": "rounds",
+      "domain": "cardiac",
+      "declaredMinutes": 20,
+      "totalChars": 16070,
+      "totalWords": 2338,
+      "parts": [
+        {
+          "id": "episode.rounds-iabp.part001",
+          "index": 0,
+          "chars": 4342,
+          "words": 647
+        },
+        {
+          "id": "episode.rounds-iabp.part002",
+          "index": 1,
+          "chars": 4200,
+          "words": 609
+        },
+        {
+          "id": "episode.rounds-iabp.part003",
+          "index": 2,
+          "chars": 4203,
+          "words": 592
+        },
+        {
+          "id": "episode.rounds-iabp.part004",
+          "index": 3,
+          "chars": 3319,
+          "words": 490
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-mcs",
+      "title": "Mechanical circulatory support: match the device to the failing circulation",
+      "format": "deep-dive",
+      "domain": "cardiac",
+      "declaredMinutes": 45,
+      "totalChars": 23867,
+      "totalWords": 3465,
+      "parts": [
+        {
+          "id": "episode.deep-mcs.part001",
+          "index": 0,
+          "chars": 4316,
+          "words": 631
+        },
+        {
+          "id": "episode.deep-mcs.part002",
+          "index": 1,
+          "chars": 4277,
+          "words": 620
+        },
+        {
+          "id": "episode.deep-mcs.part003",
+          "index": 2,
+          "chars": 4155,
+          "words": 609
+        },
+        {
+          "id": "episode.deep-mcs.part004",
+          "index": 3,
+          "chars": 4389,
+          "words": 634
+        },
+        {
+          "id": "episode.deep-mcs.part005",
+          "index": 4,
+          "chars": 4225,
+          "words": 603
+        },
+        {
+          "id": "episode.deep-mcs.part006",
+          "index": 5,
+          "chars": 2495,
+          "words": 368
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-status",
+      "title": "Status epilepticus: time changes the biology",
+      "format": "deep-dive",
+      "domain": "neuro",
+      "declaredMinutes": 34,
+      "totalChars": 21346,
+      "totalWords": 3026,
+      "parts": [
+        {
+          "id": "episode.deep-status.part001",
+          "index": 0,
+          "chars": 4256,
+          "words": 599
+        },
+        {
+          "id": "episode.deep-status.part002",
+          "index": 1,
+          "chars": 4240,
+          "words": 607
+        },
+        {
+          "id": "episode.deep-status.part003",
+          "index": 2,
+          "chars": 4177,
+          "words": 581
+        },
+        {
+          "id": "episode.deep-status.part004",
+          "index": 3,
+          "chars": 4377,
+          "words": 618
+        },
+        {
+          "id": "episode.deep-status.part005",
+          "index": 4,
+          "chars": 4288,
+          "words": 621
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-neuroprognosis",
+      "title": "Neuroprognostication: certainty is the dangerous drug",
+      "format": "deep-dive",
+      "domain": "communication-systems",
+      "declaredMinutes": 38,
+      "totalChars": 16614,
+      "totalWords": 2320,
+      "parts": [
+        {
+          "id": "episode.deep-neuroprognosis.part001",
+          "index": 0,
+          "chars": 4341,
+          "words": 591
+        },
+        {
+          "id": "episode.deep-neuroprognosis.part002",
+          "index": 1,
+          "chars": 4369,
+          "words": 612
+        },
+        {
+          "id": "episode.deep-neuroprognosis.part003",
+          "index": 2,
+          "chars": 4383,
+          "words": 615
+        },
+        {
+          "id": "episode.deep-neuroprognosis.part004",
+          "index": 3,
+          "chars": 3515,
+          "words": 502
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-goals-care",
+      "title": "Goals of care is a clinical skill",
+      "format": "rounds",
+      "domain": "communication-systems",
+      "declaredMinutes": 22,
+      "totalChars": 14432,
+      "totalWords": 2049,
+      "parts": [
+        {
+          "id": "episode.rounds-goals-care.part001",
+          "index": 0,
+          "chars": 4195,
+          "words": 602
+        },
+        {
+          "id": "episode.rounds-goals-care.part002",
+          "index": 1,
+          "chars": 4106,
+          "words": 575
+        },
+        {
+          "id": "episode.rounds-goals-care.part003",
+          "index": 2,
+          "chars": 4284,
+          "words": 596
+        },
+        {
+          "id": "episode.rounds-goals-care.part004",
+          "index": 3,
+          "chars": 1841,
+          "words": 276
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-cognitive-bias",
+      "title": "The patient is not obligated to obey your diagnosis",
+      "format": "rounds",
+      "domain": "multisystem",
+      "declaredMinutes": 20,
+      "totalChars": 13315,
+      "totalWords": 1929,
+      "parts": [
+        {
+          "id": "episode.rounds-cognitive-bias.part001",
+          "index": 0,
+          "chars": 4276,
+          "words": 625
+        },
+        {
+          "id": "episode.rounds-cognitive-bias.part002",
+          "index": 1,
+          "chars": 4136,
+          "words": 589
+        },
+        {
+          "id": "episode.rounds-cognitive-bias.part003",
+          "index": 2,
+          "chars": 4384,
+          "words": 633
+        },
+        {
+          "id": "episode.rounds-cognitive-bias.part004",
+          "index": 3,
+          "chars": 513,
+          "words": 82
+        }
+      ]
+    },
+    {
+      "episodeId": "case-expert-mixed-shock",
+      "title": "Expert Case: mixed shock after surgery",
+      "format": "audio-case",
+      "domain": "multisystem",
+      "declaredMinutes": 30,
+      "totalChars": 18365,
+      "totalWords": 2624,
+      "parts": [
+        {
+          "id": "episode.case-expert-mixed-shock.part001",
+          "index": 0,
+          "chars": 4245,
+          "words": 617
+        },
+        {
+          "id": "episode.case-expert-mixed-shock.part002",
+          "index": 1,
+          "chars": 4162,
+          "words": 600
+        },
+        {
+          "id": "episode.case-expert-mixed-shock.part003",
+          "index": 2,
+          "chars": 4213,
+          "words": 592
+        },
+        {
+          "id": "episode.case-expert-mixed-shock.part004",
+          "index": 3,
+          "chars": 4059,
+          "words": 563
+        },
+        {
+          "id": "episode.case-expert-mixed-shock.part005",
+          "index": 4,
+          "chars": 1678,
+          "words": 252
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-drain-troubleshooting",
+      "title": "When the chest tube stops helping",
+      "format": "rounds",
+      "domain": "procedures",
+      "declaredMinutes": 16,
+      "totalChars": 15982,
+      "totalWords": 2296,
+      "parts": [
+        {
+          "id": "episode.rounds-drain-troubleshooting.part001",
+          "index": 0,
+          "chars": 4294,
+          "words": 625
+        },
+        {
+          "id": "episode.rounds-drain-troubleshooting.part002",
+          "index": 1,
+          "chars": 4274,
+          "words": 611
+        },
+        {
+          "id": "episode.rounds-drain-troubleshooting.part003",
+          "index": 2,
+          "chars": 4317,
+          "words": 617
+        },
+        {
+          "id": "episode.rounds-drain-troubleshooting.part004",
+          "index": 3,
+          "chars": 3091,
+          "words": 443
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-etco2-gap",
+      "title": "The PaCO₂–EtCO₂ gap is a perfusion clue",
+      "format": "rounds",
+      "domain": "respiratory",
+      "declaredMinutes": 15,
+      "totalChars": 18929,
+      "totalWords": 2809,
+      "parts": [
+        {
+          "id": "episode.rounds-etco2-gap.part001",
+          "index": 0,
+          "chars": 4243,
+          "words": 657
+        },
+        {
+          "id": "episode.rounds-etco2-gap.part002",
+          "index": 1,
+          "chars": 4276,
+          "words": 619
+        },
+        {
+          "id": "episode.rounds-etco2-gap.part003",
+          "index": 2,
+          "chars": 4275,
+          "words": 628
+        },
+        {
+          "id": "episode.rounds-etco2-gap.part004",
+          "index": 3,
+          "chars": 4232,
+          "words": 615
+        },
+        {
+          "id": "episode.rounds-etco2-gap.part005",
+          "index": 4,
+          "chars": 1895,
+          "words": 290
+        }
+      ]
+    },
+    {
+      "episodeId": "case-fast-bleeding",
+      "title": "Audio Case: the first FAST was negative",
+      "format": "audio-case",
+      "domain": "imaging-monitoring",
+      "declaredMinutes": 18,
+      "totalChars": 15356,
+      "totalWords": 2180,
+      "parts": [
+        {
+          "id": "episode.case-fast-bleeding.part001",
+          "index": 0,
+          "chars": 4365,
+          "words": 646
+        },
+        {
+          "id": "episode.case-fast-bleeding.part002",
+          "index": 1,
+          "chars": 4230,
+          "words": 606
+        },
+        {
+          "id": "episode.case-fast-bleeding.part003",
+          "index": 2,
+          "chars": 4256,
+          "words": 576
+        },
+        {
+          "id": "episode.case-fast-bleeding.part004",
+          "index": 3,
+          "chars": 2499,
+          "words": 352
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-herniation",
+      "title": "Herniation: recognize the trajectory before the last sign appears",
+      "format": "rounds",
+      "domain": "neuro",
+      "declaredMinutes": 20,
+      "totalChars": 18176,
+      "totalWords": 2541,
+      "parts": [
+        {
+          "id": "episode.rounds-herniation.part001",
+          "index": 0,
+          "chars": 4375,
+          "words": 622
+        },
+        {
+          "id": "episode.rounds-herniation.part002",
+          "index": 1,
+          "chars": 4356,
+          "words": 591
+        },
+        {
+          "id": "episode.rounds-herniation.part003",
+          "index": 2,
+          "chars": 4213,
+          "words": 577
+        },
+        {
+          "id": "episode.rounds-herniation.part004",
+          "index": 3,
+          "chars": 4369,
+          "words": 620
+        },
+        {
+          "id": "episode.rounds-herniation.part005",
+          "index": 4,
+          "chars": 855,
+          "words": 131
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-pneumothorax-us",
+      "title": "Pneumothorax ultrasound: absent sliding is not the diagnosis",
+      "format": "rounds",
+      "domain": "imaging-monitoring",
+      "declaredMinutes": 17,
+      "totalChars": 19939,
+      "totalWords": 2836,
+      "parts": [
+        {
+          "id": "episode.rounds-pneumothorax-us.part001",
+          "index": 0,
+          "chars": 4327,
+          "words": 627
+        },
+        {
+          "id": "episode.rounds-pneumothorax-us.part002",
+          "index": 1,
+          "chars": 4233,
+          "words": 601
+        },
+        {
+          "id": "episode.rounds-pneumothorax-us.part003",
+          "index": 2,
+          "chars": 4358,
+          "words": 621
+        },
+        {
+          "id": "episode.rounds-pneumothorax-us.part004",
+          "index": 3,
+          "chars": 4313,
+          "words": 601
+        },
+        {
+          "id": "episode.rounds-pneumothorax-us.part005",
+          "index": 4,
+          "chars": 2700,
+          "words": 386
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-evd",
+      "title": "EVDs: drainage height is part of the treatment",
+      "format": "rounds",
+      "domain": "neuro",
+      "declaredMinutes": 18,
+      "totalChars": 17500,
+      "totalWords": 2461,
+      "parts": [
+        {
+          "id": "episode.rounds-evd.part001",
+          "index": 0,
+          "chars": 4371,
+          "words": 624
+        },
+        {
+          "id": "episode.rounds-evd.part002",
+          "index": 1,
+          "chars": 4181,
+          "words": 579
+        },
+        {
+          "id": "episode.rounds-evd.part003",
+          "index": 2,
+          "chars": 4349,
+          "words": 603
+        },
+        {
+          "id": "episode.rounds-evd.part004",
+          "index": 3,
+          "chars": 4367,
+          "words": 616
+        },
+        {
+          "id": "episode.rounds-evd.part005",
+          "index": 4,
+          "chars": 224,
+          "words": 39
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-art-waveform-quality",
+      "title": "Arterial line numbers are only as good as the waveform",
+      "format": "rounds",
+      "domain": "imaging-monitoring",
+      "declaredMinutes": 17,
+      "totalChars": 11573,
+      "totalWords": 1638,
+      "parts": [
+        {
+          "id": "episode.rounds-art-waveform-quality.part001",
+          "index": 0,
+          "chars": 4344,
+          "words": 617
+        },
+        {
+          "id": "episode.rounds-art-waveform-quality.part002",
+          "index": 1,
+          "chars": 4090,
+          "words": 568
+        },
+        {
+          "id": "episode.rounds-art-waveform-quality.part003",
+          "index": 2,
+          "chars": 3135,
+          "words": 453
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-high-risk-med-safety",
+      "title": "Push-dose pressors: the dangerous part is often the syringe",
+      "format": "rounds",
+      "domain": "pharmacology",
+      "declaredMinutes": 17,
+      "totalChars": 21606,
+      "totalWords": 2978,
+      "parts": [
+        {
+          "id": "episode.rounds-high-risk-med-safety.part001",
+          "index": 0,
+          "chars": 4343,
+          "words": 594
+        },
+        {
+          "id": "episode.rounds-high-risk-med-safety.part002",
+          "index": 1,
+          "chars": 4382,
+          "words": 617
+        },
+        {
+          "id": "episode.rounds-high-risk-med-safety.part003",
+          "index": 2,
+          "chars": 4337,
+          "words": 575
+        },
+        {
+          "id": "episode.rounds-high-risk-med-safety.part004",
+          "index": 3,
+          "chars": 4357,
+          "words": 603
+        },
+        {
+          "id": "episode.rounds-high-risk-med-safety.part005",
+          "index": 4,
+          "chars": 4179,
+          "words": 589
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-vascular-access",
+      "title": "Vascular access: choose the least dangerous route that solves the problem",
+      "format": "deep-dive",
+      "domain": "procedures",
+      "declaredMinutes": 32,
+      "totalChars": 24932,
+      "totalWords": 3491,
+      "parts": [
+        {
+          "id": "episode.deep-vascular-access.part001",
+          "index": 0,
+          "chars": 4212,
+          "words": 616
+        },
+        {
+          "id": "episode.deep-vascular-access.part002",
+          "index": 1,
+          "chars": 4216,
+          "words": 581
+        },
+        {
+          "id": "episode.deep-vascular-access.part003",
+          "index": 2,
+          "chars": 4069,
+          "words": 565
+        },
+        {
+          "id": "episode.deep-vascular-access.part004",
+          "index": 3,
+          "chars": 4097,
+          "words": 564
+        },
+        {
+          "id": "episode.deep-vascular-access.part005",
+          "index": 4,
+          "chars": 4353,
+          "words": 611
+        },
+        {
+          "id": "episode.deep-vascular-access.part006",
+          "index": 5,
+          "chars": 3975,
+          "words": 554
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-peri-intubation",
+      "title": "The physiologically difficult airway",
+      "format": "deep-dive",
+      "domain": "respiratory",
+      "declaredMinutes": 38,
+      "totalChars": 31604,
+      "totalWords": 4376,
+      "parts": [
+        {
+          "id": "episode.deep-peri-intubation.part001",
+          "index": 0,
+          "chars": 4393,
+          "words": 618
+        },
+        {
+          "id": "episode.deep-peri-intubation.part002",
+          "index": 1,
+          "chars": 4225,
+          "words": 593
+        },
+        {
+          "id": "episode.deep-peri-intubation.part003",
+          "index": 2,
+          "chars": 4400,
+          "words": 605
+        },
+        {
+          "id": "episode.deep-peri-intubation.part004",
+          "index": 3,
+          "chars": 4227,
+          "words": 564
+        },
+        {
+          "id": "episode.deep-peri-intubation.part005",
+          "index": 4,
+          "chars": 4358,
+          "words": 597
+        },
+        {
+          "id": "episode.deep-peri-intubation.part006",
+          "index": 5,
+          "chars": 4361,
+          "words": 613
+        },
+        {
+          "id": "episode.deep-peri-intubation.part007",
+          "index": 6,
+          "chars": 4384,
+          "words": 594
+        },
+        {
+          "id": "episode.deep-peri-intubation.part008",
+          "index": 7,
+          "chars": 1242,
+          "words": 192
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-electrolytes-osmoles",
+      "title": "Electrolytes and tonicity: treat the membrane, brain and body store",
+      "format": "deep-dive",
+      "domain": "renal-metabolic",
+      "declaredMinutes": 42,
+      "totalChars": 25694,
+      "totalWords": 3536,
+      "parts": [
+        {
+          "id": "episode.deep-electrolytes-osmoles.part001",
+          "index": 0,
+          "chars": 4391,
+          "words": 619
+        },
+        {
+          "id": "episode.deep-electrolytes-osmoles.part002",
+          "index": 1,
+          "chars": 4334,
+          "words": 580
+        },
+        {
+          "id": "episode.deep-electrolytes-osmoles.part003",
+          "index": 2,
+          "chars": 4347,
+          "words": 597
+        },
+        {
+          "id": "episode.deep-electrolytes-osmoles.part004",
+          "index": 3,
+          "chars": 4077,
+          "words": 541
+        },
+        {
+          "id": "episode.deep-electrolytes-osmoles.part005",
+          "index": 4,
+          "chars": 4211,
+          "words": 574
+        },
+        {
+          "id": "episode.deep-electrolytes-osmoles.part006",
+          "index": 5,
+          "chars": 4324,
+          "words": 625
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-aki-physiology",
+      "title": "AKI: creatinine is the lagging indicator",
+      "format": "rounds",
+      "domain": "renal-metabolic",
+      "declaredMinutes": 22,
+      "totalChars": 23035,
+      "totalWords": 3295,
+      "parts": [
+        {
+          "id": "episode.rounds-aki-physiology.part001",
+          "index": 0,
+          "chars": 4271,
+          "words": 616
+        },
+        {
+          "id": "episode.rounds-aki-physiology.part002",
+          "index": 1,
+          "chars": 4346,
+          "words": 612
+        },
+        {
+          "id": "episode.rounds-aki-physiology.part003",
+          "index": 2,
+          "chars": 4174,
+          "words": 590
+        },
+        {
+          "id": "episode.rounds-aki-physiology.part004",
+          "index": 3,
+          "chars": 4135,
+          "words": 592
+        },
+        {
+          "id": "episode.rounds-aki-physiology.part005",
+          "index": 4,
+          "chars": 4234,
+          "words": 611
+        },
+        {
+          "id": "episode.rounds-aki-physiology.part006",
+          "index": 5,
+          "chars": 1865,
+          "words": 274
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-pituitary-crisis",
+      "title": "Pituitary emergencies: when endocrine failure has neurologic signs",
+      "format": "rounds",
+      "domain": "endocrine",
+      "declaredMinutes": 19,
+      "totalChars": 15120,
+      "totalWords": 2096,
+      "parts": [
+        {
+          "id": "episode.rounds-pituitary-crisis.part001",
+          "index": 0,
+          "chars": 4391,
+          "words": 598
+        },
+        {
+          "id": "episode.rounds-pituitary-crisis.part002",
+          "index": 1,
+          "chars": 4355,
+          "words": 615
+        },
+        {
+          "id": "episode.rounds-pituitary-crisis.part003",
+          "index": 2,
+          "chars": 4063,
+          "words": 551
+        },
+        {
+          "id": "episode.rounds-pituitary-crisis.part004",
+          "index": 3,
+          "chars": 2305,
+          "words": 332
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-ischemia-rhythm",
+      "title": "The electrically unstable ischemic heart",
+      "format": "deep-dive",
+      "domain": "cardiac",
+      "declaredMinutes": 44,
+      "totalChars": 26561,
+      "totalWords": 3695,
+      "parts": [
+        {
+          "id": "episode.deep-ischemia-rhythm.part001",
+          "index": 0,
+          "chars": 4083,
+          "words": 562
+        },
+        {
+          "id": "episode.deep-ischemia-rhythm.part002",
+          "index": 1,
+          "chars": 4254,
+          "words": 587
+        },
+        {
+          "id": "episode.deep-ischemia-rhythm.part003",
+          "index": 2,
+          "chars": 4369,
+          "words": 611
+        },
+        {
+          "id": "episode.deep-ischemia-rhythm.part004",
+          "index": 3,
+          "chars": 4086,
+          "words": 554
+        },
+        {
+          "id": "episode.deep-ischemia-rhythm.part005",
+          "index": 4,
+          "chars": 4312,
+          "words": 609
+        },
+        {
+          "id": "episode.deep-ischemia-rhythm.part006",
+          "index": 5,
+          "chars": 4178,
+          "words": 576
+        },
+        {
+          "id": "episode.deep-ischemia-rhythm.part007",
+          "index": 6,
+          "chars": 1267,
+          "words": 196
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-valves-aorta",
+      "title": "Valves and aorta: hemodynamics with hard constraints",
+      "format": "deep-dive",
+      "domain": "cardiac",
+      "declaredMinutes": 40,
+      "totalChars": 22290,
+      "totalWords": 3063,
+      "parts": [
+        {
+          "id": "episode.deep-valves-aorta.part001",
+          "index": 0,
+          "chars": 4252,
+          "words": 577
+        },
+        {
+          "id": "episode.deep-valves-aorta.part002",
+          "index": 1,
+          "chars": 4268,
+          "words": 576
+        },
+        {
+          "id": "episode.deep-valves-aorta.part003",
+          "index": 2,
+          "chars": 4194,
+          "words": 574
+        },
+        {
+          "id": "episode.deep-valves-aorta.part004",
+          "index": 3,
+          "chars": 4358,
+          "words": 584
+        },
+        {
+          "id": "episode.deep-valves-aorta.part005",
+          "index": 4,
+          "chars": 4353,
+          "words": 623
+        },
+        {
+          "id": "episode.deep-valves-aorta.part006",
+          "index": 5,
+          "chars": 855,
+          "words": 129
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-post-arrest",
+      "title": "ROSC is the beginning, not the finish line",
+      "format": "rounds",
+      "domain": "cardiac",
+      "declaredMinutes": 24,
+      "totalChars": 16207,
+      "totalWords": 2236,
+      "parts": [
+        {
+          "id": "episode.rounds-post-arrest.part001",
+          "index": 0,
+          "chars": 4096,
+          "words": 540
+        },
+        {
+          "id": "episode.rounds-post-arrest.part002",
+          "index": 1,
+          "chars": 4330,
+          "words": 631
+        },
+        {
+          "id": "episode.rounds-post-arrest.part003",
+          "index": 2,
+          "chars": 4260,
+          "words": 580
+        },
+        {
+          "id": "episode.rounds-post-arrest.part004",
+          "index": 3,
+          "chars": 3515,
+          "words": 485
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-obstructive-ventilation",
+      "title": "Asthma, COPD and the ventilator: let the patient exhale",
+      "format": "deep-dive",
+      "domain": "respiratory",
+      "declaredMinutes": 42,
+      "totalChars": 27278,
+      "totalWords": 3761,
+      "parts": [
+        {
+          "id": "episode.deep-obstructive-ventilation.part001",
+          "index": 0,
+          "chars": 4390,
+          "words": 615
+        },
+        {
+          "id": "episode.deep-obstructive-ventilation.part002",
+          "index": 1,
+          "chars": 4373,
+          "words": 594
+        },
+        {
+          "id": "episode.deep-obstructive-ventilation.part003",
+          "index": 2,
+          "chars": 4395,
+          "words": 607
+        },
+        {
+          "id": "episode.deep-obstructive-ventilation.part004",
+          "index": 3,
+          "chars": 4397,
+          "words": 605
+        },
+        {
+          "id": "episode.deep-obstructive-ventilation.part005",
+          "index": 4,
+          "chars": 4398,
+          "words": 602
+        },
+        {
+          "id": "episode.deep-obstructive-ventilation.part006",
+          "index": 5,
+          "chars": 4028,
+          "words": 543
+        },
+        {
+          "id": "episode.deep-obstructive-ventilation.part007",
+          "index": 6,
+          "chars": 1285,
+          "words": 195
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-parenchymal-hypoxemia",
+      "title": "Bilateral opacities are not a diagnosis",
+      "format": "deep-dive",
+      "domain": "respiratory",
+      "declaredMinutes": 38,
+      "totalChars": 19079,
+      "totalWords": 2691,
+      "parts": [
+        {
+          "id": "episode.deep-parenchymal-hypoxemia.part001",
+          "index": 0,
+          "chars": 4370,
+          "words": 626
+        },
+        {
+          "id": "episode.deep-parenchymal-hypoxemia.part002",
+          "index": 1,
+          "chars": 4276,
+          "words": 575
+        },
+        {
+          "id": "episode.deep-parenchymal-hypoxemia.part003",
+          "index": 2,
+          "chars": 4078,
+          "words": 585
+        },
+        {
+          "id": "episode.deep-parenchymal-hypoxemia.part004",
+          "index": 3,
+          "chars": 4210,
+          "words": 594
+        },
+        {
+          "id": "episode.deep-parenchymal-hypoxemia.part005",
+          "index": 4,
+          "chars": 2137,
+          "words": 311
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-hemoptysis-pleura",
+      "title": "Airway blood and pleural fluid: when thoracic anatomy becomes the emergency",
+      "format": "rounds",
+      "domain": "respiratory",
+      "declaredMinutes": 24,
+      "totalChars": 14845,
+      "totalWords": 2047,
+      "parts": [
+        {
+          "id": "episode.rounds-hemoptysis-pleura.part001",
+          "index": 0,
+          "chars": 4310,
+          "words": 584
+        },
+        {
+          "id": "episode.rounds-hemoptysis-pleura.part002",
+          "index": 1,
+          "chars": 4169,
+          "words": 569
+        },
+        {
+          "id": "episode.rounds-hemoptysis-pleura.part003",
+          "index": 2,
+          "chars": 4235,
+          "words": 586
+        },
+        {
+          "id": "episode.rounds-hemoptysis-pleura.part004",
+          "index": 3,
+          "chars": 2125,
+          "words": 308
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-icu-infections",
+      "title": "ICU infection beyond “sepsis”",
+      "format": "deep-dive",
+      "domain": "infectious",
+      "declaredMinutes": 45,
+      "totalChars": 22976,
+      "totalWords": 3214,
+      "parts": [
+        {
+          "id": "episode.deep-icu-infections.part001",
+          "index": 0,
+          "chars": 4247,
+          "words": 588
+        },
+        {
+          "id": "episode.deep-icu-infections.part002",
+          "index": 1,
+          "chars": 4382,
+          "words": 608
+        },
+        {
+          "id": "episode.deep-icu-infections.part003",
+          "index": 2,
+          "chars": 4378,
+          "words": 601
+        },
+        {
+          "id": "episode.deep-icu-infections.part004",
+          "index": 3,
+          "chars": 4219,
+          "words": 590
+        },
+        {
+          "id": "episode.deep-icu-infections.part005",
+          "index": 4,
+          "chars": 4055,
+          "words": 574
+        },
+        {
+          "id": "episode.deep-icu-infections.part006",
+          "index": 5,
+          "chars": 1685,
+          "words": 253
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-cerebrovascular",
+      "title": "Stroke, ICH and SAH: perfusion goals change with the lesion and the clock",
+      "format": "deep-dive",
+      "domain": "neuro",
+      "declaredMinutes": 48,
+      "totalChars": 25197,
+      "totalWords": 3469,
+      "parts": [
+        {
+          "id": "episode.deep-cerebrovascular.part001",
+          "index": 0,
+          "chars": 4231,
+          "words": 577
+        },
+        {
+          "id": "episode.deep-cerebrovascular.part002",
+          "index": 1,
+          "chars": 4396,
+          "words": 598
+        },
+        {
+          "id": "episode.deep-cerebrovascular.part003",
+          "index": 2,
+          "chars": 4199,
+          "words": 572
+        },
+        {
+          "id": "episode.deep-cerebrovascular.part004",
+          "index": 3,
+          "chars": 4258,
+          "words": 576
+        },
+        {
+          "id": "episode.deep-cerebrovascular.part005",
+          "index": 4,
+          "chars": 4382,
+          "words": 614
+        },
+        {
+          "id": "episode.deep-cerebrovascular.part006",
+          "index": 5,
+          "chars": 3721,
+          "words": 532
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-neuromuscular-spine",
+      "title": "When the lungs are fine but the patient cannot breathe",
+      "format": "rounds",
+      "domain": "neuro",
+      "declaredMinutes": 23,
+      "totalChars": 14522,
+      "totalWords": 2006,
+      "parts": [
+        {
+          "id": "episode.rounds-neuromuscular-spine.part001",
+          "index": 0,
+          "chars": 4325,
+          "words": 604
+        },
+        {
+          "id": "episode.rounds-neuromuscular-spine.part002",
+          "index": 1,
+          "chars": 4190,
+          "words": 578
+        },
+        {
+          "id": "episode.rounds-neuromuscular-spine.part003",
+          "index": 2,
+          "chars": 4181,
+          "words": 567
+        },
+        {
+          "id": "episode.rounds-neuromuscular-spine.part004",
+          "index": 3,
+          "chars": 1820,
+          "words": 257
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-heme-onc-icu",
+      "title": "Thrombosis, thrombocytopenia and oncologic emergencies",
+      "format": "deep-dive",
+      "domain": "hematology",
+      "declaredMinutes": 42,
+      "totalChars": 24703,
+      "totalWords": 3357,
+      "parts": [
+        {
+          "id": "episode.deep-heme-onc-icu.part001",
+          "index": 0,
+          "chars": 4258,
+          "words": 584
+        },
+        {
+          "id": "episode.deep-heme-onc-icu.part002",
+          "index": 1,
+          "chars": 4374,
+          "words": 581
+        },
+        {
+          "id": "episode.deep-heme-onc-icu.part003",
+          "index": 2,
+          "chars": 4203,
+          "words": 550
+        },
+        {
+          "id": "episode.deep-heme-onc-icu.part004",
+          "index": 3,
+          "chars": 4366,
+          "words": 622
+        },
+        {
+          "id": "episode.deep-heme-onc-icu.part005",
+          "index": 4,
+          "chars": 4390,
+          "words": 590
+        },
+        {
+          "id": "episode.deep-heme-onc-icu.part006",
+          "index": 5,
+          "chars": 3102,
+          "words": 430
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-abdominal-catastrophe",
+      "title": "The abdomen can cause renal, respiratory and circulatory failure at once",
+      "format": "rounds",
+      "domain": "gi-hepatic",
+      "declaredMinutes": 22,
+      "totalChars": 18640,
+      "totalWords": 2568,
+      "parts": [
+        {
+          "id": "episode.rounds-abdominal-catastrophe.part001",
+          "index": 0,
+          "chars": 4269,
+          "words": 587
+        },
+        {
+          "id": "episode.rounds-abdominal-catastrophe.part002",
+          "index": 1,
+          "chars": 4189,
+          "words": 563
+        },
+        {
+          "id": "episode.rounds-abdominal-catastrophe.part003",
+          "index": 2,
+          "chars": 4374,
+          "words": 600
+        },
+        {
+          "id": "episode.rounds-abdominal-catastrophe.part004",
+          "index": 3,
+          "chars": 4175,
+          "words": 579
+        },
+        {
+          "id": "episode.rounds-abdominal-catastrophe.part005",
+          "index": 4,
+          "chars": 1625,
+          "words": 239
+        }
+      ]
+    },
+    {
+      "episodeId": "rounds-critical-pharmacokinetics",
+      "title": "The ICU changes the drug after you choose it",
+      "format": "rounds",
+      "domain": "pharmacology",
+      "declaredMinutes": 23,
+      "totalChars": 19767,
+      "totalWords": 2801,
+      "parts": [
+        {
+          "id": "episode.rounds-critical-pharmacokinetics.part001",
+          "index": 0,
+          "chars": 4360,
+          "words": 618
+        },
+        {
+          "id": "episode.rounds-critical-pharmacokinetics.part002",
+          "index": 1,
+          "chars": 4292,
+          "words": 591
+        },
+        {
+          "id": "episode.rounds-critical-pharmacokinetics.part003",
+          "index": 2,
+          "chars": 4397,
+          "words": 639
+        },
+        {
+          "id": "episode.rounds-critical-pharmacokinetics.part004",
+          "index": 3,
+          "chars": 4287,
+          "words": 609
+        },
+        {
+          "id": "episode.rounds-critical-pharmacokinetics.part005",
+          "index": 4,
+          "chars": 2423,
+          "words": 344
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-icu-systems-ethics",
+      "title": "Expert ICU care includes the system and the limits of treatment",
+      "format": "deep-dive",
+      "domain": "communication-systems",
+      "declaredMinutes": 38,
+      "totalChars": 17650,
+      "totalWords": 2408,
+      "parts": [
+        {
+          "id": "episode.deep-icu-systems-ethics.part001",
+          "index": 0,
+          "chars": 4333,
+          "words": 601
+        },
+        {
+          "id": "episode.deep-icu-systems-ethics.part002",
+          "index": 1,
+          "chars": 4309,
+          "words": 569
+        },
+        {
+          "id": "episode.deep-icu-systems-ethics.part003",
+          "index": 2,
+          "chars": 4315,
+          "words": 589
+        },
+        {
+          "id": "episode.deep-icu-systems-ethics.part004",
+          "index": 3,
+          "chars": 4399,
+          "words": 602
+        },
+        {
+          "id": "episode.deep-icu-systems-ethics.part005",
+          "index": 4,
+          "chars": 286,
+          "words": 47
+        }
+      ]
+    },
+    {
+      "episodeId": "deep-critical-care-ultrasound",
+      "title": "Critical-care ultrasound: ask a question before you touch the probe",
+      "format": "deep-dive",
+      "domain": "imaging-monitoring",
+      "declaredMinutes": 42,
+      "totalChars": 29592,
+      "totalWords": 4199,
+      "parts": [
+        {
+          "id": "episode.deep-critical-care-ultrasound.part001",
+          "index": 0,
+          "chars": 4264,
+          "words": 594
+        },
+        {
+          "id": "episode.deep-critical-care-ultrasound.part002",
+          "index": 1,
+          "chars": 4382,
+          "words": 603
+        },
+        {
+          "id": "episode.deep-critical-care-ultrasound.part003",
+          "index": 2,
+          "chars": 4160,
+          "words": 584
+        },
+        {
+          "id": "episode.deep-critical-care-ultrasound.part004",
+          "index": 3,
+          "chars": 4246,
+          "words": 600
+        },
+        {
+          "id": "episode.deep-critical-care-ultrasound.part005",
+          "index": 4,
+          "chars": 4141,
+          "words": 591
+        },
+        {
+          "id": "episode.deep-critical-care-ultrasound.part006",
+          "index": 5,
+          "chars": 4335,
+          "words": 640
+        },
+        {
+          "id": "episode.deep-critical-care-ultrasound.part007",
+          "index": 6,
+          "chars": 4052,
+          "words": 587
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "episodes": 79,
+    "parts": 404,
+    "chars": 1568270
+  }
+}

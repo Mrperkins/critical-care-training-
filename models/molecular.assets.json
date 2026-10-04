@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "licensePolicy": {
+    "archive": "RCSB PDB / wwPDB structure data files are CC0 1.0.",
+    "policy": "https://www.rcsb.org/pages/usage-policy",
+    "attribution": "Retain PDB IDs and cite original structure authors/publications in product credits even though CC0 does not require attribution."
+  },
+  "targets": {
+    "naKATPase": {
+      "pdb": "9RON",
+      "title": "Human alpha1 Na+,K+-ATPase in the Na+-bound E1 state",
+      "organism": "Homo sapiens",
+      "method": "cryo-EM",
+      "resolutionAngstrom": 3.41,
+      "role": "Na+/K+-ATPase visual source",
+      "source": "https://www.rcsb.org/structure/9RON",
+      "id": "9ron-na-k-atpase-backbone",
+      "creator": "wwPDB 9RON depositors; mesh conversion by project",
+      "license": "CC0-1.0",
+      "commercialUse": true,
+      "modifications": "C-alpha traces converted to 12-sided tubes; recentered, scaled, chain colored. Visual only.",
+      "localPath": "models/molecular/9ron-backbone.glb",
+      "derivedMeshTriangles": 31272,
+      "sourceCifSha256": "e18b3f96d4d30942d5a046b570801d041612507f63490d274c0201bb3db02e5b",
+      "sha256": "74f61da6dfb1b7072f2e139c2b35f2815a5309a4f6ab65d87886aabce78cdb5c",
+      "expectedChainCount": 3
+    },
+    "nav15": {
+      "pdb": "9P24",
+      "title": "Structure of human cardiac sodium channel Nav1.5 in intermediate open state",
+      "organism": "Homo sapiens",
+      "method": "cryo-EM",
+      "resolutionAngstrom": 3.48,
+      "role": "Nav1.5 visual source for cardiomyocyte membrane lessons",
+      "source": "https://www.rcsb.org/structure/9P24",
+      "id": "9p24-nav15-backbone",
+      "creator": "wwPDB 9P24 depositors; mesh conversion by project",
+      "license": "CC0-1.0",
+      "commercialUse": true,
+      "modifications": "C-alpha trace converted to a 12-sided tube; recentered, scaled, colored. Visual only.",
+      "localPath": "models/molecular/9p24-backbone.glb",
+      "derivedMeshTriangles": 30072,
+      "sourceCifSha256": "2f6a217a00ccb826cc6631808a27bbe8f731223774e577363b353de51fe28b69",
+      "sha256": "e898b9648abd159b406a7efb95ea557a7273d24705ff4f4185621ae6a7e59293",
+      "expectedChainCount": 1
+    },
+    "kir21": {
+      "pdb": "7ZDZ",
+      "title": "Cryo-EM structure of the human inward-rectifier potassium 2.1 channel (Kir2.1)",
+      "organism": "Homo sapiens",
+      "method": "cryo-EM",
+      "resolutionAngstrom": 4.3,
+      "role": "Kir2.1 visual source for resting membrane potential lessons",
+      "source": "https://www.rcsb.org/structure/7ZDZ",
+      "id": "7zdz-kir21-backbone",
+      "creator": "wwPDB 7ZDZ depositors; mesh conversion by project",
+      "license": "CC0-1.0",
+      "commercialUse": true,
+      "modifications": "Four protein C-alpha traces converted to 12-sided tubes; recentered, scaled, chain colored. Tetramer preserved; ions excluded. Visual only.",
+      "localPath": "models/molecular/7zdz-backbone.glb",
+      "derivedMeshTriangles": 30912,
+      "expectedChainCount": 4,
+      "assembly": "Author-defined biological assembly 1, tetramer, identity operator; protein chains A-D",
+      "sourceCifSha256": "c3d23c7fc293d61effddb711c988580859a95442bf36fa412d6449c6789bf14f",
+      "sha256": "3ce41eabbdb41ca52dcb55a206b3eb04128295802da08988e43bdc10f7db62a1"
+    },
+    "aqp4": {
+      "pdb": "3GD8",
+      "title": "Crystal Structure of Human Aquaporin 4 at 1.8 and its Mechanism of Conductance",
+      "organism": "Homo sapiens",
+      "method": "X-ray diffraction",
+      "resolutionAngstrom": 1.8,
+      "role": "AQP4 visual source for sodium/osmolality/neuro lessons",
+      "source": "https://www.rcsb.org/structure/3GD8",
+      "id": "3gd8-aqp4-backbone",
+      "creator": "wwPDB 3GD8 depositors; mesh conversion by project",
+      "license": "CC0-1.0",
+      "commercialUse": true,
+      "modifications": "Biological assembly 1 with four C-alpha traces converted to 12-sided tubes; recentered, scaled, chain colored. Nonprotein molecules excluded. Visual only.",
+      "localPath": "models/molecular/3gd8-backbone.glb",
+      "derivedMeshTriangles": 21312,
+      "expectedChainCount": 4,
+      "assembly": "Biological assembly 1 from RCSB, tetramer; chains A, A-2, A-3, A-4",
+      "sourceCifUrl": "https://files.rcsb.org/download/3GD8-assembly1.cif",
+      "sourceCifSha256": "b23739eab1ddbaf32f5f5e619b8cdab2b9f84e71c31f81d8bd93e7b2b9b85687",
+      "sha256": "912d5e2dae745c8d3e6612de8420b1a58223902caf91d95f8c62f1e746ea2800"
+    }
+  },
+  "implementation": {
+    "runtimeRule": "Do not render raw atomistic structures hundreds of times across a cell. Bake a simplified ribbon/surface mesh once per protein and instance that optimized mesh.",
+    "qualityTargets": {
+      "closeup": "20k-60k triangles per unique protein",
+      "wholeCell": "1k-5k triangles per instanced transporter proxy",
+      "mobile": "LOD proxy only outside membrane close-up"
+    },
+    "physiologyRule": "Protein geometry is visual only. Existing transporter state machine continues to drive open/closed/inactivated/pump-cycle behavior."
+  }
+}

@@ -1,0 +1,39 @@
+Two traps to actively avoid: Using oxygen saturation as the main marker of ventilatory reserve. And: Sedating a weak patient in a way that masks declining respiratory mechanics.
+
+The integration move is this: Ventilatory failure can be a muscle problem before it is a lung problem.
+
+Keep these terms available in your mental model: vital capacity, negative inspiratory force, bulbar weakness.
+
+What expert-level use of this concept looks like is this: Recognize impending ventilatory failure before gas exchange collapses. Account for bulbar function and medication effects in airway decisions.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize impending ventilatory failure before gas exchange collapses. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Account for bulbar function and medication effects in airway decisions. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Neuromuscular respiratory failure to Liberation from mechanical ventilation. Liberation requires separating readiness, spontaneous breathing performance, airway protection and post-extubation risk.
+
+The relationship matters because A spontaneous breathing trial tests whether the patient can assume the work of breathing, but extubation also requires airway protection and manageable post-extubation risk. At the bedside, when a trial fails, distinguish respiratory muscle load, cardiac dysfunction, weakness, sedation, airway issues and unresolved disease.
+
+Stress-test the model. Imagine the patient changes in a way that makes using oxygen saturation as the main marker of ventilatory reserve tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Sedating a weak patient in a way that masks declining respiratory mechanics.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Spinal injury changes breathing and vascular tone.
+
+Acute spinal cord injury. Spinal cord injury can produce respiratory weakness, neurogenic shock and autonomic dysfunction while coexisting with hemorrhagic trauma.
+
+Build the mechanism first. High spinal cord injury can impair sympathetic tone and respiratory mechanics, producing neurogenic shock and weakness while hemorrhage remains a competing trauma diagnosis.
+
+At the bedside, maintain spinal protection while distinguishing vasodilatory/bradycardic neurogenic physiology from blood loss and supporting oxygenation/perfusion.
+
+Two traps to actively avoid: Calling hypotension neurogenic before excluding hemorrhage. And: Ignoring diaphragmatic/intercostal weakness in apparently stable oxygenation.
+
+The integration move is this: Spinal injury changes both circulation and respiratory mechanics.
+
+Keep these terms available in your mental model: neurogenic shock, spinal shock, autonomic dysfunction.
+
+What expert-level use of this concept looks like is this: Distinguish neurogenic shock from occult hemorrhage. Protect oxygenation, perfusion and spinal alignment during multisystem resuscitation.
+
+Reasoning checkpoint. Do not just repeat the statement: Distinguish neurogenic shock from occult hemorrhage. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.

@@ -1,0 +1,145 @@
+You're listening to ROSC is the beginning, not the finish line. Post-arrest myocardial dysfunction, brain injury, oxygen, ventilation, temperature and prognosis.
+
+This is a level 5 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to treat post-arrest physiology as a new multisystem syndrome; and avoid premature neuroprognosis and prevent secondary brain/circulatory injury.
+
+Now: The post-cardiac-arrest syndrome.
+
+Post-cardiac arrest critical care. Return of spontaneous circulation begins a new syndrome involving myocardial dysfunction, brain injury, reperfusion inflammation and recurrent-arrest risk.
+
+Build the mechanism first. After ROSC, ischemia-reperfusion injury can produce myocardial stunning, vasoplegia, cerebral injury and systemic inflammation while the precipitating cause may remain active.
+
+At the bedside, control oxygenation, ventilation, temperature and hemodynamics while pursuing cause and delaying definitive neurologic prognosis until confounders and timing are appropriate.
+
+Two traps to actively avoid: Hyperoxygenating or hyperventilating automatically after ROSC. And: Making early neurologic predictions during sedation, hypothermia or metabolic confounding.
+
+The integration move is this: ROSC ends cardiac arrest; it begins post-arrest critical care.
+
+Keep these terms available in your mental model: post-arrest syndrome, temperature control, reperfusion.
+
+What expert-level use of this concept looks like is this: Stabilize oxygenation, ventilation and circulation without creating secondary injury. Delay neurologic certainty until confounders and appropriate timing are addressed.
+
+Reasoning checkpoint. Do not just repeat the statement: Stabilize oxygenation, ventilation and circulation without creating secondary injury. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Delay neurologic certainty until confounders and appropriate timing are addressed. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Post-cardiac arrest critical care to Neuroprognostication & death by neurologic criteria. Neuroprognostication requires timing, confounder control and multimodal evidence; death by neurologic criteria is a separate formal determination process.
+
+The relationship matters because Neuroprognostication estimates future neurologic outcome using timed, multimodal evidence. Death by neurologic criteria is a separate formal determination requiring strict prerequisites and examination. At the bedside, control confounders such as sedatives, hypothermia and metabolic derangement before making high-stakes conclusions.
+
+Now connect Post-cardiac arrest critical care to Acute coronary ischemia & complications. Acute myocardial ischemia can produce pump failure, dysrhythmia and mechanical complications whose physiology may dominate over the ECG diagnosis.
+
+The relationship matters because Myocardial ischemia reduces contractility and electrical stability and can cause papillary muscle, septal or free-wall mechanical complications after infarction. At the bedside, when a patient with ACS suddenly develops shock, pulmonary edema or a new murmur, broaden beyond “more ischemia” to mechanical failure and rhythm disturbance.
+
+Stress-test the model. Imagine the patient changes in a way that makes hyperoxygenating or hyperventilating automatically after rosc tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Making early neurologic predictions during sedation, hypothermia or metabolic confounding.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Avoid secondary oxygen and ventilation injury.
+
+Oxygen delivery. DO2 is cardiac output multiplied by arterial oxygen content; saturation alone does not describe tissue oxygen delivery.
+
+Build the mechanism first. Oxygen delivery equals cardiac output multiplied by arterial oxygen content, which is dominated by hemoglobin-bound oxygen rather than dissolved oxygen.
+
+At the bedside, normal saturation can coexist with critically low delivery in severe anemia or low-flow shock. Ask about hemoglobin and flow whenever tissue perfusion looks worse than the pulse oximeter.
+
+Two traps to actively avoid: Using SpO2 as a proxy for whole-body oxygen delivery. And: Forgetting that raising saturation from already-high levels adds little content.
+
+The integration move is this: Saturation tells you how full the carriers are; hemoglobin tells you how many carriers exist; cardiac output tells you how fast they move.
+
+Keep these terms available in your mental model: CaO2, DO2, VO2.
+
+What expert-level use of this concept looks like is this: Predict effects of hemoglobin, saturation and flow on oxygen delivery. Explain why a normal SpO2 can coexist with inadequate DO2.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict effects of hemoglobin, saturation and flow on oxygen delivery. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Explain why a normal SpO2 can coexist with inadequate DO2. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Oxygen delivery to Oxygen extraction. The relationship between delivered and consumed oxygen reflected by venous saturation and tissue extraction.
+
+The relationship matters because Tissues can increase extraction when delivery falls, lowering venous oxygen saturation until extraction reserve is exhausted. High venous saturation can also be abnormal when extraction is impaired or flow is maldistributed. At the bedside, interpret SvO2 or ScvO2 alongside cardiac output, hemoglobin, arterial saturation, metabolic demand and shock phenotype.
+
+Now connect Oxygen delivery to Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+The relationship matters because Shock is inadequate effective tissue perfusion and oxygen utilization, not merely hypotension. Flow, vascular tone, capacitance, congestion and extraction can fail in different combinations. At the bedside, phenotype the circulation repeatedly. A patient can move from one dominant mechanism to another during resuscitation.
+
+Stress-test the model. Imagine the patient changes in a way that makes using spo2 as a proxy for whole-body oxygen delivery tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Forgetting that raising saturation from already-high levels adds little content.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: The arrest cause may still be active.
+
+Acute coronary ischemia & complications. Acute myocardial ischemia can produce pump failure, dysrhythmia and mechanical complications whose physiology may dominate over the ECG diagnosis.
+
+Build the mechanism first. Myocardial ischemia reduces contractility and electrical stability and can cause papillary muscle, septal or free-wall mechanical complications after infarction.
+
+At the bedside, when a patient with ACS suddenly develops shock, pulmonary edema or a new murmur, broaden beyond “more ischemia” to mechanical failure and rhythm disturbance.
+
+Two traps to actively avoid: Treating the ECG diagnosis while missing a mechanical complication. And: Using vasopressor escalation as a substitute for reperfusion or structural intervention.
+
+The integration move is this: Reperfusion, rhythm and mechanical hemodynamics must be managed as one evolving syndrome.
+
+Keep these terms available in your mental model: ischemia, reperfusion, papillary muscle, septal rupture.
+
+What expert-level use of this concept looks like is this: Recognize ischemic mechanical complications in sudden shock. Integrate reperfusion urgency with hemodynamic and rhythm stabilization.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize ischemic mechanical complications in sudden shock. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Integrate reperfusion urgency with hemodynamic and rhythm stabilization. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Acute coronary ischemia & complications to Cardiogenic shock. Pump failure where restoring perfusion must be balanced against congestion, myocardial oxygen demand, coronary perfusion and mechanical complications.
+
+The relationship matters because Cardiogenic shock is inadequate forward flow from pump failure, often accompanied by elevated filling pressures and congestion. RV, LV and biventricular phenotypes behave differently. At the bedside, track flow, pressure, congestion, coronary perfusion, rhythm and mechanical complications; escalate support when pharmacology cannot restore effective circulation.
+
+Now connect Acute coronary ischemia & complications to Rhythm & conduction emergencies. Tachy- and bradyarrhythmias become critical when they impair filling, output or perfusion; treatment depends on rhythm mechanism and patient stability.
+
+The relationship matters because Rhythm affects cardiac output through rate, filling time, AV synchrony and ventricular activation; the same rate can be tolerated or catastrophic depending on reserve. At the bedside, first ask whether the rhythm is causing instability or compensating for another problem, then identify the electrical mechanism and choose synchronization, pacing or medication accordingly.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating the ecg diagnosis while missing a mechanical complication tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Using vasopressor escalation as a substitute for reperfusion or structural intervention.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Protect the brain and delay certainty.
+
+Neuroprognostication & death by neurologic criteria. Neuroprognostication requires timing, confounder control and multimodal evidence; death by neurologic criteria is a separate formal determination process.
+
+Build the mechanism first. Neuroprognostication estimates future neurologic outcome using timed, multimodal evidence. Death by neurologic criteria is a separate formal determination requiring strict prerequisites and examination.
+
+At the bedside, control confounders such as sedatives, hypothermia and metabolic derangement before making high-stakes conclusions.
+
+Two traps to actively avoid: Conflating prognosis with death determination. And: Creating a self-fulfilling prophecy through premature withdrawal based on early uncertain signs.
+
+The integration move is this: Expert communication includes the limits of what is known and the timing required to know more.
+
+Keep these terms available in your mental model: confounder, multimodal prognosis, apnea test.
+
+What expert-level use of this concept looks like is this: Separate prognosis from formal death determination. Avoid premature certainty in the presence of sedation, hypothermia, metabolic confounding or insufficient observation time.
+
+Reasoning checkpoint. Do not just repeat the statement: Separate prognosis from formal death determination. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Avoid premature certainty in the presence of sedation, hypothermia, metabolic confounding or insufficient observation time. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Neuroprognostication & death by neurologic criteria to Goals of care & prognostic communication. High-quality critical care includes eliciting values, communicating uncertainty and aligning burdensome treatments with realistic goals.
+
+The relationship matters because Goals-of-care decisions align treatments with the patient’s values and realistic outcomes. Prognosis is probabilistic and changes with response over time. At the bedside, use best-case/worst-case/most-likely framing and time-limited trials with explicit endpoints when uncertainty remains.
+
+Stress-test the model. Imagine the patient changes in a way that makes conflating prognosis with death determination tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Creating a self-fulfilling prophecy through premature withdrawal based on early uncertain signs.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you treat post-arrest physiology as a new multisystem syndrome?
+
+Can you avoid premature neuroprognosis and prevent secondary brain/circulatory injury?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

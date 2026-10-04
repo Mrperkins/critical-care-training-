@@ -1,0 +1,37 @@
+Cardiogenic pulmonary edema. Elevated hydrostatic pulmonary-capillary pressure drives interstitial/alveolar edema and alters lung compliance and gas exchange.
+
+Build the mechanism first. Hydrostatic pulmonary edema develops when pulmonary capillary pressure drives fluid into interstitium/alveoli faster than lymphatic clearance can compensate.
+
+At the bedside, use noninvasive positive pressure and afterload/preload strategy according to the circulatory lesion while reassessing blood pressure and forward flow.
+
+Two traps to actively avoid: Treating every B-line pattern as volume overload. And: Diuresing a hypotensive patient without understanding the valve/ventricular physiology.
+
+The integration move is this: Pulmonary edema is often a cardiac pressure problem expressed in the lung.
+
+Keep these terms available in your mental model: hydrostatic edema, afterload, NIV.
+
+What expert-level use of this concept looks like is this: Distinguish hydrostatic edema from permeability injury in context. Use positive pressure and afterload reduction while respecting the circulation.
+
+Reasoning checkpoint. Do not just repeat the statement: Distinguish hydrostatic edema from permeability injury in context. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Use positive pressure and afterload reduction while respecting the circulation. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Cardiogenic pulmonary edema to Critical valvular disease. Severe stenosis or regurgitation creates fixed or dynamic loading constraints that make usual shock interventions behave differently.
+
+The relationship matters because Critical stenosis creates fixed outflow obstruction while acute regurgitation abruptly raises upstream pressure and reduces effective forward flow; loading interventions therefore have lesion-specific effects. At the bedside, identify the lesion and dominant problem—fixed output, pulmonary edema, low coronary perfusion or regurgitant volume—before applying generic shock treatment.
+
+Now connect Cardiogenic pulmonary edema to Positive-pressure ventilation & circulation. Positive intrathoracic pressure changes venous return, ventricular transmural pressures and pulmonary vascular resistance.
+
+The relationship matters because Positive intrathoracic pressure can reduce the gradient for venous return, change transmural ventricular pressures and alter P V R depending on lung volume and recruitability. At the bedside, post-intubation hypotension may reflect vasodilation, reduced venous return, increased RV afterload, auto-peep or previously compensated shock becoming unmasked.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating every b-line pattern as volume overload tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Diuresing a hypotensive patient without understanding the valve/ventricular physiology.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Permeability injury and the baby lung.
+
+A R D S physiology. Diffuse inflammatory lung injury producing heterogeneity, shunt, low aerated lung volume and risk from ventilator-induced injury.
+
+Build the mechanism first. A R D S produces heterogeneous inflammatory lung injury, shunt, edema and a reduced aerated “baby lung,” making regional overdistension possible even at seemingly modest tidal volumes.

@@ -1,0 +1,11 @@
+Stress-test the model. Imagine the patient changes in a way that makes using spo2 as a proxy for whole-body oxygen delivery tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Forgetting that raising saturation from already-high levels adds little content.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you distinguish VV and VA support physiology and reason through common circuit/patient mismatch patterns?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

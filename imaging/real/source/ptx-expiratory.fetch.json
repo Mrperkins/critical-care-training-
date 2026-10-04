@@ -1,0 +1,21 @@
+{
+ "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Expired_X-ray_of_pneumothorax.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+ "pageUrl": "https://commons.wikimedia.org/wiki/File:Expired_X-ray_of_pneumothorax.jpg",
+ "originalName": "Expired_X-ray_of_pneumothorax.jpg",
+ "mime": "image/jpeg",
+ "bytes": 703393,
+ "sha1": "8fa522faddeea7d77c518b8e32146a55b584e3d3",
+ "width": 1569,
+ "height": 1579,
+ "license": "CC0",
+ "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+ "licenseEvidence": "Wikimedia Commons API extmetadata for File:Expired_X-ray_of_pneumothorax.jpg: LicenseShortName = “CC0”, UsageTerms = “Creative Commons Zero, Public Domain Dedication” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AExpired_X-ray_of_pneumothorax.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+ "authors": "Mikael Häggström , M.D. Author info - Reusing images - Conflicts of interest: None Mikael Häggström , M.D. Consent note : Written informed consent was obtained from the individual, including online publication.",
+ "credit": "Own work",
+ "published": "2018-03-05",
+ "description": "edit Anteroposterior, inspired. Original image . Lateral, inspired. Original image . Anteroposterior, expired. These are two X-rays taken at the same time of a 31 year old woman who had a port inserted for chemotherapy against breast cancer (hence, both breasts have been surgically removed). During inspiration, only subtle pneumothorax is seen in the apical part of the left thoracic cavity. It can practically be diagnosed only by the absence of vascularity in the most apical lung segment. It is seen more clearly posteriorly on lateral X-ray. During expiration, the pneumothorax takes up approximately 50% of the cavity.",
+ "restrictions": "",
+ "id": "ptx-expiratory",
+ "retrieved": "2026-09-30T18:32Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

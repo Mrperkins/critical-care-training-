@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC12778373",
+ "pageUrl": "https://doi.org/10.7759/cureus.98724",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+ "authors": "Bushra Qureshi, Sobiya Farook, Mohammadzakir Diwan, Sheeba Philip",
+ "title": "Beating the Clock: Successful Thrombectomy 28 Hours After Stroke in a Young Adult With Internal Carotid Artery Dissection",
+ "publication": "Cureus",
+ "published": "2025-12-08",
+ "doi": "10.7759/cureus.98724",
+ "volume": "17",
+ "firstpage": "e98724",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12778373.1/cureus-0017-00000098724-i03.jpg",
+ "originalName": "cureus-0017-00000098724-i03.jpg",
+ "description": "Figure 3 A CT perfusion scan showing the penumbra mismatch. The pink area represents the core infarct; brain tissue that has already suffered irreversible damage due to severely reduced blood flow. This tissue is not salvageable. The green area represents the ischaemic penumbra; brain tissue that is at risk but still viable if blood flow is restored quickly. This tissue is potentially salvageable with prompt treatment.",
+ "thirdParty": false,
+ "figure": "FIG3",
+ "licenseEvidence": "Europe PMC full text of PMC12778373 (doi 10.7759/cureus.98724), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 3 caption checked for a separate credit.",
+ "id": "stroke-ctp-mismatch-2025",
+ "retrieved": "2026-10-04T03:24Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

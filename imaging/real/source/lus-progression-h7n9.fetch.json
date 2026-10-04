@@ -1,0 +1,21 @@
+{
+ "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/11/Lung-ultrasound-imaging-in-avian-influenza-A-%28H7N9%29-respiratory-failure-2036-7902-6-6-S1.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+ "pageUrl": "https://commons.wikimedia.org/wiki/File:Lung-ultrasound-imaging-in-avian-influenza-A-(H7N9)-respiratory-failure-2036-7902-6-6-S1.ogv",
+ "originalName": "Lung-ultrasound-imaging-in-avian-influenza-A-(H7N9)-respiratory-failure-2036-7902-6-6-S1.ogv",
+ "mime": "application/ogg",
+ "bytes": 11765246,
+ "sha1": "43a229cb9daa6a730714b8058a06d18c3f060351",
+ "width": 640,
+ "height": 480,
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+ "licenseEvidence": "Wikimedia Commons API extmetadata for File:Lung-ultrasound-imaging-in-avian-influenza-A-(H7N9)-respiratory-failure-2036-7902-6-6-S1.ogv: LicenseShortName = “CC BY 4.0”, UsageTerms = “Creative Commons Attribution 4.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3ALung-ultrasound-imaging-in-avian-influenza-A-%28H7N9%29-respiratory-failure-2036-7902-6-6-S1.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+ "authors": "Tsai N, Ngai C, Mok K, Tsung J",
+ "credit": "Video file from Tsai N, Ngai C, Mok K, Tsung J (2014). \" Lung ultrasound imaging in avian influenza A (H7N9) respiratory failure \". Critical Ultrasound Journal . DOI : 10.1186/2036-7902-6-6 . PMID 24949191 . PMC : 4051407 .",
+ "published": "2014",
+ "description": "Video S1. Series of video clips depicting progression of A-lines to B-lines, to confluent B-lines, to white lung (ARDS).",
+ "restrictions": "",
+ "id": "lus-progression-h7n9",
+ "retrieved": "2026-10-04T03:25Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

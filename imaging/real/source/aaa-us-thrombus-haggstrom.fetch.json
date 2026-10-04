@@ -1,0 +1,21 @@
+{
+ "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Ultrasonography_of_abdominal_aortic_aneurysm_with_mural_thrombus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+ "pageUrl": "https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_with_mural_thrombus.jpg",
+ "originalName": "Ultrasonography of abdominal aortic aneurysm with mural thrombus.jpg",
+ "mime": "image/jpeg",
+ "bytes": 55068,
+ "sha1": "9c3304e905f55667132f50de1cd36a64cfae2f11",
+ "width": 563,
+ "height": 417,
+ "license": "CC0",
+ "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+ "licenseEvidence": "Wikimedia Commons API extmetadata for File:Ultrasonography of abdominal aortic aneurysm with mural thrombus.jpg: LicenseShortName = “CC0”, UsageTerms = “Creative Commons Zero, Public Domain Dedication” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AUltrasonography+of+abdominal+aortic+aneurysm+with+mural+thrombus.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+ "authors": "Mikael Häggström, M.D.",
+ "credit": "Own work",
+ "published": "2019-01-14",
+ "description": "Abdominal ultrasonography of and abdominal aortic aneurysm with mural thrombus.",
+ "restrictions": "",
+ "id": "aaa-us-thrombus-haggstrom",
+ "retrieved": "2026-10-04T03:25Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

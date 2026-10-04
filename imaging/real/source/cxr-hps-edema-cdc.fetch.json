@@ -1,0 +1,21 @@
+{
+ "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/6077_lores.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+ "pageUrl": "https://commons.wikimedia.org/wiki/File:6077_lores.jpg",
+ "originalName": "6077 lores.jpg",
+ "mime": "image/jpeg",
+ "bytes": 35119,
+ "sha1": "9d9510845f99fd3d6d3aea64e0a510857fd77eb0",
+ "width": 700,
+ "height": 465,
+ "license": "Public Domain",
+ "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+ "licenseEvidence": "Wikimedia Commons API extmetadata for File:6077 lores.jpg: LicenseShortName = “Public domain”, UsageTerms = “Public domain” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3A6077+lores.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+ "authors": "CDC/ D. Loren Ketai, M.D.",
+ "credit": "http://phil.cdc.gov , #6077",
+ "published": "1994",
+ "description": "This AP chest x-ray reveals the mid-staged bilateral pulmonary effusion due to hantavirus pulmonary syndrome, or HPS. The radiological evolution of HPS begins with minimal changes of interstitial pulmonary edema, progressing to alveolar edema with severe bilateral involvement. Pleural effusions are common and are often large enough to be evident radiographically.",
+ "restrictions": "",
+ "id": "cxr-hps-edema-cdc",
+ "retrieved": "2026-10-04T03:25Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

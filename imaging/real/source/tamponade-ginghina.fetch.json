@@ -1,0 +1,21 @@
+{
+ "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Respiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+ "pageUrl": "https://commons.wikimedia.org/wiki/File:Respiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv",
+ "originalName": "Respiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv",
+ "mime": "application/ogg",
+ "bytes": 177592,
+ "sha1": "e3585f38d777e09b8b89a20ecc25cb146d0abc7b",
+ "width": 375,
+ "height": 288,
+ "license": "CC BY 2.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+ "licenseEvidence": "Wikimedia Commons API extmetadata for File:Respiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3ARespiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+ "authors": "Ginghina C, Beladan C, Iancu M, Calin A, Popescu B",
+ "credit": "Ginghina C, Beladan C, Iancu M, Calin A, Popescu B (2009). \" Respiratory maneuvers in echocardiography: a review of clinical applications \". Cardiovascular Ultrasound . DOI : 10.1186/1476-7120-7-42 . PMID 19709411 . PMC : 2745370 .",
+ "published": "2009",
+ "description": "Phasic variation in cardiac volumes caused by cardiac tamponade, visualized in transthoracic apical 4 chamber view. The intermittent collapse of the free walls of the right atrium and right ventricle visualized in the transthoracic apical 4 chamber view in a patient with cardiac tamponade.",
+ "restrictions": "",
+ "id": "tamponade-ginghina",
+ "retrieved": "2026-10-03T19:51Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

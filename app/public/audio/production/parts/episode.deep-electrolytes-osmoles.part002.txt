@@ -1,0 +1,41 @@
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Potassium: membrane, shift and body store.
+
+Potassium disorders. Serum potassium reflects intake, excretion and transcellular shifts; dyskalemia becomes dangerous through membrane and cardiac electrophysiology.
+
+Build the mechanism first. Potassium gradients determine membrane excitability. Serum concentration reflects total-body balance plus rapid transcellular shifts driven by insulin, catecholamines, acid-base state and cell injury.
+
+At the bedside, when dangerous ECG or muscle findings are present, separate immediate membrane stabilization, temporary redistribution and definitive potassium removal.
+
+Two traps to actively avoid: Assuming a normal ECG eliminates severe hyperkalemia risk. And: Confusing a transcellular shift with total-body potassium excess or depletion.
+
+The integration move is this: Treat the membrane now while solving where the potassium came from and where it can go.
+
+Keep these terms available in your mental model: transcellular shift, membrane potential, repolarization.
+
+What expert-level use of this concept looks like is this: Separate redistribution from total-body gain/loss. Prioritize membrane stabilization, redistribution and elimination by mechanism.
+
+Reasoning checkpoint. Do not just repeat the statement: Separate redistribution from total-body gain/loss. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Prioritize membrane stabilization, redistribution and elimination by mechanism. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Potassium disorders to Diabetic ketoacidosis physiology. Insulin deficiency produces ketogenesis, osmotic diuresis, electrolyte shifts and a high-anion-gap acidosis whose treatment changes potassium and water distribution.
+
+The relationship matters because Insulin deficiency and counter-regulatory hormones drive ketogenesis, osmotic diuresis and major total-body electrolyte deficits even when serum levels initially appear normal or high. At the bedside, track volume status, potassium, sodium/osmolality, anion gap and acid-base trajectory through treatment.
+
+Now connect Potassium disorders to C R R T physiology & prescription literacy. Continuous renal replacement uses diffusion and/or convection to manage solute, acid-base and fluid balance in unstable patients.
+
+The relationship matters because C R R T uses diffusion, convection and ultrafiltration to control solute, acid-base and volume continuously. Prescribed dose can differ substantially from delivered dose. At the bedside, separate total effluent from net patient fluid removal and interpret access, filter and return pressures as clues to the physical circuit.
+
+Stress-test the model. Imagine the patient changes in a way that makes assuming a normal ecg eliminates severe hyperkalemia risk tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Confusing a transcellular shift with total-body potassium excess or depletion.
+
+Electrolytes & cardiac electrophysiology. Potassium, magnesium, calcium and acid-base changes alter depolarization, repolarization and conduction.
+
+Build the mechanism first. Potassium, magnesium and calcium alter resting membrane potential, channel function and action-potential duration, changing conduction and repolarization.
+
+At the bedside, use ECG morphology as evidence of membrane toxicity and correct the responsible electrolyte while monitoring for rapid electrical change.
+
+Two traps to actively avoid: Waiting for a numeric threshold despite toxic ECG findings. And: Correcting potassium without magnesium when refractory ectopy or QT-related risk persists.
+
+The integration move is this: The ECG is a real-time readout of electrolyte physiology.

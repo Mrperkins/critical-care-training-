@@ -1,0 +1,35 @@
+Reasoning checkpoint. Do not just repeat the statement: Connect decompression or fluid strategy to renal, respiratory and hemodynamic effects. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Intra-abdominal hypertension & compartment syndrome to Acute kidney injury. AKI is a syndrome of impaired filtration and homeostasis whose cause may be hemodynamic, intrinsic, obstructive or mixed.
+
+The relationship matters because AKI represents impaired filtration and homeostasis from hemodynamic, tubular, interstitial, vascular, obstructive or mixed mechanisms; creatinine is delayed and does not identify cause. At the bedside, use trajectory, urine output, hemodynamics, nephrotoxins, urinalysis and obstruction assessment to build the phenotype, then support volume/electrolyte/acid-base physiology.
+
+Now connect Intra-abdominal hypertension & compartment syndrome to Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+The relationship matters because Acute ventilator deterioration can originate from the patient, tube, circuit or machine. Peak and plateau pressures help separate resistance from compliance when measurements are trustworthy. At the bedside, look at the patient first, rescue oxygenation/ventilation if the device cannot be trusted, then trace from patient to tube to circuit to machine.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating oliguria with more fluid when pressure is the cause tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Escalating ventilator pressure without recognizing abdominal mechanics.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Kidney, lung and circulation move together.
+
+Acute kidney injury. AKI is a syndrome of impaired filtration and homeostasis whose cause may be hemodynamic, intrinsic, obstructive or mixed.
+
+Build the mechanism first. AKI represents impaired filtration and homeostasis from hemodynamic, tubular, interstitial, vascular, obstructive or mixed mechanisms; creatinine is delayed and does not identify cause.
+
+At the bedside, use trajectory, urine output, hemodynamics, nephrotoxins, urinalysis and obstruction assessment to build the phenotype, then support volume/electrolyte/acid-base physiology.
+
+Two traps to actively avoid: Calling all oliguria “pre-renal.” And: Starting or withholding renal support based on creatinine alone.
+
+The integration move is this: Kidney injury is a syndrome; the treatment target is the mechanism and the homeostatic consequence.
+
+Keep these terms available in your mental model: filtration, renal perfusion, tubular injury, obstruction.
+
+What expert-level use of this concept looks like is this: Build an AKI differential from perfusion, nephrotoxins, urinalysis and obstruction. Recognize when kidney support is needed for physiology rather than a creatinine threshold.
+
+Reasoning checkpoint. Do not just repeat the statement: Build an AKI differential from perfusion, nephrotoxins, urinalysis and obstruction. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize when kidney support is needed for physiology rather than a creatinine threshold. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.

@@ -1,0 +1,21 @@
+{
+ "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Intracerebral_hemorrhage.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+ "pageUrl": "https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrhage.jpg",
+ "originalName": "Intracerebral hemorrhage.jpg",
+ "mime": "image/jpeg",
+ "bytes": 42094,
+ "sha1": "b4c24f26660df284713be065909be60fba1fb5d8",
+ "width": 400,
+ "height": 330,
+ "license": "CC BY 2.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+ "licenseEvidence": "Wikimedia Commons API extmetadata for File:Intracerebral hemorrhage.jpg: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AIntracerebral+hemorrhage.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+ "authors": "Yadav YR, Mukerji G, Shenoy R, Basoor A, Jain G, Nelson A",
+ "credit": "Yadav YR, Mukerji G, Shenoy R, Basoor A, Jain G, Nelson A (2007). \"Endoscopic management of hypertensive intraventricular haemorrhage with obstructive hydrocephalus\". BMC Neurol 7: 1. doi:10.1186/1471-2377-7-1. PMID 17204141 . PMC:1780056. http://www.biomedcentral.com/1471-2377/7/1",
+ "published": "Published: 4 January 2007",
+ "description": "CT scan of intracerebral hemorrhage. Caption reads, \"Pre operative CT scan. Representative pre-operative CT scan of a patient showing a thalamic haemorrhage with associated hydrocephalus and blood in the third and both lateral ventricles.\"",
+ "restrictions": "",
+ "id": "ich-thalamic-hydro-yadav",
+ "retrieved": "2026-10-04T03:25Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

@@ -1,0 +1,21 @@
+{
+ "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3a/CT_of_subarachnoid_hemorrhage.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+ "pageUrl": "https://commons.wikimedia.org/wiki/File:CT_of_subarachnoid_hemorrhage.png",
+ "originalName": "CT of subarachnoid hemorrhage.png",
+ "mime": "image/png",
+ "bytes": 136846,
+ "sha1": "97c84dd6a1b4cd7a0882ede611f42e30c044fdde",
+ "width": 367,
+ "height": 447,
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+ "licenseEvidence": "Wikimedia Commons API extmetadata for File:CT of subarachnoid hemorrhage.png: LicenseShortName = “CC BY 4.0”, UsageTerms = “Creative Commons Attribution 4.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3ACT+of+subarachnoid+hemorrhage.png&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+ "authors": "edit Shazia Mirza and Sankalp Gokhale See also source article for additional image creators.",
+ "credit": "edit Shazia Mirza and Sankalp Gokhale ( 2016-07-25 ). Neuroimaging in Acute Stroke . Attribution 4.0 International (CC BY 4.0)",
+ "published": "2016-07-25",
+ "description": "edit CT of subarachnoid hemorrhage.png. For context, see Wikipedia:Imaging in stroke .",
+ "restrictions": "",
+ "id": "sah-ct-mirza",
+ "retrieved": "2026-10-04T03:25Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

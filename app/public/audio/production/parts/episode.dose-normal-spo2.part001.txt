@@ -1,0 +1,41 @@
+Your pulse oximeter says ninety-eight percent. That feels reassuring. But saturation answers a very specific question: what fraction of the available hemoglobin binding sites are carrying oxygen? It does not tell you how much hemoglobin you have, and it does not tell you how much blood the heart is moving.
+
+That distinction is the beginning of oxygen-delivery thinking.
+
+Oxygen delivery, D O 2, is cardiac output multiplied by arterial oxygen content. Arterial oxygen content is dominated by oxygen bound to hemoglobin. A useful bedside approximation is one point three four times hemoglobin times arterial saturation, plus a very small contribution from oxygen dissolved in plasma.
+
+That means three patients can all have an S P O 2 of ninety-eight percent and have very different oxygen delivery.
+
+Picture the first patient. Hemoglobin fourteen. Cardiac output five liters per minute. Saturation ninety-eight percent. Nothing surprising.
+
+Now keep saturation at ninety-eight percent but drop the hemoglobin to five. Every remaining red cell may be beautifully saturated, but there are far fewer red cells carrying oxygen. The pulse oximeter still looks excellent while arterial oxygen content has fallen dramatically.
+
+Now take a different patient. Hemoglobin is normal. Saturation is ninety-eight percent. But cardiac output has collapsed because of severe pump failure. The blood contains plenty of oxygen per deciliter, but not enough blood is reaching the tissues each minute. Again, the pulse oximeter can look perfect.
+
+This is why expert critical-care reasoning does not ask only, “Is the blood oxygenated?” It asks, “Is enough oxygen actually being delivered?”
+
+Now add the tissues.
+
+Oxygen consumption, V O 2, is what the body removes from the delivered oxygen. When delivery falls, tissues can initially compensate by extracting a larger fraction. Venous oxygen saturation falls because more oxygen is being taken out before the blood returns to the right heart. That compensation has limits. Below a critical level of delivery, oxygen consumption can become supply dependent.
+
+Do not turn that into another single-number rule. A low venous saturation can reflect low cardiac output, anemia, increased metabolic demand, arterial hypoxemia, or combinations of them. A surprisingly high venous saturation can occur when extraction is impaired or when flow distribution is abnormal. The number only becomes useful when it sits inside a physiologic model.
+
+Here is the mental shortcut I want you to keep.
+
+Saturation tells you how full the buses are.
+
+Hemoglobin tells you how many buses you have.
+
+Cardiac output tells you how fast the buses are moving.
+
+Oxygen delivery asks how many passengers actually arrive each minute.
+
+So the next time you see an S P O 2 of ninety-eight percent in a patient who looks poorly perfused, do not let the monitor end the conversation. Ask about hemoglobin. Ask about flow. Ask what the tissues are extracting. Ask whether the patient is warm or cold, alert or altered, making urine or shutting down, clearing lactate or accumulating it.
+
+A normal saturation can coexist with profoundly inadequate oxygen delivery.
+
+Your retrieval question is this: if saturation stays the same, name the two major variables that can still make oxygen delivery collapse.
+
+The answer is hemoglobin and cardiac output.
+
+And the expert move is not merely remembering the formula. It is noticing when the patient and the pulse oximeter are telling different stories.

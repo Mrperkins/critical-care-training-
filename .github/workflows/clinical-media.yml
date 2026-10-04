@@ -1,0 +1,64 @@
+# Fetch the staged real clinical media (imaging/real/manifest.json → "pending"), verify each licence from the source
+# itself (Wikimedia Commons API / the article page), transcode, validate and commit to visual-overhaul.
+# Start it by creating or editing imaging/real/fetch-request.txt on visual-overhaul (GitHub: Add file → Create new
+# file; any text). GitHub only offers the "Run workflow" button for workflows on the default branch, so the file is
+# the trigger while this lives on visual-overhaul. Never runs on, or pushes to, main.
+name: Fetch clinical media
+on:
+  push:
+    branches: [visual-overhaul]
+    paths: ['imaging/real/fetch-request.txt']
+  workflow_dispatch:
+    inputs:
+      only:
+        description: 'Space-separated pending ids (blank = all pending)'
+        required: false
+        default: ''
+permissions:
+  contents: write
+concurrency:
+  group: clinical-media
+  cancel-in-progress: false
+jobs:
+  fetch:
+    if: github.ref == 'refs/heads/visual-overhaul'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: visual-overhaul
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install -q numpy
+      - name: Offline self-test
+        run: python tools/test_clinical_media.py
+      - name: Discover candidates (lines starting 'discover' in the request file)
+        run: python tools/clinical_media.py discover --request imaging/real/fetch-request.txt --out "$RUNNER_TEMP/cand/discover.json" --thumbs "$RUNNER_TEMP/cand"
+      - name: Publish candidate previews to the media-candidates scratch branch (never main)
+        run: |
+          [ -f "$RUNNER_TEMP/cand/discover.json" ] || { echo "no discovery this run"; exit 0; }
+          cd "$RUNNER_TEMP/cand"
+          git init -q -b media-candidates
+          git -c user.name=clinical-media-bot -c user.email=clinical-media-bot@users.noreply.github.com add -A
+          git -c user.name=clinical-media-bot -c user.email=clinical-media-bot@users.noreply.github.com commit -qm "Discovery candidates (previews only, not shipped)"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" media-candidates:media-candidates
+      - name: Fetch originals with licence evidence
+        run: python tools/clinical_media.py fetch --out "$RUNNER_TEMP/media" ${{ github.event.inputs.only && format('--only {0}', github.event.inputs.only) || '' }}
+      - name: Ingest (verify, transcode, promote)
+        run: python tools/clinical_media.py ingest --from "$RUNNER_TEMP/media"
+      - name: Validate
+        run: python tools/validate_visual_assets.py
+      - name: Keep the fetch record
+        run: shopt -s nullglob; mkdir -p imaging/real/source && for d in "$RUNNER_TEMP"/media/*/; do cp "$d/meta.json" "imaging/real/source/$(basename "$d").fetch.json"; done
+      - name: Commit to visual-overhaul
+        run: |
+          git config user.name "clinical-media-bot"
+          git config user.email "clinical-media-bot@users.noreply.github.com"
+          git rm -q --ignore-unmatch imaging/real/fetch-request.txt
+          git add imaging/real
+          git diff --cached --quiet && { echo "nothing new"; exit 0; }
+          git commit -m "Real clinical media fetched and verified from source (tools/clinical_media.py)"
+          git pull --rebase origin visual-overhaul
+          git push origin HEAD:visual-overhaul

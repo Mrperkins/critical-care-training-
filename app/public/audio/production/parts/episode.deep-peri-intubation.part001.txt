@@ -1,0 +1,39 @@
+You're listening to The physiologically difficult airway. R S I preparation, positive-pressure transition and the first five minutes after the tube.
+
+This is a level 5 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to identify physiologic risk before induction; and run the post-intubation period as active resuscitation rather than a checklist afterthought.
+
+Now: Why the patient may not tolerate apnea or induction.
+
+R S I preparation & peri-intubation physiology. R S I is a physiologic resuscitation that includes preoxygenation, hemodynamic preparation, drug strategy, positioning, backup planning and post-intubation care.
+
+Build the mechanism first. R S I changes oxygenation, ventilation, sympathetic tone and intrathoracic pressure abruptly. Physiologically difficult airways fail because the circulation or gas exchange cannot tolerate that transition.
+
+At the bedside, prepare oxygenation, hemodynamics, suction, primary/backup devices, rescue ventilation and post-intubation support before induction.
+
+Two traps to actively avoid: Treating R S I as laryngoscopy plus drugs. And: Ignoring severe RV failure, metabolic acidosis or shock until after apnea begins.
+
+The integration move is this: The airway procedure includes the minutes before and after tube passage.
+
+Keep these terms available in your mental model: preoxygenation, apneic oxygenation, first-pass success, peri-intubation arrest.
+
+What expert-level use of this concept looks like is this: Identify physiologically difficult airways before induction. Build an airway plan that includes hemodynamics and the first five minutes after tube placement.
+
+Reasoning checkpoint. Do not just repeat the statement: Identify physiologically difficult airways before induction. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Build an airway plan that includes hemodynamics and the first five minutes after tube placement. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect R S I preparation & peri-intubation physiology to ICU analgesia, sedation & synchrony. Sedation strategy balances analgesia, comfort, ventilator synchrony, neurologic assessment, hemodynamics and delirium risk.
+
+The relationship matters because Analgesics and sedatives alter pain, awareness, respiratory drive, vascular tone and neurologic assessment. Deep sedation is a physiologic intervention with downstream consequences. At the bedside, separate pain, anxiety, delirium, dyssynchrony and hypoxemia before escalating sedation; use an explicit target and reassess it.
+
+Now connect R S I preparation & peri-intubation physiology to Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+The relationship matters because Acute ventilator deterioration can originate from the patient, tube, circuit or machine. Peak and plateau pressures help separate resistance from compliance when measurements are trustworthy. At the bedside, look at the patient first, rescue oxygenation/ventilation if the device cannot be trusted, then trace from patient to tube to circuit to machine.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating rsi as laryngoscopy plus drugs tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring severe RV failure, metabolic acidosis or shock until after apnea begins.
+
+Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+Build the mechanism first. The RV is thin-walled and highly sensitive to acute afterload. When it dilates, wall stress rises, coronary perfusion can fall and septal shift can reduce LV filling.

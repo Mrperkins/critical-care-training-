@@ -1,0 +1,35 @@
+Reasoning checkpoint. Do not just repeat the statement: Control shear stress while preserving end-organ perfusion and expediting definitive care. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Aortic dissection & aneurysmal catastrophe to Cardiac tamponade physiology. Pericardial pressure constrains chamber filling, couples the ventricles and makes venous return highly sensitive to pressure gradients.
+
+The relationship matters because When pericardial pressure approaches chamber filling pressure, diastolic filling becomes constrained and the ventricles compete within a fixed space. At the bedside, interpret echo and hemodynamics together, especially respiratory variation, chamber collapse and venous congestion.
+
+Now connect Aortic dissection & aneurysmal catastrophe to Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+The relationship matters because Shock is inadequate effective tissue perfusion and oxygen utilization, not merely hypotension. Flow, vascular tone, capacitance, congestion and extraction can fail in different combinations. At the bedside, phenotype the circulation repeatedly. A patient can move from one dominant mechanism to another during resuscitation.
+
+Stress-test the model. Imagine the patient changes in a way that makes lowering blood pressure without controlling tachycardia/shear in dissection tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Missing tamponade or malperfusion because chest pain has improved.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Malperfusion, tamponade and valve failure.
+
+Cardiac tamponade physiology. Pericardial pressure constrains chamber filling, couples the ventricles and makes venous return highly sensitive to pressure gradients.
+
+Build the mechanism first. When pericardial pressure approaches chamber filling pressure, diastolic filling becomes constrained and the ventricles compete within a fixed space.
+
+At the bedside, interpret echo and hemodynamics together, especially respiratory variation, chamber collapse and venous congestion.
+
+Two traps to actively avoid: Waiting for the complete classic triad. And: Ignoring how positive pressure can further reduce venous return.
+
+The integration move is this: Tamponade is a pressure-gradient problem whose definitive solution is relief of pericardial constraint.
+
+Keep these terms available in your mental model: pericardial pressure, respiratory variation, diastolic collapse.
+
+What expert-level use of this concept looks like is this: Explain tamponade as a filling-pressure problem rather than a checklist of classic signs. Predict effects of positive pressure and volume changes on a preload-limited circulation.
+
+Reasoning checkpoint. Do not just repeat the statement: Explain tamponade as a filling-pressure problem rather than a checklist of classic signs. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict effects of positive pressure and volume changes on a preload-limited circulation. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.

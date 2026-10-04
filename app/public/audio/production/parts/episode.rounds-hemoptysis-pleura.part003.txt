@@ -1,0 +1,37 @@
+Reasoning checkpoint. Do not just repeat the statement: Use ultrasound and clinical context to guide drainage decisions. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Pleural effusion & empyema to Source control. Definitive management of infected material, devitalized tissue or an infected device can be as important as antimicrobial therapy.
+
+The relationship matters because Antibiotics cannot sterilize every infected collection, necrotic tissue or infected device. Persistent nidus can sustain inflammatory and microbial burden despite apparently appropriate antimicrobial therapy. At the bedside, ask early whether drainage, debridement, device removal or surgery is required and whether it is actually happening.
+
+Now connect Pleural effusion & empyema to Critical-care lung ultrasound. Lung ultrasound uses pleural and artifact patterns to evaluate interstitial syndrome, consolidation, effusion and pneumothorax.
+
+The relationship matters because Lung ultrasound uses pleural motion and reverberation/consolidation artifacts to infer air-fluid-tissue relationships near the pleural surface. At the bedside, scan multiple standardized zones and combine A-lines, B-lines, consolidation, effusion and pleural signs with mechanics and clinical context.
+
+Stress-test the model. Imagine the patient changes in a way that makes draining every effusion simply because it is visible tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Calling complex septated fluid an uncomplicated transudate based on history alone.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Ultrasound changes the procedural question.
+
+Critical-care lung ultrasound. Lung ultrasound uses pleural and artifact patterns to evaluate interstitial syndrome, consolidation, effusion and pneumothorax.
+
+Build the mechanism first. Lung ultrasound uses pleural motion and reverberation/consolidation artifacts to infer air-fluid-tissue relationships near the pleural surface.
+
+At the bedside, scan multiple standardized zones and combine A-lines, B-lines, consolidation, effusion and pleural signs with mechanics and clinical context.
+
+Two traps to actively avoid: Treating B-lines as synonymous with cardiogenic edema. And: Using one negative window to exclude focal lung disease.
+
+The integration move is this: Lung ultrasound is a pattern map that becomes diagnostic only after physiology and distribution are considered.
+
+Keep these terms available in your mental model: A-lines, B-lines, consolidation, shred sign.
+
+What expert-level use of this concept looks like is this: Use patterns across zones rather than one isolated artifact. Integrate ultrasound with mechanics and clinical context.
+
+Reasoning checkpoint. Do not just repeat the statement: Use patterns across zones rather than one isolated artifact. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Integrate ultrasound with mechanics and clinical context. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Critical-care lung ultrasound to Pneumothorax ultrasound. Pleural ultrasound combines sliding, B-lines, M-mode patterns and lung point rather than relying on a single sign.

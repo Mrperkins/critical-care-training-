@@ -1,0 +1,3679 @@
+{
+ "about": "Real, openly licensed clinical images shown beside the synthetic ones. Only CC0 / public domain / CC BY / MIT / Apache-2.0 material is accepted; NC, ND, share-alike-only, research-only or unclear sources are rejected. Teaching use only; not diagnostic.",
+ "accepted": [
+  "CC0",
+  "Public Domain",
+  "CC BY 2.0",
+  "CC BY 3.0",
+  "CC BY 2.5",
+  "CC BY 4.0",
+  "MIT",
+  "Apache-2.0"
+ ],
+ "items": [
+  {
+   "file": "cxr-mhh-ventilated-bilateral.jpg",
+   "kind": "xray",
+   "id": "3fd337c1",
+   "title": "Portable AP film, ventilated patient",
+   "caption": "Endotracheal tube in the trachea, ECG leads and lines; patchy airspace opacities in both lungs (COVID-19 pneumonia) — the pattern the ARDS lesson draws.",
+   "look": [
+    "Tube tip above the carina",
+    "Bilateral patchy opacities",
+    "Heart size not enlarged",
+    "Lines and leads crossing the film"
+   ],
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Institute for Diagnostic and Interventional Radiology, Hannover Medical School (MHH), Germany",
+   "source": "COVID-19 Image Repository — https://github.com/ml-workgroup/covid-19-image-repository (copy retrieved from https://github.com/ieee8023/covid-chestxray-dataset, images/<id>.jpg)",
+   "changes": "Converted to greyscale JPEG, downscaled to 1000 px.",
+   "fileSha256": "b8a0507782b6552e9172f1b3c024665a81cea38a71994d0fd5a7614277fa43c1"
+  },
+  {
+   "file": "cxr-mhh-severe-bilateral.jpg",
+   "kind": "xray",
+   "id": "98c24e39",
+   "title": "Portable AP film, severe bilateral disease",
+   "caption": "Dense opacities in both lungs with many tubes, lines and leads over the chest — typical of a sick ICU patient; the lines are not lung disease.",
+   "look": [
+    "Opacities in both lungs",
+    "Many external lines — follow each one",
+    "Borders of heart and diaphragm blurred"
+   ],
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Institute for Diagnostic and Interventional Radiology, Hannover Medical School (MHH), Germany",
+   "source": "COVID-19 Image Repository — https://github.com/ml-workgroup/covid-19-image-repository (copy retrieved from https://github.com/ieee8023/covid-chestxray-dataset, images/<id>.jpg)",
+   "changes": "Converted to greyscale JPEG, downscaled to 1000 px.",
+   "fileSha256": "2df921b157946e0fa03a1f545d273577dfd62fdcfcb0c73c7a3faa9dd3d25e00"
+  },
+  {
+   "file": "cxr-mhh-portable-clear.jpg",
+   "kind": "xray",
+   "id": "bfefde5d",
+   "title": "Bedside film, lungs largely clear",
+   "caption": "A bedside (\"Bettaufnahme\") film with largely clear lungs and an implanted port in the left upper chest — a baseline to compare against.",
+   "look": [
+    "Lung markings reach the periphery",
+    "Sharp heart and diaphragm borders",
+    "Port catheter from the left chest wall"
+   ],
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Institute for Diagnostic and Interventional Radiology, Hannover Medical School (MHH), Germany",
+   "source": "COVID-19 Image Repository — https://github.com/ml-workgroup/covid-19-image-repository (copy retrieved from https://github.com/ieee8023/covid-chestxray-dataset, images/<id>.jpg)",
+   "changes": "Converted to greyscale JPEG, downscaled to 1000 px.",
+   "fileSha256": "d40ad884cd69fe7cefb2b0bc7e0a972912dede895c18a8891521c86f1216bb78"
+  },
+  {
+   "file": "lus-alines-vieira2020.mp4",
+   "poster": "lus-alines-vieira2020.jpg",
+   "kind": "lus",
+   "id": "alines",
+   "title": "A-lines: aerated lung",
+   "caption": "Longitudinal anterior chest scan in aerated lung: horizontal repeats of the pleural line (A-lines). Faint in this clip.",
+   "look": [
+    "Bright pleural line",
+    "Horizontal repeats at equal spacing",
+    "No vertical B-lines"
+   ],
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Ana Luisa Silveira Vieira, José Muniz Pazeli Júnior, Marcus Gomes Bastos",
+   "source": "“Role of point-of-care ultrasound during the COVID-19 pandemic: our recommendations in the management of dialytic patients”, The Ultrasound Journal 12:30 (2020), https://doi.org/10.1186/s13089-020-00177-4 (clip via https://github.com/jannisborn/covid19_ultrasound)",
+   "changes": "Cropped (dataset), first 3.5 s re-encoded to H.264 480 px, contrast and brightness increased; poster frame at 1.2 s.",
+   "fileSha256": "7e0a70d4fb22629f01b03a1f8734244ac2c1704e9d7121a5f5c32f6193e722a3",
+   "posterSha256": "e86997ba99960864ca8b6d4db48db76ddfbe98a168dadfe24715cc95a16446d3"
+  },
+  {
+   "file": "lus-blines-volpicelli2020.mp4",
+   "poster": "lus-blines-volpicelli2020.jpg",
+   "kind": "lus",
+   "id": "blines",
+   "title": "B-lines",
+   "caption": "Right lateral chest in COVID-19 pneumonia: vertical bright B-lines from the pleural line to the bottom of the screen, alternating with A-lines, and a thickened pleura.",
+   "look": [
+    "Vertical lines from the pleura",
+    "They reach the bottom of the screen",
+    "They move with lung sliding"
+   ],
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Giovanni Volpicelli, Luna Gargani",
+   "source": "“Sonographic signs and patterns of COVID-19 pneumonia”, The Ultrasound Journal 12:22 (2020), https://doi.org/10.1186/s13089-020-00171-w (clip via https://github.com/jannisborn/covid19_ultrasound)",
+   "changes": "Cropped (dataset), first 3.5 s re-encoded to H.264 480 px; poster frame at 1.2 s.",
+   "fileSha256": "8322522ed4c6d3a4cf8ef2f23f3f2f555b60562da8dc4f089b43101302e5c12b",
+   "posterSha256": "16f02bb06a897dbe868b8fe732285647514cbd1b4ff0c8fab2693a43ca89540c"
+  },
+  {
+   "file": "lus-whitelung-testa2012.mp4",
+   "poster": "lus-whitelung-testa2012.jpg",
+   "kind": "lus",
+   "id": "whitelung",
+   "title": "White lung: confluent B-lines",
+   "caption": "H1N1 pneumonia, lateral mid-chest: confluent B-lines (\"white lung\") with superficial consolidation and a thickened pleural line.",
+   "look": [
+    "No black gaps between B-lines",
+    "Irregular pleural line",
+    "Small subpleural consolidations"
+   ],
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+   "author": "Americo Testa, Gino Soldati, Roberto Copetti, Rosangela Giannuzzi, Grazia Portale, Nicolò Gentiloni-Silveri",
+   "source": "“Early recognition of the 2009 pandemic influenza A (H1N1) pneumonia by chest ultrasound”, Critical Care 16:R30 (2012), https://doi.org/10.1186/cc11201 (clip via https://github.com/jannisborn/covid19_ultrasound)",
+   "changes": "Cropped (dataset), first 3.5 s re-encoded to H.264 480 px; poster frame at 1.2 s.",
+   "fileSha256": "23d6bf77febe8115fd75cc222e793b5677b83a0a9d02ac420bd6e11879a32798",
+   "posterSha256": "f9e9ce5824e1657ca653b5e2bd86009aa3f6a014e31c34bbdbf534f8622912c1"
+  },
+  {
+   "kind": "ptx",
+   "id": "ptx-expiratory",
+   "type": "xray",
+   "modality": "Chest X-ray",
+   "finding": "pneumothorax",
+   "title": "Left pneumothorax — film taken in expiration",
+   "caption": "Upright AP film taken in expiration. The “Sin” marker (sinister = left) sits over the image right, so the patient’s left is on your right. At the top of the left chest is black air with no lung markings, above a thin white line where the edge of the left upper lobe has fallen away from the chest wall — a left apical pneumothorax. The trachea and mediastinum stay central: not tension.",
+   "look": [
+    "The “Sin” marker: patient’s left is on the image right",
+    "Left apex: black, markingless air",
+    "The lung edge — a thin white line just above the ECG electrode ring",
+    "Right lung: markings reach the chest wall",
+    "Trachea central; below the left diaphragm, stomach gas with a flat fluid level"
+   ],
+   "teach": [
+    "Breathing out shrinks the lung but not the trapped pleural air, so a small pneumothorax is easier to see — expiratory films are not routine; an ordinary inspiratory film shows most.",
+    "Upright, pleural air rises to the apex; supine, it collects in front and at the base (the deep sulcus sign) instead.",
+    "Follow the markings to where they stop — skin folds, the scapula edge and external wires make lines too, but lung markings continue past them.",
+    "Tension is a clinical diagnosis — a crashing patient gets decompressed, not a film. Here the mediastinum is central."
+   ],
+   "quiz": {
+    "q": "Where is the pneumothorax on this film?",
+    "options": [
+     "Left apex",
+     "Right apex",
+     "Left base",
+     "Both lungs"
+    ],
+    "answer": 0,
+    "explain": "The “Sin” (left) marker is on the image right. On that side the top of the chest is black with no markings above a thin lung-edge line. The black area under the left diaphragm is stomach gas — it has a flat fluid level and sits below the diaphragm."
+   },
+   "marks": [
+    {
+     "layer": "pathology",
+     "label": "Lung edge (visceral pleura)",
+     "shape": "line",
+     "x": 0.66,
+     "y": 0.43,
+     "pts": [
+      [
+       0.593,
+       0.426
+      ],
+      [
+       0.644,
+       0.428
+      ],
+      [
+       0.714,
+       0.433
+      ],
+      [
+       0.783,
+       0.428
+      ]
+     ],
+     "lx": 0.66,
+     "ly": 0.5
+    },
+    {
+     "layer": "pathology",
+     "label": "Pleural air — no markings",
+     "shape": "ellipse",
+     "x": 0.679,
+     "y": 0.329,
+     "rx": 0.08,
+     "ry": 0.095
+    },
+    {
+     "layer": "landmark",
+     "label": "“Sin” = patient’s left",
+     "shape": "point",
+     "x": 0.889,
+     "y": 0.063,
+     "lx": 0.84,
+     "ly": 0.12
+    },
+    {
+     "layer": "landmark",
+     "label": "Trachea — central",
+     "shape": "point",
+     "x": 0.5,
+     "y": 0.209
+    },
+    {
+     "layer": "landmark",
+     "label": "Right lung: markings to the edge",
+     "shape": "point",
+     "x": 0.159,
+     "y": 0.456
+    },
+    {
+     "layer": "landmark",
+     "label": "ECG electrode (outside the chest)",
+     "shape": "point",
+     "x": 0.741,
+     "y": 0.426,
+     "lx": 0.8,
+     "ly": 0.395
+    },
+    {
+     "layer": "landmark",
+     "label": "Stomach gas under the diaphragm",
+     "shape": "point",
+     "x": 0.752,
+     "y": 0.817
+    }
+   ],
+   "file": "ptx-expiratory.jpg",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "author": "Mikael Häggström, M.D.",
+   "source": "Wikimedia Commons, own work (5 March 2018) — https://commons.wikimedia.org/wiki/File:Expired_X-ray_of_pneumothorax.jpg",
+   "credit": "Häggström, Wikimedia Commons, 2018 · CC0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Expired_X-ray_of_pneumothorax.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Expired_X-ray_of_pneumothorax.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "Expired X-ray of pneumothorax — anteroposterior film taken in expiration (the Commons page also shows the inspiratory AP and lateral films of the same patient)",
+    "published": "2018-03-05",
+    "retrieved": "2026-09-30T18:32Z",
+    "originalName": "Expired_X-ray_of_pneumothorax.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 703393,
+    "originalSha256": "cdc3a924ad281d8b317a93ab42f7bfafb7d159d14dfe64a9a16851461a85bde5",
+    "preserved": "imaging/real/ptx-expiratory.jpg (identical to the original)",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Expired_X-ray_of_pneumothorax.jpg: LicenseShortName = “CC0”, UsageTerms = “Creative Commons Zero, Public Domain Dedication” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AExpired_X-ray_of_pneumothorax.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 1569,
+      "h": 1579
+     }
+    }
+   },
+   "fileSha256": "cdc3a924ad281d8b317a93ab42f7bfafb7d159d14dfe64a9a16851461a85bde5"
+  },
+  {
+   "kind": "fast",
+   "id": "fast-ruq-positive",
+   "type": "ultrasound",
+   "modality": "FAST",
+   "finding": "free intraperitoneal fluid",
+   "title": "Positive FAST — right upper quadrant",
+   "caption": "Right-upper-quadrant (hepatorenal) view, probe marker toward the head. Liver in the near field, right kidney beneath it, and between them a thin black crescent of free fluid in Morison’s pouch. The probe then sweeps toward the liver tip, where more fluid shows.",
+   "look": [
+    "Liver — fine, even texture at the top of the fan",
+    "Right kidney — bright central sinus, darker cortex",
+    "Morison’s pouch — the interface between liver and kidney",
+    "A black (anechoic) crescent there = free fluid",
+    "Later frames: more fluid near the liver tip"
+   ],
+   "teach": [
+    "Supine, Morison’s pouch is the lowest upper-abdominal space, so fluid gathers there first.",
+    "In an unstable trauma patient a positive FAST points to the abdomen as the bleeding source — theatre or angiography.",
+    "A negative FAST does not rule out injury: small volumes and retroperitoneal bleeding are missed. Repeat it when things change.",
+    "Clotted blood can look grey rather than black."
+   ],
+   "quiz": {
+    "q": "What is the black stripe between liver and kidney?",
+    "options": [
+     "Free intraperitoneal fluid in Morison’s pouch",
+     "Normal perirenal fat",
+     "The inferior vena cava",
+     "A rib shadow"
+    ],
+    "answer": 0,
+    "explain": "Fluid is anechoic (black). Between liver and kidney it sits in the hepatorenal recess — in trauma, blood until proven otherwise. Rib shadows are black bands that run from the probe straight down through everything."
+   },
+   "marks": [
+    {
+     "layer": "landmark",
+     "label": "Liver",
+     "shape": "ellipse",
+     "x": 0.54,
+     "y": 0.2,
+     "rx": 0.12,
+     "ry": 0.12
+    },
+    {
+     "layer": "landmark",
+     "label": "Right kidney",
+     "shape": "ellipse",
+     "x": 0.49,
+     "y": 0.52,
+     "rx": 0.13,
+     "ry": 0.095,
+     "lx": 0.49,
+     "ly": 0.6
+    },
+    {
+     "layer": "landmark",
+     "label": "Morison’s pouch",
+     "shape": "point",
+     "x": 0.405,
+     "y": 0.415,
+     "lx": 0.3,
+     "ly": 0.44
+    },
+    {
+     "layer": "pathology",
+     "label": "Free fluid (anechoic)",
+     "shape": "line",
+     "x": 0.52,
+     "y": 0.39,
+     "pts": [
+      [
+       0.41,
+       0.42
+      ],
+      [
+       0.47,
+       0.396
+      ],
+      [
+       0.55,
+       0.388
+      ],
+      [
+       0.625,
+       0.398
+      ]
+     ],
+     "lx": 0.6,
+     "ly": 0.35
+    }
+   ],
+   "file": "fast-ruq-positive.mp4",
+   "webm": "fast-ruq-positive.webm",
+   "poster": "fast-ruq-positive.jpg",
+   "posterAt": 1.0,
+   "original": "source/fast-ruq-positive-source.ogv",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+   "author": "Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A",
+   "source": "“Clinician performed resuscitative ultrasonography for the initial evaluation and resuscitation of trauma”, Scandinavian Journal of Trauma, Resuscitation and Emergency Medicine 17:34 (2009), https://doi.org/10.1186/1757-7241-17-34 — supplementary video S1 (“Positive FAST of Hepatorenal Fossa”), via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv",
+   "credit": "Gillman et al., Scand J Trauma Resusc Emerg Med 2009 · CC BY 2.0",
+   "changes": "Original Ogg Theora (720×480 stored with 8:9 pixels, shown at 4:3; 29.97 fps; 6.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) with the same frames, pixel aspect and length; Vorbis audio removed; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/70/Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "10.1186/1757-7241-17-34",
+    "originalTitle": "Positive FAST of Hepatorenal Fossa. Resuscitative ultrasound video of the hepatorenal fossa demonstrating free intra-peritoneal fluid seen as a hypoechoic strip",
+    "published": "2009",
+    "retrieved": "2026-09-30T18:32Z",
+    "originalName": "Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv",
+    "originalFormat": "video/ogg",
+    "originalBytes": 545090,
+    "originalSha256": "0f923551b28a5fc167f9aa9de9eb7e07cfda0ca4899aa394ad8d141a71eec7ab",
+    "preserved": "imaging/real/source/fast-ruq-positive-source.ogv",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AClinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S1.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "sourceVideo": {
+      "w": 720,
+      "h": 480,
+      "codec": "theora",
+      "duration": 6.002,
+      "fps": 0,
+      "audio": true
+     },
+     "mp4": {
+      "w": 720,
+      "h": 480,
+      "codec": "h264",
+      "duration": 5.973,
+      "fps": 29.97,
+      "audio": false
+     }
+    }
+   },
+   "fileSha256": "c283ac141a39f56e4eabbf8540a2481be1f10a04a8e416dc189d78133c3038b9",
+   "webmSha256": "5e67e92e0dc7516f07a31ed9bf6b5e5c82c8039ac2c0abadde9fbc2d9cfb86ce",
+   "posterSha256": "fa8cce9bd8cbca37e7fe0fff6a0a19f5012a59a7647bb25d466cf567d9fbde4d",
+   "originalSha256": "0f923551b28a5fc167f9aa9de9eb7e07cfda0ca4899aa394ad8d141a71eec7ab"
+  },
+  {
+   "kind": "ivc",
+   "id": "ivc-2026-video-s1",
+   "type": "ultrasound",
+   "modality": "IVC POCUS",
+   "finding": "IVC traced into the right atrium",
+   "title": "IVC — long axis under the liver",
+   "caption": "Subxiphoid long-axis scan. The inferior vena cava is the dark tube running across the screen deep to the liver, with a hepatic vein above it. The patient’s head is to the screen left: followed that way, the IVC reaches its junction with the right atrium. The probe rocks during the clip, so the view changes.",
+   "look": [
+    "Liver on top as the window",
+    "IVC — the dark tube running across the screen, deep to the liver",
+    "A hepatic vein in the liver above it",
+    "Screen left = toward the head and the right atrium",
+    "Diameter change with breathing — judge it over several breaths, not one frame"
+   ],
+   "teach": [
+    "Prove it is the IVC by following it into the right atrium — the aorta lies deeper and to the left and never enters the heart.",
+    "Measure 1–2 cm below the hepatic-vein junction, at right angles to the vessel.",
+    "Small and collapsing fits a low right-atrial pressure; wide and fixed fits a high one.",
+    "It does not reliably predict who will respond to fluid: positive-pressure ventilation, raised abdominal pressure, RV failure, tricuspid regurgitation and vigorous breathing all change it.",
+    "Read it with the lungs, the heart, the patient and the trend — never alone."
+   ],
+   "quiz": {
+    "q": "A wide IVC that barely changes with breathing most directly tells you…",
+    "options": [
+     "Right-atrial pressure is high",
+     "The patient will respond to a fluid bolus",
+     "The patient is hypovolaemic",
+     "Cardiac output is low"
+    ],
+    "answer": 0,
+    "explain": "IVC size reflects right-atrial pressure. That can be high from volume, RV failure, tamponade, tricuspid regurgitation or positive pressure — it is not a verdict on fluid responsiveness."
+   },
+   "marks": [
+    {
+     "layer": "landmark",
+     "label": "Liver",
+     "shape": "ellipse",
+     "x": 0.531,
+     "y": 0.43,
+     "rx": 0.1,
+     "ry": 0.08
+    },
+    {
+     "layer": "landmark",
+     "label": "Hepatic vein",
+     "shape": "line",
+     "x": 0.51,
+     "y": 0.38,
+     "pts": [
+      [
+       0.461,
+       0.395
+      ],
+      [
+       0.555,
+       0.367
+      ]
+     ],
+     "lx": 0.56,
+     "ly": 0.35
+    },
+    {
+     "layer": "landmark",
+     "label": "IVC (long axis)",
+     "shape": "line",
+     "x": 0.48,
+     "y": 0.57,
+     "pts": [
+      [
+       0.281,
+       0.57
+      ],
+      [
+       0.477,
+       0.57
+      ],
+      [
+       0.672,
+       0.578
+      ]
+     ],
+     "lx": 0.52,
+     "ly": 0.6
+    },
+    {
+     "layer": "landmark",
+     "label": "← toward the right atrium",
+     "shape": "point",
+     "x": 0.25,
+     "y": 0.57,
+     "lx": 0.3,
+     "ly": 0.545
+    }
+   ],
+   "file": "ivc-2026-video-s1.mp4",
+   "webm": "ivc-2026-video-s1.webm",
+   "poster": "ivc-2026-video-s1.jpg",
+   "posterAt": 9.0,
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Nathan C. Shaul, Alan M. Smeltz, Evan J. Raff, Shawn Jia, Lauriane Guichard, Daniel J. Rosenkrans, Jay W. Schoenherr, Jacob D. Acton, Duncan J. McLean, Mark E. Henry, Alexander Doyal",
+   "source": "“Point-of-care ultrasound to evaluate volume status in congestive heart failure”, Journal of Cardiovascular Imaging 34:17 (2026), https://doi.org/10.1186/s44348-026-00078-5 — supplementary item 1, https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM1_ESM.avi",
+   "credit": "Shaul et al., J Cardiovasc Imaging 2026 · CC BY 4.0",
+   "changes": "Original AVI (mpeg4, 1692×1692, 23.833 fps, 15.902 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; downscaled 1692×1692 → 1280 px wide (aspect kept); audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 9.0 s.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1186/s44348-026-00078-5",
+    "originalUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM1_ESM.avi",
+    "doi": "10.1186/s44348-026-00078-5",
+    "originalTitle": "Point-of-care ultrasound to evaluate volume status in congestive heart failure",
+    "published": "2026-07-07",
+    "retrieved": "2026-09-30T18:44Z",
+    "originalName": "44348_2026_78_MOESM1_ESM.avi",
+    "originalFormat": "video/x-msvideo",
+    "originalBytes": 22471814,
+    "originalSha256": "bdcb64796fee4ca68aee6cb59894084caf6598d8360fbd2df49aaadd5cfbcdcd",
+    "preserved": null,
+    "licenseEvidence": "Europe PMC full text of PMC13343992 (doi 10.1186/s44348-026-00078-5), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original auth”; supplementary item 1 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "sourceVideo": {
+      "w": 1692,
+      "h": 1692,
+      "codec": "mpeg4",
+      "duration": 15.902,
+      "fps": 23.833,
+      "audio": false
+     },
+     "mp4": {
+      "w": 1280,
+      "h": 1280,
+      "codec": "h264",
+      "duration": 15.902,
+      "fps": 23.833,
+      "audio": false
+     }
+    }
+   },
+   "fileSha256": "d7b8a6e7a95c53f412d8695abdaf1c1cb2b8db9b4b0222eb7e28eeaa2c564637",
+   "webmSha256": "aa30ccf44d357286f511e408119f73ff740b3135409760c23a4d1499d343c062",
+   "posterSha256": "04384fc6e415d9b19f9b547ca6b9f0cb4b2693c17ba90d67dff382722f2a61a4",
+   "order": 1
+  },
+  {
+   "kind": "ijv",
+   "id": "ijv-2026-video-s2",
+   "type": "ultrasound",
+   "modality": "Vascular access POCUS",
+   "finding": "IJV compressibility beside the carotid",
+   "title": "Internal jugular vein — long axis and collapse point",
+   "caption": "Long-axis neck scan with a linear probe. The internal jugular vein is the superficial dark tube; the carotid artery runs deeper and parallel to it. Where the vein’s walls come together is its collapse point. With probe pressure the vein flattens while the carotid stays open and pulses.",
+   "look": [
+    "Sternocleidomastoid on top",
+    "IJV — the superficial dark tube",
+    "Carotid — the deeper, parallel tube that keeps its shape",
+    "Collapse point — where the vein’s walls meet",
+    "Under pressure: the vein flattens; the artery pulses and stays open"
+   ],
+   "teach": [
+    "In long axis both vessels are tubes, so shape cannot separate them — use depth, compressibility and pulsatility, and check in short axis too.",
+    "Doppler colour shows direction relative to the probe, not artery or vein: red and blue alone prove nothing.",
+    "Veins can look pulsatile from transmitted pulsation; an artery still will not collapse.",
+    "Where the vein sits over the artery, a needle through both walls of the vein reaches the carotid — keep the tip in view.",
+    "The collapse point moves with volume and breathing: head-down tilt or a Valsalva fills the vein and gives a bigger target."
+   ],
+   "quiz": {
+    "q": "Which finding best identifies the vein?",
+    "options": [
+     "It collapses completely with gentle probe pressure",
+     "It shows blue on colour Doppler",
+     "It pulsates",
+     "It is the deeper vessel"
+    ],
+    "answer": 0,
+    "explain": "Veins collapse under light pressure; arteries do not. Colour depends on flow direction relative to the probe, veins can pulsate, and depth varies between people."
+   },
+   "marks": [
+    {
+     "layer": "landmark",
+     "label": "Sternocleidomastoid",
+     "shape": "point",
+     "x": 0.5,
+     "y": 0.269
+    },
+    {
+     "layer": "landmark",
+     "label": "Internal jugular vein",
+     "shape": "ellipse",
+     "x": 0.619,
+     "y": 0.394,
+     "rx": 0.11,
+     "ry": 0.035,
+     "lx": 0.66,
+     "ly": 0.36
+    },
+    {
+     "layer": "landmark",
+     "label": "Carotid artery (deeper)",
+     "shape": "line",
+     "x": 0.5,
+     "y": 0.468,
+     "pts": [
+      [
+       0.263,
+       0.468
+      ],
+      [
+       0.5,
+       0.468
+      ],
+      [
+       0.737,
+       0.468
+      ]
+     ],
+     "lx": 0.38,
+     "ly": 0.515
+    },
+    {
+     "layer": "pathology",
+     "label": "Collapse point",
+     "shape": "point",
+     "x": 0.505,
+     "y": 0.395,
+     "lx": 0.45,
+     "ly": 0.395
+    }
+   ],
+   "file": "ijv-2026-video-s2.mp4",
+   "webm": "ijv-2026-video-s2.webm",
+   "poster": "ijv-2026-video-s2.jpg",
+   "posterAt": 10.0,
+   "original": "source/ijv-2026-video-s2-source.avi",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Nathan C. Shaul, Alan M. Smeltz, Evan J. Raff, Shawn Jia, Lauriane Guichard, Daniel J. Rosenkrans, Jay W. Schoenherr, Jacob D. Acton, Duncan J. McLean, Mark E. Henry, Alexander Doyal",
+   "source": "“Point-of-care ultrasound to evaluate volume status in congestive heart failure”, Journal of Cardiovascular Imaging 34:17 (2026), https://doi.org/10.1186/s44348-026-00078-5 — supplementary item 2, https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM2_ESM.avi",
+   "credit": "Shaul et al., J Cardiovasc Imaging 2026 · CC BY 4.0",
+   "changes": "Original AVI (mpeg4, 1692×1692, 17.333 fps, 15.404 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; downscaled 1692×1692 → 1280 px wide (aspect kept); audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 10.0 s.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1186/s44348-026-00078-5",
+    "originalUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13343992/supplementaryFiles → 44348_2026_78_MOESM2_ESM.avi",
+    "doi": "10.1186/s44348-026-00078-5",
+    "originalTitle": "Point-of-care ultrasound to evaluate volume status in congestive heart failure",
+    "published": "2026-07-07",
+    "retrieved": "2026-09-30T18:45Z",
+    "originalName": "44348_2026_78_MOESM2_ESM.avi",
+    "originalFormat": "video/x-msvideo",
+    "originalBytes": 7257102,
+    "originalSha256": "b3a187cbb258f9e7ae8434043069602d1a4035891b02087bbe7aa885538c324a",
+    "preserved": "imaging/real/source/ijv-2026-video-s2-source.avi",
+    "licenseEvidence": "Europe PMC full text of PMC13343992 (doi 10.1186/s44348-026-00078-5), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original auth”; supplementary item 2 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "sourceVideo": {
+      "w": 1692,
+      "h": 1692,
+      "codec": "mpeg4",
+      "duration": 15.404,
+      "fps": 17.333,
+      "audio": false
+     },
+     "mp4": {
+      "w": 1280,
+      "h": 1280,
+      "codec": "h264",
+      "duration": 15.404,
+      "fps": 17.333,
+      "audio": false
+     }
+    }
+   },
+   "fileSha256": "e69780b1a5c8047ad1a9f3eafa387f49b9e50161f0cc4d57dcc123ad5a2c3d4c",
+   "webmSha256": "a5918d7fd037a9d5d206d14f3889b71b7cc3c01fa112fe69ab81baf4d5dae2d3",
+   "posterSha256": "7bd0d603db564b046fe850b49ba70581c06b78a5fce93af2842ae981f514178f",
+   "originalSha256": "b3a187cbb258f9e7ae8434043069602d1a4035891b02087bbe7aa885538c324a",
+   "findingLabel": "Show the collapse point"
+  },
+  {
+   "kind": "ptxlus",
+   "id": "lus-lung-point-gillman",
+   "type": "ultrasound",
+   "modality": "Lung ultrasound",
+   "finding": "lung point (pneumothorax)",
+   "title": "Lung point — pneumothorax on ultrasound",
+   "caption": "Real trauma scan over the right upper chest with a linear probe. The lung point is the edge of the pneumothorax: on one side of it the pleura is still (air), and with each breath the lung slides in from the screen right and back out again.",
+   "look": [
+    "The bright pleural line under the chest wall",
+    "Where the pleura stays still — only A-lines beneath",
+    "Lung sliding in from the screen right with each breath",
+    "The lung point — the spot where the two meet, moving with breathing"
+   ],
+   "teach": [
+    "Absent sliding alone is not a pneumothorax: pleurodesis, apnoea, mainstem intubation and adhesions stop sliding too.",
+    "B-lines or a lung pulse where you look rule out a pneumothorax at that spot — the pleurae are touching.",
+    "A lung point confirms a pneumothorax, and where it sits hints at its size: the further lateral and posterior, the bigger.",
+    "In a crashing patient with absent sliding and no lung point, treat the patient, not the scan."
+   ],
+   "quiz": {
+    "q": "Which finding confirms a pneumothorax?",
+    "options": [
+     "A lung point",
+     "Absent lung sliding",
+     "A-lines",
+     "Absent B-lines"
+    ],
+    "answer": 0,
+    "explain": "Absent sliding, A-lines and no B-lines all fit a pneumothorax but have other causes. A lung point — sliding lung meeting still pleural air at one spot — is specific."
+   },
+   "marks": [],
+   "file": "lus-lung-point-gillman.mp4",
+   "webm": "lus-lung-point-gillman.webm",
+   "poster": "lus-lung-point-gillman.jpg",
+   "posterAt": 1.0,
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+   "author": "Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A",
+   "source": "“Clinician performed resuscitative ultrasonography for the initial evaluation and resuscitation of trauma”, Scandinavian Journal of Trauma, Resuscitation and Emergency Medicine 17:34 (2009), https://doi.org/10.1186/1757-7241-17-34 — supplementary video S7 (“Lung Point”), via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv",
+   "credit": "Gillman et al., Scand J Trauma Resusc Emerg Med 2009 · CC BY 2.0",
+   "changes": "Original Ogg Theora (640×480, 10 fps, 6.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; the scanner’s top status bar (study number, date, mechanism) blacked out; no crop, mirroring, speed change or other filtering. Poster = frame at 1.0 s.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "10.1186/1757-7241-17-34",
+    "originalTitle": "Lung Point. Resuscitative ultrasound video illustrating the lung point – the lateral limit of the pneumothorax. The lung can be seen sliding in from the right w",
+    "published": "2009",
+    "retrieved": "2026-09-30T18:53Z",
+    "originalName": "Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv",
+    "originalFormat": "video/ogg",
+    "originalBytes": 228567,
+    "originalSha256": "1c293788664a00add01a46703b4df8c26b13deea152d35ce72ee3b70f94d9d2a",
+    "preserved": null,
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AClinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S7.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "sourceVideo": {
+      "w": 640,
+      "h": 480,
+      "codec": "theora",
+      "duration": 6.0,
+      "fps": 10.0,
+      "audio": false
+     },
+     "mp4": {
+      "w": 640,
+      "h": 480,
+      "codec": "h264",
+      "duration": 6.0,
+      "fps": 10.0,
+      "audio": false
+     }
+    },
+    "notPreservedReason": "The original’s top bar shows a study number, date and mechanism; it is not redistributed here — the Commons URL and SHA-256 identify it."
+   },
+   "fileSha256": "84067ba016b08e847e40b1bad5d266ca06bf6c8dec24008f0339c6700dd406cb",
+   "webmSha256": "96ee2346ea49e7e8841a357385e86cf49e65a62511463beac7182bc1121912f3",
+   "posterSha256": "14fb6233ff59cb0379922f74c2640b5da08655c84bf0dc107a00ccf848f701cf",
+   "order": 3
+  },
+  {
+   "kind": "ptxlus",
+   "id": "lus-absent-sliding-gillman",
+   "type": "ultrasound",
+   "modality": "Lung ultrasound",
+   "finding": "absent lung sliding",
+   "title": "Absent lung sliding",
+   "caption": "Linear-probe scan over the front of the chest. The bright pleural line between two rib shadows stays still as the patient breathes — no shimmer. Late in the clip the probe slides along the chest.",
+   "look": [
+    "The pleural line between the rib shadows",
+    "No shimmer or to-and-fro movement",
+    "A-lines persist below",
+    "No B-lines"
+   ],
+   "teach": [
+    "Absent sliding fits a pneumothorax but is not specific: apnoea, mainstem intubation, pleurodesis and adhesions also stop it.",
+    "Look for a lung point to confirm, and for B-lines or a lung pulse to exclude.",
+    "In a crashing patient with absent sliding and a tension picture, decompress — do not wait for a lung point."
+   ],
+   "quiz": {
+    "q": "Absent sliding with A-lines and no B-lines means…",
+    "options": [
+     "A pneumothorax is likely — look for a lung point",
+     "A pneumothorax is certain",
+     "The lung is normal",
+     "There is a pleural effusion"
+    ],
+    "answer": 0,
+    "explain": "This pattern is suggestive, not proof. The lung point is the specific sign; B-lines or a lung pulse exclude a pneumothorax at that spot."
+   },
+   "marks": [
+    {
+     "layer": "landmark",
+     "label": "Pleural line",
+     "shape": "line",
+     "x": 0.56,
+     "y": 0.48,
+     "pts": [
+      [
+       0.47,
+       0.472
+      ],
+      [
+       0.56,
+       0.48
+      ],
+      [
+       0.65,
+       0.492
+      ]
+     ],
+     "lx": 0.56,
+     "ly": 0.445
+    },
+    {
+     "layer": "landmark",
+     "label": "Rib shadow",
+     "shape": "point",
+     "x": 0.33,
+     "y": 0.62
+    },
+    {
+     "layer": "landmark",
+     "label": "Rib shadow",
+     "shape": "point",
+     "x": 0.76,
+     "y": 0.62
+    },
+    {
+     "layer": "pathology",
+     "label": "Still — no sliding",
+     "shape": "ellipse",
+     "x": 0.56,
+     "y": 0.48,
+     "rx": 0.11,
+     "ry": 0.035,
+     "lx": 0.56,
+     "ly": 0.56
+    }
+   ],
+   "file": "lus-absent-sliding-gillman.mp4",
+   "webm": "lus-absent-sliding-gillman.webm",
+   "poster": "lus-absent-sliding-gillman.jpg",
+   "posterAt": 1.0,
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+   "author": "Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A",
+   "source": "“Clinician performed resuscitative ultrasonography for the initial evaluation and resuscitation of trauma”, Scandinavian Journal of Trauma, Resuscitation and Emergency Medicine 17:34 (2009), https://doi.org/10.1186/1757-7241-17-34 — supplementary video S4 (“Absent Lung Sliding”), via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S4.ogv",
+   "credit": "Gillman et al., Scand J Trauma Resusc Emerg Med 2009 · CC BY 2.0",
+   "changes": "Original OGV (theora, 640×480, 30.0 fps, 6.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; the scanner’s top status bar (patient name, number, date) blacked out; audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S4.ogv",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S4.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "10.1186/1757-7241-17-34",
+    "originalTitle": "Absent Lung Sliding. Resuscitative ultrasound video illustrating the absence of lung sliding suggestive of a pneumothorax.",
+    "published": "2009",
+    "retrieved": "2026-10-03T19:50Z",
+    "originalName": "Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S4.ogv",
+    "originalFormat": "video/ogg",
+    "originalBytes": 633978,
+    "originalSha256": "f64ed53a080b543f3bfec484c17b227afab1ed4611db4b80b38840ff51ff0a63",
+    "preserved": null,
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S4.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AClinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S4.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "sourceVideo": {
+      "w": 640,
+      "h": 480,
+      "codec": "theora",
+      "duration": 6.0,
+      "fps": 30.0,
+      "audio": false
+     },
+     "mp4": {
+      "w": 640,
+      "h": 480,
+      "codec": "h264",
+      "duration": 6.0,
+      "fps": 30.0,
+      "audio": false
+     }
+    },
+    "notPreservedReason": "The original’s top bar shows a patient name, number and date; it is not redistributed here — the Commons URL and SHA-256 identify it."
+   },
+   "fileSha256": "2e877ab8e61b962ee020892d43cd13e8ce79e679bd34efff3409c3ee36326cd2",
+   "webmSha256": "991f2e2b3cfe6035becc68ced71b4318839c70af48b023da868f05d813f6a99c",
+   "posterSha256": "bdf3f0151cb34f3f110114bf9029f0d4ca75f0f11cc42aab5a0c17dac4c75127",
+   "findingLabel": "Show the finding",
+   "order": 2
+  },
+  {
+   "kind": "ivc",
+   "id": "ivc-collapse-gillman",
+   "type": "ultrasound",
+   "modality": "IVC POCUS",
+   "finding": "IVC collapsing with breathing",
+   "title": "IVC collapsing with each breath",
+   "caption": "Subxiphoid scan through the liver. The IVC is the dark band crossing the middle of the screen; it narrows almost to nothing with each breath in and reopens on breathing out.",
+   "look": [
+    "The IVC passing through the liver",
+    "Near-complete collapse on inspiration",
+    "Re-expansion on expiration",
+    "Compare with the wide, fixed IVC of heart failure"
+   ],
+   "teach": [
+    "Collapse with spontaneous breaths fits a low right-atrial pressure, as in hypovolaemia.",
+    "It is not a reliable test of fluid responsiveness on its own, and the pattern reverses on positive-pressure ventilation.",
+    "Vigorous breathing can collapse a normal IVC; look at the whole patient."
+   ],
+   "quiz": {
+    "q": "A small IVC that collapses completely on inspiration most directly suggests…",
+    "options": [
+     "Low right-atrial pressure",
+     "Pericardial tamponade",
+     "Right-ventricular failure",
+     "Fluid overload"
+    ],
+    "answer": 0,
+    "explain": "A small, collapsing IVC fits a low right-atrial pressure. Tamponade, RV failure and overload all give a wide, fixed IVC."
+   },
+   "marks": [
+    {
+     "layer": "landmark",
+     "label": "Liver",
+     "shape": "ellipse",
+     "x": 0.5,
+     "y": 0.26,
+     "rx": 0.15,
+     "ry": 0.12
+    },
+    {
+     "layer": "landmark",
+     "label": "IVC (open on expiration)",
+     "shape": "line",
+     "x": 0.5,
+     "y": 0.456,
+     "pts": [
+      [
+       0.4,
+       0.47
+      ],
+      [
+       0.5,
+       0.456
+      ],
+      [
+       0.62,
+       0.44
+      ]
+     ],
+     "lx": 0.5,
+     "ly": 0.52
+    }
+   ],
+   "file": "ivc-collapse-gillman.mp4",
+   "webm": "ivc-collapse-gillman.webm",
+   "poster": "ivc-collapse-gillman.jpg",
+   "posterAt": 1.5,
+   "original": "source/ivc-collapse-gillman-source.ogv",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+   "author": "Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A",
+   "source": "“Clinician performed resuscitative ultrasonography for the initial evaluation and resuscitation of trauma”, Scandinavian Journal of Trauma, Resuscitation and Emergency Medicine 17:34 (2009), https://doi.org/10.1186/1757-7241-17-34 — supplementary video S8 (“Ultrasound Assessment of Volume Status”), via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S8.ogv",
+   "credit": "Gillman et al., Scand J Trauma Resusc Emerg Med 2009 · CC BY 2.0",
+   "changes": "Original OGV (theora, 720×480, 29.97 fps, 6.002 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio removed; no crop, mirroring, speed change or filtering. Poster = frame at 1.5 s.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S8.ogv",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S8.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "10.1186/1757-7241-17-34",
+    "originalTitle": "Ultrasound Assessment of Volume Status. Resuscitative ultrasound video illustrating complete collapse of the IVC with respiration, suggestive of hypovolemia.",
+    "published": "2009",
+    "retrieved": "2026-10-03T19:50Z",
+    "originalName": "Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S8.ogv",
+    "originalFormat": "video/ogg",
+    "originalBytes": 1573758,
+    "originalSha256": "26d6850215ba6d61a920d57eacd74eb8af781794d2e7f7edbd4d8dc14d29f7ed",
+    "preserved": "imaging/real/source/ivc-collapse-gillman-source.ogv",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S8.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AClinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S8.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "sourceVideo": {
+      "w": 720,
+      "h": 480,
+      "codec": "theora",
+      "duration": 6.002,
+      "fps": 29.97,
+      "audio": true
+     },
+     "mp4": {
+      "w": 720,
+      "h": 480,
+      "codec": "h264",
+      "duration": 5.973,
+      "fps": 29.97,
+      "audio": false
+     }
+    }
+   },
+   "fileSha256": "2fdb570ceef3619485ab1feb43b0152344fa2bd53684357023abec7b6ad9bde8",
+   "webmSha256": "86bf4a4f312f8c4572b8d9c0324fb051f063911ebc28a4cd51a6467c71d01d81",
+   "posterSha256": "72117b3a2c47e1ac490b4f3883e505cb8f839282a51a79f326442ee4b4f35faa",
+   "originalSha256": "26d6850215ba6d61a920d57eacd74eb8af781794d2e7f7edbd4d8dc14d29f7ed",
+   "order": 2
+  },
+  {
+   "kind": "pleuraleff",
+   "id": "pleural-fluid-gillman",
+   "type": "ultrasound",
+   "modality": "Thoracic ultrasound",
+   "finding": "pleural effusion",
+   "title": "Large pleural effusion",
+   "caption": "A resuscitative scan of a large pleural collection, as published. Look for the black, anechoic fluid and the tissue that moves within it with breathing. (No overlays: the published caption does not name the structures, so we have not guessed them.)",
+   "look": [
+    "The diaphragm and liver or spleen below",
+    "A black fluid space above the diaphragm",
+    "Collapsed lung moving within the fluid",
+    "The spine visible through the fluid"
+   ],
+   "teach": [
+    "Fluid is anechoic; above the diaphragm it is pleural, below it is in the abdomen.",
+    "Normally air hides the spine above the diaphragm — seeing it there (the spine sign) means fluid.",
+    "In trauma, a haemothorax looks the same; clot can be grey."
+   ],
+   "quiz": {
+    "q": "Seeing the spine continue above the diaphragm means…",
+    "options": [
+     "Fluid in the pleural space",
+     "Normal aerated lung",
+     "A pneumothorax",
+     "Free air under the diaphragm"
+    ],
+    "answer": 0,
+    "explain": "Aerated lung scatters the beam and hides the spine. Fluid transmits sound, so the spine shows through it."
+   },
+   "marks": [],
+   "file": "pleural-fluid-gillman.mp4",
+   "webm": "pleural-fluid-gillman.webm",
+   "poster": "pleural-fluid-gillman.jpg",
+   "posterAt": 1.0,
+   "original": "source/pleural-fluid-gillman-source.ogv",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+   "author": "Gillman L, Ball C, Panebianco N, Al-Kadi A, Kirkpatrick A",
+   "source": "“Clinician performed resuscitative ultrasonography for the initial evaluation and resuscitation of trauma”, Scandinavian Journal of Trauma, Resuscitation and Emergency Medicine 17:34 (2009), https://doi.org/10.1186/1757-7241-17-34 — supplementary video S2 (“Pleural Fluid”), via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S2.ogv",
+   "credit": "Gillman et al., Scand J Trauma Resusc Emerg Med 2009 · CC BY 2.0",
+   "changes": "Original OGV (theora, 640×480, 30.0 fps, 10.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio none in the source; no crop, mirroring, speed change or filtering. Poster = frame at 1.0 s.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S2.ogv",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/39/Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S2.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "10.1186/1757-7241-17-34",
+    "originalTitle": "Pleural Fluid. Resuscitative ultrasound video of a large pleural collection.",
+    "published": "2009",
+    "retrieved": "2026-10-03T19:51Z",
+    "originalName": "Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S2.ogv",
+    "originalFormat": "video/ogg",
+    "originalBytes": 1579529,
+    "originalSha256": "9c0eff55d99fd3754359ea0c2552a9ab73f81169476611e08e743e0e1bee2979",
+    "preserved": "imaging/real/source/pleural-fluid-gillman-source.ogv",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Clinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S2.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AClinician-performed-resuscitative-ultrasonography-for-the-initial-evaluation-and-resuscitation-of-1757-7241-17-34-S2.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "sourceVideo": {
+      "w": 640,
+      "h": 480,
+      "codec": "theora",
+      "duration": 10.0,
+      "fps": 30.0,
+      "audio": false
+     },
+     "mp4": {
+      "w": 640,
+      "h": 480,
+      "codec": "h264",
+      "duration": 10.0,
+      "fps": 30.0,
+      "audio": false
+     }
+    }
+   },
+   "fileSha256": "796e4cf7011d5677b10fe77e960feb49224cbeec84e0ac5f74f508bf59bf485f",
+   "webmSha256": "984bb9e93c62695ad23bf84c3ee6db4cef2b12807e2f6a54dbc7cf9bfe6fcaf0",
+   "posterSha256": "7e6e0f4a44202c86250960cb6fc592e5ee8ed84a14be199203d62616b4404644",
+   "originalSha256": "9c0eff55d99fd3754359ea0c2552a9ab73f81169476611e08e743e0e1bee2979"
+  },
+  {
+   "kind": "tamponade",
+   "id": "tamponade-ginghina",
+   "type": "ultrasound",
+   "modality": "Echocardiography",
+   "finding": "cardiac tamponade",
+   "title": "Cardiac tamponade — right-heart collapse",
+   "caption": "Apical four-chamber echo in a patient with cardiac tamponade, as published: the free walls of the right atrium and right ventricle collapse intermittently. The clip is one short loop — watch it repeat. (No overlays: the loop is small and we have not guessed chamber positions.)",
+   "look": [
+    "Black pericardial fluid around the heart",
+    "Right atrium and ventricle on the screen left",
+    "Their free walls buckling inward",
+    "The pattern repeating with every beat"
+   ],
+   "teach": [
+    "Tamponade is a clinical diagnosis supported by echo: hypotension, raised JVP and pulsus paradoxus with an effusion.",
+    "Right-atrial collapse in systole and right-ventricular collapse in diastole show the pericardial pressure exceeds right-heart pressure.",
+    "A plethoric IVC fits; treatment is drainage — fluids only buy time."
+   ],
+   "quiz": {
+    "q": "Which echo sign shows the effusion is compressing the heart?",
+    "options": [
+     "Diastolic collapse of the right-heart free walls",
+     "A small IVC",
+     "A thick left-ventricular wall",
+     "Mitral regurgitation"
+    ],
+    "answer": 0,
+    "explain": "Right-heart chambers have the lowest pressure, so they collapse first when pericardial pressure rises. In tamponade the IVC is wide, not small."
+   },
+   "marks": [],
+   "file": "tamponade-ginghina.mp4",
+   "webm": "tamponade-ginghina.webm",
+   "poster": "tamponade-ginghina.jpg",
+   "posterAt": 0.27,
+   "original": "source/tamponade-ginghina-source.ogv",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+   "author": "Ginghina C, Beladan C, Iancu M, Calin A, Popescu B",
+   "source": "“Respiratory maneuvers in echocardiography: a review of clinical applications”, Cardiovascular Ultrasound 7:42 (2009), https://doi.org/10.1186/1476-7120-7-42 — supplementary video 11, via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Respiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv",
+   "credit": "Ginghina et al., Cardiovasc Ultrasound 2009 · CC BY 2.0",
+   "changes": "Original OGV (theora, 352×288, 25.0 fps, 0.803 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio removed; no crop, mirroring, speed change or filtering. Poster = frame at 0.3 s.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Respiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Respiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "Phasic variation in cardiac volumes caused by cardiac tamponade, visualized in transthoracic apical 4 chamber view. The intermittent collapse of the free walls ",
+    "published": "2009",
+    "retrieved": "2026-10-03T19:51Z",
+    "originalName": "Respiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv",
+    "originalFormat": "video/ogg",
+    "originalBytes": 177592,
+    "originalSha256": "129691d5a07ded8944670359d35986dca61dc4b79d5a2aa9d5ff14a6ee7c5362",
+    "preserved": "imaging/real/source/tamponade-ginghina-source.ogv",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Respiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3ARespiratory-maneuvers-in-echocardiography-a-review-of-clinical-applications-1476-7120-7-42-S11.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "sourceVideo": {
+      "w": 352,
+      "h": 288,
+      "codec": "theora",
+      "duration": 0.803,
+      "fps": 25.0,
+      "audio": true
+     },
+     "mp4": {
+      "w": 352,
+      "h": 288,
+      "codec": "h264",
+      "duration": 0.8,
+      "fps": 25.0,
+      "audio": false
+     }
+    }
+   },
+   "fileSha256": "789e29b6856ae7c3cfe4a4e4f70fc0fffba9eaed36670da03473bc18cf9f2f57",
+   "webmSha256": "a6be0dc198fdacb2e3d17eca11a25590192feaf8c6fa9b9e00e33e46262fb96b",
+   "posterSha256": "55da77650153e352ef9151ced80eebc29ad3a2b27c2117688aa79e3178711298",
+   "originalSha256": "129691d5a07ded8944670359d35986dca61dc4b79d5a2aa9d5ff14a6ee7c5362"
+  },
+  {
+   "kind": "ptxseries",
+   "id": "ptx-series-bonilla",
+   "type": "xray",
+   "modality": "Chest X-ray",
+   "finding": "pneumothorax before and after a chest tube",
+   "title": "Pneumothorax — before and after a chest tube",
+   "caption": "Three rows from one patient (the “L” marker is on the image right, so the pneumothorax on the image left is the right lung). A: first episode — arrows on the lung edge — then the lung re-expanded with a pigtail catheter. B: recurrence and re-expansion. C: two weeks after the tubes came out.",
+   "look": [
+    "The arrowed lung edge on the first film",
+    "Lung re-expanding with the pigtail in place",
+    "The tube tip in the pleural space",
+    "The final film with markings to the edge"
+   ],
+   "teach": [
+    "A small-bore pigtail catheter is enough for most spontaneous pneumothoraces.",
+    "Re-expansion is judged by lung markings returning to the chest wall.",
+    "Recurrence is common; surgery or pleurodesis is considered after a second episode."
+   ],
+   "quiz": {
+    "q": "How do you know the lung has re-expanded?",
+    "options": [
+     "Lung markings reach the chest wall again",
+     "The chest tube is visible",
+     "The trachea is central",
+     "The heart looks smaller"
+    ],
+    "answer": 0,
+    "explain": "The pneumothorax is the markingless space between lung edge and chest wall; when markings reach the wall again, the lung is up."
+   },
+   "marks": [
+    {
+     "layer": "landmark",
+     "label": "Initial film",
+     "shape": "point",
+     "x": 0.288,
+     "y": 0.022
+    },
+    {
+     "layer": "landmark",
+     "label": "With pigtail drain",
+     "shape": "point",
+     "x": 0.77,
+     "y": 0.022
+    },
+    {
+     "layer": "landmark",
+     "label": "Recurrence",
+     "shape": "point",
+     "x": 0.288,
+     "y": 0.347
+    },
+    {
+     "layer": "landmark",
+     "label": "With drain",
+     "shape": "point",
+     "x": 0.77,
+     "y": 0.347
+    },
+    {
+     "layer": "landmark",
+     "label": "Two weeks later",
+     "shape": "point",
+     "x": 0.288,
+     "y": 0.688
+    },
+    {
+     "layer": "pathology",
+     "label": "Lung edge",
+     "shape": "point",
+     "x": 0.179,
+     "y": 0.088
+    },
+    {
+     "layer": "pathology",
+     "label": "Lung edge",
+     "shape": "point",
+     "x": 0.159,
+     "y": 0.177
+    },
+    {
+     "layer": "pathology",
+     "label": "Lung edge",
+     "shape": "point",
+     "x": 0.162,
+     "y": 0.435
+    },
+    {
+     "layer": "pathology",
+     "label": "Lung edge",
+     "shape": "point",
+     "x": 0.141,
+     "y": 0.521
+    }
+   ],
+   "file": "ptx-series-bonilla.jpg",
+   "original": "source/ptx-series-bonilla-source.png",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+   "author": "Alex Bonilla, Alexander J. Blair, Suliman M. Alamro, Rebecca A. Ward, Michael B. Feldman, Richard A. Dutko, Theodora K. Karagounis, Adam L. Johnson, Erik E. Folch & Jatin M. Vyas",
+   "source": "Bonilla A et al., Journal of Medical Case Reports 13 (2019), https://doi.org/10.1186/s13256-019-2215-4 — figure, via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Chest_X-ray_of_pneumothorax.png",
+   "credit": "Bonilla et al., J Med Case Rep 2019 · CC BY 4.0",
+   "changes": "Converted to JPEG; padded by one black pixel to even dimensions; no crop, mirroring or filtering.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Chest_X-ray_of_pneumothorax.png",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Chest_X-ray_of_pneumothorax.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "Chest X-ray at initial presentation demonstrating a right-sided pneumothorax (arrow) and resolving right-sided pneumothorax after pigtail chest tube placement f",
+    "published": "2019-05-04",
+    "retrieved": "2026-10-03T19:51Z",
+    "originalName": "Chest X-ray of pneumothorax.png",
+    "originalFormat": "image/png",
+    "originalBytes": 759015,
+    "originalSha256": "a1cf308751177271b79933dc907c4461818e7438f0b55627986ed454871c1dfe",
+    "preserved": "imaging/real/source/ptx-series-bonilla-source.png",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Chest X-ray of pneumothorax.png: LicenseShortName = “CC BY 4.0”, UsageTerms = “Creative Commons Attribution 4.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AChest+X-ray+of+pneumothorax.png&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 1182,
+      "h": 1818
+     }
+    }
+   },
+   "fileSha256": "db8b219278d8557bd5501ec004f45b6d3d7b77b8759963398c14dedc23184b7f",
+   "originalSha256": "a1cf308751177271b79933dc907c4461818e7438f0b55627986ed454871c1dfe"
+  },
+  {
+   "kind": "ptxlus",
+   "id": "lus-sliding-gillman2012",
+   "type": "ultrasound",
+   "modality": "Lung ultrasound",
+   "finding": "normal lung sliding",
+   "title": "Normal lung sliding",
+   "caption": "Linear-probe scan at the right lung apex (the authors’ on-screen note reads “R apex batwing sign”). The bright pleural line runs across the middle of the screen and shimmers back and forth with each breath — normal lung sliding.",
+   "look": [
+    "Two rib shadows — the “bat sign”",
+    "The pleural line just below the ribs",
+    "Shimmering movement along the pleural line",
+    "A-lines below it in aerated lung"
+   ],
+   "teach": [
+    "Sliding means the two pleural layers are touching at that spot — a pneumothorax is ruled out under the probe.",
+    "Check the front of the chest first when supine: that is where pleural air rises.",
+    "Sliding can be absent without a pneumothorax (apnoea, mainstem intubation, pleurodesis, adhesions)."
+   ],
+   "quiz": {
+    "q": "What does visible lung sliding under the probe tell you?",
+    "options": [
+     "No pneumothorax at this spot",
+     "The lung is fully aerated",
+     "There is no pleural effusion",
+     "The patient is breathing adequately"
+    ],
+    "answer": 0,
+    "explain": "Sliding needs the visceral pleura to move against the parietal pleura, so they must be in contact there. It says nothing about effusions elsewhere or about ventilation being adequate."
+   },
+   "marks": [
+    {
+     "layer": "landmark",
+     "label": "Chest wall",
+     "shape": "point",
+     "x": 0.52,
+     "y": 0.24
+    },
+    {
+     "layer": "landmark",
+     "label": "Pleural line — watch it shimmer",
+     "shape": "line",
+     "x": 0.52,
+     "y": 0.5,
+     "pts": [
+      [
+       0.32,
+       0.508
+      ],
+      [
+       0.52,
+       0.5
+      ],
+      [
+       0.72,
+       0.49
+      ]
+     ],
+     "lx": 0.52,
+     "ly": 0.47
+    }
+   ],
+   "file": "lus-sliding-gillman2012.mp4",
+   "webm": "lus-sliding-gillman2012.webm",
+   "poster": "lus-sliding-gillman2012.jpg",
+   "posterAt": 1.0,
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+   "author": "Gillman L, Kirkpatrick A",
+   "source": "“Portable bedside ultrasound: the visual stethoscope of the 21st century”, Scandinavian Journal of Trauma, Resuscitation and Emergency Medicine 20:18 (2012), https://doi.org/10.1186/1757-7241-20-18 — supplementary video S1 (“Normal Lung Sliding”), via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv",
+   "credit": "Gillman & Kirkpatrick, Scand J Trauma Resusc Emerg Med 2012 · CC BY 2.0",
+   "changes": "Original OGV (theora, 640×480, 29.97 fps, 5.58 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; the scanner’s top status bar blacked out; frame timing normalised to a constant 29.97 fps (irregular source timestamps; speed unchanged); audio removed; no crop, mirroring, speed change or other filtering. Poster = frame at 1.0 s.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "10.1186/1757-7241-20-18",
+    "originalTitle": "Normal Lung Sliding. The hallmark of lung ultrasound illustrating the normal lung. The pleural line is seen below the rib shadows on either side. Lung sliding, ",
+    "published": "2012",
+    "retrieved": "2026-10-03T20:01Z",
+    "originalName": "Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv",
+    "originalFormat": "video/ogg",
+    "originalBytes": 714531,
+    "originalSha256": "44407556f0a526d14653a31b8331e27189b0e087cce92c3e9c76c4156e2e733d",
+    "preserved": null,
+    "notPreservedReason": "Not redistributed here because the scanner status bar may show identifiers; the source URL and SHA-256 identify the original.",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3APortable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "sourceVideo": {
+      "w": 640,
+      "h": 480,
+      "codec": "theora",
+      "duration": 5.58,
+      "fps": 29.97,
+      "audio": true
+     },
+     "mp4": {
+      "w": 640,
+      "h": 480,
+      "codec": "h264",
+      "duration": 5.539,
+      "fps": 29.97,
+      "audio": false
+     }
+    }
+   },
+   "fileSha256": "838181bd698876597a84424f1c5ecb492cc655ad76f504d6f0e3fda89fae5026",
+   "webmSha256": "768d6d201234016e90685365f11fc8963dc58ec3aca208ba73b85a13f295fdab",
+   "posterSha256": "3e917d3ca6d7098b3a89fda97c63749928a6d1966b6e71a324ad6f36dffb873a",
+   "order": 1
+  },
+  {
+   "id": "stroke-hmcas-2025",
+   "kind": "ct-ischemic",
+   "type": "ct",
+   "modality": "Non-contrast head CT",
+   "finding": "hyperdense middle cerebral artery sign",
+   "findings": [
+    "hyperdense_mca",
+    "lvo"
+   ],
+   "stage": {
+    "course": "ischemic",
+    "fromMin": 0,
+    "toMin": 360,
+    "label": "First hours"
+   },
+   "title": "Hyperdense right MCA",
+   "caption": "Admission non-contrast CT: the right middle cerebral artery is brighter than the left — fresh clot seen directly in the vessel.",
+   "look": [
+    "A short bright tubular segment in the Sylvian region",
+    "Compare with the same artery on the other side",
+    "Brain tissue can still look normal at this point"
+   ],
+   "teach": [
+    "Clot is denser than flowing blood, so a freshly blocked M1 can show up before the brain changes.",
+    "The sign is specific for large-vessel occlusion but not sensitive — CTA is what proves or excludes it.",
+    "Calcified or high-haematocrit vessels can mimic it: look for asymmetry."
+   ],
+   "quiz": {
+    "q": "What does the bright segment represent?",
+    "options": [
+     "Haemorrhage in the brain",
+     "Thrombus inside the artery",
+     "Calcified plaque only",
+     "Contrast in the vessel"
+    ],
+    "answer": 1,
+    "explain": "On a non-contrast scan a single bright arterial segment, brighter than its partner, is clot — the hyperdense vessel sign of large-vessel occlusion."
+   },
+   "marks": [],
+   "file": "stroke-hmcas-2025.jpg",
+   "original": "source/stroke-hmcas-2025-source.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Takayuki Inomata, Koji Nakaya, Takaya Sasaki, Hiroto Shiozaki, Yasuto Noda",
+   "source": "“The Role of Comprehensive Brain Perfusion and Whole-Body CT Using Split-Bolus Injection in Diagnosing Multiple Thromboembolism in a Wake-Up Stroke Patient: A Case Report”, Cureus 17:e86726 (2025), https://doi.org/10.7759/cureus.86726 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12295507.1/cureus-0017-00000086726-i01.jpg",
+   "credit": "Inomata et al., Cureus, 2025 · CC BY 4.0",
+   "changes": "Converted to JPEG; one panel taken from the figure (panel (a), the hyperdense artery); padded by one black pixel to even dimensions; no other crop, mirroring or filtering.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.7759/cureus.86726",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12295507.1/cureus-0017-00000086726-i01.jpg",
+    "doi": "10.7759/cureus.86726",
+    "originalTitle": "The Role of Comprehensive Brain Perfusion and Whole-Body CT Using Split-Bolus Injection in Diagnosing Multiple Thromboembolism in a Wake-Up Stroke Patient: A Case Report",
+    "published": "2025-06-25",
+    "retrieved": "2026-10-04T03:24Z",
+    "originalName": "cureus-0017-00000086726-i01.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 72083,
+    "originalSha256": "05325521968f1aee12cb5a55e32b8ef6148950a6f6209610dc6d2d0661a86dd7",
+    "preserved": "imaging/real/source/stroke-hmcas-2025-source.jpg",
+    "licenseEvidence": "Europe PMC full text of PMC12295507 (doi 10.7759/cureus.86726), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 1 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 376,
+      "h": 410
+     }
+    }
+   },
+   "fileSha256": "a8234ea388299bf8977193a7ee7b7ea6b428bc2489f20fab976f13c70948f7bc",
+   "originalSha256": "05325521968f1aee12cb5a55e32b8ef6148950a6f6209610dc6d2d0661a86dd7"
+  },
+  {
+   "id": "stroke-early-change-2025",
+   "kind": "ct-ischemic",
+   "type": "ct",
+   "modality": "Non-contrast head CT",
+   "finding": "early ischaemic change (loss of grey–white differentiation)",
+   "findings": [
+    "early_ischemic_change",
+    "lvo"
+   ],
+   "stage": {
+    "course": "ischemic",
+    "fromMin": 60,
+    "toMin": 360,
+    "label": "1–6 h"
+   },
+   "title": "Early ischaemic change",
+   "caption": "Same admission CT, higher slice: the right basal ganglia and insular cortex have lost their normal grey–white contrast (ASPECTS 4).",
+   "look": [
+    "Lentiform nucleus blends into the internal capsule",
+    "Insular ribbon fades on the affected side",
+    "Subtle — window narrowly and compare sides"
+   ],
+   "teach": [
+    "Cytotoxic oedema raises tissue water a little: grey matter loses its slight brightness first.",
+    "The deep grey nuclei and insula show it earliest because they have the poorest collaterals.",
+    "Extensive early change (low ASPECTS) means a big core already — it changes the balance of risk for reperfusion."
+   ],
+   "quiz": {
+    "q": "Which structures usually show early ischaemic change first in an M1 occlusion?",
+    "options": [
+     "Occipital cortex",
+     "Lentiform nucleus and insular ribbon",
+     "Cerebellum",
+     "Corpus callosum"
+    ],
+    "answer": 1,
+    "explain": "The lenticulostriate territory (basal ganglia) and the insula have the poorest collateral supply, so they lose grey–white differentiation first."
+   },
+   "marks": [],
+   "file": "stroke-early-change-2025.jpg",
+   "original": "source/stroke-early-change-2025-source.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Takayuki Inomata, Koji Nakaya, Takaya Sasaki, Hiroto Shiozaki, Yasuto Noda",
+   "source": "“The Role of Comprehensive Brain Perfusion and Whole-Body CT Using Split-Bolus Injection in Diagnosing Multiple Thromboembolism in a Wake-Up Stroke Patient: A Case Report”, Cureus 17:e86726 (2025), https://doi.org/10.7759/cureus.86726 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12295507.1/cureus-0017-00000086726-i01.jpg",
+   "credit": "Inomata et al., Cureus, 2025 · CC BY 4.0",
+   "changes": "Converted to JPEG; one panel taken from the figure (panel (b), early ischaemic change); padded by one black pixel to even dimensions; no other crop, mirroring or filtering.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.7759/cureus.86726",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12295507.1/cureus-0017-00000086726-i01.jpg",
+    "doi": "10.7759/cureus.86726",
+    "originalTitle": "The Role of Comprehensive Brain Perfusion and Whole-Body CT Using Split-Bolus Injection in Diagnosing Multiple Thromboembolism in a Wake-Up Stroke Patient: A Case Report",
+    "published": "2025-06-25",
+    "retrieved": "2026-10-04T03:24Z",
+    "originalName": "cureus-0017-00000086726-i01.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 72083,
+    "originalSha256": "05325521968f1aee12cb5a55e32b8ef6148950a6f6209610dc6d2d0661a86dd7",
+    "preserved": "imaging/real/source/stroke-early-change-2025-source.jpg",
+    "licenseEvidence": "Europe PMC full text of PMC12295507 (doi 10.7759/cureus.86726), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 1 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 376,
+      "h": 410
+     }
+    }
+   },
+   "fileSha256": "4374e9b59b932df0427e570d6120083a290c5941a25640cc53509699463827f4",
+   "originalSha256": "05325521968f1aee12cb5a55e32b8ef6148950a6f6209610dc6d2d0661a86dd7"
+  },
+  {
+   "id": "stroke-cta-m1-2025",
+   "kind": "ct-ischemic",
+   "type": "ct",
+   "modality": "CT angiography",
+   "finding": "right M1 occlusion on CTA",
+   "findings": [
+    "lvo",
+    "m1_occlusion"
+   ],
+   "stage": {
+    "course": "ischemic",
+    "fromMin": 0,
+    "toMin": 1440,
+    "label": "Until reopened"
+   },
+   "title": "CTA: right M1 cut-off",
+   "caption": "CT angiogram: contrast fills the left middle cerebral artery but stops abruptly in the proximal right M1 (arrow).",
+   "look": [
+    "Abrupt end of the contrast column",
+    "Compare the two Sylvian branches",
+    "How far back do the collaterals fill?"
+   ],
+   "teach": [
+    "CTA locates the clot — the target for thrombectomy.",
+    "Collateral filling beyond the block predicts how slowly the core will grow.",
+    "Repeat imaging is needed if symptoms change: clots move, fragment or reopen."
+   ],
+   "quiz": {
+    "q": "What decides whether this patient goes for thrombectomy?",
+    "options": [
+     "Only the time since onset",
+     "A proximal occlusion plus salvageable tissue on imaging",
+     "The blood pressure",
+     "Whether the hyperdense sign is present"
+    ],
+    "answer": 1,
+    "explain": "Thrombectomy needs a reachable large-vessel occlusion and evidence that tissue is still salvageable (small core / mismatch), within the evidence-based time windows."
+   },
+   "marks": [],
+   "file": "stroke-cta-m1-2025.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Bushra Qureshi, Sobiya Farook, Mohammadzakir Diwan, Sheeba Philip",
+   "source": "“Beating the Clock: Successful Thrombectomy 28 Hours After Stroke in a Young Adult With Internal Carotid Artery Dissection”, Cureus 17:e98724 (2025), https://doi.org/10.7759/cureus.98724 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12778373.1/cureus-0017-00000098724-i02.jpg",
+   "credit": "Qureshi et al., Cureus, 2025 · CC BY 4.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.7759/cureus.98724",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12778373.1/cureus-0017-00000098724-i02.jpg",
+    "doi": "10.7759/cureus.98724",
+    "originalTitle": "Beating the Clock: Successful Thrombectomy 28 Hours After Stroke in a Young Adult With Internal Carotid Artery Dissection",
+    "published": "2025-12-08",
+    "retrieved": "2026-10-04T03:24Z",
+    "originalName": "cureus-0017-00000098724-i02.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 76050,
+    "originalSha256": "cfa49a330fe79d73dc921938776b5a095d585e4a2d3faa594d1c08d1344919bb",
+    "preserved": "imaging/real/stroke-cta-m1-2025.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC12778373 (doi 10.7759/cureus.98724), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 2 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 750,
+      "h": 750
+     }
+    }
+   },
+   "fileSha256": "cfa49a330fe79d73dc921938776b5a095d585e4a2d3faa594d1c08d1344919bb"
+  },
+  {
+   "id": "stroke-ctp-mismatch-2025",
+   "kind": "ct-ischemic",
+   "type": "ct",
+   "modality": "CT perfusion",
+   "finding": "core–penumbra mismatch",
+   "findings": [
+    "lvo",
+    "ctp_mismatch"
+   ],
+   "stage": {
+    "course": "ischemic",
+    "fromMin": 0,
+    "toMin": 1440,
+    "label": "Until reopened"
+   },
+   "title": "CT perfusion: core and penumbra",
+   "caption": "Automated perfusion maps 28 hours after onset: a small core (pink, very low flow) inside a much larger region of delayed perfusion (green) — a large mismatch.",
+   "look": [
+    "Pink = core (rCBF < 30 %)",
+    "Green = Tmax > 6 s, tissue at risk",
+    "The mismatch volume is the tissue thrombectomy can save"
+   ],
+   "teach": [
+    "Core grows into penumbra at a rate set by the collaterals — slow progressors still have tissue to save at 24 h.",
+    "Perfusion maps estimate; they are not histology. Treat the patient, not the colours alone.",
+    "Reopening the artery stops the growth of the core."
+   ],
+   "quiz": {
+    "q": "Why was thrombectomy still offered 28 h after onset?",
+    "options": [
+     "Because the core was large",
+     "Because a large penumbra remained around a small core",
+     "Because the CT was normal",
+     "Because the patient was young"
+    ],
+    "answer": 1,
+    "explain": "Late-window selection rests on mismatch: a small core with a large area of delayed perfusion means tissue is still salvageable."
+   },
+   "marks": [],
+   "file": "stroke-ctp-mismatch-2025.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Bushra Qureshi, Sobiya Farook, Mohammadzakir Diwan, Sheeba Philip",
+   "source": "“Beating the Clock: Successful Thrombectomy 28 Hours After Stroke in a Young Adult With Internal Carotid Artery Dissection”, Cureus 17:e98724 (2025), https://doi.org/10.7759/cureus.98724 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12778373.1/cureus-0017-00000098724-i03.jpg",
+   "credit": "Qureshi et al., Cureus, 2025 · CC BY 4.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.7759/cureus.98724",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12778373.1/cureus-0017-00000098724-i03.jpg",
+    "doi": "10.7759/cureus.98724",
+    "originalTitle": "Beating the Clock: Successful Thrombectomy 28 Hours After Stroke in a Young Adult With Internal Carotid Artery Dissection",
+    "published": "2025-12-08",
+    "retrieved": "2026-10-04T03:24Z",
+    "originalName": "cureus-0017-00000098724-i03.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 109545,
+    "originalSha256": "9b61c5de01033928cbceeedbe364bac3818e8d2eb5db85240729ca086f86c3ec",
+    "preserved": "imaging/real/stroke-ctp-mismatch-2025.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC12778373 (doi 10.7759/cureus.98724), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 3 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 750,
+      "h": 607
+     }
+    }
+   },
+   "fileSha256": "9b61c5de01033928cbceeedbe364bac3818e8d2eb5db85240729ca086f86c3ec"
+  },
+  {
+   "id": "stroke-infarct-24h-2025",
+   "kind": "ct-ischemic",
+   "type": "ct",
+   "modality": "Non-contrast head CT",
+   "finding": "established infarct at 24 h",
+   "findings": [
+    "established_infarct"
+   ],
+   "stage": {
+    "course": "ischemic",
+    "fromMin": 720,
+    "toMin": 4320,
+    "label": "12 h – 3 days"
+   },
+   "title": "Established infarct",
+   "caption": "Non-contrast CT 24 hours after thrombectomy: a clearly hypodense, sharply marginated infarct in the right basal ganglia and operculum — the final core. No haemorrhage.",
+   "look": [
+    "Dark (hypodense) wedge with sharp borders",
+    "Mild local mass effect on the frontal horn",
+    "Check for new brightness (haemorrhagic transformation)"
+   ],
+   "teach": [
+    "By 12–24 h dead tissue is clearly hypodense: CT shows what was lost.",
+    "The final infarct maps onto the perfusion core at the time the artery reopened.",
+    "Swelling peaks over the next 2–5 days."
+   ],
+   "quiz": {
+    "q": "What does the dark region now represent?",
+    "options": [
+     "Penumbra that can still recover",
+     "Infarcted (dead) tissue",
+     "Fresh haemorrhage",
+     "Normal CSF"
+    ],
+    "answer": 1,
+    "explain": "Clear hypodensity with sharp margins a day after onset is completed infarction — the core at the moment of reperfusion."
+   },
+   "marks": [],
+   "file": "stroke-infarct-24h-2025.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Bushra Qureshi, Sobiya Farook, Mohammadzakir Diwan, Sheeba Philip",
+   "source": "“Beating the Clock: Successful Thrombectomy 28 Hours After Stroke in a Young Adult With Internal Carotid Artery Dissection”, Cureus 17:e98724 (2025), https://doi.org/10.7759/cureus.98724 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12778373.1/cureus-0017-00000098724-i06.jpg",
+   "credit": "Qureshi et al., Cureus, 2025 · CC BY 4.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.7759/cureus.98724",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12778373.1/cureus-0017-00000098724-i06.jpg",
+    "doi": "10.7759/cureus.98724",
+    "originalTitle": "Beating the Clock: Successful Thrombectomy 28 Hours After Stroke in a Young Adult With Internal Carotid Artery Dissection",
+    "published": "2025-12-08",
+    "retrieved": "2026-10-04T03:24Z",
+    "originalName": "cureus-0017-00000098724-i06.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 92191,
+    "originalSha256": "7df1b57dd76ce1eca6c3fb2d406fdb23eba43436805c747b9eca09bfbdb89b84",
+    "preserved": "imaging/real/stroke-infarct-24h-2025.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC12778373 (doi 10.7759/cureus.98724), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 6 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 750,
+      "h": 792
+     }
+    }
+   },
+   "fileSha256": "7df1b57dd76ce1eca6c3fb2d406fdb23eba43436805c747b9eca09bfbdb89b84"
+  },
+  {
+   "id": "stroke-malignant-edema-2023",
+   "kind": "ct-ischemic",
+   "type": "ct",
+   "modality": "Non-contrast head CT",
+   "finding": "malignant brain oedema after MCA infarction",
+   "findings": [
+    "malignant_edema",
+    "midline_shift"
+   ],
+   "stage": {
+    "course": "ischemic",
+    "fromMin": 1440,
+    "toMin": 7200,
+    "label": "Days 1–5"
+   },
+   "title": "Malignant oedema",
+   "caption": "After thrombectomy (mTICI 2b), a large left MCA infarct has swollen: sulci effaced, the lateral ventricle compressed and the midline pushed across.",
+   "look": [
+    "Whole-territory hypodensity",
+    "Effaced sulci and compressed ventricle",
+    "Midline shift — measure at the septum pellucidum"
+   ],
+   "teach": [
+    "Swelling peaks around days 2–5; younger brains have less room and herniate sooner.",
+    "Watch for falling consciousness, new pupil asymmetry or a rising shift.",
+    "Decompressive hemicraniectomy, offered early in selected patients, reduces death from malignant MCA infarction."
+   ],
+   "quiz": {
+    "q": "When does post-infarct swelling usually peak?",
+    "options": [
+     "In the first hour",
+     "Days 2–5",
+     "At 3 weeks",
+     "Never — infarcts shrink immediately"
+    ],
+    "answer": 1,
+    "explain": "Cytotoxic then vasogenic oedema builds over the first days and peaks around days 2–5."
+   },
+   "marks": [],
+   "file": "stroke-malignant-edema-2023.jpg",
+   "original": "source/stroke-malignant-edema-2023-source.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Zhang L, Li J, Yang B, Li W, Wang X, Zou M, Song H, Shi L, Duan Y.",
+   "source": "“The risk and outcome of malignant brain edema in post-mechanical thrombectomy: acute ischemic stroke by anterior circulation occlusion”, European journal of medical research 28:435 (2023), https://doi.org/10.1186/s40001-023-01414-x — https://pmc-oa-opendata.s3.amazonaws.com/PMC10571427.1/40001_2023_1414_Fig2_HTML.jpg",
+   "credit": "Zhang et al., European journal of medical research, 2023 · CC BY 4.0",
+   "changes": "Converted to JPEG; one panel taken from the figure (top row (A–C), the patient with malignant oedema); downscaled 1888×632 → 1600 px wide (aspect kept); no other crop, mirroring or filtering.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1186/s40001-023-01414-x",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10571427.1/40001_2023_1414_Fig2_HTML.jpg",
+    "doi": "10.1186/s40001-023-01414-x",
+    "originalTitle": "The risk and outcome of malignant brain edema in post-mechanical thrombectomy: acute ischemic stroke by anterior circulation occlusion",
+    "published": "2023-10-13",
+    "retrieved": "2026-10-04T03:24Z",
+    "originalName": "40001_2023_1414_Fig2_HTML.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 1222730,
+    "originalSha256": "4393c7a8af49ea6b4520951c2edb5ef2c2f6a7777b14c4e1674124fd163bf8ed",
+    "preserved": "imaging/real/source/stroke-malignant-edema-2023-source.jpg",
+    "licenseEvidence": "Europe PMC full text of PMC10571427 (doi 10.1186/s40001-023-01414-x), <license>: “Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C”; Fig. 2 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 1600,
+      "h": 536
+     }
+    }
+   },
+   "fileSha256": "895d201a5077941dbc23263ac453b05e3811b26669b2e85f59e1d6fa95de3bd1",
+   "originalSha256": "4393c7a8af49ea6b4520951c2edb5ef2c2f6a7777b14c4e1674124fd163bf8ed"
+  },
+  {
+   "id": "stroke-mass-effect-2021",
+   "kind": "ct-ischemic",
+   "type": "ct",
+   "modality": "Non-contrast head CT",
+   "finding": "large MCA infarct with mass effect",
+   "findings": [
+    "established_infarct",
+    "midline_shift"
+   ],
+   "stage": {
+    "course": "ischemic",
+    "fromMin": 1440,
+    "toMin": 7200,
+    "label": "Days 1–5"
+   },
+   "title": "Large infarct with mass effect",
+   "caption": "A large right fronto-parieto-temporal infarct compresses the right lateral ventricle (case 4 of a cardio-cerebral infarction series).",
+   "look": [
+    "Territory-shaped hypodensity",
+    "Compressed ipsilateral ventricle",
+    "Loss of sulci over the hemisphere"
+   ],
+   "teach": [
+    "The size of the final infarct predicts how much it will swell.",
+    "Mass effect, not the original clot, is what threatens life in the first week."
+   ],
+   "quiz": {
+    "q": "Which sign on this scan most directly signals mass effect?",
+    "options": [
+     "Bright artery",
+     "Compressed lateral ventricle",
+     "Calcified pineal gland",
+     "Normal sulci"
+    ],
+    "answer": 1,
+    "explain": "Compression of the ventricle (and sulcal effacement) shows the swelling is displacing brain."
+   },
+   "marks": [],
+   "file": "stroke-mass-effect-2021.jpg",
+   "original": "source/stroke-mass-effect-2021-source.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Eskandarani R, Sahli S, Sawan S, Alsaeed A.",
+   "source": "“Simultaneous cardio-cerebral infarction in the coronavirus disease pandemic era: A case series”, Medicine 100:e24496 (2021), https://doi.org/10.1097/md.0000000000024496 — https://pmc-oa-opendata.s3.amazonaws.com/PMC7850703.1/medi-100-e24496-g011.jpg",
+   "credit": "Eskandarani et al., Medicine, 2021 · CC BY 4.0",
+   "changes": "Converted to JPEG; one panel taken from the figure (the CT panel); padded by one black pixel to even dimensions; no other crop, mirroring or filtering.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1097/md.0000000000024496",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC7850703.1/medi-100-e24496-g011.jpg",
+    "doi": "10.1097/md.0000000000024496",
+    "originalTitle": "Simultaneous cardio-cerebral infarction in the coronavirus disease pandemic era: A case series",
+    "published": "2021-01-01",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "medi-100-e24496-g011.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 169786,
+    "originalSha256": "44290ef293c7caed2f95fc6b15a0c062c87c44bab40f08bc7620404845d10139",
+    "preserved": "imaging/real/source/stroke-mass-effect-2021-source.jpg",
+    "licenseEvidence": "Europe PMC full text of PMC7850703 (doi 10.1097/md.0000000000024496), <license>: “This is an open access article distributed under the Creative Commons Attribution License 4.0 (CCBY), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited. http://creativecommons.org/licenses/by/4.0”; Figure 11 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 408,
+      "h": 508
+     }
+    }
+   },
+   "fileSha256": "70a2b6eed6106bff85726c1a19b425c20a1b3c51815763d247536af59f1e61f4",
+   "originalSha256": "44290ef293c7caed2f95fc6b15a0c062c87c44bab40f08bc7620404845d10139"
+  },
+  {
+   "id": "stroke-hemorrhagic-transformation-2026",
+   "kind": "ct-ischemic",
+   "type": "ct",
+   "modality": "Non-contrast head CT (serial)",
+   "finding": "haemorrhagic transformation of an infarct",
+   "findings": [
+    "hemorrhagic_transformation"
+   ],
+   "stage": {
+    "course": "ischemic",
+    "fromMin": 4320,
+    "toMin": 20160,
+    "label": "Days 3–14"
+   },
+   "title": "Haemorrhagic transformation",
+   "caption": "Serial CT after thrombectomy: patchy bleeding appears within the infarct on day 4 (A), expands and coalesces by day 6 (B), then gradually fades (C–E).",
+   "look": [
+    "New bright patches inside a dark infarct",
+    "Petechial first, then confluent",
+    "Bright blood fades to grey over 1–2 weeks"
+   ],
+   "teach": [
+    "Reperfused dead tissue has leaky vessels — bleeding into the infarct is common after large strokes and reperfusion.",
+    "Most is petechial and harmless; a confluent haematoma with mass effect is symptomatic and changes management (antithrombotics, BP).",
+    "Acute blood is bright on CT and becomes iso- then hypodense as it breaks down."
+   ],
+   "quiz": {
+    "q": "Why does blood fade on serial CT?",
+    "options": [
+     "It moves into the ventricles",
+     "Haemoglobin breaks down and the clot is resorbed",
+     "The CT settings change",
+     "It turns into calcium"
+    ],
+    "answer": 1,
+    "explain": "Clot density falls as haemoglobin breaks down — acute blood is bright, then iso-, then hypodense over 1–3 weeks."
+   },
+   "marks": [],
+   "file": "stroke-hemorrhagic-transformation-2026.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Xu Z, Ding B, Wu J, Wang H, Chen Z, Wang Z.",
+   "source": "“Zero anticoagulation, zero thrombolysis: successful management of massive pulmonary embolism following hemorrhagic transformation of acute ischemic stroke: a case report”, Frontiers in cardiovascular medicine 13:1747104 (2026), https://doi.org/10.3389/fcvm.2026.1747104 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12907301.1/fcvm-13-1747104-g001.jpg",
+   "credit": "Xu et al., Frontiers in cardiovascular medicine, 2026 · CC BY 4.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.3389/fcvm.2026.1747104",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12907301.1/fcvm-13-1747104-g001.jpg",
+    "doi": "10.3389/fcvm.2026.1747104",
+    "originalTitle": "Zero anticoagulation, zero thrombolysis: successful management of massive pulmonary embolism following hemorrhagic transformation of acute ischemic stroke: a case report",
+    "published": "2026-02-02",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "fcvm-13-1747104-g001.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 145095,
+    "originalSha256": "1ba809009572df8cf216203d0665b0f0c32e12f86ba3797ebd29b9ad5e33ed76",
+    "preserved": "imaging/real/stroke-hemorrhagic-transformation-2026.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC12907301 (doi 10.3389/fcvm.2026.1747104), <license>: “This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY) . The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journ”; Figure 1 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 782,
+      "h": 584
+     }
+    }
+   },
+   "fileSha256": "1ba809009572df8cf216203d0665b0f0c32e12f86ba3797ebd29b9ad5e33ed76"
+  },
+  {
+   "id": "stroke-hmcas-vs-cta-2022",
+   "kind": "ct-ischemic",
+   "type": "ct",
+   "modality": "Non-contrast CT with CTA MIP",
+   "finding": "hyperdense MCA sign compared with CTA",
+   "findings": [
+    "hyperdense_mca",
+    "lvo",
+    "m1_occlusion"
+   ],
+   "stage": {
+    "course": "ischemic",
+    "fromMin": 0,
+    "toMin": 360,
+    "label": "First hours"
+   },
+   "title": "Hyperdense sign vs CTA",
+   "caption": "Pairs of non-contrast CT (top) and CTA maximum-intensity projections (bottom) from three patients with M1 occlusion: the hyperdense sign can be absent (A/B), distal (C/D) or proximal (E/F).",
+   "look": [
+    "Top: does the artery look bright?",
+    "Bottom: where does contrast stop?",
+    "A patient can have an occlusion with no hyperdense sign"
+   ],
+   "teach": [
+    "A normal-looking artery on plain CT does not exclude a clot.",
+    "A longer, more proximal hyperdense segment usually means a bigger clot that is harder to dissolve with lytics alone."
+   ],
+   "quiz": {
+    "q": "Patient A has no hyperdense sign. What does CTA show?",
+    "options": [
+     "A normal MCA",
+     "An M1 occlusion anyway",
+     "A haemorrhage",
+     "An aneurysm"
+    ],
+    "answer": 1,
+    "explain": "The sign is insensitive: panel B shows an M1 occlusion despite a normal-looking artery on plain CT."
+   },
+   "marks": [],
+   "file": "stroke-hmcas-vs-cta-2022.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Kang Z, Wu L, Sun D, Zhou G, Wu X, Qiu H, Mei B, Zhang J.",
+   "source": "“Proximal hyperdense middle cerebral artery sign is associated with increased risk of asymptomatic hemorrhagic transformation after endovascular thrombectomy: a multicenter retrospective study”, Journal of neurology 270:1587-1599 (2022), https://doi.org/10.1007/s00415-022-11500-5 — https://pmc-oa-opendata.s3.amazonaws.com/PMC9971136.1/415_2022_11500_Fig1_HTML.jpg",
+   "credit": "Kang et al., Journal of neurology, 2022 · CC BY 4.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1007/s00415-022-11500-5",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC9971136.1/415_2022_11500_Fig1_HTML.jpg",
+    "doi": "10.1007/s00415-022-11500-5",
+    "originalTitle": "Proximal hyperdense middle cerebral artery sign is associated with increased risk of asymptomatic hemorrhagic transformation after endovascular thrombectomy: a multicenter retrospective study",
+    "published": "2022-11-29",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "415_2022_11500_Fig1_HTML.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 253934,
+    "originalSha256": "f1d5bd7c33e48c51ccd31dd979796d905b4689517d2d0eff779cae85348b2ab1",
+    "preserved": "imaging/real/stroke-hmcas-vs-cta-2022.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC9971136 (doi 10.1007/s00415-022-11500-5), <license>: “Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C”; Fig. 1 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 708,
+      "h": 548
+     }
+    }
+   },
+   "fileSha256": "f1d5bd7c33e48c51ccd31dd979796d905b4689517d2d0eff779cae85348b2ab1"
+  },
+  {
+   "id": "stroke-ctp-m1-mirza",
+   "kind": "ct-ischemic",
+   "type": "ct",
+   "modality": "CT perfusion",
+   "finding": "perfusion deficit in M1 occlusion",
+   "findings": [
+    "lvo",
+    "ctp_mismatch"
+   ],
+   "stage": {
+    "course": "ischemic",
+    "fromMin": 0,
+    "toMin": 1440,
+    "label": "Until reopened"
+   },
+   "title": "Perfusion: delayed but preserved volume",
+   "caption": "CT perfusion in an M1 occlusion: time-to-peak is delayed over the MCA territory (TTP, left) while blood volume is largely preserved (CBV, right) — tissue at risk rather than dead.",
+   "look": [
+    "TTP: hot colours = late arrival",
+    "CBV: preserved = collaterals still holding",
+    "Mismatch between the two = penumbra"
+   ],
+   "teach": [
+    "Delayed arrival with preserved blood volume means autoregulation is still compensating.",
+    "Where CBV falls too, the tissue has failed — that is core."
+   ],
+   "quiz": {
+    "q": "Delayed TTP with preserved CBV suggests…",
+    "options": [
+     "Established infarct",
+     "Salvageable penumbra",
+     "Haemorrhage",
+     "Normal brain"
+    ],
+    "answer": 1,
+    "explain": "Preserved blood volume despite slow arrival means collaterals are keeping the tissue alive for now — penumbra."
+   },
+   "marks": [],
+   "file": "stroke-ctp-m1-mirza.jpg",
+   "original": "source/stroke-ctp-m1-mirza-source.png",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+   "author": "edit Shazia Mirza and Sankalp Gokhale See also source article for additional image creators.",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:CT_perfusion_in_M1_artery_occlusion.png",
+   "credit": "Mirza & creators., Wikimedia Commons, 2016 · CC BY 4.0",
+   "changes": "Converted to JPEG; padded by one black pixel to even dimensions; no crop, mirroring or filtering.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:CT_perfusion_in_M1_artery_occlusion.png",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7e/CT_perfusion_in_M1_artery_occlusion.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "edit CT perfusion in M1 artery occlusion.png. For context, see Wikipedia:Imaging in stroke .",
+    "published": "2016-07-25",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "CT perfusion in M1 artery occlusion.png",
+    "originalFormat": "image/png",
+    "originalBytes": 470221,
+    "originalSha256": "f4659d336e925f5a2f4b780441c7f914ce2069806cbeb5b864ed9809abd53196",
+    "preserved": "imaging/real/source/stroke-ctp-m1-mirza-source.png",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:CT perfusion in M1 artery occlusion.png: LicenseShortName = “CC BY 4.0”, UsageTerms = “Creative Commons Attribution 4.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3ACT+perfusion+in+M1+artery+occlusion.png&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 480,
+      "h": 540
+     }
+    }
+   },
+   "fileSha256": "afdf5b66f130f1cb7374cd726888cf20f1142c2933af0bd32061442267984c25",
+   "originalSha256": "f4659d336e925f5a2f4b780441c7f914ce2069806cbeb5b864ed9809abd53196"
+  },
+  {
+   "id": "ich-swirl-2012",
+   "kind": "ct-ich",
+   "type": "ct",
+   "modality": "Non-contrast head CT",
+   "finding": "swirl sign in acute intracerebral haemorrhage",
+   "findings": [
+    "ich",
+    "active_bleeding"
+   ],
+   "stage": {
+    "course": "ich",
+    "fromMin": 0,
+    "toMin": 180,
+    "label": "First hours"
+   },
+   "title": "Swirl sign",
+   "caption": "Six acute haemorrhages: darker swirls inside a bright haematoma (a–c) mark blood that has not yet clotted; d is a uniform haematoma without a swirl; e–f are mimics.",
+   "look": [
+    "Low-density swirls within the bright clot",
+    "Irregular, heterogeneous margins",
+    "Size now vs the next scan"
+   ],
+   "teach": [
+    "Unclotted, actively entering blood is less dense than retracted clot.",
+    "A swirl predicts haematoma growth and worse outcome — these patients bleed in the first hours.",
+    "That window is when blood-pressure lowering and reversal of anticoagulation matter most."
+   ],
+   "quiz": {
+    "q": "What do the darker swirls inside the haematoma suggest?",
+    "options": [
+     "Old blood",
+     "Ongoing bleeding (unclotted blood)",
+     "Air",
+     "Calcification"
+    ],
+    "answer": 1,
+    "explain": "Hypodense regions inside an acute haematoma represent liquid, unclotted blood — a marker of active bleeding and later expansion."
+   },
+   "marks": [],
+   "file": "ich-swirl-2012.jpg",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+   "author": "Selariu E, Zia E, Brizzi M, Abul-Kasim K.",
+   "source": "“Swirl sign in intracerebral haemorrhage: definition, prevalence, reliability and prognostic value”, BMC neurology 12:109 (2012), https://doi.org/10.1186/1471-2377-12-109 — https://pmc-oa-opendata.s3.amazonaws.com/PMC3517489.1/1471-2377-12-109-1.jpg",
+   "credit": "Selariu et al., BMC neurology, 2012 · CC BY 2.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1186/1471-2377-12-109",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC3517489.1/1471-2377-12-109-1.jpg",
+    "doi": "10.1186/1471-2377-12-109",
+    "originalTitle": "Swirl sign in intracerebral haemorrhage: definition, prevalence, reliability and prognostic value",
+    "published": "2012-09-26",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "1471-2377-12-109-1.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 80630,
+    "originalSha256": "24549e906b8c978a33fe4c25c018b340f2fc8255f70b4fd298e236f7e0c4dc8e",
+    "preserved": "imaging/real/ich-swirl-2012.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC3517489 (doi 10.1186/1471-2377-12-109), <license>: “This is an Open Access article distributed under the terms of the Creative Commons Attribution License ( http://creativecommons.org/licenses/by/2.0 ), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.”; Figure 1 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 600,
+      "h": 451
+     }
+    }
+   },
+   "fileSha256": "24549e906b8c978a33fe4c25c018b340f2fc8255f70b4fd298e236f7e0c4dc8e"
+  },
+  {
+   "id": "ich-spot-sign-2016",
+   "kind": "ct-ich",
+   "type": "ct",
+   "modality": "CT angiography",
+   "finding": "spot sign",
+   "findings": [
+    "ich",
+    "active_bleeding"
+   ],
+   "stage": {
+    "course": "ich",
+    "fromMin": 0,
+    "toMin": 360,
+    "label": "First hours"
+   },
+   "title": "Spot sign",
+   "caption": "CTA of a lobar haematoma: a focus of contrast within the clot (arrow) — contrast leaking from the bleeding vessel.",
+   "look": [
+    "Bright dot inside the haematoma, not touching a normal vessel",
+    "Present on CTA, absent on plain CT",
+    "More than one spot = higher risk"
+   ],
+   "teach": [
+    "The spot is extravasation in progress; it predicts expansion.",
+    "Expansion happens mostly in the first 3–6 hours and is one of the few modifiable drivers of outcome."
+   ],
+   "quiz": {
+    "q": "The spot sign mainly predicts…",
+    "options": [
+     "Hydrocephalus",
+     "Haematoma expansion",
+     "Vasospasm",
+     "Seizures"
+    ],
+    "answer": 1,
+    "explain": "Contrast leaking into the clot on CTA identifies patients whose haematoma is likely to grow."
+   },
+   "marks": [],
+   "file": "ich-spot-sign-2016.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Airton Leonardo de Oliveira Manoel, Alberto Goffi, Fernando Godinho Zampieri, David Turkel-Parrella, Abhijit Duggal, Thomas R. Marotta, R. Loch Macdonald, Simon Abrahamson",
+   "source": "“The critical care management of spontaneous intracranial hemorrhage: a contemporary review”, Critical care (London, England) 20:272 (2016), https://doi.org/10.1186/s13054-016-1432-0 — https://pmc-oa-opendata.s3.amazonaws.com/PMC5027096.1/13054_2016_1432_Fig3_HTML.jpg",
+   "credit": "Manoel et al., Critical care (London, England), 2016 · CC BY 4.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1186/s13054-016-1432-0",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC5027096.1/13054_2016_1432_Fig3_HTML.jpg",
+    "doi": "10.1186/s13054-016-1432-0",
+    "originalTitle": "The critical care management of spontaneous intracranial hemorrhage: a contemporary review",
+    "published": "2016-09-18",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "13054_2016_1432_Fig3_HTML.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 38692,
+    "originalSha256": "20c920d88a63506503f52ef296669c09557ece851ae0b775056f273732d8f640",
+    "preserved": "imaging/real/ich-spot-sign-2016.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC5027096 (doi 10.1186/s13054-016-1432-0), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is distributed under the terms of the Creative Commons Attribution 4.0 International License ( http://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted use, distribution, and reproduction in any medium, provided y”; Fig. 3 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 358,
+      "h": 444
+     }
+    }
+   },
+   "fileSha256": "20c920d88a63506503f52ef296669c09557ece851ae0b775056f273732d8f640"
+  },
+  {
+   "id": "ich-deep-locations-2016",
+   "kind": "ct-ich",
+   "type": "ct",
+   "modality": "Non-contrast head CT",
+   "finding": "typical sites of hypertensive haemorrhage",
+   "findings": [
+    "ich"
+   ],
+   "stage": {
+    "course": "ich",
+    "fromMin": 0,
+    "toMin": 1440,
+    "label": "First day"
+   },
+   "title": "Hypertensive haemorrhage sites",
+   "caption": "Deep haemorrhages, clockwise from top left: putamen, thalamus, cerebellum and pons.",
+   "look": [
+    "Bright, rounded clot in deep grey matter or brainstem",
+    "Relationship to the ventricles",
+    "Posterior fossa clots threaten the fourth ventricle"
+   ],
+   "teach": [
+    "Chronic hypertension damages small penetrating arteries — hence the deep locations.",
+    "Cerebellar haematomas can block CSF flow and compress the brainstem: they are surgical."
+   ],
+   "quiz": {
+    "q": "Which haemorrhage site is most likely to need urgent neurosurgery?",
+    "options": [
+     "Putamen, small",
+     "Cerebellum with brainstem compression",
+     "Thalamus without hydrocephalus",
+     "Pons"
+    ],
+    "answer": 1,
+    "explain": "A cerebellar haematoma that compresses the brainstem or obstructs the fourth ventricle is the classic indication for evacuation."
+   },
+   "marks": [],
+   "file": "ich-deep-locations-2016.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Airton Leonardo de Oliveira Manoel, Alberto Goffi, Fernando Godinho Zampieri, David Turkel-Parrella, Abhijit Duggal, Thomas R. Marotta, R. Loch Macdonald, Simon Abrahamson",
+   "source": "“The critical care management of spontaneous intracranial hemorrhage: a contemporary review”, Critical care (London, England) 20:272 (2016), https://doi.org/10.1186/s13054-016-1432-0 — https://pmc-oa-opendata.s3.amazonaws.com/PMC5027096.1/13054_2016_1432_Fig2_HTML.jpg",
+   "credit": "Manoel et al., Critical care (London, England), 2016 · CC BY 4.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1186/s13054-016-1432-0",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC5027096.1/13054_2016_1432_Fig2_HTML.jpg",
+    "doi": "10.1186/s13054-016-1432-0",
+    "originalTitle": "The critical care management of spontaneous intracranial hemorrhage: a contemporary review",
+    "published": "2016-09-18",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "13054_2016_1432_Fig2_HTML.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 85243,
+    "originalSha256": "899b78b4966406bbcede638f5eec60ca2a38a1015598be50760204f179c0bd13",
+    "preserved": "imaging/real/ich-deep-locations-2016.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC5027096 (doi 10.1186/s13054-016-1432-0), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is distributed under the terms of the Creative Commons Attribution 4.0 International License ( http://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted use, distribution, and reproduction in any medium, provided y”; Fig. 2 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 472,
+      "h": 532
+     }
+    }
+   },
+   "fileSha256": "899b78b4966406bbcede638f5eec60ca2a38a1015598be50760204f179c0bd13"
+  },
+  {
+   "id": "ich-ivh-commons",
+   "kind": "ct-ich",
+   "type": "ct",
+   "modality": "Non-contrast head CT",
+   "finding": "intracerebral haemorrhage with intraventricular extension",
+   "findings": [
+    "ich",
+    "ivh"
+   ],
+   "stage": {
+    "course": "ich",
+    "fromMin": 60,
+    "toMin": 2880,
+    "label": "Hours – 2 days"
+   },
+   "title": "Ventricular extension",
+   "caption": "A large haemorrhage has ruptured into the lateral ventricles, casting them with blood (a young woman one week post partum).",
+   "look": [
+    "Blood filling the ventricles (bright cast)",
+    "Blood layering in the occipital horns",
+    "Are the temporal horns enlarging?"
+   ],
+   "teach": [
+    "Intraventricular blood is an independent marker of poor outcome.",
+    "Clot in the ventricles can block CSF outflow — watch for hydrocephalus (EVD may be needed)."
+   ],
+   "quiz": {
+    "q": "What complication does intraventricular blood most directly risk?",
+    "options": [
+     "Hyponatraemia",
+     "Obstructive hydrocephalus",
+     "Vasospasm",
+     "Ischaemic stroke"
+    ],
+    "answer": 1,
+    "explain": "Clot in the ventricular system obstructs CSF flow — acute hydrocephalus, treated with an external ventricular drain."
+   },
+   "marks": [],
+   "file": "ich-ivh-commons.jpg",
+   "license": "Public Domain",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "author": "Glitzy queen00 at English Wikipedia",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrage_(CT_scan).jpg",
+   "credit": "Wikipedia, Wikimedia Commons, 2007 · Public Domain",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrage_(CT_scan).jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Intracerebral_hemorrage_%28CT_scan%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "This image shows an Intracerebral and Intraventricular haemorrhage of a young woman. The woman was one week post partum, with no known trauma involved.",
+    "published": "2007-10-22 16:03:49",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "Intracerebral hemorrage (CT scan).jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 209875,
+    "originalSha256": "8bf0c53b536fea70a1123eb268a0947f6cb372c11e163c97148da44ec4c8054e",
+    "preserved": "imaging/real/ich-ivh-commons.jpg (identical to the original)",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Intracerebral hemorrage (CT scan).jpg: LicenseShortName = “Public domain”, UsageTerms = “Public domain” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AIntracerebral+hemorrage+%28CT+scan%29.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 1200,
+      "h": 1484
+     }
+    }
+   },
+   "fileSha256": "8bf0c53b536fea70a1123eb268a0947f6cb372c11e163c97148da44ec4c8054e"
+  },
+  {
+   "id": "ich-thalamic-hydro-yadav",
+   "kind": "ct-ich",
+   "type": "ct",
+   "modality": "Non-contrast head CT",
+   "finding": "thalamic haemorrhage with hydrocephalus",
+   "findings": [
+    "ich",
+    "ivh",
+    "hydrocephalus"
+   ],
+   "stage": {
+    "course": "ich",
+    "fromMin": 60,
+    "toMin": 2880,
+    "label": "Hours – 2 days"
+   },
+   "title": "Thalamic bleed, hydrocephalus",
+   "caption": "Pre-operative CT: a thalamic haemorrhage with blood in the third and both lateral ventricles and dilated ventricles (hydrocephalus).",
+   "look": [
+    "Bright clot beside the third ventricle",
+    "Blood in the third and lateral ventricles",
+    "Rounded, dilated temporal and frontal horns"
+   ],
+   "teach": [
+    "Thalamic bleeds sit next to the third ventricle and rupture into it easily.",
+    "Enlarging ventricles with a falling GCS = hydrocephalus until proven otherwise."
+   ],
+   "quiz": {
+    "q": "Which finding signals hydrocephalus here?",
+    "options": [
+     "Bright thalamus",
+     "Dilated, rounded ventricular horns",
+     "Midline shift",
+     "Bone window"
+    ],
+    "answer": 1,
+    "explain": "Ventricular dilatation (rounded temporal and frontal horns) with intraventricular clot means CSF outflow is obstructed."
+   },
+   "marks": [],
+   "file": "ich-thalamic-hydro-yadav.jpg",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+   "author": "Yadav YR, Mukerji G, Shenoy R, Basoor A, Jain G, Nelson A",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrhage.jpg",
+   "credit": "Yadav et al., Wikimedia Commons, 2007 · CC BY 2.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrhage.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Intracerebral_hemorrhage.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "CT scan of intracerebral hemorrhage. Caption reads, \"Pre operative CT scan. Representative pre-operative CT scan of a patient showing a thalamic haemorrhage wit",
+    "published": "Published: 4 January 2007",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "Intracerebral hemorrhage.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 42094,
+    "originalSha256": "bfe8f92d6717607b11d9cdc63571662a21fbfeb7b3515e35968ce3d1d8e73dc8",
+    "preserved": "imaging/real/ich-thalamic-hydro-yadav.jpg (identical to the original)",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Intracerebral hemorrhage.jpg: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AIntracerebral+hemorrhage.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 400,
+      "h": 330
+     }
+    }
+   },
+   "fileSha256": "bfe8f92d6717607b11d9cdc63571662a21fbfeb7b3515e35968ce3d1d8e73dc8"
+  },
+  {
+   "id": "ich-cerebellar-yadav",
+   "kind": "ct-ich",
+   "type": "ct",
+   "modality": "Non-contrast head CT",
+   "finding": "posterior fossa haemorrhage with hydrocephalus",
+   "findings": [
+    "ich",
+    "posterior_fossa",
+    "hydrocephalus"
+   ],
+   "stage": {
+    "course": "ich",
+    "fromMin": 60,
+    "toMin": 2880,
+    "label": "Hours – 2 days"
+   },
+   "title": "Cerebellar bleed",
+   "caption": "Pre-operative CT: a posterior fossa haemorrhage with blood in the ventricles and hydrocephalus.",
+   "look": [
+    "Bright clot in the cerebellum",
+    "Fourth ventricle effaced",
+    "Dilated lateral ventricles above"
+   ],
+   "teach": [
+    "There is little room in the posterior fossa: a modest clot can compress the brainstem and block the fourth ventricle.",
+    "Deterioration can be sudden — these patients need neurosurgical review early."
+   ],
+   "quiz": {
+    "q": "Why are posterior fossa haematomas dangerous out of proportion to size?",
+    "options": [
+     "They are always arterial",
+     "Tight compartment: brainstem compression and fourth-ventricle obstruction",
+     "They cause seizures",
+     "They cannot be seen on CT"
+    ],
+    "answer": 1,
+    "explain": "The posterior fossa is small and rigid; swelling there compresses the brainstem and obstructs CSF outflow."
+   },
+   "marks": [],
+   "file": "ich-cerebellar-yadav.jpg",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+   "author": "Yadav YR, Mukerji G, Shenoy R, Basoor A, Jain G, Nelson A",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Posterior_fossa_hemorrhage.jpg",
+   "credit": "Yadav et al., Wikimedia Commons, 2007 · CC BY 2.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Posterior_fossa_hemorrhage.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Posterior_fossa_hemorrhage.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "CT scan of intracerebral hemorrhage. Caption reads, \"Pre operative CT scan. Representative pre-operative CT scan of a patient showing a posterior fossa haemorrh",
+    "published": "Published: 4 January 2007",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "Posterior fossa hemorrhage.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 36978,
+    "originalSha256": "952f586b1d261c0a13c3391c7f7e6597d1d03793106c4f4faf854642fcab05f6",
+    "preserved": "imaging/real/ich-cerebellar-yadav.jpg (identical to the original)",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Posterior fossa hemorrhage.jpg: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3APosterior+fossa+hemorrhage.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 330,
+      "h": 400
+     }
+    }
+   },
+   "fileSha256": "952f586b1d261c0a13c3391c7f7e6597d1d03793106c4f4faf854642fcab05f6"
+  },
+  {
+   "id": "ich-sah-to-iph-2010",
+   "kind": "ct-ich",
+   "type": "ct",
+   "modality": "Non-contrast head CT (serial)",
+   "finding": "rebleeding: subarachnoid then intraparenchymal haemorrhage",
+   "findings": [
+    "sah",
+    "ich",
+    "rebleed"
+   ],
+   "stage": {
+    "course": "ich",
+    "fromMin": 0,
+    "toMin": 1440,
+    "label": "First day"
+   },
+   "title": "Rebleed in 12 hours",
+   "caption": "Ruptured mycotic aneurysm: (a) interhemispheric subarachnoid blood; (b) repeat CT 12 hours later shows a new frontal intraparenchymal haemorrhage.",
+   "look": [
+    "First scan: blood along the falx",
+    "Second scan: new bright parenchymal clot",
+    "Same patient, half a day apart"
+   ],
+   "teach": [
+    "An unsecured ruptured aneurysm can rebleed, often within the first day — each rebleed carries high mortality.",
+    "Securing the aneurysm early and controlling BP reduce the risk."
+   ],
+   "quiz": {
+    "q": "What explains the new clot on the second scan?",
+    "options": [
+     "Contrast",
+     "Rebleeding from the unsecured aneurysm",
+     "Infarction",
+     "Artefact"
+    ],
+    "answer": 1,
+    "explain": "New hyperdense blood 12 hours later means the aneurysm bled again."
+   },
+   "marks": [],
+   "file": "ich-sah-to-iph-2010.jpg",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Isabel Kuo, Theodore Long, Nathan Nguyen, Bharat Chaudry, Michael Karp, Nerses Sanossian",
+   "source": "“Ruptured intracranial mycotic aneurysm in infective endocarditis: a natural history”, Case reports in medicine 2010:168408 (2010), https://doi.org/10.1155/2010/168408 — https://pmc-oa-opendata.s3.amazonaws.com/PMC2946581.1/CRM2010-168408.003.jpg",
+   "credit": "Kuo et al., Case reports in medicine, 2010 · CC BY 3.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1155/2010/168408",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC2946581.1/CRM2010-168408.003.jpg",
+    "doi": "10.1155/2010/168408",
+    "originalTitle": "Ruptured intracranial mycotic aneurysm in infective endocarditis: a natural history",
+    "published": "2010-09-22",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "CRM2010-168408.003.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 136413,
+    "originalSha256": "5481ea94093c9bd081902ea3ef13aa176b1eb14bc16f1397d1c91c92fc58b18b",
+    "preserved": "imaging/real/ich-sah-to-iph-2010.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC2946581 (doi 10.1155/2010/168408), <license>: “https://creativecommons.org/licenses/by/3.0/ This is an open access article distributed under the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.”; Figure 3 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 671,
+      "h": 657
+     }
+    }
+   },
+   "fileSha256": "5481ea94093c9bd081902ea3ef13aa176b1eb14bc16f1397d1c91c92fc58b18b"
+  },
+  {
+   "id": "sah-ct-mirza",
+   "kind": "ct-ich",
+   "type": "ct",
+   "modality": "Non-contrast head CT",
+   "finding": "subarachnoid haemorrhage",
+   "findings": [
+    "sah"
+   ],
+   "stage": {
+    "course": "ich",
+    "fromMin": 0,
+    "toMin": 1440,
+    "label": "First day"
+   },
+   "title": "Subarachnoid blood",
+   "caption": "Non-contrast CT: blood fills the basal cisterns and Sylvian fissures (arrows) with early ventricular dilatation.",
+   "look": [
+    "Bright blood where CSF should be dark: cisterns, fissures",
+    "Star-shaped basal cisterns",
+    "Temporal horns — hydrocephalus?"
+   ],
+   "teach": [
+    "CT is most sensitive in the first 6 hours; sensitivity falls as blood is cleared.",
+    "Hydrocephalus can appear within hours; vasospasm and delayed ischaemia follow from day 3–14."
+   ],
+   "quiz": {
+    "q": "Where does subarachnoid blood collect on CT?",
+    "options": [
+     "Inside the ventricles only",
+     "Cisterns, fissures and sulci",
+     "White matter",
+     "Under the skull bone"
+    ],
+    "answer": 1,
+    "explain": "Subarachnoid blood replaces the normally dark CSF in the cisterns, fissures and sulci."
+   },
+   "marks": [],
+   "file": "sah-ct-mirza.jpg",
+   "original": "source/sah-ct-mirza-source.png",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+   "author": "edit Shazia Mirza and Sankalp Gokhale See also source article for additional image creators.",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:CT_of_subarachnoid_hemorrhage.png",
+   "credit": "Mirza & creators., Wikimedia Commons, 2016 · CC BY 4.0",
+   "changes": "Converted to JPEG; padded by one black pixel to even dimensions; no crop, mirroring or filtering.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:CT_of_subarachnoid_hemorrhage.png",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3a/CT_of_subarachnoid_hemorrhage.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "edit CT of subarachnoid hemorrhage.png. For context, see Wikipedia:Imaging in stroke .",
+    "published": "2016-07-25",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "CT of subarachnoid hemorrhage.png",
+    "originalFormat": "image/png",
+    "originalBytes": 136846,
+    "originalSha256": "8e164e4819fc62f8a78c530757dba398f70cc4e86d5c79724cec4a0a0f5a4cc8",
+    "preserved": "imaging/real/source/sah-ct-mirza-source.png",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:CT of subarachnoid hemorrhage.png: LicenseShortName = “CC BY 4.0”, UsageTerms = “Creative Commons Attribution 4.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3ACT+of+subarachnoid+hemorrhage.png&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 368,
+      "h": 448
+     }
+    }
+   },
+   "fileSha256": "6960c65847c74ee032de6dd0d3e7c05e10d42327cb28e910bc1975fcd10bed0c",
+   "originalSha256": "8e164e4819fc62f8a78c530757dba398f70cc4e86d5c79724cec4a0a0f5a4cc8"
+  },
+  {
+   "id": "cxr-chf-haggstrom",
+   "kind": "cxr",
+   "type": "xray",
+   "modality": "Chest X-ray (PA)",
+   "finding": "congestive heart failure (cardiogenic pulmonary oedema)",
+   "findings": [
+    "pulmonary_edema",
+    "cardiomegaly",
+    "effusion"
+   ],
+   "title": "Cardiogenic pulmonary oedema",
+   "caption": "PA film: enlarged heart, upper-lobe vessels prominent, fine horizontal Kerley B lines at the lateral bases and a small right effusion.",
+   "look": [
+    "Cardiothoracic ratio > 0.5 on a PA film",
+    "Upper-lobe diversion of vessels",
+    "Kerley B lines at the lung edge",
+    "Blunted costophrenic angle"
+   ],
+   "teach": [
+    "Rising left atrial pressure first redistributes flow to the upper lobes, then fills the interstitium (Kerley lines), then the alveoli.",
+    "Big heart + effusions + interstitial lines favour cardiogenic over permeability oedema."
+   ],
+   "quiz": {
+    "q": "Kerley B lines are…",
+    "options": [
+     "Calcified pleura",
+     "Fluid-thickened interlobular septa",
+     "Collapsed alveoli",
+     "Rib fractures"
+    ],
+    "answer": 1,
+    "explain": "Short horizontal lines at the periphery of the bases are interlobular septa thickened by interstitial fluid."
+   },
+   "marks": [],
+   "file": "cxr-chf-haggstrom.jpg",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "author": "Mikael Häggström",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Chest_radiograph_of_a_lung_with_Kerley_B_lines.jpg",
+   "credit": "Häggström, Wikimedia Commons, 2017 · CC0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Chest_radiograph_of_a_lung_with_Kerley_B_lines.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Chest_radiograph_of_a_lung_with_Kerley_B_lines.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "edit Chest radiograph of an 83 year old man with previous coronary artery bypass surgery and multiple percutaneous coronary interventions , now presenting with ",
+    "published": "2017-07-13",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "Chest radiograph of a lung with Kerley B lines.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 338551,
+    "originalSha256": "0ad260f0645da04684501d1576510d82fabadb0e002a36cabfa30a6ee1c65334",
+    "preserved": "imaging/real/cxr-chf-haggstrom.jpg (identical to the original)",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Chest radiograph of a lung with Kerley B lines.jpg: LicenseShortName = “CC0”, UsageTerms = “Creative Commons Zero, Public Domain Dedication” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AChest+radiograph+of+a+lung+with+Kerley+B+lines.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 1222,
+      "h": 1097
+     }
+    }
+   },
+   "fileSha256": "0ad260f0645da04684501d1576510d82fabadb0e002a36cabfa30a6ee1c65334"
+  },
+  {
+   "id": "cxr-hps-edema-cdc",
+   "kind": "cxr",
+   "type": "xray",
+   "modality": "Chest X-ray (AP)",
+   "finding": "non-cardiogenic pulmonary oedema with effusions (hantavirus)",
+   "findings": [
+    "ards",
+    "pulmonary_edema",
+    "effusion"
+   ],
+   "title": "Permeability oedema",
+   "caption": "AP film in hantavirus pulmonary syndrome, mid stage: bilateral interstitial and early alveolar oedema with effusions; heart size normal.",
+   "look": [
+    "Bilateral, fairly symmetric haziness",
+    "Normal heart size",
+    "Effusions at the bases"
+   ],
+   "teach": [
+    "Capillary leak floods the lungs at normal filling pressures — the ARDS picture.",
+    "A normal heart size with bilateral oedema points away from a cardiac cause."
+   ],
+   "quiz": {
+    "q": "Which feature here argues against cardiogenic oedema?",
+    "options": [
+     "Bilateral opacities",
+     "Normal heart size",
+     "Effusions",
+     "AP projection"
+    ],
+    "answer": 1,
+    "explain": "Bilateral oedema with a normal-sized heart suggests increased permeability rather than raised left-sided pressure."
+   },
+   "marks": [],
+   "file": "cxr-hps-edema-cdc.jpg",
+   "license": "Public Domain",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "author": "CDC/ D. Loren Ketai, M.D.",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:6077_lores.jpg",
+   "credit": "Ketai, Wikimedia Commons, 1994 · Public Domain",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:6077_lores.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/6077_lores.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "This AP chest x-ray reveals the mid-staged bilateral pulmonary effusion due to hantavirus pulmonary syndrome, or HPS. The radiological evolution of HPS begins w",
+    "published": "1994",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "6077 lores.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 35119,
+    "originalSha256": "ada8a9172bac605643d9534cde679fded744cf23a087a0babdba0d46a427bee0",
+    "preserved": "imaging/real/cxr-hps-edema-cdc.jpg (identical to the original)",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:6077 lores.jpg: LicenseShortName = “Public domain”, UsageTerms = “Public domain” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3A6077+lores.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 700,
+      "h": 465
+     }
+    }
+   },
+   "fileSha256": "ada8a9172bac605643d9534cde679fded744cf23a087a0babdba0d46a427bee0"
+  },
+  {
+   "id": "cxr-ards-2019",
+   "kind": "cxr",
+   "type": "xray",
+   "modality": "Chest X-ray (portable AP)",
+   "finding": "acute respiratory distress syndrome",
+   "findings": [
+    "ards"
+   ],
+   "title": "ARDS",
+   "caption": "Portable film in rhinovirus ARDS: diffuse bilateral airspace opacities throughout both lungs.",
+   "look": [
+    "Bilateral, patchy-to-confluent airspace shadowing",
+    "Air bronchograms",
+    "Not explained by effusion, collapse or nodules"
+   ],
+   "teach": [
+    "Berlin definition: bilateral opacities within a week of an insult, not fully explained by cardiac failure, with hypoxaemia graded by PaO₂/FiO₂ on PEEP.",
+    "Ventilate with low tidal volumes (6 mL/kg predicted body weight) and limit plateau pressure."
+   ],
+   "quiz": {
+    "q": "Which ventilator strategy is standard for this film?",
+    "options": [
+     "High tidal volume",
+     "Low tidal volume with adequate PEEP",
+     "No PEEP",
+     "Permissive hyperoxia"
+    ],
+    "answer": 1,
+    "explain": "Lung-protective ventilation — about 6 mL/kg predicted body weight, plateau ≤ 30 cmH₂O, PEEP titrated to oxygenation."
+   },
+   "marks": [],
+   "file": "cxr-ards-2019.jpg",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Sam Ngu, Sami Pervaiz, Akshay Avula, Michel Chalhoub",
+   "source": "“Rhinovirus-induced Rapidly Progressing Acute Respiratory Distress Syndrome in an Immunocompetent Host”, Cureus 11:e3997 (2019), https://doi.org/10.7759/cureus.3997 — https://pmc-oa-opendata.s3.amazonaws.com/PMC6443533.1/cureus-0011-00000003997-i02.jpg",
+   "credit": "Ngu et al., Cureus, 2019 · CC BY 3.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.7759/cureus.3997",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC6443533.1/cureus-0011-00000003997-i02.jpg",
+    "doi": "10.7759/cureus.3997",
+    "originalTitle": "Rhinovirus-induced Rapidly Progressing Acute Respiratory Distress Syndrome in an Immunocompetent Host",
+    "published": "2019-02-01",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "cureus-0011-00000003997-i02.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 60295,
+    "originalSha256": "56484391c09c793de65770ed2ca3f49437f97c56c414aa3629069a6a54daacb1",
+    "preserved": "imaging/real/cxr-ards-2019.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC6443533 (doi 10.7759/cureus.3997), <license>: “https://creativecommons.org/licenses/by/3.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 2 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 800,
+      "h": 542
+     }
+    }
+   },
+   "fileSha256": "56484391c09c793de65770ed2ca3f49437f97c56c414aa3629069a6a54daacb1"
+  },
+  {
+   "id": "cxr-left-collapse-child-2013",
+   "kind": "cxr",
+   "type": "xray",
+   "modality": "Chest X-ray (supine AP, child)",
+   "finding": "complete left lung collapse",
+   "findings": [
+    "collapse",
+    "collapse_left"
+   ],
+   "title": "Whole-lung collapse (child)",
+   "caption": "Supine film of a child: the left bronchus ends abruptly and the left hemithorax is opaque, with the heart and mediastinum pulled to the left — a bronchial cast was later removed.",
+   "look": [
+    "Opaque hemithorax with volume loss",
+    "Mediastinum shifted TOWARD the white side",
+    "Abrupt cut-off of the left main bronchus"
+   ],
+   "teach": [
+    "Collapse pulls structures toward it; a large effusion pushes them away — the key to telling them apart.",
+    "In a ventilated adult the same picture on the left after intubation suggests a right mainstem tube."
+   ],
+   "quiz": {
+    "q": "Which way does the mediastinum move in lung collapse?",
+    "options": [
+     "Away from the opaque side",
+     "Toward the opaque side",
+     "It never moves",
+     "Upward"
+    ],
+    "answer": 1,
+    "explain": "Loss of volume draws the trachea, heart and diaphragm toward the collapsed side."
+   },
+   "marks": [],
+   "file": "cxr-left-collapse-child-2013.jpg",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+   "author": "Christoph M Rüegger, Walter Bär, Peter Iseli",
+   "source": "“Simultaneous atelectasis in human bocavirus infected monozygotic twins: was it plastic bronchitis?”, BMC pediatrics 13:209 (2013), https://doi.org/10.1186/1471-2431-13-209 — https://pmc-oa-opendata.s3.amazonaws.com/PMC3878367.1/1471-2431-13-209-1.jpg",
+   "credit": "Rüegger et al., BMC pediatrics, 2013 · CC BY 2.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1186/1471-2431-13-209",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC3878367.1/1471-2431-13-209-1.jpg",
+    "doi": "10.1186/1471-2431-13-209",
+    "originalTitle": "Simultaneous atelectasis in human bocavirus infected monozygotic twins: was it plastic bronchitis?",
+    "published": "2013-12-18",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "1471-2431-13-209-1.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 58576,
+    "originalSha256": "9b11009a4b1eca55b24d65aabb27be61b6ecfecdcf79f210552a3fc51960112d",
+    "preserved": "imaging/real/cxr-left-collapse-child-2013.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC3878367 (doi 10.1186/1471-2431-13-209), <license>: “https://creativecommons.org/licenses/by/2.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License ( http://creativecommons.org/licenses/by/2.0 ), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work”; Figure 1 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 600,
+      "h": 615
+     }
+    }
+   },
+   "fileSha256": "9b11009a4b1eca55b24d65aabb27be61b6ecfecdcf79f210552a3fc51960112d"
+  },
+  {
+   "id": "cxr-collapse-before-after-2021",
+   "kind": "cxr",
+   "type": "xray",
+   "modality": "Chest X-ray (AP)",
+   "finding": "total right lung collapse, before and after bronchoscopy",
+   "findings": [
+    "collapse",
+    "collapse_right"
+   ],
+   "title": "Collapse, then re-expansion",
+   "caption": "Left: total right lung atelectasis from a mucus cast (allergic bronchopulmonary aspergillosis). Right: re-expanded after bronchoscopy and steroids.",
+   "look": [
+    "Opaque right hemithorax, mediastinum drawn right",
+    "After: aerated lung returns, mediastinum central"
+   ],
+   "teach": [
+    "A large central mucus plug can collapse a whole lung within hours.",
+    "Bronchoscopy and airway clearance re-expand it; chest physiotherapy and humidification prevent recurrence."
+   ],
+   "quiz": {
+    "q": "What reversed the collapse?",
+    "options": [
+     "Diuretics",
+     "Clearing the airway obstruction",
+     "Chest drain",
+     "Higher FiO₂ alone"
+    ],
+    "answer": 1,
+    "explain": "Removing the obstructing mucus cast reopened the bronchus, and the lung re-aerated."
+   },
+   "marks": [],
+   "file": "cxr-collapse-before-after-2021.jpg",
+   "original": "source/cxr-collapse-before-after-2021-source.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "N. Benkalfate, S. Dirou, P. Germaud, C. Defrance, A. Cavailles, T. Pigeanne, M. Robert, T. Madjer, F. Corne, L. Cellerin, C. Sagan, F. X. Blanc",
+   "source": "“Total unilateral pulmonary collapse secondary to allergic bronchopulmonary aspergillosis: a case series of an unusual cause of complete atelectasis”, BMC pulmonary medicine 21:425 (2021), https://doi.org/10.1186/s12890-021-01789-9 — https://pmc-oa-opendata.s3.amazonaws.com/PMC8709957.1/12890_2021_1789_Fig1_HTML.jpg",
+   "credit": "Benkalfate et al., BMC pulmonary medicine, 2021 · CC BY 4.0",
+   "changes": "Converted to JPEG; one panel taken from the figure (bottom row (E, F)); downscaled 1749×830 → 1600 px wide (aspect kept); no other crop, mirroring or filtering.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1186/s12890-021-01789-9",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC8709957.1/12890_2021_1789_Fig1_HTML.jpg",
+    "doi": "10.1186/s12890-021-01789-9",
+    "originalTitle": "Total unilateral pulmonary collapse secondary to allergic bronchopulmonary aspergillosis: a case series of an unusual cause of complete atelectasis",
+    "published": "2021-12-24",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "12890_2021_1789_Fig1_HTML.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 842290,
+    "originalSha256": "bbfadcf12eaa176c0e83860a5e5f3949a9c20886abcf3532613c0a3c8bdbea30",
+    "preserved": "imaging/real/source/cxr-collapse-before-after-2021-source.jpg",
+    "licenseEvidence": "Europe PMC full text of PMC8709957 (doi 10.1186/s12890-021-01789-9), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original auth”; Fig. 1 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 1600,
+      "h": 760
+     }
+    }
+   },
+   "fileSha256": "991186332ed4905d39352cb2531d8f6f023acafbbcdf6e162818bc2c74adf8b4",
+   "originalSha256": "bbfadcf12eaa176c0e83860a5e5f3949a9c20886abcf3532613c0a3c8bdbea30"
+  },
+  {
+   "id": "cxr-massive-effusion-2010",
+   "kind": "cxr",
+   "type": "xray",
+   "modality": "Chest X-ray (PA)",
+   "finding": "massive left pleural effusion with mediastinal shift",
+   "findings": [
+    "effusion",
+    "effusion_massive"
+   ],
+   "title": "Massive effusion",
+   "caption": "A massive left pleural effusion opacifies most of the left hemithorax and pushes the mediastinum to the right (arrow).",
+   "look": [
+    "White hemithorax with a meniscus",
+    "Mediastinum pushed AWAY",
+    "Compare with collapse, which pulls toward"
+   ],
+   "teach": [
+    "A massive effusion compresses lung and can impair venous return.",
+    "Drain it slowly — rapid removal of large volumes risks re-expansion oedema."
+   ],
+   "quiz": {
+    "q": "Which feature distinguishes this from whole-lung collapse?",
+    "options": [
+     "White hemithorax",
+     "Mediastinum displaced away from the white side",
+     "Air bronchograms",
+     "Raised diaphragm"
+    ],
+    "answer": 1,
+    "explain": "Fluid occupies space and pushes the mediastinum away; collapse loses volume and pulls it toward."
+   },
+   "marks": [],
+   "file": "cxr-massive-effusion-2010.jpg",
+   "original": "source/cxr-massive-effusion-2010-source.jpg",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+   "author": "Maounis N, Chorti M, Legaki S, Ellina E, Emmanouilidou A, Demonakou M, Tsiafaki X.",
+   "source": "“Metastasis to the breast from an adenocarcinoma of the lung with extensive micropapillary component: a case report and review of the literature”, Diagnostic pathology 5:82 (2010), https://doi.org/10.1186/1746-1596-5-82 — https://pmc-oa-opendata.s3.amazonaws.com/PMC3018363.1/1746-1596-5-82-1.jpg",
+   "credit": "Maounis et al., Diagnostic pathology, 2010 · CC BY 2.0",
+   "changes": "Converted to JPEG; one panel taken from the figure (panel (a), the chest X-ray); no other crop, mirroring or filtering.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1186/1746-1596-5-82",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC3018363.1/1746-1596-5-82-1.jpg",
+    "doi": "10.1186/1746-1596-5-82",
+    "originalTitle": "Metastasis to the breast from an adenocarcinoma of the lung with extensive micropapillary component: a case report and review of the literature",
+    "published": "2010-12-17",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "1746-1596-5-82-1.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 55994,
+    "originalSha256": "1332d0ba04219544818c200c15e6121ca311b19f88dd49f2971af905ba71e6bd",
+    "preserved": "imaging/real/source/cxr-massive-effusion-2010-source.jpg",
+    "licenseEvidence": "Europe PMC full text of PMC3018363 (doi 10.1186/1746-1596-5-82), <license>: “This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<url>http://creativecommons.org/licenses/by/2.0</url>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.”; Figure 1 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 300,
+      "h": 256
+     }
+    }
+   },
+   "fileSha256": "e26014d49bb3cb5f653b0b9a2883ed34edca07a4856ef99d92a2e6ff0dea1c49",
+   "originalSha256": "1332d0ba04219544818c200c15e6121ca311b19f88dd49f2971af905ba71e6bd"
+  },
+  {
+   "id": "aaa-us-sagittal-haggstrom",
+   "kind": "aorta-us",
+   "type": "ultrasound",
+   "modality": "Bedside aortic ultrasound",
+   "finding": "abdominal aortic aneurysm",
+   "findings": [
+    "aaa"
+   ],
+   "title": "AAA, long axis",
+   "caption": "Longitudinal view of the abdominal aorta: a fusiform aneurysm with the lumen widening well beyond normal calibre.",
+   "look": [
+    "Measure outer wall to outer wall, perpendicular to the vessel",
+    "> 3 cm = aneurysm",
+    "Thrombus is grey — do not measure the lumen only"
+   ],
+   "teach": [
+    "Bedside ultrasound finds the aneurysm; it does not reliably show a retroperitoneal rupture.",
+    "Unstable patient + known or found AAA = vascular surgery now, CT only if stable."
+   ],
+   "quiz": {
+    "q": "How should an AAA be measured on ultrasound?",
+    "options": [
+     "Inner lumen only",
+     "Outer wall to outer wall",
+     "Length of the aneurysm",
+     "Diameter of the IVC"
+    ],
+    "answer": 1,
+    "explain": "Measure the maximal diameter outer wall to outer wall; measuring only the flow lumen underestimates it when thrombus is present."
+   },
+   "marks": [],
+   "file": "aaa-us-sagittal-haggstrom.jpg",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "author": "Mikael Häggström, M.D.",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_sagittal_plane.jpg",
+   "credit": "Häggström, Wikimedia Commons, 2018 · CC0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_sagittal_plane.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/99/Ultrasonography_of_abdominal_aortic_aneurysm_in_sagittal_plane.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "Abdominal ultrasonography of a 78 year old woman in the sagittal plane , showing an abdominal aortic aneurysm . Sagittal plane With anteroposterior measure (das",
+    "published": "2018-12-10",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "Ultrasonography of abdominal aortic aneurysm in sagittal plane.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 65178,
+    "originalSha256": "1ea9cc5c4f10da09d8988c01087ce925bdfccdaf6c63de3cb0f76d5d97c33188",
+    "preserved": "imaging/real/aaa-us-sagittal-haggstrom.jpg (identical to the original)",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Ultrasonography of abdominal aortic aneurysm in sagittal plane.jpg: LicenseShortName = “CC0”, UsageTerms = “Creative Commons Zero, Public Domain Dedication” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AUltrasonography+of+abdominal+aortic+aneurysm+in+sagittal+plane.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 588,
+      "h": 508
+     }
+    }
+   },
+   "fileSha256": "1ea9cc5c4f10da09d8988c01087ce925bdfccdaf6c63de3cb0f76d5d97c33188"
+  },
+  {
+   "id": "aaa-us-axial-haggstrom",
+   "kind": "aorta-us",
+   "type": "ultrasound",
+   "modality": "Bedside aortic ultrasound",
+   "finding": "abdominal aortic aneurysm",
+   "findings": [
+    "aaa"
+   ],
+   "title": "AAA, short axis",
+   "caption": "Transverse view: the aneurysm measured outer wall to outer wall, here several times the normal ~2 cm.",
+   "look": [
+    "Measure outer wall to outer wall, perpendicular to the vessel",
+    "> 3 cm = aneurysm",
+    "Thrombus is grey — do not measure the lumen only"
+   ],
+   "teach": [
+    "Bedside ultrasound finds the aneurysm; it does not reliably show a retroperitoneal rupture.",
+    "Unstable patient + known or found AAA = vascular surgery now, CT only if stable."
+   ],
+   "quiz": {
+    "q": "How should an AAA be measured on ultrasound?",
+    "options": [
+     "Inner lumen only",
+     "Outer wall to outer wall",
+     "Length of the aneurysm",
+     "Diameter of the IVC"
+    ],
+    "answer": 1,
+    "explain": "Measure the maximal diameter outer wall to outer wall; measuring only the flow lumen underestimates it when thrombus is present."
+   },
+   "marks": [],
+   "file": "aaa-us-axial-haggstrom.jpg",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "author": "Mikael Häggström, M.D.",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_axial_plane.jpg",
+   "credit": "Häggström, Wikimedia Commons, 2018 · CC0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_axial_plane.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Ultrasonography_of_abdominal_aortic_aneurysm_in_axial_plane.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "Abdominal ultrasonography of a 78 year old woman in the axial plane , showing an abdominal aortic aneurysm . Sagittal plane With anteroposterior measure (dashed",
+    "published": "2018-12-10",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "Ultrasonography of abdominal aortic aneurysm in axial plane.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 62144,
+    "originalSha256": "098ead3e995cb01e93da80bcaee2148ea845c81d4e6f6a4e6fb68278173a7e75",
+    "preserved": "imaging/real/aaa-us-axial-haggstrom.jpg (identical to the original)",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Ultrasonography of abdominal aortic aneurysm in axial plane.jpg: LicenseShortName = “CC0”, UsageTerms = “Creative Commons Zero, Public Domain Dedication” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AUltrasonography+of+abdominal+aortic+aneurysm+in+axial+plane.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 472,
+      "h": 551
+     }
+    }
+   },
+   "fileSha256": "098ead3e995cb01e93da80bcaee2148ea845c81d4e6f6a4e6fb68278173a7e75"
+  },
+  {
+   "id": "aaa-us-thrombus-haggstrom",
+   "kind": "aorta-us",
+   "type": "ultrasound",
+   "modality": "Bedside aortic ultrasound",
+   "finding": "abdominal aortic aneurysm",
+   "findings": [
+    "aaa",
+    "mural_thrombus"
+   ],
+   "title": "AAA with mural thrombus",
+   "caption": "Transverse view: grey layered thrombus lines the wall, leaving a smaller dark flow lumen.",
+   "look": [
+    "Measure outer wall to outer wall, perpendicular to the vessel",
+    "> 3 cm = aneurysm",
+    "Thrombus is grey — do not measure the lumen only"
+   ],
+   "teach": [
+    "Bedside ultrasound finds the aneurysm; it does not reliably show a retroperitoneal rupture.",
+    "Unstable patient + known or found AAA = vascular surgery now, CT only if stable."
+   ],
+   "quiz": {
+    "q": "How should an AAA be measured on ultrasound?",
+    "options": [
+     "Inner lumen only",
+     "Outer wall to outer wall",
+     "Length of the aneurysm",
+     "Diameter of the IVC"
+    ],
+    "answer": 1,
+    "explain": "Measure the maximal diameter outer wall to outer wall; measuring only the flow lumen underestimates it when thrombus is present."
+   },
+   "marks": [],
+   "file": "aaa-us-thrombus-haggstrom.jpg",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "author": "Mikael Häggström, M.D.",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_with_mural_thrombus.jpg",
+   "credit": "Häggström, Wikimedia Commons, 2019 · CC0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_with_mural_thrombus.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Ultrasonography_of_abdominal_aortic_aneurysm_with_mural_thrombus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "Abdominal ultrasonography of and abdominal aortic aneurysm with mural thrombus.",
+    "published": "2019-01-14",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "Ultrasonography of abdominal aortic aneurysm with mural thrombus.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 55068,
+    "originalSha256": "f383eefbda914dd321cf4f2943f0fd5ad154c0f5cc7b7eb9fdea67a01932e6df",
+    "preserved": "imaging/real/aaa-us-thrombus-haggstrom.jpg (identical to the original)",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Ultrasonography of abdominal aortic aneurysm with mural thrombus.jpg: LicenseShortName = “CC0”, UsageTerms = “Creative Commons Zero, Public Domain Dedication” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AUltrasonography+of+abdominal+aortic+aneurysm+with+mural+thrombus.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 563,
+      "h": 417
+     }
+    }
+   },
+   "fileSha256": "f383eefbda914dd321cf4f2943f0fd5ad154c0f5cc7b7eb9fdea67a01932e6df"
+  },
+  {
+   "id": "lus-blines-gargani",
+   "kind": "lus",
+   "type": "ultrasound",
+   "modality": "Lung ultrasound",
+   "finding": "blines",
+   "findings": [
+    "blines",
+    "interstitial_syndrome"
+   ],
+   "title": "Interstitial syndrome",
+   "caption": "Multiple B-lines: laser-like vertical lines start at the pleural line, run to the bottom of the screen and move with sliding.",
+   "look": [
+    "Vertical, bright, reach the bottom of the screen",
+    "Erase the A-lines",
+    "Three or more in one space is abnormal"
+   ],
+   "teach": [
+    "B-lines are reverberations from fluid-thickened interlobular septa — the ultrasound version of Kerley lines.",
+    "Diffuse bilateral B-lines: oedema (cardiogenic or ARDS); focal: pneumonia or contusion."
+   ],
+   "quiz": {
+    "q": "What do multiple B-lines mean?",
+    "options": [
+     "Pneumothorax",
+     "Interstitial fluid (interstitial syndrome)",
+     "Normal aerated lung",
+     "Pleural effusion"
+    ],
+    "answer": 1,
+    "explain": "Three or more B-lines in an intercostal space indicate thickened, fluid-filled interstitium."
+   },
+   "marks": [],
+   "file": "lus-blines-gargani.mp4",
+   "webm": "lus-blines-gargani.webm",
+   "poster": "lus-blines-gargani.jpg",
+   "posterAt": 0.99,
+   "original": "source/lus-blines-gargani-source.ogv",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+   "author": "Gargani L",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv",
+   "credit": "Gargani, Wikimedia Commons, 2011 · CC BY 2.0",
+   "changes": "Original OGV (theora, 800×652, 29.0 fps, 2.966 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio none in the source; no crop, mirroring, speed change or other filtering. Poster = frame at 1.0 s.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "Sonographic pattern of interstitial syndrome: multiple B-lines originate from the pleural line.",
+    "published": "2011",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv",
+    "originalFormat": "video/ogg",
+    "originalBytes": 1109464,
+    "originalSha256": "ba2b0c056b92d03cffb72f72f18da935a126e390e129b888e928dc72fe547e83",
+    "preserved": "imaging/real/source/lus-blines-gargani-source.ogv",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3ALung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "sourceVideo": {
+      "w": 800,
+      "h": 652,
+      "codec": "theora",
+      "duration": 2.966,
+      "fps": 29.0,
+      "audio": false
+     },
+     "mp4": {
+      "w": 800,
+      "h": 652,
+      "codec": "h264",
+      "duration": 2.966,
+      "fps": 29.0,
+      "audio": false
+     }
+    }
+   },
+   "fileSha256": "a6091573a3b8b5c964673b97eb91d51a3e7b58f822352bf3f90efa0ea168699a",
+   "webmSha256": "19471868a4c8314680e0e6f4ed11bca51a6b534bdccd4e0addc091eb0a240343",
+   "posterSha256": "f9b90e938b891b52a88017201399f04360bba49f600f318f96e59d9ef4ddff5c",
+   "originalSha256": "ba2b0c056b92d03cffb72f72f18da935a126e390e129b888e928dc72fe547e83"
+  },
+  {
+   "id": "lus-progression-h7n9",
+   "kind": "lus",
+   "type": "ultrasound",
+   "modality": "Lung ultrasound",
+   "finding": "progression",
+   "findings": [
+    "progression",
+    "ards",
+    "whitelung",
+    "blines"
+   ],
+   "title": "From A-lines to white lung",
+   "caption": "Serial clips from one patient with H7N9 influenza: normal A-lines, then B-lines, then confluent B-lines, then white lung as ARDS develops.",
+   "look": [
+    "A-lines: horizontal, normal",
+    "B-lines appear, then merge",
+    "White lung: no A-lines left"
+   ],
+   "teach": [
+    "Lung ultrasound tracks aeration loss bedside, day by day, without radiation.",
+    "Scores that add up B-lines and consolidation across zones correlate with oxygenation."
+   ],
+   "quiz": {
+    "q": "In what order does aeration loss appear?",
+    "options": [
+     "White lung → B-lines → A-lines",
+     "A-lines → B-lines → confluent B-lines → white lung",
+     "Consolidation → A-lines",
+     "B-lines → A-lines → effusion"
+    ],
+    "answer": 1,
+    "explain": "Progressive loss of aeration moves from A-lines to separate B-lines, confluent B-lines and finally white lung."
+   },
+   "marks": [],
+   "file": "lus-progression-h7n9.mp4",
+   "webm": "lus-progression-h7n9.webm",
+   "poster": "lus-progression-h7n9.jpg",
+   "posterAt": 1.0,
+   "original": "source/lus-progression-h7n9-source.ogv",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+   "author": "Tsai N, Ngai C, Mok K, Tsung J",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Lung-ultrasound-imaging-in-avian-influenza-A-(H7N9)-respiratory-failure-2036-7902-6-6-S1.ogv",
+   "credit": "Tsai et al., Wikimedia Commons, 2014 · CC BY 4.0",
+   "changes": "Original OGV (theora, 720×480, 29.97 fps, 35.127 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio removed; no crop, mirroring, speed change or other filtering. Poster = frame at 1.0 s.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Lung-ultrasound-imaging-in-avian-influenza-A-(H7N9)-respiratory-failure-2036-7902-6-6-S1.ogv",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/11/Lung-ultrasound-imaging-in-avian-influenza-A-%28H7N9%29-respiratory-failure-2036-7902-6-6-S1.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "Video S1. Series of video clips depicting progression of A-lines to B-lines, to confluent B-lines, to white lung (ARDS).",
+    "published": "2014",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "Lung-ultrasound-imaging-in-avian-influenza-A-(H7N9)-respiratory-failure-2036-7902-6-6-S1.ogv",
+    "originalFormat": "video/ogg",
+    "originalBytes": 11765246,
+    "originalSha256": "7768c75e9bddfb73825ebeeabb34883b7ed67c46a8fb9240997b57474c121636",
+    "preserved": "imaging/real/source/lus-progression-h7n9-source.ogv",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Lung-ultrasound-imaging-in-avian-influenza-A-(H7N9)-respiratory-failure-2036-7902-6-6-S1.ogv: LicenseShortName = “CC BY 4.0”, UsageTerms = “Creative Commons Attribution 4.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3ALung-ultrasound-imaging-in-avian-influenza-A-%28H7N9%29-respiratory-failure-2036-7902-6-6-S1.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "sourceVideo": {
+      "w": 720,
+      "h": 480,
+      "codec": "theora",
+      "duration": 35.127,
+      "fps": 29.97,
+      "audio": true
+     },
+     "mp4": {
+      "w": 720,
+      "h": 480,
+      "codec": "h264",
+      "duration": 35.068,
+      "fps": 29.942,
+      "audio": false
+     }
+    }
+   },
+   "fileSha256": "e3ca7068fd59ddfc235eb37b8f163cbb35434aa7cccf9f7575e46aa866ff78a0",
+   "webmSha256": "cb5c419a650bc5432cc2ae3ea4ccbdd50cf54acde234d2f59f8f46f103436f2a",
+   "posterSha256": "716f134f15f6d0c516e2dddd014ce71e1e9f6e54b6b0567c240249dfcc624fed",
+   "originalSha256": "7768c75e9bddfb73825ebeeabb34883b7ed67c46a8fb9240997b57474c121636"
+  },
+  {
+   "id": "lus-hepatisation-gillman",
+   "kind": "lus",
+   "type": "ultrasound",
+   "modality": "Lung ultrasound",
+   "finding": "consolidation",
+   "findings": [
+    "consolidation"
+   ],
+   "title": "Hepatised lung",
+   "caption": "Real-time clip of consolidated lung that looks like liver tissue (hepatisation).",
+   "look": [
+    "Solid, tissue-like texture",
+    "Irregular deep border (shred sign)",
+    "Compare with the liver texture"
+   ],
+   "teach": [
+    "Consolidated lung transmits sound like a solid organ.",
+    "A shred sign at the deep margin is specific for consolidation."
+   ],
+   "quiz": {
+    "q": "Why does consolidated lung look like liver?",
+    "options": [
+     "It is liver",
+     "Airless lung transmits ultrasound like solid tissue",
+     "Because of an effusion",
+     "Artefact from the ribs"
+    ],
+    "answer": 1,
+    "explain": "When the alveoli fill with fluid or cells the lung becomes acoustically like a solid organ."
+   },
+   "marks": [],
+   "file": "lus-hepatisation-gillman.mp4",
+   "webm": "lus-hepatisation-gillman.webm",
+   "poster": "lus-hepatisation-gillman.jpg",
+   "posterAt": 1.0,
+   "original": "source/lus-hepatisation-gillman-source.ogv",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+   "author": "Gillman L, Kirkpatrick A",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv",
+   "credit": "Gillman & Kirkpatrick, Wikimedia Commons, 2012 · CC BY 2.0",
+   "changes": "Original OGV (theora, 640×480, 30.0 fps, 10.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio none in the source; no crop, mirroring, speed change or other filtering. Poster = frame at 1.0 s.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/53/Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "Lung Consolidation. Real time lung ultrasound video illustrating lung consolidation, highlighted by hepatisation of the lung (lung tissue appears similar densit",
+    "published": "2012",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv",
+    "originalFormat": "video/ogg",
+    "originalBytes": 1686655,
+    "originalSha256": "e735389f555584aec9e392ee21f8de0242627d4186ca2ed413d709b278fa77b5",
+    "preserved": "imaging/real/source/lus-hepatisation-gillman-source.ogv",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3APortable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "sourceVideo": {
+      "w": 640,
+      "h": 480,
+      "codec": "theora",
+      "duration": 10.0,
+      "fps": 30.0,
+      "audio": false
+     },
+     "mp4": {
+      "w": 640,
+      "h": 480,
+      "codec": "h264",
+      "duration": 10.0,
+      "fps": 30.0,
+      "audio": false
+     }
+    }
+   },
+   "fileSha256": "3a88c2bf8f3f07fbfa385f6bcb6c277ed201da4b7555d0615f356618794ae2ad",
+   "webmSha256": "c958190ba113b0d3770b4e6e90ea426c968ea6d5dae4e758d066b9c3b37654ab",
+   "posterSha256": "1cf9c6b09024db037368fd84f96d8b4cb00f78862402d6790a7a9cabae14567d",
+   "originalSha256": "e735389f555584aec9e392ee21f8de0242627d4186ca2ed413d709b278fa77b5"
+  }
+ ],
+ "rejected": [
+  {
+   "source": "Open Critical Care anesthesia POCUS pocket card (2022)",
+   "reason": "No licence stated; images credited “courtesy of” third parties (JACC, austincc.edu, echocardiographer.org). Used for facts only, in our own words."
+  },
+  {
+   "source": "COVID-BLUES lung ultrasound dataset",
+   "reason": "CC BY-NC-ND 4.0"
+  },
+  {
+   "source": "covid19_ultrasound clips attributed to “charlotte” (source id 14)",
+   "reason": "Licence listed but origin not identifiable — unclear."
+  },
+  {
+   "source": "Radiopaedia-derived images in covid-chestxray-dataset",
+   "reason": "CC BY-NC-SA"
+  },
+  {
+   "source": "covid19_ultrasound clip “Pneu_prospective_file3” (The Ultrasound Journal / Critical Ultrasound Journal 4:16, 2012, doi 10.1186/2036-7902-4-16)",
+   "reason": "Listed as CC BY 2.0, but the article page could not be read to confirm authors and licence (rate-limited) — not included until verified."
+  },
+  {
+   "source": "CC BY-SA alternative IVC clip offered in the asset bundle",
+   "reason": "Share-alike is not on this project’s accepted list — kept out, as the bundle recommends."
+  }
+ ],
+ "pending": [
+  {
+   "id": "lus-confluent-tsung",
+   "kind": "lus",
+   "type": "ultrasound",
+   "modality": "Lung ultrasound",
+   "finding": "confluent_blines",
+   "findings": [
+    "confluent_blines",
+    "blines"
+   ],
+   "title": "Confluent B-lines",
+   "caption": "B-lines merge into a broad white curtain below the pleura (viral pneumonia, child).",
+   "look": [
+    "Individual B-lines no longer separable",
+    "Bright band from pleura to screen bottom",
+    "Sliding usually preserved"
+   ],
+   "teach": [
+    "Confluence means more interstitial and alveolar fluid — the step before white lung.",
+    "In children with viral illness this pattern is common and patchy."
+   ],
+   "quiz": {
+    "q": "Confluent B-lines represent…",
+    "options": [
+     "Less fluid than isolated B-lines",
+     "More interstitial/alveolar fluid",
+     "Air in the pleural space",
+     "Normal lung"
+    ],
+    "answer": 1,
+    "explain": "As fluid increases, B-lines multiply and merge into a confluent white pattern."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:Prospective-application-of-clinician-performed-lung-ultrasonography-during-the-2009-H1N1-influenza-2036-7902-4-16-S2.ogv"
+   },
+   "licenseClaimed": "CC BY 2.0",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Prospective-application-of-clinician-performed-lung-ultrasonography-during-the-2009-H1N1-influenza-2036-7902-4-16-S2.ogv",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "lus-consolidation-tsung",
+   "kind": "lus",
+   "type": "ultrasound",
+   "modality": "Lung ultrasound",
+   "finding": "consolidation",
+   "findings": [
+    "consolidation"
+   ],
+   "title": "Consolidation with air bronchograms",
+   "caption": "Right anterior middle-lobe consolidation: tissue-like lung with bright moving dots and branches (air bronchograms) — bacterial pneumonia pattern.",
+   "look": [
+    "Lung looks like liver (hepatisation)",
+    "Bright branching air bronchograms",
+    "Dynamic bronchograms move with breathing"
+   ],
+   "teach": [
+    "Dynamic air bronchograms mean the airway is open — pneumonia rather than obstructive collapse.",
+    "Static bronchograms in a non-moving consolidation suggest atelectasis."
+   ],
+   "quiz": {
+    "q": "Dynamic air bronchograms favour…",
+    "options": [
+     "Obstructive atelectasis",
+     "Pneumonia",
+     "Pneumothorax",
+     "Effusion"
+    ],
+    "answer": 1,
+    "explain": "Air moving in the bronchi within consolidated lung means the airway is patent — typical of pneumonia."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:Prospective-application-of-clinician-performed-lung-ultrasonography-during-the-2009-H1N1-influenza-2036-7902-4-16-S3.ogv"
+   },
+   "licenseClaimed": "CC BY 2.0",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Prospective-application-of-clinician-performed-lung-ultrasonography-during-the-2009-H1N1-influenza-2036-7902-4-16-S3.ogv",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "echo-vsd-color-commons",
+   "kind": "echo-vsd",
+   "type": "echo",
+   "modality": "Echocardiography with colour Doppler",
+   "finding": "ventricular septal defect",
+   "findings": [
+    "vsd"
+   ],
+   "expect": "image",
+   "title": "VSD on colour Doppler",
+   "caption": "Colour Doppler echocardiogram: a turbulent, mosaic jet crosses the ventricular septum — flow through a VSD.",
+   "look": [
+    "Colour jet crossing the septum",
+    "Mosaic (aliasing) = high velocity",
+    "Which side does it start from?"
+   ],
+   "teach": [
+    "A small restrictive VSD has a high-velocity jet (big LV–RV gradient); a large one shows low-velocity, laminar flow.",
+    "Continuous-wave Doppler of the jet estimates RV pressure: RVSP ≈ systolic BP − 4v²."
+   ],
+   "quiz": {
+    "q": "A mosaic, high-velocity VSD jet usually means…",
+    "options": [
+     "A large unrestrictive defect",
+     "A small restrictive defect with a big pressure difference",
+     "Eisenmenger physiology",
+     "No shunt"
+    ],
+    "answer": 1,
+    "explain": "High velocity requires a large gradient across the hole — typical of a small, restrictive VSD with normal RV pressure."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:Ventricular Septal Defect.jpg"
+   },
+   "licenseClaimed": "Public Domain",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Ventricular_Septal_Defect.jpg",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "echo-asd-secundum-commons",
+   "kind": "echo-asd",
+   "type": "echo",
+   "modality": "Echocardiography (subcostal)",
+   "finding": "secundum atrial septal defect",
+   "findings": [
+    "asd"
+   ],
+   "expect": "image",
+   "title": "Secundum ASD",
+   "caption": "Echocardiogram showing a gap in the middle of the atrial septum — an ostium secundum defect.",
+   "look": [
+    "Discontinuity in the mid atrial septum",
+    "Dilated right atrium and ventricle",
+    "Subcostal view lines the septum up across the beam"
+   ],
+   "teach": [
+    "The subcostal view is best because the septum lies across the beam — apical views can drop out the thin septum and mimic a defect.",
+    "Right heart dilatation reflects the left-to-right volume load."
+   ],
+   "quiz": {
+    "q": "Why is the subcostal view preferred for the atrial septum?",
+    "options": [
+     "It is closer to the skin",
+     "The septum lies perpendicular to the beam, so dropout is less likely",
+     "It shows the aorta",
+     "It avoids colour Doppler"
+    ],
+    "answer": 1,
+    "explain": "In apical views the thin septum lies parallel to the beam and can falsely appear absent; subcostally it is perpendicular."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:Echokardiogram von Atriumseptumdefekt (Ostium secundum).jpg"
+   },
+   "licenseClaimed": "Public Domain",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Echokardiogram_von_Atriumseptumdefekt_(Ostium_secundum).jpg",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  }
+ ]
+}
