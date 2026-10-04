@@ -2,7 +2,7 @@
   "assets": [
     {
       "id": "rep.rep-art-line.anatomy",
-      "file": "rep.rep-art-line.anatomy.mp3",
+      "file": "rep.rep-art-line.anatomy.v93228440f3a14b19.mp3",
       "transcriptHash": "93228440f3a14b19",
       "reviewed": false,
       "published": false,
@@ -223,7 +223,7 @@
     },
     {
       "id": "rep.rep-central-line.scan",
-      "file": "rep.rep-central-line.scan.mp3",
+      "file": "rep.rep-central-line.scan.vdbe1c3a326d68207.mp3",
       "transcriptHash": "dbe1c3a326d68207",
       "reviewed": false,
       "published": false,
@@ -262,7 +262,7 @@
     },
     {
       "id": "rep.rep-chest-tube.anatomy",
-      "file": "rep.rep-chest-tube.anatomy.mp3",
+      "file": "rep.rep-chest-tube.anatomy.vec36c44b4cf4e05c.mp3",
       "transcriptHash": "ec36c44b4cf4e05c",
       "reviewed": false,
       "published": false,
@@ -548,7 +548,7 @@
     },
     {
       "id": "rep.rep-efast.cardiac",
-      "file": "rep.rep-efast.cardiac.mp3",
+      "file": "rep.rep-efast.cardiac.vf0b6d4e17921f3e1.mp3",
       "transcriptHash": "f0b6d4e17921f3e1",
       "reviewed": false,
       "published": false,
@@ -561,7 +561,7 @@
     },
     {
       "id": "rep.rep-efast.lung",
-      "file": "rep.rep-efast.lung.mp3",
+      "file": "rep.rep-efast.lung.vd9867e884c112d0d.mp3",
       "transcriptHash": "d9867e884c112d0d",
       "reviewed": false,
       "published": false,
@@ -574,7 +574,7 @@
     },
     {
       "id": "rep.rep-efast.luq",
-      "file": "rep.rep-efast.luq.mp3",
+      "file": "rep.rep-efast.luq.v3e2f256d431538be.mp3",
       "transcriptHash": "3e2f256d431538be",
       "reviewed": false,
       "published": false,
@@ -587,7 +587,7 @@
     },
     {
       "id": "rep.rep-efast.orientation",
-      "file": "rep.rep-efast.orientation.mp3",
+      "file": "rep.rep-efast.orientation.vd7b2c80dba421852.mp3",
       "transcriptHash": "d7b2c80dba421852",
       "reviewed": false,
       "published": false,
@@ -600,7 +600,7 @@
     },
     {
       "id": "rep.rep-efast.pelvis",
-      "file": "rep.rep-efast.pelvis.mp3",
+      "file": "rep.rep-efast.pelvis.v5e41be89fb0e5049.mp3",
       "transcriptHash": "5e41be89fb0e5049",
       "reviewed": false,
       "published": false,
@@ -626,7 +626,7 @@
     },
     {
       "id": "rep.rep-efast.ruq",
-      "file": "rep.rep-efast.ruq.mp3",
+      "file": "rep.rep-efast.ruq.v641f6bd284942fa4.mp3",
       "transcriptHash": "641f6bd284942fa4",
       "reviewed": false,
       "published": false,
@@ -678,7 +678,7 @@
     },
     {
       "id": "rep.rep-evd.level",
-      "file": "rep.rep-evd.level.mp3",
+      "file": "rep.rep-evd.level.v5784e860e72ae40e.mp3",
       "transcriptHash": "5784e860e72ae40e",
       "reviewed": false,
       "published": false,
@@ -691,7 +691,7 @@
     },
     {
       "id": "rep.rep-evd.move",
-      "file": "rep.rep-evd.move.mp3",
+      "file": "rep.rep-evd.move.v1fb3803c90c5bda6.mp3",
       "transcriptHash": "1fb3803c90c5bda6",
       "reviewed": false,
       "published": false,
@@ -847,7 +847,7 @@
     },
     {
       "id": "rep.rep-io.landmark",
-      "file": "rep.rep-io.landmark.mp3",
+      "file": "rep.rep-io.landmark.va9951aa26749c15d.mp3",
       "transcriptHash": "a9951aa26749c15d",
       "reviewed": false,
       "published": false,
@@ -1127,7 +1127,7 @@
       "voice": "Natural clinical narrator",
       "provider": "AI Voice Generator",
       "sha256": "870345d3e4ce9e79b599bdc5fde4db61e829d8b601e42966474108b53d91b037",
-      "durationSeconds": 15.0,
+      "durationSeconds": 15,
       "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/bd1a9d15-0eed-46b1-b571-c264faf785e4.mp3",
       "note": "Durable imported prototype; requires listening + clinical review before publication."
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "id": "rep.rep-push-dose-pressor.arrival",
-      "file": "rep.rep-push-dose-pressor.arrival.mp3",
+      "file": "rep.rep-push-dose-pressor.arrival.v5969e614b05f38af.mp3",
       "transcriptHash": "5969e614b05f38af",
       "reviewed": false,
       "published": false,
@@ -1224,7 +1224,7 @@
     },
     {
       "id": "rep.rep-push-dose-pressor.comp",
-      "file": "rep.rep-push-dose-pressor.comp.mp3",
+      "file": "rep.rep-push-dose-pressor.comp.vf0ef742f7c2d0da6.mp3",
       "transcriptHash": "f0ef742f7c2d0da6",
       "reviewed": false,
       "published": false,
@@ -1237,7 +1237,7 @@
     },
     {
       "id": "rep.rep-push-dose-pressor.debrief",
-      "file": "rep.rep-push-dose-pressor.debrief.mp3",
+      "file": "rep.rep-push-dose-pressor.debrief.v46320b632c7c6b2c.mp3",
       "transcriptHash": "46320b632c7c6b2c",
       "reviewed": false,
       "published": false,
@@ -1250,7 +1250,7 @@
     },
     {
       "id": "rep.rep-push-dose-pressor.equip",
-      "file": "rep.rep-push-dose-pressor.equip.mp3",
+      "file": "rep.rep-push-dose-pressor.equip.vf5aa38950e482988.mp3",
       "transcriptHash": "f5aa38950e482988",
       "reviewed": false,
       "published": false,
@@ -1263,7 +1263,7 @@
     },
     {
       "id": "rep.rep-push-dose-pressor.give",
-      "file": "rep.rep-push-dose-pressor.give.mp3",
+      "file": "rep.rep-push-dose-pressor.give.vb33c5d568f09bc36.mp3",
       "transcriptHash": "b33c5d568f09bc36",
       "reviewed": false,
       "published": false,
@@ -1276,7 +1276,7 @@
     },
     {
       "id": "rep.rep-push-dose-pressor.orient",
-      "file": "rep.rep-push-dose-pressor.orient.mp3",
+      "file": "rep.rep-push-dose-pressor.orient.ve5e1752fc5f64090.mp3",
       "transcriptHash": "e5e1752fc5f64090",
       "reviewed": false,
       "published": false,
@@ -1289,7 +1289,7 @@
     },
     {
       "id": "rep.rep-push-dose-pressor.verify",
-      "file": "rep.rep-push-dose-pressor.verify.mp3",
+      "file": "rep.rep-push-dose-pressor.verify.v13eee515a4b133e4.mp3",
       "transcriptHash": "13eee515a4b133e4",
       "reviewed": false,
       "published": false,
@@ -1588,7 +1588,7 @@
     },
     {
       "id": "rep.rep-us-piv.scan",
-      "file": "rep.rep-us-piv.scan.mp3",
+      "file": "rep.rep-us-piv.scan.v325fb096c439323d.mp3",
       "transcriptHash": "325fb096c439323d",
       "reviewed": false,
       "published": false,
