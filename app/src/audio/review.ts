@@ -1,4 +1,6 @@
 import type { MasteryState } from './types';
+import { MASTERY } from './mastery';
+import { MASTERY_NOTES } from './masteryNotes';
 
 export interface ReviewPrompt {
   id: string;
@@ -9,7 +11,7 @@ export interface ReviewPrompt {
   explain: string;
 }
 
-export const REVIEW_PROMPTS: ReviewPrompt[] = [
+const BESPOKE_REVIEW_PROMPTS: ReviewPrompt[] = [
   {
     id: 'rv-peep', concept: 'rv-failure',
     question: 'A patient with severe RV failure becomes hypotensive after intubation. Which explanation best fits the physiology?',
@@ -96,6 +98,35 @@ export const REVIEW_PROMPTS: ReviewPrompt[] = [
     answer: 0,
     explain: 'Expert reasoning is calibrated and revisable: commit provisionally, predict, observe, and update when reality contradicts the model.',
   },
+];
+
+const cleanTrap = (text: string) => text.replace(/\.$/, '').replace(/^Treating /, 'Treat ').replace(/^Assuming /, 'Assume ').replace(/^Ignoring /, 'Ignore ').replace(/^Calling /, 'Call ').replace(/^Using /, 'Use ').replace(/^Waiting /, 'Wait ').replace(/^Focusing /, 'Focus ').replace(/^Equating /, 'Equate ').replace(/^Relying /, 'Rely ').replace(/^Chasing /, 'Chase ').replace(/^Reducing /, 'Reduce ').replace(/^Giving /, 'Give ').replace(/^Increasing /, 'Increase ').replace(/^Stopping /, 'Stop ').replace(/^Delaying /, 'Delay ').replace(/^Allowing /, 'Allow ').replace(/^Choosing /, 'Choose ');
+
+function generatedPrompt(concept: (typeof MASTERY)[number]): ReviewPrompt {
+  const note = MASTERY_NOTES[concept.id];
+  const correct = note.integration.replace(/\.$/, '');
+  const distractors = [
+    cleanTrap(note.traps[0]),
+    cleanTrap(note.traps[1]),
+    `Use the most abnormal monitor or laboratory value as the primary decision rule for ${concept.name.toLowerCase()}`,
+  ];
+  const answer = [...concept.id].reduce((n, ch) => n + ch.charCodeAt(0), 0) % 4;
+  const options = [...distractors];
+  options.splice(answer, 0, correct);
+  return {
+    id: `model-${concept.id}`,
+    concept: concept.id,
+    question: `Which approach best reflects expert bedside reasoning about ${concept.name}?`,
+    options,
+    answer,
+    explain: `${note.mechanism} ${note.bedside} The integration principle is: ${note.integration}`,
+  };
+}
+
+const bespokeConcepts = new Set(BESPOKE_REVIEW_PROMPTS.map((q) => q.concept));
+export const REVIEW_PROMPTS: ReviewPrompt[] = [
+  ...BESPOKE_REVIEW_PROMPTS,
+  ...MASTERY.filter((c) => !bespokeConcepts.has(c.id)).map(generatedPrompt),
 ];
 
 const DAY = 86_400_000;
