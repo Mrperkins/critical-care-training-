@@ -156,8 +156,9 @@ function FocusPath({ conceptId, onBack, onEpisode, onRep, onReview }: { conceptI
 function EpisodePlayer({ episode, onBack }: { episode: AudioEpisode; onBack: () => void }) {
   const p = useAudioProgress(); const audio = useRef<HTMLAudioElement>(null); const [chapter, setChapter] = useState(0); const [playing, setPlaying] = useState(false);
   const [listening, setListening] = useState(false); const [heard, setHeard] = useState('');
+  const savedAt = p.position[episode.id] ?? 0; const lastSaved = useRef(savedAt);
   const ch = episode.chapters[chapter]; const src = episode.voice?.src ?? episode.voice?.previewSrc;
-  useEffect(() => () => { audio.current?.pause(); }, []);
+  useEffect(() => () => { const a = audio.current; if (a) p.setPosition(episode.id, a.currentTime); a?.pause(); }, [episode.id]);
   const toggle = async () => {
     if (!audio.current || !src) return; if (audio.current.paused) { await audio.current.play(); setPlaying(true); } else { audio.current.pause(); setPlaying(false); }
   };
@@ -175,7 +176,11 @@ function EpisodePlayer({ episode, onBack }: { episode: AudioEpisode; onBack: () 
       <div className="aa-cover"><span>{episode.format.replace('-', ' ')}</span><div className="aa-wave">{Array.from({ length: 28 }).map((_, i) => <i key={i} style={{ height: `${20 + ((i * 17) % 65)}%` }} />)}</div><b>LEVEL {episode.level}</b></div>
       <div className="aa-player-info"><span className="aa-kicker">{DOMAIN_LABELS[episode.domain]}</span><h1>{episode.title}</h1><p>{episode.subtitle}</p>
         <div className="aa-tags"><span>{episode.minutes} min</span><span>{episode.chapters.length} chapters</span>{episode.voice && <span className="voice">{episode.voice.tier === 'premium-human' ? 'Natural voice' : 'Clinician recorded'}</span>}</div>
-        {src ? <><audio ref={audio} src={src} onEnded={() => setPlaying(false)} /><div className="aa-audioctl"><button onClick={toggle}>{playing ? '❚❚ Pause' : '▶ Play natural-voice sample'}</button>{handsFreeAvailable() && <button className={`aa-mic ${listening ? 'on' : ''}`} onClick={mic}>{listening ? 'Listening…' : '⌁ Hands-free'}</button>}<small>Prototype voice sample · production audio requires clinical review</small></div>{heard && <div className="aa-heard">Heard: “{heard}”</div>}</> :
+        {src ? <><audio ref={audio} src={src}
+          onLoadedMetadata={(e) => { const a = e.currentTarget; if (savedAt > 2 && savedAt < a.duration - 3) a.currentTime = savedAt; }}
+          onTimeUpdate={(e) => { const t = e.currentTarget.currentTime; if (Math.abs(t - lastSaved.current) >= 5) { lastSaved.current = t; p.setPosition(episode.id, t); } }}
+          onPause={(e) => p.setPosition(episode.id, e.currentTarget.currentTime)}
+          onEnded={() => { setPlaying(false); lastSaved.current = 0; p.setPosition(episode.id, 0); }} /><div className="aa-audioctl"><button onClick={toggle}>{playing ? '❚❚ Pause' : '▶ Play natural-voice sample'}</button>{handsFreeAvailable() && <button className={`aa-mic ${listening ? 'on' : ''}`} onClick={mic}>{listening ? 'Listening…' : '⌁ Hands-free'}</button>}<small>{savedAt > 2 ? `Resume saved at ${fmt(savedAt)} · ` : ''}Prototype voice sample · production audio requires clinical review</small></div>{heard && <div className="aa-heard">Heard: “{heard}”</div>}</> :
           <div className="aa-pending">Premium natural-voice render pending for this scripted lesson.</div>}
       </div>
     </div>
