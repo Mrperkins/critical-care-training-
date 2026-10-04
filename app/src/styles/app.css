@@ -797,3 +797,31 @@ button.lchip.ldot.q-hint{border-color:var(--gold)!important;animation:qpulse 1s 
 .context-stack{display:flex;flex-direction:column;gap:10px;min-height:0}
 .context-stack>.card:first-child{border-color:rgba(211,178,122,.16)}
 .phone .context-tabs{position:relative;top:auto;margin:0 0 4px;grid-template-columns:repeat(4,minmax(72px,1fr));overflow-x:auto}
+
+
+/* consolidated scene command row */
+.scene-primary-tools{position:absolute;left:12px;top:12px;z-index:42;display:flex;gap:7px;align-items:flex-start}
+.scene-menu{position:relative}
+.scene-menu-trigger{min-width:0!important;padding:0 10px!important;gap:7px!important}
+.scene-menu-trigger>span:not(.st-ico){display:inline!important}
+.scene-menu-trigger small{font:500 9px var(--fm);color:var(--mute);margin-left:2px}
+.scene-menu-trigger.on{border-color:var(--gold);background:rgba(20,20,22,.94)}
+.scene-popover{
+  position:absolute;top:43px;left:0;min-width:190px;padding:5px;background:rgba(11,12,15,.97);
+  border:1px solid var(--line2);border-radius:11px;box-shadow:0 14px 34px rgba(0,0,0,.45);backdrop-filter:blur(12px)
+}
+.scene-popover button{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;border:0;background:none;color:var(--dim);padding:8px 9px;border-radius:7px;font-size:12px}
+.scene-popover button:hover,.scene-popover button.on{background:rgba(255,255,255,.055);color:var(--ink)}
+.scene-popover button b{font:600 9px var(--fm);color:var(--gold)}
+.more-menu{min-width:220px}
+.scene-tools2{
+  top:12px!important;right:12px!important;transform:none!important;flex-direction:row!important;align-items:center!important;gap:7px!important
+}
+.scene-tools2 .st-btn{background:rgba(10,12,14,.82)}
+.scene-tools2 .st-btn .st-txt{display:none!important}
+.scene-tools2 .st-btn:hover .st-txt,.scene-tools2 .st-btn:focus-visible .st-txt{display:inline!important}
+.scene-wrap .view-btns,.scene-wrap .scene-tools{display:none!important}
+.phone .scene-primary-tools{left:8px;top:8px;gap:5px}.phone .scene-tools2{top:8px!important;right:8px!important;gap:5px!important}
+.phone .scene-menu-trigger{height:32px!important;padding:0 8px!important}.phone .scene-menu-trigger small{display:none}
+.phone .scene-tools2 .st-btn{height:32px;min-width:32px;padding:0 7px}
+.phone .scene-popover{top:38px;min-width:180px}
