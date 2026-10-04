@@ -2,7 +2,7 @@ name: Import Audio Voice Assets
 
 on:
   push:
-    branches: [main, mental-reps-hands-on, mental-reps-advanced-devices-v4]
+    branches: [main, mental-reps-hands-on]
     paths:
       - app/public/audio/voice/import.json
       - app/src/audio/catalog.ts
