@@ -15,6 +15,18 @@ type Page = 'home' | 'tracks' | 'listen' | 'reps' | 'review' | 'mastery';
 
 const fmt = (n: number) => `${Math.floor(n / 60)}:${String(Math.floor(n % 60)).padStart(2, '0')}`;
 
+type DurableVoiceAsset = { file: string; reviewed: boolean };
+function durableVoiceAsset(id: string): DurableVoiceAsset | null {
+  if (typeof window === 'undefined') return null;
+  const w = window as unknown as { __CC_AUDIO_ASSETS__?: Record<string, DurableVoiceAsset> };
+  return w.__CC_AUDIO_ASSETS__?.[id] ?? null;
+}
+function durableVoiceSrc(id: string) {
+  const a = durableVoiceAsset(id);
+  return a ? `voice/${a.file}` : undefined;
+}
+
+
 export function AudioApp() {
   const [page, setPage] = useState<Page>('home');
   const [episode, setEpisode] = useState<AudioEpisode | null>(null);
@@ -182,7 +194,8 @@ function EpisodePlayer({ episode, onBack, onReview, onFocus, onExample }: { epis
   const p = useAudioProgress(); const audio = useRef<HTMLAudioElement>(null); const [chapter, setChapter] = useState(0); const [playing, setPlaying] = useState(false);
   const [listening, setListening] = useState(false); const [heard, setHeard] = useState('');
   const savedAt = p.position[episode.id] ?? 0; const lastSaved = useRef(savedAt);
-  const ch = episode.chapters[chapter]; const src = episode.voice?.src ?? episode.voice?.previewSrc;
+  const ch = episode.chapters[chapter]; const durable = durableVoiceAsset(`episode.${episode.id}`);
+  const src = durable ? `voice/${durable.file}` : episode.voice?.src ?? episode.voice?.previewSrc;
   useEffect(() => () => { const a = audio.current; if (a) p.setPosition(episode.id, a.currentTime); a?.pause(); }, [episode.id]);
   const toggle = async () => {
     if (!audio.current || !src) return; if (audio.current.paused) { await audio.current.play(); setPlaying(true); } else { audio.current.pause(); setPlaying(false); }
@@ -207,12 +220,12 @@ function EpisodePlayer({ episode, onBack, onReview, onFocus, onExample }: { epis
     <div className="aa-player-main">
       <div className="aa-cover"><span>{episode.format.replace('-', ' ')}</span><div className="aa-wave">{Array.from({ length: 28 }).map((_, i) => <i key={i} style={{ height: `${20 + ((i * 17) % 65)}%` }} />)}</div><b>LEVEL {episode.level}</b></div>
       <div className="aa-player-info"><span className="aa-kicker">{DOMAIN_LABELS[episode.domain]}</span><h1>{episode.title}</h1><p>{episode.subtitle}</p>
-        <div className="aa-tags"><span>{episode.minutes} min</span><span>{episode.chapters.length} chapters</span>{episode.voice && <span className="voice">{episode.voice.tier === 'premium-human' ? 'Natural voice' : 'Clinician recorded'}</span>}</div>
+        <div className="aa-tags"><span>{episode.minutes} min</span><span>{episode.chapters.length} chapters</span>{(durable || episode.voice) && <span className="voice">{durable?.reviewed || episode.voice?.reviewed ? 'Reviewed natural voice' : 'Natural voice · review pending'}</span>}</div>
         {src ? <><audio ref={audio} src={src}
           onLoadedMetadata={(e) => { const a = e.currentTarget; if (savedAt > 2 && savedAt < a.duration - 3) a.currentTime = savedAt; }}
           onTimeUpdate={(e) => { const t = e.currentTarget.currentTime; if (Math.abs(t - lastSaved.current) >= 5) { lastSaved.current = t; p.setPosition(episode.id, t); } }}
           onPause={(e) => p.setPosition(episode.id, e.currentTarget.currentTime)}
-          onEnded={() => { setPlaying(false); lastSaved.current = 0; p.setPosition(episode.id, 0); }} /><div className="aa-audioctl"><button onClick={toggle}>{playing ? '❚❚ Pause' : '▶ Play natural-voice sample'}</button>{handsFreeAvailable() && <button className={`aa-mic ${listening ? 'on' : ''}`} onClick={mic}>{listening ? 'Listening…' : '⌁ Hands-free'}</button>}<small>{savedAt > 2 ? `Resume saved at ${fmt(savedAt)} · ` : ''}Prototype voice sample · production audio requires clinical review</small></div>{heard && <div className="aa-heard">Heard: “{heard}”</div>}<div className="aa-command-hint">Say: pause · repeat · next · go deeper · give me an example · quiz me</div></> :
+          onEnded={() => { setPlaying(false); lastSaved.current = 0; p.setPosition(episode.id, 0); }} /><div className="aa-audioctl"><button onClick={toggle}>{playing ? '❚❚ Pause' : '▶ Play natural-voice sample'}</button>{handsFreeAvailable() && <button className={`aa-mic ${listening ? 'on' : ''}`} onClick={mic}>{listening ? 'Listening…' : '⌁ Hands-free'}</button>}<small>{savedAt > 2 ? `Resume saved at ${fmt(savedAt)} · ` : ''}{durable ? (durable.reviewed ? 'Reviewed durable narration' : 'Durable narration · review pending') : 'Prototype voice sample · production audio requires clinical review'}</small></div>{heard && <div className="aa-heard">Heard: “{heard}”</div>}<div className="aa-command-hint">Say: pause · repeat · next · go deeper · give me an example · quiz me</div></> :
           <div className="aa-pending">Premium natural-voice render pending for this scripted lesson.</div>}
       </div>
     </div>
@@ -228,7 +241,9 @@ function RepPlayer({ rep, onBack, onReview, onFocus, onExample }: { rep: MentalR
   const p = useAudioProgress(); const [i, setI] = useState(0); const beat = rep.beats[i];
   const audio = useRef<HTMLAudioElement>(null); const [guided, setGuided] = useState(false); const [voicePlaying, setVoicePlaying] = useState(false);
   const [listening, setListening] = useState(false); const [heard, setHeard] = useState('');
-  const voiceSrc = beat.voice?.src ?? beat.voice?.previewSrc; const hasVoice = rep.beats.some((b) => !!(b.voice?.src ?? b.voice?.previewSrc));
+  const beatVoiceId = `rep.${rep.id}.${beat.id}`; const durableBeat = durableVoiceAsset(beatVoiceId);
+  const voiceSrc = durableBeat ? `voice/${durableBeat.file}` : beat.voice?.src ?? beat.voice?.previewSrc;
+  const hasVoice = rep.beats.some((b) => !!(durableVoiceSrc(`rep.${rep.id}.${b.id}`) ?? b.voice?.src ?? b.voice?.previewSrc));
 
   useEffect(() => {
     if (!guided || !voiceSrc || !audio.current) return;
@@ -281,7 +296,7 @@ function RepPlayer({ rep, onBack, onReview, onFocus, onExample }: { rep: MentalR
     <div className="aa-repstage">
       <div className={`aa-visual ${beat.danger ? 'danger' : ''}`}><RepVisual beat={beat} /><small className="aa-vphase">VISUAL CUE · {beat.phase.toUpperCase()}</small></div>
       <section><div className="aa-stepcount">BEAT {i + 1} OF {rep.beats.length}</div><h2>{beat.title}</h2><p className="aa-narration">{beat.narration}</p>
-        {voiceSrc && <><audio ref={audio} src={voiceSrc} onEnded={ended} /><div className="aa-beatvoice"><button onClick={toggleVoice}>{voicePlaying ? '❚❚ Pause narration' : '▶ Narrate this beat'}</button>{handsFreeAvailable() && <button className={`aa-mic ${listening ? 'on' : ''}`} onClick={mic}>{listening ? 'Listening…' : '⌁ Hands-free'}</button>}<span>{beat.voice?.reviewed ? 'Reviewed narration' : 'Natural-voice prototype'}</span></div>{heard && <div className="aa-heard">Heard: “{heard}”</div>}<div className="aa-command-hint">Say: pause · repeat · next · go deeper · give me an example · quiz me</div></>}
+        {voiceSrc && <><audio ref={audio} src={voiceSrc} onEnded={ended} /><div className="aa-beatvoice"><button onClick={toggleVoice}>{voicePlaying ? '❚❚ Pause narration' : '▶ Narrate this beat'}</button>{handsFreeAvailable() && <button className={`aa-mic ${listening ? 'on' : ''}`} onClick={mic}>{listening ? 'Listening…' : '⌁ Hands-free'}</button>}<span>{durableBeat?.reviewed || beat.voice?.reviewed ? 'Reviewed narration' : durableBeat ? 'Durable natural voice · review pending' : 'Natural-voice prototype'}</span></div>{heard && <div className="aa-heard">Heard: “{heard}”</div>}<div className="aa-command-hint">Say: pause · repeat · next · go deeper · give me an example · quiz me</div></>}
         {beat.pauseSeconds && <div className="aa-pause">Pause · {beat.pauseSeconds} seconds</div>}
         {beat.prompt && <div className="aa-prompt"><b>Mentally answer before moving on</b><p>{beat.prompt}</p></div>}
         <div className="aa-controls"><button disabled={i === 0} onClick={() => go(i - 1)}>← Previous</button>{i < rep.beats.length - 1 ? <button className="aa-primary" onClick={() => go(i + 1)}>Next beat →</button> :
