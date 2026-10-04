@@ -1,0 +1,39 @@
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Avoid secondary oxygen and ventilation injury.
+
+Oxygen delivery. DO2 is cardiac output multiplied by arterial oxygen content; saturation alone does not describe tissue oxygen delivery.
+
+Build the mechanism first. Oxygen delivery equals cardiac output multiplied by arterial oxygen content, which is dominated by hemoglobin-bound oxygen rather than dissolved oxygen.
+
+At the bedside, normal saturation can coexist with critically low delivery in severe anemia or low-flow shock. Ask about hemoglobin and flow whenever tissue perfusion looks worse than the pulse oximeter.
+
+Two traps to actively avoid: Using SpO2 as a proxy for whole-body oxygen delivery. And: Forgetting that raising saturation from already-high levels adds little content.
+
+The integration move is this: Saturation tells you how full the carriers are; hemoglobin tells you how many carriers exist; cardiac output tells you how fast they move.
+
+Keep these terms available in your mental model: CaO2, DO2, VO2.
+
+What expert-level use of this concept looks like is this: Predict effects of hemoglobin, saturation and flow on oxygen delivery. Explain why a normal SpO2 can coexist with inadequate DO2.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict effects of hemoglobin, saturation and flow on oxygen delivery. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Explain why a normal SpO2 can coexist with inadequate DO2. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Oxygen delivery to Oxygen extraction. The relationship between delivered and consumed oxygen reflected by venous saturation and tissue extraction.
+
+The relationship matters because Tissues can increase extraction when delivery falls, lowering venous oxygen saturation until extraction reserve is exhausted. High venous saturation can also be abnormal when extraction is impaired or flow is maldistributed. At the bedside, interpret SvO2 or ScvO2 alongside cardiac output, hemoglobin, arterial saturation, metabolic demand and shock phenotype.
+
+Now connect Oxygen delivery to Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+The relationship matters because Shock is inadequate effective tissue perfusion and oxygen utilization, not merely hypotension. Flow, vascular tone, capacitance, congestion and extraction can fail in different combinations. At the bedside, phenotype the circulation repeatedly. A patient can move from one dominant mechanism to another during resuscitation.
+
+Stress-test the model. Imagine the patient changes in a way that makes using spo2 as a proxy for whole-body oxygen delivery tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Forgetting that raising saturation from already-high levels adds little content.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: The arrest cause may still be active.

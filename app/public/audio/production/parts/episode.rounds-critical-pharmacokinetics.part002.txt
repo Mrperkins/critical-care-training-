@@ -1,0 +1,39 @@
+Now: Kidney and liver clearance move over time.
+
+Critical-care pharmacokinetics & interactions. Critical illness alters absorption, distribution, protein binding, hepatic metabolism and renal/extracorporeal clearance.
+
+Build the mechanism first. Critical illness changes volume of distribution, protein binding, hepatic metabolism and renal/extracorporeal clearance, so dose-exposure relationships become dynamic.
+
+At the bedside, reassess dosing after fluid shifts, organ failure, C R R T/E C M O or interacting drugs instead of treating the admission dose as permanent.
+
+Two traps to actively avoid: Assuming creatinine alone predicts drug clearance. And: Ignoring protein binding and circuit sequestration for highly bound/lipophilic drugs.
+
+The integration move is this: Drug dosing is a moving physiology problem.
+
+Keep these terms available in your mental model: volume of distribution, clearance, protein binding, drug interaction.
+
+What expert-level use of this concept looks like is this: Predict when standard dosing is unlikely to produce standard exposure. Recognize organ support and interacting drugs as moving pharmacokinetic variables.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict when standard dosing is unlikely to produce standard exposure. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize organ support and interacting drugs as moving pharmacokinetic variables. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Critical-care pharmacokinetics & interactions to C R R T physiology & prescription literacy. Continuous renal replacement uses diffusion and/or convection to manage solute, acid-base and fluid balance in unstable patients.
+
+The relationship matters because C R R T uses diffusion, convection and ultrafiltration to control solute, acid-base and volume continuously. Prescribed dose can differ substantially from delivered dose. At the bedside, separate total effluent from net patient fluid removal and interpret access, filter and return pressures as clues to the physical circuit.
+
+Now connect Critical-care pharmacokinetics & interactions to Acute liver failure. Acute hepatic failure couples coagulopathy, ammonia handling, cerebral edema risk, hypoglycemia, vasodilation and multiorgan dysfunction.
+
+The relationship matters because Abrupt loss of hepatic synthetic and metabolic function can cause hyperammonemia, hypoglycemia, vasodilation, coagulopathy, renal failure and cerebral edema. At the bedside, trend neurologic status, glucose, acid-base, renal function and hemodynamics while involving a transplant-capable center early.
+
+Stress-test the model. Imagine the patient changes in a way that makes assuming creatinine alone predicts drug clearance tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring protein binding and circuit sequestration for highly bound/lipophilic drugs.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Extracorporeal support changes exposure.
+
+C R R T physiology & prescription literacy. Continuous renal replacement uses diffusion and/or convection to manage solute, acid-base and fluid balance in unstable patients.
+
+Build the mechanism first. C R R T uses diffusion, convection and ultrafiltration to control solute, acid-base and volume continuously. Prescribed dose can differ substantially from delivered dose.

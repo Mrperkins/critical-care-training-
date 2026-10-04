@@ -1,0 +1,41 @@
+At the bedside, assess VTE/device thrombosis risk independently from PT/aPTT and adapt prophylaxis or treatment to bleeding risk and mechanism.
+
+Two traps to actively avoid: Assuming prolonged INR means the patient is auto-anticoagulated. And: Missing catheter thrombosis because the line still flushes.
+
+The integration move is this: Bleeding tests and thrombosis biology are related but not interchangeable.
+
+Keep these terms available in your mental model: VTE, thrombosis, Virchow.
+
+What expert-level use of this concept looks like is this: Separate bleeding laboratory abnormalities from actual thrombotic risk. Recognize device- and malignancy-associated thrombosis patterns.
+
+Reasoning checkpoint. Do not just repeat the statement: Separate bleeding laboratory abnormalities from actual thrombotic risk. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize device- and malignancy-associated thrombosis patterns. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Hypercoagulability in critical illness to Heparin-induced thrombocytopenia. HIT is an immune prothrombotic disorder in which falling platelets signal thrombosis risk rather than simple bleeding risk.
+
+The relationship matters because HIT antibodies activate platelets through PF4 complexes, making thrombocytopenia a marker of a strongly prothrombotic immune syndrome. At the bedside, estimate pretest probability first, stop heparin and use appropriate non-heparin anticoagulation when probability warrants while confirmatory testing proceeds.
+
+Now connect Hypercoagulability in critical illness to Critical-illness coagulopathy. Bleeding and thrombosis reflect platelets, fibrinogen, coagulation factors, fibrinolysis, temperature, calcium, dilution and disease-specific pathways.
+
+The relationship matters because Hemostasis depends on platelets, fibrinogen, coagulation factors, fibrinolysis, calcium, pH and temperature. Critical illness can produce simultaneous bleeding and thrombosis risk. At the bedside, interpret conventional labs and viscoelastic tests in the clinical context and replace the failing component rather than one arbitrary number.
+
+Stress-test the model. Imagine the patient changes in a way that makes assuming prolonged inr means the patient is auto-anticoagulated tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Missing catheter thrombosis because the line still flushes.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Tumor lysis as metabolic catastrophe.
+
+Oncologic critical-care emergencies. Tumor lysis, leukostasis, hyperviscosity, malignant airway/vascular obstruction and treatment toxicities can cause rapidly reversible organ failure.
+
+Build the mechanism first. Cancer can cause abrupt metabolic, rheologic or compressive emergencies including tumor lysis, leukostasis and malignant airway/vascular obstruction.
+
+At the bedside, recognize the syndrome early, stabilize organ physiology and coordinate disease-specific therapy such as cytoreduction or metabolic control.
+
+Two traps to actively avoid: Treating tumor lysis electrolyte abnormalities one by one without controlling ongoing cell breakdown. And: Missing leukostasis because total leukocyte count is not extreme.
+
+The integration move is this: The malignancy can be the direct mechanism of organ failure, not merely background history.
+
+Keep these terms available in your mental model: tumor lysis, leukostasis, hyperviscosity.

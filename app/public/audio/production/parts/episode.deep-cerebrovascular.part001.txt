@@ -1,0 +1,39 @@
+You're listening to Stroke, ICH and SAH: perfusion goals change with the lesion and the clock. LVO, hemorrhage, hydrocephalus, rebleeding, ICP and delayed cerebral ischemia.
+
+This is a level 5 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to choose pressure/perfusion priorities according to ischemic versus hemorrhagic pathology and treatment phase; and recognize hydrocephalus, herniation and delayed ischemia as evolving neurologic emergencies.
+
+Now: LVO and the salvageable penumbra.
+
+Acute ischemic stroke & LVO. Large-vessel occlusion threatens salvageable tissue over time; perfusion depends on collateral circulation, pressure and rapid reperfusion.
+
+Build the mechanism first. Large-vessel occlusion abruptly reduces regional cerebral blood flow; collateral circulation temporarily sustains penumbral tissue until reperfusion or infarction occurs.
+
+At the bedside, recognize cortical/LVO syndromes, protect oxygenation and perfusion, establish last-known-well and move rapidly toward imaging/reperfusion pathways.
+
+Two traps to actively avoid: Lowering blood pressure reflexively before reperfusion strategy is defined. And: Letting transport/airway procedures unnecessarily delay thrombectomy-capable care.
+
+The integration move is this: Time, collaterals and perfusion determine how much brain remains salvageable.
+
+Keep these terms available in your mental model: penumbra, large-vessel occlusion, thrombectomy.
+
+What expert-level use of this concept looks like is this: Recognize LVO syndromes and time-sensitive reperfusion pathways. Avoid secondary hypoxemia/hypotension while protecting access to definitive therapy.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize LVO syndromes and time-sensitive reperfusion pathways. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Avoid secondary hypoxemia/hypotension while protecting access to definitive therapy. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Acute ischemic stroke & LVO to ICP, CPP & cerebral perfusion. Cerebral perfusion depends on the gradient across the cerebral circulation and is influenced by pressure, venous outflow, CO2 and intracranial compliance.
+
+The relationship matters because CPP is the pressure gradient available to drive cerebral blood flow and is influenced by arterial pressure, ICP, venous pressure and autoregulation. Intracranial compliance falls as compensatory reserve is exhausted. At the bedside, interpret ICP as a dynamic system with waveform, position, venous drainage, CO2 and sedation effects. A “normal” MAP does not guarantee adequate cerebral perfusion.
+
+Stress-test the model. Imagine the patient changes in a way that makes lowering blood pressure reflexively before reperfusion strategy is defined tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Letting transport/airway procedures unnecessarily delay thrombectomy-capable care.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Hematoma, expansion and cerebral perfusion.
+
+ICH & subarachnoid hemorrhage. Hemorrhagic stroke combines hematoma/aneurysm-related injury with risks of expansion, hydrocephalus, ICP crisis, seizure and delayed ischemia.

@@ -1,0 +1,31 @@
+Now connect Severe asthma & COPD physiology to Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+The relationship matters because Acute ventilator deterioration can originate from the patient, tube, circuit or machine. Peak and plateau pressures help separate resistance from compliance when measurements are trustworthy. At the bedside, look at the patient first, rescue oxygenation/ventilation if the device cannot be trusted, then trace from patient to tube to circuit to machine.
+
+Stress-test the model. Imagine the patient changes in a way that makes responding to hypercapnia by reflexively increasing rate tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Mistaking high peak pressure from resistance for poor compliance.
+
+Auto-peep & dynamic hyperinflation. Incomplete exhalation leaves positive alveolar pressure at end expiration, increasing work of breathing and intrathoracic pressure.
+
+Build the mechanism first. Intrinsic peep is residual positive alveolar pressure caused by incomplete exhalation and dynamic hyperinflation, increasing inspiratory threshold load and intrathoracic pressure.
+
+At the bedside, detect it from flow curves and appropriate expiratory holds, then reduce minute-ventilation demand or increase expiratory time as physiology permits.
+
+Two traps to actively avoid: Adding external peep without understanding the auto-peep mechanism. And: Increasing respiratory rate when breath stacking is already present.
+
+The integration move is this: The next breath should not begin before the previous one has physically had time to leave.
+
+Keep these terms available in your mental model: expiratory flow, breath stacking, intrinsic peep.
+
+What expert-level use of this concept looks like is this: Identify auto-peep on expiratory flow and hold maneuvers. Reduce minute-ventilation demand and extend expiratory time when physiology allows.
+
+Reasoning checkpoint. Do not just repeat the statement: Identify auto-peep on expiratory flow and hold maneuvers. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Reduce minute-ventilation demand and extend expiratory time when physiology allows. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Auto-peep & dynamic hyperinflation to Positive-pressure ventilation & circulation. Positive intrathoracic pressure changes venous return, ventricular transmural pressures and pulmonary vascular resistance.
+
+The relationship matters because Positive intrathoracic pressure can reduce the gradient for venous return, change transmural ventricular pressures and alter P V R depending on lung volume and recruitability. At the bedside, post-intubation hypotension may reflect vasodilation, reduced venous return, increased RV afterload, auto-peep or previously compensated shock becoming unmasked.
+
+Now connect Auto-peep & dynamic hyperinflation to Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+The relationship matters because Acute ventilator deterioration can originate from the patient, tube, circuit or machine. Peak and plateau pressures help separate resistance from compliance when measurements are trustworthy. At the bedside, look at the patient first, rescue oxygenation/ventilation if the device cannot be trusted, then trace from patient to tube to circuit to machine.

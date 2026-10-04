@@ -1,0 +1,35 @@
+Keep these terms available in your mental model: trigger, flow starvation, double triggering, cycling.
+
+What expert-level use of this concept looks like is this: Diagnose dyssynchrony from pressure/flow waveforms before deepening sedation. Correct ventilator mechanics or patient drive according to the mechanism.
+
+Reasoning checkpoint. Do not just repeat the statement: Diagnose dyssynchrony from pressure/flow waveforms before deepening sedation. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Correct ventilator mechanics or patient drive according to the mechanism. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Ventilator synchrony & waveform reasoning to ICU analgesia, sedation & synchrony. Sedation strategy balances analgesia, comfort, ventilator synchrony, neurologic assessment, hemodynamics and delirium risk.
+
+The relationship matters because Analgesics and sedatives alter pain, awareness, respiratory drive, vascular tone and neurologic assessment. Deep sedation is a physiologic intervention with downstream consequences. At the bedside, separate pain, anxiety, delirium, dyssynchrony and hypoxemia before escalating sedation; use an explicit target and reassess it.
+
+Now connect Ventilator synchrony & waveform reasoning to Mechanical power. Energy delivered to the respiratory system over time from pressure, volume, flow and respiratory rate.
+
+The relationship matters because Mechanical power expresses the energy transferred from the ventilator to the respiratory system per unit time. Pressure, tidal volume, flow and respiratory rate all contribute. At the bedside, a patient may have an acceptable tidal volume and plateau pressure yet receive a high cumulative energy load because of rate, flow or excessive pressure swings.
+
+Stress-test the model. Imagine the patient changes in a way that makes calling every struggle “agitation.” tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Suppressing respiratory drive without correcting a mismatched ventilator setting.
+
+Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+Build the mechanism first. Acute ventilator deterioration can originate from the patient, tube, circuit or machine. Peak and plateau pressures help separate resistance from compliance when measurements are trustworthy.
+
+At the bedside, look at the patient first, rescue oxygenation/ventilation if the device cannot be trusted, then trace from patient to tube to circuit to machine.
+
+Two traps to actively avoid: Staring at the ventilator while the patient deteriorates. And: Treating every high-pressure alarm as bronchospasm.
+
+The integration move is this: Use pressure pattern, capnography, exam and circuit inspection to localize the problem quickly.
+
+Keep these terms available in your mental model: DOPES, peak pressure, plateau pressure, auto-peep.
+
+What expert-level use of this concept looks like is this: Separate resistance, compliance, circuit and patient problems using waveforms and bedside examination. Prioritize oxygenation and manual ventilation when the device or circuit cannot be trusted.
+
+Reasoning checkpoint. Do not just repeat the statement: Separate resistance, compliance, circuit and patient problems using waveforms and bedside examination. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Prioritize oxygenation and manual ventilation when the device or circuit cannot be trusted. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.

@@ -1,0 +1,209 @@
+You're listening to ICU infection beyond “sepsis”. CNS infection, device/biofilm disease, intra-abdominal sources, resistance and stewardship.
+
+This is a level 5 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to integrate syndrome, host, source control, resistance and drug exposure in icu infection; and recognize when antimicrobial escalation cannot compensate for an uncontrolled source.
+
+Now: CNS infection: treat while diagnosing.
+
+CNS infection. Meningitis and encephalitis can rapidly produce cerebral edema, seizure and shock; treatment often precedes definitive microbiologic diagnosis.
+
+Build the mechanism first. Meningeal or parenchymal infection can trigger edema, seizures, altered cerebral perfusion and systemic shock; antimicrobial delay can be harmful.
+
+At the bedside, stabilize airway/perfusion and initiate appropriate empiric therapy promptly while deciding whether imaging/instability alters lumbar-puncture timing.
+
+Two traps to actively avoid: Delaying antimicrobials for an unsafe or logistically delayed LP. And: Missing encephalitis because CSF findings are initially subtle.
+
+The integration move is this: Diagnostic sequencing must never obstruct time-sensitive treatment of a high-risk CNS infection.
+
+Keep these terms available in your mental model: meningitis, encephalitis, CSF.
+
+What expert-level use of this concept looks like is this: Start time-sensitive empiric therapy while managing airway, seizure and ICP concerns. Recognize when imaging or instability changes lumbar-puncture timing.
+
+Reasoning checkpoint. Do not just repeat the statement: Start time-sensitive empiric therapy while managing airway, seizure and ICP concerns. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize when imaging or instability changes lumbar-puncture timing. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect CNS infection to Status epilepticus. Ongoing seizures become a time-dependent systemic and neurologic emergency requiring rapid recognition, medication sequencing and search for cause.
+
+The relationship matters because Persistent seizure activity becomes increasingly self-sustaining while causing metabolic demand, hypoxemia, acidosis, hyperthermia and neuronal injury. At the bedside, treat promptly in phases, support physiology and consider ongoing nonconvulsive seizure when convulsions stop but mental status does not recover.
+
+Now connect CNS infection to ICP, CPP & cerebral perfusion. Cerebral perfusion depends on the gradient across the cerebral circulation and is influenced by pressure, venous outflow, CO2 and intracranial compliance.
+
+The relationship matters because CPP is the pressure gradient available to drive cerebral blood flow and is influenced by arterial pressure, ICP, venous pressure and autoregulation. Intracranial compliance falls as compensatory reserve is exhausted. At the bedside, interpret ICP as a dynamic system with waveform, position, venous drainage, CO2 and sedation effects. A “normal” MAP does not guarantee adequate cerebral perfusion.
+
+Stress-test the model. Imagine the patient changes in a way that makes delaying antimicrobials for an unsafe or logistically delayed lp tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Missing encephalitis because CSF findings are initially subtle.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Biofilm and device source control.
+
+Catheter & device-associated infection. Intravascular lines, urinary catheters and implanted devices can become infection sources whose management may require device removal.
+
+Build the mechanism first. Foreign material permits biofilm and persistent microbial adherence, making infection harder to clear without removing or exchanging the source device when feasible.
+
+At the bedside, assess every invasive device for necessity and source potential, obtain appropriate cultures and pair antimicrobial therapy with device/source decisions.
+
+Two traps to actively avoid: Broadening antibiotics indefinitely while leaving an infected device in place. And: Removing essential access without a replacement plan in an unstable patient.
+
+The integration move is this: A device can be both lifesaving infrastructure and the uncontrolled source.
+
+Keep these terms available in your mental model: CLABSI, biofilm, device removal.
+
+What expert-level use of this concept looks like is this: Recognize when the device itself is the source-control problem. Balance culture strategy, empiric therapy and device necessity.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize when the device itself is the source-control problem. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Balance culture strategy, empiric therapy and device necessity. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Catheter & device-associated infection to Antimicrobial resistance & stewardship. Empiric antimicrobial breadth should reflect illness severity, host factors and local resistance, then narrow as evidence improves.
+
+The relationship matters because Resistance emerges from organism biology plus selective pressure; empiric breadth should match host/severity/local epidemiology and then contract as evidence accumulates. At the bedside, use prior cultures, recent exposure, local antibiogram and syndrome to choose empiric therapy, then deliberately de-escalate or stop when justified.
+
+Stress-test the model. Imagine the patient changes in a way that makes broadening antibiotics indefinitely while leaving an infected device in place tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Removing essential access without a replacement plan in an unstable patient.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Intra-abdominal infection and surgery/drainage.
+
+Intra-abdominal infection. Perforation, abscess, ischemia and biliary infection often require urgent source control in addition to antimicrobial therapy.
+
+Build the mechanism first. Perforation, abscess, biliary obstruction and ischemic bowel create ongoing contamination or necrotic source that antibiotics alone may not control.
+
+At the bedside, in persistent shock, ask whether drainage, decompression or surgery is delayed and whether anatomy makes the source inaccessible to medical therapy.
+
+Two traps to actively avoid: Escalating vasopressors while source control stalls. And: Attributing persistent lactate to sepsis alone despite possible ischemic bowel.
+
+The integration move is this: For many abdominal infections, the definitive antimicrobial is a procedure.
+
+Keep these terms available in your mental model: perforation, abscess, biliary sepsis.
+
+What expert-level use of this concept looks like is this: Recognize when persistent shock reflects uncontrolled abdominal source. Coordinate antimicrobial therapy with procedural or operative control.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize when persistent shock reflects uncontrolled abdominal source. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Coordinate antimicrobial therapy with procedural or operative control. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Intra-abdominal infection to Mesenteric ischemia & abdominal catastrophe. Mesenteric ischemia and perforation can produce severe pain, lactate elevation and shock before dramatic examination or imaging changes.
+
+The relationship matters because Mesenteric hypoperfusion or arterial/venous occlusion causes intestinal ischemia, barrier failure and necrosis; examination can lag behind tissue injury. At the bedside, maintain suspicion when pain, acidosis/lactate and shock exceed abdominal findings and accelerate definitive imaging/surgical evaluation.
+
+Stress-test the model. Imagine the patient changes in a way that makes escalating vasopressors while source control stalls tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Attributing persistent lactate to sepsis alone despite possible ischemic bowel.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Empiric breadth without permanent breadth.
+
+Antimicrobial resistance & stewardship. Empiric antimicrobial breadth should reflect illness severity, host factors and local resistance, then narrow as evidence improves.
+
+Build the mechanism first. Resistance emerges from organism biology plus selective pressure; empiric breadth should match host/severity/local epidemiology and then contract as evidence accumulates.
+
+At the bedside, use prior cultures, recent exposure, local antibiogram and syndrome to choose empiric therapy, then deliberately de-escalate or stop when justified.
+
+Two traps to actively avoid: Equating “sicker” with unlimited antimicrobial breadth. And: Failing to reassess antibiotics after cultures and source data return.
+
+The integration move is this: Stewardship is not undertreatment; it is repeated matching of therapy to the probability landscape.
+
+Keep these terms available in your mental model: de-escalation, antibiogram, MDR.
+
+What expert-level use of this concept looks like is this: Choose empiric coverage based on risk rather than maximal breadth by default. De-escalate or stop therapy when microbiology and clinical evidence support it.
+
+Reasoning checkpoint. Do not just repeat the statement: Choose empiric coverage based on risk rather than maximal breadth by default. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: De-escalate or stop therapy when microbiology and clinical evidence support it. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Antimicrobial resistance & stewardship to Catheter & device-associated infection. Intravascular lines, urinary catheters and implanted devices can become infection sources whose management may require device removal.
+
+The relationship matters because Foreign material permits biofilm and persistent microbial adherence, making infection harder to clear without removing or exchanging the source device when feasible. At the bedside, assess every invasive device for necessity and source potential, obtain appropriate cultures and pair antimicrobial therapy with device/source decisions.
+
+Now connect Antimicrobial resistance & stewardship to Source control. Definitive management of infected material, devitalized tissue or an infected device can be as important as antimicrobial therapy.
+
+The relationship matters because Antibiotics cannot sterilize every infected collection, necrotic tissue or infected device. Persistent nidus can sustain inflammatory and microbial burden despite apparently appropriate antimicrobial therapy. At the bedside, ask early whether drainage, debridement, device removal or surgery is required and whether it is actually happening.
+
+Stress-test the model. Imagine the patient changes in a way that makes equating “sicker” with unlimited antimicrobial breadth tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Failing to reassess antibiotics after cultures and source data return.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: PK/PD still matters after the drug is chosen.
+
+Antimicrobial PK/PD in critical illness. Critical illness changes volume of distribution, clearance and target attainment, so dose strategy must match drug and patient physiology.
+
+Build the mechanism first. Critical illness alters volume of distribution, protein binding and clearance. Drug efficacy depends on whether exposure matches the relevant PK/PD target.
+
+At the bedside, account for augmented renal clearance, AKI, C R R T, fluid shifts and obesity rather than assuming standard dosing produces standard exposure.
+
+Two traps to actively avoid: Reducing doses reflexively in early sepsis because creatinine is high. And: Ignoring extracorporeal clearance.
+
+The integration move is this: The antimicrobial choice and the exposure strategy are separate decisions.
+
+Keep these terms available in your mental model: time above MIC, AUC/MIC, augmented renal clearance.
+
+What expert-level use of this concept looks like is this: Explain why standard dosing can underdose a shocked or hyperdynamic patient. Integrate renal support and changing clearance into antimicrobial strategy.
+
+Reasoning checkpoint. Do not just repeat the statement: Explain why standard dosing can underdose a shocked or hyperdynamic patient. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Integrate renal support and changing clearance into antimicrobial strategy. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Antimicrobial PK/PD in critical illness to Source control. Definitive management of infected material, devitalized tissue or an infected device can be as important as antimicrobial therapy.
+
+The relationship matters because Antibiotics cannot sterilize every infected collection, necrotic tissue or infected device. Persistent nidus can sustain inflammatory and microbial burden despite apparently appropriate antimicrobial therapy. At the bedside, ask early whether drainage, debridement, device removal or surgery is required and whether it is actually happening.
+
+Now connect Antimicrobial PK/PD in critical illness to C R R T physiology & prescription literacy. Continuous renal replacement uses diffusion and/or convection to manage solute, acid-base and fluid balance in unstable patients.
+
+The relationship matters because C R R T uses diffusion, convection and ultrafiltration to control solute, acid-base and volume continuously. Prescribed dose can differ substantially from delivered dose. At the bedside, separate total effluent from net patient fluid removal and interpret access, filter and return pressures as clues to the physical circuit.
+
+Stress-test the model. Imagine the patient changes in a way that makes reducing doses reflexively in early sepsis because creatinine is high tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring extracorporeal clearance.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Ask whether the source is actually controlled.
+
+Source control. Definitive management of infected material, devitalized tissue or an infected device can be as important as antimicrobial therapy.
+
+Build the mechanism first. Antibiotics cannot sterilize every infected collection, necrotic tissue or infected device. Persistent nidus can sustain inflammatory and microbial burden despite apparently appropriate antimicrobial therapy.
+
+At the bedside, ask early whether drainage, debridement, device removal or surgery is required and whether it is actually happening.
+
+Two traps to actively avoid: Escalating antibiotic breadth when the real failure is lack of source control. And: Waiting for complete hemodynamic normalization before addressing a time-sensitive source.
+
+The integration move is this: Sepsis treatment is host support plus antimicrobials plus definitive control of the source.
+
+Keep these terms available in your mental model: drainage, debridement, device removal.
+
+What expert-level use of this concept looks like is this: Identify when antibiotics alone are unlikely to succeed. Escalate procedural or surgical source control as part of the resuscitation plan.
+
+Reasoning checkpoint. Do not just repeat the statement: Identify when antibiotics alone are unlikely to succeed. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Escalate procedural or surgical source control as part of the resuscitation plan. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Source control to Septic shock physiology. Distributive shock with dynamic changes in vascular tone, venous capacitance, myocardial performance, microcirculation and oxygen extraction.
+
+The relationship matters because Septic shock can combine vasoplegia, venous pooling, myocardial dysfunction, endothelial leak and disturbed microcirculation. Cardiac output may be low, normal or high. At the bedside, reassess vascular tone, flow, congestion and perfusion after each intervention rather than assuming a fixed distributive phenotype.
+
+Now connect Source control to Antimicrobial PK/PD in critical illness. Critical illness changes volume of distribution, clearance and target attainment, so dose strategy must match drug and patient physiology.
+
+The relationship matters because Critical illness alters volume of distribution, protein binding and clearance. Drug efficacy depends on whether exposure matches the relevant PK/PD target. At the bedside, account for augmented renal clearance, AKI, C R R T, fluid shifts and obesity rather than assuming standard dosing produces standard exposure.
+
+Stress-test the model. Imagine the patient changes in a way that makes escalating antibiotic breadth when the real failure is lack of source control tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Waiting for complete hemodynamic normalization before addressing a time-sensitive source.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you integrate syndrome, host, source control, resistance and drug exposure in ICU infection?
+
+Can you recognize when antimicrobial escalation cannot compensate for an uncontrolled source?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

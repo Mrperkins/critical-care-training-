@@ -1,0 +1,41 @@
+You're listening to Valves and aorta: hemodynamics with hard constraints. Fixed obstruction, acute regurgitation, dissection, malperfusion and tamponade.
+
+This is a level 5 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to use lesion-specific loading physiology instead of generic shock reflexes; and recognize aortic complications that change blood-pressure and definitive-care priorities.
+
+Now: Severe stenosis and fixed forward flow.
+
+Critical valvular disease. Severe stenosis or regurgitation creates fixed or dynamic loading constraints that make usual shock interventions behave differently.
+
+Build the mechanism first. Critical stenosis creates fixed outflow obstruction while acute regurgitation abruptly raises upstream pressure and reduces effective forward flow; loading interventions therefore have lesion-specific effects.
+
+At the bedside, identify the lesion and dominant problem—fixed output, pulmonary edema, low coronary perfusion or regurgitant volume—before applying generic shock treatment.
+
+Two traps to actively avoid: Aggressively reducing preload in severe fixed obstruction. And: Treating acute severe regurgitation like chronic compensated valve disease.
+
+The integration move is this: Valve anatomy defines the permitted hemodynamic strategy.
+
+Keep these terms available in your mental model: aortic stenosis, acute MR, afterload, forward flow.
+
+What expert-level use of this concept looks like is this: Recognize hemodynamic priorities in severe AS versus acute MR/AR. Avoid interventions that worsen the lesion-specific loading problem.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize hemodynamic priorities in severe AS versus acute MR/AR. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Avoid interventions that worsen the lesion-specific loading problem. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Critical valvular disease to Cardiogenic pulmonary edema. Elevated hydrostatic pulmonary-capillary pressure drives interstitial/alveolar edema and alters lung compliance and gas exchange.
+
+The relationship matters because Hydrostatic pulmonary edema develops when pulmonary capillary pressure drives fluid into interstitium/alveoli faster than lymphatic clearance can compensate. At the bedside, use noninvasive positive pressure and afterload/preload strategy according to the circulatory lesion while reassessing blood pressure and forward flow.
+
+Stress-test the model. Imagine the patient changes in a way that makes aggressively reducing preload in severe fixed obstruction tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Treating acute severe regurgitation like chronic compensated valve disease.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Acute regurgitation changes loading instantly.
+
+Critical valvular disease. Severe stenosis or regurgitation creates fixed or dynamic loading constraints that make usual shock interventions behave differently.
+
+Build the mechanism first. Critical stenosis creates fixed outflow obstruction while acute regurgitation abruptly raises upstream pressure and reduces effective forward flow; loading interventions therefore have lesion-specific effects.

@@ -1,0 +1,39 @@
+At the bedside, post-intubation hypotension may reflect vasodilation, reduced venous return, increased RV afterload, auto-peep or previously compensated shock becoming unmasked.
+
+Two traps to actively avoid: Attributing every post-intubation pressure drop to induction medication. And: Assuming positive pressure has a single predictable effect on both ventricles.
+
+The integration move is this: Think preload, RV afterload and LV transmural afterload separately.
+
+Keep these terms available in your mental model: transmural pressure, mean airway pressure.
+
+What expert-level use of this concept looks like is this: Predict why induction and positive pressure can precipitate hypotension. Distinguish effects on RV preload, RV afterload and LV transmural afterload.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict why induction and positive pressure can precipitate hypotension. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Distinguish effects on RV preload, RV afterload and LV transmural afterload. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Positive-pressure ventilation & circulation to Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+The relationship matters because The RV is thin-walled and highly sensitive to acute afterload. When it dilates, wall stress rises, coronary perfusion can fall and septal shift can reduce LV filling. At the bedside, track systemic pressure, venous congestion, echo geometry, oxygenation, CO2, acid-base status and ventilator pressures together. Small changes in P V R or intrathoracic pressure can have large hemodynamic consequences.
+
+Now connect Positive-pressure ventilation & circulation to Pulmonary vascular resistance. Resistance faced by the RV, influenced by lung volume, oxygenation, CO2, pH, pulmonary vascular disease and mechanical ventilation.
+
+The relationship matters because Pulmonary vascular resistance reflects the combined behavior of alveolar and extra-alveolar vessels and is affected by lung volume, oxygen, CO2, pH and pulmonary vascular disease. At the bedside, both severe derecruitment and overdistension can raise RV afterload. Hypoxemia, hypercapnia and acidosis can compound the problem.
+
+Stress-test the model. Imagine the patient changes in a way that makes attributing every post-intubation pressure drop to induction medication tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Assuming positive pressure has a single predictable effect on both ventricles.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Read the waveforms.
+
+Ventilator synchrony & waveform reasoning. Patient-ventilator dyssynchrony reflects mismatch between neural demand and ventilator timing, flow, cycling or pressure delivery.
+
+Build the mechanism first. Dyssynchrony occurs when ventilator trigger, flow, inspiratory time or cycling does not match the patient’s neural respiratory demand.
+
+At the bedside, use waveform pattern and bedside observation to distinguish trigger delay, flow starvation, premature/late cycling and double triggering before escalating sedation.
+
+Two traps to actively avoid: Calling every struggle “agitation.” And: Suppressing respiratory drive without correcting a mismatched ventilator setting.
+
+The integration move is this: Synchrony is a patient-machine control problem, not merely a sedation problem.

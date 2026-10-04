@@ -1,0 +1,35 @@
+Now connect Calcium, magnesium & phosphate to Refeeding syndrome. Insulin-driven intracellular shifts after refeeding can rapidly lower phosphate, potassium and magnesium and precipitate cardiopulmonary or neurologic deterioration.
+
+The relationship matters because Reintroducing carbohydrate after prolonged undernutrition raises insulin and shifts phosphate, potassium and magnesium intracellularly while increasing thiamine demand. At the bedside, identify high-risk patients before feeding escalation and monitor electrolytes and cardiopulmonary/neurologic response.
+
+Now connect Calcium, magnesium & phosphate to Massive transfusion & hemorrhagic resuscitation. Hemorrhagic resuscitation integrates source control, balanced component replacement, calcium, temperature, coagulation and perfusion.
+
+The relationship matters because Major hemorrhage produces loss of oxygen-carrying capacity, volume and hemostatic components while hypothermia, hypocalcemia, dilution and acidosis can worsen coagulation. At the bedside, activate the hemorrhage system early, warm the resuscitation, track calcium/coagulation/temperature and never lose sight of definitive source control.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating total calcium without considering binding/albumin tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Replacing one electrolyte while ignoring coupled magnesium or phosphate abnormalities.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Hypoglycemia as a brain emergency.
+
+Critical hypoglycemia. Hypoglycemia is a neurologic emergency whose cause may reflect insulin/drugs, organ failure, endocrine failure or severe infection.
+
+Build the mechanism first. The brain depends heavily on circulating glucose and has limited fuel reserve, so severe hypoglycemia can rapidly cause seizure, coma and adrenergic stress.
+
+At the bedside, correct glucose immediately while identifying ongoing insulin/drug effect, hepatic failure, adrenal disease, sepsis or nutritional depletion that can make recurrence likely.
+
+Two traps to actively avoid: Stopping after one normal repeat glucose. And: Attributing persistent altered mental status to hypoglycemia after the glucose has been corrected without reassessment.
+
+The integration move is this: Treat the neuroglycopenia fast, then treat the reason it happened.
+
+Keep these terms available in your mental model: neuroglycopenia, counter-regulation.
+
+What expert-level use of this concept looks like is this: Treat immediately while simultaneously searching for the cause. Recognize recurrent hypoglycemia as a clue to ongoing physiology or drug exposure.
+
+Reasoning checkpoint. Do not just repeat the statement: Treat immediately while simultaneously searching for the cause. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize recurrent hypoglycemia as a clue to ongoing physiology or drug exposure. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Critical hypoglycemia to Adrenal crisis. Cortisol deficiency can cause refractory hypotension, hyponatremia, hyperkalemia, hypoglycemia and shock under stress.

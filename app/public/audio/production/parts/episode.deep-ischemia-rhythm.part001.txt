@@ -1,0 +1,35 @@
+You're listening to The electrically unstable ischemic heart. Coronary ischemia, conduction, dysrhythmia, electrolytes and sudden mechanical deterioration.
+
+This is a level 5 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to integrate rhythm, ischemia and pump function in unstable cardiac patients; and recognize mechanical complications when shock cannot be explained by the ecg alone.
+
+Now: Ischemia changes pump and electricity.
+
+Acute coronary ischemia & complications. Acute myocardial ischemia can produce pump failure, dysrhythmia and mechanical complications whose physiology may dominate over the ECG diagnosis.
+
+Build the mechanism first. Myocardial ischemia reduces contractility and electrical stability and can cause papillary muscle, septal or free-wall mechanical complications after infarction.
+
+At the bedside, when a patient with ACS suddenly develops shock, pulmonary edema or a new murmur, broaden beyond “more ischemia” to mechanical failure and rhythm disturbance.
+
+Two traps to actively avoid: Treating the ECG diagnosis while missing a mechanical complication. And: Using vasopressor escalation as a substitute for reperfusion or structural intervention.
+
+The integration move is this: Reperfusion, rhythm and mechanical hemodynamics must be managed as one evolving syndrome.
+
+Keep these terms available in your mental model: ischemia, reperfusion, papillary muscle, septal rupture.
+
+What expert-level use of this concept looks like is this: Recognize ischemic mechanical complications in sudden shock. Integrate reperfusion urgency with hemodynamic and rhythm stabilization.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize ischemic mechanical complications in sudden shock. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Integrate reperfusion urgency with hemodynamic and rhythm stabilization. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Acute coronary ischemia & complications to Cardiogenic shock. Pump failure where restoring perfusion must be balanced against congestion, myocardial oxygen demand, coronary perfusion and mechanical complications.
+
+The relationship matters because Cardiogenic shock is inadequate forward flow from pump failure, often accompanied by elevated filling pressures and congestion. RV, LV and biventricular phenotypes behave differently. At the bedside, track flow, pressure, congestion, coronary perfusion, rhythm and mechanical complications; escalate support when pharmacology cannot restore effective circulation.
+
+Now connect Acute coronary ischemia & complications to Rhythm & conduction emergencies. Tachy- and bradyarrhythmias become critical when they impair filling, output or perfusion; treatment depends on rhythm mechanism and patient stability.
+
+The relationship matters because Rhythm affects cardiac output through rate, filling time, AV synchrony and ventricular activation; the same rate can be tolerated or catastrophic depending on reserve. At the bedside, first ask whether the rhythm is causing instability or compensating for another problem, then identify the electrical mechanism and choose synchronization, pacing or medication accordingly.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating the ecg diagnosis while missing a mechanical complication tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Using vasopressor escalation as a substitute for reperfusion or structural intervention.

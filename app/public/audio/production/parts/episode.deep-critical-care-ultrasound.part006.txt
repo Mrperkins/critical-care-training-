@@ -1,0 +1,35 @@
+The relationship matters because Free intraperitoneal blood accumulates in dependent spaces, but early volume, clot, body habitus and retroperitoneal bleeding can limit ultrasound detection. At the bedside, sweep RUQ, LUQ and pelvis in more than one view and repeat when physiology changes.
+
+Stress-test the model. Imagine the patient changes in a way that makes calling one negative scan a permanent rule-out tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Interpreting an image without proving orientation and anatomy first.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Vascular anatomy and access.
+
+Ultrasound-guided peripheral IV. Ultrasound-guided peripheral access combines vessel selection, needle-tip tracking, catheter length and post-placement assessment.
+
+Build the mechanism first. Ultrasound-guided peripheral access depends on selecting a vessel whose depth, diameter and course match the catheter and on tracking the actual needle tip.
+
+At the bedside, scan before puncture, use multiple planes, advance enough catheter into the lumen and confirm function without soft-tissue infiltration.
+
+Two traps to actively avoid: Following the needle shaft while losing the tip. And: Using a catheter too short for a deep vessel.
+
+The integration move is this: Success is durable intraluminal catheter position, not merely blood return.
+
+Keep these terms available in your mental model: short axis, long axis, tip tracking, catheter-to-vein ratio.
+
+What expert-level use of this concept looks like is this: Choose an appropriate target by depth, diameter and course. Keep the true needle tip accounted for and anticipate failure from a catheter that is too short for the vessel depth.
+
+Reasoning checkpoint. Do not just repeat the statement: Choose an appropriate target by depth, diameter and course. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Keep the true needle tip accounted for and anticipate failure from a catheter that is too short for the vessel depth. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Ultrasound-guided peripheral IV to Ultrasound-guided central venous access. Safe venous access requires anatomy, real-time tip awareness, vessel confirmation, wire control, sterile technique and complication recognition.
+
+The relationship matters because Central venous access uses a wire-guided pathway from needle to catheter; the highest-risk errors occur when vessel identity, needle-tip position or wire location is assumed rather than confirmed. At the bedside, map anatomy before puncture, keep the true needle tip accounted for, confirm venous placement by reliable methods and maintain continuous wire control.
+
+Stress-test the model. Imagine the patient changes in a way that makes following the needle shaft while losing the tip tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Using a catheter too short for a deep vessel.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
