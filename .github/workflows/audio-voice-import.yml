@@ -5,6 +5,12 @@ on:
     branches: [audio-mastery]
     paths:
       - app/public/audio/voice/import.json
+      - app/src/audio/catalog.ts
+      - app/src/audio/mastery.ts
+      - app/src/audio/masteryNotes.ts
+      - app/src/audio/expertEpisodes.ts
+      - app/src/audio/scriptDraft.ts
+      - app/scripts/audio-voice-lines.ts
       - app/scripts/audio_voice_import.py
       - .github/workflows/audio-voice-import.yml
   workflow_dispatch:
