@@ -438,6 +438,21 @@ export const MENTAL_REPS: MentalRep[] = [
       { id: 'debrief', phase: 'debrief', title: 'Mental anchor', narration: 'Time, stabilize, adequate first-line therapy, change phases when it fails, secure physiology when needed, and remember that seizure activity can become invisible.' },
     ],
   }
+,
+  {
+    id: 'rep-pocus-shock', title: 'Critical-care POCUS shock survey', subtitle: 'Heart, lung, venous and abdominal windows organized around one hemodynamic question.',
+    level: 4, domain: 'procedures', minutes: 14, concepts: ['critical-care-echo','lung-ultrasound','efast','shock'],
+    disclaimer: 'Mental rehearsal only. Point-of-care ultrasound requires supervised image-acquisition and interpretation training; focused findings must be integrated with the patient and escalated to comprehensive imaging when needed.',
+    beats: [
+      { id: 'question', phase: 'arrival', title: 'Ask the question before touching the probe', narration: 'The patient is in shock. Do not begin by collecting pretty views. State what you need to know: pump failure, right-heart pressure load, pericardial constraint, lung congestion, pneumothorax, free fluid, or another cause of instability.', visual: 'pocus-map' },
+      { id: 'heart', phase: 'sequence', title: 'Interrogate the heart from more than one view', narration: 'Use a repeatable focused cardiac sequence. Compare left and right ventricular size and function, look for pericardial fluid and gross pressure-loading patterns, and do not make a major conclusion from one foreshortened image.', visual: 'pocus-heart', prompt: 'Which finding would make you change your fluid or positive-pressure strategy immediately?' },
+      { id: 'lung', phase: 'sequence', title: 'Map the lungs bilaterally', narration: 'Scan multiple lung zones. Look for sliding, A-line versus B-line pattern, consolidation, pleural fluid and asymmetry. Distribution matters as much as the artifact itself.', visual: 'pocus-lung' },
+      { id: 'venous', phase: 'decision', title: 'Venous findings are context, not a volume-status oracle', narration: 'IVC and venous Doppler observations can add information about pressure and congestion, but they do not directly tell you whether a patient needs fluid. Interpret them with respiration, right-heart function and the rest of the circulation.', visual: 'pocus-venous' },
+      { id: 'abdomen', phase: 'sequence', title: 'Look for the abdominal problem that changes the resuscitation', narration: 'When trauma or abdominal catastrophe is plausible, add focused free-fluid and aortic or abdominal views appropriate to your scope and question. A negative snapshot is time-stamped evidence, not permanent reassurance.', visual: 'pocus-abdomen' },
+      { id: 'integrate', phase: 'decision', title: 'Build one shock model', narration: 'Now stop scanning. Integrate the heart, lungs, venous system, abdomen, blood pressure, capnography and clinical examination into one working physiologic model. Make a prediction about what your next intervention should change.', visual: 'pocus-integrate', prompt: 'What finding would falsify your current shock model?' },
+      { id: 'debrief', phase: 'debrief', title: 'Mental anchor', narration: 'Question, cardiac views, lung map, venous context, abdominal question, then integration. POCUS is not a collection of images. It is bedside evidence used to test a physiologic hypothesis.' },
+    ],
+  }
 ];
 
 export const EPISODE_BY_ID = Object.fromEntries(EPISODES.map((e) => [e.id, e]));
