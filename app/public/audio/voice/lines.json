@@ -1,0 +1,410 @@
+[
+  {
+    "id": "episode.rounds-rv-intubation",
+    "text": "You’re at the bedside. The blood pressure has fallen after intubation. Before you reach for fluid, build the physiology in your head. Picture the right ventricle pushing against the pulmonary circulation. Positive pressure has changed venous return, pulmonary vascular resistance, and the pressure surrounding the heart. Your job is not to chase a number. Your job is to decide what changed, predict what your intervention should do, and then watch whether the patient proves your model right.",
+    "kind": "episode",
+    "transcriptHash": "c0e704e9aebd6b88"
+  },
+  {
+    "id": "episode.dose-normal-spo2",
+    "text": "Your pulse oximeter says ninety-eight percent. That feels reassuring. But saturation answers a very specific question: what fraction of the available hemoglobin binding sites are carrying oxygen? It does not tell you how much hemoglobin you have, and it does not tell you how much blood the heart is moving. That distinction is the beginning of oxygen-delivery thinking. Oxygen delivery, D O 2, is cardiac output multiplied by arterial oxygen content. Arterial oxygen content is dominated by oxygen bound to hemoglobin. A useful bedside approximation is one point three four times hemoglobin times arterial saturation, plus a very small contribution from oxygen dissolved in plasma. That means three patients can all have an S P O 2 of ninety-eight percent and have very different oxygen delivery. Picture the first patient. Hemoglobin fourteen. Cardiac output five liters per minute. Saturation ninety-eight percent. Nothing surprising. Now keep saturation at ninety-eight percent but drop the hemoglobin to five. Every remaining red cell may be beautifully saturated, but there are far fewer red cells carrying oxygen. The pulse oximeter still looks excellent while arterial oxygen content has fallen dramatically. Now take a different patient. Hemoglobin is normal. Saturation is ninety-eight percent. But cardiac output has collapsed because of severe pump failure. The blood contains plenty of oxygen per deciliter, but not enough blood is reaching the tissues each minute. Again, the pulse oximeter can look perfect. This is why expert critical-care reasoning does not ask only, “Is the blood oxygenated?” It asks, “Is enough oxygen actually being delivered?” Now add the tissues. Oxygen consumption, V O 2, is what the body removes from the delivered oxygen. When delivery falls, tissues can initially compensate by extracting a larger fraction. Venous oxygen saturation falls because more oxygen is being taken out before the blood returns to the right heart. That compensation has limits. Below a critical level of delivery, oxygen consumption can become supply dependent. Do not turn that into another single-number rule. A low venous saturation can reflect low cardiac output, anemia, increased metabolic demand, arterial hypoxemia, or combinations of them. A surprisingly high venous saturation can occur when extraction is impaired or when flow distribution is abnormal. The number only becomes useful when it sits inside a physiologic model. Here is the mental shortcut I want you to keep. Saturation tells you how full the buses are. Hemoglobin tells you how many buses you have. Cardiac output tells you how fast the buses are moving. Oxygen delivery asks how many passengers actually arrive each minute. So the next time you see an S P O 2 of ninety-eight percent in a patient who looks poorly perfused, do not let the monitor end the conversation. Ask about hemoglobin. Ask about flow. Ask what the tissues are extracting. Ask whether the patient is warm or cold, alert or altered, making urine or shutting down, clearing lactate or accumulating it. A normal saturation can coexist with profoundly inadequate oxygen delivery. Your retrieval question is this: if saturation stays the same, name the two major variables that can still make oxygen delivery collapse. The answer is hemoglobin and cardiac output. And the expert move is not merely remembering the formula. It is noticing when the patient and the pulse oximeter are telling different stories.",
+    "kind": "episode",
+    "transcriptHash": "f42c1f09aa62ded5"
+  },
+  {
+    "id": "rep.rep-push-dose-pressor.arrival",
+    "text": "You are at the bedside. The pressure is falling and you have decided a short bridge is needed while definitive support is prepared. Before touching a vial, state the physiologic problem you are treating.",
+    "kind": "mental-rep",
+    "transcriptHash": "e46f5abfe94c5c1b"
+  },
+  {
+    "id": "rep.rep-push-dose-pressor.orient",
+    "text": "High-risk medication errors happen when urgency outruns verification. Separate the patient decision from the preparation task. Read the source concentration. Read your protocol. Do not build the final concentration from memory alone.",
+    "kind": "mental-rep",
+    "transcriptHash": "7b5bf153bcd6b414"
+  },
+  {
+    "id": "rep.rep-push-dose-pressor.equip",
+    "text": "Picture the syringe, label, medication source and reference in one uncluttered field. Keep look-alike syringes out of that field. Prepare only one high-risk drug at a time.",
+    "kind": "mental-rep",
+    "transcriptHash": "1a56586f0764f934"
+  },
+  {
+    "id": "rep.rep-push-dose-pressor.verify",
+    "text": "Before administration, verify drug, concentration, dose, route, patient and indication. Say them out loud. If the concentration does not match the standard you expected, stop and reconcile it.",
+    "kind": "mental-rep",
+    "transcriptHash": "d22246dfbe50b06f"
+  },
+  {
+    "id": "rep.rep-push-dose-pressor.give",
+    "text": "Give according to local protocol through a verified line. Your attention immediately returns to the patient and monitor. Watch rhythm, pressure, perfusion and the clinical endpoint you named before the dose.",
+    "kind": "mental-rep",
+    "transcriptHash": "b4a4b130adb84de8"
+  },
+  {
+    "id": "rep.rep-push-dose-pressor.comp",
+    "text": "If the response is excessive, absent or physiologically inconsistent, do not automatically repeat the same action. Recheck the line, concentration, rhythm and your diagnosis.",
+    "kind": "mental-rep",
+    "transcriptHash": "b5f27ee081ed9633"
+  },
+  {
+    "id": "rep.rep-push-dose-pressor.debrief",
+    "text": "The mental anchor is simple: indication, standardized concentration, verify, label, administer, reassess, and transition to definitive support. The procedure is not drawing up a syringe. The procedure is safe physiology-guided medication use.",
+    "kind": "mental-rep",
+    "transcriptHash": "6e4db5b8594fe2ee"
+  },
+  {
+    "id": "rep.rep-blood.arrival",
+    "text": "Before you spike anything, name what you are treating: oxygen-carrying capacity, hemorrhagic shock, a component deficiency, or a specific protocol target.",
+    "kind": "mental-rep",
+    "transcriptHash": "673a158c901addf6"
+  },
+  {
+    "id": "rep.rep-blood.verify",
+    "text": "Pause over the product and the patient. Perform the required patient, product, compatibility and expiration checks exactly as your system requires. This is a deliberate interruption, not paperwork.",
+    "kind": "mental-rep",
+    "transcriptHash": "1655bd3e6a0b5868"
+  },
+  {
+    "id": "rep.rep-blood.setup",
+    "text": "Picture the approved blood tubing and filter, compatible carrier fluid if required by policy, warming equipment when indicated, patent vascular access, and monitoring already running before the product starts.",
+    "kind": "mental-rep",
+    "transcriptHash": "e8c7e5bc5a49cef4"
+  },
+  {
+    "id": "rep.rep-blood.start",
+    "text": "Begin according to policy and stay clinically present. Reassess the patient, not only the pump. A reaction can begin with subtle symptoms before the monitor changes.",
+    "kind": "mental-rep",
+    "transcriptHash": "7710112296075ffc"
+  },
+  {
+    "id": "rep.rep-blood.reaction",
+    "text": "New fever, chills, dyspnea, pain, hypotension, rash or a sense that something is wrong demands immediate reassessment and the local transfusion-reaction process. Do not explain away a new change simply because the patient was already sick.",
+    "kind": "mental-rep",
+    "transcriptHash": "7ae6b5c28b22949a"
+  },
+  {
+    "id": "rep.rep-blood.debrief",
+    "text": "Indication. Identity. Product. Circuit. Patient. Early reassessment. Reaction recognition. Documentation and response. Every time.",
+    "kind": "mental-rep",
+    "transcriptHash": "1763aaf4e377d4c9"
+  },
+  {
+    "id": "rep.rep-art-line.arrival",
+    "text": "You need beat-to-beat pressure and arterial sampling. Picture the patient positioned, monitoring visible, rescue equipment available and the entire pressure system prepared before puncture.",
+    "kind": "mental-rep",
+    "transcriptHash": "90cd08ec6b587db4"
+  },
+  {
+    "id": "rep.rep-art-line.anatomy",
+    "text": "Visualize the artery in cross-section and long axis. If ultrasound is used, keep the actual needle tip in view rather than following a bright shaft and assuming the tip is there.",
+    "kind": "mental-rep",
+    "transcriptHash": "690ea4ebfe42a9e3"
+  },
+  {
+    "id": "rep.rep-art-line.system",
+    "text": "Mentally trace catheter to tubing, flush system, pressure source, transducer, cable and monitor. An excellent puncture connected to a poor monitoring system gives poor data.",
+    "kind": "mental-rep",
+    "transcriptHash": "7fd7d6cebaac7a29"
+  },
+  {
+    "id": "rep.rep-art-line.level",
+    "text": "Level the transducer to the reference point used by your unit, zero to atmosphere, then restore the system to the patient. Understand what happens to displayed pressure when the transducer is too high or too low.",
+    "kind": "mental-rep",
+    "transcriptHash": "f01bb2407e555101"
+  },
+  {
+    "id": "rep.rep-art-line.wave",
+    "text": "Do not accept a number without its waveform. Look at upstroke, systolic peak, dicrotic notch, diastolic runoff and respiratory variation in context.",
+    "kind": "mental-rep",
+    "transcriptHash": "7f3ca2d8aaf16757"
+  },
+  {
+    "id": "rep.rep-art-line.square",
+    "text": "When the trace looks suspicious, use the dynamic response test and inspect the circuit. Think clot, air, compliant tubing, loose connections, catheter position and excessive resonance before blaming the patient.",
+    "kind": "mental-rep",
+    "transcriptHash": "63f980db4b42700b"
+  },
+  {
+    "id": "rep.rep-art-line.debrief",
+    "text": "Patient, artery, catheter, level, zero, waveform, dynamic response. The arterial line is a measurement system, not simply a line in an artery.",
+    "kind": "mental-rep",
+    "transcriptHash": "2b28274598305a68"
+  },
+  {
+    "id": "rep.rep-efast.arrival",
+    "text": "You are not doing ultrasound because a probe is available. State the question: is there blood where it should not be, pericardial fluid, or pleural evidence of pneumothorax or hemothorax?",
+    "kind": "mental-rep",
+    "transcriptHash": "0b246611498957e5"
+  },
+  {
+    "id": "rep.rep-efast.orientation",
+    "text": "Before interpreting pathology, prove to yourself which side of the screen is cephalad, which anatomy you are seeing, and whether your probe marker matches the convention you are using.",
+    "kind": "mental-rep",
+    "transcriptHash": "7fc6cf00b1e5ae2b"
+  },
+  {
+    "id": "rep.rep-efast.ruq",
+    "text": "Sweep through the hepatorenal interface, diaphragm and inferior liver tip. Do not take one frozen view and call the window negative. Search the dependent spaces.",
+    "kind": "mental-rep",
+    "transcriptHash": "554d772327b228ac"
+  },
+  {
+    "id": "rep.rep-efast.luq",
+    "text": "Find spleen, kidney and diaphragm. The geometry is less forgiving. Sweep deliberately rather than chasing the textbook picture.",
+    "kind": "mental-rep",
+    "transcriptHash": "ce6a226aa0690224"
+  },
+  {
+    "id": "rep.rep-efast.pelvis",
+    "text": "Use the bladder as your acoustic window and examine the dependent space around it in the appropriate planes.",
+    "kind": "mental-rep",
+    "transcriptHash": "fa5cdc752d9ee91a"
+  },
+  {
+    "id": "rep.rep-efast.cardiac",
+    "text": "Acquire the best cardiac window the patient gives you and identify the pericardial space before deciding fluid is present. Fat, pleural fluid and artifact can mislead.",
+    "kind": "mental-rep",
+    "transcriptHash": "54d98506b589d443"
+  },
+  {
+    "id": "rep.rep-efast.lung",
+    "text": "Interrogate the pleural line bilaterally. Lung sliding is a dynamic sign. When absent, use the rest of the ultrasound and clinical picture rather than treating one sign as the diagnosis.",
+    "kind": "mental-rep",
+    "transcriptHash": "def8ef72254a065b"
+  },
+  {
+    "id": "rep.rep-efast.repeat",
+    "text": "Trauma evolves. The mental anchor is orientation, systematic windows, sweeping rather than snapshotting, and repeat examination when physiology changes.",
+    "kind": "mental-rep",
+    "transcriptHash": "e9520eb83d4218d5"
+  },
+  {
+    "id": "rep.rep-chest-tube.arrival",
+    "text": "Picture the patient and state what you are treating. Tension physiology, hemothorax and ongoing pleural air are related problems but they shape urgency, equipment and aftercare differently.",
+    "kind": "mental-rep",
+    "transcriptHash": "4a19504946c4b442"
+  },
+  {
+    "id": "rep.rep-chest-tube.anatomy",
+    "text": "See skin, subcutaneous tissue, intercostal muscles, rib, neurovascular bundle and parietal pleura. Orient to the safe procedural zone taught by your credentialing program and local policy.",
+    "kind": "mental-rep",
+    "transcriptHash": "f3b19e39049f7559"
+  },
+  {
+    "id": "rep.rep-chest-tube.setup",
+    "text": "The procedure includes the drain system, connections, dressing, suction or water seal plan, monitoring and analgesia strategy. Do not discover missing pieces after entering the pleural space.",
+    "kind": "mental-rep",
+    "transcriptHash": "f8ce06c77c6bd119"
+  },
+  {
+    "id": "rep.rep-chest-tube.sequence",
+    "text": "Mentally rehearse deliberate tissue handling and confirmation that the pleural space has actually been entered before advancing the drain. Maintain awareness of depth and direction rather than using force.",
+    "kind": "mental-rep",
+    "transcriptHash": "17d3d5cdda018cc4"
+  },
+  {
+    "id": "rep.rep-chest-tube.connect",
+    "text": "Once connected, reassess patient physiology and the drain system together. Improvement should make physiologic sense. If nothing changes, question position, patency, diagnosis and the system.",
+    "kind": "mental-rep",
+    "transcriptHash": "a9f60966254362a3"
+  },
+  {
+    "id": "rep.rep-chest-tube.failure",
+    "text": "Kinked tubing, disconnection, migration, clot, dependent loops or a new air leak can turn a functioning drain into a problem. Trace from patient outward whenever physiology worsens.",
+    "kind": "mental-rep",
+    "transcriptHash": "04a1c39dccb122b1"
+  },
+  {
+    "id": "rep.rep-chest-tube.debrief",
+    "text": "Indication, anatomy, complete setup, controlled pleural entry, connection, patient response, system response, and continuous troubleshooting.",
+    "kind": "mental-rep",
+    "transcriptHash": "c4cb6a81a08c5328"
+  },
+  {
+    "id": "rep.rep-central-line.arrival",
+    "text": "State the indication and whether a safer or faster alternative can meet the immediate need. Prepare monitoring, sterile equipment and a plan for complications before beginning.",
+    "kind": "mental-rep",
+    "transcriptHash": "d9b60045e4bb128a"
+  },
+  {
+    "id": "rep.rep-central-line.scan",
+    "text": "Identify vein and artery in more than one plane. Use compressibility, pulsatility and anatomy rather than trusting color alone. Look for overlap and thrombus.",
+    "kind": "mental-rep",
+    "transcriptHash": "e4fafdadd0a2b920"
+  },
+  {
+    "id": "rep.rep-central-line.tip",
+    "text": "With real-time ultrasound, keep the needle tip accounted for. A shaft crossing the ultrasound plane can look convincing while the actual tip has traveled deeper.",
+    "kind": "mental-rep",
+    "transcriptHash": "aacb208af48e6f37"
+  },
+  {
+    "id": "rep.rep-central-line.confirm",
+    "text": "Do not let dark blood color alone make the decision in shock or hypoxemia. Use the confirmation method required by your environment before a dilator enters the patient.",
+    "kind": "mental-rep",
+    "transcriptHash": "44f9aaf4ec7c8176"
+  },
+  {
+    "id": "rep.rep-central-line.wire",
+    "text": "Pass smoothly without force, maintain control of the wire, and verify that it is where you think it is. Seeing the wire in the intended vessel before dilation is a powerful safety checkpoint.",
+    "kind": "mental-rep",
+    "transcriptHash": "7d1af7ee3060da79"
+  },
+  {
+    "id": "rep.rep-central-line.comp",
+    "text": "Resistance, unexpected pressure, ectopy, abnormal ultrasound position or patient deterioration are information. Stop and reconcile the anatomy before progressing.",
+    "kind": "mental-rep",
+    "transcriptHash": "9dc388fde93dc685"
+  },
+  {
+    "id": "rep.rep-central-line.debrief",
+    "text": "Indication, anatomy, sterile setup, tip visibility, vessel confirmation, wire control, confirmation before dilation, then post-procedure reassessment.",
+    "kind": "mental-rep",
+    "transcriptHash": "e4db26ec3dadc3eb"
+  },
+  {
+    "id": "rep.rep-io.arrival",
+    "text": "The patient needs reliable vascular access now. Decide whether IO is appropriate rather than repeatedly delaying resuscitation for difficult peripheral attempts.",
+    "kind": "mental-rep",
+    "transcriptHash": "424ab0e8dac7cd97"
+  },
+  {
+    "id": "rep.rep-io.landmark",
+    "text": "Picture the anatomy for the site and device you actually use. Palpate and identify the target before touching the driver.",
+    "kind": "mental-rep",
+    "transcriptHash": "82e1d430eedef82f"
+  },
+  {
+    "id": "rep.rep-io.place",
+    "text": "Stabilize the limb and device, follow the device-specific technique, and stop when the expected endpoint is reached rather than adding unnecessary depth.",
+    "kind": "mental-rep",
+    "transcriptHash": "5b7674cb2e0228dc"
+  },
+  {
+    "id": "rep.rep-io.confirm",
+    "text": "Assess stability, aspiration if applicable, flush behavior and the surrounding tissue. A line that does not behave as expected is not automatically usable.",
+    "kind": "mental-rep",
+    "transcriptHash": "215bf909a5d13bc6"
+  },
+  {
+    "id": "rep.rep-io.comp",
+    "text": "Swelling, leaking, worsening pain, resistance or neurovascular change can signal extravasation or another complication. Reassess after use, not only at insertion.",
+    "kind": "mental-rep",
+    "transcriptHash": "1fe16c5043c4e57c"
+  },
+  {
+    "id": "rep.rep-io.debrief",
+    "text": "Decision, landmark, device-specific placement, confirmation, securement and repeated site checks.",
+    "kind": "mental-rep",
+    "transcriptHash": "5ae51812edee1570"
+  },
+  {
+    "id": "rep.rep-vent-emergency.alarm",
+    "text": "The patient suddenly desaturates and the ventilator is alarming. Look at the patient before the screen: chest movement, color, waveform capnography, hemodynamics and level of distress.",
+    "kind": "mental-rep",
+    "transcriptHash": "539827c2cf5d32b8"
+  },
+  {
+    "id": "rep.rep-vent-emergency.oxygen",
+    "text": "If oxygenation or ventilation is immediately threatened and the device cannot be trusted, transition to a reliable rescue method while troubleshooting according to your environment.",
+    "kind": "mental-rep",
+    "transcriptHash": "e4fd1ed1d05bfa7d"
+  },
+  {
+    "id": "rep.rep-vent-emergency.trace",
+    "text": "Mentally move from patient to tube to connectors to circuit to machine. Disconnection, obstruction, displacement, pneumothorax and breath stacking leave different clues.",
+    "kind": "mental-rep",
+    "transcriptHash": "f70e8c11d9ad276c"
+  },
+  {
+    "id": "rep.rep-vent-emergency.pressure",
+    "text": "High peak with a relatively preserved plateau points you toward resistance. High peak and high plateau point you toward compliance or pressure surrounding the lung.",
+    "kind": "mental-rep",
+    "transcriptHash": "19d13aedf06a8e20"
+  },
+  {
+    "id": "rep.rep-vent-emergency.hemo",
+    "text": "Auto-PEEP, tension physiology and excessive intrathoracic pressure can present as hypotension before oxygen saturation collapses. The ventilator and circulation are one system.",
+    "kind": "mental-rep",
+    "transcriptHash": "9ca09b60a5e90229"
+  },
+  {
+    "id": "rep.rep-vent-emergency.debrief",
+    "text": "Patient first. Rescue ventilation if needed. Trace the airway and circuit. Separate resistance from compliance. Look for pressure-related circulatory failure. Reassess after every intervention.",
+    "kind": "mental-rep",
+    "transcriptHash": "0369d896a9ecc568"
+  },
+  {
+    "id": "rep.rep-evd.before",
+    "text": "Know the ordered reference level, drainage strategy and whether the system is currently open or clamped. A drainage device without its order is an unsafe abstraction.",
+    "kind": "mental-rep",
+    "transcriptHash": "29b43aa98a5ad439"
+  },
+  {
+    "id": "rep.rep-evd.level",
+    "text": "Visualize the reference point on the patient and the leveling device. The chamber height determines the hydrostatic threshold for drainage.",
+    "kind": "mental-rep",
+    "transcriptHash": "bb9586c66ff0073f"
+  },
+  {
+    "id": "rep.rep-evd.clamp",
+    "text": "Before changing bed height or patient position, manage the drain exactly as ordered so a sudden vertical shift cannot unintentionally over-drain or stop drainage.",
+    "kind": "mental-rep",
+    "transcriptHash": "abe2ee983c85a952"
+  },
+  {
+    "id": "rep.rep-evd.move",
+    "text": "After the move, the old chamber position is no longer meaningful. Re-establish the patient reference and level the system again before returning it to the ordered state.",
+    "kind": "mental-rep",
+    "transcriptHash": "c492fe48e3e0289e"
+  },
+  {
+    "id": "rep.rep-evd.verify",
+    "text": "Reassess ICP waveform if monitored, drainage, neurologic state, tubing and clamps. A number that changed after repositioning may reflect the measurement system before it reflects the brain.",
+    "kind": "mental-rep",
+    "transcriptHash": "8ea85a7a93c5679b"
+  },
+  {
+    "id": "rep.rep-evd.debrief",
+    "text": "Order, clamp for movement as required, move, re-level to the patient, verify, then return to the prescribed drainage state.",
+    "kind": "mental-rep",
+    "transcriptHash": "0338f51f119d0e08"
+  },
+  {
+    "id": "rep.rep-mtp.activate",
+    "text": "This is not ordinary transfusion. The patient is bleeding faster than routine workflow can keep up. Activate the local hemorrhage system early enough that blood bank, access, warming and source control can move together.",
+    "kind": "mental-rep",
+    "transcriptHash": "0b29e5357ee17b38"
+  },
+  {
+    "id": "rep.rep-mtp.roles",
+    "text": "Picture designated access, rapid infuser or approved delivery setup, warmer, monitoring, blood verification workflow, calcium and laboratory plan according to protocol, and someone explicitly tracking products and time.",
+    "kind": "mental-rep",
+    "transcriptHash": "b951b77104a3557f"
+  },
+  {
+    "id": "rep.rep-mtp.source",
+    "text": "Resuscitation buys time for source control. Continually ask where the blood is going and what definitive action ends that loss.",
+    "kind": "mental-rep",
+    "transcriptHash": "b15b814114c200cd"
+  },
+  {
+    "id": "rep.rep-mtp.phys",
+    "text": "Temperature, ionized calcium, fibrinogen, platelet function, acid-base state and dilution can deteriorate as the resuscitation grows. Anticipate them instead of discovering them late.",
+    "kind": "mental-rep",
+    "transcriptHash": "0419c374aec5075d"
+  },
+  {
+    "id": "rep.rep-mtp.response",
+    "text": "Reassess mental status, pulse quality, perfusion, shock index or hemodynamics, lactate trajectory when appropriate, bleeding rate and the response to source control.",
+    "kind": "mental-rep",
+    "transcriptHash": "79c568a7bdd7a3cd"
+  },
+  {
+    "id": "rep.rep-mtp.debrief",
+    "text": "Activate early, verify products, warm everything, maintain access and monitoring, anticipate calcium/coagulation/temperature problems, and never lose sight of source control.",
+    "kind": "mental-rep",
+    "transcriptHash": "1e4e06a470346b3b"
+  }
+]

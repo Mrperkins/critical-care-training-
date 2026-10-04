@@ -1,0 +1,108 @@
+{
+  "assets": [
+    {
+      "id": "rep.rep-efast.arrival",
+      "file": "rep.rep-efast.arrival.mp3",
+      "transcriptHash": "0b246611498957e5",
+      "reviewed": false,
+      "published": false,
+      "voice": "Natural clinical narrator prototype",
+      "provider": "AI Voice Generator",
+      "sha256": "5857b52d21d5535fb504f56d4ed9e94ddab6ff24a73c740caa006775d5b43466",
+      "durationSeconds": 11.184,
+      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/f7233a4f-49e5-4bda-902e-5bf5957a9021.mp3",
+      "note": "Durable imported prototype; requires listening + clinical review before publication."
+    },
+    {
+      "id": "rep.rep-efast.cardiac",
+      "file": "rep.rep-efast.cardiac.mp3",
+      "transcriptHash": "54d98506b589d443",
+      "reviewed": false,
+      "published": false,
+      "voice": "Natural clinical narrator prototype",
+      "provider": "AI Voice Generator",
+      "sha256": "346174282796ef459fad858b57ab3051e17a86da306896320b0ac58332ab2bd4",
+      "durationSeconds": 10.56,
+      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/842ec09c-d369-417d-86d8-2098c24f4f01.mp3",
+      "note": "Durable imported prototype; requires listening + clinical review before publication."
+    },
+    {
+      "id": "rep.rep-efast.lung",
+      "file": "rep.rep-efast.lung.mp3",
+      "transcriptHash": "def8ef72254a065b",
+      "reviewed": false,
+      "published": false,
+      "voice": "Natural clinical narrator prototype",
+      "provider": "AI Voice Generator",
+      "sha256": "4759eee95016061a2f51bbd6110a2f23bd62a9f8495f96992805e88c43061b1c",
+      "durationSeconds": 11.688,
+      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/9ac0ac09-9191-4d60-a043-90caeae7ddb3.mp3",
+      "note": "Durable imported prototype; requires listening + clinical review before publication."
+    },
+    {
+      "id": "rep.rep-efast.luq",
+      "file": "rep.rep-efast.luq.mp3",
+      "transcriptHash": "ce6a226aa0690224",
+      "reviewed": false,
+      "published": false,
+      "voice": "Natural clinical narrator prototype",
+      "provider": "AI Voice Generator",
+      "sha256": "e9afc7291c115a8a8162f19c52a9e4e20bd3e84f57df2f2cc199da01a1947497",
+      "durationSeconds": 7.824,
+      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/9882ce63-7637-4b89-b5ab-3c7700d9b690.mp3",
+      "note": "Durable imported prototype; requires listening + clinical review before publication."
+    },
+    {
+      "id": "rep.rep-efast.orientation",
+      "file": "rep.rep-efast.orientation.mp3",
+      "transcriptHash": "7fc6cf00b1e5ae2b",
+      "reviewed": false,
+      "published": false,
+      "voice": "Natural clinical narrator prototype",
+      "provider": "AI Voice Generator",
+      "sha256": "d1329211b3c79443e28ac7ca8a380a6a5614fab56cb53a0e4736292d000fd3f3",
+      "durationSeconds": 11.328,
+      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/2ac01d70-907d-4deb-862f-0199e9048964.mp3",
+      "note": "Durable imported prototype; requires listening + clinical review before publication."
+    },
+    {
+      "id": "rep.rep-efast.pelvis",
+      "file": "rep.rep-efast.pelvis.mp3",
+      "transcriptHash": "fa5cdc752d9ee91a",
+      "reviewed": false,
+      "published": false,
+      "voice": "Natural clinical narrator prototype",
+      "provider": "AI Voice Generator",
+      "sha256": "1983854fb857aa05425d2bbaff0ce92843cb02e8b742e196a02fc41baa813636",
+      "durationSeconds": 6.816,
+      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/2e6bc861-8638-494d-aee6-376657c5cdb7.mp3",
+      "note": "Durable imported prototype; requires listening + clinical review before publication."
+    },
+    {
+      "id": "rep.rep-efast.repeat",
+      "file": "rep.rep-efast.repeat.mp3",
+      "transcriptHash": "e9520eb83d4218d5",
+      "reviewed": false,
+      "published": false,
+      "voice": "Natural clinical narrator prototype",
+      "provider": "AI Voice Generator",
+      "sha256": "bc3610cd2d86e1bf265b08d504bb612def0e5b9f951397932711bcd3b053089d",
+      "durationSeconds": 9.456,
+      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/3ba2180d-bd3a-4795-b579-681d341b2ea0.mp3",
+      "note": "Durable imported prototype; requires listening + clinical review before publication."
+    },
+    {
+      "id": "rep.rep-efast.ruq",
+      "file": "rep.rep-efast.ruq.mp3",
+      "transcriptHash": "554d772327b228ac",
+      "reviewed": false,
+      "published": false,
+      "voice": "Natural clinical narrator prototype",
+      "provider": "AI Voice Generator",
+      "sha256": "b07d44b619efd54d4d21f20763e28f96ed5572d3fc1510bf6bcf7f6785d23e1f",
+      "durationSeconds": 10.128,
+      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/6f2d9ce4-ca13-4de8-b31a-4ca27002e1d7.mp3",
+      "note": "Durable imported prototype; requires listening + clinical review before publication."
+    }
+  ]
+}
