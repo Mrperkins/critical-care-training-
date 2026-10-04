@@ -155,21 +155,54 @@ function EpisodePlayer({ episode, onBack }: { episode: AudioEpisode; onBack: () 
 
 function RepPlayer({ rep, onBack }: { rep: MentalRep; onBack: () => void }) {
   const p = useAudioProgress(); const [i, setI] = useState(0); const beat = rep.beats[i];
+  const audio = useRef<HTMLAudioElement>(null); const [guided, setGuided] = useState(false); const [voicePlaying, setVoicePlaying] = useState(false);
+  const voiceSrc = beat.voice?.src ?? beat.voice?.previewSrc; const hasVoice = rep.beats.some((b) => !!(b.voice?.src ?? b.voice?.previewSrc));
+
+  useEffect(() => {
+    if (!guided || !voiceSrc || !audio.current) return;
+    const a = audio.current; a.load();
+    const id = window.setTimeout(() => { a.play().then(() => setVoicePlaying(true)).catch(() => { setVoicePlaying(false); setGuided(false); }); }, 120);
+    return () => { window.clearTimeout(id); a.pause(); setVoicePlaying(false); };
+  }, [i, guided, voiceSrc]);
+
+  useEffect(() => () => { audio.current?.pause(); }, []);
+
+  const startGuided = async () => {
+    if (!voiceSrc || !audio.current) return;
+    setGuided(true);
+    try { await audio.current.play(); setVoicePlaying(true); } catch { setGuided(false); setVoicePlaying(false); }
+  };
+  const toggleVoice = async () => {
+    const a = audio.current; if (!a || !voiceSrc) return;
+    if (a.paused) { try { await a.play(); setVoicePlaying(true); } catch { /* browser blocked */ } }
+    else { a.pause(); setVoicePlaying(false); }
+  };
+  const ended = () => {
+    setVoicePlaying(false);
+    // Retrieval prompts intentionally break autoplay: mental rehearsal should not become passive listening.
+    if (guided && !beat.prompt && i < rep.beats.length - 1) window.setTimeout(() => setI((x) => Math.min(rep.beats.length - 1, x + 1)), Math.max(450, (beat.pauseSeconds ?? 0) * 1000));
+    else if (beat.prompt) setGuided(false);
+  };
+  const go = (next: number) => { audio.current?.pause(); setVoicePlaying(false); setI(Math.max(0, Math.min(rep.beats.length - 1, next))); };
+
   return <div className="aa-page aa-rehearsal"><button className="aa-backbtn" onClick={onBack}>← Mental Reps</button>
-    <div className="aa-rephead"><span className="aa-kicker">GUIDED PROCEDURAL VISUALIZATION</span><h1>{rep.title}</h1><p>{rep.subtitle}</p><div className="aa-warning"><b>Training boundary</b><span>{rep.disclaimer}</span></div></div>
+    <div className="aa-rephead"><span className="aa-kicker">GUIDED PROCEDURAL VISUALIZATION</span><h1>{rep.title}</h1><p>{rep.subtitle}</p><div className="aa-warning"><b>Training boundary</b><span>{rep.disclaimer}</span></div>
+      {hasVoice && <div className="aa-guided-launch"><div><span className="aa-kicker">NATURAL-VOICE GUIDED MODE</span><b>Let the narration carry the visualization.</b><small>It advances automatically between narrated beats and stops when you need to think.</small></div>
+        {!guided ? <button className="aa-primary" onClick={startGuided}>▶ Start guided rep</button> : <button className="aa-secondary" onClick={() => { audio.current?.pause(); setVoicePlaying(false); setGuided(false); }}>Exit guided mode</button>}</div>}
+    </div>
     <div className="aa-repstage">
       <div className={`aa-visual ${beat.danger ? 'danger' : ''}`}><RepVisual beat={beat} /><small className="aa-vphase">VISUAL CUE · {beat.phase.toUpperCase()}</small></div>
       <section><div className="aa-stepcount">BEAT {i + 1} OF {rep.beats.length}</div><h2>{beat.title}</h2><p className="aa-narration">{beat.narration}</p>
+        {voiceSrc && <><audio ref={audio} src={voiceSrc} onEnded={ended} /><div className="aa-beatvoice"><button onClick={toggleVoice}>{voicePlaying ? '❚❚ Pause narration' : '▶ Narrate this beat'}</button><span>{beat.voice?.reviewed ? 'Reviewed narration' : 'Natural-voice prototype'}</span></div></>}
         {beat.pauseSeconds && <div className="aa-pause">Pause · {beat.pauseSeconds} seconds</div>}
         {beat.prompt && <div className="aa-prompt"><b>Mentally answer before moving on</b><p>{beat.prompt}</p></div>}
-        <div className="aa-controls"><button disabled={i === 0} onClick={() => setI(i - 1)}>← Previous</button>{i < rep.beats.length - 1 ? <button className="aa-primary" onClick={() => setI(i + 1)}>Next beat →</button> :
+        <div className="aa-controls"><button disabled={i === 0} onClick={() => go(i - 1)}>← Previous</button>{i < rep.beats.length - 1 ? <button className="aa-primary" onClick={() => go(i + 1)}>Next beat →</button> :
           <button className="aa-primary" onClick={() => p.completeRep(rep.id, rep.concepts)}>Complete Mental Rep ✓</button>}</div>
       </section>
     </div>
-    <div className="aa-beatbar">{rep.beats.map((b, k) => <button aria-label={b.title} className={k === i ? 'on' : k < i ? 'past' : ''} key={b.id} onClick={() => setI(k)} />)}</div>
+    <div className="aa-beatbar">{rep.beats.map((b, k) => <button aria-label={b.title} className={k === i ? 'on' : k < i ? 'past' : ''} key={b.id} onClick={() => go(k)} />)}</div>
   </div>;
 }
-
 function PageHead({ kicker, title, body }: { kicker: string; title: string; body: string }) {
   return <header className="aa-pagehead"><span className="aa-kicker">{kicker}</span><h1>{title}</h1><p>{body}</p></header>;
 }
