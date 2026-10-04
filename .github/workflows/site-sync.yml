@@ -48,6 +48,10 @@ jobs:
             exit 0
           fi
           git commit -m "chore(site): sync generated Pages artifacts [skip ci]"
+          # npm run site also refreshes review/production metadata inside app/.
+          # The Pages commit intentionally owns only repo-root publish artifacts.
+          git reset --hard HEAD
+          git clean -fd app/dist
           for attempt in 1 2 3 4 5; do
             git fetch origin main
             git rebase origin/main
