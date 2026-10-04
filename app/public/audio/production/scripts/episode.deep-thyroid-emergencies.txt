@@ -132,6 +132,86 @@ Chapter integration. Put the numbers aside for a moment and picture the patient.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
+Now: Find and treat the trigger while the endocrine crisis is being stabilized.
+
+Thyroid storm. Extreme thyrotoxicosis drives hypermetabolism, adrenergic symptoms, arrhythmia, heart failure, fever and CNS dysfunction.
+
+Build the mechanism first. Severe thyrotoxicosis amplifies metabolic demand and adrenergic signaling, producing fever, CNS dysfunction, arrhythmia and sometimes high-output then decompensated heart failure.
+
+At the bedside, recognize the syndrome clinically and treat the precipitant while addressing adrenergic effects and thyroid hormone production/release in appropriate sequence.
+
+Two traps to actively avoid: Relying on one thyroid hormone value to define severity. And: Using aggressive rate control without considering decompensated pump failure.
+
+The integration move is this: The thyroid state magnifies stress physiology across multiple organs.
+
+Keep these terms available in your mental model: thyrotoxicosis, hyperadrenergic, high-output failure.
+
+What expert-level use of this concept looks like is this: Recognize multisystem decompensation rather than relying on a single thyroid value. Sequence therapies around adrenergic control, hormone synthesis/release and precipitant treatment.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize multisystem decompensation rather than relying on a single thyroid value. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Sequence therapies around adrenergic control, hormone synthesis/release and precipitant treatment. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Thyroid storm to Cardiogenic shock. Pump failure where restoring perfusion must be balanced against congestion, myocardial oxygen demand, coronary perfusion and mechanical complications.
+
+The relationship matters because Cardiogenic shock is inadequate forward flow from pump failure, often accompanied by elevated filling pressures and congestion. RV, LV and biventricular phenotypes behave differently. At the bedside, track flow, pressure, congestion, coronary perfusion, rhythm and mechanical complications; escalate support when pharmacology cannot restore effective circulation.
+
+Stress-test the model. Imagine the patient changes in a way that makes relying on one thyroid hormone value to define severity tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Using aggressive rate control without considering decompensated pump failure.
+
+Myxedema coma. Severe hypothyroidism can produce hypothermia, bradycardia, hypoventilation, hyponatremia, hypotension and altered consciousness.
+
+Build the mechanism first. Extreme hypothyroidism reduces metabolic rate, ventilatory drive and cardiac performance while impairing free-water handling and thermoregulation.
+
+At the bedside, anticipate hypoventilation, bradycardia, hypotension, hyponatremia and hypothermia; consider adrenal coverage while treating.
+
+Two traps to actively avoid: Aggressive external rewarming that worsens vasodilation. And: Missing ventilatory failure because oxygen saturation appears acceptable.
+
+The integration move is this: The syndrome is global metabolic slowing with limited cardiovascular and respiratory reserve.
+
+Keep these terms available in your mental model: hypothyroidism, hypoventilation, adrenal coverage.
+
+What expert-level use of this concept looks like is this: Recognize the syndrome despite nonspecific presentation. Anticipate airway, temperature, sodium and adrenal considerations during treatment.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize the syndrome despite nonspecific presentation. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Anticipate airway, temperature, sodium and adrenal considerations during treatment. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Myxedema coma to Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+The relationship matters because Acute ventilator deterioration can originate from the patient, tube, circuit or machine. Peak and plateau pressures help separate resistance from compliance when measurements are trustworthy. At the bedside, look at the patient first, rescue oxygenation/ventilation if the device cannot be trusted, then trace from patient to tube to circuit to machine.
+
+Stress-test the model. Imagine the patient changes in a way that makes aggressive external rewarming that worsens vasodilation tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Missing ventilatory failure because oxygen saturation appears acceptable.
+
+Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
+
+Build the mechanism first. Clinical decisions are made with incomplete information. Calibrated reasoning assigns provisional probability, makes predictions and updates when new data contradict the model.
+
+At the bedside, state confidence, name disconfirming evidence and define what response you expect from a treatment if the model is correct.
+
+Two traps to actively avoid: Equating uncertainty with indecision. And: Becoming more confident simply because the same hypothesis has been repeated.
+
+The integration move is this: A model that cannot be falsified is not useful clinical reasoning.
+
+Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
+
+What expert-level use of this concept looks like is this: State confidence, identify disconfirming evidence and update the model when the patient fails to respond as predicted.
+
+Reasoning checkpoint. Do not just repeat the statement: State confidence, identify disconfirming evidence and update the model when the patient fails to respond as predicted. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Clinical uncertainty & model revision to Cognitive bias & diagnostic error. Expert reasoning uses deliberate checks against anchoring, premature closure, confirmation bias and overconfidence while still making timely decisions.
+
+The relationship matters because Anchoring, confirmation bias and premature closure arise because fast pattern recognition is useful but can overcommit to the first plausible model. At the bedside, name the finding that does not fit, generate at least one alternative mechanism and use treatment response as new diagnostic evidence.
+
+Now connect Clinical uncertainty & model revision to Multisystem treatment tradeoffs. A therapy that helps one organ can worsen another; expert care weighs global benefit, reversibility and monitoring.
+
+The relationship matters because Organ-support interventions frequently redistribute risk: peep can help oxygenation but worsen RV load; fluids can increase flow but worsen congestion; sedation can improve synchrony but obscure neurologic assessment. At the bedside, before intervening, name the intended benefit, the organ/system at risk and the signal that would tell you the tradeoff has become unfavorable.
+
+Stress-test the model. Imagine the patient changes in a way that makes equating uncertainty with indecision tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Becoming more confident simply because the same hypothesis has been repeated.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
 Before you finish, retrieve the model without looking at notes.
 
 Can you recognize severe thyrotoxicosis and severe hypothyroidism as organ-failure syndromes?

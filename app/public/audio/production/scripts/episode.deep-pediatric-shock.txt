@@ -132,6 +132,62 @@ Chapter integration. Put the numbers aside for a moment and picture the patient.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
+Now: Reassess response without importing adult assumptions.
+
+Pediatric shock physiology. Children often preserve blood pressure until late while compensating with tachycardia and vasoconstriction; age and size alter interpretation and therapy.
+
+Build the mechanism first. Children can maintain blood pressure through tachycardia and vasoconstriction until late, while higher metabolic demand makes oxygen-delivery failure progress quickly.
+
+At the bedside, use age-adjusted physiology, mental status, perfusion, pulse quality and urine output rather than waiting for hypotension.
+
+Two traps to actively avoid: Using adult thresholds. And: Calling a normal pediatric BP reassuring despite poor perfusion.
+
+The integration move is this: Pediatric shock is often compensated until it suddenly is not.
+
+Keep these terms available in your mental model: compensated shock, age-adjusted, weight-based.
+
+What expert-level use of this concept looks like is this: Recognize compensated pediatric shock before hypotension. Use age, size and disease-specific physiology rather than scaled-down adult assumptions.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize compensated pediatric shock before hypotension. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Use age, size and disease-specific physiology rather than scaled-down adult assumptions. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Pediatric shock physiology to Oxygen delivery. DO2 is cardiac output multiplied by arterial oxygen content; saturation alone does not describe tissue oxygen delivery.
+
+The relationship matters because Oxygen delivery equals cardiac output multiplied by arterial oxygen content, which is dominated by hemoglobin-bound oxygen rather than dissolved oxygen. At the bedside, normal saturation can coexist with critically low delivery in severe anemia or low-flow shock. Ask about hemoglobin and flow whenever tissue perfusion looks worse than the pulse oximeter.
+
+Stress-test the model. Imagine the patient changes in a way that makes using adult thresholds tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Calling a normal pediatric BP reassuring despite poor perfusion.
+
+Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
+
+Build the mechanism first. Clinical decisions are made with incomplete information. Calibrated reasoning assigns provisional probability, makes predictions and updates when new data contradict the model.
+
+At the bedside, state confidence, name disconfirming evidence and define what response you expect from a treatment if the model is correct.
+
+Two traps to actively avoid: Equating uncertainty with indecision. And: Becoming more confident simply because the same hypothesis has been repeated.
+
+The integration move is this: A model that cannot be falsified is not useful clinical reasoning.
+
+Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
+
+What expert-level use of this concept looks like is this: State confidence, identify disconfirming evidence and update the model when the patient fails to respond as predicted.
+
+Reasoning checkpoint. Do not just repeat the statement: State confidence, identify disconfirming evidence and update the model when the patient fails to respond as predicted. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Clinical uncertainty & model revision to Cognitive bias & diagnostic error. Expert reasoning uses deliberate checks against anchoring, premature closure, confirmation bias and overconfidence while still making timely decisions.
+
+The relationship matters because Anchoring, confirmation bias and premature closure arise because fast pattern recognition is useful but can overcommit to the first plausible model. At the bedside, name the finding that does not fit, generate at least one alternative mechanism and use treatment response as new diagnostic evidence.
+
+Now connect Clinical uncertainty & model revision to Multisystem treatment tradeoffs. A therapy that helps one organ can worsen another; expert care weighs global benefit, reversibility and monitoring.
+
+The relationship matters because Organ-support interventions frequently redistribute risk: peep can help oxygenation but worsen RV load; fluids can increase flow but worsen congestion; sedation can improve synchrony but obscure neurologic assessment. At the bedside, before intervening, name the intended benefit, the organ/system at risk and the signal that would tell you the tradeoff has become unfavorable.
+
+Stress-test the model. Imagine the patient changes in a way that makes equating uncertainty with indecision tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Becoming more confident simply because the same hypothesis has been repeated.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
 Before you finish, retrieve the model without looking at notes.
 
 Can you recognize pediatric shock before hypotension?

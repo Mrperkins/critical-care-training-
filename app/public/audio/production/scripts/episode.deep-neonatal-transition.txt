@@ -128,6 +128,68 @@ Chapter integration. Put the numbers aside for a moment and picture the patient.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
+Now: Oxygen, ventilation and resistance are hemodynamic interventions.
+
+Pulmonary vascular resistance. Resistance faced by the RV, influenced by lung volume, oxygenation, CO2, pH, pulmonary vascular disease and mechanical ventilation.
+
+Build the mechanism first. Pulmonary vascular resistance reflects the combined behavior of alveolar and extra-alveolar vessels and is affected by lung volume, oxygen, CO2, pH and pulmonary vascular disease.
+
+At the bedside, both severe derecruitment and overdistension can raise RV afterload. Hypoxemia, hypercapnia and acidosis can compound the problem.
+
+Two traps to actively avoid: Assuming more peep always lowers P V R by recruiting lung. And: Ignoring gas chemistry as an RV afterload intervention.
+
+The integration move is this: Interpret ventilator changes through both lung mechanics and the pulmonary circulation.
+
+Keep these terms available in your mental model: RV afterload, West zones.
+
+What expert-level use of this concept looks like is this: Explain the U-shaped relationship between lung volume and pulmonary vascular resistance. Identify reversible contributors to acute RV afterload.
+
+Reasoning checkpoint. Do not just repeat the statement: Explain the U-shaped relationship between lung volume and pulmonary vascular resistance. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Identify reversible contributors to acute RV afterload. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Pulmonary vascular resistance to Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+The relationship matters because The RV is thin-walled and highly sensitive to acute afterload. When it dilates, wall stress rises, coronary perfusion can fall and septal shift can reduce LV filling. At the bedside, track systemic pressure, venous congestion, echo geometry, oxygenation, CO2, acid-base status and ventilator pressures together. Small changes in P V R or intrathoracic pressure can have large hemodynamic consequences.
+
+Now connect Pulmonary vascular resistance to Positive-pressure ventilation & circulation. Positive intrathoracic pressure changes venous return, ventricular transmural pressures and pulmonary vascular resistance.
+
+The relationship matters because Positive intrathoracic pressure can reduce the gradient for venous return, change transmural ventricular pressures and alter P V R depending on lung volume and recruitability. At the bedside, post-intubation hypotension may reflect vasodilation, reduced venous return, increased RV afterload, auto-peep or previously compensated shock becoming unmasked.
+
+Stress-test the model. Imagine the patient changes in a way that makes assuming more peep always lowers pvr by recruiting lung tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring gas chemistry as an RV afterload intervention.
+
+Oxygen delivery. DO2 is cardiac output multiplied by arterial oxygen content; saturation alone does not describe tissue oxygen delivery.
+
+Build the mechanism first. Oxygen delivery equals cardiac output multiplied by arterial oxygen content, which is dominated by hemoglobin-bound oxygen rather than dissolved oxygen.
+
+At the bedside, normal saturation can coexist with critically low delivery in severe anemia or low-flow shock. Ask about hemoglobin and flow whenever tissue perfusion looks worse than the pulse oximeter.
+
+Two traps to actively avoid: Using SpO2 as a proxy for whole-body oxygen delivery. And: Forgetting that raising saturation from already-high levels adds little content.
+
+The integration move is this: Saturation tells you how full the carriers are; hemoglobin tells you how many carriers exist; cardiac output tells you how fast they move.
+
+Keep these terms available in your mental model: CaO2, DO2, VO2.
+
+What expert-level use of this concept looks like is this: Predict effects of hemoglobin, saturation and flow on oxygen delivery. Explain why a normal SpO2 can coexist with inadequate DO2.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict effects of hemoglobin, saturation and flow on oxygen delivery. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Explain why a normal SpO2 can coexist with inadequate DO2. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Oxygen delivery to Oxygen extraction. The relationship between delivered and consumed oxygen reflected by venous saturation and tissue extraction.
+
+The relationship matters because Tissues can increase extraction when delivery falls, lowering venous oxygen saturation until extraction reserve is exhausted. High venous saturation can also be abnormal when extraction is impaired or flow is maldistributed. At the bedside, interpret SvO2 or ScvO2 alongside cardiac output, hemoglobin, arterial saturation, metabolic demand and shock phenotype.
+
+Now connect Oxygen delivery to Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+The relationship matters because Shock is inadequate effective tissue perfusion and oxygen utilization, not merely hypotension. Flow, vascular tone, capacitance, congestion and extraction can fail in different combinations. At the bedside, phenotype the circulation repeatedly. A patient can move from one dominant mechanism to another during resuscitation.
+
+Stress-test the model. Imagine the patient changes in a way that makes using spo2 as a proxy for whole-body oxygen delivery tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Forgetting that raising saturation from already-high levels adds little content.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
 Before you finish, retrieve the model without looking at notes.
 
 Can you explain fetal-to-neonatal circulation as a pressure/flow transition?
