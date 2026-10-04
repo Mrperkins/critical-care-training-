@@ -18,10 +18,12 @@ describe('audio adaptive learning', () => {
     const strong: MasteryState = { concept:'x', exposures:7, correct:7, confidence:[90,100], lastSeen:new Date().toISOString() };
     expect(nextIntervalDays(weak)).toBe(1);
     expect(nextIntervalDays(strong)).toBe(30);
-    expect(reviewDue(undefined)).toBe(true);
+    expect(reviewDue(undefined)).toBe(false);
   });
-  it('builds a due queue', () => {
-    expect(duePrompts({}).length).toBeGreaterThan(0);
+  it('only schedules review after a concept has been exposed', () => {
+    expect(duePrompts({})).toHaveLength(0);
+    const old: MasteryState = { concept:'rv-failure', exposures:1, correct:0, confidence:[], lastSeen:'2020-01-01T00:00:00.000Z' };
+    expect(duePrompts({ 'rv-failure': old }).some((q) => q.concept === 'rv-failure')).toBe(true);
   });
   it('builds a multimodal path around a mastery concept', () => {
     const steps = buildLearningPath('rv-failure');
