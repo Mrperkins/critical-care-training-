@@ -127,6 +127,7 @@ export function App() {
 
 function VentModule() {
   const [asset, setAsset] = useState<RespAsset | null>(null); const [err, setErr] = useState<string | null>(null);
+  const [panel, setPanel] = useState<'patient' | 'controls' | 'findings' | 'reference'>('patient');
   // semantic hook for lessons, the Lesson Director and automated checks (same calls the buttons make)
   useEffect(() => { (window as unknown as { __CCVent: unknown }).__CCVent = { session, focus: focusVentTarget, load: loadVentScenario, set: (p: Record<string, number>) => session.set(p) }; }, []);
   useEffect(() => { loadRespAsset().then(setAsset).catch((e) => { console.error(e); setErr(String(e?.message || e)); }); }, []);
@@ -140,16 +141,15 @@ function VentModule() {
         </SceneWrap>
         <div className="wave-wrap"><Scalars height={phone ? 210 : undefined} /></div>
       </section>
-      <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
+      <aside id="controls" tabIndex={-1} className="side-pane contextual-pane" aria-label="Learning context and controls"><h2 className="sr-only">Learning context and controls</h2>
         {mode === 'explore' && <>
-          <ScenarioPicker />
-          <ScenarioStory />
-          <VentNumbersCard />
-          <Interventions />
-          {showLoops && <section className="card"><Loops /></section>}
-          <VentControls />
-          <GasCard />
-          <ExplainCard />
+          <nav className="context-tabs" aria-label="Respiratory workspace panel">
+            {([['patient','Patient'],['controls','Controls'],['findings','Findings'],['reference','Reference']] as const).map(([k,l]) => <button key={k} className={panel === k ? 'on' : ''} onClick={() => setPanel(k)}>{l}</button>)}
+          </nav>
+          {panel === 'patient' && <div className="context-stack"><ScenarioPicker /><ScenarioStory /><VentNumbersCard /></div>}
+          {panel === 'controls' && <div className="context-stack"><VentControls /><Interventions />{showLoops && <section className="card"><Loops /></section>}</div>}
+          {panel === 'findings' && <div className="context-stack"><GasCard /><VentNumbersCard /></div>}
+          {panel === 'reference' && <div className="context-stack"><ExplainCard /></div>}
         </>}
         {mode === 'learn' && <VentLearn />}
         {mode === 'challenge' && <VentChallenge />}
