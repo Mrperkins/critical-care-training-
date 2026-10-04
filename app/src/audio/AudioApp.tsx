@@ -109,34 +109,40 @@ function Home({ onEpisode, onRep, navigate }: { onEpisode: (e: AudioEpisode) => 
 }
 
 function Tracks({ onEpisode }: { onEpisode: (e: AudioEpisode) => void }) {
-  const p = useAudioProgress();
+  const p = useAudioProgress(); const [expanded, setExpanded] = useState<Record<string, boolean>>({});
   return <div className="aa-page"><PageHead kicker="EXPERT TRACKS" title="A curriculum, not a podcast feed." body="Work through each ICU domain in increasing depth. Tracks combine rounds, literacy, deep dives and cases while the mastery engine keeps weak concepts in rotation." />
     <div className="aa-trackgrid">{EXPERT_TRACKS.map((t) => {
       const done = t.episodes.filter((e) => !!p.completed[e.id]).length;
       const pct = t.episodes.length ? Math.round(100 * done / t.episodes.length) : 0;
       const next = t.episodes.find((e) => !p.completed[e.id]) ?? t.episodes[0];
+      const open = !!expanded[t.id]; const visible = open ? t.episodes : t.episodes.slice(0,4);
       return <article key={t.id}><div className="aa-tracktop"><span>{t.episodes.length} sessions</span><b>{pct}%</b></div><h2>{t.title}</h2><p>{t.promise}</p><div className="aa-meter"><i style={{width:`${pct}%`}} /></div>
-        <div className="aa-trackepisodes">{t.episodes.slice(0,4).map((e) => <button key={e.id} onClick={() => onEpisode(e)} className={p.completed[e.id] ? 'done' : ''}><span>{p.completed[e.id] ? '✓' : e.voice?.src ? '♪' : '▶'}</span><b>{e.title}</b><small>L{e.level} · {e.minutes} min · {e.voice?.reviewed ? 'reviewed audio' : e.voice?.src ? 'voice rendered' : e.voice?.previewSrc ? 'voice preview' : 'scripted'}</small></button>)}</div>
-        {t.episodes.length > 4 && <small className="aa-more">+{t.episodes.length - 4} more sessions</small>}
+        <div className="aa-trackepisodes">{visible.map((e) => <button key={e.id} onClick={() => onEpisode(e)} className={p.completed[e.id] ? 'done' : ''}><span>{p.completed[e.id] ? '✓' : e.voice?.src ? '♪' : '▶'}</span><b>{e.title}</b><small>L{e.level} · {e.minutes} min · {e.voice?.reviewed ? 'reviewed audio' : e.voice?.src ? 'voice rendered' : e.voice?.previewSrc ? 'voice preview' : 'scripted'}</small></button>)}</div>
+        {t.episodes.length > 4 && <button className="aa-more" onClick={() => setExpanded((x) => ({...x,[t.id]:!open}))}>{open ? 'Show fewer sessions ↑' : `Show all ${t.episodes.length} sessions ↓`}</button>}
         <button className="aa-primary" onClick={() => onEpisode(next)}>{done ? 'Continue track →' : 'Start track →'}</button>
       </article>;
     })}</div>
   </div>;
 }
-
 function Listen({ onEpisode }: { onEpisode: (e: AudioEpisode) => void }) {
-  const [format, setFormat] = useState('all');
+  const [format, setFormat] = useState('all'); const [domain, setDomain] = useState('all'); const [q, setQ] = useState('');
   const formats = ['all', 'daily-dose', 'rounds', 'deep-dive', 'audio-case', 'icu-literacy'];
-  const list = format === 'all' ? EPISODES : EPISODES.filter((e) => e.format === format);
+  const domains = useMemo(() => Array.from(new Set(EPISODES.map((e) => e.domain))), []);
+  const list = useMemo(() => EPISODES.filter((e) =>
+    (format === 'all' || e.format === format) &&
+    (domain === 'all' || e.domain === domain) &&
+    (!q || (e.title + ' ' + e.subtitle + ' ' + e.concepts.map((id) => MASTERY_BY_ID[id]?.name ?? '').join(' ')).toLowerCase().includes(q.toLowerCase()))
+  ), [format, domain, q]);
   return <div className="aa-page"><PageHead kicker="LISTEN" title="Critical care in your headphones" body="Start with a five-minute concept or work through a full physiologic model. Every episode maps back to mastery concepts rather than an endless podcast feed." />
+    <div className="aa-listfilters"><input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search sessions or concepts…" aria-label="Search audio sessions" /><select value={domain} onChange={(e) => setDomain(e.target.value)} aria-label="Filter by domain"><option value="all">All domains</option>{domains.map((d) => <option key={d} value={d}>{DOMAIN_LABELS[d]}</option>)}</select><span>{list.length} sessions</span></div>
     <div className="aa-pills">{formats.map((f) => <button key={f} className={f === format ? 'on' : ''} onClick={() => setFormat(f)}>{f.replace('-', ' ')}</button>)}</div>
     <div className="aa-list">{list.map((e) => <button className="aa-item" key={e.id} onClick={() => onEpisode(e)}>
       <span className="aa-play">▶</span><span className="aa-item-body"><b>{e.title}</b><small>{e.subtitle}</small><em>{DOMAIN_LABELS[e.domain]} · Level {e.level} · {e.minutes} min</em></span>
       <span className={`aa-status ${e.status}`}>{e.status.replace('-', ' ')}</span>
     </button>)}</div>
+    {!list.length && <div className="aa-pending">No sessions match those filters.</div>}
   </div>;
 }
-
 function Reps({ onRep }: { onRep: (r: MentalRep) => void }) {
   return <div className="aa-page"><PageHead kicker="MENTAL REPS" title="Rehearse the room before you enter it." body="Guided procedural visualization: see the patient, orient to anatomy and equipment, mentally perform the sequence, anticipate failure, confirm success and debrief." />
     <div className="aa-warning"><b>Training boundary</b><span>Mental rehearsal complements — and never replaces — supervised hands-on training, credentialing, medical direction and local policy.</span></div>
