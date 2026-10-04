@@ -90,3 +90,42 @@ CI must enforce:
 - Mental Rep audio is durable but remains `review pending` unless explicitly marked reviewed.
 - Long-form scripts are production-ready but full natural-voice renders are pending provider/spend selection.
 - Do not display unrendered episodes as though production audio exists.
+
+
+## Mental Rep authoring standard — hands-first + landmark-first
+
+Updated 2026-10-04 after bedside-style review of the push-dose epinephrine rep.
+
+Mental Reps are not mini lectures. They should sound like a calm expert walking the learner's hands, eyes and attention through the procedure in real time.
+
+### Hands-first
+When a procedure uses equipment or medication, narration should explicitly rehearse:
+- what item the learner picks up;
+- what label/source concentration they read;
+- what volume or component is removed, retained, added or connected when the example is protocol-defined;
+- the arithmetic/conversion out loud;
+- the final concentration/device state;
+- labeling/verification before administration;
+- where attention returns on the patient/monitor;
+- what finding means stop rather than continuing the memorized sequence.
+
+### Landmark-first
+If a procedure depends on anatomy, image orientation or a reference point, orientation is a procedural step:
+- position/orient the patient first;
+- palpate, scan or visualize the anchor structure;
+- name neighboring structures;
+- identify important structures to avoid;
+- confirm the target using anatomy, compressibility, pulsatility, contour, vessel course, a second plane/view or another appropriate cue;
+- stop and re-orient if the target cannot be confidently identified;
+- re-establish the reference after any position change that can invalidate it.
+
+Current landmark-expanded reps:
+- chest tube / pleural drain;
+- ultrasound-guided IJ central line;
+- radial arterial line;
+- intraosseous access;
+- eFAST;
+- EVD movement/re-leveling;
+- ultrasound-guided peripheral IV.
+
+The completion audit now treats a durable Mental Rep MP3 as stale when its transcript hash does not match the current narration. Script changes therefore require a fresh natural-voice render/import before the branch can pass the audio completion gate.
