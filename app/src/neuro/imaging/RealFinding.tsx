@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { RealCaseCard } from '../../scene/imaging/RealCase';
 import { loadReal, type RealItem } from '../../scene/imaging/RealExamples';
 import { useNeuroUI } from '../neuroStore';
-import { selectNeuroRealFinding } from './realFinding';
+import { selectNeuroRealFinding } from './realReference';
 
 export function NeuroRealFinding() {
   const st = useNeuroUI((s) => s.state);
