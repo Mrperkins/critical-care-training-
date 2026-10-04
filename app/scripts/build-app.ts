@@ -2,6 +2,8 @@
 import { build } from 'esbuild';
 import fs from 'node:fs';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
+import { MENTAL_REPS } from '../src/audio/catalog';
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const out = path.join(ROOT, 'dist'); fs.mkdirSync(out, { recursive: true });
 const res = await build({ entryPoints: [path.join(ROOT, 'src/main.tsx')], bundle: true, minify: true, format: 'iife', target: ['es2020'], write: false, outdir: out, loader: { '.css': 'css' }, define: { 'process.env.NODE_ENV': '"production"' }, jsx: 'automatic', legalComments: 'none', logLevel: 'warning' });
@@ -36,13 +38,21 @@ const audioJs = audioRes.outputFiles.find((f) => f.path.endsWith('.js'))!.text;
 const audioCss = audioRes.outputFiles.find((f) => f.path.endsWith('.css'))?.text ?? '';
 const audioDir = path.join(pub, 'audio'); fs.mkdirSync(audioDir, { recursive: true });
 const audioVoice = path.join(ROOT, 'public/audio/voice');
-let audioVoiceAssets: Record<string, { file: string; reviewed: boolean }> = {};
+const expectedRepHash = new Map<string, string>(MENTAL_REPS.flatMap((rep) => rep.beats.map((beat) => [
+  `rep.${rep.id}.${beat.id}`,
+  createHash('sha256').update(beat.narration.replace(/\s+/g, ' ').trim()).digest('hex').slice(0, 16),
+] as const)));
+let audioVoiceAssets: Record<string, { file: string; reviewed: boolean; transcriptHash?: string }> = {};
 if (fs.existsSync(audioVoice)) {
   fs.cpSync(audioVoice, path.join(audioDir, 'voice'), { recursive: true, force: true });
   const voiceManifest = path.join(audioVoice, 'manifest.json');
   if (fs.existsSync(voiceManifest)) {
-    const parsed = JSON.parse(fs.readFileSync(voiceManifest, 'utf8')) as { assets?: { id: string; file: string; reviewed?: boolean }[] };
-    audioVoiceAssets = Object.fromEntries((parsed.assets ?? []).map((a) => [a.id, { file: a.file, reviewed: a.reviewed === true }]));
+    const parsed = JSON.parse(fs.readFileSync(voiceManifest, 'utf8')) as { assets?: { id: string; file: string; transcriptHash?: string; reviewed?: boolean }[] };
+    audioVoiceAssets = Object.fromEntries((parsed.assets ?? []).filter((a) => {
+      if (!a.id.startsWith('rep.')) return true;
+      const expected = expectedRepHash.get(a.id);
+      return !!expected && a.transcriptHash === expected;
+    }).map((a) => [a.id, { file: a.file, reviewed: a.reviewed === true, transcriptHash: a.transcriptHash }]));
   }
 }
 fs.copyFileSync(path.join(ROOT, 'site', 'audio-manifest.webmanifest'), path.join(audioDir, 'manifest.webmanifest'));
