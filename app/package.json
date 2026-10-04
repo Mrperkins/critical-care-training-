@@ -14,8 +14,9 @@
     "audio:lines": "tsx scripts/audio-voice-lines.ts",
     "audio:voice:validate": "python3 scripts/audio_voice_validate.py",
     "audio:review": "tsx scripts/audio-review-packet.ts",
-    "audio:production": "tsx scripts/audio-production-queue.ts",
-    "audio:audit": "tsx scripts/audio-completion-audit.ts"
+    "audio:production": "tsx scripts/audio-production-queue.ts && tsx scripts/audio-render-plan.ts",
+    "audio:audit": "tsx scripts/audio-completion-audit.ts",
+    "audio:render-plan": "tsx scripts/audio-render-plan.ts"
   },
   "dependencies": {
     "@react-three/drei": "9.99.7",
