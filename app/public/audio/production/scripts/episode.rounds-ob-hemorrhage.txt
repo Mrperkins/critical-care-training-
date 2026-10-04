@@ -1,0 +1,53 @@
+You're listening to Obstetric hemorrhage: pregnancy can hide the shock. Source control, fibrinogen and massive transfusion in a different circulation.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to recognize major obstetric bleeding before hypotension declares it; and integrate source control and balanced hemorrhagic resuscitation.
+
+Now: Why vital signs can lag behind blood loss.
+
+Obstetric hemorrhage. Major obstetric bleeding couples rapidly changing uterine source control with transfusion, coagulopathy and pregnancy-specific physiology.
+
+Keep these terms available in your mental model: uterine atony, fibrinogen, peripartum.
+
+What expert-level use of this concept looks like is this: Recognize that apparently preserved blood pressure may coexist with major blood loss. Run uterotonic/source-control strategy and hemorrhagic resuscitation in parallel.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Uterine source control.
+
+Obstetric hemorrhage. Major obstetric bleeding couples rapidly changing uterine source control with transfusion, coagulopathy and pregnancy-specific physiology.
+
+Keep these terms available in your mental model: uterine atony, fibrinogen, peripartum.
+
+What expert-level use of this concept looks like is this: Recognize that apparently preserved blood pressure may coexist with major blood loss. Run uterotonic/source-control strategy and hemorrhagic resuscitation in parallel.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Fibrinogen and coagulopathy.
+
+Critical-illness coagulopathy. Bleeding and thrombosis reflect platelets, fibrinogen, coagulation factors, fibrinolysis, temperature, calcium, dilution and disease-specific pathways.
+
+Keep these terms available in your mental model: fibrinolysis, fibrinogen, viscoelastic testing.
+
+What expert-level use of this concept looks like is this: Reason from the failing component of clot formation rather than treating INR alone. Anticipate temperature, calcium and dilution effects during hemorrhagic resuscitation.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Run the hemorrhage system early.
+
+Massive transfusion & hemorrhagic resuscitation. Hemorrhagic resuscitation integrates source control, balanced component replacement, calcium, temperature, coagulation and perfusion.
+
+Keep these terms available in your mental model: M T P, fibrinogen, ionized calcium, lethal triad.
+
+What expert-level use of this concept looks like is this: Run the resuscitation as a system rather than as isolated blood-unit administration. Recognize dilutional/coagulopathic, hypocalcemic and hypothermic deterioration early.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you recognize major obstetric bleeding before hypotension declares it?
+
+Can you integrate source control and balanced hemorrhagic resuscitation?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

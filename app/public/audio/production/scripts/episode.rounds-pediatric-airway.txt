@@ -1,0 +1,53 @@
+You're listening to The pediatric airway has less reserve than you think. Resistance, dead space, oxygen consumption and why small errors become big quickly.
+
+This is a level 3 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to explain why pediatric respiratory deterioration can accelerate quickly; and anticipate resistance and apparatus-dead-space problems unique to smaller patients.
+
+Now: Small radius, large resistance consequences.
+
+Pediatric airway & ventilation. Smaller airways, higher metabolic demand and lower reserve make pediatric respiratory deterioration faster and equipment sizing more consequential.
+
+Keep these terms available in your mental model: airway resistance, dead space, uncuffed/cuffed.
+
+What expert-level use of this concept looks like is this: Anticipate rapid desaturation and pressure consequences in small airways. Use age/size-appropriate airway and ventilation strategy.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Higher demand, smaller reserve.
+
+Pediatric airway & ventilation. Smaller airways, higher metabolic demand and lower reserve make pediatric respiratory deterioration faster and equipment sizing more consequential.
+
+Keep these terms available in your mental model: airway resistance, dead space, uncuffed/cuffed.
+
+What expert-level use of this concept looks like is this: Anticipate rapid desaturation and pressure consequences in small airways. Use age/size-appropriate airway and ventilation strategy.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Dead space and equipment scale.
+
+Dead space. Ventilation that does not effectively participate in CO2 exchange, from conducting airways or ventilated but poorly perfused alveoli.
+
+Keep these terms available in your mental model: VD/VT, alveolar dead space.
+
+What expert-level use of this concept looks like is this: Use PaCO2–EtCO2 behavior and minute ventilation requirements to reason about changing dead space.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Troubleshooting after intubation.
+
+Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+Keep these terms available in your mental model: DOPES, peak pressure, plateau pressure, auto-peep.
+
+What expert-level use of this concept looks like is this: Separate resistance, compliance, circuit and patient problems using waveforms and bedside examination. Prioritize oxygenation and manual ventilation when the device or circuit cannot be trusted.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you explain why pediatric respiratory deterioration can accelerate quickly?
+
+Can you anticipate resistance and apparatus-dead-space problems unique to smaller patients?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

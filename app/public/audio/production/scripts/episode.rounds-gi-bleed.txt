@@ -1,0 +1,59 @@
+You're listening to The crashing GI bleed. Resuscitation, airway judgment, portal hypertension and definitive source control.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to run hemorrhage resuscitation and definitive-control planning in parallel; and recognize physiology and airway features that make severe gi bleeding uniquely dangerous.
+
+Now: Resuscitate while locating the source.
+
+Severe GI hemorrhage. Upper and lower GI bleeding require simultaneous hemorrhagic resuscitation, airway judgment, coagulopathy assessment and definitive source control.
+
+Keep these terms available in your mental model: variceal, nonvariceal, endoscopy.
+
+What expert-level use of this concept looks like is this: Run resuscitation and definitive-control planning in parallel. Recognize when airway, portal-hypertension or anticoagulation issues change the strategy.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: When airway protection helps—and when intubation adds risk.
+
+Severe GI hemorrhage. Upper and lower GI bleeding require simultaneous hemorrhagic resuscitation, airway judgment, coagulopathy assessment and definitive source control.
+
+Keep these terms available in your mental model: variceal, nonvariceal, endoscopy.
+
+What expert-level use of this concept looks like is this: Run resuscitation and definitive-control planning in parallel. Recognize when airway, portal-hypertension or anticoagulation issues change the strategy.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Blood, calcium, temperature and clot.
+
+Massive transfusion & hemorrhagic resuscitation. Hemorrhagic resuscitation integrates source control, balanced component replacement, calcium, temperature, coagulation and perfusion.
+
+Keep these terms available in your mental model: M T P, fibrinogen, ionized calcium, lethal triad.
+
+What expert-level use of this concept looks like is this: Run the resuscitation as a system rather than as isolated blood-unit administration. Recognize dilutional/coagulopathic, hypocalcemic and hypothermic deterioration early.
+
+Critical-illness coagulopathy. Bleeding and thrombosis reflect platelets, fibrinogen, coagulation factors, fibrinolysis, temperature, calcium, dilution and disease-specific pathways.
+
+Keep these terms available in your mental model: fibrinolysis, fibrinogen, viscoelastic testing.
+
+What expert-level use of this concept looks like is this: Reason from the failing component of clot formation rather than treating INR alone. Anticipate temperature, calcium and dilution effects during hemorrhagic resuscitation.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Endoscopic/interventional control is the endpoint.
+
+Source control. Definitive management of infected material, devitalized tissue or an infected device can be as important as antimicrobial therapy.
+
+Keep these terms available in your mental model: drainage, debridement, device removal.
+
+What expert-level use of this concept looks like is this: Identify when antibiotics alone are unlikely to succeed. Escalate procedural or surgical source control as part of the resuscitation plan.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you run hemorrhage resuscitation and definitive-control planning in parallel?
+
+Can you recognize physiology and airway features that make severe GI bleeding uniquely dangerous?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

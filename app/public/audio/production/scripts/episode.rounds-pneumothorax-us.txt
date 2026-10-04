@@ -1,0 +1,63 @@
+You're listening to Pneumothorax ultrasound: absent sliding is not the diagnosis. Combine sliding, B-lines, pulse, M-mode and lung point with the clinical context.
+
+This is a level 3 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to use multiple pleural signs rather than absent sliding alone; and integrate ultrasound findings with ventilator and hemodynamic physiology.
+
+Now: Find the pleural line first.
+
+Pneumothorax ultrasound. Pleural ultrasound combines sliding, B-lines, M-mode patterns and lung point rather than relying on a single sign.
+
+Keep these terms available in your mental model: lung sliding, lung point, seashore, barcode.
+
+What expert-level use of this concept looks like is this: Use multiple pleural signs to support or weaken the diagnosis. Recognize situations where absent sliding is not pneumothorax.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: What sliding can and cannot tell you.
+
+Pneumothorax ultrasound. Pleural ultrasound combines sliding, B-lines, M-mode patterns and lung point rather than relying on a single sign.
+
+Keep these terms available in your mental model: lung sliding, lung point, seashore, barcode.
+
+What expert-level use of this concept looks like is this: Use multiple pleural signs to support or weaken the diagnosis. Recognize situations where absent sliding is not pneumothorax.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: B-lines, lung pulse and M-mode.
+
+Pneumothorax ultrasound. Pleural ultrasound combines sliding, B-lines, M-mode patterns and lung point rather than relying on a single sign.
+
+Keep these terms available in your mental model: lung sliding, lung point, seashore, barcode.
+
+What expert-level use of this concept looks like is this: Use multiple pleural signs to support or weaken the diagnosis. Recognize situations where absent sliding is not pneumothorax.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Why lung point is different.
+
+Pneumothorax ultrasound. Pleural ultrasound combines sliding, B-lines, M-mode patterns and lung point rather than relying on a single sign.
+
+Keep these terms available in your mental model: lung sliding, lung point, seashore, barcode.
+
+What expert-level use of this concept looks like is this: Use multiple pleural signs to support or weaken the diagnosis. Recognize situations where absent sliding is not pneumothorax.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: The ultrasound answers a bedside question.
+
+Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+Keep these terms available in your mental model: DOPES, peak pressure, plateau pressure, auto-peep.
+
+What expert-level use of this concept looks like is this: Separate resistance, compliance, circuit and patient problems using waveforms and bedside examination. Prioritize oxygenation and manual ventilation when the device or circuit cannot be trusted.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you use multiple pleural signs rather than absent sliding alone?
+
+Can you integrate ultrasound findings with ventilator and hemodynamic physiology?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

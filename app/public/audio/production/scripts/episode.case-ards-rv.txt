@@ -1,0 +1,71 @@
+You're listening to Audio Case: A R D S + RV failure. An unfolding multisystem case with no clean single-organ answer.
+
+This is a level 5 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to balance lung recruitment and rv load while explicitly stating uncertainty and tradeoffs.
+
+Now: The handoff.
+
+A R D S physiology. Diffuse inflammatory lung injury producing heterogeneity, shunt, low aerated lung volume and risk from ventilator-induced injury.
+
+Keep these terms available in your mental model: baby lung, shunt, recruitability.
+
+What expert-level use of this concept looks like is this: Integrate oxygenation, mechanics, recruitability and hemodynamics rather than treating a P/F ratio in isolation.
+
+Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+Keep these terms available in your mental model: RV-PA coupling, septal shift, transmural pressure.
+
+What expert-level use of this concept looks like is this: Recognize RV shock physiology before systemic hypotension becomes profound. Predict how peep, hypercapnia, hypoxemia, fluids and vasoactives may change RV performance.
+
+Pause here and answer this before you continue: Before more data arrives, what are your competing priorities?
+
+Do not grade yourself only on whether you found the expected answer. Ask whether your reasoning predicted a physiologic response and what evidence would make you change your mind.
+
+Now: The vent becomes part of the circulation.
+
+peep. Positive end-expiratory pressure used to preserve recruitment and oxygenation, with important mechanical and hemodynamic effects.
+
+Keep these terms available in your mental model: recruitability, intrinsic peep.
+
+What expert-level use of this concept looks like is this: Explain when increasing peep may recruit lung versus overdistend it. Anticipate circulatory effects in preload-dependent or RV-failing patients.
+
+Pulmonary vascular resistance. Resistance faced by the RV, influenced by lung volume, oxygenation, CO2, pH, pulmonary vascular disease and mechanical ventilation.
+
+Keep these terms available in your mental model: RV afterload, West zones.
+
+What expert-level use of this concept looks like is this: Explain the U-shaped relationship between lung volume and pulmonary vascular resistance. Identify reversible contributors to acute RV afterload.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: The RV is telling you something.
+
+Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+Keep these terms available in your mental model: RV-PA coupling, septal shift, transmural pressure.
+
+What expert-level use of this concept looks like is this: Recognize RV shock physiology before systemic hypotension becomes profound. Predict how peep, hypercapnia, hypoxemia, fluids and vasoactives may change RV performance.
+
+Ventricular interdependence. The ventricles share a septum and constrained pericardial space, so pressure or volume loading of one changes filling and geometry of the other.
+
+Keep these terms available in your mental model: septal shift, pericardial constraint.
+
+What expert-level use of this concept looks like is this: Use septal position and loading conditions to explain falling LV output during RV distension.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: There is no free intervention.
+
+Multisystem treatment tradeoffs. A therapy that helps one organ can worsen another; expert care weighs global benefit, reversibility and monitoring.
+
+What expert-level use of this concept looks like is this: Explain at least two competing organ effects of a proposed intervention. Choose the least harmful testable strategy when the optimal answer is uncertain.
+
+Pause here and answer this before you continue: Choose your next move and name the organ you could worsen.
+
+Do not grade yourself only on whether you found the expected answer. Ask whether your reasoning predicted a physiologic response and what evidence would make you change your mind.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you balance lung recruitment and RV load while explicitly stating uncertainty and tradeoffs?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

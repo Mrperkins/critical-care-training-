@@ -1,0 +1,27 @@
+You're listening to ICU Literacy: transmural pressure. The pressure that actually distends a chamber is not always the number on the monitor.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to use transmural pressure to explain why measured filling pressures change with intrathoracic pressure.
+
+Now: Inside pressure minus outside pressure.
+
+Preload. The loading conditions of a ventricle before contraction; not synonymous with a single pressure or volume.
+
+Keep these terms available in your mental model: end-diastolic volume, transmural pressure.
+
+What expert-level use of this concept looks like is this: Distinguish preload from CVP or fluid responsiveness. Predict how changes in intrathoracic pressure alter measured filling pressures.
+
+Positive-pressure ventilation & circulation. Positive intrathoracic pressure changes venous return, ventricular transmural pressures and pulmonary vascular resistance.
+
+Keep these terms available in your mental model: transmural pressure, mean airway pressure.
+
+What expert-level use of this concept looks like is this: Predict why induction and positive pressure can precipitate hypotension. Distinguish effects on RV preload, RV afterload and LV transmural afterload.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you use transmural pressure to explain why measured filling pressures change with intrathoracic pressure?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

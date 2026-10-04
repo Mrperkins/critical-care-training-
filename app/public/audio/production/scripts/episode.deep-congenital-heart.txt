@@ -1,0 +1,63 @@
+You're listening to Critical congenital heart disease without memorizing twenty lesions. Think pulmonary flow, systemic flow, mixing and ductal dependence.
+
+This is a level 5 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to classify critical congenital lesions by circulation topology; and predict how pvr/svr changes alter shunt balance and oxygen delivery.
+
+Now: Four questions for any lesion.
+
+Critical congenital heart disease physiology. Critical congenital lesions are best understood by whether systemic or pulmonary blood flow depends on shunts, mixing or ductal patency.
+
+Keep these terms available in your mental model: ductal-dependent, mixing lesion, Qp:Qs.
+
+What expert-level use of this concept looks like is this: Reason from circulation topology rather than memorizing lesion names. Predict how oxygen, ventilation and vascular resistance can alter shunt balance.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Pulmonary blood-flow limitation.
+
+Critical congenital heart disease physiology. Critical congenital lesions are best understood by whether systemic or pulmonary blood flow depends on shunts, mixing or ductal patency.
+
+Keep these terms available in your mental model: ductal-dependent, mixing lesion, Qp:Qs.
+
+What expert-level use of this concept looks like is this: Reason from circulation topology rather than memorizing lesion names. Predict how oxygen, ventilation and vascular resistance can alter shunt balance.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Systemic blood-flow limitation.
+
+Critical congenital heart disease physiology. Critical congenital lesions are best understood by whether systemic or pulmonary blood flow depends on shunts, mixing or ductal patency.
+
+Keep these terms available in your mental model: ductal-dependent, mixing lesion, Qp:Qs.
+
+What expert-level use of this concept looks like is this: Reason from circulation topology rather than memorizing lesion names. Predict how oxygen, ventilation and vascular resistance can alter shunt balance.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Mixing lesions.
+
+Critical congenital heart disease physiology. Critical congenital lesions are best understood by whether systemic or pulmonary blood flow depends on shunts, mixing or ductal patency.
+
+Keep these terms available in your mental model: ductal-dependent, mixing lesion, Qp:Qs.
+
+What expert-level use of this concept looks like is this: Reason from circulation topology rather than memorizing lesion names. Predict how oxygen, ventilation and vascular resistance can alter shunt balance.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Oxygen and ventilation can change shunt balance.
+
+Pulmonary vascular resistance. Resistance faced by the RV, influenced by lung volume, oxygenation, CO2, pH, pulmonary vascular disease and mechanical ventilation.
+
+Keep these terms available in your mental model: RV afterload, West zones.
+
+What expert-level use of this concept looks like is this: Explain the U-shaped relationship between lung volume and pulmonary vascular resistance. Identify reversible contributors to acute RV afterload.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you classify critical congenital lesions by circulation topology?
+
+Can you predict how P V R/S V R changes alter shunt balance and oxygen delivery?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

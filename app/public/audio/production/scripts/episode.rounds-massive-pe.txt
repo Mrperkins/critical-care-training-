@@ -1,0 +1,65 @@
+You're listening to Massive PE: the lung can be clear while the circulation collapses. Acute RV afterload, dead space and ventricular interaction.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to connect pe to rv pressure load, dead space and lv underfilling; and anticipate why induction and positive pressure can destabilize severe obstructive shock.
+
+Now: Pulmonary vascular obstruction.
+
+Pulmonary embolism physiology. Acute pulmonary vascular obstruction can abruptly raise RV afterload, impair LV filling and cause shock despite structurally normal lungs.
+
+Keep these terms available in your mental model: obstructive shock, RV strain, dead space.
+
+What expert-level use of this concept looks like is this: Connect clot burden to RV pressure load, septal interaction and gas-exchange findings. Recognize why intubation and excessive positive pressure may destabilize severe PE.
+
+Pulmonary vascular resistance. Resistance faced by the RV, influenced by lung volume, oxygenation, CO2, pH, pulmonary vascular disease and mechanical ventilation.
+
+Keep these terms available in your mental model: RV afterload, West zones.
+
+What expert-level use of this concept looks like is this: Explain the U-shaped relationship between lung volume and pulmonary vascular resistance. Identify reversible contributors to acute RV afterload.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Why the RV fails abruptly.
+
+Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+Keep these terms available in your mental model: RV-PA coupling, septal shift, transmural pressure.
+
+What expert-level use of this concept looks like is this: Recognize RV shock physiology before systemic hypotension becomes profound. Predict how peep, hypercapnia, hypoxemia, fluids and vasoactives may change RV performance.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Dead space and the gas-exchange clues.
+
+Dead space. Ventilation that does not effectively participate in CO2 exchange, from conducting airways or ventilated but poorly perfused alveoli.
+
+Keep these terms available in your mental model: VD/VT, alveolar dead space.
+
+What expert-level use of this concept looks like is this: Use PaCO2–EtCO2 behavior and minute ventilation requirements to reason about changing dead space.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Why intubation can be dangerous.
+
+Positive-pressure ventilation & circulation. Positive intrathoracic pressure changes venous return, ventricular transmural pressures and pulmonary vascular resistance.
+
+Keep these terms available in your mental model: transmural pressure, mean airway pressure.
+
+What expert-level use of this concept looks like is this: Predict why induction and positive pressure can precipitate hypotension. Distinguish effects on RV preload, RV afterload and LV transmural afterload.
+
+Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+Keep these terms available in your mental model: RV-PA coupling, septal shift, transmural pressure.
+
+What expert-level use of this concept looks like is this: Recognize RV shock physiology before systemic hypotension becomes profound. Predict how peep, hypercapnia, hypoxemia, fluids and vasoactives may change RV performance.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you connect PE to RV pressure load, dead space and LV underfilling?
+
+Can you anticipate why induction and positive pressure can destabilize severe obstructive shock?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

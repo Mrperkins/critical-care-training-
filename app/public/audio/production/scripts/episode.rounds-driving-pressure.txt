@@ -1,0 +1,59 @@
+You're listening to Driving pressure: why the same tidal volume is not the same breath. Link plateau pressure, peep, compliance and the functional size of the ventilated lung.
+
+This is a level 3 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to calculate and interpret driving pressure; and explain why identical tidal volumes can impose very different mechanical stress.
+
+Now: The bedside calculation.
+
+Driving pressure. Plateau pressure minus total peep; a bedside expression of tidal strain relative to respiratory-system compliance.
+
+Keep these terms available in your mental model: plateau pressure, tidal strain.
+
+What expert-level use of this concept looks like is this: Calculate and interpret driving pressure. Explain why the same tidal volume can have different mechanical consequences in different lungs.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: What the number is expressing.
+
+Driving pressure. Plateau pressure minus total peep; a bedside expression of tidal strain relative to respiratory-system compliance.
+
+Keep these terms available in your mental model: plateau pressure, tidal strain.
+
+What expert-level use of this concept looks like is this: Calculate and interpret driving pressure. Explain why the same tidal volume can have different mechanical consequences in different lungs.
+
+Compliance & elastance. Compliance describes change in volume for change in pressure; elastance is its inverse.
+
+Keep these terms available in your mental model: static compliance, elastance.
+
+What expert-level use of this concept looks like is this: Separate resistance problems from compliance problems using peak and plateau pressures.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: The baby-lung problem.
+
+A R D S physiology. Diffuse inflammatory lung injury producing heterogeneity, shunt, low aerated lung volume and risk from ventilator-induced injury.
+
+Keep these terms available in your mental model: baby lung, shunt, recruitability.
+
+What expert-level use of this concept looks like is this: Integrate oxygenation, mechanics, recruitability and hemodynamics rather than treating a P/F ratio in isolation.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Driving pressure is not the whole injury model.
+
+Mechanical power. Energy delivered to the respiratory system over time from pressure, volume, flow and respiratory rate.
+
+Keep these terms available in your mental model: energy load, ventilator-induced lung injury.
+
+What expert-level use of this concept looks like is this: Explain how respiratory rate and flow can increase ventilator energy even when tidal volume appears acceptable.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you calculate and interpret driving pressure?
+
+Can you explain why identical tidal volumes can impose very different mechanical stress?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

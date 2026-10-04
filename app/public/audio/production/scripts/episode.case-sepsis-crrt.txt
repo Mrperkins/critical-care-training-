@@ -1,0 +1,61 @@
+You're listening to Audio Case: septic shock + AKI + fluid accumulation. Pressors are rising, oxygenation is worsening and the kidneys have stopped keeping up.
+
+This is a level 5 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to integrate source control, hemodynamics, renal support and drug exposure in a changing multisystem patient.
+
+Now: The trajectory matters.
+
+Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+Keep these terms available in your mental model: flow, tone, congestion, perfusion.
+
+What expert-level use of this concept looks like is this: Recognize mixed shock. Choose an intervention that tests a physiologic hypothesis and define the response expected if that hypothesis is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: What has not been controlled?.
+
+Source control. Definitive management of infected material, devitalized tissue or an infected device can be as important as antimicrobial therapy.
+
+Keep these terms available in your mental model: drainage, debridement, device removal.
+
+What expert-level use of this concept looks like is this: Identify when antibiotics alone are unlikely to succeed. Escalate procedural or surgical source control as part of the resuscitation plan.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: AKI changes the treatment landscape.
+
+C R R T physiology & prescription literacy. Continuous renal replacement uses diffusion and/or convection to manage solute, acid-base and fluid balance in unstable patients.
+
+Keep these terms available in your mental model: effluent dose, CVVH, CVVHD, CVVHDF, filtration fraction.
+
+What expert-level use of this concept looks like is this: Explain diffusion versus convection and net ultrafiltration. Recognize how circuit, anticoagulation and prescribed versus delivered dose change therapy.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Removing fluid from a shocked patient.
+
+Multisystem treatment tradeoffs. A therapy that helps one organ can worsen another; expert care weighs global benefit, reversibility and monitoring.
+
+What expert-level use of this concept looks like is this: Explain at least two competing organ effects of a proposed intervention. Choose the least harmful testable strategy when the optimal answer is uncertain.
+
+Pause here and answer this before you continue: What response would tell you the net fluid-removal strategy is too aggressive?
+
+Do not grade yourself only on whether you found the expected answer. Ask whether your reasoning predicted a physiologic response and what evidence would make you change your mind.
+
+Now: Changing clearance changes drug exposure.
+
+Antimicrobial PK/PD in critical illness. Critical illness changes volume of distribution, clearance and target attainment, so dose strategy must match drug and patient physiology.
+
+Keep these terms available in your mental model: time above MIC, AUC/MIC, augmented renal clearance.
+
+What expert-level use of this concept looks like is this: Explain why standard dosing can underdose a shocked or hyperdynamic patient. Integrate renal support and changing clearance into antimicrobial strategy.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you integrate source control, hemodynamics, renal support and drug exposure in a changing multisystem patient?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

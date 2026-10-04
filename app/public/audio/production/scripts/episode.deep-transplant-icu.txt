@@ -1,0 +1,69 @@
+You're listening to The transplant patient in the ICU. Rejection, infection, altered anatomy, drug toxicity and diagnostic humility.
+
+This is a level 5 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to build a transplant-specific differential without premature closure; and integrate immune defect, drug exposure, graft physiology and infection timing.
+
+Now: The host is different.
+
+Immunosuppression & opportunistic infection. Immune deficits and immunosuppressive drugs reshape infection timing, presentation, diagnostic yield and antimicrobial strategy.
+
+Keep these terms available in your mental model: neutropenia, calcineurin inhibitor, opportunistic infection.
+
+What expert-level use of this concept looks like is this: Match likely pathogens to the host immune defect and time course. Recognize major drug-toxicity and interaction risks during critical illness.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Time from transplant changes the differential.
+
+Transplant critical-care physiology. Transplant recipients combine altered anatomy/physiology, immunosuppression, unusual infection risk, rejection and drug-interaction problems.
+
+Keep these terms available in your mental model: rejection, opportunistic infection, allograft.
+
+What expert-level use of this concept looks like is this: Build a broader differential for shock, hypoxemia and organ dysfunction in transplant recipients. Avoid stopping immunosuppression or attributing graft dysfunction to rejection without context.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Graft dysfunction is not automatically rejection.
+
+Transplant critical-care physiology. Transplant recipients combine altered anatomy/physiology, immunosuppression, unusual infection risk, rejection and drug-interaction problems.
+
+Keep these terms available in your mental model: rejection, opportunistic infection, allograft.
+
+What expert-level use of this concept looks like is this: Build a broader differential for shock, hypoxemia and organ dysfunction in transplant recipients. Avoid stopping immunosuppression or attributing graft dysfunction to rejection without context.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Immunosuppressants interact with critical illness.
+
+Immunosuppression & opportunistic infection. Immune deficits and immunosuppressive drugs reshape infection timing, presentation, diagnostic yield and antimicrobial strategy.
+
+Keep these terms available in your mental model: neutropenia, calcineurin inhibitor, opportunistic infection.
+
+What expert-level use of this concept looks like is this: Match likely pathogens to the host immune defect and time course. Recognize major drug-toxicity and interaction risks during critical illness.
+
+Antimicrobial PK/PD in critical illness. Critical illness changes volume of distribution, clearance and target attainment, so dose strategy must match drug and patient physiology.
+
+Keep these terms available in your mental model: time above MIC, AUC/MIC, augmented renal clearance.
+
+What expert-level use of this concept looks like is this: Explain why standard dosing can underdose a shocked or hyperdynamic patient. Integrate renal support and changing clearance into antimicrobial strategy.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Infection can be quiet and atypical.
+
+Source control. Definitive management of infected material, devitalized tissue or an infected device can be as important as antimicrobial therapy.
+
+Keep these terms available in your mental model: drainage, debridement, device removal.
+
+What expert-level use of this concept looks like is this: Identify when antibiotics alone are unlikely to succeed. Escalate procedural or surgical source control as part of the resuscitation plan.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you build a transplant-specific differential without premature closure?
+
+Can you integrate immune defect, drug exposure, graft physiology and infection timing?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

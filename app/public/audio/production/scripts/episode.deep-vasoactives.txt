@@ -1,0 +1,85 @@
+You're listening to Vasopressors and inotropes by physiology. Arterial tone, venous tone, contractility, heart rate and regional flow.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to choose vasoactive strategy from the physiologic deficit; and predict intended and adverse responses before titrating.
+
+Now: Receptors are only the beginning.
+
+Vasopressor & inotrope physiology. Vasoactive drugs change arterial tone, venous tone, heart rate, contractility and regional flow; the desired effect depends on the shock model.
+
+Keep these terms available in your mental model: alpha-1, beta-1, inotropy, chronotropy, venoconstriction.
+
+What expert-level use of this concept looks like is this: Choose a vasoactive strategy from the physiologic deficit rather than blood pressure alone. State the expected benefit, predictable tradeoff and reassessment endpoint.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: The venous circulation matters.
+
+Venous return. Flow back to the right heart determined by the pressure gradient from the systemic circulation and resistance to venous return.
+
+Keep these terms available in your mental model: mean systemic filling pressure, stressed volume, venous return gradient.
+
+What expert-level use of this concept looks like is this: Explain why CVP can rise while venous return falls. Predict effects of vasodilation, venoconstriction and positive pressure on venous return.
+
+Vasopressor & inotrope physiology. Vasoactive drugs change arterial tone, venous tone, heart rate, contractility and regional flow; the desired effect depends on the shock model.
+
+Keep these terms available in your mental model: alpha-1, beta-1, inotropy, chronotropy, venoconstriction.
+
+What expert-level use of this concept looks like is this: Choose a vasoactive strategy from the physiologic deficit rather than blood pressure alone. State the expected benefit, predictable tradeoff and reassessment endpoint.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Vasoplegic shock.
+
+Septic shock physiology. Distributive shock with dynamic changes in vascular tone, venous capacitance, myocardial performance, microcirculation and oxygen extraction.
+
+Keep these terms available in your mental model: vasoplegia, microcirculation, distributive shock.
+
+What expert-level use of this concept looks like is this: Recognize when septic shock is not simply low S V R. Integrate source control, flow, tone, cardiac function and perfusion response over time.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Pump failure and inotropy.
+
+Cardiogenic shock. Pump failure where restoring perfusion must be balanced against congestion, myocardial oxygen demand, coronary perfusion and mechanical complications.
+
+Keep these terms available in your mental model: cardiac power output, congestion, inotropy.
+
+What expert-level use of this concept looks like is this: Phenotype left-, right- and biventricular pump failure. Choose support based on pressure, flow, congestion and the cause of pump failure.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: The failing right ventricle.
+
+Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+Keep these terms available in your mental model: RV-PA coupling, septal shift, transmural pressure.
+
+What expert-level use of this concept looks like is this: Recognize RV shock physiology before systemic hypotension becomes profound. Predict how peep, hypercapnia, hypoxemia, fluids and vasoactives may change RV performance.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Every catecholamine has a cost.
+
+Vasopressor & inotrope physiology. Vasoactive drugs change arterial tone, venous tone, heart rate, contractility and regional flow; the desired effect depends on the shock model.
+
+Keep these terms available in your mental model: alpha-1, beta-1, inotropy, chronotropy, venoconstriction.
+
+What expert-level use of this concept looks like is this: Choose a vasoactive strategy from the physiologic deficit rather than blood pressure alone. State the expected benefit, predictable tradeoff and reassessment endpoint.
+
+Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
+
+Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
+
+What expert-level use of this concept looks like is this: State confidence, identify disconfirming evidence and update the model when the patient fails to respond as predicted.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you choose vasoactive strategy from the physiologic deficit?
+
+Can you predict intended and adverse responses before titrating?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

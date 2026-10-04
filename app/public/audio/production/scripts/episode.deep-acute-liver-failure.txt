@@ -1,0 +1,75 @@
+You're listening to Acute liver failure: the liver, brain and circulation fail together. Synthetic failure, ammonia, cerebral edema, vasodilation and transplant urgency.
+
+This is a level 5 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to integrate neurologic, metabolic, coagulation and circulatory consequences of acute liver failure; and recognize why early transplant-center involvement is part of critical care, not an afterthought.
+
+Now: Acute failure is not chronic cirrhosis.
+
+Acute liver failure. Acute hepatic failure couples coagulopathy, ammonia handling, cerebral edema risk, hypoglycemia, vasodilation and multiorgan dysfunction.
+
+Keep these terms available in your mental model: ammonia, synthetic failure, cerebral edema.
+
+What expert-level use of this concept looks like is this: Recognize the physiology that makes acute liver failure different from stable chronic cirrhosis. Prioritize neuroprotection, glucose control, hemodynamics and early transplant-center escalation.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Ammonia and cerebral edema.
+
+Hepatic encephalopathy. Neurocognitive dysfunction from hepatic failure reflects ammonia and other mechanisms, with severity ranging from subtle change to coma.
+
+Keep these terms available in your mental model: asterixis, ammonia, precipitating factor.
+
+What expert-level use of this concept looks like is this: Look for reversible precipitants instead of attributing all altered mental status to ammonia. Separate chronic encephalopathy from acute cerebral-edema risk.
+
+ICP, CPP & cerebral perfusion. Cerebral perfusion depends on the gradient across the cerebral circulation and is influenced by pressure, venous outflow, CO2 and intracranial compliance.
+
+Keep these terms available in your mental model: CPP, autoregulation, Monro-Kellie.
+
+What expert-level use of this concept looks like is this: Predict how systemic pressure, CO2 and venous pressure affect cerebral perfusion. Recognize when a normal MAP does not guarantee adequate CPP.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Coagulopathy is not synonymous with spontaneous bleeding risk.
+
+Critical-illness coagulopathy. Bleeding and thrombosis reflect platelets, fibrinogen, coagulation factors, fibrinolysis, temperature, calcium, dilution and disease-specific pathways.
+
+Keep these terms available in your mental model: fibrinolysis, fibrinogen, viscoelastic testing.
+
+What expert-level use of this concept looks like is this: Reason from the failing component of clot formation rather than treating INR alone. Anticipate temperature, calcium and dilution effects during hemorrhagic resuscitation.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Vasodilation and multiorgan failure.
+
+Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+Keep these terms available in your mental model: flow, tone, congestion, perfusion.
+
+What expert-level use of this concept looks like is this: Recognize mixed shock. Choose an intervention that tests a physiologic hypothesis and define the response expected if that hypothesis is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Support while moving toward transplant.
+
+C R R T physiology & prescription literacy. Continuous renal replacement uses diffusion and/or convection to manage solute, acid-base and fluid balance in unstable patients.
+
+Keep these terms available in your mental model: effluent dose, CVVH, CVVHD, CVVHDF, filtration fraction.
+
+What expert-level use of this concept looks like is this: Explain diffusion versus convection and net ultrafiltration. Recognize how circuit, anticoagulation and prescribed versus delivered dose change therapy.
+
+Acute liver failure. Acute hepatic failure couples coagulopathy, ammonia handling, cerebral edema risk, hypoglycemia, vasodilation and multiorgan dysfunction.
+
+Keep these terms available in your mental model: ammonia, synthetic failure, cerebral edema.
+
+What expert-level use of this concept looks like is this: Recognize the physiology that makes acute liver failure different from stable chronic cirrhosis. Prioritize neuroprotection, glucose control, hemodynamics and early transplant-center escalation.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you integrate neurologic, metabolic, coagulation and circulatory consequences of acute liver failure?
+
+Can you recognize why early transplant-center involvement is part of critical care, not an afterthought?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

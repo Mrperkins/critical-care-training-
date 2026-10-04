@@ -1,0 +1,53 @@
+You're listening to DKA potassium: the serum number lies about the body store. Insulin deficiency, acidosis, osmotic diuresis and treatment shift potassium in different directions.
+
+This is a level 3 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to explain why serum potassium can be high despite total-body depletion; and predict how insulin and correction of acidosis can unmask dangerous hypokalemia.
+
+Now: Total-body depletion with a normal or high serum K.
+
+Diabetic ketoacidosis physiology. Insulin deficiency produces ketogenesis, osmotic diuresis, electrolyte shifts and a high-anion-gap acidosis whose treatment changes potassium and water distribution.
+
+Keep these terms available in your mental model: ketogenesis, anion gap, corrected sodium.
+
+What expert-level use of this concept looks like is this: Track potassium and volume physiology across treatment rather than treating glucose alone. Recognize mixed acid-base disorders and treatment-related complications.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: What insulin does next.
+
+Diabetic ketoacidosis physiology. Insulin deficiency produces ketogenesis, osmotic diuresis, electrolyte shifts and a high-anion-gap acidosis whose treatment changes potassium and water distribution.
+
+Keep these terms available in your mental model: ketogenesis, anion gap, corrected sodium.
+
+What expert-level use of this concept looks like is this: Track potassium and volume physiology across treatment rather than treating glucose alone. Recognize mixed acid-base disorders and treatment-related complications.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Acid-base and potassium are related but not one-to-one.
+
+Advanced acid-base reasoning. Integrate respiratory and metabolic processes, compensation, anion gap, albumin, chloride and mixed disorders.
+
+Keep these terms available in your mental model: delta gap, expected compensation.
+
+What expert-level use of this concept looks like is this: Identify mixed disorders that a single pH label hides. Connect acid-base abnormalities to the underlying physiology and treatment.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Trend the physiology through treatment.
+
+Diabetic ketoacidosis physiology. Insulin deficiency produces ketogenesis, osmotic diuresis, electrolyte shifts and a high-anion-gap acidosis whose treatment changes potassium and water distribution.
+
+Keep these terms available in your mental model: ketogenesis, anion gap, corrected sodium.
+
+What expert-level use of this concept looks like is this: Track potassium and volume physiology across treatment rather than treating glucose alone. Recognize mixed acid-base disorders and treatment-related complications.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you explain why serum potassium can be high despite total-body depletion?
+
+Can you predict how insulin and correction of acidosis can unmask dangerous hypokalemia?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

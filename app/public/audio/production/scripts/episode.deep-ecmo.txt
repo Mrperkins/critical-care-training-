@@ -1,0 +1,73 @@
+You're listening to E C M O: follow the blood. Understand extracorporeal support by tracing drainage, pump, membrane lung, return and native circulation.
+
+This is a level 5 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to distinguish vv and va support physiology and reason through common circuit/patient mismatch patterns.
+
+Now: The circuit is an extra circulation.
+
+E C M O circuit & physiology literacy. Extracorporeal support changes preload, afterload, gas exchange and oxygen delivery through a circuit whose configuration determines what it can support.
+
+Keep these terms available in your mental model: VV E C M O, VA E C M O, sweep gas, recirculation, differential hypoxemia.
+
+What expert-level use of this concept looks like is this: Distinguish VV from VA support goals and limitations. Reason from circuit flow, native heart/lung function and cannula position to common failure patterns.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: VV: gas exchange, not a new heart.
+
+E C M O circuit & physiology literacy. Extracorporeal support changes preload, afterload, gas exchange and oxygen delivery through a circuit whose configuration determines what it can support.
+
+Keep these terms available in your mental model: VV E C M O, VA E C M O, sweep gas, recirculation, differential hypoxemia.
+
+What expert-level use of this concept looks like is this: Distinguish VV from VA support goals and limitations. Reason from circuit flow, native heart/lung function and cannula position to common failure patterns.
+
+A R D S physiology. Diffuse inflammatory lung injury producing heterogeneity, shunt, low aerated lung volume and risk from ventilator-induced injury.
+
+Keep these terms available in your mental model: baby lung, shunt, recruitability.
+
+What expert-level use of this concept looks like is this: Integrate oxygenation, mechanics, recruitability and hemodynamics rather than treating a P/F ratio in isolation.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: VA: flow changes loading conditions.
+
+E C M O circuit & physiology literacy. Extracorporeal support changes preload, afterload, gas exchange and oxygen delivery through a circuit whose configuration determines what it can support.
+
+Keep these terms available in your mental model: VV E C M O, VA E C M O, sweep gas, recirculation, differential hypoxemia.
+
+What expert-level use of this concept looks like is this: Distinguish VV from VA support goals and limitations. Reason from circuit flow, native heart/lung function and cannula position to common failure patterns.
+
+Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+Keep these terms available in your mental model: RV-PA coupling, septal shift, transmural pressure.
+
+What expert-level use of this concept looks like is this: Recognize RV shock physiology before systemic hypotension becomes profound. Predict how peep, hypercapnia, hypoxemia, fluids and vasoactives may change RV performance.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Recirculation, access problems and differential hypoxemia.
+
+E C M O circuit & physiology literacy. Extracorporeal support changes preload, afterload, gas exchange and oxygen delivery through a circuit whose configuration determines what it can support.
+
+Keep these terms available in your mental model: VV E C M O, VA E C M O, sweep gas, recirculation, differential hypoxemia.
+
+What expert-level use of this concept looks like is this: Distinguish VV from VA support goals and limitations. Reason from circuit flow, native heart/lung function and cannula position to common failure patterns.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Come back to oxygen delivery.
+
+Oxygen delivery. DO2 is cardiac output multiplied by arterial oxygen content; saturation alone does not describe tissue oxygen delivery.
+
+Keep these terms available in your mental model: CaO2, DO2, VO2.
+
+What expert-level use of this concept looks like is this: Predict effects of hemoglobin, saturation and flow on oxygen delivery. Explain why a normal SpO2 can coexist with inadequate DO2.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you distinguish VV and VA support physiology and reason through common circuit/patient mismatch patterns?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

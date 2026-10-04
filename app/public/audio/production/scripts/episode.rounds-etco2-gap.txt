@@ -1,0 +1,59 @@
+You're listening to The P A C O 2–end tidal C O 2 gap is a perfusion clue. Why shock, PE and increasing dead space make capnography diverge from arterial CO₂.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to explain the physiologic basis of the paco₂–etco₂ gap; and recognize when a changing gap reflects changing perfusion or dead space rather than simply ventilation.
+
+Now: Why arterial and exhaled CO₂ differ at baseline.
+
+P A C O 2–end tidal C O 2 gap. The arterial-to-end-tidal CO₂ difference reflects how effectively perfused alveoli contribute to exhaled gas and often widens with increasing dead space.
+
+Keep these terms available in your mental model: capnography, alveolar dead space.
+
+What expert-level use of this concept looks like is this: Interpret a changing P A C O 2–end tidal C O 2 gap in the context of ventilation and perfusion. Avoid treating end-tidal CO₂ as a fixed surrogate for arterial CO₂ in unstable physiology.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: What alveolar dead space does to the gap.
+
+Dead space. Ventilation that does not effectively participate in CO2 exchange, from conducting airways or ventilated but poorly perfused alveoli.
+
+Keep these terms available in your mental model: VD/VT, alveolar dead space.
+
+What expert-level use of this concept looks like is this: Use PaCO2–EtCO2 behavior and minute ventilation requirements to reason about changing dead space.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Low pulmonary blood flow changes exhaled CO₂.
+
+Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+Keep these terms available in your mental model: flow, tone, congestion, perfusion.
+
+What expert-level use of this concept looks like is this: Recognize mixed shock. Choose an intervention that tests a physiologic hypothesis and define the response expected if that hypothesis is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Use trends, not fixed conversion rules.
+
+P A C O 2–end tidal C O 2 gap. The arterial-to-end-tidal CO₂ difference reflects how effectively perfused alveoli contribute to exhaled gas and often widens with increasing dead space.
+
+Keep these terms available in your mental model: capnography, alveolar dead space.
+
+What expert-level use of this concept looks like is this: Interpret a changing P A C O 2–end tidal C O 2 gap in the context of ventilation and perfusion. Avoid treating end-tidal CO₂ as a fixed surrogate for arterial CO₂ in unstable physiology.
+
+Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
+
+Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
+
+What expert-level use of this concept looks like is this: State confidence, identify disconfirming evidence and update the model when the patient fails to respond as predicted.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you explain the physiologic basis of the P A C O 2–end tidal C O 2 gap?
+
+Can you recognize when a changing gap reflects changing perfusion or dead space rather than simply ventilation?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

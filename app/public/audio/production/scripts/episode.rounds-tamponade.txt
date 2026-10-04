@@ -1,0 +1,53 @@
+You're listening to Tamponade is a pressure problem, not a Beck-triad trivia question. Pericardial constraint, ventricular interaction and precarious venous return.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to explain tamponade from chamber and pericardial pressures; and predict why positive pressure and loss of sympathetic tone can precipitate collapse.
+
+Now: The pericardium becomes the problem.
+
+Cardiac tamponade physiology. Pericardial pressure constrains chamber filling, couples the ventricles and makes venous return highly sensitive to pressure gradients.
+
+Keep these terms available in your mental model: pericardial pressure, respiratory variation, diastolic collapse.
+
+What expert-level use of this concept looks like is this: Explain tamponade as a filling-pressure problem rather than a checklist of classic signs. Predict effects of positive pressure and volume changes on a preload-limited circulation.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: The ventricles compete for space.
+
+Ventricular interdependence. The ventricles share a septum and constrained pericardial space, so pressure or volume loading of one changes filling and geometry of the other.
+
+Keep these terms available in your mental model: septal shift, pericardial constraint.
+
+What expert-level use of this concept looks like is this: Use septal position and loading conditions to explain falling LV output during RV distension.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Venous return becomes fragile.
+
+Preload. The loading conditions of a ventricle before contraction; not synonymous with a single pressure or volume.
+
+Keep these terms available in your mental model: end-diastolic volume, transmural pressure.
+
+What expert-level use of this concept looks like is this: Distinguish preload from CVP or fluid responsiveness. Predict how changes in intrathoracic pressure alter measured filling pressures.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Positive pressure changes the gradient.
+
+Positive-pressure ventilation & circulation. Positive intrathoracic pressure changes venous return, ventricular transmural pressures and pulmonary vascular resistance.
+
+Keep these terms available in your mental model: transmural pressure, mean airway pressure.
+
+What expert-level use of this concept looks like is this: Predict why induction and positive pressure can precipitate hypotension. Distinguish effects on RV preload, RV afterload and LV transmural afterload.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you explain tamponade from chamber and pericardial pressures?
+
+Can you predict why positive pressure and loss of sympathetic tone can precipitate collapse?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

@@ -1,0 +1,49 @@
+You're listening to Adrenal crisis hiding inside refractory shock. Cortisol, vascular responsiveness and electrolyte clues.
+
+This is a level 3 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to recognize adrenal crisis as a cause of otherwise unexplained shock; and connect cortisol deficiency to vascular tone, glucose and electrolyte findings.
+
+Now: The physiology behind the clues.
+
+Adrenal crisis. Cortisol deficiency can cause refractory hypotension, hyponatremia, hyperkalemia, hypoglycemia and shock under stress.
+
+Keep these terms available in your mental model: cortisol, mineralocorticoid, stress dose.
+
+What expert-level use of this concept looks like is this: Recognize adrenal crisis in otherwise unexplained refractory shock. Understand why steroid replacement can rapidly change vascular responsiveness.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Why the circulation stops responding normally.
+
+Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+Keep these terms available in your mental model: flow, tone, congestion, perfusion.
+
+What expert-level use of this concept looks like is this: Recognize mixed shock. Choose an intervention that tests a physiologic hypothesis and define the response expected if that hypothesis is correct.
+
+Vasopressor & inotrope physiology. Vasoactive drugs change arterial tone, venous tone, heart rate, contractility and regional flow; the desired effect depends on the shock model.
+
+Keep these terms available in your mental model: alpha-1, beta-1, inotropy, chronotropy, venoconstriction.
+
+What expert-level use of this concept looks like is this: Choose a vasoactive strategy from the physiologic deficit rather than blood pressure alone. State the expected benefit, predictable tradeoff and reassessment endpoint.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Steroid exposure, pituitary disease and stress.
+
+Adrenal crisis. Cortisol deficiency can cause refractory hypotension, hyponatremia, hyperkalemia, hypoglycemia and shock under stress.
+
+Keep these terms available in your mental model: cortisol, mineralocorticoid, stress dose.
+
+What expert-level use of this concept looks like is this: Recognize adrenal crisis in otherwise unexplained refractory shock. Understand why steroid replacement can rapidly change vascular responsiveness.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you recognize adrenal crisis as a cause of otherwise unexplained shock?
+
+Can you connect cortisol deficiency to vascular tone, glucose and electrolyte findings?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

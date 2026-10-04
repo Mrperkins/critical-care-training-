@@ -1,0 +1,57 @@
+You're listening to Lactate is not a tissue-hypoxia meter. Production, clearance, adrenergic drive and the mistakes that happen when one number becomes the diagnosis.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to generate multiple mechanisms for hyperlactatemia and interpret the trend alongside perfusion rather than alone.
+
+Now: The useful myth and where it breaks.
+
+Lactate physiology. Lactate reflects production and clearance across multiple pathways and is not a direct tissue-hypoxia meter.
+
+Keep these terms available in your mental model: adrenergic glycolysis, clearance.
+
+What expert-level use of this concept looks like is this: Generate hypoxic and non-hypoxic explanations for elevated lactate. Interpret trajectory alongside perfusion rather than in isolation.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Production without global dysoxia.
+
+Lactate physiology. Lactate reflects production and clearance across multiple pathways and is not a direct tissue-hypoxia meter.
+
+Keep these terms available in your mental model: adrenergic glycolysis, clearance.
+
+What expert-level use of this concept looks like is this: Generate hypoxic and non-hypoxic explanations for elevated lactate. Interpret trajectory alongside perfusion rather than in isolation.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Clearance matters.
+
+Lactate physiology. Lactate reflects production and clearance across multiple pathways and is not a direct tissue-hypoxia meter.
+
+Keep these terms available in your mental model: adrenergic glycolysis, clearance.
+
+What expert-level use of this concept looks like is this: Generate hypoxic and non-hypoxic explanations for elevated lactate. Interpret trajectory alongside perfusion rather than in isolation.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Use the trajectory with the patient.
+
+Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+Keep these terms available in your mental model: flow, tone, congestion, perfusion.
+
+What expert-level use of this concept looks like is this: Recognize mixed shock. Choose an intervention that tests a physiologic hypothesis and define the response expected if that hypothesis is correct.
+
+Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
+
+Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
+
+What expert-level use of this concept looks like is this: State confidence, identify disconfirming evidence and update the model when the patient fails to respond as predicted.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you generate multiple mechanisms for hyperlactatemia and interpret the trend alongside perfusion rather than alone?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

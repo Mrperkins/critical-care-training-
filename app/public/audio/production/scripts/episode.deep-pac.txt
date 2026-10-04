@@ -1,0 +1,67 @@
+You're listening to Pulmonary artery catheters: numbers only matter if the waveforms are real. Chamber waveforms, cardiac output, oxygen extraction and model testing.
+
+This is a level 5 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to recognize the major pressure waveforms and integrate pressures, flow and oxygen extraction into one hemodynamic model.
+
+Now: RA → RV → PA → wedge.
+
+Pulmonary artery catheter interpretation. A PA catheter is useful only when waveforms, zero/level, thermodilution assumptions and the clinical model are integrated correctly.
+
+Keep these terms available in your mental model: RAP, PAP, PAOP, thermodilution, P V R, S V R.
+
+What expert-level use of this concept looks like is this: Recognize chamber waveforms during insertion and interpret pressures in physiologic context. Use serial values to test a hemodynamic model rather than treating targets in isolation.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Bad measurement creates bad physiology.
+
+Pulmonary artery catheter interpretation. A PA catheter is useful only when waveforms, zero/level, thermodilution assumptions and the clinical model are integrated correctly.
+
+Keep these terms available in your mental model: RAP, PAP, PAOP, thermodilution, P V R, S V R.
+
+What expert-level use of this concept looks like is this: Recognize chamber waveforms during insertion and interpret pressures in physiologic context. Use serial values to test a hemodynamic model rather than treating targets in isolation.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Thermodilution and flow.
+
+Pulmonary artery catheter interpretation. A PA catheter is useful only when waveforms, zero/level, thermodilution assumptions and the clinical model are integrated correctly.
+
+Keep these terms available in your mental model: RAP, PAP, PAOP, thermodilution, P V R, S V R.
+
+What expert-level use of this concept looks like is this: Recognize chamber waveforms during insertion and interpret pressures in physiologic context. Use serial values to test a hemodynamic model rather than treating targets in isolation.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: S V O 2 belongs in the same model.
+
+Oxygen extraction. The relationship between delivered and consumed oxygen reflected by venous saturation and tissue extraction.
+
+Keep these terms available in your mental model: O2ER, SvO2, critical DO2.
+
+What expert-level use of this concept looks like is this: Interpret low or high venous saturation in context rather than labeling it simply good or bad.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Use serial data to falsify a model.
+
+Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+Keep these terms available in your mental model: flow, tone, congestion, perfusion.
+
+What expert-level use of this concept looks like is this: Recognize mixed shock. Choose an intervention that tests a physiologic hypothesis and define the response expected if that hypothesis is correct.
+
+Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
+
+Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
+
+What expert-level use of this concept looks like is this: State confidence, identify disconfirming evidence and update the model when the patient fails to respond as predicted.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you recognize the major pressure waveforms and integrate pressures, flow and oxygen extraction into one hemodynamic model?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

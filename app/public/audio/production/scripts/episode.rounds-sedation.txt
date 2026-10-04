@@ -1,0 +1,51 @@
+You're listening to The agitated ventilated patient: do not reflexively deepen sedation. Pain, dyssynchrony, delirium, hypoxemia and physiology can all look like agitation.
+
+This is a level 3 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to build a differential for agitation before escalating sedation and recognize when the underlying problem is pain, ventilator interaction or delirium.
+
+Now: Agitation is a sign, not a diagnosis.
+
+ICU analgesia, sedation & synchrony. Sedation strategy balances analgesia, comfort, ventilator synchrony, neurologic assessment, hemodynamics and delirium risk.
+
+Keep these terms available in your mental model: analgosedation, RASS, daily awakening.
+
+What expert-level use of this concept looks like is this: Separate pain, anxiety, delirium and dyssynchrony before simply deepening sedation. Predict major hemodynamic and respiratory tradeoffs of sedative strategies.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Analgesia before amnesia.
+
+ICU analgesia, sedation & synchrony. Sedation strategy balances analgesia, comfort, ventilator synchrony, neurologic assessment, hemodynamics and delirium risk.
+
+Keep these terms available in your mental model: analgosedation, RASS, daily awakening.
+
+What expert-level use of this concept looks like is this: Separate pain, anxiety, delirium and dyssynchrony before simply deepening sedation. Predict major hemodynamic and respiratory tradeoffs of sedative strategies.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: When the ventilator is causing the fight.
+
+Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+Keep these terms available in your mental model: DOPES, peak pressure, plateau pressure, auto-peep.
+
+What expert-level use of this concept looks like is this: Separate resistance, compliance, circuit and patient problems using waveforms and bedside examination. Prioritize oxygenation and manual ventilation when the device or circuit cannot be trusted.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Delirium and the ICU environment.
+
+Delirium, sleep & mobility. Brain dysfunction in critical illness is shaped by disease, drugs, sleep disruption, immobility and environment.
+
+Keep these terms available in your mental model: CAM-ICU, ABCDE/ABCDEF bundle.
+
+What expert-level use of this concept looks like is this: Recognize modifiable drivers of delirium. Integrate sedation reduction, sleep, mobility and family engagement into daily ICU care.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you build a differential for agitation before escalating sedation and recognize when the underlying problem is pain, ventilator interaction or delirium?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

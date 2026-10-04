@@ -1,0 +1,53 @@
+You're listening to Thyroid emergencies at both extremes. Thyroid storm and myxedema coma are multisystem failures, not abnormal lab values.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to recognize severe thyrotoxicosis and severe hypothyroidism as organ-failure syndromes; and anticipate the cardiovascular and respiratory traps of treatment.
+
+Now: Thyroid storm physiology.
+
+Thyroid storm. Extreme thyrotoxicosis drives hypermetabolism, adrenergic symptoms, arrhythmia, heart failure, fever and CNS dysfunction.
+
+Keep these terms available in your mental model: thyrotoxicosis, hyperadrenergic, high-output failure.
+
+What expert-level use of this concept looks like is this: Recognize multisystem decompensation rather than relying on a single thyroid value. Sequence therapies around adrenergic control, hormone synthesis/release and precipitant treatment.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: High-output physiology can become pump failure.
+
+Cardiogenic shock. Pump failure where restoring perfusion must be balanced against congestion, myocardial oxygen demand, coronary perfusion and mechanical complications.
+
+Keep these terms available in your mental model: cardiac power output, congestion, inotropy.
+
+What expert-level use of this concept looks like is this: Phenotype left-, right- and biventricular pump failure. Choose support based on pressure, flow, congestion and the cause of pump failure.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Myxedema coma physiology.
+
+Myxedema coma. Severe hypothyroidism can produce hypothermia, bradycardia, hypoventilation, hyponatremia, hypotension and altered consciousness.
+
+Keep these terms available in your mental model: hypothyroidism, hypoventilation, adrenal coverage.
+
+What expert-level use of this concept looks like is this: Recognize the syndrome despite nonspecific presentation. Anticipate airway, temperature, sodium and adrenal considerations during treatment.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Airway, temperature, sodium and adrenal considerations.
+
+Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+Keep these terms available in your mental model: DOPES, peak pressure, plateau pressure, auto-peep.
+
+What expert-level use of this concept looks like is this: Separate resistance, compliance, circuit and patient problems using waveforms and bedside examination. Prioritize oxygenation and manual ventilation when the device or circuit cannot be trusted.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you recognize severe thyrotoxicosis and severe hypothyroidism as organ-failure syndromes?
+
+Can you anticipate the cardiovascular and respiratory traps of treatment?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

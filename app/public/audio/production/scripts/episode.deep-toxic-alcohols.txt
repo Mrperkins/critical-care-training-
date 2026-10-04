@@ -1,0 +1,69 @@
+You're listening to Toxic alcohols: follow the metabolites. Osmolar gap, anion gap, end-organ clues and extracorporeal removal.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to reason from time course, osmolar/anion gaps and organ findings; and explain why antidotal blockade and dialysis address different parts of the toxicokinetic problem.
+
+Now: Parent compound versus toxic metabolite.
+
+Toxic alcohols. Methanol and ethylene glycol toxicity evolve through parent-compound intoxication, toxic metabolites, anion-gap acidosis and end-organ injury.
+
+Keep these terms available in your mental model: osmolar gap, anion gap, formate, oxalate.
+
+What expert-level use of this concept looks like is this: Use timing, gaps and organ findings together rather than waiting for a confirmatory level. Understand the roles of alcohol dehydrogenase blockade and extracorporeal removal.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: The gaps change with time.
+
+Advanced acid-base reasoning. Integrate respiratory and metabolic processes, compensation, anion gap, albumin, chloride and mixed disorders.
+
+Keep these terms available in your mental model: delta gap, expected compensation.
+
+What expert-level use of this concept looks like is this: Identify mixed disorders that a single pH label hides. Connect acid-base abnormalities to the underlying physiology and treatment.
+
+Toxic alcohols. Methanol and ethylene glycol toxicity evolve through parent-compound intoxication, toxic metabolites, anion-gap acidosis and end-organ injury.
+
+Keep these terms available in your mental model: osmolar gap, anion gap, formate, oxalate.
+
+What expert-level use of this concept looks like is this: Use timing, gaps and organ findings together rather than waiting for a confirmatory level. Understand the roles of alcohol dehydrogenase blockade and extracorporeal removal.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Visual and renal clues.
+
+Toxic alcohols. Methanol and ethylene glycol toxicity evolve through parent-compound intoxication, toxic metabolites, anion-gap acidosis and end-organ injury.
+
+Keep these terms available in your mental model: osmolar gap, anion gap, formate, oxalate.
+
+What expert-level use of this concept looks like is this: Use timing, gaps and organ findings together rather than waiting for a confirmatory level. Understand the roles of alcohol dehydrogenase blockade and extracorporeal removal.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Block metabolism.
+
+Toxic alcohols. Methanol and ethylene glycol toxicity evolve through parent-compound intoxication, toxic metabolites, anion-gap acidosis and end-organ injury.
+
+Keep these terms available in your mental model: osmolar gap, anion gap, formate, oxalate.
+
+What expert-level use of this concept looks like is this: Use timing, gaps and organ findings together rather than waiting for a confirmatory level. Understand the roles of alcohol dehydrogenase blockade and extracorporeal removal.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: When extracorporeal removal matters.
+
+C R R T physiology & prescription literacy. Continuous renal replacement uses diffusion and/or convection to manage solute, acid-base and fluid balance in unstable patients.
+
+Keep these terms available in your mental model: effluent dose, CVVH, CVVHD, CVVHDF, filtration fraction.
+
+What expert-level use of this concept looks like is this: Explain diffusion versus convection and net ultrafiltration. Recognize how circuit, anticoagulation and prescribed versus delivered dose change therapy.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you reason from time course, osmolar/anion gaps and organ findings?
+
+Can you explain why antidotal blockade and dialysis address different parts of the toxicokinetic problem?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

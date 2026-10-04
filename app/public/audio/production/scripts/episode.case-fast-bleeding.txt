@@ -1,0 +1,55 @@
+You're listening to Audio Case: the first FAST was negative. Trauma evolves; ultrasound sensitivity depends on time, volume and where the blood is.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to treat a negative fast as time-stamped evidence rather than a permanent exclusion; and integrate repeat examination with evolving hemorrhagic physiology.
+
+Now: The negative scan.
+
+eFAST. Structured point-of-care ultrasound for pericardial, intraperitoneal and pleural pathology in trauma.
+
+Keep these terms available in your mental model: Morison pouch, splenorenal, lung sliding.
+
+What expert-level use of this concept looks like is this: Acquire and orient the core windows. Recognize free fluid and common false positives/negatives while integrating the clinical context.
+
+Pause here and answer this before you continue: What exactly has the exam ruled out—and what has it not ruled out?
+
+Do not grade yourself only on whether you found the expected answer. Ask whether your reasoning predicted a physiologic response and what evidence would make you change your mind.
+
+Now: The physiology deteriorates.
+
+Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
+
+Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
+
+What expert-level use of this concept looks like is this: State confidence, identify disconfirming evidence and update the model when the patient fails to respond as predicted.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: A repeat window changes the story.
+
+Hemoperitoneum on ultrasound. Free intraperitoneal fluid is sought in dependent spaces, but sensitivity depends on volume, timing, clot and the location of bleeding.
+
+Keep these terms available in your mental model: Morison pouch, splenorenal recess, pelvic free fluid.
+
+What expert-level use of this concept looks like is this: Recognize free fluid across core FAST windows. Explain why a negative examination is time-stamped and does not exclude retroperitoneal hemorrhage.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Imaging and hemorrhage control move together.
+
+Massive transfusion & hemorrhagic resuscitation. Hemorrhagic resuscitation integrates source control, balanced component replacement, calcium, temperature, coagulation and perfusion.
+
+Keep these terms available in your mental model: M T P, fibrinogen, ionized calcium, lethal triad.
+
+What expert-level use of this concept looks like is this: Run the resuscitation as a system rather than as isolated blood-unit administration. Recognize dilutional/coagulopathic, hypocalcemic and hypothermic deterioration early.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you treat a negative FAST as time-stamped evidence rather than a permanent exclusion?
+
+Can you integrate repeat examination with evolving hemorrhagic physiology?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

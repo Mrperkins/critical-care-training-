@@ -1,0 +1,73 @@
+You're listening to Mechanical circulatory support: match the device to the failing circulation. I A B P, axial flow and VA E C M O change loading conditions in different ways.
+
+This is a level 5 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to match temporary support to lv, rv, biventricular or cardiopulmonary failure; and anticipate how each device changes loading conditions and downstream complications.
+
+Now: What are you trying to support?.
+
+Mechanical circulatory support. Temporary circulatory support devices unload or bypass different parts of the circulation and must be matched to the failing ventricle and oxygenation problem.
+
+Keep these terms available in your mental model: LV unloading, VA E C M O, axial flow.
+
+What expert-level use of this concept looks like is this: Match support strategy to LV, RV, biventricular or cardiopulmonary failure. Anticipate loading, limb, hemolysis and device-interaction complications.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Counterpulsation.
+
+Intra-aortic balloon pump physiology. I A B P timing uses diastolic augmentation and presystolic deflation to alter coronary perfusion and LV afterload.
+
+Keep these terms available in your mental model: diastolic augmentation, deflation, trigger.
+
+What expert-level use of this concept looks like is this: Identify correct inflation/deflation timing from the arterial waveform. Predict the hemodynamic consequence of early or late timing errors.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Axial-flow unloading.
+
+Mechanical circulatory support. Temporary circulatory support devices unload or bypass different parts of the circulation and must be matched to the failing ventricle and oxygenation problem.
+
+Keep these terms available in your mental model: LV unloading, VA E C M O, axial flow.
+
+What expert-level use of this concept looks like is this: Match support strategy to LV, RV, biventricular or cardiopulmonary failure. Anticipate loading, limb, hemolysis and device-interaction complications.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: VA E C M O flow and LV loading.
+
+E C M O circuit & physiology literacy. Extracorporeal support changes preload, afterload, gas exchange and oxygen delivery through a circuit whose configuration determines what it can support.
+
+Keep these terms available in your mental model: VV E C M O, VA E C M O, sweep gas, recirculation, differential hypoxemia.
+
+What expert-level use of this concept looks like is this: Distinguish VV from VA support goals and limitations. Reason from circuit flow, native heart/lung function and cannula position to common failure patterns.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Right-sided failure changes the answer.
+
+Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+Keep these terms available in your mental model: RV-PA coupling, septal shift, transmural pressure.
+
+What expert-level use of this concept looks like is this: Recognize RV shock physiology before systemic hypotension becomes profound. Predict how peep, hypercapnia, hypoxemia, fluids and vasoactives may change RV performance.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Device complications are physiology too.
+
+Mechanical circulatory support. Temporary circulatory support devices unload or bypass different parts of the circulation and must be matched to the failing ventricle and oxygenation problem.
+
+Keep these terms available in your mental model: LV unloading, VA E C M O, axial flow.
+
+What expert-level use of this concept looks like is this: Match support strategy to LV, RV, biventricular or cardiopulmonary failure. Anticipate loading, limb, hemolysis and device-interaction complications.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you match temporary support to LV, RV, biventricular or cardiopulmonary failure?
+
+Can you anticipate how each device changes loading conditions and downstream complications?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

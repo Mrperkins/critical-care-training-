@@ -1,0 +1,65 @@
+You're listening to Severe pancreatitis is a multisystem ICU disease. Capillary leak, respiratory failure, renal injury, nutrition and infection over time.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to anticipate the changing organ-support needs of severe pancreatitis; and separate early inflammatory deterioration from later infectious complications.
+
+Now: The early inflammatory phase.
+
+Severe acute pancreatitis. Pancreatitis can produce capillary leak, third spacing, respiratory failure, shock, renal injury and later infectious complications.
+
+Keep these terms available in your mental model: necrosis, third spacing, organ failure.
+
+What expert-level use of this concept looks like is this: Treat pancreatitis as a multisystem inflammatory illness rather than an isolated abdominal diagnosis. Balance fluids, respiratory support, nutrition and infection decisions over time.
+
+Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+Keep these terms available in your mental model: flow, tone, congestion, perfusion.
+
+What expert-level use of this concept looks like is this: Recognize mixed shock. Choose an intervention that tests a physiologic hypothesis and define the response expected if that hypothesis is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Why the lungs often join the problem.
+
+A R D S physiology. Diffuse inflammatory lung injury producing heterogeneity, shunt, low aerated lung volume and risk from ventilator-induced injury.
+
+Keep these terms available in your mental model: baby lung, shunt, recruitability.
+
+What expert-level use of this concept looks like is this: Integrate oxygenation, mechanics, recruitability and hemodynamics rather than treating a P/F ratio in isolation.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: AKI and fluid accumulation.
+
+C R R T physiology & prescription literacy. Continuous renal replacement uses diffusion and/or convection to manage solute, acid-base and fluid balance in unstable patients.
+
+Keep these terms available in your mental model: effluent dose, CVVH, CVVHD, CVVHDF, filtration fraction.
+
+What expert-level use of this concept looks like is this: Explain diffusion versus convection and net ultrafiltration. Recognize how circuit, anticoagulation and prescribed versus delivered dose change therapy.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Necrosis, infection and nutrition.
+
+ICU nutrition & refeeding risk. Nutrition in critical illness is a metabolic therapy with timing, route, protein, glycemic and electrolyte consequences.
+
+Keep these terms available in your mental model: enteral nutrition, protein target, caloric debt.
+
+What expert-level use of this concept looks like is this: Explain why early enteral nutrition is often preferred when feasible. Recognize when feeding strategy, aspiration risk or hemodynamic instability changes the plan.
+
+Source control. Definitive management of infected material, devitalized tissue or an infected device can be as important as antimicrobial therapy.
+
+Keep these terms available in your mental model: drainage, debridement, device removal.
+
+What expert-level use of this concept looks like is this: Identify when antibiotics alone are unlikely to succeed. Escalate procedural or surgical source control as part of the resuscitation plan.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you anticipate the changing organ-support needs of severe pancreatitis?
+
+Can you separate early inflammatory deterioration from later infectious complications?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

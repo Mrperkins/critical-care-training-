@@ -1,0 +1,59 @@
+You're listening to HHS: hyperosmolality is the neurologic problem. Profound water deficit, sodium behavior and why correction pace matters.
+
+This is a level 3 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to explain the dominant osmotic physiology of hhs; and track sodium and osmolality rather than glucose alone during therapy.
+
+Now: Why HHS is not DKA without ketones.
+
+Hyperosmolar hyperglycemic state. HHS combines profound free-water deficit and hyperosmolality with less ketogenesis than DKA, creating distinct neurologic and correction-rate concerns.
+
+Keep these terms available in your mental model: effective osmolality, free-water deficit, corrected sodium.
+
+What expert-level use of this concept looks like is this: Distinguish HHS physiology from DKA rather than treating both as hyperglycemia. Track sodium and osmolality during therapy to avoid overly rapid shifts.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: The scale of the free-water deficit.
+
+Hyperosmolar hyperglycemic state. HHS combines profound free-water deficit and hyperosmolality with less ketogenesis than DKA, creating distinct neurologic and correction-rate concerns.
+
+Keep these terms available in your mental model: effective osmolality, free-water deficit, corrected sodium.
+
+What expert-level use of this concept looks like is this: Distinguish HHS physiology from DKA rather than treating both as hyperglycemia. Track sodium and osmolality during therapy to avoid overly rapid shifts.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Corrected sodium and effective osmolality.
+
+Hyperosmolar hyperglycemic state. HHS combines profound free-water deficit and hyperosmolality with less ketogenesis than DKA, creating distinct neurologic and correction-rate concerns.
+
+Keep these terms available in your mental model: effective osmolality, free-water deficit, corrected sodium.
+
+What expert-level use of this concept looks like is this: Distinguish HHS physiology from DKA rather than treating both as hyperglycemia. Track sodium and osmolality during therapy to avoid overly rapid shifts.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Why trajectories matter during treatment.
+
+Hyperosmolar hyperglycemic state. HHS combines profound free-water deficit and hyperosmolality with less ketogenesis than DKA, creating distinct neurologic and correction-rate concerns.
+
+Keep these terms available in your mental model: effective osmolality, free-water deficit, corrected sodium.
+
+What expert-level use of this concept looks like is this: Distinguish HHS physiology from DKA rather than treating both as hyperglycemia. Track sodium and osmolality during therapy to avoid overly rapid shifts.
+
+Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
+
+Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
+
+What expert-level use of this concept looks like is this: State confidence, identify disconfirming evidence and update the model when the patient fails to respond as predicted.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you explain the dominant osmotic physiology of HHS?
+
+Can you track sodium and osmolality rather than glucose alone during therapy?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

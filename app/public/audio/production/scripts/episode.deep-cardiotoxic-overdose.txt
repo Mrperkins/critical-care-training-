@@ -1,0 +1,69 @@
+You're listening to Cardiotoxic overdose: when the shock mechanism is the antidote map. Beta blockers, calcium-channel blockers and sodium-channel blockade.
+
+This is a level 5 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to differentiate major cardiotoxic overdose phenotypes; and map supportive and antidotal strategies to the underlying electrophysiology and metabolism.
+
+Now: Beta-blocker physiology.
+
+Beta-blocker & calcium-channel blocker toxicity. These overdoses can produce profound bradycardia, vasodilation and myocardial depression through different receptor and metabolic mechanisms.
+
+Keep these terms available in your mental model: high-dose insulin, calcium, chronotropy.
+
+What expert-level use of this concept looks like is this: Differentiate dominant pump versus vasodilatory physiology. Understand why therapy often requires multiple simultaneous mechanisms rather than one antidote.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Calcium-channel blocker physiology.
+
+Beta-blocker & calcium-channel blocker toxicity. These overdoses can produce profound bradycardia, vasodilation and myocardial depression through different receptor and metabolic mechanisms.
+
+Keep these terms available in your mental model: high-dose insulin, calcium, chronotropy.
+
+What expert-level use of this concept looks like is this: Differentiate dominant pump versus vasodilatory physiology. Understand why therapy often requires multiple simultaneous mechanisms rather than one antidote.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Why high-dose insulin can support the poisoned heart.
+
+Beta-blocker & calcium-channel blocker toxicity. These overdoses can produce profound bradycardia, vasodilation and myocardial depression through different receptor and metabolic mechanisms.
+
+Keep these terms available in your mental model: high-dose insulin, calcium, chronotropy.
+
+What expert-level use of this concept looks like is this: Differentiate dominant pump versus vasodilatory physiology. Understand why therapy often requires multiple simultaneous mechanisms rather than one antidote.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Sodium-channel blockade and the ECG.
+
+Sodium-channel blockade. Fast sodium-channel blockade slows depolarization and can widen QRS, cause ventricular dysrhythmia, hypotension and seizures.
+
+Keep these terms available in your mental model: QRS widening, terminal R, alkalinization.
+
+What expert-level use of this concept looks like is this: Recognize ECG evidence of sodium-channel toxicity. Connect alkalinization and sodium loading to the electrophysiologic mechanism.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Build the support from the dominant physiology.
+
+Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+Keep these terms available in your mental model: flow, tone, congestion, perfusion.
+
+What expert-level use of this concept looks like is this: Recognize mixed shock. Choose an intervention that tests a physiologic hypothesis and define the response expected if that hypothesis is correct.
+
+Vasopressor & inotrope physiology. Vasoactive drugs change arterial tone, venous tone, heart rate, contractility and regional flow; the desired effect depends on the shock model.
+
+Keep these terms available in your mental model: alpha-1, beta-1, inotropy, chronotropy, venoconstriction.
+
+What expert-level use of this concept looks like is this: Choose a vasoactive strategy from the physiologic deficit rather than blood pressure alone. State the expected benefit, predictable tradeoff and reassessment endpoint.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you differentiate major cardiotoxic overdose phenotypes?
+
+Can you map supportive and antidotal strategies to the underlying electrophysiology and metabolism?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

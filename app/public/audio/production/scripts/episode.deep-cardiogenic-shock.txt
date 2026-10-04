@@ -1,0 +1,69 @@
+You're listening to Cardiogenic shock: pressure, flow and congestion. Stop using one blood pressure to represent the entire circulation.
+
+This is a level 5 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to phenotype pump failure by flow, congestion and ventricle; and choose monitoring and support based on the failing physiology rather than a generic shock label.
+
+Now: LV, RV and biventricular failure.
+
+Cardiogenic shock. Pump failure where restoring perfusion must be balanced against congestion, myocardial oxygen demand, coronary perfusion and mechanical complications.
+
+Keep these terms available in your mental model: cardiac power output, congestion, inotropy.
+
+What expert-level use of this concept looks like is this: Phenotype left-, right- and biventricular pump failure. Choose support based on pressure, flow, congestion and the cause of pump failure.
+
+Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+Keep these terms available in your mental model: RV-PA coupling, septal shift, transmural pressure.
+
+What expert-level use of this concept looks like is this: Recognize RV shock physiology before systemic hypotension becomes profound. Predict how peep, hypercapnia, hypoxemia, fluids and vasoactives may change RV performance.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Coronary perfusion and myocardial demand.
+
+Cardiogenic shock. Pump failure where restoring perfusion must be balanced against congestion, myocardial oxygen demand, coronary perfusion and mechanical complications.
+
+Keep these terms available in your mental model: cardiac power output, congestion, inotropy.
+
+What expert-level use of this concept looks like is this: Phenotype left-, right- and biventricular pump failure. Choose support based on pressure, flow, congestion and the cause of pump failure.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Pressor versus inotrope tradeoffs.
+
+Vasopressor & inotrope physiology. Vasoactive drugs change arterial tone, venous tone, heart rate, contractility and regional flow; the desired effect depends on the shock model.
+
+Keep these terms available in your mental model: alpha-1, beta-1, inotropy, chronotropy, venoconstriction.
+
+What expert-level use of this concept looks like is this: Choose a vasoactive strategy from the physiologic deficit rather than blood pressure alone. State the expected benefit, predictable tradeoff and reassessment endpoint.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: When invasive hemodynamics clarify the model.
+
+Pulmonary artery catheter interpretation. A PA catheter is useful only when waveforms, zero/level, thermodilution assumptions and the clinical model are integrated correctly.
+
+Keep these terms available in your mental model: RAP, PAP, PAOP, thermodilution, P V R, S V R.
+
+What expert-level use of this concept looks like is this: Recognize chamber waveforms during insertion and interpret pressures in physiologic context. Use serial values to test a hemodynamic model rather than treating targets in isolation.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: When drugs are no longer enough.
+
+Mechanical circulatory support. Temporary circulatory support devices unload or bypass different parts of the circulation and must be matched to the failing ventricle and oxygenation problem.
+
+Keep these terms available in your mental model: LV unloading, VA E C M O, axial flow.
+
+What expert-level use of this concept looks like is this: Match support strategy to LV, RV, biventricular or cardiopulmonary failure. Anticipate loading, limb, hemolysis and device-interaction complications.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you phenotype pump failure by flow, congestion and ventricle?
+
+Can you choose monitoring and support based on the failing physiology rather than a generic shock label?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

@@ -1,0 +1,69 @@
+You're listening to Liberating the patient from the ventilator. Readiness, spontaneous breathing, airway protection and post-extubation support.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to separate sbt performance from airway protection and extubation risk; and diagnose failed liberation by physiology rather than repeatedly restarting the same trial.
+
+Now: Ready to test is not ready to extubate.
+
+Liberation from mechanical ventilation. Liberation requires separating readiness, spontaneous breathing performance, airway protection and post-extubation risk.
+
+Keep these terms available in your mental model: SBT, RSBI, airway protection.
+
+What expert-level use of this concept looks like is this: Distinguish failure of respiratory mechanics from cardiac, neurologic or airway causes of failed liberation. Plan extubation support based on risk rather than a single breathing-trial number.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: What an SBT stresses.
+
+Liberation from mechanical ventilation. Liberation requires separating readiness, spontaneous breathing performance, airway protection and post-extubation risk.
+
+Keep these terms available in your mental model: SBT, RSBI, airway protection.
+
+What expert-level use of this concept looks like is this: Distinguish failure of respiratory mechanics from cardiac, neurologic or airway causes of failed liberation. Plan extubation support based on risk rather than a single breathing-trial number.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Respiratory, cardiac and neuromuscular failure.
+
+Cardiogenic shock. Pump failure where restoring perfusion must be balanced against congestion, myocardial oxygen demand, coronary perfusion and mechanical complications.
+
+Keep these terms available in your mental model: cardiac power output, congestion, inotropy.
+
+What expert-level use of this concept looks like is this: Phenotype left-, right- and biventricular pump failure. Choose support based on pressure, flow, congestion and the cause of pump failure.
+
+ICU-acquired weakness & recovery. Critical illness, immobility, inflammation, sedation and organ failure can produce profound weakness and long-term functional loss.
+
+Keep these terms available in your mental model: critical illness myopathy, critical illness neuropathy, PICS.
+
+What expert-level use of this concept looks like is this: Recognize weakness as an ICU outcome, not merely a discharge problem. Connect sedation, mobility, nutrition and ventilator liberation to recovery.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Airway protection is separate.
+
+Liberation from mechanical ventilation. Liberation requires separating readiness, spontaneous breathing performance, airway protection and post-extubation risk.
+
+Keep these terms available in your mental model: SBT, RSBI, airway protection.
+
+What expert-level use of this concept looks like is this: Distinguish failure of respiratory mechanics from cardiac, neurologic or airway causes of failed liberation. Plan extubation support based on risk rather than a single breathing-trial number.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Plan the post-extubation period.
+
+Liberation from mechanical ventilation. Liberation requires separating readiness, spontaneous breathing performance, airway protection and post-extubation risk.
+
+Keep these terms available in your mental model: SBT, RSBI, airway protection.
+
+What expert-level use of this concept looks like is this: Distinguish failure of respiratory mechanics from cardiac, neurologic or airway causes of failed liberation. Plan extubation support based on risk rather than a single breathing-trial number.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you separate SBT performance from airway protection and extubation risk?
+
+Can you diagnose failed liberation by physiology rather than repeatedly restarting the same trial?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

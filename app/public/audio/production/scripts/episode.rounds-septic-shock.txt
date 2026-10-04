@@ -1,0 +1,65 @@
+You're listening to Septic shock is more than low S V R. Vasoplegia, venous capacitance, myocardial dysfunction and microcirculation can coexist.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to describe multiple simultaneous hemodynamic phenotypes in septic shock; and reassess pressor, flow and perfusion response instead of treating map as the whole syndrome.
+
+Now: Vasoplegia and venous capacitance.
+
+Septic shock physiology. Distributive shock with dynamic changes in vascular tone, venous capacitance, myocardial performance, microcirculation and oxygen extraction.
+
+Keep these terms available in your mental model: vasoplegia, microcirculation, distributive shock.
+
+What expert-level use of this concept looks like is this: Recognize when septic shock is not simply low S V R. Integrate source control, flow, tone, cardiac function and perfusion response over time.
+
+Vasopressor & inotrope physiology. Vasoactive drugs change arterial tone, venous tone, heart rate, contractility and regional flow; the desired effect depends on the shock model.
+
+Keep these terms available in your mental model: alpha-1, beta-1, inotropy, chronotropy, venoconstriction.
+
+What expert-level use of this concept looks like is this: Choose a vasoactive strategy from the physiologic deficit rather than blood pressure alone. State the expected benefit, predictable tradeoff and reassessment endpoint.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Flow can be low, normal or high.
+
+Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+Keep these terms available in your mental model: flow, tone, congestion, perfusion.
+
+What expert-level use of this concept looks like is this: Recognize mixed shock. Choose an intervention that tests a physiologic hypothesis and define the response expected if that hypothesis is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Sepsis can depress the pump too.
+
+Septic shock physiology. Distributive shock with dynamic changes in vascular tone, venous capacitance, myocardial performance, microcirculation and oxygen extraction.
+
+Keep these terms available in your mental model: vasoplegia, microcirculation, distributive shock.
+
+What expert-level use of this concept looks like is this: Recognize when septic shock is not simply low S V R. Integrate source control, flow, tone, cardiac function and perfusion response over time.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Macrocirculation and microcirculation can disagree.
+
+Oxygen extraction. The relationship between delivered and consumed oxygen reflected by venous saturation and tissue extraction.
+
+Keep these terms available in your mental model: O2ER, SvO2, critical DO2.
+
+What expert-level use of this concept looks like is this: Interpret low or high venous saturation in context rather than labeling it simply good or bad.
+
+Lactate physiology. Lactate reflects production and clearance across multiple pathways and is not a direct tissue-hypoxia meter.
+
+Keep these terms available in your mental model: adrenergic glycolysis, clearance.
+
+What expert-level use of this concept looks like is this: Generate hypoxic and non-hypoxic explanations for elevated lactate. Interpret trajectory alongside perfusion rather than in isolation.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you describe multiple simultaneous hemodynamic phenotypes in septic shock?
+
+Can you reassess pressor, flow and perfusion response instead of treating MAP as the whole syndrome?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

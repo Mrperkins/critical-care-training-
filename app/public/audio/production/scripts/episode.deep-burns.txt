@@ -1,0 +1,69 @@
+You're listening to Major burns: resuscitation without fluid creep. Capillary leak, airway injury, perfusion endpoints and evolving organ support.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to use burn formulas as starting estimates rather than endpoints; and separate airway edema, inhalation injury and systemic toxic exposure.
+
+Now: Estimate injury, then stop worshiping the formula.
+
+Burn shock & resuscitation. Major burns create capillary leak, evaporative loss, inflammatory shock and evolving fluid requirements that cannot be managed by formula alone.
+
+Keep these terms available in your mental model: TBSA, burn shock, urine output.
+
+What expert-level use of this concept looks like is this: Use formulas only as a starting estimate and titrate to physiologic response. Recognize both under-resuscitation and fluid creep.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Capillary leak and burn shock.
+
+Burn shock & resuscitation. Major burns create capillary leak, evaporative loss, inflammatory shock and evolving fluid requirements that cannot be managed by formula alone.
+
+Keep these terms available in your mental model: TBSA, burn shock, urine output.
+
+What expert-level use of this concept looks like is this: Use formulas only as a starting estimate and titrate to physiologic response. Recognize both under-resuscitation and fluid creep.
+
+Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+Keep these terms available in your mental model: flow, tone, congestion, perfusion.
+
+What expert-level use of this concept looks like is this: Recognize mixed shock. Choose an intervention that tests a physiologic hypothesis and define the response expected if that hypothesis is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Upper airway, lower airway and systemic toxins.
+
+Inhalation injury. Thermal upper-airway injury, chemical tracheobronchial injury and systemic toxic exposure are distinct problems that can coexist after fire.
+
+Keep these terms available in your mental model: carbon monoxide, cyanide, bronchoscopy.
+
+What expert-level use of this concept looks like is this: Separate impending airway edema from lower-airway injury and systemic toxic exposure. Recognize when early airway control may be safer than waiting for visible obstruction.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Titrate resuscitation to physiology.
+
+Burn shock & resuscitation. Major burns create capillary leak, evaporative loss, inflammatory shock and evolving fluid requirements that cannot be managed by formula alone.
+
+Keep these terms available in your mental model: TBSA, burn shock, urine output.
+
+What expert-level use of this concept looks like is this: Use formulas only as a starting estimate and titrate to physiologic response. Recognize both under-resuscitation and fluid creep.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: The physiology keeps changing after day one.
+
+Burn shock & resuscitation. Major burns create capillary leak, evaporative loss, inflammatory shock and evolving fluid requirements that cannot be managed by formula alone.
+
+Keep these terms available in your mental model: TBSA, burn shock, urine output.
+
+What expert-level use of this concept looks like is this: Use formulas only as a starting estimate and titrate to physiologic response. Recognize both under-resuscitation and fluid creep.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you use burn formulas as starting estimates rather than endpoints?
+
+Can you separate airway edema, inhalation injury and systemic toxic exposure?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

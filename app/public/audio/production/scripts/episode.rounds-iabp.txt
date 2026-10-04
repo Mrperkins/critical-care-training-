@@ -1,0 +1,59 @@
+You're listening to I A B P timing: make the waveform tell you what the balloon is doing. Diastolic augmentation and presystolic deflation without memorizing arrows.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to explain the intended physiologic effect of inflation and deflation; and recognize major timing errors from the arterial waveform.
+
+Now: What the balloon can and cannot do.
+
+Intra-aortic balloon pump physiology. I A B P timing uses diastolic augmentation and presystolic deflation to alter coronary perfusion and LV afterload.
+
+Keep these terms available in your mental model: diastolic augmentation, deflation, trigger.
+
+What expert-level use of this concept looks like is this: Identify correct inflation/deflation timing from the arterial waveform. Predict the hemodynamic consequence of early or late timing errors.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Inflation in diastole.
+
+Intra-aortic balloon pump physiology. I A B P timing uses diastolic augmentation and presystolic deflation to alter coronary perfusion and LV afterload.
+
+Keep these terms available in your mental model: diastolic augmentation, deflation, trigger.
+
+What expert-level use of this concept looks like is this: Identify correct inflation/deflation timing from the arterial waveform. Predict the hemodynamic consequence of early or late timing errors.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Deflation before systole.
+
+Intra-aortic balloon pump physiology. I A B P timing uses diastolic augmentation and presystolic deflation to alter coronary perfusion and LV afterload.
+
+Keep these terms available in your mental model: diastolic augmentation, deflation, trigger.
+
+What expert-level use of this concept looks like is this: Identify correct inflation/deflation timing from the arterial waveform. Predict the hemodynamic consequence of early or late timing errors.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Timing errors on the waveform.
+
+Arterial line. Placement, setup, leveling, zeroing, waveform interpretation and troubleshooting of invasive arterial pressure monitoring.
+
+Keep these terms available in your mental model: phlebostatic axis, dynamic response.
+
+What expert-level use of this concept looks like is this: Differentiate patient physiology from damping/resonance artifact. Mentally rehearse sterile insertion and transducer setup.
+
+Intra-aortic balloon pump physiology. I A B P timing uses diastolic augmentation and presystolic deflation to alter coronary perfusion and LV afterload.
+
+Keep these terms available in your mental model: diastolic augmentation, deflation, trigger.
+
+What expert-level use of this concept looks like is this: Identify correct inflation/deflation timing from the arterial waveform. Predict the hemodynamic consequence of early or late timing errors.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you explain the intended physiologic effect of inflation and deflation?
+
+Can you recognize major timing errors from the arterial waveform?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

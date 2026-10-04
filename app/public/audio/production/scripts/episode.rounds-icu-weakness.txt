@@ -1,0 +1,53 @@
+You're listening to The patient survived the ICU—now they cannot stand. Critical-illness myopathy, neuropathy, sedation, immobility and recovery.
+
+This is a level 3 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to recognize icu-acquired weakness as a predictable organ-system consequence; and connect daily icu choices to ventilator liberation and long-term recovery.
+
+Now: Why weakness develops.
+
+ICU-acquired weakness & recovery. Critical illness, immobility, inflammation, sedation and organ failure can produce profound weakness and long-term functional loss.
+
+Keep these terms available in your mental model: critical illness myopathy, critical illness neuropathy, PICS.
+
+What expert-level use of this concept looks like is this: Recognize weakness as an ICU outcome, not merely a discharge problem. Connect sedation, mobility, nutrition and ventilator liberation to recovery.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Weakness can become a ventilation problem.
+
+Liberation from mechanical ventilation. Liberation requires separating readiness, spontaneous breathing performance, airway protection and post-extubation risk.
+
+Keep these terms available in your mental model: SBT, RSBI, airway protection.
+
+What expert-level use of this concept looks like is this: Distinguish failure of respiratory mechanics from cardiac, neurologic or airway causes of failed liberation. Plan extubation support based on risk rather than a single breathing-trial number.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Sedation, mobility and delirium.
+
+Delirium, sleep & mobility. Brain dysfunction in critical illness is shaped by disease, drugs, sleep disruption, immobility and environment.
+
+Keep these terms available in your mental model: CAM-ICU, ABCDE/ABCDEF bundle.
+
+What expert-level use of this concept looks like is this: Recognize modifiable drivers of delirium. Integrate sedation reduction, sleep, mobility and family engagement into daily ICU care.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Nutrition and rehabilitation.
+
+ICU nutrition & refeeding risk. Nutrition in critical illness is a metabolic therapy with timing, route, protein, glycemic and electrolyte consequences.
+
+Keep these terms available in your mental model: enteral nutrition, protein target, caloric debt.
+
+What expert-level use of this concept looks like is this: Explain why early enteral nutrition is often preferred when feasible. Recognize when feeding strategy, aspiration risk or hemodynamic instability changes the plan.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you recognize ICU-acquired weakness as a predictable organ-system consequence?
+
+Can you connect daily ICU choices to ventilator liberation and long-term recovery?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

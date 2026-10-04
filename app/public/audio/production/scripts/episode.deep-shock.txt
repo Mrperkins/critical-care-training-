@@ -1,0 +1,73 @@
+You're listening to Shock is a flow problem before it is a blood-pressure problem. Phenotype the circulation: flow, tone, congestion, oxygen delivery and organ response.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to phenotype mixed shock and choose a testable physiologic intervention rather than reflexively treating a pressure.
+
+Now: Stop naming shock by one number.
+
+Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+Keep these terms available in your mental model: flow, tone, congestion, perfusion.
+
+What expert-level use of this concept looks like is this: Recognize mixed shock. Choose an intervention that tests a physiologic hypothesis and define the response expected if that hypothesis is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Flow and venous return.
+
+Venous return. Flow back to the right heart determined by the pressure gradient from the systemic circulation and resistance to venous return.
+
+Keep these terms available in your mental model: mean systemic filling pressure, stressed volume, venous return gradient.
+
+What expert-level use of this concept looks like is this: Explain why CVP can rise while venous return falls. Predict effects of vasodilation, venoconstriction and positive pressure on venous return.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Delivery and extraction.
+
+Oxygen delivery. DO2 is cardiac output multiplied by arterial oxygen content; saturation alone does not describe tissue oxygen delivery.
+
+Keep these terms available in your mental model: CaO2, DO2, VO2.
+
+What expert-level use of this concept looks like is this: Predict effects of hemoglobin, saturation and flow on oxygen delivery. Explain why a normal SpO2 can coexist with inadequate DO2.
+
+Oxygen extraction. The relationship between delivered and consumed oxygen reflected by venous saturation and tissue extraction.
+
+Keep these terms available in your mental model: O2ER, SvO2, critical DO2.
+
+What expert-level use of this concept looks like is this: Interpret low or high venous saturation in context rather than labeling it simply good or bad.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Lactate without superstition.
+
+Lactate physiology. Lactate reflects production and clearance across multiple pathways and is not a direct tissue-hypoxia meter.
+
+Keep these terms available in your mental model: adrenergic glycolysis, clearance.
+
+What expert-level use of this concept looks like is this: Generate hypoxic and non-hypoxic explanations for elevated lactate. Interpret trajectory alongside perfusion rather than in isolation.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Mixed shock.
+
+Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+Keep these terms available in your mental model: flow, tone, congestion, perfusion.
+
+What expert-level use of this concept looks like is this: Recognize mixed shock. Choose an intervention that tests a physiologic hypothesis and define the response expected if that hypothesis is correct.
+
+Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
+
+Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
+
+What expert-level use of this concept looks like is this: State confidence, identify disconfirming evidence and update the model when the patient fails to respond as predicted.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you phenotype mixed shock and choose a testable physiologic intervention rather than reflexively treating a pressure?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

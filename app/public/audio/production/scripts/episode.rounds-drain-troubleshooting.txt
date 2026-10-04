@@ -1,0 +1,53 @@
+You're listening to When the chest tube stops helping. Trace the patient, tube, connections and drainage system before blaming the lung.
+
+This is a level 3 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to troubleshoot pleural drainage from patient outward; and use system behavior and pleural ultrasound to distinguish persistent pathology from device failure.
+
+Now: Start with the patient.
+
+Pleural drain troubleshooting. A pleural drain must be assessed as patient + tube + connections + drainage system rather than as an isolated device.
+
+Keep these terms available in your mental model: water seal, tidaling, air leak.
+
+What expert-level use of this concept looks like is this: Trace a failing drain from the patient outward. Differentiate expected system behavior from kink, disconnection, migration, occlusion and ongoing pleural leak.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Kink, clot, migration and dependent loops.
+
+Pleural drain troubleshooting. A pleural drain must be assessed as patient + tube + connections + drainage system rather than as an isolated device.
+
+Keep these terms available in your mental model: water seal, tidaling, air leak.
+
+What expert-level use of this concept looks like is this: Trace a failing drain from the patient outward. Differentiate expected system behavior from kink, disconnection, migration, occlusion and ongoing pleural leak.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Water seal, suction and air leak behavior.
+
+Pleural drain troubleshooting. A pleural drain must be assessed as patient + tube + connections + drainage system rather than as an isolated device.
+
+Keep these terms available in your mental model: water seal, tidaling, air leak.
+
+What expert-level use of this concept looks like is this: Trace a failing drain from the patient outward. Differentiate expected system behavior from kink, disconnection, migration, occlusion and ongoing pleural leak.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Use pleural ultrasound when the physiology and system disagree.
+
+Pneumothorax ultrasound. Pleural ultrasound combines sliding, B-lines, M-mode patterns and lung point rather than relying on a single sign.
+
+Keep these terms available in your mental model: lung sliding, lung point, seashore, barcode.
+
+What expert-level use of this concept looks like is this: Use multiple pleural signs to support or weaken the diagnosis. Recognize situations where absent sliding is not pneumothorax.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you troubleshoot pleural drainage from patient outward?
+
+Can you use system behavior and pleural ultrasound to distinguish persistent pathology from device failure?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

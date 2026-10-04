@@ -1,0 +1,67 @@
+You're listening to Fluid responsive does not mean give fluid. Separate preload responsiveness, fluid need and fluid tolerance.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to separate responsiveness from indication and tolerance; and use a dynamic test as evidence inside a physiologic model rather than as a command to give volume.
+
+Now: Three different questions.
+
+Fluid responsiveness. Whether stroke volume will meaningfully increase after an increase in preload; distinct from whether fluid is indicated or safe.
+
+Keep these terms available in your mental model: dynamic assessment, passive leg raise.
+
+What expert-level use of this concept looks like is this: Separate responsiveness from tolerance and need. Interpret dynamic tests in their physiologic context and recognize limitations.
+
+Pause here and answer this before you continue: Can a patient be fluid responsive and still be harmed by fluid?
+
+Do not grade yourself only on whether you found the expected answer. Ask whether your reasoning predicted a physiologic response and what evidence would make you change your mind.
+
+Now: What dynamic tests actually test.
+
+Fluid responsiveness. Whether stroke volume will meaningfully increase after an increase in preload; distinct from whether fluid is indicated or safe.
+
+Keep these terms available in your mental model: dynamic assessment, passive leg raise.
+
+What expert-level use of this concept looks like is this: Separate responsiveness from tolerance and need. Interpret dynamic tests in their physiologic context and recognize limitations.
+
+Preload. The loading conditions of a ventricle before contraction; not synonymous with a single pressure or volume.
+
+Keep these terms available in your mental model: end-diastolic volume, transmural pressure.
+
+What expert-level use of this concept looks like is this: Distinguish preload from CVP or fluid responsiveness. Predict how changes in intrathoracic pressure alter measured filling pressures.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Congestion and the right heart.
+
+Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+Keep these terms available in your mental model: RV-PA coupling, septal shift, transmural pressure.
+
+What expert-level use of this concept looks like is this: Recognize RV shock physiology before systemic hypotension becomes profound. Predict how peep, hypercapnia, hypoxemia, fluids and vasoactives may change RV performance.
+
+Venous return. Flow back to the right heart determined by the pressure gradient from the systemic circulation and resistance to venous return.
+
+Keep these terms available in your mental model: mean systemic filling pressure, stressed volume, venous return gradient.
+
+What expert-level use of this concept looks like is this: Explain why CVP can rise while venous return falls. Predict effects of vasodilation, venoconstriction and positive pressure on venous return.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Turn a test into a decision.
+
+Fluid responsiveness. Whether stroke volume will meaningfully increase after an increase in preload; distinct from whether fluid is indicated or safe.
+
+Keep these terms available in your mental model: dynamic assessment, passive leg raise.
+
+What expert-level use of this concept looks like is this: Separate responsiveness from tolerance and need. Interpret dynamic tests in their physiologic context and recognize limitations.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you separate responsiveness from indication and tolerance?
+
+Can you use a dynamic test as evidence inside a physiologic model rather than as a command to give volume?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

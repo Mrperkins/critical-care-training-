@@ -1,0 +1,53 @@
+You're listening to The patient is not obligated to obey your diagnosis. Anchoring, premature closure, overconfidence and deliberate model revision.
+
+This is a level 6 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to use explicit debiasing without paralyzing decision-making; and treat unexpected treatment response as evidence that can falsify the working model.
+
+Now: How a useful first impression becomes a trap.
+
+Cognitive bias & diagnostic error. Expert reasoning uses deliberate checks against anchoring, premature closure, confirmation bias and overconfidence while still making timely decisions.
+
+Keep these terms available in your mental model: anchoring, premature closure, diagnostic time-out.
+
+What expert-level use of this concept looks like is this: Name the evidence that does not fit the favored diagnosis. Deliberately generate an alternative model when the patient fails to respond as predicted.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Look for the fact that should not be there.
+
+Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
+
+Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
+
+What expert-level use of this concept looks like is this: State confidence, identify disconfirming evidence and update the model when the patient fails to respond as predicted.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Make the model predict something.
+
+Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
+
+Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
+
+What expert-level use of this concept looks like is this: State confidence, identify disconfirming evidence and update the model when the patient fails to respond as predicted.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Failure to respond is diagnostic information.
+
+Cognitive bias & diagnostic error. Expert reasoning uses deliberate checks against anchoring, premature closure, confirmation bias and overconfidence while still making timely decisions.
+
+Keep these terms available in your mental model: anchoring, premature closure, diagnostic time-out.
+
+What expert-level use of this concept looks like is this: Name the evidence that does not fit the favored diagnosis. Deliberately generate an alternative model when the patient fails to respond as predicted.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you use explicit debiasing without paralyzing decision-making?
+
+Can you treat unexpected treatment response as evidence that can falsify the working model?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

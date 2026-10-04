@@ -1,0 +1,47 @@
+You're listening to ICU Literacy: stressed volume. Why venoconstriction can change effective preload without adding a drop of fluid.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to explain stressed versus unstressed volume and use it to reason about venous tone, fluids and pressors.
+
+Now: The circulation as a pressure-generating container.
+
+Stressed vs unstressed volume. The fraction of blood volume generating elastic recoil pressure versus volume that fills the vasculature without generating pressure.
+
+Keep these terms available in your mental model: mean systemic filling pressure, venous capacitance.
+
+What expert-level use of this concept looks like is this: Explain how venoconstriction can recruit unstressed volume without giving fluid.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Mean systemic filling pressure and venous return.
+
+Venous return. Flow back to the right heart determined by the pressure gradient from the systemic circulation and resistance to venous return.
+
+Keep these terms available in your mental model: mean systemic filling pressure, stressed volume, venous return gradient.
+
+What expert-level use of this concept looks like is this: Explain why CVP can rise while venous return falls. Predict effects of vasodilation, venoconstriction and positive pressure on venous return.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Why venoconstriction is not the same as a fluid bolus.
+
+Stressed vs unstressed volume. The fraction of blood volume generating elastic recoil pressure versus volume that fills the vasculature without generating pressure.
+
+Keep these terms available in your mental model: mean systemic filling pressure, venous capacitance.
+
+What expert-level use of this concept looks like is this: Explain how venoconstriction can recruit unstressed volume without giving fluid.
+
+Preload. The loading conditions of a ventricle before contraction; not synonymous with a single pressure or volume.
+
+Keep these terms available in your mental model: end-diastolic volume, transmural pressure.
+
+What expert-level use of this concept looks like is this: Distinguish preload from CVP or fluid responsiveness. Predict how changes in intrathoracic pressure alter measured filling pressures.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you explain stressed versus unstressed volume and use it to reason about venous tone, fluids and pressors?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

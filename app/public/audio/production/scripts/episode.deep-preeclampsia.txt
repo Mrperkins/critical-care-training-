@@ -1,0 +1,63 @@
+You're listening to Preeclampsia and eclampsia: a multisystem endothelial disease. Brain, liver, kidney, platelets, lung and placenta can all become part of the syndrome.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to recognize severe disease as a multisystem syndrome; and balance seizure prevention, pressure control and definitive obstetric management.
+
+Now: Severe features across organ systems.
+
+Preeclampsia & eclampsia. Hypertensive disease of pregnancy can involve cerebral, hepatic, renal, hematologic and placental dysfunction with seizure and pulmonary-edema risk.
+
+Keep these terms available in your mental model: severe features, magnesium, HELLP.
+
+What expert-level use of this concept looks like is this: Recognize severe features across organ systems. Balance blood-pressure control, seizure prevention and definitive obstetric management.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Seizure and cerebral complications.
+
+ICP, CPP & cerebral perfusion. Cerebral perfusion depends on the gradient across the cerebral circulation and is influenced by pressure, venous outflow, CO2 and intracranial compliance.
+
+Keep these terms available in your mental model: CPP, autoregulation, Monro-Kellie.
+
+What expert-level use of this concept looks like is this: Predict how systemic pressure, CO2 and venous pressure affect cerebral perfusion. Recognize when a normal MAP does not guarantee adequate CPP.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Platelets, liver and HELLP.
+
+Critical-illness coagulopathy. Bleeding and thrombosis reflect platelets, fibrinogen, coagulation factors, fibrinolysis, temperature, calcium, dilution and disease-specific pathways.
+
+Keep these terms available in your mental model: fibrinolysis, fibrinogen, viscoelastic testing.
+
+What expert-level use of this concept looks like is this: Reason from the failing component of clot formation rather than treating INR alone. Anticipate temperature, calcium and dilution effects during hemorrhagic resuscitation.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Pulmonary edema and fluid sensitivity.
+
+Preeclampsia & eclampsia. Hypertensive disease of pregnancy can involve cerebral, hepatic, renal, hematologic and placental dysfunction with seizure and pulmonary-edema risk.
+
+Keep these terms available in your mental model: severe features, magnesium, HELLP.
+
+What expert-level use of this concept looks like is this: Recognize severe features across organ systems. Balance blood-pressure control, seizure prevention and definitive obstetric management.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Stabilization and definitive obstetric management.
+
+Preeclampsia & eclampsia. Hypertensive disease of pregnancy can involve cerebral, hepatic, renal, hematologic and placental dysfunction with seizure and pulmonary-edema risk.
+
+Keep these terms available in your mental model: severe features, magnesium, HELLP.
+
+What expert-level use of this concept looks like is this: Recognize severe features across organ systems. Balance blood-pressure control, seizure prevention and definitive obstetric management.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you recognize severe disease as a multisystem syndrome?
+
+Can you balance seizure prevention, pressure control and definitive obstetric management?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

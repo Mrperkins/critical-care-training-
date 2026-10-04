@@ -1,0 +1,53 @@
+You're listening to ICU nutrition is not just calories. Route, protein, aspiration, hemodynamics and the metabolic cost of critical illness.
+
+This is a level 3 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to frame nutrition as organ-support and recovery therapy; and recognize refeeding risk before escalating calories.
+
+Now: What feeding is trying to accomplish.
+
+ICU nutrition & refeeding risk. Nutrition in critical illness is a metabolic therapy with timing, route, protein, glycemic and electrolyte consequences.
+
+Keep these terms available in your mental model: enteral nutrition, protein target, caloric debt.
+
+What expert-level use of this concept looks like is this: Explain why early enteral nutrition is often preferred when feasible. Recognize when feeding strategy, aspiration risk or hemodynamic instability changes the plan.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Enteral versus parenteral reasoning.
+
+ICU nutrition & refeeding risk. Nutrition in critical illness is a metabolic therapy with timing, route, protein, glycemic and electrolyte consequences.
+
+Keep these terms available in your mental model: enteral nutrition, protein target, caloric debt.
+
+What expert-level use of this concept looks like is this: Explain why early enteral nutrition is often preferred when feasible. Recognize when feeding strategy, aspiration risk or hemodynamic instability changes the plan.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: When feeding itself becomes dangerous.
+
+Refeeding syndrome. Insulin-driven intracellular shifts after refeeding can rapidly lower phosphate, potassium and magnesium and precipitate cardiopulmonary or neurologic deterioration.
+
+Keep these terms available in your mental model: phosphate, thiamine, intracellular shift.
+
+What expert-level use of this concept looks like is this: Identify high-risk patients before feeding escalates. Connect electrolyte shifts to respiratory, cardiac and neurologic failure.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Protein, mobility and recovery.
+
+ICU-acquired weakness & recovery. Critical illness, immobility, inflammation, sedation and organ failure can produce profound weakness and long-term functional loss.
+
+Keep these terms available in your mental model: critical illness myopathy, critical illness neuropathy, PICS.
+
+What expert-level use of this concept looks like is this: Recognize weakness as an ICU outcome, not merely a discharge problem. Connect sedation, mobility, nutrition and ventilator liberation to recovery.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you frame nutrition as organ-support and recovery therapy?
+
+Can you recognize refeeding risk before escalating calories?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

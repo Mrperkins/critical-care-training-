@@ -1,0 +1,65 @@
+You're listening to Salicylates: do not steal the patient’s compensatory ventilation. A mixed acid-base disorder where falling pH changes toxin distribution.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to recognize severe salicylate poisoning from physiology, not just concentration; and explain why loss of compensatory ventilation can abruptly worsen toxicity.
+
+Now: Respiratory alkalosis plus metabolic acidosis.
+
+Salicylate toxicity. Salicylates create respiratory alkalosis plus metabolic acidosis, uncouple oxidative phosphorylation and become more CNS-penetrant as pH falls.
+
+Keep these terms available in your mental model: alkalinization, mixed disorder, ion trapping.
+
+What expert-level use of this concept looks like is this: Recognize why a near-normal pH can hide severe mixed acid-base disease. Explain why airway management can be hazardous if compensatory ventilation is lost.
+
+Advanced acid-base reasoning. Integrate respiratory and metabolic processes, compensation, anion gap, albumin, chloride and mixed disorders.
+
+Keep these terms available in your mental model: delta gap, expected compensation.
+
+What expert-level use of this concept looks like is this: Identify mixed disorders that a single pH label hides. Connect acid-base abnormalities to the underlying physiology and treatment.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Why pH changes toxicity.
+
+Salicylate toxicity. Salicylates create respiratory alkalosis plus metabolic acidosis, uncouple oxidative phosphorylation and become more CNS-penetrant as pH falls.
+
+Keep these terms available in your mental model: alkalinization, mixed disorder, ion trapping.
+
+What expert-level use of this concept looks like is this: Recognize why a near-normal pH can hide severe mixed acid-base disease. Explain why airway management can be hazardous if compensatory ventilation is lost.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: The intubation trap.
+
+Salicylate toxicity. Salicylates create respiratory alkalosis plus metabolic acidosis, uncouple oxidative phosphorylation and become more CNS-penetrant as pH falls.
+
+Keep these terms available in your mental model: alkalinization, mixed disorder, ion trapping.
+
+What expert-level use of this concept looks like is this: Recognize why a near-normal pH can hide severe mixed acid-base disease. Explain why airway management can be hazardous if compensatory ventilation is lost.
+
+Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+Keep these terms available in your mental model: DOPES, peak pressure, plateau pressure, auto-peep.
+
+What expert-level use of this concept looks like is this: Separate resistance, compliance, circuit and patient problems using waveforms and bedside examination. Prioritize oxygenation and manual ventilation when the device or circuit cannot be trusted.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Alkalinization and extracorporeal removal.
+
+C R R T physiology & prescription literacy. Continuous renal replacement uses diffusion and/or convection to manage solute, acid-base and fluid balance in unstable patients.
+
+Keep these terms available in your mental model: effluent dose, CVVH, CVVHD, CVVHDF, filtration fraction.
+
+What expert-level use of this concept looks like is this: Explain diffusion versus convection and net ultrafiltration. Recognize how circuit, anticoagulation and prescribed versus delivered dose change therapy.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you recognize severe salicylate poisoning from physiology, not just concentration?
+
+Can you explain why loss of compensatory ventilation can abruptly worsen toxicity?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

@@ -1,0 +1,53 @@
+You're listening to Pediatric shock: hypotension is late. Compensation, age-adjusted physiology and why children are not small adults.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to recognize pediatric shock before hypotension; and reason from age, size and physiology rather than scaled adult thresholds.
+
+Now: How children compensate.
+
+Pediatric shock physiology. Children often preserve blood pressure until late while compensating with tachycardia and vasoconstriction; age and size alter interpretation and therapy.
+
+Keep these terms available in your mental model: compensated shock, age-adjusted, weight-based.
+
+What expert-level use of this concept looks like is this: Recognize compensated pediatric shock before hypotension. Use age, size and disease-specific physiology rather than scaled-down adult assumptions.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Age changes what “normal” means.
+
+Pediatric shock physiology. Children often preserve blood pressure until late while compensating with tachycardia and vasoconstriction; age and size alter interpretation and therapy.
+
+Keep these terms available in your mental model: compensated shock, age-adjusted, weight-based.
+
+What expert-level use of this concept looks like is this: Recognize compensated pediatric shock before hypotension. Use age, size and disease-specific physiology rather than scaled-down adult assumptions.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Oxygen delivery and metabolic demand.
+
+Oxygen delivery. DO2 is cardiac output multiplied by arterial oxygen content; saturation alone does not describe tissue oxygen delivery.
+
+Keep these terms available in your mental model: CaO2, DO2, VO2.
+
+What expert-level use of this concept looks like is this: Predict effects of hemoglobin, saturation and flow on oxygen delivery. Explain why a normal SpO2 can coexist with inadequate DO2.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Distributive, hypovolemic and pump failure.
+
+Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+Keep these terms available in your mental model: flow, tone, congestion, perfusion.
+
+What expert-level use of this concept looks like is this: Recognize mixed shock. Choose an intervention that tests a physiologic hypothesis and define the response expected if that hypothesis is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you recognize pediatric shock before hypotension?
+
+Can you reason from age, size and physiology rather than scaled adult thresholds?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

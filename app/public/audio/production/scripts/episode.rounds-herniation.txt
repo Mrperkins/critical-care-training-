@@ -1,0 +1,59 @@
+You're listening to Herniation: recognize the trajectory before the last sign appears. Intracranial compliance, pressure gradients, perfusion and rapidly evolving examination changes.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to recognize a herniation trajectory from physiology and examination; and understand temporizing therapy as a bridge to definitive diagnosis and neurosurgical management.
+
+Now: When intracranial compliance runs out.
+
+ICP, CPP & cerebral perfusion. Cerebral perfusion depends on the gradient across the cerebral circulation and is influenced by pressure, venous outflow, CO2 and intracranial compliance.
+
+Keep these terms available in your mental model: CPP, autoregulation, Monro-Kellie.
+
+What expert-level use of this concept looks like is this: Predict how systemic pressure, CO2 and venous pressure affect cerebral perfusion. Recognize when a normal MAP does not guarantee adequate CPP.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Pressure gradients move tissue.
+
+Brain herniation physiology. Rising intracranial pressure and compartment shifts distort brain structures, impair perfusion and can produce rapidly evolving focal and brainstem signs.
+
+Keep these terms available in your mental model: uncal, central, tonsillar, Cushing response.
+
+What expert-level use of this concept looks like is this: Recognize a herniation trajectory from examination and physiology. Prioritize temporizing actions while preserving cerebral perfusion and definitive neurosurgical access.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Pupils, motor findings and brainstem physiology.
+
+Brain herniation physiology. Rising intracranial pressure and compartment shifts distort brain structures, impair perfusion and can produce rapidly evolving focal and brainstem signs.
+
+Keep these terms available in your mental model: uncal, central, tonsillar, Cushing response.
+
+What expert-level use of this concept looks like is this: Recognize a herniation trajectory from examination and physiology. Prioritize temporizing actions while preserving cerebral perfusion and definitive neurosurgical access.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Temporizing actions protect time, not the diagnosis.
+
+Brain herniation physiology. Rising intracranial pressure and compartment shifts distort brain structures, impair perfusion and can produce rapidly evolving focal and brainstem signs.
+
+Keep these terms available in your mental model: uncal, central, tonsillar, Cushing response.
+
+What expert-level use of this concept looks like is this: Recognize a herniation trajectory from examination and physiology. Prioritize temporizing actions while preserving cerebral perfusion and definitive neurosurgical access.
+
+Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
+
+Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
+
+What expert-level use of this concept looks like is this: State confidence, identify disconfirming evidence and update the model when the patient fails to respond as predicted.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you recognize a herniation trajectory from physiology and examination?
+
+Can you understand temporizing therapy as a bridge to definitive diagnosis and neurosurgical management?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.
