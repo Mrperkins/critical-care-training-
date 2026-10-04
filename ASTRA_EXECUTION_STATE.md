@@ -1,13 +1,19 @@
 # Visual overhaul execution state
 
-Read this file first each session. Work on `visual-overhaul` only. Update the commit, tests, and exact resume point after each coherent slice. Re-audit only if the remote branch changed outside this session.
+Read this file first each session.
+
+## BRANCH POLICY — UPDATED 2026-10-04
+- `main` is now the canonical production/source branch.
+- The former `visual-overhaul` work was merged into `main`.
+- Active mockup-driven redesign work is on `ux-overhaul-v2` until reviewed/merged.
+- Do not revive the old "visual-overhaul only" branch rule. Update the commit, tests, and exact resume point after each coherent slice. Re-audit only if the remote branch changed outside this session.
 
 ## ⚠️ SOURCE OF TRUTH — READ FIRST
 The TypeScript source now lives in `app/` (see `app/README.md`). **Do not hand-edit the minified bundle in `index.html` any more.** Edit `app/src/…`, then `cd app && npm install && npm test && npm run site` (rebuilds and copies `index.html`, `models/*.glb.txt`, `vo/*` to the repo root), then `python tools/validate_visual_assets.py`.
 All 53 earlier bundle patches (Wave 1 chrome CSS, Studio lighting/fog, cell material palette, open-cell loader + tiers, organelle/protein focus, PDB protein swap, membrane backdrop, semantic camera registry) were ported into source in the slice "Restore source of truth". `camera-targets.js` was removed: the registry is `app/src/scene/cameraTargets.ts` and is still exposed as `window.__CCCameraTargets`.
 
 ## CURRENT BRANCH
-`visual-overhaul`
+`ux-overhaul-v2` (based on canonical `main`)
 
 ## CURRENT COMMIT
 Run `git rev-parse HEAD`. Last slice: "Backlog sweep".
