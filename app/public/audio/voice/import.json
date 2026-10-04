@@ -860,6 +860,20 @@
       "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/0fc54c61-b3b8-4909-a175-9b63d6ddbfd7.mp3",
       "voice": "Natural clinical narrator",
       "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-status.silent",
+      "file": "rep.rep-status.silent.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/4b390519-d724-413f-a157-c19cfeada79b.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-status.debrief",
+      "file": "rep.rep-status.debrief.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/b71270a6-b39c-4a2a-80fe-bf86d9c20eec.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
     }
   ]
 }
