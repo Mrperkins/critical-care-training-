@@ -8,6 +8,14 @@ Now: Normal symptoms can camouflage failure.
 
 Peripartum cardiomyopathy. Pregnancy-associated systolic heart failure can present from late pregnancy into the postpartum period and may mimic normal peripartum symptoms.
 
+Build the mechanism first. Pregnancy-associated systolic dysfunction can emerge late in pregnancy or postpartum, producing congestion and low output while symptoms can resemble normal peripartum physiology.
+
+At the bedside, look for orthopnea, hypoxemia, pulmonary edema, ventricular dysfunction and shock rather than dismissing dyspnea as normal postpartum change.
+
+Two traps to actively avoid: Missing heart failure because edema and tachycardia seem expected. And: Forgetting pregnancy/postpartum constraints on some therapies.
+
+The integration move is this: Apply ordinary pump-failure physiology inside an extraordinary physiologic state.
+
 Keep these terms available in your mental model: postpartum, systolic failure, pulmonary edema.
 
 What expert-level use of this concept looks like is this: Recognize decompensated heart failure in the peripartum period. Account for pregnancy/postpartum medication and hemodynamic considerations.
@@ -18,6 +26,14 @@ Now: The pump-failure model.
 
 Cardiogenic shock. Pump failure where restoring perfusion must be balanced against congestion, myocardial oxygen demand, coronary perfusion and mechanical complications.
 
+Build the mechanism first. Cardiogenic shock is inadequate forward flow from pump failure, often accompanied by elevated filling pressures and congestion. RV, LV and biventricular phenotypes behave differently.
+
+At the bedside, track flow, pressure, congestion, coronary perfusion, rhythm and mechanical complications; escalate support when pharmacology cannot restore effective circulation.
+
+Two traps to actively avoid: Treating all cardiogenic shock with the same inotrope/pressor pattern. And: Ignoring congestion while chasing blood pressure.
+
+The integration move is this: The support strategy should match the failing ventricle and the cause of pump failure.
+
 Keep these terms available in your mental model: cardiac power output, congestion, inotropy.
 
 What expert-level use of this concept looks like is this: Phenotype left-, right- and biventricular pump failure. Choose support based on pressure, flow, congestion and the cause of pump failure.
@@ -27,6 +43,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Pregnancy/postpartum context changes therapy.
 
 Peripartum cardiomyopathy. Pregnancy-associated systolic heart failure can present from late pregnancy into the postpartum period and may mimic normal peripartum symptoms.
+
+Build the mechanism first. Pregnancy-associated systolic dysfunction can emerge late in pregnancy or postpartum, producing congestion and low output while symptoms can resemble normal peripartum physiology.
+
+At the bedside, look for orthopnea, hypoxemia, pulmonary edema, ventricular dysfunction and shock rather than dismissing dyspnea as normal postpartum change.
+
+Two traps to actively avoid: Missing heart failure because edema and tachycardia seem expected. And: Forgetting pregnancy/postpartum constraints on some therapies.
+
+The integration move is this: Apply ordinary pump-failure physiology inside an extraordinary physiologic state.
 
 Keep these terms available in your mental model: postpartum, systolic failure, pulmonary edema.
 

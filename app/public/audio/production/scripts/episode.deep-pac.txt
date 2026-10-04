@@ -8,6 +8,14 @@ Now: RA → RV → PA → wedge.
 
 Pulmonary artery catheter interpretation. A PA catheter is useful only when waveforms, zero/level, thermodilution assumptions and the clinical model are integrated correctly.
 
+Build the mechanism first. A pulmonary artery catheter samples pressures through right heart and pulmonary circulation and can estimate flow and oxygen extraction. Every derived variable depends on valid waveforms and measurement assumptions.
+
+At the bedside, level and zero first, recognize RA/RV/PA/wedge waveforms, validate wedge and interpret serial pressures with cardiac output and SvO2.
+
+Two traps to actively avoid: Treating a wedge number without validating the waveform. And: Using one hemodynamic snapshot as a diagnosis.
+
+The integration move is this: Use invasive hemodynamics to test and refine a model, not to collect isolated targets.
+
 Keep these terms available in your mental model: RAP, PAP, PAOP, thermodilution, P V R, S V R.
 
 What expert-level use of this concept looks like is this: Recognize chamber waveforms during insertion and interpret pressures in physiologic context. Use serial values to test a hemodynamic model rather than treating targets in isolation.
@@ -17,6 +25,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Bad measurement creates bad physiology.
 
 Pulmonary artery catheter interpretation. A PA catheter is useful only when waveforms, zero/level, thermodilution assumptions and the clinical model are integrated correctly.
+
+Build the mechanism first. A pulmonary artery catheter samples pressures through right heart and pulmonary circulation and can estimate flow and oxygen extraction. Every derived variable depends on valid waveforms and measurement assumptions.
+
+At the bedside, level and zero first, recognize RA/RV/PA/wedge waveforms, validate wedge and interpret serial pressures with cardiac output and SvO2.
+
+Two traps to actively avoid: Treating a wedge number without validating the waveform. And: Using one hemodynamic snapshot as a diagnosis.
+
+The integration move is this: Use invasive hemodynamics to test and refine a model, not to collect isolated targets.
 
 Keep these terms available in your mental model: RAP, PAP, PAOP, thermodilution, P V R, S V R.
 
@@ -28,6 +44,14 @@ Now: Thermodilution and flow.
 
 Pulmonary artery catheter interpretation. A PA catheter is useful only when waveforms, zero/level, thermodilution assumptions and the clinical model are integrated correctly.
 
+Build the mechanism first. A pulmonary artery catheter samples pressures through right heart and pulmonary circulation and can estimate flow and oxygen extraction. Every derived variable depends on valid waveforms and measurement assumptions.
+
+At the bedside, level and zero first, recognize RA/RV/PA/wedge waveforms, validate wedge and interpret serial pressures with cardiac output and SvO2.
+
+Two traps to actively avoid: Treating a wedge number without validating the waveform. And: Using one hemodynamic snapshot as a diagnosis.
+
+The integration move is this: Use invasive hemodynamics to test and refine a model, not to collect isolated targets.
+
 Keep these terms available in your mental model: RAP, PAP, PAOP, thermodilution, P V R, S V R.
 
 What expert-level use of this concept looks like is this: Recognize chamber waveforms during insertion and interpret pressures in physiologic context. Use serial values to test a hemodynamic model rather than treating targets in isolation.
@@ -37,6 +61,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: S V O 2 belongs in the same model.
 
 Oxygen extraction. The relationship between delivered and consumed oxygen reflected by venous saturation and tissue extraction.
+
+Build the mechanism first. Tissues can increase extraction when delivery falls, lowering venous oxygen saturation until extraction reserve is exhausted. High venous saturation can also be abnormal when extraction is impaired or flow is maldistributed.
+
+At the bedside, interpret SvO2 or ScvO2 alongside cardiac output, hemoglobin, arterial saturation, metabolic demand and shock phenotype.
+
+Two traps to actively avoid: Calling a high venous saturation reassuring in every patient. And: Treating low venous saturation as a diagnosis instead of a physiologic clue.
+
+The integration move is this: Use venous saturation to ask whether delivery and demand are appropriately matched.
 
 Keep these terms available in your mental model: O2ER, SvO2, critical DO2.
 
@@ -48,11 +80,27 @@ Now: Use serial data to falsify a model.
 
 Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
 
+Build the mechanism first. Shock is inadequate effective tissue perfusion and oxygen utilization, not merely hypotension. Flow, vascular tone, capacitance, congestion and extraction can fail in different combinations.
+
+At the bedside, phenotype the circulation repeatedly. A patient can move from one dominant mechanism to another during resuscitation.
+
+Two traps to actively avoid: Naming shock once and never revisiting the model. And: Treating MAP as the only endpoint.
+
+The integration move is this: Choose interventions that both treat the suspected mechanism and generate information about whether the model was correct.
+
 Keep these terms available in your mental model: flow, tone, congestion, perfusion.
 
 What expert-level use of this concept looks like is this: Recognize mixed shock. Choose an intervention that tests a physiologic hypothesis and define the response expected if that hypothesis is correct.
 
 Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
+
+Build the mechanism first. Clinical decisions are made with incomplete information. Calibrated reasoning assigns provisional probability, makes predictions and updates when new data contradict the model.
+
+At the bedside, state confidence, name disconfirming evidence and define what response you expect from a treatment if the model is correct.
+
+Two traps to actively avoid: Equating uncertainty with indecision. And: Becoming more confident simply because the same hypothesis has been repeated.
+
+The integration move is this: A model that cannot be falsified is not useful clinical reasoning.
 
 Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
 

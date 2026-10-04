@@ -8,11 +8,27 @@ Now: Vasoplegia and venous capacitance.
 
 Septic shock physiology. Distributive shock with dynamic changes in vascular tone, venous capacitance, myocardial performance, microcirculation and oxygen extraction.
 
+Build the mechanism first. Septic shock can combine vasoplegia, venous pooling, myocardial dysfunction, endothelial leak and disturbed microcirculation. Cardiac output may be low, normal or high.
+
+At the bedside, reassess vascular tone, flow, congestion and perfusion after each intervention rather than assuming a fixed distributive phenotype.
+
+Two traps to actively avoid: Reducing sepsis to “low S V R.” And: Using lactate or MAP alone as the resuscitation target.
+
+The integration move is this: Source control, antimicrobial exposure and circulatory support must progress in parallel.
+
 Keep these terms available in your mental model: vasoplegia, microcirculation, distributive shock.
 
 What expert-level use of this concept looks like is this: Recognize when septic shock is not simply low S V R. Integrate source control, flow, tone, cardiac function and perfusion response over time.
 
 Vasopressor & inotrope physiology. Vasoactive drugs change arterial tone, venous tone, heart rate, contractility and regional flow; the desired effect depends on the shock model.
+
+Build the mechanism first. Vasoactive drugs alter arterial tone, venous tone, contractility and heart rate to different degrees. The same MAP response can hide very different effects on flow and myocardial demand.
+
+At the bedside, choose the agent from the dominant deficit and define what improvement and toxicity should look like before titration.
+
+Two traps to actively avoid: Treating MAP increase as proof of improved perfusion. And: Ignoring venous effects and cardiac workload.
+
+The integration move is this: Use vasoactive drugs to correct a physiologic mechanism, not to normalize a monitor number.
 
 Keep these terms available in your mental model: alpha-1, beta-1, inotropy, chronotropy, venoconstriction.
 
@@ -24,6 +40,14 @@ Now: Flow can be low, normal or high.
 
 Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
 
+Build the mechanism first. Shock is inadequate effective tissue perfusion and oxygen utilization, not merely hypotension. Flow, vascular tone, capacitance, congestion and extraction can fail in different combinations.
+
+At the bedside, phenotype the circulation repeatedly. A patient can move from one dominant mechanism to another during resuscitation.
+
+Two traps to actively avoid: Naming shock once and never revisiting the model. And: Treating MAP as the only endpoint.
+
+The integration move is this: Choose interventions that both treat the suspected mechanism and generate information about whether the model was correct.
+
 Keep these terms available in your mental model: flow, tone, congestion, perfusion.
 
 What expert-level use of this concept looks like is this: Recognize mixed shock. Choose an intervention that tests a physiologic hypothesis and define the response expected if that hypothesis is correct.
@@ -33,6 +57,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Sepsis can depress the pump too.
 
 Septic shock physiology. Distributive shock with dynamic changes in vascular tone, venous capacitance, myocardial performance, microcirculation and oxygen extraction.
+
+Build the mechanism first. Septic shock can combine vasoplegia, venous pooling, myocardial dysfunction, endothelial leak and disturbed microcirculation. Cardiac output may be low, normal or high.
+
+At the bedside, reassess vascular tone, flow, congestion and perfusion after each intervention rather than assuming a fixed distributive phenotype.
+
+Two traps to actively avoid: Reducing sepsis to “low S V R.” And: Using lactate or MAP alone as the resuscitation target.
+
+The integration move is this: Source control, antimicrobial exposure and circulatory support must progress in parallel.
 
 Keep these terms available in your mental model: vasoplegia, microcirculation, distributive shock.
 
@@ -44,11 +76,27 @@ Now: Macrocirculation and microcirculation can disagree.
 
 Oxygen extraction. The relationship between delivered and consumed oxygen reflected by venous saturation and tissue extraction.
 
+Build the mechanism first. Tissues can increase extraction when delivery falls, lowering venous oxygen saturation until extraction reserve is exhausted. High venous saturation can also be abnormal when extraction is impaired or flow is maldistributed.
+
+At the bedside, interpret SvO2 or ScvO2 alongside cardiac output, hemoglobin, arterial saturation, metabolic demand and shock phenotype.
+
+Two traps to actively avoid: Calling a high venous saturation reassuring in every patient. And: Treating low venous saturation as a diagnosis instead of a physiologic clue.
+
+The integration move is this: Use venous saturation to ask whether delivery and demand are appropriately matched.
+
 Keep these terms available in your mental model: O2ER, SvO2, critical DO2.
 
 What expert-level use of this concept looks like is this: Interpret low or high venous saturation in context rather than labeling it simply good or bad.
 
 Lactate physiology. Lactate reflects production and clearance across multiple pathways and is not a direct tissue-hypoxia meter.
+
+Build the mechanism first. Lactate rises from multiple pathways including adrenergic glycolysis, impaired clearance and cellular metabolic changes; it is not a direct meter of tissue hypoxia.
+
+At the bedside, trend lactate with perfusion, liver function, catecholamine exposure and clinical trajectory. A falling value can be reassuring but should not override a deteriorating patient.
+
+Two traps to actively avoid: Assuming every elevated lactate mandates more fluid. And: Equating “clearance” with literal removal of all pathology.
+
+The integration move is this: Use lactate as one dynamic metabolic signal inside the larger perfusion model.
 
 Keep these terms available in your mental model: adrenergic glycolysis, clearance.
 

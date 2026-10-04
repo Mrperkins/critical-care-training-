@@ -8,6 +8,14 @@ Now: What feeding is trying to accomplish.
 
 ICU nutrition & refeeding risk. Nutrition in critical illness is a metabolic therapy with timing, route, protein, glycemic and electrolyte consequences.
 
+Build the mechanism first. Critical illness changes protein turnover, insulin sensitivity and energy use. Nutrition cannot fully reverse catabolism but route, timing and protein strategy influence recovery.
+
+At the bedside, prefer enteral feeding when feasible, assess aspiration/hemodynamic risk and monitor tolerance rather than chasing an exact calorie number immediately.
+
+Two traps to actively avoid: Equating calories with adequate nutrition. And: Overfeeding unstable patients or missing refeeding risk.
+
+The integration move is this: Nutrition, mobility and ventilator liberation are connected recovery interventions.
+
 Keep these terms available in your mental model: enteral nutrition, protein target, caloric debt.
 
 What expert-level use of this concept looks like is this: Explain why early enteral nutrition is often preferred when feasible. Recognize when feeding strategy, aspiration risk or hemodynamic instability changes the plan.
@@ -17,6 +25,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Enteral versus parenteral reasoning.
 
 ICU nutrition & refeeding risk. Nutrition in critical illness is a metabolic therapy with timing, route, protein, glycemic and electrolyte consequences.
+
+Build the mechanism first. Critical illness changes protein turnover, insulin sensitivity and energy use. Nutrition cannot fully reverse catabolism but route, timing and protein strategy influence recovery.
+
+At the bedside, prefer enteral feeding when feasible, assess aspiration/hemodynamic risk and monitor tolerance rather than chasing an exact calorie number immediately.
+
+Two traps to actively avoid: Equating calories with adequate nutrition. And: Overfeeding unstable patients or missing refeeding risk.
+
+The integration move is this: Nutrition, mobility and ventilator liberation are connected recovery interventions.
 
 Keep these terms available in your mental model: enteral nutrition, protein target, caloric debt.
 
@@ -28,6 +44,14 @@ Now: When feeding itself becomes dangerous.
 
 Refeeding syndrome. Insulin-driven intracellular shifts after refeeding can rapidly lower phosphate, potassium and magnesium and precipitate cardiopulmonary or neurologic deterioration.
 
+Build the mechanism first. Reintroducing carbohydrate after prolonged undernutrition raises insulin and shifts phosphate, potassium and magnesium intracellularly while increasing thiamine demand.
+
+At the bedside, identify high-risk patients before feeding escalation and monitor electrolytes and cardiopulmonary/neurologic response.
+
+Two traps to actively avoid: Waiting for severe hypophosphatemia before recognizing risk. And: Increasing calories rapidly because initial feeding was tolerated.
+
+The integration move is this: The dangerous part is the metabolic transition, not the food itself.
+
 Keep these terms available in your mental model: phosphate, thiamine, intracellular shift.
 
 What expert-level use of this concept looks like is this: Identify high-risk patients before feeding escalates. Connect electrolyte shifts to respiratory, cardiac and neurologic failure.
@@ -37,6 +61,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Protein, mobility and recovery.
 
 ICU-acquired weakness & recovery. Critical illness, immobility, inflammation, sedation and organ failure can produce profound weakness and long-term functional loss.
+
+Build the mechanism first. Inflammation, immobility, neuropathy, myopathy, sedation and undernutrition can cause profound ICU-acquired weakness and prolonged post-ICU disability.
+
+At the bedside, build mobility, delirium prevention, nutrition and sedation minimization into daily care rather than starting “rehab” only after organ failure resolves.
+
+Two traps to actively avoid: Interpreting generalized weakness only as deconditioning. And: Separating recovery planning from ventilator liberation.
+
+The integration move is this: Survival is not the only outcome; function is a critical-care endpoint.
 
 Keep these terms available in your mental model: critical illness myopathy, critical illness neuropathy, PICS.
 

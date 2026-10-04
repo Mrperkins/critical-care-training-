@@ -8,6 +8,14 @@ Now: Why weakness develops.
 
 ICU-acquired weakness & recovery. Critical illness, immobility, inflammation, sedation and organ failure can produce profound weakness and long-term functional loss.
 
+Build the mechanism first. Inflammation, immobility, neuropathy, myopathy, sedation and undernutrition can cause profound ICU-acquired weakness and prolonged post-ICU disability.
+
+At the bedside, build mobility, delirium prevention, nutrition and sedation minimization into daily care rather than starting “rehab” only after organ failure resolves.
+
+Two traps to actively avoid: Interpreting generalized weakness only as deconditioning. And: Separating recovery planning from ventilator liberation.
+
+The integration move is this: Survival is not the only outcome; function is a critical-care endpoint.
+
 Keep these terms available in your mental model: critical illness myopathy, critical illness neuropathy, PICS.
 
 What expert-level use of this concept looks like is this: Recognize weakness as an ICU outcome, not merely a discharge problem. Connect sedation, mobility, nutrition and ventilator liberation to recovery.
@@ -17,6 +25,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Weakness can become a ventilation problem.
 
 Liberation from mechanical ventilation. Liberation requires separating readiness, spontaneous breathing performance, airway protection and post-extubation risk.
+
+Build the mechanism first. A spontaneous breathing trial tests whether the patient can assume the work of breathing, but extubation also requires airway protection and manageable post-extubation risk.
+
+At the bedside, when a trial fails, distinguish respiratory muscle load, cardiac dysfunction, weakness, sedation, airway issues and unresolved disease.
+
+Two traps to actively avoid: Repeating failed SBTs without diagnosing why. And: Equating SBT success with guaranteed extubation success.
+
+The integration move is this: Liberation is a diagnostic stress test followed by an airway decision.
 
 Keep these terms available in your mental model: SBT, RSBI, airway protection.
 
@@ -28,6 +44,14 @@ Now: Sedation, mobility and delirium.
 
 Delirium, sleep & mobility. Brain dysfunction in critical illness is shaped by disease, drugs, sleep disruption, immobility and environment.
 
+Build the mechanism first. Delirium reflects acute brain dysfunction shaped by illness, medications, sleep disruption, sensory deprivation, immobility and environmental stressors.
+
+At the bedside, identify reversible drivers, lighten unnecessary sedation, restore sleep-wake cues, mobilize when feasible and involve family/orientation strategies.
+
+Two traps to actively avoid: Calling hypoactive delirium “calm.” And: Treating delirium exclusively with sedating medication.
+
+The integration move is this: Brain recovery depends on the entire ICU environment, not one drug.
+
 Keep these terms available in your mental model: CAM-ICU, ABCDE/ABCDEF bundle.
 
 What expert-level use of this concept looks like is this: Recognize modifiable drivers of delirium. Integrate sedation reduction, sleep, mobility and family engagement into daily ICU care.
@@ -37,6 +61,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Nutrition and rehabilitation.
 
 ICU nutrition & refeeding risk. Nutrition in critical illness is a metabolic therapy with timing, route, protein, glycemic and electrolyte consequences.
+
+Build the mechanism first. Critical illness changes protein turnover, insulin sensitivity and energy use. Nutrition cannot fully reverse catabolism but route, timing and protein strategy influence recovery.
+
+At the bedside, prefer enteral feeding when feasible, assess aspiration/hemodynamic risk and monitor tolerance rather than chasing an exact calorie number immediately.
+
+Two traps to actively avoid: Equating calories with adequate nutrition. And: Overfeeding unstable patients or missing refeeding risk.
+
+The integration move is this: Nutrition, mobility and ventilator liberation are connected recovery interventions.
 
 Keep these terms available in your mental model: enteral nutrition, protein target, caloric debt.
 

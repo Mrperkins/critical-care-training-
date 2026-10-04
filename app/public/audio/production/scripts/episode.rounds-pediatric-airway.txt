@@ -8,6 +8,14 @@ Now: Small radius, large resistance consequences.
 
 Pediatric airway & ventilation. Smaller airways, higher metabolic demand and lower reserve make pediatric respiratory deterioration faster and equipment sizing more consequential.
 
+Build the mechanism first. Small airway radius magnifies resistance, metabolic demand is higher and functional residual capacity is smaller, so pediatric respiratory reserve is limited.
+
+At the bedside, anticipate rapid desaturation, apparatus dead-space effects and resistance from small tubes or secretions; size equipment thoughtfully.
+
+Two traps to actively avoid: Using adult ventilator assumptions on small patients. And: Ignoring dead space added by connectors/sensors.
+
+The integration move is this: Tiny geometric changes can create large physiologic consequences.
+
 Keep these terms available in your mental model: airway resistance, dead space, uncuffed/cuffed.
 
 What expert-level use of this concept looks like is this: Anticipate rapid desaturation and pressure consequences in small airways. Use age/size-appropriate airway and ventilation strategy.
@@ -17,6 +25,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Higher demand, smaller reserve.
 
 Pediatric airway & ventilation. Smaller airways, higher metabolic demand and lower reserve make pediatric respiratory deterioration faster and equipment sizing more consequential.
+
+Build the mechanism first. Small airway radius magnifies resistance, metabolic demand is higher and functional residual capacity is smaller, so pediatric respiratory reserve is limited.
+
+At the bedside, anticipate rapid desaturation, apparatus dead-space effects and resistance from small tubes or secretions; size equipment thoughtfully.
+
+Two traps to actively avoid: Using adult ventilator assumptions on small patients. And: Ignoring dead space added by connectors/sensors.
+
+The integration move is this: Tiny geometric changes can create large physiologic consequences.
 
 Keep these terms available in your mental model: airway resistance, dead space, uncuffed/cuffed.
 
@@ -28,6 +44,14 @@ Now: Dead space and equipment scale.
 
 Dead space. Ventilation that does not effectively participate in CO2 exchange, from conducting airways or ventilated but poorly perfused alveoli.
 
+Build the mechanism first. Dead-space ventilation reaches regions that do not effectively eliminate CO2 because perfusion is absent or inadequate, or because gas remains in conducting airways.
+
+At the bedside, rising minute-ventilation requirement, widening PaCO2–EtCO2 gap or unexpectedly low EtCO2 can signal increasing dead space when ventilation is otherwise unchanged.
+
+Two traps to actively avoid: Equating all hypercapnia with low minute ventilation. And: Using EtCO2 as a fixed conversion to PaCO2 in shock.
+
+The integration move is this: CO2 is a ventilation-perfusion signal as well as a ventilation signal.
+
 Keep these terms available in your mental model: VD/VT, alveolar dead space.
 
 What expert-level use of this concept looks like is this: Use PaCO2–EtCO2 behavior and minute ventilation requirements to reason about changing dead space.
@@ -37,6 +61,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Troubleshooting after intubation.
 
 Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+Build the mechanism first. Acute ventilator deterioration can originate from the patient, tube, circuit or machine. Peak and plateau pressures help separate resistance from compliance when measurements are trustworthy.
+
+At the bedside, look at the patient first, rescue oxygenation/ventilation if the device cannot be trusted, then trace from patient to tube to circuit to machine.
+
+Two traps to actively avoid: Staring at the ventilator while the patient deteriorates. And: Treating every high-pressure alarm as bronchospasm.
+
+The integration move is this: Use pressure pattern, capnography, exam and circuit inspection to localize the problem quickly.
 
 Keep these terms available in your mental model: DOPES, peak pressure, plateau pressure, auto-peep.
 

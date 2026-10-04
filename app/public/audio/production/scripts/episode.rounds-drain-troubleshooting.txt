@@ -8,6 +8,14 @@ Now: Start with the patient.
 
 Pleural drain troubleshooting. A pleural drain must be assessed as patient + tube + connections + drainage system rather than as an isolated device.
 
+Build the mechanism first. A pleural drain can fail because pathology persists, the tube is malpositioned/occluded, connections leak, or the drainage system is configured incorrectly.
+
+At the bedside, trace from patient to skin entry, tubing, connections, water seal and suction; correlate with respiratory/hemodynamic changes and pleural imaging.
+
+Two traps to actively avoid: Milking or manipulating tubing without understanding the problem. And: Assuming bubbling always means the same thing.
+
+The integration move is this: Device behavior is meaningful only when interpreted with the patient and the physical circuit.
+
 Keep these terms available in your mental model: water seal, tidaling, air leak.
 
 What expert-level use of this concept looks like is this: Trace a failing drain from the patient outward. Differentiate expected system behavior from kink, disconnection, migration, occlusion and ongoing pleural leak.
@@ -17,6 +25,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Kink, clot, migration and dependent loops.
 
 Pleural drain troubleshooting. A pleural drain must be assessed as patient + tube + connections + drainage system rather than as an isolated device.
+
+Build the mechanism first. A pleural drain can fail because pathology persists, the tube is malpositioned/occluded, connections leak, or the drainage system is configured incorrectly.
+
+At the bedside, trace from patient to skin entry, tubing, connections, water seal and suction; correlate with respiratory/hemodynamic changes and pleural imaging.
+
+Two traps to actively avoid: Milking or manipulating tubing without understanding the problem. And: Assuming bubbling always means the same thing.
+
+The integration move is this: Device behavior is meaningful only when interpreted with the patient and the physical circuit.
 
 Keep these terms available in your mental model: water seal, tidaling, air leak.
 
@@ -28,6 +44,14 @@ Now: Water seal, suction and air leak behavior.
 
 Pleural drain troubleshooting. A pleural drain must be assessed as patient + tube + connections + drainage system rather than as an isolated device.
 
+Build the mechanism first. A pleural drain can fail because pathology persists, the tube is malpositioned/occluded, connections leak, or the drainage system is configured incorrectly.
+
+At the bedside, trace from patient to skin entry, tubing, connections, water seal and suction; correlate with respiratory/hemodynamic changes and pleural imaging.
+
+Two traps to actively avoid: Milking or manipulating tubing without understanding the problem. And: Assuming bubbling always means the same thing.
+
+The integration move is this: Device behavior is meaningful only when interpreted with the patient and the physical circuit.
+
 Keep these terms available in your mental model: water seal, tidaling, air leak.
 
 What expert-level use of this concept looks like is this: Trace a failing drain from the patient outward. Differentiate expected system behavior from kink, disconnection, migration, occlusion and ongoing pleural leak.
@@ -37,6 +61,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Use pleural ultrasound when the physiology and system disagree.
 
 Pneumothorax ultrasound. Pleural ultrasound combines sliding, B-lines, M-mode patterns and lung point rather than relying on a single sign.
+
+Build the mechanism first. Pleural ultrasound infers apposition or separation of pleural layers through sliding, B-lines, lung pulse, M-mode patterns and lung point.
+
+At the bedside, absent sliding raises suspicion but is nonspecific; lung point is more specific when present in the appropriate context.
+
+Two traps to actively avoid: Diagnosing pneumothorax from absent sliding alone. And: Forgetting apnea, pleurodesis, mainstem intubation or severe lung disease as alternatives.
+
+The integration move is this: Use multiple signs and the patient’s physiology rather than one binary image feature.
 
 Keep these terms available in your mental model: lung sliding, lung point, seashore, barcode.
 

@@ -8,6 +8,14 @@ Now: Total-body depletion with a normal or high serum K.
 
 Diabetic ketoacidosis physiology. Insulin deficiency produces ketogenesis, osmotic diuresis, electrolyte shifts and a high-anion-gap acidosis whose treatment changes potassium and water distribution.
 
+Build the mechanism first. Insulin deficiency and counter-regulatory hormones drive ketogenesis, osmotic diuresis and major total-body electrolyte deficits even when serum levels initially appear normal or high.
+
+At the bedside, track volume status, potassium, sodium/osmolality, anion gap and acid-base trajectory through treatment.
+
+Two traps to actively avoid: Treating glucose normalization as resolution of DKA. And: Forgetting that insulin can rapidly expose profound potassium depletion.
+
+The integration move is this: DKA therapy changes physiology continuously; every lab value belongs to a time point in that transition.
+
 Keep these terms available in your mental model: ketogenesis, anion gap, corrected sodium.
 
 What expert-level use of this concept looks like is this: Track potassium and volume physiology across treatment rather than treating glucose alone. Recognize mixed acid-base disorders and treatment-related complications.
@@ -17,6 +25,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: What insulin does next.
 
 Diabetic ketoacidosis physiology. Insulin deficiency produces ketogenesis, osmotic diuresis, electrolyte shifts and a high-anion-gap acidosis whose treatment changes potassium and water distribution.
+
+Build the mechanism first. Insulin deficiency and counter-regulatory hormones drive ketogenesis, osmotic diuresis and major total-body electrolyte deficits even when serum levels initially appear normal or high.
+
+At the bedside, track volume status, potassium, sodium/osmolality, anion gap and acid-base trajectory through treatment.
+
+Two traps to actively avoid: Treating glucose normalization as resolution of DKA. And: Forgetting that insulin can rapidly expose profound potassium depletion.
+
+The integration move is this: DKA therapy changes physiology continuously; every lab value belongs to a time point in that transition.
 
 Keep these terms available in your mental model: ketogenesis, anion gap, corrected sodium.
 
@@ -28,6 +44,14 @@ Now: Acid-base and potassium are related but not one-to-one.
 
 Advanced acid-base reasoning. Integrate respiratory and metabolic processes, compensation, anion gap, albumin, chloride and mixed disorders.
 
+Build the mechanism first. pH reflects interacting respiratory and metabolic processes. Compensation has expected patterns, so deviations can expose mixed disorders that a single pH label hides.
+
+At the bedside, calculate the anion gap, correct for relevant confounders, compare compensation and consider chloride, albumin and lactate in context.
+
+Two traps to actively avoid: Calling a normal pH normal acid-base physiology. And: Treating bicarbonate concentration as if it identifies the mechanism by itself.
+
+The integration move is this: Acid-base analysis should lead back to the disease process causing the disturbance.
+
 Keep these terms available in your mental model: delta gap, expected compensation.
 
 What expert-level use of this concept looks like is this: Identify mixed disorders that a single pH label hides. Connect acid-base abnormalities to the underlying physiology and treatment.
@@ -37,6 +61,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Trend the physiology through treatment.
 
 Diabetic ketoacidosis physiology. Insulin deficiency produces ketogenesis, osmotic diuresis, electrolyte shifts and a high-anion-gap acidosis whose treatment changes potassium and water distribution.
+
+Build the mechanism first. Insulin deficiency and counter-regulatory hormones drive ketogenesis, osmotic diuresis and major total-body electrolyte deficits even when serum levels initially appear normal or high.
+
+At the bedside, track volume status, potassium, sodium/osmolality, anion gap and acid-base trajectory through treatment.
+
+Two traps to actively avoid: Treating glucose normalization as resolution of DKA. And: Forgetting that insulin can rapidly expose profound potassium depletion.
+
+The integration move is this: DKA therapy changes physiology continuously; every lab value belongs to a time point in that transition.
 
 Keep these terms available in your mental model: ketogenesis, anion gap, corrected sodium.
 

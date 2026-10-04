@@ -8,6 +8,14 @@ Now: Stop naming shock by one number.
 
 Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
 
+Build the mechanism first. Shock is inadequate effective tissue perfusion and oxygen utilization, not merely hypotension. Flow, vascular tone, capacitance, congestion and extraction can fail in different combinations.
+
+At the bedside, phenotype the circulation repeatedly. A patient can move from one dominant mechanism to another during resuscitation.
+
+Two traps to actively avoid: Naming shock once and never revisiting the model. And: Treating MAP as the only endpoint.
+
+The integration move is this: Choose interventions that both treat the suspected mechanism and generate information about whether the model was correct.
+
 Keep these terms available in your mental model: flow, tone, congestion, perfusion.
 
 What expert-level use of this concept looks like is this: Recognize mixed shock. Choose an intervention that tests a physiologic hypothesis and define the response expected if that hypothesis is correct.
@@ -17,6 +25,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Flow and venous return.
 
 Venous return. Flow back to the right heart determined by the pressure gradient from the systemic circulation and resistance to venous return.
+
+Build the mechanism first. Venous return depends on the pressure gradient from the systemic venous reservoir toward the right atrium and on resistance to that flow. Mean systemic filling pressure and right-atrial pressure can move independently.
+
+At the bedside, a rise in right-atrial pressure can reduce venous return even when the patient appears more “full.” Venoconstriction can recruit unstressed volume and change the upstream pressure without adding external fluid.
+
+Two traps to actively avoid: Treating a high CVP as proof of adequate forward flow. And: Ignoring abdominal, thoracic or pericardial pressure as downstream resistance.
+
+The integration move is this: Predict how fluid, venoconstriction, peep and RV failure each alter the venous-return gradient.
 
 Keep these terms available in your mental model: mean systemic filling pressure, stressed volume, venous return gradient.
 
@@ -28,11 +44,27 @@ Now: Delivery and extraction.
 
 Oxygen delivery. DO2 is cardiac output multiplied by arterial oxygen content; saturation alone does not describe tissue oxygen delivery.
 
+Build the mechanism first. Oxygen delivery equals cardiac output multiplied by arterial oxygen content, which is dominated by hemoglobin-bound oxygen rather than dissolved oxygen.
+
+At the bedside, normal saturation can coexist with critically low delivery in severe anemia or low-flow shock. Ask about hemoglobin and flow whenever tissue perfusion looks worse than the pulse oximeter.
+
+Two traps to actively avoid: Using SpO2 as a proxy for whole-body oxygen delivery. And: Forgetting that raising saturation from already-high levels adds little content.
+
+The integration move is this: Saturation tells you how full the carriers are; hemoglobin tells you how many carriers exist; cardiac output tells you how fast they move.
+
 Keep these terms available in your mental model: CaO2, DO2, VO2.
 
 What expert-level use of this concept looks like is this: Predict effects of hemoglobin, saturation and flow on oxygen delivery. Explain why a normal SpO2 can coexist with inadequate DO2.
 
 Oxygen extraction. The relationship between delivered and consumed oxygen reflected by venous saturation and tissue extraction.
+
+Build the mechanism first. Tissues can increase extraction when delivery falls, lowering venous oxygen saturation until extraction reserve is exhausted. High venous saturation can also be abnormal when extraction is impaired or flow is maldistributed.
+
+At the bedside, interpret SvO2 or ScvO2 alongside cardiac output, hemoglobin, arterial saturation, metabolic demand and shock phenotype.
+
+Two traps to actively avoid: Calling a high venous saturation reassuring in every patient. And: Treating low venous saturation as a diagnosis instead of a physiologic clue.
+
+The integration move is this: Use venous saturation to ask whether delivery and demand are appropriately matched.
 
 Keep these terms available in your mental model: O2ER, SvO2, critical DO2.
 
@@ -44,6 +76,14 @@ Now: Lactate without superstition.
 
 Lactate physiology. Lactate reflects production and clearance across multiple pathways and is not a direct tissue-hypoxia meter.
 
+Build the mechanism first. Lactate rises from multiple pathways including adrenergic glycolysis, impaired clearance and cellular metabolic changes; it is not a direct meter of tissue hypoxia.
+
+At the bedside, trend lactate with perfusion, liver function, catecholamine exposure and clinical trajectory. A falling value can be reassuring but should not override a deteriorating patient.
+
+Two traps to actively avoid: Assuming every elevated lactate mandates more fluid. And: Equating “clearance” with literal removal of all pathology.
+
+The integration move is this: Use lactate as one dynamic metabolic signal inside the larger perfusion model.
+
 Keep these terms available in your mental model: adrenergic glycolysis, clearance.
 
 What expert-level use of this concept looks like is this: Generate hypoxic and non-hypoxic explanations for elevated lactate. Interpret trajectory alongside perfusion rather than in isolation.
@@ -54,11 +94,27 @@ Now: Mixed shock.
 
 Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
 
+Build the mechanism first. Shock is inadequate effective tissue perfusion and oxygen utilization, not merely hypotension. Flow, vascular tone, capacitance, congestion and extraction can fail in different combinations.
+
+At the bedside, phenotype the circulation repeatedly. A patient can move from one dominant mechanism to another during resuscitation.
+
+Two traps to actively avoid: Naming shock once and never revisiting the model. And: Treating MAP as the only endpoint.
+
+The integration move is this: Choose interventions that both treat the suspected mechanism and generate information about whether the model was correct.
+
 Keep these terms available in your mental model: flow, tone, congestion, perfusion.
 
 What expert-level use of this concept looks like is this: Recognize mixed shock. Choose an intervention that tests a physiologic hypothesis and define the response expected if that hypothesis is correct.
 
 Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
+
+Build the mechanism first. Clinical decisions are made with incomplete information. Calibrated reasoning assigns provisional probability, makes predictions and updates when new data contradict the model.
+
+At the bedside, state confidence, name disconfirming evidence and define what response you expect from a treatment if the model is correct.
+
+Two traps to actively avoid: Equating uncertainty with indecision. And: Becoming more confident simply because the same hypothesis has been repeated.
+
+The integration move is this: A model that cannot be falsified is not useful clinical reasoning.
 
 Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
 

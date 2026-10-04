@@ -8,6 +8,14 @@ Now: Why HHS is not DKA without ketones.
 
 Hyperosmolar hyperglycemic state. HHS combines profound free-water deficit and hyperosmolality with less ketogenesis than DKA, creating distinct neurologic and correction-rate concerns.
 
+Build the mechanism first. HHS is dominated by severe hyperosmolality and free-water deficit with relatively little ketoacidosis. Neurologic dysfunction tracks osmotic disturbance and underlying illness.
+
+At the bedside, follow effective osmolality, sodium trajectory, volume status and neurologic state while glucose falls.
+
+Two traps to actively avoid: Treating HHS as DKA with fewer ketones. And: Correcting glucose rapidly without watching osmolality and sodium.
+
+The integration move is this: The treatment target is gradual restoration of water and osmolality, not merely glucose normalization.
+
 Keep these terms available in your mental model: effective osmolality, free-water deficit, corrected sodium.
 
 What expert-level use of this concept looks like is this: Distinguish HHS physiology from DKA rather than treating both as hyperglycemia. Track sodium and osmolality during therapy to avoid overly rapid shifts.
@@ -17,6 +25,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: The scale of the free-water deficit.
 
 Hyperosmolar hyperglycemic state. HHS combines profound free-water deficit and hyperosmolality with less ketogenesis than DKA, creating distinct neurologic and correction-rate concerns.
+
+Build the mechanism first. HHS is dominated by severe hyperosmolality and free-water deficit with relatively little ketoacidosis. Neurologic dysfunction tracks osmotic disturbance and underlying illness.
+
+At the bedside, follow effective osmolality, sodium trajectory, volume status and neurologic state while glucose falls.
+
+Two traps to actively avoid: Treating HHS as DKA with fewer ketones. And: Correcting glucose rapidly without watching osmolality and sodium.
+
+The integration move is this: The treatment target is gradual restoration of water and osmolality, not merely glucose normalization.
 
 Keep these terms available in your mental model: effective osmolality, free-water deficit, corrected sodium.
 
@@ -28,6 +44,14 @@ Now: Corrected sodium and effective osmolality.
 
 Hyperosmolar hyperglycemic state. HHS combines profound free-water deficit and hyperosmolality with less ketogenesis than DKA, creating distinct neurologic and correction-rate concerns.
 
+Build the mechanism first. HHS is dominated by severe hyperosmolality and free-water deficit with relatively little ketoacidosis. Neurologic dysfunction tracks osmotic disturbance and underlying illness.
+
+At the bedside, follow effective osmolality, sodium trajectory, volume status and neurologic state while glucose falls.
+
+Two traps to actively avoid: Treating HHS as DKA with fewer ketones. And: Correcting glucose rapidly without watching osmolality and sodium.
+
+The integration move is this: The treatment target is gradual restoration of water and osmolality, not merely glucose normalization.
+
 Keep these terms available in your mental model: effective osmolality, free-water deficit, corrected sodium.
 
 What expert-level use of this concept looks like is this: Distinguish HHS physiology from DKA rather than treating both as hyperglycemia. Track sodium and osmolality during therapy to avoid overly rapid shifts.
@@ -38,11 +62,27 @@ Now: Why trajectories matter during treatment.
 
 Hyperosmolar hyperglycemic state. HHS combines profound free-water deficit and hyperosmolality with less ketogenesis than DKA, creating distinct neurologic and correction-rate concerns.
 
+Build the mechanism first. HHS is dominated by severe hyperosmolality and free-water deficit with relatively little ketoacidosis. Neurologic dysfunction tracks osmotic disturbance and underlying illness.
+
+At the bedside, follow effective osmolality, sodium trajectory, volume status and neurologic state while glucose falls.
+
+Two traps to actively avoid: Treating HHS as DKA with fewer ketones. And: Correcting glucose rapidly without watching osmolality and sodium.
+
+The integration move is this: The treatment target is gradual restoration of water and osmolality, not merely glucose normalization.
+
 Keep these terms available in your mental model: effective osmolality, free-water deficit, corrected sodium.
 
 What expert-level use of this concept looks like is this: Distinguish HHS physiology from DKA rather than treating both as hyperglycemia. Track sodium and osmolality during therapy to avoid overly rapid shifts.
 
 Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
+
+Build the mechanism first. Clinical decisions are made with incomplete information. Calibrated reasoning assigns provisional probability, makes predictions and updates when new data contradict the model.
+
+At the bedside, state confidence, name disconfirming evidence and define what response you expect from a treatment if the model is correct.
+
+Two traps to actively avoid: Equating uncertainty with indecision. And: Becoming more confident simply because the same hypothesis has been repeated.
+
+The integration move is this: A model that cannot be falsified is not useful clinical reasoning.
 
 Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
 

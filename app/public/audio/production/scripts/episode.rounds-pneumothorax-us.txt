@@ -8,6 +8,14 @@ Now: Find the pleural line first.
 
 Pneumothorax ultrasound. Pleural ultrasound combines sliding, B-lines, M-mode patterns and lung point rather than relying on a single sign.
 
+Build the mechanism first. Pleural ultrasound infers apposition or separation of pleural layers through sliding, B-lines, lung pulse, M-mode patterns and lung point.
+
+At the bedside, absent sliding raises suspicion but is nonspecific; lung point is more specific when present in the appropriate context.
+
+Two traps to actively avoid: Diagnosing pneumothorax from absent sliding alone. And: Forgetting apnea, pleurodesis, mainstem intubation or severe lung disease as alternatives.
+
+The integration move is this: Use multiple signs and the patient’s physiology rather than one binary image feature.
+
 Keep these terms available in your mental model: lung sliding, lung point, seashore, barcode.
 
 What expert-level use of this concept looks like is this: Use multiple pleural signs to support or weaken the diagnosis. Recognize situations where absent sliding is not pneumothorax.
@@ -17,6 +25,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: What sliding can and cannot tell you.
 
 Pneumothorax ultrasound. Pleural ultrasound combines sliding, B-lines, M-mode patterns and lung point rather than relying on a single sign.
+
+Build the mechanism first. Pleural ultrasound infers apposition or separation of pleural layers through sliding, B-lines, lung pulse, M-mode patterns and lung point.
+
+At the bedside, absent sliding raises suspicion but is nonspecific; lung point is more specific when present in the appropriate context.
+
+Two traps to actively avoid: Diagnosing pneumothorax from absent sliding alone. And: Forgetting apnea, pleurodesis, mainstem intubation or severe lung disease as alternatives.
+
+The integration move is this: Use multiple signs and the patient’s physiology rather than one binary image feature.
 
 Keep these terms available in your mental model: lung sliding, lung point, seashore, barcode.
 
@@ -28,6 +44,14 @@ Now: B-lines, lung pulse and M-mode.
 
 Pneumothorax ultrasound. Pleural ultrasound combines sliding, B-lines, M-mode patterns and lung point rather than relying on a single sign.
 
+Build the mechanism first. Pleural ultrasound infers apposition or separation of pleural layers through sliding, B-lines, lung pulse, M-mode patterns and lung point.
+
+At the bedside, absent sliding raises suspicion but is nonspecific; lung point is more specific when present in the appropriate context.
+
+Two traps to actively avoid: Diagnosing pneumothorax from absent sliding alone. And: Forgetting apnea, pleurodesis, mainstem intubation or severe lung disease as alternatives.
+
+The integration move is this: Use multiple signs and the patient’s physiology rather than one binary image feature.
+
 Keep these terms available in your mental model: lung sliding, lung point, seashore, barcode.
 
 What expert-level use of this concept looks like is this: Use multiple pleural signs to support or weaken the diagnosis. Recognize situations where absent sliding is not pneumothorax.
@@ -38,6 +62,14 @@ Now: Why lung point is different.
 
 Pneumothorax ultrasound. Pleural ultrasound combines sliding, B-lines, M-mode patterns and lung point rather than relying on a single sign.
 
+Build the mechanism first. Pleural ultrasound infers apposition or separation of pleural layers through sliding, B-lines, lung pulse, M-mode patterns and lung point.
+
+At the bedside, absent sliding raises suspicion but is nonspecific; lung point is more specific when present in the appropriate context.
+
+Two traps to actively avoid: Diagnosing pneumothorax from absent sliding alone. And: Forgetting apnea, pleurodesis, mainstem intubation or severe lung disease as alternatives.
+
+The integration move is this: Use multiple signs and the patient’s physiology rather than one binary image feature.
+
 Keep these terms available in your mental model: lung sliding, lung point, seashore, barcode.
 
 What expert-level use of this concept looks like is this: Use multiple pleural signs to support or weaken the diagnosis. Recognize situations where absent sliding is not pneumothorax.
@@ -47,6 +79,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: The ultrasound answers a bedside question.
 
 Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+Build the mechanism first. Acute ventilator deterioration can originate from the patient, tube, circuit or machine. Peak and plateau pressures help separate resistance from compliance when measurements are trustworthy.
+
+At the bedside, look at the patient first, rescue oxygenation/ventilation if the device cannot be trusted, then trace from patient to tube to circuit to machine.
+
+Two traps to actively avoid: Staring at the ventilator while the patient deteriorates. And: Treating every high-pressure alarm as bronchospasm.
+
+The integration move is this: Use pressure pattern, capnography, exam and circuit inspection to localize the problem quickly.
 
 Keep these terms available in your mental model: DOPES, peak pressure, plateau pressure, auto-peep.
 

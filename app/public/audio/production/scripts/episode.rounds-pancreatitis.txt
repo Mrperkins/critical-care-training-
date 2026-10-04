@@ -8,11 +8,27 @@ Now: The early inflammatory phase.
 
 Severe acute pancreatitis. Pancreatitis can produce capillary leak, third spacing, respiratory failure, shock, renal injury and later infectious complications.
 
+Build the mechanism first. Pancreatic inflammation can drive systemic capillary leak, third spacing, vasodilation, A R D S, AKI and later necrotic/infectious complications.
+
+At the bedside, reassess volume needs frequently, support organ failure, start nutrition thoughtfully and distinguish sterile inflammatory deterioration from later infection.
+
+Two traps to actively avoid: Continuing aggressive fluid long after responsiveness is lost. And: Assuming every fever or leukocytosis means infected necrosis.
+
+The integration move is this: The disease evolves from inflammatory resuscitation to organ support and sometimes source control.
+
 Keep these terms available in your mental model: necrosis, third spacing, organ failure.
 
 What expert-level use of this concept looks like is this: Treat pancreatitis as a multisystem inflammatory illness rather than an isolated abdominal diagnosis. Balance fluids, respiratory support, nutrition and infection decisions over time.
 
 Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+Build the mechanism first. Shock is inadequate effective tissue perfusion and oxygen utilization, not merely hypotension. Flow, vascular tone, capacitance, congestion and extraction can fail in different combinations.
+
+At the bedside, phenotype the circulation repeatedly. A patient can move from one dominant mechanism to another during resuscitation.
+
+Two traps to actively avoid: Naming shock once and never revisiting the model. And: Treating MAP as the only endpoint.
+
+The integration move is this: Choose interventions that both treat the suspected mechanism and generate information about whether the model was correct.
 
 Keep these terms available in your mental model: flow, tone, congestion, perfusion.
 
@@ -24,6 +40,14 @@ Now: Why the lungs often join the problem.
 
 A R D S physiology. Diffuse inflammatory lung injury producing heterogeneity, shunt, low aerated lung volume and risk from ventilator-induced injury.
 
+Build the mechanism first. A R D S produces heterogeneous inflammatory lung injury, shunt, edema and a reduced aerated “baby lung,” making regional overdistension possible even at seemingly modest tidal volumes.
+
+At the bedside, integrate gas exchange, compliance, recruitability, prone response, driving pressure and hemodynamics rather than treating the P/F ratio alone.
+
+Two traps to actively avoid: Equating severe hypoxemia with universal recruitability. And: Improving oxygenation at the cost of excessive distending pressure or RV load.
+
+The integration move is this: A R D S management is a tradeoff between oxygenation, mechanical injury and circulation.
+
 Keep these terms available in your mental model: baby lung, shunt, recruitability.
 
 What expert-level use of this concept looks like is this: Integrate oxygenation, mechanics, recruitability and hemodynamics rather than treating a P/F ratio in isolation.
@@ -33,6 +57,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: AKI and fluid accumulation.
 
 C R R T physiology & prescription literacy. Continuous renal replacement uses diffusion and/or convection to manage solute, acid-base and fluid balance in unstable patients.
+
+Build the mechanism first. C R R T uses diffusion, convection and ultrafiltration to control solute, acid-base and volume continuously. Prescribed dose can differ substantially from delivered dose.
+
+At the bedside, separate total effluent from net patient fluid removal and interpret access, filter and return pressures as clues to the physical circuit.
+
+Two traps to actively avoid: Calling every effluent liter “fluid removed from the patient.” And: Ignoring downtime and clotting when assessing delivered therapy.
+
+The integration move is this: C R R T is both renal support and a hemodynamic intervention.
 
 Keep these terms available in your mental model: effluent dose, CVVH, CVVHD, CVVHDF, filtration fraction.
 
@@ -44,11 +76,27 @@ Now: Necrosis, infection and nutrition.
 
 ICU nutrition & refeeding risk. Nutrition in critical illness is a metabolic therapy with timing, route, protein, glycemic and electrolyte consequences.
 
+Build the mechanism first. Critical illness changes protein turnover, insulin sensitivity and energy use. Nutrition cannot fully reverse catabolism but route, timing and protein strategy influence recovery.
+
+At the bedside, prefer enteral feeding when feasible, assess aspiration/hemodynamic risk and monitor tolerance rather than chasing an exact calorie number immediately.
+
+Two traps to actively avoid: Equating calories with adequate nutrition. And: Overfeeding unstable patients or missing refeeding risk.
+
+The integration move is this: Nutrition, mobility and ventilator liberation are connected recovery interventions.
+
 Keep these terms available in your mental model: enteral nutrition, protein target, caloric debt.
 
 What expert-level use of this concept looks like is this: Explain why early enteral nutrition is often preferred when feasible. Recognize when feeding strategy, aspiration risk or hemodynamic instability changes the plan.
 
 Source control. Definitive management of infected material, devitalized tissue or an infected device can be as important as antimicrobial therapy.
+
+Build the mechanism first. Antibiotics cannot sterilize every infected collection, necrotic tissue or infected device. Persistent nidus can sustain inflammatory and microbial burden despite apparently appropriate antimicrobial therapy.
+
+At the bedside, ask early whether drainage, debridement, device removal or surgery is required and whether it is actually happening.
+
+Two traps to actively avoid: Escalating antibiotic breadth when the real failure is lack of source control. And: Waiting for complete hemodynamic normalization before addressing a time-sensitive source.
+
+The integration move is this: Sepsis treatment is host support plus antimicrobials plus definitive control of the source.
 
 Keep these terms available in your mental model: drainage, debridement, device removal.
 

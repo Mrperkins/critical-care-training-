@@ -8,6 +8,14 @@ Now: Electroneutrality and strong ions.
 
 Strong-ion approach. A physicochemical framework using strong-ion difference, total weak acids and PCO2 to explain acid-base state.
 
+Build the mechanism first. The physicochemical framework explains acid-base state through PCO2, strong-ion difference and total weak acids. Chloride-rich states lower SID and can create metabolic acidosis.
+
+At the bedside, use the model to understand hyperchloremia and hypoalbuminemia while still translating findings into familiar bicarbonate and anion-gap language.
+
+Two traps to actively avoid: Treating Stewart and traditional approaches as mutually exclusive. And: Using a complex framework when a simpler analysis already explains the patient.
+
+The integration move is this: Different frameworks should converge on the same physiology, not compete for identity.
+
 Keep these terms available in your mental model: SID, Atot.
 
 What expert-level use of this concept looks like is this: Use the framework to explain hyperchloremic acidosis and effects of albumin without treating it as a competing religion to bicarbonate-based analysis.
@@ -17,6 +25,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Why chloride can acidify plasma.
 
 Strong-ion approach. A physicochemical framework using strong-ion difference, total weak acids and PCO2 to explain acid-base state.
+
+Build the mechanism first. The physicochemical framework explains acid-base state through PCO2, strong-ion difference and total weak acids. Chloride-rich states lower SID and can create metabolic acidosis.
+
+At the bedside, use the model to understand hyperchloremia and hypoalbuminemia while still translating findings into familiar bicarbonate and anion-gap language.
+
+Two traps to actively avoid: Treating Stewart and traditional approaches as mutually exclusive. And: Using a complex framework when a simpler analysis already explains the patient.
+
+The integration move is this: Different frameworks should converge on the same physiology, not compete for identity.
 
 Keep these terms available in your mental model: SID, Atot.
 
@@ -28,6 +44,14 @@ Now: Weak acids and albumin.
 
 Strong-ion approach. A physicochemical framework using strong-ion difference, total weak acids and PCO2 to explain acid-base state.
 
+Build the mechanism first. The physicochemical framework explains acid-base state through PCO2, strong-ion difference and total weak acids. Chloride-rich states lower SID and can create metabolic acidosis.
+
+At the bedside, use the model to understand hyperchloremia and hypoalbuminemia while still translating findings into familiar bicarbonate and anion-gap language.
+
+Two traps to actively avoid: Treating Stewart and traditional approaches as mutually exclusive. And: Using a complex framework when a simpler analysis already explains the patient.
+
+The integration move is this: Different frameworks should converge on the same physiology, not compete for identity.
+
 Keep these terms available in your mental model: SID, Atot.
 
 What expert-level use of this concept looks like is this: Use the framework to explain hyperchloremic acidosis and effects of albumin without treating it as a competing religion to bicarbonate-based analysis.
@@ -38,11 +62,27 @@ Now: Translate between frameworks.
 
 Strong-ion approach. A physicochemical framework using strong-ion difference, total weak acids and PCO2 to explain acid-base state.
 
+Build the mechanism first. The physicochemical framework explains acid-base state through PCO2, strong-ion difference and total weak acids. Chloride-rich states lower SID and can create metabolic acidosis.
+
+At the bedside, use the model to understand hyperchloremia and hypoalbuminemia while still translating findings into familiar bicarbonate and anion-gap language.
+
+Two traps to actively avoid: Treating Stewart and traditional approaches as mutually exclusive. And: Using a complex framework when a simpler analysis already explains the patient.
+
+The integration move is this: Different frameworks should converge on the same physiology, not compete for identity.
+
 Keep these terms available in your mental model: SID, Atot.
 
 What expert-level use of this concept looks like is this: Use the framework to explain hyperchloremic acidosis and effects of albumin without treating it as a competing religion to bicarbonate-based analysis.
 
 Advanced acid-base reasoning. Integrate respiratory and metabolic processes, compensation, anion gap, albumin, chloride and mixed disorders.
+
+Build the mechanism first. pH reflects interacting respiratory and metabolic processes. Compensation has expected patterns, so deviations can expose mixed disorders that a single pH label hides.
+
+At the bedside, calculate the anion gap, correct for relevant confounders, compare compensation and consider chloride, albumin and lactate in context.
+
+Two traps to actively avoid: Calling a normal pH normal acid-base physiology. And: Treating bicarbonate concentration as if it identifies the mechanism by itself.
+
+The integration move is this: Acid-base analysis should lead back to the disease process causing the disturbance.
 
 Keep these terms available in your mental model: delta gap, expected compensation.
 

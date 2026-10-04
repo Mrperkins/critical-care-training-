@@ -8,6 +8,14 @@ Now: How children compensate.
 
 Pediatric shock physiology. Children often preserve blood pressure until late while compensating with tachycardia and vasoconstriction; age and size alter interpretation and therapy.
 
+Build the mechanism first. Children can maintain blood pressure through tachycardia and vasoconstriction until late, while higher metabolic demand makes oxygen-delivery failure progress quickly.
+
+At the bedside, use age-adjusted physiology, mental status, perfusion, pulse quality and urine output rather than waiting for hypotension.
+
+Two traps to actively avoid: Using adult thresholds. And: Calling a normal pediatric BP reassuring despite poor perfusion.
+
+The integration move is this: Pediatric shock is often compensated until it suddenly is not.
+
 Keep these terms available in your mental model: compensated shock, age-adjusted, weight-based.
 
 What expert-level use of this concept looks like is this: Recognize compensated pediatric shock before hypotension. Use age, size and disease-specific physiology rather than scaled-down adult assumptions.
@@ -17,6 +25,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Age changes what “normal” means.
 
 Pediatric shock physiology. Children often preserve blood pressure until late while compensating with tachycardia and vasoconstriction; age and size alter interpretation and therapy.
+
+Build the mechanism first. Children can maintain blood pressure through tachycardia and vasoconstriction until late, while higher metabolic demand makes oxygen-delivery failure progress quickly.
+
+At the bedside, use age-adjusted physiology, mental status, perfusion, pulse quality and urine output rather than waiting for hypotension.
+
+Two traps to actively avoid: Using adult thresholds. And: Calling a normal pediatric BP reassuring despite poor perfusion.
+
+The integration move is this: Pediatric shock is often compensated until it suddenly is not.
 
 Keep these terms available in your mental model: compensated shock, age-adjusted, weight-based.
 
@@ -28,6 +44,14 @@ Now: Oxygen delivery and metabolic demand.
 
 Oxygen delivery. DO2 is cardiac output multiplied by arterial oxygen content; saturation alone does not describe tissue oxygen delivery.
 
+Build the mechanism first. Oxygen delivery equals cardiac output multiplied by arterial oxygen content, which is dominated by hemoglobin-bound oxygen rather than dissolved oxygen.
+
+At the bedside, normal saturation can coexist with critically low delivery in severe anemia or low-flow shock. Ask about hemoglobin and flow whenever tissue perfusion looks worse than the pulse oximeter.
+
+Two traps to actively avoid: Using SpO2 as a proxy for whole-body oxygen delivery. And: Forgetting that raising saturation from already-high levels adds little content.
+
+The integration move is this: Saturation tells you how full the carriers are; hemoglobin tells you how many carriers exist; cardiac output tells you how fast they move.
+
 Keep these terms available in your mental model: CaO2, DO2, VO2.
 
 What expert-level use of this concept looks like is this: Predict effects of hemoglobin, saturation and flow on oxygen delivery. Explain why a normal SpO2 can coexist with inadequate DO2.
@@ -37,6 +61,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Distributive, hypovolemic and pump failure.
 
 Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+Build the mechanism first. Shock is inadequate effective tissue perfusion and oxygen utilization, not merely hypotension. Flow, vascular tone, capacitance, congestion and extraction can fail in different combinations.
+
+At the bedside, phenotype the circulation repeatedly. A patient can move from one dominant mechanism to another during resuscitation.
+
+Two traps to actively avoid: Naming shock once and never revisiting the model. And: Treating MAP as the only endpoint.
+
+The integration move is this: Choose interventions that both treat the suspected mechanism and generate information about whether the model was correct.
 
 Keep these terms available in your mental model: flow, tone, congestion, perfusion.
 

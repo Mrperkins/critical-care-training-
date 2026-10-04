@@ -8,11 +8,27 @@ Now: The handoff.
 
 A R D S physiology. Diffuse inflammatory lung injury producing heterogeneity, shunt, low aerated lung volume and risk from ventilator-induced injury.
 
+Build the mechanism first. A R D S produces heterogeneous inflammatory lung injury, shunt, edema and a reduced aerated “baby lung,” making regional overdistension possible even at seemingly modest tidal volumes.
+
+At the bedside, integrate gas exchange, compliance, recruitability, prone response, driving pressure and hemodynamics rather than treating the P/F ratio alone.
+
+Two traps to actively avoid: Equating severe hypoxemia with universal recruitability. And: Improving oxygenation at the cost of excessive distending pressure or RV load.
+
+The integration move is this: A R D S management is a tradeoff between oxygenation, mechanical injury and circulation.
+
 Keep these terms available in your mental model: baby lung, shunt, recruitability.
 
 What expert-level use of this concept looks like is this: Integrate oxygenation, mechanics, recruitability and hemodynamics rather than treating a P/F ratio in isolation.
 
 Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+Build the mechanism first. The RV is thin-walled and highly sensitive to acute afterload. When it dilates, wall stress rises, coronary perfusion can fall and septal shift can reduce LV filling.
+
+At the bedside, track systemic pressure, venous congestion, echo geometry, oxygenation, CO2, acid-base status and ventilator pressures together. Small changes in P V R or intrathoracic pressure can have large hemodynamic consequences.
+
+Two traps to actively avoid: Reflexively giving fluid to every hypotensive RV patient. And: Focusing on systemic pressure while ignoring worsening RV dilation and congestion.
+
+The integration move is this: Every intervention should be judged by its effects on RV preload, RV afterload, contractility and coronary perfusion.
 
 Keep these terms available in your mental model: RV-PA coupling, septal shift, transmural pressure.
 
@@ -26,11 +42,27 @@ Now: The vent becomes part of the circulation.
 
 peep. Positive end-expiratory pressure used to preserve recruitment and oxygenation, with important mechanical and hemodynamic effects.
 
+Build the mechanism first. peep can prevent end-expiratory collapse and recruit unstable lung units, but can also overdistend already-open units and transmit pressure to the thorax.
+
+At the bedside, judge a peep change by oxygenation, compliance, driving pressure, hemodynamics and the disease’s recruitability rather than by oxygen saturation alone.
+
+Two traps to actively avoid: Chasing oxygenation while ignoring falling cardiac output. And: Assuming higher peep is either universally protective or universally harmful.
+
+The integration move is this: The useful peep is the one that improves the whole patient, not just the alveolar oxygen number.
+
 Keep these terms available in your mental model: recruitability, intrinsic peep.
 
 What expert-level use of this concept looks like is this: Explain when increasing peep may recruit lung versus overdistend it. Anticipate circulatory effects in preload-dependent or RV-failing patients.
 
 Pulmonary vascular resistance. Resistance faced by the RV, influenced by lung volume, oxygenation, CO2, pH, pulmonary vascular disease and mechanical ventilation.
+
+Build the mechanism first. Pulmonary vascular resistance reflects the combined behavior of alveolar and extra-alveolar vessels and is affected by lung volume, oxygen, CO2, pH and pulmonary vascular disease.
+
+At the bedside, both severe derecruitment and overdistension can raise RV afterload. Hypoxemia, hypercapnia and acidosis can compound the problem.
+
+Two traps to actively avoid: Assuming more peep always lowers P V R by recruiting lung. And: Ignoring gas chemistry as an RV afterload intervention.
+
+The integration move is this: Interpret ventilator changes through both lung mechanics and the pulmonary circulation.
 
 Keep these terms available in your mental model: RV afterload, West zones.
 
@@ -42,11 +74,27 @@ Now: The RV is telling you something.
 
 Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
 
+Build the mechanism first. The RV is thin-walled and highly sensitive to acute afterload. When it dilates, wall stress rises, coronary perfusion can fall and septal shift can reduce LV filling.
+
+At the bedside, track systemic pressure, venous congestion, echo geometry, oxygenation, CO2, acid-base status and ventilator pressures together. Small changes in P V R or intrathoracic pressure can have large hemodynamic consequences.
+
+Two traps to actively avoid: Reflexively giving fluid to every hypotensive RV patient. And: Focusing on systemic pressure while ignoring worsening RV dilation and congestion.
+
+The integration move is this: Every intervention should be judged by its effects on RV preload, RV afterload, contractility and coronary perfusion.
+
 Keep these terms available in your mental model: RV-PA coupling, septal shift, transmural pressure.
 
 What expert-level use of this concept looks like is this: Recognize RV shock physiology before systemic hypotension becomes profound. Predict how peep, hypercapnia, hypoxemia, fluids and vasoactives may change RV performance.
 
 Ventricular interdependence. The ventricles share a septum and constrained pericardial space, so pressure or volume loading of one changes filling and geometry of the other.
+
+Build the mechanism first. The ventricles share a septum and a constrained pericardial space. Acute RV pressure or volume loading can shift the septum and reduce LV diastolic filling.
+
+At the bedside, a falling LV stroke volume in RV failure may occur despite apparently adequate intravascular volume because geometry, not supply, is limiting filling.
+
+Two traps to actively avoid: Treating LV output and RV function as separate systems. And: Calling septal flattening a descriptive echo finding without hemodynamic meaning.
+
+The integration move is this: When one ventricle enlarges or its pressure rises, ask what that does to the other ventricle’s filling conditions.
 
 Keep these terms available in your mental model: septal shift, pericardial constraint.
 
@@ -57,6 +105,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: There is no free intervention.
 
 Multisystem treatment tradeoffs. A therapy that helps one organ can worsen another; expert care weighs global benefit, reversibility and monitoring.
+
+Build the mechanism first. Organ-support interventions frequently redistribute risk: peep can help oxygenation but worsen RV load; fluids can increase flow but worsen congestion; sedation can improve synchrony but obscure neurologic assessment.
+
+At the bedside, before intervening, name the intended benefit, the organ/system at risk and the signal that would tell you the tradeoff has become unfavorable.
+
+Two traps to actively avoid: Optimizing one organ in isolation. And: Treating guideline targets as independent goals that can all be maximized simultaneously.
+
+The integration move is this: Expert critical care is often choosing the least harmful global strategy rather than a perfect organ-specific intervention.
 
 What expert-level use of this concept looks like is this: Explain at least two competing organ effects of a proposed intervention. Choose the least harmful testable strategy when the optimal answer is uncertain.
 

@@ -8,6 +8,14 @@ Now: Prognosis is not death determination.
 
 Neuroprognostication & death by neurologic criteria. Neuroprognostication requires timing, confounder control and multimodal evidence; death by neurologic criteria is a separate formal determination process.
 
+Build the mechanism first. Neuroprognostication estimates future neurologic outcome using timed, multimodal evidence. Death by neurologic criteria is a separate formal determination requiring strict prerequisites and examination.
+
+At the bedside, control confounders such as sedatives, hypothermia and metabolic derangement before making high-stakes conclusions.
+
+Two traps to actively avoid: Conflating prognosis with death determination. And: Creating a self-fulfilling prophecy through premature withdrawal based on early uncertain signs.
+
+The integration move is this: Expert communication includes the limits of what is known and the timing required to know more.
+
 Keep these terms available in your mental model: confounder, multimodal prognosis, apnea test.
 
 What expert-level use of this concept looks like is this: Separate prognosis from formal death determination. Avoid premature certainty in the presence of sedation, hypothermia, metabolic confounding or insufficient observation time.
@@ -17,6 +25,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Sedation, temperature and metabolism.
 
 Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
+
+Build the mechanism first. Clinical decisions are made with incomplete information. Calibrated reasoning assigns provisional probability, makes predictions and updates when new data contradict the model.
+
+At the bedside, state confidence, name disconfirming evidence and define what response you expect from a treatment if the model is correct.
+
+Two traps to actively avoid: Equating uncertainty with indecision. And: Becoming more confident simply because the same hypothesis has been repeated.
+
+The integration move is this: A model that cannot be falsified is not useful clinical reasoning.
 
 Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
 
@@ -28,6 +44,14 @@ Now: Why multimodal evidence matters.
 
 Neuroprognostication & death by neurologic criteria. Neuroprognostication requires timing, confounder control and multimodal evidence; death by neurologic criteria is a separate formal determination process.
 
+Build the mechanism first. Neuroprognostication estimates future neurologic outcome using timed, multimodal evidence. Death by neurologic criteria is a separate formal determination requiring strict prerequisites and examination.
+
+At the bedside, control confounders such as sedatives, hypothermia and metabolic derangement before making high-stakes conclusions.
+
+Two traps to actively avoid: Conflating prognosis with death determination. And: Creating a self-fulfilling prophecy through premature withdrawal based on early uncertain signs.
+
+The integration move is this: Expert communication includes the limits of what is known and the timing required to know more.
+
 Keep these terms available in your mental model: confounder, multimodal prognosis, apnea test.
 
 What expert-level use of this concept looks like is this: Separate prognosis from formal death determination. Avoid premature certainty in the presence of sedation, hypothermia, metabolic confounding or insufficient observation time.
@@ -38,6 +62,14 @@ Now: Self-fulfilling prophecy and premature closure.
 
 Cognitive bias & diagnostic error. Expert reasoning uses deliberate checks against anchoring, premature closure, confirmation bias and overconfidence while still making timely decisions.
 
+Build the mechanism first. Anchoring, confirmation bias and premature closure arise because fast pattern recognition is useful but can overcommit to the first plausible model.
+
+At the bedside, name the finding that does not fit, generate at least one alternative mechanism and use treatment response as new diagnostic evidence.
+
+Two traps to actively avoid: Confusing confidence with probability. And: Interpreting unexpected response as “refractory disease” without revisiting the diagnosis.
+
+The integration move is this: Expertise includes knowing when your model should lose credibility.
+
 Keep these terms available in your mental model: anchoring, premature closure, diagnostic time-out.
 
 What expert-level use of this concept looks like is this: Name the evidence that does not fit the favored diagnosis. Deliberately generate an alternative model when the patient fails to respond as predicted.
@@ -47,6 +79,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Communicating uncertainty with families.
 
 Goals of care & prognostic communication. High-quality critical care includes eliciting values, communicating uncertainty and aligning burdensome treatments with realistic goals.
+
+Build the mechanism first. Goals-of-care decisions align treatments with the patient’s values and realistic outcomes. Prognosis is probabilistic and changes with response over time.
+
+At the bedside, use best-case/worst-case/most-likely framing and time-limited trials with explicit endpoints when uncertainty remains.
+
+Two traps to actively avoid: Presenting procedures as neutral menu choices without recommendation. And: Using false precision to avoid discussing uncertainty.
+
+The integration move is this: A high-quality critical-care plan includes what outcome the patient would consider worth the burdens of treatment.
 
 Keep these terms available in your mental model: surrogate decision-maker, time-limited trial, best case / worst case.
 

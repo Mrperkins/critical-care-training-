@@ -8,6 +8,14 @@ Now: The bedside calculation.
 
 Driving pressure. Plateau pressure minus total peep; a bedside expression of tidal strain relative to respiratory-system compliance.
 
+Build the mechanism first. Driving pressure is plateau pressure minus total peep and reflects tidal pressure applied to the respiratory system relative to available compliance.
+
+At the bedside, a fixed tidal volume can impose very different stress depending on how much functional lung is available. Trend driving pressure alongside plateau pressure and mechanics.
+
+Two traps to actively avoid: Calculating from peak rather than plateau pressure. And: Treating a threshold as a substitute for understanding lung size and mechanics.
+
+The integration move is this: Connect driving pressure to compliance, tidal volume, recruitability and mechanical power.
+
 Keep these terms available in your mental model: plateau pressure, tidal strain.
 
 What expert-level use of this concept looks like is this: Calculate and interpret driving pressure. Explain why the same tidal volume can have different mechanical consequences in different lungs.
@@ -18,11 +26,27 @@ Now: What the number is expressing.
 
 Driving pressure. Plateau pressure minus total peep; a bedside expression of tidal strain relative to respiratory-system compliance.
 
+Build the mechanism first. Driving pressure is plateau pressure minus total peep and reflects tidal pressure applied to the respiratory system relative to available compliance.
+
+At the bedside, a fixed tidal volume can impose very different stress depending on how much functional lung is available. Trend driving pressure alongside plateau pressure and mechanics.
+
+Two traps to actively avoid: Calculating from peak rather than plateau pressure. And: Treating a threshold as a substitute for understanding lung size and mechanics.
+
+The integration move is this: Connect driving pressure to compliance, tidal volume, recruitability and mechanical power.
+
 Keep these terms available in your mental model: plateau pressure, tidal strain.
 
 What expert-level use of this concept looks like is this: Calculate and interpret driving pressure. Explain why the same tidal volume can have different mechanical consequences in different lungs.
 
 Compliance & elastance. Compliance describes change in volume for change in pressure; elastance is its inverse.
+
+Build the mechanism first. Compliance is change in volume divided by change in pressure; elastance is its inverse. Respiratory-system compliance includes both lung and chest-wall contributions.
+
+At the bedside, use peak and plateau pressures to separate resistive from elastic loading, then ask whether chest wall, abdomen or lung is responsible.
+
+Two traps to actively avoid: Calling every high airway pressure “stiff lungs.” And: Ignoring chest-wall and abdominal mechanics.
+
+The integration move is this: A ventilator pressure only becomes physiologic information when flow state and pressure component are known.
 
 Keep these terms available in your mental model: static compliance, elastance.
 
@@ -34,6 +58,14 @@ Now: The baby-lung problem.
 
 A R D S physiology. Diffuse inflammatory lung injury producing heterogeneity, shunt, low aerated lung volume and risk from ventilator-induced injury.
 
+Build the mechanism first. A R D S produces heterogeneous inflammatory lung injury, shunt, edema and a reduced aerated “baby lung,” making regional overdistension possible even at seemingly modest tidal volumes.
+
+At the bedside, integrate gas exchange, compliance, recruitability, prone response, driving pressure and hemodynamics rather than treating the P/F ratio alone.
+
+Two traps to actively avoid: Equating severe hypoxemia with universal recruitability. And: Improving oxygenation at the cost of excessive distending pressure or RV load.
+
+The integration move is this: A R D S management is a tradeoff between oxygenation, mechanical injury and circulation.
+
 Keep these terms available in your mental model: baby lung, shunt, recruitability.
 
 What expert-level use of this concept looks like is this: Integrate oxygenation, mechanics, recruitability and hemodynamics rather than treating a P/F ratio in isolation.
@@ -43,6 +75,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Driving pressure is not the whole injury model.
 
 Mechanical power. Energy delivered to the respiratory system over time from pressure, volume, flow and respiratory rate.
+
+Build the mechanism first. Mechanical power expresses the energy transferred from the ventilator to the respiratory system per unit time. Pressure, tidal volume, flow and respiratory rate all contribute.
+
+At the bedside, a patient may have an acceptable tidal volume and plateau pressure yet receive a high cumulative energy load because of rate, flow or excessive pressure swings.
+
+Two traps to actively avoid: Treating mechanical power as one magic cutoff. And: Ignoring spontaneous respiratory effort as another source of lung stress.
+
+The integration move is this: Think about injury as repeated energy delivery to vulnerable lung tissue.
 
 Keep these terms available in your mental model: energy load, ventilator-induced lung injury.
 

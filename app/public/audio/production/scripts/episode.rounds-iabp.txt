@@ -8,6 +8,14 @@ Now: What the balloon can and cannot do.
 
 Intra-aortic balloon pump physiology. I A B P timing uses diastolic augmentation and presystolic deflation to alter coronary perfusion and LV afterload.
 
+Build the mechanism first. I A B P inflates in diastole to augment aortic diastolic pressure and deflates before systole to reduce LV afterload. Benefit depends on timing and native rhythm/hemodynamics.
+
+At the bedside, use the arterial waveform to judge inflation near the dicrotic notch and presystolic deflation; compare assisted and unassisted beats.
+
+Two traps to actively avoid: Treating augmentation number alone as success. And: Allowing late deflation to increase LV afterload.
+
+The integration move is this: The waveform should show you the mechanism the device is trying to create.
+
 Keep these terms available in your mental model: diastolic augmentation, deflation, trigger.
 
 What expert-level use of this concept looks like is this: Identify correct inflation/deflation timing from the arterial waveform. Predict the hemodynamic consequence of early or late timing errors.
@@ -17,6 +25,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Inflation in diastole.
 
 Intra-aortic balloon pump physiology. I A B P timing uses diastolic augmentation and presystolic deflation to alter coronary perfusion and LV afterload.
+
+Build the mechanism first. I A B P inflates in diastole to augment aortic diastolic pressure and deflates before systole to reduce LV afterload. Benefit depends on timing and native rhythm/hemodynamics.
+
+At the bedside, use the arterial waveform to judge inflation near the dicrotic notch and presystolic deflation; compare assisted and unassisted beats.
+
+Two traps to actively avoid: Treating augmentation number alone as success. And: Allowing late deflation to increase LV afterload.
+
+The integration move is this: The waveform should show you the mechanism the device is trying to create.
 
 Keep these terms available in your mental model: diastolic augmentation, deflation, trigger.
 
@@ -28,6 +44,14 @@ Now: Deflation before systole.
 
 Intra-aortic balloon pump physiology. I A B P timing uses diastolic augmentation and presystolic deflation to alter coronary perfusion and LV afterload.
 
+Build the mechanism first. I A B P inflates in diastole to augment aortic diastolic pressure and deflates before systole to reduce LV afterload. Benefit depends on timing and native rhythm/hemodynamics.
+
+At the bedside, use the arterial waveform to judge inflation near the dicrotic notch and presystolic deflation; compare assisted and unassisted beats.
+
+Two traps to actively avoid: Treating augmentation number alone as success. And: Allowing late deflation to increase LV afterload.
+
+The integration move is this: The waveform should show you the mechanism the device is trying to create.
+
 Keep these terms available in your mental model: diastolic augmentation, deflation, trigger.
 
 What expert-level use of this concept looks like is this: Identify correct inflation/deflation timing from the arterial waveform. Predict the hemodynamic consequence of early or late timing errors.
@@ -38,11 +62,27 @@ Now: Timing errors on the waveform.
 
 Arterial line. Placement, setup, leveling, zeroing, waveform interpretation and troubleshooting of invasive arterial pressure monitoring.
 
+Build the mechanism first. An arterial catheter transmits pressure through a fluid-filled system to a transducer. Accuracy depends on leveling, zeroing and the dynamic response of the tubing-transducer system.
+
+At the bedside, read the waveform before trusting systolic and diastolic values. Mean pressure is often less distorted by damping than pulse extremes.
+
+Two traps to actively avoid: Treating a monitor number as direct truth. And: Ignoring hydrostatic error from transducer height.
+
+The integration move is this: The patient, catheter, tubing, transducer and monitor form one measurement system.
+
 Keep these terms available in your mental model: phlebostatic axis, dynamic response.
 
 What expert-level use of this concept looks like is this: Differentiate patient physiology from damping/resonance artifact. Mentally rehearse sterile insertion and transducer setup.
 
 Intra-aortic balloon pump physiology. I A B P timing uses diastolic augmentation and presystolic deflation to alter coronary perfusion and LV afterload.
+
+Build the mechanism first. I A B P inflates in diastole to augment aortic diastolic pressure and deflates before systole to reduce LV afterload. Benefit depends on timing and native rhythm/hemodynamics.
+
+At the bedside, use the arterial waveform to judge inflation near the dicrotic notch and presystolic deflation; compare assisted and unassisted beats.
+
+Two traps to actively avoid: Treating augmentation number alone as success. And: Allowing late deflation to increase LV afterload.
+
+The integration move is this: The waveform should show you the mechanism the device is trying to create.
 
 Keep these terms available in your mental model: diastolic augmentation, deflation, trigger.
 

@@ -8,6 +8,14 @@ Now: The circuit is an extra circulation.
 
 E C M O circuit & physiology literacy. Extracorporeal support changes preload, afterload, gas exchange and oxygen delivery through a circuit whose configuration determines what it can support.
 
+Build the mechanism first. E C M O drains venous blood, pumps it through a membrane lung and returns it to the circulation. VV supports gas exchange; VA additionally supports systemic flow and changes cardiac loading conditions.
+
+At the bedside, follow blood through drainage, pump, oxygenator and return while considering native heart/lung function and cannula position.
+
+Two traps to actively avoid: Equating pump RPM with effective support. And: Ignoring recirculation, LV distension or differential hypoxemia.
+
+The integration move is this: The circuit and the native circulation are one coupled system.
+
 Keep these terms available in your mental model: VV E C M O, VA E C M O, sweep gas, recirculation, differential hypoxemia.
 
 What expert-level use of this concept looks like is this: Distinguish VV from VA support goals and limitations. Reason from circuit flow, native heart/lung function and cannula position to common failure patterns.
@@ -18,11 +26,27 @@ Now: VV: gas exchange, not a new heart.
 
 E C M O circuit & physiology literacy. Extracorporeal support changes preload, afterload, gas exchange and oxygen delivery through a circuit whose configuration determines what it can support.
 
+Build the mechanism first. E C M O drains venous blood, pumps it through a membrane lung and returns it to the circulation. VV supports gas exchange; VA additionally supports systemic flow and changes cardiac loading conditions.
+
+At the bedside, follow blood through drainage, pump, oxygenator and return while considering native heart/lung function and cannula position.
+
+Two traps to actively avoid: Equating pump RPM with effective support. And: Ignoring recirculation, LV distension or differential hypoxemia.
+
+The integration move is this: The circuit and the native circulation are one coupled system.
+
 Keep these terms available in your mental model: VV E C M O, VA E C M O, sweep gas, recirculation, differential hypoxemia.
 
 What expert-level use of this concept looks like is this: Distinguish VV from VA support goals and limitations. Reason from circuit flow, native heart/lung function and cannula position to common failure patterns.
 
 A R D S physiology. Diffuse inflammatory lung injury producing heterogeneity, shunt, low aerated lung volume and risk from ventilator-induced injury.
+
+Build the mechanism first. A R D S produces heterogeneous inflammatory lung injury, shunt, edema and a reduced aerated “baby lung,” making regional overdistension possible even at seemingly modest tidal volumes.
+
+At the bedside, integrate gas exchange, compliance, recruitability, prone response, driving pressure and hemodynamics rather than treating the P/F ratio alone.
+
+Two traps to actively avoid: Equating severe hypoxemia with universal recruitability. And: Improving oxygenation at the cost of excessive distending pressure or RV load.
+
+The integration move is this: A R D S management is a tradeoff between oxygenation, mechanical injury and circulation.
 
 Keep these terms available in your mental model: baby lung, shunt, recruitability.
 
@@ -34,11 +58,27 @@ Now: VA: flow changes loading conditions.
 
 E C M O circuit & physiology literacy. Extracorporeal support changes preload, afterload, gas exchange and oxygen delivery through a circuit whose configuration determines what it can support.
 
+Build the mechanism first. E C M O drains venous blood, pumps it through a membrane lung and returns it to the circulation. VV supports gas exchange; VA additionally supports systemic flow and changes cardiac loading conditions.
+
+At the bedside, follow blood through drainage, pump, oxygenator and return while considering native heart/lung function and cannula position.
+
+Two traps to actively avoid: Equating pump RPM with effective support. And: Ignoring recirculation, LV distension or differential hypoxemia.
+
+The integration move is this: The circuit and the native circulation are one coupled system.
+
 Keep these terms available in your mental model: VV E C M O, VA E C M O, sweep gas, recirculation, differential hypoxemia.
 
 What expert-level use of this concept looks like is this: Distinguish VV from VA support goals and limitations. Reason from circuit flow, native heart/lung function and cannula position to common failure patterns.
 
 Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+Build the mechanism first. The RV is thin-walled and highly sensitive to acute afterload. When it dilates, wall stress rises, coronary perfusion can fall and septal shift can reduce LV filling.
+
+At the bedside, track systemic pressure, venous congestion, echo geometry, oxygenation, CO2, acid-base status and ventilator pressures together. Small changes in P V R or intrathoracic pressure can have large hemodynamic consequences.
+
+Two traps to actively avoid: Reflexively giving fluid to every hypotensive RV patient. And: Focusing on systemic pressure while ignoring worsening RV dilation and congestion.
+
+The integration move is this: Every intervention should be judged by its effects on RV preload, RV afterload, contractility and coronary perfusion.
 
 Keep these terms available in your mental model: RV-PA coupling, septal shift, transmural pressure.
 
@@ -50,6 +90,14 @@ Now: Recirculation, access problems and differential hypoxemia.
 
 E C M O circuit & physiology literacy. Extracorporeal support changes preload, afterload, gas exchange and oxygen delivery through a circuit whose configuration determines what it can support.
 
+Build the mechanism first. E C M O drains venous blood, pumps it through a membrane lung and returns it to the circulation. VV supports gas exchange; VA additionally supports systemic flow and changes cardiac loading conditions.
+
+At the bedside, follow blood through drainage, pump, oxygenator and return while considering native heart/lung function and cannula position.
+
+Two traps to actively avoid: Equating pump RPM with effective support. And: Ignoring recirculation, LV distension or differential hypoxemia.
+
+The integration move is this: The circuit and the native circulation are one coupled system.
+
 Keep these terms available in your mental model: VV E C M O, VA E C M O, sweep gas, recirculation, differential hypoxemia.
 
 What expert-level use of this concept looks like is this: Distinguish VV from VA support goals and limitations. Reason from circuit flow, native heart/lung function and cannula position to common failure patterns.
@@ -59,6 +107,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Come back to oxygen delivery.
 
 Oxygen delivery. DO2 is cardiac output multiplied by arterial oxygen content; saturation alone does not describe tissue oxygen delivery.
+
+Build the mechanism first. Oxygen delivery equals cardiac output multiplied by arterial oxygen content, which is dominated by hemoglobin-bound oxygen rather than dissolved oxygen.
+
+At the bedside, normal saturation can coexist with critically low delivery in severe anemia or low-flow shock. Ask about hemoglobin and flow whenever tissue perfusion looks worse than the pulse oximeter.
+
+Two traps to actively avoid: Using SpO2 as a proxy for whole-body oxygen delivery. And: Forgetting that raising saturation from already-high levels adds little content.
+
+The integration move is this: Saturation tells you how full the carriers are; hemoglobin tells you how many carriers exist; cardiac output tells you how fast they move.
 
 Keep these terms available in your mental model: CaO2, DO2, VO2.
 

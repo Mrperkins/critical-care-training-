@@ -8,6 +8,14 @@ Now: Receptors are only the beginning.
 
 Vasopressor & inotrope physiology. Vasoactive drugs change arterial tone, venous tone, heart rate, contractility and regional flow; the desired effect depends on the shock model.
 
+Build the mechanism first. Vasoactive drugs alter arterial tone, venous tone, contractility and heart rate to different degrees. The same MAP response can hide very different effects on flow and myocardial demand.
+
+At the bedside, choose the agent from the dominant deficit and define what improvement and toxicity should look like before titration.
+
+Two traps to actively avoid: Treating MAP increase as proof of improved perfusion. And: Ignoring venous effects and cardiac workload.
+
+The integration move is this: Use vasoactive drugs to correct a physiologic mechanism, not to normalize a monitor number.
+
 Keep these terms available in your mental model: alpha-1, beta-1, inotropy, chronotropy, venoconstriction.
 
 What expert-level use of this concept looks like is this: Choose a vasoactive strategy from the physiologic deficit rather than blood pressure alone. State the expected benefit, predictable tradeoff and reassessment endpoint.
@@ -18,11 +26,27 @@ Now: The venous circulation matters.
 
 Venous return. Flow back to the right heart determined by the pressure gradient from the systemic circulation and resistance to venous return.
 
+Build the mechanism first. Venous return depends on the pressure gradient from the systemic venous reservoir toward the right atrium and on resistance to that flow. Mean systemic filling pressure and right-atrial pressure can move independently.
+
+At the bedside, a rise in right-atrial pressure can reduce venous return even when the patient appears more “full.” Venoconstriction can recruit unstressed volume and change the upstream pressure without adding external fluid.
+
+Two traps to actively avoid: Treating a high CVP as proof of adequate forward flow. And: Ignoring abdominal, thoracic or pericardial pressure as downstream resistance.
+
+The integration move is this: Predict how fluid, venoconstriction, peep and RV failure each alter the venous-return gradient.
+
 Keep these terms available in your mental model: mean systemic filling pressure, stressed volume, venous return gradient.
 
 What expert-level use of this concept looks like is this: Explain why CVP can rise while venous return falls. Predict effects of vasodilation, venoconstriction and positive pressure on venous return.
 
 Vasopressor & inotrope physiology. Vasoactive drugs change arterial tone, venous tone, heart rate, contractility and regional flow; the desired effect depends on the shock model.
+
+Build the mechanism first. Vasoactive drugs alter arterial tone, venous tone, contractility and heart rate to different degrees. The same MAP response can hide very different effects on flow and myocardial demand.
+
+At the bedside, choose the agent from the dominant deficit and define what improvement and toxicity should look like before titration.
+
+Two traps to actively avoid: Treating MAP increase as proof of improved perfusion. And: Ignoring venous effects and cardiac workload.
+
+The integration move is this: Use vasoactive drugs to correct a physiologic mechanism, not to normalize a monitor number.
 
 Keep these terms available in your mental model: alpha-1, beta-1, inotropy, chronotropy, venoconstriction.
 
@@ -34,6 +58,14 @@ Now: Vasoplegic shock.
 
 Septic shock physiology. Distributive shock with dynamic changes in vascular tone, venous capacitance, myocardial performance, microcirculation and oxygen extraction.
 
+Build the mechanism first. Septic shock can combine vasoplegia, venous pooling, myocardial dysfunction, endothelial leak and disturbed microcirculation. Cardiac output may be low, normal or high.
+
+At the bedside, reassess vascular tone, flow, congestion and perfusion after each intervention rather than assuming a fixed distributive phenotype.
+
+Two traps to actively avoid: Reducing sepsis to “low S V R.” And: Using lactate or MAP alone as the resuscitation target.
+
+The integration move is this: Source control, antimicrobial exposure and circulatory support must progress in parallel.
+
 Keep these terms available in your mental model: vasoplegia, microcirculation, distributive shock.
 
 What expert-level use of this concept looks like is this: Recognize when septic shock is not simply low S V R. Integrate source control, flow, tone, cardiac function and perfusion response over time.
@@ -43,6 +75,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Pump failure and inotropy.
 
 Cardiogenic shock. Pump failure where restoring perfusion must be balanced against congestion, myocardial oxygen demand, coronary perfusion and mechanical complications.
+
+Build the mechanism first. Cardiogenic shock is inadequate forward flow from pump failure, often accompanied by elevated filling pressures and congestion. RV, LV and biventricular phenotypes behave differently.
+
+At the bedside, track flow, pressure, congestion, coronary perfusion, rhythm and mechanical complications; escalate support when pharmacology cannot restore effective circulation.
+
+Two traps to actively avoid: Treating all cardiogenic shock with the same inotrope/pressor pattern. And: Ignoring congestion while chasing blood pressure.
+
+The integration move is this: The support strategy should match the failing ventricle and the cause of pump failure.
 
 Keep these terms available in your mental model: cardiac power output, congestion, inotropy.
 
@@ -54,6 +94,14 @@ Now: The failing right ventricle.
 
 Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
 
+Build the mechanism first. The RV is thin-walled and highly sensitive to acute afterload. When it dilates, wall stress rises, coronary perfusion can fall and septal shift can reduce LV filling.
+
+At the bedside, track systemic pressure, venous congestion, echo geometry, oxygenation, CO2, acid-base status and ventilator pressures together. Small changes in P V R or intrathoracic pressure can have large hemodynamic consequences.
+
+Two traps to actively avoid: Reflexively giving fluid to every hypotensive RV patient. And: Focusing on systemic pressure while ignoring worsening RV dilation and congestion.
+
+The integration move is this: Every intervention should be judged by its effects on RV preload, RV afterload, contractility and coronary perfusion.
+
 Keep these terms available in your mental model: RV-PA coupling, septal shift, transmural pressure.
 
 What expert-level use of this concept looks like is this: Recognize RV shock physiology before systemic hypotension becomes profound. Predict how peep, hypercapnia, hypoxemia, fluids and vasoactives may change RV performance.
@@ -64,11 +112,27 @@ Now: Every catecholamine has a cost.
 
 Vasopressor & inotrope physiology. Vasoactive drugs change arterial tone, venous tone, heart rate, contractility and regional flow; the desired effect depends on the shock model.
 
+Build the mechanism first. Vasoactive drugs alter arterial tone, venous tone, contractility and heart rate to different degrees. The same MAP response can hide very different effects on flow and myocardial demand.
+
+At the bedside, choose the agent from the dominant deficit and define what improvement and toxicity should look like before titration.
+
+Two traps to actively avoid: Treating MAP increase as proof of improved perfusion. And: Ignoring venous effects and cardiac workload.
+
+The integration move is this: Use vasoactive drugs to correct a physiologic mechanism, not to normalize a monitor number.
+
 Keep these terms available in your mental model: alpha-1, beta-1, inotropy, chronotropy, venoconstriction.
 
 What expert-level use of this concept looks like is this: Choose a vasoactive strategy from the physiologic deficit rather than blood pressure alone. State the expected benefit, predictable tradeoff and reassessment endpoint.
 
 Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
+
+Build the mechanism first. Clinical decisions are made with incomplete information. Calibrated reasoning assigns provisional probability, makes predictions and updates when new data contradict the model.
+
+At the bedside, state confidence, name disconfirming evidence and define what response you expect from a treatment if the model is correct.
+
+Two traps to actively avoid: Equating uncertainty with indecision. And: Becoming more confident simply because the same hypothesis has been repeated.
+
+The integration move is this: A model that cannot be falsified is not useful clinical reasoning.
 
 Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
 

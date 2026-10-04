@@ -8,11 +8,27 @@ Now: Two life threats, competing priorities.
 
 Severe traumatic brain injury. TBI management centers on preventing secondary brain injury by protecting oxygenation, perfusion and intracranial dynamics.
 
+Build the mechanism first. Primary injury is followed by potentially preventable secondary injury from hypoxemia, hypotension, impaired cerebral perfusion, edema and temperature/metabolic stress.
+
+At the bedside, prioritize oxygenation and perfusion while integrating ICP/CPP with extracranial hemorrhage and ventilation needs.
+
+Two traps to actively avoid: Permissive hypotension without considering severe TBI. And: Overventilating chronically after an acute herniation concern has passed.
+
+The integration move is this: Trauma resuscitation sometimes contains competing pressure goals; make the tradeoff explicit.
+
 Keep these terms available in your mental model: secondary injury, CPP, intracranial compliance.
 
 What expert-level use of this concept looks like is this: Prioritize avoidance of hypoxemia and hypotension. Integrate ICP, CPP, ventilation and extracranial injuries without creating competing harm.
 
 Massive transfusion & hemorrhagic resuscitation. Hemorrhagic resuscitation integrates source control, balanced component replacement, calcium, temperature, coagulation and perfusion.
+
+Build the mechanism first. Major hemorrhage produces loss of oxygen-carrying capacity, volume and hemostatic components while hypothermia, hypocalcemia, dilution and acidosis can worsen coagulation.
+
+At the bedside, activate the hemorrhage system early, warm the resuscitation, track calcium/coagulation/temperature and never lose sight of definitive source control.
+
+Two traps to actively avoid: Running product delivery as a logistics task disconnected from physiology. And: Allowing source control to become secondary to transfusion mechanics.
+
+The integration move is this: Resuscitation buys time; source control ends the hemorrhage.
 
 Keep these terms available in your mental model: M T P, fibrinogen, ionized calcium, lethal triad.
 
@@ -26,11 +42,27 @@ Now: CPP meets hemorrhage.
 
 ICP, CPP & cerebral perfusion. Cerebral perfusion depends on the gradient across the cerebral circulation and is influenced by pressure, venous outflow, CO2 and intracranial compliance.
 
+Build the mechanism first. CPP is the pressure gradient available to drive cerebral blood flow and is influenced by arterial pressure, ICP, venous pressure and autoregulation. Intracranial compliance falls as compensatory reserve is exhausted.
+
+At the bedside, interpret ICP as a dynamic system with waveform, position, venous drainage, CO2 and sedation effects. A “normal” MAP does not guarantee adequate cerebral perfusion.
+
+Two traps to actively avoid: Treating ICP and CPP as isolated targets. And: Ignoring neck position, intrathoracic pressure and venous outflow.
+
+The integration move is this: Protect the brain by preserving oxygenation and perfusion while minimizing factors that increase intracranial volume or venous pressure.
+
 Keep these terms available in your mental model: CPP, autoregulation, Monro-Kellie.
 
 What expert-level use of this concept looks like is this: Predict how systemic pressure, CO2 and venous pressure affect cerebral perfusion. Recognize when a normal MAP does not guarantee adequate CPP.
 
 Multisystem treatment tradeoffs. A therapy that helps one organ can worsen another; expert care weighs global benefit, reversibility and monitoring.
+
+Build the mechanism first. Organ-support interventions frequently redistribute risk: peep can help oxygenation but worsen RV load; fluids can increase flow but worsen congestion; sedation can improve synchrony but obscure neurologic assessment.
+
+At the bedside, before intervening, name the intended benefit, the organ/system at risk and the signal that would tell you the tradeoff has become unfavorable.
+
+Two traps to actively avoid: Optimizing one organ in isolation. And: Treating guideline targets as independent goals that can all be maximized simultaneously.
+
+The integration move is this: Expert critical care is often choosing the least harmful global strategy rather than a perfect organ-specific intervention.
 
 What expert-level use of this concept looks like is this: Explain at least two competing organ effects of a proposed intervention. Choose the least harmful testable strategy when the optimal answer is uncertain.
 
@@ -39,6 +71,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Coagulopathy and brain injury.
 
 Critical-illness coagulopathy. Bleeding and thrombosis reflect platelets, fibrinogen, coagulation factors, fibrinolysis, temperature, calcium, dilution and disease-specific pathways.
+
+Build the mechanism first. Hemostasis depends on platelets, fibrinogen, coagulation factors, fibrinolysis, calcium, pH and temperature. Critical illness can produce simultaneous bleeding and thrombosis risk.
+
+At the bedside, interpret conventional labs and viscoelastic tests in the clinical context and replace the failing component rather than one arbitrary number.
+
+Two traps to actively avoid: Equating INR with whole-blood clot quality. And: Ignoring fibrinogen, platelet function, temperature and calcium.
+
+The integration move is this: Coagulation is a dynamic system, not a single laboratory pathway.
 
 Keep these terms available in your mental model: fibrinolysis, fibrinogen, viscoelastic testing.
 
@@ -50,11 +90,27 @@ Now: Choose the least harmful bridge.
 
 Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
 
+Build the mechanism first. Clinical decisions are made with incomplete information. Calibrated reasoning assigns provisional probability, makes predictions and updates when new data contradict the model.
+
+At the bedside, state confidence, name disconfirming evidence and define what response you expect from a treatment if the model is correct.
+
+Two traps to actively avoid: Equating uncertainty with indecision. And: Becoming more confident simply because the same hypothesis has been repeated.
+
+The integration move is this: A model that cannot be falsified is not useful clinical reasoning.
+
 Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
 
 What expert-level use of this concept looks like is this: State confidence, identify disconfirming evidence and update the model when the patient fails to respond as predicted.
 
 Multisystem treatment tradeoffs. A therapy that helps one organ can worsen another; expert care weighs global benefit, reversibility and monitoring.
+
+Build the mechanism first. Organ-support interventions frequently redistribute risk: peep can help oxygenation but worsen RV load; fluids can increase flow but worsen congestion; sedation can improve synchrony but obscure neurologic assessment.
+
+At the bedside, before intervening, name the intended benefit, the organ/system at risk and the signal that would tell you the tradeoff has become unfavorable.
+
+Two traps to actively avoid: Optimizing one organ in isolation. And: Treating guideline targets as independent goals that can all be maximized simultaneously.
+
+The integration move is this: Expert critical care is often choosing the least harmful global strategy rather than a perfect organ-specific intervention.
 
 What expert-level use of this concept looks like is this: Explain at least two competing organ effects of a proposed intervention. Choose the least harmful testable strategy when the optimal answer is uncertain.
 

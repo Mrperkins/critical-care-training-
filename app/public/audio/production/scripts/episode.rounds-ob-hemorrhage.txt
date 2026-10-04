@@ -8,6 +8,14 @@ Now: Why vital signs can lag behind blood loss.
 
 Obstetric hemorrhage. Major obstetric bleeding couples rapidly changing uterine source control with transfusion, coagulopathy and pregnancy-specific physiology.
 
+Build the mechanism first. Pregnancy expands plasma volume and changes hemostasis, allowing major blood loss before classic hypotension. Uterine atony and other obstetric sources require rapid source-specific treatment.
+
+At the bedside, mobilize source control and hemorrhage resuscitation simultaneously and pay particular attention to fibrinogen, calcium and temperature.
+
+Two traps to actively avoid: Underestimating blood loss because BP is initially preserved. And: Treating transfusion as a substitute for uterine/source control.
+
+The integration move is this: Obstetric hemorrhage is hemorrhagic shock in a circulation with different reserve and source-control options.
+
 Keep these terms available in your mental model: uterine atony, fibrinogen, peripartum.
 
 What expert-level use of this concept looks like is this: Recognize that apparently preserved blood pressure may coexist with major blood loss. Run uterotonic/source-control strategy and hemorrhagic resuscitation in parallel.
@@ -17,6 +25,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Uterine source control.
 
 Obstetric hemorrhage. Major obstetric bleeding couples rapidly changing uterine source control with transfusion, coagulopathy and pregnancy-specific physiology.
+
+Build the mechanism first. Pregnancy expands plasma volume and changes hemostasis, allowing major blood loss before classic hypotension. Uterine atony and other obstetric sources require rapid source-specific treatment.
+
+At the bedside, mobilize source control and hemorrhage resuscitation simultaneously and pay particular attention to fibrinogen, calcium and temperature.
+
+Two traps to actively avoid: Underestimating blood loss because BP is initially preserved. And: Treating transfusion as a substitute for uterine/source control.
+
+The integration move is this: Obstetric hemorrhage is hemorrhagic shock in a circulation with different reserve and source-control options.
 
 Keep these terms available in your mental model: uterine atony, fibrinogen, peripartum.
 
@@ -28,6 +44,14 @@ Now: Fibrinogen and coagulopathy.
 
 Critical-illness coagulopathy. Bleeding and thrombosis reflect platelets, fibrinogen, coagulation factors, fibrinolysis, temperature, calcium, dilution and disease-specific pathways.
 
+Build the mechanism first. Hemostasis depends on platelets, fibrinogen, coagulation factors, fibrinolysis, calcium, pH and temperature. Critical illness can produce simultaneous bleeding and thrombosis risk.
+
+At the bedside, interpret conventional labs and viscoelastic tests in the clinical context and replace the failing component rather than one arbitrary number.
+
+Two traps to actively avoid: Equating INR with whole-blood clot quality. And: Ignoring fibrinogen, platelet function, temperature and calcium.
+
+The integration move is this: Coagulation is a dynamic system, not a single laboratory pathway.
+
 Keep these terms available in your mental model: fibrinolysis, fibrinogen, viscoelastic testing.
 
 What expert-level use of this concept looks like is this: Reason from the failing component of clot formation rather than treating INR alone. Anticipate temperature, calcium and dilution effects during hemorrhagic resuscitation.
@@ -37,6 +61,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Run the hemorrhage system early.
 
 Massive transfusion & hemorrhagic resuscitation. Hemorrhagic resuscitation integrates source control, balanced component replacement, calcium, temperature, coagulation and perfusion.
+
+Build the mechanism first. Major hemorrhage produces loss of oxygen-carrying capacity, volume and hemostatic components while hypothermia, hypocalcemia, dilution and acidosis can worsen coagulation.
+
+At the bedside, activate the hemorrhage system early, warm the resuscitation, track calcium/coagulation/temperature and never lose sight of definitive source control.
+
+Two traps to actively avoid: Running product delivery as a logistics task disconnected from physiology. And: Allowing source control to become secondary to transfusion mechanics.
+
+The integration move is this: Resuscitation buys time; source control ends the hemorrhage.
 
 Keep these terms available in your mental model: M T P, fibrinogen, ionized calcium, lethal triad.
 

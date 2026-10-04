@@ -8,6 +8,14 @@ Now: What problem are you asking C R R T to solve?.
 
 C R R T physiology & prescription literacy. Continuous renal replacement uses diffusion and/or convection to manage solute, acid-base and fluid balance in unstable patients.
 
+Build the mechanism first. C R R T uses diffusion, convection and ultrafiltration to control solute, acid-base and volume continuously. Prescribed dose can differ substantially from delivered dose.
+
+At the bedside, separate total effluent from net patient fluid removal and interpret access, filter and return pressures as clues to the physical circuit.
+
+Two traps to actively avoid: Calling every effluent liter “fluid removed from the patient.” And: Ignoring downtime and clotting when assessing delivered therapy.
+
+The integration move is this: C R R T is both renal support and a hemodynamic intervention.
+
 Keep these terms available in your mental model: effluent dose, CVVH, CVVHD, CVVHDF, filtration fraction.
 
 What expert-level use of this concept looks like is this: Explain diffusion versus convection and net ultrafiltration. Recognize how circuit, anticoagulation and prescribed versus delivered dose change therapy.
@@ -17,6 +25,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Diffusion.
 
 C R R T physiology & prescription literacy. Continuous renal replacement uses diffusion and/or convection to manage solute, acid-base and fluid balance in unstable patients.
+
+Build the mechanism first. C R R T uses diffusion, convection and ultrafiltration to control solute, acid-base and volume continuously. Prescribed dose can differ substantially from delivered dose.
+
+At the bedside, separate total effluent from net patient fluid removal and interpret access, filter and return pressures as clues to the physical circuit.
+
+Two traps to actively avoid: Calling every effluent liter “fluid removed from the patient.” And: Ignoring downtime and clotting when assessing delivered therapy.
+
+The integration move is this: C R R T is both renal support and a hemodynamic intervention.
 
 Keep these terms available in your mental model: effluent dose, CVVH, CVVHD, CVVHDF, filtration fraction.
 
@@ -28,6 +44,14 @@ Now: Convection.
 
 C R R T physiology & prescription literacy. Continuous renal replacement uses diffusion and/or convection to manage solute, acid-base and fluid balance in unstable patients.
 
+Build the mechanism first. C R R T uses diffusion, convection and ultrafiltration to control solute, acid-base and volume continuously. Prescribed dose can differ substantially from delivered dose.
+
+At the bedside, separate total effluent from net patient fluid removal and interpret access, filter and return pressures as clues to the physical circuit.
+
+Two traps to actively avoid: Calling every effluent liter “fluid removed from the patient.” And: Ignoring downtime and clotting when assessing delivered therapy.
+
+The integration move is this: C R R T is both renal support and a hemodynamic intervention.
+
 Keep these terms available in your mental model: effluent dose, CVVH, CVVHD, CVVHDF, filtration fraction.
 
 What expert-level use of this concept looks like is this: Explain diffusion versus convection and net ultrafiltration. Recognize how circuit, anticoagulation and prescribed versus delivered dose change therapy.
@@ -38,11 +62,27 @@ Now: Net ultrafiltration is a hemodynamic intervention.
 
 C R R T physiology & prescription literacy. Continuous renal replacement uses diffusion and/or convection to manage solute, acid-base and fluid balance in unstable patients.
 
+Build the mechanism first. C R R T uses diffusion, convection and ultrafiltration to control solute, acid-base and volume continuously. Prescribed dose can differ substantially from delivered dose.
+
+At the bedside, separate total effluent from net patient fluid removal and interpret access, filter and return pressures as clues to the physical circuit.
+
+Two traps to actively avoid: Calling every effluent liter “fluid removed from the patient.” And: Ignoring downtime and clotting when assessing delivered therapy.
+
+The integration move is this: C R R T is both renal support and a hemodynamic intervention.
+
 Keep these terms available in your mental model: effluent dose, CVVH, CVVHD, CVVHDF, filtration fraction.
 
 What expert-level use of this concept looks like is this: Explain diffusion versus convection and net ultrafiltration. Recognize how circuit, anticoagulation and prescribed versus delivered dose change therapy.
 
 Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+Build the mechanism first. Shock is inadequate effective tissue perfusion and oxygen utilization, not merely hypotension. Flow, vascular tone, capacitance, congestion and extraction can fail in different combinations.
+
+At the bedside, phenotype the circulation repeatedly. A patient can move from one dominant mechanism to another during resuscitation.
+
+Two traps to actively avoid: Naming shock once and never revisiting the model. And: Treating MAP as the only endpoint.
+
+The integration move is this: Choose interventions that both treat the suspected mechanism and generate information about whether the model was correct.
 
 Keep these terms available in your mental model: flow, tone, congestion, perfusion.
 
@@ -54,6 +94,14 @@ Now: Prescribed dose versus delivered dose.
 
 C R R T physiology & prescription literacy. Continuous renal replacement uses diffusion and/or convection to manage solute, acid-base and fluid balance in unstable patients.
 
+Build the mechanism first. C R R T uses diffusion, convection and ultrafiltration to control solute, acid-base and volume continuously. Prescribed dose can differ substantially from delivered dose.
+
+At the bedside, separate total effluent from net patient fluid removal and interpret access, filter and return pressures as clues to the physical circuit.
+
+Two traps to actively avoid: Calling every effluent liter “fluid removed from the patient.” And: Ignoring downtime and clotting when assessing delivered therapy.
+
+The integration move is this: C R R T is both renal support and a hemodynamic intervention.
+
 Keep these terms available in your mental model: effluent dose, CVVH, CVVHD, CVVHDF, filtration fraction.
 
 What expert-level use of this concept looks like is this: Explain diffusion versus convection and net ultrafiltration. Recognize how circuit, anticoagulation and prescribed versus delivered dose change therapy.
@@ -63,6 +111,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: The circuit changes pharmacology too.
 
 Antimicrobial PK/PD in critical illness. Critical illness changes volume of distribution, clearance and target attainment, so dose strategy must match drug and patient physiology.
+
+Build the mechanism first. Critical illness alters volume of distribution, protein binding and clearance. Drug efficacy depends on whether exposure matches the relevant PK/PD target.
+
+At the bedside, account for augmented renal clearance, AKI, C R R T, fluid shifts and obesity rather than assuming standard dosing produces standard exposure.
+
+Two traps to actively avoid: Reducing doses reflexively in early sepsis because creatinine is high. And: Ignoring extracorporeal clearance.
+
+The integration move is this: The antimicrobial choice and the exposure strategy are separate decisions.
 
 Keep these terms available in your mental model: time above MIC, AUC/MIC, augmented renal clearance.
 

@@ -8,6 +8,14 @@ Now: How a useful first impression becomes a trap.
 
 Cognitive bias & diagnostic error. Expert reasoning uses deliberate checks against anchoring, premature closure, confirmation bias and overconfidence while still making timely decisions.
 
+Build the mechanism first. Anchoring, confirmation bias and premature closure arise because fast pattern recognition is useful but can overcommit to the first plausible model.
+
+At the bedside, name the finding that does not fit, generate at least one alternative mechanism and use treatment response as new diagnostic evidence.
+
+Two traps to actively avoid: Confusing confidence with probability. And: Interpreting unexpected response as “refractory disease” without revisiting the diagnosis.
+
+The integration move is this: Expertise includes knowing when your model should lose credibility.
+
 Keep these terms available in your mental model: anchoring, premature closure, diagnostic time-out.
 
 What expert-level use of this concept looks like is this: Name the evidence that does not fit the favored diagnosis. Deliberately generate an alternative model when the patient fails to respond as predicted.
@@ -17,6 +25,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Look for the fact that should not be there.
 
 Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
+
+Build the mechanism first. Clinical decisions are made with incomplete information. Calibrated reasoning assigns provisional probability, makes predictions and updates when new data contradict the model.
+
+At the bedside, state confidence, name disconfirming evidence and define what response you expect from a treatment if the model is correct.
+
+Two traps to actively avoid: Equating uncertainty with indecision. And: Becoming more confident simply because the same hypothesis has been repeated.
+
+The integration move is this: A model that cannot be falsified is not useful clinical reasoning.
 
 Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
 
@@ -28,6 +44,14 @@ Now: Make the model predict something.
 
 Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
 
+Build the mechanism first. Clinical decisions are made with incomplete information. Calibrated reasoning assigns provisional probability, makes predictions and updates when new data contradict the model.
+
+At the bedside, state confidence, name disconfirming evidence and define what response you expect from a treatment if the model is correct.
+
+Two traps to actively avoid: Equating uncertainty with indecision. And: Becoming more confident simply because the same hypothesis has been repeated.
+
+The integration move is this: A model that cannot be falsified is not useful clinical reasoning.
+
 Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
 
 What expert-level use of this concept looks like is this: State confidence, identify disconfirming evidence and update the model when the patient fails to respond as predicted.
@@ -37,6 +61,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Failure to respond is diagnostic information.
 
 Cognitive bias & diagnostic error. Expert reasoning uses deliberate checks against anchoring, premature closure, confirmation bias and overconfidence while still making timely decisions.
+
+Build the mechanism first. Anchoring, confirmation bias and premature closure arise because fast pattern recognition is useful but can overcommit to the first plausible model.
+
+At the bedside, name the finding that does not fit, generate at least one alternative mechanism and use treatment response as new diagnostic evidence.
+
+Two traps to actively avoid: Confusing confidence with probability. And: Interpreting unexpected response as “refractory disease” without revisiting the diagnosis.
+
+The integration move is this: Expertise includes knowing when your model should lose credibility.
 
 Keep these terms available in your mental model: anchoring, premature closure, diagnostic time-out.
 

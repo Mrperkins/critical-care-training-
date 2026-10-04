@@ -8,6 +8,14 @@ Now: The useful myth and where it breaks.
 
 Lactate physiology. Lactate reflects production and clearance across multiple pathways and is not a direct tissue-hypoxia meter.
 
+Build the mechanism first. Lactate rises from multiple pathways including adrenergic glycolysis, impaired clearance and cellular metabolic changes; it is not a direct meter of tissue hypoxia.
+
+At the bedside, trend lactate with perfusion, liver function, catecholamine exposure and clinical trajectory. A falling value can be reassuring but should not override a deteriorating patient.
+
+Two traps to actively avoid: Assuming every elevated lactate mandates more fluid. And: Equating “clearance” with literal removal of all pathology.
+
+The integration move is this: Use lactate as one dynamic metabolic signal inside the larger perfusion model.
+
 Keep these terms available in your mental model: adrenergic glycolysis, clearance.
 
 What expert-level use of this concept looks like is this: Generate hypoxic and non-hypoxic explanations for elevated lactate. Interpret trajectory alongside perfusion rather than in isolation.
@@ -17,6 +25,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Production without global dysoxia.
 
 Lactate physiology. Lactate reflects production and clearance across multiple pathways and is not a direct tissue-hypoxia meter.
+
+Build the mechanism first. Lactate rises from multiple pathways including adrenergic glycolysis, impaired clearance and cellular metabolic changes; it is not a direct meter of tissue hypoxia.
+
+At the bedside, trend lactate with perfusion, liver function, catecholamine exposure and clinical trajectory. A falling value can be reassuring but should not override a deteriorating patient.
+
+Two traps to actively avoid: Assuming every elevated lactate mandates more fluid. And: Equating “clearance” with literal removal of all pathology.
+
+The integration move is this: Use lactate as one dynamic metabolic signal inside the larger perfusion model.
 
 Keep these terms available in your mental model: adrenergic glycolysis, clearance.
 
@@ -28,6 +44,14 @@ Now: Clearance matters.
 
 Lactate physiology. Lactate reflects production and clearance across multiple pathways and is not a direct tissue-hypoxia meter.
 
+Build the mechanism first. Lactate rises from multiple pathways including adrenergic glycolysis, impaired clearance and cellular metabolic changes; it is not a direct meter of tissue hypoxia.
+
+At the bedside, trend lactate with perfusion, liver function, catecholamine exposure and clinical trajectory. A falling value can be reassuring but should not override a deteriorating patient.
+
+Two traps to actively avoid: Assuming every elevated lactate mandates more fluid. And: Equating “clearance” with literal removal of all pathology.
+
+The integration move is this: Use lactate as one dynamic metabolic signal inside the larger perfusion model.
+
 Keep these terms available in your mental model: adrenergic glycolysis, clearance.
 
 What expert-level use of this concept looks like is this: Generate hypoxic and non-hypoxic explanations for elevated lactate. Interpret trajectory alongside perfusion rather than in isolation.
@@ -38,11 +62,27 @@ Now: Use the trajectory with the patient.
 
 Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
 
+Build the mechanism first. Shock is inadequate effective tissue perfusion and oxygen utilization, not merely hypotension. Flow, vascular tone, capacitance, congestion and extraction can fail in different combinations.
+
+At the bedside, phenotype the circulation repeatedly. A patient can move from one dominant mechanism to another during resuscitation.
+
+Two traps to actively avoid: Naming shock once and never revisiting the model. And: Treating MAP as the only endpoint.
+
+The integration move is this: Choose interventions that both treat the suspected mechanism and generate information about whether the model was correct.
+
 Keep these terms available in your mental model: flow, tone, congestion, perfusion.
 
 What expert-level use of this concept looks like is this: Recognize mixed shock. Choose an intervention that tests a physiologic hypothesis and define the response expected if that hypothesis is correct.
 
 Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
+
+Build the mechanism first. Clinical decisions are made with incomplete information. Calibrated reasoning assigns provisional probability, makes predictions and updates when new data contradict the model.
+
+At the bedside, state confidence, name disconfirming evidence and define what response you expect from a treatment if the model is correct.
+
+Two traps to actively avoid: Equating uncertainty with indecision. And: Becoming more confident simply because the same hypothesis has been repeated.
+
+The integration move is this: A model that cannot be falsified is not useful clinical reasoning.
 
 Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
 

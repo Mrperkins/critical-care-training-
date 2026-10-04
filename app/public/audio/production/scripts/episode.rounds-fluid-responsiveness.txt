@@ -8,6 +8,14 @@ Now: Three different questions.
 
 Fluid responsiveness. Whether stroke volume will meaningfully increase after an increase in preload; distinct from whether fluid is indicated or safe.
 
+Build the mechanism first. Fluid responsiveness asks whether stroke volume rises with increased preload. It does not answer whether the patient needs fluid, whether fluid is safe, or whether another intervention would better address the problem.
+
+At the bedside, use dynamic tests when their assumptions are valid and interpret the change in flow, not merely pressure. Then ask whether the patient can tolerate the added volume.
+
+Two traps to actively avoid: Using static filling pressure as a responsiveness test. And: Treating a positive test as an automatic fluid order.
+
+The integration move is this: Pair responsiveness with fluid tolerance and a clear therapeutic endpoint.
+
 Keep these terms available in your mental model: dynamic assessment, passive leg raise.
 
 What expert-level use of this concept looks like is this: Separate responsiveness from tolerance and need. Interpret dynamic tests in their physiologic context and recognize limitations.
@@ -20,11 +28,27 @@ Now: What dynamic tests actually test.
 
 Fluid responsiveness. Whether stroke volume will meaningfully increase after an increase in preload; distinct from whether fluid is indicated or safe.
 
+Build the mechanism first. Fluid responsiveness asks whether stroke volume rises with increased preload. It does not answer whether the patient needs fluid, whether fluid is safe, or whether another intervention would better address the problem.
+
+At the bedside, use dynamic tests when their assumptions are valid and interpret the change in flow, not merely pressure. Then ask whether the patient can tolerate the added volume.
+
+Two traps to actively avoid: Using static filling pressure as a responsiveness test. And: Treating a positive test as an automatic fluid order.
+
+The integration move is this: Pair responsiveness with fluid tolerance and a clear therapeutic endpoint.
+
 Keep these terms available in your mental model: dynamic assessment, passive leg raise.
 
 What expert-level use of this concept looks like is this: Separate responsiveness from tolerance and need. Interpret dynamic tests in their physiologic context and recognize limitations.
 
 Preload. The loading conditions of a ventricle before contraction; not synonymous with a single pressure or volume.
+
+Build the mechanism first. Preload is the myocardial fiber-loading condition before contraction. It is influenced by venous return, ventricular compliance, pericardial pressure and intrathoracic pressure, so a measured filling pressure is only an imperfect surrogate.
+
+At the bedside, interpret filling pressure together with volume response, congestion, ventricular geometry and the pressure surrounding the heart. A CVP of 14 can mean very different things in RV failure, tamponade and positive-pressure ventilation.
+
+Two traps to actively avoid: Equating CVP with circulating volume. And: Assuming fluid responsiveness means fluid is indicated or tolerated.
+
+The integration move is this: Ask what changed the effective distending pressure of the ventricle, not merely what changed the monitor number.
 
 Keep these terms available in your mental model: end-diastolic volume, transmural pressure.
 
@@ -36,11 +60,27 @@ Now: Congestion and the right heart.
 
 Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
 
+Build the mechanism first. The RV is thin-walled and highly sensitive to acute afterload. When it dilates, wall stress rises, coronary perfusion can fall and septal shift can reduce LV filling.
+
+At the bedside, track systemic pressure, venous congestion, echo geometry, oxygenation, CO2, acid-base status and ventilator pressures together. Small changes in P V R or intrathoracic pressure can have large hemodynamic consequences.
+
+Two traps to actively avoid: Reflexively giving fluid to every hypotensive RV patient. And: Focusing on systemic pressure while ignoring worsening RV dilation and congestion.
+
+The integration move is this: Every intervention should be judged by its effects on RV preload, RV afterload, contractility and coronary perfusion.
+
 Keep these terms available in your mental model: RV-PA coupling, septal shift, transmural pressure.
 
 What expert-level use of this concept looks like is this: Recognize RV shock physiology before systemic hypotension becomes profound. Predict how peep, hypercapnia, hypoxemia, fluids and vasoactives may change RV performance.
 
 Venous return. Flow back to the right heart determined by the pressure gradient from the systemic circulation and resistance to venous return.
+
+Build the mechanism first. Venous return depends on the pressure gradient from the systemic venous reservoir toward the right atrium and on resistance to that flow. Mean systemic filling pressure and right-atrial pressure can move independently.
+
+At the bedside, a rise in right-atrial pressure can reduce venous return even when the patient appears more “full.” Venoconstriction can recruit unstressed volume and change the upstream pressure without adding external fluid.
+
+Two traps to actively avoid: Treating a high CVP as proof of adequate forward flow. And: Ignoring abdominal, thoracic or pericardial pressure as downstream resistance.
+
+The integration move is this: Predict how fluid, venoconstriction, peep and RV failure each alter the venous-return gradient.
 
 Keep these terms available in your mental model: mean systemic filling pressure, stressed volume, venous return gradient.
 
@@ -51,6 +91,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Turn a test into a decision.
 
 Fluid responsiveness. Whether stroke volume will meaningfully increase after an increase in preload; distinct from whether fluid is indicated or safe.
+
+Build the mechanism first. Fluid responsiveness asks whether stroke volume rises with increased preload. It does not answer whether the patient needs fluid, whether fluid is safe, or whether another intervention would better address the problem.
+
+At the bedside, use dynamic tests when their assumptions are valid and interpret the change in flow, not merely pressure. Then ask whether the patient can tolerate the added volume.
+
+Two traps to actively avoid: Using static filling pressure as a responsiveness test. And: Treating a positive test as an automatic fluid order.
+
+The integration move is this: Pair responsiveness with fluid tolerance and a clear therapeutic endpoint.
 
 Keep these terms available in your mental model: dynamic assessment, passive leg raise.
 

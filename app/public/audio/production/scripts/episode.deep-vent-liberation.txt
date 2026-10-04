@@ -8,6 +8,14 @@ Now: Ready to test is not ready to extubate.
 
 Liberation from mechanical ventilation. Liberation requires separating readiness, spontaneous breathing performance, airway protection and post-extubation risk.
 
+Build the mechanism first. A spontaneous breathing trial tests whether the patient can assume the work of breathing, but extubation also requires airway protection and manageable post-extubation risk.
+
+At the bedside, when a trial fails, distinguish respiratory muscle load, cardiac dysfunction, weakness, sedation, airway issues and unresolved disease.
+
+Two traps to actively avoid: Repeating failed SBTs without diagnosing why. And: Equating SBT success with guaranteed extubation success.
+
+The integration move is this: Liberation is a diagnostic stress test followed by an airway decision.
+
 Keep these terms available in your mental model: SBT, RSBI, airway protection.
 
 What expert-level use of this concept looks like is this: Distinguish failure of respiratory mechanics from cardiac, neurologic or airway causes of failed liberation. Plan extubation support based on risk rather than a single breathing-trial number.
@@ -17,6 +25,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: What an SBT stresses.
 
 Liberation from mechanical ventilation. Liberation requires separating readiness, spontaneous breathing performance, airway protection and post-extubation risk.
+
+Build the mechanism first. A spontaneous breathing trial tests whether the patient can assume the work of breathing, but extubation also requires airway protection and manageable post-extubation risk.
+
+At the bedside, when a trial fails, distinguish respiratory muscle load, cardiac dysfunction, weakness, sedation, airway issues and unresolved disease.
+
+Two traps to actively avoid: Repeating failed SBTs without diagnosing why. And: Equating SBT success with guaranteed extubation success.
+
+The integration move is this: Liberation is a diagnostic stress test followed by an airway decision.
 
 Keep these terms available in your mental model: SBT, RSBI, airway protection.
 
@@ -28,11 +44,27 @@ Now: Respiratory, cardiac and neuromuscular failure.
 
 Cardiogenic shock. Pump failure where restoring perfusion must be balanced against congestion, myocardial oxygen demand, coronary perfusion and mechanical complications.
 
+Build the mechanism first. Cardiogenic shock is inadequate forward flow from pump failure, often accompanied by elevated filling pressures and congestion. RV, LV and biventricular phenotypes behave differently.
+
+At the bedside, track flow, pressure, congestion, coronary perfusion, rhythm and mechanical complications; escalate support when pharmacology cannot restore effective circulation.
+
+Two traps to actively avoid: Treating all cardiogenic shock with the same inotrope/pressor pattern. And: Ignoring congestion while chasing blood pressure.
+
+The integration move is this: The support strategy should match the failing ventricle and the cause of pump failure.
+
 Keep these terms available in your mental model: cardiac power output, congestion, inotropy.
 
 What expert-level use of this concept looks like is this: Phenotype left-, right- and biventricular pump failure. Choose support based on pressure, flow, congestion and the cause of pump failure.
 
 ICU-acquired weakness & recovery. Critical illness, immobility, inflammation, sedation and organ failure can produce profound weakness and long-term functional loss.
+
+Build the mechanism first. Inflammation, immobility, neuropathy, myopathy, sedation and undernutrition can cause profound ICU-acquired weakness and prolonged post-ICU disability.
+
+At the bedside, build mobility, delirium prevention, nutrition and sedation minimization into daily care rather than starting “rehab” only after organ failure resolves.
+
+Two traps to actively avoid: Interpreting generalized weakness only as deconditioning. And: Separating recovery planning from ventilator liberation.
+
+The integration move is this: Survival is not the only outcome; function is a critical-care endpoint.
 
 Keep these terms available in your mental model: critical illness myopathy, critical illness neuropathy, PICS.
 
@@ -44,6 +76,14 @@ Now: Airway protection is separate.
 
 Liberation from mechanical ventilation. Liberation requires separating readiness, spontaneous breathing performance, airway protection and post-extubation risk.
 
+Build the mechanism first. A spontaneous breathing trial tests whether the patient can assume the work of breathing, but extubation also requires airway protection and manageable post-extubation risk.
+
+At the bedside, when a trial fails, distinguish respiratory muscle load, cardiac dysfunction, weakness, sedation, airway issues and unresolved disease.
+
+Two traps to actively avoid: Repeating failed SBTs without diagnosing why. And: Equating SBT success with guaranteed extubation success.
+
+The integration move is this: Liberation is a diagnostic stress test followed by an airway decision.
+
 Keep these terms available in your mental model: SBT, RSBI, airway protection.
 
 What expert-level use of this concept looks like is this: Distinguish failure of respiratory mechanics from cardiac, neurologic or airway causes of failed liberation. Plan extubation support based on risk rather than a single breathing-trial number.
@@ -53,6 +93,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Plan the post-extubation period.
 
 Liberation from mechanical ventilation. Liberation requires separating readiness, spontaneous breathing performance, airway protection and post-extubation risk.
+
+Build the mechanism first. A spontaneous breathing trial tests whether the patient can assume the work of breathing, but extubation also requires airway protection and manageable post-extubation risk.
+
+At the bedside, when a trial fails, distinguish respiratory muscle load, cardiac dysfunction, weakness, sedation, airway issues and unresolved disease.
+
+Two traps to actively avoid: Repeating failed SBTs without diagnosing why. And: Equating SBT success with guaranteed extubation success.
+
+The integration move is this: Liberation is a diagnostic stress test followed by an airway decision.
 
 Keep these terms available in your mental model: SBT, RSBI, airway protection.
 

@@ -8,6 +8,14 @@ Now: From a breath to energy.
 
 Mechanical power. Energy delivered to the respiratory system over time from pressure, volume, flow and respiratory rate.
 
+Build the mechanism first. Mechanical power expresses the energy transferred from the ventilator to the respiratory system per unit time. Pressure, tidal volume, flow and respiratory rate all contribute.
+
+At the bedside, a patient may have an acceptable tidal volume and plateau pressure yet receive a high cumulative energy load because of rate, flow or excessive pressure swings.
+
+Two traps to actively avoid: Treating mechanical power as one magic cutoff. And: Ignoring spontaneous respiratory effort as another source of lung stress.
+
+The integration move is this: Think about injury as repeated energy delivery to vulnerable lung tissue.
+
 Keep these terms available in your mental model: energy load, ventilator-induced lung injury.
 
 What expert-level use of this concept looks like is this: Explain how respiratory rate and flow can increase ventilator energy even when tidal volume appears acceptable.
@@ -17,6 +25,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Pressure, volume, flow and rate.
 
 Mechanical power. Energy delivered to the respiratory system over time from pressure, volume, flow and respiratory rate.
+
+Build the mechanism first. Mechanical power expresses the energy transferred from the ventilator to the respiratory system per unit time. Pressure, tidal volume, flow and respiratory rate all contribute.
+
+At the bedside, a patient may have an acceptable tidal volume and plateau pressure yet receive a high cumulative energy load because of rate, flow or excessive pressure swings.
+
+Two traps to actively avoid: Treating mechanical power as one magic cutoff. And: Ignoring spontaneous respiratory effort as another source of lung stress.
+
+The integration move is this: Think about injury as repeated energy delivery to vulnerable lung tissue.
 
 Keep these terms available in your mental model: energy load, ventilator-induced lung injury.
 
@@ -28,11 +44,27 @@ Now: Same ventilator, different lung.
 
 A R D S physiology. Diffuse inflammatory lung injury producing heterogeneity, shunt, low aerated lung volume and risk from ventilator-induced injury.
 
+Build the mechanism first. A R D S produces heterogeneous inflammatory lung injury, shunt, edema and a reduced aerated “baby lung,” making regional overdistension possible even at seemingly modest tidal volumes.
+
+At the bedside, integrate gas exchange, compliance, recruitability, prone response, driving pressure and hemodynamics rather than treating the P/F ratio alone.
+
+Two traps to actively avoid: Equating severe hypoxemia with universal recruitability. And: Improving oxygenation at the cost of excessive distending pressure or RV load.
+
+The integration move is this: A R D S management is a tradeoff between oxygenation, mechanical injury and circulation.
+
 Keep these terms available in your mental model: baby lung, shunt, recruitability.
 
 What expert-level use of this concept looks like is this: Integrate oxygenation, mechanics, recruitability and hemodynamics rather than treating a P/F ratio in isolation.
 
 Compliance & elastance. Compliance describes change in volume for change in pressure; elastance is its inverse.
+
+Build the mechanism first. Compliance is change in volume divided by change in pressure; elastance is its inverse. Respiratory-system compliance includes both lung and chest-wall contributions.
+
+At the bedside, use peak and plateau pressures to separate resistive from elastic loading, then ask whether chest wall, abdomen or lung is responsible.
+
+Two traps to actively avoid: Calling every high airway pressure “stiff lungs.” And: Ignoring chest-wall and abdominal mechanics.
+
+The integration move is this: A ventilator pressure only becomes physiologic information when flow state and pressure component are known.
 
 Keep these terms available in your mental model: static compliance, elastance.
 
@@ -44,11 +76,27 @@ Now: Usefulness without fetishizing one equation.
 
 Mechanical power. Energy delivered to the respiratory system over time from pressure, volume, flow and respiratory rate.
 
+Build the mechanism first. Mechanical power expresses the energy transferred from the ventilator to the respiratory system per unit time. Pressure, tidal volume, flow and respiratory rate all contribute.
+
+At the bedside, a patient may have an acceptable tidal volume and plateau pressure yet receive a high cumulative energy load because of rate, flow or excessive pressure swings.
+
+Two traps to actively avoid: Treating mechanical power as one magic cutoff. And: Ignoring spontaneous respiratory effort as another source of lung stress.
+
+The integration move is this: Think about injury as repeated energy delivery to vulnerable lung tissue.
+
 Keep these terms available in your mental model: energy load, ventilator-induced lung injury.
 
 What expert-level use of this concept looks like is this: Explain how respiratory rate and flow can increase ventilator energy even when tidal volume appears acceptable.
 
 Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
+
+Build the mechanism first. Clinical decisions are made with incomplete information. Calibrated reasoning assigns provisional probability, makes predictions and updates when new data contradict the model.
+
+At the bedside, state confidence, name disconfirming evidence and define what response you expect from a treatment if the model is correct.
+
+Two traps to actively avoid: Equating uncertainty with indecision. And: Becoming more confident simply because the same hypothesis has been repeated.
+
+The integration move is this: A model that cannot be falsified is not useful clinical reasoning.
 
 Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
 

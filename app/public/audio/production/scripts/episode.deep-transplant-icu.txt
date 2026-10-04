@@ -8,6 +8,14 @@ Now: The host is different.
 
 Immunosuppression & opportunistic infection. Immune deficits and immunosuppressive drugs reshape infection timing, presentation, diagnostic yield and antimicrobial strategy.
 
+Build the mechanism first. Different immune deficits predispose to different organisms and alter inflammatory presentation. Immunosuppressants also create renal, neurologic, metabolic and drug-interaction toxicity.
+
+At the bedside, match infection risk to the immune defect and timeline while checking for drug toxicity and interaction.
+
+Two traps to actively avoid: Expecting fever or leukocytosis to be reliable. And: Ignoring antimicrobial–immunosuppressant interactions.
+
+The integration move is this: The host response may be muted even when infection is severe.
+
 Keep these terms available in your mental model: neutropenia, calcineurin inhibitor, opportunistic infection.
 
 What expert-level use of this concept looks like is this: Match likely pathogens to the host immune defect and time course. Recognize major drug-toxicity and interaction risks during critical illness.
@@ -17,6 +25,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Time from transplant changes the differential.
 
 Transplant critical-care physiology. Transplant recipients combine altered anatomy/physiology, immunosuppression, unusual infection risk, rejection and drug-interaction problems.
+
+Build the mechanism first. Transplanted organs have altered anatomy, denervation or surgical connections while rejection, infection, ischemia and medication toxicity can produce overlapping dysfunction.
+
+At the bedside, use time-from-transplant, organ type, immunosuppression and prior complications to shape the differential.
+
+Two traps to actively avoid: Calling every graft problem rejection. And: Stopping immunosuppression reflexively during critical illness.
+
+The integration move is this: The patient’s immune state, graft physiology and drug exposure are inseparable.
 
 Keep these terms available in your mental model: rejection, opportunistic infection, allograft.
 
@@ -28,6 +44,14 @@ Now: Graft dysfunction is not automatically rejection.
 
 Transplant critical-care physiology. Transplant recipients combine altered anatomy/physiology, immunosuppression, unusual infection risk, rejection and drug-interaction problems.
 
+Build the mechanism first. Transplanted organs have altered anatomy, denervation or surgical connections while rejection, infection, ischemia and medication toxicity can produce overlapping dysfunction.
+
+At the bedside, use time-from-transplant, organ type, immunosuppression and prior complications to shape the differential.
+
+Two traps to actively avoid: Calling every graft problem rejection. And: Stopping immunosuppression reflexively during critical illness.
+
+The integration move is this: The patient’s immune state, graft physiology and drug exposure are inseparable.
+
 Keep these terms available in your mental model: rejection, opportunistic infection, allograft.
 
 What expert-level use of this concept looks like is this: Build a broader differential for shock, hypoxemia and organ dysfunction in transplant recipients. Avoid stopping immunosuppression or attributing graft dysfunction to rejection without context.
@@ -38,11 +62,27 @@ Now: Immunosuppressants interact with critical illness.
 
 Immunosuppression & opportunistic infection. Immune deficits and immunosuppressive drugs reshape infection timing, presentation, diagnostic yield and antimicrobial strategy.
 
+Build the mechanism first. Different immune deficits predispose to different organisms and alter inflammatory presentation. Immunosuppressants also create renal, neurologic, metabolic and drug-interaction toxicity.
+
+At the bedside, match infection risk to the immune defect and timeline while checking for drug toxicity and interaction.
+
+Two traps to actively avoid: Expecting fever or leukocytosis to be reliable. And: Ignoring antimicrobial–immunosuppressant interactions.
+
+The integration move is this: The host response may be muted even when infection is severe.
+
 Keep these terms available in your mental model: neutropenia, calcineurin inhibitor, opportunistic infection.
 
 What expert-level use of this concept looks like is this: Match likely pathogens to the host immune defect and time course. Recognize major drug-toxicity and interaction risks during critical illness.
 
 Antimicrobial PK/PD in critical illness. Critical illness changes volume of distribution, clearance and target attainment, so dose strategy must match drug and patient physiology.
+
+Build the mechanism first. Critical illness alters volume of distribution, protein binding and clearance. Drug efficacy depends on whether exposure matches the relevant PK/PD target.
+
+At the bedside, account for augmented renal clearance, AKI, C R R T, fluid shifts and obesity rather than assuming standard dosing produces standard exposure.
+
+Two traps to actively avoid: Reducing doses reflexively in early sepsis because creatinine is high. And: Ignoring extracorporeal clearance.
+
+The integration move is this: The antimicrobial choice and the exposure strategy are separate decisions.
 
 Keep these terms available in your mental model: time above MIC, AUC/MIC, augmented renal clearance.
 
@@ -53,6 +93,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Infection can be quiet and atypical.
 
 Source control. Definitive management of infected material, devitalized tissue or an infected device can be as important as antimicrobial therapy.
+
+Build the mechanism first. Antibiotics cannot sterilize every infected collection, necrotic tissue or infected device. Persistent nidus can sustain inflammatory and microbial burden despite apparently appropriate antimicrobial therapy.
+
+At the bedside, ask early whether drainage, debridement, device removal or surgery is required and whether it is actually happening.
+
+Two traps to actively avoid: Escalating antibiotic breadth when the real failure is lack of source control. And: Waiting for complete hemodynamic normalization before addressing a time-sensitive source.
+
+The integration move is this: Sepsis treatment is host support plus antimicrobials plus definitive control of the source.
 
 Keep these terms available in your mental model: drainage, debridement, device removal.
 

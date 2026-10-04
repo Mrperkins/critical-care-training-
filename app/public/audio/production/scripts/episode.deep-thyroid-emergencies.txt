@@ -8,6 +8,14 @@ Now: Thyroid storm physiology.
 
 Thyroid storm. Extreme thyrotoxicosis drives hypermetabolism, adrenergic symptoms, arrhythmia, heart failure, fever and CNS dysfunction.
 
+Build the mechanism first. Severe thyrotoxicosis amplifies metabolic demand and adrenergic signaling, producing fever, CNS dysfunction, arrhythmia and sometimes high-output then decompensated heart failure.
+
+At the bedside, recognize the syndrome clinically and treat the precipitant while addressing adrenergic effects and thyroid hormone production/release in appropriate sequence.
+
+Two traps to actively avoid: Relying on one thyroid hormone value to define severity. And: Using aggressive rate control without considering decompensated pump failure.
+
+The integration move is this: The thyroid state magnifies stress physiology across multiple organs.
+
 Keep these terms available in your mental model: thyrotoxicosis, hyperadrenergic, high-output failure.
 
 What expert-level use of this concept looks like is this: Recognize multisystem decompensation rather than relying on a single thyroid value. Sequence therapies around adrenergic control, hormone synthesis/release and precipitant treatment.
@@ -17,6 +25,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: High-output physiology can become pump failure.
 
 Cardiogenic shock. Pump failure where restoring perfusion must be balanced against congestion, myocardial oxygen demand, coronary perfusion and mechanical complications.
+
+Build the mechanism first. Cardiogenic shock is inadequate forward flow from pump failure, often accompanied by elevated filling pressures and congestion. RV, LV and biventricular phenotypes behave differently.
+
+At the bedside, track flow, pressure, congestion, coronary perfusion, rhythm and mechanical complications; escalate support when pharmacology cannot restore effective circulation.
+
+Two traps to actively avoid: Treating all cardiogenic shock with the same inotrope/pressor pattern. And: Ignoring congestion while chasing blood pressure.
+
+The integration move is this: The support strategy should match the failing ventricle and the cause of pump failure.
 
 Keep these terms available in your mental model: cardiac power output, congestion, inotropy.
 
@@ -28,6 +44,14 @@ Now: Myxedema coma physiology.
 
 Myxedema coma. Severe hypothyroidism can produce hypothermia, bradycardia, hypoventilation, hyponatremia, hypotension and altered consciousness.
 
+Build the mechanism first. Extreme hypothyroidism reduces metabolic rate, ventilatory drive and cardiac performance while impairing free-water handling and thermoregulation.
+
+At the bedside, anticipate hypoventilation, bradycardia, hypotension, hyponatremia and hypothermia; consider adrenal coverage while treating.
+
+Two traps to actively avoid: Aggressive external rewarming that worsens vasodilation. And: Missing ventilatory failure because oxygen saturation appears acceptable.
+
+The integration move is this: The syndrome is global metabolic slowing with limited cardiovascular and respiratory reserve.
+
 Keep these terms available in your mental model: hypothyroidism, hypoventilation, adrenal coverage.
 
 What expert-level use of this concept looks like is this: Recognize the syndrome despite nonspecific presentation. Anticipate airway, temperature, sodium and adrenal considerations during treatment.
@@ -37,6 +61,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Airway, temperature, sodium and adrenal considerations.
 
 Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+Build the mechanism first. Acute ventilator deterioration can originate from the patient, tube, circuit or machine. Peak and plateau pressures help separate resistance from compliance when measurements are trustworthy.
+
+At the bedside, look at the patient first, rescue oxygenation/ventilation if the device cannot be trusted, then trace from patient to tube to circuit to machine.
+
+Two traps to actively avoid: Staring at the ventilator while the patient deteriorates. And: Treating every high-pressure alarm as bronchospasm.
+
+The integration move is this: Use pressure pattern, capnography, exam and circuit inspection to localize the problem quickly.
 
 Keep these terms available in your mental model: DOPES, peak pressure, plateau pressure, auto-peep.
 

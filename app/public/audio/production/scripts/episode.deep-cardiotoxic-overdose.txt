@@ -8,6 +8,14 @@ Now: Beta-blocker physiology.
 
 Beta-blocker & calcium-channel blocker toxicity. These overdoses can produce profound bradycardia, vasodilation and myocardial depression through different receptor and metabolic mechanisms.
 
+Build the mechanism first. Beta blockade reduces chronotropy/inotropy while calcium-channel blockade can add profound vasodilation and impaired insulin release/metabolism; phenotype varies by agent.
+
+At the bedside, treat pump failure, vasoplegia and metabolic consequences in parallel rather than expecting one antidote to reverse every mechanism.
+
+Two traps to actively avoid: Using heart rate alone to judge severity. And: Stopping after a transient pressure response without reassessing flow and perfusion.
+
+The integration move is this: The dominant shock mechanism should guide the support strategy.
+
 Keep these terms available in your mental model: high-dose insulin, calcium, chronotropy.
 
 What expert-level use of this concept looks like is this: Differentiate dominant pump versus vasodilatory physiology. Understand why therapy often requires multiple simultaneous mechanisms rather than one antidote.
@@ -17,6 +25,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Calcium-channel blocker physiology.
 
 Beta-blocker & calcium-channel blocker toxicity. These overdoses can produce profound bradycardia, vasodilation and myocardial depression through different receptor and metabolic mechanisms.
+
+Build the mechanism first. Beta blockade reduces chronotropy/inotropy while calcium-channel blockade can add profound vasodilation and impaired insulin release/metabolism; phenotype varies by agent.
+
+At the bedside, treat pump failure, vasoplegia and metabolic consequences in parallel rather than expecting one antidote to reverse every mechanism.
+
+Two traps to actively avoid: Using heart rate alone to judge severity. And: Stopping after a transient pressure response without reassessing flow and perfusion.
+
+The integration move is this: The dominant shock mechanism should guide the support strategy.
 
 Keep these terms available in your mental model: high-dose insulin, calcium, chronotropy.
 
@@ -28,6 +44,14 @@ Now: Why high-dose insulin can support the poisoned heart.
 
 Beta-blocker & calcium-channel blocker toxicity. These overdoses can produce profound bradycardia, vasodilation and myocardial depression through different receptor and metabolic mechanisms.
 
+Build the mechanism first. Beta blockade reduces chronotropy/inotropy while calcium-channel blockade can add profound vasodilation and impaired insulin release/metabolism; phenotype varies by agent.
+
+At the bedside, treat pump failure, vasoplegia and metabolic consequences in parallel rather than expecting one antidote to reverse every mechanism.
+
+Two traps to actively avoid: Using heart rate alone to judge severity. And: Stopping after a transient pressure response without reassessing flow and perfusion.
+
+The integration move is this: The dominant shock mechanism should guide the support strategy.
+
 Keep these terms available in your mental model: high-dose insulin, calcium, chronotropy.
 
 What expert-level use of this concept looks like is this: Differentiate dominant pump versus vasodilatory physiology. Understand why therapy often requires multiple simultaneous mechanisms rather than one antidote.
@@ -37,6 +61,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Sodium-channel blockade and the ECG.
 
 Sodium-channel blockade. Fast sodium-channel blockade slows depolarization and can widen QRS, cause ventricular dysrhythmia, hypotension and seizures.
+
+Build the mechanism first. Fast sodium-channel blockade slows phase-zero depolarization, widening QRS and predisposing to hypotension, ventricular dysrhythmia and seizure.
+
+At the bedside, use ECG morphology and hemodynamics as dynamic toxicity markers and understand why sodium loading/alkalinization can improve channel conduction in selected poisonings.
+
+Two traps to actively avoid: Waiting for a serum drug concentration. And: Treating a wide-complex toxicologic rhythm as ordinary monomorphic VT without mechanism context.
+
+The integration move is this: Electrophysiology is the antidote map.
 
 Keep these terms available in your mental model: QRS widening, terminal R, alkalinization.
 
@@ -48,11 +80,27 @@ Now: Build the support from the dominant physiology.
 
 Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
 
+Build the mechanism first. Shock is inadequate effective tissue perfusion and oxygen utilization, not merely hypotension. Flow, vascular tone, capacitance, congestion and extraction can fail in different combinations.
+
+At the bedside, phenotype the circulation repeatedly. A patient can move from one dominant mechanism to another during resuscitation.
+
+Two traps to actively avoid: Naming shock once and never revisiting the model. And: Treating MAP as the only endpoint.
+
+The integration move is this: Choose interventions that both treat the suspected mechanism and generate information about whether the model was correct.
+
 Keep these terms available in your mental model: flow, tone, congestion, perfusion.
 
 What expert-level use of this concept looks like is this: Recognize mixed shock. Choose an intervention that tests a physiologic hypothesis and define the response expected if that hypothesis is correct.
 
 Vasopressor & inotrope physiology. Vasoactive drugs change arterial tone, venous tone, heart rate, contractility and regional flow; the desired effect depends on the shock model.
+
+Build the mechanism first. Vasoactive drugs alter arterial tone, venous tone, contractility and heart rate to different degrees. The same MAP response can hide very different effects on flow and myocardial demand.
+
+At the bedside, choose the agent from the dominant deficit and define what improvement and toxicity should look like before titration.
+
+Two traps to actively avoid: Treating MAP increase as proof of improved perfusion. And: Ignoring venous effects and cardiac workload.
+
+The integration move is this: Use vasoactive drugs to correct a physiologic mechanism, not to normalize a monitor number.
 
 Keep these terms available in your mental model: alpha-1, beta-1, inotropy, chronotropy, venoconstriction.
 

@@ -8,6 +8,14 @@ Now: Acute failure is not chronic cirrhosis.
 
 Acute liver failure. Acute hepatic failure couples coagulopathy, ammonia handling, cerebral edema risk, hypoglycemia, vasodilation and multiorgan dysfunction.
 
+Build the mechanism first. Abrupt loss of hepatic synthetic and metabolic function can cause hyperammonemia, hypoglycemia, vasodilation, coagulopathy, renal failure and cerebral edema.
+
+At the bedside, trend neurologic status, glucose, acid-base, renal function and hemodynamics while involving a transplant-capable center early.
+
+Two traps to actively avoid: Treating elevated INR as the only measure of severity. And: Assuming chronic-cirrhosis physiology applies directly to acute failure.
+
+The integration move is this: Acute liver failure is a brain-circulation-metabolism emergency with a time-sensitive transplant decision.
+
 Keep these terms available in your mental model: ammonia, synthetic failure, cerebral edema.
 
 What expert-level use of this concept looks like is this: Recognize the physiology that makes acute liver failure different from stable chronic cirrhosis. Prioritize neuroprotection, glucose control, hemodynamics and early transplant-center escalation.
@@ -18,11 +26,27 @@ Now: Ammonia and cerebral edema.
 
 Hepatic encephalopathy. Neurocognitive dysfunction from hepatic failure reflects ammonia and other mechanisms, with severity ranging from subtle change to coma.
 
+Build the mechanism first. Hepatic encephalopathy reflects impaired detoxification and altered neurotransmission, often worsened by infection, bleeding, constipation, medications or electrolyte disturbance.
+
+At the bedside, search for precipitants and competing causes of altered mental status; ammonia supports context but should not replace the clinical diagnosis.
+
+Two traps to actively avoid: Treating the ammonia level rather than the patient. And: Missing infection, bleeding or sedative accumulation.
+
+The integration move is this: The mental-status change is often a sign of a broader systemic problem that can be corrected.
+
 Keep these terms available in your mental model: asterixis, ammonia, precipitating factor.
 
 What expert-level use of this concept looks like is this: Look for reversible precipitants instead of attributing all altered mental status to ammonia. Separate chronic encephalopathy from acute cerebral-edema risk.
 
 ICP, CPP & cerebral perfusion. Cerebral perfusion depends on the gradient across the cerebral circulation and is influenced by pressure, venous outflow, CO2 and intracranial compliance.
+
+Build the mechanism first. CPP is the pressure gradient available to drive cerebral blood flow and is influenced by arterial pressure, ICP, venous pressure and autoregulation. Intracranial compliance falls as compensatory reserve is exhausted.
+
+At the bedside, interpret ICP as a dynamic system with waveform, position, venous drainage, CO2 and sedation effects. A “normal” MAP does not guarantee adequate cerebral perfusion.
+
+Two traps to actively avoid: Treating ICP and CPP as isolated targets. And: Ignoring neck position, intrathoracic pressure and venous outflow.
+
+The integration move is this: Protect the brain by preserving oxygenation and perfusion while minimizing factors that increase intracranial volume or venous pressure.
 
 Keep these terms available in your mental model: CPP, autoregulation, Monro-Kellie.
 
@@ -34,6 +58,14 @@ Now: Coagulopathy is not synonymous with spontaneous bleeding risk.
 
 Critical-illness coagulopathy. Bleeding and thrombosis reflect platelets, fibrinogen, coagulation factors, fibrinolysis, temperature, calcium, dilution and disease-specific pathways.
 
+Build the mechanism first. Hemostasis depends on platelets, fibrinogen, coagulation factors, fibrinolysis, calcium, pH and temperature. Critical illness can produce simultaneous bleeding and thrombosis risk.
+
+At the bedside, interpret conventional labs and viscoelastic tests in the clinical context and replace the failing component rather than one arbitrary number.
+
+Two traps to actively avoid: Equating INR with whole-blood clot quality. And: Ignoring fibrinogen, platelet function, temperature and calcium.
+
+The integration move is this: Coagulation is a dynamic system, not a single laboratory pathway.
+
 Keep these terms available in your mental model: fibrinolysis, fibrinogen, viscoelastic testing.
 
 What expert-level use of this concept looks like is this: Reason from the failing component of clot formation rather than treating INR alone. Anticipate temperature, calcium and dilution effects during hemorrhagic resuscitation.
@@ -43,6 +75,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Vasodilation and multiorgan failure.
 
 Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+Build the mechanism first. Shock is inadequate effective tissue perfusion and oxygen utilization, not merely hypotension. Flow, vascular tone, capacitance, congestion and extraction can fail in different combinations.
+
+At the bedside, phenotype the circulation repeatedly. A patient can move from one dominant mechanism to another during resuscitation.
+
+Two traps to actively avoid: Naming shock once and never revisiting the model. And: Treating MAP as the only endpoint.
+
+The integration move is this: Choose interventions that both treat the suspected mechanism and generate information about whether the model was correct.
 
 Keep these terms available in your mental model: flow, tone, congestion, perfusion.
 
@@ -54,11 +94,27 @@ Now: Support while moving toward transplant.
 
 C R R T physiology & prescription literacy. Continuous renal replacement uses diffusion and/or convection to manage solute, acid-base and fluid balance in unstable patients.
 
+Build the mechanism first. C R R T uses diffusion, convection and ultrafiltration to control solute, acid-base and volume continuously. Prescribed dose can differ substantially from delivered dose.
+
+At the bedside, separate total effluent from net patient fluid removal and interpret access, filter and return pressures as clues to the physical circuit.
+
+Two traps to actively avoid: Calling every effluent liter “fluid removed from the patient.” And: Ignoring downtime and clotting when assessing delivered therapy.
+
+The integration move is this: C R R T is both renal support and a hemodynamic intervention.
+
 Keep these terms available in your mental model: effluent dose, CVVH, CVVHD, CVVHDF, filtration fraction.
 
 What expert-level use of this concept looks like is this: Explain diffusion versus convection and net ultrafiltration. Recognize how circuit, anticoagulation and prescribed versus delivered dose change therapy.
 
 Acute liver failure. Acute hepatic failure couples coagulopathy, ammonia handling, cerebral edema risk, hypoglycemia, vasodilation and multiorgan dysfunction.
+
+Build the mechanism first. Abrupt loss of hepatic synthetic and metabolic function can cause hyperammonemia, hypoglycemia, vasodilation, coagulopathy, renal failure and cerebral edema.
+
+At the bedside, trend neurologic status, glucose, acid-base, renal function and hemodynamics while involving a transplant-capable center early.
+
+Two traps to actively avoid: Treating elevated INR as the only measure of severity. And: Assuming chronic-cirrhosis physiology applies directly to acute failure.
+
+The integration move is this: Acute liver failure is a brain-circulation-metabolism emergency with a time-sensitive transplant decision.
 
 Keep these terms available in your mental model: ammonia, synthetic failure, cerebral edema.
 

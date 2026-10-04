@@ -8,6 +8,14 @@ Now: The circulation as a pressure-generating container.
 
 Stressed vs unstressed volume. The fraction of blood volume generating elastic recoil pressure versus volume that fills the vasculature without generating pressure.
 
+Build the mechanism first. Only part of the vascular blood volume generates recoil pressure that drives venous return. Venous tone can convert unstressed volume into stressed volume and raise mean systemic filling pressure.
+
+At the bedside, a vasoactive drug can sometimes improve venous return partly by changing venous capacitance, not only by raising arterial pressure.
+
+Two traps to actively avoid: Thinking venous tone is clinically irrelevant. And: Assuming every preload increase requires a fluid bolus.
+
+The integration move is this: Separate total blood volume from the fraction that is actively generating circulatory pressure.
+
 Keep these terms available in your mental model: mean systemic filling pressure, venous capacitance.
 
 What expert-level use of this concept looks like is this: Explain how venoconstriction can recruit unstressed volume without giving fluid.
@@ -17,6 +25,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Mean systemic filling pressure and venous return.
 
 Venous return. Flow back to the right heart determined by the pressure gradient from the systemic circulation and resistance to venous return.
+
+Build the mechanism first. Venous return depends on the pressure gradient from the systemic venous reservoir toward the right atrium and on resistance to that flow. Mean systemic filling pressure and right-atrial pressure can move independently.
+
+At the bedside, a rise in right-atrial pressure can reduce venous return even when the patient appears more “full.” Venoconstriction can recruit unstressed volume and change the upstream pressure without adding external fluid.
+
+Two traps to actively avoid: Treating a high CVP as proof of adequate forward flow. And: Ignoring abdominal, thoracic or pericardial pressure as downstream resistance.
+
+The integration move is this: Predict how fluid, venoconstriction, peep and RV failure each alter the venous-return gradient.
 
 Keep these terms available in your mental model: mean systemic filling pressure, stressed volume, venous return gradient.
 
@@ -28,11 +44,27 @@ Now: Why venoconstriction is not the same as a fluid bolus.
 
 Stressed vs unstressed volume. The fraction of blood volume generating elastic recoil pressure versus volume that fills the vasculature without generating pressure.
 
+Build the mechanism first. Only part of the vascular blood volume generates recoil pressure that drives venous return. Venous tone can convert unstressed volume into stressed volume and raise mean systemic filling pressure.
+
+At the bedside, a vasoactive drug can sometimes improve venous return partly by changing venous capacitance, not only by raising arterial pressure.
+
+Two traps to actively avoid: Thinking venous tone is clinically irrelevant. And: Assuming every preload increase requires a fluid bolus.
+
+The integration move is this: Separate total blood volume from the fraction that is actively generating circulatory pressure.
+
 Keep these terms available in your mental model: mean systemic filling pressure, venous capacitance.
 
 What expert-level use of this concept looks like is this: Explain how venoconstriction can recruit unstressed volume without giving fluid.
 
 Preload. The loading conditions of a ventricle before contraction; not synonymous with a single pressure or volume.
+
+Build the mechanism first. Preload is the myocardial fiber-loading condition before contraction. It is influenced by venous return, ventricular compliance, pericardial pressure and intrathoracic pressure, so a measured filling pressure is only an imperfect surrogate.
+
+At the bedside, interpret filling pressure together with volume response, congestion, ventricular geometry and the pressure surrounding the heart. A CVP of 14 can mean very different things in RV failure, tamponade and positive-pressure ventilation.
+
+Two traps to actively avoid: Equating CVP with circulating volume. And: Assuming fluid responsiveness means fluid is indicated or tolerated.
+
+The integration move is this: Ask what changed the effective distending pressure of the ventricle, not merely what changed the monitor number.
 
 Keep these terms available in your mental model: end-diastolic volume, transmural pressure.
 

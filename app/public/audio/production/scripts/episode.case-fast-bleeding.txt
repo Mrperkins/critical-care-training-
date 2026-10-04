@@ -8,6 +8,14 @@ Now: The negative scan.
 
 eFAST. Structured point-of-care ultrasound for pericardial, intraperitoneal and pleural pathology in trauma.
 
+Build the mechanism first. eFAST uses focused ultrasound windows to look for pericardial, intraperitoneal and pleural pathology. Sensitivity depends on volume, timing, operator technique and where pathology is located.
+
+At the bedside, use a repeatable sweep rather than one frozen image and repeat the exam when physiology changes.
+
+Two traps to actively avoid: Calling one negative scan a permanent rule-out. And: Interpreting an image without proving orientation and anatomy first.
+
+The integration move is this: eFAST is a time-stamped piece of evidence inside trauma physiology, not a substitute for the rest of the evaluation.
+
 Keep these terms available in your mental model: Morison pouch, splenorenal, lung sliding.
 
 What expert-level use of this concept looks like is this: Acquire and orient the core windows. Recognize free fluid and common false positives/negatives while integrating the clinical context.
@@ -20,6 +28,14 @@ Now: The physiology deteriorates.
 
 Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
 
+Build the mechanism first. Clinical decisions are made with incomplete information. Calibrated reasoning assigns provisional probability, makes predictions and updates when new data contradict the model.
+
+At the bedside, state confidence, name disconfirming evidence and define what response you expect from a treatment if the model is correct.
+
+Two traps to actively avoid: Equating uncertainty with indecision. And: Becoming more confident simply because the same hypothesis has been repeated.
+
+The integration move is this: A model that cannot be falsified is not useful clinical reasoning.
+
 Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
 
 What expert-level use of this concept looks like is this: State confidence, identify disconfirming evidence and update the model when the patient fails to respond as predicted.
@@ -30,6 +46,14 @@ Now: A repeat window changes the story.
 
 Hemoperitoneum on ultrasound. Free intraperitoneal fluid is sought in dependent spaces, but sensitivity depends on volume, timing, clot and the location of bleeding.
 
+Build the mechanism first. Free intraperitoneal blood accumulates in dependent spaces, but early volume, clot, body habitus and retroperitoneal bleeding can limit ultrasound detection.
+
+At the bedside, sweep RUQ, LUQ and pelvis in more than one view and repeat when physiology changes.
+
+Two traps to actively avoid: Treating a negative FAST as exclusion of significant hemorrhage. And: Confusing physiologic deterioration with “discordant” imaging rather than repeating the exam.
+
+The integration move is this: Ultrasound sensitivity changes with time; trauma evaluation must remain dynamic.
+
 Keep these terms available in your mental model: Morison pouch, splenorenal recess, pelvic free fluid.
 
 What expert-level use of this concept looks like is this: Recognize free fluid across core FAST windows. Explain why a negative examination is time-stamped and does not exclude retroperitoneal hemorrhage.
@@ -39,6 +63,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Imaging and hemorrhage control move together.
 
 Massive transfusion & hemorrhagic resuscitation. Hemorrhagic resuscitation integrates source control, balanced component replacement, calcium, temperature, coagulation and perfusion.
+
+Build the mechanism first. Major hemorrhage produces loss of oxygen-carrying capacity, volume and hemostatic components while hypothermia, hypocalcemia, dilution and acidosis can worsen coagulation.
+
+At the bedside, activate the hemorrhage system early, warm the resuscitation, track calcium/coagulation/temperature and never lose sight of definitive source control.
+
+Two traps to actively avoid: Running product delivery as a logistics task disconnected from physiology. And: Allowing source control to become secondary to transfusion mechanics.
+
+The integration move is this: Resuscitation buys time; source control ends the hemorrhage.
 
 Keep these terms available in your mental model: M T P, fibrinogen, ionized calcium, lethal triad.
 

@@ -8,6 +8,14 @@ Now: Why arterial and exhaled CO₂ differ at baseline.
 
 P A C O 2–end tidal C O 2 gap. The arterial-to-end-tidal CO₂ difference reflects how effectively perfused alveoli contribute to exhaled gas and often widens with increasing dead space.
 
+Build the mechanism first. EtCO2 reflects gas from the best-perfused ventilated alveoli, while PaCO2 reflects mixed arterial CO2. Increasing alveolar dead space often widens the arterial-to-end-tidal difference.
+
+At the bedside, trend the gap in shock, PE and changing pulmonary perfusion rather than applying a fixed correction factor.
+
+Two traps to actively avoid: Assuming EtCO2 is always a constant number below PaCO2. And: Attributing low EtCO2 only to hyperventilation.
+
+The integration move is this: Capnography is a circulation signal when pulmonary blood flow changes.
+
 Keep these terms available in your mental model: capnography, alveolar dead space.
 
 What expert-level use of this concept looks like is this: Interpret a changing P A C O 2–end tidal C O 2 gap in the context of ventilation and perfusion. Avoid treating end-tidal CO₂ as a fixed surrogate for arterial CO₂ in unstable physiology.
@@ -17,6 +25,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: What alveolar dead space does to the gap.
 
 Dead space. Ventilation that does not effectively participate in CO2 exchange, from conducting airways or ventilated but poorly perfused alveoli.
+
+Build the mechanism first. Dead-space ventilation reaches regions that do not effectively eliminate CO2 because perfusion is absent or inadequate, or because gas remains in conducting airways.
+
+At the bedside, rising minute-ventilation requirement, widening PaCO2–EtCO2 gap or unexpectedly low EtCO2 can signal increasing dead space when ventilation is otherwise unchanged.
+
+Two traps to actively avoid: Equating all hypercapnia with low minute ventilation. And: Using EtCO2 as a fixed conversion to PaCO2 in shock.
+
+The integration move is this: CO2 is a ventilation-perfusion signal as well as a ventilation signal.
 
 Keep these terms available in your mental model: VD/VT, alveolar dead space.
 
@@ -28,6 +44,14 @@ Now: Low pulmonary blood flow changes exhaled CO₂.
 
 Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
 
+Build the mechanism first. Shock is inadequate effective tissue perfusion and oxygen utilization, not merely hypotension. Flow, vascular tone, capacitance, congestion and extraction can fail in different combinations.
+
+At the bedside, phenotype the circulation repeatedly. A patient can move from one dominant mechanism to another during resuscitation.
+
+Two traps to actively avoid: Naming shock once and never revisiting the model. And: Treating MAP as the only endpoint.
+
+The integration move is this: Choose interventions that both treat the suspected mechanism and generate information about whether the model was correct.
+
 Keep these terms available in your mental model: flow, tone, congestion, perfusion.
 
 What expert-level use of this concept looks like is this: Recognize mixed shock. Choose an intervention that tests a physiologic hypothesis and define the response expected if that hypothesis is correct.
@@ -38,11 +62,27 @@ Now: Use trends, not fixed conversion rules.
 
 P A C O 2–end tidal C O 2 gap. The arterial-to-end-tidal CO₂ difference reflects how effectively perfused alveoli contribute to exhaled gas and often widens with increasing dead space.
 
+Build the mechanism first. EtCO2 reflects gas from the best-perfused ventilated alveoli, while PaCO2 reflects mixed arterial CO2. Increasing alveolar dead space often widens the arterial-to-end-tidal difference.
+
+At the bedside, trend the gap in shock, PE and changing pulmonary perfusion rather than applying a fixed correction factor.
+
+Two traps to actively avoid: Assuming EtCO2 is always a constant number below PaCO2. And: Attributing low EtCO2 only to hyperventilation.
+
+The integration move is this: Capnography is a circulation signal when pulmonary blood flow changes.
+
 Keep these terms available in your mental model: capnography, alveolar dead space.
 
 What expert-level use of this concept looks like is this: Interpret a changing P A C O 2–end tidal C O 2 gap in the context of ventilation and perfusion. Avoid treating end-tidal CO₂ as a fixed surrogate for arterial CO₂ in unstable physiology.
 
 Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
+
+Build the mechanism first. Clinical decisions are made with incomplete information. Calibrated reasoning assigns provisional probability, makes predictions and updates when new data contradict the model.
+
+At the bedside, state confidence, name disconfirming evidence and define what response you expect from a treatment if the model is correct.
+
+Two traps to actively avoid: Equating uncertainty with indecision. And: Becoming more confident simply because the same hypothesis has been repeated.
+
+The integration move is this: A model that cannot be falsified is not useful clinical reasoning.
 
 Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
 

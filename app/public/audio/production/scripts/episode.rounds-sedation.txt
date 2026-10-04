@@ -8,6 +8,14 @@ Now: Agitation is a sign, not a diagnosis.
 
 ICU analgesia, sedation & synchrony. Sedation strategy balances analgesia, comfort, ventilator synchrony, neurologic assessment, hemodynamics and delirium risk.
 
+Build the mechanism first. Analgesics and sedatives alter pain, awareness, respiratory drive, vascular tone and neurologic assessment. Deep sedation is a physiologic intervention with downstream consequences.
+
+At the bedside, separate pain, anxiety, delirium, dyssynchrony and hypoxemia before escalating sedation; use an explicit target and reassess it.
+
+Two traps to actively avoid: Using paralysis as evidence of comfort. And: Treating agitation as a medication deficiency without finding the cause.
+
+The integration move is this: Sedation strategy should serve a clinical goal, not simply silence movement.
+
 Keep these terms available in your mental model: analgosedation, RASS, daily awakening.
 
 What expert-level use of this concept looks like is this: Separate pain, anxiety, delirium and dyssynchrony before simply deepening sedation. Predict major hemodynamic and respiratory tradeoffs of sedative strategies.
@@ -17,6 +25,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Analgesia before amnesia.
 
 ICU analgesia, sedation & synchrony. Sedation strategy balances analgesia, comfort, ventilator synchrony, neurologic assessment, hemodynamics and delirium risk.
+
+Build the mechanism first. Analgesics and sedatives alter pain, awareness, respiratory drive, vascular tone and neurologic assessment. Deep sedation is a physiologic intervention with downstream consequences.
+
+At the bedside, separate pain, anxiety, delirium, dyssynchrony and hypoxemia before escalating sedation; use an explicit target and reassess it.
+
+Two traps to actively avoid: Using paralysis as evidence of comfort. And: Treating agitation as a medication deficiency without finding the cause.
+
+The integration move is this: Sedation strategy should serve a clinical goal, not simply silence movement.
 
 Keep these terms available in your mental model: analgosedation, RASS, daily awakening.
 
@@ -28,6 +44,14 @@ Now: When the ventilator is causing the fight.
 
 Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
 
+Build the mechanism first. Acute ventilator deterioration can originate from the patient, tube, circuit or machine. Peak and plateau pressures help separate resistance from compliance when measurements are trustworthy.
+
+At the bedside, look at the patient first, rescue oxygenation/ventilation if the device cannot be trusted, then trace from patient to tube to circuit to machine.
+
+Two traps to actively avoid: Staring at the ventilator while the patient deteriorates. And: Treating every high-pressure alarm as bronchospasm.
+
+The integration move is this: Use pressure pattern, capnography, exam and circuit inspection to localize the problem quickly.
+
 Keep these terms available in your mental model: DOPES, peak pressure, plateau pressure, auto-peep.
 
 What expert-level use of this concept looks like is this: Separate resistance, compliance, circuit and patient problems using waveforms and bedside examination. Prioritize oxygenation and manual ventilation when the device or circuit cannot be trusted.
@@ -37,6 +61,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Delirium and the ICU environment.
 
 Delirium, sleep & mobility. Brain dysfunction in critical illness is shaped by disease, drugs, sleep disruption, immobility and environment.
+
+Build the mechanism first. Delirium reflects acute brain dysfunction shaped by illness, medications, sleep disruption, sensory deprivation, immobility and environmental stressors.
+
+At the bedside, identify reversible drivers, lighten unnecessary sedation, restore sleep-wake cues, mobilize when feasible and involve family/orientation strategies.
+
+Two traps to actively avoid: Calling hypoactive delirium “calm.” And: Treating delirium exclusively with sedating medication.
+
+The integration move is this: Brain recovery depends on the entire ICU environment, not one drug.
 
 Keep these terms available in your mental model: CAM-ICU, ABCDE/ABCDEF bundle.
 

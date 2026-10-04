@@ -8,6 +8,14 @@ Now: Find out what outcomes matter.
 
 Goals of care & prognostic communication. High-quality critical care includes eliciting values, communicating uncertainty and aligning burdensome treatments with realistic goals.
 
+Build the mechanism first. Goals-of-care decisions align treatments with the patient’s values and realistic outcomes. Prognosis is probabilistic and changes with response over time.
+
+At the bedside, use best-case/worst-case/most-likely framing and time-limited trials with explicit endpoints when uncertainty remains.
+
+Two traps to actively avoid: Presenting procedures as neutral menu choices without recommendation. And: Using false precision to avoid discussing uncertainty.
+
+The integration move is this: A high-quality critical-care plan includes what outcome the patient would consider worth the burdens of treatment.
+
 Keep these terms available in your mental model: surrogate decision-maker, time-limited trial, best case / worst case.
 
 What expert-level use of this concept looks like is this: Explain prognosis without false precision. Frame a time-limited trial with explicit goals and reassessment criteria.
@@ -18,11 +26,27 @@ Now: Best case, worst case and most likely.
 
 Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
 
+Build the mechanism first. Clinical decisions are made with incomplete information. Calibrated reasoning assigns provisional probability, makes predictions and updates when new data contradict the model.
+
+At the bedside, state confidence, name disconfirming evidence and define what response you expect from a treatment if the model is correct.
+
+Two traps to actively avoid: Equating uncertainty with indecision. And: Becoming more confident simply because the same hypothesis has been repeated.
+
+The integration move is this: A model that cannot be falsified is not useful clinical reasoning.
+
 Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
 
 What expert-level use of this concept looks like is this: State confidence, identify disconfirming evidence and update the model when the patient fails to respond as predicted.
 
 Goals of care & prognostic communication. High-quality critical care includes eliciting values, communicating uncertainty and aligning burdensome treatments with realistic goals.
+
+Build the mechanism first. Goals-of-care decisions align treatments with the patient’s values and realistic outcomes. Prognosis is probabilistic and changes with response over time.
+
+At the bedside, use best-case/worst-case/most-likely framing and time-limited trials with explicit endpoints when uncertainty remains.
+
+Two traps to actively avoid: Presenting procedures as neutral menu choices without recommendation. And: Using false precision to avoid discussing uncertainty.
+
+The integration move is this: A high-quality critical-care plan includes what outcome the patient would consider worth the burdens of treatment.
 
 Keep these terms available in your mental model: surrogate decision-maker, time-limited trial, best case / worst case.
 
@@ -34,6 +58,14 @@ Now: Design a time-limited trial.
 
 Goals of care & prognostic communication. High-quality critical care includes eliciting values, communicating uncertainty and aligning burdensome treatments with realistic goals.
 
+Build the mechanism first. Goals-of-care decisions align treatments with the patient’s values and realistic outcomes. Prognosis is probabilistic and changes with response over time.
+
+At the bedside, use best-case/worst-case/most-likely framing and time-limited trials with explicit endpoints when uncertainty remains.
+
+Two traps to actively avoid: Presenting procedures as neutral menu choices without recommendation. And: Using false precision to avoid discussing uncertainty.
+
+The integration move is this: A high-quality critical-care plan includes what outcome the patient would consider worth the burdens of treatment.
+
 Keep these terms available in your mental model: surrogate decision-maker, time-limited trial, best case / worst case.
 
 What expert-level use of this concept looks like is this: Explain prognosis without false precision. Frame a time-limited trial with explicit goals and reassessment criteria.
@@ -43,6 +75,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: Recommend, do not merely list procedures.
 
 Goals of care & prognostic communication. High-quality critical care includes eliciting values, communicating uncertainty and aligning burdensome treatments with realistic goals.
+
+Build the mechanism first. Goals-of-care decisions align treatments with the patient’s values and realistic outcomes. Prognosis is probabilistic and changes with response over time.
+
+At the bedside, use best-case/worst-case/most-likely framing and time-limited trials with explicit endpoints when uncertainty remains.
+
+Two traps to actively avoid: Presenting procedures as neutral menu choices without recommendation. And: Using false precision to avoid discussing uncertainty.
+
+The integration move is this: A high-quality critical-care plan includes what outcome the patient would consider worth the burdens of treatment.
 
 Keep these terms available in your mental model: surrogate decision-maker, time-limited trial, best case / worst case.
 

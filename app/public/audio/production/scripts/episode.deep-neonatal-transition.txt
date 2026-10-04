@@ -8,6 +8,14 @@ Now: The fetal circulation before birth.
 
 Neonatal cardiopulmonary transition. Birth requires a rapid shift from placental to pulmonary gas exchange with falling P V R and changing shunt flow through the ductus and foramen ovale.
 
+Build the mechanism first. At birth, lung expansion and oxygenation lower P V R while placental separation raises S V R, changing flow across the ductus arteriosus and foramen ovale.
+
+At the bedside, persistent high P V R or structural heart disease can preserve fetal shunt patterns and produce severe hypoxemia.
+
+Two traps to actively avoid: Interpreting neonatal oxygenation without pre/post-ductal context. And: Assuming adult circulation physiology immediately after birth.
+
+The integration move is this: The first minutes to days of life are a rapidly changing pressure-and-resistance experiment.
+
 Keep these terms available in your mental model: ductus arteriosus, foramen ovale, persistent pulmonary hypertension.
 
 What expert-level use of this concept looks like is this: Explain normal transition from fetal to neonatal circulation. Recognize how failed transition can produce hypoxemia and right-to-left shunting.
@@ -17,6 +25,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: What the first breaths do to P V R.
 
 Pulmonary vascular resistance. Resistance faced by the RV, influenced by lung volume, oxygenation, CO2, pH, pulmonary vascular disease and mechanical ventilation.
+
+Build the mechanism first. Pulmonary vascular resistance reflects the combined behavior of alveolar and extra-alveolar vessels and is affected by lung volume, oxygen, CO2, pH and pulmonary vascular disease.
+
+At the bedside, both severe derecruitment and overdistension can raise RV afterload. Hypoxemia, hypercapnia and acidosis can compound the problem.
+
+Two traps to actively avoid: Assuming more peep always lowers P V R by recruiting lung. And: Ignoring gas chemistry as an RV afterload intervention.
+
+The integration move is this: Interpret ventilator changes through both lung mechanics and the pulmonary circulation.
 
 Keep these terms available in your mental model: RV afterload, West zones.
 
@@ -28,6 +44,14 @@ Now: Ductus and foramen ovale change roles.
 
 Neonatal cardiopulmonary transition. Birth requires a rapid shift from placental to pulmonary gas exchange with falling P V R and changing shunt flow through the ductus and foramen ovale.
 
+Build the mechanism first. At birth, lung expansion and oxygenation lower P V R while placental separation raises S V R, changing flow across the ductus arteriosus and foramen ovale.
+
+At the bedside, persistent high P V R or structural heart disease can preserve fetal shunt patterns and produce severe hypoxemia.
+
+Two traps to actively avoid: Interpreting neonatal oxygenation without pre/post-ductal context. And: Assuming adult circulation physiology immediately after birth.
+
+The integration move is this: The first minutes to days of life are a rapidly changing pressure-and-resistance experiment.
+
 Keep these terms available in your mental model: ductus arteriosus, foramen ovale, persistent pulmonary hypertension.
 
 What expert-level use of this concept looks like is this: Explain normal transition from fetal to neonatal circulation. Recognize how failed transition can produce hypoxemia and right-to-left shunting.
@@ -37,6 +61,14 @@ Tie this back to the patient. Ask what variable is changing, what downstream eff
 Now: When transition fails.
 
 Critical congenital heart disease physiology. Critical congenital lesions are best understood by whether systemic or pulmonary blood flow depends on shunts, mixing or ductal patency.
+
+Build the mechanism first. Critical congenital lesions can be organized by whether systemic flow, pulmonary flow or mixing depends on a shunt/ductus and by how Qp and Qs respond to resistance changes.
+
+At the bedside, think topology before lesion names: where can blood go, where must it mix, and what changes if P V R or S V R moves?
+
+Two traps to actively avoid: Treating oxygen as universally beneficial without considering shunt balance. And: Memorizing lesions without understanding circulation geometry.
+
+The integration move is this: A diagram of flow often explains the patient better than the diagnosis label.
 
 Keep these terms available in your mental model: ductal-dependent, mixing lesion, Qp:Qs.
 
