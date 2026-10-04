@@ -80,6 +80,41 @@ Mental Reps should feel like calm, literal guided rehearsal rather than a concep
 
 The learner should be able to close their eyes and mentally perform the sequence. Avoid replacing choreography with abstractions such as "prepare per protocol" when the purpose of the rep is to rehearse an explicitly defined, protocol-approved example.
 
+### Protocol-grade rule: never hide a step inside a noun phrase
+
+A Mental Rep is **not complete** merely because it is hands-first. It must be specific enough to read like the procedural section of a clinical protocol while still preserving device-, scope- and institution-specific boundaries.
+
+Do not write:
+- "identify the correct site";
+- "find the landmark";
+- "obtain pleural access";
+- "prepare the system";
+- "place the line in the usual location";
+- "use the standard approach";
+- "confirm placement";
+- "reassess the patient";
+
+unless the same beat explicitly explains **how** the learner does that thing.
+
+For every invasive or anatomy-dependent procedure, narration should answer, in order:
+
+1. **Where do my hands start?** Patient position, body surface exposed, probe or equipment in hand.
+2. **What is the first unmistakable anchor?** A named bone, tendon, vessel, rib, chamber, device component, waveform, or other reference.
+3. **How do I walk from that anchor to the target?** Count ribs/interspaces, slide the probe, sweep proximally/distally, follow a vessel, trace tubing, or move from one device component to the next.
+4. **What should be beside the target?** Name neighboring anatomy or hardware so the learner can build a spatial map.
+5. **What must I avoid?** Name the major nerve, artery, organ, joint, growth plate, pleural/abdominal boundary, or unsafe device state.
+6. **What proves I am at the target?** Palpable contour, ultrasound behavior, waveform transition, return of air/fluid, loss of resistance, direct visualization, measured reference, or other appropriate confirmation.
+7. **What exactly happens next?** The next hand movement, connection, incision, needle movement, clamp/stopcock change, device setting, medication action, or reassessment.
+8. **What makes me stop?** Lost landmark, unexpected resistance, anatomy that does not match, wrong waveform, disagreement between confirmation methods, new instability, or a device/protocol mismatch.
+9. **What proves the procedure worked?** A specific patient, waveform, imaging, drainage, device, perfusion or physiologic endpoint—not a generic "reassess."
+
+If the learner could reasonably ask, "What do you mean by that landmark/site/access?" the script is still too vague.
+
+Examples:
+- **Tube thoracostomy:** do not say "identify the pleural access site." Teach how to find and count the ribs/interspaces, cross-check the lateral chest boundaries, identify the rib immediately below the intended interspace, state where the intercostal neurovascular bundle lies, and describe the physical confirmation of pleural entry before advancing the tube.
+- **Escharotomy:** do not say "use the standard escharotomy lines." State the surface line being followed, how far proximally/distally the release extends, the tissue depth that defines escharotomy rather than fasciotomy, the named neurovascular structures that change the safe line at the elbow/wrist/fibular head/ankle/neck, and the perfusion or ventilation response that confirms an adequate release.
+- **Ultrasound access:** do not say "identify the vessel." State probe position/orientation, the surrounding anatomy, compressibility/pulsatility/course used to distinguish structures, how the true needle tip is reacquired after every movement, and the condition that makes the needle hand stop.
+
 ### Landmark rule: orientation is part of the procedure
 
 If a procedure depends on an anatomical landmark, image orientation or device reference point, the Mental Rep must actively rehearse finding it before moving on. The narration should:
