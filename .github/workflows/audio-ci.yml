@@ -2,16 +2,16 @@ name: Audio Mastery CI
 
 on:
   push:
-    branches: [audio-mastery]
+    branches: [main]
   pull_request:
-    branches: [visual-overhaul]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: audio-mastery-${{ github.event.pull_request.head.ref || github.ref_name }}
+  group: critical-care-main-${{ github.event.pull_request.head.ref || github.ref_name }}
   cancel-in-progress: true
 
 jobs:
