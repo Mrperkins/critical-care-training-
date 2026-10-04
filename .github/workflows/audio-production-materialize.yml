@@ -10,6 +10,7 @@ on:
       - app/src/audio/expertEpisodes.ts
       - app/src/audio/scriptDraft.ts
       - app/scripts/audio-production-queue.ts
+      - app/scripts/audio-render-plan.ts
       - .github/workflows/audio-production-materialize.yml
   workflow_dispatch:
 
