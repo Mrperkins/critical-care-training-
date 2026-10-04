@@ -162,18 +162,32 @@ function VentModule() {
 
 function SceneOverlay() {
   const view = useUI((s) => s.ventView); const pm = useUI((s) => s.showPmus); const loops = useUI((s) => s.showLoops);
+  const [viewOpen, setViewOpen] = useState(false); const [moreOpen, setMoreOpen] = useState(false);
   const set = useUI.getState().set;
+  const views = [['front', 'Front'], ['side', 'Side'], ['airway', 'Airways'], ['base', 'Bases'], ['alveolus', 'Alveoli'], ['xray', 'X-ray'], ['lus', 'Lung US']] as const;
+  const current = views.find(([k]) => k === view)?.[1] ?? 'View';
+  const choose = (k: typeof views[number][0]) => { if (k === 'alveolus') focusVentTarget('lung.alveolus'); else set({ ventView: k, ventTarget: 'lung.whole' }); setViewOpen(false); };
   return (
     <>
-      <div className="view-btns" ref={(n) => { const b = n?.querySelector<HTMLElement>('button.on'); if (n && b && n.scrollWidth > n.clientWidth) n.scrollLeft = b.offsetLeft - 8; }}>
-        {([['front', 'Front'], ['side', 'Side'], ['airway', 'Airways'], ['base', 'Bases'], ['alveolus', 'Alveoli'], ['xray', 'X-ray'], ['lus', 'Lung US']] as const).map(([k, l]) => <button key={k} className={view === k ? 'on' : ''} onClick={() => (k === 'alveolus' ? focusVentTarget('lung.alveolus') : set({ ventView: k, ventTarget: 'lung.whole' }))}>{l}</button>)}
+      <div className="scene-primary-tools" role="toolbar" aria-label="Respiratory scene controls">
+        <div className="scene-menu">
+          <button className={`st-btn scene-menu-trigger${viewOpen ? ' on' : ''}`} aria-expanded={viewOpen} onClick={() => { setViewOpen(!viewOpen); setMoreOpen(false); }}>
+            <span className="st-ico" aria-hidden="true">◫</span><span>View</span><small>{current}</small>
+          </button>
+          {viewOpen && <div className="scene-popover view-menu" role="menu">{views.map(([k, l]) => <button role="menuitemradio" aria-checked={view === k} key={k} className={view === k ? 'on' : ''} onClick={() => choose(k)}><span>{l}</span>{view === k && <b aria-hidden="true">✓</b>}</button>)}</div>}
+        </div>
+        {view !== 'xray' && view !== 'lus' && <div className="scene-menu">
+          <button className={`st-btn scene-menu-trigger${moreOpen ? ' on' : ''}`} aria-expanded={moreOpen} onClick={() => { setMoreOpen(!moreOpen); setViewOpen(false); }}>
+            <span className="st-ico" aria-hidden="true">•••</span><span>More</span>
+          </button>
+          {moreOpen && <div className="scene-popover more-menu">
+            <button className={pm ? 'on' : ''} aria-pressed={pm} onClick={() => set({ showPmus: !pm })}><span>Patient effort</span><b>{pm ? 'On' : 'Off'}</b></button>
+            <button className={loops ? 'on' : ''} aria-pressed={loops} onClick={() => set({ showLoops: !loops })}><span>Pressure-volume loops</span><b>{loops ? 'On' : 'Off'}</b></button>
+          </div>}
+        </div>}
       </div>
       {view === 'xray' || view === 'lus' ? null : view === 'alveolus' ? <AlveolusHud /> : <div className="legend">
         <span><i className="lg-air" />Aerated</span><span><i className="lg-col" />Collapsed</span><span><i className="lg-over" />Over-stretched</span><span><i className="lg-in" />Gas in</span><span><i className="lg-out" />Gas out</span>
-      </div>}
-      {view !== 'xray' && view !== 'lus' && <div className="scene-tools">
-        <button className={`tgl${pm ? ' on' : ''}`} onClick={() => set({ showPmus: !pm })}>Patient effort</button>
-        <button className={`tgl${loops ? ' on' : ''}`} onClick={() => set({ showLoops: !loops })}>Loops</button>
       </div>}
     </>
   );
