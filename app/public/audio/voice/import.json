@@ -783,6 +783,83 @@
       "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/648d55b3-a08e-471e-b686-f7b388ab8400.mp3",
       "voice": "Natural clinical narrator",
       "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-sedation.pain",
+      "file": "rep.rep-sedation.pain.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/40adeed3-5588-4270-9d84-104222440ba2.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-sedation.goal",
+      "file": "rep.rep-sedation.goal.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/b6085f07-8109-4ae1-a0d0-775ad1479957.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-sedation.hemo",
+      "file": "rep.rep-sedation.hemo.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/9c27de95-4d7f-4c82-94c2-b165e9dcb4aa.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-sedation.paralysis",
+      "file": "rep.rep-sedation.paralysis.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/042d695e-b0a9-4706-bfa5-57ad2169853f.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-sedation.reassess",
+      "file": "rep.rep-sedation.reassess.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/99e2705d-fbd3-41c5-92bd-5bd6c8660b7c.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-sedation.debrief",
+      "file": "rep.rep-sedation.debrief.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/f1840633-5b4f-411a-8eac-f979cdf2516c.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-status.clock",
+      "file": "rep.rep-status.clock.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/b77a6348-f32b-4831-9840-ed030f3cbbc5.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-status.support",
+      "file": "rep.rep-status.support.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/ec441302-8004-4809-97aa-e4f4fdbdb1ba.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-status.first",
+      "file": "rep.rep-status.first.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/5645cbd3-8a86-4ace-8a1b-476ad1dcf5ad.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-status.second",
+      "file": "rep.rep-status.second.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/aa9a09b5-722c-4879-8fc4-b7d816d1c2a6.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-status.airway",
+      "file": "rep.rep-status.airway.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/0fc54c61-b3b8-4909-a175-9b63d6ddbfd7.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
     }
   ]
 }
