@@ -55,6 +55,69 @@
       "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/3ba2180d-bd3a-4795-b579-681d341b2ea0.mp3",
       "voice": "Natural clinical narrator prototype",
       "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-push-dose-pressor.arrival",
+      "file": "rep.rep-push-dose-pressor.arrival.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/61dcc178-ff38-4c1d-b5fe-9d9e7819aba3.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-push-dose-pressor.orient",
+      "file": "rep.rep-push-dose-pressor.orient.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/89074382-cea3-43d5-83c5-9eb17a2b0cd0.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-push-dose-pressor.equip",
+      "file": "rep.rep-push-dose-pressor.equip.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/fd51a0fd-4a50-4bde-80ed-280fbb0e906a.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-push-dose-pressor.verify",
+      "file": "rep.rep-push-dose-pressor.verify.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/bd7476f1-ac57-4463-97a2-2c87842f95d8.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-push-dose-pressor.give",
+      "file": "rep.rep-push-dose-pressor.give.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/58fe6cd8-b9ad-4f8b-a5fd-de480554c4b4.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-push-dose-pressor.comp",
+      "file": "rep.rep-push-dose-pressor.comp.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/69fa12bd-b0a0-4172-aa4b-274602bc0b9f.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-push-dose-pressor.debrief",
+      "file": "rep.rep-push-dose-pressor.debrief.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/f4958748-0eff-4900-9857-d59b2317608e.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-blood.arrival",
+      "file": "rep.rep-blood.arrival.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/5b20b099-fd37-46d6-8835-e1612edd6319.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-blood.verify",
+      "file": "rep.rep-blood.verify.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/7948b832-494c-4b96-9b03-cc7a7f394447.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
     }
   ]
 }
