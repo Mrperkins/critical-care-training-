@@ -1,0 +1,99 @@
+You're listening to E V Ds: drainage height is part of the treatment. Leveling, clamping, drainage, ICP interpretation and why moving the bed changes the system.
+
+This is a level 3 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to explain how chamber height changes drainage behavior; and interpret evd pressure/drainage only after confirming position, order and system state.
+
+Now: The drain is a hydrostatic system.
+
+E V D management. External ventricular drainage requires correct leveling, clamping during movement and interpretation of drainage and ICP.
+
+Build the mechanism first. An external ventricular drain uses a hydrostatic height reference to define the pressure at which CSF drains while also allowing ICP monitoring depending on system configuration.
+
+At the bedside, level to the ordered reference point, manage clamping during movement according to policy, and re-level after position changes before interpreting pressure or drainage.
+
+Two traps to actively avoid: Moving the bed without reconsidering the drainage height. And: Treating drainage amount independently of chamber position and patient physiology.
+
+The integration move is this: The drain is both a therapeutic pathway and a measurement system; position can change both.
+
+Keep these terms available in your mental model: tragus, foramen of Monro.
+
+What expert-level use of this concept looks like is this: Explain over-drainage versus under-drainage from transducer/chamber position. Mentally rehearse safe movement and re-leveling.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Leveling changes the drainage threshold.
+
+E V D management. External ventricular drainage requires correct leveling, clamping during movement and interpretation of drainage and ICP.
+
+Build the mechanism first. An external ventricular drain uses a hydrostatic height reference to define the pressure at which CSF drains while also allowing ICP monitoring depending on system configuration.
+
+At the bedside, level to the ordered reference point, manage clamping during movement according to policy, and re-level after position changes before interpreting pressure or drainage.
+
+Two traps to actively avoid: Moving the bed without reconsidering the drainage height. And: Treating drainage amount independently of chamber position and patient physiology.
+
+The integration move is this: The drain is both a therapeutic pathway and a measurement system; position can change both.
+
+Keep these terms available in your mental model: tragus, foramen of Monro.
+
+What expert-level use of this concept looks like is this: Explain over-drainage versus under-drainage from transducer/chamber position. Mentally rehearse safe movement and re-leveling.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Movement changes the reference relationship.
+
+E V D management. External ventricular drainage requires correct leveling, clamping during movement and interpretation of drainage and ICP.
+
+Build the mechanism first. An external ventricular drain uses a hydrostatic height reference to define the pressure at which CSF drains while also allowing ICP monitoring depending on system configuration.
+
+At the bedside, level to the ordered reference point, manage clamping during movement according to policy, and re-level after position changes before interpreting pressure or drainage.
+
+Two traps to actively avoid: Moving the bed without reconsidering the drainage height. And: Treating drainage amount independently of chamber position and patient physiology.
+
+The integration move is this: The drain is both a therapeutic pathway and a measurement system; position can change both.
+
+Keep these terms available in your mental model: tragus, foramen of Monro.
+
+What expert-level use of this concept looks like is this: Explain over-drainage versus under-drainage from transducer/chamber position. Mentally rehearse safe movement and re-leveling.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Drainage and ICP belong to the same physiology.
+
+ICP, CPP & cerebral perfusion. Cerebral perfusion depends on the gradient across the cerebral circulation and is influenced by pressure, venous outflow, CO2 and intracranial compliance.
+
+Build the mechanism first. CPP is the pressure gradient available to drive cerebral blood flow and is influenced by arterial pressure, ICP, venous pressure and autoregulation. Intracranial compliance falls as compensatory reserve is exhausted.
+
+At the bedside, interpret ICP as a dynamic system with waveform, position, venous drainage, CO2 and sedation effects. A “normal” MAP does not guarantee adequate cerebral perfusion.
+
+Two traps to actively avoid: Treating ICP and CPP as isolated targets. And: Ignoring neck position, intrathoracic pressure and venous outflow.
+
+The integration move is this: Protect the brain by preserving oxygenation and perfusion while minimizing factors that increase intracranial volume or venous pressure.
+
+Keep these terms available in your mental model: CPP, autoregulation, Monro-Kellie.
+
+What expert-level use of this concept looks like is this: Predict how systemic pressure, CO2 and venous pressure affect cerebral perfusion. Recognize when a normal MAP does not guarantee adequate CPP.
+
+E V D management. External ventricular drainage requires correct leveling, clamping during movement and interpretation of drainage and ICP.
+
+Build the mechanism first. An external ventricular drain uses a hydrostatic height reference to define the pressure at which CSF drains while also allowing ICP monitoring depending on system configuration.
+
+At the bedside, level to the ordered reference point, manage clamping during movement according to policy, and re-level after position changes before interpreting pressure or drainage.
+
+Two traps to actively avoid: Moving the bed without reconsidering the drainage height. And: Treating drainage amount independently of chamber position and patient physiology.
+
+The integration move is this: The drain is both a therapeutic pathway and a measurement system; position can change both.
+
+Keep these terms available in your mental model: tragus, foramen of Monro.
+
+What expert-level use of this concept looks like is this: Explain over-drainage versus under-drainage from transducer/chamber position. Mentally rehearse safe movement and re-leveling.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you explain how chamber height changes drainage behavior?
+
+Can you interpret E V D pressure/drainage only after confirming position, order and system state?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.
