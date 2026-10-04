@@ -22,7 +22,7 @@ Voice-first critical-care expertise training plus guided procedural Mental Reps.
 - 79 expertise audio episodes total.
 - 21 ordered domain tracks.
 - 20 required Mental Reps.
-- 135 Mental Rep narration beats on the active protocol-grade branch (three new procedural beats added: arterial puncture/threading and IJ dilation/catheter completion).
+- 136 Mental Rep narration beats on the active protocol-grade branch (four new procedural beats added: arterial puncture/threading plus IJ sterile setup, dilation and catheter completion).
 - The previously merged 132-beat set has durable natural-voice assets. Protocol-grade revisions have changed many transcripts and added three beats, so matching voice materialization is intentionally pending; stale/missing audio remains blocked by the transcript-hash production gate.
 - 130/130 concepts have spaced-retrieval coverage: bespoke questions where available plus deterministic mechanism-vs-trap prompts.
 - Unseen concepts are not marked overdue; spaced review starts after exposure.
@@ -158,5 +158,5 @@ Branch: `mental-reps-emergency-systems-v5`
 - Detailed audit: `MENTAL_REP_PROTOCOL_AUDIT.md`.
 - Anatomy-heavy reps now define the landmark itself and the route to it rather than naming it.
 - System/device reps now require a physical patient→hardware→monitor/circuit trace rather than generic "check/prepare/reassess" language.
-- Three missing procedural beats were added: radial arterial puncture/threading, IJ dilation, and IJ catheter completion.
+- Four missing procedural beats were added: radial arterial puncture/threading, IJ sterile setup, IJ dilation, and IJ catheter completion.
 - Voice rendering is no longer on the engineering critical path. Revised narration may remain voice-pending on the feature branch, but cannot be merged as production-complete while transcript hashes are stale.
