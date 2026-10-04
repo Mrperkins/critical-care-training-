@@ -30,6 +30,7 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run typecheck
+      - run: npm run audio:audit
       - run: npm run site
       - name: Assert standalone audio build
         run: |
