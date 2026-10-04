@@ -10,8 +10,11 @@ describe('critical care audio mastery model', () => {
     expect(unique(MENTAL_REPS.map((x) => x.id))).toBe(true);
   });
 
-  it('keeps every prerequisite resolvable', () => {
-    for (const c of MASTERY) for (const p of c.prereq) expect(MASTERY_BY_ID[p], `${c.id} -> ${p}`).toBeTruthy();
+  it('keeps every prerequisite and related concept resolvable', () => {
+    for (const c of MASTERY) {
+      for (const p of c.prereq) expect(MASTERY_BY_ID[p], `${c.id} prerequisite -> ${p}`).toBeTruthy();
+      for (const r of c.related) expect(MASTERY_BY_ID[r], `${c.id} related -> ${r}`).toBeTruthy();
+    }
   });
 
   it('maps every episode and Mental Rep to real mastery concepts', () => {
