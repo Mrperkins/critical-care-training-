@@ -4,7 +4,7 @@
  * The version string is replaced at build time; a new version replaces the old caches. */
 const VERSION = '__VERSION__';
 const SHELL = `cc-shell-${VERSION}`, MEDIA = 'cc-media-v1';
-const CORE = ['./', 'index.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'imaging/real/manifest.json',
+const CORE = ['./', 'index.html', 'audio/', 'audio/index.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'imaging/real/manifest.json',
   'models/body.glb.txt', 'models/body.mapping.json', 'models/resp.glb.txt', 'models/resp.mapping.json',
   'models/micro.glb.txt', 'models/micro.mapping.json', 'models/lines.glb.txt', 'models/lines.mapping.json'];
 
@@ -35,7 +35,15 @@ self.addEventListener('fetch', (e) => {
     return;
   }
   if (req.mode === 'navigate' || url.pathname.endsWith('/index.html') || url.pathname.endsWith('/')) { // newest page when online
-    e.respondWith(fetch(req).then((r) => { const c = r.clone(); caches.open(SHELL).then((s) => s.put('index.html', c)); return r; }).catch(async () => (await caches.match('index.html')) || Response.error()));
+    // Keep each app shell under its own request URL. Otherwise visiting /audio/ can overwrite
+    // the cached main index (or vice versa) and the wrong product opens offline.
+    e.respondWith(fetch(req).then((r) => {
+      const c = r.clone(); caches.open(SHELL).then((s) => s.put(req, c)); return r;
+    }).catch(async () => {
+      const hit = await fromCache(req); if (hit) return hit;
+      const isAudio = /\/audio(?:\/|\/index\.html)$/.test(url.pathname);
+      return (await caches.match(isAudio ? 'audio/index.html' : 'index.html')) || Response.error();
+    }));
     return;
   }
   if (url.pathname.endsWith('/manifest.json')) { // media manifest: network first so new clips appear
