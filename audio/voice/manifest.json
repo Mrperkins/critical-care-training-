@@ -1127,7 +1127,7 @@
       "voice": "Natural clinical narrator",
       "provider": "AI Voice Generator",
       "sha256": "870345d3e4ce9e79b599bdc5fde4db61e829d8b601e42966474108b53d91b037",
-      "durationSeconds": 15,
+      "durationSeconds": 15.0,
       "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/bd1a9d15-0eed-46b1-b571-c264faf785e4.mp3",
       "note": "Durable imported prototype; requires listening + clinical review before publication."
     },
