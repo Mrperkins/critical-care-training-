@@ -5,6 +5,7 @@ on:
     branches: [audio-mastery]
     paths:
       - app/src/audio/mastery.ts
+      - app/src/audio/masteryNotes.ts
       - app/src/audio/catalog.ts
       - app/src/audio/expertEpisodes.ts
       - app/src/audio/scriptDraft.ts
