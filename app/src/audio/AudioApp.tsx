@@ -6,6 +6,7 @@ import { duePrompts, REVIEW_PROMPTS } from './review';
 import { RepVisual } from './RepVisual';
 import { bridgeFor } from './bridges';
 import { recommendedEpisode, recommendedRep } from './recommend';
+import { handsFreeAvailable, listenForCommand, type HandsFreeCommand } from './handsfree';
 import type { AudioEpisode, MentalRep } from './types';
 
 type Page = 'home' | 'listen' | 'reps' | 'review' | 'mastery';
@@ -131,17 +132,27 @@ function Mastery() {
 
 function EpisodePlayer({ episode, onBack }: { episode: AudioEpisode; onBack: () => void }) {
   const p = useAudioProgress(); const audio = useRef<HTMLAudioElement>(null); const [chapter, setChapter] = useState(0); const [playing, setPlaying] = useState(false);
+  const [listening, setListening] = useState(false); const [heard, setHeard] = useState('');
   const ch = episode.chapters[chapter]; const src = episode.voice?.src ?? episode.voice?.previewSrc;
   useEffect(() => () => { audio.current?.pause(); }, []);
   const toggle = async () => {
     if (!audio.current || !src) return; if (audio.current.paused) { await audio.current.play(); setPlaying(true); } else { audio.current.pause(); setPlaying(false); }
   };
+  const command = async (cmd: HandsFreeCommand, transcript: string) => {
+    setHeard(transcript);
+    if (cmd === 'pause') { audio.current?.pause(); setPlaying(false); }
+    else if (cmd === 'play') { try { await audio.current?.play(); setPlaying(true); } catch { /* blocked */ } }
+    else if (cmd === 'next') setChapter((x) => Math.min(episode.chapters.length - 1, x + 1));
+    else if (cmd === 'previous') setChapter((x) => Math.max(0, x - 1));
+    else if (cmd === 'repeat' && audio.current) { audio.current.currentTime = 0; try { await audio.current.play(); setPlaying(true); } catch { /* blocked */ } }
+  };
+  const mic = () => { setListening(true); listenForCommand(command, () => setListening(false)); };
   return <div className="aa-page aa-player"><button className="aa-backbtn" onClick={onBack}>← All audio</button>
     <div className="aa-player-main">
       <div className="aa-cover"><span>{episode.format.replace('-', ' ')}</span><div className="aa-wave">{Array.from({ length: 28 }).map((_, i) => <i key={i} style={{ height: `${20 + ((i * 17) % 65)}%` }} />)}</div><b>LEVEL {episode.level}</b></div>
       <div className="aa-player-info"><span className="aa-kicker">{DOMAIN_LABELS[episode.domain]}</span><h1>{episode.title}</h1><p>{episode.subtitle}</p>
         <div className="aa-tags"><span>{episode.minutes} min</span><span>{episode.chapters.length} chapters</span>{episode.voice && <span className="voice">{episode.voice.tier === 'premium-human' ? 'Natural voice' : 'Clinician recorded'}</span>}</div>
-        {src ? <><audio ref={audio} src={src} onEnded={() => setPlaying(false)} /><div className="aa-audioctl"><button onClick={toggle}>{playing ? '❚❚ Pause' : '▶ Play natural-voice sample'}</button><small>Prototype voice sample · production audio requires clinical review</small></div></> :
+        {src ? <><audio ref={audio} src={src} onEnded={() => setPlaying(false)} /><div className="aa-audioctl"><button onClick={toggle}>{playing ? '❚❚ Pause' : '▶ Play natural-voice sample'}</button>{handsFreeAvailable() && <button className={`aa-mic ${listening ? 'on' : ''}`} onClick={mic}>{listening ? 'Listening…' : '⌁ Hands-free'}</button>}<small>Prototype voice sample · production audio requires clinical review</small></div>{heard && <div className="aa-heard">Heard: “{heard}”</div>}</> :
           <div className="aa-pending">Premium natural-voice render pending for this scripted lesson.</div>}
       </div>
     </div>
@@ -156,6 +167,7 @@ function EpisodePlayer({ episode, onBack }: { episode: AudioEpisode; onBack: () 
 function RepPlayer({ rep, onBack }: { rep: MentalRep; onBack: () => void }) {
   const p = useAudioProgress(); const [i, setI] = useState(0); const beat = rep.beats[i];
   const audio = useRef<HTMLAudioElement>(null); const [guided, setGuided] = useState(false); const [voicePlaying, setVoicePlaying] = useState(false);
+  const [listening, setListening] = useState(false); const [heard, setHeard] = useState('');
   const voiceSrc = beat.voice?.src ?? beat.voice?.previewSrc; const hasVoice = rep.beats.some((b) => !!(b.voice?.src ?? b.voice?.previewSrc));
 
   useEffect(() => {
@@ -184,6 +196,15 @@ function RepPlayer({ rep, onBack }: { rep: MentalRep; onBack: () => void }) {
     else if (beat.prompt) setGuided(false);
   };
   const go = (next: number) => { audio.current?.pause(); setVoicePlaying(false); setI(Math.max(0, Math.min(rep.beats.length - 1, next))); };
+  const command = async (cmd: HandsFreeCommand, transcript: string) => {
+    setHeard(transcript);
+    if (cmd === 'pause') { audio.current?.pause(); setVoicePlaying(false); setGuided(false); }
+    else if (cmd === 'play') { try { await audio.current?.play(); setVoicePlaying(true); } catch { /* blocked */ } }
+    else if (cmd === 'next') go(i + 1);
+    else if (cmd === 'previous') go(i - 1);
+    else if (cmd === 'repeat' && audio.current) { audio.current.currentTime = 0; try { await audio.current.play(); setVoicePlaying(true); } catch { /* blocked */ } }
+  };
+  const mic = () => { setListening(true); listenForCommand(command, () => setListening(false)); };
 
   return <div className="aa-page aa-rehearsal"><button className="aa-backbtn" onClick={onBack}>← Mental Reps</button>
     <div className="aa-rephead"><span className="aa-kicker">GUIDED PROCEDURAL VISUALIZATION</span><h1>{rep.title}</h1><p>{rep.subtitle}</p><div className="aa-warning"><b>Training boundary</b><span>{rep.disclaimer}</span></div>
@@ -193,7 +214,7 @@ function RepPlayer({ rep, onBack }: { rep: MentalRep; onBack: () => void }) {
     <div className="aa-repstage">
       <div className={`aa-visual ${beat.danger ? 'danger' : ''}`}><RepVisual beat={beat} /><small className="aa-vphase">VISUAL CUE · {beat.phase.toUpperCase()}</small></div>
       <section><div className="aa-stepcount">BEAT {i + 1} OF {rep.beats.length}</div><h2>{beat.title}</h2><p className="aa-narration">{beat.narration}</p>
-        {voiceSrc && <><audio ref={audio} src={voiceSrc} onEnded={ended} /><div className="aa-beatvoice"><button onClick={toggleVoice}>{voicePlaying ? '❚❚ Pause narration' : '▶ Narrate this beat'}</button><span>{beat.voice?.reviewed ? 'Reviewed narration' : 'Natural-voice prototype'}</span></div></>}
+        {voiceSrc && <><audio ref={audio} src={voiceSrc} onEnded={ended} /><div className="aa-beatvoice"><button onClick={toggleVoice}>{voicePlaying ? '❚❚ Pause narration' : '▶ Narrate this beat'}</button>{handsFreeAvailable() && <button className={`aa-mic ${listening ? 'on' : ''}`} onClick={mic}>{listening ? 'Listening…' : '⌁ Hands-free'}</button>}<span>{beat.voice?.reviewed ? 'Reviewed narration' : 'Natural-voice prototype'}</span></div>{heard && <div className="aa-heard">Heard: “{heard}”</div>}</>}
         {beat.pauseSeconds && <div className="aa-pause">Pause · {beat.pauseSeconds} seconds</div>}
         {beat.prompt && <div className="aa-prompt"><b>Mentally answer before moving on</b><p>{beat.prompt}</p></div>}
         <div className="aa-controls"><button disabled={i === 0} onClick={() => go(i - 1)}>← Previous</button>{i < rep.beats.length - 1 ? <button className="aa-primary" onClick={() => go(i + 1)}>Next beat →</button> :
