@@ -3,7 +3,7 @@
     {
       "id": "rep.rep-art-line.anatomy",
       "file": "rep.rep-art-line.anatomy.mp3",
-      "transcriptHash": "690ea4ebfe42a9e3",
+      "transcriptHash": "93228440f3a14b19",
       "reviewed": false,
       "published": false,
       "voice": "Natural clinical narrator",
@@ -224,7 +224,7 @@
     {
       "id": "rep.rep-central-line.scan",
       "file": "rep.rep-central-line.scan.mp3",
-      "transcriptHash": "e4fafdadd0a2b920",
+      "transcriptHash": "dbe1c3a326d68207",
       "reviewed": false,
       "published": false,
       "voice": "Natural clinical narrator",
@@ -263,7 +263,7 @@
     {
       "id": "rep.rep-chest-tube.anatomy",
       "file": "rep.rep-chest-tube.anatomy.mp3",
-      "transcriptHash": "f3b19e39049f7559",
+      "transcriptHash": "ec36c44b4cf4e05c",
       "reviewed": false,
       "published": false,
       "voice": "Natural clinical narrator",
@@ -549,7 +549,7 @@
     {
       "id": "rep.rep-efast.cardiac",
       "file": "rep.rep-efast.cardiac.mp3",
-      "transcriptHash": "54d98506b589d443",
+      "transcriptHash": "f0b6d4e17921f3e1",
       "reviewed": false,
       "published": false,
       "voice": "Natural clinical narrator prototype",
@@ -562,7 +562,7 @@
     {
       "id": "rep.rep-efast.lung",
       "file": "rep.rep-efast.lung.mp3",
-      "transcriptHash": "def8ef72254a065b",
+      "transcriptHash": "d9867e884c112d0d",
       "reviewed": false,
       "published": false,
       "voice": "Natural clinical narrator prototype",
@@ -575,7 +575,7 @@
     {
       "id": "rep.rep-efast.luq",
       "file": "rep.rep-efast.luq.mp3",
-      "transcriptHash": "ce6a226aa0690224",
+      "transcriptHash": "598e8e5750210d23",
       "reviewed": false,
       "published": false,
       "voice": "Natural clinical narrator prototype",
@@ -588,7 +588,7 @@
     {
       "id": "rep.rep-efast.orientation",
       "file": "rep.rep-efast.orientation.mp3",
-      "transcriptHash": "7fc6cf00b1e5ae2b",
+      "transcriptHash": "d7b2c80dba421852",
       "reviewed": false,
       "published": false,
       "voice": "Natural clinical narrator prototype",
@@ -601,7 +601,7 @@
     {
       "id": "rep.rep-efast.pelvis",
       "file": "rep.rep-efast.pelvis.mp3",
-      "transcriptHash": "fa5cdc752d9ee91a",
+      "transcriptHash": "91f2f0fbe75d024d",
       "reviewed": false,
       "published": false,
       "voice": "Natural clinical narrator prototype",
@@ -627,7 +627,7 @@
     {
       "id": "rep.rep-efast.ruq",
       "file": "rep.rep-efast.ruq.mp3",
-      "transcriptHash": "554d772327b228ac",
+      "transcriptHash": "a8495284a09d0790",
       "reviewed": false,
       "published": false,
       "voice": "Natural clinical narrator prototype",
@@ -679,7 +679,7 @@
     {
       "id": "rep.rep-evd.level",
       "file": "rep.rep-evd.level.mp3",
-      "transcriptHash": "bb9586c66ff0073f",
+      "transcriptHash": "5784e860e72ae40e",
       "reviewed": false,
       "published": false,
       "voice": "Natural clinical narrator",
@@ -692,7 +692,7 @@
     {
       "id": "rep.rep-evd.move",
       "file": "rep.rep-evd.move.mp3",
-      "transcriptHash": "c492fe48e3e0289e",
+      "transcriptHash": "1fb3803c90c5bda6",
       "reviewed": false,
       "published": false,
       "voice": "Natural clinical narrator",
@@ -848,7 +848,7 @@
     {
       "id": "rep.rep-io.landmark",
       "file": "rep.rep-io.landmark.mp3",
-      "transcriptHash": "82e1d430eedef82f",
+      "transcriptHash": "18ecc92cff1bbdb1",
       "reviewed": false,
       "published": false,
       "voice": "Natural clinical narrator",
@@ -1589,7 +1589,7 @@
     {
       "id": "rep.rep-us-piv.scan",
       "file": "rep.rep-us-piv.scan.mp3",
-      "transcriptHash": "5ccde50688959e31",
+      "transcriptHash": "325fb096c439323d",
       "reviewed": false,
       "published": false,
       "voice": "Natural clinical narrator",

@@ -559,9 +559,9 @@
   },
   {
     "id": "rep.rep-art-line.anatomy",
-    "text": "Visualize the artery in cross-section and long axis. If ultrasound is used, keep the actual needle tip in view rather than following a bright shaft and assuming the tip is there.",
+    "text": "For a distal radial approach, orient to the volar radial wrist. Palpate the radial pulse and identify the nearby tendons and bony radial border so you know where you are before looking at the screen. With ultrasound, find the small round pulsatile artery and distinguish it from compressible veins and nearby soft-tissue or nerve structures. Sweep proximally and distally, then rotate into long axis so you understand the vessel course rather than aiming at a single dot. If the anatomy is ambiguous or the vessel course is poor, choose a better site before the needle enters.",
     "kind": "mental-rep",
-    "transcriptHash": "690ea4ebfe42a9e3"
+    "transcriptHash": "93228440f3a14b19"
   },
   {
     "id": "rep.rep-art-line.system",
@@ -601,39 +601,39 @@
   },
   {
     "id": "rep.rep-efast.orientation",
-    "text": "Before interpreting pathology, prove to yourself which side of the screen is cephalad, which anatomy you are seeing, and whether your probe marker matches the convention you are using.",
+    "text": "Before you interpret anything, decide your probe-marker convention and prove it on the screen. Know which side is cephalad and which side is caudad or right versus left for that window. Put the probe on the patient, identify one unmistakable structure, then use it to orient everything else. If the image orientation in your head does not match the anatomy on the screen, stop and correct the probe before looking for pathology.",
     "kind": "mental-rep",
-    "transcriptHash": "7fc6cf00b1e5ae2b"
+    "transcriptHash": "d7b2c80dba421852"
   },
   {
     "id": "rep.rep-efast.ruq",
-    "text": "Sweep through the hepatorenal interface, diaphragm and inferior liver tip. Do not take one frozen view and call the window negative. Search the dependent spaces.",
+    "text": "Move to the right lateral lower chest and upper abdomen, generally around the mid-to-posterior axillary region, with the probe oriented longitudinally according to your convention. First identify the liver, then the right kidney, then the bright diaphragm. Once those anchors are real, search the hepatorenal interface and inferior liver tip while sliding, fanning and sweeping through the window. Do not accept one frozen image as a negative examination.",
     "kind": "mental-rep",
-    "transcriptHash": "554d772327b228ac"
+    "transcriptHash": "a8495284a09d0790"
   },
   {
     "id": "rep.rep-efast.luq",
-    "text": "Find spleen, kidney and diaphragm. The geometry is less forgiving. Sweep deliberately rather than chasing the textbook picture.",
+    "text": "For the left upper quadrant, move more posteriorly and often slightly more cephalad than you did on the right. Identify spleen, left kidney and diaphragm before hunting for fluid. Keep the probe between the ribs, sweep through the splenorenal interface and the subdiaphragmatic region, and adjust your hand rather than twisting the image in your head to resemble a textbook picture.",
     "kind": "mental-rep",
-    "transcriptHash": "ce6a226aa0690224"
+    "transcriptHash": "598e8e5750210d23"
   },
   {
     "id": "rep.rep-efast.pelvis",
-    "text": "Use the bladder as your acoustic window and examine the dependent space around it in the appropriate planes.",
+    "text": "Move to the suprapubic region and find the bladder first. It should give you a dark fluid-filled acoustic window and a clear pelvic reference. Scan in both transverse and longitudinal planes according to your convention, then examine the dependent spaces around the bladder rather than staring only at its center. If you cannot confidently identify the bladder, re-orient before calling the pelvic window complete.",
     "kind": "mental-rep",
-    "transcriptHash": "fa5cdc752d9ee91a"
+    "transcriptHash": "91f2f0fbe75d024d"
   },
   {
     "id": "rep.rep-efast.cardiac",
-    "text": "Acquire the best cardiac window the patient gives you and identify the pericardial space before deciding fluid is present. Fat, pleural fluid and artifact can mislead.",
+    "text": "Choose the cardiac window the patient gives you. In a subxiphoid approach, use the liver as an acoustic window and direct the image toward the heart; in another standard view, orient by recognizable chambers first. Identify myocardium and the pericardial boundary before deciding that an anechoic space is pericardial fluid. Epicardial fat, pleural fluid and artifact can mimic the target, so prove the anatomy before you call the finding.",
     "kind": "mental-rep",
-    "transcriptHash": "54d98506b589d443"
+    "transcriptHash": "f0b6d4e17921f3e1"
   },
   {
     "id": "rep.rep-efast.lung",
-    "text": "Interrogate the pleural line bilaterally. Lung sliding is a dynamic sign. When absent, use the rest of the ultrasound and clinical picture rather than treating one sign as the diagnosis.",
+    "text": "Move to the anterior chest and identify two rib shadows with the bright pleural line running between them. That rib-pleura relationship proves you are at the lung surface instead of interpreting superficial tissue artifact. Compare sides and zones. Watch the pleural line dynamically for sliding and use M-mode or additional signs when appropriate. If sliding is absent, do not turn one sign into a diagnosis; integrate the rest of the scan and the patient.",
     "kind": "mental-rep",
-    "transcriptHash": "def8ef72254a065b"
+    "transcriptHash": "d9867e884c112d0d"
   },
   {
     "id": "rep.rep-efast.repeat",
@@ -649,9 +649,9 @@
   },
   {
     "id": "rep.rep-chest-tube.anatomy",
-    "text": "See skin, subcutaneous tissue, intercostal muscles, rib, neurovascular bundle and parietal pleura. Orient to the safe procedural zone taught by your credentialing program and local policy.",
+    "text": "Expose the lateral chest and orient yourself before anything sterile begins. Trace the lateral border of pectoralis major anteriorly and the anterior border of latissimus dorsi posteriorly. The inferior boundary of the usual safe triangle is around the fifth intercostal-space level, with the apex below the axilla. Now palpate the ribs bracketing the interspace you intend to use. Remember that the main intercostal neurovascular bundle runs along the inferior border of the rib above, so your mental entry path stays just over the superior border of the rib below. If you cannot confidently identify the boundaries and rib relationship, stop and re-orient before proceeding.",
     "kind": "mental-rep",
-    "transcriptHash": "f3b19e39049f7559"
+    "transcriptHash": "ec36c44b4cf4e05c"
   },
   {
     "id": "rep.rep-chest-tube.setup",
@@ -691,9 +691,9 @@
   },
   {
     "id": "rep.rep-central-line.scan",
-    "text": "Identify vein and artery in more than one plane. Use compressibility, pulsatility and anatomy rather than trusting color alone. Look for overlap and thrombus.",
+    "text": "Start with surface orientation: clavicle below, sternocleidomastoid over the lower neck, carotid pulse medial. Then put the linear probe on the neck and prove the anatomy rather than assuming it. Find the carotid artery: round, pulsatile and relatively noncompressible. Find the internal jugular vein: usually thinner-walled and compressible, but its position relative to the artery can vary. Sweep up and down the neck and rotate into another plane. Look for vessel overlap, thrombus, depth and the path your needle would have to travel. If you cannot clearly distinguish vein, artery and the structures deep to them, stop and remap before puncture.",
     "kind": "mental-rep",
-    "transcriptHash": "e4fafdadd0a2b920"
+    "transcriptHash": "dbe1c3a326d68207"
   },
   {
     "id": "rep.rep-central-line.tip",
@@ -733,9 +733,9 @@
   },
   {
     "id": "rep.rep-io.landmark",
-    "text": "Picture the anatomy for the site and device you actually use. Palpate and identify the target before touching the driver.",
+    "text": "Choose an approved site for the device and patient in front of you, then identify it by touch before opening the driver. For a proximal tibial example, first find the tibial tuberosity, then move onto the broad flat anteromedial surface of the proximal tibia rather than drifting toward the joint or posterior structures. In pediatric patients, deliberately account for the growth plate according to your training and device instructions. If you are using another approved site such as the proximal humerus, switch to that device-specific landmark sequence instead of carrying the tibial landmarks over. If the bony target is not unmistakable, stop and select or re-identify the site.",
     "kind": "mental-rep",
-    "transcriptHash": "82e1d430eedef82f"
+    "transcriptHash": "18ecc92cff1bbdb1"
   },
   {
     "id": "rep.rep-io.place",
@@ -805,9 +805,9 @@
   },
   {
     "id": "rep.rep-evd.level",
-    "text": "Visualize the reference point on the patient and the leveling device. The chamber height determines the hydrostatic threshold for drainage.",
+    "text": "Identify the tragus or external auditory meatus on the patient—the bedside external reference commonly used to approximate the level of the foramen of Monro when the head is positioned appropriately. Bring the leveling device or laser to that patient reference, then look from the patient to the drain scale. The chamber height is meaningful only relative to that reference. If the head or bed position changes, assume the old level is no longer valid until you re-level it.",
     "kind": "mental-rep",
-    "transcriptHash": "bb9586c66ff0073f"
+    "transcriptHash": "5784e860e72ae40e"
   },
   {
     "id": "rep.rep-evd.clamp",
@@ -817,9 +817,9 @@
   },
   {
     "id": "rep.rep-evd.move",
-    "text": "After the move, the old chamber position is no longer meaningful. Re-establish the patient reference and level the system again before returning it to the ordered state.",
+    "text": "Once the patient and bed have moved, ignore the old chamber position. Go back to the patient. Find the tragus or external auditory meatus again at the new head position. Re-level the device to that reference, then verify the ordered drain height before returning the EVD to its prescribed open or clamped state. Patient first, reference second, chamber third.",
     "kind": "mental-rep",
-    "transcriptHash": "c492fe48e3e0289e"
+    "transcriptHash": "1fb3803c90c5bda6"
   },
   {
     "id": "rep.rep-evd.verify",
@@ -871,9 +871,9 @@
   },
   {
     "id": "rep.rep-us-piv.scan",
-    "text": "Before touching a needle, scan the vessel in more than one plane. Look at depth, diameter, course, compressibility and what lies underneath it.",
+    "text": "Before touching a needle, scan the target region in short and long axis. Find a vein by its thin wall and compressibility, then deliberately look for nearby arteries, nerves, bone and other structures in the planned path. Follow the vein proximally and distally so you know its depth, diameter, direction and whether it branches or dives. A good target is not just a dark circle—it is a vessel with a usable course and enough safe catheter length. If you cannot account for the neighboring anatomy, keep scanning or choose another target.",
     "kind": "mental-rep",
-    "transcriptHash": "5ccde50688959e31"
+    "transcriptHash": "325fb096c439323d"
   },
   {
     "id": "rep.rep-us-piv.setup",
