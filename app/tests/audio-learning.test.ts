@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { parseHandsFree } from '../src/audio/handsfree';
 import { duePrompts, nextIntervalDays, reviewDue } from '../src/audio/review';
 import { recommendedEpisode, recommendedRep } from '../src/audio/recommend';
+import { buildLearningPath } from '../src/audio/pathway';
 import type { MasteryState } from '../src/audio/types';
 
 describe('audio adaptive learning', () => {
@@ -22,6 +23,13 @@ describe('audio adaptive learning', () => {
   it('builds a due queue', () => {
     expect(duePrompts({}).length).toBeGreaterThan(0);
   });
+  it('builds a multimodal path around a mastery concept', () => {
+    const steps = buildLearningPath('rv-failure');
+    expect(steps.length).toBeGreaterThan(1);
+    expect(steps.some((x) => x.kind === 'listen')).toBe(true);
+    expect(steps.some((x) => x.kind === 'visual')).toBe(true);
+  });
+
   it('can recommend both listening and procedural rehearsal from mastery state', () => {
     const mastery: Record<string, MasteryState> = {
       'rv-failure': { concept:'rv-failure', exposures:4, correct:1, confidence:[90], lastSeen:'2020-01-01T00:00:00.000Z' },
