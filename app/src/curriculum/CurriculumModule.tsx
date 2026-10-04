@@ -6,6 +6,7 @@ import { titleOf } from './titles';
 import { openLesson, openDrug, openChallenge } from '../app/navigate';
 import { MECH } from '../moa/registry';
 import { OfflineCard } from '../app/Offline';
+import { useUI } from '../app/store';
 
 const KIND: Record<Kind, string> = { director: 'Signature', step: 'Step lesson', workflow: 'Procedure' };
 const MOD: Record<Entry['module'], string> = { vent: 'Ventilator', abg: 'Blood gas', labs: 'Labs', lines: 'Lines', neuro: 'Brain', heart: 'Heart', abdomen: 'Abdomen' };
@@ -22,20 +23,67 @@ export function CurriculumModule() {
   const doms = useMemo(() => domainProgress(p.completed, filter).filter((d) => !domain || d.domain === domain), [p.completed, domain, cert, naemt, kind, hideDone]); // eslint-disable-line react-hooks/exhaustive-deps
   const weak = useMemo(() => weakTopics(p.attempts), [p.attempts]);
   const total = CATALOG.length, done = CATALOG.filter((e) => p.completed[e.id]).length;
+  const nextLesson = CATALOG.find((e) => !p.completed[e.id]) ?? CATALOG[0];
+  const launchExplore = () => useUI.getState().set({ module: 'vent', mode: 'explore' });
+  const launchPractice = () => {
+    if (weak[0]?.challenges?.[0]) openChallenge(weak[0].challenges[0]);
+    else useUI.getState().set({ module: 'vent', mode: 'challenge' });
+  };
   return (
     <main id="controls" tabIndex={-1} className="stage curriculum-stage">
-      <div className="cur-page">
-        <section className="card">
-          <div className="eyebrow">Curriculum</div><h2 className="h2">Everything in the app, by topic and certification</h2>
-          <p className="muted small">Topics are tagged by alignment with the FP-C and CCP-C (IBSC) and CFRN (BCEN) content areas and with the NAEMT course whose scope they touch. Objectives are this app’s own; sources are guidelines, trials and textbooks to read further. Progress is kept in this browser only.</p>
-          <div className="cur-sum"><b>{done}</b> of {total} complete<div className="cur-bar"><i style={{ width: `${(100 * done) / total}%` }} /></div></div>
-          <div className="cur-certs">{CERTS.map((c) => { const es = CATALOG.filter((e) => e.certs.includes(c)); const d = es.filter((e) => p.completed[e.id]).length; return <span key={c}>{c} {d}/{es.length}</span>; })}</div>
-          <Chips label="Domain" all={DOMAINS} value={domain} onChange={setDomain} />
-          <Chips label="Certification" all={CERTS} value={cert} onChange={setCert} />
-          <Chips label="NAEMT course" all={NAEMT.map((n) => n.id)} value={naemt} onChange={setNaemt} names={Object.fromEntries(NAEMT.map((n) => [n.id, n.name]))} />
-          <Chips label="Kind" all={['director', 'step', 'workflow'] as Kind[]} value={kind} onChange={setKind} />
-          <label className="cur-hide"><input type="checkbox" checked={hideDone} onChange={(e) => setHideDone(e.target.checked)} /> Hide completed</label>
+      <div className="cur-page cur-home">
+        <section className="cur-hero">
+          <div className="cur-hero-copy">
+            <div className="eyebrow">Your critical-care learning home</div>
+            <h2>Build the model. See it change. Then prove you understand it.</h2>
+            <p>Move between guided lessons, interactive physiology, clinical cases and natural-voice expert audio without losing the thread.</p>
+          </div>
+          <div className="cur-progress-card">
+            <span>Overall progress</span><b>{done}<small> / {total}</small></b>
+            <div className="cur-bar"><i style={{ width: `${(100 * done) / total}%` }} /></div>
+            <em>{Math.round((100 * done) / total)}% complete</em>
+          </div>
         </section>
+
+        <section className="cur-homegrid">
+          <button className="cur-homecard cur-homecard-primary" onClick={() => openLesson(nextLesson.id)}>
+            <span className="eyebrow">Continue learning</span>
+            <b>{titleOf(nextLesson.id)}</b>
+            <p>Resume the next unfinished guided lesson.</p>
+            <em>Continue →</em>
+          </button>
+          <button className="cur-homecard" onClick={launchExplore}>
+            <span className="eyebrow">Explore</span>
+            <b>Manipulate live physiology</b>
+            <p>Change the patient and watch anatomy, waveforms and numbers respond.</p>
+            <em>Open physiology →</em>
+          </button>
+          <button className="cur-homecard" onClick={launchPractice}>
+            <span className="eyebrow">Practice</span>
+            <b>{weak[0] ? `Revisit: ${weak[0].name}` : 'Start a clinical case'}</b>
+            <p>{weak[0] ? 'Target a concept your recent answers flagged.' : 'Commit to a decision, see the response, then debrief.'}</p>
+            <em>Practice now →</em>
+          </button>
+          <a className="cur-homecard cur-homecard-audio" href="audio/">
+            <span className="eyebrow">Listen</span>
+            <b>Critical Care Audio</b>
+            <p>Expert tracks and guided procedural Mental Reps with natural voice.</p>
+            <em>Open Audio →</em>
+          </a>
+        </section>
+
+        <details className="card cur-filter-drawer">
+          <summary><span><b>Browse the full curriculum</b><small>Domains · certification alignment · procedures · lesson types</small></span><span aria-hidden="true">＋</span></summary>
+          <div className="cur-filter-body">
+            <p className="muted small">Topics are tagged by alignment with FP-C / CCP-C, CFRN and NAEMT course scope. Objectives are this app’s own; sources are guidelines, trials and textbooks to read further.</p>
+            <div className="cur-certs">{CERTS.map((c) => { const es = CATALOG.filter((e) => e.certs.includes(c)); const d = es.filter((e) => p.completed[e.id]).length; return <span key={c}>{c} {d}/{es.length}</span>; })}</div>
+            <Chips label="Domain" all={DOMAINS} value={domain} onChange={setDomain} />
+            <Chips label="Certification" all={CERTS} value={cert} onChange={setCert} />
+            <Chips label="NAEMT course" all={NAEMT.map((n) => n.id)} value={naemt} onChange={setNaemt} names={Object.fromEntries(NAEMT.map((n) => [n.id, n.name]))} />
+            <Chips label="Kind" all={['director', 'step', 'workflow'] as Kind[]} value={kind} onChange={setKind} />
+            <label className="cur-hide"><input type="checkbox" checked={hideDone} onChange={(e) => setHideDone(e.target.checked)} /> Hide completed</label>
+          </div>
+        </details>
         <OfflineCard />
         <section className="card cur-audio-callout">
           <div>
