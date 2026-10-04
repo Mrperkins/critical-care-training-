@@ -96,3 +96,17 @@ A future escharotomy rep must:
 Narration changes in this audit intentionally do **not** block further engineering on external voice rendering.
 
 Changed beats remain transcript-hash stale until a dedicated voice-materialization pass generates and imports matching durable audio. The production gate must continue to reject stale audio; the solution is to render the new narration, not to weaken the gate.
+
+
+## Reference baseline used for this re-audit
+
+These references support the generic anatomy/technique framework used in the educational scripts. They do not replace local policy, device IFUs, credentialing or specialist direction.
+
+- Merck Manual Professional — Tube and Catheter Thoracostomy: https://www.merckmanuals.com/professional/pulmonary-disorders/how-to-do-pulmonary-procedures/how-to-do-tube-and-catheter-thoracostomy
+- Merck Manual Professional — Ultrasound-Guided Internal Jugular Vein Cannulation: https://www.merckmanuals.com/professional/critical-care-medicine/how-to-do-central-vascular-procedures/how-to-do-internal-jugular-vein-cannulation-ultrasound-guided
+- Merck Manual Professional — Ultrasound-Guided Radial Artery Catheter Insertion: https://www.merckmanuals.com/professional/critical-care-medicine/how-to-do-peripheral-vascular-procedures/how-to-do-ultrasound-guided-radial-artery-catheter-insertion
+- ACEP Emergency Ultrasound — FAST/eFAST technique references: https://www.acep.org/emultrasound
+- Teleflex Arrow EZ-IO — official adult proximal-tibial landmarking/competency materials: https://www.teleflex.com/usa/en/clinical-resources/ez-io/index
+- Neurocritical Care Society — EVD consensus resources: https://www.neurocriticalcare.org/Resources-Publications/Neurocritical-Care-Guidelines
+- Royal Children’s Hospital Melbourne — EVD leveling/transport reference: https://www.rch.org.au/rchcpg/hospital_clinical_guideline_index/External_Ventricular_Drains_and_Intracranial_Pressure_Monitoring/
+- MSD Manual Professional — Burn Escharotomy: https://www.msdmanuals.com/professional/injuries-poisoning/how-to-do-skin-soft-tissue-and-minor-surgical-procedures/how-to-do-burn-escharotomy
