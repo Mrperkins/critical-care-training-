@@ -475,45 +475,45 @@
   },
   {
     "id": "rep.rep-push-dose-pressor.arrival",
-    "text": "You are at the bedside. The pressure is falling and you have decided a short bridge is needed while definitive support is prepared. Before touching a vial, state the physiologic problem you are treating.",
+    "text": "You are at the bedside. The blood pressure is falling. You have decided push-dose epinephrine is an appropriate short bridge while definitive hemodynamic support is being prepared. Your monitor is on. Your vascular access is confirmed. Before you touch the medication, name the endpoint you are trying to improve and the response that would make you stop.",
     "kind": "mental-rep",
-    "transcriptHash": "e46f5abfe94c5c1b"
+    "transcriptHash": "5969e614b05f38af"
   },
   {
     "id": "rep.rep-push-dose-pressor.orient",
-    "text": "High-risk medication errors happen when urgency outruns verification. Separate the patient decision from the preparation task. Read the source concentration. Read your protocol. Do not build the final concentration from memory alone.",
+    "text": "You grab your cardiac epinephrine syringe. Stop and read the label. One milligram in ten milliliters. That is zero point one milligram per milliliter. Convert milligrams to micrograms: zero point one milligram is one hundred micrograms. Your source concentration is one hundred micrograms per milliliter. Do not continue until the label in your hand matches that source concentration.",
     "kind": "mental-rep",
-    "transcriptHash": "7b5bf153bcd6b414"
+    "transcriptHash": "e5e1752fc5f64090"
   },
   {
     "id": "rep.rep-push-dose-pressor.equip",
-    "text": "Picture the syringe, label, medication source and reference in one uncluttered field. Keep look-alike syringes out of that field. Prepare only one high-risk drug at a time.",
+    "text": "You grab a ten milliliter normal saline flush. You expel one milliliter. Look at the barrel. Nine milliliters of saline remain. Keep the syringe in your hand. Keep the source epinephrine and the label in the same clean medication workspace.",
     "kind": "mental-rep",
-    "transcriptHash": "1a56586f0764f934"
+    "transcriptHash": "f5aa38950e482988"
   },
   {
     "id": "rep.rep-push-dose-pressor.verify",
-    "text": "Before administration, verify drug, concentration, dose, route, patient and indication. Say them out loud. If the concentration does not match the standard you expected, stop and reconcile it.",
+    "text": "Using your approved aseptic transfer technique, draw one milliliter from the cardiac epinephrine source into the syringe containing nine milliliters of saline. You now have ten milliliters total. That one milliliter of source contributed one hundred micrograms of epinephrine. One hundred micrograms in ten milliliters equals ten micrograms per milliliter. Say the final concentration out loud: epinephrine, ten micrograms per milliliter.",
     "kind": "mental-rep",
-    "transcriptHash": "d22246dfbe50b06f"
+    "transcriptHash": "13eee515a4b133e4"
   },
   {
     "id": "rep.rep-push-dose-pressor.give",
-    "text": "Give according to local protocol through a verified line. Your attention immediately returns to the patient and monitor. Watch rhythm, pressure, perfusion and the clinical endpoint you named before the dose.",
+    "text": "Before that syringe leaves your hand, label it: epinephrine, ten micrograms per milliliter, with the additional identifiers required by your policy. Now do the dose-to-volume conversion from your protocol or order. At ten micrograms per milliliter, a ten microgram dose is one milliliter, and a twenty microgram dose is two milliliters. Verify the intended dose, route, patient, indication and line before administration. Then give only the protocol-directed amount and return your eyes to the patient and monitor.",
     "kind": "mental-rep",
-    "transcriptHash": "b4a4b130adb84de8"
+    "transcriptHash": "b33c5d568f09bc36"
   },
   {
     "id": "rep.rep-push-dose-pressor.comp",
-    "text": "If the response is excessive, absent or physiologically inconsistent, do not automatically repeat the same action. Recheck the line, concentration, rhythm and your diagnosis.",
+    "text": "Watch the rhythm, pressure, perfusion and clinical endpoint immediately. If the response is excessive, you see a concerning tachyarrhythmia, or the physiology moves in the wrong direction, stop and reassess. If there is little or no response, do not reflexively keep pushing. Recheck the line, the prepared concentration, the delivered volume and the diagnosis while definitive support continues to come online.",
     "kind": "mental-rep",
-    "transcriptHash": "b5f27ee081ed9633"
+    "transcriptHash": "f0ef742f7c2d0da6"
   },
   {
     "id": "rep.rep-push-dose-pressor.debrief",
-    "text": "The mental anchor is simple: indication, standardized concentration, verify, label, administer, reassess, and transition to definitive support. The procedure is not drawing up a syringe. The procedure is safe physiology-guided medication use.",
+    "text": "Replay the preparation. Cardiac epinephrine: one milligram in ten milliliters, which is one hundred micrograms per milliliter. Ten milliliter saline flush: expel one milliliter, leaving nine. Add one milliliter of the source. Now you have one hundred micrograms in ten milliliters, or ten micrograms per milliliter. Label it before it leaves your hand. Convert the ordered dose to volume. Verify. Give. Reassess. Then transition to definitive support.",
     "kind": "mental-rep",
-    "transcriptHash": "6e4db5b8594fe2ee"
+    "transcriptHash": "46320b632c7c6b2c"
   },
   {
     "id": "rep.rep-blood.arrival",
