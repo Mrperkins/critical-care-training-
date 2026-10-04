@@ -37,12 +37,15 @@ const audioCss = audioRes.outputFiles.find((f) => f.path.endsWith('.css'))?.text
 const audioDir = path.join(pub, 'audio'); fs.mkdirSync(audioDir, { recursive: true });
 const audioVoice = path.join(ROOT, 'public/audio/voice');
 if (fs.existsSync(audioVoice)) fs.cpSync(audioVoice, path.join(audioDir, 'voice'), { recursive: true, force: true });
+fs.copyFileSync(path.join(ROOT, 'site', 'audio-manifest.webmanifest'), path.join(audioDir, 'manifest.webmanifest'));
 const audioHead = `<!doctype html>
 <html lang="en">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Critical Care Audio</title>
+<link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#070a0d">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
 <style>${audioCss}</style>`;
