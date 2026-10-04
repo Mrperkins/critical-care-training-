@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { EPISODES, MENTAL_REPS } from '../src/audio/catalog';
 import { MASTERY, MASTERY_BY_ID } from '../src/audio/mastery';
+import { MASTERY_NOTES } from '../src/audio/masteryNotes';
 
 describe('critical care audio mastery model', () => {
   it('has unique concept, episode and Mental Rep ids', () => {
@@ -20,6 +21,17 @@ describe('critical care audio mastery model', () => {
   it('maps every episode and Mental Rep to real mastery concepts', () => {
     for (const e of EPISODES) for (const id of e.concepts) expect(MASTERY_BY_ID[id], `${e.id} -> ${id}`).toBeTruthy();
     for (const r of MENTAL_REPS) for (const id of r.concepts) expect(MASTERY_BY_ID[id], `${r.id} -> ${id}`).toBeTruthy();
+  });
+
+  it('gives every mastery concept expert teaching notes', () => {
+    for (const c of MASTERY) {
+      const n = MASTERY_NOTES[c.id];
+      expect(n, `expert notes missing: ${c.id}`).toBeTruthy();
+      expect(n.mechanism.length).toBeGreaterThan(40);
+      expect(n.bedside.length).toBeGreaterThan(30);
+      expect(n.traps.length).toBeGreaterThanOrEqual(2);
+      expect(n.integration.length).toBeGreaterThan(30);
+    }
   });
 
   it('gives every mastery concept at least one expertise-audio teaching path', () => {
