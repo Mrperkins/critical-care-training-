@@ -3,8 +3,8 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { session } from './session';
 import { lusFromVent, lusSummary, lusScene, renderMmode, LUS_ZONES, LUS_W, LUS_D, type LusZone, type LusZoneId } from './lus';
 import { renderLinear } from '../scene/ultrasound/bmode';
-import { RealExamples } from '../scene/imaging/RealExamples';
-import { RealCase } from '../scene/imaging/RealCase';
+import { StateRealReference } from '../scene/imaging/StateRealReference';
+import { selectLusReal } from './realReference';
 import { IS_PHONE } from '../scene/Studio';
 import { useHideFindings } from '../challenge/caseStore';
 import { create } from 'zustand';
@@ -38,7 +38,7 @@ function Zone({ z, on, pick, hide }: { z: LusZone; on: boolean; pick: () => void
 }
 
 export function LusScene() {
-  const hide = useHideFindings(); const zs = useZones(); const sel = useLusUI((s) => s.zone); const setSel = useLusUI.getState().set; const z = zs.find((x) => x.id === sel)!; const mref = useRef<HTMLCanvasElement>(null);
+  const hide = useHideFindings(); const zs = useZones(); const sel = useLusUI((s) => s.zone); const setSel = useLusUI.getState().set; const z = zs.find((x) => x.id === sel)!; const real = hide ? null : selectLusReal(z); const mref = useRef<HTMLCanvasElement>(null);
   useEffect(() => draw(mref.current, renderMmode(z, 220, 150)), [z]);
   return (
     <div className="imaging lus-view">
@@ -47,10 +47,8 @@ export function LusScene() {
         <figure className="img-panel lus-m"><canvas ref={mref} aria-label={hide ? 'M-mode' : `M-mode, ${z.mmode}`} /><figcaption>M-mode{hide ? '' : ` · ${z.mmode}`}</figcaption></figure>
         <section className="cxr-find"><h4>{LUS_ZONES.find((x) => x.id === sel)!.name}</h4>{hide ? <p className="muted small">Reading hidden while you answer — tap each zone and watch the pleural line and the M-mode.</p> : <><p className="small">{z.pattern}.</p><h4>Reading</h4><ul>{lusSummary(zs).map((l) => <li key={l}>{l}</li>)}</ul></>}</section>
       </div>
-      {!hide && zs.some((x) => x.lungPoint || (!x.sliding && !x.lungPulse)) && <RealCase kind="ptxlus" title="Real pneumothorax ultrasound" />}
-      {!hide && zs.some((x) => x.effusion > 0.05) && <RealCase kind="pleuraleff" title="Real pleural effusion" />}
-      {!hide && <RealExamples kind="lus" title="Real lung ultrasound" />}
-      <div className="img-bar"><p className="img-note">Synthetic lung ultrasound drawn from the ventilator model’s state (linear probe, 4 × 6 cm). Patterns follow standard lung-ultrasound teaching; not patient images except the labelled real clips.</p></div>
+      <StateRealReference match={real} />
+      <div className="img-bar"><p className="img-note">Synthetic lung ultrasound drawn from the ventilator model’s selected zone (linear probe, 4 × 6 cm). The real clip above, when present, is selected to match that zone’s current finding and comes from a different patient.</p></div>
     </div>
   );
 }
