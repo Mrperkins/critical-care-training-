@@ -22,8 +22,8 @@ Voice-first critical-care expertise training plus guided procedural Mental Reps.
 - 79 expertise audio episodes total.
 - 21 ordered domain tracks.
 - 20 required Mental Reps.
-- 132 Mental Rep narration beats.
-- 132/132 Mental Rep beats have durable natural-voice MP3 assets in the project.
+- 135 Mental Rep narration beats on the active protocol-grade branch (three new procedural beats added: arterial puncture/threading and IJ dilation/catheter completion).
+- The previously merged 132-beat set has durable natural-voice assets. Protocol-grade revisions have changed many transcripts and added three beats, so matching voice materialization is intentionally pending; stale/missing audio remains blocked by the transcript-hash production gate.
 - 130/130 concepts have spaced-retrieval coverage: bespoke questions where available plus deterministic mechanism-vs-trap prompts.
 - Unseen concepts are not marked overdue; spaced review starts after exposure.
 
@@ -148,3 +148,15 @@ Every invasive or anatomy-dependent Mental Rep must explicitly narrate:
 Banned as stand-alone abstractions: "identify the correct site," "find the landmark," "obtain access," "prepare the system," "use the standard approach," "confirm placement," or "reassess" without the operational steps that make those phrases real.
 
 When a landmark term itself could be unfamiliar (for example "safe triangle," "pleural access," "phlebostatic axis," "tragus reference," "anterior axillary line," or an escharotomy release line), the narration must define the term spatially instead of assuming it is self-explanatory.
+
+
+## Active protocol-grade re-audit
+
+Branch: `mental-reps-emergency-systems-v5`
+
+- All 20 required Mental Reps have been re-read against the protocol-grade standard.
+- Detailed audit: `MENTAL_REP_PROTOCOL_AUDIT.md`.
+- Anatomy-heavy reps now define the landmark itself and the route to it rather than naming it.
+- System/device reps now require a physical patient→hardware→monitor/circuit trace rather than generic "check/prepare/reassess" language.
+- Three missing procedural beats were added: radial arterial puncture/threading, IJ dilation, and IJ catheter completion.
+- Voice rendering is no longer on the engineering critical path. Revised narration may remain voice-pending on the feature branch, but cannot be merged as production-complete while transcript hashes are stale.
