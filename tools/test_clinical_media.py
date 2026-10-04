@@ -67,6 +67,17 @@ def main():
         search = {'resultList': {'result': [{'doi': '10.1186/s44348-026-00078-5', 'pmcid': 'PMC1', 'title': 'POCUS volume status.', 'firstPublicationDate': '2026-07-07', 'journalInfo': {'journal': {'title': 'J Cardiovasc Imaging'}}}]}}
         e2 = cm.parse_epmc(search, jats, '10.1186/s44348-026-00078-5', 2)
         check(e2['license'] == 'CC BY 4.0' and e2['mediaName'].endswith('MOESM2_ESM.avi') and 'Video S2' in e2['description'] and e2['authors'] == 'NC Shaul' and not e2['thirdParty'], 'Europe PMC licence, author and supplementary item parsed')
+        import xml.etree.ElementTree as ET
+        figx = '''<article xmlns:xlink="http://www.w3.org/1999/xlink"><front><article-meta><permissions><license><license-p>Distributed under the Creative Commons Attribution 4.0 License.</license-p></license></permissions></article-meta></front>
+<body><fig id="F1"><label>Figure 1</label><caption><p>Non-contrast CT: hyperdense left MCA.</p></caption><graphic xlink:href="cr-1-g001"/></fig>
+<fig id="F2"><label>Figure 2</label><caption><p>Reprinted with permission from Smith et al.</p></caption><graphic xlink:href="cr-1-g002"/></fig>
+<fig id="F3"><label>Figure 3</label><caption><p>CTA.</p></caption><permissions><copyright-statement>© Elsevier 2019</copyright-statement></permissions><graphic xlink:href="cr-1-g003"/></fig></body></article>'''
+        figs = cm.jats_figures(figx)
+        check([f['thirdParty'] for f in figs] == [False, True, True] and figs[0]['href'] == 'cr-1-g001' and 'hyperdense' in figs[0]['caption'], 'figures listed; reprinted / separately copyrighted figures flagged')
+        check(cm.jats_license(ET.fromstring(figx))[0] == 'CC BY 4.0', 'licence stated only in words is read')
+        check(cm.jats_license(ET.fromstring(figx.replace('Attribution 4.0', 'Attribution-NonCommercial 4.0')))[0] is None, 'NonCommercial wording is not accepted')
+        vf, said = cm.region_filters({'crop': [0.5, 0, 0.5, 1], 'maskRects': [[0, 0, 0.2, 0.05]]})
+        check(vf[-1].startswith('crop=') and 'drawbox' in vf[0] and len(said) == 2, 'panel crop and masks are documented')
         page = tmp / 'page.jpg'; page.write_text('<!DOCTYPE html><html>error</html>')
         try:
             cm.sniff(page); check(False, 'HTML saved as .jpg is rejected')

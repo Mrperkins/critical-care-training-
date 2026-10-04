@@ -1,0 +1,61 @@
+Discovery round 1 — real CT / X-ray / POCUS / echo to replace every synthetic imaging view, plus serial stroke CT
+and congenital heart echo. Previews go to the media-candidates branch; nothing is shipped from discovery.
+CR = PUB_TYPE:"Case Reports"
+
+discover epmc: (TITLE:"hyperdense middle cerebral artery" OR TITLE:"hyperdense MCA" OR ABSTRACT:"hyperdense middle cerebral artery sign") | n=6
+discover epmc: ("insular ribbon" OR "loss of grey-white" OR "loss of gray-white") AND stroke AND PUB_TYPE:"Case Reports" | n=6
+discover epmc: "malignant middle cerebral artery infarction" AND PUB_TYPE:"Case Reports" | n=6
+discover epmc: "middle cerebral artery occlusion" AND thrombectomy AND "follow-up CT" AND PUB_TYPE:"Case Reports" | n=8
+discover epmc: "CT perfusion" AND ("ischemic core" OR "infarct core") AND penumbra AND PUB_TYPE:"Case Reports" | n=8
+discover epmc: "basilar artery occlusion" AND "CT angiography" AND PUB_TYPE:"Case Reports" | n=5
+discover epmc: "hemorrhagic transformation" AND (thrombolysis OR alteplase OR tenecteplase) AND PUB_TYPE:"Case Reports" | n=5
+discover epmc: ("hematoma expansion" OR "haematoma expansion") AND ("spot sign" OR "serial CT" OR "repeat CT") | n=8
+discover epmc: "intracerebral hemorrhage" AND ("perihematomal edema" OR "perihaematomal oedema") AND PUB_TYPE:"Case Reports" | n=5
+discover epmc: "intracerebral hemorrhage" AND "intraventricular" AND "midline shift" AND PUB_TYPE:"Case Reports" | n=6
+discover epmc: "subarachnoid hemorrhage" AND aneurysm AND ("non-contrast CT" OR "noncontrast CT") AND PUB_TYPE:"Case Reports" | n=5
+discover epmc: "acute hydrocephalus" AND "computed tomography" AND PUB_TYPE:"Case Reports" | n=4
+discover epmc: "ruptured abdominal aortic aneurysm" AND "computed tomography" AND PUB_TYPE:"Case Reports" | n=6
+discover epmc: "type A aortic dissection" AND "CT angiography" AND PUB_TYPE:"Case Reports" | n=6
+discover epmc: "type B aortic dissection" AND malperfusion AND PUB_TYPE:"Case Reports" | n=5
+discover epmc: "abdominal aortic aneurysm" AND ("point-of-care ultrasound" OR "bedside ultrasound") | n=5
+discover epmc: "tension pneumothorax" AND ("chest radiograph" OR "chest X-ray") AND PUB_TYPE:"Case Reports" | n=6
+discover epmc: ("right mainstem" OR "right main bronchus" OR "endobronchial intubation") AND ("chest radiograph" OR "chest X-ray") | n=5
+discover epmc: ("lobar collapse" OR "lung collapse" OR atelectasis) AND "mucus plug" AND PUB_TYPE:"Case Reports" | n=5
+discover epmc: ("pulmonary edema" OR "pulmonary oedema") AND "chest radiograph" AND (cardiogenic OR "heart failure") AND PUB_TYPE:"Case Reports" | n=5
+discover epmc: "acute respiratory distress syndrome" AND "chest radiograph" AND bilateral AND PUB_TYPE:"Case Reports" | n=5
+discover epmc: ("massive pleural effusion" OR "large pleural effusion") AND "chest radiograph" AND PUB_TYPE:"Case Reports" | n=5
+discover epmc: hyperinflation AND (asthma OR COPD) AND "chest radiograph" AND PUB_TYPE:"Case Reports" | n=4
+discover epmc: "lung ultrasound" AND (consolidation OR "B-lines") AND (video OR movie OR clip) | n=8
+discover epmc: ("FAST examination" OR "focused assessment with sonography") AND ("Morison" OR splenorenal OR pelvic) AND PUB_TYPE:"Case Reports" | n=5
+discover epmc: "internal jugular" AND "ultrasound-guided" AND needle AND (video OR "short-axis" OR "out-of-plane") | n=5
+discover epmc: "ventricular septal defect" AND echocardiography AND ("color Doppler" OR "colour Doppler") AND PUB_TYPE:"Case Reports" | n=6
+discover epmc: "atrial septal defect" AND "transthoracic echocardiography" AND PUB_TYPE:"Case Reports" | n=5
+discover epmc: "patent ductus arteriosus" AND echocardiography AND (neonate OR preterm OR infant) AND PUB_TYPE:"Case Reports" | n=5
+discover epmc: "tetralogy of Fallot" AND echocardiography AND PUB_TYPE:"Case Reports" | n=5
+discover epmc: "coarctation of the aorta" AND ("CT angiography" OR echocardiography) AND PUB_TYPE:"Case Reports" | n=5
+discover epmc: "transposition of the great arteries" AND echocardiography AND PUB_TYPE:"Case Reports" | n=4
+discover epmc: "patent foramen ovale" AND ("bubble study" OR "agitated saline") AND PUB_TYPE:"Case Reports" | n=4
+discover epmc: Eisenmenger AND echocardiography AND PUB_TYPE:"Case Reports" | n=3
+discover epmc: "atrioventricular septal defect" AND echocardiography AND PUB_TYPE:"Case Reports" | n=3
+discover epmc: "hypoplastic left heart" AND echocardiography AND PUB_TYPE:"Case Reports" | n=3
+
+discover search: ventricular septal defect echocardiography
+discover search: atrial septal defect echocardiogram
+discover search: tetralogy of Fallot echocardiography
+discover search: middle cerebral artery infarction CT
+discover search: intracerebral hemorrhage CT scan
+discover search: subarachnoid hemorrhage CT
+discover search: aortic dissection CT
+discover search: abdominal aortic aneurysm CT
+discover search: pulmonary edema chest radiograph
+discover search: pleural effusion chest X-ray
+discover search: tension pneumothorax X-ray
+discover search: lung ultrasound B-lines
+discover search: lung ultrasound consolidation
+discover search: Morison's pouch ultrasound
+discover search: abdominal aortic aneurysm ultrasound
+discover search: hyperdense artery sign
+discover search: CT perfusion stroke
+discover search: endotracheal tube chest X-ray
+discover search: atelectasis chest X-ray
+discover search: ARDS chest X-ray

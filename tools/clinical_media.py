@@ -44,6 +44,7 @@ LICENSE_URLS = {
     'CC BY 3.0': 'https://creativecommons.org/licenses/by/3.0/',
     'CC BY 4.0': 'https://creativecommons.org/licenses/by/4.0/',
 }
+STAGING_ONLY = {'fetch', 'licenseClaimed', 'pageUrl', 'claimedBy', 'crop', 'cropNote', 'maskTop', 'maskRects', 'keepOriginal', 'expect'}
 THIRD_PARTY = re.compile(r'courtesy|reproduced (?:with|by) permission|used with permission|©|\(c\)\s*\d{4}|copyright', re.I)
 
 
@@ -87,6 +88,10 @@ def sniff(p: Path) -> str:
         return 'image/jpeg'
     if b[:8] == b'\x89PNG\r\n\x1a\n':
         return 'image/png'
+    if b[:4] == b'GIF8':
+        return 'image/gif'
+    if b[:4] in (b'II*\x00', b'MM\x00*'):
+        return 'image/tiff'
     if b[:4] == b'OggS':
         return 'video/ogg'
     if b[:4] == b'RIFF' and b[8:12] == b'AVI ':
@@ -196,6 +201,154 @@ def fetch_epmc(doi: str, esm: int) -> tuple[dict, bytes]:
     return meta, z.read(names[0])
 
 
+# ── Europe PMC open-access articles: figures and supplementary media ────────────────────────────────────────────
+XL = '{http://www.w3.org/1999/xlink}href'
+# a figure taken from someone else (reprinted / adapted / courtesy) is not covered by the article's own licence
+FIG_THIRD = re.compile(r'courtesy|reprinted|reproduced|adapted (?:from|with)|with (?:kind )?permission|used with|taken from|obtained from (?:the )?(?:web|internet)|radiopaedia|©|copyright', re.I)
+OPEN_LIC = re.compile(r'creativecommons\.org/(?:licenses/by/\d\.\d|publicdomain/zero)|Creative Commons Attribution(?! ?-? ?(?:Non|No|Share))|CC[ -]BY(?![ -](?:NC|ND|SA))|CC0', re.I)
+
+
+def jats_license(root) -> tuple[str | None, str]:
+    import xml.etree.ElementTree as ET
+    el = root.find('.//article-meta/permissions/license')
+    if el is None:
+        el = root.find('.//permissions/license')
+    if el is None:
+        return None, ''
+    raw = ET.tostring(el, encoding='unicode'); txt = strip_tags(raw)
+    lic = norm_license(el.get(XL, '')) or next((norm_license(u) for u in re.findall(r'https?://creativecommons\.org/[a-z/]+\d\.\d/?', raw)), None)
+    if not lic:  # licence stated only in words
+        m = re.search(r'Creative Commons Attribution (\d\.\d)', txt)
+        lic = f'CC BY {m.group(1)}' if m and not re.search(r'Non-?Commercial|NoDerivs|No ?Derivatives|ShareAlike', txt, re.I) else None
+    return lic, txt
+
+
+def jats_authors(root) -> list[str]:
+    return [strip_tags(' '.join(filter(None, [n.findtext('given-names'), n.findtext('surname')]))) for n in root.findall('.//contrib[@contrib-type="author"]/name')]
+
+
+def jats_figures(xml: str) -> list[dict]:
+    """Every <fig> with a graphic: id, label, caption, graphic href, and whether it needs a separate licence check."""
+    import xml.etree.ElementTree as ET
+    root = ET.fromstring(xml); out = []
+    for f in root.iter('fig'):
+        g = next(f.iter('graphic'), None)
+        if g is None or not g.get(XL):
+            continue
+        cap_el = f.find('caption'); cap = strip_tags(ET.tostring(cap_el, encoding='unicode')) if cap_el is not None else ''
+        perm = f.find('permissions'); ptxt = strip_tags(ET.tostring(perm, encoding='unicode')) if perm is not None else ''
+        third = bool(FIG_THIRD.search(cap)) or bool(ptxt and not OPEN_LIC.search(ET.tostring(perm, encoding='unicode')))
+        out.append({'id': f.get('id', ''), 'label': strip_tags(f.findtext('label') or ''), 'caption': cap[:1500], 'href': g.get(XL), 'permissions': ptxt[:400], 'thirdParty': third})
+    return out
+
+
+def jats_sups(xml: str) -> list[dict]:
+    import xml.etree.ElementTree as ET
+    root = ET.fromstring(xml); out = []
+    for i, s in enumerate(root.iter('supplementary-material'), 1):
+        for m in s.iter('media'):
+            if m.get(XL):
+                cap = strip_tags(ET.tostring(s, encoding='unicode'))[:900]
+                out.append({'n': i, 'href': m.get(XL), 'mimetype': f"{m.get('mimetype', '')}/{m.get('mime-subtype', '')}".strip('/'), 'caption': cap, 'thirdParty': bool(FIG_THIRD.search(cap))})
+    return out
+
+
+def epmc_record(pmcid: str = '', doi: str = '') -> dict:
+    q = f'PMCID:{pmcid}' if pmcid else f'DOI:"{doi}"'
+    res = json.loads(get(f'{EPMC}/search?' + urllib.parse.urlencode({'query': q, 'resultType': 'core', 'format': 'json'})))['resultList']['result']
+    assert res, f'{pmcid or doi}: not found in Europe PMC'
+    return res[0]
+
+
+_s3_keys: dict[str, list[str]] = {}
+
+
+def s3_keys(pmcid: str) -> list[str]:
+    """PMC Open Access on AWS (pmc-oa-opendata): every file of the article, all versions."""
+    if pmcid not in _s3_keys:
+        x = get('https://pmc-oa-opendata.s3.amazonaws.com/?' + urllib.parse.urlencode({'list-type': '2', 'prefix': pmcid + '.'})).decode('utf-8', 'replace')
+        _s3_keys[pmcid] = re.findall(r'<Key>([^<]+)</Key>', x)
+    return _s3_keys[pmcid]
+
+
+def epmc_file(pmcid: str, href: str, image: bool = True) -> tuple[bytes, str]:
+    """A figure (or other article file) by its JATS href, from whichever open-access mirror answers. Returns bytes + URL."""
+    stem = Path(href).stem if re.search(r'\.[A-Za-z0-9]{2,4}$', href) else href
+    names = [href] if href != stem else [f'{href}.jpg', f'{href}.png', f'{href}.gif', href]
+    tried = []
+    for n in names:  # Europe PMC article renderer
+        url = f'https://europepmc.org/articles/{pmcid}/bin/{urllib.parse.quote(n)}'
+        try:
+            b = get(url); tried.append(url)
+            if b[:3] == b'\xff\xd8\xff' or b[:8] == b'\x89PNG\r\n\x1a\n' or b[:4] == b'GIF8' or not image:
+                return b, url
+        except Exception as e:  # noqa: BLE001
+            tried.append(f'{url} ({type(e).__name__})')
+    try:  # AWS open-data mirror of the PMC OA subset
+        keys = [k for k in s3_keys(pmcid) if Path(k).stem.lower() == stem.lower() and (not image or re.search(r'\.(jpe?g|png|gif)$', k, re.I))]
+        for k in sorted(keys, key=lambda k: k.split('/')[0], reverse=True):  # newest article version first
+            url = f'https://pmc-oa-opendata.s3.amazonaws.com/{urllib.parse.quote(k)}'
+            return get(url), url
+        tried.append(f's3: no key for {stem} among {len(s3_keys(pmcid))}')
+    except Exception as e:  # noqa: BLE001
+        tried.append(f's3 ({type(e).__name__}: {e})')
+    for n in names:
+        url = f'https://pmc.ncbi.nlm.nih.gov/articles/{pmcid}/bin/{urllib.parse.quote(n)}'
+        try:
+            b = get(url)
+            if not image or b[:3] == b'\xff\xd8\xff' or b[:8] == b'\x89PNG\r\n\x1a\n':
+                return b, url
+            tried.append(f'{url} (not an image)')
+        except Exception as e:  # noqa: BLE001
+            tried.append(f'{url} ({type(e).__name__})')
+    raise AssertionError(f'{pmcid}: could not download {href}; tried {tried}')
+
+
+def epmc_article_meta(r: dict, root, pmcid: str) -> dict:
+    lic, lic_txt = jats_license(root); doi = r.get('doi', '')
+    return {'pmcid': pmcid, 'pageUrl': f'https://doi.org/{doi}' if doi else f'https://europepmc.org/article/PMC/{pmcid}',
+            'license': lic, 'licenseUrl': LICENSE_URLS.get(lic or '', ''), 'licenseText': lic_txt[:300],
+            'authors': ', '.join(jats_authors(root)) or r.get('authorString', ''), 'title': strip_tags(r.get('title', '')).rstrip('.'),
+            'publication': (r.get('journalInfo') or {}).get('journal', {}).get('title', ''), 'published': r.get('firstPublicationDate', ''), 'doi': doi,
+            'volume': (r.get('journalInfo') or {}).get('volume', ''), 'firstpage': r.get('pageInfo', '')}
+
+
+def fetch_epmc_fig(f: dict) -> tuple[dict, bytes]:
+    import xml.etree.ElementTree as ET
+    r = epmc_record(f.get('pmcid', ''), f.get('doi', '')); pmcid = r['pmcid']
+    xml = get(f'{EPMC}/{pmcid}/fullTextXML').decode('utf-8'); root = ET.fromstring(xml)
+    meta = epmc_article_meta(r, root, pmcid)
+    figs = [x for x in jats_figures(xml) if x['id'] == f['fig'] or x['label'].lower().rstrip('.') == str(f['fig']).lower()]
+    assert figs, f"{pmcid}: figure {f['fig']} not found"
+    fig = figs[0]; data, url = epmc_file(pmcid, fig['href'])
+    meta.update(originalUrl=url, originalName=Path(urllib.parse.urlparse(url).path).name, description=f"{fig['label']} {fig['caption']}".strip()[:1500],
+                thirdParty=fig['thirdParty'], figure=fig['id'],
+                licenseEvidence=f"Europe PMC full text of {pmcid} (doi {meta['doi'] or '—'}), <license>: “{meta['licenseText']}”; {fig['label'] or fig['id']} caption"
+                                f"{' and figure permissions' if fig['permissions'] else ''} checked for a separate credit.")
+    return meta, data
+
+
+def fetch_epmc_sup(f: dict) -> tuple[dict, bytes]:
+    import io, zipfile, xml.etree.ElementTree as ET
+    r = epmc_record(f.get('pmcid', ''), f.get('doi', '')); pmcid = r['pmcid']
+    xml = get(f'{EPMC}/{pmcid}/fullTextXML').decode('utf-8'); root = ET.fromstring(xml)
+    meta = epmc_article_meta(r, root, pmcid)
+    sups = [s for s in jats_sups(xml) if Path(s['href']).name == Path(f['href']).name]
+    assert sups, f"{pmcid}: supplementary {f['href']} not in the full text"
+    s = sups[0]
+    try:
+        zurl = f'{EPMC}/{pmcid}/supplementaryFiles'; z = zipfile.ZipFile(io.BytesIO(get(zurl)))
+        names = [n for n in z.namelist() if Path(n).name == Path(s['href']).name]
+        assert names, f'{pmcid}: {s["href"]} not in the archive'
+        data, url = z.read(names[0]), f'{zurl} → {names[0]}'
+    except Exception as e:  # noqa: BLE001
+        gh('warning', pmcid, f'supplementary archive unusable ({type(e).__name__}: {e}); trying the article file mirrors')
+        data, url = epmc_file(pmcid, s['href'], image=False)
+    meta.update(originalUrl=url, originalName=Path(s['href']).name, description=s['caption'], thirdParty=s['thirdParty'],
+                licenseEvidence=f"Europe PMC full text of {pmcid} (doi {meta['doi'] or '—'}), <license>: “{meta['licenseText']}”; supplementary item {s['n']} caption checked for a separate credit.")
+    return meta, data
+
+
 def parse_springer(page: str, url: str, esm: int) -> dict:
     metas = lambda n: [html.unescape(x) for x in re.findall(rf'<meta\s+name="{n}"\s+content="([^"]*)"', page)]
     one = lambda n: (metas(n) or [''])[0]
@@ -240,6 +393,9 @@ def fetch_one(it: dict, out: Path) -> dict:
             meta, data = fetch_epmc(it['articleDoi'], f['esm'])
         if data is not None:
             return finish_fetch(it, d, meta, data)
+    elif f['type'] in ('epmc-fig', 'epmc-sup'):
+        meta, data = (fetch_epmc_fig if f['type'] == 'epmc-fig' else fetch_epmc_sup)(f)
+        return finish_fetch(it, d, meta, data)
     else:
         raise SystemExit(f"{it['id']}: unknown fetch type {f['type']}")
     return finish_fetch(it, d, meta, get(meta['originalUrl']))
@@ -299,6 +455,9 @@ def ingest_video(it: dict, orig: Path) -> tuple[dict, str, dict]:
     if it.get('maskTop'):  # scanner status bar with identifiers (name, number, date): black it out
         vf = f"drawbox=x=0:y=0:w=iw:h={int(it['maskTop'])}:color=black:t=fill" + ('' if vf == 'null' else ',' + vf)
         notes.append('the scanner’s top status bar blacked out')
+    pre, said = region_filters({k: v for k, v in it.items() if k == 'maskRects'})
+    if pre:
+        vf = ','.join(pre) + ('' if vf == 'null' else ',' + vf); notes += said
     mp4, webm, poster = REAL / f"{it['id']}.mp4", REAL / f"{it['id']}.webm", REAL / f"{it['id']}.jpg"
     def encode(timing: list) -> None:
         common = ['-i', str(orig), '-map', '0:v:0', '-an', '-vf', vf, *timing]
@@ -326,14 +485,36 @@ def ingest_video(it: dict, orig: Path) -> tuple[dict, str, dict]:
     return files, changes, {'sourceVideo': src, 'mp4': o}
 
 
+def region_filters(it: dict) -> tuple[list[str], list[str]]:
+    """Optional, documented edits before scaling: `crop` = [x, y, w, h] (fractions) to take one panel of a multi-panel
+    figure; `maskRects` = [[x, y, w, h], …] (fractions) blacked out where the source shows identifiers or burnt-in text."""
+    vf, said = [], []
+    for r in it.get('maskRects') or []:
+        x, y, w, h = r; vf.append(f"drawbox=x=iw*{x}:y=ih*{y}:w=iw*{w}:h=ih*{h}:color=black:t=fill")
+    if it.get('maskRects'):
+        said.append(f"{len(it['maskRects'])} region(s) with identifiers or burnt-in text blacked out")
+    if it.get('crop'):
+        x, y, w, h = it['crop']; vf.append(f"crop=iw*{w}:ih*{h}:iw*{x}:ih*{y}")
+        said.append(f"one panel taken from the figure ({it.get('cropNote') or f'region x {x:.2f}–{x + w:.2f}, y {y:.2f}–{y + h:.2f} of the original'})")
+    return vf, said
+
+
 def ingest_image(it: dict, orig: Path, kind: str) -> tuple[dict, str, dict]:
-    out = REAL / f"{it['id']}.jpg"
-    if kind == 'image/jpeg' and orig.stat().st_size <= 4 * 1024 * 1024:
+    out = REAL / f"{it['id']}.jpg"; pre, said = region_filters(it)
+    if kind == 'image/jpeg' and orig.stat().st_size <= 4 * 1024 * 1024 and not pre:
         shutil.copyfile(orig, out); changes = 'None — the displayed file is the original, byte for byte.'
     else:
-        src = probe(orig); vf, how = even_pad_scale(src['w'], src['h'])
-        ff('-i', str(orig), '-vf', vf.replace(str(MAX_W), '1600'), '-q:v', '2', str(out))
-        changes = f'Converted to JPEG{"; " + how.replace(str(MAX_W), "1600") if how else ""}; no crop, mirroring or filtering.'
+        src = probe(orig)
+        if pre:  # measure after the panel crop
+            tmp = out.with_suffix('.tmp.png'); ff('-i', str(orig), '-vf', ','.join(pre), str(tmp)); src = probe(tmp); orig_for = tmp
+        else:
+            orig_for = orig
+        vf, how = even_pad_scale(src['w'], src['h'])
+        ff('-i', str(orig_for), '-vf', vf.replace(str(MAX_W), '1600'), '-q:v', '2', str(out))
+        if pre:
+            orig_for.unlink()
+        bits = said + ([how.replace(str(MAX_W), '1600')] if how else [])
+        changes = f'Converted to JPEG{"; " + "; ".join(bits) if bits else ""}; {"no other crop" if it.get("crop") else "no crop"}, mirroring or filtering.'
     p = probe(out)
     return {'file': out.name}, changes, {'image': {'w': p['w'], 'h': p['h']}}
 
@@ -358,9 +539,11 @@ def ingest_one(it: dict, d: Path, m: dict, accepted: set) -> None:
     assert lic == it['licenseClaimed'], f"{it['id']}: source says {lic}, the bundle claimed {it['licenseClaimed']} — check before using"
     assert meta.get('licenseEvidence') and meta.get('authors') and meta.get('pageUrl'), f"{it['id']}: licence evidence, authors and source page are required"
     assert not meta.get('thirdParty'), f"{it['id']}: the supplementary caption carries a separate credit — needs a manual licence check"
-    assert (kind.startswith('image/') and it['type'] == 'xray') or (kind.startswith('video/') and it['type'] == 'ultrasound'), f"{it['id']}: got {kind}"
+    want = it.get('expect') or ('video' if it['type'] == 'ultrasound' and it['fetch']['type'] != 'epmc-fig' else 'image' if it['type'] in ('xray', 'ct') else None)
+    as_video = kind.startswith('video/') or (kind == 'image/gif' and want == 'video')
+    assert kind.startswith(('image/', 'video/')) and (not want or (want == 'video') == as_video), f"{it['id']}: got {kind}, expected {want}"
     try:
-        files, changes, qc = ingest_image(it, orig, kind) if kind.startswith('image/') else ingest_video(it, orig)
+        files, changes, qc = ingest_video(it, orig) if as_video else ingest_image(it, orig, kind)
     except BaseException:
         for p in REAL.glob(it['id'] + '.*'):
             p.unlink()
@@ -379,7 +562,7 @@ def ingest_one(it: dict, d: Path, m: dict, accepted: set) -> None:
         src_txt = f"“{meta['title']}”, {meta.get('publication', '')}{vol} ({(meta.get('published') or '')[:4]}),{doi} — {esm}{meta['originalUrl']}"
     else:
         src_txt = f"Wikimedia Commons — {meta['pageUrl']}" + (f" (from{doi})" if doi else '')
-    item = {**{k: it[k] for k in ('kind', 'id', 'type', 'modality', 'finding', 'title', 'caption', 'look', 'teach', 'quiz', 'marks')}, **files,
+    item = {**{k: v for k, v in it.items() if k not in STAGING_ONLY}, **files,
             'license': lic, 'licenseUrl': meta.get('licenseUrl') or LICENSE_URLS[lic], 'author': meta['authors'], 'source': src_txt,
             'credit': credit_line(meta, lic), 'changes': changes,
             'provenance': {'pageUrl': meta['pageUrl'], 'originalUrl': meta['originalUrl'], 'doi': meta.get('doi', ''), 'originalTitle': title,
@@ -482,34 +665,130 @@ def write_docs(m: dict) -> None:
         (REAL / name).write_text(fn(m))
 
 
-# ── discover (open internet): candidate files on Commons with their licence and description ───────────────────
-def commons_query(params: dict) -> list[dict]:
-    q = {'action': 'query', 'format': 'json', 'formatversion': '2', 'prop': 'imageinfo', 'iiprop': 'url|size|mime|extmetadata', **params}
+# ── discover (open internet): candidates with licence, description and a preview thumbnail ───────────────────────
+ACCEPT_DISCOVER = re.compile(r'^(CC0|CC BY \d\.\d|Public domain|PD.*)$', re.I)
+
+
+def thumb(data: bytes, out: Path, width: int = 720) -> str | None:
+    """Downscaled JPEG preview of an image (or the middle-ish frames of a video, as a 4-frame strip)."""
+    out.parent.mkdir(parents=True, exist_ok=True); tmp = out.with_suffix('.src')
+    tmp.write_bytes(data)
+    try:
+        k = sniff(tmp)
+        if k.startswith('video/') or k == 'image/gif':
+            d = probe(tmp); n = max(4, int(d['duration'] * (d['fps'] or 25)))
+            ff('-i', str(tmp), '-vf', f"select='not(mod(n\\,{n // 4}))',scale=360:-2,tile=4x1", '-frames:v', '1', '-q:v', '4', str(out))
+        else:
+            ff('-i', str(tmp), '-vf', f'scale=min({width}\\,iw):-2', '-frames:v', '1', '-q:v', '4', str(out))
+        return out.name
+    except BaseException as e:  # noqa: BLE001
+        gh('warning', 'thumb', f'{out.name}: {type(e).__name__}: {e}'); return None
+    finally:
+        tmp.unlink(missing_ok=True)
+
+
+def commons_query(params: dict, thumbs: Path | None = None) -> list[dict]:
+    q = {'action': 'query', 'format': 'json', 'formatversion': '2', 'prop': 'imageinfo', 'iiprop': 'url|size|mime|extmetadata', 'iiurlwidth': '720', **params}
     doc = json.loads(get('https://commons.wikimedia.org/w/api.php?' + urllib.parse.urlencode(q)))
     out = []
     for pg in doc.get('query', {}).get('pages', []):
         ii = (pg.get('imageinfo') or [{}])[0]; em = ii.get('extmetadata', {}); val = lambda k: strip_tags(em.get(k, {}).get('value', ''))
-        out.append({'title': pg['title'], 'license': norm_license(val('LicenseShortName')) or val('LicenseShortName'), 'mime': ii.get('mime'), 'bytes': ii.get('size'),
-                    'width': ii.get('width'), 'height': ii.get('height'), 'duration': ii.get('duration'), 'artist': val('Artist')[:160], 'date': val('DateTimeOriginal')[:40],
-                    'description': val('ImageDescription')[:600], 'url': ii.get('descriptionurl')})
+        lic = norm_license(val('LicenseShortName')) or val('LicenseShortName')
+        row = {'title': pg['title'], 'license': lic, 'mime': ii.get('mime'), 'bytes': ii.get('size'),
+               'width': ii.get('width'), 'height': ii.get('height'), 'duration': ii.get('duration'), 'artist': val('Artist')[:160], 'date': val('DateTimeOriginal')[:40],
+               'description': val('ImageDescription')[:600], 'url': ii.get('descriptionurl')}
+        if thumbs and ACCEPT_DISCOVER.match(lic or '') and ii.get('thumburl'):
+            try:
+                name = re.sub(r'[^A-Za-z0-9._-]+', '_', pg['title'].split(':', 1)[1])[:90] + '.jpg'
+                row['thumb'] = 'commons/' + (thumb(get(ii['thumburl']), thumbs / 'commons' / name) or '')
+            except Exception as e:  # noqa: BLE001
+                row['thumbError'] = f'{type(e).__name__}'
+        out.append(row)
     return out
 
 
+def epmc_search(query: str, n: int) -> list[dict]:
+    """Open-access Europe PMC articles under CC BY / CC0 only (licence re-checked from each full text)."""
+    def run(q: str) -> list[dict]:
+        u = f'{EPMC}/search?' + urllib.parse.urlencode({'query': q, 'resultType': 'core', 'format': 'json', 'pageSize': str(min(100, n * 4)), 'sort': 'CITED desc'})
+        return json.loads(get(u)).get('resultList', {}).get('result', [])
+    res = run(f'({query}) AND OPEN_ACCESS:y AND (LICENSE:"cc by" OR LICENSE:"cc0")')
+    if not res:
+        res = run(f'({query}) AND OPEN_ACCESS:y')
+    return [r for r in res if r.get('pmcid') and re.fullmatch(r'cc[ -]?by|cc0', (r.get('license') or '').strip(), re.I)][:n]
+
+
+def epmc_candidates(pmcid: str, r: dict | None, thumbs: Path | None, videos: bool) -> dict:
+    import xml.etree.ElementTree as ET
+    r = r or epmc_record(pmcid=pmcid)
+    xml = get(f'{EPMC}/{pmcid}/fullTextXML').decode('utf-8'); root = ET.fromstring(xml)
+    meta = epmc_article_meta(r, root, pmcid)
+    row = {k: meta[k] for k in ('pmcid', 'doi', 'title', 'publication', 'published', 'license', 'authors')}
+    row['licenseText'] = meta['licenseText'][:200]; row['figures'] = []; row['sups'] = []
+    ok = meta['license'] in ('CC0', 'CC BY 2.0', 'CC BY 3.0', 'CC BY 4.0')
+    for fg in jats_figures(xml):
+        if thumbs and ok and not fg['thirdParty']:
+            try:
+                data, _ = epmc_file(pmcid, fg['href'])
+                fg['thumb'] = 'epmc/' + (thumb(data, thumbs / 'epmc' / f"{pmcid}-{re.sub(r'[^A-Za-z0-9_-]', '_', fg['id'] or fg['href'])}.jpg") or '')
+            except Exception as e:  # noqa: BLE001
+                fg['thumbError'] = f'{type(e).__name__}: {str(e)[:200]}'
+        row['figures'].append(fg)
+    sups = jats_sups(xml); row['sups'] = sups
+    vids = [s for s in sups if re.search(r'\.(mp4|avi|mov|wmv|m4v|webm|mpg|mpeg|gif|ogv)$', s['href'], re.I) or s['mimetype'].startswith('video')]
+    if thumbs and ok and videos and vids:
+        import io, zipfile
+        try:
+            z = zipfile.ZipFile(io.BytesIO(get(f'{EPMC}/{pmcid}/supplementaryFiles')))
+            for s in vids:
+                names = [x for x in z.namelist() if Path(x).name == Path(s['href']).name]
+                if names:
+                    data = z.read(names[0]); s['bytes'] = len(data)
+                    s['thumb'] = 'epmc/' + (thumb(data, thumbs / 'epmc' / f"{pmcid}-sup{s['n']}.jpg") or '')
+                    try:
+                        tmp = thumbs / 'p.bin'; tmp.write_bytes(data); s['probe'] = probe(tmp); tmp.unlink()
+                    except BaseException:  # noqa: BLE001
+                        pass
+        except Exception as e:  # noqa: BLE001
+            row['supError'] = f'{type(e).__name__}: {str(e)[:200]}'
+    return row
+
+
 def cmd_discover(a) -> None:
-    """Lines in the request file: `discover prefix: File:...` or `discover search: words` → JSON list of candidates."""
+    """Lines in the request file:
+         discover search: words            Wikimedia Commons full-text search (files)
+         discover prefix: File:...         Wikimedia Commons title prefix
+         discover epmc: query [| n=8]      Europe PMC open-access CC BY / CC0 articles → figures + supplementary clips
+         discover pmc: PMC123 PMC456       those articles
+       → JSON list of candidates (+ preview thumbnails under --thumbs)."""
     req = Path(a.request).read_text() if Path(a.request).exists() else ''
-    jobs = re.findall(r'^discover (prefix|search):\s*(.+?)\s*$', req, re.M)
+    jobs = re.findall(r'^discover (prefix|search|epmc|pmc):\s*(.+?)\s*$', req, re.M)
     if not jobs:
         print('no discover lines'); return
-    res = {}
+    thumbs = Path(a.thumbs) if getattr(a, 'thumbs', None) else None
+    res, seen = {}, {}
     for kind, term in jobs:
+        key = f'{kind}: {term}'
         try:
-            params = ({'generator': 'prefixsearch', 'gpssearch': term, 'gpsnamespace': '6', 'gpslimit': '50'} if kind == 'prefix'
-                      else {'generator': 'search', 'gsrsearch': term, 'gsrnamespace': '6', 'gsrlimit': '40'})
-            res[f'{kind}: {term}'] = commons_query(params)
-            gh('notice', 'discover', f"{kind} “{term}”: {len(res[f'{kind}: {term}'])} files")
-        except BaseException as e:
-            res[f'{kind}: {term}'] = {'error': f'{type(e).__name__}: {e}'}; gh('error', 'discover', f'{term}: {e}')
+            if kind in ('prefix', 'search'):
+                params = ({'generator': 'prefixsearch', 'gpssearch': term, 'gpsnamespace': '6', 'gpslimit': '50'} if kind == 'prefix'
+                          else {'generator': 'search', 'gsrsearch': term, 'gsrnamespace': '6', 'gsrlimit': '40'})
+                res[key] = commons_query(params, thumbs)
+            else:
+                q, _, opt = term.partition('|'); n = int((re.search(r'n=(\d+)', opt) or [0, 8])[1])
+                arts = [(p, None) for p in q.split()] if kind == 'pmc' else [(r['pmcid'], r) for r in epmc_search(q.strip(), n)]
+                rows = []
+                for pmcid, r in arts:
+                    if pmcid in seen:
+                        rows.append({'pmcid': pmcid, 'see': seen[pmcid]}); continue
+                    try:
+                        rows.append(epmc_candidates(pmcid, r, thumbs, videos=True)); seen[pmcid] = key
+                    except Exception as e:  # noqa: BLE001
+                        rows.append({'pmcid': pmcid, 'error': f'{type(e).__name__}: {str(e)[:300]}'})
+                res[key] = rows
+            gh('notice', 'discover', f"{key}: {len(res[key])} results")
+        except BaseException as e:  # noqa: BLE001
+            res[key] = {'error': f'{type(e).__name__}: {e}'}; gh('error', 'discover', f'{term}: {e}')
     Path(a.out).parent.mkdir(parents=True, exist_ok=True); Path(a.out).write_text(json.dumps(res, indent=1, ensure_ascii=False) + '\n')
 
 
@@ -519,7 +798,7 @@ def main(argv: list[str] | None = None) -> None:
     f = sub.add_parser('fetch'); f.add_argument('--out', required=True); f.add_argument('--only', nargs='*')
     i = sub.add_parser('ingest'); i.add_argument('--from', required=True); i.add_argument('--only', nargs='*')
     sub.add_parser('docs')
-    d = sub.add_parser('discover'); d.add_argument('--request', required=True); d.add_argument('--out', required=True)
+    d = sub.add_parser('discover'); d.add_argument('--request', required=True); d.add_argument('--out', required=True); d.add_argument('--thumbs')
     a = ap.parse_args(argv)
     {'fetch': cmd_fetch, 'ingest': cmd_ingest, 'discover': cmd_discover, 'docs': lambda _a: write_docs(load())}[a.cmd](a)
 

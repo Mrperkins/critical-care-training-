@@ -16,6 +16,9 @@ on:
         default: ''
 permissions:
   contents: write
+concurrency:
+  group: clinical-media
+  cancel-in-progress: false
 jobs:
   fetch:
     if: github.ref == 'refs/heads/visual-overhaul'
@@ -32,7 +35,15 @@ jobs:
       - name: Offline self-test
         run: python tools/test_clinical_media.py
       - name: Discover candidates (lines starting 'discover' in the request file)
-        run: python tools/clinical_media.py discover --request imaging/real/fetch-request.txt --out imaging/real/source/discover.json
+        run: python tools/clinical_media.py discover --request imaging/real/fetch-request.txt --out "$RUNNER_TEMP/cand/discover.json" --thumbs "$RUNNER_TEMP/cand"
+      - name: Publish candidate previews to the media-candidates scratch branch (never main)
+        run: |
+          [ -f "$RUNNER_TEMP/cand/discover.json" ] || { echo "no discovery this run"; exit 0; }
+          cd "$RUNNER_TEMP/cand"
+          git init -q -b media-candidates
+          git -c user.name=clinical-media-bot -c user.email=clinical-media-bot@users.noreply.github.com add -A
+          git -c user.name=clinical-media-bot -c user.email=clinical-media-bot@users.noreply.github.com commit -qm "Discovery candidates (previews only, not shipped)"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" media-candidates:media-candidates
       - name: Fetch originals with licence evidence
         run: python tools/clinical_media.py fetch --out "$RUNNER_TEMP/media" ${{ github.event.inputs.only && format('--only {0}', github.event.inputs.only) || '' }}
       - name: Ingest (verify, transcode, promote)
