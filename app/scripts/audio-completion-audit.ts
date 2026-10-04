@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { EPISODES, MENTAL_REPS } from '../src/audio/catalog';
+import type { AudioEpisode } from '../src/audio/types';
 import { MASTERY, MASTERY_BY_ID } from '../src/audio/mastery';
 import { EXPERT_TRACKS } from '../src/audio/tracks';
 import { draftTranscriptForEpisode } from '../src/audio/scriptDraft';
@@ -20,7 +21,11 @@ const dangling = MASTERY.flatMap(c=>[
   ...c.prereq.filter(id=>!MASTERY_BY_ID[id]).map(id=>`${c.id}:prereq:${id}`),
   ...c.related.filter(id=>!MASTERY_BY_ID[id]).map(id=>`${c.id}:related:${id}`)
 ]);
-const emptyScripts = EPISODES.filter(e=>draftTranscriptForEpisode(e).trim().split(/\s+/).length<80).map(e=>e.id);
+const minimumWords: Record<AudioEpisode['format'],number> = {
+  'daily-dose':350, 'rounds':900, 'icu-literacy':650, 'audio-case':1100, 'deep-dive':2200, 'mental-rep':0
+};
+const shallowScripts = EPISODES.map(e=>({id:e.id,format:e.format,words:draftTranscriptForEpisode(e).trim().split(/\s+/).length,min:minimumWords[e.format]}))
+  .filter(x=>x.words<x.min);
 const untrackedEpisodes = EPISODES.filter(e=>!EXPERT_TRACKS.some(t=>t.episodes.some(x=>x.id===e.id))).map(e=>e.id);
 const falselyPublished = EPISODES.filter(e=>e.status==='published' && (!e.voice?.reviewed || !e.voice?.src)).map(e=>e.id);
 
@@ -33,8 +38,8 @@ const report = {
     expertTracks:EXPERT_TRACKS.length,
     audioCoveredConcepts:MASTERY.length-missingAudio.length
   },
-  gates:{missingAudio,missingReps,dangling,emptyScripts,untrackedEpisodes,falselyPublished},
-  complete:![missingAudio,missingReps,dangling,emptyScripts,untrackedEpisodes,falselyPublished].some(x=>x.length)
+  gates:{missingAudio,missingReps,dangling,shallowScripts,untrackedEpisodes,falselyPublished},
+  complete:![missingAudio,missingReps,dangling,shallowScripts,untrackedEpisodes,falselyPublished].some(x=>x.length)
 };
 
 const out=path.resolve('../review'); fs.mkdirSync(out,{recursive:true});
