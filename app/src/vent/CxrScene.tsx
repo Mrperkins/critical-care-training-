@@ -4,8 +4,8 @@ import { session } from './session';
 import { cxrFromVent, renderCxr, cxrFindings, type CxrState } from './cxr';
 import { ImagePanel } from '../scene/imaging/ImagePanel';
 import { IS_PHONE } from '../scene/Studio';
-import { RealExamples } from '../scene/imaging/RealExamples';
-import { RealCase } from '../scene/imaging/RealCase';
+import { StateRealReference } from '../scene/imaging/StateRealReference';
+import { selectCxrReal } from './realReference';
 import { useHideFindings } from '../challenge/caseStore';
 
 const round = (st: CxrState) => JSON.stringify(st, (_k, v) => (typeof v === 'number' ? Math.round(v * 40) / 40 : v)); // ignore sub-visible changes
@@ -15,7 +15,7 @@ export function useCxr() {
   return useMemo(() => JSON.parse(key) as CxrState, [key]);
 }
 export function CxrScene() {
-  const st = useCxr(); const f = cxrFindings(st); const hide = useHideFindings(); const size = IS_PHONE ? 300 : 420;
+  const st = useCxr(); const f = cxrFindings(st); const hide = useHideFindings(); const size = IS_PHONE ? 300 : 420; const real = hide ? null : selectCxrReal(st);
   return (
     <div className="imaging cxr-view">
       <div className="cxr-wrap">
@@ -24,9 +24,8 @@ export function CxrScene() {
         </ImagePanel>
         <section className="cxr-find"><h4>Findings</h4>{hide ? <p className="muted small">Hidden while you answer — read the film.</p> : <ul>{f.map((l) => <li key={l}>{l}</li>)}</ul>}</section>
       </div>
-      {!hide && st.side.some((s) => s.ptx > 0) && <><RealCase kind="ptx" title="Real pneumothorax film" /><RealCase kind="ptxseries" title="Real films: before and after a chest tube" /></>}
-      {!hide && <RealExamples kind="xray" title="Real portable films" />}
-      <div className="img-bar"><p className="img-note">Synthetic teaching radiograph drawn from the ventilator model’s own state — not a patient image. Radiological convention: patient’s right on the image left.</p></div>
+      <StateRealReference match={real} />
+      <div className="img-bar"><p className="img-note">Synthetic teaching radiograph drawn from the ventilator model’s own state. The real image above, when present, is a state-matched reference from a different patient. Radiological convention: patient’s right on the image left.</p></div>
     </div>
   );
 }
