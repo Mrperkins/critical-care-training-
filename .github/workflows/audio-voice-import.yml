@@ -48,5 +48,7 @@ jobs:
             echo "No voice asset changes"
           else
             git commit -m "chore(audio): import durable natural-voice prototypes [skip ci]"
+            git fetch origin audio-mastery
+            git rebase origin/audio-mastery
             git push origin HEAD:audio-mastery
           fi
