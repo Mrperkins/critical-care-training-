@@ -6,6 +6,10 @@ import { MASTERY, MASTERY_BY_ID } from '../src/audio/mastery';
 import { EXPERT_TRACKS } from '../src/audio/tracks';
 import { draftTranscriptForEpisode } from '../src/audio/scriptDraft';
 
+const voiceManifestPath = path.resolve('public/audio/voice/manifest.json');
+const voiceManifest = fs.existsSync(voiceManifestPath) ? JSON.parse(fs.readFileSync(voiceManifestPath,'utf8')) as { assets?: { id:string; file:string; reviewed?:boolean }[] } : { assets:[] };
+const durableVoiceIds = new Set((voiceManifest.assets ?? []).map((a)=>a.id));
+
 const requiredReps = [
   'rep-push-dose-pressor','rep-blood','rep-art-line','rep-efast','rep-chest-tube',
   'rep-central-line','rep-us-piv','rep-rsi','rep-post-intubation','rep-pac',
@@ -17,6 +21,7 @@ const audioCovered = new Set(EPISODES.flatMap(e=>e.concepts));
 const repIds = new Set(MENTAL_REPS.map(r=>r.id));
 const missingAudio = MASTERY.filter(c=>!audioCovered.has(c.id)).map(c=>c.id);
 const missingReps = requiredReps.filter(id=>!repIds.has(id));
+const missingMentalRepVoice = MENTAL_REPS.flatMap(r=>r.beats.map(b=>`rep.${r.id}.${b.id}`)).filter(id=>!durableVoiceIds.has(id));
 const dangling = MASTERY.flatMap(c=>[
   ...c.prereq.filter(id=>!MASTERY_BY_ID[id]).map(id=>`${c.id}:prereq:${id}`),
   ...c.related.filter(id=>!MASTERY_BY_ID[id]).map(id=>`${c.id}:related:${id}`)
@@ -38,8 +43,8 @@ const report = {
     expertTracks:EXPERT_TRACKS.length,
     audioCoveredConcepts:MASTERY.length-missingAudio.length
   },
-  gates:{missingAudio,missingReps,dangling,shallowScripts,untrackedEpisodes,falselyPublished},
-  complete:![missingAudio,missingReps,dangling,shallowScripts,untrackedEpisodes,falselyPublished].some(x=>x.length)
+  gates:{missingAudio,missingReps,missingMentalRepVoice,dangling,shallowScripts,untrackedEpisodes,falselyPublished},
+  complete:![missingAudio,missingReps,missingMentalRepVoice,dangling,shallowScripts,untrackedEpisodes,falselyPublished].some(x=>x.length)
 };
 
 const out=path.resolve('../review'); fs.mkdirSync(out,{recursive:true});
