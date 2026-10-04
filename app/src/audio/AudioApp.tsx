@@ -15,18 +15,22 @@ type Page = 'home' | 'tracks' | 'listen' | 'reps' | 'review' | 'mastery';
 
 const fmt = (n: number) => `${Math.floor(n / 60)}:${String(Math.floor(n % 60)).padStart(2, '0')}`;
 
-type DurableVoiceAsset = { file: string; reviewed: boolean };
+type DurableVoiceAsset = { file: string; reviewed: boolean; transcriptHash?: string };
 function durableVoiceAsset(id: string): DurableVoiceAsset | null {
   if (typeof window === 'undefined') return null;
   const w = window as unknown as { __CC_AUDIO_ASSETS__?: Record<string, DurableVoiceAsset> };
   return w.__CC_AUDIO_ASSETS__?.[id] ?? null;
 }
+function voiceAssetSrc(a: DurableVoiceAsset) {
+  const version = a.transcriptHash ? `?v=${encodeURIComponent(a.transcriptHash)}` : '';
+  return `voice/${a.file}${version}`;
+}
 function durableVoiceSrc(id: string) {
   const a = durableVoiceAsset(id);
-  return a ? `voice/${a.file}` : undefined;
+  return a ? voiceAssetSrc(a) : undefined;
 }
 function durableVoiceParts(prefix: string) {
-  if (typeof window === 'undefined') return [] as { id: string; file: string; reviewed: boolean }[];
+  if (typeof window === 'undefined') return [] as { id: string; file: string; reviewed: boolean; transcriptHash?: string }[];
   const w = window as unknown as { __CC_AUDIO_ASSETS__?: Record<string, DurableVoiceAsset> };
   return Object.entries(w.__CC_AUDIO_ASSETS__ ?? {})
     .filter(([id]) => id.startsWith(prefix))
@@ -214,9 +218,9 @@ function EpisodePlayer({ episode, onBack, onReview, onFocus, onExample }: { epis
   const ch = episode.chapters[chapter]; const singleDurable = durableVoiceAsset(`episode.${episode.id}`);
   const durableParts = durableVoiceParts(`episode.${episode.id}.part`);
   const sources = singleDurable
-    ? [{ src: `voice/${singleDurable.file}`, durable: singleDurable }]
+    ? [{ src: voiceAssetSrc(singleDurable), durable: singleDurable }]
     : durableParts.length
-      ? durableParts.map((a) => ({ src: `voice/${a.file}`, durable: a }))
+      ? durableParts.map((a) => ({ src: voiceAssetSrc(a), durable: a }))
       : (episode.voice?.src ?? episode.voice?.previewSrc) ? [{ src: (episode.voice?.src ?? episode.voice?.previewSrc)!, durable: null }] : [];
   const safePart = Math.min(part, Math.max(0, sources.length - 1)); const current = sources[safePart]; const src = current?.src; const durable = current?.durable ?? null;
   useEffect(() => { setPart(Math.max(0, Math.floor(useAudioProgress.getState().position[`${episode.id}:part`] ?? 0))); }, [episode.id]);
@@ -271,7 +275,7 @@ function RepPlayer({ rep, onBack, onReview, onFocus, onExample }: { rep: MentalR
   const audio = useRef<HTMLAudioElement>(null); const [guided, setGuided] = useState(false); const [voicePlaying, setVoicePlaying] = useState(false);
   const [listening, setListening] = useState(false); const [heard, setHeard] = useState('');
   const beatVoiceId = `rep.${rep.id}.${beat.id}`; const durableBeat = durableVoiceAsset(beatVoiceId);
-  const voiceSrc = durableBeat ? `voice/${durableBeat.file}` : beat.voice?.src ?? beat.voice?.previewSrc;
+  const voiceSrc = durableBeat ? voiceAssetSrc(durableBeat) : beat.voice?.src ?? beat.voice?.previewSrc;
   const hasVoice = rep.beats.some((b) => !!(durableVoiceSrc(`rep.${rep.id}.${b.id}`) ?? b.voice?.src ?? b.voice?.previewSrc));
 
   useEffect(() => {
