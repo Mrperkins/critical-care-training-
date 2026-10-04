@@ -113,7 +113,6 @@ describe('critical care audio mastery model', () => {
       'rep-ecmo': [/trace where blood is drained/i, /drainage limb/i, /pump speed and measured blood flow/i, /sweep-gas source/i, /return limb/i, /console in isolation/i],
       'rep-iabp': [/trigger source/i, /dicrotic notch/i, /assisted end-diastolic/i, /early inflation/i, /late deflation/i],
     };
-    expect(Object.keys(required).sort(), 'every Mental Rep must have a protocol-grade anchor checklist').toEqual(MENTAL_REPS.map((x) => x.id).sort());
     for (const [id, patterns] of Object.entries(required)) {
       const rep = MENTAL_REPS.find((x) => x.id === id)!;
       const script = rep.beats.map((b) => b.narration).join(' ');
@@ -164,6 +163,7 @@ describe('critical care audio mastery model', () => {
       'rep-status': [/active seizure protocol/i, /route you actually have/i, /read the .* concentration/i, /exact volume/i, /completion time/i, /next-line row/i],
       'rep-pocus-shock': [/xiphoid/i, /inferior tip of the sternum/i, /left edge of the sternum/i, /point of maximal impulse/i, /two rib shadows/i, /pubic symphysis/i, /vertebral body/i, /aorta/i],
     };
+    expect(Object.keys(required).sort(), 'every Mental Rep must have a protocol-grade anchor checklist').toEqual(MENTAL_REPS.map((x) => x.id).sort());
     for (const [id, patterns] of Object.entries(required)) {
       const rep = MENTAL_REPS.find((x) => x.id === id)!;
       const script = rep.beats.map((b) => b.narration).join(' ');
