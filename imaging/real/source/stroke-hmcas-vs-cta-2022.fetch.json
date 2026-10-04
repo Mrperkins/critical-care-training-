@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC9971136",
+ "pageUrl": "https://doi.org/10.1007/s00415-022-11500-5",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C",
+ "authors": "Kang Z, Wu L, Sun D, Zhou G, Wu X, Qiu H, Mei B, Zhang J.",
+ "title": "Proximal hyperdense middle cerebral artery sign is associated with increased risk of asymptomatic hemorrhagic transformation after endovascular thrombectomy: a multicenter retrospective study",
+ "publication": "Journal of neurology",
+ "published": "2022-11-29",
+ "doi": "10.1007/s00415-022-11500-5",
+ "volume": "270",
+ "firstpage": "1587-1599",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC9971136.1/415_2022_11500_Fig1_HTML.jpg",
+ "originalName": "415_2022_11500_Fig1_HTML.jpg",
+ "description": "Fig. 1 Classification of the hyperdense middle cerebral sign (HMCAS) on no-contrast CT (NCCT) and reconstructed maximal intensity projection (MIP) images. A and B showed the negative HMCAS on NCCT and occlusion of the M1 segment of the middle cerebral artery (MCA) on MIP images in the same patient, respectively. C and D showed the proximal HMCAS on NCCT and occlusion of the M1 segment of the MCA on MIP images in the same patient, respectively. E and F showed a “dot sign” in the sylvian fissure indicating the distal HMCAS on NCCT and occlusion of the M2 segment of the MCA on MIP images in the same patient, respectively",
+ "thirdParty": false,
+ "figure": "Fig1",
+ "licenseEvidence": "Europe PMC full text of PMC9971136 (doi 10.1007/s00415-022-11500-5), <license>: “Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C”; Fig. 1 caption checked for a separate credit.",
+ "id": "stroke-hmcas-vs-cta-2022",
+ "retrieved": "2026-10-04T03:25Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

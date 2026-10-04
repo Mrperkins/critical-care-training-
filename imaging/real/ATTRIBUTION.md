@@ -121,6 +121,216 @@ Real, openly licensed clinical images shown beside the synthetic ones. Only CC0 
 - Licence: CC BY 2.0 (https://creativecommons.org/licenses/by/2.0)
 - Changes: Original OGV (theora, 640×480, 29.97 fps, 5.58 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; the scanner’s top status bar blacked out; frame timing normalised to a constant 29.97 fps (irregular source timestamps; speed unchanged); audio removed; no crop, mirroring, speed change or other filtering. Poster = frame at 1.0 s.
 
+## stroke-hmcas-2025.jpg
+- Hyperdense right MCA — Admission non-contrast CT: the right middle cerebral artery is brighter than the left — fresh clot seen directly in the vessel.
+- Author: Takayuki Inomata, Koji Nakaya, Takaya Sasaki, Hiroto Shiozaki, Yasuto Noda
+- Source: “The Role of Comprehensive Brain Perfusion and Whole-Body CT Using Split-Bolus Injection in Diagnosing Multiple Thromboembolism in a Wake-Up Stroke Patient: A Case Report”, Cureus 17:e86726 (2025), https://doi.org/10.7759/cureus.86726 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12295507.1/cureus-0017-00000086726-i01.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; one panel taken from the figure (panel (a), the hyperdense artery); padded by one black pixel to even dimensions; no other crop, mirroring or filtering.
+
+## stroke-early-change-2025.jpg
+- Early ischaemic change — Same admission CT, higher slice: the right basal ganglia and insular cortex have lost their normal grey–white contrast (ASPECTS 4).
+- Author: Takayuki Inomata, Koji Nakaya, Takaya Sasaki, Hiroto Shiozaki, Yasuto Noda
+- Source: “The Role of Comprehensive Brain Perfusion and Whole-Body CT Using Split-Bolus Injection in Diagnosing Multiple Thromboembolism in a Wake-Up Stroke Patient: A Case Report”, Cureus 17:e86726 (2025), https://doi.org/10.7759/cureus.86726 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12295507.1/cureus-0017-00000086726-i01.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; one panel taken from the figure (panel (b), early ischaemic change); padded by one black pixel to even dimensions; no other crop, mirroring or filtering.
+
+## stroke-cta-m1-2025.jpg
+- CTA: right M1 cut-off — CT angiogram: contrast fills the left middle cerebral artery but stops abruptly in the proximal right M1 (arrow).
+- Author: Bushra Qureshi, Sobiya Farook, Mohammadzakir Diwan, Sheeba Philip
+- Source: “Beating the Clock: Successful Thrombectomy 28 Hours After Stroke in a Young Adult With Internal Carotid Artery Dissection”, Cureus 17:e98724 (2025), https://doi.org/10.7759/cureus.98724 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12778373.1/cureus-0017-00000098724-i02.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## stroke-ctp-mismatch-2025.jpg
+- CT perfusion: core and penumbra — Automated perfusion maps 28 hours after onset: a small core (pink, very low flow) inside a much larger region of delayed perfusion (green) — a large mismatch.
+- Author: Bushra Qureshi, Sobiya Farook, Mohammadzakir Diwan, Sheeba Philip
+- Source: “Beating the Clock: Successful Thrombectomy 28 Hours After Stroke in a Young Adult With Internal Carotid Artery Dissection”, Cureus 17:e98724 (2025), https://doi.org/10.7759/cureus.98724 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12778373.1/cureus-0017-00000098724-i03.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## stroke-infarct-24h-2025.jpg
+- Established infarct — Non-contrast CT 24 hours after thrombectomy: a clearly hypodense, sharply marginated infarct in the right basal ganglia and operculum — the final core. No haemorrhage.
+- Author: Bushra Qureshi, Sobiya Farook, Mohammadzakir Diwan, Sheeba Philip
+- Source: “Beating the Clock: Successful Thrombectomy 28 Hours After Stroke in a Young Adult With Internal Carotid Artery Dissection”, Cureus 17:e98724 (2025), https://doi.org/10.7759/cureus.98724 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12778373.1/cureus-0017-00000098724-i06.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## stroke-malignant-edema-2023.jpg
+- Malignant oedema — After thrombectomy (mTICI 2b), a large left MCA infarct has swollen: sulci effaced, the lateral ventricle compressed and the midline pushed across.
+- Author: Zhang L, Li J, Yang B, Li W, Wang X, Zou M, Song H, Shi L, Duan Y.
+- Source: “The risk and outcome of malignant brain edema in post-mechanical thrombectomy: acute ischemic stroke by anterior circulation occlusion”, European journal of medical research 28:435 (2023), https://doi.org/10.1186/s40001-023-01414-x — https://pmc-oa-opendata.s3.amazonaws.com/PMC10571427.1/40001_2023_1414_Fig2_HTML.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; one panel taken from the figure (top row (A–C), the patient with malignant oedema); downscaled 1888×632 → 1600 px wide (aspect kept); no other crop, mirroring or filtering.
+
+## stroke-mass-effect-2021.jpg
+- Large infarct with mass effect — A large right fronto-parieto-temporal infarct compresses the right lateral ventricle (case 4 of a cardio-cerebral infarction series).
+- Author: Eskandarani R, Sahli S, Sawan S, Alsaeed A.
+- Source: “Simultaneous cardio-cerebral infarction in the coronavirus disease pandemic era: A case series”, Medicine 100:e24496 (2021), https://doi.org/10.1097/md.0000000000024496 — https://pmc-oa-opendata.s3.amazonaws.com/PMC7850703.1/medi-100-e24496-g011.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; one panel taken from the figure (the CT panel); padded by one black pixel to even dimensions; no other crop, mirroring or filtering.
+
+## stroke-hemorrhagic-transformation-2026.jpg
+- Haemorrhagic transformation — Serial CT after thrombectomy: patchy bleeding appears within the infarct on day 4 (A), expands and coalesces by day 6 (B), then gradually fades (C–E).
+- Author: Xu Z, Ding B, Wu J, Wang H, Chen Z, Wang Z.
+- Source: “Zero anticoagulation, zero thrombolysis: successful management of massive pulmonary embolism following hemorrhagic transformation of acute ischemic stroke: a case report”, Frontiers in cardiovascular medicine 13:1747104 (2026), https://doi.org/10.3389/fcvm.2026.1747104 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12907301.1/fcvm-13-1747104-g001.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## stroke-hmcas-vs-cta-2022.jpg
+- Hyperdense sign vs CTA — Pairs of non-contrast CT (top) and CTA maximum-intensity projections (bottom) from three patients with M1 occlusion: the hyperdense sign can be absent (A/B), distal (C/D) or proximal (E/F).
+- Author: Kang Z, Wu L, Sun D, Zhou G, Wu X, Qiu H, Mei B, Zhang J.
+- Source: “Proximal hyperdense middle cerebral artery sign is associated with increased risk of asymptomatic hemorrhagic transformation after endovascular thrombectomy: a multicenter retrospective study”, Journal of neurology 270:1587-1599 (2022), https://doi.org/10.1007/s00415-022-11500-5 — https://pmc-oa-opendata.s3.amazonaws.com/PMC9971136.1/415_2022_11500_Fig1_HTML.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## stroke-ctp-m1-mirza.jpg
+- Perfusion: delayed but preserved volume — CT perfusion in an M1 occlusion: time-to-peak is delayed over the MCA territory (TTP, left) while blood volume is largely preserved (CBV, right) — tissue at risk rather than dead.
+- Author: edit Shazia Mirza and Sankalp Gokhale See also source article for additional image creators.
+- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:CT_perfusion_in_M1_artery_occlusion.png
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0)
+- Changes: Converted to JPEG; padded by one black pixel to even dimensions; no crop, mirroring or filtering.
+
+## ich-swirl-2012.jpg
+- Swirl sign — Six acute haemorrhages: darker swirls inside a bright haematoma (a–c) mark blood that has not yet clotted; d is a uniform haematoma without a swirl; e–f are mimics.
+- Author: Selariu E, Zia E, Brizzi M, Abul-Kasim K.
+- Source: “Swirl sign in intracerebral haemorrhage: definition, prevalence, reliability and prognostic value”, BMC neurology 12:109 (2012), https://doi.org/10.1186/1471-2377-12-109 — https://pmc-oa-opendata.s3.amazonaws.com/PMC3517489.1/1471-2377-12-109-1.jpg
+- Licence: CC BY 2.0 (https://creativecommons.org/licenses/by/2.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## ich-spot-sign-2016.jpg
+- Spot sign — CTA of a lobar haematoma: a focus of contrast within the clot (arrow) — contrast leaking from the bleeding vessel.
+- Author: Airton Leonardo de Oliveira Manoel, Alberto Goffi, Fernando Godinho Zampieri, David Turkel-Parrella, Abhijit Duggal, Thomas R. Marotta, R. Loch Macdonald, Simon Abrahamson
+- Source: “The critical care management of spontaneous intracranial hemorrhage: a contemporary review”, Critical care (London, England) 20:272 (2016), https://doi.org/10.1186/s13054-016-1432-0 — https://pmc-oa-opendata.s3.amazonaws.com/PMC5027096.1/13054_2016_1432_Fig3_HTML.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## ich-deep-locations-2016.jpg
+- Hypertensive haemorrhage sites — Deep haemorrhages, clockwise from top left: putamen, thalamus, cerebellum and pons.
+- Author: Airton Leonardo de Oliveira Manoel, Alberto Goffi, Fernando Godinho Zampieri, David Turkel-Parrella, Abhijit Duggal, Thomas R. Marotta, R. Loch Macdonald, Simon Abrahamson
+- Source: “The critical care management of spontaneous intracranial hemorrhage: a contemporary review”, Critical care (London, England) 20:272 (2016), https://doi.org/10.1186/s13054-016-1432-0 — https://pmc-oa-opendata.s3.amazonaws.com/PMC5027096.1/13054_2016_1432_Fig2_HTML.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## ich-ivh-commons.jpg
+- Ventricular extension — A large haemorrhage has ruptured into the lateral ventricles, casting them with blood (a young woman one week post partum).
+- Author: Glitzy queen00 at English Wikipedia
+- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrage_(CT_scan).jpg
+- Licence: Public Domain (https://creativecommons.org/publicdomain/mark/1.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## ich-thalamic-hydro-yadav.jpg
+- Thalamic bleed, hydrocephalus — Pre-operative CT: a thalamic haemorrhage with blood in the third and both lateral ventricles and dilated ventricles (hydrocephalus).
+- Author: Yadav YR, Mukerji G, Shenoy R, Basoor A, Jain G, Nelson A
+- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrhage.jpg
+- Licence: CC BY 2.0 (https://creativecommons.org/licenses/by/2.0)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## ich-cerebellar-yadav.jpg
+- Cerebellar bleed — Pre-operative CT: a posterior fossa haemorrhage with blood in the ventricles and hydrocephalus.
+- Author: Yadav YR, Mukerji G, Shenoy R, Basoor A, Jain G, Nelson A
+- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Posterior_fossa_hemorrhage.jpg
+- Licence: CC BY 2.0 (https://creativecommons.org/licenses/by/2.0)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## ich-sah-to-iph-2010.jpg
+- Rebleed in 12 hours — Ruptured mycotic aneurysm: (a) interhemispheric subarachnoid blood; (b) repeat CT 12 hours later shows a new frontal intraparenchymal haemorrhage.
+- Author: Isabel Kuo, Theodore Long, Nathan Nguyen, Bharat Chaudry, Michael Karp, Nerses Sanossian
+- Source: “Ruptured intracranial mycotic aneurysm in infective endocarditis: a natural history”, Case reports in medicine 2010:168408 (2010), https://doi.org/10.1155/2010/168408 — https://pmc-oa-opendata.s3.amazonaws.com/PMC2946581.1/CRM2010-168408.003.jpg
+- Licence: CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## sah-ct-mirza.jpg
+- Subarachnoid blood — Non-contrast CT: blood fills the basal cisterns and Sylvian fissures (arrows) with early ventricular dilatation.
+- Author: edit Shazia Mirza and Sankalp Gokhale See also source article for additional image creators.
+- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:CT_of_subarachnoid_hemorrhage.png
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0)
+- Changes: Converted to JPEG; padded by one black pixel to even dimensions; no crop, mirroring or filtering.
+
+## cxr-chf-haggstrom.jpg
+- Cardiogenic pulmonary oedema — PA film: enlarged heart, upper-lobe vessels prominent, fine horizontal Kerley B lines at the lateral bases and a small right effusion.
+- Author: Mikael Häggström
+- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Chest_radiograph_of_a_lung_with_Kerley_B_lines.jpg
+- Licence: CC0 (http://creativecommons.org/publicdomain/zero/1.0/deed.en)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## cxr-hps-edema-cdc.jpg
+- Permeability oedema — AP film in hantavirus pulmonary syndrome, mid stage: bilateral interstitial and early alveolar oedema with effusions; heart size normal.
+- Author: CDC/ D. Loren Ketai, M.D.
+- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:6077_lores.jpg
+- Licence: Public Domain (https://creativecommons.org/publicdomain/mark/1.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## cxr-ards-2019.jpg
+- ARDS — Portable film in rhinovirus ARDS: diffuse bilateral airspace opacities throughout both lungs.
+- Author: Sam Ngu, Sami Pervaiz, Akshay Avula, Michel Chalhoub
+- Source: “Rhinovirus-induced Rapidly Progressing Acute Respiratory Distress Syndrome in an Immunocompetent Host”, Cureus 11:e3997 (2019), https://doi.org/10.7759/cureus.3997 — https://pmc-oa-opendata.s3.amazonaws.com/PMC6443533.1/cureus-0011-00000003997-i02.jpg
+- Licence: CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## cxr-left-collapse-child-2013.jpg
+- Whole-lung collapse (child) — Supine film of a child: the left bronchus ends abruptly and the left hemithorax is opaque, with the heart and mediastinum pulled to the left — a bronchial cast was later removed.
+- Author: Christoph M Rüegger, Walter Bär, Peter Iseli
+- Source: “Simultaneous atelectasis in human bocavirus infected monozygotic twins: was it plastic bronchitis?”, BMC pediatrics 13:209 (2013), https://doi.org/10.1186/1471-2431-13-209 — https://pmc-oa-opendata.s3.amazonaws.com/PMC3878367.1/1471-2431-13-209-1.jpg
+- Licence: CC BY 2.0 (https://creativecommons.org/licenses/by/2.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## cxr-collapse-before-after-2021.jpg
+- Collapse, then re-expansion — Left: total right lung atelectasis from a mucus cast (allergic bronchopulmonary aspergillosis). Right: re-expanded after bronchoscopy and steroids.
+- Author: N. Benkalfate, S. Dirou, P. Germaud, C. Defrance, A. Cavailles, T. Pigeanne, M. Robert, T. Madjer, F. Corne, L. Cellerin, C. Sagan, F. X. Blanc
+- Source: “Total unilateral pulmonary collapse secondary to allergic bronchopulmonary aspergillosis: a case series of an unusual cause of complete atelectasis”, BMC pulmonary medicine 21:425 (2021), https://doi.org/10.1186/s12890-021-01789-9 — https://pmc-oa-opendata.s3.amazonaws.com/PMC8709957.1/12890_2021_1789_Fig1_HTML.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; one panel taken from the figure (bottom row (E, F)); downscaled 1749×830 → 1600 px wide (aspect kept); no other crop, mirroring or filtering.
+
+## cxr-massive-effusion-2010.jpg
+- Massive effusion — A massive left pleural effusion opacifies most of the left hemithorax and pushes the mediastinum to the right (arrow).
+- Author: Maounis N, Chorti M, Legaki S, Ellina E, Emmanouilidou A, Demonakou M, Tsiafaki X.
+- Source: “Metastasis to the breast from an adenocarcinoma of the lung with extensive micropapillary component: a case report and review of the literature”, Diagnostic pathology 5:82 (2010), https://doi.org/10.1186/1746-1596-5-82 — https://pmc-oa-opendata.s3.amazonaws.com/PMC3018363.1/1746-1596-5-82-1.jpg
+- Licence: CC BY 2.0 (https://creativecommons.org/licenses/by/2.0/)
+- Changes: Converted to JPEG; one panel taken from the figure (panel (a), the chest X-ray); no other crop, mirroring or filtering.
+
+## aaa-us-sagittal-haggstrom.jpg
+- AAA, long axis — Longitudinal view of the abdominal aorta: a fusiform aneurysm with the lumen widening well beyond normal calibre.
+- Author: Mikael Häggström, M.D.
+- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_sagittal_plane.jpg
+- Licence: CC0 (http://creativecommons.org/publicdomain/zero/1.0/deed.en)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## aaa-us-axial-haggstrom.jpg
+- AAA, short axis — Transverse view: the aneurysm measured outer wall to outer wall, here several times the normal ~2 cm.
+- Author: Mikael Häggström, M.D.
+- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_axial_plane.jpg
+- Licence: CC0 (http://creativecommons.org/publicdomain/zero/1.0/deed.en)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## aaa-us-thrombus-haggstrom.jpg
+- AAA with mural thrombus — Transverse view: grey layered thrombus lines the wall, leaving a smaller dark flow lumen.
+- Author: Mikael Häggström, M.D.
+- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_with_mural_thrombus.jpg
+- Licence: CC0 (http://creativecommons.org/publicdomain/zero/1.0/deed.en)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## lus-blines-gargani.mp4
+- Interstitial syndrome — Multiple B-lines: laser-like vertical lines start at the pleural line, run to the bottom of the screen and move with sliding.
+- Author: Gargani L
+- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv
+- Licence: CC BY 2.0 (https://creativecommons.org/licenses/by/2.0)
+- Changes: Original OGV (theora, 800×652, 29.0 fps, 2.966 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio none in the source; no crop, mirroring, speed change or other filtering. Poster = frame at 1.0 s.
+
+## lus-progression-h7n9.mp4
+- From A-lines to white lung — Serial clips from one patient with H7N9 influenza: normal A-lines, then B-lines, then confluent B-lines, then white lung as ARDS develops.
+- Author: Tsai N, Ngai C, Mok K, Tsung J
+- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Lung-ultrasound-imaging-in-avian-influenza-A-(H7N9)-respiratory-failure-2036-7902-6-6-S1.ogv
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0)
+- Changes: Original OGV (theora, 720×480, 29.97 fps, 35.127 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio removed; no crop, mirroring, speed change or other filtering. Poster = frame at 1.0 s.
+
+## lus-hepatisation-gillman.mp4
+- Hepatised lung — Real-time clip of consolidated lung that looks like liver tissue (hepatisation).
+- Author: Gillman L, Kirkpatrick A
+- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv
+- Licence: CC BY 2.0 (https://creativecommons.org/licenses/by/2.0)
+- Changes: Original OGV (theora, 640×480, 30.0 fps, 10.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio none in the source; no crop, mirroring, speed change or other filtering. Poster = frame at 1.0 s.
+
 ## Considered and rejected
 
 - Open Critical Care anesthesia POCUS pocket card (2022): No licence stated; images credited “courtesy of” third parties (JACC, austincc.edu, echocardiographer.org). Used for facts only, in our own words.

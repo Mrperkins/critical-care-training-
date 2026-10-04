@@ -1,0 +1,21 @@
+{
+ "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Intracerebral_hemorrage_%28CT_scan%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+ "pageUrl": "https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrage_(CT_scan).jpg",
+ "originalName": "Intracerebral hemorrage (CT scan).jpg",
+ "mime": "image/jpeg",
+ "bytes": 209875,
+ "sha1": "b2698444cfa8a1fae1e516e3b687e70db50c8c6c",
+ "width": 1200,
+ "height": 1484,
+ "license": "Public Domain",
+ "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+ "licenseEvidence": "Wikimedia Commons API extmetadata for File:Intracerebral hemorrage (CT scan).jpg: LicenseShortName = “Public domain”, UsageTerms = “Public domain” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AIntracerebral+hemorrage+%28CT+scan%29.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+ "authors": "Glitzy queen00 at English Wikipedia",
+ "credit": "http://en.wikipedia.org/wiki/Image:Intracerebral_heamorrage_2.jpg",
+ "published": "2007-10-22 16:03:49",
+ "description": "This image shows an Intracerebral and Intraventricular haemorrhage of a young woman. The woman was one week post partum, with no known trauma involved.",
+ "restrictions": "",
+ "id": "ich-ivh-commons",
+ "retrieved": "2026-10-04T03:25Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

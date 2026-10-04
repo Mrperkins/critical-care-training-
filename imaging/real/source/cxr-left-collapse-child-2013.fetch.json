@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC3878367",
+ "pageUrl": "https://doi.org/10.1186/1471-2431-13-209",
+ "license": "CC BY 2.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+ "licenseText": "https://creativecommons.org/licenses/by/2.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License ( http://creativecommons.org/licenses/by/2.0 ), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work",
+ "authors": "Christoph M Rüegger, Walter Bär, Peter Iseli",
+ "title": "Simultaneous atelectasis in human bocavirus infected monozygotic twins: was it plastic bronchitis?",
+ "publication": "BMC pediatrics",
+ "published": "2013-12-18",
+ "doi": "10.1186/1471-2431-13-209",
+ "volume": "13",
+ "firstpage": "209",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC3878367.1/1471-2431-13-209-1.jpg",
+ "originalName": "1471-2431-13-209-1.jpg",
+ "description": "Figure 1 Chest X-ray of case 1 taken on admission. Abrupt termination of left main stem air shadow and collapse of left lung suggest complete obstruction of left bronchial tree.",
+ "thirdParty": false,
+ "figure": "F1",
+ "licenseEvidence": "Europe PMC full text of PMC3878367 (doi 10.1186/1471-2431-13-209), <license>: “https://creativecommons.org/licenses/by/2.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License ( http://creativecommons.org/licenses/by/2.0 ), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work”; Figure 1 caption checked for a separate credit.",
+ "id": "cxr-left-collapse-child-2013",
+ "retrieved": "2026-10-04T03:25Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC7850703",
+ "pageUrl": "https://doi.org/10.1097/md.0000000000024496",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "This is an open access article distributed under the Creative Commons Attribution License 4.0 (CCBY), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited. http://creativecommons.org/licenses/by/4.0",
+ "authors": "Eskandarani R, Sahli S, Sawan S, Alsaeed A.",
+ "title": "Simultaneous cardio-cerebral infarction in the coronavirus disease pandemic era: A case series",
+ "publication": "Medicine",
+ "published": "2021-01-01",
+ "doi": "10.1097/md.0000000000024496",
+ "volume": "100",
+ "firstpage": "e24496",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC7850703.1/medi-100-e24496-g011.jpg",
+ "originalName": "medi-100-e24496-g011.jpg",
+ "description": "Figure 11 Large ischemic infarction in the right fronto-parietal-temporal lobes, causing a mass effect on the ipsilateral ventricle.",
+ "thirdParty": false,
+ "figure": "F11",
+ "licenseEvidence": "Europe PMC full text of PMC7850703 (doi 10.1097/md.0000000000024496), <license>: “This is an open access article distributed under the Creative Commons Attribution License 4.0 (CCBY), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited. http://creativecommons.org/licenses/by/4.0”; Figure 11 caption checked for a separate credit.",
+ "id": "stroke-mass-effect-2021",
+ "retrieved": "2026-10-04T03:25Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

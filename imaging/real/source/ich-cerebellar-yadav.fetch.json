@@ -1,0 +1,21 @@
+{
+ "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Posterior_fossa_hemorrhage.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+ "pageUrl": "https://commons.wikimedia.org/wiki/File:Posterior_fossa_hemorrhage.jpg",
+ "originalName": "Posterior fossa hemorrhage.jpg",
+ "mime": "image/jpeg",
+ "bytes": 36978,
+ "sha1": "e20e43f7c5fc507b0a210b4d91a5316261a3d8cd",
+ "width": 330,
+ "height": 400,
+ "license": "CC BY 2.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+ "licenseEvidence": "Wikimedia Commons API extmetadata for File:Posterior fossa hemorrhage.jpg: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3APosterior+fossa+hemorrhage.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+ "authors": "Yadav YR, Mukerji G, Shenoy R, Basoor A, Jain G, Nelson A",
+ "credit": "Yadav YR, Mukerji G, Shenoy R, Basoor A, Jain G, Nelson A (2007). \"Endoscopic management of hypertensive intraventricular haemorrhage with obstructive hydrocephalus\". BMC Neurol 7: 1. doi:10.1186/1471-2377-7-1. PMID 17204141 . PMC:1780056. http://www.biomedcentral.com/1471-2377/7/1",
+ "published": "Published: 4 January 2007",
+ "description": "CT scan of intracerebral hemorrhage. Caption reads, \"Pre operative CT scan. Representative pre-operative CT scan of a patient showing a posterior fossa haemorrhage with associated hydrocephalus and blood in the ventricles.\"",
+ "restrictions": "",
+ "id": "ich-cerebellar-yadav",
+ "retrieved": "2026-10-04T03:25Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

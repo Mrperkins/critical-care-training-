@@ -249,311 +249,410 @@
  },
  {
   "id": "stroke-hmcas-2025",
-  "status": "pending",
+  "status": "ready",
   "type": "ct",
   "modality": "Non-contrast head CT",
   "finding": "hyperdense middle cerebral artery sign",
   "license": "CC BY 4.0",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://doi.org/10.7759/cureus.86726",
-  "localSources": {}
+  "localSources": {
+   "original": "imaging/real/source/stroke-hmcas-2025-source.jpg",
+   "image": "imaging/real/stroke-hmcas-2025.jpg"
+  }
  },
  {
   "id": "stroke-early-change-2025",
-  "status": "pending",
+  "status": "ready",
   "type": "ct",
   "modality": "Non-contrast head CT",
   "finding": "early ischaemic change (loss of grey–white differentiation)",
   "license": "CC BY 4.0",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://doi.org/10.7759/cureus.86726",
-  "localSources": {}
+  "localSources": {
+   "original": "imaging/real/source/stroke-early-change-2025-source.jpg",
+   "image": "imaging/real/stroke-early-change-2025.jpg"
+  }
  },
  {
   "id": "stroke-cta-m1-2025",
-  "status": "pending",
+  "status": "ready",
   "type": "ct",
   "modality": "CT angiography",
   "finding": "right M1 occlusion on CTA",
   "license": "CC BY 4.0",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://doi.org/10.7759/cureus.98724",
-  "localSources": {}
+  "localSources": {
+   "image": "imaging/real/stroke-cta-m1-2025.jpg"
+  }
  },
  {
   "id": "stroke-ctp-mismatch-2025",
-  "status": "pending",
+  "status": "ready",
   "type": "ct",
   "modality": "CT perfusion",
   "finding": "core–penumbra mismatch",
   "license": "CC BY 4.0",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://doi.org/10.7759/cureus.98724",
-  "localSources": {}
+  "localSources": {
+   "image": "imaging/real/stroke-ctp-mismatch-2025.jpg"
+  }
  },
  {
   "id": "stroke-infarct-24h-2025",
-  "status": "pending",
+  "status": "ready",
   "type": "ct",
   "modality": "Non-contrast head CT",
   "finding": "established infarct at 24 h",
   "license": "CC BY 4.0",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://doi.org/10.7759/cureus.98724",
-  "localSources": {}
+  "localSources": {
+   "image": "imaging/real/stroke-infarct-24h-2025.jpg"
+  }
  },
  {
   "id": "stroke-malignant-edema-2023",
-  "status": "pending",
+  "status": "ready",
   "type": "ct",
   "modality": "Non-contrast head CT",
   "finding": "malignant brain oedema after MCA infarction",
   "license": "CC BY 4.0",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://doi.org/10.1186/s40001-023-01414-x",
-  "localSources": {}
+  "localSources": {
+   "original": "imaging/real/source/stroke-malignant-edema-2023-source.jpg",
+   "image": "imaging/real/stroke-malignant-edema-2023.jpg"
+  }
  },
  {
   "id": "stroke-mass-effect-2021",
-  "status": "pending",
+  "status": "ready",
   "type": "ct",
   "modality": "Non-contrast head CT",
   "finding": "large MCA infarct with mass effect",
   "license": "CC BY 4.0",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://doi.org/10.1097/md.0000000000024496",
-  "localSources": {}
+  "localSources": {
+   "original": "imaging/real/source/stroke-mass-effect-2021-source.jpg",
+   "image": "imaging/real/stroke-mass-effect-2021.jpg"
+  }
  },
  {
   "id": "stroke-hemorrhagic-transformation-2026",
-  "status": "pending",
+  "status": "ready",
   "type": "ct",
   "modality": "Non-contrast head CT (serial)",
   "finding": "haemorrhagic transformation of an infarct",
   "license": "CC BY 4.0",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://doi.org/10.3389/fcvm.2026.1747104",
-  "localSources": {}
+  "localSources": {
+   "image": "imaging/real/stroke-hemorrhagic-transformation-2026.jpg"
+  }
  },
  {
   "id": "stroke-hmcas-vs-cta-2022",
-  "status": "pending",
+  "status": "ready",
   "type": "ct",
   "modality": "Non-contrast CT with CTA MIP",
   "finding": "hyperdense MCA sign compared with CTA",
   "license": "CC BY 4.0",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://doi.org/10.1007/s00415-022-11500-5",
-  "localSources": {}
+  "localSources": {
+   "image": "imaging/real/stroke-hmcas-vs-cta-2022.jpg"
+  }
  },
  {
   "id": "stroke-ctp-m1-mirza",
-  "status": "pending",
+  "status": "ready",
   "type": "ct",
   "modality": "CT perfusion",
   "finding": "perfusion deficit in M1 occlusion",
   "license": "CC BY 4.0",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:CT_perfusion_in_M1_artery_occlusion.png",
-  "localSources": {}
+  "localSources": {
+   "original": "imaging/real/source/stroke-ctp-m1-mirza-source.png",
+   "image": "imaging/real/stroke-ctp-m1-mirza.jpg"
+  }
  },
  {
   "id": "ich-swirl-2012",
-  "status": "pending",
+  "status": "ready",
   "type": "ct",
   "modality": "Non-contrast head CT",
   "finding": "swirl sign in acute intracerebral haemorrhage",
   "license": "CC BY 2.0",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://doi.org/10.1186/1471-2377-12-109",
-  "localSources": {}
+  "localSources": {
+   "image": "imaging/real/ich-swirl-2012.jpg"
+  }
  },
  {
   "id": "ich-spot-sign-2016",
-  "status": "pending",
+  "status": "ready",
   "type": "ct",
   "modality": "CT angiography",
   "finding": "spot sign",
   "license": "CC BY 4.0",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://doi.org/10.1186/s13054-016-1432-0",
-  "localSources": {}
+  "localSources": {
+   "image": "imaging/real/ich-spot-sign-2016.jpg"
+  }
  },
  {
   "id": "ich-deep-locations-2016",
-  "status": "pending",
+  "status": "ready",
   "type": "ct",
   "modality": "Non-contrast head CT",
   "finding": "typical sites of hypertensive haemorrhage",
   "license": "CC BY 4.0",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://doi.org/10.1186/s13054-016-1432-0",
-  "localSources": {}
+  "localSources": {
+   "image": "imaging/real/ich-deep-locations-2016.jpg"
+  }
  },
  {
   "id": "ich-ivh-commons",
-  "status": "pending",
+  "status": "ready",
   "type": "ct",
   "modality": "Non-contrast head CT",
   "finding": "intracerebral haemorrhage with intraventricular extension",
   "license": "Public Domain",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrage_(CT_scan).jpg",
-  "localSources": {}
+  "localSources": {
+   "image": "imaging/real/ich-ivh-commons.jpg"
+  }
  },
  {
   "id": "ich-thalamic-hydro-yadav",
-  "status": "pending",
+  "status": "ready",
   "type": "ct",
   "modality": "Non-contrast head CT",
   "finding": "thalamic haemorrhage with hydrocephalus",
   "license": "CC BY 2.0",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrhage.jpg",
-  "localSources": {}
+  "localSources": {
+   "image": "imaging/real/ich-thalamic-hydro-yadav.jpg"
+  }
  },
  {
   "id": "ich-cerebellar-yadav",
-  "status": "pending",
+  "status": "ready",
   "type": "ct",
   "modality": "Non-contrast head CT",
   "finding": "posterior fossa haemorrhage with hydrocephalus",
   "license": "CC BY 2.0",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Posterior_fossa_hemorrhage.jpg",
-  "localSources": {}
+  "localSources": {
+   "image": "imaging/real/ich-cerebellar-yadav.jpg"
+  }
  },
  {
   "id": "ich-sah-to-iph-2010",
-  "status": "pending",
+  "status": "ready",
   "type": "ct",
   "modality": "Non-contrast head CT (serial)",
   "finding": "rebleeding: subarachnoid then intraparenchymal haemorrhage",
   "license": "CC BY 3.0",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://doi.org/10.1155/2010/168408",
-  "localSources": {}
+  "localSources": {
+   "image": "imaging/real/ich-sah-to-iph-2010.jpg"
+  }
  },
  {
   "id": "sah-ct-mirza",
-  "status": "pending",
+  "status": "ready",
   "type": "ct",
   "modality": "Non-contrast head CT",
   "finding": "subarachnoid haemorrhage",
   "license": "CC BY 4.0",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:CT_of_subarachnoid_hemorrhage.png",
-  "localSources": {}
+  "localSources": {
+   "original": "imaging/real/source/sah-ct-mirza-source.png",
+   "image": "imaging/real/sah-ct-mirza.jpg"
+  }
  },
  {
   "id": "cxr-chf-haggstrom",
-  "status": "pending",
+  "status": "ready",
   "type": "xray",
   "modality": "Chest X-ray (PA)",
   "finding": "congestive heart failure (cardiogenic pulmonary oedema)",
   "license": "CC0",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chest_radiograph_of_a_lung_with_Kerley_B_lines.jpg",
-  "localSources": {}
+  "localSources": {
+   "image": "imaging/real/cxr-chf-haggstrom.jpg"
+  }
  },
  {
   "id": "cxr-hps-edema-cdc",
-  "status": "pending",
+  "status": "ready",
   "type": "xray",
   "modality": "Chest X-ray (AP)",
   "finding": "non-cardiogenic pulmonary oedema with effusions (hantavirus)",
   "license": "Public Domain",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:6077_lores.jpg",
-  "localSources": {}
+  "localSources": {
+   "image": "imaging/real/cxr-hps-edema-cdc.jpg"
+  }
  },
  {
   "id": "cxr-ards-2019",
-  "status": "pending",
+  "status": "ready",
   "type": "xray",
   "modality": "Chest X-ray (portable AP)",
   "finding": "acute respiratory distress syndrome",
   "license": "CC BY 3.0",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://doi.org/10.7759/cureus.3997",
-  "localSources": {}
+  "localSources": {
+   "image": "imaging/real/cxr-ards-2019.jpg"
+  }
  },
  {
   "id": "cxr-left-collapse-child-2013",
-  "status": "pending",
+  "status": "ready",
   "type": "xray",
   "modality": "Chest X-ray (supine AP, child)",
   "finding": "complete left lung collapse",
   "license": "CC BY 2.0",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://doi.org/10.1186/1471-2431-13-209",
-  "localSources": {}
+  "localSources": {
+   "image": "imaging/real/cxr-left-collapse-child-2013.jpg"
+  }
  },
  {
   "id": "cxr-collapse-before-after-2021",
-  "status": "pending",
+  "status": "ready",
   "type": "xray",
   "modality": "Chest X-ray (AP)",
   "finding": "total right lung collapse, before and after bronchoscopy",
   "license": "CC BY 4.0",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://doi.org/10.1186/s12890-021-01789-9",
-  "localSources": {}
+  "localSources": {
+   "original": "imaging/real/source/cxr-collapse-before-after-2021-source.jpg",
+   "image": "imaging/real/cxr-collapse-before-after-2021.jpg"
+  }
  },
  {
   "id": "cxr-massive-effusion-2010",
-  "status": "pending",
+  "status": "ready",
   "type": "xray",
   "modality": "Chest X-ray (PA)",
   "finding": "massive left pleural effusion with mediastinal shift",
   "license": "CC BY 2.0",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://doi.org/10.1186/1746-1596-5-82",
-  "localSources": {}
+  "localSources": {
+   "original": "imaging/real/source/cxr-massive-effusion-2010-source.jpg",
+   "image": "imaging/real/cxr-massive-effusion-2010.jpg"
+  }
  },
  {
   "id": "aaa-us-sagittal-haggstrom",
-  "status": "pending",
+  "status": "ready",
   "type": "ultrasound",
   "modality": "Bedside aortic ultrasound",
   "finding": "abdominal aortic aneurysm",
   "license": "CC0",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_sagittal_plane.jpg",
-  "localSources": {}
+  "localSources": {
+   "image": "imaging/real/aaa-us-sagittal-haggstrom.jpg"
+  }
  },
  {
   "id": "aaa-us-axial-haggstrom",
-  "status": "pending",
+  "status": "ready",
   "type": "ultrasound",
   "modality": "Bedside aortic ultrasound",
   "finding": "abdominal aortic aneurysm",
   "license": "CC0",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_axial_plane.jpg",
-  "localSources": {}
+  "localSources": {
+   "image": "imaging/real/aaa-us-axial-haggstrom.jpg"
+  }
  },
  {
   "id": "aaa-us-thrombus-haggstrom",
-  "status": "pending",
+  "status": "ready",
   "type": "ultrasound",
   "modality": "Bedside aortic ultrasound",
   "finding": "abdominal aortic aneurysm",
   "license": "CC0",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_with_mural_thrombus.jpg",
-  "localSources": {}
+  "localSources": {
+   "image": "imaging/real/aaa-us-thrombus-haggstrom.jpg"
+  }
  },
  {
   "id": "lus-blines-gargani",
-  "status": "pending",
+  "status": "ready",
   "type": "ultrasound",
   "modality": "Lung ultrasound",
   "finding": "blines",
   "license": "CC BY 2.0",
-  "licenseVerified": false,
+  "licenseVerified": true,
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv",
-  "localSources": {}
+  "localSources": {
+   "original": "imaging/real/source/lus-blines-gargani-source.ogv",
+   "webm": "imaging/real/lus-blines-gargani.webm",
+   "poster": "imaging/real/lus-blines-gargani.jpg",
+   "mp4": "imaging/real/lus-blines-gargani.mp4"
+  }
+ },
+ {
+  "id": "lus-progression-h7n9",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Lung ultrasound",
+  "finding": "progression",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lung-ultrasound-imaging-in-avian-influenza-A-(H7N9)-respiratory-failure-2036-7902-6-6-S1.ogv",
+  "localSources": {
+   "original": "imaging/real/source/lus-progression-h7n9-source.ogv",
+   "webm": "imaging/real/lus-progression-h7n9.webm",
+   "poster": "imaging/real/lus-progression-h7n9.jpg",
+   "mp4": "imaging/real/lus-progression-h7n9.mp4"
+  }
+ },
+ {
+  "id": "lus-hepatisation-gillman",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Lung ultrasound",
+  "finding": "consolidation",
+  "license": "CC BY 2.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv",
+  "localSources": {
+   "original": "imaging/real/source/lus-hepatisation-gillman-source.ogv",
+   "webm": "imaging/real/lus-hepatisation-gillman.webm",
+   "poster": "imaging/real/lus-hepatisation-gillman.jpg",
+   "mp4": "imaging/real/lus-hepatisation-gillman.mp4"
+  }
  },
  {
   "id": "lus-confluent-tsung",
@@ -575,28 +674,6 @@
   "license": "CC BY 2.0",
   "licenseVerified": false,
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Prospective-application-of-clinician-performed-lung-ultrasonography-during-the-2009-H1N1-influenza-2036-7902-4-16-S3.ogv",
-  "localSources": {}
- },
- {
-  "id": "lus-progression-h7n9",
-  "status": "pending",
-  "type": "ultrasound",
-  "modality": "Lung ultrasound",
-  "finding": "progression",
-  "license": "CC BY 4.0",
-  "licenseVerified": false,
-  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lung-ultrasound-imaging-in-avian-influenza-A-(H7N9)-respiratory-failure-2036-7902-6-6-S1.ogv",
-  "localSources": {}
- },
- {
-  "id": "lus-hepatisation-gillman",
-  "status": "pending",
-  "type": "ultrasound",
-  "modality": "Lung ultrasound",
-  "finding": "consolidation",
-  "license": "CC BY 2.0",
-  "licenseVerified": false,
-  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv",
   "localSources": {}
  },
  {

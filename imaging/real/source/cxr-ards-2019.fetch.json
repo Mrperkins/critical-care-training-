@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC6443533",
+ "pageUrl": "https://doi.org/10.7759/cureus.3997",
+ "license": "CC BY 3.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+ "licenseText": "https://creativecommons.org/licenses/by/3.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+ "authors": "Sam Ngu, Sami Pervaiz, Akshay Avula, Michel Chalhoub",
+ "title": "Rhinovirus-induced Rapidly Progressing Acute Respiratory Distress Syndrome in an Immunocompetent Host",
+ "publication": "Cureus",
+ "published": "2019-02-01",
+ "doi": "10.7759/cureus.3997",
+ "volume": "11",
+ "firstpage": "e3997",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC6443533.1/cureus-0011-00000003997-i02.jpg",
+ "originalName": "cureus-0011-00000003997-i02.jpg",
+ "description": "Figure 2 Repeat anterior-posterior chest X-ray obtained for increasing shortness of breath, showing diffuse multifocal airspace opacities consistent with acute respiratory distress syndrome",
+ "thirdParty": false,
+ "figure": "FIG2",
+ "licenseEvidence": "Europe PMC full text of PMC6443533 (doi 10.7759/cureus.3997), <license>: “https://creativecommons.org/licenses/by/3.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 2 caption checked for a separate credit.",
+ "id": "cxr-ards-2019",
+ "retrieved": "2026-10-04T03:25Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

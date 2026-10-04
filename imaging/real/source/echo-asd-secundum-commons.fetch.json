@@ -1,0 +1,21 @@
+{
+ "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/25/Echokardiogram_von_Atriumseptumdefekt_%28Ostium_secundum%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+ "pageUrl": "https://commons.wikimedia.org/wiki/File:Echokardiogram_von_Atriumseptumdefekt_(Ostium_secundum).jpg",
+ "originalName": "Echokardiogram von Atriumseptumdefekt (Ostium secundum).jpg",
+ "mime": "image/jpeg",
+ "bytes": 51707,
+ "sha1": "8609b54b61aac2c386ec2facd11a89bdf070839b",
+ "width": 636,
+ "height": 434,
+ "license": "Public Domain",
+ "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+ "licenseEvidence": "Wikimedia Commons API extmetadata for File:Echokardiogram von Atriumseptumdefekt (Ostium secundum).jpg: LicenseShortName = “Public domain”, UsageTerms = “Public domain” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AEchokardiogram+von+Atriumseptumdefekt+%28Ostium+secundum%29.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+ "authors": "",
+ "credit": "",
+ "published": "2005-10-04 11:47:18",
+ "description": "",
+ "restrictions": "",
+ "id": "echo-asd-secundum-commons",
+ "retrieved": "2026-10-04T03:25Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

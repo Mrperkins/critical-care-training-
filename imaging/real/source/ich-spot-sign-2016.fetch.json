@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC5027096",
+ "pageUrl": "https://doi.org/10.1186/s13054-016-1432-0",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "https://creativecommons.org/licenses/by/4.0/ Open Access This article is distributed under the terms of the Creative Commons Attribution 4.0 International License ( http://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted use, distribution, and reproduction in any medium, provided y",
+ "authors": "Airton Leonardo de Oliveira Manoel, Alberto Goffi, Fernando Godinho Zampieri, David Turkel-Parrella, Abhijit Duggal, Thomas R. Marotta, R. Loch Macdonald, Simon Abrahamson",
+ "title": "The critical care management of spontaneous intracranial hemorrhage: a contemporary review",
+ "publication": "Critical care (London, England)",
+ "published": "2016-09-18",
+ "doi": "10.1186/s13054-016-1432-0",
+ "volume": "20",
+ "firstpage": "272",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC5027096.1/13054_2016_1432_Fig3_HTML.jpg",
+ "originalName": "13054_2016_1432_Fig3_HTML.jpg",
+ "description": "Fig. 3 Spot sign. Initially described as contrast extravasation on CTA, the term has evolved to encompass foci of enhancement within the hematoma on CTA ( red arrow )",
+ "thirdParty": false,
+ "figure": "Fig3",
+ "licenseEvidence": "Europe PMC full text of PMC5027096 (doi 10.1186/s13054-016-1432-0), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is distributed under the terms of the Creative Commons Attribution 4.0 International License ( http://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted use, distribution, and reproduction in any medium, provided y”; Fig. 3 caption checked for a separate credit.",
+ "id": "ich-spot-sign-2016",
+ "retrieved": "2026-10-04T03:25Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

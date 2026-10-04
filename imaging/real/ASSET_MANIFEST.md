@@ -336,44 +336,704 @@ so ingested media appear without rebuilding `index.html`. Overlay marks (`marks`
 | Licence evidence | Wikimedia Commons API extmetadata for File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3APortable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
 | Verified by | tools/clinical_media.py fetch |
 
+## stroke-hmcas-2025 — Hyperdense right MCA
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/stroke-hmcas-2025.jpg` · `imaging/real/source/stroke-hmcas-2025-source.jpg` |
+| Clinical purpose | hyperdense middle cerebral artery sign (ct-ischemic) |
+| Creator / authors | Takayuki Inomata, Koji Nakaya, Takaya Sasaki, Hiroto Shiozaki, Yasuto Noda |
+| Source | “The Role of Comprehensive Brain Perfusion and Whole-Body CT Using Split-Bolus Injection in Diagnosing Multiple Thromboembolism in a Wake-Up Stroke Patient: A Case Report”, Cureus 17:e86726 (2025), https://doi.org/10.7759/cureus.86726 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12295507.1/cureus-0017-00000086726-i01.jpg |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
+| Modifications | Converted to JPEG; one panel taken from the figure (panel (a), the hyperdense artery); padded by one black pixel to even dimensions; no other crop, mirroring or filtering. |
+| Required attribution | Takayuki Inomata, Koji Nakaya, Takaya Sasaki, Hiroto Shiozaki, Yasuto Noda. “The Role of Comprehensive Brain Perfusion and Whole-Body CT Using Split-Bolus Injection in Diagnosing Multiple Thromboembolism in a Wake-Up Stroke Patient: A Case Report”, Cureus 17:e86726 (2025), https://doi.org/10.7759/cureus.86726 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12295507.1/cureus-0017-00000086726-i01.jpg. CC BY 4.0. |
+| Original title | The Role of Comprehensive Brain Perfusion and Whole-Body CT Using Split-Bolus Injection in Diagnosing Multiple Thromboembolism in a Wake-Up Stroke Patient: A Case Report |
+| Source page | https://doi.org/10.7759/cureus.86726 |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC12295507.1/cureus-0017-00000086726-i01.jpg |
+| DOI | 10.7759/cureus.86726 |
+| Published | 2025-06-25 |
+| Retrieved | 2026-10-04T03:24Z |
+| Original format | image/jpeg · 72,083 bytes · `cureus-0017-00000086726-i01.jpg` |
+| Original SHA-256 | `05325521968f1aee12cb5a55e32b8ef6148950a6f6209610dc6d2d0661a86dd7` |
+| Original preserved | imaging/real/source/stroke-hmcas-2025-source.jpg |
+| Licence evidence | Europe PMC full text of PMC12295507 (doi 10.7759/cureus.86726), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 1 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## stroke-early-change-2025 — Early ischaemic change
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/stroke-early-change-2025.jpg` · `imaging/real/source/stroke-early-change-2025-source.jpg` |
+| Clinical purpose | early ischaemic change (loss of grey–white differentiation) (ct-ischemic) |
+| Creator / authors | Takayuki Inomata, Koji Nakaya, Takaya Sasaki, Hiroto Shiozaki, Yasuto Noda |
+| Source | “The Role of Comprehensive Brain Perfusion and Whole-Body CT Using Split-Bolus Injection in Diagnosing Multiple Thromboembolism in a Wake-Up Stroke Patient: A Case Report”, Cureus 17:e86726 (2025), https://doi.org/10.7759/cureus.86726 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12295507.1/cureus-0017-00000086726-i01.jpg |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
+| Modifications | Converted to JPEG; one panel taken from the figure (panel (b), early ischaemic change); padded by one black pixel to even dimensions; no other crop, mirroring or filtering. |
+| Required attribution | Takayuki Inomata, Koji Nakaya, Takaya Sasaki, Hiroto Shiozaki, Yasuto Noda. “The Role of Comprehensive Brain Perfusion and Whole-Body CT Using Split-Bolus Injection in Diagnosing Multiple Thromboembolism in a Wake-Up Stroke Patient: A Case Report”, Cureus 17:e86726 (2025), https://doi.org/10.7759/cureus.86726 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12295507.1/cureus-0017-00000086726-i01.jpg. CC BY 4.0. |
+| Original title | The Role of Comprehensive Brain Perfusion and Whole-Body CT Using Split-Bolus Injection in Diagnosing Multiple Thromboembolism in a Wake-Up Stroke Patient: A Case Report |
+| Source page | https://doi.org/10.7759/cureus.86726 |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC12295507.1/cureus-0017-00000086726-i01.jpg |
+| DOI | 10.7759/cureus.86726 |
+| Published | 2025-06-25 |
+| Retrieved | 2026-10-04T03:24Z |
+| Original format | image/jpeg · 72,083 bytes · `cureus-0017-00000086726-i01.jpg` |
+| Original SHA-256 | `05325521968f1aee12cb5a55e32b8ef6148950a6f6209610dc6d2d0661a86dd7` |
+| Original preserved | imaging/real/source/stroke-early-change-2025-source.jpg |
+| Licence evidence | Europe PMC full text of PMC12295507 (doi 10.7759/cureus.86726), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 1 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## stroke-cta-m1-2025 — CTA: right M1 cut-off
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/stroke-cta-m1-2025.jpg` |
+| Clinical purpose | right M1 occlusion on CTA (ct-ischemic) |
+| Creator / authors | Bushra Qureshi, Sobiya Farook, Mohammadzakir Diwan, Sheeba Philip |
+| Source | “Beating the Clock: Successful Thrombectomy 28 Hours After Stroke in a Young Adult With Internal Carotid Artery Dissection”, Cureus 17:e98724 (2025), https://doi.org/10.7759/cureus.98724 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12778373.1/cureus-0017-00000098724-i02.jpg |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | Bushra Qureshi, Sobiya Farook, Mohammadzakir Diwan, Sheeba Philip. “Beating the Clock: Successful Thrombectomy 28 Hours After Stroke in a Young Adult With Internal Carotid Artery Dissection”, Cureus 17:e98724 (2025), https://doi.org/10.7759/cureus.98724 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12778373.1/cureus-0017-00000098724-i02.jpg. CC BY 4.0. |
+| Original title | Beating the Clock: Successful Thrombectomy 28 Hours After Stroke in a Young Adult With Internal Carotid Artery Dissection |
+| Source page | https://doi.org/10.7759/cureus.98724 |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC12778373.1/cureus-0017-00000098724-i02.jpg |
+| DOI | 10.7759/cureus.98724 |
+| Published | 2025-12-08 |
+| Retrieved | 2026-10-04T03:24Z |
+| Original format | image/jpeg · 76,050 bytes · `cureus-0017-00000098724-i02.jpg` |
+| Original SHA-256 | `cfa49a330fe79d73dc921938776b5a095d585e4a2d3faa594d1c08d1344919bb` |
+| Original preserved | imaging/real/stroke-cta-m1-2025.jpg (identical to the original) |
+| Licence evidence | Europe PMC full text of PMC12778373 (doi 10.7759/cureus.98724), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 2 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## stroke-ctp-mismatch-2025 — CT perfusion: core and penumbra
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/stroke-ctp-mismatch-2025.jpg` |
+| Clinical purpose | core–penumbra mismatch (ct-ischemic) |
+| Creator / authors | Bushra Qureshi, Sobiya Farook, Mohammadzakir Diwan, Sheeba Philip |
+| Source | “Beating the Clock: Successful Thrombectomy 28 Hours After Stroke in a Young Adult With Internal Carotid Artery Dissection”, Cureus 17:e98724 (2025), https://doi.org/10.7759/cureus.98724 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12778373.1/cureus-0017-00000098724-i03.jpg |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | Bushra Qureshi, Sobiya Farook, Mohammadzakir Diwan, Sheeba Philip. “Beating the Clock: Successful Thrombectomy 28 Hours After Stroke in a Young Adult With Internal Carotid Artery Dissection”, Cureus 17:e98724 (2025), https://doi.org/10.7759/cureus.98724 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12778373.1/cureus-0017-00000098724-i03.jpg. CC BY 4.0. |
+| Original title | Beating the Clock: Successful Thrombectomy 28 Hours After Stroke in a Young Adult With Internal Carotid Artery Dissection |
+| Source page | https://doi.org/10.7759/cureus.98724 |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC12778373.1/cureus-0017-00000098724-i03.jpg |
+| DOI | 10.7759/cureus.98724 |
+| Published | 2025-12-08 |
+| Retrieved | 2026-10-04T03:24Z |
+| Original format | image/jpeg · 109,545 bytes · `cureus-0017-00000098724-i03.jpg` |
+| Original SHA-256 | `9b61c5de01033928cbceeedbe364bac3818e8d2eb5db85240729ca086f86c3ec` |
+| Original preserved | imaging/real/stroke-ctp-mismatch-2025.jpg (identical to the original) |
+| Licence evidence | Europe PMC full text of PMC12778373 (doi 10.7759/cureus.98724), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 3 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## stroke-infarct-24h-2025 — Established infarct
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/stroke-infarct-24h-2025.jpg` |
+| Clinical purpose | established infarct at 24 h (ct-ischemic) |
+| Creator / authors | Bushra Qureshi, Sobiya Farook, Mohammadzakir Diwan, Sheeba Philip |
+| Source | “Beating the Clock: Successful Thrombectomy 28 Hours After Stroke in a Young Adult With Internal Carotid Artery Dissection”, Cureus 17:e98724 (2025), https://doi.org/10.7759/cureus.98724 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12778373.1/cureus-0017-00000098724-i06.jpg |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | Bushra Qureshi, Sobiya Farook, Mohammadzakir Diwan, Sheeba Philip. “Beating the Clock: Successful Thrombectomy 28 Hours After Stroke in a Young Adult With Internal Carotid Artery Dissection”, Cureus 17:e98724 (2025), https://doi.org/10.7759/cureus.98724 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12778373.1/cureus-0017-00000098724-i06.jpg. CC BY 4.0. |
+| Original title | Beating the Clock: Successful Thrombectomy 28 Hours After Stroke in a Young Adult With Internal Carotid Artery Dissection |
+| Source page | https://doi.org/10.7759/cureus.98724 |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC12778373.1/cureus-0017-00000098724-i06.jpg |
+| DOI | 10.7759/cureus.98724 |
+| Published | 2025-12-08 |
+| Retrieved | 2026-10-04T03:24Z |
+| Original format | image/jpeg · 92,191 bytes · `cureus-0017-00000098724-i06.jpg` |
+| Original SHA-256 | `7df1b57dd76ce1eca6c3fb2d406fdb23eba43436805c747b9eca09bfbdb89b84` |
+| Original preserved | imaging/real/stroke-infarct-24h-2025.jpg (identical to the original) |
+| Licence evidence | Europe PMC full text of PMC12778373 (doi 10.7759/cureus.98724), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 6 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## stroke-malignant-edema-2023 — Malignant oedema
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/stroke-malignant-edema-2023.jpg` · `imaging/real/source/stroke-malignant-edema-2023-source.jpg` |
+| Clinical purpose | malignant brain oedema after MCA infarction (ct-ischemic) |
+| Creator / authors | Zhang L, Li J, Yang B, Li W, Wang X, Zou M, Song H, Shi L, Duan Y. |
+| Source | “The risk and outcome of malignant brain edema in post-mechanical thrombectomy: acute ischemic stroke by anterior circulation occlusion”, European journal of medical research 28:435 (2023), https://doi.org/10.1186/s40001-023-01414-x — https://pmc-oa-opendata.s3.amazonaws.com/PMC10571427.1/40001_2023_1414_Fig2_HTML.jpg |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
+| Modifications | Converted to JPEG; one panel taken from the figure (top row (A–C), the patient with malignant oedema); downscaled 1888×632 → 1600 px wide (aspect kept); no other crop, mirroring or filtering. |
+| Required attribution | Zhang L, Li J, Yang B, Li W, Wang X, Zou M, Song H, Shi L, Duan Y.. “The risk and outcome of malignant brain edema in post-mechanical thrombectomy: acute ischemic stroke by anterior circulation occlusion”, European journal of medical research 28:435 (2023), https://doi.org/10.1186/s40001-023-01414-x — https://pmc-oa-opendata.s3.amazonaws.com/PMC10571427.1/40001_2023_1414_Fig2_HTML.jpg. CC BY 4.0. |
+| Original title | The risk and outcome of malignant brain edema in post-mechanical thrombectomy: acute ischemic stroke by anterior circulation occlusion |
+| Source page | https://doi.org/10.1186/s40001-023-01414-x |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC10571427.1/40001_2023_1414_Fig2_HTML.jpg |
+| DOI | 10.1186/s40001-023-01414-x |
+| Published | 2023-10-13 |
+| Retrieved | 2026-10-04T03:24Z |
+| Original format | image/jpeg · 1,222,730 bytes · `40001_2023_1414_Fig2_HTML.jpg` |
+| Original SHA-256 | `4393c7a8af49ea6b4520951c2edb5ef2c2f6a7777b14c4e1674124fd163bf8ed` |
+| Original preserved | imaging/real/source/stroke-malignant-edema-2023-source.jpg |
+| Licence evidence | Europe PMC full text of PMC10571427 (doi 10.1186/s40001-023-01414-x), <license>: “Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C”; Fig. 2 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## stroke-mass-effect-2021 — Large infarct with mass effect
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/stroke-mass-effect-2021.jpg` · `imaging/real/source/stroke-mass-effect-2021-source.jpg` |
+| Clinical purpose | large MCA infarct with mass effect (ct-ischemic) |
+| Creator / authors | Eskandarani R, Sahli S, Sawan S, Alsaeed A. |
+| Source | “Simultaneous cardio-cerebral infarction in the coronavirus disease pandemic era: A case series”, Medicine 100:e24496 (2021), https://doi.org/10.1097/md.0000000000024496 — https://pmc-oa-opendata.s3.amazonaws.com/PMC7850703.1/medi-100-e24496-g011.jpg |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
+| Modifications | Converted to JPEG; one panel taken from the figure (the CT panel); padded by one black pixel to even dimensions; no other crop, mirroring or filtering. |
+| Required attribution | Eskandarani R, Sahli S, Sawan S, Alsaeed A.. “Simultaneous cardio-cerebral infarction in the coronavirus disease pandemic era: A case series”, Medicine 100:e24496 (2021), https://doi.org/10.1097/md.0000000000024496 — https://pmc-oa-opendata.s3.amazonaws.com/PMC7850703.1/medi-100-e24496-g011.jpg. CC BY 4.0. |
+| Original title | Simultaneous cardio-cerebral infarction in the coronavirus disease pandemic era: A case series |
+| Source page | https://doi.org/10.1097/md.0000000000024496 |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC7850703.1/medi-100-e24496-g011.jpg |
+| DOI | 10.1097/md.0000000000024496 |
+| Published | 2021-01-01 |
+| Retrieved | 2026-10-04T03:25Z |
+| Original format | image/jpeg · 169,786 bytes · `medi-100-e24496-g011.jpg` |
+| Original SHA-256 | `44290ef293c7caed2f95fc6b15a0c062c87c44bab40f08bc7620404845d10139` |
+| Original preserved | imaging/real/source/stroke-mass-effect-2021-source.jpg |
+| Licence evidence | Europe PMC full text of PMC7850703 (doi 10.1097/md.0000000000024496), <license>: “This is an open access article distributed under the Creative Commons Attribution License 4.0 (CCBY), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited. http://creativecommons.org/licenses/by/4.0”; Figure 11 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## stroke-hemorrhagic-transformation-2026 — Haemorrhagic transformation
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/stroke-hemorrhagic-transformation-2026.jpg` |
+| Clinical purpose | haemorrhagic transformation of an infarct (ct-ischemic) |
+| Creator / authors | Xu Z, Ding B, Wu J, Wang H, Chen Z, Wang Z. |
+| Source | “Zero anticoagulation, zero thrombolysis: successful management of massive pulmonary embolism following hemorrhagic transformation of acute ischemic stroke: a case report”, Frontiers in cardiovascular medicine 13:1747104 (2026), https://doi.org/10.3389/fcvm.2026.1747104 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12907301.1/fcvm-13-1747104-g001.jpg |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | Xu Z, Ding B, Wu J, Wang H, Chen Z, Wang Z.. “Zero anticoagulation, zero thrombolysis: successful management of massive pulmonary embolism following hemorrhagic transformation of acute ischemic stroke: a case report”, Frontiers in cardiovascular medicine 13:1747104 (2026), https://doi.org/10.3389/fcvm.2026.1747104 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12907301.1/fcvm-13-1747104-g001.jpg. CC BY 4.0. |
+| Original title | Zero anticoagulation, zero thrombolysis: successful management of massive pulmonary embolism following hemorrhagic transformation of acute ischemic stroke: a case report |
+| Source page | https://doi.org/10.3389/fcvm.2026.1747104 |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC12907301.1/fcvm-13-1747104-g001.jpg |
+| DOI | 10.3389/fcvm.2026.1747104 |
+| Published | 2026-02-02 |
+| Retrieved | 2026-10-04T03:25Z |
+| Original format | image/jpeg · 145,095 bytes · `fcvm-13-1747104-g001.jpg` |
+| Original SHA-256 | `1ba809009572df8cf216203d0665b0f0c32e12f86ba3797ebd29b9ad5e33ed76` |
+| Original preserved | imaging/real/stroke-hemorrhagic-transformation-2026.jpg (identical to the original) |
+| Licence evidence | Europe PMC full text of PMC12907301 (doi 10.3389/fcvm.2026.1747104), <license>: “This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY) . The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journ”; Figure 1 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## stroke-hmcas-vs-cta-2022 — Hyperdense sign vs CTA
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/stroke-hmcas-vs-cta-2022.jpg` |
+| Clinical purpose | hyperdense MCA sign compared with CTA (ct-ischemic) |
+| Creator / authors | Kang Z, Wu L, Sun D, Zhou G, Wu X, Qiu H, Mei B, Zhang J. |
+| Source | “Proximal hyperdense middle cerebral artery sign is associated with increased risk of asymptomatic hemorrhagic transformation after endovascular thrombectomy: a multicenter retrospective study”, Journal of neurology 270:1587-1599 (2022), https://doi.org/10.1007/s00415-022-11500-5 — https://pmc-oa-opendata.s3.amazonaws.com/PMC9971136.1/415_2022_11500_Fig1_HTML.jpg |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | Kang Z, Wu L, Sun D, Zhou G, Wu X, Qiu H, Mei B, Zhang J.. “Proximal hyperdense middle cerebral artery sign is associated with increased risk of asymptomatic hemorrhagic transformation after endovascular thrombectomy: a multicenter retrospective study”, Journal of neurology 270:1587-1599 (2022), https://doi.org/10.1007/s00415-022-11500-5 — https://pmc-oa-opendata.s3.amazonaws.com/PMC9971136.1/415_2022_11500_Fig1_HTML.jpg. CC BY 4.0. |
+| Original title | Proximal hyperdense middle cerebral artery sign is associated with increased risk of asymptomatic hemorrhagic transformation after endovascular thrombectomy: a multicenter retrospective study |
+| Source page | https://doi.org/10.1007/s00415-022-11500-5 |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC9971136.1/415_2022_11500_Fig1_HTML.jpg |
+| DOI | 10.1007/s00415-022-11500-5 |
+| Published | 2022-11-29 |
+| Retrieved | 2026-10-04T03:25Z |
+| Original format | image/jpeg · 253,934 bytes · `415_2022_11500_Fig1_HTML.jpg` |
+| Original SHA-256 | `f1d5bd7c33e48c51ccd31dd979796d905b4689517d2d0eff779cae85348b2ab1` |
+| Original preserved | imaging/real/stroke-hmcas-vs-cta-2022.jpg (identical to the original) |
+| Licence evidence | Europe PMC full text of PMC9971136 (doi 10.1007/s00415-022-11500-5), <license>: “Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C”; Fig. 1 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## stroke-ctp-m1-mirza — Perfusion: delayed but preserved volume
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/stroke-ctp-m1-mirza.jpg` · `imaging/real/source/stroke-ctp-m1-mirza-source.png` |
+| Clinical purpose | perfusion deficit in M1 occlusion (ct-ischemic) |
+| Creator / authors | edit Shazia Mirza and Sankalp Gokhale See also source article for additional image creators. |
+| Source | Wikimedia Commons — https://commons.wikimedia.org/wiki/File:CT_perfusion_in_M1_artery_occlusion.png |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0 |
+| Modifications | Converted to JPEG; padded by one black pixel to even dimensions; no crop, mirroring or filtering. |
+| Required attribution | edit Shazia Mirza and Sankalp Gokhale See also source article for additional image creators.. Wikimedia Commons — https://commons.wikimedia.org/wiki/File:CT_perfusion_in_M1_artery_occlusion.png. CC BY 4.0. |
+| Original title | edit CT perfusion in M1 artery occlusion.png. For context, see Wikipedia:Imaging in stroke . |
+| Source page | https://commons.wikimedia.org/wiki/File:CT_perfusion_in_M1_artery_occlusion.png |
+| Original media URL | https://upload.wikimedia.org/wikipedia/commons/7/7e/CT_perfusion_in_M1_artery_occlusion.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original |
+| DOI | — |
+| Published | 2016-07-25 |
+| Retrieved | 2026-10-04T03:25Z |
+| Original format | image/png · 470,221 bytes · `CT perfusion in M1 artery occlusion.png` |
+| Original SHA-256 | `f4659d336e925f5a2f4b780441c7f914ce2069806cbeb5b864ed9809abd53196` |
+| Original preserved | imaging/real/source/stroke-ctp-m1-mirza-source.png |
+| Licence evidence | Wikimedia Commons API extmetadata for File:CT perfusion in M1 artery occlusion.png: LicenseShortName = “CC BY 4.0”, UsageTerms = “Creative Commons Attribution 4.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3ACT+perfusion+in+M1+artery+occlusion.png&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
+| Verified by | tools/clinical_media.py fetch |
+
+## ich-swirl-2012 — Swirl sign
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/ich-swirl-2012.jpg` |
+| Clinical purpose | swirl sign in acute intracerebral haemorrhage (ct-ich) |
+| Creator / authors | Selariu E, Zia E, Brizzi M, Abul-Kasim K. |
+| Source | “Swirl sign in intracerebral haemorrhage: definition, prevalence, reliability and prognostic value”, BMC neurology 12:109 (2012), https://doi.org/10.1186/1471-2377-12-109 — https://pmc-oa-opendata.s3.amazonaws.com/PMC3517489.1/1471-2377-12-109-1.jpg |
+| Licence | CC BY 2.0 — https://creativecommons.org/licenses/by/2.0/ |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | Selariu E, Zia E, Brizzi M, Abul-Kasim K.. “Swirl sign in intracerebral haemorrhage: definition, prevalence, reliability and prognostic value”, BMC neurology 12:109 (2012), https://doi.org/10.1186/1471-2377-12-109 — https://pmc-oa-opendata.s3.amazonaws.com/PMC3517489.1/1471-2377-12-109-1.jpg. CC BY 2.0. |
+| Original title | Swirl sign in intracerebral haemorrhage: definition, prevalence, reliability and prognostic value |
+| Source page | https://doi.org/10.1186/1471-2377-12-109 |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC3517489.1/1471-2377-12-109-1.jpg |
+| DOI | 10.1186/1471-2377-12-109 |
+| Published | 2012-09-26 |
+| Retrieved | 2026-10-04T03:25Z |
+| Original format | image/jpeg · 80,630 bytes · `1471-2377-12-109-1.jpg` |
+| Original SHA-256 | `24549e906b8c978a33fe4c25c018b340f2fc8255f70b4fd298e236f7e0c4dc8e` |
+| Original preserved | imaging/real/ich-swirl-2012.jpg (identical to the original) |
+| Licence evidence | Europe PMC full text of PMC3517489 (doi 10.1186/1471-2377-12-109), <license>: “This is an Open Access article distributed under the terms of the Creative Commons Attribution License ( http://creativecommons.org/licenses/by/2.0 ), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.”; Figure 1 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## ich-spot-sign-2016 — Spot sign
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/ich-spot-sign-2016.jpg` |
+| Clinical purpose | spot sign (ct-ich) |
+| Creator / authors | Airton Leonardo de Oliveira Manoel, Alberto Goffi, Fernando Godinho Zampieri, David Turkel-Parrella, Abhijit Duggal, Thomas R. Marotta, R. Loch Macdonald, Simon Abrahamson |
+| Source | “The critical care management of spontaneous intracranial hemorrhage: a contemporary review”, Critical care (London, England) 20:272 (2016), https://doi.org/10.1186/s13054-016-1432-0 — https://pmc-oa-opendata.s3.amazonaws.com/PMC5027096.1/13054_2016_1432_Fig3_HTML.jpg |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | Airton Leonardo de Oliveira Manoel, Alberto Goffi, Fernando Godinho Zampieri, David Turkel-Parrella, Abhijit Duggal, Thomas R. Marotta, R. Loch Macdonald, Simon Abrahamson. “The critical care management of spontaneous intracranial hemorrhage: a contemporary review”, Critical care (London, England) 20:272 (2016), https://doi.org/10.1186/s13054-016-1432-0 — https://pmc-oa-opendata.s3.amazonaws.com/PMC5027096.1/13054_2016_1432_Fig3_HTML.jpg. CC BY 4.0. |
+| Original title | The critical care management of spontaneous intracranial hemorrhage: a contemporary review |
+| Source page | https://doi.org/10.1186/s13054-016-1432-0 |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC5027096.1/13054_2016_1432_Fig3_HTML.jpg |
+| DOI | 10.1186/s13054-016-1432-0 |
+| Published | 2016-09-18 |
+| Retrieved | 2026-10-04T03:25Z |
+| Original format | image/jpeg · 38,692 bytes · `13054_2016_1432_Fig3_HTML.jpg` |
+| Original SHA-256 | `20c920d88a63506503f52ef296669c09557ece851ae0b775056f273732d8f640` |
+| Original preserved | imaging/real/ich-spot-sign-2016.jpg (identical to the original) |
+| Licence evidence | Europe PMC full text of PMC5027096 (doi 10.1186/s13054-016-1432-0), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is distributed under the terms of the Creative Commons Attribution 4.0 International License ( http://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted use, distribution, and reproduction in any medium, provided y”; Fig. 3 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## ich-deep-locations-2016 — Hypertensive haemorrhage sites
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/ich-deep-locations-2016.jpg` |
+| Clinical purpose | typical sites of hypertensive haemorrhage (ct-ich) |
+| Creator / authors | Airton Leonardo de Oliveira Manoel, Alberto Goffi, Fernando Godinho Zampieri, David Turkel-Parrella, Abhijit Duggal, Thomas R. Marotta, R. Loch Macdonald, Simon Abrahamson |
+| Source | “The critical care management of spontaneous intracranial hemorrhage: a contemporary review”, Critical care (London, England) 20:272 (2016), https://doi.org/10.1186/s13054-016-1432-0 — https://pmc-oa-opendata.s3.amazonaws.com/PMC5027096.1/13054_2016_1432_Fig2_HTML.jpg |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | Airton Leonardo de Oliveira Manoel, Alberto Goffi, Fernando Godinho Zampieri, David Turkel-Parrella, Abhijit Duggal, Thomas R. Marotta, R. Loch Macdonald, Simon Abrahamson. “The critical care management of spontaneous intracranial hemorrhage: a contemporary review”, Critical care (London, England) 20:272 (2016), https://doi.org/10.1186/s13054-016-1432-0 — https://pmc-oa-opendata.s3.amazonaws.com/PMC5027096.1/13054_2016_1432_Fig2_HTML.jpg. CC BY 4.0. |
+| Original title | The critical care management of spontaneous intracranial hemorrhage: a contemporary review |
+| Source page | https://doi.org/10.1186/s13054-016-1432-0 |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC5027096.1/13054_2016_1432_Fig2_HTML.jpg |
+| DOI | 10.1186/s13054-016-1432-0 |
+| Published | 2016-09-18 |
+| Retrieved | 2026-10-04T03:25Z |
+| Original format | image/jpeg · 85,243 bytes · `13054_2016_1432_Fig2_HTML.jpg` |
+| Original SHA-256 | `899b78b4966406bbcede638f5eec60ca2a38a1015598be50760204f179c0bd13` |
+| Original preserved | imaging/real/ich-deep-locations-2016.jpg (identical to the original) |
+| Licence evidence | Europe PMC full text of PMC5027096 (doi 10.1186/s13054-016-1432-0), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is distributed under the terms of the Creative Commons Attribution 4.0 International License ( http://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted use, distribution, and reproduction in any medium, provided y”; Fig. 2 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## ich-ivh-commons — Ventricular extension
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/ich-ivh-commons.jpg` |
+| Clinical purpose | intracerebral haemorrhage with intraventricular extension (ct-ich) |
+| Creator / authors | Glitzy queen00 at English Wikipedia |
+| Source | Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrage_(CT_scan).jpg |
+| Licence | Public Domain — https://creativecommons.org/publicdomain/mark/1.0/ |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | Glitzy queen00 at English Wikipedia. Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrage_(CT_scan).jpg. Public Domain. |
+| Original title | This image shows an Intracerebral and Intraventricular haemorrhage of a young woman. The woman was one week post partum, with no known trauma involved. |
+| Source page | https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrage_(CT_scan).jpg |
+| Original media URL | https://upload.wikimedia.org/wikipedia/commons/1/1c/Intracerebral_hemorrage_%28CT_scan%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original |
+| DOI | — |
+| Published | 2007-10-22 16:03:49 |
+| Retrieved | 2026-10-04T03:25Z |
+| Original format | image/jpeg · 209,875 bytes · `Intracerebral hemorrage (CT scan).jpg` |
+| Original SHA-256 | `8bf0c53b536fea70a1123eb268a0947f6cb372c11e163c97148da44ec4c8054e` |
+| Original preserved | imaging/real/ich-ivh-commons.jpg (identical to the original) |
+| Licence evidence | Wikimedia Commons API extmetadata for File:Intracerebral hemorrage (CT scan).jpg: LicenseShortName = “Public domain”, UsageTerms = “Public domain” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AIntracerebral+hemorrage+%28CT+scan%29.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
+| Verified by | tools/clinical_media.py fetch |
+
+## ich-thalamic-hydro-yadav — Thalamic bleed, hydrocephalus
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/ich-thalamic-hydro-yadav.jpg` |
+| Clinical purpose | thalamic haemorrhage with hydrocephalus (ct-ich) |
+| Creator / authors | Yadav YR, Mukerji G, Shenoy R, Basoor A, Jain G, Nelson A |
+| Source | Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrhage.jpg |
+| Licence | CC BY 2.0 — https://creativecommons.org/licenses/by/2.0 |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | Yadav YR, Mukerji G, Shenoy R, Basoor A, Jain G, Nelson A. Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrhage.jpg. CC BY 2.0. |
+| Original title | CT scan of intracerebral hemorrhage. Caption reads, "Pre operative CT scan. Representative pre-operative CT scan of a patient showing a thalamic haemorrhage wit |
+| Source page | https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrhage.jpg |
+| Original media URL | https://upload.wikimedia.org/wikipedia/commons/e/e4/Intracerebral_hemorrhage.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original |
+| DOI | — |
+| Published | Published: 4 January 2007 |
+| Retrieved | 2026-10-04T03:25Z |
+| Original format | image/jpeg · 42,094 bytes · `Intracerebral hemorrhage.jpg` |
+| Original SHA-256 | `bfe8f92d6717607b11d9cdc63571662a21fbfeb7b3515e35968ce3d1d8e73dc8` |
+| Original preserved | imaging/real/ich-thalamic-hydro-yadav.jpg (identical to the original) |
+| Licence evidence | Wikimedia Commons API extmetadata for File:Intracerebral hemorrhage.jpg: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AIntracerebral+hemorrhage.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
+| Verified by | tools/clinical_media.py fetch |
+
+## ich-cerebellar-yadav — Cerebellar bleed
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/ich-cerebellar-yadav.jpg` |
+| Clinical purpose | posterior fossa haemorrhage with hydrocephalus (ct-ich) |
+| Creator / authors | Yadav YR, Mukerji G, Shenoy R, Basoor A, Jain G, Nelson A |
+| Source | Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Posterior_fossa_hemorrhage.jpg |
+| Licence | CC BY 2.0 — https://creativecommons.org/licenses/by/2.0 |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | Yadav YR, Mukerji G, Shenoy R, Basoor A, Jain G, Nelson A. Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Posterior_fossa_hemorrhage.jpg. CC BY 2.0. |
+| Original title | CT scan of intracerebral hemorrhage. Caption reads, "Pre operative CT scan. Representative pre-operative CT scan of a patient showing a posterior fossa haemorrh |
+| Source page | https://commons.wikimedia.org/wiki/File:Posterior_fossa_hemorrhage.jpg |
+| Original media URL | https://upload.wikimedia.org/wikipedia/commons/b/b0/Posterior_fossa_hemorrhage.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original |
+| DOI | — |
+| Published | Published: 4 January 2007 |
+| Retrieved | 2026-10-04T03:25Z |
+| Original format | image/jpeg · 36,978 bytes · `Posterior fossa hemorrhage.jpg` |
+| Original SHA-256 | `952f586b1d261c0a13c3391c7f7e6597d1d03793106c4f4faf854642fcab05f6` |
+| Original preserved | imaging/real/ich-cerebellar-yadav.jpg (identical to the original) |
+| Licence evidence | Wikimedia Commons API extmetadata for File:Posterior fossa hemorrhage.jpg: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3APosterior+fossa+hemorrhage.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
+| Verified by | tools/clinical_media.py fetch |
+
+## ich-sah-to-iph-2010 — Rebleed in 12 hours
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/ich-sah-to-iph-2010.jpg` |
+| Clinical purpose | rebleeding: subarachnoid then intraparenchymal haemorrhage (ct-ich) |
+| Creator / authors | Isabel Kuo, Theodore Long, Nathan Nguyen, Bharat Chaudry, Michael Karp, Nerses Sanossian |
+| Source | “Ruptured intracranial mycotic aneurysm in infective endocarditis: a natural history”, Case reports in medicine 2010:168408 (2010), https://doi.org/10.1155/2010/168408 — https://pmc-oa-opendata.s3.amazonaws.com/PMC2946581.1/CRM2010-168408.003.jpg |
+| Licence | CC BY 3.0 — https://creativecommons.org/licenses/by/3.0/ |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | Isabel Kuo, Theodore Long, Nathan Nguyen, Bharat Chaudry, Michael Karp, Nerses Sanossian. “Ruptured intracranial mycotic aneurysm in infective endocarditis: a natural history”, Case reports in medicine 2010:168408 (2010), https://doi.org/10.1155/2010/168408 — https://pmc-oa-opendata.s3.amazonaws.com/PMC2946581.1/CRM2010-168408.003.jpg. CC BY 3.0. |
+| Original title | Ruptured intracranial mycotic aneurysm in infective endocarditis: a natural history |
+| Source page | https://doi.org/10.1155/2010/168408 |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC2946581.1/CRM2010-168408.003.jpg |
+| DOI | 10.1155/2010/168408 |
+| Published | 2010-09-22 |
+| Retrieved | 2026-10-04T03:25Z |
+| Original format | image/jpeg · 136,413 bytes · `CRM2010-168408.003.jpg` |
+| Original SHA-256 | `5481ea94093c9bd081902ea3ef13aa176b1eb14bc16f1397d1c91c92fc58b18b` |
+| Original preserved | imaging/real/ich-sah-to-iph-2010.jpg (identical to the original) |
+| Licence evidence | Europe PMC full text of PMC2946581 (doi 10.1155/2010/168408), <license>: “https://creativecommons.org/licenses/by/3.0/ This is an open access article distributed under the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.”; Figure 3 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## sah-ct-mirza — Subarachnoid blood
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/sah-ct-mirza.jpg` · `imaging/real/source/sah-ct-mirza-source.png` |
+| Clinical purpose | subarachnoid haemorrhage (ct-ich) |
+| Creator / authors | edit Shazia Mirza and Sankalp Gokhale See also source article for additional image creators. |
+| Source | Wikimedia Commons — https://commons.wikimedia.org/wiki/File:CT_of_subarachnoid_hemorrhage.png |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0 |
+| Modifications | Converted to JPEG; padded by one black pixel to even dimensions; no crop, mirroring or filtering. |
+| Required attribution | edit Shazia Mirza and Sankalp Gokhale See also source article for additional image creators.. Wikimedia Commons — https://commons.wikimedia.org/wiki/File:CT_of_subarachnoid_hemorrhage.png. CC BY 4.0. |
+| Original title | edit CT of subarachnoid hemorrhage.png. For context, see Wikipedia:Imaging in stroke . |
+| Source page | https://commons.wikimedia.org/wiki/File:CT_of_subarachnoid_hemorrhage.png |
+| Original media URL | https://upload.wikimedia.org/wikipedia/commons/3/3a/CT_of_subarachnoid_hemorrhage.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original |
+| DOI | — |
+| Published | 2016-07-25 |
+| Retrieved | 2026-10-04T03:25Z |
+| Original format | image/png · 136,846 bytes · `CT of subarachnoid hemorrhage.png` |
+| Original SHA-256 | `8e164e4819fc62f8a78c530757dba398f70cc4e86d5c79724cec4a0a0f5a4cc8` |
+| Original preserved | imaging/real/source/sah-ct-mirza-source.png |
+| Licence evidence | Wikimedia Commons API extmetadata for File:CT of subarachnoid hemorrhage.png: LicenseShortName = “CC BY 4.0”, UsageTerms = “Creative Commons Attribution 4.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3ACT+of+subarachnoid+hemorrhage.png&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
+| Verified by | tools/clinical_media.py fetch |
+
+## cxr-chf-haggstrom — Cardiogenic pulmonary oedema
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/cxr-chf-haggstrom.jpg` |
+| Clinical purpose | congestive heart failure (cardiogenic pulmonary oedema) (cxr) |
+| Creator / authors | Mikael Häggström |
+| Source | Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Chest_radiograph_of_a_lung_with_Kerley_B_lines.jpg |
+| Licence | CC0 — http://creativecommons.org/publicdomain/zero/1.0/deed.en |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | Mikael Häggström. Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Chest_radiograph_of_a_lung_with_Kerley_B_lines.jpg. CC0. |
+| Original title | edit Chest radiograph of an 83 year old man with previous coronary artery bypass surgery and multiple percutaneous coronary interventions , now presenting with  |
+| Source page | https://commons.wikimedia.org/wiki/File:Chest_radiograph_of_a_lung_with_Kerley_B_lines.jpg |
+| Original media URL | https://upload.wikimedia.org/wikipedia/commons/c/ca/Chest_radiograph_of_a_lung_with_Kerley_B_lines.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original |
+| DOI | — |
+| Published | 2017-07-13 |
+| Retrieved | 2026-10-04T03:25Z |
+| Original format | image/jpeg · 338,551 bytes · `Chest radiograph of a lung with Kerley B lines.jpg` |
+| Original SHA-256 | `0ad260f0645da04684501d1576510d82fabadb0e002a36cabfa30a6ee1c65334` |
+| Original preserved | imaging/real/cxr-chf-haggstrom.jpg (identical to the original) |
+| Licence evidence | Wikimedia Commons API extmetadata for File:Chest radiograph of a lung with Kerley B lines.jpg: LicenseShortName = “CC0”, UsageTerms = “Creative Commons Zero, Public Domain Dedication” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AChest+radiograph+of+a+lung+with+Kerley+B+lines.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
+| Verified by | tools/clinical_media.py fetch |
+
+## cxr-hps-edema-cdc — Permeability oedema
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/cxr-hps-edema-cdc.jpg` |
+| Clinical purpose | non-cardiogenic pulmonary oedema with effusions (hantavirus) (cxr) |
+| Creator / authors | CDC/ D. Loren Ketai, M.D. |
+| Source | Wikimedia Commons — https://commons.wikimedia.org/wiki/File:6077_lores.jpg |
+| Licence | Public Domain — https://creativecommons.org/publicdomain/mark/1.0/ |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | CDC/ D. Loren Ketai, M.D.. Wikimedia Commons — https://commons.wikimedia.org/wiki/File:6077_lores.jpg. Public Domain. |
+| Original title | This AP chest x-ray reveals the mid-staged bilateral pulmonary effusion due to hantavirus pulmonary syndrome, or HPS. The radiological evolution of HPS begins w |
+| Source page | https://commons.wikimedia.org/wiki/File:6077_lores.jpg |
+| Original media URL | https://upload.wikimedia.org/wikipedia/commons/a/ae/6077_lores.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original |
+| DOI | — |
+| Published | 1994 |
+| Retrieved | 2026-10-04T03:25Z |
+| Original format | image/jpeg · 35,119 bytes · `6077 lores.jpg` |
+| Original SHA-256 | `ada8a9172bac605643d9534cde679fded744cf23a087a0babdba0d46a427bee0` |
+| Original preserved | imaging/real/cxr-hps-edema-cdc.jpg (identical to the original) |
+| Licence evidence | Wikimedia Commons API extmetadata for File:6077 lores.jpg: LicenseShortName = “Public domain”, UsageTerms = “Public domain” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3A6077+lores.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
+| Verified by | tools/clinical_media.py fetch |
+
+## cxr-ards-2019 — ARDS
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/cxr-ards-2019.jpg` |
+| Clinical purpose | acute respiratory distress syndrome (cxr) |
+| Creator / authors | Sam Ngu, Sami Pervaiz, Akshay Avula, Michel Chalhoub |
+| Source | “Rhinovirus-induced Rapidly Progressing Acute Respiratory Distress Syndrome in an Immunocompetent Host”, Cureus 11:e3997 (2019), https://doi.org/10.7759/cureus.3997 — https://pmc-oa-opendata.s3.amazonaws.com/PMC6443533.1/cureus-0011-00000003997-i02.jpg |
+| Licence | CC BY 3.0 — https://creativecommons.org/licenses/by/3.0/ |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | Sam Ngu, Sami Pervaiz, Akshay Avula, Michel Chalhoub. “Rhinovirus-induced Rapidly Progressing Acute Respiratory Distress Syndrome in an Immunocompetent Host”, Cureus 11:e3997 (2019), https://doi.org/10.7759/cureus.3997 — https://pmc-oa-opendata.s3.amazonaws.com/PMC6443533.1/cureus-0011-00000003997-i02.jpg. CC BY 3.0. |
+| Original title | Rhinovirus-induced Rapidly Progressing Acute Respiratory Distress Syndrome in an Immunocompetent Host |
+| Source page | https://doi.org/10.7759/cureus.3997 |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC6443533.1/cureus-0011-00000003997-i02.jpg |
+| DOI | 10.7759/cureus.3997 |
+| Published | 2019-02-01 |
+| Retrieved | 2026-10-04T03:25Z |
+| Original format | image/jpeg · 60,295 bytes · `cureus-0011-00000003997-i02.jpg` |
+| Original SHA-256 | `56484391c09c793de65770ed2ca3f49437f97c56c414aa3629069a6a54daacb1` |
+| Original preserved | imaging/real/cxr-ards-2019.jpg (identical to the original) |
+| Licence evidence | Europe PMC full text of PMC6443533 (doi 10.7759/cureus.3997), <license>: “https://creativecommons.org/licenses/by/3.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 2 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## cxr-left-collapse-child-2013 — Whole-lung collapse (child)
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/cxr-left-collapse-child-2013.jpg` |
+| Clinical purpose | complete left lung collapse (cxr) |
+| Creator / authors | Christoph M Rüegger, Walter Bär, Peter Iseli |
+| Source | “Simultaneous atelectasis in human bocavirus infected monozygotic twins: was it plastic bronchitis?”, BMC pediatrics 13:209 (2013), https://doi.org/10.1186/1471-2431-13-209 — https://pmc-oa-opendata.s3.amazonaws.com/PMC3878367.1/1471-2431-13-209-1.jpg |
+| Licence | CC BY 2.0 — https://creativecommons.org/licenses/by/2.0/ |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | Christoph M Rüegger, Walter Bär, Peter Iseli. “Simultaneous atelectasis in human bocavirus infected monozygotic twins: was it plastic bronchitis?”, BMC pediatrics 13:209 (2013), https://doi.org/10.1186/1471-2431-13-209 — https://pmc-oa-opendata.s3.amazonaws.com/PMC3878367.1/1471-2431-13-209-1.jpg. CC BY 2.0. |
+| Original title | Simultaneous atelectasis in human bocavirus infected monozygotic twins: was it plastic bronchitis? |
+| Source page | https://doi.org/10.1186/1471-2431-13-209 |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC3878367.1/1471-2431-13-209-1.jpg |
+| DOI | 10.1186/1471-2431-13-209 |
+| Published | 2013-12-18 |
+| Retrieved | 2026-10-04T03:25Z |
+| Original format | image/jpeg · 58,576 bytes · `1471-2431-13-209-1.jpg` |
+| Original SHA-256 | `9b11009a4b1eca55b24d65aabb27be61b6ecfecdcf79f210552a3fc51960112d` |
+| Original preserved | imaging/real/cxr-left-collapse-child-2013.jpg (identical to the original) |
+| Licence evidence | Europe PMC full text of PMC3878367 (doi 10.1186/1471-2431-13-209), <license>: “https://creativecommons.org/licenses/by/2.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License ( http://creativecommons.org/licenses/by/2.0 ), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work”; Figure 1 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## cxr-collapse-before-after-2021 — Collapse, then re-expansion
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/cxr-collapse-before-after-2021.jpg` · `imaging/real/source/cxr-collapse-before-after-2021-source.jpg` |
+| Clinical purpose | total right lung collapse, before and after bronchoscopy (cxr) |
+| Creator / authors | N. Benkalfate, S. Dirou, P. Germaud, C. Defrance, A. Cavailles, T. Pigeanne, M. Robert, T. Madjer, F. Corne, L. Cellerin, C. Sagan, F. X. Blanc |
+| Source | “Total unilateral pulmonary collapse secondary to allergic bronchopulmonary aspergillosis: a case series of an unusual cause of complete atelectasis”, BMC pulmonary medicine 21:425 (2021), https://doi.org/10.1186/s12890-021-01789-9 — https://pmc-oa-opendata.s3.amazonaws.com/PMC8709957.1/12890_2021_1789_Fig1_HTML.jpg |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
+| Modifications | Converted to JPEG; one panel taken from the figure (bottom row (E, F)); downscaled 1749×830 → 1600 px wide (aspect kept); no other crop, mirroring or filtering. |
+| Required attribution | N. Benkalfate, S. Dirou, P. Germaud, C. Defrance, A. Cavailles, T. Pigeanne, M. Robert, T. Madjer, F. Corne, L. Cellerin, C. Sagan, F. X. Blanc. “Total unilateral pulmonary collapse secondary to allergic bronchopulmonary aspergillosis: a case series of an unusual cause of complete atelectasis”, BMC pulmonary medicine 21:425 (2021), https://doi.org/10.1186/s12890-021-01789-9 — https://pmc-oa-opendata.s3.amazonaws.com/PMC8709957.1/12890_2021_1789_Fig1_HTML.jpg. CC BY 4.0. |
+| Original title | Total unilateral pulmonary collapse secondary to allergic bronchopulmonary aspergillosis: a case series of an unusual cause of complete atelectasis |
+| Source page | https://doi.org/10.1186/s12890-021-01789-9 |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC8709957.1/12890_2021_1789_Fig1_HTML.jpg |
+| DOI | 10.1186/s12890-021-01789-9 |
+| Published | 2021-12-24 |
+| Retrieved | 2026-10-04T03:25Z |
+| Original format | image/jpeg · 842,290 bytes · `12890_2021_1789_Fig1_HTML.jpg` |
+| Original SHA-256 | `bbfadcf12eaa176c0e83860a5e5f3949a9c20886abcf3532613c0a3c8bdbea30` |
+| Original preserved | imaging/real/source/cxr-collapse-before-after-2021-source.jpg |
+| Licence evidence | Europe PMC full text of PMC8709957 (doi 10.1186/s12890-021-01789-9), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original auth”; Fig. 1 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## cxr-massive-effusion-2010 — Massive effusion
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/cxr-massive-effusion-2010.jpg` · `imaging/real/source/cxr-massive-effusion-2010-source.jpg` |
+| Clinical purpose | massive left pleural effusion with mediastinal shift (cxr) |
+| Creator / authors | Maounis N, Chorti M, Legaki S, Ellina E, Emmanouilidou A, Demonakou M, Tsiafaki X. |
+| Source | “Metastasis to the breast from an adenocarcinoma of the lung with extensive micropapillary component: a case report and review of the literature”, Diagnostic pathology 5:82 (2010), https://doi.org/10.1186/1746-1596-5-82 — https://pmc-oa-opendata.s3.amazonaws.com/PMC3018363.1/1746-1596-5-82-1.jpg |
+| Licence | CC BY 2.0 — https://creativecommons.org/licenses/by/2.0/ |
+| Modifications | Converted to JPEG; one panel taken from the figure (panel (a), the chest X-ray); no other crop, mirroring or filtering. |
+| Required attribution | Maounis N, Chorti M, Legaki S, Ellina E, Emmanouilidou A, Demonakou M, Tsiafaki X.. “Metastasis to the breast from an adenocarcinoma of the lung with extensive micropapillary component: a case report and review of the literature”, Diagnostic pathology 5:82 (2010), https://doi.org/10.1186/1746-1596-5-82 — https://pmc-oa-opendata.s3.amazonaws.com/PMC3018363.1/1746-1596-5-82-1.jpg. CC BY 2.0. |
+| Original title | Metastasis to the breast from an adenocarcinoma of the lung with extensive micropapillary component: a case report and review of the literature |
+| Source page | https://doi.org/10.1186/1746-1596-5-82 |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC3018363.1/1746-1596-5-82-1.jpg |
+| DOI | 10.1186/1746-1596-5-82 |
+| Published | 2010-12-17 |
+| Retrieved | 2026-10-04T03:25Z |
+| Original format | image/jpeg · 55,994 bytes · `1746-1596-5-82-1.jpg` |
+| Original SHA-256 | `1332d0ba04219544818c200c15e6121ca311b19f88dd49f2971af905ba71e6bd` |
+| Original preserved | imaging/real/source/cxr-massive-effusion-2010-source.jpg |
+| Licence evidence | Europe PMC full text of PMC3018363 (doi 10.1186/1746-1596-5-82), <license>: “This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<url>http://creativecommons.org/licenses/by/2.0</url>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.”; Figure 1 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## aaa-us-sagittal-haggstrom — AAA, long axis
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/aaa-us-sagittal-haggstrom.jpg` |
+| Clinical purpose | abdominal aortic aneurysm (aorta-us) |
+| Creator / authors | Mikael Häggström, M.D. |
+| Source | Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_sagittal_plane.jpg |
+| Licence | CC0 — http://creativecommons.org/publicdomain/zero/1.0/deed.en |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | Mikael Häggström, M.D.. Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_sagittal_plane.jpg. CC0. |
+| Original title | Abdominal ultrasonography of a 78 year old woman in the sagittal plane , showing an abdominal aortic aneurysm . Sagittal plane With anteroposterior measure (das |
+| Source page | https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_sagittal_plane.jpg |
+| Original media URL | https://upload.wikimedia.org/wikipedia/commons/9/99/Ultrasonography_of_abdominal_aortic_aneurysm_in_sagittal_plane.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original |
+| DOI | — |
+| Published | 2018-12-10 |
+| Retrieved | 2026-10-04T03:25Z |
+| Original format | image/jpeg · 65,178 bytes · `Ultrasonography of abdominal aortic aneurysm in sagittal plane.jpg` |
+| Original SHA-256 | `1ea9cc5c4f10da09d8988c01087ce925bdfccdaf6c63de3cb0f76d5d97c33188` |
+| Original preserved | imaging/real/aaa-us-sagittal-haggstrom.jpg (identical to the original) |
+| Licence evidence | Wikimedia Commons API extmetadata for File:Ultrasonography of abdominal aortic aneurysm in sagittal plane.jpg: LicenseShortName = “CC0”, UsageTerms = “Creative Commons Zero, Public Domain Dedication” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AUltrasonography+of+abdominal+aortic+aneurysm+in+sagittal+plane.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
+| Verified by | tools/clinical_media.py fetch |
+
+## aaa-us-axial-haggstrom — AAA, short axis
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/aaa-us-axial-haggstrom.jpg` |
+| Clinical purpose | abdominal aortic aneurysm (aorta-us) |
+| Creator / authors | Mikael Häggström, M.D. |
+| Source | Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_axial_plane.jpg |
+| Licence | CC0 — http://creativecommons.org/publicdomain/zero/1.0/deed.en |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | Mikael Häggström, M.D.. Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_axial_plane.jpg. CC0. |
+| Original title | Abdominal ultrasonography of a 78 year old woman in the axial plane , showing an abdominal aortic aneurysm . Sagittal plane With anteroposterior measure (dashed |
+| Source page | https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_axial_plane.jpg |
+| Original media URL | https://upload.wikimedia.org/wikipedia/commons/d/d6/Ultrasonography_of_abdominal_aortic_aneurysm_in_axial_plane.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original |
+| DOI | — |
+| Published | 2018-12-10 |
+| Retrieved | 2026-10-04T03:25Z |
+| Original format | image/jpeg · 62,144 bytes · `Ultrasonography of abdominal aortic aneurysm in axial plane.jpg` |
+| Original SHA-256 | `098ead3e995cb01e93da80bcaee2148ea845c81d4e6f6a4e6fb68278173a7e75` |
+| Original preserved | imaging/real/aaa-us-axial-haggstrom.jpg (identical to the original) |
+| Licence evidence | Wikimedia Commons API extmetadata for File:Ultrasonography of abdominal aortic aneurysm in axial plane.jpg: LicenseShortName = “CC0”, UsageTerms = “Creative Commons Zero, Public Domain Dedication” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AUltrasonography+of+abdominal+aortic+aneurysm+in+axial+plane.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
+| Verified by | tools/clinical_media.py fetch |
+
+## aaa-us-thrombus-haggstrom — AAA with mural thrombus
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/aaa-us-thrombus-haggstrom.jpg` |
+| Clinical purpose | abdominal aortic aneurysm (aorta-us) |
+| Creator / authors | Mikael Häggström, M.D. |
+| Source | Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_with_mural_thrombus.jpg |
+| Licence | CC0 — http://creativecommons.org/publicdomain/zero/1.0/deed.en |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | Mikael Häggström, M.D.. Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_with_mural_thrombus.jpg. CC0. |
+| Original title | Abdominal ultrasonography of and abdominal aortic aneurysm with mural thrombus. |
+| Source page | https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_with_mural_thrombus.jpg |
+| Original media URL | https://upload.wikimedia.org/wikipedia/commons/f/fb/Ultrasonography_of_abdominal_aortic_aneurysm_with_mural_thrombus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original |
+| DOI | — |
+| Published | 2019-01-14 |
+| Retrieved | 2026-10-04T03:25Z |
+| Original format | image/jpeg · 55,068 bytes · `Ultrasonography of abdominal aortic aneurysm with mural thrombus.jpg` |
+| Original SHA-256 | `f383eefbda914dd321cf4f2943f0fd5ad154c0f5cc7b7eb9fdea67a01932e6df` |
+| Original preserved | imaging/real/aaa-us-thrombus-haggstrom.jpg (identical to the original) |
+| Licence evidence | Wikimedia Commons API extmetadata for File:Ultrasonography of abdominal aortic aneurysm with mural thrombus.jpg: LicenseShortName = “CC0”, UsageTerms = “Creative Commons Zero, Public Domain Dedication” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AUltrasonography+of+abdominal+aortic+aneurysm+with+mural+thrombus.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
+| Verified by | tools/clinical_media.py fetch |
+
+## lus-blines-gargani — Interstitial syndrome
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/lus-blines-gargani.mp4` · `imaging/real/lus-blines-gargani.webm` · `imaging/real/lus-blines-gargani.jpg` · `imaging/real/source/lus-blines-gargani-source.ogv` |
+| Clinical purpose | blines (lus) |
+| Creator / authors | Gargani L |
+| Source | Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv |
+| Licence | CC BY 2.0 — https://creativecommons.org/licenses/by/2.0 |
+| Modifications | Original OGV (theora, 800×652, 29.0 fps, 2.966 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio none in the source; no crop, mirroring, speed change or other filtering. Poster = frame at 1.0 s. |
+| Required attribution | Gargani L. Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv. CC BY 2.0. |
+| Original title | Sonographic pattern of interstitial syndrome: multiple B-lines originate from the pleural line. |
+| Source page | https://commons.wikimedia.org/wiki/File:Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv |
+| Original media URL | https://upload.wikimedia.org/wikipedia/commons/e/e4/Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original |
+| DOI | — |
+| Published | 2011 |
+| Retrieved | 2026-10-04T03:25Z |
+| Original format | video/ogg · 1,109,464 bytes · `Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv` |
+| Original SHA-256 | `ba2b0c056b92d03cffb72f72f18da935a126e390e129b888e928dc72fe547e83` |
+| Original preserved | imaging/real/source/lus-blines-gargani-source.ogv |
+| Licence evidence | Wikimedia Commons API extmetadata for File:Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3ALung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
+| Verified by | tools/clinical_media.py fetch |
+
+## lus-progression-h7n9 — From A-lines to white lung
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/lus-progression-h7n9.mp4` · `imaging/real/lus-progression-h7n9.webm` · `imaging/real/lus-progression-h7n9.jpg` · `imaging/real/source/lus-progression-h7n9-source.ogv` |
+| Clinical purpose | progression (lus) |
+| Creator / authors | Tsai N, Ngai C, Mok K, Tsung J |
+| Source | Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Lung-ultrasound-imaging-in-avian-influenza-A-(H7N9)-respiratory-failure-2036-7902-6-6-S1.ogv |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0 |
+| Modifications | Original OGV (theora, 720×480, 29.97 fps, 35.127 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio removed; no crop, mirroring, speed change or other filtering. Poster = frame at 1.0 s. |
+| Required attribution | Tsai N, Ngai C, Mok K, Tsung J. Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Lung-ultrasound-imaging-in-avian-influenza-A-(H7N9)-respiratory-failure-2036-7902-6-6-S1.ogv. CC BY 4.0. |
+| Original title | Video S1. Series of video clips depicting progression of A-lines to B-lines, to confluent B-lines, to white lung (ARDS). |
+| Source page | https://commons.wikimedia.org/wiki/File:Lung-ultrasound-imaging-in-avian-influenza-A-(H7N9)-respiratory-failure-2036-7902-6-6-S1.ogv |
+| Original media URL | https://upload.wikimedia.org/wikipedia/commons/1/11/Lung-ultrasound-imaging-in-avian-influenza-A-%28H7N9%29-respiratory-failure-2036-7902-6-6-S1.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original |
+| DOI | — |
+| Published | 2014 |
+| Retrieved | 2026-10-04T03:25Z |
+| Original format | video/ogg · 11,765,246 bytes · `Lung-ultrasound-imaging-in-avian-influenza-A-(H7N9)-respiratory-failure-2036-7902-6-6-S1.ogv` |
+| Original SHA-256 | `7768c75e9bddfb73825ebeeabb34883b7ed67c46a8fb9240997b57474c121636` |
+| Original preserved | imaging/real/source/lus-progression-h7n9-source.ogv |
+| Licence evidence | Wikimedia Commons API extmetadata for File:Lung-ultrasound-imaging-in-avian-influenza-A-(H7N9)-respiratory-failure-2036-7902-6-6-S1.ogv: LicenseShortName = “CC BY 4.0”, UsageTerms = “Creative Commons Attribution 4.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3ALung-ultrasound-imaging-in-avian-influenza-A-%28H7N9%29-respiratory-failure-2036-7902-6-6-S1.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
+| Verified by | tools/clinical_media.py fetch |
+
+## lus-hepatisation-gillman — Hepatised lung
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/lus-hepatisation-gillman.mp4` · `imaging/real/lus-hepatisation-gillman.webm` · `imaging/real/lus-hepatisation-gillman.jpg` · `imaging/real/source/lus-hepatisation-gillman-source.ogv` |
+| Clinical purpose | consolidation (lus) |
+| Creator / authors | Gillman L, Kirkpatrick A |
+| Source | Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv |
+| Licence | CC BY 2.0 — https://creativecommons.org/licenses/by/2.0 |
+| Modifications | Original OGV (theora, 640×480, 30.0 fps, 10.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio none in the source; no crop, mirroring, speed change or other filtering. Poster = frame at 1.0 s. |
+| Required attribution | Gillman L, Kirkpatrick A. Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv. CC BY 2.0. |
+| Original title | Lung Consolidation. Real time lung ultrasound video illustrating lung consolidation, highlighted by hepatisation of the lung (lung tissue appears similar densit |
+| Source page | https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv |
+| Original media URL | https://upload.wikimedia.org/wikipedia/commons/5/53/Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original |
+| DOI | — |
+| Published | 2012 |
+| Retrieved | 2026-10-04T03:25Z |
+| Original format | video/ogg · 1,686,655 bytes · `Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv` |
+| Original SHA-256 | `e735389f555584aec9e392ee21f8de0242627d4186ca2ed413d709b278fa77b5` |
+| Original preserved | imaging/real/source/lus-hepatisation-gillman-source.ogv |
+| Licence evidence | Wikimedia Commons API extmetadata for File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3APortable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
+| Verified by | tools/clinical_media.py fetch |
+
 ## Pending — staged, not yet in the app
 
 Teaching content is written; the media has not been downloaded and the licence has not been verified from the source.
 
 | ID | Finding | Claimed licence | Source page |
 |---|---|---|---|
-| stroke-hmcas-2025 | hyperdense middle cerebral artery sign | CC BY 4.0 (unverified) | https://doi.org/10.7759/cureus.86726 |
-| stroke-early-change-2025 | early ischaemic change (loss of grey–white differentiation) | CC BY 4.0 (unverified) | https://doi.org/10.7759/cureus.86726 |
-| stroke-cta-m1-2025 | right M1 occlusion on CTA | CC BY 4.0 (unverified) | https://doi.org/10.7759/cureus.98724 |
-| stroke-ctp-mismatch-2025 | core–penumbra mismatch | CC BY 4.0 (unverified) | https://doi.org/10.7759/cureus.98724 |
-| stroke-infarct-24h-2025 | established infarct at 24 h | CC BY 4.0 (unverified) | https://doi.org/10.7759/cureus.98724 |
-| stroke-malignant-edema-2023 | malignant brain oedema after MCA infarction | CC BY 4.0 (unverified) | https://doi.org/10.1186/s40001-023-01414-x |
-| stroke-mass-effect-2021 | large MCA infarct with mass effect | CC BY 4.0 (unverified) | https://doi.org/10.1097/md.0000000000024496 |
-| stroke-hemorrhagic-transformation-2026 | haemorrhagic transformation of an infarct | CC BY 4.0 (unverified) | https://doi.org/10.3389/fcvm.2026.1747104 |
-| stroke-hmcas-vs-cta-2022 | hyperdense MCA sign compared with CTA | CC BY 4.0 (unverified) | https://doi.org/10.1007/s00415-022-11500-5 |
-| stroke-ctp-m1-mirza | perfusion deficit in M1 occlusion | CC BY 4.0 (unverified) | https://commons.wikimedia.org/wiki/File:CT_perfusion_in_M1_artery_occlusion.png |
-| ich-swirl-2012 | swirl sign in acute intracerebral haemorrhage | CC BY 2.0 (unverified) | https://doi.org/10.1186/1471-2377-12-109 |
-| ich-spot-sign-2016 | spot sign | CC BY 4.0 (unverified) | https://doi.org/10.1186/s13054-016-1432-0 |
-| ich-deep-locations-2016 | typical sites of hypertensive haemorrhage | CC BY 4.0 (unverified) | https://doi.org/10.1186/s13054-016-1432-0 |
-| ich-ivh-commons | intracerebral haemorrhage with intraventricular extension | Public Domain (unverified) | https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrage_(CT_scan).jpg |
-| ich-thalamic-hydro-yadav | thalamic haemorrhage with hydrocephalus | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrhage.jpg |
-| ich-cerebellar-yadav | posterior fossa haemorrhage with hydrocephalus | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Posterior_fossa_hemorrhage.jpg |
-| ich-sah-to-iph-2010 | rebleeding: subarachnoid then intraparenchymal haemorrhage | CC BY 3.0 (unverified) | https://doi.org/10.1155/2010/168408 |
-| sah-ct-mirza | subarachnoid haemorrhage | CC BY 4.0 (unverified) | https://commons.wikimedia.org/wiki/File:CT_of_subarachnoid_hemorrhage.png |
-| cxr-chf-haggstrom | congestive heart failure (cardiogenic pulmonary oedema) | CC0 (unverified) | https://commons.wikimedia.org/wiki/File:Chest_radiograph_of_a_lung_with_Kerley_B_lines.jpg |
-| cxr-hps-edema-cdc | non-cardiogenic pulmonary oedema with effusions (hantavirus) | Public Domain (unverified) | https://commons.wikimedia.org/wiki/File:6077_lores.jpg |
-| cxr-ards-2019 | acute respiratory distress syndrome | CC BY 3.0 (unverified) | https://doi.org/10.7759/cureus.3997 |
-| cxr-left-collapse-child-2013 | complete left lung collapse | CC BY 2.0 (unverified) | https://doi.org/10.1186/1471-2431-13-209 |
-| cxr-collapse-before-after-2021 | total right lung collapse, before and after bronchoscopy | CC BY 4.0 (unverified) | https://doi.org/10.1186/s12890-021-01789-9 |
-| cxr-massive-effusion-2010 | massive left pleural effusion with mediastinal shift | CC BY 2.0 (unverified) | https://doi.org/10.1186/1746-1596-5-82 |
-| aaa-us-sagittal-haggstrom | abdominal aortic aneurysm | CC0 (unverified) | https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_sagittal_plane.jpg |
-| aaa-us-axial-haggstrom | abdominal aortic aneurysm | CC0 (unverified) | https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_axial_plane.jpg |
-| aaa-us-thrombus-haggstrom | abdominal aortic aneurysm | CC0 (unverified) | https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_with_mural_thrombus.jpg |
-| lus-blines-gargani | blines | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv |
 | lus-confluent-tsung | confluent_blines | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Prospective-application-of-clinician-performed-lung-ultrasonography-during-the-2009-H1N1-influenza-2036-7902-4-16-S2.ogv |
 | lus-consolidation-tsung | consolidation | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Prospective-application-of-clinician-performed-lung-ultrasonography-during-the-2009-H1N1-influenza-2036-7902-4-16-S3.ogv |
-| lus-progression-h7n9 | progression | CC BY 4.0 (unverified) | https://commons.wikimedia.org/wiki/File:Lung-ultrasound-imaging-in-avian-influenza-A-(H7N9)-respiratory-failure-2036-7902-6-6-S1.ogv |
-| lus-hepatisation-gillman | consolidation | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv |
 | echo-vsd-color-commons | ventricular septal defect | Public Domain (unverified) | https://commons.wikimedia.org/wiki/File:Ventricular_Septal_Defect.jpg |
 | echo-asd-secundum-commons | secundum atrial septal defect | Public Domain (unverified) | https://commons.wikimedia.org/wiki/File:Echokardiogram_von_Atriumseptumdefekt_(Ostium_secundum).jpg |
 

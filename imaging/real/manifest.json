@@ -1404,35 +1404,7 @@
    "webmSha256": "768d6d201234016e90685365f11fc8963dc58ec3aca208ba73b85a13f295fdab",
    "posterSha256": "3e917d3ca6d7098b3a89fda97c63749928a6d1966b6e71a324ad6f36dffb873a",
    "order": 1
-  }
- ],
- "rejected": [
-  {
-   "source": "Open Critical Care anesthesia POCUS pocket card (2022)",
-   "reason": "No licence stated; images credited “courtesy of” third parties (JACC, austincc.edu, echocardiographer.org). Used for facts only, in our own words."
   },
-  {
-   "source": "COVID-BLUES lung ultrasound dataset",
-   "reason": "CC BY-NC-ND 4.0"
-  },
-  {
-   "source": "covid19_ultrasound clips attributed to “charlotte” (source id 14)",
-   "reason": "Licence listed but origin not identifiable — unclear."
-  },
-  {
-   "source": "Radiopaedia-derived images in covid-chestxray-dataset",
-   "reason": "CC BY-NC-SA"
-  },
-  {
-   "source": "covid19_ultrasound clip “Pneu_prospective_file3” (The Ultrasound Journal / Critical Ultrasound Journal 4:16, 2012, doi 10.1186/2036-7902-4-16)",
-   "reason": "Listed as CC BY 2.0, but the article page could not be read to confirm authors and licence (rate-limited) — not included until verified."
-  },
-  {
-   "source": "CC BY-SA alternative IVC clip offered in the asset bundle",
-   "reason": "Share-alike is not on this project’s accepted list — kept out, as the bundle recommends."
-  }
- ],
- "pending": [
   {
    "id": "stroke-hmcas-2025",
    "kind": "ct-ischemic",
@@ -1472,22 +1444,38 @@
     "answer": 1,
     "explain": "On a non-contrast scan a single bright arterial segment, brighter than its partner, is clot — the hyperdense vessel sign of large-vessel occlusion."
    },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC12295507",
-    "fig": "FIG1"
-   },
-   "licenseClaimed": "CC BY 4.0",
-   "pageUrl": "https://doi.org/10.7759/cureus.86726",
-   "crop": [
-    0,
-    0,
-    0.5,
-    1
-   ],
-   "cropNote": "panel (a), the hyperdense artery",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "stroke-hmcas-2025.jpg",
+   "original": "source/stroke-hmcas-2025-source.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Takayuki Inomata, Koji Nakaya, Takaya Sasaki, Hiroto Shiozaki, Yasuto Noda",
+   "source": "“The Role of Comprehensive Brain Perfusion and Whole-Body CT Using Split-Bolus Injection in Diagnosing Multiple Thromboembolism in a Wake-Up Stroke Patient: A Case Report”, Cureus 17:e86726 (2025), https://doi.org/10.7759/cureus.86726 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12295507.1/cureus-0017-00000086726-i01.jpg",
+   "credit": "Inomata et al., Cureus, 2025 · CC BY 4.0",
+   "changes": "Converted to JPEG; one panel taken from the figure (panel (a), the hyperdense artery); padded by one black pixel to even dimensions; no other crop, mirroring or filtering.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.7759/cureus.86726",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12295507.1/cureus-0017-00000086726-i01.jpg",
+    "doi": "10.7759/cureus.86726",
+    "originalTitle": "The Role of Comprehensive Brain Perfusion and Whole-Body CT Using Split-Bolus Injection in Diagnosing Multiple Thromboembolism in a Wake-Up Stroke Patient: A Case Report",
+    "published": "2025-06-25",
+    "retrieved": "2026-10-04T03:24Z",
+    "originalName": "cureus-0017-00000086726-i01.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 72083,
+    "originalSha256": "05325521968f1aee12cb5a55e32b8ef6148950a6f6209610dc6d2d0661a86dd7",
+    "preserved": "imaging/real/source/stroke-hmcas-2025-source.jpg",
+    "licenseEvidence": "Europe PMC full text of PMC12295507 (doi 10.7759/cureus.86726), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 1 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 376,
+      "h": 410
+     }
+    }
+   },
+   "fileSha256": "a8234ea388299bf8977193a7ee7b7ea6b428bc2489f20fab976f13c70948f7bc",
+   "originalSha256": "05325521968f1aee12cb5a55e32b8ef6148950a6f6209610dc6d2d0661a86dd7"
   },
   {
    "id": "stroke-early-change-2025",
@@ -1528,22 +1516,38 @@
     "answer": 1,
     "explain": "The lenticulostriate territory (basal ganglia) and the insula have the poorest collateral supply, so they lose grey–white differentiation first."
    },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC12295507",
-    "fig": "FIG1"
-   },
-   "licenseClaimed": "CC BY 4.0",
-   "pageUrl": "https://doi.org/10.7759/cureus.86726",
-   "crop": [
-    0.5,
-    0,
-    0.5,
-    1
-   ],
-   "cropNote": "panel (b), early ischaemic change",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "stroke-early-change-2025.jpg",
+   "original": "source/stroke-early-change-2025-source.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Takayuki Inomata, Koji Nakaya, Takaya Sasaki, Hiroto Shiozaki, Yasuto Noda",
+   "source": "“The Role of Comprehensive Brain Perfusion and Whole-Body CT Using Split-Bolus Injection in Diagnosing Multiple Thromboembolism in a Wake-Up Stroke Patient: A Case Report”, Cureus 17:e86726 (2025), https://doi.org/10.7759/cureus.86726 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12295507.1/cureus-0017-00000086726-i01.jpg",
+   "credit": "Inomata et al., Cureus, 2025 · CC BY 4.0",
+   "changes": "Converted to JPEG; one panel taken from the figure (panel (b), early ischaemic change); padded by one black pixel to even dimensions; no other crop, mirroring or filtering.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.7759/cureus.86726",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12295507.1/cureus-0017-00000086726-i01.jpg",
+    "doi": "10.7759/cureus.86726",
+    "originalTitle": "The Role of Comprehensive Brain Perfusion and Whole-Body CT Using Split-Bolus Injection in Diagnosing Multiple Thromboembolism in a Wake-Up Stroke Patient: A Case Report",
+    "published": "2025-06-25",
+    "retrieved": "2026-10-04T03:24Z",
+    "originalName": "cureus-0017-00000086726-i01.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 72083,
+    "originalSha256": "05325521968f1aee12cb5a55e32b8ef6148950a6f6209610dc6d2d0661a86dd7",
+    "preserved": "imaging/real/source/stroke-early-change-2025-source.jpg",
+    "licenseEvidence": "Europe PMC full text of PMC12295507 (doi 10.7759/cureus.86726), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 1 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 376,
+      "h": 410
+     }
+    }
+   },
+   "fileSha256": "4374e9b59b932df0427e570d6120083a290c5941a25640cc53509699463827f4",
+   "originalSha256": "05325521968f1aee12cb5a55e32b8ef6148950a6f6209610dc6d2d0661a86dd7"
   },
   {
    "id": "stroke-cta-m1-2025",
@@ -1584,15 +1588,36 @@
     "answer": 1,
     "explain": "Thrombectomy needs a reachable large-vessel occlusion and evidence that tissue is still salvageable (small core / mismatch), within the evidence-based time windows."
    },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC12778373",
-    "fig": "FIG2"
-   },
-   "licenseClaimed": "CC BY 4.0",
-   "pageUrl": "https://doi.org/10.7759/cureus.98724",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "stroke-cta-m1-2025.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Bushra Qureshi, Sobiya Farook, Mohammadzakir Diwan, Sheeba Philip",
+   "source": "“Beating the Clock: Successful Thrombectomy 28 Hours After Stroke in a Young Adult With Internal Carotid Artery Dissection”, Cureus 17:e98724 (2025), https://doi.org/10.7759/cureus.98724 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12778373.1/cureus-0017-00000098724-i02.jpg",
+   "credit": "Qureshi et al., Cureus, 2025 · CC BY 4.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.7759/cureus.98724",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12778373.1/cureus-0017-00000098724-i02.jpg",
+    "doi": "10.7759/cureus.98724",
+    "originalTitle": "Beating the Clock: Successful Thrombectomy 28 Hours After Stroke in a Young Adult With Internal Carotid Artery Dissection",
+    "published": "2025-12-08",
+    "retrieved": "2026-10-04T03:24Z",
+    "originalName": "cureus-0017-00000098724-i02.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 76050,
+    "originalSha256": "cfa49a330fe79d73dc921938776b5a095d585e4a2d3faa594d1c08d1344919bb",
+    "preserved": "imaging/real/stroke-cta-m1-2025.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC12778373 (doi 10.7759/cureus.98724), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 2 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 750,
+      "h": 750
+     }
+    }
+   },
+   "fileSha256": "cfa49a330fe79d73dc921938776b5a095d585e4a2d3faa594d1c08d1344919bb"
   },
   {
    "id": "stroke-ctp-mismatch-2025",
@@ -1633,15 +1658,36 @@
     "answer": 1,
     "explain": "Late-window selection rests on mismatch: a small core with a large area of delayed perfusion means tissue is still salvageable."
    },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC12778373",
-    "fig": "FIG3"
-   },
-   "licenseClaimed": "CC BY 4.0",
-   "pageUrl": "https://doi.org/10.7759/cureus.98724",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "stroke-ctp-mismatch-2025.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Bushra Qureshi, Sobiya Farook, Mohammadzakir Diwan, Sheeba Philip",
+   "source": "“Beating the Clock: Successful Thrombectomy 28 Hours After Stroke in a Young Adult With Internal Carotid Artery Dissection”, Cureus 17:e98724 (2025), https://doi.org/10.7759/cureus.98724 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12778373.1/cureus-0017-00000098724-i03.jpg",
+   "credit": "Qureshi et al., Cureus, 2025 · CC BY 4.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.7759/cureus.98724",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12778373.1/cureus-0017-00000098724-i03.jpg",
+    "doi": "10.7759/cureus.98724",
+    "originalTitle": "Beating the Clock: Successful Thrombectomy 28 Hours After Stroke in a Young Adult With Internal Carotid Artery Dissection",
+    "published": "2025-12-08",
+    "retrieved": "2026-10-04T03:24Z",
+    "originalName": "cureus-0017-00000098724-i03.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 109545,
+    "originalSha256": "9b61c5de01033928cbceeedbe364bac3818e8d2eb5db85240729ca086f86c3ec",
+    "preserved": "imaging/real/stroke-ctp-mismatch-2025.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC12778373 (doi 10.7759/cureus.98724), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 3 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 750,
+      "h": 607
+     }
+    }
+   },
+   "fileSha256": "9b61c5de01033928cbceeedbe364bac3818e8d2eb5db85240729ca086f86c3ec"
   },
   {
    "id": "stroke-infarct-24h-2025",
@@ -1681,15 +1727,36 @@
     "answer": 1,
     "explain": "Clear hypodensity with sharp margins a day after onset is completed infarction — the core at the moment of reperfusion."
    },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC12778373",
-    "fig": "FIG6"
-   },
-   "licenseClaimed": "CC BY 4.0",
-   "pageUrl": "https://doi.org/10.7759/cureus.98724",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "stroke-infarct-24h-2025.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Bushra Qureshi, Sobiya Farook, Mohammadzakir Diwan, Sheeba Philip",
+   "source": "“Beating the Clock: Successful Thrombectomy 28 Hours After Stroke in a Young Adult With Internal Carotid Artery Dissection”, Cureus 17:e98724 (2025), https://doi.org/10.7759/cureus.98724 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12778373.1/cureus-0017-00000098724-i06.jpg",
+   "credit": "Qureshi et al., Cureus, 2025 · CC BY 4.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.7759/cureus.98724",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12778373.1/cureus-0017-00000098724-i06.jpg",
+    "doi": "10.7759/cureus.98724",
+    "originalTitle": "Beating the Clock: Successful Thrombectomy 28 Hours After Stroke in a Young Adult With Internal Carotid Artery Dissection",
+    "published": "2025-12-08",
+    "retrieved": "2026-10-04T03:24Z",
+    "originalName": "cureus-0017-00000098724-i06.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 92191,
+    "originalSha256": "7df1b57dd76ce1eca6c3fb2d406fdb23eba43436805c747b9eca09bfbdb89b84",
+    "preserved": "imaging/real/stroke-infarct-24h-2025.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC12778373 (doi 10.7759/cureus.98724), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 6 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 750,
+      "h": 792
+     }
+    }
+   },
+   "fileSha256": "7df1b57dd76ce1eca6c3fb2d406fdb23eba43436805c747b9eca09bfbdb89b84"
   },
   {
    "id": "stroke-malignant-edema-2023",
@@ -1730,22 +1797,38 @@
     "answer": 1,
     "explain": "Cytotoxic then vasogenic oedema builds over the first days and peaks around days 2–5."
    },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC10571427",
-    "fig": "Fig2"
-   },
-   "licenseClaimed": "CC BY 4.0",
-   "pageUrl": "https://doi.org/10.1186/s40001-023-01414-x",
-   "crop": [
-    0,
-    0,
-    1,
-    0.5
-   ],
-   "cropNote": "top row (A–C), the patient with malignant oedema",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "stroke-malignant-edema-2023.jpg",
+   "original": "source/stroke-malignant-edema-2023-source.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Zhang L, Li J, Yang B, Li W, Wang X, Zou M, Song H, Shi L, Duan Y.",
+   "source": "“The risk and outcome of malignant brain edema in post-mechanical thrombectomy: acute ischemic stroke by anterior circulation occlusion”, European journal of medical research 28:435 (2023), https://doi.org/10.1186/s40001-023-01414-x — https://pmc-oa-opendata.s3.amazonaws.com/PMC10571427.1/40001_2023_1414_Fig2_HTML.jpg",
+   "credit": "Zhang et al., European journal of medical research, 2023 · CC BY 4.0",
+   "changes": "Converted to JPEG; one panel taken from the figure (top row (A–C), the patient with malignant oedema); downscaled 1888×632 → 1600 px wide (aspect kept); no other crop, mirroring or filtering.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1186/s40001-023-01414-x",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10571427.1/40001_2023_1414_Fig2_HTML.jpg",
+    "doi": "10.1186/s40001-023-01414-x",
+    "originalTitle": "The risk and outcome of malignant brain edema in post-mechanical thrombectomy: acute ischemic stroke by anterior circulation occlusion",
+    "published": "2023-10-13",
+    "retrieved": "2026-10-04T03:24Z",
+    "originalName": "40001_2023_1414_Fig2_HTML.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 1222730,
+    "originalSha256": "4393c7a8af49ea6b4520951c2edb5ef2c2f6a7777b14c4e1674124fd163bf8ed",
+    "preserved": "imaging/real/source/stroke-malignant-edema-2023-source.jpg",
+    "licenseEvidence": "Europe PMC full text of PMC10571427 (doi 10.1186/s40001-023-01414-x), <license>: “Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C”; Fig. 2 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 1600,
+      "h": 536
+     }
+    }
+   },
+   "fileSha256": "895d201a5077941dbc23263ac453b05e3811b26669b2e85f59e1d6fa95de3bd1",
+   "originalSha256": "4393c7a8af49ea6b4520951c2edb5ef2c2f6a7777b14c4e1674124fd163bf8ed"
   },
   {
    "id": "stroke-mass-effect-2021",
@@ -1785,22 +1868,38 @@
     "answer": 1,
     "explain": "Compression of the ventricle (and sulcal effacement) shows the swelling is displacing brain."
    },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC7850703",
-    "fig": "F11"
-   },
-   "licenseClaimed": "CC BY 4.0",
-   "pageUrl": "https://doi.org/10.1097/md.0000000000024496",
-   "crop": [
-    0.49,
-    0,
-    0.51,
-    1
-   ],
-   "cropNote": "the CT panel",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "stroke-mass-effect-2021.jpg",
+   "original": "source/stroke-mass-effect-2021-source.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Eskandarani R, Sahli S, Sawan S, Alsaeed A.",
+   "source": "“Simultaneous cardio-cerebral infarction in the coronavirus disease pandemic era: A case series”, Medicine 100:e24496 (2021), https://doi.org/10.1097/md.0000000000024496 — https://pmc-oa-opendata.s3.amazonaws.com/PMC7850703.1/medi-100-e24496-g011.jpg",
+   "credit": "Eskandarani et al., Medicine, 2021 · CC BY 4.0",
+   "changes": "Converted to JPEG; one panel taken from the figure (the CT panel); padded by one black pixel to even dimensions; no other crop, mirroring or filtering.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1097/md.0000000000024496",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC7850703.1/medi-100-e24496-g011.jpg",
+    "doi": "10.1097/md.0000000000024496",
+    "originalTitle": "Simultaneous cardio-cerebral infarction in the coronavirus disease pandemic era: A case series",
+    "published": "2021-01-01",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "medi-100-e24496-g011.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 169786,
+    "originalSha256": "44290ef293c7caed2f95fc6b15a0c062c87c44bab40f08bc7620404845d10139",
+    "preserved": "imaging/real/source/stroke-mass-effect-2021-source.jpg",
+    "licenseEvidence": "Europe PMC full text of PMC7850703 (doi 10.1097/md.0000000000024496), <license>: “This is an open access article distributed under the Creative Commons Attribution License 4.0 (CCBY), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited. http://creativecommons.org/licenses/by/4.0”; Figure 11 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 408,
+      "h": 508
+     }
+    }
+   },
+   "fileSha256": "70a2b6eed6106bff85726c1a19b425c20a1b3c51815763d247536af59f1e61f4",
+   "originalSha256": "44290ef293c7caed2f95fc6b15a0c062c87c44bab40f08bc7620404845d10139"
   },
   {
    "id": "stroke-hemorrhagic-transformation-2026",
@@ -1840,15 +1939,36 @@
     "answer": 1,
     "explain": "Clot density falls as haemoglobin breaks down — acute blood is bright, then iso-, then hypodense over 1–3 weeks."
    },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC12907301",
-    "fig": "F1"
-   },
-   "licenseClaimed": "CC BY 4.0",
-   "pageUrl": "https://doi.org/10.3389/fcvm.2026.1747104",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "stroke-hemorrhagic-transformation-2026.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Xu Z, Ding B, Wu J, Wang H, Chen Z, Wang Z.",
+   "source": "“Zero anticoagulation, zero thrombolysis: successful management of massive pulmonary embolism following hemorrhagic transformation of acute ischemic stroke: a case report”, Frontiers in cardiovascular medicine 13:1747104 (2026), https://doi.org/10.3389/fcvm.2026.1747104 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12907301.1/fcvm-13-1747104-g001.jpg",
+   "credit": "Xu et al., Frontiers in cardiovascular medicine, 2026 · CC BY 4.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.3389/fcvm.2026.1747104",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12907301.1/fcvm-13-1747104-g001.jpg",
+    "doi": "10.3389/fcvm.2026.1747104",
+    "originalTitle": "Zero anticoagulation, zero thrombolysis: successful management of massive pulmonary embolism following hemorrhagic transformation of acute ischemic stroke: a case report",
+    "published": "2026-02-02",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "fcvm-13-1747104-g001.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 145095,
+    "originalSha256": "1ba809009572df8cf216203d0665b0f0c32e12f86ba3797ebd29b9ad5e33ed76",
+    "preserved": "imaging/real/stroke-hemorrhagic-transformation-2026.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC12907301 (doi 10.3389/fcvm.2026.1747104), <license>: “This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY) . The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journ”; Figure 1 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 782,
+      "h": 584
+     }
+    }
+   },
+   "fileSha256": "1ba809009572df8cf216203d0665b0f0c32e12f86ba3797ebd29b9ad5e33ed76"
   },
   {
    "id": "stroke-hmcas-vs-cta-2022",
@@ -1889,15 +2009,36 @@
     "answer": 1,
     "explain": "The sign is insensitive: panel B shows an M1 occlusion despite a normal-looking artery on plain CT."
    },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC9971136",
-    "fig": "Fig1"
-   },
-   "licenseClaimed": "CC BY 4.0",
-   "pageUrl": "https://doi.org/10.1007/s00415-022-11500-5",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "stroke-hmcas-vs-cta-2022.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Kang Z, Wu L, Sun D, Zhou G, Wu X, Qiu H, Mei B, Zhang J.",
+   "source": "“Proximal hyperdense middle cerebral artery sign is associated with increased risk of asymptomatic hemorrhagic transformation after endovascular thrombectomy: a multicenter retrospective study”, Journal of neurology 270:1587-1599 (2022), https://doi.org/10.1007/s00415-022-11500-5 — https://pmc-oa-opendata.s3.amazonaws.com/PMC9971136.1/415_2022_11500_Fig1_HTML.jpg",
+   "credit": "Kang et al., Journal of neurology, 2022 · CC BY 4.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1007/s00415-022-11500-5",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC9971136.1/415_2022_11500_Fig1_HTML.jpg",
+    "doi": "10.1007/s00415-022-11500-5",
+    "originalTitle": "Proximal hyperdense middle cerebral artery sign is associated with increased risk of asymptomatic hemorrhagic transformation after endovascular thrombectomy: a multicenter retrospective study",
+    "published": "2022-11-29",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "415_2022_11500_Fig1_HTML.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 253934,
+    "originalSha256": "f1d5bd7c33e48c51ccd31dd979796d905b4689517d2d0eff779cae85348b2ab1",
+    "preserved": "imaging/real/stroke-hmcas-vs-cta-2022.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC9971136 (doi 10.1007/s00415-022-11500-5), <license>: “Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C”; Fig. 1 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 708,
+      "h": 548
+     }
+    }
+   },
+   "fileSha256": "f1d5bd7c33e48c51ccd31dd979796d905b4689517d2d0eff779cae85348b2ab1"
   },
   {
    "id": "stroke-ctp-m1-mirza",
@@ -1937,14 +2078,38 @@
     "answer": 1,
     "explain": "Preserved blood volume despite slow arrival means collaterals are keeping the tissue alive for now — penumbra."
    },
-   "fetch": {
-    "type": "commons",
-    "title": "File:CT perfusion in M1 artery occlusion.png"
-   },
-   "licenseClaimed": "CC BY 4.0",
-   "pageUrl": "https://commons.wikimedia.org/wiki/File:CT_perfusion_in_M1_artery_occlusion.png",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "stroke-ctp-m1-mirza.jpg",
+   "original": "source/stroke-ctp-m1-mirza-source.png",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+   "author": "edit Shazia Mirza and Sankalp Gokhale See also source article for additional image creators.",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:CT_perfusion_in_M1_artery_occlusion.png",
+   "credit": "Mirza & creators., Wikimedia Commons, 2016 · CC BY 4.0",
+   "changes": "Converted to JPEG; padded by one black pixel to even dimensions; no crop, mirroring or filtering.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:CT_perfusion_in_M1_artery_occlusion.png",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7e/CT_perfusion_in_M1_artery_occlusion.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "edit CT perfusion in M1 artery occlusion.png. For context, see Wikipedia:Imaging in stroke .",
+    "published": "2016-07-25",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "CT perfusion in M1 artery occlusion.png",
+    "originalFormat": "image/png",
+    "originalBytes": 470221,
+    "originalSha256": "f4659d336e925f5a2f4b780441c7f914ce2069806cbeb5b864ed9809abd53196",
+    "preserved": "imaging/real/source/stroke-ctp-m1-mirza-source.png",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:CT perfusion in M1 artery occlusion.png: LicenseShortName = “CC BY 4.0”, UsageTerms = “Creative Commons Attribution 4.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3ACT+perfusion+in+M1+artery+occlusion.png&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 480,
+      "h": 540
+     }
+    }
+   },
+   "fileSha256": "afdf5b66f130f1cb7374cd726888cf20f1142c2933af0bd32061442267984c25",
+   "originalSha256": "f4659d336e925f5a2f4b780441c7f914ce2069806cbeb5b864ed9809abd53196"
   },
   {
    "id": "ich-swirl-2012",
@@ -1985,15 +2150,36 @@
     "answer": 1,
     "explain": "Hypodense regions inside an acute haematoma represent liquid, unclotted blood — a marker of active bleeding and later expansion."
    },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC3517489",
-    "fig": "F1"
-   },
-   "licenseClaimed": "CC BY 2.0",
-   "pageUrl": "https://doi.org/10.1186/1471-2377-12-109",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "ich-swirl-2012.jpg",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+   "author": "Selariu E, Zia E, Brizzi M, Abul-Kasim K.",
+   "source": "“Swirl sign in intracerebral haemorrhage: definition, prevalence, reliability and prognostic value”, BMC neurology 12:109 (2012), https://doi.org/10.1186/1471-2377-12-109 — https://pmc-oa-opendata.s3.amazonaws.com/PMC3517489.1/1471-2377-12-109-1.jpg",
+   "credit": "Selariu et al., BMC neurology, 2012 · CC BY 2.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1186/1471-2377-12-109",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC3517489.1/1471-2377-12-109-1.jpg",
+    "doi": "10.1186/1471-2377-12-109",
+    "originalTitle": "Swirl sign in intracerebral haemorrhage: definition, prevalence, reliability and prognostic value",
+    "published": "2012-09-26",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "1471-2377-12-109-1.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 80630,
+    "originalSha256": "24549e906b8c978a33fe4c25c018b340f2fc8255f70b4fd298e236f7e0c4dc8e",
+    "preserved": "imaging/real/ich-swirl-2012.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC3517489 (doi 10.1186/1471-2377-12-109), <license>: “This is an Open Access article distributed under the terms of the Creative Commons Attribution License ( http://creativecommons.org/licenses/by/2.0 ), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.”; Figure 1 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 600,
+      "h": 451
+     }
+    }
+   },
+   "fileSha256": "24549e906b8c978a33fe4c25c018b340f2fc8255f70b4fd298e236f7e0c4dc8e"
   },
   {
    "id": "ich-spot-sign-2016",
@@ -2033,15 +2219,36 @@
     "answer": 1,
     "explain": "Contrast leaking into the clot on CTA identifies patients whose haematoma is likely to grow."
    },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC5027096",
-    "fig": "Fig3"
-   },
-   "licenseClaimed": "CC BY 4.0",
-   "pageUrl": "https://doi.org/10.1186/s13054-016-1432-0",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "ich-spot-sign-2016.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Airton Leonardo de Oliveira Manoel, Alberto Goffi, Fernando Godinho Zampieri, David Turkel-Parrella, Abhijit Duggal, Thomas R. Marotta, R. Loch Macdonald, Simon Abrahamson",
+   "source": "“The critical care management of spontaneous intracranial hemorrhage: a contemporary review”, Critical care (London, England) 20:272 (2016), https://doi.org/10.1186/s13054-016-1432-0 — https://pmc-oa-opendata.s3.amazonaws.com/PMC5027096.1/13054_2016_1432_Fig3_HTML.jpg",
+   "credit": "Manoel et al., Critical care (London, England), 2016 · CC BY 4.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1186/s13054-016-1432-0",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC5027096.1/13054_2016_1432_Fig3_HTML.jpg",
+    "doi": "10.1186/s13054-016-1432-0",
+    "originalTitle": "The critical care management of spontaneous intracranial hemorrhage: a contemporary review",
+    "published": "2016-09-18",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "13054_2016_1432_Fig3_HTML.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 38692,
+    "originalSha256": "20c920d88a63506503f52ef296669c09557ece851ae0b775056f273732d8f640",
+    "preserved": "imaging/real/ich-spot-sign-2016.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC5027096 (doi 10.1186/s13054-016-1432-0), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is distributed under the terms of the Creative Commons Attribution 4.0 International License ( http://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted use, distribution, and reproduction in any medium, provided y”; Fig. 3 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 358,
+      "h": 444
+     }
+    }
+   },
+   "fileSha256": "20c920d88a63506503f52ef296669c09557ece851ae0b775056f273732d8f640"
   },
   {
    "id": "ich-deep-locations-2016",
@@ -2080,15 +2287,36 @@
     "answer": 1,
     "explain": "A cerebellar haematoma that compresses the brainstem or obstructs the fourth ventricle is the classic indication for evacuation."
    },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC5027096",
-    "fig": "Fig2"
-   },
-   "licenseClaimed": "CC BY 4.0",
-   "pageUrl": "https://doi.org/10.1186/s13054-016-1432-0",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "ich-deep-locations-2016.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Airton Leonardo de Oliveira Manoel, Alberto Goffi, Fernando Godinho Zampieri, David Turkel-Parrella, Abhijit Duggal, Thomas R. Marotta, R. Loch Macdonald, Simon Abrahamson",
+   "source": "“The critical care management of spontaneous intracranial hemorrhage: a contemporary review”, Critical care (London, England) 20:272 (2016), https://doi.org/10.1186/s13054-016-1432-0 — https://pmc-oa-opendata.s3.amazonaws.com/PMC5027096.1/13054_2016_1432_Fig2_HTML.jpg",
+   "credit": "Manoel et al., Critical care (London, England), 2016 · CC BY 4.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1186/s13054-016-1432-0",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC5027096.1/13054_2016_1432_Fig2_HTML.jpg",
+    "doi": "10.1186/s13054-016-1432-0",
+    "originalTitle": "The critical care management of spontaneous intracranial hemorrhage: a contemporary review",
+    "published": "2016-09-18",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "13054_2016_1432_Fig2_HTML.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 85243,
+    "originalSha256": "899b78b4966406bbcede638f5eec60ca2a38a1015598be50760204f179c0bd13",
+    "preserved": "imaging/real/ich-deep-locations-2016.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC5027096 (doi 10.1186/s13054-016-1432-0), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is distributed under the terms of the Creative Commons Attribution 4.0 International License ( http://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted use, distribution, and reproduction in any medium, provided y”; Fig. 2 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 472,
+      "h": 532
+     }
+    }
+   },
+   "fileSha256": "899b78b4966406bbcede638f5eec60ca2a38a1015598be50760204f179c0bd13"
   },
   {
    "id": "ich-ivh-commons",
@@ -2128,14 +2356,36 @@
     "answer": 1,
     "explain": "Clot in the ventricular system obstructs CSF flow — acute hydrocephalus, treated with an external ventricular drain."
    },
-   "fetch": {
-    "type": "commons",
-    "title": "File:Intracerebral hemorrage (CT scan).jpg"
-   },
-   "licenseClaimed": "Public Domain",
-   "pageUrl": "https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrage_(CT_scan).jpg",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "ich-ivh-commons.jpg",
+   "license": "Public Domain",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "author": "Glitzy queen00 at English Wikipedia",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrage_(CT_scan).jpg",
+   "credit": "Wikipedia, Wikimedia Commons, 2007 · Public Domain",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrage_(CT_scan).jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Intracerebral_hemorrage_%28CT_scan%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "This image shows an Intracerebral and Intraventricular haemorrhage of a young woman. The woman was one week post partum, with no known trauma involved.",
+    "published": "2007-10-22 16:03:49",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "Intracerebral hemorrage (CT scan).jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 209875,
+    "originalSha256": "8bf0c53b536fea70a1123eb268a0947f6cb372c11e163c97148da44ec4c8054e",
+    "preserved": "imaging/real/ich-ivh-commons.jpg (identical to the original)",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Intracerebral hemorrage (CT scan).jpg: LicenseShortName = “Public domain”, UsageTerms = “Public domain” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AIntracerebral+hemorrage+%28CT+scan%29.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 1200,
+      "h": 1484
+     }
+    }
+   },
+   "fileSha256": "8bf0c53b536fea70a1123eb268a0947f6cb372c11e163c97148da44ec4c8054e"
   },
   {
    "id": "ich-thalamic-hydro-yadav",
@@ -2176,14 +2426,36 @@
     "answer": 1,
     "explain": "Ventricular dilatation (rounded temporal and frontal horns) with intraventricular clot means CSF outflow is obstructed."
    },
-   "fetch": {
-    "type": "commons",
-    "title": "File:Intracerebral hemorrhage.jpg"
-   },
-   "licenseClaimed": "CC BY 2.0",
-   "pageUrl": "https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrhage.jpg",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "ich-thalamic-hydro-yadav.jpg",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+   "author": "Yadav YR, Mukerji G, Shenoy R, Basoor A, Jain G, Nelson A",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrhage.jpg",
+   "credit": "Yadav et al., Wikimedia Commons, 2007 · CC BY 2.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrhage.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Intracerebral_hemorrhage.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "CT scan of intracerebral hemorrhage. Caption reads, \"Pre operative CT scan. Representative pre-operative CT scan of a patient showing a thalamic haemorrhage wit",
+    "published": "Published: 4 January 2007",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "Intracerebral hemorrhage.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 42094,
+    "originalSha256": "bfe8f92d6717607b11d9cdc63571662a21fbfeb7b3515e35968ce3d1d8e73dc8",
+    "preserved": "imaging/real/ich-thalamic-hydro-yadav.jpg (identical to the original)",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Intracerebral hemorrhage.jpg: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AIntracerebral+hemorrhage.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 400,
+      "h": 330
+     }
+    }
+   },
+   "fileSha256": "bfe8f92d6717607b11d9cdc63571662a21fbfeb7b3515e35968ce3d1d8e73dc8"
   },
   {
    "id": "ich-cerebellar-yadav",
@@ -2224,14 +2496,36 @@
     "answer": 1,
     "explain": "The posterior fossa is small and rigid; swelling there compresses the brainstem and obstructs CSF outflow."
    },
-   "fetch": {
-    "type": "commons",
-    "title": "File:Posterior fossa hemorrhage.jpg"
-   },
-   "licenseClaimed": "CC BY 2.0",
-   "pageUrl": "https://commons.wikimedia.org/wiki/File:Posterior_fossa_hemorrhage.jpg",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "ich-cerebellar-yadav.jpg",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+   "author": "Yadav YR, Mukerji G, Shenoy R, Basoor A, Jain G, Nelson A",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Posterior_fossa_hemorrhage.jpg",
+   "credit": "Yadav et al., Wikimedia Commons, 2007 · CC BY 2.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Posterior_fossa_hemorrhage.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Posterior_fossa_hemorrhage.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "CT scan of intracerebral hemorrhage. Caption reads, \"Pre operative CT scan. Representative pre-operative CT scan of a patient showing a posterior fossa haemorrh",
+    "published": "Published: 4 January 2007",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "Posterior fossa hemorrhage.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 36978,
+    "originalSha256": "952f586b1d261c0a13c3391c7f7e6597d1d03793106c4f4faf854642fcab05f6",
+    "preserved": "imaging/real/ich-cerebellar-yadav.jpg (identical to the original)",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Posterior fossa hemorrhage.jpg: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3APosterior+fossa+hemorrhage.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 330,
+      "h": 400
+     }
+    }
+   },
+   "fileSha256": "952f586b1d261c0a13c3391c7f7e6597d1d03793106c4f4faf854642fcab05f6"
   },
   {
    "id": "ich-sah-to-iph-2010",
@@ -2272,15 +2566,36 @@
     "answer": 1,
     "explain": "New hyperdense blood 12 hours later means the aneurysm bled again."
    },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC2946581",
-    "fig": "fig3"
-   },
-   "licenseClaimed": "CC BY 3.0",
-   "pageUrl": "https://doi.org/10.1155/2010/168408",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "ich-sah-to-iph-2010.jpg",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Isabel Kuo, Theodore Long, Nathan Nguyen, Bharat Chaudry, Michael Karp, Nerses Sanossian",
+   "source": "“Ruptured intracranial mycotic aneurysm in infective endocarditis: a natural history”, Case reports in medicine 2010:168408 (2010), https://doi.org/10.1155/2010/168408 — https://pmc-oa-opendata.s3.amazonaws.com/PMC2946581.1/CRM2010-168408.003.jpg",
+   "credit": "Kuo et al., Case reports in medicine, 2010 · CC BY 3.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1155/2010/168408",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC2946581.1/CRM2010-168408.003.jpg",
+    "doi": "10.1155/2010/168408",
+    "originalTitle": "Ruptured intracranial mycotic aneurysm in infective endocarditis: a natural history",
+    "published": "2010-09-22",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "CRM2010-168408.003.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 136413,
+    "originalSha256": "5481ea94093c9bd081902ea3ef13aa176b1eb14bc16f1397d1c91c92fc58b18b",
+    "preserved": "imaging/real/ich-sah-to-iph-2010.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC2946581 (doi 10.1155/2010/168408), <license>: “https://creativecommons.org/licenses/by/3.0/ This is an open access article distributed under the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.”; Figure 3 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 671,
+      "h": 657
+     }
+    }
+   },
+   "fileSha256": "5481ea94093c9bd081902ea3ef13aa176b1eb14bc16f1397d1c91c92fc58b18b"
   },
   {
    "id": "sah-ct-mirza",
@@ -2319,14 +2634,38 @@
     "answer": 1,
     "explain": "Subarachnoid blood replaces the normally dark CSF in the cisterns, fissures and sulci."
    },
-   "fetch": {
-    "type": "commons",
-    "title": "File:CT of subarachnoid hemorrhage.png"
-   },
-   "licenseClaimed": "CC BY 4.0",
-   "pageUrl": "https://commons.wikimedia.org/wiki/File:CT_of_subarachnoid_hemorrhage.png",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "sah-ct-mirza.jpg",
+   "original": "source/sah-ct-mirza-source.png",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+   "author": "edit Shazia Mirza and Sankalp Gokhale See also source article for additional image creators.",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:CT_of_subarachnoid_hemorrhage.png",
+   "credit": "Mirza & creators., Wikimedia Commons, 2016 · CC BY 4.0",
+   "changes": "Converted to JPEG; padded by one black pixel to even dimensions; no crop, mirroring or filtering.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:CT_of_subarachnoid_hemorrhage.png",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3a/CT_of_subarachnoid_hemorrhage.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "edit CT of subarachnoid hemorrhage.png. For context, see Wikipedia:Imaging in stroke .",
+    "published": "2016-07-25",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "CT of subarachnoid hemorrhage.png",
+    "originalFormat": "image/png",
+    "originalBytes": 136846,
+    "originalSha256": "8e164e4819fc62f8a78c530757dba398f70cc4e86d5c79724cec4a0a0f5a4cc8",
+    "preserved": "imaging/real/source/sah-ct-mirza-source.png",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:CT of subarachnoid hemorrhage.png: LicenseShortName = “CC BY 4.0”, UsageTerms = “Creative Commons Attribution 4.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3ACT+of+subarachnoid+hemorrhage.png&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 368,
+      "h": 448
+     }
+    }
+   },
+   "fileSha256": "6960c65847c74ee032de6dd0d3e7c05e10d42327cb28e910bc1975fcd10bed0c",
+   "originalSha256": "8e164e4819fc62f8a78c530757dba398f70cc4e86d5c79724cec4a0a0f5a4cc8"
   },
   {
    "id": "cxr-chf-haggstrom",
@@ -2362,14 +2701,36 @@
     "answer": 1,
     "explain": "Short horizontal lines at the periphery of the bases are interlobular septa thickened by interstitial fluid."
    },
-   "fetch": {
-    "type": "commons",
-    "title": "File:Chest radiograph of a lung with Kerley B lines.jpg"
-   },
-   "licenseClaimed": "CC0",
-   "pageUrl": "https://commons.wikimedia.org/wiki/File:Chest_radiograph_of_a_lung_with_Kerley_B_lines.jpg",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "cxr-chf-haggstrom.jpg",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "author": "Mikael Häggström",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Chest_radiograph_of_a_lung_with_Kerley_B_lines.jpg",
+   "credit": "Häggström, Wikimedia Commons, 2017 · CC0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Chest_radiograph_of_a_lung_with_Kerley_B_lines.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Chest_radiograph_of_a_lung_with_Kerley_B_lines.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "edit Chest radiograph of an 83 year old man with previous coronary artery bypass surgery and multiple percutaneous coronary interventions , now presenting with ",
+    "published": "2017-07-13",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "Chest radiograph of a lung with Kerley B lines.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 338551,
+    "originalSha256": "0ad260f0645da04684501d1576510d82fabadb0e002a36cabfa30a6ee1c65334",
+    "preserved": "imaging/real/cxr-chf-haggstrom.jpg (identical to the original)",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Chest radiograph of a lung with Kerley B lines.jpg: LicenseShortName = “CC0”, UsageTerms = “Creative Commons Zero, Public Domain Dedication” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AChest+radiograph+of+a+lung+with+Kerley+B+lines.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 1222,
+      "h": 1097
+     }
+    }
+   },
+   "fileSha256": "0ad260f0645da04684501d1576510d82fabadb0e002a36cabfa30a6ee1c65334"
   },
   {
    "id": "cxr-hps-edema-cdc",
@@ -2404,14 +2765,36 @@
     "answer": 1,
     "explain": "Bilateral oedema with a normal-sized heart suggests increased permeability rather than raised left-sided pressure."
    },
-   "fetch": {
-    "type": "commons",
-    "title": "File:6077 lores.jpg"
-   },
-   "licenseClaimed": "Public Domain",
-   "pageUrl": "https://commons.wikimedia.org/wiki/File:6077_lores.jpg",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "cxr-hps-edema-cdc.jpg",
+   "license": "Public Domain",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "author": "CDC/ D. Loren Ketai, M.D.",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:6077_lores.jpg",
+   "credit": "Ketai, Wikimedia Commons, 1994 · Public Domain",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:6077_lores.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/6077_lores.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "This AP chest x-ray reveals the mid-staged bilateral pulmonary effusion due to hantavirus pulmonary syndrome, or HPS. The radiological evolution of HPS begins w",
+    "published": "1994",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "6077 lores.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 35119,
+    "originalSha256": "ada8a9172bac605643d9534cde679fded744cf23a087a0babdba0d46a427bee0",
+    "preserved": "imaging/real/cxr-hps-edema-cdc.jpg (identical to the original)",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:6077 lores.jpg: LicenseShortName = “Public domain”, UsageTerms = “Public domain” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3A6077+lores.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 700,
+      "h": 465
+     }
+    }
+   },
+   "fileSha256": "ada8a9172bac605643d9534cde679fded744cf23a087a0babdba0d46a427bee0"
   },
   {
    "id": "cxr-ards-2019",
@@ -2444,15 +2827,36 @@
     "answer": 1,
     "explain": "Lung-protective ventilation — about 6 mL/kg predicted body weight, plateau ≤ 30 cmH₂O, PEEP titrated to oxygenation."
    },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC6443533",
-    "fig": "FIG2"
-   },
-   "licenseClaimed": "CC BY 3.0",
-   "pageUrl": "https://doi.org/10.7759/cureus.3997",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "cxr-ards-2019.jpg",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Sam Ngu, Sami Pervaiz, Akshay Avula, Michel Chalhoub",
+   "source": "“Rhinovirus-induced Rapidly Progressing Acute Respiratory Distress Syndrome in an Immunocompetent Host”, Cureus 11:e3997 (2019), https://doi.org/10.7759/cureus.3997 — https://pmc-oa-opendata.s3.amazonaws.com/PMC6443533.1/cureus-0011-00000003997-i02.jpg",
+   "credit": "Ngu et al., Cureus, 2019 · CC BY 3.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.7759/cureus.3997",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC6443533.1/cureus-0011-00000003997-i02.jpg",
+    "doi": "10.7759/cureus.3997",
+    "originalTitle": "Rhinovirus-induced Rapidly Progressing Acute Respiratory Distress Syndrome in an Immunocompetent Host",
+    "published": "2019-02-01",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "cureus-0011-00000003997-i02.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 60295,
+    "originalSha256": "56484391c09c793de65770ed2ca3f49437f97c56c414aa3629069a6a54daacb1",
+    "preserved": "imaging/real/cxr-ards-2019.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC6443533 (doi 10.7759/cureus.3997), <license>: “https://creativecommons.org/licenses/by/3.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 2 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 800,
+      "h": 542
+     }
+    }
+   },
+   "fileSha256": "56484391c09c793de65770ed2ca3f49437f97c56c414aa3629069a6a54daacb1"
   },
   {
    "id": "cxr-left-collapse-child-2013",
@@ -2486,15 +2890,36 @@
     "answer": 1,
     "explain": "Loss of volume draws the trachea, heart and diaphragm toward the collapsed side."
    },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC3878367",
-    "fig": "F1"
-   },
-   "licenseClaimed": "CC BY 2.0",
-   "pageUrl": "https://doi.org/10.1186/1471-2431-13-209",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "cxr-left-collapse-child-2013.jpg",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+   "author": "Christoph M Rüegger, Walter Bär, Peter Iseli",
+   "source": "“Simultaneous atelectasis in human bocavirus infected monozygotic twins: was it plastic bronchitis?”, BMC pediatrics 13:209 (2013), https://doi.org/10.1186/1471-2431-13-209 — https://pmc-oa-opendata.s3.amazonaws.com/PMC3878367.1/1471-2431-13-209-1.jpg",
+   "credit": "Rüegger et al., BMC pediatrics, 2013 · CC BY 2.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1186/1471-2431-13-209",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC3878367.1/1471-2431-13-209-1.jpg",
+    "doi": "10.1186/1471-2431-13-209",
+    "originalTitle": "Simultaneous atelectasis in human bocavirus infected monozygotic twins: was it plastic bronchitis?",
+    "published": "2013-12-18",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "1471-2431-13-209-1.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 58576,
+    "originalSha256": "9b11009a4b1eca55b24d65aabb27be61b6ecfecdcf79f210552a3fc51960112d",
+    "preserved": "imaging/real/cxr-left-collapse-child-2013.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC3878367 (doi 10.1186/1471-2431-13-209), <license>: “https://creativecommons.org/licenses/by/2.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License ( http://creativecommons.org/licenses/by/2.0 ), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work”; Figure 1 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 600,
+      "h": 615
+     }
+    }
+   },
+   "fileSha256": "9b11009a4b1eca55b24d65aabb27be61b6ecfecdcf79f210552a3fc51960112d"
   },
   {
    "id": "cxr-collapse-before-after-2021",
@@ -2527,22 +2952,38 @@
     "answer": 1,
     "explain": "Removing the obstructing mucus cast reopened the bronchus, and the lung re-aerated."
    },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC8709957",
-    "fig": "Fig1"
-   },
-   "licenseClaimed": "CC BY 4.0",
-   "pageUrl": "https://doi.org/10.1186/s12890-021-01789-9",
-   "crop": [
-    0,
-    0.665,
-    1,
-    0.335
-   ],
-   "cropNote": "bottom row (E, F)",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "cxr-collapse-before-after-2021.jpg",
+   "original": "source/cxr-collapse-before-after-2021-source.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "N. Benkalfate, S. Dirou, P. Germaud, C. Defrance, A. Cavailles, T. Pigeanne, M. Robert, T. Madjer, F. Corne, L. Cellerin, C. Sagan, F. X. Blanc",
+   "source": "“Total unilateral pulmonary collapse secondary to allergic bronchopulmonary aspergillosis: a case series of an unusual cause of complete atelectasis”, BMC pulmonary medicine 21:425 (2021), https://doi.org/10.1186/s12890-021-01789-9 — https://pmc-oa-opendata.s3.amazonaws.com/PMC8709957.1/12890_2021_1789_Fig1_HTML.jpg",
+   "credit": "Benkalfate et al., BMC pulmonary medicine, 2021 · CC BY 4.0",
+   "changes": "Converted to JPEG; one panel taken from the figure (bottom row (E, F)); downscaled 1749×830 → 1600 px wide (aspect kept); no other crop, mirroring or filtering.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1186/s12890-021-01789-9",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC8709957.1/12890_2021_1789_Fig1_HTML.jpg",
+    "doi": "10.1186/s12890-021-01789-9",
+    "originalTitle": "Total unilateral pulmonary collapse secondary to allergic bronchopulmonary aspergillosis: a case series of an unusual cause of complete atelectasis",
+    "published": "2021-12-24",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "12890_2021_1789_Fig1_HTML.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 842290,
+    "originalSha256": "bbfadcf12eaa176c0e83860a5e5f3949a9c20886abcf3532613c0a3c8bdbea30",
+    "preserved": "imaging/real/source/cxr-collapse-before-after-2021-source.jpg",
+    "licenseEvidence": "Europe PMC full text of PMC8709957 (doi 10.1186/s12890-021-01789-9), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original auth”; Fig. 1 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 1600,
+      "h": 760
+     }
+    }
+   },
+   "fileSha256": "991186332ed4905d39352cb2531d8f6f023acafbbcdf6e162818bc2c74adf8b4",
+   "originalSha256": "bbfadcf12eaa176c0e83860a5e5f3949a9c20886abcf3532613c0a3c8bdbea30"
   },
   {
    "id": "cxr-massive-effusion-2010",
@@ -2576,22 +3017,38 @@
     "answer": 1,
     "explain": "Fluid occupies space and pushes the mediastinum away; collapse loses volume and pulls it toward."
    },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC3018363",
-    "fig": "F1"
-   },
-   "licenseClaimed": "CC BY 2.0",
-   "pageUrl": "https://doi.org/10.1186/1746-1596-5-82",
-   "crop": [
-    0,
-    0,
-    0.5,
-    0.52
-   ],
-   "cropNote": "panel (a), the chest X-ray",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "cxr-massive-effusion-2010.jpg",
+   "original": "source/cxr-massive-effusion-2010-source.jpg",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+   "author": "Maounis N, Chorti M, Legaki S, Ellina E, Emmanouilidou A, Demonakou M, Tsiafaki X.",
+   "source": "“Metastasis to the breast from an adenocarcinoma of the lung with extensive micropapillary component: a case report and review of the literature”, Diagnostic pathology 5:82 (2010), https://doi.org/10.1186/1746-1596-5-82 — https://pmc-oa-opendata.s3.amazonaws.com/PMC3018363.1/1746-1596-5-82-1.jpg",
+   "credit": "Maounis et al., Diagnostic pathology, 2010 · CC BY 2.0",
+   "changes": "Converted to JPEG; one panel taken from the figure (panel (a), the chest X-ray); no other crop, mirroring or filtering.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1186/1746-1596-5-82",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC3018363.1/1746-1596-5-82-1.jpg",
+    "doi": "10.1186/1746-1596-5-82",
+    "originalTitle": "Metastasis to the breast from an adenocarcinoma of the lung with extensive micropapillary component: a case report and review of the literature",
+    "published": "2010-12-17",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "1746-1596-5-82-1.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 55994,
+    "originalSha256": "1332d0ba04219544818c200c15e6121ca311b19f88dd49f2971af905ba71e6bd",
+    "preserved": "imaging/real/source/cxr-massive-effusion-2010-source.jpg",
+    "licenseEvidence": "Europe PMC full text of PMC3018363 (doi 10.1186/1746-1596-5-82), <license>: “This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<url>http://creativecommons.org/licenses/by/2.0</url>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.”; Figure 1 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 300,
+      "h": 256
+     }
+    }
+   },
+   "fileSha256": "e26014d49bb3cb5f653b0b9a2883ed34edca07a4856ef99d92a2e6ff0dea1c49",
+   "originalSha256": "1332d0ba04219544818c200c15e6121ca311b19f88dd49f2971af905ba71e6bd"
   },
   {
    "id": "aaa-us-sagittal-haggstrom",
@@ -2602,7 +3059,6 @@
    "findings": [
     "aaa"
    ],
-   "expect": "image",
    "title": "AAA, long axis",
    "caption": "Longitudinal view of the abdominal aorta: a fusiform aneurysm with the lumen widening well beyond normal calibre.",
    "look": [
@@ -2625,14 +3081,36 @@
     "answer": 1,
     "explain": "Measure the maximal diameter outer wall to outer wall; measuring only the flow lumen underestimates it when thrombus is present."
    },
-   "fetch": {
-    "type": "commons",
-    "title": "File:Ultrasonography of abdominal aortic aneurysm in sagittal plane.jpg"
-   },
-   "licenseClaimed": "CC0",
-   "pageUrl": "https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_sagittal_plane.jpg",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "aaa-us-sagittal-haggstrom.jpg",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "author": "Mikael Häggström, M.D.",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_sagittal_plane.jpg",
+   "credit": "Häggström, Wikimedia Commons, 2018 · CC0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_sagittal_plane.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/99/Ultrasonography_of_abdominal_aortic_aneurysm_in_sagittal_plane.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "Abdominal ultrasonography of a 78 year old woman in the sagittal plane , showing an abdominal aortic aneurysm . Sagittal plane With anteroposterior measure (das",
+    "published": "2018-12-10",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "Ultrasonography of abdominal aortic aneurysm in sagittal plane.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 65178,
+    "originalSha256": "1ea9cc5c4f10da09d8988c01087ce925bdfccdaf6c63de3cb0f76d5d97c33188",
+    "preserved": "imaging/real/aaa-us-sagittal-haggstrom.jpg (identical to the original)",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Ultrasonography of abdominal aortic aneurysm in sagittal plane.jpg: LicenseShortName = “CC0”, UsageTerms = “Creative Commons Zero, Public Domain Dedication” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AUltrasonography+of+abdominal+aortic+aneurysm+in+sagittal+plane.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 588,
+      "h": 508
+     }
+    }
+   },
+   "fileSha256": "1ea9cc5c4f10da09d8988c01087ce925bdfccdaf6c63de3cb0f76d5d97c33188"
   },
   {
    "id": "aaa-us-axial-haggstrom",
@@ -2643,7 +3121,6 @@
    "findings": [
     "aaa"
    ],
-   "expect": "image",
    "title": "AAA, short axis",
    "caption": "Transverse view: the aneurysm measured outer wall to outer wall, here several times the normal ~2 cm.",
    "look": [
@@ -2666,14 +3143,36 @@
     "answer": 1,
     "explain": "Measure the maximal diameter outer wall to outer wall; measuring only the flow lumen underestimates it when thrombus is present."
    },
-   "fetch": {
-    "type": "commons",
-    "title": "File:Ultrasonography of abdominal aortic aneurysm in axial plane.jpg"
-   },
-   "licenseClaimed": "CC0",
-   "pageUrl": "https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_axial_plane.jpg",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "aaa-us-axial-haggstrom.jpg",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "author": "Mikael Häggström, M.D.",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_axial_plane.jpg",
+   "credit": "Häggström, Wikimedia Commons, 2018 · CC0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_axial_plane.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Ultrasonography_of_abdominal_aortic_aneurysm_in_axial_plane.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "Abdominal ultrasonography of a 78 year old woman in the axial plane , showing an abdominal aortic aneurysm . Sagittal plane With anteroposterior measure (dashed",
+    "published": "2018-12-10",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "Ultrasonography of abdominal aortic aneurysm in axial plane.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 62144,
+    "originalSha256": "098ead3e995cb01e93da80bcaee2148ea845c81d4e6f6a4e6fb68278173a7e75",
+    "preserved": "imaging/real/aaa-us-axial-haggstrom.jpg (identical to the original)",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Ultrasonography of abdominal aortic aneurysm in axial plane.jpg: LicenseShortName = “CC0”, UsageTerms = “Creative Commons Zero, Public Domain Dedication” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AUltrasonography+of+abdominal+aortic+aneurysm+in+axial+plane.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 472,
+      "h": 551
+     }
+    }
+   },
+   "fileSha256": "098ead3e995cb01e93da80bcaee2148ea845c81d4e6f6a4e6fb68278173a7e75"
   },
   {
    "id": "aaa-us-thrombus-haggstrom",
@@ -2685,7 +3184,6 @@
     "aaa",
     "mural_thrombus"
    ],
-   "expect": "image",
    "title": "AAA with mural thrombus",
    "caption": "Transverse view: grey layered thrombus lines the wall, leaving a smaller dark flow lumen.",
    "look": [
@@ -2708,14 +3206,36 @@
     "answer": 1,
     "explain": "Measure the maximal diameter outer wall to outer wall; measuring only the flow lumen underestimates it when thrombus is present."
    },
-   "fetch": {
-    "type": "commons",
-    "title": "File:Ultrasonography of abdominal aortic aneurysm with mural thrombus.jpg"
-   },
-   "licenseClaimed": "CC0",
-   "pageUrl": "https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_with_mural_thrombus.jpg",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "aaa-us-thrombus-haggstrom.jpg",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "author": "Mikael Häggström, M.D.",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_with_mural_thrombus.jpg",
+   "credit": "Häggström, Wikimedia Commons, 2019 · CC0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_with_mural_thrombus.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Ultrasonography_of_abdominal_aortic_aneurysm_with_mural_thrombus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "Abdominal ultrasonography of and abdominal aortic aneurysm with mural thrombus.",
+    "published": "2019-01-14",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "Ultrasonography of abdominal aortic aneurysm with mural thrombus.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 55068,
+    "originalSha256": "f383eefbda914dd321cf4f2943f0fd5ad154c0f5cc7b7eb9fdea67a01932e6df",
+    "preserved": "imaging/real/aaa-us-thrombus-haggstrom.jpg (identical to the original)",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Ultrasonography of abdominal aortic aneurysm with mural thrombus.jpg: LicenseShortName = “CC0”, UsageTerms = “Creative Commons Zero, Public Domain Dedication” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AUltrasonography+of+abdominal+aortic+aneurysm+with+mural+thrombus.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 563,
+      "h": 417
+     }
+    }
+   },
+   "fileSha256": "f383eefbda914dd321cf4f2943f0fd5ad154c0f5cc7b7eb9fdea67a01932e6df"
   },
   {
    "id": "lus-blines-gargani",
@@ -2749,15 +3269,249 @@
     "answer": 1,
     "explain": "Three or more B-lines in an intercostal space indicate thickened, fluid-filled interstitium."
    },
-   "fetch": {
-    "type": "commons",
-    "title": "File:Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv"
-   },
-   "licenseClaimed": "CC BY 2.0",
-   "pageUrl": "https://commons.wikimedia.org/wiki/File:Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv",
    "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+   "file": "lus-blines-gargani.mp4",
+   "webm": "lus-blines-gargani.webm",
+   "poster": "lus-blines-gargani.jpg",
+   "posterAt": 0.99,
+   "original": "source/lus-blines-gargani-source.ogv",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+   "author": "Gargani L",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv",
+   "credit": "Gargani, Wikimedia Commons, 2011 · CC BY 2.0",
+   "changes": "Original OGV (theora, 800×652, 29.0 fps, 2.966 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio none in the source; no crop, mirroring, speed change or other filtering. Poster = frame at 1.0 s.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "Sonographic pattern of interstitial syndrome: multiple B-lines originate from the pleural line.",
+    "published": "2011",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv",
+    "originalFormat": "video/ogg",
+    "originalBytes": 1109464,
+    "originalSha256": "ba2b0c056b92d03cffb72f72f18da935a126e390e129b888e928dc72fe547e83",
+    "preserved": "imaging/real/source/lus-blines-gargani-source.ogv",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3ALung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "sourceVideo": {
+      "w": 800,
+      "h": 652,
+      "codec": "theora",
+      "duration": 2.966,
+      "fps": 29.0,
+      "audio": false
+     },
+     "mp4": {
+      "w": 800,
+      "h": 652,
+      "codec": "h264",
+      "duration": 2.966,
+      "fps": 29.0,
+      "audio": false
+     }
+    }
+   },
+   "fileSha256": "a6091573a3b8b5c964673b97eb91d51a3e7b58f822352bf3f90efa0ea168699a",
+   "webmSha256": "19471868a4c8314680e0e6f4ed11bca51a6b534bdccd4e0addc091eb0a240343",
+   "posterSha256": "f9b90e938b891b52a88017201399f04360bba49f600f318f96e59d9ef4ddff5c",
+   "originalSha256": "ba2b0c056b92d03cffb72f72f18da935a126e390e129b888e928dc72fe547e83"
   },
+  {
+   "id": "lus-progression-h7n9",
+   "kind": "lus",
+   "type": "ultrasound",
+   "modality": "Lung ultrasound",
+   "finding": "progression",
+   "findings": [
+    "progression",
+    "ards",
+    "whitelung",
+    "blines"
+   ],
+   "title": "From A-lines to white lung",
+   "caption": "Serial clips from one patient with H7N9 influenza: normal A-lines, then B-lines, then confluent B-lines, then white lung as ARDS develops.",
+   "look": [
+    "A-lines: horizontal, normal",
+    "B-lines appear, then merge",
+    "White lung: no A-lines left"
+   ],
+   "teach": [
+    "Lung ultrasound tracks aeration loss bedside, day by day, without radiation.",
+    "Scores that add up B-lines and consolidation across zones correlate with oxygenation."
+   ],
+   "quiz": {
+    "q": "In what order does aeration loss appear?",
+    "options": [
+     "White lung → B-lines → A-lines",
+     "A-lines → B-lines → confluent B-lines → white lung",
+     "Consolidation → A-lines",
+     "B-lines → A-lines → effusion"
+    ],
+    "answer": 1,
+    "explain": "Progressive loss of aeration moves from A-lines to separate B-lines, confluent B-lines and finally white lung."
+   },
+   "marks": [],
+   "file": "lus-progression-h7n9.mp4",
+   "webm": "lus-progression-h7n9.webm",
+   "poster": "lus-progression-h7n9.jpg",
+   "posterAt": 1.0,
+   "original": "source/lus-progression-h7n9-source.ogv",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+   "author": "Tsai N, Ngai C, Mok K, Tsung J",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Lung-ultrasound-imaging-in-avian-influenza-A-(H7N9)-respiratory-failure-2036-7902-6-6-S1.ogv",
+   "credit": "Tsai et al., Wikimedia Commons, 2014 · CC BY 4.0",
+   "changes": "Original OGV (theora, 720×480, 29.97 fps, 35.127 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio removed; no crop, mirroring, speed change or other filtering. Poster = frame at 1.0 s.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Lung-ultrasound-imaging-in-avian-influenza-A-(H7N9)-respiratory-failure-2036-7902-6-6-S1.ogv",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/11/Lung-ultrasound-imaging-in-avian-influenza-A-%28H7N9%29-respiratory-failure-2036-7902-6-6-S1.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "Video S1. Series of video clips depicting progression of A-lines to B-lines, to confluent B-lines, to white lung (ARDS).",
+    "published": "2014",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "Lung-ultrasound-imaging-in-avian-influenza-A-(H7N9)-respiratory-failure-2036-7902-6-6-S1.ogv",
+    "originalFormat": "video/ogg",
+    "originalBytes": 11765246,
+    "originalSha256": "7768c75e9bddfb73825ebeeabb34883b7ed67c46a8fb9240997b57474c121636",
+    "preserved": "imaging/real/source/lus-progression-h7n9-source.ogv",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Lung-ultrasound-imaging-in-avian-influenza-A-(H7N9)-respiratory-failure-2036-7902-6-6-S1.ogv: LicenseShortName = “CC BY 4.0”, UsageTerms = “Creative Commons Attribution 4.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3ALung-ultrasound-imaging-in-avian-influenza-A-%28H7N9%29-respiratory-failure-2036-7902-6-6-S1.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "sourceVideo": {
+      "w": 720,
+      "h": 480,
+      "codec": "theora",
+      "duration": 35.127,
+      "fps": 29.97,
+      "audio": true
+     },
+     "mp4": {
+      "w": 720,
+      "h": 480,
+      "codec": "h264",
+      "duration": 35.068,
+      "fps": 29.942,
+      "audio": false
+     }
+    }
+   },
+   "fileSha256": "e3ca7068fd59ddfc235eb37b8f163cbb35434aa7cccf9f7575e46aa866ff78a0",
+   "webmSha256": "cb5c419a650bc5432cc2ae3ea4ccbdd50cf54acde234d2f59f8f46f103436f2a",
+   "posterSha256": "716f134f15f6d0c516e2dddd014ce71e1e9f6e54b6b0567c240249dfcc624fed",
+   "originalSha256": "7768c75e9bddfb73825ebeeabb34883b7ed67c46a8fb9240997b57474c121636"
+  },
+  {
+   "id": "lus-hepatisation-gillman",
+   "kind": "lus",
+   "type": "ultrasound",
+   "modality": "Lung ultrasound",
+   "finding": "consolidation",
+   "findings": [
+    "consolidation"
+   ],
+   "title": "Hepatised lung",
+   "caption": "Real-time clip of consolidated lung that looks like liver tissue (hepatisation).",
+   "look": [
+    "Solid, tissue-like texture",
+    "Irregular deep border (shred sign)",
+    "Compare with the liver texture"
+   ],
+   "teach": [
+    "Consolidated lung transmits sound like a solid organ.",
+    "A shred sign at the deep margin is specific for consolidation."
+   ],
+   "quiz": {
+    "q": "Why does consolidated lung look like liver?",
+    "options": [
+     "It is liver",
+     "Airless lung transmits ultrasound like solid tissue",
+     "Because of an effusion",
+     "Artefact from the ribs"
+    ],
+    "answer": 1,
+    "explain": "When the alveoli fill with fluid or cells the lung becomes acoustically like a solid organ."
+   },
+   "marks": [],
+   "file": "lus-hepatisation-gillman.mp4",
+   "webm": "lus-hepatisation-gillman.webm",
+   "poster": "lus-hepatisation-gillman.jpg",
+   "posterAt": 1.0,
+   "original": "source/lus-hepatisation-gillman-source.ogv",
+   "license": "CC BY 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+   "author": "Gillman L, Kirkpatrick A",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv",
+   "credit": "Gillman & Kirkpatrick, Wikimedia Commons, 2012 · CC BY 2.0",
+   "changes": "Original OGV (theora, 640×480, 30.0 fps, 10.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio none in the source; no crop, mirroring, speed change or other filtering. Poster = frame at 1.0 s.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/53/Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "Lung Consolidation. Real time lung ultrasound video illustrating lung consolidation, highlighted by hepatisation of the lung (lung tissue appears similar densit",
+    "published": "2012",
+    "retrieved": "2026-10-04T03:25Z",
+    "originalName": "Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv",
+    "originalFormat": "video/ogg",
+    "originalBytes": 1686655,
+    "originalSha256": "e735389f555584aec9e392ee21f8de0242627d4186ca2ed413d709b278fa77b5",
+    "preserved": "imaging/real/source/lus-hepatisation-gillman-source.ogv",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3APortable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "sourceVideo": {
+      "w": 640,
+      "h": 480,
+      "codec": "theora",
+      "duration": 10.0,
+      "fps": 30.0,
+      "audio": false
+     },
+     "mp4": {
+      "w": 640,
+      "h": 480,
+      "codec": "h264",
+      "duration": 10.0,
+      "fps": 30.0,
+      "audio": false
+     }
+    }
+   },
+   "fileSha256": "3a88c2bf8f3f07fbfa385f6bcb6c277ed201da4b7555d0615f356618794ae2ad",
+   "webmSha256": "c958190ba113b0d3770b4e6e90ea426c968ea6d5dae4e758d066b9c3b37654ab",
+   "posterSha256": "1cf9c6b09024db037368fd84f96d8b4cb00f78862402d6790a7a9cabae14567d",
+   "originalSha256": "e735389f555584aec9e392ee21f8de0242627d4186ca2ed413d709b278fa77b5"
+  }
+ ],
+ "rejected": [
+  {
+   "source": "Open Critical Care anesthesia POCUS pocket card (2022)",
+   "reason": "No licence stated; images credited “courtesy of” third parties (JACC, austincc.edu, echocardiographer.org). Used for facts only, in our own words."
+  },
+  {
+   "source": "COVID-BLUES lung ultrasound dataset",
+   "reason": "CC BY-NC-ND 4.0"
+  },
+  {
+   "source": "covid19_ultrasound clips attributed to “charlotte” (source id 14)",
+   "reason": "Licence listed but origin not identifiable — unclear."
+  },
+  {
+   "source": "Radiopaedia-derived images in covid-chestxray-dataset",
+   "reason": "CC BY-NC-SA"
+  },
+  {
+   "source": "covid19_ultrasound clip “Pneu_prospective_file3” (The Ultrasound Journal / Critical Ultrasound Journal 4:16, 2012, doi 10.1186/2036-7902-4-16)",
+   "reason": "Listed as CC BY 2.0, but the article page could not be read to confirm authors and licence (rate-limited) — not included until verified."
+  },
+  {
+   "source": "CC BY-SA alternative IVC clip offered in the asset bundle",
+   "reason": "Share-alike is not on this project’s accepted list — kept out, as the bundle recommends."
+  }
+ ],
+ "pending": [
   {
    "id": "lus-confluent-tsung",
    "kind": "lus",
@@ -2836,89 +3590,6 @@
    },
    "licenseClaimed": "CC BY 2.0",
    "pageUrl": "https://commons.wikimedia.org/wiki/File:Prospective-application-of-clinician-performed-lung-ultrasonography-during-the-2009-H1N1-influenza-2036-7902-4-16-S3.ogv",
-   "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
-  },
-  {
-   "id": "lus-progression-h7n9",
-   "kind": "lus",
-   "type": "ultrasound",
-   "modality": "Lung ultrasound",
-   "finding": "progression",
-   "findings": [
-    "progression",
-    "ards",
-    "whitelung",
-    "blines"
-   ],
-   "title": "From A-lines to white lung",
-   "caption": "Serial clips from one patient with H7N9 influenza: normal A-lines, then B-lines, then confluent B-lines, then white lung as ARDS develops.",
-   "look": [
-    "A-lines: horizontal, normal",
-    "B-lines appear, then merge",
-    "White lung: no A-lines left"
-   ],
-   "teach": [
-    "Lung ultrasound tracks aeration loss bedside, day by day, without radiation.",
-    "Scores that add up B-lines and consolidation across zones correlate with oxygenation."
-   ],
-   "quiz": {
-    "q": "In what order does aeration loss appear?",
-    "options": [
-     "White lung → B-lines → A-lines",
-     "A-lines → B-lines → confluent B-lines → white lung",
-     "Consolidation → A-lines",
-     "B-lines → A-lines → effusion"
-    ],
-    "answer": 1,
-    "explain": "Progressive loss of aeration moves from A-lines to separate B-lines, confluent B-lines and finally white lung."
-   },
-   "fetch": {
-    "type": "commons",
-    "title": "File:Lung-ultrasound-imaging-in-avian-influenza-A-(H7N9)-respiratory-failure-2036-7902-6-6-S1.ogv"
-   },
-   "licenseClaimed": "CC BY 4.0",
-   "pageUrl": "https://commons.wikimedia.org/wiki/File:Lung-ultrasound-imaging-in-avian-influenza-A-(H7N9)-respiratory-failure-2036-7902-6-6-S1.ogv",
-   "marks": [],
-   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
-  },
-  {
-   "id": "lus-hepatisation-gillman",
-   "kind": "lus",
-   "type": "ultrasound",
-   "modality": "Lung ultrasound",
-   "finding": "consolidation",
-   "findings": [
-    "consolidation"
-   ],
-   "title": "Hepatised lung",
-   "caption": "Real-time clip of consolidated lung that looks like liver tissue (hepatisation).",
-   "look": [
-    "Solid, tissue-like texture",
-    "Irregular deep border (shred sign)",
-    "Compare with the liver texture"
-   ],
-   "teach": [
-    "Consolidated lung transmits sound like a solid organ.",
-    "A shred sign at the deep margin is specific for consolidation."
-   ],
-   "quiz": {
-    "q": "Why does consolidated lung look like liver?",
-    "options": [
-     "It is liver",
-     "Airless lung transmits ultrasound like solid tissue",
-     "Because of an effusion",
-     "Artefact from the ribs"
-    ],
-    "answer": 1,
-    "explain": "When the alveoli fill with fluid or cells the lung becomes acoustically like a solid organ."
-   },
-   "fetch": {
-    "type": "commons",
-    "title": "File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv"
-   },
-   "licenseClaimed": "CC BY 2.0",
-   "pageUrl": "https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv",
    "marks": [],
    "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
   },

@@ -1,0 +1,21 @@
+{
+ "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+ "pageUrl": "https://commons.wikimedia.org/wiki/File:Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv",
+ "originalName": "Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv",
+ "mime": "application/ogg",
+ "bytes": 1109464,
+ "sha1": "0ffaf3bd2b617134e9fd7f8a6c14d1be591c9f3e",
+ "width": 800,
+ "height": 652,
+ "license": "CC BY 2.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+ "licenseEvidence": "Wikimedia Commons API extmetadata for File:Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3ALung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+ "authors": "Gargani L",
+ "credit": "Gargani L (2011). \" Lung ultrasound: a new tool for the cardiologist \". Cardiovascular Ultrasound . DOI : 10.1186/1476-7120-9-6 . PMID 21352576 . PMC : 3059291 .",
+ "published": "2011",
+ "description": "Sonographic pattern of interstitial syndrome: multiple B-lines originate from the pleural line.",
+ "restrictions": "",
+ "id": "lus-blines-gargani",
+ "retrieved": "2026-10-04T03:25Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

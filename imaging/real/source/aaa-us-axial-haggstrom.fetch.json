@@ -1,0 +1,21 @@
+{
+ "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Ultrasonography_of_abdominal_aortic_aneurysm_in_axial_plane.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+ "pageUrl": "https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_axial_plane.jpg",
+ "originalName": "Ultrasonography of abdominal aortic aneurysm in axial plane.jpg",
+ "mime": "image/jpeg",
+ "bytes": 62144,
+ "sha1": "72ad749553ecf9f77b775fbab1e95b1d6c6735e7",
+ "width": 472,
+ "height": 551,
+ "license": "CC0",
+ "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+ "licenseEvidence": "Wikimedia Commons API extmetadata for File:Ultrasonography of abdominal aortic aneurysm in axial plane.jpg: LicenseShortName = “CC0”, UsageTerms = “Creative Commons Zero, Public Domain Dedication” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AUltrasonography+of+abdominal+aortic+aneurysm+in+axial+plane.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+ "authors": "Mikael Häggström, M.D.",
+ "credit": "Own work",
+ "published": "2018-12-10",
+ "description": "Abdominal ultrasonography of a 78 year old woman in the axial plane , showing an abdominal aortic aneurysm . Sagittal plane With anteroposterior measure (dashed red line) and maximal diameter (dotted yellow line) Axial plane With anteroposterior measure (dashed red line) Iliac arteries in the same case Annotated, measuring 17 mm on each side",
+ "restrictions": "",
+ "id": "aaa-us-axial-haggstrom",
+ "retrieved": "2026-10-04T03:25Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

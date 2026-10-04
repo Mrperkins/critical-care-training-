@@ -1,0 +1,21 @@
+{
+ "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7e/CT_perfusion_in_M1_artery_occlusion.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+ "pageUrl": "https://commons.wikimedia.org/wiki/File:CT_perfusion_in_M1_artery_occlusion.png",
+ "originalName": "CT perfusion in M1 artery occlusion.png",
+ "mime": "image/png",
+ "bytes": 470221,
+ "sha1": "2a34251e7dda08f60b0002c05a439f7da4c6167c",
+ "width": 479,
+ "height": 540,
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+ "licenseEvidence": "Wikimedia Commons API extmetadata for File:CT perfusion in M1 artery occlusion.png: LicenseShortName = “CC BY 4.0”, UsageTerms = “Creative Commons Attribution 4.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3ACT+perfusion+in+M1+artery+occlusion.png&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+ "authors": "edit Shazia Mirza and Sankalp Gokhale See also source article for additional image creators.",
+ "credit": "edit Shazia Mirza and Sankalp Gokhale ( 2016-07-25 ). Neuroimaging in Acute Stroke . Attribution 4.0 International (CC BY 4.0)",
+ "published": "2016-07-25",
+ "description": "edit CT perfusion in M1 artery occlusion.png. For context, see Wikipedia:Imaging in stroke .",
+ "restrictions": "",
+ "id": "stroke-ctp-m1-mirza",
+ "retrieved": "2026-10-04T03:25Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

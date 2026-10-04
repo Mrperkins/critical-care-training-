@@ -1,0 +1,21 @@
+{
+ "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Chest_radiograph_of_a_lung_with_Kerley_B_lines.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+ "pageUrl": "https://commons.wikimedia.org/wiki/File:Chest_radiograph_of_a_lung_with_Kerley_B_lines.jpg",
+ "originalName": "Chest radiograph of a lung with Kerley B lines.jpg",
+ "mime": "image/jpeg",
+ "bytes": 338551,
+ "sha1": "02606849078e5bb831486a6704fdd3396f1b468f",
+ "width": 1222,
+ "height": 1097,
+ "license": "CC0",
+ "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+ "licenseEvidence": "Wikimedia Commons API extmetadata for File:Chest radiograph of a lung with Kerley B lines.jpg: LicenseShortName = “CC0”, UsageTerms = “Creative Commons Zero, Public Domain Dedication” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AChest+radiograph+of+a+lung+with+Kerley+B+lines.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+ "authors": "Mikael Häggström",
+ "credit": "Own work",
+ "published": "2017-07-13",
+ "description": "edit Chest radiograph of an 83 year old man with previous coronary artery bypass surgery and multiple percutaneous coronary interventions , now presenting with labored breathing . It shows distinct Kerley B lines , as well as an enlarged heart, somewhat dilated pulmonary blood vessels and minor pleural effusion as seen for example in the right horizontal fissure . Yet, there is no obvious lung edema. Overall, this indicated intermediate severity (stage II) congestive heart failure .",
+ "restrictions": "",
+ "id": "cxr-chf-haggstrom",
+ "retrieved": "2026-10-04T03:25Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}
