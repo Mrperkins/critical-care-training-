@@ -532,7 +532,7 @@ export const MASTERY: MasteryConcept[] = [
   {
     id: 'inhalation-injury', name: 'Inhalation injury', domain: 'trauma-burns', level: 3,
     summary: 'Thermal upper-airway injury, chemical tracheobronchial injury and systemic toxic exposure are distinct problems that can coexist after fire.',
-    prereq: [], related: ['burn-shock', 'toxicology'],
+    prereq: [], related: ['burn-shock'],
     vocabulary: ['carbon monoxide', 'cyanide', 'bronchoscopy'],
     performance: ['Separate impending airway edema from lower-airway injury and systemic toxic exposure.', 'Recognize when early airway control may be safer than waiting for visible obstruction.'],
   },
