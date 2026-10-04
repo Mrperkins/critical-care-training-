@@ -20,6 +20,22 @@ Keep these terms available in your mental model: variceal, nonvariceal, endoscop
 
 What expert-level use of this concept looks like is this: Run resuscitation and definitive-control planning in parallel. Recognize when airway, portal-hypertension or anticoagulation issues change the strategy.
 
+Reasoning checkpoint. Do not just repeat the statement: Run resuscitation and definitive-control planning in parallel. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize when airway, portal-hypertension or anticoagulation issues change the strategy. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Severe GI hemorrhage to Critical-illness coagulopathy. Bleeding and thrombosis reflect platelets, fibrinogen, coagulation factors, fibrinolysis, temperature, calcium, dilution and disease-specific pathways.
+
+The relationship matters because Hemostasis depends on platelets, fibrinogen, coagulation factors, fibrinolysis, calcium, pH and temperature. Critical illness can produce simultaneous bleeding and thrombosis risk. At the bedside, interpret conventional labs and viscoelastic tests in the clinical context and replace the failing component rather than one arbitrary number.
+
+Now connect Severe GI hemorrhage to Source control. Definitive management of infected material, devitalized tissue or an infected device can be as important as antimicrobial therapy.
+
+The relationship matters because Antibiotics cannot sterilize every infected collection, necrotic tissue or infected device. Persistent nidus can sustain inflammatory and microbial burden despite apparently appropriate antimicrobial therapy. At the bedside, ask early whether drainage, debridement, device removal or surgery is required and whether it is actually happening.
+
+Stress-test the model. Imagine the patient changes in a way that makes delaying source control until every vital sign normalizes tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Intubating reflexively without considering the hemodynamic cost.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
 Now: When airway protection helps—and when intubation adds risk.
@@ -37,6 +53,22 @@ The integration move is this: Resuscitation and source control are simultaneous 
 Keep these terms available in your mental model: variceal, nonvariceal, endoscopy.
 
 What expert-level use of this concept looks like is this: Run resuscitation and definitive-control planning in parallel. Recognize when airway, portal-hypertension or anticoagulation issues change the strategy.
+
+Reasoning checkpoint. Do not just repeat the statement: Run resuscitation and definitive-control planning in parallel. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize when airway, portal-hypertension or anticoagulation issues change the strategy. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Severe GI hemorrhage to Critical-illness coagulopathy. Bleeding and thrombosis reflect platelets, fibrinogen, coagulation factors, fibrinolysis, temperature, calcium, dilution and disease-specific pathways.
+
+The relationship matters because Hemostasis depends on platelets, fibrinogen, coagulation factors, fibrinolysis, calcium, pH and temperature. Critical illness can produce simultaneous bleeding and thrombosis risk. At the bedside, interpret conventional labs and viscoelastic tests in the clinical context and replace the failing component rather than one arbitrary number.
+
+Now connect Severe GI hemorrhage to Source control. Definitive management of infected material, devitalized tissue or an infected device can be as important as antimicrobial therapy.
+
+The relationship matters because Antibiotics cannot sterilize every infected collection, necrotic tissue or infected device. Persistent nidus can sustain inflammatory and microbial burden despite apparently appropriate antimicrobial therapy. At the bedside, ask early whether drainage, debridement, device removal or surgery is required and whether it is actually happening.
+
+Stress-test the model. Imagine the patient changes in a way that makes delaying source control until every vital sign normalizes tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Intubating reflexively without considering the hemodynamic cost.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
@@ -56,6 +88,20 @@ Keep these terms available in your mental model: M T P, fibrinogen, ionized calc
 
 What expert-level use of this concept looks like is this: Run the resuscitation as a system rather than as isolated blood-unit administration. Recognize dilutional/coagulopathic, hypocalcemic and hypothermic deterioration early.
 
+Reasoning checkpoint. Do not just repeat the statement: Run the resuscitation as a system rather than as isolated blood-unit administration. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize dilutional/coagulopathic, hypocalcemic and hypothermic deterioration early. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Massive transfusion & hemorrhagic resuscitation to Critical-illness coagulopathy. Bleeding and thrombosis reflect platelets, fibrinogen, coagulation factors, fibrinolysis, temperature, calcium, dilution and disease-specific pathways.
+
+The relationship matters because Hemostasis depends on platelets, fibrinogen, coagulation factors, fibrinolysis, calcium, pH and temperature. Critical illness can produce simultaneous bleeding and thrombosis risk. At the bedside, interpret conventional labs and viscoelastic tests in the clinical context and replace the failing component rather than one arbitrary number.
+
+Now connect Massive transfusion & hemorrhagic resuscitation to Oxygen delivery. DO2 is cardiac output multiplied by arterial oxygen content; saturation alone does not describe tissue oxygen delivery.
+
+The relationship matters because Oxygen delivery equals cardiac output multiplied by arterial oxygen content, which is dominated by hemoglobin-bound oxygen rather than dissolved oxygen. At the bedside, normal saturation can coexist with critically low delivery in severe anemia or low-flow shock. Ask about hemoglobin and flow whenever tissue perfusion looks worse than the pulse oximeter.
+
+Stress-test the model. Imagine the patient changes in a way that makes running product delivery as a logistics task disconnected from physiology tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Allowing source control to become secondary to transfusion mechanics.
+
 Critical-illness coagulopathy. Bleeding and thrombosis reflect platelets, fibrinogen, coagulation factors, fibrinolysis, temperature, calcium, dilution and disease-specific pathways.
 
 Build the mechanism first. Hemostasis depends on platelets, fibrinogen, coagulation factors, fibrinolysis, calcium, pH and temperature. Critical illness can produce simultaneous bleeding and thrombosis risk.
@@ -69,6 +115,18 @@ The integration move is this: Coagulation is a dynamic system, not a single labo
 Keep these terms available in your mental model: fibrinolysis, fibrinogen, viscoelastic testing.
 
 What expert-level use of this concept looks like is this: Reason from the failing component of clot formation rather than treating INR alone. Anticipate temperature, calcium and dilution effects during hemorrhagic resuscitation.
+
+Reasoning checkpoint. Do not just repeat the statement: Reason from the failing component of clot formation rather than treating INR alone. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Anticipate temperature, calcium and dilution effects during hemorrhagic resuscitation. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Critical-illness coagulopathy to Massive transfusion & hemorrhagic resuscitation. Hemorrhagic resuscitation integrates source control, balanced component replacement, calcium, temperature, coagulation and perfusion.
+
+The relationship matters because Major hemorrhage produces loss of oxygen-carrying capacity, volume and hemostatic components while hypothermia, hypocalcemia, dilution and acidosis can worsen coagulation. At the bedside, activate the hemorrhage system early, warm the resuscitation, track calcium/coagulation/temperature and never lose sight of definitive source control.
+
+Stress-test the model. Imagine the patient changes in a way that makes equating inr with whole-blood clot quality tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring fibrinogen, platelet function, temperature and calcium.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
@@ -87,6 +145,22 @@ The integration move is this: Sepsis treatment is host support plus antimicrobia
 Keep these terms available in your mental model: drainage, debridement, device removal.
 
 What expert-level use of this concept looks like is this: Identify when antibiotics alone are unlikely to succeed. Escalate procedural or surgical source control as part of the resuscitation plan.
+
+Reasoning checkpoint. Do not just repeat the statement: Identify when antibiotics alone are unlikely to succeed. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Escalate procedural or surgical source control as part of the resuscitation plan. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Source control to Septic shock physiology. Distributive shock with dynamic changes in vascular tone, venous capacitance, myocardial performance, microcirculation and oxygen extraction.
+
+The relationship matters because Septic shock can combine vasoplegia, venous pooling, myocardial dysfunction, endothelial leak and disturbed microcirculation. Cardiac output may be low, normal or high. At the bedside, reassess vascular tone, flow, congestion and perfusion after each intervention rather than assuming a fixed distributive phenotype.
+
+Now connect Source control to Antimicrobial PK/PD in critical illness. Critical illness changes volume of distribution, clearance and target attainment, so dose strategy must match drug and patient physiology.
+
+The relationship matters because Critical illness alters volume of distribution, protein binding and clearance. Drug efficacy depends on whether exposure matches the relevant PK/PD target. At the bedside, account for augmented renal clearance, AKI, C R R T, fluid shifts and obesity rather than assuming standard dosing produces standard exposure.
+
+Stress-test the model. Imagine the patient changes in a way that makes escalating antibiotic breadth when the real failure is lack of source control tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Waiting for complete hemodynamic normalization before addressing a time-sensitive source.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 

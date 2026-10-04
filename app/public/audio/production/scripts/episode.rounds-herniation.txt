@@ -20,6 +20,22 @@ Keep these terms available in your mental model: CPP, autoregulation, Monro-Kell
 
 What expert-level use of this concept looks like is this: Predict how systemic pressure, CO2 and venous pressure affect cerebral perfusion. Recognize when a normal MAP does not guarantee adequate CPP.
 
+Reasoning checkpoint. Do not just repeat the statement: Predict how systemic pressure, CO2 and venous pressure affect cerebral perfusion. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize when a normal MAP does not guarantee adequate CPP. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect ICP, CPP & cerebral perfusion to Brain herniation physiology. Rising intracranial pressure and compartment shifts distort brain structures, impair perfusion and can produce rapidly evolving focal and brainstem signs.
+
+The relationship matters because When intracranial pressure gradients exceed compensatory reserve, brain tissue shifts across fixed boundaries, compressing cranial nerves, vessels and brainstem structures. At the bedside, recognize trajectory—declining consciousness, pupillary asymmetry, motor changes and evolving brainstem physiology—while protecting oxygenation and cerebral perfusion.
+
+Now connect ICP, CPP & cerebral perfusion to E V D management. External ventricular drainage requires correct leveling, clamping during movement and interpretation of drainage and ICP.
+
+The relationship matters because An external ventricular drain uses a hydrostatic height reference to define the pressure at which CSF drains while also allowing ICP monitoring depending on system configuration. At the bedside, level to the ordered reference point, manage clamping during movement according to policy, and re-level after position changes before interpreting pressure or drainage.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating icp and cpp as isolated targets tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring neck position, intrathoracic pressure and venous outflow.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
 Now: Pressure gradients move tissue.
@@ -37,6 +53,18 @@ The integration move is this: Temporizing therapy buys time for definitive imagi
 Keep these terms available in your mental model: uncal, central, tonsillar, Cushing response.
 
 What expert-level use of this concept looks like is this: Recognize a herniation trajectory from examination and physiology. Prioritize temporizing actions while preserving cerebral perfusion and definitive neurosurgical access.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize a herniation trajectory from examination and physiology. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Prioritize temporizing actions while preserving cerebral perfusion and definitive neurosurgical access. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Brain herniation physiology to E V D management. External ventricular drainage requires correct leveling, clamping during movement and interpretation of drainage and ICP.
+
+The relationship matters because An external ventricular drain uses a hydrostatic height reference to define the pressure at which CSF drains while also allowing ICP monitoring depending on system configuration. At the bedside, level to the ordered reference point, manage clamping during movement according to policy, and re-level after position changes before interpreting pressure or drainage.
+
+Stress-test the model. Imagine the patient changes in a way that makes waiting for the complete cushing response tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Aggressively lowering systemic pressure in a patient whose CPP is already threatened.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
@@ -56,6 +84,18 @@ Keep these terms available in your mental model: uncal, central, tonsillar, Cush
 
 What expert-level use of this concept looks like is this: Recognize a herniation trajectory from examination and physiology. Prioritize temporizing actions while preserving cerebral perfusion and definitive neurosurgical access.
 
+Reasoning checkpoint. Do not just repeat the statement: Recognize a herniation trajectory from examination and physiology. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Prioritize temporizing actions while preserving cerebral perfusion and definitive neurosurgical access. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Brain herniation physiology to E V D management. External ventricular drainage requires correct leveling, clamping during movement and interpretation of drainage and ICP.
+
+The relationship matters because An external ventricular drain uses a hydrostatic height reference to define the pressure at which CSF drains while also allowing ICP monitoring depending on system configuration. At the bedside, level to the ordered reference point, manage clamping during movement according to policy, and re-level after position changes before interpreting pressure or drainage.
+
+Stress-test the model. Imagine the patient changes in a way that makes waiting for the complete cushing response tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Aggressively lowering systemic pressure in a patient whose CPP is already threatened.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
 Now: Temporizing actions protect time, not the diagnosis.
@@ -74,6 +114,16 @@ Keep these terms available in your mental model: uncal, central, tonsillar, Cush
 
 What expert-level use of this concept looks like is this: Recognize a herniation trajectory from examination and physiology. Prioritize temporizing actions while preserving cerebral perfusion and definitive neurosurgical access.
 
+Reasoning checkpoint. Do not just repeat the statement: Recognize a herniation trajectory from examination and physiology. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Prioritize temporizing actions while preserving cerebral perfusion and definitive neurosurgical access. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Brain herniation physiology to E V D management. External ventricular drainage requires correct leveling, clamping during movement and interpretation of drainage and ICP.
+
+The relationship matters because An external ventricular drain uses a hydrostatic height reference to define the pressure at which CSF drains while also allowing ICP monitoring depending on system configuration. At the bedside, level to the ordered reference point, manage clamping during movement according to policy, and re-level after position changes before interpreting pressure or drainage.
+
+Stress-test the model. Imagine the patient changes in a way that makes waiting for the complete cushing response tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Aggressively lowering systemic pressure in a patient whose CPP is already threatened.
+
 Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
 
 Build the mechanism first. Clinical decisions are made with incomplete information. Calibrated reasoning assigns provisional probability, makes predictions and updates when new data contradict the model.
@@ -87,6 +137,20 @@ The integration move is this: A model that cannot be falsified is not useful cli
 Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
 
 What expert-level use of this concept looks like is this: State confidence, identify disconfirming evidence and update the model when the patient fails to respond as predicted.
+
+Reasoning checkpoint. Do not just repeat the statement: State confidence, identify disconfirming evidence and update the model when the patient fails to respond as predicted. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Clinical uncertainty & model revision to Cognitive bias & diagnostic error. Expert reasoning uses deliberate checks against anchoring, premature closure, confirmation bias and overconfidence while still making timely decisions.
+
+The relationship matters because Anchoring, confirmation bias and premature closure arise because fast pattern recognition is useful but can overcommit to the first plausible model. At the bedside, name the finding that does not fit, generate at least one alternative mechanism and use treatment response as new diagnostic evidence.
+
+Now connect Clinical uncertainty & model revision to Multisystem treatment tradeoffs. A therapy that helps one organ can worsen another; expert care weighs global benefit, reversibility and monitoring.
+
+The relationship matters because Organ-support interventions frequently redistribute risk: peep can help oxygenation but worsen RV load; fluids can increase flow but worsen congestion; sedation can improve synchrony but obscure neurologic assessment. At the bedside, before intervening, name the intended benefit, the organ/system at risk and the signal that would tell you the tradeoff has become unfavorable.
+
+Stress-test the model. Imagine the patient changes in a way that makes equating uncertainty with indecision tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Becoming more confident simply because the same hypothesis has been repeated.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 

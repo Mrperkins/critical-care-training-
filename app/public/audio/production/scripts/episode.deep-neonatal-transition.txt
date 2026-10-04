@@ -20,6 +20,18 @@ Keep these terms available in your mental model: ductus arteriosus, foramen oval
 
 What expert-level use of this concept looks like is this: Explain normal transition from fetal to neonatal circulation. Recognize how failed transition can produce hypoxemia and right-to-left shunting.
 
+Reasoning checkpoint. Do not just repeat the statement: Explain normal transition from fetal to neonatal circulation. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize how failed transition can produce hypoxemia and right-to-left shunting. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Neonatal cardiopulmonary transition to Critical congenital heart disease physiology. Critical congenital lesions are best understood by whether systemic or pulmonary blood flow depends on shunts, mixing or ductal patency.
+
+The relationship matters because Critical congenital lesions can be organized by whether systemic flow, pulmonary flow or mixing depends on a shunt/ductus and by how Qp and Qs respond to resistance changes. At the bedside, think topology before lesion names: where can blood go, where must it mix, and what changes if P V R or S V R moves?
+
+Stress-test the model. Imagine the patient changes in a way that makes interpreting neonatal oxygenation without pre/post-ductal context tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Assuming adult circulation physiology immediately after birth.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
 Now: What the first breaths do to P V R.
@@ -37,6 +49,22 @@ The integration move is this: Interpret ventilator changes through both lung mec
 Keep these terms available in your mental model: RV afterload, West zones.
 
 What expert-level use of this concept looks like is this: Explain the U-shaped relationship between lung volume and pulmonary vascular resistance. Identify reversible contributors to acute RV afterload.
+
+Reasoning checkpoint. Do not just repeat the statement: Explain the U-shaped relationship between lung volume and pulmonary vascular resistance. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Identify reversible contributors to acute RV afterload. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Pulmonary vascular resistance to Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+The relationship matters because The RV is thin-walled and highly sensitive to acute afterload. When it dilates, wall stress rises, coronary perfusion can fall and septal shift can reduce LV filling. At the bedside, track systemic pressure, venous congestion, echo geometry, oxygenation, CO2, acid-base status and ventilator pressures together. Small changes in P V R or intrathoracic pressure can have large hemodynamic consequences.
+
+Now connect Pulmonary vascular resistance to Positive-pressure ventilation & circulation. Positive intrathoracic pressure changes venous return, ventricular transmural pressures and pulmonary vascular resistance.
+
+The relationship matters because Positive intrathoracic pressure can reduce the gradient for venous return, change transmural ventricular pressures and alter P V R depending on lung volume and recruitability. At the bedside, post-intubation hypotension may reflect vasodilation, reduced venous return, increased RV afterload, auto-peep or previously compensated shock becoming unmasked.
+
+Stress-test the model. Imagine the patient changes in a way that makes assuming more peep always lowers pvr by recruiting lung tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring gas chemistry as an RV afterload intervention.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
@@ -56,6 +84,18 @@ Keep these terms available in your mental model: ductus arteriosus, foramen oval
 
 What expert-level use of this concept looks like is this: Explain normal transition from fetal to neonatal circulation. Recognize how failed transition can produce hypoxemia and right-to-left shunting.
 
+Reasoning checkpoint. Do not just repeat the statement: Explain normal transition from fetal to neonatal circulation. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize how failed transition can produce hypoxemia and right-to-left shunting. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Neonatal cardiopulmonary transition to Critical congenital heart disease physiology. Critical congenital lesions are best understood by whether systemic or pulmonary blood flow depends on shunts, mixing or ductal patency.
+
+The relationship matters because Critical congenital lesions can be organized by whether systemic flow, pulmonary flow or mixing depends on a shunt/ductus and by how Qp and Qs respond to resistance changes. At the bedside, think topology before lesion names: where can blood go, where must it mix, and what changes if P V R or S V R moves?
+
+Stress-test the model. Imagine the patient changes in a way that makes interpreting neonatal oxygenation without pre/post-ductal context tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Assuming adult circulation physiology immediately after birth.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
 Now: When transition fails.
@@ -73,6 +113,18 @@ The integration move is this: A diagram of flow often explains the patient bette
 Keep these terms available in your mental model: ductal-dependent, mixing lesion, Qp:Qs.
 
 What expert-level use of this concept looks like is this: Reason from circulation topology rather than memorizing lesion names. Predict how oxygen, ventilation and vascular resistance can alter shunt balance.
+
+Reasoning checkpoint. Do not just repeat the statement: Reason from circulation topology rather than memorizing lesion names. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict how oxygen, ventilation and vascular resistance can alter shunt balance. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Critical congenital heart disease physiology to Oxygen delivery. DO2 is cardiac output multiplied by arterial oxygen content; saturation alone does not describe tissue oxygen delivery.
+
+The relationship matters because Oxygen delivery equals cardiac output multiplied by arterial oxygen content, which is dominated by hemoglobin-bound oxygen rather than dissolved oxygen. At the bedside, normal saturation can coexist with critically low delivery in severe anemia or low-flow shock. Ask about hemoglobin and flow whenever tissue perfusion looks worse than the pulse oximeter.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating oxygen as universally beneficial without considering shunt balance tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Memorizing lesions without understanding circulation geometry.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 

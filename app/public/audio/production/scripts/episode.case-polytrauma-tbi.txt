@@ -20,6 +20,20 @@ Keep these terms available in your mental model: secondary injury, CPP, intracra
 
 What expert-level use of this concept looks like is this: Prioritize avoidance of hypoxemia and hypotension. Integrate ICP, CPP, ventilation and extracranial injuries without creating competing harm.
 
+Reasoning checkpoint. Do not just repeat the statement: Prioritize avoidance of hypoxemia and hypotension. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Integrate ICP, CPP, ventilation and extracranial injuries without creating competing harm. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Severe traumatic brain injury to Brain herniation physiology. Rising intracranial pressure and compartment shifts distort brain structures, impair perfusion and can produce rapidly evolving focal and brainstem signs.
+
+The relationship matters because When intracranial pressure gradients exceed compensatory reserve, brain tissue shifts across fixed boundaries, compressing cranial nerves, vessels and brainstem structures. At the bedside, recognize trajectory—declining consciousness, pupillary asymmetry, motor changes and evolving brainstem physiology—while protecting oxygenation and cerebral perfusion.
+
+Now connect Severe traumatic brain injury to Critical-illness coagulopathy. Bleeding and thrombosis reflect platelets, fibrinogen, coagulation factors, fibrinolysis, temperature, calcium, dilution and disease-specific pathways.
+
+The relationship matters because Hemostasis depends on platelets, fibrinogen, coagulation factors, fibrinolysis, calcium, pH and temperature. Critical illness can produce simultaneous bleeding and thrombosis risk. At the bedside, interpret conventional labs and viscoelastic tests in the clinical context and replace the failing component rather than one arbitrary number.
+
+Stress-test the model. Imagine the patient changes in a way that makes permissive hypotension without considering severe tbi tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Overventilating chronically after an acute herniation concern has passed.
+
 Massive transfusion & hemorrhagic resuscitation. Hemorrhagic resuscitation integrates source control, balanced component replacement, calcium, temperature, coagulation and perfusion.
 
 Build the mechanism first. Major hemorrhage produces loss of oxygen-carrying capacity, volume and hemostatic components while hypothermia, hypocalcemia, dilution and acidosis can worsen coagulation.
@@ -33,6 +47,22 @@ The integration move is this: Resuscitation buys time; source control ends the h
 Keep these terms available in your mental model: M T P, fibrinogen, ionized calcium, lethal triad.
 
 What expert-level use of this concept looks like is this: Run the resuscitation as a system rather than as isolated blood-unit administration. Recognize dilutional/coagulopathic, hypocalcemic and hypothermic deterioration early.
+
+Reasoning checkpoint. Do not just repeat the statement: Run the resuscitation as a system rather than as isolated blood-unit administration. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize dilutional/coagulopathic, hypocalcemic and hypothermic deterioration early. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Massive transfusion & hemorrhagic resuscitation to Critical-illness coagulopathy. Bleeding and thrombosis reflect platelets, fibrinogen, coagulation factors, fibrinolysis, temperature, calcium, dilution and disease-specific pathways.
+
+The relationship matters because Hemostasis depends on platelets, fibrinogen, coagulation factors, fibrinolysis, calcium, pH and temperature. Critical illness can produce simultaneous bleeding and thrombosis risk. At the bedside, interpret conventional labs and viscoelastic tests in the clinical context and replace the failing component rather than one arbitrary number.
+
+Now connect Massive transfusion & hemorrhagic resuscitation to Oxygen delivery. DO2 is cardiac output multiplied by arterial oxygen content; saturation alone does not describe tissue oxygen delivery.
+
+The relationship matters because Oxygen delivery equals cardiac output multiplied by arterial oxygen content, which is dominated by hemoglobin-bound oxygen rather than dissolved oxygen. At the bedside, normal saturation can coexist with critically low delivery in severe anemia or low-flow shock. Ask about hemoglobin and flow whenever tissue perfusion looks worse than the pulse oximeter.
+
+Stress-test the model. Imagine the patient changes in a way that makes running product delivery as a logistics task disconnected from physiology tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Allowing source control to become secondary to transfusion mechanics.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Pause here and answer this before you continue: What harm could come from treating either problem in isolation?
 
@@ -54,6 +84,20 @@ Keep these terms available in your mental model: CPP, autoregulation, Monro-Kell
 
 What expert-level use of this concept looks like is this: Predict how systemic pressure, CO2 and venous pressure affect cerebral perfusion. Recognize when a normal MAP does not guarantee adequate CPP.
 
+Reasoning checkpoint. Do not just repeat the statement: Predict how systemic pressure, CO2 and venous pressure affect cerebral perfusion. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize when a normal MAP does not guarantee adequate CPP. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect ICP, CPP & cerebral perfusion to Brain herniation physiology. Rising intracranial pressure and compartment shifts distort brain structures, impair perfusion and can produce rapidly evolving focal and brainstem signs.
+
+The relationship matters because When intracranial pressure gradients exceed compensatory reserve, brain tissue shifts across fixed boundaries, compressing cranial nerves, vessels and brainstem structures. At the bedside, recognize trajectory—declining consciousness, pupillary asymmetry, motor changes and evolving brainstem physiology—while protecting oxygenation and cerebral perfusion.
+
+Now connect ICP, CPP & cerebral perfusion to E V D management. External ventricular drainage requires correct leveling, clamping during movement and interpretation of drainage and ICP.
+
+The relationship matters because An external ventricular drain uses a hydrostatic height reference to define the pressure at which CSF drains while also allowing ICP monitoring depending on system configuration. At the bedside, level to the ordered reference point, manage clamping during movement according to policy, and re-level after position changes before interpreting pressure or drainage.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating icp and cpp as isolated targets tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring neck position, intrathoracic pressure and venous outflow.
+
 Multisystem treatment tradeoffs. A therapy that helps one organ can worsen another; expert care weighs global benefit, reversibility and monitoring.
 
 Build the mechanism first. Organ-support interventions frequently redistribute risk: peep can help oxygenation but worsen RV load; fluids can increase flow but worsen congestion; sedation can improve synchrony but obscure neurologic assessment.
@@ -65,6 +109,18 @@ Two traps to actively avoid: Optimizing one organ in isolation. And: Treating gu
 The integration move is this: Expert critical care is often choosing the least harmful global strategy rather than a perfect organ-specific intervention.
 
 What expert-level use of this concept looks like is this: Explain at least two competing organ effects of a proposed intervention. Choose the least harmful testable strategy when the optimal answer is uncertain.
+
+Reasoning checkpoint. Do not just repeat the statement: Explain at least two competing organ effects of a proposed intervention. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Choose the least harmful testable strategy when the optimal answer is uncertain. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Multisystem treatment tradeoffs to Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
+
+The relationship matters because Clinical decisions are made with incomplete information. Calibrated reasoning assigns provisional probability, makes predictions and updates when new data contradict the model. At the bedside, state confidence, name disconfirming evidence and define what response you expect from a treatment if the model is correct.
+
+Stress-test the model. Imagine the patient changes in a way that makes optimizing one organ in isolation tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Treating guideline targets as independent goals that can all be maximized simultaneously.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
@@ -84,6 +140,18 @@ Keep these terms available in your mental model: fibrinolysis, fibrinogen, visco
 
 What expert-level use of this concept looks like is this: Reason from the failing component of clot formation rather than treating INR alone. Anticipate temperature, calcium and dilution effects during hemorrhagic resuscitation.
 
+Reasoning checkpoint. Do not just repeat the statement: Reason from the failing component of clot formation rather than treating INR alone. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Anticipate temperature, calcium and dilution effects during hemorrhagic resuscitation. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Critical-illness coagulopathy to Massive transfusion & hemorrhagic resuscitation. Hemorrhagic resuscitation integrates source control, balanced component replacement, calcium, temperature, coagulation and perfusion.
+
+The relationship matters because Major hemorrhage produces loss of oxygen-carrying capacity, volume and hemostatic components while hypothermia, hypocalcemia, dilution and acidosis can worsen coagulation. At the bedside, activate the hemorrhage system early, warm the resuscitation, track calcium/coagulation/temperature and never lose sight of definitive source control.
+
+Stress-test the model. Imagine the patient changes in a way that makes equating inr with whole-blood clot quality tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring fibrinogen, platelet function, temperature and calcium.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
 Now: Choose the least harmful bridge.
@@ -102,6 +170,18 @@ Keep these terms available in your mental model: calibration, falsification, dia
 
 What expert-level use of this concept looks like is this: State confidence, identify disconfirming evidence and update the model when the patient fails to respond as predicted.
 
+Reasoning checkpoint. Do not just repeat the statement: State confidence, identify disconfirming evidence and update the model when the patient fails to respond as predicted. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Clinical uncertainty & model revision to Cognitive bias & diagnostic error. Expert reasoning uses deliberate checks against anchoring, premature closure, confirmation bias and overconfidence while still making timely decisions.
+
+The relationship matters because Anchoring, confirmation bias and premature closure arise because fast pattern recognition is useful but can overcommit to the first plausible model. At the bedside, name the finding that does not fit, generate at least one alternative mechanism and use treatment response as new diagnostic evidence.
+
+Now connect Clinical uncertainty & model revision to Multisystem treatment tradeoffs. A therapy that helps one organ can worsen another; expert care weighs global benefit, reversibility and monitoring.
+
+The relationship matters because Organ-support interventions frequently redistribute risk: peep can help oxygenation but worsen RV load; fluids can increase flow but worsen congestion; sedation can improve synchrony but obscure neurologic assessment. At the bedside, before intervening, name the intended benefit, the organ/system at risk and the signal that would tell you the tradeoff has become unfavorable.
+
+Stress-test the model. Imagine the patient changes in a way that makes equating uncertainty with indecision tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Becoming more confident simply because the same hypothesis has been repeated.
+
 Multisystem treatment tradeoffs. A therapy that helps one organ can worsen another; expert care weighs global benefit, reversibility and monitoring.
 
 Build the mechanism first. Organ-support interventions frequently redistribute risk: peep can help oxygenation but worsen RV load; fluids can increase flow but worsen congestion; sedation can improve synchrony but obscure neurologic assessment.
@@ -113,6 +193,18 @@ Two traps to actively avoid: Optimizing one organ in isolation. And: Treating gu
 The integration move is this: Expert critical care is often choosing the least harmful global strategy rather than a perfect organ-specific intervention.
 
 What expert-level use of this concept looks like is this: Explain at least two competing organ effects of a proposed intervention. Choose the least harmful testable strategy when the optimal answer is uncertain.
+
+Reasoning checkpoint. Do not just repeat the statement: Explain at least two competing organ effects of a proposed intervention. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Choose the least harmful testable strategy when the optimal answer is uncertain. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Multisystem treatment tradeoffs to Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
+
+The relationship matters because Clinical decisions are made with incomplete information. Calibrated reasoning assigns provisional probability, makes predictions and updates when new data contradict the model. At the bedside, state confidence, name disconfirming evidence and define what response you expect from a treatment if the model is correct.
+
+Stress-test the model. Imagine the patient changes in a way that makes optimizing one organ in isolation tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Treating guideline targets as independent goals that can all be maximized simultaneously.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 

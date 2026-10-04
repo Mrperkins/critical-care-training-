@@ -20,6 +20,18 @@ Keep these terms available in your mental model: diastolic augmentation, deflati
 
 What expert-level use of this concept looks like is this: Identify correct inflation/deflation timing from the arterial waveform. Predict the hemodynamic consequence of early or late timing errors.
 
+Reasoning checkpoint. Do not just repeat the statement: Identify correct inflation/deflation timing from the arterial waveform. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict the hemodynamic consequence of early or late timing errors. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Intra-aortic balloon pump physiology to Mechanical circulatory support. Temporary circulatory support devices unload or bypass different parts of the circulation and must be matched to the failing ventricle and oxygenation problem.
+
+The relationship matters because Temporary MCS devices unload or bypass different portions of the circulation. Device selection depends on LV, RV, biventricular and/or oxygenation failure. At the bedside, understand where blood is removed, where it returns, what ventricle is unloaded and how native circulation interacts with the device.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating augmentation number alone as success tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Allowing late deflation to increase LV afterload.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
 Now: Inflation in diastole.
@@ -37,6 +49,18 @@ The integration move is this: The waveform should show you the mechanism the dev
 Keep these terms available in your mental model: diastolic augmentation, deflation, trigger.
 
 What expert-level use of this concept looks like is this: Identify correct inflation/deflation timing from the arterial waveform. Predict the hemodynamic consequence of early or late timing errors.
+
+Reasoning checkpoint. Do not just repeat the statement: Identify correct inflation/deflation timing from the arterial waveform. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict the hemodynamic consequence of early or late timing errors. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Intra-aortic balloon pump physiology to Mechanical circulatory support. Temporary circulatory support devices unload or bypass different parts of the circulation and must be matched to the failing ventricle and oxygenation problem.
+
+The relationship matters because Temporary MCS devices unload or bypass different portions of the circulation. Device selection depends on LV, RV, biventricular and/or oxygenation failure. At the bedside, understand where blood is removed, where it returns, what ventricle is unloaded and how native circulation interacts with the device.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating augmentation number alone as success tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Allowing late deflation to increase LV afterload.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
@@ -56,6 +80,18 @@ Keep these terms available in your mental model: diastolic augmentation, deflati
 
 What expert-level use of this concept looks like is this: Identify correct inflation/deflation timing from the arterial waveform. Predict the hemodynamic consequence of early or late timing errors.
 
+Reasoning checkpoint. Do not just repeat the statement: Identify correct inflation/deflation timing from the arterial waveform. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict the hemodynamic consequence of early or late timing errors. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Intra-aortic balloon pump physiology to Mechanical circulatory support. Temporary circulatory support devices unload or bypass different parts of the circulation and must be matched to the failing ventricle and oxygenation problem.
+
+The relationship matters because Temporary MCS devices unload or bypass different portions of the circulation. Device selection depends on LV, RV, biventricular and/or oxygenation failure. At the bedside, understand where blood is removed, where it returns, what ventricle is unloaded and how native circulation interacts with the device.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating augmentation number alone as success tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Allowing late deflation to increase LV afterload.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
 Now: Timing errors on the waveform.
@@ -74,6 +110,16 @@ Keep these terms available in your mental model: phlebostatic axis, dynamic resp
 
 What expert-level use of this concept looks like is this: Differentiate patient physiology from damping/resonance artifact. Mentally rehearse sterile insertion and transducer setup.
 
+Reasoning checkpoint. Do not just repeat the statement: Differentiate patient physiology from damping/resonance artifact. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Mentally rehearse sterile insertion and transducer setup. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Arterial line to Arterial waveform damping & resonance. The monitoring system can distort systolic and diastolic pressures while mean pressure is relatively preserved.
+
+The relationship matters because Overdamping blunts high-frequency components and narrows pulse pressure; underdamping/resonance exaggerates oscillations and can overstate systolic pressure. At the bedside, use a fast-flush or dynamic-response assessment and inspect for air, clot, tubing compliance, extra stopcocks and catheter position.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating a monitor number as direct truth tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring hydrostatic error from transducer height.
+
 Intra-aortic balloon pump physiology. I A B P timing uses diastolic augmentation and presystolic deflation to alter coronary perfusion and LV afterload.
 
 Build the mechanism first. I A B P inflates in diastole to augment aortic diastolic pressure and deflates before systole to reduce LV afterload. Benefit depends on timing and native rhythm/hemodynamics.
@@ -87,6 +133,18 @@ The integration move is this: The waveform should show you the mechanism the dev
 Keep these terms available in your mental model: diastolic augmentation, deflation, trigger.
 
 What expert-level use of this concept looks like is this: Identify correct inflation/deflation timing from the arterial waveform. Predict the hemodynamic consequence of early or late timing errors.
+
+Reasoning checkpoint. Do not just repeat the statement: Identify correct inflation/deflation timing from the arterial waveform. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict the hemodynamic consequence of early or late timing errors. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Intra-aortic balloon pump physiology to Mechanical circulatory support. Temporary circulatory support devices unload or bypass different parts of the circulation and must be matched to the failing ventricle and oxygenation problem.
+
+The relationship matters because Temporary MCS devices unload or bypass different portions of the circulation. Device selection depends on LV, RV, biventricular and/or oxygenation failure. At the bedside, understand where blood is removed, where it returns, what ventricle is unloaded and how native circulation interacts with the device.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating augmentation number alone as success tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Allowing late deflation to increase LV afterload.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 

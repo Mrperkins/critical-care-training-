@@ -20,6 +20,18 @@ Keep these terms available in your mental model: ketogenesis, anion gap, correct
 
 What expert-level use of this concept looks like is this: Track potassium and volume physiology across treatment rather than treating glucose alone. Recognize mixed acid-base disorders and treatment-related complications.
 
+Reasoning checkpoint. Do not just repeat the statement: Track potassium and volume physiology across treatment rather than treating glucose alone. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize mixed acid-base disorders and treatment-related complications. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Diabetic ketoacidosis physiology to Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+The relationship matters because Shock is inadequate effective tissue perfusion and oxygen utilization, not merely hypotension. Flow, vascular tone, capacitance, congestion and extraction can fail in different combinations. At the bedside, phenotype the circulation repeatedly. A patient can move from one dominant mechanism to another during resuscitation.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating glucose normalization as resolution of dka tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Forgetting that insulin can rapidly expose profound potassium depletion.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
 Now: What insulin does next.
@@ -37,6 +49,18 @@ The integration move is this: DKA therapy changes physiology continuously; every
 Keep these terms available in your mental model: ketogenesis, anion gap, corrected sodium.
 
 What expert-level use of this concept looks like is this: Track potassium and volume physiology across treatment rather than treating glucose alone. Recognize mixed acid-base disorders and treatment-related complications.
+
+Reasoning checkpoint. Do not just repeat the statement: Track potassium and volume physiology across treatment rather than treating glucose alone. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize mixed acid-base disorders and treatment-related complications. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Diabetic ketoacidosis physiology to Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+The relationship matters because Shock is inadequate effective tissue perfusion and oxygen utilization, not merely hypotension. Flow, vascular tone, capacitance, congestion and extraction can fail in different combinations. At the bedside, phenotype the circulation repeatedly. A patient can move from one dominant mechanism to another during resuscitation.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating glucose normalization as resolution of dka tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Forgetting that insulin can rapidly expose profound potassium depletion.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
@@ -56,6 +80,22 @@ Keep these terms available in your mental model: delta gap, expected compensatio
 
 What expert-level use of this concept looks like is this: Identify mixed disorders that a single pH label hides. Connect acid-base abnormalities to the underlying physiology and treatment.
 
+Reasoning checkpoint. Do not just repeat the statement: Identify mixed disorders that a single pH label hides. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Connect acid-base abnormalities to the underlying physiology and treatment. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Advanced acid-base reasoning to Strong-ion approach. A physicochemical framework using strong-ion difference, total weak acids and PCO2 to explain acid-base state.
+
+The relationship matters because The physicochemical framework explains acid-base state through PCO2, strong-ion difference and total weak acids. Chloride-rich states lower SID and can create metabolic acidosis. At the bedside, use the model to understand hyperchloremia and hypoalbuminemia while still translating findings into familiar bicarbonate and anion-gap language.
+
+Now connect Advanced acid-base reasoning to Diabetic ketoacidosis physiology. Insulin deficiency produces ketogenesis, osmotic diuresis, electrolyte shifts and a high-anion-gap acidosis whose treatment changes potassium and water distribution.
+
+The relationship matters because Insulin deficiency and counter-regulatory hormones drive ketogenesis, osmotic diuresis and major total-body electrolyte deficits even when serum levels initially appear normal or high. At the bedside, track volume status, potassium, sodium/osmolality, anion gap and acid-base trajectory through treatment.
+
+Stress-test the model. Imagine the patient changes in a way that makes calling a normal ph normal acid-base physiology tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Treating bicarbonate concentration as if it identifies the mechanism by itself.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
 Now: Trend the physiology through treatment.
@@ -73,6 +113,18 @@ The integration move is this: DKA therapy changes physiology continuously; every
 Keep these terms available in your mental model: ketogenesis, anion gap, corrected sodium.
 
 What expert-level use of this concept looks like is this: Track potassium and volume physiology across treatment rather than treating glucose alone. Recognize mixed acid-base disorders and treatment-related complications.
+
+Reasoning checkpoint. Do not just repeat the statement: Track potassium and volume physiology across treatment rather than treating glucose alone. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize mixed acid-base disorders and treatment-related complications. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Diabetic ketoacidosis physiology to Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+The relationship matters because Shock is inadequate effective tissue perfusion and oxygen utilization, not merely hypotension. Flow, vascular tone, capacitance, congestion and extraction can fail in different combinations. At the bedside, phenotype the circulation repeatedly. A patient can move from one dominant mechanism to another during resuscitation.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating glucose normalization as resolution of dka tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Forgetting that insulin can rapidly expose profound potassium depletion.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 

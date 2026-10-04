@@ -20,6 +20,22 @@ Keep these terms available in your mental model: enteral nutrition, protein targ
 
 What expert-level use of this concept looks like is this: Explain why early enteral nutrition is often preferred when feasible. Recognize when feeding strategy, aspiration risk or hemodynamic instability changes the plan.
 
+Reasoning checkpoint. Do not just repeat the statement: Explain why early enteral nutrition is often preferred when feasible. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize when feeding strategy, aspiration risk or hemodynamic instability changes the plan. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect ICU nutrition & refeeding risk to Refeeding syndrome. Insulin-driven intracellular shifts after refeeding can rapidly lower phosphate, potassium and magnesium and precipitate cardiopulmonary or neurologic deterioration.
+
+The relationship matters because Reintroducing carbohydrate after prolonged undernutrition raises insulin and shifts phosphate, potassium and magnesium intracellularly while increasing thiamine demand. At the bedside, identify high-risk patients before feeding escalation and monitor electrolytes and cardiopulmonary/neurologic response.
+
+Now connect ICU nutrition & refeeding risk to ICU-acquired weakness & recovery. Critical illness, immobility, inflammation, sedation and organ failure can produce profound weakness and long-term functional loss.
+
+The relationship matters because Inflammation, immobility, neuropathy, myopathy, sedation and undernutrition can cause profound ICU-acquired weakness and prolonged post-ICU disability. At the bedside, build mobility, delirium prevention, nutrition and sedation minimization into daily care rather than starting “rehab” only after organ failure resolves.
+
+Stress-test the model. Imagine the patient changes in a way that makes equating calories with adequate nutrition tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Overfeeding unstable patients or missing refeeding risk.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
 Now: Enteral versus parenteral reasoning.
@@ -37,6 +53,22 @@ The integration move is this: Nutrition, mobility and ventilator liberation are 
 Keep these terms available in your mental model: enteral nutrition, protein target, caloric debt.
 
 What expert-level use of this concept looks like is this: Explain why early enteral nutrition is often preferred when feasible. Recognize when feeding strategy, aspiration risk or hemodynamic instability changes the plan.
+
+Reasoning checkpoint. Do not just repeat the statement: Explain why early enteral nutrition is often preferred when feasible. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize when feeding strategy, aspiration risk or hemodynamic instability changes the plan. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect ICU nutrition & refeeding risk to Refeeding syndrome. Insulin-driven intracellular shifts after refeeding can rapidly lower phosphate, potassium and magnesium and precipitate cardiopulmonary or neurologic deterioration.
+
+The relationship matters because Reintroducing carbohydrate after prolonged undernutrition raises insulin and shifts phosphate, potassium and magnesium intracellularly while increasing thiamine demand. At the bedside, identify high-risk patients before feeding escalation and monitor electrolytes and cardiopulmonary/neurologic response.
+
+Now connect ICU nutrition & refeeding risk to ICU-acquired weakness & recovery. Critical illness, immobility, inflammation, sedation and organ failure can produce profound weakness and long-term functional loss.
+
+The relationship matters because Inflammation, immobility, neuropathy, myopathy, sedation and undernutrition can cause profound ICU-acquired weakness and prolonged post-ICU disability. At the bedside, build mobility, delirium prevention, nutrition and sedation minimization into daily care rather than starting “rehab” only after organ failure resolves.
+
+Stress-test the model. Imagine the patient changes in a way that makes equating calories with adequate nutrition tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Overfeeding unstable patients or missing refeeding risk.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
@@ -56,6 +88,14 @@ Keep these terms available in your mental model: phosphate, thiamine, intracellu
 
 What expert-level use of this concept looks like is this: Identify high-risk patients before feeding escalates. Connect electrolyte shifts to respiratory, cardiac and neurologic failure.
 
+Reasoning checkpoint. Do not just repeat the statement: Identify high-risk patients before feeding escalates. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Connect electrolyte shifts to respiratory, cardiac and neurologic failure. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Stress-test the model. Imagine the patient changes in a way that makes waiting for severe hypophosphatemia before recognizing risk tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Increasing calories rapidly because initial feeding was tolerated.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
 Now: Protein, mobility and recovery.
@@ -73,6 +113,22 @@ The integration move is this: Survival is not the only outcome; function is a cr
 Keep these terms available in your mental model: critical illness myopathy, critical illness neuropathy, PICS.
 
 What expert-level use of this concept looks like is this: Recognize weakness as an ICU outcome, not merely a discharge problem. Connect sedation, mobility, nutrition and ventilator liberation to recovery.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize weakness as an ICU outcome, not merely a discharge problem. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Connect sedation, mobility, nutrition and ventilator liberation to recovery. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect ICU-acquired weakness & recovery to ICU nutrition & refeeding risk. Nutrition in critical illness is a metabolic therapy with timing, route, protein, glycemic and electrolyte consequences.
+
+The relationship matters because Critical illness changes protein turnover, insulin sensitivity and energy use. Nutrition cannot fully reverse catabolism but route, timing and protein strategy influence recovery. At the bedside, prefer enteral feeding when feasible, assess aspiration/hemodynamic risk and monitor tolerance rather than chasing an exact calorie number immediately.
+
+Now connect ICU-acquired weakness & recovery to Liberation from mechanical ventilation. Liberation requires separating readiness, spontaneous breathing performance, airway protection and post-extubation risk.
+
+The relationship matters because A spontaneous breathing trial tests whether the patient can assume the work of breathing, but extubation also requires airway protection and manageable post-extubation risk. At the bedside, when a trial fails, distinguish respiratory muscle load, cardiac dysfunction, weakness, sedation, airway issues and unresolved disease.
+
+Stress-test the model. Imagine the patient changes in a way that makes interpreting generalized weakness only as deconditioning tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Separating recovery planning from ventilator liberation.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 

@@ -20,6 +20,14 @@ Keep these terms available in your mental model: airway resistance, dead space, 
 
 What expert-level use of this concept looks like is this: Anticipate rapid desaturation and pressure consequences in small airways. Use age/size-appropriate airway and ventilation strategy.
 
+Reasoning checkpoint. Do not just repeat the statement: Anticipate rapid desaturation and pressure consequences in small airways. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Use age/size-appropriate airway and ventilation strategy. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Stress-test the model. Imagine the patient changes in a way that makes using adult ventilator assumptions on small patients tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring dead space added by connectors/sensors.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
 Now: Higher demand, smaller reserve.
@@ -37,6 +45,14 @@ The integration move is this: Tiny geometric changes can create large physiologi
 Keep these terms available in your mental model: airway resistance, dead space, uncuffed/cuffed.
 
 What expert-level use of this concept looks like is this: Anticipate rapid desaturation and pressure consequences in small airways. Use age/size-appropriate airway and ventilation strategy.
+
+Reasoning checkpoint. Do not just repeat the statement: Anticipate rapid desaturation and pressure consequences in small airways. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Use age/size-appropriate airway and ventilation strategy. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Stress-test the model. Imagine the patient changes in a way that makes using adult ventilator assumptions on small patients tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring dead space added by connectors/sensors.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
@@ -56,6 +72,20 @@ Keep these terms available in your mental model: VD/VT, alveolar dead space.
 
 What expert-level use of this concept looks like is this: Use PaCO2–EtCO2 behavior and minute ventilation requirements to reason about changing dead space.
 
+Reasoning checkpoint. Do not just repeat the statement: Use PaCO2–EtCO2 behavior and minute ventilation requirements to reason about changing dead space. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Dead space to Pulmonary embolism physiology. Acute pulmonary vascular obstruction can abruptly raise RV afterload, impair LV filling and cause shock despite structurally normal lungs.
+
+The relationship matters because Large pulmonary embolic obstruction abruptly raises RV afterload, causing RV dilation, reduced LV filling and potential obstructive shock; gas exchange often reflects increased dead space. At the bedside, look for RV strain, low-flow signs and widening PaCO2–EtCO2 gap; be cautious with induction and excessive positive pressure in a preload- and RV-dependent circulation.
+
+Now connect Dead space to A R D S physiology. Diffuse inflammatory lung injury producing heterogeneity, shunt, low aerated lung volume and risk from ventilator-induced injury.
+
+The relationship matters because A R D S produces heterogeneous inflammatory lung injury, shunt, edema and a reduced aerated “baby lung,” making regional overdistension possible even at seemingly modest tidal volumes. At the bedside, integrate gas exchange, compliance, recruitability, prone response, driving pressure and hemodynamics rather than treating the P/F ratio alone.
+
+Stress-test the model. Imagine the patient changes in a way that makes equating all hypercapnia with low minute ventilation tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Using EtCO2 as a fixed conversion to PaCO2 in shock.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
 Now: Troubleshooting after intubation.
@@ -73,6 +103,22 @@ The integration move is this: Use pressure pattern, capnography, exam and circui
 Keep these terms available in your mental model: DOPES, peak pressure, plateau pressure, auto-peep.
 
 What expert-level use of this concept looks like is this: Separate resistance, compliance, circuit and patient problems using waveforms and bedside examination. Prioritize oxygenation and manual ventilation when the device or circuit cannot be trusted.
+
+Reasoning checkpoint. Do not just repeat the statement: Separate resistance, compliance, circuit and patient problems using waveforms and bedside examination. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Prioritize oxygenation and manual ventilation when the device or circuit cannot be trusted. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Ventilator emergency troubleshooting to Dead space. Ventilation that does not effectively participate in CO2 exchange, from conducting airways or ventilated but poorly perfused alveoli.
+
+The relationship matters because Dead-space ventilation reaches regions that do not effectively eliminate CO2 because perfusion is absent or inadequate, or because gas remains in conducting airways. At the bedside, rising minute-ventilation requirement, widening PaCO2–EtCO2 gap or unexpectedly low EtCO2 can signal increasing dead space when ventilation is otherwise unchanged.
+
+Now connect Ventilator emergency troubleshooting to peep. Positive end-expiratory pressure used to preserve recruitment and oxygenation, with important mechanical and hemodynamic effects.
+
+The relationship matters because peep can prevent end-expiratory collapse and recruit unstable lung units, but can also overdistend already-open units and transmit pressure to the thorax. At the bedside, judge a peep change by oxygenation, compliance, driving pressure, hemodynamics and the disease’s recruitability rather than by oxygen saturation alone.
+
+Stress-test the model. Imagine the patient changes in a way that makes staring at the ventilator while the patient deteriorates tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Treating every high-pressure alarm as bronchospasm.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 

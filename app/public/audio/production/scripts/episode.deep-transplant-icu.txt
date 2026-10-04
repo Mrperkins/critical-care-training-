@@ -20,6 +20,18 @@ Keep these terms available in your mental model: neutropenia, calcineurin inhibi
 
 What expert-level use of this concept looks like is this: Match likely pathogens to the host immune defect and time course. Recognize major drug-toxicity and interaction risks during critical illness.
 
+Reasoning checkpoint. Do not just repeat the statement: Match likely pathogens to the host immune defect and time course. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize major drug-toxicity and interaction risks during critical illness. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Immunosuppression & opportunistic infection to Transplant critical-care physiology. Transplant recipients combine altered anatomy/physiology, immunosuppression, unusual infection risk, rejection and drug-interaction problems.
+
+The relationship matters because Transplanted organs have altered anatomy, denervation or surgical connections while rejection, infection, ischemia and medication toxicity can produce overlapping dysfunction. At the bedside, use time-from-transplant, organ type, immunosuppression and prior complications to shape the differential.
+
+Stress-test the model. Imagine the patient changes in a way that makes expecting fever or leukocytosis to be reliable tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring antimicrobial–immunosuppressant interactions.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
 Now: Time from transplant changes the differential.
@@ -37,6 +49,22 @@ The integration move is this: The patient’s immune state, graft physiology and
 Keep these terms available in your mental model: rejection, opportunistic infection, allograft.
 
 What expert-level use of this concept looks like is this: Build a broader differential for shock, hypoxemia and organ dysfunction in transplant recipients. Avoid stopping immunosuppression or attributing graft dysfunction to rejection without context.
+
+Reasoning checkpoint. Do not just repeat the statement: Build a broader differential for shock, hypoxemia and organ dysfunction in transplant recipients. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Avoid stopping immunosuppression or attributing graft dysfunction to rejection without context. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Transplant critical-care physiology to Immunosuppression & opportunistic infection. Immune deficits and immunosuppressive drugs reshape infection timing, presentation, diagnostic yield and antimicrobial strategy.
+
+The relationship matters because Different immune deficits predispose to different organisms and alter inflammatory presentation. Immunosuppressants also create renal, neurologic, metabolic and drug-interaction toxicity. At the bedside, match infection risk to the immune defect and timeline while checking for drug toxicity and interaction.
+
+Now connect Transplant critical-care physiology to Source control. Definitive management of infected material, devitalized tissue or an infected device can be as important as antimicrobial therapy.
+
+The relationship matters because Antibiotics cannot sterilize every infected collection, necrotic tissue or infected device. Persistent nidus can sustain inflammatory and microbial burden despite apparently appropriate antimicrobial therapy. At the bedside, ask early whether drainage, debridement, device removal or surgery is required and whether it is actually happening.
+
+Stress-test the model. Imagine the patient changes in a way that makes calling every graft problem rejection tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Stopping immunosuppression reflexively during critical illness.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
@@ -56,6 +84,22 @@ Keep these terms available in your mental model: rejection, opportunistic infect
 
 What expert-level use of this concept looks like is this: Build a broader differential for shock, hypoxemia and organ dysfunction in transplant recipients. Avoid stopping immunosuppression or attributing graft dysfunction to rejection without context.
 
+Reasoning checkpoint. Do not just repeat the statement: Build a broader differential for shock, hypoxemia and organ dysfunction in transplant recipients. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Avoid stopping immunosuppression or attributing graft dysfunction to rejection without context. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Transplant critical-care physiology to Immunosuppression & opportunistic infection. Immune deficits and immunosuppressive drugs reshape infection timing, presentation, diagnostic yield and antimicrobial strategy.
+
+The relationship matters because Different immune deficits predispose to different organisms and alter inflammatory presentation. Immunosuppressants also create renal, neurologic, metabolic and drug-interaction toxicity. At the bedside, match infection risk to the immune defect and timeline while checking for drug toxicity and interaction.
+
+Now connect Transplant critical-care physiology to Source control. Definitive management of infected material, devitalized tissue or an infected device can be as important as antimicrobial therapy.
+
+The relationship matters because Antibiotics cannot sterilize every infected collection, necrotic tissue or infected device. Persistent nidus can sustain inflammatory and microbial burden despite apparently appropriate antimicrobial therapy. At the bedside, ask early whether drainage, debridement, device removal or surgery is required and whether it is actually happening.
+
+Stress-test the model. Imagine the patient changes in a way that makes calling every graft problem rejection tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Stopping immunosuppression reflexively during critical illness.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
 Now: Immunosuppressants interact with critical illness.
@@ -74,6 +118,16 @@ Keep these terms available in your mental model: neutropenia, calcineurin inhibi
 
 What expert-level use of this concept looks like is this: Match likely pathogens to the host immune defect and time course. Recognize major drug-toxicity and interaction risks during critical illness.
 
+Reasoning checkpoint. Do not just repeat the statement: Match likely pathogens to the host immune defect and time course. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize major drug-toxicity and interaction risks during critical illness. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Immunosuppression & opportunistic infection to Transplant critical-care physiology. Transplant recipients combine altered anatomy/physiology, immunosuppression, unusual infection risk, rejection and drug-interaction problems.
+
+The relationship matters because Transplanted organs have altered anatomy, denervation or surgical connections while rejection, infection, ischemia and medication toxicity can produce overlapping dysfunction. At the bedside, use time-from-transplant, organ type, immunosuppression and prior complications to shape the differential.
+
+Stress-test the model. Imagine the patient changes in a way that makes expecting fever or leukocytosis to be reliable tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring antimicrobial–immunosuppressant interactions.
+
 Antimicrobial PK/PD in critical illness. Critical illness changes volume of distribution, clearance and target attainment, so dose strategy must match drug and patient physiology.
 
 Build the mechanism first. Critical illness alters volume of distribution, protein binding and clearance. Drug efficacy depends on whether exposure matches the relevant PK/PD target.
@@ -87,6 +141,22 @@ The integration move is this: The antimicrobial choice and the exposure strategy
 Keep these terms available in your mental model: time above MIC, AUC/MIC, augmented renal clearance.
 
 What expert-level use of this concept looks like is this: Explain why standard dosing can underdose a shocked or hyperdynamic patient. Integrate renal support and changing clearance into antimicrobial strategy.
+
+Reasoning checkpoint. Do not just repeat the statement: Explain why standard dosing can underdose a shocked or hyperdynamic patient. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Integrate renal support and changing clearance into antimicrobial strategy. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Antimicrobial PK/PD in critical illness to Source control. Definitive management of infected material, devitalized tissue or an infected device can be as important as antimicrobial therapy.
+
+The relationship matters because Antibiotics cannot sterilize every infected collection, necrotic tissue or infected device. Persistent nidus can sustain inflammatory and microbial burden despite apparently appropriate antimicrobial therapy. At the bedside, ask early whether drainage, debridement, device removal or surgery is required and whether it is actually happening.
+
+Now connect Antimicrobial PK/PD in critical illness to C R R T physiology & prescription literacy. Continuous renal replacement uses diffusion and/or convection to manage solute, acid-base and fluid balance in unstable patients.
+
+The relationship matters because C R R T uses diffusion, convection and ultrafiltration to control solute, acid-base and volume continuously. Prescribed dose can differ substantially from delivered dose. At the bedside, separate total effluent from net patient fluid removal and interpret access, filter and return pressures as clues to the physical circuit.
+
+Stress-test the model. Imagine the patient changes in a way that makes reducing doses reflexively in early sepsis because creatinine is high tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring extracorporeal clearance.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
@@ -105,6 +175,22 @@ The integration move is this: Sepsis treatment is host support plus antimicrobia
 Keep these terms available in your mental model: drainage, debridement, device removal.
 
 What expert-level use of this concept looks like is this: Identify when antibiotics alone are unlikely to succeed. Escalate procedural or surgical source control as part of the resuscitation plan.
+
+Reasoning checkpoint. Do not just repeat the statement: Identify when antibiotics alone are unlikely to succeed. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Escalate procedural or surgical source control as part of the resuscitation plan. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Source control to Septic shock physiology. Distributive shock with dynamic changes in vascular tone, venous capacitance, myocardial performance, microcirculation and oxygen extraction.
+
+The relationship matters because Septic shock can combine vasoplegia, venous pooling, myocardial dysfunction, endothelial leak and disturbed microcirculation. Cardiac output may be low, normal or high. At the bedside, reassess vascular tone, flow, congestion and perfusion after each intervention rather than assuming a fixed distributive phenotype.
+
+Now connect Source control to Antimicrobial PK/PD in critical illness. Critical illness changes volume of distribution, clearance and target attainment, so dose strategy must match drug and patient physiology.
+
+The relationship matters because Critical illness alters volume of distribution, protein binding and clearance. Drug efficacy depends on whether exposure matches the relevant PK/PD target. At the bedside, account for augmented renal clearance, AKI, C R R T, fluid shifts and obesity rather than assuming standard dosing produces standard exposure.
+
+Stress-test the model. Imagine the patient changes in a way that makes escalating antibiotic breadth when the real failure is lack of source control tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Waiting for complete hemodynamic normalization before addressing a time-sensitive source.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 

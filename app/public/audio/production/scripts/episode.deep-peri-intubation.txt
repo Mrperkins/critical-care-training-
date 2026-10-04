@@ -20,6 +20,20 @@ Keep these terms available in your mental model: preoxygenation, apneic oxygenat
 
 What expert-level use of this concept looks like is this: Identify physiologically difficult airways before induction. Build an airway plan that includes hemodynamics and the first five minutes after tube placement.
 
+Reasoning checkpoint. Do not just repeat the statement: Identify physiologically difficult airways before induction. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Build an airway plan that includes hemodynamics and the first five minutes after tube placement. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect R S I preparation & peri-intubation physiology to ICU analgesia, sedation & synchrony. Sedation strategy balances analgesia, comfort, ventilator synchrony, neurologic assessment, hemodynamics and delirium risk.
+
+The relationship matters because Analgesics and sedatives alter pain, awareness, respiratory drive, vascular tone and neurologic assessment. Deep sedation is a physiologic intervention with downstream consequences. At the bedside, separate pain, anxiety, delirium, dyssynchrony and hypoxemia before escalating sedation; use an explicit target and reassess it.
+
+Now connect R S I preparation & peri-intubation physiology to Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+The relationship matters because Acute ventilator deterioration can originate from the patient, tube, circuit or machine. Peak and plateau pressures help separate resistance from compliance when measurements are trustworthy. At the bedside, look at the patient first, rescue oxygenation/ventilation if the device cannot be trusted, then trace from patient to tube to circuit to machine.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating rsi as laryngoscopy plus drugs tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring severe RV failure, metabolic acidosis or shock until after apnea begins.
+
 Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
 
 Build the mechanism first. The RV is thin-walled and highly sensitive to acute afterload. When it dilates, wall stress rises, coronary perfusion can fall and septal shift can reduce LV filling.
@@ -33,6 +47,22 @@ The integration move is this: Every intervention should be judged by its effects
 Keep these terms available in your mental model: RV-PA coupling, septal shift, transmural pressure.
 
 What expert-level use of this concept looks like is this: Recognize RV shock physiology before systemic hypotension becomes profound. Predict how peep, hypercapnia, hypoxemia, fluids and vasoactives may change RV performance.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize RV shock physiology before systemic hypotension becomes profound. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict how peep, hypercapnia, hypoxemia, fluids and vasoactives may change RV performance. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Right ventricular failure to Pulmonary vascular resistance. Resistance faced by the RV, influenced by lung volume, oxygenation, CO2, pH, pulmonary vascular disease and mechanical ventilation.
+
+The relationship matters because Pulmonary vascular resistance reflects the combined behavior of alveolar and extra-alveolar vessels and is affected by lung volume, oxygen, CO2, pH and pulmonary vascular disease. At the bedside, both severe derecruitment and overdistension can raise RV afterload. Hypoxemia, hypercapnia and acidosis can compound the problem.
+
+Now connect Right ventricular failure to Ventricular interdependence. The ventricles share a septum and constrained pericardial space, so pressure or volume loading of one changes filling and geometry of the other.
+
+The relationship matters because The ventricles share a septum and a constrained pericardial space. Acute RV pressure or volume loading can shift the septum and reduce LV diastolic filling. At the bedside, a falling LV stroke volume in RV failure may occur despite apparently adequate intravascular volume because geometry, not supply, is limiting filling.
+
+Stress-test the model. Imagine the patient changes in a way that makes reflexively giving fluid to every hypotensive rv patient tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Focusing on systemic pressure while ignoring worsening RV dilation and congestion.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
@@ -52,6 +82,22 @@ Keep these terms available in your mental model: transmural pressure, mean airwa
 
 What expert-level use of this concept looks like is this: Predict why induction and positive pressure can precipitate hypotension. Distinguish effects on RV preload, RV afterload and LV transmural afterload.
 
+Reasoning checkpoint. Do not just repeat the statement: Predict why induction and positive pressure can precipitate hypotension. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Distinguish effects on RV preload, RV afterload and LV transmural afterload. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Positive-pressure ventilation & circulation to Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+The relationship matters because The RV is thin-walled and highly sensitive to acute afterload. When it dilates, wall stress rises, coronary perfusion can fall and septal shift can reduce LV filling. At the bedside, track systemic pressure, venous congestion, echo geometry, oxygenation, CO2, acid-base status and ventilator pressures together. Small changes in P V R or intrathoracic pressure can have large hemodynamic consequences.
+
+Now connect Positive-pressure ventilation & circulation to Pulmonary vascular resistance. Resistance faced by the RV, influenced by lung volume, oxygenation, CO2, pH, pulmonary vascular disease and mechanical ventilation.
+
+The relationship matters because Pulmonary vascular resistance reflects the combined behavior of alveolar and extra-alveolar vessels and is affected by lung volume, oxygen, CO2, pH and pulmonary vascular disease. At the bedside, both severe derecruitment and overdistension can raise RV afterload. Hypoxemia, hypercapnia and acidosis can compound the problem.
+
+Stress-test the model. Imagine the patient changes in a way that makes attributing every post-intubation pressure drop to induction medication tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Assuming positive pressure has a single predictable effect on both ventricles.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
 Now: Confirmation is only the midpoint.
@@ -69,6 +115,22 @@ The integration move is this: The first five minutes determine whether airway co
 Keep these terms available in your mental model: waveform capnography, post-intubation hypotension, analgosedation.
 
 What expert-level use of this concept looks like is this: Run a reproducible first-five-minutes stabilization sequence. Treat hypotension or hypoxemia as a physiology problem rather than simply changing one ventilator or medication setting.
+
+Reasoning checkpoint. Do not just repeat the statement: Run a reproducible first-five-minutes stabilization sequence. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Treat hypotension or hypoxemia as a physiology problem rather than simply changing one ventilator or medication setting. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Post-intubation stabilization to Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+The relationship matters because Acute ventilator deterioration can originate from the patient, tube, circuit or machine. Peak and plateau pressures help separate resistance from compliance when measurements are trustworthy. At the bedside, look at the patient first, rescue oxygenation/ventilation if the device cannot be trusted, then trace from patient to tube to circuit to machine.
+
+Now connect Post-intubation stabilization to ICU analgesia, sedation & synchrony. Sedation strategy balances analgesia, comfort, ventilator synchrony, neurologic assessment, hemodynamics and delirium risk.
+
+The relationship matters because Analgesics and sedatives alter pain, awareness, respiratory drive, vascular tone and neurologic assessment. Deep sedation is a physiologic intervention with downstream consequences. At the bedside, separate pain, anxiety, delirium, dyssynchrony and hypoxemia before escalating sedation; use an explicit target and reassess it.
+
+Stress-test the model. Imagine the patient changes in a way that makes declaring success at tube confirmation tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Forgetting analgesia/sedation in a paralyzed patient.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
@@ -88,6 +150,20 @@ Keep these terms available in your mental model: waveform capnography, post-intu
 
 What expert-level use of this concept looks like is this: Run a reproducible first-five-minutes stabilization sequence. Treat hypotension or hypoxemia as a physiology problem rather than simply changing one ventilator or medication setting.
 
+Reasoning checkpoint. Do not just repeat the statement: Run a reproducible first-five-minutes stabilization sequence. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Treat hypotension or hypoxemia as a physiology problem rather than simply changing one ventilator or medication setting. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Post-intubation stabilization to Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+The relationship matters because Acute ventilator deterioration can originate from the patient, tube, circuit or machine. Peak and plateau pressures help separate resistance from compliance when measurements are trustworthy. At the bedside, look at the patient first, rescue oxygenation/ventilation if the device cannot be trusted, then trace from patient to tube to circuit to machine.
+
+Now connect Post-intubation stabilization to ICU analgesia, sedation & synchrony. Sedation strategy balances analgesia, comfort, ventilator synchrony, neurologic assessment, hemodynamics and delirium risk.
+
+The relationship matters because Analgesics and sedatives alter pain, awareness, respiratory drive, vascular tone and neurologic assessment. Deep sedation is a physiologic intervention with downstream consequences. At the bedside, separate pain, anxiety, delirium, dyssynchrony and hypoxemia before escalating sedation; use an explicit target and reassess it.
+
+Stress-test the model. Imagine the patient changes in a way that makes declaring success at tube confirmation tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Forgetting analgesia/sedation in a paralyzed patient.
+
 Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
 
 Build the mechanism first. The RV is thin-walled and highly sensitive to acute afterload. When it dilates, wall stress rises, coronary perfusion can fall and septal shift can reduce LV filling.
@@ -101,6 +177,22 @@ The integration move is this: Every intervention should be judged by its effects
 Keep these terms available in your mental model: RV-PA coupling, septal shift, transmural pressure.
 
 What expert-level use of this concept looks like is this: Recognize RV shock physiology before systemic hypotension becomes profound. Predict how peep, hypercapnia, hypoxemia, fluids and vasoactives may change RV performance.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize RV shock physiology before systemic hypotension becomes profound. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict how peep, hypercapnia, hypoxemia, fluids and vasoactives may change RV performance. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Right ventricular failure to Pulmonary vascular resistance. Resistance faced by the RV, influenced by lung volume, oxygenation, CO2, pH, pulmonary vascular disease and mechanical ventilation.
+
+The relationship matters because Pulmonary vascular resistance reflects the combined behavior of alveolar and extra-alveolar vessels and is affected by lung volume, oxygen, CO2, pH and pulmonary vascular disease. At the bedside, both severe derecruitment and overdistension can raise RV afterload. Hypoxemia, hypercapnia and acidosis can compound the problem.
+
+Now connect Right ventricular failure to Ventricular interdependence. The ventricles share a septum and constrained pericardial space, so pressure or volume loading of one changes filling and geometry of the other.
+
+The relationship matters because The ventricles share a septum and a constrained pericardial space. Acute RV pressure or volume loading can shift the septum and reduce LV diastolic filling. At the bedside, a falling LV stroke volume in RV failure may occur despite apparently adequate intravascular volume because geometry, not supply, is limiting filling.
+
+Stress-test the model. Imagine the patient changes in a way that makes reflexively giving fluid to every hypotensive rv patient tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Focusing on systemic pressure while ignoring worsening RV dilation and congestion.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
@@ -120,6 +212,22 @@ Keep these terms available in your mental model: DOPES, peak pressure, plateau p
 
 What expert-level use of this concept looks like is this: Separate resistance, compliance, circuit and patient problems using waveforms and bedside examination. Prioritize oxygenation and manual ventilation when the device or circuit cannot be trusted.
 
+Reasoning checkpoint. Do not just repeat the statement: Separate resistance, compliance, circuit and patient problems using waveforms and bedside examination. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Prioritize oxygenation and manual ventilation when the device or circuit cannot be trusted. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Ventilator emergency troubleshooting to Dead space. Ventilation that does not effectively participate in CO2 exchange, from conducting airways or ventilated but poorly perfused alveoli.
+
+The relationship matters because Dead-space ventilation reaches regions that do not effectively eliminate CO2 because perfusion is absent or inadequate, or because gas remains in conducting airways. At the bedside, rising minute-ventilation requirement, widening PaCO2–EtCO2 gap or unexpectedly low EtCO2 can signal increasing dead space when ventilation is otherwise unchanged.
+
+Now connect Ventilator emergency troubleshooting to peep. Positive end-expiratory pressure used to preserve recruitment and oxygenation, with important mechanical and hemodynamic effects.
+
+The relationship matters because peep can prevent end-expiratory collapse and recruit unstable lung units, but can also overdistend already-open units and transmit pressure to the thorax. At the bedside, judge a peep change by oxygenation, compliance, driving pressure, hemodynamics and the disease’s recruitability rather than by oxygen saturation alone.
+
+Stress-test the model. Imagine the patient changes in a way that makes staring at the ventilator while the patient deteriorates tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Treating every high-pressure alarm as bronchospasm.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
 Now: Analgesia, sedation and paralysis awareness.
@@ -137,6 +245,22 @@ The integration move is this: Sedation strategy should serve a clinical goal, no
 Keep these terms available in your mental model: analgosedation, RASS, daily awakening.
 
 What expert-level use of this concept looks like is this: Separate pain, anxiety, delirium and dyssynchrony before simply deepening sedation. Predict major hemodynamic and respiratory tradeoffs of sedative strategies.
+
+Reasoning checkpoint. Do not just repeat the statement: Separate pain, anxiety, delirium and dyssynchrony before simply deepening sedation. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict major hemodynamic and respiratory tradeoffs of sedative strategies. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect ICU analgesia, sedation & synchrony to Delirium, sleep & mobility. Brain dysfunction in critical illness is shaped by disease, drugs, sleep disruption, immobility and environment.
+
+The relationship matters because Delirium reflects acute brain dysfunction shaped by illness, medications, sleep disruption, sensory deprivation, immobility and environmental stressors. At the bedside, identify reversible drivers, lighten unnecessary sedation, restore sleep-wake cues, mobilize when feasible and involve family/orientation strategies.
+
+Now connect ICU analgesia, sedation & synchrony to Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+The relationship matters because Acute ventilator deterioration can originate from the patient, tube, circuit or machine. Peak and plateau pressures help separate resistance from compliance when measurements are trustworthy. At the bedside, look at the patient first, rescue oxygenation/ventilation if the device cannot be trusted, then trace from patient to tube to circuit to machine.
+
+Stress-test the model. Imagine the patient changes in a way that makes using paralysis as evidence of comfort tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Treating agitation as a medication deficiency without finding the cause.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 

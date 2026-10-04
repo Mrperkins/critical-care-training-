@@ -20,6 +20,22 @@ Keep these terms available in your mental model: ammonia, synthetic failure, cer
 
 What expert-level use of this concept looks like is this: Recognize the physiology that makes acute liver failure different from stable chronic cirrhosis. Prioritize neuroprotection, glucose control, hemodynamics and early transplant-center escalation.
 
+Reasoning checkpoint. Do not just repeat the statement: Recognize the physiology that makes acute liver failure different from stable chronic cirrhosis. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Prioritize neuroprotection, glucose control, hemodynamics and early transplant-center escalation. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Acute liver failure to Hepatic encephalopathy. Neurocognitive dysfunction from hepatic failure reflects ammonia and other mechanisms, with severity ranging from subtle change to coma.
+
+The relationship matters because Hepatic encephalopathy reflects impaired detoxification and altered neurotransmission, often worsened by infection, bleeding, constipation, medications or electrolyte disturbance. At the bedside, search for precipitants and competing causes of altered mental status; ammonia supports context but should not replace the clinical diagnosis.
+
+Now connect Acute liver failure to C R R T physiology & prescription literacy. Continuous renal replacement uses diffusion and/or convection to manage solute, acid-base and fluid balance in unstable patients.
+
+The relationship matters because C R R T uses diffusion, convection and ultrafiltration to control solute, acid-base and volume continuously. Prescribed dose can differ substantially from delivered dose. At the bedside, separate total effluent from net patient fluid removal and interpret access, filter and return pressures as clues to the physical circuit.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating elevated inr as the only measure of severity tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Assuming chronic-cirrhosis physiology applies directly to acute failure.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
 Now: Ammonia and cerebral edema.
@@ -38,6 +54,16 @@ Keep these terms available in your mental model: asterixis, ammonia, precipitati
 
 What expert-level use of this concept looks like is this: Look for reversible precipitants instead of attributing all altered mental status to ammonia. Separate chronic encephalopathy from acute cerebral-edema risk.
 
+Reasoning checkpoint. Do not just repeat the statement: Look for reversible precipitants instead of attributing all altered mental status to ammonia. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Separate chronic encephalopathy from acute cerebral-edema risk. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Hepatic encephalopathy to Acute liver failure. Acute hepatic failure couples coagulopathy, ammonia handling, cerebral edema risk, hypoglycemia, vasodilation and multiorgan dysfunction.
+
+The relationship matters because Abrupt loss of hepatic synthetic and metabolic function can cause hyperammonemia, hypoglycemia, vasodilation, coagulopathy, renal failure and cerebral edema. At the bedside, trend neurologic status, glucose, acid-base, renal function and hemodynamics while involving a transplant-capable center early.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating the ammonia level rather than the patient tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Missing infection, bleeding or sedative accumulation.
+
 ICP, CPP & cerebral perfusion. Cerebral perfusion depends on the gradient across the cerebral circulation and is influenced by pressure, venous outflow, CO2 and intracranial compliance.
 
 Build the mechanism first. CPP is the pressure gradient available to drive cerebral blood flow and is influenced by arterial pressure, ICP, venous pressure and autoregulation. Intracranial compliance falls as compensatory reserve is exhausted.
@@ -51,6 +77,22 @@ The integration move is this: Protect the brain by preserving oxygenation and pe
 Keep these terms available in your mental model: CPP, autoregulation, Monro-Kellie.
 
 What expert-level use of this concept looks like is this: Predict how systemic pressure, CO2 and venous pressure affect cerebral perfusion. Recognize when a normal MAP does not guarantee adequate CPP.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict how systemic pressure, CO2 and venous pressure affect cerebral perfusion. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize when a normal MAP does not guarantee adequate CPP. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect ICP, CPP & cerebral perfusion to Brain herniation physiology. Rising intracranial pressure and compartment shifts distort brain structures, impair perfusion and can produce rapidly evolving focal and brainstem signs.
+
+The relationship matters because When intracranial pressure gradients exceed compensatory reserve, brain tissue shifts across fixed boundaries, compressing cranial nerves, vessels and brainstem structures. At the bedside, recognize trajectory—declining consciousness, pupillary asymmetry, motor changes and evolving brainstem physiology—while protecting oxygenation and cerebral perfusion.
+
+Now connect ICP, CPP & cerebral perfusion to E V D management. External ventricular drainage requires correct leveling, clamping during movement and interpretation of drainage and ICP.
+
+The relationship matters because An external ventricular drain uses a hydrostatic height reference to define the pressure at which CSF drains while also allowing ICP monitoring depending on system configuration. At the bedside, level to the ordered reference point, manage clamping during movement according to policy, and re-level after position changes before interpreting pressure or drainage.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating icp and cpp as isolated targets tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring neck position, intrathoracic pressure and venous outflow.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
@@ -70,6 +112,18 @@ Keep these terms available in your mental model: fibrinolysis, fibrinogen, visco
 
 What expert-level use of this concept looks like is this: Reason from the failing component of clot formation rather than treating INR alone. Anticipate temperature, calcium and dilution effects during hemorrhagic resuscitation.
 
+Reasoning checkpoint. Do not just repeat the statement: Reason from the failing component of clot formation rather than treating INR alone. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Anticipate temperature, calcium and dilution effects during hemorrhagic resuscitation. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Critical-illness coagulopathy to Massive transfusion & hemorrhagic resuscitation. Hemorrhagic resuscitation integrates source control, balanced component replacement, calcium, temperature, coagulation and perfusion.
+
+The relationship matters because Major hemorrhage produces loss of oxygen-carrying capacity, volume and hemostatic components while hypothermia, hypocalcemia, dilution and acidosis can worsen coagulation. At the bedside, activate the hemorrhage system early, warm the resuscitation, track calcium/coagulation/temperature and never lose sight of definitive source control.
+
+Stress-test the model. Imagine the patient changes in a way that makes equating inr with whole-blood clot quality tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring fibrinogen, platelet function, temperature and calcium.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
 Now: Vasodilation and multiorgan failure.
@@ -87,6 +141,22 @@ The integration move is this: Choose interventions that both treat the suspected
 Keep these terms available in your mental model: flow, tone, congestion, perfusion.
 
 What expert-level use of this concept looks like is this: Recognize mixed shock. Choose an intervention that tests a physiologic hypothesis and define the response expected if that hypothesis is correct.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize mixed shock. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Choose an intervention that tests a physiologic hypothesis and define the response expected if that hypothesis is correct. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Shock phenotyping to Septic shock physiology. Distributive shock with dynamic changes in vascular tone, venous capacitance, myocardial performance, microcirculation and oxygen extraction.
+
+The relationship matters because Septic shock can combine vasoplegia, venous pooling, myocardial dysfunction, endothelial leak and disturbed microcirculation. Cardiac output may be low, normal or high. At the bedside, reassess vascular tone, flow, congestion and perfusion after each intervention rather than assuming a fixed distributive phenotype.
+
+Now connect Shock phenotyping to Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+The relationship matters because The RV is thin-walled and highly sensitive to acute afterload. When it dilates, wall stress rises, coronary perfusion can fall and septal shift can reduce LV filling. At the bedside, track systemic pressure, venous congestion, echo geometry, oxygenation, CO2, acid-base status and ventilator pressures together. Small changes in P V R or intrathoracic pressure can have large hemodynamic consequences.
+
+Stress-test the model. Imagine the patient changes in a way that makes naming shock once and never revisiting the model tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Treating MAP as the only endpoint.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
@@ -106,6 +176,20 @@ Keep these terms available in your mental model: effluent dose, CVVH, CVVHD, CVV
 
 What expert-level use of this concept looks like is this: Explain diffusion versus convection and net ultrafiltration. Recognize how circuit, anticoagulation and prescribed versus delivered dose change therapy.
 
+Reasoning checkpoint. Do not just repeat the statement: Explain diffusion versus convection and net ultrafiltration. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize how circuit, anticoagulation and prescribed versus delivered dose change therapy. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect C R R T physiology & prescription literacy to Antimicrobial PK/PD in critical illness. Critical illness changes volume of distribution, clearance and target attainment, so dose strategy must match drug and patient physiology.
+
+The relationship matters because Critical illness alters volume of distribution, protein binding and clearance. Drug efficacy depends on whether exposure matches the relevant PK/PD target. At the bedside, account for augmented renal clearance, AKI, C R R T, fluid shifts and obesity rather than assuming standard dosing produces standard exposure.
+
+Now connect C R R T physiology & prescription literacy to Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+The relationship matters because Shock is inadequate effective tissue perfusion and oxygen utilization, not merely hypotension. Flow, vascular tone, capacitance, congestion and extraction can fail in different combinations. At the bedside, phenotype the circulation repeatedly. A patient can move from one dominant mechanism to another during resuscitation.
+
+Stress-test the model. Imagine the patient changes in a way that makes calling every effluent liter “fluid removed from the patient.” tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring downtime and clotting when assessing delivered therapy.
+
 Acute liver failure. Acute hepatic failure couples coagulopathy, ammonia handling, cerebral edema risk, hypoglycemia, vasodilation and multiorgan dysfunction.
 
 Build the mechanism first. Abrupt loss of hepatic synthetic and metabolic function can cause hyperammonemia, hypoglycemia, vasodilation, coagulopathy, renal failure and cerebral edema.
@@ -119,6 +203,22 @@ The integration move is this: Acute liver failure is a brain-circulation-metabol
 Keep these terms available in your mental model: ammonia, synthetic failure, cerebral edema.
 
 What expert-level use of this concept looks like is this: Recognize the physiology that makes acute liver failure different from stable chronic cirrhosis. Prioritize neuroprotection, glucose control, hemodynamics and early transplant-center escalation.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize the physiology that makes acute liver failure different from stable chronic cirrhosis. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Prioritize neuroprotection, glucose control, hemodynamics and early transplant-center escalation. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Acute liver failure to Hepatic encephalopathy. Neurocognitive dysfunction from hepatic failure reflects ammonia and other mechanisms, with severity ranging from subtle change to coma.
+
+The relationship matters because Hepatic encephalopathy reflects impaired detoxification and altered neurotransmission, often worsened by infection, bleeding, constipation, medications or electrolyte disturbance. At the bedside, search for precipitants and competing causes of altered mental status; ammonia supports context but should not replace the clinical diagnosis.
+
+Now connect Acute liver failure to C R R T physiology & prescription literacy. Continuous renal replacement uses diffusion and/or convection to manage solute, acid-base and fluid balance in unstable patients.
+
+The relationship matters because C R R T uses diffusion, convection and ultrafiltration to control solute, acid-base and volume continuously. Prescribed dose can differ substantially from delivered dose. At the bedside, separate total effluent from net patient fluid removal and interpret access, filter and return pressures as clues to the physical circuit.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating elevated inr as the only measure of severity tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Assuming chronic-cirrhosis physiology applies directly to acute failure.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 

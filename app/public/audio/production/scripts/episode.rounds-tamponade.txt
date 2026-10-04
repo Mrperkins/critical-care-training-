@@ -20,6 +20,22 @@ Keep these terms available in your mental model: pericardial pressure, respirato
 
 What expert-level use of this concept looks like is this: Explain tamponade as a filling-pressure problem rather than a checklist of classic signs. Predict effects of positive pressure and volume changes on a preload-limited circulation.
 
+Reasoning checkpoint. Do not just repeat the statement: Explain tamponade as a filling-pressure problem rather than a checklist of classic signs. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict effects of positive pressure and volume changes on a preload-limited circulation. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Cardiac tamponade physiology to Ventricular interdependence. The ventricles share a septum and constrained pericardial space, so pressure or volume loading of one changes filling and geometry of the other.
+
+The relationship matters because The ventricles share a septum and a constrained pericardial space. Acute RV pressure or volume loading can shift the septum and reduce LV diastolic filling. At the bedside, a falling LV stroke volume in RV failure may occur despite apparently adequate intravascular volume because geometry, not supply, is limiting filling.
+
+Now connect Cardiac tamponade physiology to Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+The relationship matters because Shock is inadequate effective tissue perfusion and oxygen utilization, not merely hypotension. Flow, vascular tone, capacitance, congestion and extraction can fail in different combinations. At the bedside, phenotype the circulation repeatedly. A patient can move from one dominant mechanism to another during resuscitation.
+
+Stress-test the model. Imagine the patient changes in a way that makes waiting for the complete classic triad tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring how positive pressure can further reduce venous return.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
 Now: The ventricles compete for space.
@@ -37,6 +53,20 @@ The integration move is this: When one ventricle enlarges or its pressure rises,
 Keep these terms available in your mental model: septal shift, pericardial constraint.
 
 What expert-level use of this concept looks like is this: Use septal position and loading conditions to explain falling LV output during RV distension.
+
+Reasoning checkpoint. Do not just repeat the statement: Use septal position and loading conditions to explain falling LV output during RV distension. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Ventricular interdependence to Cardiac tamponade physiology. Pericardial pressure constrains chamber filling, couples the ventricles and makes venous return highly sensitive to pressure gradients.
+
+The relationship matters because When pericardial pressure approaches chamber filling pressure, diastolic filling becomes constrained and the ventricles compete within a fixed space. At the bedside, interpret echo and hemodynamics together, especially respiratory variation, chamber collapse and venous congestion.
+
+Now connect Ventricular interdependence to Positive-pressure ventilation & circulation. Positive intrathoracic pressure changes venous return, ventricular transmural pressures and pulmonary vascular resistance.
+
+The relationship matters because Positive intrathoracic pressure can reduce the gradient for venous return, change transmural ventricular pressures and alter P V R depending on lung volume and recruitability. At the bedside, post-intubation hypotension may reflect vasodilation, reduced venous return, increased RV afterload, auto-peep or previously compensated shock becoming unmasked.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating lv output and rv function as separate systems tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Calling septal flattening a descriptive echo finding without hemodynamic meaning.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
@@ -56,6 +86,22 @@ Keep these terms available in your mental model: end-diastolic volume, transmura
 
 What expert-level use of this concept looks like is this: Distinguish preload from CVP or fluid responsiveness. Predict how changes in intrathoracic pressure alter measured filling pressures.
 
+Reasoning checkpoint. Do not just repeat the statement: Distinguish preload from CVP or fluid responsiveness. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict how changes in intrathoracic pressure alter measured filling pressures. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Preload to Venous return. Flow back to the right heart determined by the pressure gradient from the systemic circulation and resistance to venous return.
+
+The relationship matters because Venous return depends on the pressure gradient from the systemic venous reservoir toward the right atrium and on resistance to that flow. Mean systemic filling pressure and right-atrial pressure can move independently. At the bedside, a rise in right-atrial pressure can reduce venous return even when the patient appears more “full.” Venoconstriction can recruit unstressed volume and change the upstream pressure without adding external fluid.
+
+Now connect Preload to Fluid responsiveness. Whether stroke volume will meaningfully increase after an increase in preload; distinct from whether fluid is indicated or safe.
+
+The relationship matters because Fluid responsiveness asks whether stroke volume rises with increased preload. It does not answer whether the patient needs fluid, whether fluid is safe, or whether another intervention would better address the problem. At the bedside, use dynamic tests when their assumptions are valid and interpret the change in flow, not merely pressure. Then ask whether the patient can tolerate the added volume.
+
+Stress-test the model. Imagine the patient changes in a way that makes equating cvp with circulating volume tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Assuming fluid responsiveness means fluid is indicated or tolerated.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
 Now: Positive pressure changes the gradient.
@@ -73,6 +119,22 @@ The integration move is this: Think preload, RV afterload and LV transmural afte
 Keep these terms available in your mental model: transmural pressure, mean airway pressure.
 
 What expert-level use of this concept looks like is this: Predict why induction and positive pressure can precipitate hypotension. Distinguish effects on RV preload, RV afterload and LV transmural afterload.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict why induction and positive pressure can precipitate hypotension. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Distinguish effects on RV preload, RV afterload and LV transmural afterload. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Positive-pressure ventilation & circulation to Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+The relationship matters because The RV is thin-walled and highly sensitive to acute afterload. When it dilates, wall stress rises, coronary perfusion can fall and septal shift can reduce LV filling. At the bedside, track systemic pressure, venous congestion, echo geometry, oxygenation, CO2, acid-base status and ventilator pressures together. Small changes in P V R or intrathoracic pressure can have large hemodynamic consequences.
+
+Now connect Positive-pressure ventilation & circulation to Pulmonary vascular resistance. Resistance faced by the RV, influenced by lung volume, oxygenation, CO2, pH, pulmonary vascular disease and mechanical ventilation.
+
+The relationship matters because Pulmonary vascular resistance reflects the combined behavior of alveolar and extra-alveolar vessels and is affected by lung volume, oxygen, CO2, pH and pulmonary vascular disease. At the bedside, both severe derecruitment and overdistension can raise RV afterload. Hypoxemia, hypercapnia and acidosis can compound the problem.
+
+Stress-test the model. Imagine the patient changes in a way that makes attributing every post-intubation pressure drop to induction medication tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Assuming positive pressure has a single predictable effect on both ventricles.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 

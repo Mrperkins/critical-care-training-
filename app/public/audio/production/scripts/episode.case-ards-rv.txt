@@ -20,6 +20,18 @@ Keep these terms available in your mental model: baby lung, shunt, recruitabilit
 
 What expert-level use of this concept looks like is this: Integrate oxygenation, mechanics, recruitability and hemodynamics rather than treating a P/F ratio in isolation.
 
+Reasoning checkpoint. Do not just repeat the statement: Integrate oxygenation, mechanics, recruitability and hemodynamics rather than treating a P/F ratio in isolation. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect A R D S physiology to Driving pressure. Plateau pressure minus total peep; a bedside expression of tidal strain relative to respiratory-system compliance.
+
+The relationship matters because Driving pressure is plateau pressure minus total peep and reflects tidal pressure applied to the respiratory system relative to available compliance. At the bedside, a fixed tidal volume can impose very different stress depending on how much functional lung is available. Trend driving pressure alongside plateau pressure and mechanics.
+
+Now connect A R D S physiology to Pulmonary vascular resistance. Resistance faced by the RV, influenced by lung volume, oxygenation, CO2, pH, pulmonary vascular disease and mechanical ventilation.
+
+The relationship matters because Pulmonary vascular resistance reflects the combined behavior of alveolar and extra-alveolar vessels and is affected by lung volume, oxygen, CO2, pH and pulmonary vascular disease. At the bedside, both severe derecruitment and overdistension can raise RV afterload. Hypoxemia, hypercapnia and acidosis can compound the problem.
+
+Stress-test the model. Imagine the patient changes in a way that makes equating severe hypoxemia with universal recruitability tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Improving oxygenation at the cost of excessive distending pressure or RV load.
+
 Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
 
 Build the mechanism first. The RV is thin-walled and highly sensitive to acute afterload. When it dilates, wall stress rises, coronary perfusion can fall and septal shift can reduce LV filling.
@@ -33,6 +45,22 @@ The integration move is this: Every intervention should be judged by its effects
 Keep these terms available in your mental model: RV-PA coupling, septal shift, transmural pressure.
 
 What expert-level use of this concept looks like is this: Recognize RV shock physiology before systemic hypotension becomes profound. Predict how peep, hypercapnia, hypoxemia, fluids and vasoactives may change RV performance.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize RV shock physiology before systemic hypotension becomes profound. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict how peep, hypercapnia, hypoxemia, fluids and vasoactives may change RV performance. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Right ventricular failure to Pulmonary vascular resistance. Resistance faced by the RV, influenced by lung volume, oxygenation, CO2, pH, pulmonary vascular disease and mechanical ventilation.
+
+The relationship matters because Pulmonary vascular resistance reflects the combined behavior of alveolar and extra-alveolar vessels and is affected by lung volume, oxygen, CO2, pH and pulmonary vascular disease. At the bedside, both severe derecruitment and overdistension can raise RV afterload. Hypoxemia, hypercapnia and acidosis can compound the problem.
+
+Now connect Right ventricular failure to Ventricular interdependence. The ventricles share a septum and constrained pericardial space, so pressure or volume loading of one changes filling and geometry of the other.
+
+The relationship matters because The ventricles share a septum and a constrained pericardial space. Acute RV pressure or volume loading can shift the septum and reduce LV diastolic filling. At the bedside, a falling LV stroke volume in RV failure may occur despite apparently adequate intravascular volume because geometry, not supply, is limiting filling.
+
+Stress-test the model. Imagine the patient changes in a way that makes reflexively giving fluid to every hypotensive rv patient tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Focusing on systemic pressure while ignoring worsening RV dilation and congestion.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Pause here and answer this before you continue: Before more data arrives, what are your competing priorities?
 
@@ -54,6 +82,20 @@ Keep these terms available in your mental model: recruitability, intrinsic peep.
 
 What expert-level use of this concept looks like is this: Explain when increasing peep may recruit lung versus overdistend it. Anticipate circulatory effects in preload-dependent or RV-failing patients.
 
+Reasoning checkpoint. Do not just repeat the statement: Explain when increasing peep may recruit lung versus overdistend it. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Anticipate circulatory effects in preload-dependent or RV-failing patients. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect peep to A R D S physiology. Diffuse inflammatory lung injury producing heterogeneity, shunt, low aerated lung volume and risk from ventilator-induced injury.
+
+The relationship matters because A R D S produces heterogeneous inflammatory lung injury, shunt, edema and a reduced aerated “baby lung,” making regional overdistension possible even at seemingly modest tidal volumes. At the bedside, integrate gas exchange, compliance, recruitability, prone response, driving pressure and hemodynamics rather than treating the P/F ratio alone.
+
+Now connect peep to Positive-pressure ventilation & circulation. Positive intrathoracic pressure changes venous return, ventricular transmural pressures and pulmonary vascular resistance.
+
+The relationship matters because Positive intrathoracic pressure can reduce the gradient for venous return, change transmural ventricular pressures and alter P V R depending on lung volume and recruitability. At the bedside, post-intubation hypotension may reflect vasodilation, reduced venous return, increased RV afterload, auto-peep or previously compensated shock becoming unmasked.
+
+Stress-test the model. Imagine the patient changes in a way that makes chasing oxygenation while ignoring falling cardiac output tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Assuming higher peep is either universally protective or universally harmful.
+
 Pulmonary vascular resistance. Resistance faced by the RV, influenced by lung volume, oxygenation, CO2, pH, pulmonary vascular disease and mechanical ventilation.
 
 Build the mechanism first. Pulmonary vascular resistance reflects the combined behavior of alveolar and extra-alveolar vessels and is affected by lung volume, oxygen, CO2, pH and pulmonary vascular disease.
@@ -67,6 +109,22 @@ The integration move is this: Interpret ventilator changes through both lung mec
 Keep these terms available in your mental model: RV afterload, West zones.
 
 What expert-level use of this concept looks like is this: Explain the U-shaped relationship between lung volume and pulmonary vascular resistance. Identify reversible contributors to acute RV afterload.
+
+Reasoning checkpoint. Do not just repeat the statement: Explain the U-shaped relationship between lung volume and pulmonary vascular resistance. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Identify reversible contributors to acute RV afterload. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Pulmonary vascular resistance to Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+The relationship matters because The RV is thin-walled and highly sensitive to acute afterload. When it dilates, wall stress rises, coronary perfusion can fall and septal shift can reduce LV filling. At the bedside, track systemic pressure, venous congestion, echo geometry, oxygenation, CO2, acid-base status and ventilator pressures together. Small changes in P V R or intrathoracic pressure can have large hemodynamic consequences.
+
+Now connect Pulmonary vascular resistance to Positive-pressure ventilation & circulation. Positive intrathoracic pressure changes venous return, ventricular transmural pressures and pulmonary vascular resistance.
+
+The relationship matters because Positive intrathoracic pressure can reduce the gradient for venous return, change transmural ventricular pressures and alter P V R depending on lung volume and recruitability. At the bedside, post-intubation hypotension may reflect vasodilation, reduced venous return, increased RV afterload, auto-peep or previously compensated shock becoming unmasked.
+
+Stress-test the model. Imagine the patient changes in a way that makes assuming more peep always lowers pvr by recruiting lung tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring gas chemistry as an RV afterload intervention.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
@@ -86,6 +144,20 @@ Keep these terms available in your mental model: RV-PA coupling, septal shift, t
 
 What expert-level use of this concept looks like is this: Recognize RV shock physiology before systemic hypotension becomes profound. Predict how peep, hypercapnia, hypoxemia, fluids and vasoactives may change RV performance.
 
+Reasoning checkpoint. Do not just repeat the statement: Recognize RV shock physiology before systemic hypotension becomes profound. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict how peep, hypercapnia, hypoxemia, fluids and vasoactives may change RV performance. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Right ventricular failure to Pulmonary vascular resistance. Resistance faced by the RV, influenced by lung volume, oxygenation, CO2, pH, pulmonary vascular disease and mechanical ventilation.
+
+The relationship matters because Pulmonary vascular resistance reflects the combined behavior of alveolar and extra-alveolar vessels and is affected by lung volume, oxygen, CO2, pH and pulmonary vascular disease. At the bedside, both severe derecruitment and overdistension can raise RV afterload. Hypoxemia, hypercapnia and acidosis can compound the problem.
+
+Now connect Right ventricular failure to Ventricular interdependence. The ventricles share a septum and constrained pericardial space, so pressure or volume loading of one changes filling and geometry of the other.
+
+The relationship matters because The ventricles share a septum and a constrained pericardial space. Acute RV pressure or volume loading can shift the septum and reduce LV diastolic filling. At the bedside, a falling LV stroke volume in RV failure may occur despite apparently adequate intravascular volume because geometry, not supply, is limiting filling.
+
+Stress-test the model. Imagine the patient changes in a way that makes reflexively giving fluid to every hypotensive rv patient tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Focusing on systemic pressure while ignoring worsening RV dilation and congestion.
+
 Ventricular interdependence. The ventricles share a septum and constrained pericardial space, so pressure or volume loading of one changes filling and geometry of the other.
 
 Build the mechanism first. The ventricles share a septum and a constrained pericardial space. Acute RV pressure or volume loading can shift the septum and reduce LV diastolic filling.
@@ -99,6 +171,20 @@ The integration move is this: When one ventricle enlarges or its pressure rises,
 Keep these terms available in your mental model: septal shift, pericardial constraint.
 
 What expert-level use of this concept looks like is this: Use septal position and loading conditions to explain falling LV output during RV distension.
+
+Reasoning checkpoint. Do not just repeat the statement: Use septal position and loading conditions to explain falling LV output during RV distension. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Ventricular interdependence to Cardiac tamponade physiology. Pericardial pressure constrains chamber filling, couples the ventricles and makes venous return highly sensitive to pressure gradients.
+
+The relationship matters because When pericardial pressure approaches chamber filling pressure, diastolic filling becomes constrained and the ventricles compete within a fixed space. At the bedside, interpret echo and hemodynamics together, especially respiratory variation, chamber collapse and venous congestion.
+
+Now connect Ventricular interdependence to Positive-pressure ventilation & circulation. Positive intrathoracic pressure changes venous return, ventricular transmural pressures and pulmonary vascular resistance.
+
+The relationship matters because Positive intrathoracic pressure can reduce the gradient for venous return, change transmural ventricular pressures and alter P V R depending on lung volume and recruitability. At the bedside, post-intubation hypotension may reflect vasodilation, reduced venous return, increased RV afterload, auto-peep or previously compensated shock becoming unmasked.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating lv output and rv function as separate systems tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Calling septal flattening a descriptive echo finding without hemodynamic meaning.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
@@ -115,6 +201,18 @@ Two traps to actively avoid: Optimizing one organ in isolation. And: Treating gu
 The integration move is this: Expert critical care is often choosing the least harmful global strategy rather than a perfect organ-specific intervention.
 
 What expert-level use of this concept looks like is this: Explain at least two competing organ effects of a proposed intervention. Choose the least harmful testable strategy when the optimal answer is uncertain.
+
+Reasoning checkpoint. Do not just repeat the statement: Explain at least two competing organ effects of a proposed intervention. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Choose the least harmful testable strategy when the optimal answer is uncertain. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Multisystem treatment tradeoffs to Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
+
+The relationship matters because Clinical decisions are made with incomplete information. Calibrated reasoning assigns provisional probability, makes predictions and updates when new data contradict the model. At the bedside, state confidence, name disconfirming evidence and define what response you expect from a treatment if the model is correct.
+
+Stress-test the model. Imagine the patient changes in a way that makes optimizing one organ in isolation tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Treating guideline targets as independent goals that can all be maximized simultaneously.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Pause here and answer this before you continue: Choose your next move and name the organ you could worsen.
 

@@ -20,6 +20,18 @@ Keep these terms available in your mental model: phlebostatic axis, dynamic resp
 
 What expert-level use of this concept looks like is this: Differentiate patient physiology from damping/resonance artifact. Mentally rehearse sterile insertion and transducer setup.
 
+Reasoning checkpoint. Do not just repeat the statement: Differentiate patient physiology from damping/resonance artifact. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Mentally rehearse sterile insertion and transducer setup. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Arterial line to Arterial waveform damping & resonance. The monitoring system can distort systolic and diastolic pressures while mean pressure is relatively preserved.
+
+The relationship matters because Overdamping blunts high-frequency components and narrows pulse pressure; underdamping/resonance exaggerates oscillations and can overstate systolic pressure. At the bedside, use a fast-flush or dynamic-response assessment and inspect for air, clot, tubing compliance, extra stopcocks and catheter position.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating a monitor number as direct truth tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring hydrostatic error from transducer height.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
 Now: Hydrostatic leveling errors.
@@ -37,6 +49,18 @@ The integration move is this: The patient, catheter, tubing, transducer and moni
 Keep these terms available in your mental model: phlebostatic axis, dynamic response.
 
 What expert-level use of this concept looks like is this: Differentiate patient physiology from damping/resonance artifact. Mentally rehearse sterile insertion and transducer setup.
+
+Reasoning checkpoint. Do not just repeat the statement: Differentiate patient physiology from damping/resonance artifact. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Mentally rehearse sterile insertion and transducer setup. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Arterial line to Arterial waveform damping & resonance. The monitoring system can distort systolic and diastolic pressures while mean pressure is relatively preserved.
+
+The relationship matters because Overdamping blunts high-frequency components and narrows pulse pressure; underdamping/resonance exaggerates oscillations and can overstate systolic pressure. At the bedside, use a fast-flush or dynamic-response assessment and inspect for air, clot, tubing compliance, extra stopcocks and catheter position.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating a monitor number as direct truth tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring hydrostatic error from transducer height.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
@@ -56,6 +80,12 @@ Keep these terms available in your mental model: square-wave test, natural frequ
 
 What expert-level use of this concept looks like is this: Recognize over- and under-damped systems and troubleshoot tubing, bubbles, clot and excessive resonance.
 
+Reasoning checkpoint. Do not just repeat the statement: Recognize over- and under-damped systems and troubleshoot tubing, bubbles, clot and excessive resonance. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Stress-test the model. Imagine the patient changes in a way that makes changing vasoactive therapy before checking waveform quality tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Assuming all waveform distortion comes from the catheter tip.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
 Now: Use the dynamic response test before changing therapy.
@@ -73,6 +103,12 @@ The integration move is this: Validate the measurement system before treating th
 Keep these terms available in your mental model: square-wave test, natural frequency.
 
 What expert-level use of this concept looks like is this: Recognize over- and under-damped systems and troubleshoot tubing, bubbles, clot and excessive resonance.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize over- and under-damped systems and troubleshoot tubing, bubbles, clot and excessive resonance. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Stress-test the model. Imagine the patient changes in a way that makes changing vasoactive therapy before checking waveform quality tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Assuming all waveform distortion comes from the catheter tip.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 

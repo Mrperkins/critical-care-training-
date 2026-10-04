@@ -20,6 +20,20 @@ Keep these terms available in your mental model: concentration, dose-response, e
 
 What expert-level use of this concept looks like is this: Rehearse safe preparation and independent verification without relying on memory alone. Define the physiologic response and adverse response you are watching for.
 
+Reasoning checkpoint. Do not just repeat the statement: Rehearse safe preparation and independent verification without relying on memory alone. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Define the physiologic response and adverse response you are watching for. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Push-dose vasopressor workflow to Vasopressor & inotrope physiology. Vasoactive drugs change arterial tone, venous tone, heart rate, contractility and regional flow; the desired effect depends on the shock model.
+
+The relationship matters because Vasoactive drugs alter arterial tone, venous tone, contractility and heart rate to different degrees. The same MAP response can hide very different effects on flow and myocardial demand. At the bedside, choose the agent from the dominant deficit and define what improvement and toxicity should look like before titration.
+
+Now connect Push-dose vasopressor workflow to High-risk medication safety. Use standardized concentration, labeling, independent verification, closed-loop communication and context checks for high-risk drugs.
+
+The relationship matters because High-risk medication harm often arises from system failures: concentration mismatch, unlabeled syringes, look-alike products, route errors and communication breakdowns. At the bedside, standardize concentration, isolate the preparation task, label immediately and use closed-loop verification before administration.
+
+Stress-test the model. Imagine the patient changes in a way that makes improvising concentration from memory under stress tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Repeating doses when an absent response may reflect the wrong diagnosis, line failure or dosing error.
+
 Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
 
 Build the mechanism first. Shock is inadequate effective tissue perfusion and oxygen utilization, not merely hypotension. Flow, vascular tone, capacitance, congestion and extraction can fail in different combinations.
@@ -33,6 +47,22 @@ The integration move is this: Choose interventions that both treat the suspected
 Keep these terms available in your mental model: flow, tone, congestion, perfusion.
 
 What expert-level use of this concept looks like is this: Recognize mixed shock. Choose an intervention that tests a physiologic hypothesis and define the response expected if that hypothesis is correct.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize mixed shock. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Choose an intervention that tests a physiologic hypothesis and define the response expected if that hypothesis is correct. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Shock phenotyping to Septic shock physiology. Distributive shock with dynamic changes in vascular tone, venous capacitance, myocardial performance, microcirculation and oxygen extraction.
+
+The relationship matters because Septic shock can combine vasoplegia, venous pooling, myocardial dysfunction, endothelial leak and disturbed microcirculation. Cardiac output may be low, normal or high. At the bedside, reassess vascular tone, flow, congestion and perfusion after each intervention rather than assuming a fixed distributive phenotype.
+
+Now connect Shock phenotyping to Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+The relationship matters because The RV is thin-walled and highly sensitive to acute afterload. When it dilates, wall stress rises, coronary perfusion can fall and septal shift can reduce LV filling. At the bedside, track systemic pressure, venous congestion, echo geometry, oxygenation, CO2, acid-base status and ventilator pressures together. Small changes in P V R or intrathoracic pressure can have large hemodynamic consequences.
+
+Stress-test the model. Imagine the patient changes in a way that makes naming shock once and never revisiting the model tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Treating MAP as the only endpoint.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
@@ -50,6 +80,18 @@ The integration move is this: Design the workflow so a single cognitive slip is 
 
 What expert-level use of this concept looks like is this: Catch concentration and route errors before administration. Use local protocol and pharmacy-standard concentrations rather than improvised memory.
 
+Reasoning checkpoint. Do not just repeat the statement: Catch concentration and route errors before administration. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Use local protocol and pharmacy-standard concentrations rather than improvised memory. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect High-risk medication safety to Push-dose vasopressor workflow. A high-risk, short-duration bridge that demands concentration verification, labeling, closed-loop communication and continuous reassessment.
+
+The relationship matters because A push-dose vasopressor is a short-duration vasoactive bridge whose effect depends on concentration, receptor profile, circulation time and underlying shock physiology. At the bedside, use standardized local concentrations, explicit labeling, independent verification and immediate reassessment while definitive support is being prepared.
+
+Stress-test the model. Imagine the patient changes in a way that makes relying on expertise to replace a safety system tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Assuming urgency makes verification optional.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
 Now: Independent verification and labeling.
@@ -65,6 +107,18 @@ Two traps to actively avoid: Relying on expertise to replace a safety system. An
 The integration move is this: Design the workflow so a single cognitive slip is unlikely to reach the patient.
 
 What expert-level use of this concept looks like is this: Catch concentration and route errors before administration. Use local protocol and pharmacy-standard concentrations rather than improvised memory.
+
+Reasoning checkpoint. Do not just repeat the statement: Catch concentration and route errors before administration. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Use local protocol and pharmacy-standard concentrations rather than improvised memory. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect High-risk medication safety to Push-dose vasopressor workflow. A high-risk, short-duration bridge that demands concentration verification, labeling, closed-loop communication and continuous reassessment.
+
+The relationship matters because A push-dose vasopressor is a short-duration vasoactive bridge whose effect depends on concentration, receptor profile, circulation time and underlying shock physiology. At the bedside, use standardized local concentrations, explicit labeling, independent verification and immediate reassessment while definitive support is being prepared.
+
+Stress-test the model. Imagine the patient changes in a way that makes relying on expertise to replace a safety system tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Assuming urgency makes verification optional.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
@@ -84,6 +138,20 @@ Keep these terms available in your mental model: concentration, dose-response, e
 
 What expert-level use of this concept looks like is this: Rehearse safe preparation and independent verification without relying on memory alone. Define the physiologic response and adverse response you are watching for.
 
+Reasoning checkpoint. Do not just repeat the statement: Rehearse safe preparation and independent verification without relying on memory alone. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Define the physiologic response and adverse response you are watching for. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Push-dose vasopressor workflow to Vasopressor & inotrope physiology. Vasoactive drugs change arterial tone, venous tone, heart rate, contractility and regional flow; the desired effect depends on the shock model.
+
+The relationship matters because Vasoactive drugs alter arterial tone, venous tone, contractility and heart rate to different degrees. The same MAP response can hide very different effects on flow and myocardial demand. At the bedside, choose the agent from the dominant deficit and define what improvement and toxicity should look like before titration.
+
+Now connect Push-dose vasopressor workflow to High-risk medication safety. Use standardized concentration, labeling, independent verification, closed-loop communication and context checks for high-risk drugs.
+
+The relationship matters because High-risk medication harm often arises from system failures: concentration mismatch, unlabeled syringes, look-alike products, route errors and communication breakdowns. At the bedside, standardize concentration, isolate the preparation task, label immediately and use closed-loop verification before administration.
+
+Stress-test the model. Imagine the patient changes in a way that makes improvising concentration from memory under stress tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Repeating doses when an absent response may reflect the wrong diagnosis, line failure or dosing error.
+
 Vasopressor & inotrope physiology. Vasoactive drugs change arterial tone, venous tone, heart rate, contractility and regional flow; the desired effect depends on the shock model.
 
 Build the mechanism first. Vasoactive drugs alter arterial tone, venous tone, contractility and heart rate to different degrees. The same MAP response can hide very different effects on flow and myocardial demand.
@@ -97,6 +165,22 @@ The integration move is this: Use vasoactive drugs to correct a physiologic mech
 Keep these terms available in your mental model: alpha-1, beta-1, inotropy, chronotropy, venoconstriction.
 
 What expert-level use of this concept looks like is this: Choose a vasoactive strategy from the physiologic deficit rather than blood pressure alone. State the expected benefit, predictable tradeoff and reassessment endpoint.
+
+Reasoning checkpoint. Do not just repeat the statement: Choose a vasoactive strategy from the physiologic deficit rather than blood pressure alone. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: State the expected benefit, predictable tradeoff and reassessment endpoint. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Vasopressor & inotrope physiology to Push-dose vasopressor workflow. A high-risk, short-duration bridge that demands concentration verification, labeling, closed-loop communication and continuous reassessment.
+
+The relationship matters because A push-dose vasopressor is a short-duration vasoactive bridge whose effect depends on concentration, receptor profile, circulation time and underlying shock physiology. At the bedside, use standardized local concentrations, explicit labeling, independent verification and immediate reassessment while definitive support is being prepared.
+
+Now connect Vasopressor & inotrope physiology to Septic shock physiology. Distributive shock with dynamic changes in vascular tone, venous capacitance, myocardial performance, microcirculation and oxygen extraction.
+
+The relationship matters because Septic shock can combine vasoplegia, venous pooling, myocardial dysfunction, endothelial leak and disturbed microcirculation. Cardiac output may be low, normal or high. At the bedside, reassess vascular tone, flow, congestion and perfusion after each intervention rather than assuming a fixed distributive phenotype.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating map increase as proof of improved perfusion tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring venous effects and cardiac workload.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
 
 Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
 
