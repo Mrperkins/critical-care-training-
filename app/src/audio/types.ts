@@ -68,6 +68,8 @@ export interface MentalRepBeat {
   prompt?: string;
   visual?: string;
   danger?: boolean;
+  /** Optional pre-rendered natural narration for this beat. */
+  voice?: VoiceAsset;
 }
 
 export interface MentalRep {
