@@ -1,4 +1,5 @@
 import { MASTERY_BY_ID } from './mastery';
+import { noteFor } from './masteryNotes';
 import type { AudioEpisode } from './types';
 
 const spoken = (s: string) => s
@@ -23,7 +24,14 @@ export function draftTranscriptForEpisode(e: AudioEpisode) {
     parts.push(`Now: ${ch.title}.`);
     const concepts = ch.conceptIds.map((id) => MASTERY_BY_ID[id]).filter(Boolean);
     for (const c of concepts) {
+      const note = noteFor(c.id);
       parts.push(`${c.name}. ${c.summary}`);
+      if (note) {
+        parts.push(`Build the mechanism first. ${note.mechanism}`);
+        parts.push(`At the bedside, ${note.bedside.charAt(0).toLowerCase() + note.bedside.slice(1)}`);
+        if (note.traps.length) parts.push(`Two traps to actively avoid: ${note.traps.join(' And: ')}`);
+        parts.push(`The integration move is this: ${note.integration}`);
+      }
       if (c.vocabulary?.length) parts.push(`Keep these terms available in your mental model: ${c.vocabulary.join(', ')}.`);
       if (c.performance.length) {
         parts.push('What expert-level use of this concept looks like is this: ' + c.performance.join(' '));
