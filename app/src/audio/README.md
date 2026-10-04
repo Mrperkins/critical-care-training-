@@ -80,6 +80,20 @@ Mental Reps should feel like calm, literal guided rehearsal rather than a concep
 
 The learner should be able to close their eyes and mentally perform the sequence. Avoid replacing choreography with abstractions such as "prepare per protocol" when the purpose of the rep is to rehearse an explicitly defined, protocol-approved example.
 
+### Landmark rule: orientation is part of the procedure
+
+If a procedure depends on an anatomical landmark, image orientation or device reference point, the Mental Rep must actively rehearse finding it before moving on. The narration should:
+- put the learner in the correct patient/body orientation first;
+- tell them what structure to palpate, visualize or scan for;
+- name the structures immediately adjacent to the target;
+- identify the major structure(s) that must be avoided;
+- explain what sensory or imaging feature confirms the target (for example contour, compressibility, pulsatility, relation to bone, vessel course or a known reference plane);
+- include a stop/re-orient instruction when the landmark is not confidently identified;
+- use more than one plane/view when one snapshot could be misleading;
+- revisit the landmark after position changes when the reference can move.
+
+Do not treat “find the landmark” as a single sentence. If landmark identification is a meaningful source of procedural error, it deserves its own beat or sub-sequence before equipment enters the patient.
+
 ## Architecture
 
 - `types.ts`: shared contracts.
