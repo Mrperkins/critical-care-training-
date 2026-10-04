@@ -36,7 +36,15 @@ const audioJs = audioRes.outputFiles.find((f) => f.path.endsWith('.js'))!.text;
 const audioCss = audioRes.outputFiles.find((f) => f.path.endsWith('.css'))?.text ?? '';
 const audioDir = path.join(pub, 'audio'); fs.mkdirSync(audioDir, { recursive: true });
 const audioVoice = path.join(ROOT, 'public/audio/voice');
-if (fs.existsSync(audioVoice)) fs.cpSync(audioVoice, path.join(audioDir, 'voice'), { recursive: true, force: true });
+let audioVoiceAssets: Record<string, { file: string; reviewed: boolean }> = {};
+if (fs.existsSync(audioVoice)) {
+  fs.cpSync(audioVoice, path.join(audioDir, 'voice'), { recursive: true, force: true });
+  const voiceManifest = path.join(audioVoice, 'manifest.json');
+  if (fs.existsSync(voiceManifest)) {
+    const parsed = JSON.parse(fs.readFileSync(voiceManifest, 'utf8')) as { assets?: { id: string; file: string; reviewed?: boolean }[] };
+    audioVoiceAssets = Object.fromEntries((parsed.assets ?? []).map((a) => [a.id, { file: a.file, reviewed: a.reviewed === true }]));
+  }
+}
 fs.copyFileSync(path.join(ROOT, 'site', 'audio-manifest.webmanifest'), path.join(audioDir, 'manifest.webmanifest'));
 const audioHead = `<!doctype html>
 <html lang="en">
@@ -49,7 +57,7 @@ const audioHead = `<!doctype html>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
 <style>${audioCss}</style>`;
-fs.writeFileSync(path.join(audioDir, 'index.html'), `${audioHead}<div id="root"></div><script>${audioJs.replace(/<\/script/g, '<\\/script')}</script>\n`);
+fs.writeFileSync(path.join(audioDir, 'index.html'), `${audioHead}<div id="root"></div><script>window.__CC_AUDIO_ASSETS__=${JSON.stringify(audioVoiceAssets)};</script><script>${audioJs.replace(/<\/script/g, '<\\/script')}</script>\n`);
 
 // offline support: service worker (versioned by the bundle hash), web manifest, icons
 const ver = (await import('node:crypto')).createHash('sha256').update(js).update(css).digest('hex').slice(0, 12);
