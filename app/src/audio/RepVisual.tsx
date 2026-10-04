@@ -14,6 +14,7 @@ export function RepVisual({ beat }: { beat: MentalRepBeat }) {
   if (key === 'blood-circuit') return <Blood />;
   if (key === 'artery-ultrasound') return <ArteryUs />;
   if (key === 'ij-landmarks') return <IjLandmarks />;
+  if (key === 'ij-setup') return <IjSetup />;
   if (key === 'transducer-system') return <Transducer />;
   if (key === 'arterial-waveform') return <ArtWave />;
   if (key === 'square-wave-test') return <SquareWave />;
@@ -124,6 +125,16 @@ function UsWindow({name}:{name:string}){
   return <Frame title={name}><svg viewBox="0 0 600 420"><text className="small" x="300" y="210">rebuild anatomy before interpretation</text></svg></Frame>;
 }
 function RealFast(){return <Frame title="real positive RUQ FAST" real><div className="rv-realmedia"><video controls playsInline muted poster="../imaging/real/fast-ruq-positive.jpg"><source src="../imaging/real/fast-ruq-positive.mp4" type="video/mp4"/><source src="../imaging/real/fast-ruq-positive.webm" type="video/webm"/></video><span>Gillman et al. · CC BY 2.0</span></div></Frame>}
+function IjSetup(){return <Frame title="IJ sterile setup · lay out the entire Seldinger sequence"><svg viewBox="0 0 600 420">
+  <rect className="rv-soft" x="35" y="58" width="160" height="92" rx="10"/><text className="small" x="115" y="86">MAXIMAL BARRIER</text><text className="small" x="115" y="106">cap · mask · gown · gloves</text><text className="small" x="115" y="126">large sterile drape</text>
+  <rect className="rv-soft" x="220" y="58" width="160" height="92" rx="10"/><text className="small" x="300" y="86">STERILE PROBE</text><text className="small" x="300" y="106">cover probe + cable</text><text className="small" x="300" y="126">sterile gel outside</text>
+  <rect className="rv-soft" x="405" y="58" width="160" height="92" rx="10"/><text className="small" x="485" y="86">CATHETER</text><text className="small" x="485" y="106">pre-flush every lumen</text><text className="small" x="485" y="126">close / cap ports</text>
+  <path className="rv-line gold" d="M70 225h460"/><circle className="rv-dot" cx="95" cy="225" r="7"/><circle className="rv-dot" cx="180" cy="225" r="7"/><circle className="rv-dot" cx="270" cy="225" r="7"/><circle className="rv-dot" cx="360" cy="225" r="7"/><circle className="rv-dot" cx="450" cy="225" r="7"/><circle className="rv-dot" cx="530" cy="225" r="7"/>
+  <text className="small" x="95" y="205">NEEDLE</text><text className="small" x="180" y="205">WIRE</text><text className="small" x="270" y="205">SCALPEL</text><text className="small" x="360" y="205">DILATOR</text><text className="small" x="450" y="205">CVC</text><text className="small" x="530" y="205">DRESS</text>
+  <rect className="rv-label" x="75" y="285" width="180" height="58" rx="8"/><text className="small" x="165" y="312">LOCAL ANESTHETIC READY</text><text className="small" x="165" y="329">before puncture</text>
+  <rect className="rv-label" x="345" y="285" width="180" height="58" rx="8"/><text className="small" x="435" y="312">SHARPS CONTAINER</text><text className="small" x="435" y="329">within reach</text>
+  <text className="small" x="300" y="392">map first → sterile field → re-identify vein → needle enters</text>
+</svg></Frame>}
 function IjLandmarks(){return <Frame title="right IJ · surface triangle → ultrasound proof"><svg viewBox="0 0 600 420">
   <path className="rv-body" d="M82 45q95-25 190 0v285H82z"/><path className="rv-line" d="M128 84l48 218M226 84l-50 218M82 302h190"/>
   <text className="small" x="112" y="70">SCM STERNAL HEAD</text><text className="small" x="238" y="70">SCM CLAVICULAR HEAD</text><text className="small" x="178" y="325">CLAVICLE</text>
