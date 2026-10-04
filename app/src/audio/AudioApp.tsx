@@ -25,6 +25,14 @@ function durableVoiceSrc(id: string) {
   const a = durableVoiceAsset(id);
   return a ? `voice/${a.file}` : undefined;
 }
+function durableVoiceParts(prefix: string) {
+  if (typeof window === 'undefined') return [] as { id: string; file: string; reviewed: boolean }[];
+  const w = window as unknown as { __CC_AUDIO_ASSETS__?: Record<string, DurableVoiceAsset> };
+  return Object.entries(w.__CC_AUDIO_ASSETS__ ?? {})
+    .filter(([id]) => id.startsWith(prefix))
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([id, a]) => ({ id, ...a }));
+}
 
 
 export function AudioApp() {
@@ -194,9 +202,18 @@ function EpisodePlayer({ episode, onBack, onReview, onFocus, onExample }: { epis
   const p = useAudioProgress(); const audio = useRef<HTMLAudioElement>(null); const [chapter, setChapter] = useState(0); const [playing, setPlaying] = useState(false);
   const [listening, setListening] = useState(false); const [heard, setHeard] = useState('');
   const savedAt = p.position[episode.id] ?? 0; const lastSaved = useRef(savedAt);
-  const ch = episode.chapters[chapter]; const durable = durableVoiceAsset(`episode.${episode.id}`);
-  const src = durable ? `voice/${durable.file}` : episode.voice?.src ?? episode.voice?.previewSrc;
-  useEffect(() => () => { const a = audio.current; if (a) p.setPosition(episode.id, a.currentTime); a?.pause(); }, [episode.id]);
+  const savedPartKey = `${episode.id}:part`; const savedPart = p.position[savedPartKey] ?? 0;
+  const [part, setPart] = useState(() => Math.max(0, Math.floor(savedPart)));
+  const ch = episode.chapters[chapter]; const singleDurable = durableVoiceAsset(`episode.${episode.id}`);
+  const durableParts = durableVoiceParts(`episode.${episode.id}.part`);
+  const sources = singleDurable
+    ? [{ src: `voice/${singleDurable.file}`, durable: singleDurable }]
+    : durableParts.length
+      ? durableParts.map((a) => ({ src: `voice/${a.file}`, durable: a }))
+      : (episode.voice?.src ?? episode.voice?.previewSrc) ? [{ src: (episode.voice?.src ?? episode.voice?.previewSrc)!, durable: null }] : [];
+  const safePart = Math.min(part, Math.max(0, sources.length - 1)); const current = sources[safePart]; const src = current?.src; const durable = current?.durable ?? null;
+  useEffect(() => { setPart(Math.max(0, Math.floor(useAudioProgress.getState().position[`${episode.id}:part`] ?? 0))); }, [episode.id]);
+  useEffect(() => () => { const a = audio.current; if (a) p.setPosition(episode.id, a.currentTime); p.setPosition(savedPartKey, safePart); a?.pause(); }, [episode.id, safePart, savedPartKey]);
   const toggle = async () => {
     if (!audio.current || !src) return; if (audio.current.paused) { await audio.current.play(); setPlaying(true); } else { audio.current.pause(); setPlaying(false); }
   };
@@ -220,12 +237,17 @@ function EpisodePlayer({ episode, onBack, onReview, onFocus, onExample }: { epis
     <div className="aa-player-main">
       <div className="aa-cover"><span>{episode.format.replace('-', ' ')}</span><div className="aa-wave">{Array.from({ length: 28 }).map((_, i) => <i key={i} style={{ height: `${20 + ((i * 17) % 65)}%` }} />)}</div><b>LEVEL {episode.level}</b></div>
       <div className="aa-player-info"><span className="aa-kicker">{DOMAIN_LABELS[episode.domain]}</span><h1>{episode.title}</h1><p>{episode.subtitle}</p>
-        <div className="aa-tags"><span>{episode.minutes} min</span><span>{episode.chapters.length} chapters</span>{(durable || episode.voice) && <span className="voice">{durable?.reviewed || episode.voice?.reviewed ? 'Reviewed natural voice' : 'Natural voice · review pending'}</span>}</div>
-        {src ? <><audio ref={audio} src={src}
-          onLoadedMetadata={(e) => { const a = e.currentTarget; if (savedAt > 2 && savedAt < a.duration - 3) a.currentTime = savedAt; }}
-          onTimeUpdate={(e) => { const t = e.currentTarget.currentTime; if (Math.abs(t - lastSaved.current) >= 5) { lastSaved.current = t; p.setPosition(episode.id, t); } }}
-          onPause={(e) => p.setPosition(episode.id, e.currentTarget.currentTime)}
-          onEnded={() => { setPlaying(false); lastSaved.current = 0; p.setPosition(episode.id, 0); }} /><div className="aa-audioctl"><button onClick={toggle}>{playing ? '❚❚ Pause' : '▶ Play natural-voice sample'}</button>{handsFreeAvailable() && <button className={`aa-mic ${listening ? 'on' : ''}`} onClick={mic}>{listening ? 'Listening…' : '⌁ Hands-free'}</button>}<small>{savedAt > 2 ? `Resume saved at ${fmt(savedAt)} · ` : ''}{durable ? (durable.reviewed ? 'Reviewed durable narration' : 'Durable narration · review pending') : 'Prototype voice sample · production audio requires clinical review'}</small></div>{heard && <div className="aa-heard">Heard: “{heard}”</div>}<div className="aa-command-hint">Say: pause · repeat · next · go deeper · give me an example · quiz me</div></> :
+        <div className="aa-tags"><span>{episode.minutes} min</span><span>{episode.chapters.length} chapters</span>{sources.length > 1 && <span>{safePart + 1}/{sources.length} audio parts</span>}{(durable || episode.voice) && <span className="voice">{durable?.reviewed || episode.voice?.reviewed ? 'Reviewed natural voice' : 'Natural voice · review pending'}</span>}</div>
+        {src ? <><audio key={src} ref={audio} src={src}
+          onLoadedMetadata={(e) => { const a = e.currentTarget; if (safePart === savedPart && savedAt > 2 && savedAt < a.duration - 3) a.currentTime = savedAt; }}
+          onCanPlay={(e) => { if (playing && e.currentTarget.paused) e.currentTarget.play().catch(() => setPlaying(false)); }}
+          onTimeUpdate={(e) => { const t = e.currentTarget.currentTime; if (Math.abs(t - lastSaved.current) >= 5) { lastSaved.current = t; p.setPosition(episode.id, t); p.setPosition(savedPartKey, safePart); } }}
+          onPause={(e) => { p.setPosition(episode.id, e.currentTarget.currentTime); p.setPosition(savedPartKey, safePart); }}
+          onEnded={() => {
+            lastSaved.current = 0; p.setPosition(episode.id, 0);
+            if (safePart < sources.length - 1) { p.setPosition(savedPartKey, safePart + 1); setPart(safePart + 1); setPlaying(true); }
+            else { p.setPosition(savedPartKey, 0); setPart(0); setPlaying(false); }
+          }} /><div className="aa-audioctl"><button onClick={toggle}>{playing ? '❚❚ Pause' : durable ? '▶ Play natural-voice session' : '▶ Play natural-voice sample'}</button>{handsFreeAvailable() && <button className={`aa-mic ${listening ? 'on' : ''}`} onClick={mic}>{listening ? 'Listening…' : '⌁ Hands-free'}</button>}<small>{savedAt > 2 ? `Resume saved at ${fmt(savedAt)} · ` : ''}{durable ? (durable.reviewed ? 'Reviewed durable narration' : 'Durable narration · review pending') : 'Prototype voice sample · production audio requires clinical review'}</small></div>{heard && <div className="aa-heard">Heard: “{heard}”</div>}<div className="aa-command-hint">Say: pause · repeat · next · go deeper · give me an example · quiz me</div></> :
           <div className="aa-pending">Premium natural-voice render pending for this scripted lesson.</div>}
       </div>
     </div>
