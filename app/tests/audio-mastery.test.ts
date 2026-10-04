@@ -44,7 +44,8 @@ describe('critical care audio mastery model', () => {
     for (const id of [
       'rep-push-dose-pressor','rep-blood','rep-art-line','rep-efast','rep-chest-tube',
       'rep-central-line','rep-us-piv','rep-rsi','rep-post-intubation','rep-pac',
-      'rep-crrt','rep-ecmo','rep-iabp','rep-sedation','rep-status'
+      'rep-crrt','rep-ecmo','rep-iabp','rep-sedation','rep-status',
+      'rep-io','rep-vent-emergency','rep-evd','rep-mtp','rep-pocus-shock'
     ]) expect(ids.has(id), `Mental Rep missing: ${id}`).toBe(true);
   });
 
