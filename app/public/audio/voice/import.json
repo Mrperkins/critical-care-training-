@@ -188,6 +188,76 @@
       "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/50eb168b-753f-407f-9ebc-784803feb92a.mp3",
       "voice": "Natural clinical narrator",
       "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-art-line.debrief",
+      "file": "rep.rep-art-line.debrief.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/8d5273b2-6e46-4846-b4c1-67e5dfb671e9.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-chest-tube.arrival",
+      "file": "rep.rep-chest-tube.arrival.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/5f147272-accf-4964-be88-bb11abb4291e.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-chest-tube.anatomy",
+      "file": "rep.rep-chest-tube.anatomy.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/c1f96728-27a3-403a-9381-bdf6e3c93a85.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-chest-tube.setup",
+      "file": "rep.rep-chest-tube.setup.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/89b8e23d-aff6-469a-8cf4-8237b80e55d6.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-chest-tube.sequence",
+      "file": "rep.rep-chest-tube.sequence.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/06d30ee2-7f68-4cfa-aaaa-8d5d0f757449.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-chest-tube.connect",
+      "file": "rep.rep-chest-tube.connect.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/c1edd9dd-3fae-478e-9d18-d1701c91f424.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-chest-tube.failure",
+      "file": "rep.rep-chest-tube.failure.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/be612a35-bee0-4f31-a8b7-7c424864135c.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-chest-tube.debrief",
+      "file": "rep.rep-chest-tube.debrief.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/82f49a21-2085-4940-8f1a-8114bc46d131.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-central-line.arrival",
+      "file": "rep.rep-central-line.arrival.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/3e2193a6-d869-4598-92ba-9792e6908ee0.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-central-line.scan",
+      "file": "rep.rep-central-line.scan.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/9c6f4862-ddf2-445c-beef-84b9d80e8dae.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
     }
   ]
 }
