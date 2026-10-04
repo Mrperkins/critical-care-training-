@@ -144,6 +144,37 @@ describe('critical care audio mastery model', () => {
     }
   });
 
+
+  it('protocol-grade Mental Reps preserve the physical procedure order', () => {
+    const order: Record<string, string[]> = {
+      'rep-push-dose-pressor': ['arrival','orient','equip','verify','give','comp','debrief'],
+      'rep-blood': ['arrival','verify','setup','start','reaction','debrief'],
+      'rep-art-line': ['arrival','anatomy','system','puncture','level','wave','square','debrief'],
+      'rep-efast': ['arrival','orientation','ruq','luq','pelvis','cardiac','lung','repeat'],
+      'rep-chest-tube': ['arrival','anatomy','setup','sequence','connect','failure','debrief'],
+      'rep-central-line': ['arrival','scan','setup','tip','confirm','wire','dilate','catheter','comp','debrief'],
+      'rep-io': ['arrival','landmark','place','confirm','comp','debrief'],
+      'rep-vent-emergency': ['alarm','oxygen','trace','pressure','hemo','debrief'],
+      'rep-evd': ['before','level','clamp','move','verify','debrief'],
+      'rep-mtp': ['activate','roles','source','phys','response','debrief'],
+      'rep-us-piv': ['scan','setup','tip','thread','confirm','debrief'],
+      'rep-rsi': ['why','phys','oxygen','room','meds','commit','debrief'],
+      'rep-post-intubation': ['confirm','pressure','vent','sed','recheck','debrief'],
+      'rep-pac': ['zero','ra','rv','pa','wedge','integrate','debrief'],
+      'rep-crrt': ['purpose','blood','transport','effluent','alarm','drugs','debrief'],
+      'rep-ecmo': ['type','drain','pump','lung','return','mismatch','debrief'],
+      'rep-iabp': ['why','inflate','deflate','early','late','debrief'],
+      'rep-sedation': ['pain','goal','hemo','paralysis','reassess','debrief'],
+      'rep-status': ['clock','support','first','second','airway','silent','debrief'],
+      'rep-pocus-shock': ['question','heart','lung','venous','abdomen','integrate','debrief'],
+    };
+    expect(Object.keys(order).sort()).toEqual(MENTAL_REPS.map((x) => x.id).sort());
+    for (const [id, expected] of Object.entries(order)) {
+      const rep = MENTAL_REPS.find((x) => x.id === id)!;
+      expect(rep.beats.map((b) => b.id), `${id} procedure order changed`).toEqual(expected);
+    }
+  });
+
   it('protocol-grade Mental Reps retain their physical anchors, routes and proof steps', () => {
     const required: Record<string, RegExp[]> = {
       'rep-push-dose-pressor': [/read the label/i, /expel one milliliter/i, /nine milliliters/i, /one hundred micrograms/i, /label it/i],
@@ -151,8 +182,8 @@ describe('critical care audio mastery model', () => {
       'rep-art-line': [/radial styloid/i, /flexor carpi radialis/i, /true needle tip/i, /fourth intercostal space/i, /mid-axillary line/i, /open to atmosphere/i, /aortic-valve closure/i],
       'rep-efast': [/mid-axillary line/i, /hepatorenal recess/i, /posterior axillary line/i, /pubic bone/i, /xiphoid process/i, /two rib shadows/i],
       'rep-chest-tube': [/sternal angle/i, /second rib/i, /fifth intercostal space/i, /sixth rib/i, /pectoralis major/i, /latissimus dorsi/i, /gloved finger/i, /side hole/i],
-      'rep-central-line': [/clavicle/i, /sternocleidomastoid/i, /carotid/i, /compressible/i, /probe midpoint/i, /true needle tip/i, /guidewire/i, /dilator/i, /wire completely/i],
-      'rep-io': [/patella/i, /tibial tuberosity/i, /two centimeters medial/i, /five-millimeter mark/i, /ninety degrees/i, /medullary space/i, /distal foot/i, /compartment compromise/i],
+      'rep-central-line': [/clavicle/i, /sternocleidomastoid/i, /carotid/i, /compressible/i, /maximal sterile barrier/i, /sterile probe cover/i, /pre-flush each catheter lumen/i, /probe midpoint/i, /true needle tip/i, /guidewire/i, /dilator/i, /wire completely/i],
+      'rep-io': [/patella/i, /tibial tuberosity/i, /two centimeters medial/i, /five millimeters/i, /ninety degrees/i, /one to two centimeters/i, /medullary space/i, /five to ten milliliters/i, /distal foot/i, /compartment compromise/i],
       'rep-vent-emergency': [/disconnect the ventilator/i, /manual resuscitation bag/i, /suction catheter/i, /peak inspiratory pressure/i, /plateau pressure/i, /expiratory flow/i],
       'rep-evd': [/tragus/i, /cartilaginous projection/i, /ear canal/i, /patient-to-drain/i, /horizontal/i, /re-level/i],
       'rep-mtp': [/cooler/i, /rapid infuser/i, /warmer/i, /unit label/i, /live tally/i, /source-control/i],
