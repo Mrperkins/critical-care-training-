@@ -8,8 +8,10 @@ import { useEffect, useState } from 'react';
 export interface RealMark { layer: 'landmark' | 'pathology'; label: string; shape: 'ellipse' | 'line' | 'point'; x: number; y: number; rx?: number; ry?: number; pts?: [number, number][]; lx?: number; ly?: number }
 export interface RealItem {
   file: string; poster?: string; webm?: string; posterAt?: number; /** display order within a kind */ order?: number;
-  /** xray / lus: comparison strips; ptx / fast / ivc / ijv: single-case teaching items (RealCase) */
-  kind: 'xray' | 'lus' | 'ptx' | 'fast' | 'ivc' | 'ijv' | 'ptxlus' | 'pleuraleff' | 'tamponade' | 'ptxseries'; id: string; title: string; caption: string; look: string[];
+  /** Media family used for filtering and state-matched teaching. */
+  kind: 'xray' | 'lus' | 'ptx' | 'fast' | 'ivc' | 'ijv' | 'ptxlus' | 'pleuraleff' | 'tamponade' | 'ptxseries' | 'ct-ischemic' | 'ct-ich' | 'cxr' | 'aorta-us';
+  type?: string; modality?: string; finding?: string; findings?: string[];
+  id: string; title: string; caption: string; look: string[];
   teach?: string[]; quiz?: { q: string; options: string[]; answer: number; explain: string }; marks?: RealMark[];
   license: string; licenseUrl: string; author: string; source: string; changes: string; credit?: string; /** button text for the pathology layer, e.g. “Show the collapse point” */ findingLabel?: string;
   provenance?: { pageUrl: string; originalUrl: string; doi?: string; retrieved: string };
