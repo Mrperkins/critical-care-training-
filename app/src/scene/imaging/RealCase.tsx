@@ -46,7 +46,7 @@ export function RealCaseCard({ it }: { it: RealItem }) {
           ? <video ref={vid} poster={it.poster ? `imaging/real/${it.poster}` : undefined} muted loop playsInline autoPlay={!REDUCE} preload="metadata" aria-label={answered ? it.caption : 'Real ultrasound clip — decide what you see first'}>
               {it.webm && <source src={`imaging/real/${it.webm}`} type="video/webm" />}<source src={`imaging/real/${it.file}`} type="video/mp4" />
             </video>
-          : <img src={`imaging/real/${it.file}`} alt={answered ? it.caption : 'Real chest radiograph — decide what you see first'} loading="lazy" />}
+          : <img src={`imaging/real/${it.file}`} alt={answered ? it.caption : `Real ${it.modality ?? 'clinical image'} — decide what you see first`} loading="lazy" />}
         {answered && <Overlay marks={marks} />}</div>
       </div>
       <div className="rc-bar">
