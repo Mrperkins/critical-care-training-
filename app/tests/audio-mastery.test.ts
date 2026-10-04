@@ -88,7 +88,7 @@ describe('critical care audio mastery model', () => {
   });
 
   it('landmark-dependent Mental Reps explicitly rehearse anatomical orientation', () => {
-    for (const id of ['rep-art-line','rep-efast','rep-chest-tube','rep-central-line','rep-io','rep-evd','rep-us-piv']) {
+    for (const id of ['rep-art-line','rep-efast','rep-chest-tube','rep-central-line','rep-io','rep-evd','rep-us-piv','rep-pocus-shock']) {
       const rep = MENTAL_REPS.find((x) => x.id === id)!;
       const orientation = rep.beats.filter((b) => b.phase === 'orientation');
       expect(orientation.length, `${id} needs an orientation beat`).toBeGreaterThan(0);
@@ -105,6 +105,9 @@ describe('critical care audio mastery model', () => {
       'rep-central-line': [/probe in one hand/i, /true tip/i, /before dilation/i, /guidewire/i],
       'rep-io': [/stabilize the limb/i, /needle length/i, /extension set/i, /flush according to protocol/i],
       'rep-us-piv': [/choose a catheter/i, /true tip/i, /thread the catheter/i, /connect the extension/i],
+      'rep-rsi': [/suction within reach/i, /cuff checked/i, /label every syringe/i, /final sweep/i],
+      'rep-post-intubation': [/attach waveform capnography/i, /trace the tube and circuit/i, /predicted body weight/i, /analgesia and sedation/i],
+      'rep-pocus-shock': [/below the xiphoid/i, /two rib shadows/i, /IVC/i, /bladder as the anchor/i],
     };
     for (const [id, patterns] of Object.entries(required)) {
       const rep = MENTAL_REPS.find((x) => x.id === id)!;
