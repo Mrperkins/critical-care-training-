@@ -27,6 +27,13 @@ describe('critical care audio mastery model', () => {
     }
   });
 
+  it('the eFAST showcase has natural narration on every beat', () => {
+    const rep = MENTAL_REPS.find((x) => x.id === 'rep-efast')!;
+    expect(rep.beats.length).toBeGreaterThan(5);
+    expect(rep.beats.every((b) => !!b.voice?.previewSrc || !!b.voice?.src)).toBe(true);
+    expect(rep.beats.every((b) => b.voice?.tier === 'premium-human')).toBe(true);
+  });
+
   it('Mental Reps include a debrief and an explicit training boundary', () => {
     for (const r of MENTAL_REPS) {
       expect(r.disclaimer.length).toBeGreaterThan(20);
