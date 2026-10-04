@@ -13,6 +13,7 @@ export function RepVisual({ beat }: { beat: MentalRepBeat }) {
   if (key === 'monitor-response') return <Monitor />;
   if (key === 'blood-circuit') return <Blood />;
   if (key === 'artery-ultrasound') return <ArteryUs />;
+  if (key === 'ij-landmarks') return <IjLandmarks />;
   if (key === 'transducer-system') return <Transducer />;
   if (key === 'arterial-waveform') return <ArtWave />;
   if (key === 'square-wave-test') return <SquareWave />;
@@ -63,45 +64,66 @@ function EpiPrep({step}:{step:'source'|'flush'|'dilute'|'label'}){
 function Medication(){return <Frame title="one drug · one workspace"><svg viewBox="0 0 600 420"><rect className="rv-soft" x="82" y="95" width="120" height="210" rx="12"/><rect className="rv-ink" x="107" y="70" width="70" height="35" rx="5"/><text x="142" y="182">VIAL</text><path className="rv-line gold" d="M245 210h245"/><rect className="rv-soft" x="235" y="187" width="250" height="46" rx="20"/><path className="rv-line" d="M460 187v46"/><rect className="rv-label" x="275" y="260" width="165" height="62" rx="6"/><text x="357" y="286">LABEL</text><text className="small" x="357" y="305">drug · concentration</text></svg></Frame>}
 function Monitor(){return <Frame title="physiology is the endpoint"><svg viewBox="0 0 600 420"><text className="big" x="86" y="95">82/48</text><text className="small" x="89" y="120">MAP 59</text><path className="rv-wave" d="M55 245l45 0 14-20 12 82 16-120 17 58 25 0 18-28 14 90 17-126 18 64 28 0 15-22 14 84 18-120 16 58 44 0 15-24 15 86 19-126 18 64 48 0"/><circle className="rv-dot" cx="500" cy="92" r="7"/><text className="small" x="475" y="120">REASSESS</text></svg></Frame>}
 function Blood(){return <Frame title="product → filter → patient"><svg viewBox="0 0 600 420"><path className="rv-bag" d="M95 65h145v175c0 28-22 50-50 50h-45c-28 0-50-22-50-50z"/><text x="167" y="138">RBC</text><path className="rv-line bad" d="M167 290v60h138"/><rect className="rv-soft" x="285" y="325" width="48" height="40" rx="4"/><text className="small" x="309" y="351">FILTER</text><path className="rv-line" d="M333 345h125l55-60"/><circle className="rv-ring gold" cx="522" cy="270" r="25"/><text className="small" x="455" y="390">verify identity before connection</text></svg></Frame>}
-function ArteryUs(){return <Frame title="keep the tip in view"><svg viewBox="0 0 600 420"><path className="rv-sector" d="M300 65L90 365h420z"/><circle className="rv-vessel" cx="305" cy="255" r="55"/><path className="rv-needle" d="M110 130L294 244"/><circle className="rv-dot" cx="294" cy="244" r="7"/><text className="small" x="330" y="260">artery</text><text className="small" x="95" y="112">needle</text></svg></Frame>}
+function ArteryUs(){return <Frame title="distal radial artery · surface map + ultrasound"><svg viewBox="0 0 600 420">
+  <rect className="rv-soft" x="38" y="62" width="235" height="300" rx="12"/>
+  <path className="rv-bone" d="M78 95q18 125 12 225"/><text className="small" x="88" y="82">RADIAL STYLOID</text>
+  <path className="rv-line" d="M205 90q-22 125-18 240"/><text className="small" x="206" y="78">FCR TENDON</text>
+  <path className="rv-line gold" d="M145 105q-6 112 2 220"/><circle className="rv-dot" cx="147" cy="212" r="7"/><text className="small" x="145" y="347">artery lies between tendon + styloid</text>
+  <path className="rv-sector" d="M430 58L300 362h260z"/>
+  <ellipse className="rv-vessel" cx="432" cy="252" rx="52" ry="36"/><text className="small" x="432" y="257">ARTERY</text>
+  <ellipse className="rv-ring" cx="350" cy="300" rx="30" ry="20"/><text className="small" x="350" y="305">VEIN</text>
+  <path className="rv-needle" d="M310 132L422 240"/><circle className="rv-dot" cx="422" cy="240" r="7"/>
+  <text className="small" x="430" y="385">prove compressibility + pulse · reacquire true tip before every advance</text>
+</svg></Frame>}
 function Transducer(){return <Frame title="the line is a measurement system"><svg viewBox="0 0 600 420"><circle className="rv-vessel" cx="95" cy="225" r="37"/><path className="rv-line" d="M132 225h155"/><rect className="rv-soft" x="287" y="190" width="72" height="70" rx="8"/><text className="small" x="323" y="230">ZERO</text><path className="rv-line" d="M359 225h105"/><rect className="rv-label" x="464" y="175" width="75" height="100" rx="8"/><text className="small" x="501" y="215">MON</text><path className="rv-line gold" d="M323 85v105"/><rect className="rv-soft" x="285" y="48" width="76" height="42" rx="8"/><text className="small" x="323" y="74">PRESSURE</text></svg></Frame>}
 function ArtWave(){return <Frame title="read waveform + number"><svg viewBox="0 0 600 420"><path className="rv-grid" d="M60 90v260M160 90v260M260 90v260M360 90v260M460 90v260M560 90v260M60 140h500M60 210h500M60 280h500M60 350h500"/><path className="rv-wave" d="M60 315c22 0 33-12 42-80 8-60 21-96 35-96 19 0 35 71 55 98 14 19 27 28 44 32l14-20 15 32c20 24 37 34 60 34 22 0 34-13 43-80 9-60 22-96 36-96 20 0 36 72 56 98 15 19 27 28 44 32l14-20 15 32c17 22 35 34 77 34"/><text className="small" x="70" y="75">upstroke · systolic peak · dicrotic notch · runoff</text></svg></Frame>}
 function SquareWave(){return <Frame title="dynamic response"><svg viewBox="0 0 600 420"><path className="rv-wave" d="M55 295h80v-150h145v150c10-65 25-65 35 0 10-43 22-43 31 0 9-28 19-28 27 0 8-17 17-17 24 0h145"/><text className="small" x="115" y="125">flush</text><text className="small" x="300" y="335">inspect oscillations after release</text></svg></Frame>}
 function EfastMap(){return <Frame title="a repeatable sweep"><svg viewBox="0 0 600 420"><path className="rv-body" d="M300 55c-42 0-66 31-66 71v35c-62 30-94 84-92 163h316c2-79-30-133-92-163v-35c0-40-24-71-66-71z"/><circle className="rv-dot" cx="215" cy="210" r="10"/><circle className="rv-dot" cx="385" cy="210" r="10"/><circle className="rv-dot" cx="300" cy="285" r="10"/><circle className="rv-dot" cx="300" cy="180" r="10"/><circle className="rv-dot" cx="195" cy="150" r="8"/><circle className="rv-dot" cx="405" cy="150" r="8"/><text className="small" x="155" y="352">RUQ · LUQ · pelvis · heart · pleura</text></svg></Frame>}
 function UsWindow({name}:{name:string}){return <Frame title={name}><svg viewBox="0 0 600 420"><path className="rv-sector" d="M300 62L95 365h410z"/><ellipse className="rv-organ" cx="255" cy="218" rx="110" ry="68"/><ellipse className="rv-vessel" cx="354" cy="270" rx="55" ry="32"/><path className="rv-fluid" d="M275 253q63 18 118-4q-40 42-96 37z"/><text className="small" x="180" y="132">sweep, do not snapshot</text></svg></Frame>}
 function RealFast(){return <Frame title="real positive RUQ FAST" real><div className="rv-realmedia"><video controls playsInline muted poster="../imaging/real/fast-ruq-positive.jpg"><source src="../imaging/real/fast-ruq-positive.mp4" type="video/mp4"/><source src="../imaging/real/fast-ruq-positive.webm" type="video/webm"/></video><span>Gillman et al. · CC BY 2.0</span></div></Frame>}
+function IjLandmarks(){return <Frame title="right IJ · surface triangle → ultrasound proof"><svg viewBox="0 0 600 420">
+  <path className="rv-body" d="M82 45q95-25 190 0v285H82z"/><path className="rv-line" d="M128 84l48 218M226 84l-50 218M82 302h190"/>
+  <text className="small" x="112" y="70">SCM STERNAL HEAD</text><text className="small" x="238" y="70">SCM CLAVICULAR HEAD</text><text className="small" x="178" y="325">CLAVICLE</text>
+  <circle className="rv-dot" cx="158" cy="210" r="8"/><text className="small" x="118" y="232">CAROTID · medial</text>
+  <circle className="rv-ring gold" cx="205" cy="210" r="16"/><text className="small" x="221" y="194">IJ target region</text>
+  <path className="rv-sector" d="M430 60L300 356h260z"/><ellipse className="rv-ring" cx="394" cy="250" rx="42" ry="37"/><text className="small" x="394" y="255">CAROTID</text>
+  <ellipse className="rv-vessel" cx="478" cy="245" rx="58" ry="38"/><text className="small" x="478" y="250">IJ</text>
+  <path className="rv-line gold" d="M478 196v-58"/><text className="small" x="476" y="118">compress → release</text>
+  <text className="small" x="430" y="388">sweep cephalad/caudad · inspect overlap · rotate to long axis</text>
+</svg></Frame>}
 function RealIjv(){return <Frame title="real IJV long-axis clip" real><div className="rv-realmedia"><video controls playsInline muted poster="../imaging/real/ijv-2026-video-s2.jpg"><source src="../imaging/real/ijv-2026-video-s2.mp4" type="video/mp4"/><source src="../imaging/real/ijv-2026-video-s2.webm" type="video/webm"/></video><span>Shaul et al. · CC BY 4.0</span></div></Frame>}
-function ChestWall(){return <Frame title="orient to the safe triangle"><svg viewBox="0 0 600 420">
-  <path className="rv-body" d="M70 55q120-35 230 25q110-60 230-25v255q-115 45-230 5q-115 40-230-5z"/>
-  <path className="rv-line" d="M170 92q40 95 58 208M430 92q-40 95-58 208"/>
-  <path className="rv-line gold" d="M228 300h144M228 300L285 115M372 300L315 115"/>
-  <text className="small" x="160" y="78">pectoralis major</text><text className="small" x="440" y="78">latissimus dorsi</text>
-  <text className="small" x="300" y="333">~5th intercostal-space level</text><text className="small" x="300" y="105">apex below axilla</text>
-  <circle className="rv-dot" cx="300" cy="235" r="9"/><text className="small" x="300" y="218">target zone</text>
-  <g transform="translate(82 315) scale(.62)">
-    <ellipse className="rv-rib" cx="195" cy="45" rx="60" ry="24"/><ellipse className="rv-rib" cx="405" cy="45" rx="60" ry="24"/>
-    <path className="rv-line bad" d="M195 68v25"/><path className="rv-line gold" d="M405 18v-24"/>
-    <text className="small" x="195" y="112">bundle under rib</text><text className="small" x="405" y="-12">enter over rib below</text>
-  </g>
+function ChestWall(){return <Frame title="count to the interspace · then cross-check the safe triangle"><svg viewBox="0 0 600 420">
+  <path className="rv-body" d="M42 45q118-32 220 20q36 18 76 0q102-52 220-20v300q-120 38-258 0q-138 38-258 0z"/>
+  <path className="rv-line" d="M300 65v210"/><circle className="rv-dot" cx="300" cy="118" r="7"/><text className="small" x="300" y="101">STERNAL ANGLE · 2nd RIB</text>
+  <path className="rv-rib" d="M115 145q185-48 370 0M105 180q195-48 390 0M96 215q204-48 408 0M90 250q210-48 420 0M86 285q214-48 428 0"/>
+  <text className="small" x="520" y="148">2</text><text className="small" x="526" y="183">3</text><text className="small" x="530" y="218">4</text><text className="small" x="535" y="253">5</text><text className="small" x="538" y="288">6</text>
+  <path className="rv-line gold" d="M404 282L455 118M404 282L340 115M340 115L455 118"/><text className="small" x="470" y="120">latissimus anterior edge</text><text className="small" x="334" y="95">pectoralis lateral edge</text>
+  <circle className="rv-dot" cx="407" cy="268" r="9"/><text className="small" x="405" y="328">5th interspace · above 6th rib</text>
+  <path className="rv-line bad" d="M470 274h75"/><text className="small" x="505" y="260">bundle runs</text><text className="small" x="505" y="276">under rib above</text>
+  <text className="small" x="300" y="392">sternal angle → rib 2 → count down → safe triangle → superior border of lower rib</text>
 </svg></Frame>}
 function Drain({active}:{active:boolean}){return <Frame title={active?'water seal: read the system':'build the drain system'}><svg viewBox="0 0 600 420"><path className="rv-line" d="M90 95v80c0 25 18 42 44 42h80v80"/><rect className="rv-soft" x="180" y="275" width="315" height="105" rx="10"/><path className="rv-water" d="M195 345h285v25H195z"/><path className={active?'rv-bubble active':'rv-bubble'} d="M250 345v-48M335 345v-62M420 345v-37"/><circle className="rv-ring gold" cx="90" cy="75" r="25"/><text className="small" x="225" y="404">patient → tubing → unit → chambers</text></svg></Frame>}
-function Evd(){return <Frame title="patient reference → level → ordered height"><svg viewBox="0 0 600 420">
-  <circle className="rv-head" cx="175" cy="188" r="104"/><path className="rv-line" d="M111 190q64-45 128 0"/>
-  <circle className="rv-dot" cx="238" cy="200" r="8"/><text className="small" x="177" y="225">TRAGUS / EAM</text>
-  <path className="rv-line gold" d="M238 200h210"/><text className="small" x="338" y="186">ZERO REFERENCE</text>
-  <circle className="rv-ring gold" cx="175" cy="185" r="18"/><text className="small" x="175" y="155">≈ FORAMEN OF MONRO LEVEL</text>
-  <rect className="rv-soft" x="430" y="82" width="82" height="245" rx="8"/><path className="rv-water" d="M445 262h52v38h-52z"/>
-  <path className="rv-line" d="M420 200h102M420 150h102M420 250h102"/><text className="small" x="470" y="64">DRAIN SCALE</text>
-  <text className="small" x="300" y="365">re-level after any head / bed position change</text>
+function Evd(){return <Frame title="ear landmark → horizontal zero → ordered chamber height"><svg viewBox="0 0 600 420">
+  <circle className="rv-head" cx="145" cy="175" r="92"/><path className="rv-line" d="M80 175q65-44 128 0"/>
+  <path className="rv-ring" d="M210 153q34 22 3 54q-18 20-36 0q-14-20 8-30q18-8 25-24"/><circle className="rv-dot" cx="188" cy="184" r="7"/>
+  <text className="small" x="150" y="245">TRAGUS = cartilage in front of ear canal</text>
+  <path className="rv-line gold" d="M188 184h230"/><text className="small" x="305" y="168">TRUE HORIZONTAL ZERO</text>
+  <circle className="rv-ring gold" cx="145" cy="174" r="15"/><text className="small" x="145" y="143">≈ FOM</text>
+  <rect className="rv-soft" x="414" y="66" width="104" height="268" rx="8"/><path className="rv-water" d="M434 265h62v42h-62z"/>
+  <path className="rv-line" d="M405 184h122M405 134h122M405 234h122"/><text className="small" x="466" y="47">EVD SCALE</text>
+  <circle className="rv-ring" cx="362" cy="317" r="25"/><text className="small" x="362" y="321">OFF?</text><path className="rv-line" d="M387 317h75"/>
+  <text className="small" x="300" y="382">move? close ordered pathway → reposition → re-find patient reference → re-level → set height → restore ordered state</text>
 </svg></Frame>}
 function Vent(){return <Frame title="patient → tube → circuit → ventilator"><svg viewBox="0 0 600 420"><circle className="rv-head" cx="110" cy="160" r="60"/><path className="rv-line" d="M165 170h170"/><path className="rv-line gold" d="M265 170v75"/><rect className="rv-soft" x="335" y="85" width="160" height="215" rx="15"/><path className="rv-wave" d="M360 225h25l12-70 18 115 16-45h37"/><text className="small" x="362" y="120">VENT</text><text className="small" x="200" y="150">trace the circuit</text></svg></Frame>}
-function Io(){return <Frame title="proximal tibia · prove the bony landmark"><svg viewBox="0 0 600 420">
-  <path className="rv-bone" d="M235 55c-38 28-48 88-30 142l34 123c8 29 29 46 61 46s53-17 61-46l34-123c18-54 8-114-30-142-38 19-92 19-130 0z"/>
-  <circle className="rv-ring" cx="300" cy="157" r="18"/><text className="small" x="300" y="132">tibial tuberosity</text>
-  <circle className="rv-dot" cx="280" cy="205" r="10"/><path className="rv-line gold" d="M280 205l-105-38"/>
-  <text className="small" x="112" y="156">flat anteromedial target</text>
-  <path className="rv-line bad" d="M300 75h115"/><text className="small" x="468" y="80">joint / growth-zone awareness</text>
-  <text className="small" x="300" y="395">different site? restart with that device-specific landmark sequence</text>
+function Io(){return <Frame title="adult proximal tibia · build the landmark from the knee"><svg viewBox="0 0 600 420">
+  <ellipse className="rv-ring" cx="300" cy="72" rx="78" ry="36"/><text className="small" x="300" y="77">PATELLA</text>
+  <path className="rv-line" d="M300 108v46"/><circle className="rv-ring" cx="300" cy="168" r="18"/><text className="small" x="300" y="145">TIBIAL TUBEROSITY</text>
+  <path className="rv-bone" d="M270 187q-22 88-14 180h88q8-92-14-180z"/>
+  <path className="rv-line gold" d="M300 168l-45 48"/><circle className="rv-dot" cx="255" cy="216" r="10"/>
+  <text className="small" x="157" y="211">~2 cm medial</text><text className="small" x="185" y="235">flat anteromedial tibia</text>
+  <path className="rv-line" d="M105 88h100"/><text className="small" x="155" y="73">alternate anchor</text><text className="small" x="155" y="105">~3 cm below patella</text>
+  <path className="rv-needle" d="M255 125v80"/><text className="small" x="390" y="195">needle 90° to bone</text>
+  <text className="small" x="300" y="397">EZ-IO-style adult example · other sites/ages get their own landmark sequence</text>
 </svg></Frame>}
 
 function Piv({mode}:{mode:string}){return <Frame title="ultrasound-guided peripheral IV"><svg viewBox="0 0 600 420">
