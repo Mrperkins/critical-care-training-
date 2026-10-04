@@ -607,21 +607,21 @@
   },
   {
     "id": "rep.rep-efast.ruq",
-    "text": "Move to the right lateral lower chest and upper abdomen, generally around the mid-to-posterior axillary region, with the probe oriented longitudinally according to your convention. First identify the liver, then the right kidney, then the bright diaphragm. Once those anchors are real, search the hepatorenal interface and inferior liver tip while sliding, fanning and sweeping through the window. Do not accept one frozen image as a negative examination.",
+    "text": "Move to the right lateral lower chest and upper abdomen. A common starting point is the mid-axillary line around the eighth to eleventh intercostal spaces, with the probe oriented longitudinally according to your convention. First identify the liver, then the right kidney, then the bright diaphragm. Once those anchors are real, search the hepatorenal interface and inferior liver tip while sliding, fanning and sweeping through the window. Do not accept one frozen image as a negative examination.",
     "kind": "mental-rep",
-    "transcriptHash": "a8495284a09d0790"
+    "transcriptHash": "641f6bd284942fa4"
   },
   {
     "id": "rep.rep-efast.luq",
-    "text": "For the left upper quadrant, move more posteriorly and often slightly more cephalad than you did on the right. Identify spleen, left kidney and diaphragm before hunting for fluid. Keep the probe between the ribs, sweep through the splenorenal interface and the subdiaphragmatic region, and adjust your hand rather than twisting the image in your head to resemble a textbook picture.",
+    "text": "For the left upper quadrant, move more posteriorly and usually more cephalad than on the right; a common starting point is the posterior axillary line around the sixth to ninth intercostal spaces. Identify spleen, left kidney and diaphragm before hunting for fluid. Keep the probe between the ribs, sweep through the splenorenal interface and the subdiaphragmatic region, and adjust your hand rather than twisting the image in your head to resemble a textbook picture.",
     "kind": "mental-rep",
-    "transcriptHash": "598e8e5750210d23"
+    "transcriptHash": "3e2f256d431538be"
   },
   {
     "id": "rep.rep-efast.pelvis",
-    "text": "Move to the suprapubic region and find the bladder first. It should give you a dark fluid-filled acoustic window and a clear pelvic reference. Scan in both transverse and longitudinal planes according to your convention, then examine the dependent spaces around the bladder rather than staring only at its center. If you cannot confidently identify the bladder, re-orient before calling the pelvic window complete.",
+    "text": "Move to the midline just cephalad to the pubic bone. Touch the probe to the pubic bone first if needed to see its shadow, then slide slightly cephalad and find the bladder. It should give you a dark fluid-filled acoustic window and a clear pelvic reference. Scan in both transverse and longitudinal planes according to your convention, then examine the dependent spaces around the bladder rather than staring only at its center. If you cannot confidently identify the bladder, re-orient before calling the pelvic window complete.",
     "kind": "mental-rep",
-    "transcriptHash": "91f2f0fbe75d024d"
+    "transcriptHash": "5e41be89fb0e5049"
   },
   {
     "id": "rep.rep-efast.cardiac",
@@ -733,9 +733,9 @@
   },
   {
     "id": "rep.rep-io.landmark",
-    "text": "Choose an approved site for the device and patient in front of you, then identify it by touch before opening the driver. For a proximal tibial example, first find the tibial tuberosity, then move onto the broad flat anteromedial surface of the proximal tibia rather than drifting toward the joint or posterior structures. In pediatric patients, deliberately account for the growth plate according to your training and device instructions. If you are using another approved site such as the proximal humerus, switch to that device-specific landmark sequence instead of carrying the tibial landmarks over. If the bony target is not unmistakable, stop and select or re-identify the site.",
+    "text": "Choose an approved site for the device and patient in front of you, then identify it by touch before opening the driver. For a proximal tibial example, first find the tibial tuberosity, then identify the broad flat anteromedial surface about one to two centimeters inferior and medial to it rather than drifting toward the joint or posterior structures. In pediatric patients, deliberately account for the growth plate according to your training and device instructions. If you are using another approved site such as the proximal humerus, switch to that device-specific landmark sequence instead of carrying the tibial landmarks over. If the bony target is not unmistakable, stop and select or re-identify the site.",
     "kind": "mental-rep",
-    "transcriptHash": "18ecc92cff1bbdb1"
+    "transcriptHash": "a9951aa26749c15d"
   },
   {
     "id": "rep.rep-io.place",
