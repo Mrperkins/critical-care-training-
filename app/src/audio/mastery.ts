@@ -635,6 +635,27 @@ export const MASTERY: MasteryConcept[] = [
     performance: ['Separate prognosis from formal death determination.', 'Avoid premature certainty in the presence of sedation, hypothermia, metabolic confounding or insufficient observation time.'],
   },
   {
+    id: 'ultrasound-piv', name: 'Ultrasound-guided peripheral IV', domain: 'procedures', level: 2,
+    summary: 'Ultrasound-guided peripheral access combines vessel selection, needle-tip tracking, catheter length and post-placement assessment.',
+    prereq: [], related: ['central-line'],
+    vocabulary: ['short axis', 'long axis', 'tip tracking', 'catheter-to-vein ratio'],
+    performance: ['Choose an appropriate target by depth, diameter and course.', 'Keep the true needle tip accounted for and anticipate failure from a catheter that is too short for the vessel depth.'],
+  },
+  {
+    id: 'airway-rsi', name: 'RSI preparation & peri-intubation physiology', domain: 'procedures', level: 4,
+    summary: 'RSI is a physiologic resuscitation that includes preoxygenation, hemodynamic preparation, drug strategy, positioning, backup planning and post-intubation care.',
+    prereq: ['oxygen-delivery','ppv-hemodynamics'], related: ['sedation-analgesia','vent-troubleshooting','rv-failure'],
+    vocabulary: ['preoxygenation', 'apneic oxygenation', 'first-pass success', 'peri-intubation arrest'],
+    performance: ['Identify physiologically difficult airways before induction.', 'Build an airway plan that includes hemodynamics and the first five minutes after tube placement.'],
+  },
+  {
+    id: 'post-intubation', name: 'Post-intubation stabilization', domain: 'procedures', level: 3,
+    summary: 'Tube confirmation is the beginning of post-intubation care: oxygenation, ventilation, hemodynamics, sedation, ventilator setup and diagnosis must be reassessed together.',
+    prereq: ['airway-rsi'], related: ['vent-troubleshooting','sedation-analgesia','ppv-hemodynamics'],
+    vocabulary: ['waveform capnography', 'post-intubation hypotension', 'analgosedation'],
+    performance: ['Run a reproducible first-five-minutes stabilization sequence.', 'Treat hypotension or hypoxemia as a physiology problem rather than simply changing one ventilator or medication setting.'],
+  },
+  {
     id: 'uncertainty', name: 'Clinical uncertainty & model revision', domain: 'multisystem', level: 6,
     summary: 'Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.',
     prereq: ['shock'], related: ['cognitive-bias', 'multisystem-tradeoffs'],
