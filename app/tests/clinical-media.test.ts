@@ -10,8 +10,15 @@ const src = (d: string): string[] => fs.readdirSync(d, { withFileTypes: true }).
 describe('real clinical media', () => {
   it('every RealCase kind used in a lesson has shipped or staged media', () => {
     const used = new Set(src('src').flatMap((f) => [...fs.readFileSync(f, 'utf8').matchAll(/<RealCase kind="(\w+)"/g)].map((m) => m[1])));
-    expect([...used].sort()).toEqual(['fast', 'ijv', 'ivc', 'pleuraleff', 'ptx', 'ptxlus', 'ptxseries', 'tamponade']);
+    expect([...used].sort()).toEqual(['ijv', 'ivc']);
     for (const k of used) expect(all.some((i) => i.kind === k), k).toBe(true);
+  });
+  it('state-matched selectors only name shipped real-media IDs', () => {
+    const referenced = new Set<string>();
+    for (const f of ['src/vent/realReference.ts', 'src/abdomen/realReference.ts', 'src/neuro/imaging/realReference.ts']) {
+      for (const m of fs.readFileSync(f, 'utf8').matchAll(/id:\s*'([^']+)'/g)) referenced.add(m[1]);
+    }
+    for (const id of referenced) expect(man.items.some((i) => i.id === id), id).toBe(true);
   });
   it('teaching items commit before reveal: a quiz with a valid answer, look-fors and teaching points', () => {
     for (const it of all.filter((i) => ['ptx', 'fast', 'ivc', 'ijv', 'ptxlus', 'pleuraleff', 'tamponade', 'ptxseries'].includes(i.kind))) {

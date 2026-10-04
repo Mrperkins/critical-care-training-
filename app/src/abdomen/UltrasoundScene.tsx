@@ -5,7 +5,8 @@ import { renderUs, US_WINDOWS, US_LABELS, usUV, type UsWindow } from './ultrasou
 import { IS_PHONE } from '../scene/Studio';
 import type { AbdomenState } from './state';
 import { useHideFindings } from '../challenge/caseStore';
-import { RealCase } from '../scene/imaging/RealCase';
+import { StateRealReference } from '../scene/imaging/StateRealReference';
+import { selectAbdomenReal } from './realReference';
 import { useSceneLabelMode } from '../scene/labels';
 
 function UsPanel({ win, st }: { win: UsWindow; st: AbdomenState }) {
@@ -43,12 +44,12 @@ function ProbeMap({ st }: { st: AbdomenState }) {
   );
 }
 export function UltrasoundScene() {
-  const base = useAbdUI((s) => s.base); const minutes = useAbdUI((s) => s.minutes); const st = useMemo(() => currentAbdomen({ base, minutes }), [base, minutes]); const hide = useHideFindings();
+  const base = useAbdUI((s) => s.base); const minutes = useAbdUI((s) => s.minutes); const st = useMemo(() => currentAbdomen({ base, minutes }), [base, minutes]); const hide = useHideFindings(); const real = hide ? null : selectAbdomenReal(st);
   return (
     <div className="imaging us-view">
       <div className="img-grid us-grid">{US_WINDOWS.map((w) => <UsPanel key={w.id} win={w.id} st={st} />)}<ProbeMap st={st} /></div>
-      {!hide && <div className="rc-pair"><RealCase kind="fast" title="Real positive FAST" /><RealCase kind="tamponade" title="Real tamponade (pericardial window)" /><RealCase kind="ivc" title="Real IVC scans" /></div>}
-      <div className="img-bar"><p className="img-note">Synthetic teaching ultrasound generated from the model state — not patient scans. Free fluid is black (anechoic); FAST sees only intraperitoneal and pericardial fluid, never the retroperitoneum.</p></div>
+      <StateRealReference match={real} />
+      <div className="img-bar"><p className="img-note">Synthetic teaching ultrasound generated from the model state. The real reference above, when present, is selected from a different patient to match the live FAST or aortic finding. FAST sees intraperitoneal/pericardial fluid, not retroperitoneal blood.</p></div>
     </div>
   );
 }
