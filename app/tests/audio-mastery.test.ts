@@ -119,4 +119,56 @@ describe('critical care audio mastery model', () => {
       for (const pattern of patterns) expect(script, `${id} lost hands-first step ${pattern}`).toMatch(pattern);
     }
   });
+
+  it('protocol-grade Mental Reps do not hide critical steps behind vague shorthand', () => {
+    const banned = [
+      /identify the correct site/i,
+      /find the landmark/i,
+      /use the standard approach/i,
+      /obtain (?:pleural |vascular )?access/i,
+      /prepare the system/i,
+      /place (?:it|the line|the tube) in the usual/i,
+      /confirm placement\.?$/i,
+      /reassess the patient\.?$/i,
+    ];
+    for (const rep of MENTAL_REPS) {
+      for (const beat of rep.beats) {
+        for (const pattern of banned) {
+          expect(beat.narration, `${rep.id}/${beat.id} hides a procedural step behind ${pattern}`).not.toMatch(pattern);
+        }
+      }
+    }
+  });
+
+  it('protocol-grade Mental Reps retain their physical anchors, routes and proof steps', () => {
+    const required: Record<string, RegExp[]> = {
+      'rep-push-dose-pressor': [/read the label/i, /expel one milliliter/i, /nine milliliters/i, /one hundred micrograms/i, /label it/i],
+      'rep-blood': [/in-line filter/i, /close the clamps/i, /clear(?:ed)? visible air/i, /patient identifiers/i, /stop flow immediately/i],
+      'rep-art-line': [/radial styloid/i, /flexor carpi radialis/i, /true needle tip/i, /fourth intercostal space/i, /mid-axillary line/i, /open to atmosphere/i],
+      'rep-efast': [/mid-axillary line/i, /hepatorenal recess/i, /posterior axillary line/i, /pubic bone/i, /xiphoid process/i, /two rib shadows/i],
+      'rep-chest-tube': [/sternal angle/i, /second rib/i, /fifth intercostal space/i, /sixth rib/i, /pectoralis major/i, /latissimus dorsi/i, /gloved finger/i, /side hole/i],
+      'rep-central-line': [/clavicle/i, /sternocleidomastoid/i, /carotid/i, /compressible/i, /probe midpoint/i, /true needle tip/i, /guidewire/i, /dilator/i, /wire completely/i],
+      'rep-io': [/patella/i, /tibial tuberosity/i, /two centimeters medial/i, /five-millimeter mark/i, /ninety degrees/i, /medullary space/i],
+      'rep-vent-emergency': [/disconnect the ventilator/i, /manual resuscitation bag/i, /suction catheter/i, /peak inspiratory pressure/i, /plateau pressure/i, /expiratory flow/i],
+      'rep-evd': [/tragus/i, /cartilaginous projection/i, /ear canal/i, /patient-to-drain/i, /horizontal/i, /re-level/i],
+      'rep-mtp': [/cooler/i, /rapid infuser/i, /warmer/i, /unit label/i, /live tally/i, /source-control/i],
+      'rep-us-piv': [/short and long axis/i, /compressibility/i, /true tip/i, /anterior vein wall/i, /thread the catheter/i, /soft-tissue expansion/i],
+      'rep-rsi': [/external auditory meatus/i, /sternal notch/i, /suction/i, /laryngoscope/i, /cuff checked/i, /label every syringe/i, /final sweep/i],
+      'rep-post-intubation': [/waveform capnography/i, /tube depth/i, /predicted body weight/i, /expiratory flow/i, /analgesia and sedation/i],
+      'rep-pac': [/fourth intercostal space/i, /mid-axillary line/i, /right-atrial waveform/i, /right ventricle/i, /dicrotic notch/i, /deflate promptly/i],
+      'rep-crrt': [/access limb/i, /blood pump/i, /filter/i, /return limb/i, /dialysate/i, /replacement solution/i, /effluent/i, /transmembrane pressure/i],
+      'rep-ecmo': [/drainage limb/i, /pump speed/i, /measured blood flow/i, /sweep-gas/i, /membrane lung/i, /return limb/i, /recirculation/i],
+      'rep-iabp': [/trigger source/i, /unassisted beat/i, /dicrotic notch/i, /inflation marker/i, /assisted end-diastolic/i, /late deflation/i],
+      'rep-sedation': [/drug name and concentration/i, /pump channel/i, /trace the infusion/i, /sedation target/i, /not occluded or empty/i],
+      'rep-status': [/active seizure protocol/i, /route you actually have/i, /read the .* concentration/i, /exact volume/i, /completion time/i, /next-line row/i],
+      'rep-pocus-shock': [/xiphoid/i, /inferior tip of the sternum/i, /left edge of the sternum/i, /point of maximal impulse/i, /two rib shadows/i, /pubic symphysis/i, /vertebral body/i, /aorta/i],
+    };
+    for (const [id, patterns] of Object.entries(required)) {
+      const rep = MENTAL_REPS.find((x) => x.id === id)!;
+      const script = rep.beats.map((b) => b.narration).join(' ');
+      for (const pattern of patterns) {
+        expect(script, `${id} lost protocol-grade anchor ${pattern}`).toMatch(pattern);
+      }
+    }
+  });
 });
