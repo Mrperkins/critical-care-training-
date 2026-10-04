@@ -11,9 +11,11 @@ const spoken = (s: string) => s
   .replaceAll('ARDS','A R D S').replaceAll('RSI','R S I').replaceAll('MTP','M T P');
 
 export function draftTranscriptForEpisode(e: AudioEpisode) {
-  if (e.voice?.transcript?.trim()) return e.voice.transcript.trim();
+  const authored = e.voice?.transcript?.trim() ?? '';
+  if (authored && authored.split(/\s+/).length >= 350) return authored;
 
   const parts: string[] = [];
+  if (authored) parts.push(authored);
   parts.push(`You're listening to ${e.title}. ${e.subtitle}`);
   parts.push(`This is a level ${e.level} critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.`);
   if (e.outcomes.length) {
