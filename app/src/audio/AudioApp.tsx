@@ -8,9 +8,10 @@ import { bridgeFor } from './bridges';
 import { recommendedEpisode, recommendedRep } from './recommend';
 import { handsFreeAvailable, listenForCommand, type HandsFreeCommand } from './handsfree';
 import { buildLearningPath } from './pathway';
+import { EXPERT_TRACKS } from './tracks';
 import type { AudioEpisode, MentalRep } from './types';
 
-type Page = 'home' | 'listen' | 'reps' | 'review' | 'mastery';
+type Page = 'home' | 'tracks' | 'listen' | 'reps' | 'review' | 'mastery';
 
 const fmt = (n: number) => `${Math.floor(n / 60)}:${String(Math.floor(n % 60)).padStart(2, '0')}`;
 
@@ -27,6 +28,7 @@ export function AudioApp() {
         <div className="aa-brand"><div className="aa-mark">⌁</div><div><b>Critical Care Audio</b><span>Listen · reason · rehearse</span></div></div>
         <nav aria-label="Audio learning">
           <Nav icon="⌂" label="Home" on={page === 'home'} onClick={() => { setEpisode(null); setRep(null); setPage('home'); }} />
+          <Nav icon="▤" label="Tracks" on={page === 'tracks'} onClick={() => { setEpisode(null); setRep(null); setPage('tracks'); }} />
           <Nav icon="◉" label="Listen" on={page === 'listen'} onClick={() => { setEpisode(null); setRep(null); setPage('listen'); }} />
           <Nav icon="↻" label="Mental Reps" on={page === 'reps'} onClick={() => { setEpisode(null); setRep(null); setPage('reps'); }} />
           <Nav icon="◇" label="Review" on={page === 'review'} onClick={() => { setEpisode(null); setRep(null); setPage('review'); }} />
@@ -46,6 +48,7 @@ export function AudioApp() {
            onExample={(e) => { setRep(null); setEpisode(e); }} /> :
          focus ? <FocusPath conceptId={focus} onBack={() => setFocus(null)} onEpisode={setEpisode} onRep={setRep} onReview={() => { setFocus(null); setPage('review'); }} /> :
          page === 'home' ? <Home onEpisode={setEpisode} onRep={setRep} navigate={setPage} /> :
+         page === 'tracks' ? <Tracks onEpisode={setEpisode} /> :
          page === 'listen' ? <Listen onEpisode={setEpisode} /> :
          page === 'reps' ? <Reps onRep={setRep} /> :
          page === 'review' ? <Review /> : <Mastery onFocus={setFocus} />}
@@ -66,7 +69,7 @@ function Home({ onEpisode, onRep, navigate }: { onEpisode: (e: AudioEpisode) => 
       <div className="aa-voice"><span>VOICE STANDARD</span><b>Natural human-quality narration</b><small>No browser TTS. Production lessons require reviewed, pre-rendered premium neural voice or clinician-recorded audio.</small></div>
     </header>
     <section className="aa-grid aa-stats">
-      <button onClick={() => navigate('listen')}><span>LISTEN</span><b>{EPISODES.length}</b><small>Daily Dose · Rounds · Deep Dives · Cases</small></button>
+      <button onClick={() => navigate('tracks')}><span>EXPERT TRACKS</span><b>{EXPERT_TRACKS.length}</b><small>Ordered ICU domain pathways</small></button>
       <button onClick={() => navigate('reps')}><span>MENTAL REPS</span><b>{MENTAL_REPS.length}</b><small>Guided procedural visualization</small></button>
       <button onClick={() => navigate('mastery')}><span>MASTERY GRAPH</span><b>{MASTERY.length}</b><small>{mastery} concepts touched so far</small></button>
     </section>
@@ -82,6 +85,22 @@ function Home({ onEpisode, onRep, navigate }: { onEpisode: (e: AudioEpisode) => 
       <p className="aa-muted">{rep.subtitle} Calm, guided narration walks you through setup, orientation, decision points, confirmation and failure recognition.</p>
     </section>
     <section className="aa-levels">{LEVELS.map((l) => <div key={l.level}><span>{l.level}</span><b>{l.name}</b><small>{l.description}</small></div>)}</section>
+  </div>;
+}
+
+function Tracks({ onEpisode }: { onEpisode: (e: AudioEpisode) => void }) {
+  const p = useAudioProgress();
+  return <div className="aa-page"><PageHead kicker="EXPERT TRACKS" title="A curriculum, not a podcast feed." body="Work through each ICU domain in increasing depth. Tracks combine rounds, literacy, deep dives and cases while the mastery engine keeps weak concepts in rotation." />
+    <div className="aa-trackgrid">{EXPERT_TRACKS.map((t) => {
+      const done = t.episodes.filter((e) => !!p.completed[e.id]).length;
+      const pct = t.episodes.length ? Math.round(100 * done / t.episodes.length) : 0;
+      const next = t.episodes.find((e) => !p.completed[e.id]) ?? t.episodes[0];
+      return <article key={t.id}><div className="aa-tracktop"><span>{t.episodes.length} sessions</span><b>{pct}%</b></div><h2>{t.title}</h2><p>{t.promise}</p><div className="aa-meter"><i style={{width:`${pct}%`}} /></div>
+        <div className="aa-trackepisodes">{t.episodes.slice(0,4).map((e) => <button key={e.id} onClick={() => onEpisode(e)} className={p.completed[e.id] ? 'done' : ''}><span>{p.completed[e.id] ? '✓' : '▶'}</span><b>{e.title}</b><small>L{e.level} · {e.minutes} min</small></button>)}</div>
+        {t.episodes.length > 4 && <small className="aa-more">+{t.episodes.length - 4} more sessions</small>}
+        <button className="aa-primary" onClick={() => onEpisode(next)}>{done ? 'Continue track →' : 'Start track →'}</button>
+      </article>;
+    })}</div>
   </div>;
 }
 
