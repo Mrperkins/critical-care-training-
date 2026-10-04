@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { EPISODES, MENTAL_REPS } from './catalog';
+import { EPISODES, MENTAL_REPS, EPISODE_BY_ID, REP_BY_ID } from './catalog';
 import { DOMAIN_LABELS, LEVELS, MASTERY, MASTERY_BY_ID } from './mastery';
 import { masteryScore, useAudioProgress } from './progress';
 import { duePrompts, REVIEW_PROMPTS } from './review';
@@ -7,6 +7,7 @@ import { RepVisual } from './RepVisual';
 import { bridgeFor } from './bridges';
 import { recommendedEpisode, recommendedRep } from './recommend';
 import { handsFreeAvailable, listenForCommand, type HandsFreeCommand } from './handsfree';
+import { buildLearningPath } from './pathway';
 import type { AudioEpisode, MentalRep } from './types';
 
 type Page = 'home' | 'listen' | 'reps' | 'review' | 'mastery';
@@ -17,6 +18,7 @@ export function AudioApp() {
   const [page, setPage] = useState<Page>('home');
   const [episode, setEpisode] = useState<AudioEpisode | null>(null);
   const [rep, setRep] = useState<MentalRep | null>(null);
+  const [focus, setFocus] = useState<string | null>(null);
   const p = useAudioProgress();
   const done = Object.keys(p.completed).length + Object.keys(p.repCompleted).length;
   return (
@@ -36,10 +38,11 @@ export function AudioApp() {
       <main className="aa-main">
         {episode ? <EpisodePlayer episode={episode} onBack={() => setEpisode(null)} /> :
          rep ? <RepPlayer rep={rep} onBack={() => setRep(null)} /> :
+         focus ? <FocusPath conceptId={focus} onBack={() => setFocus(null)} onEpisode={setEpisode} onRep={setRep} onReview={() => { setFocus(null); setPage('review'); }} /> :
          page === 'home' ? <Home onEpisode={setEpisode} onRep={setRep} navigate={setPage} /> :
          page === 'listen' ? <Listen onEpisode={setEpisode} /> :
          page === 'reps' ? <Reps onRep={setRep} /> :
-         page === 'review' ? <Review /> : <Mastery />}
+         page === 'review' ? <Review /> : <Mastery onFocus={setFocus} />}
       </main>
     </div>
   );
@@ -117,7 +120,7 @@ function Review() {
   </div>;
 }
 
-function Mastery() {
+function Mastery({ onFocus }: { onFocus: (id: string) => void }) {
   const p = useAudioProgress(); const [q, setQ] = useState(''); const [level, setLevel] = useState<number | null>(null);
   const rows = useMemo(() => MASTERY.filter((c) => (!level || c.level === level) && (!q || (c.name + c.summary + DOMAIN_LABELS[c.domain]).toLowerCase().includes(q.toLowerCase()))), [q, level]);
   return <div className="aa-page"><PageHead kicker="MASTERY GRAPH" title="Expert is a network, not a checklist." body="Concepts unlock progressively and recur across audio, visual physiology, cases and Mental Reps. Mastery means being able to predict, interpret and revise — not merely define." />
@@ -125,8 +128,28 @@ function Mastery() {
     <div className="aa-concepts">{rows.map((c) => { const s = p.mastery[c.id], score = masteryScore(s), bridge = bridgeFor(c.id); return <article key={c.id}><div className="aa-c-top"><span>L{c.level} · {DOMAIN_LABELS[c.domain]}</span><b>{score}%</b></div><h3>{c.name}</h3><p>{c.summary}</p>
       <div className="aa-meter"><i style={{ width: `${score}%` }} /></div>
       <small>{s?.exposures ?? 0} exposures · {c.performance[0]}</small>
-      {bridge && <a className="aa-visual-link" href={bridge.href}><b>See it visually →</b><span>{bridge.note}</span></a>}
+      <div className="aa-mastery-actions"><button onClick={() => onFocus(c.id)}>Teach me this →</button>{bridge && <a className="aa-visual-link" href={bridge.href}><b>See it visually →</b><span>{bridge.note}</span></a>}</div>
     </article>; })}</div>
+  </div>;
+}
+
+function FocusPath({ conceptId, onBack, onEpisode, onRep, onReview }: { conceptId: string; onBack: () => void; onEpisode: (e: AudioEpisode) => void; onRep: (r: MentalRep) => void; onReview: () => void }) {
+  const c = MASTERY_BY_ID[conceptId]; const steps = buildLearningPath(conceptId);
+  if (!c) return null;
+  const open = (kind: string, id: string) => {
+    if (kind === 'listen' && EPISODE_BY_ID[id]) onEpisode(EPISODE_BY_ID[id]);
+    else if (kind === 'rep' && REP_BY_ID[id]) onRep(REP_BY_ID[id]);
+    else if (kind === 'review') onReview();
+  };
+  return <div className="aa-page"><button className="aa-backbtn" onClick={onBack}>← Mastery</button>
+    <PageHead kicker="TEACH ME THIS UNTIL I UNDERSTAND IT" title={c.name} body={c.summary} />
+    <section className="aa-focus-intro"><div><span>LEVEL {c.level}</span><b>{DOMAIN_LABELS[c.domain]}</b></div><p><b>Mastery looks like:</b> {c.performance.join(' ')}</p></section>
+    <div className="aa-path">{steps.map((step, i) => <article key={step.kind + step.id + i} className={`kind-${step.kind}`}>
+      <div className="aa-path-num">{i + 1}</div><div className="aa-path-body"><span>{step.kind.replace('-', ' ')}</span><h3>{step.title}</h3><p>{step.note}</p></div>
+      {step.kind === 'visual' ? <a className="aa-secondary" href={step.href}>Open visual →</a> :
+       step.kind === 'listen' || step.kind === 'rep' || step.kind === 'review' ? <button className="aa-secondary" onClick={() => open(step.kind, step.id)}>{step.kind === 'listen' ? 'Listen →' : step.kind === 'rep' ? 'Rehearse →' : 'Test me →'}</button> : null}
+    </article>)}</div>
+    <section className="aa-section"><span className="aa-kicker">WHY THIS ORDER?</span><p className="aa-muted">Prerequisites come first, then explanation, visualization, procedural rehearsal when relevant, and retrieval. The target is durable clinical reasoning—not a completed playlist.</p></section>
   </div>;
 }
 
