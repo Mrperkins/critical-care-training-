@@ -129,3 +129,22 @@ Current landmark-expanded reps:
 - ultrasound-guided peripheral IV.
 
 The completion audit now treats a durable Mental Rep MP3 as stale when its transcript hash does not match the current narration. Script changes therefore require a fresh natural-voice render/import before the branch can pass the audio completion gate.
+
+### Protocol-grade expansion
+
+The hands-first/landmark-first standard is now strengthened to **protocol-grade narration**.
+
+Every invasive or anatomy-dependent Mental Rep must explicitly narrate:
+- patient/body/probe starting position;
+- first unmistakable anchor landmark;
+- the physical route from anchor to target;
+- adjacent structures;
+- structures to avoid;
+- the sensory, imaging, waveform or device feature that proves the target;
+- the next literal hand/device action;
+- explicit stop/re-orient criteria;
+- a specific endpoint proving the step worked.
+
+Banned as stand-alone abstractions: "identify the correct site," "find the landmark," "obtain access," "prepare the system," "use the standard approach," "confirm placement," or "reassess" without the operational steps that make those phrases real.
+
+When a landmark term itself could be unfamiliar (for example "safe triangle," "pleural access," "phlebostatic axis," "tragus reference," "anterior axillary line," or an escharotomy release line), the narration must define the term spatially instead of assuming it is self-explanatory.
