@@ -113,6 +113,7 @@ describe('critical care audio mastery model', () => {
       'rep-ecmo': [/trace where blood is drained/i, /drainage limb/i, /pump speed and measured blood flow/i, /sweep-gas source/i, /return limb/i, /console in isolation/i],
       'rep-iabp': [/trigger source/i, /dicrotic notch/i, /assisted end-diastolic/i, /early inflation/i, /late deflation/i],
     };
+    expect(Object.keys(required).sort(), 'every Mental Rep must have a protocol-grade anchor checklist').toEqual(MENTAL_REPS.map((x) => x.id).sort());
     for (const [id, patterns] of Object.entries(required)) {
       const rep = MENTAL_REPS.find((x) => x.id === id)!;
       const script = rep.beats.map((b) => b.narration).join(' ');
@@ -143,7 +144,7 @@ describe('critical care audio mastery model', () => {
   it('protocol-grade Mental Reps retain their physical anchors, routes and proof steps', () => {
     const required: Record<string, RegExp[]> = {
       'rep-push-dose-pressor': [/read the label/i, /expel one milliliter/i, /nine milliliters/i, /one hundred micrograms/i, /label it/i],
-      'rep-blood': [/in-line filter/i, /close the clamps/i, /clear(?:ed)? visible air/i, /patient identifiers/i, /stop flow immediately/i],
+      'rep-blood': [/in-line filter/i, /close the clamps/i, /visible air (?:is )?clear|clear(?:ed)? visible air/i, /patient identifiers/i, /stop flow immediately/i],
       'rep-art-line': [/radial styloid/i, /flexor carpi radialis/i, /true needle tip/i, /fourth intercostal space/i, /mid-axillary line/i, /open to atmosphere/i],
       'rep-efast': [/mid-axillary line/i, /hepatorenal recess/i, /posterior axillary line/i, /pubic bone/i, /xiphoid process/i, /two rib shadows/i],
       'rep-chest-tube': [/sternal angle/i, /second rib/i, /fifth intercostal space/i, /sixth rib/i, /pectoralis major/i, /latissimus dorsi/i, /gloved finger/i, /side hole/i],
