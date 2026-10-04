@@ -48,7 +48,15 @@ jobs:
             echo "No voice asset changes"
           else
             git commit -m "chore(audio): import durable natural-voice prototypes [skip ci]"
-            git fetch origin audio-mastery
-            git rebase origin/audio-mastery
-            git push origin HEAD:audio-mastery
+            for attempt in 1 2 3 4 5; do
+              git fetch origin audio-mastery
+              git rebase origin/audio-mastery
+              if git push origin HEAD:audio-mastery; then
+                exit 0
+              fi
+              echo "Voice asset push raced with branch update; retrying ($attempt/5)"
+              sleep $((attempt * 2))
+            done
+            echo "Unable to publish durable voice assets after retries" >&2
+            exit 1
           fi
