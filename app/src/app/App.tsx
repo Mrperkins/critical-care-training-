@@ -48,35 +48,86 @@ function useEngine() {
   }, []);
 }
 
-const MODULES: [Module, string][] = [['vent', 'Ventilator'], ['abg', 'Blood gas'], ['labs', 'Labs'], ['lines', 'Lines'], ['heart', 'Heart'], ['abdomen', 'Abdomen'], ['neuro', 'Brain'], ['moa', 'Drugs'], ['curriculum', 'Curriculum']];
-const MODES: [Mode, string][] = [['explore', 'Explore'], ['learn', 'Learn'], ['challenge', 'Challenge'], ['sim', 'Simulate']];
+const DOMAINS: { module: Module; label: string; short: string; eyebrow: string }[] = [
+  { module: 'curriculum', label: 'Home', short: 'HM', eyebrow: 'Your learning home' },
+  { module: 'vent', label: 'Respiratory', short: 'RS', eyebrow: 'Ventilation & gas exchange' },
+  { module: 'abg', label: 'Blood gas', short: 'AB', eyebrow: 'Acid–base & oxygenation' },
+  { module: 'labs', label: 'Labs', short: 'LB', eyebrow: 'Cellular & metabolic physiology' },
+  { module: 'lines', label: 'Hemodynamics', short: 'HD', eyebrow: 'Pressure, flow & access' },
+  { module: 'heart', label: 'Cardiac', short: 'CV', eyebrow: 'Pump, rhythm & circulation' },
+  { module: 'abdomen', label: 'Abdomen', short: 'GI', eyebrow: 'Perfusion, bleeding & imaging' },
+  { module: 'neuro', label: 'Neuro', short: 'NR', eyebrow: 'Brain, perfusion & pressure' },
+  { module: 'moa', label: 'Pharmacology', short: 'RX', eyebrow: 'Mechanism to whole patient' },
+];
+type Experience = 'learn' | 'explore' | 'practice';
+const EXPERIENCE: { key: Experience; label: string }[] = [
+  { key: 'learn', label: 'Learn' },
+  { key: 'explore', label: 'Explore' },
+  { key: 'practice', label: 'Practice' },
+];
+const experienceFor = (mode: Mode): Experience => mode === 'challenge' || mode === 'sim' ? 'practice' : mode;
+const experienceCopy: Record<Experience, string> = {
+  learn: 'Guided lessons with a single clinical objective at a time.',
+  explore: 'Manipulate physiology and inspect what changes.',
+  practice: 'Cases and simulation that make you commit to a decision.',
+};
 
 export function App() {
   useEngine(); useEffect(() => initProgressTracking(), []);
   const module = useUI((s) => s.module); const mode = useUI((s) => s.mode); const phone = useIsPhone();
+  const experience = experienceFor(mode);
+  const domain = DOMAINS.find((d) => d.module === module) ?? DOMAINS[0];
+  const chooseExperience = (next: Experience) => {
+    if (next === 'practice') useUI.getState().set({ mode: mode === 'sim' ? 'sim' : 'challenge' });
+    else useUI.getState().set({ mode: next });
+  };
   return (
-    <div className={`app m-${module}${phone ? ' phone' : ''}`}>
-      <a className="skip-link" href="#controls" onClick={(e) => { e.preventDefault(); const el = document.getElementById('controls'); el?.focus(); el?.scrollIntoView({ block: 'start' }); }}>Skip to controls</a>
-      <header className="topbar">
-        <div className="brand"><Mark /><div><h1 className="b1">Critical Care Physiology</h1><div className="b2">one patient · lungs · blood · cells · lines</div></div></div>
-        <nav className="modules" aria-label="Learning areas" ref={(n) => { n?.querySelector('button.on')?.scrollIntoView?.({ block: 'nearest', inline: 'nearest' }); }}>{MODULES.map(([k, l]) => <button key={k} className={module === k ? 'on' : ''} onClick={() => useUI.getState().set({ module: k })}>{l}</button>)}<a className="audio-entry" href="audio/" aria-label="Open Critical Care Audio">Audio <span aria-hidden="true">♪</span></a></nav>
-        <Seg value={mode} options={MODES} onChange={(v) => useUI.getState().set({ mode: v })} />
+    <div className={`app app-v2 m-${module}${phone ? ' phone' : ''}`}>
+      <a className="skip-link" href="#workspace" onClick={(e) => { e.preventDefault(); const el = document.getElementById('workspace'); el?.focus(); el?.scrollIntoView({ block: 'start' }); }}>Skip to learning workspace</a>
+      <header className="topbar topbar-v2">
+        <button className="brand brand-home" onClick={() => useUI.getState().set({ module: 'curriculum' })} aria-label="Go to learning home">
+          <Mark /><div><h1 className="b1">Critical Care</h1><div className="b2">see · understand · manipulate · apply</div></div>
+        </button>
+        <nav className="experience-nav" aria-label="Learning mode">
+          {EXPERIENCE.map((item) => <button key={item.key} className={experience === item.key ? 'on' : ''} onClick={() => chooseExperience(item.key)}>{item.label}</button>)}
+        </nav>
+        <a className="audio-launch" href="audio/"><span className="audio-icon" aria-hidden="true">♪</span><span><b>Audio</b><small>Expert tracks</small></span></a>
       </header>
-      {module === 'vent' && <VentModule />}
-      {module === 'abg' && <AbgModule />}
-      {module === 'labs' && <LabModule />}
-      {module === 'lines' && <LinesModule />}
-      {module === 'neuro' && <NeuroModule />}
-      {module === 'moa' && <MoaModule />}
-      {module === 'heart' && <HeartModule />}
-      {module === 'abdomen' && <AbdomenModule />}
-      {module === 'curriculum' && <CurriculumModule />}
+
+      <div className="product-shell">
+        <aside className="domain-rail" aria-label="Clinical domains">
+          {DOMAINS.map((d) => <button key={d.module} className={module === d.module ? 'on' : ''} onClick={() => useUI.getState().set({ module: d.module })} aria-current={module === d.module ? 'page' : undefined}>
+            <span className="domain-short" aria-hidden="true">{d.short}</span><span className="domain-label">{d.label}</span>
+          </button>)}
+        </aside>
+
+        <div id="workspace" tabIndex={-1} className="workspace">
+          <div className="workspace-head">
+            <div><div className="eyebrow">{domain.eyebrow}</div><div className="workspace-title">{module === 'curriculum' ? 'What do you want to learn?' : domain.label}</div></div>
+            <p>{module === 'curriculum' ? 'Continue where you left off, choose a domain, or jump into a focused practice session.' : experienceCopy[experience]}</p>
+            {experience === 'practice' && module !== 'curriculum' && <div className="practice-switch" role="group" aria-label="Practice type">
+              <button className={mode === 'challenge' ? 'on' : ''} onClick={() => useUI.getState().set({ mode: 'challenge' })}>Cases</button>
+              <button className={mode === 'sim' ? 'on' : ''} onClick={() => useUI.getState().set({ mode: 'sim' })}>Simulator</button>
+            </div>}
+          </div>
+          {module === 'vent' && <VentModule />}
+          {module === 'abg' && <AbgModule />}
+          {module === 'labs' && <LabModule />}
+          {module === 'lines' && <LinesModule />}
+          {module === 'neuro' && <NeuroModule />}
+          {module === 'moa' && <MoaModule />}
+          {module === 'heart' && <HeartModule />}
+          {module === 'abdomen' && <AbdomenModule />}
+          {module === 'curriculum' && <CurriculumModule />}
+        </div>
+      </div>
     </div>
   );
 }
 
 function VentModule() {
   const [asset, setAsset] = useState<RespAsset | null>(null); const [err, setErr] = useState<string | null>(null);
+  const [panel, setPanel] = useState<'patient' | 'controls' | 'findings' | 'reference'>('patient');
   // semantic hook for lessons, the Lesson Director and automated checks (same calls the buttons make)
   useEffect(() => { (window as unknown as { __CCVent: unknown }).__CCVent = { session, focus: focusVentTarget, load: loadVentScenario, set: (p: Record<string, number>) => session.set(p) }; }, []);
   useEffect(() => { loadRespAsset().then(setAsset).catch((e) => { console.error(e); setErr(String(e?.message || e)); }); }, []);
@@ -90,16 +141,15 @@ function VentModule() {
         </SceneWrap>
         <div className="wave-wrap"><Scalars height={phone ? 210 : undefined} /></div>
       </section>
-      <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
+      <aside id="controls" tabIndex={-1} className="side-pane contextual-pane" aria-label="Learning context and controls"><h2 className="sr-only">Learning context and controls</h2>
         {mode === 'explore' && <>
-          <ScenarioPicker />
-          <ScenarioStory />
-          <VentNumbersCard />
-          <Interventions />
-          {showLoops && <section className="card"><Loops /></section>}
-          <VentControls />
-          <GasCard />
-          <ExplainCard />
+          <nav className="context-tabs" aria-label="Respiratory workspace panel">
+            {([['patient','Patient'],['controls','Controls'],['findings','Findings'],['reference','Reference']] as const).map(([k,l]) => <button key={k} className={panel === k ? 'on' : ''} onClick={() => setPanel(k)}>{l}</button>)}
+          </nav>
+          {panel === 'patient' && <div className="context-stack"><ScenarioPicker /><ScenarioStory /><VentNumbersCard /></div>}
+          {panel === 'controls' && <div className="context-stack"><VentControls /><Interventions />{showLoops && <section className="card"><Loops /></section>}</div>}
+          {panel === 'findings' && <div className="context-stack"><GasCard /><VentNumbersCard /></div>}
+          {panel === 'reference' && <div className="context-stack"><ExplainCard /></div>}
         </>}
         {mode === 'learn' && <VentLearn />}
         {mode === 'challenge' && <VentChallenge />}
@@ -112,18 +162,32 @@ function VentModule() {
 
 function SceneOverlay() {
   const view = useUI((s) => s.ventView); const pm = useUI((s) => s.showPmus); const loops = useUI((s) => s.showLoops);
+  const [viewOpen, setViewOpen] = useState(false); const [moreOpen, setMoreOpen] = useState(false);
   const set = useUI.getState().set;
+  const views = [['front', 'Front'], ['side', 'Side'], ['airway', 'Airways'], ['base', 'Bases'], ['alveolus', 'Alveoli'], ['xray', 'X-ray'], ['lus', 'Lung US']] as const;
+  const current = views.find(([k]) => k === view)?.[1] ?? 'View';
+  const choose = (k: typeof views[number][0]) => { if (k === 'alveolus') focusVentTarget('lung.alveolus'); else set({ ventView: k, ventTarget: 'lung.whole' }); setViewOpen(false); };
   return (
     <>
-      <div className="view-btns" ref={(n) => { const b = n?.querySelector<HTMLElement>('button.on'); if (n && b && n.scrollWidth > n.clientWidth) n.scrollLeft = b.offsetLeft - 8; }}>
-        {([['front', 'Front'], ['side', 'Side'], ['airway', 'Airways'], ['base', 'Bases'], ['alveolus', 'Alveoli'], ['xray', 'X-ray'], ['lus', 'Lung US']] as const).map(([k, l]) => <button key={k} className={view === k ? 'on' : ''} onClick={() => (k === 'alveolus' ? focusVentTarget('lung.alveolus') : set({ ventView: k, ventTarget: 'lung.whole' }))}>{l}</button>)}
+      <div className="scene-primary-tools" role="toolbar" aria-label="Respiratory scene controls">
+        <div className="scene-menu">
+          <button className={`st-btn scene-menu-trigger${viewOpen ? ' on' : ''}`} aria-expanded={viewOpen} onClick={() => { setViewOpen(!viewOpen); setMoreOpen(false); }}>
+            <span className="st-ico" aria-hidden="true">◫</span><span>View</span><small>{current}</small>
+          </button>
+          {viewOpen && <div className="scene-popover view-menu" role="menu">{views.map(([k, l]) => <button role="menuitemradio" aria-checked={view === k} key={k} className={view === k ? 'on' : ''} onClick={() => choose(k)}><span>{l}</span>{view === k && <b aria-hidden="true">✓</b>}</button>)}</div>}
+        </div>
+        {view !== 'xray' && view !== 'lus' && <div className="scene-menu">
+          <button className={`st-btn scene-menu-trigger${moreOpen ? ' on' : ''}`} aria-expanded={moreOpen} onClick={() => { setMoreOpen(!moreOpen); setViewOpen(false); }}>
+            <span className="st-ico" aria-hidden="true">•••</span><span>More</span>
+          </button>
+          {moreOpen && <div className="scene-popover more-menu">
+            <button className={pm ? 'on' : ''} aria-pressed={pm} onClick={() => set({ showPmus: !pm })}><span>Patient effort</span><b>{pm ? 'On' : 'Off'}</b></button>
+            <button className={loops ? 'on' : ''} aria-pressed={loops} onClick={() => set({ showLoops: !loops })}><span>Pressure-volume loops</span><b>{loops ? 'On' : 'Off'}</b></button>
+          </div>}
+        </div>}
       </div>
       {view === 'xray' || view === 'lus' ? null : view === 'alveolus' ? <AlveolusHud /> : <div className="legend">
         <span><i className="lg-air" />Aerated</span><span><i className="lg-col" />Collapsed</span><span><i className="lg-over" />Over-stretched</span><span><i className="lg-in" />Gas in</span><span><i className="lg-out" />Gas out</span>
-      </div>}
-      {view !== 'xray' && view !== 'lus' && <div className="scene-tools">
-        <button className={`tgl${pm ? ' on' : ''}`} onClick={() => set({ showPmus: !pm })}>Patient effort</button>
-        <button className={`tgl${loops ? ' on' : ''}`} onClick={() => set({ showLoops: !loops })}>Loops</button>
       </div>}
     </>
   );

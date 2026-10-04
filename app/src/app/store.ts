@@ -14,7 +14,7 @@ export interface UIState {
   set: (p: Partial<UIState>) => void;
 }
 export const useUI = create<UIState>((set) => ({
-  module: 'vent', mode: 'explore',
+  module: 'curriculum', mode: 'learn',
   ventScenario: 'normal', ventView: 'front', ventTarget: 'lung.whole', labels: true, showPmus: false, showLoops: true,
   pulse: 0,
   set: (p) => set(p),

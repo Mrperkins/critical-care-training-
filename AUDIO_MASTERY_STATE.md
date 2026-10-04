@@ -1,12 +1,12 @@
 # Audio Mastery Execution State
 
-Updated: 2026-10-04
+Updated: 2026-10-04 — post-main merge
 
 ## Branch
-- Current branch: `audio-mastery`
-- Base / target: `visual-overhaul`
-- Do not merge to `main`.
-- Open PR is intentionally draft until final validation and clinical/voice review decisions are complete.
+- Audio Mastery was merged into `main` on 2026-10-04.
+- `main` is the canonical production/source branch.
+- Active mockup-driven UI redesign is on `ux-overhaul-v2`.
+- GitHub Pages now receives generated Audio artifacts through the main-branch site-sync workflow.
 
 ## Mission
 Voice-first critical-care expertise training plus guided procedural Mental Reps.
