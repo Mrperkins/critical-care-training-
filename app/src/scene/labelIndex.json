@@ -1408,6 +1408,14 @@
   "aka": []
  },
  {
+  "title": "Thick RV wall",
+  "desc": "Right-ventricular hypertrophy — the RV wall thickens when it has to pump at high pressure (outflow obstruction, pulmonary hypertension, a large VSD).",
+  "modules": [
+   "heart"
+  ],
+  "aka": []
+ },
+ {
   "title": "Tibial veins",
   "desc": "Deep veins of the calf, paired with the tibial arteries.",
   "modules": [
@@ -1492,14 +1500,6 @@
   "desc": "Breathing replaces alveolar gas: it brings oxygen in and washes carbon dioxide out. CO₂ removal depends on minute ventilation.",
   "modules": [
    "abg"
-  ],
-  "aka": []
- },
- {
-  "title": "Ventricular septum",
-  "desc": "The muscular wall between the ventricles. It bows toward the left when the right ventricle is pressure- or volume-overloaded.",
-  "modules": [
-   "heart"
   ],
   "aka": []
  },

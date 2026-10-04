@@ -8,7 +8,9 @@ import { useHideFindings } from '../challenge/caseStore';
 import { useUI } from '../app/store';
 import { Knob, Seg } from '../vent/VentPanel';
 import { HeartScene } from './HeartScene';
-import { useHeartUI, loadHeartPreset, setHeartInput, type FlowMode } from './heartStore';
+import { useHeartUI, loadHeartPreset, setHeartInput, type FlowMode, type CutMode } from './heartStore';
+import { autoCut, CUT_LABEL } from './HeartScene';
+import { RealCase } from '../scene/imaging/RealCase';
 import { solveShunt, type HeartPresetId, type LesionKind } from './shunt';
 import { director, useDirector } from '../director/director';
 import { DirectorPlayer } from '../director/Player';
@@ -17,8 +19,12 @@ import { SAT_PALETTE } from '../scene/effects';
 import { useLabUI, type VisualTier } from '../labs/labStore';
 import { SceneWrap } from '../scene/labels';
 
-const PRESETS: [HeartPresetId, string][] = [['normal', 'Normal'], ['vsdSmall', 'Small VSD'], ['vsdLarge', 'Large VSD'], ['vsdEisen', 'VSD · Eisenmenger'], ['asd', 'ASD'], ['pfo', 'PFO'], ['pfoValsalva', 'PFO · Valsalva'], ['pda', 'PDA'], ['newborn', 'Newborn · closing duct'], ['pphn', 'Newborn · PPHN']];
-const FOCUS: [string, string][] = [['heart.four_chamber', '4-chamber'], ['heart.septum', 'Septum'], ['heart.vsd', 'VSD'], ['heart.asd', 'ASD / PFO'], ['heart.lv', 'LV'], ['heart.rv', 'RV'], ['heart.pulmonary_outflow', 'Pulmonary outflow'], ['heart.pda', 'Duct']];
+const PRESETS: [HeartPresetId, string][] = [['normal', 'Normal'], ['vsdSmall', 'Small VSD'], ['vsdLarge', 'Large VSD'], ['vsdEisen', 'VSD · Eisenmenger'], ['asd', 'ASD'], ['pfo', 'PFO'], ['pfoValsalva', 'PFO · Valsalva'], ['pda', 'PDA'],
+  ['tof', 'Tetralogy'], ['pinkTet', 'Tetralogy · "pink"'], ['tetSpell', 'Tet spell'], ['coarct', 'Coarctation'], ['coarctNeoDuct', 'Newborn coarctation · duct open'], ['coarctNeoClosed', 'Newborn coarctation · duct closing'], ['newborn', 'Newborn · closing duct'], ['pphn', 'Newborn · PPHN']];
+const FOCUS: [string, string][] = [['heart.four_chamber', '4-chamber'], ['heart.vsd', 'VSD'], ['heart.asd', 'ASD / PFO'], ['heart.lv', 'LV'], ['heart.rv', 'RV'], ['heart.pulmonary_outflow', 'RV outflow'], ['heart.pda', 'Duct'], ['heart.coarct', 'Isthmus']];
+const CUTS: [CutMode, string][] = [['auto', 'Auto'], ['slice', '4-chamber slice'], ['rv', 'RV open'], ['ra', 'RA open'], ['lv', 'LV open'], ['closed', 'Closed']];
+/** the best focus for a lesion, used when the lesion changes */
+const LESION_FOCUS: Record<LesionKind, string> = { none: 'heart.four_chamber', vsd: 'heart.vsd', asd: 'heart.asd', pfo: 'heart.pfo', pda: 'heart.pda', tof: 'heart.vsd', coarct: 'heart.coarct' };
 
 export function HeartModule() {
   const mode = useUI((s) => s.mode);
@@ -31,28 +37,31 @@ export function HeartModule() {
         <SceneWrap><HeartScene /><HeartOverlay /></SceneWrap>
       </section>
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
-        {mode === 'challenge' ? <CaseChallenge module="heart" /> : mode === 'learn' ? <HeartLearn /> : <><PresetCard /><ControlsCard /><NeoSlot /><HemoCard /><WhyCard /></>}
-        <p className="credit">Schematic four-chamber cutaway drawn procedurally. Flows, pressures and saturations come from a simplified two-circuit model (orifice flow across restrictive defects, conductance across atrial defects, systemic flow held constant) — a teaching model, not a patient calculator.</p>
+        {mode === 'challenge' ? <CaseChallenge module="heart" /> : mode === 'learn' ? <HeartLearn /> : <><PresetCard /><ControlsCard /><NeoSlot /><HemoCard /><WhyCard /><RealHeartImaging /></>}
+        <p className="credit">3D heart: HuBMAP 3D Reference Organs, Visible Human Male heart (CC BY 4.0) — an adult heart at true scale, cut open in the app; the defects are carved into its own septa and vessels (sizes drawn to scale; newborn defects drawn relative to a heart about 2.5× smaller). Flows, pressures and saturations come from a simplified circulation model (orifice flow across restrictive defects, conductance across atrial defects, parallel outlets in tetralogy, an isthmus resistance with collaterals and duct in coarctation) — a teaching model, not a patient calculator.</p>
       </aside>
     </main>
   );
 }
 
 function HeartOverlay() {
-  const target = useHeartUI((s) => s.target); const flow = useHeartUI((s) => s.mode); const set = useHeartUI.getState().set;
+  const target = useHeartUI((s) => s.target); const flow = useHeartUI((s) => s.mode); const cut = useHeartUI((s) => s.cut); const set = useHeartUI.getState().set;
   const input = useHeartUI((s) => s.input); const s = useMemo(() => solveShunt(input), [input]); const tier = useLabUI((s) => s.visualTier);
   const pct = (x: number) => `${Math.round(x * 100)}%`; const hide = useHideFindings();
   return (<>
     <div className="scene-tools">
-      <div className="seg small" role="group" aria-label="Flow colour">{([['sat', 'O₂ saturation'], ['doppler', 'Colour Doppler']] as [FlowMode, string][]).map(([k, l]) => <button key={k} className={flow === k ? 'on' : ''} onClick={() => set({ mode: k })}>{l}</button>)}</div>
+      <div className="seg small" role="group" aria-label="Flow colour">{([['sat', 'O₂ saturation'], ['doppler', 'Flow direction']] as [FlowMode, string][]).map(([k, l]) => <button key={k} className={flow === k ? 'on' : ''} onClick={() => set({ mode: k })}>{l}</button>)}</div>
+      <label className="cut-sel small"><span className="sr-only">How the heart is opened</span><select value={cut} onChange={(e) => set({ cut: e.target.value as CutMode })} aria-label="How the heart is opened">{CUTS.map(([k, l]) => <option key={k} value={k}>{k === 'auto' ? `Auto · ${CUT_LABEL[autoCut(target)]}` : l}</option>)}</select></label>
     </div>
     {!hide && <div className="alv-hud">
       <div className="alv-row"><span>Shunt</span><b className={`dir dir-${s.direction === 'L→R' ? 'lr' : s.direction === 'R→L' ? 'rl' : s.direction === 'bidirectional' ? 'bi' : 'none'}`}>{s.direction === 'none' ? 'none' : s.direction}</b></div>
       <div className="alv-row"><span>Qp : Qs</span><b>{s.qpqs.toFixed(1)} : 1</b></div>
-      {s.gradient > 0 && s.input.lesion !== 'asd' && <div className="alv-row"><span>Jet velocity</span><b>{s.velocity.toFixed(1)} m/s</b></div>}
+      {s.gradient > 0 && !['asd', 'coarct', 'tof'].includes(s.input.lesion) && <div className="alv-row"><span>Jet velocity</span><b>{s.velocity.toFixed(1)} m/s</b></div>}
+      {s.rvot && <div className="alv-row"><span>RV outflow gradient</span><b>{Math.round(s.rvot.gradient)} mmHg</b></div>}
+      {s.coarct && <div className="alv-row"><span>Arm / leg BP</span><b>{Math.round(s.coarct.armSys)} / {Math.round(s.coarct.legSys)}</b></div>}
       <div className="alv-row"><span>RV / LV systolic</span><b>{Math.round(s.p.rvSys)} / {Math.round(s.p.lvSys)}</b></div>
       <div className="alv-row"><span>PA mean</span><b>{Math.round(s.p.paMean)} mmHg</b></div>
-      <div className="alv-row"><span>SpO₂ (pre / post)</span><b>{pct(s.sat.ao)}{s.input.lesion === 'pda' ? ` / ${pct(s.sat.aoPost)}` : ''}</b></div>
+      <div className="alv-row"><span>SpO₂ (pre / post)</span><b>{pct(s.sat.ao)}{s.input.lesion === 'pda' || s.input.lesion === 'coarct' ? ` / ${pct(s.sat.aoPost)}` : ''}</b></div>
     </div>}
     <div className="alv-focus">
       <div className="seg small ch-focus" role="group" aria-label="Focus">{FOCUS.map(([id, l]) => <button key={id} className={target === id ? 'on' : ''} onClick={() => set({ target: id })}>{l}</button>)}</div>
@@ -66,14 +75,22 @@ function HeartOverlay() {
 
 function PresetCard() {
   const preset = useHeartUI((s) => s.preset);
-  return <section className="card story"><div className="chips" role="group" aria-label="Presets">{PRESETS.map(([id, l]) => <button key={id} className={`chip${preset === id ? ' on' : ''}`} onClick={() => loadHeartPreset(id)}>{l}</button>)}</div></section>;
+  const pick = (id: HeartPresetId) => { loadHeartPreset(id); useHeartUI.getState().set({ target: LESION_FOCUS[useHeartUI.getState().input.lesion] }); };
+  return <section className="card story"><div className="chips" role="group" aria-label="Presets">{PRESETS.map(([id, l]) => <button key={id} className={`chip${preset === id ? ' on' : ''}`} onClick={() => pick(id)}>{l}</button>)}</div></section>;
 }
 function ControlsCard() {
   const inp = useHeartUI((s) => s.input); const neo = (inp.qs ?? 5) < 2;
   return (
     <section className="card">
-      <div className="card-h"><h3>Defect & circulation</h3><Seg<LesionKind> small value={inp.lesion} options={[['none', 'None'], ['vsd', 'VSD'], ['asd', 'ASD'], ['pfo', 'PFO'], ['pda', 'PDA']]} onChange={(l) => setHeartInput({ lesion: l, sizeMm: l === 'none' ? 0 : inp.sizeMm || 8 })} /></div>
-      {inp.lesion !== 'none' && <Knob label="Defect size" value={inp.sizeMm} min={1} max={inp.lesion === 'asd' ? 30 : 20} step={1} unit=" mm" onChange={(v) => setHeartInput({ sizeMm: v })} hint="Bigger hole → more flow for the same gradient" />}
+      <div className="card-h"><h3>Defect & circulation</h3></div>
+      <Seg<LesionKind> small value={inp.lesion} options={[['none', 'None'], ['vsd', 'VSD'], ['asd', 'ASD'], ['pfo', 'PFO'], ['pda', 'PDA'], ['tof', 'ToF'], ['coarct', 'Coarct']]} onChange={(l) => { setHeartInput({ lesion: l, sizeMm: l === 'none' || l === 'coarct' ? 0 : l === 'tof' ? 14 : inp.sizeMm || 8, rvot: l === 'tof' ? inp.rvot ?? 0.5 : inp.rvot, coarct: l === 'coarct' ? inp.coarct ?? 0.55 : inp.coarct }); useHeartUI.getState().set({ target: LESION_FOCUS[l] }); }} />
+      {['vsd', 'asd', 'pfo', 'pda'].includes(inp.lesion) && <Knob label="Defect size" value={inp.sizeMm} min={1} max={inp.lesion === 'asd' ? 30 : 20} step={1} unit=" mm" onChange={(v) => setHeartInput({ sizeMm: v })} hint="Bigger hole → more flow for the same gradient (drawn to scale in the 3D heart)" />}
+      {inp.lesion === 'vsd' && <div className="nd-row"><span className="muted small">Where</span><Seg small value={inp.vsdSite ?? 'perimembranous'} options={[['perimembranous', 'Perimembranous'], ['muscular', 'Muscular']]} onChange={(v) => setHeartInput({ vsdSite: v })} /></div>}
+      {inp.lesion === 'tof' && <Knob label="RV outflow narrowing" value={Math.round((inp.rvot ?? 0.5) * 100)} min={0} max={95} step={5} unit=" %" onChange={(v) => setHeartInput({ rvot: v / 100 })} hint="Infundibular + valve narrowing. Spasm (crying, dehydration) makes it worse; beta-blockade relaxes it." />}
+      {inp.lesion === 'coarct' && <>
+        <Knob label="Isthmus narrowing" value={Math.round((inp.coarct ?? 0.55) * 100)} min={10} max={95} step={5} unit=" %" onChange={(v) => setHeartInput({ coarct: v / 100 })} hint="Older children grow collaterals around it; a newborn has none." />
+        <Knob label="Duct" value={inp.ductMm ?? 0} min={0} max={6} step={0.5} unit=" mm" onChange={(v) => setHeartInput({ ductMm: v })} hint="Prostaglandin E1 keeps it open; closure in the first days unmasks a critical coarctation." />
+      </>}
       <div className="nd-row"><span className="muted small">Patient</span><Seg small value={neo ? 'neo' : 'adult'} options={[['adult', 'Adult'], ['neo', 'Newborn']]} onChange={(v) => setHeartInput(v === 'neo' ? { qs: 0.6, svr: 60, pvr: Math.min(150, inp.pvr * 3.3) } : { qs: 5, svr: 18, pvr: Math.max(0.5, Math.min(22, inp.pvr / 3.3)) })} /></div>
       {neo ? <>
         <Knob label="PVR" value={inp.pvr} min={2} max={150} step={1} unit=" WU" onChange={(v) => setHeartInput({ pvr: v })} hint="Newborn scale (output ≈ 0.6 L/min). Very high before the first breath; falls over hours to days. Stays high in PPHN." />
@@ -88,7 +105,7 @@ function ControlsCard() {
 }
 function HemoCard() {
   const inp = useHeartUI((s) => s.input); const s = useMemo(() => solveShunt(inp), [inp]); const f = (x: number) => Math.round(x);
-  const flags = [s.flags.overcirculation && 'Pulmonary overcirculation', s.flags.lvVolume && 'LA / LV volume load (dilated)', s.flags.rvVolume && 'RA / RV volume load (dilated)', s.flags.rvPressure && 'RV pressure load (hypertrophy)', s.flags.pulmHypertension && 'Pulmonary hypertension', s.flags.eisenmenger && 'Eisenmenger physiology', s.flags.cyanosis && 'Cyanosis'].filter(Boolean) as string[];
+  const flags = [s.flags.spell && 'Tet spell — pulmonary flow collapsing', s.flags.lowerHypoperfusion && 'Lower-body hypoperfusion', s.flags.lvPressure && 'LV pressure load (hypertrophy), upper-limb hypertension', s.flags.overcirculation && 'Pulmonary overcirculation', s.flags.lvVolume && 'LA / LV volume load (dilated)', s.flags.rvVolume && 'RA / RV volume load (dilated)', s.flags.rvPressure && 'RV pressure load (hypertrophy)', s.flags.pulmHypertension && 'Pulmonary hypertension', s.flags.eisenmenger && 'Eisenmenger physiology', s.flags.cyanosis && 'Cyanosis'].filter(Boolean) as string[];
   return (
     <section className="card nums">
       <div className="numgrid">
@@ -100,6 +117,11 @@ function HemoCard() {
         <div className="num"><span className="nl">PA</span><span className="nv">{f(s.p.paSys)}/{f(s.p.paDia)}</span><span className="nu">mmHg</span></div>
         <div className="num"><span className="nl">Aorta</span><span className="nv">{f(s.p.aoSys)}/{f(s.p.aoDia)}</span><span className="nu">mmHg</span></div>
         <div className="num"><span className="nl">SaO₂ / PA sat</span><span className="nv">{f(s.sat.ao * 100)}/{f(s.sat.pa * 100)}</span><span className="nu">%</span></div>
+        {s.rvot && <div className="num"><span className="nl">RV → PA gradient</span><span className="nv">{f(s.rvot.gradient)}</span><span className="nu">mmHg · {s.rvot.velocity.toFixed(1)} m/s</span></div>}
+        {s.coarct && <><div className="num"><span className="nl">Arm BP</span><span className="nv">{f(s.coarct.armSys)}/{f(s.coarct.armDia)}</span><span className="nu">mmHg</span></div>
+          <div className="num"><span className="nl">Leg BP</span><span className="nv">{f(s.coarct.legSys)}/{f(s.coarct.legDia)}</span><span className="nu">mmHg</span></div>
+          <div className="num"><span className="nl">Lower-body flow</span><span className="nv">{f(s.coarct.lowerFrac * 100)}</span><span className="nu">% of normal</span></div>
+          <div className="num"><span className="nl">SpO₂ hand / foot</span><span className="nv">{f(s.sat.ao * 100)}/{f(s.sat.aoPost * 100)}</span><span className="nu">%</span></div></>}
       </div>
       <p className="muted small" style={{ marginTop: 8 }}><b>Auscultation:</b> {s.murmur}</p>
       {flags.length > 0 && <ul className="ln-log">{flags.map((x) => <li key={x}>{x}</li>)}</ul>}
@@ -113,9 +135,17 @@ function WhyCard() {
     vsd: 'Blood crosses the ventricular septum in systole from the higher-pressure side. A small hole keeps a big gradient (a fast, loud jet but little flow); a large hole lets the pressures equalise, so flow is set by the ratio of pulmonary to systemic resistance. The extra pulmonary flow returns to the LEFT atrium and ventricle, which dilate.',
     asd: 'Atrial pressures differ by only a few mmHg, so flow depends on the size of the hole and on how easily each ventricle fills. The thin, compliant right ventricle fills more easily, so blood goes left-to-right and the RIGHT atrium and ventricle take the volume load.',
     pfo: 'A flap left over from the fetal foramen ovale. Higher left atrial pressure normally holds it shut; anything that raises right atrial pressure (straining, coughing, pulmonary embolism) opens it right-to-left — the route for paradoxical embolism.',
+    tof: 'Four features from one developmental shift (the outlet septum displaced forward): a large malaligned VSD, an aorta overriding it, a narrowed right-ventricular outflow, and a thick RV wall. Both ventricles eject at the same pressure into two parallel outlets, so the balance between outflow narrowing and systemic resistance decides how much blood reaches the lungs. A fall in SVR or outflow spasm starts a spell; knee-chest position, oxygen, morphine, fluids and phenylephrine raise SVR or relax the outflow.',
+    coarct: 'A shelf narrows the aorta at the isthmus, just past the left subclavian. The heart and arms see high pressure; the legs get a weak, delayed pulse. Older children build collaterals around it. In a newborn the duct can fill the lower aorta from the pulmonary artery — the feet are bluer than the right hand — and when it closes a critical coarctation presents with shock. Keep the duct open with prostaglandin E1.',
     pda: 'The fetal ductus arteriosus stays open. Aortic pressure exceeds pulmonary pressure through the whole cycle, so flow is continuous from aorta to pulmonary artery. The extra pulmonary flow returns to the LEFT heart. If pulmonary resistance rises above systemic, flow reverses into the descending aorta and the feet turn blue before the hands.',
   };
   return <section className="card"><div className="card-h"><h3>Why</h3></div><p className="muted">{t[L]}</p></section>;
+}
+
+/** real echocardiography / CT for the current lesion (shown only once licensed media is in imaging/real) */
+function RealHeartImaging() {
+  const L = useHeartUI((s) => s.input.lesion); if (L === 'none') return null;
+  return <RealCase kind={`echo-${L}` as never} title="Real imaging of this lesion" card />;
 }
 
 const HEART_LEARN = [...HEART_LESSONS, NEO_TRANSITION_LESSON];

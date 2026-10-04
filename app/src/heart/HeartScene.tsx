@@ -1,239 +1,296 @@
 /**
- * Congenital heart scene: a four-chamber cutaway (atria, ventricles, septa, AV and aortic valves, defects)
- * drawn by a signed-distance shader, with the great vessels in 3D behind it and flow particles for every
- * circuit and every shunt. Everything — chamber size, wall thickness, blood colour, jet direction, speed
- * and amount — is read from `solveShunt` (shunt.ts). Colour flow: oxygen saturation, or Doppler-style
- * (red toward / blue away from an apical probe, mosaic above the aliasing velocity).
+ * Congenital heart scene on the real heart: the HuBMAP / Visible Human Male heart (models/lines.glb, CC BY 4.0) —
+ * hollow chambers, interventricular septum, the four valves, great vessels, coronary vessels — cut open along the
+ * plane that best shows the focus (right ventricle opened to face the septum, right atrium opened to face the
+ * fossa ovalis, four-chamber slice, or closed for the duct and the arch).
+ *
+ * Defects are carved into the actual walls: a VSD is a tunnel through the septal slab and the adjacent ventricular
+ * walls (perimembranous under the aortic valve, or mid-muscular), an ASD a hole through both atrial walls at the
+ * fossa ovalis, a PFO a slit with a flap that opens only right-to-left, a PDA a vessel from the aortic isthmus to
+ * the left pulmonary artery. Tetralogy moves the aortic root over the septal crest, narrows the RV outflow and
+ * thickens the RV wall; coarctation narrows the isthmus. Sizes, chamber dilation, wall thickness, blood colour and
+ * every particle stream come from `solveShunt` (shunt.ts).
  */
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
-import { useFrame } from '@react-three/fiber';
+import { useFrame, useThree } from '@react-three/fiber';
 import { CameraControls, Html } from '@react-three/drei';
-import { StudioCanvas, IS_PHONE, GLSL_NOISE } from '../scene/Studio';
+import { StudioCanvas, IS_PHONE } from '../scene/Studio';
 import { LabelChip } from '../scene/labels';
-import { saturationColor, tubeAlong, budget, approach, frameDt, type Tier } from '../scene/effects';
+import { saturationColor, budget, approach, frameDt, tubeAlong, type Tier } from '../scene/effects';
 import { registerAnchors } from '../scene/cameraTargets';
 import { useLabUI } from '../labs/labStore';
-import { useHeartUI } from './heartStore';
+import { loadLinesAsset, type LinesAsset } from '../asset/lines';
+import { useHeartUI, type CutMode } from './heartStore';
 import { solveShunt, type ShuntState } from './shunt';
+import { CENTRE, SCALE, toScene, LM, SEPTUM_N, ATRIAL_N, holesFor, holeRadius, lesionShape, pinch, shift, thicken, OVERRIDE, overrideWeight, flowPaths, type Hole, type FlowPathId, type Way, type LesionShape } from './heartGeometry';
 
-const V = (x: number, y: number, z = 0.03) => new THREE.Vector3(x, y, z);
 const HR = 84; const PERIOD = 60 / HR;
-/** ventricular systole (0–1) and atrial systole for a phase in the cycle */
+/** ventricular systole (0–1) and atrial systole for a time in seconds */
 export function cyclePhase(t: number) { const ph = (t % PERIOD) / PERIOD; const sys = ph < 0.36 ? Math.sin((ph / 0.36) * Math.PI) : 0; const atr = ph > 0.82 ? Math.sin(((ph - 0.82) / 0.18) * Math.PI) : 0; return { ph, sys, atr }; }
 
-/* ------------------------------------------------------------------ geometry (slab coordinates; x = patient's left) */
-export const ANCHOR = {
-  ra: V(-1.0, 0.95), la: V(0.95, 1.0), rv: V(-0.72, -0.55), lv: V(0.62, -0.72), vsd: V(-0.03, -0.06), asd: V(-0.02, 0.96), pfo: V(-0.02, 0.97),
-  septum: V(-0.05, -0.4), outflow: new THREE.Vector3(-0.28, 0.9, -0.35), pda: new THREE.Vector3(0.38, 1.95, -0.65),
+type PartId = 'ra' | 'la' | 'rv' | 'lv' | 'septum' | 'tricuspid' | 'mitral' | 'aortic_valve' | 'pulm_valve' | 'aorta' | 'arch_branches' | 'pulm_art' | 'svc' | 'ivc' | 'pulm_veins' | 'coronary_art' | 'cardiac_veins';
+const PARTS: PartId[] = ['ra', 'la', 'rv', 'lv', 'septum', 'tricuspid', 'mitral', 'aortic_valve', 'pulm_valve', 'aorta', 'arch_branches', 'pulm_art', 'svc', 'ivc', 'pulm_veins', 'coronary_art', 'cardiac_veins'];
+const VESSEL = new Set<PartId>(['aorta', 'arch_branches', 'pulm_art', 'svc', 'ivc', 'pulm_veins']);
+const CHAMBER: Partial<Record<PartId, THREE.Vector3>> = { ra: LM.ra, la: LM.la, rv: LM.rv, lv: LM.lv, septum: LM.septum };
+const BASE_COLOR: Record<PartId, string> = {
+  ra: '#a8473c', la: '#a34238', rv: '#8e2c24', lv: '#88271f', septum: '#8a2a22', tricuspid: '#eadbc8', mitral: '#eadbc8', aortic_valve: '#efe2cf', pulm_valve: '#efe2cf',
+  aorta: '#c8322b', arch_branches: '#c8322b', pulm_art: '#5a4a9a', svc: '#4b3f86', ivc: '#4b3f86', pulm_veins: '#c8322b', coronary_art: '#d43a2c', cardiac_veins: '#3c3474',
 };
 
-const SLAB_FRAG = /* glsl */ `
-uniform float uSys, uAtr, uRvThick, uVsdR, uAsdR, uPfo, uMode, uT, uLvS, uLaS, uRaS, uRvS;
-uniform vec3 uRA, uRV, uLA, uLV;
-varying vec2 vP;
-${GLSL_NOISE}
-mat2 rot(float a){ float c = cos(a), s = sin(a); return mat2(c, -s, s, c); }
-float sdE(vec2 p, vec2 c, vec2 r, float a){ vec2 q = rot(-a) * (p - c); float k = length(q / r); return (k - 1.0) * min(r.x, r.y); }
-float sdCap(vec2 p, vec2 a, vec2 b, float r){ vec2 pa = p - a, ba = b - a; float h = clamp(dot(pa, ba) / dot(ba, ba), 0.0, 1.0); return length(pa - ba * h) - r; }
-float sdSeg(vec2 p, vec2 a, vec2 b){ return sdCap(p, a, b, 0.0); }
-vec2 leaf(vec2 hinge, float a0, float open, float len){ float a = a0 - open; return hinge + len * vec2(cos(a), sin(a)); }
-void main(){
-  vec2 p = vP;
-  float dRA = sdE(p, vec2(-1.0, 0.95), vec2(0.62, 0.52) * uRaS * (1.0 - 0.07 * uAtr), 0.0);
-  float dLA = sdE(p, vec2(0.95, 1.0), vec2(0.6, 0.45) * uLaS * (1.0 - 0.07 * uAtr), 0.0);
-  float dRV = sdE(p, vec2(-0.72, -0.55), vec2(0.56, 0.95) * uRvS * (1.0 - 0.1 * uSys), 0.25);
-  float dLV = sdE(p, vec2(0.62, -0.72), vec2(0.48, 1.02) * uLvS * (1.0 - 0.13 * uSys), -0.3);
-  float dTV = sdCap(p, vec2(-0.95, 0.55), vec2(-0.82, 0.02), 0.2);
-  float dMV = sdCap(p, vec2(0.9, 0.62), vec2(0.72, 0.02), 0.19);
-  float dOT = sdCap(p, vec2(0.42, -0.3), vec2(0.15, 0.62), 0.14);
-  float dVSD = uVsdR > 0.0 ? sdCap(p, vec2(-0.3, -0.02), vec2(0.24, -0.1), uVsdR) : 1e3;
-  float dASD = uAsdR > 0.0 ? sdCap(p, vec2(-0.5, 0.95), vec2(0.45, 0.98), uAsdR) : 1e3;
-  float dPFO = uPfo > 0.02 ? sdCap(p, vec2(-0.45, 0.84), vec2(0.4, 1.1), 0.055 * uPfo) : 1e3;
-  float cav = min(min(min(dRA, dLA), min(dRV, dLV)), min(min(dTV, dMV), min(dOT, min(dVSD, min(dASD, dPFO)))));
-  float myo = min(min(dRV - (0.1 + uRvThick), dLV - 0.24), min(min(dRA - 0.07, dLA - 0.07), min(dOT - 0.07, min(dTV - 0.06, dMV - 0.06))));
-  // valves: tricuspid & mitral open in diastole (swing into the ventricle); aortic opens in systole
-  float dia = 1.0 - uSys; float val = 1e3;
-  val = min(val, sdSeg(p, vec2(-1.17, 0.36), leaf(vec2(-1.17, 0.36), 0.05, dia * 1.2, 0.27)));
-  val = min(val, sdSeg(p, vec2(-0.63, 0.3), leaf(vec2(-0.63, 0.3), 3.1, -dia * 1.2, 0.27)));
-  val = min(val, sdSeg(p, vec2(0.51, 0.3), leaf(vec2(0.51, 0.3), 0.1, dia * 1.2, 0.26)));
-  val = min(val, sdSeg(p, vec2(1.09, 0.36), leaf(vec2(1.09, 0.36), 3.05, -dia * 1.2, 0.26)));
-  val = min(val, sdSeg(p, vec2(0.02, 0.55), leaf(vec2(0.02, 0.55), 0.2, -uSys * 1.25, 0.14)));
-  val = min(val, sdSeg(p, vec2(0.29, 0.62), leaf(vec2(0.29, 0.62), 3.3, uSys * 1.25, 0.14)));
-  float body = min(myo, cav);
-  if (body > 0.02) discard;
-  float n = fbm(vec3(p * 9.0, 1.3)), n2 = fbm(vec3(p * 30.0, 4.1));
-  vec3 col; float a = 1.0;
-  if (cav < 0.0) {
-    // blood: colour of the chamber it sits in (defect channels take the mean of both sides)
-    float wRA = exp(-max(dRA, 0.0) * 30.0 - dRA * 2.0), wRV = exp(-max(min(dRV, dTV), 0.0) * 30.0 - min(dRV, dTV) * 2.0);
-    float wLA = exp(-max(dLA, 0.0) * 30.0 - dLA * 2.0), wLV = exp(-max(min(dLV, min(dMV, dOT)), 0.0) * 30.0 - min(dLV, min(dMV, dOT)) * 2.0);
-    vec3 blood = (uRA * wRA + uRV * wRV + uLA * wLA + uLV * wLV) / (wRA + wRV + wLA + wLV);
-    col = uMode > 0.5 ? vec3(0.02) + 0.03 * n2 : blood * (0.72 + 0.2 * n);
-    float edge = smoothstep(-0.035, 0.0, cav); col = mix(col, uMode > 0.5 ? vec3(0.55) : vec3(0.95, 0.78, 0.74), edge * 0.55); // endocardium
-    a = uMode > 0.5 ? 1.0 : 0.94;
-  } else {
-    float ed = smoothstep(0.0, -0.06, myo);
-    vec3 m = mix(vec3(0.42, 0.1, 0.09), vec3(0.62, 0.2, 0.17), n) * (0.85 + 0.3 * n2);
-    col = uMode > 0.5 ? vec3(0.5 + 0.45 * n2) * (0.55 + 0.45 * ed) : m * (0.55 + 0.45 * ed) + vec3(0.25, 0.08, 0.06) * (1.0 - ed) * 0.4;
-    a = smoothstep(0.02, -0.01, myo);
-  }
-  float vv = smoothstep(0.02, 0.0, val);
-  col = mix(col, uMode > 0.5 ? vec3(0.95) : vec3(0.96, 0.88, 0.8), vv);
-  if (uMode > 0.5) { // echo sector from an apical probe
-    vec2 probe = vec2(0.35, -2.05); vec2 d = p - probe; float ang = atan(d.x, d.y);
-    float inside = step(abs(ang), 0.72) * step(length(d), 3.6);
-    col *= mix(0.25, 1.0, inside); col += vec3(0.35) * (smoothstep(0.012, 0.0, abs(abs(ang) - 0.72) * length(d)) * step(length(d), 3.6));
-  }
-  gl_FragColor = vec4(col, max(a, vv));
-  #include <colorspace_fragment>
-}`;
+/* ------------------------------------------------------------------ material with holes, beat, endocardial tint and cut faces */
+interface HeartUniforms { [k: string]: THREE.IUniform; uC: { value: THREE.Vector3 }; uK: { value: number }; uHn: { value: number }; uHc: { value: THREE.Vector4[] }; uHa: { value: THREE.Vector4[] }; uHu: { value: THREE.Vector4[] }; uBlood: { value: THREE.Color }; uBloodMix: { value: number }; uCut: { value: THREE.Color } }
+function heartMaterial(id: PartId, planes: THREE.Plane[]) {
+  const vessel = /aorta|arch|pulm_art|svc|ivc|pulm_veins/.test(id); const valve = /valve|tricuspid|mitral/.test(id);
+  const m = new THREE.MeshPhysicalMaterial({ color: BASE_COLOR[id], roughness: valve ? 0.6 : vessel ? 0.38 : 0.5, clearcoat: valve ? 0 : 0.45, clearcoatRoughness: 0.4, sheen: 0.4, sheenColor: new THREE.Color('#ffb3a6'), side: THREE.DoubleSide, clippingPlanes: planes });
+  const U: HeartUniforms = {
+    uC: { value: (CHAMBER[id] ?? CENTRE).clone() }, uK: { value: 1 }, uHn: { value: 0 },
+    uHc: { value: [0, 1, 2].map(() => new THREE.Vector4()) }, uHa: { value: [0, 1, 2].map(() => new THREE.Vector4()) }, uHu: { value: [0, 1, 2].map(() => new THREE.Vector4()) },
+    uBlood: { value: new THREE.Color('#7a2030') }, uBloodMix: { value: 0 }, uCut: { value: new THREE.Color('#6f1c16') },
+  };
+  m.onBeforeCompile = (sh) => {
+    Object.assign(sh.uniforms, U);
+    sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nuniform vec3 uC; uniform float uK; varying vec3 vB; varying vec3 vNB;')
+      .replace('#include <begin_vertex>', '#include <begin_vertex>\nvB = position; vNB = normal; transformed = uC + (position - uC) * uK;');
+    sh.fragmentShader = sh.fragmentShader.replace('#include <common>', `#include <common>
+uniform vec3 uC; uniform int uHn; uniform vec4 uHc[3]; uniform vec4 uHa[3]; uniform vec4 uHu[3]; uniform vec3 uBlood; uniform float uBloodMix; uniform vec3 uCut; varying vec3 vB; varying vec3 vNB;`)
+      .replace('#include <clipping_planes_fragment>', `#include <clipping_planes_fragment>
+for (int i = 0; i < 3; i++) { if (i >= uHn) break; vec3 d = vB - uHc[i].xyz; float al = dot(d, uHa[i].xyz);
+  if (abs(al) < uHa[i].w) { vec3 e = d - uHa[i].xyz * al; float rad = length(e);
+    if (uHu[i].w > 1.0) { float ru = dot(e, uHu[i].xyz); rad = length(vec2(ru / uHu[i].w, length(e - uHu[i].xyz * ru))); }
+    if (rad < uHc[i].w) discard; } }`)
+      .replace('#include <color_fragment>', `#include <color_fragment>
+float inner = step(dot(vNB, vB - uC), 0.0);
+diffuseColor.rgb = mix(diffuseColor.rgb, uBlood, inner * uBloodMix);
+if (!gl_FrontFacing) diffuseColor.rgb = uCut;`);
+  };
+  m.customProgramCacheKey = () => 'heart-cutaway-v1';
+  return { m, U };
+}
 
-/* ------------------------------------------------------------------ paths for flow particles */
-type Path = { pts: THREE.Vector3[]; cum: number[]; len: number };
-const mk = (pts: THREE.Vector3[]): Path => { const cum = [0]; for (let i = 1; i < pts.length; i++) cum.push(cum[i - 1] + pts[i].distanceTo(pts[i - 1])); return { pts, cum, len: cum[cum.length - 1] }; };
-function at(pth: Path, u: number, out: THREE.Vector3, dir?: THREE.Vector3) {
+/* ------------------------------------------------------------------ cut planes */
+const CUT_LABEL: Record<Exclude<CutMode, 'auto'>, string> = { rv: 'Right ventricle opened', ra: 'Right atrium opened', lv: 'Left ventricle opened', slice: 'Four-chamber slice', front: 'Front wall removed', closed: 'Closed' };
+/** which cut shows each focus best */
+export function autoCut(target: string): Exclude<CutMode, 'auto'> {
+  if (/vsd|septum|\.rv$|four/.test(target)) return /four/.test(target) ? 'slice' : 'rv';
+  if (/asd|pfo/.test(target)) return 'ra';
+  if (/\.lv$/.test(target)) return 'lv';
+  if (/outflow|rvot/.test(target)) return 'front';
+  return 'closed';
+}
+/** a world-space plane: fragments with n·p + c < 0 are removed */
+function cutPlane(mode: Exclude<CutMode, 'auto'>): THREE.Plane | null {
+  const plane = (n: THREE.Vector3, keepPoint: THREE.Vector3) => { const p = toScene(keepPoint); return new THREE.Plane(n.clone().normalize(), -n.clone().normalize().dot(p)); };
+  switch (mode) {
+    case 'rv': return plane(SEPTUM_N.clone().negate(), LM.vsdPerimembranous.clone().addScaledVector(SEPTUM_N, 0.16));
+    case 'ra': return plane(ATRIAL_N.clone(), LM.fossa.clone().addScaledVector(ATRIAL_N, -0.13));
+    case 'lv': return plane(SEPTUM_N.clone(), LM.septum.clone().addScaledVector(SEPTUM_N, -0.17));
+    case 'slice': { const n4 = new THREE.Vector3(-0.069, -0.889, -0.453); return plane(n4, new THREE.Vector3(0.112, 4.669, 0.312)); }
+    case 'front': return plane(new THREE.Vector3(0, 0, -1), new THREE.Vector3(0, 0, 0.47));
+    default: return null;
+  }
+}
+
+/* ------------------------------------------------------------------ particle paths */
+type Path = { pts: THREE.Vector3[]; r: number[]; cum: number[]; len: number };
+const mk = (ws: Way[]): Path => { const pts = ws.map((x) => x.p), r = ws.map((x) => x.r); const cum = [0]; for (let i = 1; i < pts.length; i++) cum.push(cum[i - 1] + pts[i].distanceTo(pts[i - 1])); return { pts, r, cum, len: cum[cum.length - 1] }; };
+function at(pth: Path, u: number, out: THREE.Vector3, dir: THREE.Vector3) {
   const d = u * pth.len; let i = 1; while (i < pth.cum.length - 1 && pth.cum[i] < d) i++;
   const a = pth.pts[i - 1], b = pth.pts[i]; const f = (d - pth.cum[i - 1]) / Math.max(1e-6, pth.cum[i] - pth.cum[i - 1]);
-  out.copy(a).lerp(b, f); if (dir) dir.copy(b).sub(a).normalize(); return out;
+  out.copy(a).lerp(b, f); dir.copy(b).sub(a).normalize(); return pth.r[i - 1] + (pth.r[i] - pth.r[i - 1]) * f;
 }
-const PA_TAIL = [new THREE.Vector3(-0.3, 0.55, -0.25), new THREE.Vector3(-0.15, 1.6, -0.4), new THREE.Vector3(-0.95, 1.95, -0.75)];
-const AO_TAIL = [V(0.14, 0.62), new THREE.Vector3(0.12, 1.05, -0.05), new THREE.Vector3(0.12, 1.95, -0.25), new THREE.Vector3(0.62, 2.35, -0.65), new THREE.Vector3(1.05, 1.8, -1.0), new THREE.Vector3(1.1, -1.6, -1.2)];
-const RV_TO_PA = [V(-0.8, -0.95), V(-0.5, -0.6), V(-0.35, 0.05), ...PA_TAIL];
-const LV_TO_AO = [V(0.62, -1.3), V(0.42, -0.3), V(0.28, 0.1), ...AO_TAIL];
-const PATHS = {
-  svc: mk([new THREE.Vector3(-1.1, 2.5, -0.3), new THREE.Vector3(-1.05, 1.6, -0.05), V(-1.0, 1.1), V(-0.95, 0.6), V(-0.85, 0.0), V(-0.85, -0.7), ...RV_TO_PA]),
-  ivc: mk([new THREE.Vector3(-1.25, -1.9, -0.6), new THREE.Vector3(-1.15, 0.35, -0.1), V(-1.1, 0.8), V(-0.95, 0.6), V(-0.8, 0.0), V(-0.75, -0.8), ...RV_TO_PA]),
-  pv: mk([new THREE.Vector3(2.0, 1.2, -0.45), V(1.35, 1.02), V(0.95, 0.95), V(0.85, 0.5), V(0.75, 0.0), V(0.72, -0.9), ...LV_TO_AO]),
-  vsdLR: mk([V(0.5, -0.5), V(0.24, -0.1), V(-0.3, -0.02), V(-0.52, -0.25), V(-0.42, -0.05), V(-0.35, 0.1), ...PA_TAIL]),
-  vsdRL: mk([V(-0.7, -0.6), V(-0.3, -0.02), V(0.24, -0.1), V(0.33, 0.15), ...AO_TAIL]),
-  asdLR: mk([V(0.95, 1.0), V(0.45, 0.98), V(-0.5, 0.95), V(-0.9, 0.7), V(-0.85, 0.0), V(-0.8, -0.8), ...RV_TO_PA]),
-  asdRL: mk([V(-1.0, 1.0), V(-0.5, 0.95), V(0.45, 0.98), V(0.85, 0.6), V(0.75, 0.0), V(0.7, -0.9), ...LV_TO_AO]),
-  pfoRL: mk([V(-1.05, 0.9), V(-0.45, 0.84), V(0.4, 1.1), V(0.85, 0.6), V(0.75, 0.0), V(0.7, -0.9), ...LV_TO_AO]),
-  pdaLR: mk([new THREE.Vector3(0.12, 1.95, -0.25), new THREE.Vector3(0.45, 2.1, -0.6), new THREE.Vector3(0.3, 1.8, -0.62), new THREE.Vector3(-0.15, 1.6, -0.4), new THREE.Vector3(-0.95, 1.95, -0.75)]),
-  pdaRL: mk([new THREE.Vector3(-0.15, 1.6, -0.4), new THREE.Vector3(0.3, 1.8, -0.62), new THREE.Vector3(0.62, 2.05, -0.75), new THREE.Vector3(1.05, 1.8, -1.0), new THREE.Vector3(1.1, -1.6, -1.2)]),
-};
-type PathId = keyof typeof PATHS;
-/** which path is a jet (fast, turbulent) and its source */
 function streams(s: ShuntState) {
-  const L = s.input.lesion; const out: { id: PathId; flow: number; jet: boolean; sat: number }[] = [
-    { id: 'svc', flow: s.qs * 0.4, jet: false, sat: s.sat.sv }, { id: 'ivc', flow: s.qs * 0.6, jet: false, sat: s.sat.sv }, { id: 'pv', flow: s.qp, jet: false, sat: 0.98 }];
-  if (L === 'vsd') { out.push({ id: 'vsdLR', flow: s.lr, jet: true, sat: s.sat.lv }); out.push({ id: 'vsdRL', flow: s.rl, jet: true, sat: s.sat.rv }); }
-  if (L === 'asd') { out.push({ id: 'asdLR', flow: s.lr, jet: false, sat: s.sat.la }); out.push({ id: 'asdRL', flow: s.rl, jet: false, sat: s.sat.sv }); }
+  const L = s.input.lesion; const out: { id: FlowPathId; flow: number; jet: boolean; sat: number }[] = [];
+  const pulm = L === 'tof' ? s.qp : s.qs; // in tetralogy only Qp leaves through the narrowed outflow
+  out.push({ id: 'svc', flow: pulm * 0.4, jet: false, sat: s.sat.sv }, { id: 'ivc', flow: pulm * 0.6, jet: false, sat: s.sat.sv });
+  const pv = L === 'tof' ? s.qp : s.qp; out.push({ id: 'pvR', flow: pv * 0.5, jet: false, sat: 0.98 }, { id: 'pvL', flow: pv * 0.5, jet: false, sat: 0.98 });
+  if (L === 'vsd') { out.push({ id: 'vsdLR', flow: s.lr, jet: true, sat: s.sat.lv }, { id: 'vsdRL', flow: s.rl, jet: true, sat: s.sat.rv }); }
+  if (L === 'tof') out.push({ id: 'tofRvAo', flow: Math.max(0, s.qs - s.qp), jet: false, sat: s.sat.sv });
+  if (L === 'asd') { out.push({ id: 'asdLR', flow: s.lr, jet: false, sat: s.sat.la }, { id: 'asdRL', flow: s.rl, jet: false, sat: s.sat.sv }); }
   if (L === 'pfo') out.push({ id: 'pfoRL', flow: s.rl, jet: false, sat: s.sat.sv });
-  if (L === 'pda') { out.push({ id: 'pdaLR', flow: s.lr, jet: true, sat: 0.98 }); out.push({ id: 'pdaRL', flow: s.rl, jet: true, sat: s.sat.pa }); }
+  if (L === 'pda') { out.push({ id: 'pdaLR', flow: s.lr, jet: true, sat: 0.98 }, { id: 'pdaRL', flow: s.rl, jet: true, sat: s.sat.pa }); }
+  if (L === 'coarct' && s.coarct) out.push({ id: 'pdaRL', flow: Math.max(0, s.coarct.ductFlow), jet: false, sat: s.sat.pa });
   return out;
 }
 
-/* ------------------------------------------------------------------ scene */
-function Heart({ s, tier }: { s: ShuntState; tier: Tier }) {
-  const mode = useHeartUI((st) => st.mode);
-  const U = useMemo(() => ({ uSys: { value: 0 }, uAtr: { value: 0 }, uRvThick: { value: 0 }, uVsdR: { value: 0 }, uAsdR: { value: 0 }, uPfo: { value: 0 }, uMode: { value: 0 }, uT: { value: 0 },
-    uLvS: { value: 1 }, uLaS: { value: 1 }, uRaS: { value: 1 }, uRvS: { value: 1 }, uRA: { value: new THREE.Color() }, uRV: { value: new THREE.Color() }, uLA: { value: new THREE.Color() }, uLV: { value: new THREE.Color() } }), []);
-  const slabMat = useMemo(() => new THREE.ShaderMaterial({ uniforms: U, transparent: true, side: THREE.DoubleSide,
-    vertexShader: 'varying vec2 vP; void main(){ vP = position.xy; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }', fragmentShader: SLAB_FRAG }), [U]);
-  // great vessels (3D, behind the cut plane)
-  const vessels = useMemo(() => ({
-    ao: tubeAlong([V(0.14, 0.55, -0.05), new THREE.Vector3(0.12, 1.05, -0.08), new THREE.Vector3(0.12, 1.95, -0.25), new THREE.Vector3(0.62, 2.35, -0.65), new THREE.Vector3(1.05, 1.8, -1.0), new THREE.Vector3(1.1, -1.6, -1.2)], 0.2, 0.15, 16),
-    pa: tubeAlong([new THREE.Vector3(-0.35, 0.1, -0.2), new THREE.Vector3(-0.3, 0.6, -0.28), new THREE.Vector3(-0.15, 1.6, -0.4), new THREE.Vector3(-0.95, 1.95, -0.75)], 0.2, 0.13, 16),
-    rpa: tubeAlong([new THREE.Vector3(-0.15, 1.6, -0.4), new THREE.Vector3(0.45, 1.55, -0.85), new THREE.Vector3(1.3, 1.35, -0.95)], 0.12, 0.1, 12),
-    svc: tubeAlong([new THREE.Vector3(-1.1, 2.6, -0.3), new THREE.Vector3(-1.05, 1.6, -0.08), new THREE.Vector3(-1.0, 1.25, -0.02)], 0.17, 0.17, 12),
-    ivc: tubeAlong([new THREE.Vector3(-1.25, -2.0, -0.6), new THREE.Vector3(-1.15, 0.35, -0.12), new THREE.Vector3(-1.1, 0.7, -0.03)], 0.18, 0.18, 12),
-    pv1: tubeAlong([new THREE.Vector3(2.1, 1.25, -0.45), new THREE.Vector3(1.45, 1.05, -0.05)], 0.09, 0.09, 10),
-    pv2: tubeAlong([new THREE.Vector3(2.1, 0.75, -0.45), new THREE.Vector3(1.45, 0.9, -0.05)], 0.09, 0.09, 10),
-    pda: tubeAlong([new THREE.Vector3(0.45, 2.1, -0.6), new THREE.Vector3(0.3, 1.8, -0.62), new THREE.Vector3(0.05, 1.63, -0.45)], 0.07, 0.07, 10),
-  }), []);
-  const vm = useMemo(() => Object.fromEntries(Object.keys(vessels).map((k) => [k, new THREE.MeshPhysicalMaterial({ roughness: 0.35, clearcoat: 0.6, transparent: true, opacity: 0.92 })])) as Record<keyof typeof vessels, THREE.MeshPhysicalMaterial>, [vessels]);
+/* ------------------------------------------------------------------ the heart */
+function Heart({ asset, s, tier }: { asset: LinesAsset; s: ShuntState; tier: Tier }) {
+  const mode = useHeartUI((st) => st.mode); const cutSel = useHeartUI((st) => st.cut); const target = useHeartUI((st) => st.target);
+  const cut = cutSel === 'auto' ? autoCut(target) : cutSel;
+  const gl = useThree((st) => st.gl); const scene = useThree((st) => st.scene); useEffect(() => { gl.localClippingEnabled = true; }, [gl]);
+  const planes = useMemo<THREE.Plane[]>(() => [], []);
+  const trim = useMemo(() => new THREE.Plane(new THREE.Vector3(0, 1, 0), -toScene(new THREE.Vector3(0, 4.12, 0)).y), []); // hide the abdominal aorta / IVC below the heart
+  useEffect(() => { const p = cutPlane(cut); planes.length = 0; planes.push(trim); if (p) planes.push(p); scene.traverse((o) => { const m = (o as THREE.Mesh).material as THREE.Material | undefined; if (m && 'clippingPlanes' in m && m.clippingPlanes === planes) m.needsUpdate = true; }); }, [cut, planes, trim, scene]);
+
+  // geometry: our own copies so lesions can reshape them; originals kept for recomputing
+  const parts = useMemo(() => PARTS.filter((id) => asset.meshes[id]).map((id) => {
+    const geo = asset.meshes[id].geometry.clone(); const base = (geo.getAttribute('position').array as Float32Array).slice();
+    if (!geo.getAttribute('normal')) geo.computeVertexNormals(); const nrm = (geo.getAttribute('normal').array as Float32Array).slice();
+    const { m, U } = heartMaterial(id, planes); return { id, geo, base, nrm, m, U };
+  }), [asset, planes]);
+  const byId = useMemo(() => Object.fromEntries(parts.map((p) => [p.id, p])) as Record<PartId, (typeof parts)[number]>, [parts]);
+  useEffect(() => () => parts.forEach((p) => { p.geo.dispose(); p.m.dispose(); }), [parts]);
+  useEffect(() => { (window as unknown as { __heart3d?: unknown }).__heart3d = { byId }; }, [byId]); // automation / tests
+
+  // lesion shape (deformations recomputed only when it changes)
+  const shape = useMemo(() => lesionShape(s.input, s), [s]);
+  const shapeKey = `${shape.coarct.toFixed(2)}|${shape.rvot.toFixed(2)}|${shape.override}|${shape.rvWall.toFixed(3)}`;
+  useEffect(() => {
+    const set = (id: PartId, f: (pos: Float32Array, p: (typeof parts)[number]) => Float32Array) => { const p = byId[id]; if (!p) return; const a = p.geo.getAttribute('position') as THREE.BufferAttribute; (a.array as Float32Array).set(f(p.base, p)); a.needsUpdate = true; p.geo.computeVertexNormals(); p.geo.computeBoundingSphere(); };
+    set('aorta', (b) => shift(pinch(b, LM.isthmus, LM.isthmusAxis, 0.07, 0.12, shape.coarct), OVERRIDE.clone().multiplyScalar(shape.override), overrideWeight));
+    set('aortic_valve', (b) => shift(b, OVERRIDE.clone().multiplyScalar(shape.override), () => 1));
+    set('pulm_valve', (b) => pinch(b, LM.pulmValve, LM.rvotAxis, 0.06, 0.12, shape.rvot * 0.7));
+    set('pulm_art', (b) => pinch(b, new THREE.Vector3(0.17, 5.16, 0.39), LM.rvotAxis, 0.07, 0.12, shape.rvot * 0.45));
+    set('rv', (b, p) => pinch(thicken(b, p.nrm, shape.rvWall), LM.rvot, LM.rvotAxis, 0.09, 0.16, shape.rvot));
+  }, [shapeKey, byId]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // holes + linings
+  const holes = useMemo(() => holesFor(s.input, s), [s]);
+  useEffect(() => {
+    for (const p of parts) {
+      const list = holes.filter((h) => h.meshes.includes(p.id)); p.U.uHn.value = list.length;
+      list.forEach((h, i) => { p.U.uHc.value[i].set(h.c.x, h.c.y, h.c.z, h.r); p.U.uHa.value[i].set(h.ax.x, h.ax.y, h.ax.z, h.half); p.U.uHu.value[i].set(h.u?.x ?? 0, h.u?.y ?? 0, h.u?.z ?? 0, h.squash ?? 0); });
+    }
+  }, [holes, parts]);
+  const liningMat = useMemo(() => new THREE.MeshStandardMaterial({ color: '#9b3b31', roughness: 0.55, side: THREE.DoubleSide, clippingPlanes: planes }), [planes]);
+  const linings = useMemo(() => holes.map((h: Hole) => {
+    const geo = new THREE.CylinderGeometry(h.r, h.r, h.half * 2, 28, 1, true);
+    if (h.u && h.squash) geo.scale(1, 1, 1); // slit lining approximated by the flap below
+    const q = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), h.ax);
+    const mm = new THREE.Matrix4().compose(h.c, q, h.u && h.squash ? new THREE.Vector3(1, 1, 1) : new THREE.Vector3(1, 1, 1)); geo.applyMatrix4(mm);
+    return { id: h.id, geo, slit: !!h.u };
+  }), [holes]);
+  useEffect(() => () => linings.forEach((l) => l.geo.dispose()), [linings]);
+
+  // PFO flap (septum primum) on the left-atrial side: hinged along its upper edge, swings open with right-to-left flow
+  const flap = useRef<THREE.Group>(null); const pfo = holes.find((h) => h.id === 'pfo');
+  const flapR = holeRadius(Math.max(4, s.input.sizeMm), (s.input.qs ?? 5) < 2) * 1.25;
+  const flapBasis = useMemo(() => { const z = ATRIAL_N.clone(); const y = new THREE.Vector3(0, 1, 0.45).normalize(); y.addScaledVector(z, -y.dot(z)).normalize(); const x = new THREE.Vector3().crossVectors(y, z); return new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().makeBasis(x, y, z)); }, []);
+  const flapMat = useMemo(() => new THREE.MeshStandardMaterial({ color: '#c46a5c', roughness: 0.6, side: THREE.DoubleSide, transparent: true, opacity: 0.95, clippingPlanes: planes }), [planes]);
+
+  // PDA vessel
+  const duct = s.input.lesion === 'pda' ? s.input.sizeMm : s.input.lesion === 'coarct' ? (s.input.ductMm ?? 0) : 0;
+  const ductGeo = useMemo(() => {
+    if (duct <= 0) return null; const r = holeRadius(duct, (s.input.qs ?? 5) < 2);
+    const mid = LM.pdaAorta.clone().lerp(LM.pdaPa, 0.5).add(new THREE.Vector3(0, 0.035, 0.01));
+    return tubeAlong([LM.pdaAorta.clone().addScaledVector(LM.pdaPa.clone().sub(LM.pdaAorta).normalize(), -0.03), mid, LM.pdaPa.clone().addScaledVector(LM.pdaPa.clone().sub(LM.pdaAorta).normalize(), 0.03)], r, r * 0.92, 18, 300).geometry;
+  }, [duct, s.input.qs]);
+  const ductMat = useMemo(() => new THREE.MeshPhysicalMaterial({ roughness: 0.4, clearcoat: 0.5, side: THREE.DoubleSide, clippingPlanes: planes }), [planes]);
+
   // particles
-  const NP = budget(tier, 700); const inst = useRef<THREE.InstancedMesh>(null);
-  const parts = useMemo(() => Array.from({ length: NP }, (_, i) => ({ path: 'svc' as PathId, u: Math.random(), speed: 1, off: new THREE.Vector3((Math.random() - 0.5) * 0.12, (Math.random() - 0.5) * 0.12, 0), jet: false, sat: 0.7, alive: false, k: i })), [NP]);
-  const cur = useRef({ lv: 1, la: 1, ra: 1, rv: 1, thick: 0, vsd: 0, asd: 0, pfo: 0 });
-  const tmp = useMemo(() => ({ o: new THREE.Object3D(), p: new THREE.Vector3(), d: new THREE.Vector3(), c: new THREE.Color(), q: new THREE.Vector3(), probe: new THREE.Vector3(0.35, -2.05, 0) }), []);
-  const t = useRef(0);
-  // assign particles to streams in proportion to flow whenever the physiology changes
+  const NP = budget(tier, IS_PHONE ? 500 : 900); const inst = useRef<THREE.InstancedMesh>(null);
+  const paths = useMemo(() => Object.fromEntries(Object.entries(flowPaths(shape)).map(([k, ws]) => [k, mk(ws)])) as Record<FlowPathId, Path>, [shapeKey]); // eslint-disable-line react-hooks/exhaustive-deps
+  const pts = useMemo(() => Array.from({ length: NP }, () => ({ path: 'svc' as FlowPathId, u: Math.random(), speed: 1, off: new THREE.Vector3().randomDirection().multiplyScalar(Math.cbrt(Math.random())), jet: false, sat: 0.7, alive: false })), [NP]);
   useEffect(() => {
     const st = streams(s); const tot = st.reduce((a, x) => a + x.flow, 0) || 1; let k = 0;
-    for (const x of st) { const n = Math.round((NP * x.flow) / tot); for (let j = 0; j < n && k < NP; j++, k++) { const q = parts[k]; q.path = x.id; q.jet = x.jet; q.sat = x.sat; q.alive = x.flow > 0.05; q.speed = x.jet ? Math.min(2.4, 0.55 + 0.4 * s.velocity) : 0.4 + 0.05 * Math.random(); } }
-    for (; k < NP; k++) parts[k].alive = false;
-  }, [s, parts, NP]);
+    for (const x of st) { const n = Math.round((NP * x.flow) / tot); for (let j = 0; j < n && k < NP; j++, k++) { const q = pts[k]; q.path = x.id; q.jet = x.jet; q.sat = x.sat; q.alive = x.flow > 0.02 * s.qs; q.speed = x.jet ? Math.min(1.6, 0.5 + 0.25 * s.velocity) : 0.3 + 0.06 * Math.random(); } }
+    for (; k < NP; k++) pts[k].alive = false;
+  }, [s, pts, NP]);
+
+  const cur = useRef({ lv: 1, la: 1, ra: 1, rv: 1 }); const t = useRef(0);
+  const tmp = useMemo(() => ({ o: new THREE.Object3D(), p: new THREE.Vector3(), d: new THREE.Vector3(), c: new THREE.Color(), q: new THREE.Vector3(), probe: LM.lvApex.clone().add(new THREE.Vector3(0.1, -0.1, 0.15)) }), []);
   useFrame((_, dtRaw) => {
-    const dt = frameDt(dtRaw); t.current += Math.min(0.05, dtRaw); const c = cyclePhase(t.current);
-    U.uSys.value = c.sys; U.uAtr.value = c.atr; U.uT.value = t.current; U.uMode.value = mode === 'doppler' ? 1 : 0;
-    const k = cur.current; const L = s.input.lesion; const sz = s.input.sizeMm;
-    k.lv = approach(k.lv, Math.min(1.35, 1 + 0.16 * (s.load.lv - 1)), 3, dt); k.la = approach(k.la, Math.min(1.35, 1 + 0.2 * (s.load.la - 1)), 3, dt);
-    k.rv = approach(k.rv, Math.min(1.35, 1 + 0.18 * (s.load.rv - 1)), 3, dt); k.ra = approach(k.ra, Math.min(1.35, 1 + 0.2 * (s.load.ra - 1)), 3, dt);
-    k.thick = approach(k.thick, 0.14 * Math.min(1, Math.max(0, (s.p.rvSys - 30) / 90)), 3, dt);
-    k.vsd = approach(k.vsd, L === 'vsd' ? 0.03 + sz * 0.009 : 0, 5, dt); k.asd = approach(k.asd, L === 'asd' ? 0.04 + sz * 0.008 : 0, 5, dt); k.pfo = approach(k.pfo, L === 'pfo' && s.rl > 0.05 ? 1 : 0, 6, dt);
-    U.uLvS.value = k.lv; U.uLaS.value = k.la; U.uRvS.value = k.rv; U.uRaS.value = k.ra; U.uRvThick.value = k.thick; U.uVsdR.value = k.vsd; U.uAsdR.value = k.asd; U.uPfo.value = k.pfo;
-    saturationColor(s.sat.ra, U.uRA.value, true); saturationColor(s.sat.rv, U.uRV.value, true); saturationColor(s.sat.la, U.uLA.value, true); saturationColor(s.sat.lv, U.uLV.value, true);
-    saturationColor(s.sat.ao, vm.ao.color, true); saturationColor(s.sat.pa, vm.pa.color, true); vm.rpa.color.copy(vm.pa.color); saturationColor(s.sat.sv, vm.svc.color, true); vm.ivc.color.copy(vm.svc.color);
-    saturationColor(0.98, vm.pv1.color, true); vm.pv2.color.copy(vm.pv1.color); saturationColor(s.lr >= s.rl ? s.sat.ao : s.sat.pa, vm.pda.color, true); vm.pda.opacity = L === 'pda' ? 0.95 : 0;
+    const dt = frameDt(dtRaw); t.current += Math.min(0.05, dtRaw); const c = cyclePhase(t.current); const k = cur.current;
+    k.lv = approach(k.lv, Math.min(1.25, 1 + 0.12 * (s.load.lv - 1)), 3, dt); k.la = approach(k.la, Math.min(1.25, 1 + 0.15 * (s.load.la - 1)), 3, dt);
+    k.rv = approach(k.rv, Math.min(1.25, 1 + 0.13 * (s.load.rv - 1)), 3, dt); k.ra = approach(k.ra, Math.min(1.25, 1 + 0.15 * (s.load.ra - 1)), 3, dt);
+    const sat: Partial<Record<PartId, number>> = { ra: s.sat.ra, rv: s.sat.rv, la: s.sat.la, lv: s.sat.lv, aorta: s.sat.ao, arch_branches: s.sat.ao, pulm_art: s.sat.pa, svc: s.sat.sv, ivc: s.sat.sv, pulm_veins: 0.98 };
+    for (const p of parts) {
+      const K = p.id === 'lv' ? k.lv * (1 - 0.05 * c.sys) : p.id === 'rv' ? k.rv * (1 - 0.045 * c.sys) : p.id === 'la' ? k.la * (1 - 0.04 * c.atr) : p.id === 'ra' ? k.ra * (1 - 0.04 * c.atr) : p.id === 'septum' ? 1 - 0.015 * c.sys : 1;
+      p.U.uK.value = K; const sv = sat[p.id];
+      if (sv != null) { if (CHAMBER[p.id]) { saturationColor(sv, p.U.uBlood.value, true); p.U.uBloodMix.value = 0.42; } else saturationColor(sv, p.m.color, true); }
+    }
+    if (ductGeo) saturationColor(s.lr >= s.rl ? s.sat.ao : s.sat.pa, ductMat.color, true);
+    const see = cut === 'closed' ? 0.5 : 1; // closed: vessels see-through so the flow inside stays visible
+    for (const p of parts) if (VESSEL.has(p.id)) { if (p.m.opacity !== see) { p.m.opacity = see; p.m.transparent = see < 1; p.m.depthWrite = see === 1; p.m.needsUpdate = true; } }
+    if (ductMat.opacity !== see) { ductMat.opacity = see; ductMat.transparent = see < 1; ductMat.depthWrite = see === 1; ductMat.needsUpdate = true; }
+    if (flap.current) flap.current.rotation.x = approach(flap.current.rotation.x, -Math.min(0.9, s.rl * 3) * (0.6 + 0.4 * c.atr), 6, dt);
     const im = inst.current; if (!im) return;
-    parts.forEach((q, i) => {
+    pts.forEach((q, i) => {
       if (!q.alive) { tmp.o.scale.setScalar(0.00001); tmp.o.updateMatrix(); im.setMatrixAt(i, tmp.o.matrix); return; }
-      const pth = PATHS[q.path]; const pulse = q.jet ? (q.path === 'vsdLR' || q.path === 'vsdRL' ? 0.25 + 1.5 * c.sys : 1) : 0.6 + 0.6 * c.sys;
-      q.u = (q.u + (dt * q.speed * pulse) / pth.len * 0.9) % 1;
-      at(pth, q.u, tmp.p, tmp.d); tmp.p.addScaledVector(q.off, q.jet ? 0.45 : 1);
-      tmp.o.position.copy(tmp.p); tmp.o.scale.setScalar(q.jet ? 0.022 : 0.017); tmp.o.updateMatrix(); im.setMatrixAt(i, tmp.o.matrix);
+      const pth = paths[q.path]; const pulse = q.jet ? 0.3 + 1.4 * (q.path.startsWith('vsd') ? c.sys : 0.6 + 0.4 * c.sys) : 0.55 + 0.7 * c.sys;
+      q.u = (q.u + (dt * q.speed * pulse) / pth.len) % 1;
+      const r = at(pth, q.u, tmp.p, tmp.d); tmp.p.addScaledVector(q.off, r * 0.85);
+      tmp.o.position.copy(tmp.p); tmp.o.scale.setScalar(q.jet ? 0.0068 : 0.0052); tmp.o.updateMatrix(); im.setMatrixAt(i, tmp.o.matrix);
       if (mode === 'doppler') {
-        const toward = tmp.d.dot(tmp.q.copy(tmp.probe).sub(tmp.p).normalize()); const v = q.jet ? 0.8 + 0.8 * s.velocity : 0.6;
-        if (v > 1.6 && q.jet) tmp.c.setHSL(0.13 + 0.2 * ((i * 7919) % 10) / 10, 0.95, 0.55); // aliasing mosaic
-        else tmp.c.set(toward > 0 ? '#e0322b' : '#2f6be0').multiplyScalar(0.55 + 0.45 * Math.min(1, Math.abs(toward) * v));
+        const toward = tmp.d.dot(tmp.q.copy(tmp.probe).sub(tmp.p).normalize()); const vel = q.jet ? 0.8 + 0.8 * s.velocity : 0.6;
+        if (vel > 1.6 && q.jet) tmp.c.setHSL(0.13 + 0.2 * ((i * 7919) % 10) / 10, 0.95, 0.55); // aliasing mosaic
+        else tmp.c.set(toward > 0 ? '#e0322b' : '#2f6be0').multiplyScalar(0.55 + 0.45 * Math.min(1, Math.abs(toward) * vel));
       } else saturationColor(q.sat, tmp.c, true);
       im.setColorAt(i, tmp.c);
     });
     im.instanceMatrix.needsUpdate = true; if (im.instanceColor) im.instanceColor.needsUpdate = true;
   });
-  return (<>
-    <mesh material={slabMat} renderOrder={2}><planeGeometry args={[4.6, 4.6]} /></mesh>
-    {(Object.keys(vessels) as (keyof typeof vessels)[]).map((k) => <mesh key={k} geometry={vessels[k].geometry} material={vm[k]} renderOrder={1} />)}
-    <instancedMesh key={NP} ref={inst} args={[new THREE.SphereGeometry(1, 8, 6), undefined, NP]} frustumCulled={false} renderOrder={3}><meshBasicMaterial toneMapped={false} /></instancedMesh>
-  </>);
+
+  return (
+    <group scale={SCALE} position={CENTRE.clone().multiplyScalar(-SCALE)}>
+      {parts.map((p) => <mesh key={p.id} geometry={p.geo} material={p.m} />)}
+      {linings.filter((l) => !l.slit).map((l) => <mesh key={l.id} geometry={l.geo} material={liningMat} />)}
+      {pfo && <group position={LM.fossa.clone().addScaledVector(ATRIAL_N, 0.05).addScaledVector(new THREE.Vector3(0, 1, 0.45).normalize(), flapR * 0.9)} quaternion={flapBasis}>
+        <group ref={flap}><mesh position={[0, -flapR * 0.9, 0]} material={flapMat}><circleGeometry args={[flapR, 28]} /></mesh></group>
+      </group>}
+      {ductGeo && <mesh geometry={ductGeo} material={ductMat} />}
+      <instancedMesh key={NP} ref={inst} args={[new THREE.SphereGeometry(1, 8, 6), undefined, NP]} frustumCulled={false}><meshBasicMaterial toneMapped={false} clippingPlanes={planes} /></instancedMesh>
+      <Labels s={s} shape={shape} cut={cut} />
+    </group>
+  );
 }
 
-function Labels({ s }: { s: ShuntState }) {
-  const on = useHeartUI((st) => st.labels); if (!on) return null; const L = s.input.lesion;
+/* ------------------------------------------------------------------ labels (body frame, inside the heart group) */
+function Labels({ s, shape, cut }: { s: ShuntState; shape: LesionShape; cut: Exclude<CutMode, 'auto'> }) {
+  const on = useHeartUI((st) => st.labels); if (!on) return null; const L = s.input.lesion; const dir = s.direction === 'none' ? '' : ` · ${s.direction}`;
   const tag = (p: THREE.Vector3, t: string, cls = '', info?: string) => <Html key={info ?? t} position={p} center zIndexRange={[20, 0]}><LabelChip className={`tag3d tk ${cls}`} text={t} info={info} important={!!info} /></Html>;
-  const dir = s.direction === 'none' ? '' : ` · ${s.direction}`;
+  const V = (x: number, y: number, z: number) => new THREE.Vector3(x, y, z);
+  const closed = cut === 'closed';
   return (<>
-    {tag(V(-1.0, 1.45), 'RA')}{tag(V(1.0, 1.52), 'LA')}{tag(V(-0.95, -1.6), 'RV')}{tag(V(0.85, -1.85), 'LV')}
-    {tag(V(-0.03, -0.75), 'Ventricular septum')}{tag(new THREE.Vector3(0.12, 2.1, -0.25), 'Aorta', 't-art')}{tag(new THREE.Vector3(-0.75, 2.0, -0.75), 'Pulmonary artery', 't-ven')}
-    {!IS_PHONE && tag(new THREE.Vector3(-1.1, 2.15, -0.3), 'SVC')}{!IS_PHONE && tag(new THREE.Vector3(2.15, 1.45, -0.45), 'Pulmonary veins')}
-    {L === 'vsd' && tag(V(-0.03, 0.22), `VSD ${s.input.sizeMm} mm${dir}`, 't-teal', 'vsd')}
-    {L === 'asd' && tag(V(-0.02, 1.35), `ASD ${s.input.sizeMm} mm${dir}`, 't-teal', 'asd')}
-    {L === 'pfo' && tag(V(-0.02, 1.35), s.rl > 0.05 ? 'PFO flap open · R→L' : 'PFO flap closed', 't-teal', 'pfo')}
-    {L === 'pda' && tag(new THREE.Vector3(0.4, 2.35, -0.6), `PDA${dir}`, 't-teal', 'pda')}
+    {tag(V(-0.33, 4.62, 0.5), 'RA')}{tag(V(0.36, 4.98, 0.05), 'LA')}{tag(V(0.25, 4.38, 0.82), 'RV')}{tag(V(0.66, 4.55, 0.35), 'LV')}
+    {!closed && tag(LM.septum.clone().addScaledVector(SEPTUM_N, 0.06).add(V(0, -0.12, 0)), 'Ventricular septum')}
+    {tag(V(-0.05, 5.5, 0.32), 'Aorta', 't-art')}{tag(V(0.3, 5.28, 0.35), 'Pulmonary artery', 't-ven')}
+    {!IS_PHONE && tag(V(-0.3, 5.4, 0.22), 'SVC')}{!IS_PHONE && tag(V(-0.42, 4.92, 0.0), 'Pulmonary veins')}
+    {(L === 'vsd' || L === 'tof') && tag(holesFor(s.input)[0].c.clone().addScaledVector(SEPTUM_N, 0.12).add(V(0, 0.05, 0)), L === 'tof' ? 'VSD (malaligned)' : `VSD ${s.input.sizeMm} mm${dir}`, 't-teal', 'vsd')}
+    {L === 'asd' && tag(LM.fossa.clone().addScaledVector(ATRIAL_N, -0.12).add(V(0, 0.06, 0)), `ASD ${s.input.sizeMm} mm${dir}`, 't-teal', 'asd')}
+    {L === 'pfo' && tag(LM.fossa.clone().addScaledVector(ATRIAL_N, -0.12).add(V(0, 0.06, 0)), s.rl > 0.05 ? 'PFO flap open · R→L' : 'PFO flap closed', 't-teal', 'pfo')}
+    {(L === 'pda' || (L === 'coarct' && (s.input.ductMm ?? 0) > 0)) && tag(LM.pdaAorta.clone().lerp(LM.pdaPa, 0.5).add(V(0.06, 0.08, -0.04)), `PDA${dir}`, 't-teal', 'pda')}
+    {L === 'coarct' && tag(LM.isthmus.clone().add(V(0.12, 0.06, -0.06)), 'Coarctation', 't-teal', 'coarctation')}
+    {L === 'tof' && shape.rvot > 0 && tag(LM.rvot.clone().add(V(0.12, 0.02, 0.1)), 'Narrow RV outflow', 't-teal', 'rvot obstruction')}
+    {L === 'tof' && tag(LM.aorticValve.clone().add(OVERRIDE).add(V(-0.12, 0.1, 0.08)), 'Overriding aorta', 't-teal', 'overriding aorta')}
+    {shape.rvWall > 0.012 && tag(V(0.08, 4.5, 0.86), 'Thick RV wall', '', 'rv hypertrophy')}
   </>);
 }
 
 /* ------------------------------------------------------------------ camera + targets */
-const A = ANCHOR;
-const VIEW: Record<string, () => [THREE.Vector3, THREE.Vector3]> = {
-  'heart.four_chamber': () => [new THREE.Vector3(1.1, 0.6, IS_PHONE ? 11.5 : 9.4), new THREE.Vector3(0.2, 0.05, -0.2)],
-  'heart.septum': () => [A.septum.clone().add(new THREE.Vector3(0.3, 0.1, 3.0)), A.septum.clone()],
-  'heart.vsd': () => [A.vsd.clone().add(new THREE.Vector3(0.3, 0.2, 3.3)), A.vsd.clone()],
-  'heart.asd': () => [A.asd.clone().add(new THREE.Vector3(0.3, 0.2, 3.4)), A.asd.clone()],
-  'heart.pfo': () => [A.pfo.clone().add(new THREE.Vector3(0.3, 0.2, 3.2)), A.pfo.clone()],
-  'heart.lv': () => [A.lv.clone().add(new THREE.Vector3(0.4, 0.2, 3.0)), A.lv.clone()],
-  'heart.rv': () => [A.rv.clone().add(new THREE.Vector3(-0.4, 0.2, 3.0)), A.rv.clone()],
-  'heart.pulmonary_outflow': () => [A.outflow.clone().add(new THREE.Vector3(-1.4, 1.0, 2.6)), A.outflow.clone().add(new THREE.Vector3(0, 0.4, 0))],
-  'heart.pda': () => [A.pda.clone().add(new THREE.Vector3(2.6, 0.9, 4.2)), A.pda.clone().add(new THREE.Vector3(0, -0.3, 0))],
+const W = (p: THREE.Vector3) => toScene(p);
+const look = (from: THREE.Vector3, at: THREE.Vector3, dist: number): [THREE.Vector3, THREE.Vector3] => { const a = W(at); return [a.clone().addScaledVector(from.clone().normalize(), dist), a]; };
+const D = IS_PHONE ? 1.3 : 1;
+export const HEART_VIEW: Record<string, () => [THREE.Vector3, THREE.Vector3]> = {
+  'heart.four_chamber': () => look(new THREE.Vector3(0.069, 0.889, 0.453).add(new THREE.Vector3(0, 0, 0.35)), new THREE.Vector3(0.2, 4.66, 0.38), 8.6 * D),
+  'heart.septum': () => look(SEPTUM_N.clone().add(new THREE.Vector3(0, 0.25, 0)), LM.septum, 4.8 * D),
+  'heart.vsd': () => look(SEPTUM_N.clone().add(new THREE.Vector3(0.1, 0.25, 0.25)), LM.vsdPerimembranous, 5.6 * D),
+  'heart.asd': () => look(ATRIAL_N.clone().negate().add(new THREE.Vector3(0, 0.25, 0.1)), LM.fossa, 5.4 * D),
+  'heart.pfo': () => look(ATRIAL_N.clone().negate().add(new THREE.Vector3(0, 0.25, 0.1)), LM.fossa, 4.8 * D),
+  'heart.lv': () => look(SEPTUM_N.clone().negate().add(new THREE.Vector3(0, 0.2, 0)), LM.lv, 5.2 * D),
+  'heart.rv': () => look(SEPTUM_N.clone().add(new THREE.Vector3(0, 0.15, 0.2)), LM.rv, 5.4 * D),
+  'heart.pulmonary_outflow': () => look(new THREE.Vector3(-0.2, 0.35, 1), LM.rvot.clone().add(new THREE.Vector3(0, 0.05, 0)), 4.4 * D),
+  'heart.pda': () => look(new THREE.Vector3(1, 0.45, -0.55), LM.pdaAorta.clone().lerp(LM.pdaPa, 0.5), 3.4 * D),
+  'heart.coarct': () => look(new THREE.Vector3(1, 0.15, -0.25), LM.isthmus.clone().add(new THREE.Vector3(0, -0.05, 0)), 3.0 * D),
 };
-registerAnchors('heart', () => ({ four_chamber: V(0.15, 0.25), septum: A.septum, vsd: A.vsd, asd: A.asd, pfo: A.pfo, lv: A.lv, rv: A.rv, outflow: A.outflow, pda: A.pda }));
+registerAnchors('heart', () => ({ four_chamber: W(new THREE.Vector3(0.2, 4.66, 0.38)), septum: W(LM.septum), vsd: W(LM.vsdPerimembranous), asd: W(LM.fossa), pfo: W(LM.fossa), lv: W(LM.lv), rv: W(LM.rv), outflow: W(LM.rvot), pda: W(LM.pdaAorta.clone().lerp(LM.pdaPa, 0.5)), coarct: W(LM.isthmus) }));
 function Rig() {
   const cc = useRef<CameraControls>(null); const target = useHeartUI((s) => s.target); const first = useRef(true);
-  useEffect(() => { const [p, l] = (VIEW[target] ?? VIEW['heart.four_chamber'])(); cc.current?.setLookAt(p.x, p.y, p.z, l.x, l.y, l.z, !first.current); first.current = false; }, [target]);
-  return <CameraControls ref={cc} makeDefault minDistance={1} maxDistance={14} smoothTime={0.55} />;
+  useEffect(() => { const [p, l] = (HEART_VIEW[target] ?? HEART_VIEW['heart.four_chamber'])(); cc.current?.setLookAt(p.x, p.y, p.z, l.x, l.y, l.z, !first.current); first.current = false; }, [target]);
+  return <CameraControls ref={cc} makeDefault minDistance={1} maxDistance={16} smoothTime={0.55} />;
 }
 
+export { CUT_LABEL };
 export function HeartScene() {
   const input = useHeartUI((s) => s.input); const tier = useLabUI((s) => s.visualTier) as Tier;
   const s = useMemo(() => solveShunt(input), [input]);
-  const [p] = VIEW['heart.four_chamber']();
+  const [asset, setAsset] = useState<LinesAsset | null>(null); const [err, setErr] = useState('');
+  useEffect(() => { loadLinesAsset().then(setAsset).catch((e) => setErr(String(e?.message || e))); }, []);
+  const [p] = HEART_VIEW['heart.four_chamber']();
+  if (err) return <p className="img-note" role="alert">The 3D heart could not be loaded: {err}</p>;
   return (
-    <StudioCanvas camera={{ position: [p.x, p.y, p.z], fov: 32 }} fog={false}>
-      <Heart s={s} tier={tier} />
-      <Labels s={s} />
+    <StudioCanvas camera={{ position: [p.x, p.y, p.z], fov: 32 }} fog={false} label="Interactive 3D heart, cut open to show the defect">
+      {asset && <Heart asset={asset} s={s} tier={tier} />}
       <Rig />
     </StudioCanvas>
   );

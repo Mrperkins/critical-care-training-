@@ -3,7 +3,7 @@
 Generated from `manifest.json` by `tools/clinical_media.py docs`; do not edit by hand. Every file here is checked by
 `tools/validate_visual_assets.py` (licence on the accepted list, SHA-256, media signature, no unlisted files).
 
-Accepted licences: CC0, Public Domain, CC BY 2.0, CC BY 3.0, CC BY 4.0, MIT, Apache-2.0. Rejected: NC, ND, share-alike, research-only or unclear terms.
+Accepted licences: CC0, Public Domain, CC BY 2.0, CC BY 3.0, CC BY 2.5, CC BY 4.0, MIT, Apache-2.0. Rejected: NC, ND, share-alike, research-only or unclear terms.
 
 Adding the pending media: create `imaging/real/fetch-request.txt` on `visual-overhaul` (any text). That starts the GitHub Action
 **Fetch clinical media**, which reads each licence from the source — the Commons API or the article page — downloads the
@@ -335,6 +335,47 @@ so ingested media appear without rebuilding `index.html`. Overlay marks (`marks`
 | Original preserved | Not redistributed here because the scanner status bar may show identifiers; the source URL and SHA-256 identify the original. |
 | Licence evidence | Wikimedia Commons API extmetadata for File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3APortable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S1.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
 | Verified by | tools/clinical_media.py fetch |
+
+## Pending — staged, not yet in the app
+
+Teaching content is written; the media has not been downloaded and the licence has not been verified from the source.
+
+| ID | Finding | Claimed licence | Source page |
+|---|---|---|---|
+| stroke-hmcas-2025 | hyperdense middle cerebral artery sign | CC BY 4.0 (unverified) | https://doi.org/10.7759/cureus.86726 |
+| stroke-early-change-2025 | early ischaemic change (loss of grey–white differentiation) | CC BY 4.0 (unverified) | https://doi.org/10.7759/cureus.86726 |
+| stroke-cta-m1-2025 | right M1 occlusion on CTA | CC BY 4.0 (unverified) | https://doi.org/10.7759/cureus.98724 |
+| stroke-ctp-mismatch-2025 | core–penumbra mismatch | CC BY 4.0 (unverified) | https://doi.org/10.7759/cureus.98724 |
+| stroke-infarct-24h-2025 | established infarct at 24 h | CC BY 4.0 (unverified) | https://doi.org/10.7759/cureus.98724 |
+| stroke-malignant-edema-2023 | malignant brain oedema after MCA infarction | CC BY 4.0 (unverified) | https://doi.org/10.1186/s40001-023-01414-x |
+| stroke-mass-effect-2021 | large MCA infarct with mass effect | CC BY 4.0 (unverified) | https://doi.org/10.1097/md.0000000000024496 |
+| stroke-hemorrhagic-transformation-2026 | haemorrhagic transformation of an infarct | CC BY 4.0 (unverified) | https://doi.org/10.3389/fcvm.2026.1747104 |
+| stroke-hmcas-vs-cta-2022 | hyperdense MCA sign compared with CTA | CC BY 4.0 (unverified) | https://doi.org/10.1007/s00415-022-11500-5 |
+| stroke-ctp-m1-mirza | perfusion deficit in M1 occlusion | CC BY 4.0 (unverified) | https://commons.wikimedia.org/wiki/File:CT_perfusion_in_M1_artery_occlusion.png |
+| ich-swirl-2012 | swirl sign in acute intracerebral haemorrhage | CC BY 2.0 (unverified) | https://doi.org/10.1186/1471-2377-12-109 |
+| ich-spot-sign-2016 | spot sign | CC BY 4.0 (unverified) | https://doi.org/10.1186/s13054-016-1432-0 |
+| ich-deep-locations-2016 | typical sites of hypertensive haemorrhage | CC BY 4.0 (unverified) | https://doi.org/10.1186/s13054-016-1432-0 |
+| ich-ivh-commons | intracerebral haemorrhage with intraventricular extension | Public Domain (unverified) | https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrage_(CT_scan).jpg |
+| ich-thalamic-hydro-yadav | thalamic haemorrhage with hydrocephalus | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrhage.jpg |
+| ich-cerebellar-yadav | posterior fossa haemorrhage with hydrocephalus | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Posterior_fossa_hemorrhage.jpg |
+| ich-sah-to-iph-2010 | rebleeding: subarachnoid then intraparenchymal haemorrhage | CC BY 3.0 (unverified) | https://doi.org/10.1155/2010/168408 |
+| sah-ct-mirza | subarachnoid haemorrhage | CC BY 4.0 (unverified) | https://commons.wikimedia.org/wiki/File:CT_of_subarachnoid_hemorrhage.png |
+| cxr-chf-haggstrom | congestive heart failure (cardiogenic pulmonary oedema) | CC0 (unverified) | https://commons.wikimedia.org/wiki/File:Chest_radiograph_of_a_lung_with_Kerley_B_lines.jpg |
+| cxr-hps-edema-cdc | non-cardiogenic pulmonary oedema with effusions (hantavirus) | Public Domain (unverified) | https://commons.wikimedia.org/wiki/File:6077_lores.jpg |
+| cxr-ards-2019 | acute respiratory distress syndrome | CC BY 3.0 (unverified) | https://doi.org/10.7759/cureus.3997 |
+| cxr-left-collapse-child-2013 | complete left lung collapse | CC BY 2.0 (unverified) | https://doi.org/10.1186/1471-2431-13-209 |
+| cxr-collapse-before-after-2021 | total right lung collapse, before and after bronchoscopy | CC BY 4.0 (unverified) | https://doi.org/10.1186/s12890-021-01789-9 |
+| cxr-massive-effusion-2010 | massive left pleural effusion with mediastinal shift | CC BY 2.0 (unverified) | https://doi.org/10.1186/1746-1596-5-82 |
+| aaa-us-sagittal-haggstrom | abdominal aortic aneurysm | CC0 (unverified) | https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_sagittal_plane.jpg |
+| aaa-us-axial-haggstrom | abdominal aortic aneurysm | CC0 (unverified) | https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_axial_plane.jpg |
+| aaa-us-thrombus-haggstrom | abdominal aortic aneurysm | CC0 (unverified) | https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_with_mural_thrombus.jpg |
+| lus-blines-gargani | blines | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv |
+| lus-confluent-tsung | confluent_blines | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Prospective-application-of-clinician-performed-lung-ultrasonography-during-the-2009-H1N1-influenza-2036-7902-4-16-S2.ogv |
+| lus-consolidation-tsung | consolidation | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Prospective-application-of-clinician-performed-lung-ultrasonography-during-the-2009-H1N1-influenza-2036-7902-4-16-S3.ogv |
+| lus-progression-h7n9 | progression | CC BY 4.0 (unverified) | https://commons.wikimedia.org/wiki/File:Lung-ultrasound-imaging-in-avian-influenza-A-(H7N9)-respiratory-failure-2036-7902-6-6-S1.ogv |
+| lus-hepatisation-gillman | consolidation | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv |
+| echo-vsd-color-commons | ventricular septal defect | Public Domain (unverified) | https://commons.wikimedia.org/wiki/File:Ventricular_Septal_Defect.jpg |
+| echo-asd-secundum-commons | secundum atrial septal defect | Public Domain (unverified) | https://commons.wikimedia.org/wiki/File:Echokardiogram_von_Atriumseptumdefekt_(Ostium_secundum).jpg |
 
 ## Considered and rejected
 

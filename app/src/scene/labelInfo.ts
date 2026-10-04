@@ -33,6 +33,11 @@ const G: Record<string, string> = {
   'vsd': 'Ventricular septal defect — a hole in the septum between the ventricles. Flow normally runs left to right; it reverses if right-sided pressures exceed left.',
   'asd': 'Atrial septal defect — a hole between the atria. Usually a left-to-right shunt that loads the right heart.',
   'pfo': 'Patent foramen ovale — a flap-valve between the atria left over from fetal life. It opens right-to-left when right-atrial pressure exceeds left (e.g. high PEEP, PE).',
+  'coarctation': 'Coarctation of the aorta — a narrowing at the isthmus, just beyond the left subclavian artery. Arms hypertensive, legs under-perfused; in a newborn the lower body may depend on the open duct.',
+  'rvot obstruction': 'Right-ventricular outflow obstruction — in tetralogy the infundibulum under the pulmonary valve is narrowed (and can spasm). It decides how much blood reaches the lungs.',
+  'overriding aorta': 'Overriding aorta — in tetralogy the aortic root sits over the VSD and the septal crest, so both ventricles eject into it.',
+  'thick rv wall': 'Right-ventricular hypertrophy — the RV wall thickens when it has to pump at high pressure (outflow obstruction, pulmonary hypertension, a large VSD).',
+  'rv hypertrophy': 'Right-ventricular hypertrophy — the RV wall thickens when it has to pump at high pressure (outflow obstruction, pulmonary hypertension, a large VSD).',
   'pda': 'Patent ductus arteriosus — the fetal channel between the pulmonary artery and aorta that normally closes after birth.',
   /* ── Lines module ─────────────────────────────────────────────────────────────────────────── */
   'cvc tip': 'Central line tip at the cavo-atrial junction (lower SVC). Here it reads true central venous pressure and is safe for vasopressors.',

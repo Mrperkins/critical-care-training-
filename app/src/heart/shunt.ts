@@ -12,7 +12,9 @@ import { NEO } from '../populations/neonatal';
  * The fixed point is found by damped iteration. Teaching model: shapes and directions are right; the
  * numbers are illustrative, not patient-specific.
  */
-export type LesionKind = 'none' | 'vsd' | 'asd' | 'pfo' | 'pda';
+export type LesionKind = 'none' | 'vsd' | 'asd' | 'pfo' | 'pda' | 'tof' | 'coarct';
+/** where a VSD sits in the septum (drawn in 3D; perimembranous is the commonest and the ToF type) */
+export type VsdSite = 'perimembranous' | 'muscular';
 export interface ShuntInput {
   lesion: LesionKind;
   /** defect diameter, mm */ sizeMm: number;
@@ -21,6 +23,10 @@ export interface ShuntInput {
   /** extra right-atrial pressure, mmHg (Valsalva, cough, PE) */ raLoad?: number;
   /** left-ventricular stiffness factor (1 = normal) */ lvStiff?: number;
   /** systemic flow target, L/min */ qs?: number;
+  /** VSD position (drawing only) */ vsdSite?: VsdSite;
+  /** Tetralogy: right-ventricular outflow obstruction, 0 (none) – 1 (near atresia) */ rvot?: number;
+  /** Coarctation: narrowing at the isthmus, 0 – 1 (critical) */ coarct?: number;
+  /** Coarctation: ductus arteriosus diameter, mm (0 = closed) */ ductMm?: number;
 }
 export type Direction = 'none' | 'L→R' | 'bidirectional' | 'R→L';
 export interface ShuntState {
@@ -32,17 +38,21 @@ export interface ShuntState {
   p: { ra: number; rvSys: number; rvEdp: number; paSys: number; paDia: number; paMean: number; la: number; lvSys: number; lvEdp: number; aoSys: number; aoDia: number; aoMean: number };
   sat: { ra: number; rv: number; pa: number; la: number; lv: number; ao: number; aoPost: number; sv: number };
   /** relative volume each chamber handles (1 = normal) */ load: { ra: number; rv: number; la: number; lv: number };
-  flags: { lvVolume: boolean; rvVolume: boolean; rvPressure: boolean; overcirculation: boolean; pulmHypertension: boolean; eisenmenger: boolean; cyanosis: boolean };
+  flags: { lvVolume: boolean; rvVolume: boolean; rvPressure: boolean; overcirculation: boolean; pulmHypertension: boolean; eisenmenger: boolean; cyanosis: boolean; lvPressure?: boolean; spell?: boolean; lowerHypoperfusion?: boolean };
   murmur: string;
+  /** Tetralogy: RV outflow gradient (mmHg) and peak velocity (m/s) */ rvot?: { gradient: number; velocity: number };
+  /** Coarctation: arm vs leg pressures, the isthmus gradient and lower-body flow */ coarct?: { gradient: number; armSys: number; armDia: number; legSys: number; legDia: number; lowerFlow: number; lowerFrac: number; ductFlow: number };
 }
 
-const CD: Record<LesionKind, number> = { none: 0, vsd: 0.7, pda: 0.5, asd: 0, pfo: 0 };
+const CD: Record<LesionKind, number> = { none: 0, vsd: 0.7, pda: 0.5, asd: 0, pfo: 0, tof: 0, coarct: 0 };
 const area = (mm: number) => Math.PI * (mm / 20) ** 2; // cm²
 /** orifice flow, L/min, for gradient ΔP (mmHg) present for fraction `frac` of the cycle */
 const orifice = (A: number, cd: number, dp: number, frac: number) => (dp > 0 ? A * cd * 50 * Math.sqrt(dp) * frac * 0.06 : 0);
 const clamp = (x: number, a: number, b: number) => Math.max(a, Math.min(b, x));
 
 export function solveShunt(inp: ShuntInput): ShuntState {
+  if (inp.lesion === 'tof') return solveTof(inp);
+  if (inp.lesion === 'coarct') return solveCoarct(inp);
   const Qs = inp.qs ?? 5; const A = inp.lesion === 'none' ? 0 : area(inp.sizeMm); const L = inp.lesion;
   const lvK = inp.lvStiff ?? 1; const raLoad = inp.raLoad ?? 0;
   let lr = 0, rl = 0; let out = null as unknown as ReturnType<typeof pressures>;
@@ -110,6 +120,83 @@ export function solveShunt(inp: ShuntInput): ShuntState {
     sat: s, load, flags, murmur: murmurFor(L, direction, velocity, qpqs) };
 }
 
+const NOFLAGS = { lvVolume: false, rvVolume: false, rvPressure: false, overcirculation: false, pulmHypertension: false, eisenmenger: false, cyanosis: false };
+/** systemic venous saturation from oxygen extraction at systemic flow Qs (scaled to the patient's size) */
+const venous = (ao: number, Qs: number, neo: boolean) => Math.max(0.2, ao - 0.25 * ((neo ? 0.6 : 5) / Qs));
+
+/**
+ * Tetralogy of Fallot: a large malaligned VSD lets both ventricles eject into a shared pressure chamber, so the
+ * two outlets act in parallel: Qp/Qs = SVR / (PVR + RV-outflow resistance). More obstruction, a fall in SVR
+ * (crying, fever, vasodilators) or infundibular spasm → less lung flow and more deoxygenated blood to the aorta
+ * (a "tet spell"); squatting / knee-chest or phenylephrine raise SVR and push blood back to the lungs.
+ */
+function solveTof(inp: ShuntInput): ShuntState {
+  const neo = (inp.qs ?? 5) < 2; const Qs = inp.qs ?? 5; const sev = clamp(inp.rvot ?? 0.55, 0, 1);
+  const Rrv = neo ? 20 + 260 * sev * sev : 6 + 80 * sev * sev; // Wood units on the patient's scale (fixed infundibular part + the variable narrowing)
+  const qpqs = clamp(inp.svr / (inp.pvr + Rrv + 1e-6), 0.08, 3); const Qp = Qs * qpqs;
+  const la = 3 + 4.2 * (Qp / (neo ? 0.6 : 5)) * 0.9; const lvEdp = la + 1;
+  const aoMean = 3 + Qs * inp.svr; const aoSys = aoMean * 1.28, aoDia = aoMean * 0.84;
+  const paMean = la + Qp * inp.pvr; const paSys = paMean * 1.3, paDia = paMean * 0.65;
+  const rvSys = aoSys; // unrestrictive VSD: the RV is at systemic pressure
+  const ra = 4 + 2.2 * Math.max(0, (rvSys - 30) / 60); const rvEdp = ra + 1;
+  const gradient = Math.max(0, rvSys - paSys); const velocity = Math.sqrt(gradient / 4);
+  const PV = 0.98; let ao = PV, sv = 0.7, pa = 0.7;
+  const rl = Math.max(0, Qs - Qp), lr = Math.max(0, Qp - Qs);
+  for (let it = 0; it < 40; it++) { sv = venous(ao, Qs, neo); ao = rl > 0 ? (Qp * PV + rl * sv) / Qs : PV; pa = lr > 0 ? (Qs * sv + lr * PV) / (Qs + lr) : sv; }
+  const net = lr - rl; const direction: Direction = Math.abs(net) < 0.04 * Qs ? 'bidirectional' : net < 0 ? 'R→L' : 'L→R';
+  const flags = { ...NOFLAGS, rvPressure: true, cyanosis: ao < 0.92, spell: qpqs < 0.45, overcirculation: qpqs > 1.5 };
+  const murmur = qpqs < 0.45
+    ? 'The murmur gets SOFTER or disappears: almost no blood is crossing the narrowed outflow (tet spell). Deepening cyanosis.'
+    : sev < 0.25 ? 'Harsh systolic ejection murmur at the upper left sternal border; mostly left-to-right ("pink tet"), so little cyanosis.'
+    : 'Harsh systolic ejection murmur at the upper left sternal border from the narrowed right-ventricular outflow (the VSD itself is quiet — no gradient across it); single S2.';
+  return { input: inp, qp: Qp, qs: Qs, qpqs, lr, rl, net, direction, velocity: 0.6, gradient: 0,
+    p: { ra, rvSys, rvEdp, paSys, paDia, paMean, la, lvSys: aoSys, lvEdp, aoSys, aoDia, aoMean },
+    sat: { ra: sv, rv: sv, pa, la: PV, lv: PV, ao, aoPost: ao, sv }, load: { ra: 1, rv: 1, la: Math.max(0.5, qpqs), lv: 1 }, flags, murmur,
+    rvot: { gradient, velocity } };
+}
+
+/**
+ * Coarctation: a narrowing just beyond the left subclavian artery. The heart and arms see the pressure needed
+ * to push the lower body's flow through the narrowing (upper-limb hypertension, LV pressure load); the legs get
+ * a damped, delayed pulse. In a newborn the open duct can feed the lower body from the pulmonary artery
+ * (right-to-left: the feet are bluer than the right hand) — when it closes in a critical coarctation, lower-body
+ * flow collapses (shock, acidosis, poor femoral pulses).
+ */
+function solveCoarct(inp: ShuntInput): ShuntState {
+  const neo = (inp.qs ?? 5) < 2; const Qs = inp.qs ?? 5; const sev = clamp(inp.coarct ?? 0.6, 0, 1);
+  const Ru = inp.svr / 0.35, Rl = inp.svr / 0.65; // head & arms vs trunk & legs, in parallel
+  const Rc = inp.svr * 1.1 * sev ** 3 / Math.max(0.02, 1 - sev); // isthmus resistance; rises steeply near critical
+  const Rcol = neo ? Infinity : inp.svr * (2.4 - 1.4 * sev); // older children grow collaterals around the narrowing
+  const Rpath = 1 / (1 / Rc + 1 / Rcol);
+  const pMax = neo ? 65 : 150; // the most mean pressure the LV can sustain
+  const Gd = area(inp.ductMm ?? 0) * 2; // ductal conductance, L/min per mmHg
+  const la = 3 + 4.2 * (Qs / (neo ? 0.6 : 5)); const paMean0 = la + Qs * inp.pvr;
+  // lower aorta balance for a given upper pressure: (Pu−Pl)/Rpath + Gd(PA−Pl) = (Pl−3)/Rl  → closed form
+  const lower = (Pu: number) => { const Pl = (3 / Rl + Pu / Rpath + Gd * paMean0) / (1 / Rl + 1 / Rpath + Gd); const qc = Math.max(0, (Pu - Pl) / Rpath); return { Pl, qc, qd: Gd * (paMean0 - Pl) }; };
+  const total = (Pu: number) => { const l = lower(Pu); return (Pu - 3) / Ru + l.qc + l.qd; };
+  // the LV raises upper-aortic pressure until total systemic flow reaches its target, up to its ceiling (bisection)
+  let lo = 4, hi = pMax; for (let it = 0; it < 60; it++) { const m = (lo + hi) / 2; if (total(m) < Qs) lo = m; else hi = m; }
+  const Pu = (lo + hi) / 2; const { Pl, qd } = lower(Pu); const qLow = (Pl - 3) / Rl;
+  const qc = Math.max(0, (Pu - Pl) / Rpath); const lowerFrac = qLow / (0.65 * Qs);
+  const pulseU = neo ? 1.35 : 1.45; const pulseL = 1.1 + 0.2 * (1 - sev);
+  const armSys = Pu * pulseU, armDia = Pu * 0.78, legSys = Pl * pulseL, legDia = Pl * 0.85;
+  const paMean = paMean0; const paSys = paMean * 1.55, paDia = paMean * 0.62;
+  const ra = 1 + 2.2 * (Qs / (neo ? 0.6 : 5)) + (inp.raLoad ?? 0);
+  const PV = 0.98; const sv = venous(PV, Qs, neo); const rl = Math.max(0, qd), lr = Math.max(0, -qd);
+  const post = qLow > 0 ? (qc * PV + rl * sv) / Math.max(1e-6, qc + rl) : PV;
+  const gradient = Math.max(0, armSys - legSys);
+  const direction: Direction = rl > 0.03 * Qs ? 'R→L' : lr > 0.03 * Qs ? 'L→R' : 'none';
+  const flags = { ...NOFLAGS, lvPressure: Pu > (neo ? 55 : 110), cyanosis: post < 0.92, lowerHypoperfusion: lowerFrac < 0.7, rvPressure: neo && paSys > 45 };
+  const murmur = lowerFrac < 0.7 && neo
+    ? 'Weak or absent femoral pulses, grey and mottled below the waist; murmur may be faint — the duct is closing on a critical narrowing.'
+    : rl > 0.03 * Qs ? 'Differential cyanosis: right hand pinker than the feet (the duct is feeding the lower body); femoral pulses relatively preserved while the duct stays open.'
+    : 'Systolic murmur between the shoulder blades; arm blood pressure higher than leg, radio-femoral delay; continuous murmurs over collaterals in older children.';
+  return { input: inp, qp: Qs - qd, qs: Qs, qpqs: (Qs - qd) / Qs, lr, rl, net: lr - rl, direction, velocity: Math.sqrt(gradient / 4), gradient,
+    p: { ra, rvSys: paSys, rvEdp: ra + 1, paSys, paDia, paMean, la, lvSys: armSys, lvEdp: la + 1 + (Pu > 110 ? 4 : 0), aoSys: armSys, aoDia: armDia, aoMean: Pu },
+    sat: { ra: sv, rv: sv, pa: sv, la: PV, lv: PV, ao: PV, aoPost: post, sv }, load: { ra: 1, rv: 1, la: 1, lv: 1 }, flags, murmur,
+    coarct: { gradient, armSys, armDia, legSys, legDia, lowerFlow: qLow, lowerFrac, ductFlow: qd } };
+}
+
 function murmurFor(L: LesionKind, d: Direction, v: number, qpqs: number) {
   if (L === 'none' || d === 'none') return L === 'pfo' ? 'No murmur — the flap is closed while left atrial pressure is higher.' : 'No murmur.';
   if (L === 'vsd') {
@@ -133,6 +220,12 @@ export const HEART_PRESETS = {
   pfo: { lesion: 'pfo', sizeMm: 6, pvr: 1.5, svr: 18 },
   pfoValsalva: { lesion: 'pfo', sizeMm: 6, pvr: 1.5, svr: 18, raLoad: 12 },
   pda: { lesion: 'pda', sizeMm: 5, pvr: 1.5, svr: 18 },
+  tof: { lesion: 'tof', sizeMm: 14, pvr: 1.5, svr: 18, rvot: 0.5, vsdSite: 'perimembranous' },
+  pinkTet: { lesion: 'tof', sizeMm: 14, pvr: 1.5, svr: 18, rvot: 0.25, vsdSite: 'perimembranous' },
+  tetSpell: { lesion: 'tof', sizeMm: 14, pvr: 1.5, svr: 13, rvot: 0.68, vsdSite: 'perimembranous' },
+  coarct: { lesion: 'coarct', sizeMm: 0, pvr: 1.5, svr: 18, coarct: 0.55 },
+  coarctNeoDuct: { lesion: 'coarct', sizeMm: 0, pvr: 50, svr: 60, qs: 0.6, coarct: 0.88, ductMm: 4 },
+  coarctNeoClosed: { lesion: 'coarct', sizeMm: 0, pvr: 12, svr: 60, qs: 0.6, coarct: 0.88, ductMm: 0 },
   newborn: { ...NEO.closingDuct },
   pphn: { ...NEO.pphn },
 } satisfies Record<string, ShuntInput>;

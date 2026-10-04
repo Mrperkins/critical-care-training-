@@ -5217,6 +5217,13 @@
  },
  {
   "section": "5 Label descriptions",
+  "id": "label:Thick RV wall",
+  "where": "3D labels › heart",
+  "item": "Thick RV wall",
+  "content": "Right-ventricular hypertrophy — the RV wall thickens when it has to pump at high pressure (outflow obstruction, pulmonary hypertension, a large VSD)."
+ },
+ {
+  "section": "5 Label descriptions",
   "id": "label:Tibial veins",
   "where": "3D labels › lines",
   "item": "Tibial veins",
@@ -5291,13 +5298,6 @@
   "where": "3D labels › abg",
   "item": "Ventilation: fresh gas in, CO₂ out",
   "content": "Breathing replaces alveolar gas: it brings oxygen in and washes carbon dioxide out. CO₂ removal depends on minute ventilation."
- },
- {
-  "section": "5 Label descriptions",
-  "id": "label:Ventricular septum",
-  "where": "3D labels › heart",
-  "item": "Ventricular septum",
-  "content": "The muscular wall between the ventricles. It bows toward the left when the right ventricle is pressure- or volume-overloaded."
  },
  {
   "section": "5 Label descriptions",

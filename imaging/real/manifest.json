@@ -5,6 +5,7 @@
   "Public Domain",
   "CC BY 2.0",
   "CC BY 3.0",
+  "CC BY 2.5",
   "CC BY 4.0",
   "MIT",
   "Apache-2.0"
@@ -1429,6 +1430,1579 @@
   {
    "source": "CC BY-SA alternative IVC clip offered in the asset bundle",
    "reason": "Share-alike is not on this project’s accepted list — kept out, as the bundle recommends."
+  }
+ ],
+ "pending": [
+  {
+   "id": "stroke-hmcas-2025",
+   "kind": "ct-ischemic",
+   "type": "ct",
+   "modality": "Non-contrast head CT",
+   "finding": "hyperdense middle cerebral artery sign",
+   "findings": [
+    "hyperdense_mca",
+    "lvo"
+   ],
+   "stage": {
+    "course": "ischemic",
+    "fromMin": 0,
+    "toMin": 360,
+    "label": "First hours"
+   },
+   "title": "Hyperdense right MCA",
+   "caption": "Admission non-contrast CT: the right middle cerebral artery is brighter than the left — fresh clot seen directly in the vessel.",
+   "look": [
+    "A short bright tubular segment in the Sylvian region",
+    "Compare with the same artery on the other side",
+    "Brain tissue can still look normal at this point"
+   ],
+   "teach": [
+    "Clot is denser than flowing blood, so a freshly blocked M1 can show up before the brain changes.",
+    "The sign is specific for large-vessel occlusion but not sensitive — CTA is what proves or excludes it.",
+    "Calcified or high-haematocrit vessels can mimic it: look for asymmetry."
+   ],
+   "quiz": {
+    "q": "What does the bright segment represent?",
+    "options": [
+     "Haemorrhage in the brain",
+     "Thrombus inside the artery",
+     "Calcified plaque only",
+     "Contrast in the vessel"
+    ],
+    "answer": 1,
+    "explain": "On a non-contrast scan a single bright arterial segment, brighter than its partner, is clot — the hyperdense vessel sign of large-vessel occlusion."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC12295507",
+    "fig": "FIG1"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.7759/cureus.86726",
+   "crop": [
+    0,
+    0,
+    0.5,
+    1
+   ],
+   "cropNote": "panel (a), the hyperdense artery",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "stroke-early-change-2025",
+   "kind": "ct-ischemic",
+   "type": "ct",
+   "modality": "Non-contrast head CT",
+   "finding": "early ischaemic change (loss of grey–white differentiation)",
+   "findings": [
+    "early_ischemic_change",
+    "lvo"
+   ],
+   "stage": {
+    "course": "ischemic",
+    "fromMin": 60,
+    "toMin": 360,
+    "label": "1–6 h"
+   },
+   "title": "Early ischaemic change",
+   "caption": "Same admission CT, higher slice: the right basal ganglia and insular cortex have lost their normal grey–white contrast (ASPECTS 4).",
+   "look": [
+    "Lentiform nucleus blends into the internal capsule",
+    "Insular ribbon fades on the affected side",
+    "Subtle — window narrowly and compare sides"
+   ],
+   "teach": [
+    "Cytotoxic oedema raises tissue water a little: grey matter loses its slight brightness first.",
+    "The deep grey nuclei and insula show it earliest because they have the poorest collaterals.",
+    "Extensive early change (low ASPECTS) means a big core already — it changes the balance of risk for reperfusion."
+   ],
+   "quiz": {
+    "q": "Which structures usually show early ischaemic change first in an M1 occlusion?",
+    "options": [
+     "Occipital cortex",
+     "Lentiform nucleus and insular ribbon",
+     "Cerebellum",
+     "Corpus callosum"
+    ],
+    "answer": 1,
+    "explain": "The lenticulostriate territory (basal ganglia) and the insula have the poorest collateral supply, so they lose grey–white differentiation first."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC12295507",
+    "fig": "FIG1"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.7759/cureus.86726",
+   "crop": [
+    0.5,
+    0,
+    0.5,
+    1
+   ],
+   "cropNote": "panel (b), early ischaemic change",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "stroke-cta-m1-2025",
+   "kind": "ct-ischemic",
+   "type": "ct",
+   "modality": "CT angiography",
+   "finding": "right M1 occlusion on CTA",
+   "findings": [
+    "lvo",
+    "m1_occlusion"
+   ],
+   "stage": {
+    "course": "ischemic",
+    "fromMin": 0,
+    "toMin": 1440,
+    "label": "Until reopened"
+   },
+   "title": "CTA: right M1 cut-off",
+   "caption": "CT angiogram: contrast fills the left middle cerebral artery but stops abruptly in the proximal right M1 (arrow).",
+   "look": [
+    "Abrupt end of the contrast column",
+    "Compare the two Sylvian branches",
+    "How far back do the collaterals fill?"
+   ],
+   "teach": [
+    "CTA locates the clot — the target for thrombectomy.",
+    "Collateral filling beyond the block predicts how slowly the core will grow.",
+    "Repeat imaging is needed if symptoms change: clots move, fragment or reopen."
+   ],
+   "quiz": {
+    "q": "What decides whether this patient goes for thrombectomy?",
+    "options": [
+     "Only the time since onset",
+     "A proximal occlusion plus salvageable tissue on imaging",
+     "The blood pressure",
+     "Whether the hyperdense sign is present"
+    ],
+    "answer": 1,
+    "explain": "Thrombectomy needs a reachable large-vessel occlusion and evidence that tissue is still salvageable (small core / mismatch), within the evidence-based time windows."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC12778373",
+    "fig": "FIG2"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.7759/cureus.98724",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "stroke-ctp-mismatch-2025",
+   "kind": "ct-ischemic",
+   "type": "ct",
+   "modality": "CT perfusion",
+   "finding": "core–penumbra mismatch",
+   "findings": [
+    "lvo",
+    "ctp_mismatch"
+   ],
+   "stage": {
+    "course": "ischemic",
+    "fromMin": 0,
+    "toMin": 1440,
+    "label": "Until reopened"
+   },
+   "title": "CT perfusion: core and penumbra",
+   "caption": "Automated perfusion maps 28 hours after onset: a small core (pink, very low flow) inside a much larger region of delayed perfusion (green) — a large mismatch.",
+   "look": [
+    "Pink = core (rCBF < 30 %)",
+    "Green = Tmax > 6 s, tissue at risk",
+    "The mismatch volume is the tissue thrombectomy can save"
+   ],
+   "teach": [
+    "Core grows into penumbra at a rate set by the collaterals — slow progressors still have tissue to save at 24 h.",
+    "Perfusion maps estimate; they are not histology. Treat the patient, not the colours alone.",
+    "Reopening the artery stops the growth of the core."
+   ],
+   "quiz": {
+    "q": "Why was thrombectomy still offered 28 h after onset?",
+    "options": [
+     "Because the core was large",
+     "Because a large penumbra remained around a small core",
+     "Because the CT was normal",
+     "Because the patient was young"
+    ],
+    "answer": 1,
+    "explain": "Late-window selection rests on mismatch: a small core with a large area of delayed perfusion means tissue is still salvageable."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC12778373",
+    "fig": "FIG3"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.7759/cureus.98724",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "stroke-infarct-24h-2025",
+   "kind": "ct-ischemic",
+   "type": "ct",
+   "modality": "Non-contrast head CT",
+   "finding": "established infarct at 24 h",
+   "findings": [
+    "established_infarct"
+   ],
+   "stage": {
+    "course": "ischemic",
+    "fromMin": 720,
+    "toMin": 4320,
+    "label": "12 h – 3 days"
+   },
+   "title": "Established infarct",
+   "caption": "Non-contrast CT 24 hours after thrombectomy: a clearly hypodense, sharply marginated infarct in the right basal ganglia and operculum — the final core. No haemorrhage.",
+   "look": [
+    "Dark (hypodense) wedge with sharp borders",
+    "Mild local mass effect on the frontal horn",
+    "Check for new brightness (haemorrhagic transformation)"
+   ],
+   "teach": [
+    "By 12–24 h dead tissue is clearly hypodense: CT shows what was lost.",
+    "The final infarct maps onto the perfusion core at the time the artery reopened.",
+    "Swelling peaks over the next 2–5 days."
+   ],
+   "quiz": {
+    "q": "What does the dark region now represent?",
+    "options": [
+     "Penumbra that can still recover",
+     "Infarcted (dead) tissue",
+     "Fresh haemorrhage",
+     "Normal CSF"
+    ],
+    "answer": 1,
+    "explain": "Clear hypodensity with sharp margins a day after onset is completed infarction — the core at the moment of reperfusion."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC12778373",
+    "fig": "FIG6"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.7759/cureus.98724",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "stroke-malignant-edema-2023",
+   "kind": "ct-ischemic",
+   "type": "ct",
+   "modality": "Non-contrast head CT",
+   "finding": "malignant brain oedema after MCA infarction",
+   "findings": [
+    "malignant_edema",
+    "midline_shift"
+   ],
+   "stage": {
+    "course": "ischemic",
+    "fromMin": 1440,
+    "toMin": 7200,
+    "label": "Days 1–5"
+   },
+   "title": "Malignant oedema",
+   "caption": "After thrombectomy (mTICI 2b), a large left MCA infarct has swollen: sulci effaced, the lateral ventricle compressed and the midline pushed across.",
+   "look": [
+    "Whole-territory hypodensity",
+    "Effaced sulci and compressed ventricle",
+    "Midline shift — measure at the septum pellucidum"
+   ],
+   "teach": [
+    "Swelling peaks around days 2–5; younger brains have less room and herniate sooner.",
+    "Watch for falling consciousness, new pupil asymmetry or a rising shift.",
+    "Decompressive hemicraniectomy, offered early in selected patients, reduces death from malignant MCA infarction."
+   ],
+   "quiz": {
+    "q": "When does post-infarct swelling usually peak?",
+    "options": [
+     "In the first hour",
+     "Days 2–5",
+     "At 3 weeks",
+     "Never — infarcts shrink immediately"
+    ],
+    "answer": 1,
+    "explain": "Cytotoxic then vasogenic oedema builds over the first days and peaks around days 2–5."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC10571427",
+    "fig": "Fig2"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.1186/s40001-023-01414-x",
+   "crop": [
+    0,
+    0,
+    1,
+    0.5
+   ],
+   "cropNote": "top row (A–C), the patient with malignant oedema",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "stroke-mass-effect-2021",
+   "kind": "ct-ischemic",
+   "type": "ct",
+   "modality": "Non-contrast head CT",
+   "finding": "large MCA infarct with mass effect",
+   "findings": [
+    "established_infarct",
+    "midline_shift"
+   ],
+   "stage": {
+    "course": "ischemic",
+    "fromMin": 1440,
+    "toMin": 7200,
+    "label": "Days 1–5"
+   },
+   "title": "Large infarct with mass effect",
+   "caption": "A large right fronto-parieto-temporal infarct compresses the right lateral ventricle (case 4 of a cardio-cerebral infarction series).",
+   "look": [
+    "Territory-shaped hypodensity",
+    "Compressed ipsilateral ventricle",
+    "Loss of sulci over the hemisphere"
+   ],
+   "teach": [
+    "The size of the final infarct predicts how much it will swell.",
+    "Mass effect, not the original clot, is what threatens life in the first week."
+   ],
+   "quiz": {
+    "q": "Which sign on this scan most directly signals mass effect?",
+    "options": [
+     "Bright artery",
+     "Compressed lateral ventricle",
+     "Calcified pineal gland",
+     "Normal sulci"
+    ],
+    "answer": 1,
+    "explain": "Compression of the ventricle (and sulcal effacement) shows the swelling is displacing brain."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC7850703",
+    "fig": "F11"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.1097/md.0000000000024496",
+   "crop": [
+    0.49,
+    0,
+    0.51,
+    1
+   ],
+   "cropNote": "the CT panel",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "stroke-hemorrhagic-transformation-2026",
+   "kind": "ct-ischemic",
+   "type": "ct",
+   "modality": "Non-contrast head CT (serial)",
+   "finding": "haemorrhagic transformation of an infarct",
+   "findings": [
+    "hemorrhagic_transformation"
+   ],
+   "stage": {
+    "course": "ischemic",
+    "fromMin": 4320,
+    "toMin": 20160,
+    "label": "Days 3–14"
+   },
+   "title": "Haemorrhagic transformation",
+   "caption": "Serial CT after thrombectomy: patchy bleeding appears within the infarct on day 4 (A), expands and coalesces by day 6 (B), then gradually fades (C–E).",
+   "look": [
+    "New bright patches inside a dark infarct",
+    "Petechial first, then confluent",
+    "Bright blood fades to grey over 1–2 weeks"
+   ],
+   "teach": [
+    "Reperfused dead tissue has leaky vessels — bleeding into the infarct is common after large strokes and reperfusion.",
+    "Most is petechial and harmless; a confluent haematoma with mass effect is symptomatic and changes management (antithrombotics, BP).",
+    "Acute blood is bright on CT and becomes iso- then hypodense as it breaks down."
+   ],
+   "quiz": {
+    "q": "Why does blood fade on serial CT?",
+    "options": [
+     "It moves into the ventricles",
+     "Haemoglobin breaks down and the clot is resorbed",
+     "The CT settings change",
+     "It turns into calcium"
+    ],
+    "answer": 1,
+    "explain": "Clot density falls as haemoglobin breaks down — acute blood is bright, then iso-, then hypodense over 1–3 weeks."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC12907301",
+    "fig": "F1"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.3389/fcvm.2026.1747104",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "stroke-hmcas-vs-cta-2022",
+   "kind": "ct-ischemic",
+   "type": "ct",
+   "modality": "Non-contrast CT with CTA MIP",
+   "finding": "hyperdense MCA sign compared with CTA",
+   "findings": [
+    "hyperdense_mca",
+    "lvo",
+    "m1_occlusion"
+   ],
+   "stage": {
+    "course": "ischemic",
+    "fromMin": 0,
+    "toMin": 360,
+    "label": "First hours"
+   },
+   "title": "Hyperdense sign vs CTA",
+   "caption": "Pairs of non-contrast CT (top) and CTA maximum-intensity projections (bottom) from three patients with M1 occlusion: the hyperdense sign can be absent (A/B), distal (C/D) or proximal (E/F).",
+   "look": [
+    "Top: does the artery look bright?",
+    "Bottom: where does contrast stop?",
+    "A patient can have an occlusion with no hyperdense sign"
+   ],
+   "teach": [
+    "A normal-looking artery on plain CT does not exclude a clot.",
+    "A longer, more proximal hyperdense segment usually means a bigger clot that is harder to dissolve with lytics alone."
+   ],
+   "quiz": {
+    "q": "Patient A has no hyperdense sign. What does CTA show?",
+    "options": [
+     "A normal MCA",
+     "An M1 occlusion anyway",
+     "A haemorrhage",
+     "An aneurysm"
+    ],
+    "answer": 1,
+    "explain": "The sign is insensitive: panel B shows an M1 occlusion despite a normal-looking artery on plain CT."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC9971136",
+    "fig": "Fig1"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.1007/s00415-022-11500-5",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "stroke-ctp-m1-mirza",
+   "kind": "ct-ischemic",
+   "type": "ct",
+   "modality": "CT perfusion",
+   "finding": "perfusion deficit in M1 occlusion",
+   "findings": [
+    "lvo",
+    "ctp_mismatch"
+   ],
+   "stage": {
+    "course": "ischemic",
+    "fromMin": 0,
+    "toMin": 1440,
+    "label": "Until reopened"
+   },
+   "title": "Perfusion: delayed but preserved volume",
+   "caption": "CT perfusion in an M1 occlusion: time-to-peak is delayed over the MCA territory (TTP, left) while blood volume is largely preserved (CBV, right) — tissue at risk rather than dead.",
+   "look": [
+    "TTP: hot colours = late arrival",
+    "CBV: preserved = collaterals still holding",
+    "Mismatch between the two = penumbra"
+   ],
+   "teach": [
+    "Delayed arrival with preserved blood volume means autoregulation is still compensating.",
+    "Where CBV falls too, the tissue has failed — that is core."
+   ],
+   "quiz": {
+    "q": "Delayed TTP with preserved CBV suggests…",
+    "options": [
+     "Established infarct",
+     "Salvageable penumbra",
+     "Haemorrhage",
+     "Normal brain"
+    ],
+    "answer": 1,
+    "explain": "Preserved blood volume despite slow arrival means collaterals are keeping the tissue alive for now — penumbra."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:CT perfusion in M1 artery occlusion.png"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:CT_perfusion_in_M1_artery_occlusion.png",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "ich-swirl-2012",
+   "kind": "ct-ich",
+   "type": "ct",
+   "modality": "Non-contrast head CT",
+   "finding": "swirl sign in acute intracerebral haemorrhage",
+   "findings": [
+    "ich",
+    "active_bleeding"
+   ],
+   "stage": {
+    "course": "ich",
+    "fromMin": 0,
+    "toMin": 180,
+    "label": "First hours"
+   },
+   "title": "Swirl sign",
+   "caption": "Six acute haemorrhages: darker swirls inside a bright haematoma (a–c) mark blood that has not yet clotted; d is a uniform haematoma without a swirl; e–f are mimics.",
+   "look": [
+    "Low-density swirls within the bright clot",
+    "Irregular, heterogeneous margins",
+    "Size now vs the next scan"
+   ],
+   "teach": [
+    "Unclotted, actively entering blood is less dense than retracted clot.",
+    "A swirl predicts haematoma growth and worse outcome — these patients bleed in the first hours.",
+    "That window is when blood-pressure lowering and reversal of anticoagulation matter most."
+   ],
+   "quiz": {
+    "q": "What do the darker swirls inside the haematoma suggest?",
+    "options": [
+     "Old blood",
+     "Ongoing bleeding (unclotted blood)",
+     "Air",
+     "Calcification"
+    ],
+    "answer": 1,
+    "explain": "Hypodense regions inside an acute haematoma represent liquid, unclotted blood — a marker of active bleeding and later expansion."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC3517489",
+    "fig": "F1"
+   },
+   "licenseClaimed": "CC BY 2.0",
+   "pageUrl": "https://doi.org/10.1186/1471-2377-12-109",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "ich-spot-sign-2016",
+   "kind": "ct-ich",
+   "type": "ct",
+   "modality": "CT angiography",
+   "finding": "spot sign",
+   "findings": [
+    "ich",
+    "active_bleeding"
+   ],
+   "stage": {
+    "course": "ich",
+    "fromMin": 0,
+    "toMin": 360,
+    "label": "First hours"
+   },
+   "title": "Spot sign",
+   "caption": "CTA of a lobar haematoma: a focus of contrast within the clot (arrow) — contrast leaking from the bleeding vessel.",
+   "look": [
+    "Bright dot inside the haematoma, not touching a normal vessel",
+    "Present on CTA, absent on plain CT",
+    "More than one spot = higher risk"
+   ],
+   "teach": [
+    "The spot is extravasation in progress; it predicts expansion.",
+    "Expansion happens mostly in the first 3–6 hours and is one of the few modifiable drivers of outcome."
+   ],
+   "quiz": {
+    "q": "The spot sign mainly predicts…",
+    "options": [
+     "Hydrocephalus",
+     "Haematoma expansion",
+     "Vasospasm",
+     "Seizures"
+    ],
+    "answer": 1,
+    "explain": "Contrast leaking into the clot on CTA identifies patients whose haematoma is likely to grow."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC5027096",
+    "fig": "Fig3"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.1186/s13054-016-1432-0",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "ich-deep-locations-2016",
+   "kind": "ct-ich",
+   "type": "ct",
+   "modality": "Non-contrast head CT",
+   "finding": "typical sites of hypertensive haemorrhage",
+   "findings": [
+    "ich"
+   ],
+   "stage": {
+    "course": "ich",
+    "fromMin": 0,
+    "toMin": 1440,
+    "label": "First day"
+   },
+   "title": "Hypertensive haemorrhage sites",
+   "caption": "Deep haemorrhages, clockwise from top left: putamen, thalamus, cerebellum and pons.",
+   "look": [
+    "Bright, rounded clot in deep grey matter or brainstem",
+    "Relationship to the ventricles",
+    "Posterior fossa clots threaten the fourth ventricle"
+   ],
+   "teach": [
+    "Chronic hypertension damages small penetrating arteries — hence the deep locations.",
+    "Cerebellar haematomas can block CSF flow and compress the brainstem: they are surgical."
+   ],
+   "quiz": {
+    "q": "Which haemorrhage site is most likely to need urgent neurosurgery?",
+    "options": [
+     "Putamen, small",
+     "Cerebellum with brainstem compression",
+     "Thalamus without hydrocephalus",
+     "Pons"
+    ],
+    "answer": 1,
+    "explain": "A cerebellar haematoma that compresses the brainstem or obstructs the fourth ventricle is the classic indication for evacuation."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC5027096",
+    "fig": "Fig2"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.1186/s13054-016-1432-0",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "ich-ivh-commons",
+   "kind": "ct-ich",
+   "type": "ct",
+   "modality": "Non-contrast head CT",
+   "finding": "intracerebral haemorrhage with intraventricular extension",
+   "findings": [
+    "ich",
+    "ivh"
+   ],
+   "stage": {
+    "course": "ich",
+    "fromMin": 60,
+    "toMin": 2880,
+    "label": "Hours – 2 days"
+   },
+   "title": "Ventricular extension",
+   "caption": "A large haemorrhage has ruptured into the lateral ventricles, casting them with blood (a young woman one week post partum).",
+   "look": [
+    "Blood filling the ventricles (bright cast)",
+    "Blood layering in the occipital horns",
+    "Are the temporal horns enlarging?"
+   ],
+   "teach": [
+    "Intraventricular blood is an independent marker of poor outcome.",
+    "Clot in the ventricles can block CSF outflow — watch for hydrocephalus (EVD may be needed)."
+   ],
+   "quiz": {
+    "q": "What complication does intraventricular blood most directly risk?",
+    "options": [
+     "Hyponatraemia",
+     "Obstructive hydrocephalus",
+     "Vasospasm",
+     "Ischaemic stroke"
+    ],
+    "answer": 1,
+    "explain": "Clot in the ventricular system obstructs CSF flow — acute hydrocephalus, treated with an external ventricular drain."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:Intracerebral hemorrage (CT scan).jpg"
+   },
+   "licenseClaimed": "Public Domain",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrage_(CT_scan).jpg",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "ich-thalamic-hydro-yadav",
+   "kind": "ct-ich",
+   "type": "ct",
+   "modality": "Non-contrast head CT",
+   "finding": "thalamic haemorrhage with hydrocephalus",
+   "findings": [
+    "ich",
+    "ivh",
+    "hydrocephalus"
+   ],
+   "stage": {
+    "course": "ich",
+    "fromMin": 60,
+    "toMin": 2880,
+    "label": "Hours – 2 days"
+   },
+   "title": "Thalamic bleed, hydrocephalus",
+   "caption": "Pre-operative CT: a thalamic haemorrhage with blood in the third and both lateral ventricles and dilated ventricles (hydrocephalus).",
+   "look": [
+    "Bright clot beside the third ventricle",
+    "Blood in the third and lateral ventricles",
+    "Rounded, dilated temporal and frontal horns"
+   ],
+   "teach": [
+    "Thalamic bleeds sit next to the third ventricle and rupture into it easily.",
+    "Enlarging ventricles with a falling GCS = hydrocephalus until proven otherwise."
+   ],
+   "quiz": {
+    "q": "Which finding signals hydrocephalus here?",
+    "options": [
+     "Bright thalamus",
+     "Dilated, rounded ventricular horns",
+     "Midline shift",
+     "Bone window"
+    ],
+    "answer": 1,
+    "explain": "Ventricular dilatation (rounded temporal and frontal horns) with intraventricular clot means CSF outflow is obstructed."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:Intracerebral hemorrhage.jpg"
+   },
+   "licenseClaimed": "CC BY 2.0",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Intracerebral_hemorrhage.jpg",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "ich-cerebellar-yadav",
+   "kind": "ct-ich",
+   "type": "ct",
+   "modality": "Non-contrast head CT",
+   "finding": "posterior fossa haemorrhage with hydrocephalus",
+   "findings": [
+    "ich",
+    "posterior_fossa",
+    "hydrocephalus"
+   ],
+   "stage": {
+    "course": "ich",
+    "fromMin": 60,
+    "toMin": 2880,
+    "label": "Hours – 2 days"
+   },
+   "title": "Cerebellar bleed",
+   "caption": "Pre-operative CT: a posterior fossa haemorrhage with blood in the ventricles and hydrocephalus.",
+   "look": [
+    "Bright clot in the cerebellum",
+    "Fourth ventricle effaced",
+    "Dilated lateral ventricles above"
+   ],
+   "teach": [
+    "There is little room in the posterior fossa: a modest clot can compress the brainstem and block the fourth ventricle.",
+    "Deterioration can be sudden — these patients need neurosurgical review early."
+   ],
+   "quiz": {
+    "q": "Why are posterior fossa haematomas dangerous out of proportion to size?",
+    "options": [
+     "They are always arterial",
+     "Tight compartment: brainstem compression and fourth-ventricle obstruction",
+     "They cause seizures",
+     "They cannot be seen on CT"
+    ],
+    "answer": 1,
+    "explain": "The posterior fossa is small and rigid; swelling there compresses the brainstem and obstructs CSF outflow."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:Posterior fossa hemorrhage.jpg"
+   },
+   "licenseClaimed": "CC BY 2.0",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Posterior_fossa_hemorrhage.jpg",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "ich-sah-to-iph-2010",
+   "kind": "ct-ich",
+   "type": "ct",
+   "modality": "Non-contrast head CT (serial)",
+   "finding": "rebleeding: subarachnoid then intraparenchymal haemorrhage",
+   "findings": [
+    "sah",
+    "ich",
+    "rebleed"
+   ],
+   "stage": {
+    "course": "ich",
+    "fromMin": 0,
+    "toMin": 1440,
+    "label": "First day"
+   },
+   "title": "Rebleed in 12 hours",
+   "caption": "Ruptured mycotic aneurysm: (a) interhemispheric subarachnoid blood; (b) repeat CT 12 hours later shows a new frontal intraparenchymal haemorrhage.",
+   "look": [
+    "First scan: blood along the falx",
+    "Second scan: new bright parenchymal clot",
+    "Same patient, half a day apart"
+   ],
+   "teach": [
+    "An unsecured ruptured aneurysm can rebleed, often within the first day — each rebleed carries high mortality.",
+    "Securing the aneurysm early and controlling BP reduce the risk."
+   ],
+   "quiz": {
+    "q": "What explains the new clot on the second scan?",
+    "options": [
+     "Contrast",
+     "Rebleeding from the unsecured aneurysm",
+     "Infarction",
+     "Artefact"
+    ],
+    "answer": 1,
+    "explain": "New hyperdense blood 12 hours later means the aneurysm bled again."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC2946581",
+    "fig": "fig3"
+   },
+   "licenseClaimed": "CC BY 3.0",
+   "pageUrl": "https://doi.org/10.1155/2010/168408",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "sah-ct-mirza",
+   "kind": "ct-ich",
+   "type": "ct",
+   "modality": "Non-contrast head CT",
+   "finding": "subarachnoid haemorrhage",
+   "findings": [
+    "sah"
+   ],
+   "stage": {
+    "course": "ich",
+    "fromMin": 0,
+    "toMin": 1440,
+    "label": "First day"
+   },
+   "title": "Subarachnoid blood",
+   "caption": "Non-contrast CT: blood fills the basal cisterns and Sylvian fissures (arrows) with early ventricular dilatation.",
+   "look": [
+    "Bright blood where CSF should be dark: cisterns, fissures",
+    "Star-shaped basal cisterns",
+    "Temporal horns — hydrocephalus?"
+   ],
+   "teach": [
+    "CT is most sensitive in the first 6 hours; sensitivity falls as blood is cleared.",
+    "Hydrocephalus can appear within hours; vasospasm and delayed ischaemia follow from day 3–14."
+   ],
+   "quiz": {
+    "q": "Where does subarachnoid blood collect on CT?",
+    "options": [
+     "Inside the ventricles only",
+     "Cisterns, fissures and sulci",
+     "White matter",
+     "Under the skull bone"
+    ],
+    "answer": 1,
+    "explain": "Subarachnoid blood replaces the normally dark CSF in the cisterns, fissures and sulci."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:CT of subarachnoid hemorrhage.png"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:CT_of_subarachnoid_hemorrhage.png",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "cxr-chf-haggstrom",
+   "kind": "cxr",
+   "type": "xray",
+   "modality": "Chest X-ray (PA)",
+   "finding": "congestive heart failure (cardiogenic pulmonary oedema)",
+   "findings": [
+    "pulmonary_edema",
+    "cardiomegaly",
+    "effusion"
+   ],
+   "title": "Cardiogenic pulmonary oedema",
+   "caption": "PA film: enlarged heart, upper-lobe vessels prominent, fine horizontal Kerley B lines at the lateral bases and a small right effusion.",
+   "look": [
+    "Cardiothoracic ratio > 0.5 on a PA film",
+    "Upper-lobe diversion of vessels",
+    "Kerley B lines at the lung edge",
+    "Blunted costophrenic angle"
+   ],
+   "teach": [
+    "Rising left atrial pressure first redistributes flow to the upper lobes, then fills the interstitium (Kerley lines), then the alveoli.",
+    "Big heart + effusions + interstitial lines favour cardiogenic over permeability oedema."
+   ],
+   "quiz": {
+    "q": "Kerley B lines are…",
+    "options": [
+     "Calcified pleura",
+     "Fluid-thickened interlobular septa",
+     "Collapsed alveoli",
+     "Rib fractures"
+    ],
+    "answer": 1,
+    "explain": "Short horizontal lines at the periphery of the bases are interlobular septa thickened by interstitial fluid."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:Chest radiograph of a lung with Kerley B lines.jpg"
+   },
+   "licenseClaimed": "CC0",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Chest_radiograph_of_a_lung_with_Kerley_B_lines.jpg",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "cxr-hps-edema-cdc",
+   "kind": "cxr",
+   "type": "xray",
+   "modality": "Chest X-ray (AP)",
+   "finding": "non-cardiogenic pulmonary oedema with effusions (hantavirus)",
+   "findings": [
+    "ards",
+    "pulmonary_edema",
+    "effusion"
+   ],
+   "title": "Permeability oedema",
+   "caption": "AP film in hantavirus pulmonary syndrome, mid stage: bilateral interstitial and early alveolar oedema with effusions; heart size normal.",
+   "look": [
+    "Bilateral, fairly symmetric haziness",
+    "Normal heart size",
+    "Effusions at the bases"
+   ],
+   "teach": [
+    "Capillary leak floods the lungs at normal filling pressures — the ARDS picture.",
+    "A normal heart size with bilateral oedema points away from a cardiac cause."
+   ],
+   "quiz": {
+    "q": "Which feature here argues against cardiogenic oedema?",
+    "options": [
+     "Bilateral opacities",
+     "Normal heart size",
+     "Effusions",
+     "AP projection"
+    ],
+    "answer": 1,
+    "explain": "Bilateral oedema with a normal-sized heart suggests increased permeability rather than raised left-sided pressure."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:6077 lores.jpg"
+   },
+   "licenseClaimed": "Public Domain",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:6077_lores.jpg",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "cxr-ards-2019",
+   "kind": "cxr",
+   "type": "xray",
+   "modality": "Chest X-ray (portable AP)",
+   "finding": "acute respiratory distress syndrome",
+   "findings": [
+    "ards"
+   ],
+   "title": "ARDS",
+   "caption": "Portable film in rhinovirus ARDS: diffuse bilateral airspace opacities throughout both lungs.",
+   "look": [
+    "Bilateral, patchy-to-confluent airspace shadowing",
+    "Air bronchograms",
+    "Not explained by effusion, collapse or nodules"
+   ],
+   "teach": [
+    "Berlin definition: bilateral opacities within a week of an insult, not fully explained by cardiac failure, with hypoxaemia graded by PaO₂/FiO₂ on PEEP.",
+    "Ventilate with low tidal volumes (6 mL/kg predicted body weight) and limit plateau pressure."
+   ],
+   "quiz": {
+    "q": "Which ventilator strategy is standard for this film?",
+    "options": [
+     "High tidal volume",
+     "Low tidal volume with adequate PEEP",
+     "No PEEP",
+     "Permissive hyperoxia"
+    ],
+    "answer": 1,
+    "explain": "Lung-protective ventilation — about 6 mL/kg predicted body weight, plateau ≤ 30 cmH₂O, PEEP titrated to oxygenation."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC6443533",
+    "fig": "FIG2"
+   },
+   "licenseClaimed": "CC BY 3.0",
+   "pageUrl": "https://doi.org/10.7759/cureus.3997",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "cxr-left-collapse-child-2013",
+   "kind": "cxr",
+   "type": "xray",
+   "modality": "Chest X-ray (supine AP, child)",
+   "finding": "complete left lung collapse",
+   "findings": [
+    "collapse",
+    "collapse_left"
+   ],
+   "title": "Whole-lung collapse (child)",
+   "caption": "Supine film of a child: the left bronchus ends abruptly and the left hemithorax is opaque, with the heart and mediastinum pulled to the left — a bronchial cast was later removed.",
+   "look": [
+    "Opaque hemithorax with volume loss",
+    "Mediastinum shifted TOWARD the white side",
+    "Abrupt cut-off of the left main bronchus"
+   ],
+   "teach": [
+    "Collapse pulls structures toward it; a large effusion pushes them away — the key to telling them apart.",
+    "In a ventilated adult the same picture on the left after intubation suggests a right mainstem tube."
+   ],
+   "quiz": {
+    "q": "Which way does the mediastinum move in lung collapse?",
+    "options": [
+     "Away from the opaque side",
+     "Toward the opaque side",
+     "It never moves",
+     "Upward"
+    ],
+    "answer": 1,
+    "explain": "Loss of volume draws the trachea, heart and diaphragm toward the collapsed side."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC3878367",
+    "fig": "F1"
+   },
+   "licenseClaimed": "CC BY 2.0",
+   "pageUrl": "https://doi.org/10.1186/1471-2431-13-209",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "cxr-collapse-before-after-2021",
+   "kind": "cxr",
+   "type": "xray",
+   "modality": "Chest X-ray (AP)",
+   "finding": "total right lung collapse, before and after bronchoscopy",
+   "findings": [
+    "collapse",
+    "collapse_right"
+   ],
+   "title": "Collapse, then re-expansion",
+   "caption": "Left: total right lung atelectasis from a mucus cast (allergic bronchopulmonary aspergillosis). Right: re-expanded after bronchoscopy and steroids.",
+   "look": [
+    "Opaque right hemithorax, mediastinum drawn right",
+    "After: aerated lung returns, mediastinum central"
+   ],
+   "teach": [
+    "A large central mucus plug can collapse a whole lung within hours.",
+    "Bronchoscopy and airway clearance re-expand it; chest physiotherapy and humidification prevent recurrence."
+   ],
+   "quiz": {
+    "q": "What reversed the collapse?",
+    "options": [
+     "Diuretics",
+     "Clearing the airway obstruction",
+     "Chest drain",
+     "Higher FiO₂ alone"
+    ],
+    "answer": 1,
+    "explain": "Removing the obstructing mucus cast reopened the bronchus, and the lung re-aerated."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC8709957",
+    "fig": "Fig1"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.1186/s12890-021-01789-9",
+   "crop": [
+    0,
+    0.665,
+    1,
+    0.335
+   ],
+   "cropNote": "bottom row (E, F)",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "cxr-massive-effusion-2010",
+   "kind": "cxr",
+   "type": "xray",
+   "modality": "Chest X-ray (PA)",
+   "finding": "massive left pleural effusion with mediastinal shift",
+   "findings": [
+    "effusion",
+    "effusion_massive"
+   ],
+   "title": "Massive effusion",
+   "caption": "A massive left pleural effusion opacifies most of the left hemithorax and pushes the mediastinum to the right (arrow).",
+   "look": [
+    "White hemithorax with a meniscus",
+    "Mediastinum pushed AWAY",
+    "Compare with collapse, which pulls toward"
+   ],
+   "teach": [
+    "A massive effusion compresses lung and can impair venous return.",
+    "Drain it slowly — rapid removal of large volumes risks re-expansion oedema."
+   ],
+   "quiz": {
+    "q": "Which feature distinguishes this from whole-lung collapse?",
+    "options": [
+     "White hemithorax",
+     "Mediastinum displaced away from the white side",
+     "Air bronchograms",
+     "Raised diaphragm"
+    ],
+    "answer": 1,
+    "explain": "Fluid occupies space and pushes the mediastinum away; collapse loses volume and pulls it toward."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC3018363",
+    "fig": "F1"
+   },
+   "licenseClaimed": "CC BY 2.0",
+   "pageUrl": "https://doi.org/10.1186/1746-1596-5-82",
+   "crop": [
+    0,
+    0,
+    0.5,
+    0.52
+   ],
+   "cropNote": "panel (a), the chest X-ray",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "aaa-us-sagittal-haggstrom",
+   "kind": "aorta-us",
+   "type": "ultrasound",
+   "modality": "Bedside aortic ultrasound",
+   "finding": "abdominal aortic aneurysm",
+   "findings": [
+    "aaa"
+   ],
+   "expect": "image",
+   "title": "AAA, long axis",
+   "caption": "Longitudinal view of the abdominal aorta: a fusiform aneurysm with the lumen widening well beyond normal calibre.",
+   "look": [
+    "Measure outer wall to outer wall, perpendicular to the vessel",
+    "> 3 cm = aneurysm",
+    "Thrombus is grey — do not measure the lumen only"
+   ],
+   "teach": [
+    "Bedside ultrasound finds the aneurysm; it does not reliably show a retroperitoneal rupture.",
+    "Unstable patient + known or found AAA = vascular surgery now, CT only if stable."
+   ],
+   "quiz": {
+    "q": "How should an AAA be measured on ultrasound?",
+    "options": [
+     "Inner lumen only",
+     "Outer wall to outer wall",
+     "Length of the aneurysm",
+     "Diameter of the IVC"
+    ],
+    "answer": 1,
+    "explain": "Measure the maximal diameter outer wall to outer wall; measuring only the flow lumen underestimates it when thrombus is present."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:Ultrasonography of abdominal aortic aneurysm in sagittal plane.jpg"
+   },
+   "licenseClaimed": "CC0",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_sagittal_plane.jpg",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "aaa-us-axial-haggstrom",
+   "kind": "aorta-us",
+   "type": "ultrasound",
+   "modality": "Bedside aortic ultrasound",
+   "finding": "abdominal aortic aneurysm",
+   "findings": [
+    "aaa"
+   ],
+   "expect": "image",
+   "title": "AAA, short axis",
+   "caption": "Transverse view: the aneurysm measured outer wall to outer wall, here several times the normal ~2 cm.",
+   "look": [
+    "Measure outer wall to outer wall, perpendicular to the vessel",
+    "> 3 cm = aneurysm",
+    "Thrombus is grey — do not measure the lumen only"
+   ],
+   "teach": [
+    "Bedside ultrasound finds the aneurysm; it does not reliably show a retroperitoneal rupture.",
+    "Unstable patient + known or found AAA = vascular surgery now, CT only if stable."
+   ],
+   "quiz": {
+    "q": "How should an AAA be measured on ultrasound?",
+    "options": [
+     "Inner lumen only",
+     "Outer wall to outer wall",
+     "Length of the aneurysm",
+     "Diameter of the IVC"
+    ],
+    "answer": 1,
+    "explain": "Measure the maximal diameter outer wall to outer wall; measuring only the flow lumen underestimates it when thrombus is present."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:Ultrasonography of abdominal aortic aneurysm in axial plane.jpg"
+   },
+   "licenseClaimed": "CC0",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_in_axial_plane.jpg",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "aaa-us-thrombus-haggstrom",
+   "kind": "aorta-us",
+   "type": "ultrasound",
+   "modality": "Bedside aortic ultrasound",
+   "finding": "abdominal aortic aneurysm",
+   "findings": [
+    "aaa",
+    "mural_thrombus"
+   ],
+   "expect": "image",
+   "title": "AAA with mural thrombus",
+   "caption": "Transverse view: grey layered thrombus lines the wall, leaving a smaller dark flow lumen.",
+   "look": [
+    "Measure outer wall to outer wall, perpendicular to the vessel",
+    "> 3 cm = aneurysm",
+    "Thrombus is grey — do not measure the lumen only"
+   ],
+   "teach": [
+    "Bedside ultrasound finds the aneurysm; it does not reliably show a retroperitoneal rupture.",
+    "Unstable patient + known or found AAA = vascular surgery now, CT only if stable."
+   ],
+   "quiz": {
+    "q": "How should an AAA be measured on ultrasound?",
+    "options": [
+     "Inner lumen only",
+     "Outer wall to outer wall",
+     "Length of the aneurysm",
+     "Diameter of the IVC"
+    ],
+    "answer": 1,
+    "explain": "Measure the maximal diameter outer wall to outer wall; measuring only the flow lumen underestimates it when thrombus is present."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:Ultrasonography of abdominal aortic aneurysm with mural thrombus.jpg"
+   },
+   "licenseClaimed": "CC0",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Ultrasonography_of_abdominal_aortic_aneurysm_with_mural_thrombus.jpg",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "lus-blines-gargani",
+   "kind": "lus",
+   "type": "ultrasound",
+   "modality": "Lung ultrasound",
+   "finding": "blines",
+   "findings": [
+    "blines",
+    "interstitial_syndrome"
+   ],
+   "title": "Interstitial syndrome",
+   "caption": "Multiple B-lines: laser-like vertical lines start at the pleural line, run to the bottom of the screen and move with sliding.",
+   "look": [
+    "Vertical, bright, reach the bottom of the screen",
+    "Erase the A-lines",
+    "Three or more in one space is abnormal"
+   ],
+   "teach": [
+    "B-lines are reverberations from fluid-thickened interlobular septa — the ultrasound version of Kerley lines.",
+    "Diffuse bilateral B-lines: oedema (cardiogenic or ARDS); focal: pneumonia or contusion."
+   ],
+   "quiz": {
+    "q": "What do multiple B-lines mean?",
+    "options": [
+     "Pneumothorax",
+     "Interstitial fluid (interstitial syndrome)",
+     "Normal aerated lung",
+     "Pleural effusion"
+    ],
+    "answer": 1,
+    "explain": "Three or more B-lines in an intercostal space indicate thickened, fluid-filled interstitium."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv"
+   },
+   "licenseClaimed": "CC BY 2.0",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Lung-ultrasound-a-new-tool-for-the-cardiologist-1476-7120-9-6-S2.ogv",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "lus-confluent-tsung",
+   "kind": "lus",
+   "type": "ultrasound",
+   "modality": "Lung ultrasound",
+   "finding": "confluent_blines",
+   "findings": [
+    "confluent_blines",
+    "blines"
+   ],
+   "title": "Confluent B-lines",
+   "caption": "B-lines merge into a broad white curtain below the pleura (viral pneumonia, child).",
+   "look": [
+    "Individual B-lines no longer separable",
+    "Bright band from pleura to screen bottom",
+    "Sliding usually preserved"
+   ],
+   "teach": [
+    "Confluence means more interstitial and alveolar fluid — the step before white lung.",
+    "In children with viral illness this pattern is common and patchy."
+   ],
+   "quiz": {
+    "q": "Confluent B-lines represent…",
+    "options": [
+     "Less fluid than isolated B-lines",
+     "More interstitial/alveolar fluid",
+     "Air in the pleural space",
+     "Normal lung"
+    ],
+    "answer": 1,
+    "explain": "As fluid increases, B-lines multiply and merge into a confluent white pattern."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:Prospective-application-of-clinician-performed-lung-ultrasonography-during-the-2009-H1N1-influenza-2036-7902-4-16-S2.ogv"
+   },
+   "licenseClaimed": "CC BY 2.0",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Prospective-application-of-clinician-performed-lung-ultrasonography-during-the-2009-H1N1-influenza-2036-7902-4-16-S2.ogv",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "lus-consolidation-tsung",
+   "kind": "lus",
+   "type": "ultrasound",
+   "modality": "Lung ultrasound",
+   "finding": "consolidation",
+   "findings": [
+    "consolidation"
+   ],
+   "title": "Consolidation with air bronchograms",
+   "caption": "Right anterior middle-lobe consolidation: tissue-like lung with bright moving dots and branches (air bronchograms) — bacterial pneumonia pattern.",
+   "look": [
+    "Lung looks like liver (hepatisation)",
+    "Bright branching air bronchograms",
+    "Dynamic bronchograms move with breathing"
+   ],
+   "teach": [
+    "Dynamic air bronchograms mean the airway is open — pneumonia rather than obstructive collapse.",
+    "Static bronchograms in a non-moving consolidation suggest atelectasis."
+   ],
+   "quiz": {
+    "q": "Dynamic air bronchograms favour…",
+    "options": [
+     "Obstructive atelectasis",
+     "Pneumonia",
+     "Pneumothorax",
+     "Effusion"
+    ],
+    "answer": 1,
+    "explain": "Air moving in the bronchi within consolidated lung means the airway is patent — typical of pneumonia."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:Prospective-application-of-clinician-performed-lung-ultrasonography-during-the-2009-H1N1-influenza-2036-7902-4-16-S3.ogv"
+   },
+   "licenseClaimed": "CC BY 2.0",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Prospective-application-of-clinician-performed-lung-ultrasonography-during-the-2009-H1N1-influenza-2036-7902-4-16-S3.ogv",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "lus-progression-h7n9",
+   "kind": "lus",
+   "type": "ultrasound",
+   "modality": "Lung ultrasound",
+   "finding": "progression",
+   "findings": [
+    "progression",
+    "ards",
+    "whitelung",
+    "blines"
+   ],
+   "title": "From A-lines to white lung",
+   "caption": "Serial clips from one patient with H7N9 influenza: normal A-lines, then B-lines, then confluent B-lines, then white lung as ARDS develops.",
+   "look": [
+    "A-lines: horizontal, normal",
+    "B-lines appear, then merge",
+    "White lung: no A-lines left"
+   ],
+   "teach": [
+    "Lung ultrasound tracks aeration loss bedside, day by day, without radiation.",
+    "Scores that add up B-lines and consolidation across zones correlate with oxygenation."
+   ],
+   "quiz": {
+    "q": "In what order does aeration loss appear?",
+    "options": [
+     "White lung → B-lines → A-lines",
+     "A-lines → B-lines → confluent B-lines → white lung",
+     "Consolidation → A-lines",
+     "B-lines → A-lines → effusion"
+    ],
+    "answer": 1,
+    "explain": "Progressive loss of aeration moves from A-lines to separate B-lines, confluent B-lines and finally white lung."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:Lung-ultrasound-imaging-in-avian-influenza-A-(H7N9)-respiratory-failure-2036-7902-6-6-S1.ogv"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Lung-ultrasound-imaging-in-avian-influenza-A-(H7N9)-respiratory-failure-2036-7902-6-6-S1.ogv",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "lus-hepatisation-gillman",
+   "kind": "lus",
+   "type": "ultrasound",
+   "modality": "Lung ultrasound",
+   "finding": "consolidation",
+   "findings": [
+    "consolidation"
+   ],
+   "title": "Hepatised lung",
+   "caption": "Real-time clip of consolidated lung that looks like liver tissue (hepatisation).",
+   "look": [
+    "Solid, tissue-like texture",
+    "Irregular deep border (shred sign)",
+    "Compare with the liver texture"
+   ],
+   "teach": [
+    "Consolidated lung transmits sound like a solid organ.",
+    "A shred sign at the deep margin is specific for consolidation."
+   ],
+   "quiz": {
+    "q": "Why does consolidated lung look like liver?",
+    "options": [
+     "It is liver",
+     "Airless lung transmits ultrasound like solid tissue",
+     "Because of an effusion",
+     "Artefact from the ribs"
+    ],
+    "answer": 1,
+    "explain": "When the alveoli fill with fluid or cells the lung becomes acoustically like a solid organ."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv"
+   },
+   "licenseClaimed": "CC BY 2.0",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "echo-vsd-color-commons",
+   "kind": "echo-vsd",
+   "type": "echo",
+   "modality": "Echocardiography with colour Doppler",
+   "finding": "ventricular septal defect",
+   "findings": [
+    "vsd"
+   ],
+   "expect": "image",
+   "title": "VSD on colour Doppler",
+   "caption": "Colour Doppler echocardiogram: a turbulent, mosaic jet crosses the ventricular septum — flow through a VSD.",
+   "look": [
+    "Colour jet crossing the septum",
+    "Mosaic (aliasing) = high velocity",
+    "Which side does it start from?"
+   ],
+   "teach": [
+    "A small restrictive VSD has a high-velocity jet (big LV–RV gradient); a large one shows low-velocity, laminar flow.",
+    "Continuous-wave Doppler of the jet estimates RV pressure: RVSP ≈ systolic BP − 4v²."
+   ],
+   "quiz": {
+    "q": "A mosaic, high-velocity VSD jet usually means…",
+    "options": [
+     "A large unrestrictive defect",
+     "A small restrictive defect with a big pressure difference",
+     "Eisenmenger physiology",
+     "No shunt"
+    ],
+    "answer": 1,
+    "explain": "High velocity requires a large gradient across the hole — typical of a small, restrictive VSD with normal RV pressure."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:Ventricular Septal Defect.jpg"
+   },
+   "licenseClaimed": "Public Domain",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Ventricular_Septal_Defect.jpg",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "echo-asd-secundum-commons",
+   "kind": "echo-asd",
+   "type": "echo",
+   "modality": "Echocardiography (subcostal)",
+   "finding": "secundum atrial septal defect",
+   "findings": [
+    "asd"
+   ],
+   "expect": "image",
+   "title": "Secundum ASD",
+   "caption": "Echocardiogram showing a gap in the middle of the atrial septum — an ostium secundum defect.",
+   "look": [
+    "Discontinuity in the mid atrial septum",
+    "Dilated right atrium and ventricle",
+    "Subcostal view lines the septum up across the beam"
+   ],
+   "teach": [
+    "The subcostal view is best because the septum lies across the beam — apical views can drop out the thin septum and mimic a defect.",
+    "Right heart dilatation reflects the left-to-right volume load."
+   ],
+   "quiz": {
+    "q": "Why is the subcostal view preferred for the atrial septum?",
+    "options": [
+     "It is closer to the skin",
+     "The septum lies perpendicular to the beam, so dropout is less likely",
+     "It shows the aorta",
+     "It avoids colour Doppler"
+    ],
+    "answer": 1,
+    "explain": "In apical views the thin septum lies parallel to the beam and can falsely appear absent; subcostally it is perpendicular."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:Echokardiogram von Atriumseptumdefekt (Ostium secundum).jpg"
+   },
+   "licenseClaimed": "Public Domain",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Echokardiogram_von_Atriumseptumdefekt_(Ostium_secundum).jpg",
+   "marks": [],
+   "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
   }
  ]
 }

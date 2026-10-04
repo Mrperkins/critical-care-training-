@@ -57,3 +57,55 @@ describe('VSD lesson', () => {
   });
   it('all semantic heart targets are registered', () => { for (const id of ['heart.septum', 'heart.vsd', 'heart.asd', 'heart.pfo', 'heart.lv', 'heart.rv', 'heart.pulmonary_outflow']) expect((CAMERA_TARGETS as Record<string, unknown>)[id], id).toBeTruthy(); });
 });
+
+import * as THREE from 'three';
+import { holesFor, inHole, lesionShape, pinch, LM, SEPTUM_N, ATRIAL_N, flowPaths, holeRadius } from '../src/heart/heartGeometry';
+import { autoCut } from '../src/heart/HeartScene';
+
+describe('tetralogy and coarctation physiology', () => {
+  it('ToF: parallel outlets — more outflow narrowing or lower SVR → less lung flow, lower saturation; RV at systemic pressure', () => {
+    const pink = solveShunt(HEART_PRESETS.pinkTet), tof = solveShunt(HEART_PRESETS.tof), spell = solveShunt(HEART_PRESETS.tetSpell);
+    expect(pink.qpqs).toBeGreaterThan(tof.qpqs); expect(tof.qpqs).toBeGreaterThan(spell.qpqs);
+    expect(pink.sat.ao).toBeGreaterThan(0.94); expect(tof.flags.cyanosis).toBe(true); expect(spell.flags.spell).toBe(true); expect(spell.sat.ao).toBeLessThan(0.6);
+    expect(tof.p.rvSys).toBeCloseTo(tof.p.lvSys, 5); expect(tof.rvot!.gradient).toBeGreaterThan(50);
+    const squat = solveShunt({ ...HEART_PRESETS.tetSpell, svr: 24 }); expect(squat.sat.ao).toBeGreaterThan(spell.sat.ao + 0.15); // raising SVR (knee-chest, phenylephrine) helps
+  });
+  it('coarctation: arm > leg pressure, gradient rises with severity; LV pressure load', () => {
+    const mild = solveShunt({ ...HEART_PRESETS.coarct, coarct: 0.3 }), sev = solveShunt({ ...HEART_PRESETS.coarct, coarct: 0.75 });
+    expect(sev.coarct!.armSys).toBeGreaterThan(sev.coarct!.legSys + 20); expect(sev.coarct!.gradient).toBeGreaterThan(mild.coarct!.gradient); expect(sev.flags.lvPressure).toBe(true);
+  });
+  it('newborn critical coarctation: open duct feeds the lower body right-to-left (differential cyanosis); closing duct → hypoperfusion', () => {
+    const open = solveShunt(HEART_PRESETS.coarctNeoDuct), closed = solveShunt(HEART_PRESETS.coarctNeoClosed);
+    expect(open.direction).toBe('R→L'); expect(open.sat.aoPost).toBeLessThan(open.sat.ao - 0.1); expect(open.coarct!.lowerFrac).toBeGreaterThan(closed.coarct!.lowerFrac + 0.3);
+    expect(closed.flags.lowerHypoperfusion).toBe(true);
+  });
+});
+
+describe('defects drawn into the real heart', () => {
+  it('VSD sits in the septum, between the ventricles, sized to scale', () => {
+    const h = holesFor(HEART_PRESETS.vsdLarge)[0]; expect(h.id).toBe('vsd'); expect(h.meshes).toEqual(['septum', 'lv', 'rv']);
+    expect(h.r).toBeCloseTo(0.06, 3); expect(inHole(h.c.clone(), h)).toBe(true); expect(inHole(h.c.clone().addScaledVector(SEPTUM_N, 0.2), h)).toBe(false);
+    const mus = holesFor({ ...HEART_PRESETS.vsdLarge, vsdSite: 'muscular' })[0]; expect(mus.c.distanceTo(LM.vsdMuscular)).toBe(0); expect(mus.c.y).toBeLessThan(h.c.y); // muscular is lower, toward the apex
+  });
+  it('ASD goes through both atrial walls at the fossa ovalis; a closed PFO is a narrow slit', () => {
+    const a = holesFor(HEART_PRESETS.asd)[0]; expect(a.meshes).toEqual(['ra', 'la']); expect(a.ax.dot(ATRIAL_N)).toBeCloseTo(1, 5);
+    const pfo = holesFor(HEART_PRESETS.pfo, solveShunt(HEART_PRESETS.pfo))[0], open = holesFor(HEART_PRESETS.pfoValsalva, solveShunt(HEART_PRESETS.pfoValsalva))[0];
+    expect(pfo.squash).toBeGreaterThan(1); expect(open.r).toBeGreaterThan(pfo.r);
+    expect(holeRadius(5, true)).toBeCloseTo(holeRadius(5, false) * 2.5, 6); // newborn defects drawn relative to a smaller heart
+  });
+  it('ToF and coarctation reshape the anatomy; normal heart is untouched', () => {
+    const n = lesionShape(HEART_PRESETS.normal, solveShunt(HEART_PRESETS.normal)); expect(n).toEqual({ coarct: 0, rvot: 0, override: 0, rvWall: 0 });
+    const t = lesionShape(HEART_PRESETS.tof, solveShunt(HEART_PRESETS.tof)); expect(t.override).toBe(1); expect(t.rvot).toBeGreaterThan(0.3); expect(t.rvWall).toBeGreaterThan(0.02);
+    const c = lesionShape(HEART_PRESETS.coarct, solveShunt(HEART_PRESETS.coarct)); expect(c.coarct).toBeGreaterThan(0.5);
+  });
+  it('pinch narrows a tube around its axis and leaves far vertices alone', () => {
+    // a ring at the centre of the narrowing and one far away along a test axis
+    const ax = new THREE.Vector3(0, 1, 0); const ring = (dy: number) => { const p: number[] = []; for (let a = 0; a < 12; a++) { const t = (a / 12) * Math.PI * 2; p.push(0.06 * Math.cos(t), dy, 0.06 * Math.sin(t)); } return p; };
+    const out = pinch(new Float32Array([...ring(0), ...ring(0.5)]), new THREE.Vector3(), ax, 0.07, 0.12, 0.6);
+    expect(Math.hypot(out[0], out[2])).toBeLessThan(0.03); expect(Math.hypot(out[36], out[38])).toBeCloseTo(0.06, 5);
+  });
+  it('every flow path is a usable polyline, and the camera opens the heart to suit the focus', () => {
+    for (const [k, ws] of Object.entries(flowPaths({ coarct: 0.5, rvot: 0.4, override: 1, rvWall: 0.02 }))) { expect(ws.length, k).toBeGreaterThan(2); for (const w of ws) expect(Number.isFinite(w.p.x + w.p.y + w.p.z) && w.r > 0, k).toBe(true); }
+    expect(autoCut('heart.vsd')).toBe('rv'); expect(autoCut('heart.asd')).toBe('ra'); expect(autoCut('heart.pda')).toBe('closed'); expect(autoCut('heart.coarct')).toBe('closed'); expect(autoCut('heart.four_chamber')).toBe('slice');
+  });
+});

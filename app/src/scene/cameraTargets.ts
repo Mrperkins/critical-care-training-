@@ -27,6 +27,7 @@ export const CAMERA_TARGETS = Object.freeze({
   'heart.rv': { scene: 'heart', anchor: 'rv', view: 'zoom' },
   'heart.pulmonary_outflow': { scene: 'heart', anchor: 'outflow', view: 'zoom' },
   'heart.pda': { scene: 'heart', anchor: 'pda', view: 'zoom' },
+  'heart.coarct': { scene: 'heart', anchor: 'coarct', view: 'zoom' },
   'abdomen.whole': { scene: 'abdomen', anchor: 'whole', view: 'whole' },
   'abdomen.ruq': { scene: 'abdomen', anchor: 'ruq', view: 'zoom' },
   'abdomen.luq': { scene: 'abdomen', anchor: 'luq', view: 'zoom' },

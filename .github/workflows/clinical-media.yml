@@ -60,4 +60,5 @@ jobs:
           git add imaging/real
           git diff --cached --quiet && { echo "nothing new"; exit 0; }
           git commit -m "Real clinical media fetched and verified from source (tools/clinical_media.py)"
+          git pull --rebase origin visual-overhaul
           git push origin HEAD:visual-overhaul

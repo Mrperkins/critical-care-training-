@@ -43,6 +43,8 @@ LICENSE_URLS = {
     'CC BY 2.0': 'https://creativecommons.org/licenses/by/2.0/',
     'CC BY 3.0': 'https://creativecommons.org/licenses/by/3.0/',
     'CC BY 4.0': 'https://creativecommons.org/licenses/by/4.0/',
+    'CC BY 2.5': 'https://creativecommons.org/licenses/by/2.5/',
+    'Public Domain': 'https://creativecommons.org/publicdomain/mark/1.0/',
 }
 STAGING_ONLY = {'fetch', 'licenseClaimed', 'pageUrl', 'claimedBy', 'crop', 'cropNote', 'maskTop', 'maskRects', 'keepOriginal', 'expect'}
 THIRD_PARTY = re.compile(r'courtesy|reproduced (?:with|by) permission|used with permission|©|\(c\)\s*\d{4}|copyright', re.I)
@@ -77,6 +79,8 @@ def norm_license(s: str) -> str | None:
     t = re.sub(r'[\s_-]+', ' ', s.upper())
     if t in ('CC0', 'CC0 1.0', 'CC ZERO', 'PUBLIC DOMAIN DEDICATION'):
         return 'CC0'
+    if t in ('PUBLIC DOMAIN', 'PD', 'PD USGOV', 'PD USGOV HHS CDC', 'PD SELF', 'PUBLIC DOMAIN MARK'):
+        return 'Public Domain'
     m = re.fullmatch(r'CC ([A-Z ]+?) (\d\.\d)(?: INTERNATIONAL| GENERIC| UNPORTED)?', t)
     return f'CC {m.group(1)} {m.group(2)}' if m else None
 
@@ -710,7 +714,7 @@ def commons_query(params: dict, thumbs: Path | None = None) -> list[dict]:
 def epmc_search(query: str, n: int) -> list[dict]:
     """Open-access Europe PMC articles under CC BY / CC0 only (licence re-checked from each full text)."""
     def run(q: str) -> list[dict]:
-        u = f'{EPMC}/search?' + urllib.parse.urlencode({'query': q, 'resultType': 'core', 'format': 'json', 'pageSize': str(min(100, n * 4)), 'sort': 'CITED desc'})
+        u = f'{EPMC}/search?' + urllib.parse.urlencode({'query': q, 'resultType': 'core', 'format': 'json', 'pageSize': str(min(100, n * 4))})
         return json.loads(get(u)).get('resultList', {}).get('result', [])
     res = run(f'({query}) AND OPEN_ACCESS:y AND (LICENSE:"cc by" OR LICENSE:"cc0")')
     if not res:
