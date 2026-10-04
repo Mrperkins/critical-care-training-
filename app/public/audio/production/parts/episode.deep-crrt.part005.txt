@@ -1,0 +1,35 @@
+The relationship matters because Septic shock can combine vasoplegia, venous pooling, myocardial dysfunction, endothelial leak and disturbed microcirculation. Cardiac output may be low, normal or high. At the bedside, reassess vascular tone, flow, congestion and perfusion after each intervention rather than assuming a fixed distributive phenotype.
+
+Now connect Shock phenotyping to Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+The relationship matters because The RV is thin-walled and highly sensitive to acute afterload. When it dilates, wall stress rises, coronary perfusion can fall and septal shift can reduce LV filling. At the bedside, track systemic pressure, venous congestion, echo geometry, oxygenation, CO2, acid-base status and ventilator pressures together. Small changes in P V R or intrathoracic pressure can have large hemodynamic consequences.
+
+Stress-test the model. Imagine the patient changes in a way that makes naming shock once and never revisiting the model tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Treating MAP as the only endpoint.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Prescribed dose versus delivered dose.
+
+C R R T physiology & prescription literacy. Continuous renal replacement uses diffusion and/or convection to manage solute, acid-base and fluid balance in unstable patients.
+
+Build the mechanism first. C R R T uses diffusion, convection and ultrafiltration to control solute, acid-base and volume continuously. Prescribed dose can differ substantially from delivered dose.
+
+At the bedside, separate total effluent from net patient fluid removal and interpret access, filter and return pressures as clues to the physical circuit.
+
+Two traps to actively avoid: Calling every effluent liter “fluid removed from the patient.” And: Ignoring downtime and clotting when assessing delivered therapy.
+
+The integration move is this: C R R T is both renal support and a hemodynamic intervention.
+
+Keep these terms available in your mental model: effluent dose, CVVH, CVVHD, CVVHDF, filtration fraction.
+
+What expert-level use of this concept looks like is this: Explain diffusion versus convection and net ultrafiltration. Recognize how circuit, anticoagulation and prescribed versus delivered dose change therapy.
+
+Reasoning checkpoint. Do not just repeat the statement: Explain diffusion versus convection and net ultrafiltration. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize how circuit, anticoagulation and prescribed versus delivered dose change therapy. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect C R R T physiology & prescription literacy to Antimicrobial PK/PD in critical illness. Critical illness changes volume of distribution, clearance and target attainment, so dose strategy must match drug and patient physiology.
+
+The relationship matters because Critical illness alters volume of distribution, protein binding and clearance. Drug efficacy depends on whether exposure matches the relevant PK/PD target. At the bedside, account for augmented renal clearance, AKI, C R R T, fluid shifts and obesity rather than assuming standard dosing produces standard exposure.

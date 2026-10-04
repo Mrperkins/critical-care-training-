@@ -1,0 +1,19 @@
+The relationship matters because I A B P inflates in diastole to augment aortic diastolic pressure and deflates before systole to reduce LV afterload. Benefit depends on timing and native rhythm/hemodynamics. At the bedside, use the arterial waveform to judge inflation near the dicrotic notch and presystolic deflation; compare assisted and unassisted beats.
+
+Now connect Mechanical circulatory support to E C M O circuit & physiology literacy. Extracorporeal support changes preload, afterload, gas exchange and oxygen delivery through a circuit whose configuration determines what it can support.
+
+The relationship matters because E C M O drains venous blood, pumps it through a membrane lung and returns it to the circulation. VV supports gas exchange; VA additionally supports systemic flow and changes cardiac loading conditions. At the bedside, follow blood through drainage, pump, oxygenator and return while considering native heart/lung function and cannula position.
+
+Stress-test the model. Imagine the patient changes in a way that makes choosing a device by shock severity without matching anatomy/physiology tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring hemolysis, limb ischemia, ventricular distension and device-device interactions.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you phenotype pump failure by flow, congestion and ventricle?
+
+Can you choose monitoring and support based on the failing physiology rather than a generic shock label?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

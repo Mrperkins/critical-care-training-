@@ -1,0 +1,213 @@
+You're listening to Mechanical circulatory support: match the device to the failing circulation. I A B P, axial flow and VA E C M O change loading conditions in different ways.
+
+This is a level 5 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to match temporary support to lv, rv, biventricular or cardiopulmonary failure; and anticipate how each device changes loading conditions and downstream complications.
+
+Now: What are you trying to support?.
+
+Mechanical circulatory support. Temporary circulatory support devices unload or bypass different parts of the circulation and must be matched to the failing ventricle and oxygenation problem.
+
+Build the mechanism first. Temporary MCS devices unload or bypass different portions of the circulation. Device selection depends on LV, RV, biventricular and/or oxygenation failure.
+
+At the bedside, understand where blood is removed, where it returns, what ventricle is unloaded and how native circulation interacts with the device.
+
+Two traps to actively avoid: Choosing a device by shock severity without matching anatomy/physiology. And: Ignoring hemolysis, limb ischemia, ventricular distension and device-device interactions.
+
+The integration move is this: Follow the blood and ask what pressure/flow relationship the device is changing.
+
+Keep these terms available in your mental model: LV unloading, VA E C M O, axial flow.
+
+What expert-level use of this concept looks like is this: Match support strategy to LV, RV, biventricular or cardiopulmonary failure. Anticipate loading, limb, hemolysis and device-interaction complications.
+
+Reasoning checkpoint. Do not just repeat the statement: Match support strategy to LV, RV, biventricular or cardiopulmonary failure. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Anticipate loading, limb, hemolysis and device-interaction complications. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Mechanical circulatory support to Intra-aortic balloon pump physiology. I A B P timing uses diastolic augmentation and presystolic deflation to alter coronary perfusion and LV afterload.
+
+The relationship matters because I A B P inflates in diastole to augment aortic diastolic pressure and deflates before systole to reduce LV afterload. Benefit depends on timing and native rhythm/hemodynamics. At the bedside, use the arterial waveform to judge inflation near the dicrotic notch and presystolic deflation; compare assisted and unassisted beats.
+
+Now connect Mechanical circulatory support to E C M O circuit & physiology literacy. Extracorporeal support changes preload, afterload, gas exchange and oxygen delivery through a circuit whose configuration determines what it can support.
+
+The relationship matters because E C M O drains venous blood, pumps it through a membrane lung and returns it to the circulation. VV supports gas exchange; VA additionally supports systemic flow and changes cardiac loading conditions. At the bedside, follow blood through drainage, pump, oxygenator and return while considering native heart/lung function and cannula position.
+
+Stress-test the model. Imagine the patient changes in a way that makes choosing a device by shock severity without matching anatomy/physiology tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring hemolysis, limb ischemia, ventricular distension and device-device interactions.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Counterpulsation.
+
+Intra-aortic balloon pump physiology. I A B P timing uses diastolic augmentation and presystolic deflation to alter coronary perfusion and LV afterload.
+
+Build the mechanism first. I A B P inflates in diastole to augment aortic diastolic pressure and deflates before systole to reduce LV afterload. Benefit depends on timing and native rhythm/hemodynamics.
+
+At the bedside, use the arterial waveform to judge inflation near the dicrotic notch and presystolic deflation; compare assisted and unassisted beats.
+
+Two traps to actively avoid: Treating augmentation number alone as success. And: Allowing late deflation to increase LV afterload.
+
+The integration move is this: The waveform should show you the mechanism the device is trying to create.
+
+Keep these terms available in your mental model: diastolic augmentation, deflation, trigger.
+
+What expert-level use of this concept looks like is this: Identify correct inflation/deflation timing from the arterial waveform. Predict the hemodynamic consequence of early or late timing errors.
+
+Reasoning checkpoint. Do not just repeat the statement: Identify correct inflation/deflation timing from the arterial waveform. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict the hemodynamic consequence of early or late timing errors. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Intra-aortic balloon pump physiology to Mechanical circulatory support. Temporary circulatory support devices unload or bypass different parts of the circulation and must be matched to the failing ventricle and oxygenation problem.
+
+The relationship matters because Temporary MCS devices unload or bypass different portions of the circulation. Device selection depends on LV, RV, biventricular and/or oxygenation failure. At the bedside, understand where blood is removed, where it returns, what ventricle is unloaded and how native circulation interacts with the device.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating augmentation number alone as success tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Allowing late deflation to increase LV afterload.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Axial-flow unloading.
+
+Mechanical circulatory support. Temporary circulatory support devices unload or bypass different parts of the circulation and must be matched to the failing ventricle and oxygenation problem.
+
+Build the mechanism first. Temporary MCS devices unload or bypass different portions of the circulation. Device selection depends on LV, RV, biventricular and/or oxygenation failure.
+
+At the bedside, understand where blood is removed, where it returns, what ventricle is unloaded and how native circulation interacts with the device.
+
+Two traps to actively avoid: Choosing a device by shock severity without matching anatomy/physiology. And: Ignoring hemolysis, limb ischemia, ventricular distension and device-device interactions.
+
+The integration move is this: Follow the blood and ask what pressure/flow relationship the device is changing.
+
+Keep these terms available in your mental model: LV unloading, VA E C M O, axial flow.
+
+What expert-level use of this concept looks like is this: Match support strategy to LV, RV, biventricular or cardiopulmonary failure. Anticipate loading, limb, hemolysis and device-interaction complications.
+
+Reasoning checkpoint. Do not just repeat the statement: Match support strategy to LV, RV, biventricular or cardiopulmonary failure. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Anticipate loading, limb, hemolysis and device-interaction complications. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Mechanical circulatory support to Intra-aortic balloon pump physiology. I A B P timing uses diastolic augmentation and presystolic deflation to alter coronary perfusion and LV afterload.
+
+The relationship matters because I A B P inflates in diastole to augment aortic diastolic pressure and deflates before systole to reduce LV afterload. Benefit depends on timing and native rhythm/hemodynamics. At the bedside, use the arterial waveform to judge inflation near the dicrotic notch and presystolic deflation; compare assisted and unassisted beats.
+
+Now connect Mechanical circulatory support to E C M O circuit & physiology literacy. Extracorporeal support changes preload, afterload, gas exchange and oxygen delivery through a circuit whose configuration determines what it can support.
+
+The relationship matters because E C M O drains venous blood, pumps it through a membrane lung and returns it to the circulation. VV supports gas exchange; VA additionally supports systemic flow and changes cardiac loading conditions. At the bedside, follow blood through drainage, pump, oxygenator and return while considering native heart/lung function and cannula position.
+
+Stress-test the model. Imagine the patient changes in a way that makes choosing a device by shock severity without matching anatomy/physiology tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring hemolysis, limb ischemia, ventricular distension and device-device interactions.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: VA E C M O flow and LV loading.
+
+E C M O circuit & physiology literacy. Extracorporeal support changes preload, afterload, gas exchange and oxygen delivery through a circuit whose configuration determines what it can support.
+
+Build the mechanism first. E C M O drains venous blood, pumps it through a membrane lung and returns it to the circulation. VV supports gas exchange; VA additionally supports systemic flow and changes cardiac loading conditions.
+
+At the bedside, follow blood through drainage, pump, oxygenator and return while considering native heart/lung function and cannula position.
+
+Two traps to actively avoid: Equating pump RPM with effective support. And: Ignoring recirculation, LV distension or differential hypoxemia.
+
+The integration move is this: The circuit and the native circulation are one coupled system.
+
+Keep these terms available in your mental model: VV E C M O, VA E C M O, sweep gas, recirculation, differential hypoxemia.
+
+What expert-level use of this concept looks like is this: Distinguish VV from VA support goals and limitations. Reason from circuit flow, native heart/lung function and cannula position to common failure patterns.
+
+Reasoning checkpoint. Do not just repeat the statement: Distinguish VV from VA support goals and limitations. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Reason from circuit flow, native heart/lung function and cannula position to common failure patterns. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect E C M O circuit & physiology literacy to Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+The relationship matters because The RV is thin-walled and highly sensitive to acute afterload. When it dilates, wall stress rises, coronary perfusion can fall and septal shift can reduce LV filling. At the bedside, track systemic pressure, venous congestion, echo geometry, oxygenation, CO2, acid-base status and ventilator pressures together. Small changes in P V R or intrathoracic pressure can have large hemodynamic consequences.
+
+Now connect E C M O circuit & physiology literacy to A R D S physiology. Diffuse inflammatory lung injury producing heterogeneity, shunt, low aerated lung volume and risk from ventilator-induced injury.
+
+The relationship matters because A R D S produces heterogeneous inflammatory lung injury, shunt, edema and a reduced aerated “baby lung,” making regional overdistension possible even at seemingly modest tidal volumes. At the bedside, integrate gas exchange, compliance, recruitability, prone response, driving pressure and hemodynamics rather than treating the P/F ratio alone.
+
+Stress-test the model. Imagine the patient changes in a way that makes equating pump rpm with effective support tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring recirculation, LV distension or differential hypoxemia.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Right-sided failure changes the answer.
+
+Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+Build the mechanism first. The RV is thin-walled and highly sensitive to acute afterload. When it dilates, wall stress rises, coronary perfusion can fall and septal shift can reduce LV filling.
+
+At the bedside, track systemic pressure, venous congestion, echo geometry, oxygenation, CO2, acid-base status and ventilator pressures together. Small changes in P V R or intrathoracic pressure can have large hemodynamic consequences.
+
+Two traps to actively avoid: Reflexively giving fluid to every hypotensive RV patient. And: Focusing on systemic pressure while ignoring worsening RV dilation and congestion.
+
+The integration move is this: Every intervention should be judged by its effects on RV preload, RV afterload, contractility and coronary perfusion.
+
+Keep these terms available in your mental model: RV-PA coupling, septal shift, transmural pressure.
+
+What expert-level use of this concept looks like is this: Recognize RV shock physiology before systemic hypotension becomes profound. Predict how peep, hypercapnia, hypoxemia, fluids and vasoactives may change RV performance.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize RV shock physiology before systemic hypotension becomes profound. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict how peep, hypercapnia, hypoxemia, fluids and vasoactives may change RV performance. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Right ventricular failure to Pulmonary vascular resistance. Resistance faced by the RV, influenced by lung volume, oxygenation, CO2, pH, pulmonary vascular disease and mechanical ventilation.
+
+The relationship matters because Pulmonary vascular resistance reflects the combined behavior of alveolar and extra-alveolar vessels and is affected by lung volume, oxygen, CO2, pH and pulmonary vascular disease. At the bedside, both severe derecruitment and overdistension can raise RV afterload. Hypoxemia, hypercapnia and acidosis can compound the problem.
+
+Now connect Right ventricular failure to Ventricular interdependence. The ventricles share a septum and constrained pericardial space, so pressure or volume loading of one changes filling and geometry of the other.
+
+The relationship matters because The ventricles share a septum and a constrained pericardial space. Acute RV pressure or volume loading can shift the septum and reduce LV diastolic filling. At the bedside, a falling LV stroke volume in RV failure may occur despite apparently adequate intravascular volume because geometry, not supply, is limiting filling.
+
+Stress-test the model. Imagine the patient changes in a way that makes reflexively giving fluid to every hypotensive rv patient tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Focusing on systemic pressure while ignoring worsening RV dilation and congestion.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Device complications are physiology too.
+
+Mechanical circulatory support. Temporary circulatory support devices unload or bypass different parts of the circulation and must be matched to the failing ventricle and oxygenation problem.
+
+Build the mechanism first. Temporary MCS devices unload or bypass different portions of the circulation. Device selection depends on LV, RV, biventricular and/or oxygenation failure.
+
+At the bedside, understand where blood is removed, where it returns, what ventricle is unloaded and how native circulation interacts with the device.
+
+Two traps to actively avoid: Choosing a device by shock severity without matching anatomy/physiology. And: Ignoring hemolysis, limb ischemia, ventricular distension and device-device interactions.
+
+The integration move is this: Follow the blood and ask what pressure/flow relationship the device is changing.
+
+Keep these terms available in your mental model: LV unloading, VA E C M O, axial flow.
+
+What expert-level use of this concept looks like is this: Match support strategy to LV, RV, biventricular or cardiopulmonary failure. Anticipate loading, limb, hemolysis and device-interaction complications.
+
+Reasoning checkpoint. Do not just repeat the statement: Match support strategy to LV, RV, biventricular or cardiopulmonary failure. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Anticipate loading, limb, hemolysis and device-interaction complications. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Mechanical circulatory support to Intra-aortic balloon pump physiology. I A B P timing uses diastolic augmentation and presystolic deflation to alter coronary perfusion and LV afterload.
+
+The relationship matters because I A B P inflates in diastole to augment aortic diastolic pressure and deflates before systole to reduce LV afterload. Benefit depends on timing and native rhythm/hemodynamics. At the bedside, use the arterial waveform to judge inflation near the dicrotic notch and presystolic deflation; compare assisted and unassisted beats.
+
+Now connect Mechanical circulatory support to E C M O circuit & physiology literacy. Extracorporeal support changes preload, afterload, gas exchange and oxygen delivery through a circuit whose configuration determines what it can support.
+
+The relationship matters because E C M O drains venous blood, pumps it through a membrane lung and returns it to the circulation. VV supports gas exchange; VA additionally supports systemic flow and changes cardiac loading conditions. At the bedside, follow blood through drainage, pump, oxygenator and return while considering native heart/lung function and cannula position.
+
+Stress-test the model. Imagine the patient changes in a way that makes choosing a device by shock severity without matching anatomy/physiology tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring hemolysis, limb ischemia, ventricular distension and device-device interactions.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you match temporary support to LV, RV, biventricular or cardiopulmonary failure?
+
+Can you anticipate how each device changes loading conditions and downstream complications?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

@@ -1,0 +1,39 @@
+The integration move is this: A R D S management is a tradeoff between oxygenation, mechanical injury and circulation.
+
+Keep these terms available in your mental model: baby lung, shunt, recruitability.
+
+What expert-level use of this concept looks like is this: Integrate oxygenation, mechanics, recruitability and hemodynamics rather than treating a P/F ratio in isolation.
+
+Reasoning checkpoint. Do not just repeat the statement: Integrate oxygenation, mechanics, recruitability and hemodynamics rather than treating a P/F ratio in isolation. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect A R D S physiology to Driving pressure. Plateau pressure minus total peep; a bedside expression of tidal strain relative to respiratory-system compliance.
+
+The relationship matters because Driving pressure is plateau pressure minus total peep and reflects tidal pressure applied to the respiratory system relative to available compliance. At the bedside, a fixed tidal volume can impose very different stress depending on how much functional lung is available. Trend driving pressure alongside plateau pressure and mechanics.
+
+Now connect A R D S physiology to Pulmonary vascular resistance. Resistance faced by the RV, influenced by lung volume, oxygenation, CO2, pH, pulmonary vascular disease and mechanical ventilation.
+
+The relationship matters because Pulmonary vascular resistance reflects the combined behavior of alveolar and extra-alveolar vessels and is affected by lung volume, oxygen, CO2, pH and pulmonary vascular disease. At the bedside, both severe derecruitment and overdistension can raise RV afterload. Hypoxemia, hypercapnia and acidosis can compound the problem.
+
+Stress-test the model. Imagine the patient changes in a way that makes equating severe hypoxemia with universal recruitability tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Improving oxygenation at the cost of excessive distending pressure or RV load.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: VA: flow changes loading conditions.
+
+E C M O circuit & physiology literacy. Extracorporeal support changes preload, afterload, gas exchange and oxygen delivery through a circuit whose configuration determines what it can support.
+
+Build the mechanism first. E C M O drains venous blood, pumps it through a membrane lung and returns it to the circulation. VV supports gas exchange; VA additionally supports systemic flow and changes cardiac loading conditions.
+
+At the bedside, follow blood through drainage, pump, oxygenator and return while considering native heart/lung function and cannula position.
+
+Two traps to actively avoid: Equating pump RPM with effective support. And: Ignoring recirculation, LV distension or differential hypoxemia.
+
+The integration move is this: The circuit and the native circulation are one coupled system.
+
+Keep these terms available in your mental model: VV E C M O, VA E C M O, sweep gas, recirculation, differential hypoxemia.
+
+What expert-level use of this concept looks like is this: Distinguish VV from VA support goals and limitations. Reason from circuit flow, native heart/lung function and cannula position to common failure patterns.
+
+Reasoning checkpoint. Do not just repeat the statement: Distinguish VV from VA support goals and limitations. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.

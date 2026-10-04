@@ -1,0 +1,45 @@
+You're listening to Audio Case: the first FAST was negative. Trauma evolves; ultrasound sensitivity depends on time, volume and where the blood is.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to treat a negative fast as time-stamped evidence rather than a permanent exclusion; and integrate repeat examination with evolving hemorrhagic physiology.
+
+Now: The negative scan.
+
+eFAST. Structured point-of-care ultrasound for pericardial, intraperitoneal and pleural pathology in trauma.
+
+Build the mechanism first. eFAST uses focused ultrasound windows to look for pericardial, intraperitoneal and pleural pathology. Sensitivity depends on volume, timing, operator technique and where pathology is located.
+
+At the bedside, use a repeatable sweep rather than one frozen image and repeat the exam when physiology changes.
+
+Two traps to actively avoid: Calling one negative scan a permanent rule-out. And: Interpreting an image without proving orientation and anatomy first.
+
+The integration move is this: eFAST is a time-stamped piece of evidence inside trauma physiology, not a substitute for the rest of the evaluation.
+
+Keep these terms available in your mental model: Morison pouch, splenorenal, lung sliding.
+
+What expert-level use of this concept looks like is this: Acquire and orient the core windows. Recognize free fluid and common false positives/negatives while integrating the clinical context.
+
+Reasoning checkpoint. Do not just repeat the statement: Acquire and orient the core windows. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize free fluid and common false positives/negatives while integrating the clinical context. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect eFAST to Pneumothorax ultrasound. Pleural ultrasound combines sliding, B-lines, M-mode patterns and lung point rather than relying on a single sign.
+
+The relationship matters because Pleural ultrasound infers apposition or separation of pleural layers through sliding, B-lines, lung pulse, M-mode patterns and lung point. At the bedside, absent sliding raises suspicion but is nonspecific; lung point is more specific when present in the appropriate context.
+
+Now connect eFAST to Hemoperitoneum on ultrasound. Free intraperitoneal fluid is sought in dependent spaces, but sensitivity depends on volume, timing, clot and the location of bleeding.
+
+The relationship matters because Free intraperitoneal blood accumulates in dependent spaces, but early volume, clot, body habitus and retroperitoneal bleeding can limit ultrasound detection. At the bedside, sweep RUQ, LUQ and pelvis in more than one view and repeat when physiology changes.
+
+Stress-test the model. Imagine the patient changes in a way that makes calling one negative scan a permanent rule-out tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Interpreting an image without proving orientation and anatomy first.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Pause here and answer this before you continue: What exactly has the exam ruled out—and what has it not ruled out?
+
+Do not grade yourself only on whether you found the expected answer. Ask whether your reasoning predicted a physiologic response and what evidence would make you change your mind.
+
+Now: The physiology deteriorates.
+
+Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.

@@ -1,0 +1,25 @@
+Reasoning checkpoint. Do not just repeat the statement: Use multiple pleural signs to support or weaken the diagnosis. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize situations where absent sliding is not pneumothorax. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Pneumothorax ultrasound to Pleural drain / chest tube. Indication, anatomy, insertion concepts, system setup, confirmation and complication recognition for pleural drainage.
+
+The relationship matters because Pleural drainage restores pressure relationships by providing a path for air or fluid to leave the pleural space. Tube position and system function determine whether that path remains effective. At the bedside, assess patient physiology and the drainage system together after placement. Trace the entire system when improvement is absent or deterioration occurs.
+
+Now connect Pneumothorax ultrasound to Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+The relationship matters because Acute ventilator deterioration can originate from the patient, tube, circuit or machine. Peak and plateau pressures help separate resistance from compliance when measurements are trustworthy. At the bedside, look at the patient first, rescue oxygenation/ventilation if the device cannot be trusted, then trace from patient to tube to circuit to machine.
+
+Stress-test the model. Imagine the patient changes in a way that makes diagnosing pneumothorax from absent sliding alone tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Forgetting apnea, pleurodesis, mainstem intubation or severe lung disease as alternatives.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you troubleshoot pleural drainage from patient outward?
+
+Can you use system behavior and pleural ultrasound to distinguish persistent pathology from device failure?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

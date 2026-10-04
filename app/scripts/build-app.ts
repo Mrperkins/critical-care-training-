@@ -24,6 +24,41 @@ for (const f of ['resp.glb', 'resp.mapping.json', 'micro.glb', 'micro.mapping.js
 let voIds: string[] = []; const voJson = path.join(ROOT, 'public/vo/vo.json');
 if (fs.existsSync(voJson)) { const vo: Record<string, string> = JSON.parse(fs.readFileSync(voJson, 'utf8')); voIds = Object.keys(vo); for (const [id, b64] of Object.entries(vo)) fs.writeFileSync(path.join(pub, 'vo', id + '.mp3'), Buffer.from(b64, 'base64')); }
 fs.writeFileSync(path.join(pub, 'index.html'), `${head}\n<div id="root"></div>\n<script>window.__VO_IDS__=${JSON.stringify(voIds)};window.__B64_MODELS__=true;</script>\n<script>${js.replace(/<\/script/g, '<\\/script')}</script>\n`);
+
+// Standalone Critical Care Audio / Mental Reps learner surface.
+// It intentionally does not load the heavy Three.js anatomy bundle; it links back to the physiology app.
+const audioRes = await build({
+  entryPoints: [path.join(ROOT, 'src/audio/main.tsx')], bundle: true, minify: true, format: 'iife',
+  target: ['es2020'], write: false, outdir: out, loader: { '.css': 'css' },
+  define: { 'process.env.NODE_ENV': '"production"' }, jsx: 'automatic', legalComments: 'none', logLevel: 'warning',
+});
+const audioJs = audioRes.outputFiles.find((f) => f.path.endsWith('.js'))!.text;
+const audioCss = audioRes.outputFiles.find((f) => f.path.endsWith('.css'))?.text ?? '';
+const audioDir = path.join(pub, 'audio'); fs.mkdirSync(audioDir, { recursive: true });
+const audioVoice = path.join(ROOT, 'public/audio/voice');
+let audioVoiceAssets: Record<string, { file: string; reviewed: boolean }> = {};
+if (fs.existsSync(audioVoice)) {
+  fs.cpSync(audioVoice, path.join(audioDir, 'voice'), { recursive: true, force: true });
+  const voiceManifest = path.join(audioVoice, 'manifest.json');
+  if (fs.existsSync(voiceManifest)) {
+    const parsed = JSON.parse(fs.readFileSync(voiceManifest, 'utf8')) as { assets?: { id: string; file: string; reviewed?: boolean }[] };
+    audioVoiceAssets = Object.fromEntries((parsed.assets ?? []).map((a) => [a.id, { file: a.file, reviewed: a.reviewed === true }]));
+  }
+}
+fs.copyFileSync(path.join(ROOT, 'site', 'audio-manifest.webmanifest'), path.join(audioDir, 'manifest.webmanifest'));
+const audioHead = `<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Critical Care Audio</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#070a0d">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>${audioCss}</style>`;
+fs.writeFileSync(path.join(audioDir, 'index.html'), `${audioHead}<div id="root"></div><script>window.__CC_AUDIO_ASSETS__=${JSON.stringify(audioVoiceAssets)};</script><script>${audioJs.replace(/<\/script/g, '<\\/script')}</script>\n`);
+
 // offline support: service worker (versioned by the bundle hash), web manifest, icons
 const ver = (await import('node:crypto')).createHash('sha256').update(js).update(css).digest('hex').slice(0, 12);
 fs.writeFileSync(path.join(pub, 'sw.js'), fs.readFileSync(path.join(ROOT, 'site/sw.js'), 'utf8').replaceAll('__VERSION__', ver));

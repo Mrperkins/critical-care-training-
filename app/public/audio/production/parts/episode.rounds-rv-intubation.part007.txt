@@ -1,0 +1,21 @@
+Now connect Clinical uncertainty & model revision to Multisystem treatment tradeoffs. A therapy that helps one organ can worsen another; expert care weighs global benefit, reversibility and monitoring.
+
+The relationship matters because Organ-support interventions frequently redistribute risk: peep can help oxygenation but worsen RV load; fluids can increase flow but worsen congestion; sedation can improve synchrony but obscure neurologic assessment. At the bedside, before intervening, name the intended benefit, the organ/system at risk and the signal that would tell you the tradeoff has become unfavorable.
+
+Stress-test the model. Imagine the patient changes in a way that makes equating uncertainty with indecision tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Becoming more confident simply because the same hypothesis has been repeated.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Pause here and answer this before you continue: What finding would make you abandon your current model?
+
+Do not grade yourself only on whether you found the expected answer. Ask whether your reasoning predicted a physiologic response and what evidence would make you change your mind.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you explain the distinct effects of positive pressure on venous return, RV afterload and LV transmural pressure?
+
+Can you describe why RV distension can reduce LV filling through ventricular interdependence?
+
+Can you state what response you expect from an intervention and what finding would falsify your model?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

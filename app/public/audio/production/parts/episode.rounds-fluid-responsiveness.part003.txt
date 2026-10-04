@@ -1,0 +1,37 @@
+Two traps to actively avoid: Equating CVP with circulating volume. And: Assuming fluid responsiveness means fluid is indicated or tolerated.
+
+The integration move is this: Ask what changed the effective distending pressure of the ventricle, not merely what changed the monitor number.
+
+Keep these terms available in your mental model: end-diastolic volume, transmural pressure.
+
+What expert-level use of this concept looks like is this: Distinguish preload from CVP or fluid responsiveness. Predict how changes in intrathoracic pressure alter measured filling pressures.
+
+Reasoning checkpoint. Do not just repeat the statement: Distinguish preload from CVP or fluid responsiveness. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict how changes in intrathoracic pressure alter measured filling pressures. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Preload to Venous return. Flow back to the right heart determined by the pressure gradient from the systemic circulation and resistance to venous return.
+
+The relationship matters because Venous return depends on the pressure gradient from the systemic venous reservoir toward the right atrium and on resistance to that flow. Mean systemic filling pressure and right-atrial pressure can move independently. At the bedside, a rise in right-atrial pressure can reduce venous return even when the patient appears more “full.” Venoconstriction can recruit unstressed volume and change the upstream pressure without adding external fluid.
+
+Now connect Preload to Fluid responsiveness. Whether stroke volume will meaningfully increase after an increase in preload; distinct from whether fluid is indicated or safe.
+
+The relationship matters because Fluid responsiveness asks whether stroke volume rises with increased preload. It does not answer whether the patient needs fluid, whether fluid is safe, or whether another intervention would better address the problem. At the bedside, use dynamic tests when their assumptions are valid and interpret the change in flow, not merely pressure. Then ask whether the patient can tolerate the added volume.
+
+Stress-test the model. Imagine the patient changes in a way that makes equating cvp with circulating volume tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Assuming fluid responsiveness means fluid is indicated or tolerated.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Congestion and the right heart.
+
+Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+Build the mechanism first. The RV is thin-walled and highly sensitive to acute afterload. When it dilates, wall stress rises, coronary perfusion can fall and septal shift can reduce LV filling.
+
+At the bedside, track systemic pressure, venous congestion, echo geometry, oxygenation, CO2, acid-base status and ventilator pressures together. Small changes in P V R or intrathoracic pressure can have large hemodynamic consequences.
+
+Two traps to actively avoid: Reflexively giving fluid to every hypotensive RV patient. And: Focusing on systemic pressure while ignoring worsening RV dilation and congestion.
+
+The integration move is this: Every intervention should be judged by its effects on RV preload, RV afterload, contractility and coronary perfusion.

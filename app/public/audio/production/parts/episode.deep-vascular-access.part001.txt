@@ -1,0 +1,43 @@
+You're listening to Vascular access: choose the least dangerous route that solves the problem. Peripheral ultrasound, IO and central access as one escalating access strategy.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to choose access strategy from urgency, therapy requirements and procedural risk; and recognize the failure modes unique to ultrasound piv, io and central venous access.
+
+Now: Access is a clinical objective, not a device preference.
+
+Ultrasound-guided peripheral IV. Ultrasound-guided peripheral access combines vessel selection, needle-tip tracking, catheter length and post-placement assessment.
+
+Build the mechanism first. Ultrasound-guided peripheral access depends on selecting a vessel whose depth, diameter and course match the catheter and on tracking the actual needle tip.
+
+At the bedside, scan before puncture, use multiple planes, advance enough catheter into the lumen and confirm function without soft-tissue infiltration.
+
+Two traps to actively avoid: Following the needle shaft while losing the tip. And: Using a catheter too short for a deep vessel.
+
+The integration move is this: Success is durable intraluminal catheter position, not merely blood return.
+
+Keep these terms available in your mental model: short axis, long axis, tip tracking, catheter-to-vein ratio.
+
+What expert-level use of this concept looks like is this: Choose an appropriate target by depth, diameter and course. Keep the true needle tip accounted for and anticipate failure from a catheter that is too short for the vessel depth.
+
+Reasoning checkpoint. Do not just repeat the statement: Choose an appropriate target by depth, diameter and course. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Keep the true needle tip accounted for and anticipate failure from a catheter that is too short for the vessel depth. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Ultrasound-guided peripheral IV to Ultrasound-guided central venous access. Safe venous access requires anatomy, real-time tip awareness, vessel confirmation, wire control, sterile technique and complication recognition.
+
+The relationship matters because Central venous access uses a wire-guided pathway from needle to catheter; the highest-risk errors occur when vessel identity, needle-tip position or wire location is assumed rather than confirmed. At the bedside, map anatomy before puncture, keep the true needle tip accounted for, confirm venous placement by reliable methods and maintain continuous wire control.
+
+Stress-test the model. Imagine the patient changes in a way that makes following the needle shaft while losing the tip tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Using a catheter too short for a deep vessel.
+
+Intraosseous access. Rapid vascular access through the medullary space when conventional access is delayed or unreliable.
+
+Build the mechanism first. Intraosseous access reaches the medullary venous network through bone cortex, providing rapid vascular access when conventional access is delayed.
+
+At the bedside, use the approved landmark and device-specific technique, then confirm stability, flush behavior and surrounding tissue integrity repeatedly.
+
+Two traps to actively avoid: Assuming every device that enters bone is intramedullary and usable. And: Forgetting ongoing extravasation/compartment-risk checks.
+
+The integration move is this: Speed matters, but landmark discipline and confirmation remain part of the procedure.
+
+Keep these terms available in your mental model: cortex, medullary space, extravasation.

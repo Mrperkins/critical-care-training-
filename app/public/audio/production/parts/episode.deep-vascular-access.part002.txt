@@ -1,0 +1,33 @@
+What expert-level use of this concept looks like is this: Identify the correct landmark for the chosen approved site and device. Confirm functional placement and recognize extravasation or compartment-risk signs.
+
+Reasoning checkpoint. Do not just repeat the statement: Identify the correct landmark for the chosen approved site and device. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Confirm functional placement and recognize extravasation or compartment-risk signs. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Intraosseous access to Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+The relationship matters because Shock is inadequate effective tissue perfusion and oxygen utilization, not merely hypotension. Flow, vascular tone, capacitance, congestion and extraction can fail in different combinations. At the bedside, phenotype the circulation repeatedly. A patient can move from one dominant mechanism to another during resuscitation.
+
+Now connect Intraosseous access to High-risk medication safety. Use standardized concentration, labeling, independent verification, closed-loop communication and context checks for high-risk drugs.
+
+The relationship matters because High-risk medication harm often arises from system failures: concentration mismatch, unlabeled syringes, look-alike products, route errors and communication breakdowns. At the bedside, standardize concentration, isolate the preparation task, label immediately and use closed-loop verification before administration.
+
+Stress-test the model. Imagine the patient changes in a way that makes assuming every device that enters bone is intramedullary and usable tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Forgetting ongoing extravasation/compartment-risk checks.
+
+Ultrasound-guided central venous access. Safe venous access requires anatomy, real-time tip awareness, vessel confirmation, wire control, sterile technique and complication recognition.
+
+Build the mechanism first. Central venous access uses a wire-guided pathway from needle to catheter; the highest-risk errors occur when vessel identity, needle-tip position or wire location is assumed rather than confirmed.
+
+At the bedside, map anatomy before puncture, keep the true needle tip accounted for, confirm venous placement by reliable methods and maintain continuous wire control.
+
+Two traps to actively avoid: Using blood color alone to distinguish vein from artery. And: Dilating before confirming wire position in the intended vessel.
+
+The integration move is this: Each stage should contain an explicit safety checkpoint before moving to the next irreversible step.
+
+Keep these terms available in your mental model: Seldinger technique, compressibility, guidewire.
+
+What expert-level use of this concept looks like is this: Distinguish vein from artery using more than color. Rehearse seeing the wire in the intended vessel before dilation and keeping control of the wire throughout.
+
+Reasoning checkpoint. Do not just repeat the statement: Distinguish vein from artery using more than color. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Rehearse seeing the wire in the intended vessel before dilation and keeping control of the wire throughout. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.

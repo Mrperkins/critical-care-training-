@@ -1,0 +1,41 @@
+You're listening to The agitated ventilated patient: do not reflexively deepen sedation. Pain, dyssynchrony, delirium, hypoxemia and physiology can all look like agitation.
+
+This is a level 3 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to build a differential for agitation before escalating sedation and recognize when the underlying problem is pain, ventilator interaction or delirium.
+
+Now: Agitation is a sign, not a diagnosis.
+
+ICU analgesia, sedation & synchrony. Sedation strategy balances analgesia, comfort, ventilator synchrony, neurologic assessment, hemodynamics and delirium risk.
+
+Build the mechanism first. Analgesics and sedatives alter pain, awareness, respiratory drive, vascular tone and neurologic assessment. Deep sedation is a physiologic intervention with downstream consequences.
+
+At the bedside, separate pain, anxiety, delirium, dyssynchrony and hypoxemia before escalating sedation; use an explicit target and reassess it.
+
+Two traps to actively avoid: Using paralysis as evidence of comfort. And: Treating agitation as a medication deficiency without finding the cause.
+
+The integration move is this: Sedation strategy should serve a clinical goal, not simply silence movement.
+
+Keep these terms available in your mental model: analgosedation, RASS, daily awakening.
+
+What expert-level use of this concept looks like is this: Separate pain, anxiety, delirium and dyssynchrony before simply deepening sedation. Predict major hemodynamic and respiratory tradeoffs of sedative strategies.
+
+Reasoning checkpoint. Do not just repeat the statement: Separate pain, anxiety, delirium and dyssynchrony before simply deepening sedation. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict major hemodynamic and respiratory tradeoffs of sedative strategies. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect ICU analgesia, sedation & synchrony to Delirium, sleep & mobility. Brain dysfunction in critical illness is shaped by disease, drugs, sleep disruption, immobility and environment.
+
+The relationship matters because Delirium reflects acute brain dysfunction shaped by illness, medications, sleep disruption, sensory deprivation, immobility and environmental stressors. At the bedside, identify reversible drivers, lighten unnecessary sedation, restore sleep-wake cues, mobilize when feasible and involve family/orientation strategies.
+
+Now connect ICU analgesia, sedation & synchrony to Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+The relationship matters because Acute ventilator deterioration can originate from the patient, tube, circuit or machine. Peak and plateau pressures help separate resistance from compliance when measurements are trustworthy. At the bedside, look at the patient first, rescue oxygenation/ventilation if the device cannot be trusted, then trace from patient to tube to circuit to machine.
+
+Stress-test the model. Imagine the patient changes in a way that makes using paralysis as evidence of comfort tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Treating agitation as a medication deficiency without finding the cause.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Analgesia before amnesia.

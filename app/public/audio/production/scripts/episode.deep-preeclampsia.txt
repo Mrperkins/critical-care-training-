@@ -1,0 +1,179 @@
+You're listening to Preeclampsia and eclampsia: a multisystem endothelial disease. Brain, liver, kidney, platelets, lung and placenta can all become part of the syndrome.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to recognize severe disease as a multisystem syndrome; and balance seizure prevention, pressure control and definitive obstetric management.
+
+Now: Severe features across organ systems.
+
+Preeclampsia & eclampsia. Hypertensive disease of pregnancy can involve cerebral, hepatic, renal, hematologic and placental dysfunction with seizure and pulmonary-edema risk.
+
+Build the mechanism first. Preeclampsia is a multisystem endothelial/placental disorder that can cause severe hypertension, cerebral edema/seizure, renal injury, pulmonary edema, liver injury and thrombocytopenia.
+
+At the bedside, recognize severe features across organ systems, prevent/treat seizure and control dangerous pressure while coordinating definitive obstetric management.
+
+Two traps to actively avoid: Focusing only on blood pressure. And: Giving large fluid loads to a patient with endothelial leak and pulmonary-edema risk.
+
+The integration move is this: Maternal stabilization and obstetric management are linked, not sequential.
+
+Keep these terms available in your mental model: severe features, magnesium, HELLP.
+
+What expert-level use of this concept looks like is this: Recognize severe features across organ systems. Balance blood-pressure control, seizure prevention and definitive obstetric management.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize severe features across organ systems. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Balance blood-pressure control, seizure prevention and definitive obstetric management. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Preeclampsia & eclampsia to ICP, CPP & cerebral perfusion. Cerebral perfusion depends on the gradient across the cerebral circulation and is influenced by pressure, venous outflow, CO2 and intracranial compliance.
+
+The relationship matters because CPP is the pressure gradient available to drive cerebral blood flow and is influenced by arterial pressure, ICP, venous pressure and autoregulation. Intracranial compliance falls as compensatory reserve is exhausted. At the bedside, interpret ICP as a dynamic system with waveform, position, venous drainage, CO2 and sedation effects. A “normal” MAP does not guarantee adequate cerebral perfusion.
+
+Now connect Preeclampsia & eclampsia to Critical-illness coagulopathy. Bleeding and thrombosis reflect platelets, fibrinogen, coagulation factors, fibrinolysis, temperature, calcium, dilution and disease-specific pathways.
+
+The relationship matters because Hemostasis depends on platelets, fibrinogen, coagulation factors, fibrinolysis, calcium, pH and temperature. Critical illness can produce simultaneous bleeding and thrombosis risk. At the bedside, interpret conventional labs and viscoelastic tests in the clinical context and replace the failing component rather than one arbitrary number.
+
+Stress-test the model. Imagine the patient changes in a way that makes focusing only on blood pressure tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Giving large fluid loads to a patient with endothelial leak and pulmonary-edema risk.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Seizure and cerebral complications.
+
+ICP, CPP & cerebral perfusion. Cerebral perfusion depends on the gradient across the cerebral circulation and is influenced by pressure, venous outflow, CO2 and intracranial compliance.
+
+Build the mechanism first. CPP is the pressure gradient available to drive cerebral blood flow and is influenced by arterial pressure, ICP, venous pressure and autoregulation. Intracranial compliance falls as compensatory reserve is exhausted.
+
+At the bedside, interpret ICP as a dynamic system with waveform, position, venous drainage, CO2 and sedation effects. A “normal” MAP does not guarantee adequate cerebral perfusion.
+
+Two traps to actively avoid: Treating ICP and CPP as isolated targets. And: Ignoring neck position, intrathoracic pressure and venous outflow.
+
+The integration move is this: Protect the brain by preserving oxygenation and perfusion while minimizing factors that increase intracranial volume or venous pressure.
+
+Keep these terms available in your mental model: CPP, autoregulation, Monro-Kellie.
+
+What expert-level use of this concept looks like is this: Predict how systemic pressure, CO2 and venous pressure affect cerebral perfusion. Recognize when a normal MAP does not guarantee adequate CPP.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict how systemic pressure, CO2 and venous pressure affect cerebral perfusion. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize when a normal MAP does not guarantee adequate CPP. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect ICP, CPP & cerebral perfusion to Brain herniation physiology. Rising intracranial pressure and compartment shifts distort brain structures, impair perfusion and can produce rapidly evolving focal and brainstem signs.
+
+The relationship matters because When intracranial pressure gradients exceed compensatory reserve, brain tissue shifts across fixed boundaries, compressing cranial nerves, vessels and brainstem structures. At the bedside, recognize trajectory—declining consciousness, pupillary asymmetry, motor changes and evolving brainstem physiology—while protecting oxygenation and cerebral perfusion.
+
+Now connect ICP, CPP & cerebral perfusion to E V D management. External ventricular drainage requires correct leveling, clamping during movement and interpretation of drainage and ICP.
+
+The relationship matters because An external ventricular drain uses a hydrostatic height reference to define the pressure at which CSF drains while also allowing ICP monitoring depending on system configuration. At the bedside, level to the ordered reference point, manage clamping during movement according to policy, and re-level after position changes before interpreting pressure or drainage.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating icp and cpp as isolated targets tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring neck position, intrathoracic pressure and venous outflow.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Platelets, liver and HELLP.
+
+Critical-illness coagulopathy. Bleeding and thrombosis reflect platelets, fibrinogen, coagulation factors, fibrinolysis, temperature, calcium, dilution and disease-specific pathways.
+
+Build the mechanism first. Hemostasis depends on platelets, fibrinogen, coagulation factors, fibrinolysis, calcium, pH and temperature. Critical illness can produce simultaneous bleeding and thrombosis risk.
+
+At the bedside, interpret conventional labs and viscoelastic tests in the clinical context and replace the failing component rather than one arbitrary number.
+
+Two traps to actively avoid: Equating INR with whole-blood clot quality. And: Ignoring fibrinogen, platelet function, temperature and calcium.
+
+The integration move is this: Coagulation is a dynamic system, not a single laboratory pathway.
+
+Keep these terms available in your mental model: fibrinolysis, fibrinogen, viscoelastic testing.
+
+What expert-level use of this concept looks like is this: Reason from the failing component of clot formation rather than treating INR alone. Anticipate temperature, calcium and dilution effects during hemorrhagic resuscitation.
+
+Reasoning checkpoint. Do not just repeat the statement: Reason from the failing component of clot formation rather than treating INR alone. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Anticipate temperature, calcium and dilution effects during hemorrhagic resuscitation. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Critical-illness coagulopathy to Massive transfusion & hemorrhagic resuscitation. Hemorrhagic resuscitation integrates source control, balanced component replacement, calcium, temperature, coagulation and perfusion.
+
+The relationship matters because Major hemorrhage produces loss of oxygen-carrying capacity, volume and hemostatic components while hypothermia, hypocalcemia, dilution and acidosis can worsen coagulation. At the bedside, activate the hemorrhage system early, warm the resuscitation, track calcium/coagulation/temperature and never lose sight of definitive source control.
+
+Stress-test the model. Imagine the patient changes in a way that makes equating inr with whole-blood clot quality tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring fibrinogen, platelet function, temperature and calcium.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Pulmonary edema and fluid sensitivity.
+
+Preeclampsia & eclampsia. Hypertensive disease of pregnancy can involve cerebral, hepatic, renal, hematologic and placental dysfunction with seizure and pulmonary-edema risk.
+
+Build the mechanism first. Preeclampsia is a multisystem endothelial/placental disorder that can cause severe hypertension, cerebral edema/seizure, renal injury, pulmonary edema, liver injury and thrombocytopenia.
+
+At the bedside, recognize severe features across organ systems, prevent/treat seizure and control dangerous pressure while coordinating definitive obstetric management.
+
+Two traps to actively avoid: Focusing only on blood pressure. And: Giving large fluid loads to a patient with endothelial leak and pulmonary-edema risk.
+
+The integration move is this: Maternal stabilization and obstetric management are linked, not sequential.
+
+Keep these terms available in your mental model: severe features, magnesium, HELLP.
+
+What expert-level use of this concept looks like is this: Recognize severe features across organ systems. Balance blood-pressure control, seizure prevention and definitive obstetric management.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize severe features across organ systems. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Balance blood-pressure control, seizure prevention and definitive obstetric management. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Preeclampsia & eclampsia to ICP, CPP & cerebral perfusion. Cerebral perfusion depends on the gradient across the cerebral circulation and is influenced by pressure, venous outflow, CO2 and intracranial compliance.
+
+The relationship matters because CPP is the pressure gradient available to drive cerebral blood flow and is influenced by arterial pressure, ICP, venous pressure and autoregulation. Intracranial compliance falls as compensatory reserve is exhausted. At the bedside, interpret ICP as a dynamic system with waveform, position, venous drainage, CO2 and sedation effects. A “normal” MAP does not guarantee adequate cerebral perfusion.
+
+Now connect Preeclampsia & eclampsia to Critical-illness coagulopathy. Bleeding and thrombosis reflect platelets, fibrinogen, coagulation factors, fibrinolysis, temperature, calcium, dilution and disease-specific pathways.
+
+The relationship matters because Hemostasis depends on platelets, fibrinogen, coagulation factors, fibrinolysis, calcium, pH and temperature. Critical illness can produce simultaneous bleeding and thrombosis risk. At the bedside, interpret conventional labs and viscoelastic tests in the clinical context and replace the failing component rather than one arbitrary number.
+
+Stress-test the model. Imagine the patient changes in a way that makes focusing only on blood pressure tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Giving large fluid loads to a patient with endothelial leak and pulmonary-edema risk.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Stabilization and definitive obstetric management.
+
+Preeclampsia & eclampsia. Hypertensive disease of pregnancy can involve cerebral, hepatic, renal, hematologic and placental dysfunction with seizure and pulmonary-edema risk.
+
+Build the mechanism first. Preeclampsia is a multisystem endothelial/placental disorder that can cause severe hypertension, cerebral edema/seizure, renal injury, pulmonary edema, liver injury and thrombocytopenia.
+
+At the bedside, recognize severe features across organ systems, prevent/treat seizure and control dangerous pressure while coordinating definitive obstetric management.
+
+Two traps to actively avoid: Focusing only on blood pressure. And: Giving large fluid loads to a patient with endothelial leak and pulmonary-edema risk.
+
+The integration move is this: Maternal stabilization and obstetric management are linked, not sequential.
+
+Keep these terms available in your mental model: severe features, magnesium, HELLP.
+
+What expert-level use of this concept looks like is this: Recognize severe features across organ systems. Balance blood-pressure control, seizure prevention and definitive obstetric management.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize severe features across organ systems. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Balance blood-pressure control, seizure prevention and definitive obstetric management. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Preeclampsia & eclampsia to ICP, CPP & cerebral perfusion. Cerebral perfusion depends on the gradient across the cerebral circulation and is influenced by pressure, venous outflow, CO2 and intracranial compliance.
+
+The relationship matters because CPP is the pressure gradient available to drive cerebral blood flow and is influenced by arterial pressure, ICP, venous pressure and autoregulation. Intracranial compliance falls as compensatory reserve is exhausted. At the bedside, interpret ICP as a dynamic system with waveform, position, venous drainage, CO2 and sedation effects. A “normal” MAP does not guarantee adequate cerebral perfusion.
+
+Now connect Preeclampsia & eclampsia to Critical-illness coagulopathy. Bleeding and thrombosis reflect platelets, fibrinogen, coagulation factors, fibrinolysis, temperature, calcium, dilution and disease-specific pathways.
+
+The relationship matters because Hemostasis depends on platelets, fibrinogen, coagulation factors, fibrinolysis, calcium, pH and temperature. Critical illness can produce simultaneous bleeding and thrombosis risk. At the bedside, interpret conventional labs and viscoelastic tests in the clinical context and replace the failing component rather than one arbitrary number.
+
+Stress-test the model. Imagine the patient changes in a way that makes focusing only on blood pressure tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Giving large fluid loads to a patient with endothelial leak and pulmonary-edema risk.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you recognize severe disease as a multisystem syndrome?
+
+Can you balance seizure prevention, pressure control and definitive obstetric management?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.
