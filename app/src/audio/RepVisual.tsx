@@ -146,15 +146,16 @@ function IjLandmarks(){return <Frame title="right IJ · surface triangle → ult
   <text className="small" x="430" y="388">sweep cephalad/caudad · inspect overlap · rotate to long axis</text>
 </svg></Frame>}
 function RealIjv(){return <Frame title="real IJV long-axis clip" real><div className="rv-realmedia"><video controls playsInline muted poster="../imaging/real/ijv-2026-video-s2.jpg"><source src="../imaging/real/ijv-2026-video-s2.mp4" type="video/mp4"/><source src="../imaging/real/ijv-2026-video-s2.webm" type="video/webm"/></video><span>Shaul et al. · CC BY 4.0</span></div></Frame>}
-function ChestWall(){return <Frame title="count to the interspace · then cross-check the safe triangle"><svg viewBox="0 0 600 420">
+function ChestWall(){return <Frame title="count ribs → choose interspace by indication → cross-check safe triangle"><svg viewBox="0 0 600 420">
   <path className="rv-body" d="M42 45q118-32 220 20q36 18 76 0q102-52 220-20v300q-120 38-258 0q-138 38-258 0z"/>
   <path className="rv-line" d="M300 65v210"/><circle className="rv-dot" cx="300" cy="118" r="7"/><text className="small" x="300" y="101">STERNAL ANGLE · 2nd RIB</text>
   <path className="rv-rib" d="M115 145q185-48 370 0M105 180q195-48 390 0M96 215q204-48 408 0M90 250q210-48 420 0M86 285q214-48 428 0"/>
   <text className="small" x="520" y="148">2</text><text className="small" x="526" y="183">3</text><text className="small" x="530" y="218">4</text><text className="small" x="535" y="253">5</text><text className="small" x="538" y="288">6</text>
-  <path className="rv-line gold" d="M404 282L455 118M404 282L340 115M340 115L455 118"/><text className="small" x="470" y="120">latissimus anterior edge</text><text className="small" x="334" y="95">pectoralis lateral edge</text>
-  <circle className="rv-dot" cx="407" cy="268" r="9"/><text className="small" x="405" y="328">5th interspace · above 6th rib</text>
-  <path className="rv-line bad" d="M470 274h75"/><text className="small" x="505" y="260">bundle runs</text><text className="small" x="505" y="276">under rib above</text>
-  <text className="small" x="300" y="392">sternal angle → rib 2 → count down → safe triangle → superior border of lower rib</text>
+  <path className="rv-line gold" d="M404 303L455 118M404 303L340 115M340 115L455 118"/><text className="small" x="470" y="120">latissimus anterior edge</text><text className="small" x="334" y="95">pectoralis lateral edge</text>
+  <circle className="rv-dot" cx="410" cy="232" r="8"/><text className="small" x="430" y="225">4th ICS · common PTX reference</text>
+  <circle className="rv-dot" cx="407" cy="268" r="8"/><text className="small" x="430" y="284">5th ICS · fluid / hemothorax reference</text>
+  <path className="rv-line bad" d="M112 321h115"/><text className="small" x="168" y="310">NV bundle hugs</text><text className="small" x="168" y="327">inferior rib border</text>
+  <text className="small" x="300" y="392">target gap chosen → palpate rib below → enter over that rib’s superior border</text>
 </svg></Frame>}
 function Drain({active}:{active:boolean}){return <Frame title={active?'water seal: read the system':'build the drain system'}><svg viewBox="0 0 600 420"><path className="rv-line" d="M90 95v80c0 25 18 42 44 42h80v80"/><rect className="rv-soft" x="180" y="275" width="315" height="105" rx="10"/><path className="rv-water" d="M195 345h285v25H195z"/><path className={active?'rv-bubble active':'rv-bubble'} d="M250 345v-48M335 345v-62M420 345v-37"/><circle className="rv-ring gold" cx="90" cy="75" r="25"/><text className="small" x="225" y="404">patient → tubing → unit → chambers</text></svg></Frame>}
 function Evd(){return <Frame title="ear landmark → horizontal zero → ordered chamber height"><svg viewBox="0 0 600 420">
