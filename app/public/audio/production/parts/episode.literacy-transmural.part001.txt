@@ -1,0 +1,39 @@
+You're listening to ICU Literacy: transmural pressure. The pressure that actually distends a chamber is not always the number on the monitor.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to use transmural pressure to explain why measured filling pressures change with intrathoracic pressure.
+
+Now: Inside pressure minus outside pressure.
+
+Preload. The loading conditions of a ventricle before contraction; not synonymous with a single pressure or volume.
+
+Build the mechanism first. Preload is the myocardial fiber-loading condition before contraction. It is influenced by venous return, ventricular compliance, pericardial pressure and intrathoracic pressure, so a measured filling pressure is only an imperfect surrogate.
+
+At the bedside, interpret filling pressure together with volume response, congestion, ventricular geometry and the pressure surrounding the heart. A CVP of 14 can mean very different things in RV failure, tamponade and positive-pressure ventilation.
+
+Two traps to actively avoid: Equating CVP with circulating volume. And: Assuming fluid responsiveness means fluid is indicated or tolerated.
+
+The integration move is this: Ask what changed the effective distending pressure of the ventricle, not merely what changed the monitor number.
+
+Keep these terms available in your mental model: end-diastolic volume, transmural pressure.
+
+What expert-level use of this concept looks like is this: Distinguish preload from CVP or fluid responsiveness. Predict how changes in intrathoracic pressure alter measured filling pressures.
+
+Reasoning checkpoint. Do not just repeat the statement: Distinguish preload from CVP or fluid responsiveness. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict how changes in intrathoracic pressure alter measured filling pressures. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Preload to Venous return. Flow back to the right heart determined by the pressure gradient from the systemic circulation and resistance to venous return.
+
+The relationship matters because Venous return depends on the pressure gradient from the systemic venous reservoir toward the right atrium and on resistance to that flow. Mean systemic filling pressure and right-atrial pressure can move independently. At the bedside, a rise in right-atrial pressure can reduce venous return even when the patient appears more “full.” Venoconstriction can recruit unstressed volume and change the upstream pressure without adding external fluid.
+
+Now connect Preload to Fluid responsiveness. Whether stroke volume will meaningfully increase after an increase in preload; distinct from whether fluid is indicated or safe.
+
+The relationship matters because Fluid responsiveness asks whether stroke volume rises with increased preload. It does not answer whether the patient needs fluid, whether fluid is safe, or whether another intervention would better address the problem. At the bedside, use dynamic tests when their assumptions are valid and interpret the change in flow, not merely pressure. Then ask whether the patient can tolerate the added volume.
+
+Stress-test the model. Imagine the patient changes in a way that makes equating cvp with circulating volume tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Assuming fluid responsiveness means fluid is indicated or tolerated.
+
+Positive-pressure ventilation & circulation. Positive intrathoracic pressure changes venous return, ventricular transmural pressures and pulmonary vascular resistance.
+
+Build the mechanism first. Positive intrathoracic pressure can reduce the gradient for venous return, change transmural ventricular pressures and alter P V R depending on lung volume and recruitability.

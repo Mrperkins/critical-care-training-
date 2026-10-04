@@ -1,0 +1,43 @@
+You're listening to Critical congenital heart disease without memorizing twenty lesions. Think pulmonary flow, systemic flow, mixing and ductal dependence.
+
+This is a level 5 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to classify critical congenital lesions by circulation topology; and predict how pvr/svr changes alter shunt balance and oxygen delivery.
+
+Now: Four questions for any lesion.
+
+Critical congenital heart disease physiology. Critical congenital lesions are best understood by whether systemic or pulmonary blood flow depends on shunts, mixing or ductal patency.
+
+Build the mechanism first. Critical congenital lesions can be organized by whether systemic flow, pulmonary flow or mixing depends on a shunt/ductus and by how Qp and Qs respond to resistance changes.
+
+At the bedside, think topology before lesion names: where can blood go, where must it mix, and what changes if P V R or S V R moves?
+
+Two traps to actively avoid: Treating oxygen as universally beneficial without considering shunt balance. And: Memorizing lesions without understanding circulation geometry.
+
+The integration move is this: A diagram of flow often explains the patient better than the diagnosis label.
+
+Keep these terms available in your mental model: ductal-dependent, mixing lesion, Qp:Qs.
+
+What expert-level use of this concept looks like is this: Reason from circulation topology rather than memorizing lesion names. Predict how oxygen, ventilation and vascular resistance can alter shunt balance.
+
+Reasoning checkpoint. Do not just repeat the statement: Reason from circulation topology rather than memorizing lesion names. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict how oxygen, ventilation and vascular resistance can alter shunt balance. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Critical congenital heart disease physiology to Oxygen delivery. DO2 is cardiac output multiplied by arterial oxygen content; saturation alone does not describe tissue oxygen delivery.
+
+The relationship matters because Oxygen delivery equals cardiac output multiplied by arterial oxygen content, which is dominated by hemoglobin-bound oxygen rather than dissolved oxygen. At the bedside, normal saturation can coexist with critically low delivery in severe anemia or low-flow shock. Ask about hemoglobin and flow whenever tissue perfusion looks worse than the pulse oximeter.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating oxygen as universally beneficial without considering shunt balance tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Memorizing lesions without understanding circulation geometry.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Pulmonary blood-flow limitation.
+
+Critical congenital heart disease physiology. Critical congenital lesions are best understood by whether systemic or pulmonary blood flow depends on shunts, mixing or ductal patency.
+
+Build the mechanism first. Critical congenital lesions can be organized by whether systemic flow, pulmonary flow or mixing depends on a shunt/ductus and by how Qp and Qs respond to resistance changes.
+
+At the bedside, think topology before lesion names: where can blood go, where must it mix, and what changes if P V R or S V R moves?

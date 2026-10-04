@@ -1,0 +1,37 @@
+You're listening to The P A C O 2–end tidal C O 2 gap is a perfusion clue. Why shock, PE and increasing dead space make capnography diverge from arterial CO₂.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to explain the physiologic basis of the paco₂–etco₂ gap; and recognize when a changing gap reflects changing perfusion or dead space rather than simply ventilation.
+
+Now: Why arterial and exhaled CO₂ differ at baseline.
+
+P A C O 2–end tidal C O 2 gap. The arterial-to-end-tidal CO₂ difference reflects how effectively perfused alveoli contribute to exhaled gas and often widens with increasing dead space.
+
+Build the mechanism first. EtCO2 reflects gas from the best-perfused ventilated alveoli, while PaCO2 reflects mixed arterial CO2. Increasing alveolar dead space often widens the arterial-to-end-tidal difference.
+
+At the bedside, trend the gap in shock, PE and changing pulmonary perfusion rather than applying a fixed correction factor.
+
+Two traps to actively avoid: Assuming EtCO2 is always a constant number below PaCO2. And: Attributing low EtCO2 only to hyperventilation.
+
+The integration move is this: Capnography is a circulation signal when pulmonary blood flow changes.
+
+Keep these terms available in your mental model: capnography, alveolar dead space.
+
+What expert-level use of this concept looks like is this: Interpret a changing P A C O 2–end tidal C O 2 gap in the context of ventilation and perfusion. Avoid treating end-tidal CO₂ as a fixed surrogate for arterial CO₂ in unstable physiology.
+
+Reasoning checkpoint. Do not just repeat the statement: Interpret a changing P A C O 2–end tidal C O 2 gap in the context of ventilation and perfusion. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Avoid treating end-tidal CO₂ as a fixed surrogate for arterial CO₂ in unstable physiology. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect P A C O 2–end tidal C O 2 gap to Pulmonary embolism physiology. Acute pulmonary vascular obstruction can abruptly raise RV afterload, impair LV filling and cause shock despite structurally normal lungs.
+
+The relationship matters because Large pulmonary embolic obstruction abruptly raises RV afterload, causing RV dilation, reduced LV filling and potential obstructive shock; gas exchange often reflects increased dead space. At the bedside, look for RV strain, low-flow signs and widening PaCO2–EtCO2 gap; be cautious with induction and excessive positive pressure in a preload- and RV-dependent circulation.
+
+Now connect P A C O 2–end tidal C O 2 gap to Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+The relationship matters because Shock is inadequate effective tissue perfusion and oxygen utilization, not merely hypotension. Flow, vascular tone, capacitance, congestion and extraction can fail in different combinations. At the bedside, phenotype the circulation repeatedly. A patient can move from one dominant mechanism to another during resuscitation.
+
+Stress-test the model. Imagine the patient changes in a way that makes assuming etco2 is always a constant number below paco2 tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Attributing low EtCO2 only to hyperventilation.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.

@@ -1,0 +1,39 @@
+Keep these terms available in your mental model: RV-PA coupling, septal shift, transmural pressure.
+
+What expert-level use of this concept looks like is this: Recognize RV shock physiology before systemic hypotension becomes profound. Predict how peep, hypercapnia, hypoxemia, fluids and vasoactives may change RV performance.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize RV shock physiology before systemic hypotension becomes profound. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict how peep, hypercapnia, hypoxemia, fluids and vasoactives may change RV performance. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Right ventricular failure to Pulmonary vascular resistance. Resistance faced by the RV, influenced by lung volume, oxygenation, CO2, pH, pulmonary vascular disease and mechanical ventilation.
+
+The relationship matters because Pulmonary vascular resistance reflects the combined behavior of alveolar and extra-alveolar vessels and is affected by lung volume, oxygen, CO2, pH and pulmonary vascular disease. At the bedside, both severe derecruitment and overdistension can raise RV afterload. Hypoxemia, hypercapnia and acidosis can compound the problem.
+
+Now connect Right ventricular failure to Ventricular interdependence. The ventricles share a septum and constrained pericardial space, so pressure or volume loading of one changes filling and geometry of the other.
+
+The relationship matters because The ventricles share a septum and a constrained pericardial space. Acute RV pressure or volume loading can shift the septum and reduce LV diastolic filling. At the bedside, a falling LV stroke volume in RV failure may occur despite apparently adequate intravascular volume because geometry, not supply, is limiting filling.
+
+Stress-test the model. Imagine the patient changes in a way that makes reflexively giving fluid to every hypotensive rv patient tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Focusing on systemic pressure while ignoring worsening RV dilation and congestion.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Pause here and answer this before you continue: Before more data arrives, what are your competing priorities?
+
+Do not grade yourself only on whether you found the expected answer. Ask whether your reasoning predicted a physiologic response and what evidence would make you change your mind.
+
+Now: The vent becomes part of the circulation.
+
+peep. Positive end-expiratory pressure used to preserve recruitment and oxygenation, with important mechanical and hemodynamic effects.
+
+Build the mechanism first. peep can prevent end-expiratory collapse and recruit unstable lung units, but can also overdistend already-open units and transmit pressure to the thorax.
+
+At the bedside, judge a peep change by oxygenation, compliance, driving pressure, hemodynamics and the disease’s recruitability rather than by oxygen saturation alone.
+
+Two traps to actively avoid: Chasing oxygenation while ignoring falling cardiac output. And: Assuming higher peep is either universally protective or universally harmful.
+
+The integration move is this: The useful peep is the one that improves the whole patient, not just the alveolar oxygen number.
+
+Keep these terms available in your mental model: recruitability, intrinsic peep.
+
+What expert-level use of this concept looks like is this: Explain when increasing peep may recruit lung versus overdistend it. Anticipate circulatory effects in preload-dependent or RV-failing patients.

@@ -1,0 +1,13 @@
+The relationship matters because Organ-support interventions frequently redistribute risk: peep can help oxygenation but worsen RV load; fluids can increase flow but worsen congestion; sedation can improve synchrony but obscure neurologic assessment. At the bedside, before intervening, name the intended benefit, the organ/system at risk and the signal that would tell you the tradeoff has become unfavorable.
+
+Stress-test the model. Imagine the patient changes in a way that makes equating uncertainty with indecision tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Becoming more confident simply because the same hypothesis has been repeated.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you generate multiple mechanisms for hyperlactatemia and interpret the trend alongside perfusion rather than alone?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

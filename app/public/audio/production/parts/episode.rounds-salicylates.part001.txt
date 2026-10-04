@@ -1,0 +1,45 @@
+You're listening to Salicylates: do not steal the patient’s compensatory ventilation. A mixed acid-base disorder where falling pH changes toxin distribution.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to recognize severe salicylate poisoning from physiology, not just concentration; and explain why loss of compensatory ventilation can abruptly worsen toxicity.
+
+Now: Respiratory alkalosis plus metabolic acidosis.
+
+Salicylate toxicity. Salicylates create respiratory alkalosis plus metabolic acidosis, uncouple oxidative phosphorylation and become more CNS-penetrant as pH falls.
+
+Build the mechanism first. Salicylates stimulate respiration, uncouple oxidative phosphorylation and create mixed respiratory alkalosis/metabolic acidosis; lower blood pH increases nonionized drug penetration into tissues.
+
+At the bedside, preserve compensatory ventilation, monitor acid-base trajectory and consider alkalinization/extracorporeal removal when severity warrants.
+
+Two traps to actively avoid: Calling a near-normal pH reassuring. And: Intubating without matching the patient’s extraordinary minute ventilation.
+
+The integration move is this: Acid-base management is toxicokinetic management because pH changes tissue distribution.
+
+Keep these terms available in your mental model: alkalinization, mixed disorder, ion trapping.
+
+What expert-level use of this concept looks like is this: Recognize why a near-normal pH can hide severe mixed acid-base disease. Explain why airway management can be hazardous if compensatory ventilation is lost.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize why a near-normal pH can hide severe mixed acid-base disease. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Explain why airway management can be hazardous if compensatory ventilation is lost. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Salicylate toxicity to C R R T physiology & prescription literacy. Continuous renal replacement uses diffusion and/or convection to manage solute, acid-base and fluid balance in unstable patients.
+
+The relationship matters because C R R T uses diffusion, convection and ultrafiltration to control solute, acid-base and volume continuously. Prescribed dose can differ substantially from delivered dose. At the bedside, separate total effluent from net patient fluid removal and interpret access, filter and return pressures as clues to the physical circuit.
+
+Stress-test the model. Imagine the patient changes in a way that makes calling a near-normal ph reassuring tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Intubating without matching the patient’s extraordinary minute ventilation.
+
+Advanced acid-base reasoning. Integrate respiratory and metabolic processes, compensation, anion gap, albumin, chloride and mixed disorders.
+
+Build the mechanism first. pH reflects interacting respiratory and metabolic processes. Compensation has expected patterns, so deviations can expose mixed disorders that a single pH label hides.
+
+At the bedside, calculate the anion gap, correct for relevant confounders, compare compensation and consider chloride, albumin and lactate in context.
+
+Two traps to actively avoid: Calling a normal pH normal acid-base physiology. And: Treating bicarbonate concentration as if it identifies the mechanism by itself.
+
+The integration move is this: Acid-base analysis should lead back to the disease process causing the disturbance.
+
+Keep these terms available in your mental model: delta gap, expected compensation.
+
+What expert-level use of this concept looks like is this: Identify mixed disorders that a single pH label hides. Connect acid-base abnormalities to the underlying physiology and treatment.

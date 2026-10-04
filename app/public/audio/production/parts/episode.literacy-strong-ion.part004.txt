@@ -1,0 +1,13 @@
+Stress-test the model. Imagine the patient changes in a way that makes calling a normal ph normal acid-base physiology tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Treating bicarbonate concentration as if it identifies the mechanism by itself.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you explain SID, weak acids and PCO2 conceptually?
+
+Can you translate common hyperchloremic and hypoalbuminemic states between physicochemical and traditional acid-base frameworks?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

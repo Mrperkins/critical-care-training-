@@ -1,0 +1,35 @@
+Reasoning checkpoint. Do not just repeat the statement: Recognize mixed shock. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Choose an intervention that tests a physiologic hypothesis and define the response expected if that hypothesis is correct. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Shock phenotyping to Septic shock physiology. Distributive shock with dynamic changes in vascular tone, venous capacitance, myocardial performance, microcirculation and oxygen extraction.
+
+The relationship matters because Septic shock can combine vasoplegia, venous pooling, myocardial dysfunction, endothelial leak and disturbed microcirculation. Cardiac output may be low, normal or high. At the bedside, reassess vascular tone, flow, congestion and perfusion after each intervention rather than assuming a fixed distributive phenotype.
+
+Now connect Shock phenotyping to Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+The relationship matters because The RV is thin-walled and highly sensitive to acute afterload. When it dilates, wall stress rises, coronary perfusion can fall and septal shift can reduce LV filling. At the bedside, track systemic pressure, venous congestion, echo geometry, oxygenation, CO2, acid-base status and ventilator pressures together. Small changes in P V R or intrathoracic pressure can have large hemodynamic consequences.
+
+Stress-test the model. Imagine the patient changes in a way that makes naming shock once and never revisiting the model tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Treating MAP as the only endpoint.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Upper airway, lower airway and systemic toxins.
+
+Inhalation injury. Thermal upper-airway injury, chemical tracheobronchial injury and systemic toxic exposure are distinct problems that can coexist after fire.
+
+Build the mechanism first. Fire exposure can cause thermal upper-airway edema, chemical lower-airway injury and systemic carbon monoxide/cyanide toxicity—three distinct processes.
+
+At the bedside, assess for progressive airway edema, bronchial injury and systemic toxin physiology separately; early airway control may be safer before edema peaks in selected patients.
+
+Two traps to actively avoid: Using soot alone as diagnosis. And: Assuming normal pulse oximetry excludes carbon monoxide exposure.
+
+The integration move is this: The airway, lung and cellular oxygen-utilization problems can coexist.
+
+Keep these terms available in your mental model: carbon monoxide, cyanide, bronchoscopy.
+
+What expert-level use of this concept looks like is this: Separate impending airway edema from lower-airway injury and systemic toxic exposure. Recognize when early airway control may be safer than waiting for visible obstruction.
+
+Reasoning checkpoint. Do not just repeat the statement: Separate impending airway edema from lower-airway injury and systemic toxic exposure. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.

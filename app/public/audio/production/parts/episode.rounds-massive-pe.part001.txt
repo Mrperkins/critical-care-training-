@@ -1,0 +1,39 @@
+You're listening to Massive PE: the lung can be clear while the circulation collapses. Acute RV afterload, dead space and ventricular interaction.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to connect pe to rv pressure load, dead space and lv underfilling; and anticipate why induction and positive pressure can destabilize severe obstructive shock.
+
+Now: Pulmonary vascular obstruction.
+
+Pulmonary embolism physiology. Acute pulmonary vascular obstruction can abruptly raise RV afterload, impair LV filling and cause shock despite structurally normal lungs.
+
+Build the mechanism first. Large pulmonary embolic obstruction abruptly raises RV afterload, causing RV dilation, reduced LV filling and potential obstructive shock; gas exchange often reflects increased dead space.
+
+At the bedside, look for RV strain, low-flow signs and widening PaCO2–EtCO2 gap; be cautious with induction and excessive positive pressure in a preload- and RV-dependent circulation.
+
+Two traps to actively avoid: Assuming clear lungs mean respiratory physiology is benign. And: Intubating without preparing for hemodynamic collapse.
+
+The integration move is this: Massive PE is primarily a circulation problem expressed through the pulmonary vasculature.
+
+Keep these terms available in your mental model: obstructive shock, RV strain, dead space.
+
+What expert-level use of this concept looks like is this: Connect clot burden to RV pressure load, septal interaction and gas-exchange findings. Recognize why intubation and excessive positive pressure may destabilize severe PE.
+
+Reasoning checkpoint. Do not just repeat the statement: Connect clot burden to RV pressure load, septal interaction and gas-exchange findings. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize why intubation and excessive positive pressure may destabilize severe PE. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Pulmonary embolism physiology to Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+The relationship matters because The RV is thin-walled and highly sensitive to acute afterload. When it dilates, wall stress rises, coronary perfusion can fall and septal shift can reduce LV filling. At the bedside, track systemic pressure, venous congestion, echo geometry, oxygenation, CO2, acid-base status and ventilator pressures together. Small changes in P V R or intrathoracic pressure can have large hemodynamic consequences.
+
+Now connect Pulmonary embolism physiology to Dead space. Ventilation that does not effectively participate in CO2 exchange, from conducting airways or ventilated but poorly perfused alveoli.
+
+The relationship matters because Dead-space ventilation reaches regions that do not effectively eliminate CO2 because perfusion is absent or inadequate, or because gas remains in conducting airways. At the bedside, rising minute-ventilation requirement, widening PaCO2–EtCO2 gap or unexpectedly low EtCO2 can signal increasing dead space when ventilation is otherwise unchanged.
+
+Stress-test the model. Imagine the patient changes in a way that makes assuming clear lungs mean respiratory physiology is benign tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Intubating without preparing for hemodynamic collapse.
+
+Pulmonary vascular resistance. Resistance faced by the RV, influenced by lung volume, oxygenation, CO2, pH, pulmonary vascular disease and mechanical ventilation.
+
+Build the mechanism first. Pulmonary vascular resistance reflects the combined behavior of alveolar and extra-alveolar vessels and is affected by lung volume, oxygen, CO2, pH and pulmonary vascular disease.

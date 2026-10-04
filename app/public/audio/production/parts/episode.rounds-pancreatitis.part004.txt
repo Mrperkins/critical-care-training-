@@ -1,0 +1,35 @@
+Now connect C R R T physiology & prescription literacy to Antimicrobial PK/PD in critical illness. Critical illness changes volume of distribution, clearance and target attainment, so dose strategy must match drug and patient physiology.
+
+The relationship matters because Critical illness alters volume of distribution, protein binding and clearance. Drug efficacy depends on whether exposure matches the relevant PK/PD target. At the bedside, account for augmented renal clearance, AKI, C R R T, fluid shifts and obesity rather than assuming standard dosing produces standard exposure.
+
+Now connect C R R T physiology & prescription literacy to Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+The relationship matters because Shock is inadequate effective tissue perfusion and oxygen utilization, not merely hypotension. Flow, vascular tone, capacitance, congestion and extraction can fail in different combinations. At the bedside, phenotype the circulation repeatedly. A patient can move from one dominant mechanism to another during resuscitation.
+
+Stress-test the model. Imagine the patient changes in a way that makes calling every effluent liter “fluid removed from the patient.” tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring downtime and clotting when assessing delivered therapy.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Necrosis, infection and nutrition.
+
+ICU nutrition & refeeding risk. Nutrition in critical illness is a metabolic therapy with timing, route, protein, glycemic and electrolyte consequences.
+
+Build the mechanism first. Critical illness changes protein turnover, insulin sensitivity and energy use. Nutrition cannot fully reverse catabolism but route, timing and protein strategy influence recovery.
+
+At the bedside, prefer enteral feeding when feasible, assess aspiration/hemodynamic risk and monitor tolerance rather than chasing an exact calorie number immediately.
+
+Two traps to actively avoid: Equating calories with adequate nutrition. And: Overfeeding unstable patients or missing refeeding risk.
+
+The integration move is this: Nutrition, mobility and ventilator liberation are connected recovery interventions.
+
+Keep these terms available in your mental model: enteral nutrition, protein target, caloric debt.
+
+What expert-level use of this concept looks like is this: Explain why early enteral nutrition is often preferred when feasible. Recognize when feeding strategy, aspiration risk or hemodynamic instability changes the plan.
+
+Reasoning checkpoint. Do not just repeat the statement: Explain why early enteral nutrition is often preferred when feasible. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize when feeding strategy, aspiration risk or hemodynamic instability changes the plan. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect ICU nutrition & refeeding risk to Refeeding syndrome. Insulin-driven intracellular shifts after refeeding can rapidly lower phosphate, potassium and magnesium and precipitate cardiopulmonary or neurologic deterioration.

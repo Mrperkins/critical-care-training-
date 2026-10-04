@@ -1,0 +1,41 @@
+You're listening to When the chest tube stops helping. Trace the patient, tube, connections and drainage system before blaming the lung.
+
+This is a level 3 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to troubleshoot pleural drainage from patient outward; and use system behavior and pleural ultrasound to distinguish persistent pathology from device failure.
+
+Now: Start with the patient.
+
+Pleural drain troubleshooting. A pleural drain must be assessed as patient + tube + connections + drainage system rather than as an isolated device.
+
+Build the mechanism first. A pleural drain can fail because pathology persists, the tube is malpositioned/occluded, connections leak, or the drainage system is configured incorrectly.
+
+At the bedside, trace from patient to skin entry, tubing, connections, water seal and suction; correlate with respiratory/hemodynamic changes and pleural imaging.
+
+Two traps to actively avoid: Milking or manipulating tubing without understanding the problem. And: Assuming bubbling always means the same thing.
+
+The integration move is this: Device behavior is meaningful only when interpreted with the patient and the physical circuit.
+
+Keep these terms available in your mental model: water seal, tidaling, air leak.
+
+What expert-level use of this concept looks like is this: Trace a failing drain from the patient outward. Differentiate expected system behavior from kink, disconnection, migration, occlusion and ongoing pleural leak.
+
+Reasoning checkpoint. Do not just repeat the statement: Trace a failing drain from the patient outward. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Differentiate expected system behavior from kink, disconnection, migration, occlusion and ongoing pleural leak. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Pleural drain troubleshooting to Pneumothorax ultrasound. Pleural ultrasound combines sliding, B-lines, M-mode patterns and lung point rather than relying on a single sign.
+
+The relationship matters because Pleural ultrasound infers apposition or separation of pleural layers through sliding, B-lines, lung pulse, M-mode patterns and lung point. At the bedside, absent sliding raises suspicion but is nonspecific; lung point is more specific when present in the appropriate context.
+
+Now connect Pleural drain troubleshooting to Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+The relationship matters because Acute ventilator deterioration can originate from the patient, tube, circuit or machine. Peak and plateau pressures help separate resistance from compliance when measurements are trustworthy. At the bedside, look at the patient first, rescue oxygenation/ventilation if the device cannot be trusted, then trace from patient to tube to circuit to machine.
+
+Stress-test the model. Imagine the patient changes in a way that makes milking or manipulating tubing without understanding the problem tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Assuming bubbling always means the same thing.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Kink, clot, migration and dependent loops.

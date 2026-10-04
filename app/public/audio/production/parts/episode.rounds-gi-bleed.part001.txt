@@ -1,0 +1,41 @@
+You're listening to The crashing GI bleed. Resuscitation, airway judgment, portal hypertension and definitive source control.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to run hemorrhage resuscitation and definitive-control planning in parallel; and recognize physiology and airway features that make severe gi bleeding uniquely dangerous.
+
+Now: Resuscitate while locating the source.
+
+Severe GI hemorrhage. Upper and lower GI bleeding require simultaneous hemorrhagic resuscitation, airway judgment, coagulopathy assessment and definitive source control.
+
+Build the mechanism first. Severe GI bleeding combines blood loss with source-specific physiology such as portal hypertension and can rapidly create airway, perfusion and coagulation problems.
+
+At the bedside, resuscitate while mobilizing definitive endoscopic/interventional control and managing anticoagulant/coagulopathy issues.
+
+Two traps to actively avoid: Delaying source control until every vital sign normalizes. And: Intubating reflexively without considering the hemodynamic cost.
+
+The integration move is this: Resuscitation and source control are simultaneous workflows.
+
+Keep these terms available in your mental model: variceal, nonvariceal, endoscopy.
+
+What expert-level use of this concept looks like is this: Run resuscitation and definitive-control planning in parallel. Recognize when airway, portal-hypertension or anticoagulation issues change the strategy.
+
+Reasoning checkpoint. Do not just repeat the statement: Run resuscitation and definitive-control planning in parallel. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize when airway, portal-hypertension or anticoagulation issues change the strategy. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Severe GI hemorrhage to Critical-illness coagulopathy. Bleeding and thrombosis reflect platelets, fibrinogen, coagulation factors, fibrinolysis, temperature, calcium, dilution and disease-specific pathways.
+
+The relationship matters because Hemostasis depends on platelets, fibrinogen, coagulation factors, fibrinolysis, calcium, pH and temperature. Critical illness can produce simultaneous bleeding and thrombosis risk. At the bedside, interpret conventional labs and viscoelastic tests in the clinical context and replace the failing component rather than one arbitrary number.
+
+Now connect Severe GI hemorrhage to Source control. Definitive management of infected material, devitalized tissue or an infected device can be as important as antimicrobial therapy.
+
+The relationship matters because Antibiotics cannot sterilize every infected collection, necrotic tissue or infected device. Persistent nidus can sustain inflammatory and microbial burden despite apparently appropriate antimicrobial therapy. At the bedside, ask early whether drainage, debridement, device removal or surgery is required and whether it is actually happening.
+
+Stress-test the model. Imagine the patient changes in a way that makes delaying source control until every vital sign normalizes tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Intubating reflexively without considering the hemodynamic cost.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: When airway protection helps—and when intubation adds risk.

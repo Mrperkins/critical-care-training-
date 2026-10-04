@@ -1,0 +1,37 @@
+You're listening to Mechanical circulatory support: match the device to the failing circulation. I A B P, axial flow and VA E C M O change loading conditions in different ways.
+
+This is a level 5 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to match temporary support to lv, rv, biventricular or cardiopulmonary failure; and anticipate how each device changes loading conditions and downstream complications.
+
+Now: What are you trying to support?.
+
+Mechanical circulatory support. Temporary circulatory support devices unload or bypass different parts of the circulation and must be matched to the failing ventricle and oxygenation problem.
+
+Build the mechanism first. Temporary MCS devices unload or bypass different portions of the circulation. Device selection depends on LV, RV, biventricular and/or oxygenation failure.
+
+At the bedside, understand where blood is removed, where it returns, what ventricle is unloaded and how native circulation interacts with the device.
+
+Two traps to actively avoid: Choosing a device by shock severity without matching anatomy/physiology. And: Ignoring hemolysis, limb ischemia, ventricular distension and device-device interactions.
+
+The integration move is this: Follow the blood and ask what pressure/flow relationship the device is changing.
+
+Keep these terms available in your mental model: LV unloading, VA E C M O, axial flow.
+
+What expert-level use of this concept looks like is this: Match support strategy to LV, RV, biventricular or cardiopulmonary failure. Anticipate loading, limb, hemolysis and device-interaction complications.
+
+Reasoning checkpoint. Do not just repeat the statement: Match support strategy to LV, RV, biventricular or cardiopulmonary failure. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Anticipate loading, limb, hemolysis and device-interaction complications. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Mechanical circulatory support to Intra-aortic balloon pump physiology. I A B P timing uses diastolic augmentation and presystolic deflation to alter coronary perfusion and LV afterload.
+
+The relationship matters because I A B P inflates in diastole to augment aortic diastolic pressure and deflates before systole to reduce LV afterload. Benefit depends on timing and native rhythm/hemodynamics. At the bedside, use the arterial waveform to judge inflation near the dicrotic notch and presystolic deflation; compare assisted and unassisted beats.
+
+Now connect Mechanical circulatory support to E C M O circuit & physiology literacy. Extracorporeal support changes preload, afterload, gas exchange and oxygen delivery through a circuit whose configuration determines what it can support.
+
+The relationship matters because E C M O drains venous blood, pumps it through a membrane lung and returns it to the circulation. VV supports gas exchange; VA additionally supports systemic flow and changes cardiac loading conditions. At the bedside, follow blood through drainage, pump, oxygenator and return while considering native heart/lung function and cannula position.
+
+Stress-test the model. Imagine the patient changes in a way that makes choosing a device by shock severity without matching anatomy/physiology tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring hemolysis, limb ischemia, ventricular distension and device-device interactions.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.

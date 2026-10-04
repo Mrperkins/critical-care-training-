@@ -1,0 +1,41 @@
+You're listening to Major burns: resuscitation without fluid creep. Capillary leak, airway injury, perfusion endpoints and evolving organ support.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to use burn formulas as starting estimates rather than endpoints; and separate airway edema, inhalation injury and systemic toxic exposure.
+
+Now: Estimate injury, then stop worshiping the formula.
+
+Burn shock & resuscitation. Major burns create capillary leak, evaporative loss, inflammatory shock and evolving fluid requirements that cannot be managed by formula alone.
+
+Build the mechanism first. Major burns create inflammatory capillary leak, evaporative loss and changing vascular permeability. Formula estimates cannot account for individual response or fluid creep.
+
+At the bedside, use a formula as an initial estimate, then titrate to perfusion and organ endpoints while watching for over-resuscitation.
+
+Two traps to actively avoid: Treating the formula as a fixed prescription. And: Chasing urine output with unlimited crystalloid despite worsening edema/compartment physiology.
+
+The integration move is this: Burn resuscitation is dynamic shock management, not arithmetic.
+
+Keep these terms available in your mental model: TBSA, burn shock, urine output.
+
+What expert-level use of this concept looks like is this: Use formulas only as a starting estimate and titrate to physiologic response. Recognize both under-resuscitation and fluid creep.
+
+Reasoning checkpoint. Do not just repeat the statement: Use formulas only as a starting estimate and titrate to physiologic response. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize both under-resuscitation and fluid creep. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Burn shock & resuscitation to Inhalation injury. Thermal upper-airway injury, chemical tracheobronchial injury and systemic toxic exposure are distinct problems that can coexist after fire.
+
+The relationship matters because Fire exposure can cause thermal upper-airway edema, chemical lower-airway injury and systemic carbon monoxide/cyanide toxicity—three distinct processes. At the bedside, assess for progressive airway edema, bronchial injury and systemic toxin physiology separately; early airway control may be safer before edema peaks in selected patients.
+
+Now connect Burn shock & resuscitation to Critical-illness coagulopathy. Bleeding and thrombosis reflect platelets, fibrinogen, coagulation factors, fibrinolysis, temperature, calcium, dilution and disease-specific pathways.
+
+The relationship matters because Hemostasis depends on platelets, fibrinogen, coagulation factors, fibrinolysis, calcium, pH and temperature. Critical illness can produce simultaneous bleeding and thrombosis risk. At the bedside, interpret conventional labs and viscoelastic tests in the clinical context and replace the failing component rather than one arbitrary number.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating the formula as a fixed prescription tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Chasing urine output with unlimited crystalloid despite worsening edema/compartment physiology.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Capillary leak and burn shock.

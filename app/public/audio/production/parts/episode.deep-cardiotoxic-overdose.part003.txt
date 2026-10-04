@@ -1,0 +1,35 @@
+Reasoning checkpoint. Do not just repeat the statement: Understand why therapy often requires multiple simultaneous mechanisms rather than one antidote. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Beta-blocker & calcium-channel blocker toxicity to Vasopressor & inotrope physiology. Vasoactive drugs change arterial tone, venous tone, heart rate, contractility and regional flow; the desired effect depends on the shock model.
+
+The relationship matters because Vasoactive drugs alter arterial tone, venous tone, contractility and heart rate to different degrees. The same MAP response can hide very different effects on flow and myocardial demand. At the bedside, choose the agent from the dominant deficit and define what improvement and toxicity should look like before titration.
+
+Stress-test the model. Imagine the patient changes in a way that makes using heart rate alone to judge severity tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Stopping after a transient pressure response without reassessing flow and perfusion.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Sodium-channel blockade and the ECG.
+
+Sodium-channel blockade. Fast sodium-channel blockade slows depolarization and can widen QRS, cause ventricular dysrhythmia, hypotension and seizures.
+
+Build the mechanism first. Fast sodium-channel blockade slows phase-zero depolarization, widening QRS and predisposing to hypotension, ventricular dysrhythmia and seizure.
+
+At the bedside, use ECG morphology and hemodynamics as dynamic toxicity markers and understand why sodium loading/alkalinization can improve channel conduction in selected poisonings.
+
+Two traps to actively avoid: Waiting for a serum drug concentration. And: Treating a wide-complex toxicologic rhythm as ordinary monomorphic VT without mechanism context.
+
+The integration move is this: Electrophysiology is the antidote map.
+
+Keep these terms available in your mental model: QRS widening, terminal R, alkalinization.
+
+What expert-level use of this concept looks like is this: Recognize ECG evidence of sodium-channel toxicity. Connect alkalinization and sodium loading to the electrophysiologic mechanism.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize ECG evidence of sodium-channel toxicity. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Connect alkalinization and sodium loading to the electrophysiologic mechanism. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Sodium-channel blockade to Advanced acid-base reasoning. Integrate respiratory and metabolic processes, compensation, anion gap, albumin, chloride and mixed disorders.
+
+The relationship matters because pH reflects interacting respiratory and metabolic processes. Compensation has expected patterns, so deviations can expose mixed disorders that a single pH label hides. At the bedside, calculate the anion gap, correct for relevant confounders, compare compensation and consider chloride, albumin and lactate in context.
