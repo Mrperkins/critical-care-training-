@@ -1,0 +1,60 @@
+{
+  "assets": [
+    {
+      "id": "rep.rep-efast.arrival",
+      "file": "rep.rep-efast.arrival.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/f7233a4f-49e5-4bda-902e-5bf5957a9021.mp3",
+      "voice": "Natural clinical narrator prototype",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-efast.orientation",
+      "file": "rep.rep-efast.orientation.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/2ac01d70-907d-4deb-862f-0199e9048964.mp3",
+      "voice": "Natural clinical narrator prototype",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-efast.ruq",
+      "file": "rep.rep-efast.ruq.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/6f2d9ce4-ca13-4de8-b31a-4ca27002e1d7.mp3",
+      "voice": "Natural clinical narrator prototype",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-efast.luq",
+      "file": "rep.rep-efast.luq.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/9882ce63-7637-4b89-b5ab-3c7700d9b690.mp3",
+      "voice": "Natural clinical narrator prototype",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-efast.pelvis",
+      "file": "rep.rep-efast.pelvis.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/2e6bc861-8638-494d-aee6-376657c5cdb7.mp3",
+      "voice": "Natural clinical narrator prototype",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-efast.cardiac",
+      "file": "rep.rep-efast.cardiac.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/842ec09c-d369-417d-86d8-2098c24f4f01.mp3",
+      "voice": "Natural clinical narrator prototype",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-efast.lung",
+      "file": "rep.rep-efast.lung.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/9ac0ac09-9191-4d60-a043-90caeae7ddb3.mp3",
+      "voice": "Natural clinical narrator prototype",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-efast.repeat",
+      "file": "rep.rep-efast.repeat.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/3ba2180d-bd3a-4795-b579-681d341b2ea0.mp3",
+      "voice": "Natural clinical narrator prototype",
+      "provider": "AI Voice Generator"
+    }
+  ]
+}
