@@ -12,7 +12,8 @@
     "asset:micro": "tsx pipeline/build-micro.ts",
     "asset:lines": "tsx pipeline/build-lines.ts",
     "audio:lines": "tsx scripts/audio-voice-lines.ts",
-    "audio:voice:validate": "python3 scripts/audio_voice_validate.py"
+    "audio:voice:validate": "python3 scripts/audio_voice_validate.py",
+    "audio:review": "tsx scripts/audio-review-packet.ts"
   },
   "dependencies": {
     "@react-three/drei": "9.99.7",
