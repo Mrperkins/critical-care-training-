@@ -874,6 +874,55 @@
       "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/b71270a6-b39c-4a2a-80fe-bf86d9c20eec.mp3",
       "voice": "Natural clinical narrator",
       "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-pocus-shock.question",
+      "file": "rep.rep-pocus-shock.question.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/a5dbe4e0-a72b-4754-b45e-a41f19020458.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-pocus-shock.heart",
+      "file": "rep.rep-pocus-shock.heart.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/f242fc19-6934-4f35-a42b-829843801a31.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-pocus-shock.lung",
+      "file": "rep.rep-pocus-shock.lung.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/bcb16a72-8e77-49d1-84fe-18725911caf6.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-pocus-shock.venous",
+      "file": "rep.rep-pocus-shock.venous.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/bd1a9d15-0eed-46b1-b571-c264faf785e4.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-pocus-shock.abdomen",
+      "file": "rep.rep-pocus-shock.abdomen.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/e0ec3257-df74-42de-8793-2486db138c83.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-pocus-shock.integrate",
+      "file": "rep.rep-pocus-shock.integrate.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/b295d97f-5cae-4a80-a436-c002b83d1b0f.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
+    },
+    {
+      "id": "rep.rep-pocus-shock.debrief",
+      "file": "rep.rep-pocus-shock.debrief.mp3",
+      "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/be65202a-d695-4e0e-9075-f452a8dcc2ec.mp3",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
     }
   ]
 }
