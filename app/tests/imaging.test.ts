@@ -4,7 +4,7 @@ import { emptyNeuro, type NeuroState } from '../src/neuro/perfusion';
 import { presetState, useNeuroUI } from '../src/neuro/neuroStore';
 import { STROKE_TIME_MACHINE } from '../src/director/lessons/neuro';
 import { resolve, duration } from '../src/director/timeline';
-import { selectNeuroRealFinding } from '../src/neuro/imaging/realFinding';
+import { selectNeuroRealFinding } from '../src/neuro/imaging/realReference';
 
 const N = 120;
 /** mean grey level in a box given in local units (x lateral: + = patient left = image right; z anterior) */
