@@ -22,6 +22,20 @@ describe('critical care audio mastery model', () => {
     for (const r of MENTAL_REPS) for (const id of r.concepts) expect(MASTERY_BY_ID[id], `${r.id} -> ${id}`).toBeTruthy();
   });
 
+  it('gives every mastery concept at least one expertise-audio teaching path', () => {
+    const covered = new Set(EPISODES.flatMap((e) => e.concepts));
+    for (const c of MASTERY) expect(covered.has(c.id), `audio coverage missing: ${c.id}`).toBe(true);
+  });
+
+  it('keeps the core procedural visualization set present', () => {
+    const ids = new Set(MENTAL_REPS.map((r) => r.id));
+    for (const id of [
+      'rep-push-dose-pressor','rep-blood','rep-art-line','rep-efast','rep-chest-tube',
+      'rep-central-line','rep-us-piv','rep-rsi','rep-post-intubation','rep-pac',
+      'rep-crrt','rep-ecmo','rep-iabp','rep-sedation','rep-status'
+    ]) expect(ids.has(id), `Mental Rep missing: ${id}`).toBe(true);
+  });
+
   it('requires reviewed durable audio before anything can be published', () => {
     for (const e of EPISODES.filter((x) => x.status === 'published')) {
       expect(e.voice?.reviewed).toBe(true);
