@@ -3,7 +3,9 @@ export type MasteryLevel = 1 | 2 | 3 | 4 | 5 | 6;
 export type CriticalCareDomain =
   | 'foundations' | 'respiratory' | 'hemodynamics' | 'cardiac' | 'neuro'
   | 'renal-metabolic' | 'infectious' | 'hematology' | 'pharmacology'
-  | 'imaging-monitoring' | 'procedures' | 'multisystem' | 'communication-systems';
+  | 'imaging-monitoring' | 'procedures' | 'multisystem' | 'communication-systems'
+  | 'gi-hepatic' | 'endocrine' | 'toxicology' | 'transplant'
+  | 'trauma-burns' | 'obstetric' | 'peds-neonatal' | 'recovery';
 
 export type AudioFormat = 'daily-dose' | 'rounds' | 'deep-dive' | 'audio-case' | 'icu-literacy' | 'mental-rep';
 
