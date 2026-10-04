@@ -1,0 +1,43 @@
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Membrane chemistry changes the ECG.
+
+Electrolytes & cardiac electrophysiology. Potassium, magnesium, calcium and acid-base changes alter depolarization, repolarization and conduction.
+
+Build the mechanism first. Potassium, magnesium and calcium alter resting membrane potential, channel function and action-potential duration, changing conduction and repolarization.
+
+At the bedside, use ECG morphology as evidence of membrane toxicity and correct the responsible electrolyte while monitoring for rapid electrical change.
+
+Two traps to actively avoid: Waiting for a numeric threshold despite toxic ECG findings. And: Correcting potassium without magnesium when refractory ectopy or QT-related risk persists.
+
+The integration move is this: The ECG is a real-time readout of electrolyte physiology.
+
+Keep these terms available in your mental model: QT, QRS, repolarization.
+
+What expert-level use of this concept looks like is this: Use the ECG as physiologic evidence of electrolyte toxicity. Correct the membrane problem while treating the underlying electrolyte mechanism.
+
+Reasoning checkpoint. Do not just repeat the statement: Use the ECG as physiologic evidence of electrolyte toxicity. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Correct the membrane problem while treating the underlying electrolyte mechanism. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Electrolytes & cardiac electrophysiology to Rhythm & conduction emergencies. Tachy- and bradyarrhythmias become critical when they impair filling, output or perfusion; treatment depends on rhythm mechanism and patient stability.
+
+The relationship matters because Rhythm affects cardiac output through rate, filling time, AV synchrony and ventricular activation; the same rate can be tolerated or catastrophic depending on reserve. At the bedside, first ask whether the rhythm is causing instability or compensating for another problem, then identify the electrical mechanism and choose synchronization, pacing or medication accordingly.
+
+Stress-test the model. Imagine the patient changes in a way that makes waiting for a numeric threshold despite toxic ecg findings tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Correcting potassium without magnesium when refractory ectopy or QT-related risk persists.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Sudden post-MI mechanical failure.
+
+Acute coronary ischemia & complications. Acute myocardial ischemia can produce pump failure, dysrhythmia and mechanical complications whose physiology may dominate over the ECG diagnosis.
+
+Build the mechanism first. Myocardial ischemia reduces contractility and electrical stability and can cause papillary muscle, septal or free-wall mechanical complications after infarction.
+
+At the bedside, when a patient with ACS suddenly develops shock, pulmonary edema or a new murmur, broaden beyond “more ischemia” to mechanical failure and rhythm disturbance.
+
+Two traps to actively avoid: Treating the ECG diagnosis while missing a mechanical complication. And: Using vasopressor escalation as a substitute for reperfusion or structural intervention.
+
+The integration move is this: Reperfusion, rhythm and mechanical hemodynamics must be managed as one evolving syndrome.

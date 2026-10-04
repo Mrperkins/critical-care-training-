@@ -1,0 +1,33 @@
+Reasoning checkpoint. Do not just repeat the statement: Plan correction around chronicity, symptoms, tonicity and the danger of overcorrection. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Sodium & water disorders to Hyperosmolar hyperglycemic state. HHS combines profound free-water deficit and hyperosmolality with less ketogenesis than DKA, creating distinct neurologic and correction-rate concerns.
+
+The relationship matters because HHS is dominated by severe hyperosmolality and free-water deficit with relatively little ketoacidosis. Neurologic dysfunction tracks osmotic disturbance and underlying illness. At the bedside, follow effective osmolality, sodium trajectory, volume status and neurologic state while glucose falls.
+
+Now connect Sodium & water disorders to ICP, CPP & cerebral perfusion. Cerebral perfusion depends on the gradient across the cerebral circulation and is influenced by pressure, venous outflow, CO2 and intracranial compliance.
+
+The relationship matters because CPP is the pressure gradient available to drive cerebral blood flow and is influenced by arterial pressure, ICP, venous pressure and autoregulation. Intracranial compliance falls as compensatory reserve is exhausted. At the bedside, interpret ICP as a dynamic system with waveform, position, venous drainage, CO2 and sedation effects. A “normal” MAP does not guarantee adequate cerebral perfusion.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating sodium concentration as total-body sodium tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Correcting chronic dysnatremia according to urgency of the number rather than neurologic risk.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Protect cortisol physiology while the diagnosis evolves.
+
+Pituitary emergencies. Pituitary failure or apoplexy can present with shock, hyponatremia, visual/neurologic findings and secondary adrenal insufficiency.
+
+Build the mechanism first. Pituitary dysfunction can remove ACTH, TSH or ADH signaling and pituitary apoplexy can add acute mass effect, producing a mixed endocrine-neurologic emergency.
+
+At the bedside, consider secondary adrenal insufficiency, sodium/water disturbance and visual/cranial-nerve findings together, especially in sudden headache with shock or hyponatremia.
+
+Two traps to actively avoid: Replacing thyroid hormone before protecting against adrenal insufficiency in a suspicious crisis. And: Missing diabetes insipidus or water-balance changes as the course evolves.
+
+The integration move is this: Pituitary emergencies cross endocrine, neurologic and osmotic physiology.
+
+Keep these terms available in your mental model: pituitary apoplexy, secondary adrenal insufficiency, diabetes insipidus.
+
+What expert-level use of this concept looks like is this: Recognize pituitary disease when endocrine and neurologic findings intersect. Protect against adrenal crisis while definitive endocrine/neurosurgical evaluation proceeds.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize pituitary disease when endocrine and neurologic findings intersect. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.

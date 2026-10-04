@@ -1,0 +1,63 @@
+name: Materialize Audio Production Scripts
+
+on:
+  push:
+    branches: [audio-mastery]
+    paths:
+      - app/src/audio/mastery.ts
+      - app/src/audio/masteryNotes.ts
+      - app/src/audio/catalog.ts
+      - app/src/audio/expertEpisodes.ts
+      - app/src/audio/scriptDraft.ts
+      - app/scripts/audio-production-queue.ts
+      - app/scripts/audio-render-plan.ts
+      - .github/workflows/audio-production-materialize.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: audio-production-materialize
+  cancel-in-progress: true
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audio-mastery
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: npm ci
+      - run: npm run audio:production
+      - run: npm run audio:lines
+      - name: Commit production scripts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/audio/production public/audio/voice/lines.json
+          if git diff --cached --quiet; then
+            echo "No production script changes"
+          else
+            git commit -m "chore(audio): materialize expertise scripts [skip ci]"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin audio-mastery
+              git rebase origin/audio-mastery
+              if git push origin HEAD:audio-mastery; then
+                exit 0
+              fi
+              echo "Production script push raced with branch update; retrying ($attempt/5)"
+              sleep $((attempt * 2))
+            done
+            echo "Unable to publish production scripts after retries" >&2
+            exit 1
+          fi

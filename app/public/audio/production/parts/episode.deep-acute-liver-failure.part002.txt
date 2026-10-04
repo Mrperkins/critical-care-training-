@@ -1,0 +1,41 @@
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Ammonia and cerebral edema.
+
+Hepatic encephalopathy. Neurocognitive dysfunction from hepatic failure reflects ammonia and other mechanisms, with severity ranging from subtle change to coma.
+
+Build the mechanism first. Hepatic encephalopathy reflects impaired detoxification and altered neurotransmission, often worsened by infection, bleeding, constipation, medications or electrolyte disturbance.
+
+At the bedside, search for precipitants and competing causes of altered mental status; ammonia supports context but should not replace the clinical diagnosis.
+
+Two traps to actively avoid: Treating the ammonia level rather than the patient. And: Missing infection, bleeding or sedative accumulation.
+
+The integration move is this: The mental-status change is often a sign of a broader systemic problem that can be corrected.
+
+Keep these terms available in your mental model: asterixis, ammonia, precipitating factor.
+
+What expert-level use of this concept looks like is this: Look for reversible precipitants instead of attributing all altered mental status to ammonia. Separate chronic encephalopathy from acute cerebral-edema risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Look for reversible precipitants instead of attributing all altered mental status to ammonia. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Separate chronic encephalopathy from acute cerebral-edema risk. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Hepatic encephalopathy to Acute liver failure. Acute hepatic failure couples coagulopathy, ammonia handling, cerebral edema risk, hypoglycemia, vasodilation and multiorgan dysfunction.
+
+The relationship matters because Abrupt loss of hepatic synthetic and metabolic function can cause hyperammonemia, hypoglycemia, vasodilation, coagulopathy, renal failure and cerebral edema. At the bedside, trend neurologic status, glucose, acid-base, renal function and hemodynamics while involving a transplant-capable center early.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating the ammonia level rather than the patient tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Missing infection, bleeding or sedative accumulation.
+
+ICP, CPP & cerebral perfusion. Cerebral perfusion depends on the gradient across the cerebral circulation and is influenced by pressure, venous outflow, CO2 and intracranial compliance.
+
+Build the mechanism first. CPP is the pressure gradient available to drive cerebral blood flow and is influenced by arterial pressure, ICP, venous pressure and autoregulation. Intracranial compliance falls as compensatory reserve is exhausted.
+
+At the bedside, interpret ICP as a dynamic system with waveform, position, venous drainage, CO2 and sedation effects. A “normal” MAP does not guarantee adequate cerebral perfusion.
+
+Two traps to actively avoid: Treating ICP and CPP as isolated targets. And: Ignoring neck position, intrathoracic pressure and venous outflow.
+
+The integration move is this: Protect the brain by preserving oxygenation and perfusion while minimizing factors that increase intracranial volume or venous pressure.
+
+Keep these terms available in your mental model: CPP, autoregulation, Monro-Kellie.
+
+What expert-level use of this concept looks like is this: Predict how systemic pressure, CO2 and venous pressure affect cerebral perfusion. Recognize when a normal MAP does not guarantee adequate CPP.

@@ -1,0 +1,35 @@
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: When the rhythm is causing the shock.
+
+Rhythm & conduction emergencies. Tachy- and bradyarrhythmias become critical when they impair filling, output or perfusion; treatment depends on rhythm mechanism and patient stability.
+
+Build the mechanism first. Rhythm affects cardiac output through rate, filling time, AV synchrony and ventricular activation; the same rate can be tolerated or catastrophic depending on reserve.
+
+At the bedside, first ask whether the rhythm is causing instability or compensating for another problem, then identify the electrical mechanism and choose synchronization, pacing or medication accordingly.
+
+Two traps to actively avoid: Treating compensatory sinus tachycardia as the primary disease. And: Using a rate target without considering filling, stroke volume and perfusion.
+
+The integration move is this: Rhythm management is hemodynamic management performed through electrophysiology.
+
+Keep these terms available in your mental model: AV conduction, reentry, wide complex, synchronization.
+
+What expert-level use of this concept looks like is this: Distinguish electrical instability from compensatory tachycardia. Choose cardioversion, pacing or pharmacology based on rhythm and physiology.
+
+Reasoning checkpoint. Do not just repeat the statement: Distinguish electrical instability from compensatory tachycardia. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Choose cardioversion, pacing or pharmacology based on rhythm and physiology. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Rhythm & conduction emergencies to Acute coronary ischemia & complications. Acute myocardial ischemia can produce pump failure, dysrhythmia and mechanical complications whose physiology may dominate over the ECG diagnosis.
+
+The relationship matters because Myocardial ischemia reduces contractility and electrical stability and can cause papillary muscle, septal or free-wall mechanical complications after infarction. At the bedside, when a patient with ACS suddenly develops shock, pulmonary edema or a new murmur, broaden beyond “more ischemia” to mechanical failure and rhythm disturbance.
+
+Now connect Rhythm & conduction emergencies to Electrolytes & cardiac electrophysiology. Potassium, magnesium, calcium and acid-base changes alter depolarization, repolarization and conduction.
+
+The relationship matters because Potassium, magnesium and calcium alter resting membrane potential, channel function and action-potential duration, changing conduction and repolarization. At the bedside, use ECG morphology as evidence of membrane toxicity and correct the responsible electrolyte while monitoring for rapid electrical change.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating compensatory sinus tachycardia as the primary disease tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Using a rate target without considering filling, stroke volume and perfusion.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.

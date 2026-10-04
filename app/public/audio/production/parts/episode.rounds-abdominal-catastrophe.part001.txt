@@ -1,0 +1,43 @@
+You're listening to The abdomen can cause renal, respiratory and circulatory failure at once. Mesenteric ischemia, perforation and abdominal compartment physiology.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to recognize mesenteric ischemia before late peritoneal findings; and connect intra-abdominal hypertension to simultaneous renal, respiratory and hemodynamic deterioration.
+
+Now: When physiology exceeds the abdominal exam.
+
+Mesenteric ischemia & abdominal catastrophe. Mesenteric ischemia and perforation can produce severe pain, lactate elevation and shock before dramatic examination or imaging changes.
+
+Build the mechanism first. Mesenteric hypoperfusion or arterial/venous occlusion causes intestinal ischemia, barrier failure and necrosis; examination can lag behind tissue injury.
+
+At the bedside, maintain suspicion when pain, acidosis/lactate and shock exceed abdominal findings and accelerate definitive imaging/surgical evaluation.
+
+Two traps to actively avoid: Waiting for peritoneal signs before considering ischemia. And: Attributing rising lactate entirely to global shock.
+
+The integration move is this: Disproportion between physiology and examination is itself a diagnostic clue.
+
+Keep these terms available in your mental model: mesenteric ischemia, perforation, source control.
+
+What expert-level use of this concept looks like is this: Maintain suspicion when physiology exceeds abdominal findings. Escalate definitive imaging/surgery rather than treating shock alone.
+
+Reasoning checkpoint. Do not just repeat the statement: Maintain suspicion when physiology exceeds abdominal findings. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Escalate definitive imaging/surgery rather than treating shock alone. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Mesenteric ischemia & abdominal catastrophe to Intra-abdominal infection. Perforation, abscess, ischemia and biliary infection often require urgent source control in addition to antimicrobial therapy.
+
+The relationship matters because Perforation, abscess, biliary obstruction and ischemic bowel create ongoing contamination or necrotic source that antibiotics alone may not control. At the bedside, in persistent shock, ask whether drainage, decompression or surgery is delayed and whether anatomy makes the source inaccessible to medical therapy.
+
+Stress-test the model. Imagine the patient changes in a way that makes waiting for peritoneal signs before considering ischemia tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Attributing rising lactate entirely to global shock.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Perforation and uncontrolled source.
+
+Intra-abdominal infection. Perforation, abscess, ischemia and biliary infection often require urgent source control in addition to antimicrobial therapy.
+
+Build the mechanism first. Perforation, abscess, biliary obstruction and ischemic bowel create ongoing contamination or necrotic source that antibiotics alone may not control.
+
+At the bedside, in persistent shock, ask whether drainage, decompression or surgery is delayed and whether anatomy makes the source inaccessible to medical therapy.

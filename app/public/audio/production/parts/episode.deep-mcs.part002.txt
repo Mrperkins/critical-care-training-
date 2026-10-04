@@ -1,0 +1,45 @@
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Counterpulsation.
+
+Intra-aortic balloon pump physiology. I A B P timing uses diastolic augmentation and presystolic deflation to alter coronary perfusion and LV afterload.
+
+Build the mechanism first. I A B P inflates in diastole to augment aortic diastolic pressure and deflates before systole to reduce LV afterload. Benefit depends on timing and native rhythm/hemodynamics.
+
+At the bedside, use the arterial waveform to judge inflation near the dicrotic notch and presystolic deflation; compare assisted and unassisted beats.
+
+Two traps to actively avoid: Treating augmentation number alone as success. And: Allowing late deflation to increase LV afterload.
+
+The integration move is this: The waveform should show you the mechanism the device is trying to create.
+
+Keep these terms available in your mental model: diastolic augmentation, deflation, trigger.
+
+What expert-level use of this concept looks like is this: Identify correct inflation/deflation timing from the arterial waveform. Predict the hemodynamic consequence of early or late timing errors.
+
+Reasoning checkpoint. Do not just repeat the statement: Identify correct inflation/deflation timing from the arterial waveform. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict the hemodynamic consequence of early or late timing errors. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Intra-aortic balloon pump physiology to Mechanical circulatory support. Temporary circulatory support devices unload or bypass different parts of the circulation and must be matched to the failing ventricle and oxygenation problem.
+
+The relationship matters because Temporary MCS devices unload or bypass different portions of the circulation. Device selection depends on LV, RV, biventricular and/or oxygenation failure. At the bedside, understand where blood is removed, where it returns, what ventricle is unloaded and how native circulation interacts with the device.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating augmentation number alone as success tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Allowing late deflation to increase LV afterload.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Axial-flow unloading.
+
+Mechanical circulatory support. Temporary circulatory support devices unload or bypass different parts of the circulation and must be matched to the failing ventricle and oxygenation problem.
+
+Build the mechanism first. Temporary MCS devices unload or bypass different portions of the circulation. Device selection depends on LV, RV, biventricular and/or oxygenation failure.
+
+At the bedside, understand where blood is removed, where it returns, what ventricle is unloaded and how native circulation interacts with the device.
+
+Two traps to actively avoid: Choosing a device by shock severity without matching anatomy/physiology. And: Ignoring hemolysis, limb ischemia, ventricular distension and device-device interactions.
+
+The integration move is this: Follow the blood and ask what pressure/flow relationship the device is changing.
+
+Keep these terms available in your mental model: LV unloading, VA E C M O, axial flow.

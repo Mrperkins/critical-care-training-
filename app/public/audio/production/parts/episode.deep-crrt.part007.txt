@@ -1,0 +1,13 @@
+The relationship matters because C R R T uses diffusion, convection and ultrafiltration to control solute, acid-base and volume continuously. Prescribed dose can differ substantially from delivered dose. At the bedside, separate total effluent from net patient fluid removal and interpret access, filter and return pressures as clues to the physical circuit.
+
+Stress-test the model. Imagine the patient changes in a way that makes reducing doses reflexively in early sepsis because creatinine is high tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring extracorporeal clearance.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you explain common C R R T modes from transport mechanisms and reason about solute, acid-base, fluid and drug-clearance consequences?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

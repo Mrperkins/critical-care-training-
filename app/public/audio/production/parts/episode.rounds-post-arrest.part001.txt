@@ -1,0 +1,35 @@
+You're listening to ROSC is the beginning, not the finish line. Post-arrest myocardial dysfunction, brain injury, oxygen, ventilation, temperature and prognosis.
+
+This is a level 5 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to treat post-arrest physiology as a new multisystem syndrome; and avoid premature neuroprognosis and prevent secondary brain/circulatory injury.
+
+Now: The post-cardiac-arrest syndrome.
+
+Post-cardiac arrest critical care. Return of spontaneous circulation begins a new syndrome involving myocardial dysfunction, brain injury, reperfusion inflammation and recurrent-arrest risk.
+
+Build the mechanism first. After ROSC, ischemia-reperfusion injury can produce myocardial stunning, vasoplegia, cerebral injury and systemic inflammation while the precipitating cause may remain active.
+
+At the bedside, control oxygenation, ventilation, temperature and hemodynamics while pursuing cause and delaying definitive neurologic prognosis until confounders and timing are appropriate.
+
+Two traps to actively avoid: Hyperoxygenating or hyperventilating automatically after ROSC. And: Making early neurologic predictions during sedation, hypothermia or metabolic confounding.
+
+The integration move is this: ROSC ends cardiac arrest; it begins post-arrest critical care.
+
+Keep these terms available in your mental model: post-arrest syndrome, temperature control, reperfusion.
+
+What expert-level use of this concept looks like is this: Stabilize oxygenation, ventilation and circulation without creating secondary injury. Delay neurologic certainty until confounders and appropriate timing are addressed.
+
+Reasoning checkpoint. Do not just repeat the statement: Stabilize oxygenation, ventilation and circulation without creating secondary injury. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Delay neurologic certainty until confounders and appropriate timing are addressed. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Post-cardiac arrest critical care to Neuroprognostication & death by neurologic criteria. Neuroprognostication requires timing, confounder control and multimodal evidence; death by neurologic criteria is a separate formal determination process.
+
+The relationship matters because Neuroprognostication estimates future neurologic outcome using timed, multimodal evidence. Death by neurologic criteria is a separate formal determination requiring strict prerequisites and examination. At the bedside, control confounders such as sedatives, hypothermia and metabolic derangement before making high-stakes conclusions.
+
+Now connect Post-cardiac arrest critical care to Acute coronary ischemia & complications. Acute myocardial ischemia can produce pump failure, dysrhythmia and mechanical complications whose physiology may dominate over the ECG diagnosis.
+
+The relationship matters because Myocardial ischemia reduces contractility and electrical stability and can cause papillary muscle, septal or free-wall mechanical complications after infarction. At the bedside, when a patient with ACS suddenly develops shock, pulmonary edema or a new murmur, broaden beyond “more ischemia” to mechanical failure and rhythm disturbance.
+
+Stress-test the model. Imagine the patient changes in a way that makes hyperoxygenating or hyperventilating automatically after rosc tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Making early neurologic predictions during sedation, hypothermia or metabolic confounding.

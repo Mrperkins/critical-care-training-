@@ -1,0 +1,47 @@
+You're listening to The pediatric airway has less reserve than you think. Resistance, dead space, oxygen consumption and why small errors become big quickly.
+
+This is a level 3 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to explain why pediatric respiratory deterioration can accelerate quickly; and anticipate resistance and apparatus-dead-space problems unique to smaller patients.
+
+Now: Small radius, large resistance consequences.
+
+Pediatric airway & ventilation. Smaller airways, higher metabolic demand and lower reserve make pediatric respiratory deterioration faster and equipment sizing more consequential.
+
+Build the mechanism first. Small airway radius magnifies resistance, metabolic demand is higher and functional residual capacity is smaller, so pediatric respiratory reserve is limited.
+
+At the bedside, anticipate rapid desaturation, apparatus dead-space effects and resistance from small tubes or secretions; size equipment thoughtfully.
+
+Two traps to actively avoid: Using adult ventilator assumptions on small patients. And: Ignoring dead space added by connectors/sensors.
+
+The integration move is this: Tiny geometric changes can create large physiologic consequences.
+
+Keep these terms available in your mental model: airway resistance, dead space, uncuffed/cuffed.
+
+What expert-level use of this concept looks like is this: Anticipate rapid desaturation and pressure consequences in small airways. Use age/size-appropriate airway and ventilation strategy.
+
+Reasoning checkpoint. Do not just repeat the statement: Anticipate rapid desaturation and pressure consequences in small airways. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Use age/size-appropriate airway and ventilation strategy. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Stress-test the model. Imagine the patient changes in a way that makes using adult ventilator assumptions on small patients tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring dead space added by connectors/sensors.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Higher demand, smaller reserve.
+
+Pediatric airway & ventilation. Smaller airways, higher metabolic demand and lower reserve make pediatric respiratory deterioration faster and equipment sizing more consequential.
+
+Build the mechanism first. Small airway radius magnifies resistance, metabolic demand is higher and functional residual capacity is smaller, so pediatric respiratory reserve is limited.
+
+At the bedside, anticipate rapid desaturation, apparatus dead-space effects and resistance from small tubes or secretions; size equipment thoughtfully.
+
+Two traps to actively avoid: Using adult ventilator assumptions on small patients. And: Ignoring dead space added by connectors/sensors.
+
+The integration move is this: Tiny geometric changes can create large physiologic consequences.
+
+Keep these terms available in your mental model: airway resistance, dead space, uncuffed/cuffed.
+
+What expert-level use of this concept looks like is this: Anticipate rapid desaturation and pressure consequences in small airways. Use age/size-appropriate airway and ventilation strategy.

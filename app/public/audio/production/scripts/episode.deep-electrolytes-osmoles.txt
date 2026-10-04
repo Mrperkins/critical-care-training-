@@ -1,0 +1,229 @@
+You're listening to Electrolytes and tonicity: treat the membrane, brain and body store. Sodium, potassium, calcium, magnesium, phosphate and hypoglycemia as critical-care physiology.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to reason from tonicity, membrane physiology and body stores rather than isolated lab thresholds; and anticipate treatment-induced electrolyte shifts and electrical consequences.
+
+Now: Sodium is a water-balance signal.
+
+Sodium & water disorders. Sodium concentration reflects water balance relative to body solute; neurologic risk comes from both the disorder and the speed of osmotic change.
+
+Build the mechanism first. Serum sodium is primarily a water-to-solute concentration signal. Brain cells adapt to chronic tonicity change, making rapid reversal dangerous even when the number is very abnormal.
+
+At the bedside, define tonicity, symptom severity and likely chronicity before choosing a correction strategy; monitor the trajectory frequently because therapy itself can change water excretion.
+
+Two traps to actively avoid: Treating sodium concentration as total-body sodium. And: Correcting chronic dysnatremia according to urgency of the number rather than neurologic risk.
+
+The integration move is this: Think in tonicity and brain adaptation, not sodium alone.
+
+Keep these terms available in your mental model: tonicity, effective osmolality, free water, osmotic demyelination.
+
+What expert-level use of this concept looks like is this: Distinguish sodium concentration from total-body sodium. Plan correction around chronicity, symptoms, tonicity and the danger of overcorrection.
+
+Reasoning checkpoint. Do not just repeat the statement: Distinguish sodium concentration from total-body sodium. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Plan correction around chronicity, symptoms, tonicity and the danger of overcorrection. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Sodium & water disorders to Hyperosmolar hyperglycemic state. HHS combines profound free-water deficit and hyperosmolality with less ketogenesis than DKA, creating distinct neurologic and correction-rate concerns.
+
+The relationship matters because HHS is dominated by severe hyperosmolality and free-water deficit with relatively little ketoacidosis. Neurologic dysfunction tracks osmotic disturbance and underlying illness. At the bedside, follow effective osmolality, sodium trajectory, volume status and neurologic state while glucose falls.
+
+Now connect Sodium & water disorders to ICP, CPP & cerebral perfusion. Cerebral perfusion depends on the gradient across the cerebral circulation and is influenced by pressure, venous outflow, CO2 and intracranial compliance.
+
+The relationship matters because CPP is the pressure gradient available to drive cerebral blood flow and is influenced by arterial pressure, ICP, venous pressure and autoregulation. Intracranial compliance falls as compensatory reserve is exhausted. At the bedside, interpret ICP as a dynamic system with waveform, position, venous drainage, CO2 and sedation effects. A “normal” MAP does not guarantee adequate cerebral perfusion.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating sodium concentration as total-body sodium tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Correcting chronic dysnatremia according to urgency of the number rather than neurologic risk.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Potassium: membrane, shift and body store.
+
+Potassium disorders. Serum potassium reflects intake, excretion and transcellular shifts; dyskalemia becomes dangerous through membrane and cardiac electrophysiology.
+
+Build the mechanism first. Potassium gradients determine membrane excitability. Serum concentration reflects total-body balance plus rapid transcellular shifts driven by insulin, catecholamines, acid-base state and cell injury.
+
+At the bedside, when dangerous ECG or muscle findings are present, separate immediate membrane stabilization, temporary redistribution and definitive potassium removal.
+
+Two traps to actively avoid: Assuming a normal ECG eliminates severe hyperkalemia risk. And: Confusing a transcellular shift with total-body potassium excess or depletion.
+
+The integration move is this: Treat the membrane now while solving where the potassium came from and where it can go.
+
+Keep these terms available in your mental model: transcellular shift, membrane potential, repolarization.
+
+What expert-level use of this concept looks like is this: Separate redistribution from total-body gain/loss. Prioritize membrane stabilization, redistribution and elimination by mechanism.
+
+Reasoning checkpoint. Do not just repeat the statement: Separate redistribution from total-body gain/loss. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Prioritize membrane stabilization, redistribution and elimination by mechanism. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Potassium disorders to Diabetic ketoacidosis physiology. Insulin deficiency produces ketogenesis, osmotic diuresis, electrolyte shifts and a high-anion-gap acidosis whose treatment changes potassium and water distribution.
+
+The relationship matters because Insulin deficiency and counter-regulatory hormones drive ketogenesis, osmotic diuresis and major total-body electrolyte deficits even when serum levels initially appear normal or high. At the bedside, track volume status, potassium, sodium/osmolality, anion gap and acid-base trajectory through treatment.
+
+Now connect Potassium disorders to C R R T physiology & prescription literacy. Continuous renal replacement uses diffusion and/or convection to manage solute, acid-base and fluid balance in unstable patients.
+
+The relationship matters because C R R T uses diffusion, convection and ultrafiltration to control solute, acid-base and volume continuously. Prescribed dose can differ substantially from delivered dose. At the bedside, separate total effluent from net patient fluid removal and interpret access, filter and return pressures as clues to the physical circuit.
+
+Stress-test the model. Imagine the patient changes in a way that makes assuming a normal ecg eliminates severe hyperkalemia risk tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Confusing a transcellular shift with total-body potassium excess or depletion.
+
+Electrolytes & cardiac electrophysiology. Potassium, magnesium, calcium and acid-base changes alter depolarization, repolarization and conduction.
+
+Build the mechanism first. Potassium, magnesium and calcium alter resting membrane potential, channel function and action-potential duration, changing conduction and repolarization.
+
+At the bedside, use ECG morphology as evidence of membrane toxicity and correct the responsible electrolyte while monitoring for rapid electrical change.
+
+Two traps to actively avoid: Waiting for a numeric threshold despite toxic ECG findings. And: Correcting potassium without magnesium when refractory ectopy or QT-related risk persists.
+
+The integration move is this: The ECG is a real-time readout of electrolyte physiology.
+
+Keep these terms available in your mental model: QT, QRS, repolarization.
+
+What expert-level use of this concept looks like is this: Use the ECG as physiologic evidence of electrolyte toxicity. Correct the membrane problem while treating the underlying electrolyte mechanism.
+
+Reasoning checkpoint. Do not just repeat the statement: Use the ECG as physiologic evidence of electrolyte toxicity. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Correct the membrane problem while treating the underlying electrolyte mechanism. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Electrolytes & cardiac electrophysiology to Rhythm & conduction emergencies. Tachy- and bradyarrhythmias become critical when they impair filling, output or perfusion; treatment depends on rhythm mechanism and patient stability.
+
+The relationship matters because Rhythm affects cardiac output through rate, filling time, AV synchrony and ventricular activation; the same rate can be tolerated or catastrophic depending on reserve. At the bedside, first ask whether the rhythm is causing instability or compensating for another problem, then identify the electrical mechanism and choose synchronization, pacing or medication accordingly.
+
+Stress-test the model. Imagine the patient changes in a way that makes waiting for a numeric threshold despite toxic ecg findings tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Correcting potassium without magnesium when refractory ectopy or QT-related risk persists.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Calcium, magnesium and phosphate.
+
+Calcium, magnesium & phosphate. Divalent electrolyte abnormalities alter cardiac conduction, muscle function, vascular tone and cellular energetics.
+
+Build the mechanism first. Calcium, magnesium and phosphate participate in membrane stability, contraction, ATP biology and neuromuscular function, so derangements can produce arrhythmia, weakness, seizure or shock.
+
+At the bedside, interpret ionized calcium when physiology demands it and anticipate depletion during massive transfusion, refeeding, diuresis and extracorporeal therapy.
+
+Two traps to actively avoid: Treating total calcium without considering binding/albumin. And: Replacing one electrolyte while ignoring coupled magnesium or phosphate abnormalities.
+
+The integration move is this: Electrolytes are interacting physiologic variables, not independent laboratory chores.
+
+Keep these terms available in your mental model: ionized calcium, magnesium, phosphate.
+
+What expert-level use of this concept looks like is this: Connect electrolyte abnormalities to ECG, weakness, seizure and hemodynamic findings. Recognize predictable depletion during transfusion, refeeding and renal support.
+
+Reasoning checkpoint. Do not just repeat the statement: Connect electrolyte abnormalities to ECG, weakness, seizure and hemodynamic findings. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize predictable depletion during transfusion, refeeding and renal support. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Calcium, magnesium & phosphate to Refeeding syndrome. Insulin-driven intracellular shifts after refeeding can rapidly lower phosphate, potassium and magnesium and precipitate cardiopulmonary or neurologic deterioration.
+
+The relationship matters because Reintroducing carbohydrate after prolonged undernutrition raises insulin and shifts phosphate, potassium and magnesium intracellularly while increasing thiamine demand. At the bedside, identify high-risk patients before feeding escalation and monitor electrolytes and cardiopulmonary/neurologic response.
+
+Now connect Calcium, magnesium & phosphate to Massive transfusion & hemorrhagic resuscitation. Hemorrhagic resuscitation integrates source control, balanced component replacement, calcium, temperature, coagulation and perfusion.
+
+The relationship matters because Major hemorrhage produces loss of oxygen-carrying capacity, volume and hemostatic components while hypothermia, hypocalcemia, dilution and acidosis can worsen coagulation. At the bedside, activate the hemorrhage system early, warm the resuscitation, track calcium/coagulation/temperature and never lose sight of definitive source control.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating total calcium without considering binding/albumin tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Replacing one electrolyte while ignoring coupled magnesium or phosphate abnormalities.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Hypoglycemia as a brain emergency.
+
+Critical hypoglycemia. Hypoglycemia is a neurologic emergency whose cause may reflect insulin/drugs, organ failure, endocrine failure or severe infection.
+
+Build the mechanism first. The brain depends heavily on circulating glucose and has limited fuel reserve, so severe hypoglycemia can rapidly cause seizure, coma and adrenergic stress.
+
+At the bedside, correct glucose immediately while identifying ongoing insulin/drug effect, hepatic failure, adrenal disease, sepsis or nutritional depletion that can make recurrence likely.
+
+Two traps to actively avoid: Stopping after one normal repeat glucose. And: Attributing persistent altered mental status to hypoglycemia after the glucose has been corrected without reassessment.
+
+The integration move is this: Treat the neuroglycopenia fast, then treat the reason it happened.
+
+Keep these terms available in your mental model: neuroglycopenia, counter-regulation.
+
+What expert-level use of this concept looks like is this: Treat immediately while simultaneously searching for the cause. Recognize recurrent hypoglycemia as a clue to ongoing physiology or drug exposure.
+
+Reasoning checkpoint. Do not just repeat the statement: Treat immediately while simultaneously searching for the cause. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize recurrent hypoglycemia as a clue to ongoing physiology or drug exposure. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Critical hypoglycemia to Adrenal crisis. Cortisol deficiency can cause refractory hypotension, hyponatremia, hyperkalemia, hypoglycemia and shock under stress.
+
+The relationship matters because Cortisol deficiency impairs vascular responsiveness and stress metabolism; mineralocorticoid deficiency can add sodium loss and hyperkalemia depending on the cause. At the bedside, consider it in refractory shock with compatible history or electrolyte/glucose clues and recognize that treatment can rapidly change vasopressor needs.
+
+Now connect Critical hypoglycemia to Acute liver failure. Acute hepatic failure couples coagulopathy, ammonia handling, cerebral edema risk, hypoglycemia, vasodilation and multiorgan dysfunction.
+
+The relationship matters because Abrupt loss of hepatic synthetic and metabolic function can cause hyperammonemia, hypoglycemia, vasodilation, coagulopathy, renal failure and cerebral edema. At the bedside, trend neurologic status, glucose, acid-base, renal function and hemodynamics while involving a transplant-capable center early.
+
+Stress-test the model. Imagine the patient changes in a way that makes stopping after one normal repeat glucose tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Attributing persistent altered mental status to hypoglycemia after the glucose has been corrected without reassessment.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: When electrolyte physiology collides.
+
+Electrolytes & cardiac electrophysiology. Potassium, magnesium, calcium and acid-base changes alter depolarization, repolarization and conduction.
+
+Build the mechanism first. Potassium, magnesium and calcium alter resting membrane potential, channel function and action-potential duration, changing conduction and repolarization.
+
+At the bedside, use ECG morphology as evidence of membrane toxicity and correct the responsible electrolyte while monitoring for rapid electrical change.
+
+Two traps to actively avoid: Waiting for a numeric threshold despite toxic ECG findings. And: Correcting potassium without magnesium when refractory ectopy or QT-related risk persists.
+
+The integration move is this: The ECG is a real-time readout of electrolyte physiology.
+
+Keep these terms available in your mental model: QT, QRS, repolarization.
+
+What expert-level use of this concept looks like is this: Use the ECG as physiologic evidence of electrolyte toxicity. Correct the membrane problem while treating the underlying electrolyte mechanism.
+
+Reasoning checkpoint. Do not just repeat the statement: Use the ECG as physiologic evidence of electrolyte toxicity. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Correct the membrane problem while treating the underlying electrolyte mechanism. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Electrolytes & cardiac electrophysiology to Rhythm & conduction emergencies. Tachy- and bradyarrhythmias become critical when they impair filling, output or perfusion; treatment depends on rhythm mechanism and patient stability.
+
+The relationship matters because Rhythm affects cardiac output through rate, filling time, AV synchrony and ventricular activation; the same rate can be tolerated or catastrophic depending on reserve. At the bedside, first ask whether the rhythm is causing instability or compensating for another problem, then identify the electrical mechanism and choose synchronization, pacing or medication accordingly.
+
+Stress-test the model. Imagine the patient changes in a way that makes waiting for a numeric threshold despite toxic ecg findings tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Correcting potassium without magnesium when refractory ectopy or QT-related risk persists.
+
+Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
+
+Build the mechanism first. Clinical decisions are made with incomplete information. Calibrated reasoning assigns provisional probability, makes predictions and updates when new data contradict the model.
+
+At the bedside, state confidence, name disconfirming evidence and define what response you expect from a treatment if the model is correct.
+
+Two traps to actively avoid: Equating uncertainty with indecision. And: Becoming more confident simply because the same hypothesis has been repeated.
+
+The integration move is this: A model that cannot be falsified is not useful clinical reasoning.
+
+Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
+
+What expert-level use of this concept looks like is this: State confidence, identify disconfirming evidence and update the model when the patient fails to respond as predicted.
+
+Reasoning checkpoint. Do not just repeat the statement: State confidence, identify disconfirming evidence and update the model when the patient fails to respond as predicted. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Clinical uncertainty & model revision to Cognitive bias & diagnostic error. Expert reasoning uses deliberate checks against anchoring, premature closure, confirmation bias and overconfidence while still making timely decisions.
+
+The relationship matters because Anchoring, confirmation bias and premature closure arise because fast pattern recognition is useful but can overcommit to the first plausible model. At the bedside, name the finding that does not fit, generate at least one alternative mechanism and use treatment response as new diagnostic evidence.
+
+Now connect Clinical uncertainty & model revision to Multisystem treatment tradeoffs. A therapy that helps one organ can worsen another; expert care weighs global benefit, reversibility and monitoring.
+
+The relationship matters because Organ-support interventions frequently redistribute risk: peep can help oxygenation but worsen RV load; fluids can increase flow but worsen congestion; sedation can improve synchrony but obscure neurologic assessment. At the bedside, before intervening, name the intended benefit, the organ/system at risk and the signal that would tell you the tradeoff has become unfavorable.
+
+Stress-test the model. Imagine the patient changes in a way that makes equating uncertainty with indecision tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Becoming more confident simply because the same hypothesis has been repeated.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you reason from tonicity, membrane physiology and body stores rather than isolated lab thresholds?
+
+Can you anticipate treatment-induced electrolyte shifts and electrical consequences?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

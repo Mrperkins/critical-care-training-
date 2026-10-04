@@ -1,0 +1,169 @@
+You're listening to The abdomen can cause renal, respiratory and circulatory failure at once. Mesenteric ischemia, perforation and abdominal compartment physiology.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to recognize mesenteric ischemia before late peritoneal findings; and connect intra-abdominal hypertension to simultaneous renal, respiratory and hemodynamic deterioration.
+
+Now: When physiology exceeds the abdominal exam.
+
+Mesenteric ischemia & abdominal catastrophe. Mesenteric ischemia and perforation can produce severe pain, lactate elevation and shock before dramatic examination or imaging changes.
+
+Build the mechanism first. Mesenteric hypoperfusion or arterial/venous occlusion causes intestinal ischemia, barrier failure and necrosis; examination can lag behind tissue injury.
+
+At the bedside, maintain suspicion when pain, acidosis/lactate and shock exceed abdominal findings and accelerate definitive imaging/surgical evaluation.
+
+Two traps to actively avoid: Waiting for peritoneal signs before considering ischemia. And: Attributing rising lactate entirely to global shock.
+
+The integration move is this: Disproportion between physiology and examination is itself a diagnostic clue.
+
+Keep these terms available in your mental model: mesenteric ischemia, perforation, source control.
+
+What expert-level use of this concept looks like is this: Maintain suspicion when physiology exceeds abdominal findings. Escalate definitive imaging/surgery rather than treating shock alone.
+
+Reasoning checkpoint. Do not just repeat the statement: Maintain suspicion when physiology exceeds abdominal findings. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Escalate definitive imaging/surgery rather than treating shock alone. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Mesenteric ischemia & abdominal catastrophe to Intra-abdominal infection. Perforation, abscess, ischemia and biliary infection often require urgent source control in addition to antimicrobial therapy.
+
+The relationship matters because Perforation, abscess, biliary obstruction and ischemic bowel create ongoing contamination or necrotic source that antibiotics alone may not control. At the bedside, in persistent shock, ask whether drainage, decompression or surgery is delayed and whether anatomy makes the source inaccessible to medical therapy.
+
+Stress-test the model. Imagine the patient changes in a way that makes waiting for peritoneal signs before considering ischemia tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Attributing rising lactate entirely to global shock.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Perforation and uncontrolled source.
+
+Intra-abdominal infection. Perforation, abscess, ischemia and biliary infection often require urgent source control in addition to antimicrobial therapy.
+
+Build the mechanism first. Perforation, abscess, biliary obstruction and ischemic bowel create ongoing contamination or necrotic source that antibiotics alone may not control.
+
+At the bedside, in persistent shock, ask whether drainage, decompression or surgery is delayed and whether anatomy makes the source inaccessible to medical therapy.
+
+Two traps to actively avoid: Escalating vasopressors while source control stalls. And: Attributing persistent lactate to sepsis alone despite possible ischemic bowel.
+
+The integration move is this: For many abdominal infections, the definitive antimicrobial is a procedure.
+
+Keep these terms available in your mental model: perforation, abscess, biliary sepsis.
+
+What expert-level use of this concept looks like is this: Recognize when persistent shock reflects uncontrolled abdominal source. Coordinate antimicrobial therapy with procedural or operative control.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize when persistent shock reflects uncontrolled abdominal source. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Coordinate antimicrobial therapy with procedural or operative control. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Intra-abdominal infection to Mesenteric ischemia & abdominal catastrophe. Mesenteric ischemia and perforation can produce severe pain, lactate elevation and shock before dramatic examination or imaging changes.
+
+The relationship matters because Mesenteric hypoperfusion or arterial/venous occlusion causes intestinal ischemia, barrier failure and necrosis; examination can lag behind tissue injury. At the bedside, maintain suspicion when pain, acidosis/lactate and shock exceed abdominal findings and accelerate definitive imaging/surgical evaluation.
+
+Stress-test the model. Imagine the patient changes in a way that makes escalating vasopressors while source control stalls tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Attributing persistent lactate to sepsis alone despite possible ischemic bowel.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Intra-abdominal pressure becomes multisystem failure.
+
+Intra-abdominal hypertension & compartment syndrome. Elevated intra-abdominal pressure impairs venous return, renal perfusion, lung mechanics and organ blood flow.
+
+Build the mechanism first. Elevated intra-abdominal pressure compresses venous return, renal perfusion and diaphragm excursion while increasing thoracic pressures and reducing organ blood flow.
+
+At the bedside, consider bladder pressure/abdominal tension when ventilation, urine output and hemodynamics worsen together after resuscitation or edema.
+
+Two traps to actively avoid: Treating oliguria with more fluid when pressure is the cause. And: Escalating ventilator pressure without recognizing abdominal mechanics.
+
+The integration move is this: One pressure compartment can simultaneously create renal, respiratory and circulatory failure.
+
+Keep these terms available in your mental model: intra-abdominal pressure, abdominal perfusion pressure.
+
+What expert-level use of this concept looks like is this: Recognize abdominal pressure as a multisystem cause of deterioration. Connect decompression or fluid strategy to renal, respiratory and hemodynamic effects.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize abdominal pressure as a multisystem cause of deterioration. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Connect decompression or fluid strategy to renal, respiratory and hemodynamic effects. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Intra-abdominal hypertension & compartment syndrome to Acute kidney injury. AKI is a syndrome of impaired filtration and homeostasis whose cause may be hemodynamic, intrinsic, obstructive or mixed.
+
+The relationship matters because AKI represents impaired filtration and homeostasis from hemodynamic, tubular, interstitial, vascular, obstructive or mixed mechanisms; creatinine is delayed and does not identify cause. At the bedside, use trajectory, urine output, hemodynamics, nephrotoxins, urinalysis and obstruction assessment to build the phenotype, then support volume/electrolyte/acid-base physiology.
+
+Now connect Intra-abdominal hypertension & compartment syndrome to Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+The relationship matters because Acute ventilator deterioration can originate from the patient, tube, circuit or machine. Peak and plateau pressures help separate resistance from compliance when measurements are trustworthy. At the bedside, look at the patient first, rescue oxygenation/ventilation if the device cannot be trusted, then trace from patient to tube to circuit to machine.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating oliguria with more fluid when pressure is the cause tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Escalating ventilator pressure without recognizing abdominal mechanics.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Kidney, lung and circulation move together.
+
+Acute kidney injury. AKI is a syndrome of impaired filtration and homeostasis whose cause may be hemodynamic, intrinsic, obstructive or mixed.
+
+Build the mechanism first. AKI represents impaired filtration and homeostasis from hemodynamic, tubular, interstitial, vascular, obstructive or mixed mechanisms; creatinine is delayed and does not identify cause.
+
+At the bedside, use trajectory, urine output, hemodynamics, nephrotoxins, urinalysis and obstruction assessment to build the phenotype, then support volume/electrolyte/acid-base physiology.
+
+Two traps to actively avoid: Calling all oliguria “pre-renal.” And: Starting or withholding renal support based on creatinine alone.
+
+The integration move is this: Kidney injury is a syndrome; the treatment target is the mechanism and the homeostatic consequence.
+
+Keep these terms available in your mental model: filtration, renal perfusion, tubular injury, obstruction.
+
+What expert-level use of this concept looks like is this: Build an AKI differential from perfusion, nephrotoxins, urinalysis and obstruction. Recognize when kidney support is needed for physiology rather than a creatinine threshold.
+
+Reasoning checkpoint. Do not just repeat the statement: Build an AKI differential from perfusion, nephrotoxins, urinalysis and obstruction. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize when kidney support is needed for physiology rather than a creatinine threshold. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Acute kidney injury to C R R T physiology & prescription literacy. Continuous renal replacement uses diffusion and/or convection to manage solute, acid-base and fluid balance in unstable patients.
+
+The relationship matters because C R R T uses diffusion, convection and ultrafiltration to control solute, acid-base and volume continuously. Prescribed dose can differ substantially from delivered dose. At the bedside, separate total effluent from net patient fluid removal and interpret access, filter and return pressures as clues to the physical circuit.
+
+Now connect Acute kidney injury to Antimicrobial PK/PD in critical illness. Critical illness changes volume of distribution, clearance and target attainment, so dose strategy must match drug and patient physiology.
+
+The relationship matters because Critical illness alters volume of distribution, protein binding and clearance. Drug efficacy depends on whether exposure matches the relevant PK/PD target. At the bedside, account for augmented renal clearance, AKI, C R R T, fluid shifts and obesity rather than assuming standard dosing produces standard exposure.
+
+Stress-test the model. Imagine the patient changes in a way that makes calling all oliguria “pre-renal.” tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Starting or withholding renal support based on creatinine alone.
+
+Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+Build the mechanism first. Acute ventilator deterioration can originate from the patient, tube, circuit or machine. Peak and plateau pressures help separate resistance from compliance when measurements are trustworthy.
+
+At the bedside, look at the patient first, rescue oxygenation/ventilation if the device cannot be trusted, then trace from patient to tube to circuit to machine.
+
+Two traps to actively avoid: Staring at the ventilator while the patient deteriorates. And: Treating every high-pressure alarm as bronchospasm.
+
+The integration move is this: Use pressure pattern, capnography, exam and circuit inspection to localize the problem quickly.
+
+Keep these terms available in your mental model: DOPES, peak pressure, plateau pressure, auto-peep.
+
+What expert-level use of this concept looks like is this: Separate resistance, compliance, circuit and patient problems using waveforms and bedside examination. Prioritize oxygenation and manual ventilation when the device or circuit cannot be trusted.
+
+Reasoning checkpoint. Do not just repeat the statement: Separate resistance, compliance, circuit and patient problems using waveforms and bedside examination. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Prioritize oxygenation and manual ventilation when the device or circuit cannot be trusted. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Ventilator emergency troubleshooting to Dead space. Ventilation that does not effectively participate in CO2 exchange, from conducting airways or ventilated but poorly perfused alveoli.
+
+The relationship matters because Dead-space ventilation reaches regions that do not effectively eliminate CO2 because perfusion is absent or inadequate, or because gas remains in conducting airways. At the bedside, rising minute-ventilation requirement, widening PaCO2–EtCO2 gap or unexpectedly low EtCO2 can signal increasing dead space when ventilation is otherwise unchanged.
+
+Now connect Ventilator emergency troubleshooting to peep. Positive end-expiratory pressure used to preserve recruitment and oxygenation, with important mechanical and hemodynamic effects.
+
+The relationship matters because peep can prevent end-expiratory collapse and recruit unstable lung units, but can also overdistend already-open units and transmit pressure to the thorax. At the bedside, judge a peep change by oxygenation, compliance, driving pressure, hemodynamics and the disease’s recruitability rather than by oxygen saturation alone.
+
+Stress-test the model. Imagine the patient changes in a way that makes staring at the ventilator while the patient deteriorates tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Treating every high-pressure alarm as bronchospasm.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you recognize mesenteric ischemia before late peritoneal findings?
+
+Can you connect intra-abdominal hypertension to simultaneous renal, respiratory and hemodynamic deterioration?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

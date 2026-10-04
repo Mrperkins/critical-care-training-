@@ -1,0 +1,35 @@
+Reasoning checkpoint. Do not just repeat the statement: Track sodium and osmolality during therapy to avoid overly rapid shifts. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Hyperosmolar hyperglycemic state to Diabetic ketoacidosis physiology. Insulin deficiency produces ketogenesis, osmotic diuresis, electrolyte shifts and a high-anion-gap acidosis whose treatment changes potassium and water distribution.
+
+The relationship matters because Insulin deficiency and counter-regulatory hormones drive ketogenesis, osmotic diuresis and major total-body electrolyte deficits even when serum levels initially appear normal or high. At the bedside, track volume status, potassium, sodium/osmolality, anion gap and acid-base trajectory through treatment.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating hhs as dka with fewer ketones tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Correcting glucose rapidly without watching osmolality and sodium.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Why trajectories matter during treatment.
+
+Hyperosmolar hyperglycemic state. HHS combines profound free-water deficit and hyperosmolality with less ketogenesis than DKA, creating distinct neurologic and correction-rate concerns.
+
+Build the mechanism first. HHS is dominated by severe hyperosmolality and free-water deficit with relatively little ketoacidosis. Neurologic dysfunction tracks osmotic disturbance and underlying illness.
+
+At the bedside, follow effective osmolality, sodium trajectory, volume status and neurologic state while glucose falls.
+
+Two traps to actively avoid: Treating HHS as DKA with fewer ketones. And: Correcting glucose rapidly without watching osmolality and sodium.
+
+The integration move is this: The treatment target is gradual restoration of water and osmolality, not merely glucose normalization.
+
+Keep these terms available in your mental model: effective osmolality, free-water deficit, corrected sodium.
+
+What expert-level use of this concept looks like is this: Distinguish HHS physiology from DKA rather than treating both as hyperglycemia. Track sodium and osmolality during therapy to avoid overly rapid shifts.
+
+Reasoning checkpoint. Do not just repeat the statement: Distinguish HHS physiology from DKA rather than treating both as hyperglycemia. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Track sodium and osmolality during therapy to avoid overly rapid shifts. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Hyperosmolar hyperglycemic state to Diabetic ketoacidosis physiology. Insulin deficiency produces ketogenesis, osmotic diuresis, electrolyte shifts and a high-anion-gap acidosis whose treatment changes potassium and water distribution.
+
+The relationship matters because Insulin deficiency and counter-regulatory hormones drive ketogenesis, osmotic diuresis and major total-body electrolyte deficits even when serum levels initially appear normal or high. At the bedside, track volume status, potassium, sodium/osmolality, anion gap and acid-base trajectory through treatment.

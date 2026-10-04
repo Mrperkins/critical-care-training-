@@ -1,0 +1,17 @@
+Now connect Critical-illness coagulopathy to Massive transfusion & hemorrhagic resuscitation. Hemorrhagic resuscitation integrates source control, balanced component replacement, calcium, temperature, coagulation and perfusion.
+
+The relationship matters because Major hemorrhage produces loss of oxygen-carrying capacity, volume and hemostatic components while hypothermia, hypocalcemia, dilution and acidosis can worsen coagulation. At the bedside, activate the hemorrhage system early, warm the resuscitation, track calcium/coagulation/temperature and never lose sight of definitive source control.
+
+Stress-test the model. Imagine the patient changes in a way that makes equating inr with whole-blood clot quality tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring fibrinogen, platelet function, temperature and calcium.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you reason from the failing component of hemostasis?
+
+Can you anticipate resuscitation-induced coagulopathy before a single conventional lab value declares it?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

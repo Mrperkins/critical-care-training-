@@ -1,0 +1,35 @@
+The relationship matters because Foreign material permits biofilm and persistent microbial adherence, making infection harder to clear without removing or exchanging the source device when feasible. At the bedside, assess every invasive device for necessity and source potential, obtain appropriate cultures and pair antimicrobial therapy with device/source decisions.
+
+Now connect Antimicrobial resistance & stewardship to Source control. Definitive management of infected material, devitalized tissue or an infected device can be as important as antimicrobial therapy.
+
+The relationship matters because Antibiotics cannot sterilize every infected collection, necrotic tissue or infected device. Persistent nidus can sustain inflammatory and microbial burden despite apparently appropriate antimicrobial therapy. At the bedside, ask early whether drainage, debridement, device removal or surgery is required and whether it is actually happening.
+
+Stress-test the model. Imagine the patient changes in a way that makes equating “sicker” with unlimited antimicrobial breadth tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Failing to reassess antibiotics after cultures and source data return.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: PK/PD still matters after the drug is chosen.
+
+Antimicrobial PK/PD in critical illness. Critical illness changes volume of distribution, clearance and target attainment, so dose strategy must match drug and patient physiology.
+
+Build the mechanism first. Critical illness alters volume of distribution, protein binding and clearance. Drug efficacy depends on whether exposure matches the relevant PK/PD target.
+
+At the bedside, account for augmented renal clearance, AKI, C R R T, fluid shifts and obesity rather than assuming standard dosing produces standard exposure.
+
+Two traps to actively avoid: Reducing doses reflexively in early sepsis because creatinine is high. And: Ignoring extracorporeal clearance.
+
+The integration move is this: The antimicrobial choice and the exposure strategy are separate decisions.
+
+Keep these terms available in your mental model: time above MIC, AUC/MIC, augmented renal clearance.
+
+What expert-level use of this concept looks like is this: Explain why standard dosing can underdose a shocked or hyperdynamic patient. Integrate renal support and changing clearance into antimicrobial strategy.
+
+Reasoning checkpoint. Do not just repeat the statement: Explain why standard dosing can underdose a shocked or hyperdynamic patient. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Integrate renal support and changing clearance into antimicrobial strategy. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Antimicrobial PK/PD in critical illness to Source control. Definitive management of infected material, devitalized tissue or an infected device can be as important as antimicrobial therapy.
+
+The relationship matters because Antibiotics cannot sterilize every infected collection, necrotic tissue or infected device. Persistent nidus can sustain inflammatory and microbial burden despite apparently appropriate antimicrobial therapy. At the bedside, ask early whether drainage, debridement, device removal or surgery is required and whether it is actually happening.

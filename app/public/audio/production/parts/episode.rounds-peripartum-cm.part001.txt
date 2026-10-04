@@ -1,0 +1,41 @@
+You're listening to Peripartum cardiomyopathy: when “normal postpartum” is heart failure. Recognize pump failure in a period full of misleading symptoms.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to recognize peripartum heart failure early; and apply cardiogenic-shock physiology while respecting pregnancy/postpartum constraints.
+
+Now: Normal symptoms can camouflage failure.
+
+Peripartum cardiomyopathy. Pregnancy-associated systolic heart failure can present from late pregnancy into the postpartum period and may mimic normal peripartum symptoms.
+
+Build the mechanism first. Pregnancy-associated systolic dysfunction can emerge late in pregnancy or postpartum, producing congestion and low output while symptoms can resemble normal peripartum physiology.
+
+At the bedside, look for orthopnea, hypoxemia, pulmonary edema, ventricular dysfunction and shock rather than dismissing dyspnea as normal postpartum change.
+
+Two traps to actively avoid: Missing heart failure because edema and tachycardia seem expected. And: Forgetting pregnancy/postpartum constraints on some therapies.
+
+The integration move is this: Apply ordinary pump-failure physiology inside an extraordinary physiologic state.
+
+Keep these terms available in your mental model: postpartum, systolic failure, pulmonary edema.
+
+What expert-level use of this concept looks like is this: Recognize decompensated heart failure in the peripartum period. Account for pregnancy/postpartum medication and hemodynamic considerations.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize decompensated heart failure in the peripartum period. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Account for pregnancy/postpartum medication and hemodynamic considerations. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Peripartum cardiomyopathy to Right ventricular failure. Failure of a thin-walled ventricle that is highly sensitive to acute afterload, volume, perfusion pressure and ventricular interaction.
+
+The relationship matters because The RV is thin-walled and highly sensitive to acute afterload. When it dilates, wall stress rises, coronary perfusion can fall and septal shift can reduce LV filling. At the bedside, track systemic pressure, venous congestion, echo geometry, oxygenation, CO2, acid-base status and ventilator pressures together. Small changes in P V R or intrathoracic pressure can have large hemodynamic consequences.
+
+Stress-test the model. Imagine the patient changes in a way that makes missing heart failure because edema and tachycardia seem expected tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Forgetting pregnancy/postpartum constraints on some therapies.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: The pump-failure model.
+
+Cardiogenic shock. Pump failure where restoring perfusion must be balanced against congestion, myocardial oxygen demand, coronary perfusion and mechanical complications.
+
+Build the mechanism first. Cardiogenic shock is inadequate forward flow from pump failure, often accompanied by elevated filling pressures and congestion. RV, LV and biventricular phenotypes behave differently.

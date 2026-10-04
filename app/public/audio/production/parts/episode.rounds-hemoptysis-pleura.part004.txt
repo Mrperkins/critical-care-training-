@@ -1,0 +1,19 @@
+The relationship matters because Pleural ultrasound infers apposition or separation of pleural layers through sliding, B-lines, lung pulse, M-mode patterns and lung point. At the bedside, absent sliding raises suspicion but is nonspecific; lung point is more specific when present in the appropriate context.
+
+Now connect Critical-care lung ultrasound to Pleural effusion & empyema. Pleural fluid can impair mechanics or represent infection; ultrasound helps characterize volume, complexity and procedural access.
+
+The relationship matters because Pleural fluid changes lung/chest-wall mechanics and may reflect hydrostatic, inflammatory, malignant or infected processes; loculation changes drainability. At the bedside, use ultrasound to assess volume, complexity, diaphragm/lung relationships and a safe procedural window while integrating the cause and need for source control.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating b-lines as synonymous with cardiogenic edema tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Using one negative window to exclude focal lung disease.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you prioritize airway isolation/source control in major hemoptysis?
+
+Can you use ultrasound to characterize pleural fluid and guide drainage decisions?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

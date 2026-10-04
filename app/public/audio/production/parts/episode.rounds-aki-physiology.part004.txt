@@ -1,0 +1,33 @@
+Reasoning checkpoint. Do not just repeat the statement: Build an AKI differential from perfusion, nephrotoxins, urinalysis and obstruction. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize when kidney support is needed for physiology rather than a creatinine threshold. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Acute kidney injury to C R R T physiology & prescription literacy. Continuous renal replacement uses diffusion and/or convection to manage solute, acid-base and fluid balance in unstable patients.
+
+The relationship matters because C R R T uses diffusion, convection and ultrafiltration to control solute, acid-base and volume continuously. Prescribed dose can differ substantially from delivered dose. At the bedside, separate total effluent from net patient fluid removal and interpret access, filter and return pressures as clues to the physical circuit.
+
+Now connect Acute kidney injury to Antimicrobial PK/PD in critical illness. Critical illness changes volume of distribution, clearance and target attainment, so dose strategy must match drug and patient physiology.
+
+The relationship matters because Critical illness alters volume of distribution, protein binding and clearance. Drug efficacy depends on whether exposure matches the relevant PK/PD target. At the bedside, account for augmented renal clearance, AKI, C R R T, fluid shifts and obesity rather than assuming standard dosing produces standard exposure.
+
+Stress-test the model. Imagine the patient changes in a way that makes calling all oliguria “pre-renal.” tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Starting or withholding renal support based on creatinine alone.
+
+Antimicrobial PK/PD in critical illness. Critical illness changes volume of distribution, clearance and target attainment, so dose strategy must match drug and patient physiology.
+
+Build the mechanism first. Critical illness alters volume of distribution, protein binding and clearance. Drug efficacy depends on whether exposure matches the relevant PK/PD target.
+
+At the bedside, account for augmented renal clearance, AKI, C R R T, fluid shifts and obesity rather than assuming standard dosing produces standard exposure.
+
+Two traps to actively avoid: Reducing doses reflexively in early sepsis because creatinine is high. And: Ignoring extracorporeal clearance.
+
+The integration move is this: The antimicrobial choice and the exposure strategy are separate decisions.
+
+Keep these terms available in your mental model: time above MIC, AUC/MIC, augmented renal clearance.
+
+What expert-level use of this concept looks like is this: Explain why standard dosing can underdose a shocked or hyperdynamic patient. Integrate renal support and changing clearance into antimicrobial strategy.
+
+Reasoning checkpoint. Do not just repeat the statement: Explain why standard dosing can underdose a shocked or hyperdynamic patient. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Integrate renal support and changing clearance into antimicrobial strategy. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Antimicrobial PK/PD in critical illness to Source control. Definitive management of infected material, devitalized tissue or an infected device can be as important as antimicrobial therapy.

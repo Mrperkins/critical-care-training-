@@ -1,0 +1,17 @@
+Now connect Liberation from mechanical ventilation to ICU-acquired weakness & recovery. Critical illness, immobility, inflammation, sedation and organ failure can produce profound weakness and long-term functional loss.
+
+The relationship matters because Inflammation, immobility, neuropathy, myopathy, sedation and undernutrition can cause profound ICU-acquired weakness and prolonged post-ICU disability. At the bedside, build mobility, delirium prevention, nutrition and sedation minimization into daily care rather than starting “rehab” only after organ failure resolves.
+
+Stress-test the model. Imagine the patient changes in a way that makes repeating failed sbts without diagnosing why tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Equating SBT success with guaranteed extubation success.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you recognize neuromuscular ventilatory failure before oxygenation collapses?
+
+Can you distinguish spinal neurogenic physiology from competing hemorrhagic shock?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

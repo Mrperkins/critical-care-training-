@@ -5,6 +5,7 @@
  */
 import { create } from 'zustand';
 import { CATALOG, CHALLENGE_CONCEPTS, CONCEPTS, DOMAINS, type Domain, type Entry } from './catalog';
+import { syncVisualConcepts } from '../audio/visualSync';
 
 export interface Bookmark { lessonId: string; t: number; title: string; at: string }
 export interface Attempt { ok: boolean; at: string }
@@ -25,7 +26,10 @@ export const useProgress = create<ProgressUI>((set, get) => {
     markComplete: (id) => { if (!get().completed[id]) commit({ completed: { ...get().completed, [id]: now() } }); },
     toggleBookmark: (b) => { const bs = get().bookmarks; const i = bs.findIndex((x) => x.lessonId === b.lessonId && Math.abs(x.t - b.t) < 2); commit({ bookmarks: i >= 0 ? bs.filter((_, k) => k !== i) : [{ ...b, at: now() }, ...bs].slice(0, 50) }); },
     removeBookmark: (i) => commit({ bookmarks: get().bookmarks.filter((_, k) => k !== i) }),
-    record: (id, ok) => commit({ attempts: { ...get().attempts, [id]: [...(get().attempts[id] ?? []), { ok, at: now() }].slice(-10) } }),
+    record: (id, ok) => {
+      commit({ attempts: { ...get().attempts, [id]: [...(get().attempts[id] ?? []), { ok, at: now() }].slice(-10) } });
+      syncVisualConcepts(CHALLENGE_CONCEPTS[id] ?? [], ok);
+    },
     reset: () => commit(EMPTY()),
   };
 });

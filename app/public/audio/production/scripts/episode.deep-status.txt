@@ -1,0 +1,193 @@
+You're listening to Status epilepticus: time changes the biology. Recognition, medication sequencing, airway consequences and nonconvulsive status.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to treat status as a time-dependent neurologic and systemic emergency; and recognize when persistent coma requires evaluation for nonconvulsive status.
+
+Now: Why ongoing seizure becomes harder to stop.
+
+Status epilepticus. Ongoing seizures become a time-dependent systemic and neurologic emergency requiring rapid recognition, medication sequencing and search for cause.
+
+Build the mechanism first. Persistent seizure activity becomes increasingly self-sustaining while causing metabolic demand, hypoxemia, acidosis, hyperthermia and neuronal injury.
+
+At the bedside, treat promptly in phases, support physiology and consider ongoing nonconvulsive seizure when convulsions stop but mental status does not recover.
+
+Two traps to actively avoid: Giving repeated subtherapeutic first-line doses instead of changing treatment phase. And: Assuming motor quiet means electrical seizure has ended.
+
+The integration move is this: Time is part of the pathophysiology.
+
+Keep these terms available in your mental model: convulsive, nonconvulsive, EEG.
+
+What expert-level use of this concept looks like is this: Treat persistent seizure activity as a trajectory rather than isolated episodes. Recognize when ongoing altered mental status requires EEG evaluation for nonconvulsive status.
+
+Reasoning checkpoint. Do not just repeat the statement: Treat persistent seizure activity as a trajectory rather than isolated episodes. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize when ongoing altered mental status requires EEG evaluation for nonconvulsive status. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Status epilepticus to ICP, CPP & cerebral perfusion. Cerebral perfusion depends on the gradient across the cerebral circulation and is influenced by pressure, venous outflow, CO2 and intracranial compliance.
+
+The relationship matters because CPP is the pressure gradient available to drive cerebral blood flow and is influenced by arterial pressure, ICP, venous pressure and autoregulation. Intracranial compliance falls as compensatory reserve is exhausted. At the bedside, interpret ICP as a dynamic system with waveform, position, venous drainage, CO2 and sedation effects. A “normal” MAP does not guarantee adequate cerebral perfusion.
+
+Stress-test the model. Imagine the patient changes in a way that makes giving repeated subtherapeutic first-line doses instead of changing treatment phase tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Assuming motor quiet means electrical seizure has ended.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Medication sequence as a time problem.
+
+Status epilepticus. Ongoing seizures become a time-dependent systemic and neurologic emergency requiring rapid recognition, medication sequencing and search for cause.
+
+Build the mechanism first. Persistent seizure activity becomes increasingly self-sustaining while causing metabolic demand, hypoxemia, acidosis, hyperthermia and neuronal injury.
+
+At the bedside, treat promptly in phases, support physiology and consider ongoing nonconvulsive seizure when convulsions stop but mental status does not recover.
+
+Two traps to actively avoid: Giving repeated subtherapeutic first-line doses instead of changing treatment phase. And: Assuming motor quiet means electrical seizure has ended.
+
+The integration move is this: Time is part of the pathophysiology.
+
+Keep these terms available in your mental model: convulsive, nonconvulsive, EEG.
+
+What expert-level use of this concept looks like is this: Treat persistent seizure activity as a trajectory rather than isolated episodes. Recognize when ongoing altered mental status requires EEG evaluation for nonconvulsive status.
+
+Reasoning checkpoint. Do not just repeat the statement: Treat persistent seizure activity as a trajectory rather than isolated episodes. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize when ongoing altered mental status requires EEG evaluation for nonconvulsive status. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Status epilepticus to ICP, CPP & cerebral perfusion. Cerebral perfusion depends on the gradient across the cerebral circulation and is influenced by pressure, venous outflow, CO2 and intracranial compliance.
+
+The relationship matters because CPP is the pressure gradient available to drive cerebral blood flow and is influenced by arterial pressure, ICP, venous pressure and autoregulation. Intracranial compliance falls as compensatory reserve is exhausted. At the bedside, interpret ICP as a dynamic system with waveform, position, venous drainage, CO2 and sedation effects. A “normal” MAP does not guarantee adequate cerebral perfusion.
+
+Stress-test the model. Imagine the patient changes in a way that makes giving repeated subtherapeutic first-line doses instead of changing treatment phase tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Assuming motor quiet means electrical seizure has ended.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Hypoxemia, acidosis, temperature and hemodynamics.
+
+ICP, CPP & cerebral perfusion. Cerebral perfusion depends on the gradient across the cerebral circulation and is influenced by pressure, venous outflow, CO2 and intracranial compliance.
+
+Build the mechanism first. CPP is the pressure gradient available to drive cerebral blood flow and is influenced by arterial pressure, ICP, venous pressure and autoregulation. Intracranial compliance falls as compensatory reserve is exhausted.
+
+At the bedside, interpret ICP as a dynamic system with waveform, position, venous drainage, CO2 and sedation effects. A “normal” MAP does not guarantee adequate cerebral perfusion.
+
+Two traps to actively avoid: Treating ICP and CPP as isolated targets. And: Ignoring neck position, intrathoracic pressure and venous outflow.
+
+The integration move is this: Protect the brain by preserving oxygenation and perfusion while minimizing factors that increase intracranial volume or venous pressure.
+
+Keep these terms available in your mental model: CPP, autoregulation, Monro-Kellie.
+
+What expert-level use of this concept looks like is this: Predict how systemic pressure, CO2 and venous pressure affect cerebral perfusion. Recognize when a normal MAP does not guarantee adequate CPP.
+
+Reasoning checkpoint. Do not just repeat the statement: Predict how systemic pressure, CO2 and venous pressure affect cerebral perfusion. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize when a normal MAP does not guarantee adequate CPP. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect ICP, CPP & cerebral perfusion to Brain herniation physiology. Rising intracranial pressure and compartment shifts distort brain structures, impair perfusion and can produce rapidly evolving focal and brainstem signs.
+
+The relationship matters because When intracranial pressure gradients exceed compensatory reserve, brain tissue shifts across fixed boundaries, compressing cranial nerves, vessels and brainstem structures. At the bedside, recognize trajectory—declining consciousness, pupillary asymmetry, motor changes and evolving brainstem physiology—while protecting oxygenation and cerebral perfusion.
+
+Now connect ICP, CPP & cerebral perfusion to E V D management. External ventricular drainage requires correct leveling, clamping during movement and interpretation of drainage and ICP.
+
+The relationship matters because An external ventricular drain uses a hydrostatic height reference to define the pressure at which CSF drains while also allowing ICP monitoring depending on system configuration. At the bedside, level to the ordered reference point, manage clamping during movement according to policy, and re-level after position changes before interpreting pressure or drainage.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating icp and cpp as isolated targets tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring neck position, intrathoracic pressure and venous outflow.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: The convulsions stop—did the seizure?.
+
+Status epilepticus. Ongoing seizures become a time-dependent systemic and neurologic emergency requiring rapid recognition, medication sequencing and search for cause.
+
+Build the mechanism first. Persistent seizure activity becomes increasingly self-sustaining while causing metabolic demand, hypoxemia, acidosis, hyperthermia and neuronal injury.
+
+At the bedside, treat promptly in phases, support physiology and consider ongoing nonconvulsive seizure when convulsions stop but mental status does not recover.
+
+Two traps to actively avoid: Giving repeated subtherapeutic first-line doses instead of changing treatment phase. And: Assuming motor quiet means electrical seizure has ended.
+
+The integration move is this: Time is part of the pathophysiology.
+
+Keep these terms available in your mental model: convulsive, nonconvulsive, EEG.
+
+What expert-level use of this concept looks like is this: Treat persistent seizure activity as a trajectory rather than isolated episodes. Recognize when ongoing altered mental status requires EEG evaluation for nonconvulsive status.
+
+Reasoning checkpoint. Do not just repeat the statement: Treat persistent seizure activity as a trajectory rather than isolated episodes. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize when ongoing altered mental status requires EEG evaluation for nonconvulsive status. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Status epilepticus to ICP, CPP & cerebral perfusion. Cerebral perfusion depends on the gradient across the cerebral circulation and is influenced by pressure, venous outflow, CO2 and intracranial compliance.
+
+The relationship matters because CPP is the pressure gradient available to drive cerebral blood flow and is influenced by arterial pressure, ICP, venous pressure and autoregulation. Intracranial compliance falls as compensatory reserve is exhausted. At the bedside, interpret ICP as a dynamic system with waveform, position, venous drainage, CO2 and sedation effects. A “normal” MAP does not guarantee adequate cerebral perfusion.
+
+Stress-test the model. Imagine the patient changes in a way that makes giving repeated subtherapeutic first-line doses instead of changing treatment phase tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Assuming motor quiet means electrical seizure has ended.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Refractory seizure should widen the search for the cause.
+
+Status epilepticus. Ongoing seizures become a time-dependent systemic and neurologic emergency requiring rapid recognition, medication sequencing and search for cause.
+
+Build the mechanism first. Persistent seizure activity becomes increasingly self-sustaining while causing metabolic demand, hypoxemia, acidosis, hyperthermia and neuronal injury.
+
+At the bedside, treat promptly in phases, support physiology and consider ongoing nonconvulsive seizure when convulsions stop but mental status does not recover.
+
+Two traps to actively avoid: Giving repeated subtherapeutic first-line doses instead of changing treatment phase. And: Assuming motor quiet means electrical seizure has ended.
+
+The integration move is this: Time is part of the pathophysiology.
+
+Keep these terms available in your mental model: convulsive, nonconvulsive, EEG.
+
+What expert-level use of this concept looks like is this: Treat persistent seizure activity as a trajectory rather than isolated episodes. Recognize when ongoing altered mental status requires EEG evaluation for nonconvulsive status.
+
+Reasoning checkpoint. Do not just repeat the statement: Treat persistent seizure activity as a trajectory rather than isolated episodes. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize when ongoing altered mental status requires EEG evaluation for nonconvulsive status. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Status epilepticus to ICP, CPP & cerebral perfusion. Cerebral perfusion depends on the gradient across the cerebral circulation and is influenced by pressure, venous outflow, CO2 and intracranial compliance.
+
+The relationship matters because CPP is the pressure gradient available to drive cerebral blood flow and is influenced by arterial pressure, ICP, venous pressure and autoregulation. Intracranial compliance falls as compensatory reserve is exhausted. At the bedside, interpret ICP as a dynamic system with waveform, position, venous drainage, CO2 and sedation effects. A “normal” MAP does not guarantee adequate cerebral perfusion.
+
+Stress-test the model. Imagine the patient changes in a way that makes giving repeated subtherapeutic first-line doses instead of changing treatment phase tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Assuming motor quiet means electrical seizure has ended.
+
+Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
+
+Build the mechanism first. Clinical decisions are made with incomplete information. Calibrated reasoning assigns provisional probability, makes predictions and updates when new data contradict the model.
+
+At the bedside, state confidence, name disconfirming evidence and define what response you expect from a treatment if the model is correct.
+
+Two traps to actively avoid: Equating uncertainty with indecision. And: Becoming more confident simply because the same hypothesis has been repeated.
+
+The integration move is this: A model that cannot be falsified is not useful clinical reasoning.
+
+Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
+
+What expert-level use of this concept looks like is this: State confidence, identify disconfirming evidence and update the model when the patient fails to respond as predicted.
+
+Reasoning checkpoint. Do not just repeat the statement: State confidence, identify disconfirming evidence and update the model when the patient fails to respond as predicted. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Clinical uncertainty & model revision to Cognitive bias & diagnostic error. Expert reasoning uses deliberate checks against anchoring, premature closure, confirmation bias and overconfidence while still making timely decisions.
+
+The relationship matters because Anchoring, confirmation bias and premature closure arise because fast pattern recognition is useful but can overcommit to the first plausible model. At the bedside, name the finding that does not fit, generate at least one alternative mechanism and use treatment response as new diagnostic evidence.
+
+Now connect Clinical uncertainty & model revision to Multisystem treatment tradeoffs. A therapy that helps one organ can worsen another; expert care weighs global benefit, reversibility and monitoring.
+
+The relationship matters because Organ-support interventions frequently redistribute risk: peep can help oxygenation but worsen RV load; fluids can increase flow but worsen congestion; sedation can improve synchrony but obscure neurologic assessment. At the bedside, before intervening, name the intended benefit, the organ/system at risk and the signal that would tell you the tradeoff has become unfavorable.
+
+Stress-test the model. Imagine the patient changes in a way that makes equating uncertainty with indecision tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Becoming more confident simply because the same hypothesis has been repeated.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you treat status as a time-dependent neurologic and systemic emergency?
+
+Can you recognize when persistent coma requires evaluation for nonconvulsive status?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

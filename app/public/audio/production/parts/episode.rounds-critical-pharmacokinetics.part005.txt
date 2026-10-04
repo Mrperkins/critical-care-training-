@@ -1,0 +1,21 @@
+Now connect Critical-care pharmacokinetics & interactions to C R R T physiology & prescription literacy. Continuous renal replacement uses diffusion and/or convection to manage solute, acid-base and fluid balance in unstable patients.
+
+The relationship matters because C R R T uses diffusion, convection and ultrafiltration to control solute, acid-base and volume continuously. Prescribed dose can differ substantially from delivered dose. At the bedside, separate total effluent from net patient fluid removal and interpret access, filter and return pressures as clues to the physical circuit.
+
+Now connect Critical-care pharmacokinetics & interactions to Acute liver failure. Acute hepatic failure couples coagulopathy, ammonia handling, cerebral edema risk, hypoglycemia, vasodilation and multiorgan dysfunction.
+
+The relationship matters because Abrupt loss of hepatic synthetic and metabolic function can cause hyperammonemia, hypoglycemia, vasodilation, coagulopathy, renal failure and cerebral edema. At the bedside, trend neurologic status, glucose, acid-base, renal function and hemodynamics while involving a transplant-capable center early.
+
+Stress-test the model. Imagine the patient changes in a way that makes assuming creatinine alone predicts drug clearance tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring protein binding and circuit sequestration for highly bound/lipophilic drugs.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you predict major ways critical illness changes drug exposure?
+
+Can you reassess dosing as organ function, fluid state and extracorporeal support change?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

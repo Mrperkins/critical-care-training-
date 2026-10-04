@@ -1,0 +1,47 @@
+You're listening to Goals of care is a clinical skill. Values, prognosis, uncertainty and time-limited trials without abandoning critical care.
+
+This is a level 5 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to frame prognosis without false precision; and build a time-limited trial with explicit goals and reassessment criteria.
+
+Now: Find out what outcomes matter.
+
+Goals of care & prognostic communication. High-quality critical care includes eliciting values, communicating uncertainty and aligning burdensome treatments with realistic goals.
+
+Build the mechanism first. Goals-of-care decisions align treatments with the patient’s values and realistic outcomes. Prognosis is probabilistic and changes with response over time.
+
+At the bedside, use best-case/worst-case/most-likely framing and time-limited trials with explicit endpoints when uncertainty remains.
+
+Two traps to actively avoid: Presenting procedures as neutral menu choices without recommendation. And: Using false precision to avoid discussing uncertainty.
+
+The integration move is this: A high-quality critical-care plan includes what outcome the patient would consider worth the burdens of treatment.
+
+Keep these terms available in your mental model: surrogate decision-maker, time-limited trial, best case / worst case.
+
+What expert-level use of this concept looks like is this: Explain prognosis without false precision. Frame a time-limited trial with explicit goals and reassessment criteria.
+
+Reasoning checkpoint. Do not just repeat the statement: Explain prognosis without false precision. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Frame a time-limited trial with explicit goals and reassessment criteria. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Stress-test the model. Imagine the patient changes in a way that makes presenting procedures as neutral menu choices without recommendation tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Using false precision to avoid discussing uncertainty.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Best case, worst case and most likely.
+
+Clinical uncertainty & model revision. Expert reasoning explicitly tracks uncertainty, contradictory data and what finding would falsify the current working model.
+
+Build the mechanism first. Clinical decisions are made with incomplete information. Calibrated reasoning assigns provisional probability, makes predictions and updates when new data contradict the model.
+
+At the bedside, state confidence, name disconfirming evidence and define what response you expect from a treatment if the model is correct.
+
+Two traps to actively avoid: Equating uncertainty with indecision. And: Becoming more confident simply because the same hypothesis has been repeated.
+
+The integration move is this: A model that cannot be falsified is not useful clinical reasoning.
+
+Keep these terms available in your mental model: calibration, falsification, diagnostic time-out.
+
+What expert-level use of this concept looks like is this: State confidence, identify disconfirming evidence and update the model when the patient fails to respond as predicted.

@@ -1,0 +1,37 @@
+Now connect Ventilator emergency troubleshooting to Dead space. Ventilation that does not effectively participate in CO2 exchange, from conducting airways or ventilated but poorly perfused alveoli.
+
+The relationship matters because Dead-space ventilation reaches regions that do not effectively eliminate CO2 because perfusion is absent or inadequate, or because gas remains in conducting airways. At the bedside, rising minute-ventilation requirement, widening PaCO2–EtCO2 gap or unexpectedly low EtCO2 can signal increasing dead space when ventilation is otherwise unchanged.
+
+Now connect Ventilator emergency troubleshooting to peep. Positive end-expiratory pressure used to preserve recruitment and oxygenation, with important mechanical and hemodynamic effects.
+
+The relationship matters because peep can prevent end-expiratory collapse and recruit unstable lung units, but can also overdistend already-open units and transmit pressure to the thorax. At the bedside, judge a peep change by oxygenation, compliance, driving pressure, hemodynamics and the disease’s recruitability rather than by oxygen saturation alone.
+
+Stress-test the model. Imagine the patient changes in a way that makes staring at the ventilator while the patient deteriorates tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Treating every high-pressure alarm as bronchospasm.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Ventilate less aggressively to ventilate better.
+
+Severe asthma & COPD physiology. Expiratory flow limitation creates dynamic hyperinflation, intrinsic peep and potentially severe hemodynamic consequences.
+
+Build the mechanism first. Asthma and COPD create expiratory flow limitation; when expiratory time is insufficient, trapped gas raises end-expiratory alveolar pressure and thoracic volume.
+
+At the bedside, look for expiratory flow failing to reach baseline, rising pressures and hemodynamic compromise; reduce air trapping by addressing obstruction and allowing time to exhale.
+
+Two traps to actively avoid: Responding to hypercapnia by reflexively increasing rate. And: Mistaking high peak pressure from resistance for poor compliance.
+
+The integration move is this: In obstructive disease, time is a ventilator setting.
+
+Keep these terms available in your mental model: dynamic hyperinflation, intrinsic peep, time constant.
+
+What expert-level use of this concept looks like is this: Recognize air trapping from waveforms and expiratory flow. Prioritize expiratory time and avoid ventilation strategies that worsen hyperinflation.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize air trapping from waveforms and expiratory flow. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Prioritize expiratory time and avoid ventilation strategies that worsen hyperinflation. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Severe asthma & COPD physiology to Auto-peep & dynamic hyperinflation. Incomplete exhalation leaves positive alveolar pressure at end expiration, increasing work of breathing and intrathoracic pressure.
+
+The relationship matters because Intrinsic peep is residual positive alveolar pressure caused by incomplete exhalation and dynamic hyperinflation, increasing inspiratory threshold load and intrathoracic pressure. At the bedside, detect it from flow curves and appropriate expiratory holds, then reduce minute-ventilation demand or increase expiratory time as physiology permits.

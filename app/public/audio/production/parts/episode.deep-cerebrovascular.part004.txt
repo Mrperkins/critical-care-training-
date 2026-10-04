@@ -1,0 +1,33 @@
+Reasoning checkpoint. Do not just repeat the statement: Recognize hydrocephalus, herniation and rebleeding risk early. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect ICH & subarachnoid hemorrhage to Brain herniation physiology. Rising intracranial pressure and compartment shifts distort brain structures, impair perfusion and can produce rapidly evolving focal and brainstem signs.
+
+The relationship matters because When intracranial pressure gradients exceed compensatory reserve, brain tissue shifts across fixed boundaries, compressing cranial nerves, vessels and brainstem structures. At the bedside, recognize trajectory—declining consciousness, pupillary asymmetry, motor changes and evolving brainstem physiology—while protecting oxygenation and cerebral perfusion.
+
+Now connect ICH & subarachnoid hemorrhage to E V D management. External ventricular drainage requires correct leveling, clamping during movement and interpretation of drainage and ICP.
+
+The relationship matters because An external ventricular drain uses a hydrostatic height reference to define the pressure at which CSF drains while also allowing ICP monitoring depending on system configuration. At the bedside, level to the ordered reference point, manage clamping during movement according to policy, and re-level after position changes before interpreting pressure or drainage.
+
+Stress-test the model. Imagine the patient changes in a way that makes driving pressure so low that cpp is compromised tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Missing evolving hydrocephalus in a patient whose mental status declines.
+
+E V D management. External ventricular drainage requires correct leveling, clamping during movement and interpretation of drainage and ICP.
+
+Build the mechanism first. An external ventricular drain uses a hydrostatic height reference to define the pressure at which CSF drains while also allowing ICP monitoring depending on system configuration.
+
+At the bedside, level to the ordered reference point, manage clamping during movement according to policy, and re-level after position changes before interpreting pressure or drainage.
+
+Two traps to actively avoid: Moving the bed without reconsidering the drainage height. And: Treating drainage amount independently of chamber position and patient physiology.
+
+The integration move is this: The drain is both a therapeutic pathway and a measurement system; position can change both.
+
+Keep these terms available in your mental model: tragus, foramen of Monro.
+
+What expert-level use of this concept looks like is this: Explain over-drainage versus under-drainage from transducer/chamber position. Mentally rehearse safe movement and re-leveling.
+
+Reasoning checkpoint. Do not just repeat the statement: Explain over-drainage versus under-drainage from transducer/chamber position. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Mentally rehearse safe movement and re-leveling. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect E V D management to Brain herniation physiology. Rising intracranial pressure and compartment shifts distort brain structures, impair perfusion and can produce rapidly evolving focal and brainstem signs.
+
+The relationship matters because When intracranial pressure gradients exceed compensatory reserve, brain tissue shifts across fixed boundaries, compressing cranial nerves, vessels and brainstem structures. At the bedside, recognize trajectory—declining consciousness, pupillary asymmetry, motor changes and evolving brainstem physiology—while protecting oxygenation and cerebral perfusion.

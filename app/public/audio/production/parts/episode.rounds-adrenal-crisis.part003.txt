@@ -1,0 +1,37 @@
+Reasoning checkpoint. Do not just repeat the statement: State the expected benefit, predictable tradeoff and reassessment endpoint. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Vasopressor & inotrope physiology to Push-dose vasopressor workflow. A high-risk, short-duration bridge that demands concentration verification, labeling, closed-loop communication and continuous reassessment.
+
+The relationship matters because A push-dose vasopressor is a short-duration vasoactive bridge whose effect depends on concentration, receptor profile, circulation time and underlying shock physiology. At the bedside, use standardized local concentrations, explicit labeling, independent verification and immediate reassessment while definitive support is being prepared.
+
+Now connect Vasopressor & inotrope physiology to Septic shock physiology. Distributive shock with dynamic changes in vascular tone, venous capacitance, myocardial performance, microcirculation and oxygen extraction.
+
+The relationship matters because Septic shock can combine vasoplegia, venous pooling, myocardial dysfunction, endothelial leak and disturbed microcirculation. Cardiac output may be low, normal or high. At the bedside, reassess vascular tone, flow, congestion and perfusion after each intervention rather than assuming a fixed distributive phenotype.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating map increase as proof of improved perfusion tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring venous effects and cardiac workload.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Steroid exposure, pituitary disease and stress.
+
+Adrenal crisis. Cortisol deficiency can cause refractory hypotension, hyponatremia, hyperkalemia, hypoglycemia and shock under stress.
+
+Build the mechanism first. Cortisol deficiency impairs vascular responsiveness and stress metabolism; mineralocorticoid deficiency can add sodium loss and hyperkalemia depending on the cause.
+
+At the bedside, consider it in refractory shock with compatible history or electrolyte/glucose clues and recognize that treatment can rapidly change vasopressor needs.
+
+Two traps to actively avoid: Waiting for confirmatory testing in an unstable high-suspicion patient. And: Assuming normal potassium excludes all adrenal insufficiency.
+
+The integration move is this: Endocrine failure can masquerade as undifferentiated shock.
+
+Keep these terms available in your mental model: cortisol, mineralocorticoid, stress dose.
+
+What expert-level use of this concept looks like is this: Recognize adrenal crisis in otherwise unexplained refractory shock. Understand why steroid replacement can rapidly change vascular responsiveness.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize adrenal crisis in otherwise unexplained refractory shock. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Understand why steroid replacement can rapidly change vascular responsiveness. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Adrenal crisis to Vasopressor & inotrope physiology. Vasoactive drugs change arterial tone, venous tone, heart rate, contractility and regional flow; the desired effect depends on the shock model.

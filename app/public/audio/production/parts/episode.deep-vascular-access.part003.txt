@@ -1,0 +1,35 @@
+Now connect Ultrasound-guided central venous access to High-risk medication safety. Use standardized concentration, labeling, independent verification, closed-loop communication and context checks for high-risk drugs.
+
+The relationship matters because High-risk medication harm often arises from system failures: concentration mismatch, unlabeled syringes, look-alike products, route errors and communication breakdowns. At the bedside, standardize concentration, isolate the preparation task, label immediately and use closed-loop verification before administration.
+
+Now connect Ultrasound-guided central venous access to Shock phenotyping. Identify inadequate effective circulation by integrating flow, vascular tone, congestion, oxygen delivery and organ response.
+
+The relationship matters because Shock is inadequate effective tissue perfusion and oxygen utilization, not merely hypotension. Flow, vascular tone, capacitance, congestion and extraction can fail in different combinations. At the bedside, phenotype the circulation repeatedly. A patient can move from one dominant mechanism to another during resuscitation.
+
+Stress-test the model. Imagine the patient changes in a way that makes using blood color alone to distinguish vein from artery tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Dilating before confirming wire position in the intended vessel.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Ultrasound-guided peripheral access.
+
+Ultrasound-guided peripheral IV. Ultrasound-guided peripheral access combines vessel selection, needle-tip tracking, catheter length and post-placement assessment.
+
+Build the mechanism first. Ultrasound-guided peripheral access depends on selecting a vessel whose depth, diameter and course match the catheter and on tracking the actual needle tip.
+
+At the bedside, scan before puncture, use multiple planes, advance enough catheter into the lumen and confirm function without soft-tissue infiltration.
+
+Two traps to actively avoid: Following the needle shaft while losing the tip. And: Using a catheter too short for a deep vessel.
+
+The integration move is this: Success is durable intraluminal catheter position, not merely blood return.
+
+Keep these terms available in your mental model: short axis, long axis, tip tracking, catheter-to-vein ratio.
+
+What expert-level use of this concept looks like is this: Choose an appropriate target by depth, diameter and course. Keep the true needle tip accounted for and anticipate failure from a catheter that is too short for the vessel depth.
+
+Reasoning checkpoint. Do not just repeat the statement: Choose an appropriate target by depth, diameter and course. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Keep the true needle tip accounted for and anticipate failure from a catheter that is too short for the vessel depth. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Ultrasound-guided peripheral IV to Ultrasound-guided central venous access. Safe venous access requires anatomy, real-time tip awareness, vessel confirmation, wire control, sterile technique and complication recognition.

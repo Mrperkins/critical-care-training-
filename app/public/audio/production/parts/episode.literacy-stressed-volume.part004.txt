@@ -1,0 +1,13 @@
+The relationship matters because Fluid responsiveness asks whether stroke volume rises with increased preload. It does not answer whether the patient needs fluid, whether fluid is safe, or whether another intervention would better address the problem. At the bedside, use dynamic tests when their assumptions are valid and interpret the change in flow, not merely pressure. Then ask whether the patient can tolerate the added volume.
+
+Stress-test the model. Imagine the patient changes in a way that makes equating cvp with circulating volume tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Assuming fluid responsiveness means fluid is indicated or tolerated.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you explain stressed versus unstressed volume and use it to reason about venous tone, fluids and pressors?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

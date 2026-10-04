@@ -1,0 +1,39 @@
+Two traps to actively avoid: Supine positioning that allows blood to contaminate both lungs. And: Focusing on hemoglobin while airway patency is deteriorating.
+
+The integration move is this: In massive hemoptysis, the airway is the hemorrhage-control battleground.
+
+Keep these terms available in your mental model: bronchial artery, airway isolation, embolization.
+
+What expert-level use of this concept looks like is this: Prioritize protection of the nonbleeding lung and airway. Coordinate reversal and interventional source control without losing oxygenation.
+
+Reasoning checkpoint. Do not just repeat the statement: Prioritize protection of the nonbleeding lung and airway. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Coordinate reversal and interventional source control without losing oxygenation. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Life-threatening hemoptysis to Critical-illness coagulopathy. Bleeding and thrombosis reflect platelets, fibrinogen, coagulation factors, fibrinolysis, temperature, calcium, dilution and disease-specific pathways.
+
+The relationship matters because Hemostasis depends on platelets, fibrinogen, coagulation factors, fibrinolysis, calcium, pH and temperature. Critical illness can produce simultaneous bleeding and thrombosis risk. At the bedside, interpret conventional labs and viscoelastic tests in the clinical context and replace the failing component rather than one arbitrary number.
+
+Stress-test the model. Imagine the patient changes in a way that makes supine positioning that allows blood to contaminate both lungs tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Focusing on hemoglobin while airway patency is deteriorating.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Effusion versus infected pleural space.
+
+Pleural effusion & empyema. Pleural fluid can impair mechanics or represent infection; ultrasound helps characterize volume, complexity and procedural access.
+
+Build the mechanism first. Pleural fluid changes lung/chest-wall mechanics and may reflect hydrostatic, inflammatory, malignant or infected processes; loculation changes drainability.
+
+At the bedside, use ultrasound to assess volume, complexity, diaphragm/lung relationships and a safe procedural window while integrating the cause and need for source control.
+
+Two traps to actively avoid: Draining every effusion simply because it is visible. And: Calling complex septated fluid an uncomplicated transudate based on history alone.
+
+The integration move is this: Pleural ultrasound should answer both “what is it?” and “does it need intervention?”
+
+Keep these terms available in your mental model: septation, empyema, thoracentesis.
+
+What expert-level use of this concept looks like is this: Differentiate uncomplicated effusion from infected/complex pleural disease. Use ultrasound and clinical context to guide drainage decisions.
+
+Reasoning checkpoint. Do not just repeat the statement: Differentiate uncomplicated effusion from infected/complex pleural disease. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.

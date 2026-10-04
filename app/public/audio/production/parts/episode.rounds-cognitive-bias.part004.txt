@@ -1,0 +1,9 @@
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you use explicit debiasing without paralyzing decision-making?
+
+Can you treat unexpected treatment response as evidence that can falsify the working model?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

@@ -1,0 +1,37 @@
+Two traps to actively avoid: Calling a normal pH normal acid-base physiology. And: Treating bicarbonate concentration as if it identifies the mechanism by itself.
+
+The integration move is this: Acid-base analysis should lead back to the disease process causing the disturbance.
+
+Keep these terms available in your mental model: delta gap, expected compensation.
+
+What expert-level use of this concept looks like is this: Identify mixed disorders that a single pH label hides. Connect acid-base abnormalities to the underlying physiology and treatment.
+
+Reasoning checkpoint. Do not just repeat the statement: Identify mixed disorders that a single pH label hides. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Connect acid-base abnormalities to the underlying physiology and treatment. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Advanced acid-base reasoning to Strong-ion approach. A physicochemical framework using strong-ion difference, total weak acids and PCO2 to explain acid-base state.
+
+The relationship matters because The physicochemical framework explains acid-base state through PCO2, strong-ion difference and total weak acids. Chloride-rich states lower SID and can create metabolic acidosis. At the bedside, use the model to understand hyperchloremia and hypoalbuminemia while still translating findings into familiar bicarbonate and anion-gap language.
+
+Now connect Advanced acid-base reasoning to Diabetic ketoacidosis physiology. Insulin deficiency produces ketogenesis, osmotic diuresis, electrolyte shifts and a high-anion-gap acidosis whose treatment changes potassium and water distribution.
+
+The relationship matters because Insulin deficiency and counter-regulatory hormones drive ketogenesis, osmotic diuresis and major total-body electrolyte deficits even when serum levels initially appear normal or high. At the bedside, track volume status, potassium, sodium/osmolality, anion gap and acid-base trajectory through treatment.
+
+Stress-test the model. Imagine the patient changes in a way that makes calling a normal ph normal acid-base physiology tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Treating bicarbonate concentration as if it identifies the mechanism by itself.
+
+Toxic alcohols. Methanol and ethylene glycol toxicity evolve through parent-compound intoxication, toxic metabolites, anion-gap acidosis and end-organ injury.
+
+Build the mechanism first. Methanol and ethylene glycol parent compounds create early osmolar burden while toxic metabolites later produce high-anion-gap acidosis and organ-specific injury.
+
+At the bedside, use time course, osmolar gap, anion gap, visual/renal findings and acid-base state together; antidotal blockade and dialysis solve different kinetic problems.
+
+Two traps to actively avoid: Waiting for a confirmatory level when physiology strongly supports toxicity. And: Assuming a normal osmolar gap late in presentation is reassuring.
+
+The integration move is this: As parent alcohol is metabolized, the osmolar gap can fall while toxicity worsens.
+
+Keep these terms available in your mental model: osmolar gap, anion gap, formate, oxalate.
+
+What expert-level use of this concept looks like is this: Use timing, gaps and organ findings together rather than waiting for a confirmatory level. Understand the roles of alcohol dehydrogenase blockade and extracorporeal removal.
+
+Reasoning checkpoint. Do not just repeat the statement: Use timing, gaps and organ findings together rather than waiting for a confirmatory level. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.

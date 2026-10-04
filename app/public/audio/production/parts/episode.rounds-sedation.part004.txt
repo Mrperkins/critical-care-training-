@@ -1,0 +1,19 @@
+Reasoning checkpoint. Do not just repeat the statement: Recognize modifiable drivers of delirium. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Integrate sedation reduction, sleep, mobility and family engagement into daily ICU care. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Delirium, sleep & mobility to ICU analgesia, sedation & synchrony. Sedation strategy balances analgesia, comfort, ventilator synchrony, neurologic assessment, hemodynamics and delirium risk.
+
+The relationship matters because Analgesics and sedatives alter pain, awareness, respiratory drive, vascular tone and neurologic assessment. Deep sedation is a physiologic intervention with downstream consequences. At the bedside, separate pain, anxiety, delirium, dyssynchrony and hypoxemia before escalating sedation; use an explicit target and reassess it.
+
+Stress-test the model. Imagine the patient changes in a way that makes calling hypoactive delirium “calm.” tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Treating delirium exclusively with sedating medication.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you build a differential for agitation before escalating sedation and recognize when the underlying problem is pain, ventilator interaction or delirium?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

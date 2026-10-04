@@ -1,0 +1,223 @@
+You're listening to Thrombosis, thrombocytopenia and oncologic emergencies. HIT, hypercoagulability, tumor lysis, leukostasis and critical-care hematology without lab-number tunnel vision.
+
+This is a level 5 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to reason about thrombosis risk independently from routine coagulation numbers; and recognize metabolic and rheologic oncologic syndromes requiring disease-specific therapy.
+
+Now: HIT: low platelets, high thrombosis risk.
+
+Heparin-induced thrombocytopenia. HIT is an immune prothrombotic disorder in which falling platelets signal thrombosis risk rather than simple bleeding risk.
+
+Build the mechanism first. HIT antibodies activate platelets through PF4 complexes, making thrombocytopenia a marker of a strongly prothrombotic immune syndrome.
+
+At the bedside, estimate pretest probability first, stop heparin and use appropriate non-heparin anticoagulation when probability warrants while confirmatory testing proceeds.
+
+Two traps to actively avoid: Ordering HIT testing for every ICU platelet fall. And: Withholding anticoagulation simply because the platelet count is low in likely HIT.
+
+The integration move is this: The feared complication is thrombosis, not the platelet number itself.
+
+Keep these terms available in your mental model: 4Ts, PF4, non-heparin anticoagulation.
+
+What expert-level use of this concept looks like is this: Estimate pretest probability before ordering confirmatory tests. Stop heparin and manage thrombosis risk when clinical probability is meaningful.
+
+Reasoning checkpoint. Do not just repeat the statement: Estimate pretest probability before ordering confirmatory tests. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Stop heparin and manage thrombosis risk when clinical probability is meaningful. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Heparin-induced thrombocytopenia to Hypercoagulability in critical illness. Critical illness can create thrombosis through inflammation, malignancy, immobility, devices and immune mechanisms even when coagulation labs appear abnormal.
+
+The relationship matters because Inflammation, malignancy, immobility, endothelial injury and devices can shift critical illness toward thrombosis even when routine coagulation tests appear prolonged. At the bedside, assess VTE/device thrombosis risk independently from PT/aPTT and adapt prophylaxis or treatment to bleeding risk and mechanism.
+
+Stress-test the model. Imagine the patient changes in a way that makes ordering hit testing for every icu platelet fall tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Withholding anticoagulation simply because the platelet count is low in likely HIT.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Hypercoagulability in critical illness.
+
+Hypercoagulability in critical illness. Critical illness can create thrombosis through inflammation, malignancy, immobility, devices and immune mechanisms even when coagulation labs appear abnormal.
+
+Build the mechanism first. Inflammation, malignancy, immobility, endothelial injury and devices can shift critical illness toward thrombosis even when routine coagulation tests appear prolonged.
+
+At the bedside, assess VTE/device thrombosis risk independently from PT/aPTT and adapt prophylaxis or treatment to bleeding risk and mechanism.
+
+Two traps to actively avoid: Assuming prolonged INR means the patient is auto-anticoagulated. And: Missing catheter thrombosis because the line still flushes.
+
+The integration move is this: Bleeding tests and thrombosis biology are related but not interchangeable.
+
+Keep these terms available in your mental model: VTE, thrombosis, Virchow.
+
+What expert-level use of this concept looks like is this: Separate bleeding laboratory abnormalities from actual thrombotic risk. Recognize device- and malignancy-associated thrombosis patterns.
+
+Reasoning checkpoint. Do not just repeat the statement: Separate bleeding laboratory abnormalities from actual thrombotic risk. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize device- and malignancy-associated thrombosis patterns. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Hypercoagulability in critical illness to Heparin-induced thrombocytopenia. HIT is an immune prothrombotic disorder in which falling platelets signal thrombosis risk rather than simple bleeding risk.
+
+The relationship matters because HIT antibodies activate platelets through PF4 complexes, making thrombocytopenia a marker of a strongly prothrombotic immune syndrome. At the bedside, estimate pretest probability first, stop heparin and use appropriate non-heparin anticoagulation when probability warrants while confirmatory testing proceeds.
+
+Now connect Hypercoagulability in critical illness to Critical-illness coagulopathy. Bleeding and thrombosis reflect platelets, fibrinogen, coagulation factors, fibrinolysis, temperature, calcium, dilution and disease-specific pathways.
+
+The relationship matters because Hemostasis depends on platelets, fibrinogen, coagulation factors, fibrinolysis, calcium, pH and temperature. Critical illness can produce simultaneous bleeding and thrombosis risk. At the bedside, interpret conventional labs and viscoelastic tests in the clinical context and replace the failing component rather than one arbitrary number.
+
+Stress-test the model. Imagine the patient changes in a way that makes assuming prolonged inr means the patient is auto-anticoagulated tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Missing catheter thrombosis because the line still flushes.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Tumor lysis as metabolic catastrophe.
+
+Oncologic critical-care emergencies. Tumor lysis, leukostasis, hyperviscosity, malignant airway/vascular obstruction and treatment toxicities can cause rapidly reversible organ failure.
+
+Build the mechanism first. Cancer can cause abrupt metabolic, rheologic or compressive emergencies including tumor lysis, leukostasis and malignant airway/vascular obstruction.
+
+At the bedside, recognize the syndrome early, stabilize organ physiology and coordinate disease-specific therapy such as cytoreduction or metabolic control.
+
+Two traps to actively avoid: Treating tumor lysis electrolyte abnormalities one by one without controlling ongoing cell breakdown. And: Missing leukostasis because total leukocyte count is not extreme.
+
+The integration move is this: The malignancy can be the direct mechanism of organ failure, not merely background history.
+
+Keep these terms available in your mental model: tumor lysis, leukostasis, hyperviscosity.
+
+What expert-level use of this concept looks like is this: Recognize metabolic and mechanical oncologic syndromes early. Coordinate disease-specific therapy with organ support.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize metabolic and mechanical oncologic syndromes early. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Coordinate disease-specific therapy with organ support. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Oncologic critical-care emergencies to Calcium, magnesium & phosphate. Divalent electrolyte abnormalities alter cardiac conduction, muscle function, vascular tone and cellular energetics.
+
+The relationship matters because Calcium, magnesium and phosphate participate in membrane stability, contraction, ATP biology and neuromuscular function, so derangements can produce arrhythmia, weakness, seizure or shock. At the bedside, interpret ionized calcium when physiology demands it and anticipate depletion during massive transfusion, refeeding, diuresis and extracorporeal therapy.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating tumor lysis electrolyte abnormalities one by one without controlling ongoing cell breakdown tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Missing leukostasis because total leukocyte count is not extreme.
+
+Potassium disorders. Serum potassium reflects intake, excretion and transcellular shifts; dyskalemia becomes dangerous through membrane and cardiac electrophysiology.
+
+Build the mechanism first. Potassium gradients determine membrane excitability. Serum concentration reflects total-body balance plus rapid transcellular shifts driven by insulin, catecholamines, acid-base state and cell injury.
+
+At the bedside, when dangerous ECG or muscle findings are present, separate immediate membrane stabilization, temporary redistribution and definitive potassium removal.
+
+Two traps to actively avoid: Assuming a normal ECG eliminates severe hyperkalemia risk. And: Confusing a transcellular shift with total-body potassium excess or depletion.
+
+The integration move is this: Treat the membrane now while solving where the potassium came from and where it can go.
+
+Keep these terms available in your mental model: transcellular shift, membrane potential, repolarization.
+
+What expert-level use of this concept looks like is this: Separate redistribution from total-body gain/loss. Prioritize membrane stabilization, redistribution and elimination by mechanism.
+
+Reasoning checkpoint. Do not just repeat the statement: Separate redistribution from total-body gain/loss. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Prioritize membrane stabilization, redistribution and elimination by mechanism. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Potassium disorders to Diabetic ketoacidosis physiology. Insulin deficiency produces ketogenesis, osmotic diuresis, electrolyte shifts and a high-anion-gap acidosis whose treatment changes potassium and water distribution.
+
+The relationship matters because Insulin deficiency and counter-regulatory hormones drive ketogenesis, osmotic diuresis and major total-body electrolyte deficits even when serum levels initially appear normal or high. At the bedside, track volume status, potassium, sodium/osmolality, anion gap and acid-base trajectory through treatment.
+
+Now connect Potassium disorders to C R R T physiology & prescription literacy. Continuous renal replacement uses diffusion and/or convection to manage solute, acid-base and fluid balance in unstable patients.
+
+The relationship matters because C R R T uses diffusion, convection and ultrafiltration to control solute, acid-base and volume continuously. Prescribed dose can differ substantially from delivered dose. At the bedside, separate total effluent from net patient fluid removal and interpret access, filter and return pressures as clues to the physical circuit.
+
+Stress-test the model. Imagine the patient changes in a way that makes assuming a normal ecg eliminates severe hyperkalemia risk tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Confusing a transcellular shift with total-body potassium excess or depletion.
+
+Acute kidney injury. AKI is a syndrome of impaired filtration and homeostasis whose cause may be hemodynamic, intrinsic, obstructive or mixed.
+
+Build the mechanism first. AKI represents impaired filtration and homeostasis from hemodynamic, tubular, interstitial, vascular, obstructive or mixed mechanisms; creatinine is delayed and does not identify cause.
+
+At the bedside, use trajectory, urine output, hemodynamics, nephrotoxins, urinalysis and obstruction assessment to build the phenotype, then support volume/electrolyte/acid-base physiology.
+
+Two traps to actively avoid: Calling all oliguria “pre-renal.” And: Starting or withholding renal support based on creatinine alone.
+
+The integration move is this: Kidney injury is a syndrome; the treatment target is the mechanism and the homeostatic consequence.
+
+Keep these terms available in your mental model: filtration, renal perfusion, tubular injury, obstruction.
+
+What expert-level use of this concept looks like is this: Build an AKI differential from perfusion, nephrotoxins, urinalysis and obstruction. Recognize when kidney support is needed for physiology rather than a creatinine threshold.
+
+Reasoning checkpoint. Do not just repeat the statement: Build an AKI differential from perfusion, nephrotoxins, urinalysis and obstruction. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize when kidney support is needed for physiology rather than a creatinine threshold. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Acute kidney injury to C R R T physiology & prescription literacy. Continuous renal replacement uses diffusion and/or convection to manage solute, acid-base and fluid balance in unstable patients.
+
+The relationship matters because C R R T uses diffusion, convection and ultrafiltration to control solute, acid-base and volume continuously. Prescribed dose can differ substantially from delivered dose. At the bedside, separate total effluent from net patient fluid removal and interpret access, filter and return pressures as clues to the physical circuit.
+
+Now connect Acute kidney injury to Antimicrobial PK/PD in critical illness. Critical illness changes volume of distribution, clearance and target attainment, so dose strategy must match drug and patient physiology.
+
+The relationship matters because Critical illness alters volume of distribution, protein binding and clearance. Drug efficacy depends on whether exposure matches the relevant PK/PD target. At the bedside, account for augmented renal clearance, AKI, C R R T, fluid shifts and obesity rather than assuming standard dosing produces standard exposure.
+
+Stress-test the model. Imagine the patient changes in a way that makes calling all oliguria “pre-renal.” tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Starting or withholding renal support based on creatinine alone.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Leukostasis and rheologic failure.
+
+Oncologic critical-care emergencies. Tumor lysis, leukostasis, hyperviscosity, malignant airway/vascular obstruction and treatment toxicities can cause rapidly reversible organ failure.
+
+Build the mechanism first. Cancer can cause abrupt metabolic, rheologic or compressive emergencies including tumor lysis, leukostasis and malignant airway/vascular obstruction.
+
+At the bedside, recognize the syndrome early, stabilize organ physiology and coordinate disease-specific therapy such as cytoreduction or metabolic control.
+
+Two traps to actively avoid: Treating tumor lysis electrolyte abnormalities one by one without controlling ongoing cell breakdown. And: Missing leukostasis because total leukocyte count is not extreme.
+
+The integration move is this: The malignancy can be the direct mechanism of organ failure, not merely background history.
+
+Keep these terms available in your mental model: tumor lysis, leukostasis, hyperviscosity.
+
+What expert-level use of this concept looks like is this: Recognize metabolic and mechanical oncologic syndromes early. Coordinate disease-specific therapy with organ support.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize metabolic and mechanical oncologic syndromes early. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Coordinate disease-specific therapy with organ support. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Oncologic critical-care emergencies to Calcium, magnesium & phosphate. Divalent electrolyte abnormalities alter cardiac conduction, muscle function, vascular tone and cellular energetics.
+
+The relationship matters because Calcium, magnesium and phosphate participate in membrane stability, contraction, ATP biology and neuromuscular function, so derangements can produce arrhythmia, weakness, seizure or shock. At the bedside, interpret ionized calcium when physiology demands it and anticipate depletion during massive transfusion, refeeding, diuresis and extracorporeal therapy.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating tumor lysis electrolyte abnormalities one by one without controlling ongoing cell breakdown tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Missing leukostasis because total leukocyte count is not extreme.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Bleeding and clotting can coexist.
+
+Critical-illness coagulopathy. Bleeding and thrombosis reflect platelets, fibrinogen, coagulation factors, fibrinolysis, temperature, calcium, dilution and disease-specific pathways.
+
+Build the mechanism first. Hemostasis depends on platelets, fibrinogen, coagulation factors, fibrinolysis, calcium, pH and temperature. Critical illness can produce simultaneous bleeding and thrombosis risk.
+
+At the bedside, interpret conventional labs and viscoelastic tests in the clinical context and replace the failing component rather than one arbitrary number.
+
+Two traps to actively avoid: Equating INR with whole-blood clot quality. And: Ignoring fibrinogen, platelet function, temperature and calcium.
+
+The integration move is this: Coagulation is a dynamic system, not a single laboratory pathway.
+
+Keep these terms available in your mental model: fibrinolysis, fibrinogen, viscoelastic testing.
+
+What expert-level use of this concept looks like is this: Reason from the failing component of clot formation rather than treating INR alone. Anticipate temperature, calcium and dilution effects during hemorrhagic resuscitation.
+
+Reasoning checkpoint. Do not just repeat the statement: Reason from the failing component of clot formation rather than treating INR alone. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Anticipate temperature, calcium and dilution effects during hemorrhagic resuscitation. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Critical-illness coagulopathy to Massive transfusion & hemorrhagic resuscitation. Hemorrhagic resuscitation integrates source control, balanced component replacement, calcium, temperature, coagulation and perfusion.
+
+The relationship matters because Major hemorrhage produces loss of oxygen-carrying capacity, volume and hemostatic components while hypothermia, hypocalcemia, dilution and acidosis can worsen coagulation. At the bedside, activate the hemorrhage system early, warm the resuscitation, track calcium/coagulation/temperature and never lose sight of definitive source control.
+
+Stress-test the model. Imagine the patient changes in a way that makes equating inr with whole-blood clot quality tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Ignoring fibrinogen, platelet function, temperature and calcium.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you reason about thrombosis risk independently from routine coagulation numbers?
+
+Can you recognize metabolic and rheologic oncologic syndromes requiring disease-specific therapy?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

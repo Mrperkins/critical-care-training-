@@ -1,0 +1,37 @@
+What expert-level use of this concept looks like is this: Recognize when persistent shock reflects uncontrolled abdominal source. Coordinate antimicrobial therapy with procedural or operative control.
+
+Reasoning checkpoint. Do not just repeat the statement: Recognize when persistent shock reflects uncontrolled abdominal source. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Coordinate antimicrobial therapy with procedural or operative control. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Intra-abdominal infection to Mesenteric ischemia & abdominal catastrophe. Mesenteric ischemia and perforation can produce severe pain, lactate elevation and shock before dramatic examination or imaging changes.
+
+The relationship matters because Mesenteric hypoperfusion or arterial/venous occlusion causes intestinal ischemia, barrier failure and necrosis; examination can lag behind tissue injury. At the bedside, maintain suspicion when pain, acidosis/lactate and shock exceed abdominal findings and accelerate definitive imaging/surgical evaluation.
+
+Stress-test the model. Imagine the patient changes in a way that makes escalating vasopressors while source control stalls tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Attributing persistent lactate to sepsis alone despite possible ischemic bowel.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Empiric breadth without permanent breadth.
+
+Antimicrobial resistance & stewardship. Empiric antimicrobial breadth should reflect illness severity, host factors and local resistance, then narrow as evidence improves.
+
+Build the mechanism first. Resistance emerges from organism biology plus selective pressure; empiric breadth should match host/severity/local epidemiology and then contract as evidence accumulates.
+
+At the bedside, use prior cultures, recent exposure, local antibiogram and syndrome to choose empiric therapy, then deliberately de-escalate or stop when justified.
+
+Two traps to actively avoid: Equating “sicker” with unlimited antimicrobial breadth. And: Failing to reassess antibiotics after cultures and source data return.
+
+The integration move is this: Stewardship is not undertreatment; it is repeated matching of therapy to the probability landscape.
+
+Keep these terms available in your mental model: de-escalation, antibiogram, MDR.
+
+What expert-level use of this concept looks like is this: Choose empiric coverage based on risk rather than maximal breadth by default. De-escalate or stop therapy when microbiology and clinical evidence support it.
+
+Reasoning checkpoint. Do not just repeat the statement: Choose empiric coverage based on risk rather than maximal breadth by default. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: De-escalate or stop therapy when microbiology and clinical evidence support it. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Antimicrobial resistance & stewardship to Catheter & device-associated infection. Intravascular lines, urinary catheters and implanted devices can become infection sources whose management may require device removal.

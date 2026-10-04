@@ -1,0 +1,35 @@
+What expert-level use of this concept looks like is this: Run a reproducible first-five-minutes stabilization sequence. Treat hypotension or hypoxemia as a physiology problem rather than simply changing one ventilator or medication setting.
+
+Reasoning checkpoint. Do not just repeat the statement: Run a reproducible first-five-minutes stabilization sequence. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Treat hypotension or hypoxemia as a physiology problem rather than simply changing one ventilator or medication setting. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Post-intubation stabilization to Ventilator emergency troubleshooting. A structured patient-to-device approach to acute hypoxemia, high pressure, low pressure, dyssynchrony and post-intubation deterioration.
+
+The relationship matters because Acute ventilator deterioration can originate from the patient, tube, circuit or machine. Peak and plateau pressures help separate resistance from compliance when measurements are trustworthy. At the bedside, look at the patient first, rescue oxygenation/ventilation if the device cannot be trusted, then trace from patient to tube to circuit to machine.
+
+Now connect Post-intubation stabilization to ICU analgesia, sedation & synchrony. Sedation strategy balances analgesia, comfort, ventilator synchrony, neurologic assessment, hemodynamics and delirium risk.
+
+The relationship matters because Analgesics and sedatives alter pain, awareness, respiratory drive, vascular tone and neurologic assessment. Deep sedation is a physiologic intervention with downstream consequences. At the bedside, separate pain, anxiety, delirium, dyssynchrony and hypoxemia before escalating sedation; use an explicit target and reassess it.
+
+Stress-test the model. Imagine the patient changes in a way that makes declaring success at tube confirmation tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Forgetting analgesia/sedation in a paralyzed patient.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Now: Post-intubation hypotension as a differential diagnosis.
+
+Post-intubation stabilization. Tube confirmation is the beginning of post-intubation care: oxygenation, ventilation, hemodynamics, sedation, ventilator setup and diagnosis must be reassessed together.
+
+Build the mechanism first. Intubation creates a new physiologic state: airway resistance, mean intrathoracic pressure, sedation, ventilation and venous return all change at once.
+
+At the bedside, confirm tube with waveform capnography, set disease-appropriate ventilation, establish analgesia/sedation and reassess hypotension or hypoxemia mechanistically.
+
+Two traps to actively avoid: Declaring success at tube confirmation. And: Forgetting analgesia/sedation in a paralyzed patient.
+
+The integration move is this: The first five minutes determine whether airway control becomes physiologic rescue or a new source of instability.
+
+Keep these terms available in your mental model: waveform capnography, post-intubation hypotension, analgosedation.
+
+What expert-level use of this concept looks like is this: Run a reproducible first-five-minutes stabilization sequence. Treat hypotension or hypoxemia as a physiology problem rather than simply changing one ventilator or medication setting.

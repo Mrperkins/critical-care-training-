@@ -1,0 +1,35 @@
+SAH vasospasm & delayed cerebral ischemia. After aneurysmal SAH, delayed cerebral ischemia may reflect vasospasm and broader perfusion disturbances days after the initial bleed.
+
+Build the mechanism first. Delayed cerebral ischemia after aneurysmal SAH involves vasospasm and broader microcirculatory/perfusion dysfunction, typically separated in time from the initial bleed.
+
+At the bedside, track new focal deficits or reduced consciousness after the aneurysm is secured, maintain nimodipine when appropriate and escalate perfusion/vascular evaluation.
+
+Two traps to actively avoid: Assuming every late decline is sedation or hydrocephalus. And: Confusing rebleeding risk management with later DCI hemodynamic goals.
+
+The integration move is this: SAH changes phase over days; the correct hemodynamic concern changes with it.
+
+Keep these terms available in your mental model: nimodipine, vasospasm, DCI.
+
+What expert-level use of this concept looks like is this: Distinguish early rebleeding/ICP issues from later DCI risk. Use neurologic change and perfusion monitoring to escalate evaluation.
+
+Reasoning checkpoint. Do not just repeat the statement: Distinguish early rebleeding/ICP issues from later DCI risk. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Use neurologic change and perfusion monitoring to escalate evaluation. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect SAH vasospasm & delayed cerebral ischemia to ICP, CPP & cerebral perfusion. Cerebral perfusion depends on the gradient across the cerebral circulation and is influenced by pressure, venous outflow, CO2 and intracranial compliance.
+
+The relationship matters because CPP is the pressure gradient available to drive cerebral blood flow and is influenced by arterial pressure, ICP, venous pressure and autoregulation. Intracranial compliance falls as compensatory reserve is exhausted. At the bedside, interpret ICP as a dynamic system with waveform, position, venous drainage, CO2 and sedation effects. A “normal” MAP does not guarantee adequate cerebral perfusion.
+
+Stress-test the model. Imagine the patient changes in a way that makes assuming every late decline is sedation or hydrocephalus tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Confusing rebleeding risk management with later DCI hemodynamic goals.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
+
+Tie this back to the patient. Ask what variable is changing, what downstream effect you expect, and what bedside finding would support or contradict that model.
+
+Before you finish, retrieve the model without looking at notes.
+
+Can you choose pressure/perfusion priorities according to ischemic versus hemorrhagic pathology and treatment phase?
+
+Can you recognize hydrocephalus, herniation and delayed ischemia as evolving neurologic emergencies?
+
+If any part still feels like a memorized phrase instead of a mechanism you can predict with, that is the part to review next.

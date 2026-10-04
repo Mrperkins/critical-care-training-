@@ -1,0 +1,37 @@
+You're listening to Electrolytes and tonicity: treat the membrane, brain and body store. Sodium, potassium, calcium, magnesium, phosphate and hypoglycemia as critical-care physiology.
+
+This is a level 4 critical-care session. The goal is not to memorize a list. The goal is to build a model that lets you predict what the patient will do next.
+
+By the end, you should be able to reason from tonicity, membrane physiology and body stores rather than isolated lab thresholds; and anticipate treatment-induced electrolyte shifts and electrical consequences.
+
+Now: Sodium is a water-balance signal.
+
+Sodium & water disorders. Sodium concentration reflects water balance relative to body solute; neurologic risk comes from both the disorder and the speed of osmotic change.
+
+Build the mechanism first. Serum sodium is primarily a water-to-solute concentration signal. Brain cells adapt to chronic tonicity change, making rapid reversal dangerous even when the number is very abnormal.
+
+At the bedside, define tonicity, symptom severity and likely chronicity before choosing a correction strategy; monitor the trajectory frequently because therapy itself can change water excretion.
+
+Two traps to actively avoid: Treating sodium concentration as total-body sodium. And: Correcting chronic dysnatremia according to urgency of the number rather than neurologic risk.
+
+The integration move is this: Think in tonicity and brain adaptation, not sodium alone.
+
+Keep these terms available in your mental model: tonicity, effective osmolality, free water, osmotic demyelination.
+
+What expert-level use of this concept looks like is this: Distinguish sodium concentration from total-body sodium. Plan correction around chronicity, symptoms, tonicity and the danger of overcorrection.
+
+Reasoning checkpoint. Do not just repeat the statement: Distinguish sodium concentration from total-body sodium. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Reasoning checkpoint. Do not just repeat the statement: Plan correction around chronicity, symptoms, tonicity and the danger of overcorrection. Talk yourself through what data would support that conclusion, what data would contradict it, and what intervention could test the model without committing the patient to unnecessary risk.
+
+Now connect Sodium & water disorders to Hyperosmolar hyperglycemic state. HHS combines profound free-water deficit and hyperosmolality with less ketogenesis than DKA, creating distinct neurologic and correction-rate concerns.
+
+The relationship matters because HHS is dominated by severe hyperosmolality and free-water deficit with relatively little ketoacidosis. Neurologic dysfunction tracks osmotic disturbance and underlying illness. At the bedside, follow effective osmolality, sodium trajectory, volume status and neurologic state while glucose falls.
+
+Now connect Sodium & water disorders to ICP, CPP & cerebral perfusion. Cerebral perfusion depends on the gradient across the cerebral circulation and is influenced by pressure, venous outflow, CO2 and intracranial compliance.
+
+The relationship matters because CPP is the pressure gradient available to drive cerebral blood flow and is influenced by arterial pressure, ICP, venous pressure and autoregulation. Intracranial compliance falls as compensatory reserve is exhausted. At the bedside, interpret ICP as a dynamic system with waveform, position, venous drainage, CO2 and sedation effects. A “normal” MAP does not guarantee adequate cerebral perfusion.
+
+Stress-test the model. Imagine the patient changes in a way that makes treating sodium concentration as total-body sodium tempting. Before acting, state the mechanism you think is operating, predict what your intervention should change, and name the finding that would make you stop and reconsider. Then run the same exercise against this second trap: Correcting chronic dysnatremia according to urgency of the number rather than neurologic risk.
+
+Chapter integration. Put the numbers aside for a moment and picture the patient. Build a one-sentence physiologic problem representation using the concepts from this chapter. Then make one prediction about the next monitor, laboratory, imaging, waveform, or examination change you would expect if your model is correct.
