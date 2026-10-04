@@ -2,7 +2,7 @@ name: Import Audio Voice Assets
 
 on:
   push:
-    branches: [audio-mastery]
+    branches: [main, mental-reps-hands-on]
     paths:
       - app/public/audio/voice/import.json
       - app/src/audio/catalog.ts
@@ -31,7 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: audio-mastery
+          ref: ${{ github.ref_name }}
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
@@ -55,9 +55,9 @@ jobs:
           else
             git commit -m "chore(audio): import durable natural-voice prototypes [skip ci]"
             for attempt in 1 2 3 4 5; do
-              git fetch origin audio-mastery
-              git rebase origin/audio-mastery
-              if git push origin HEAD:audio-mastery; then
+              git fetch origin ${{ github.ref_name }}
+              git rebase origin/${{ github.ref_name }}
+              if git push origin HEAD:${{ github.ref_name }}; then
                 exit 0
               fi
               echo "Voice asset push raced with branch update; retrying ($attempt/5)"
