@@ -75,11 +75,54 @@ function ArteryUs(){return <Frame title="distal radial artery · surface map + u
   <path className="rv-needle" d="M310 132L422 240"/><circle className="rv-dot" cx="422" cy="240" r="7"/>
   <text className="small" x="430" y="385">prove compressibility + pulse · reacquire true tip before every advance</text>
 </svg></Frame>}
-function Transducer(){return <Frame title="the line is a measurement system"><svg viewBox="0 0 600 420"><circle className="rv-vessel" cx="95" cy="225" r="37"/><path className="rv-line" d="M132 225h155"/><rect className="rv-soft" x="287" y="190" width="72" height="70" rx="8"/><text className="small" x="323" y="230">ZERO</text><path className="rv-line" d="M359 225h105"/><rect className="rv-label" x="464" y="175" width="75" height="100" rx="8"/><text className="small" x="501" y="215">MON</text><path className="rv-line gold" d="M323 85v105"/><rect className="rv-soft" x="285" y="48" width="76" height="42" rx="8"/><text className="small" x="323" y="74">PRESSURE</text></svg></Frame>}
+function Transducer(){return <Frame title="level the measurement system to the patient"><svg viewBox="0 0 600 420">
+  <path className="rv-body" d="M42 72h205v250H42z"/><path className="rv-line" d="M145 72v250"/>
+  <path className="rv-rib" d="M62 135h165M62 170h165M62 205h165M62 240h165"/>
+  <circle className="rv-dot" cx="205" cy="240" r="8"/><text className="small" x="145" y="360">4th interspace × mid-axillary line</text>
+  <path className="rv-line gold" d="M205 240h150"/><text className="small" x="280" y="225">HORIZONTAL LEVEL</text>
+  <rect className="rv-soft" x="355" y="202" width="76" height="76" rx="8"/><text className="small" x="393" y="245">ZERO</text>
+  <path className="rv-line" d="M431 240h80"/><rect className="rv-label" x="511" y="188" width="62" height="104" rx="8"/><text className="small" x="542" y="234">MON</text>
+  <path className="rv-line gold" d="M393 98v104"/><rect className="rv-soft" x="354" y="55" width="78" height="44" rx="8"/><text className="small" x="393" y="82">PRESSURE</text>
+  <text className="small" x="300" y="397">below reference = falsely high · above reference = falsely low</text>
+</svg></Frame>}
 function ArtWave(){return <Frame title="read waveform + number"><svg viewBox="0 0 600 420"><path className="rv-grid" d="M60 90v260M160 90v260M260 90v260M360 90v260M460 90v260M560 90v260M60 140h500M60 210h500M60 280h500M60 350h500"/><path className="rv-wave" d="M60 315c22 0 33-12 42-80 8-60 21-96 35-96 19 0 35 71 55 98 14 19 27 28 44 32l14-20 15 32c20 24 37 34 60 34 22 0 34-13 43-80 9-60 22-96 36-96 20 0 36 72 56 98 15 19 27 28 44 32l14-20 15 32c17 22 35 34 77 34"/><text className="small" x="70" y="75">upstroke · systolic peak · dicrotic notch · runoff</text></svg></Frame>}
 function SquareWave(){return <Frame title="dynamic response"><svg viewBox="0 0 600 420"><path className="rv-wave" d="M55 295h80v-150h145v150c10-65 25-65 35 0 10-43 22-43 31 0 9-28 19-28 27 0 8-17 17-17 24 0h145"/><text className="small" x="115" y="125">flush</text><text className="small" x="300" y="335">inspect oscillations after release</text></svg></Frame>}
 function EfastMap(){return <Frame title="a repeatable sweep"><svg viewBox="0 0 600 420"><path className="rv-body" d="M300 55c-42 0-66 31-66 71v35c-62 30-94 84-92 163h316c2-79-30-133-92-163v-35c0-40-24-71-66-71z"/><circle className="rv-dot" cx="215" cy="210" r="10"/><circle className="rv-dot" cx="385" cy="210" r="10"/><circle className="rv-dot" cx="300" cy="285" r="10"/><circle className="rv-dot" cx="300" cy="180" r="10"/><circle className="rv-dot" cx="195" cy="150" r="8"/><circle className="rv-dot" cx="405" cy="150" r="8"/><text className="small" x="155" y="352">RUQ · LUQ · pelvis · heart · pleura</text></svg></Frame>}
-function UsWindow({name}:{name:string}){return <Frame title={name}><svg viewBox="0 0 600 420"><path className="rv-sector" d="M300 62L95 365h410z"/><ellipse className="rv-organ" cx="255" cy="218" rx="110" ry="68"/><ellipse className="rv-vessel" cx="354" cy="270" rx="55" ry="32"/><path className="rv-fluid" d="M275 253q63 18 118-4q-40 42-96 37z"/><text className="small" x="180" y="132">sweep, do not snapshot</text></svg></Frame>}
+function UsWindow({name}:{name:string}){
+  if(name==='RUQ') return <Frame title="RUQ · liver → kidney → diaphragm"><svg viewBox="0 0 600 420">
+    <path className="rv-sector" d="M300 50L78 370h444z"/><ellipse className="rv-organ" cx="265" cy="200" rx="128" ry="76"/><text className="small" x="235" y="175">LIVER</text>
+    <ellipse className="rv-ring" cx="365" cy="257" rx="58" ry="38"/><text className="small" x="365" y="262">R KIDNEY</text>
+    <path className="rv-line gold" d="M130 145q170-100 340 0"/><text className="small" x="300" y="112">DIAPHRAGM</text>
+    <path className="rv-fluid" d="M310 229q55 18 105 0q-48 33-96 28z"/><text className="small" x="432" y="232">HEPATORENAL RECESS</text>
+    <text className="small" x="300" y="397">mid-axillary · sweep interface + inferior liver tip + lower thorax</text>
+  </svg></Frame>;
+  if(name==='LUQ') return <Frame title="LUQ · spleen → kidney → diaphragm"><svg viewBox="0 0 600 420">
+    <path className="rv-sector" d="M300 50L78 370h444z"/><ellipse className="rv-organ" cx="260" cy="194" rx="94" ry="62"/><text className="small" x="245" y="190">SPLEEN</text>
+    <ellipse className="rv-ring" cx="365" cy="260" rx="58" ry="38"/><text className="small" x="365" y="265">L KIDNEY</text>
+    <path className="rv-line gold" d="M145 135q155-86 315 0"/><text className="small" x="300" y="105">DIAPHRAGM</text>
+    <path className="rv-fluid" d="M300 230q52 20 105 0q-45 31-96 27z"/><text className="small" x="433" y="233">SPLENORENAL</text>
+    <text className="small" x="300" y="397">posterior axillary · sweep splenorenal + subphrenic + lower thorax</text>
+  </svg></Frame>;
+  if(name==='PELVIS') return <Frame title="pelvis · pubic bone → bladder → dependent spaces"><svg viewBox="0 0 600 420">
+    <path className="rv-sector" d="M300 50L78 370h444z"/><rect className="rv-bone" x="245" y="320" width="110" height="25" rx="10"/><text className="small" x="300" y="370">PUBIC SYMPHYSIS</text>
+    <ellipse className="rv-vessel" cx="300" cy="235" rx="105" ry="72"/><text className="small" x="300" y="240">BLADDER</text>
+    <path className="rv-fluid" d="M205 290q95 35 190 0q-70 65-190 0z"/><text className="small" x="425" y="305">DEPENDENT SPACE</text>
+    <path className="rv-line gold" d="M170 180h260"/><text className="small" x="300" y="155">sweep transverse + longitudinal</text>
+  </svg></Frame>;
+  if(name==='CARDIAC') return <Frame title="subxiphoid · liver window → chambers → pericardium"><svg viewBox="0 0 600 420">
+    <path className="rv-sector" d="M300 50L78 370h444z"/><ellipse className="rv-organ" cx="215" cy="280" rx="100" ry="55"/><text className="small" x="215" y="285">LIVER</text>
+    <path className="rv-soft" d="M260 160q65-70 120 0q65-70 118 0q12 75-119 132q-132-57-119-132z"/><path className="rv-line gold" d="M379 155v128"/>
+    <text className="small" x="330" y="210">RV</text><text className="small" x="425" y="210">LV</text><path className="rv-ring" d="M250 140q130-100 255 8"/>
+    <text className="small" x="388" y="115">PERICARDIAL BOUNDARY</text><text className="small" x="300" y="397">xiphoid = inferior sternum · probe immediately below · flatten toward abdomen</text>
+  </svg></Frame>;
+  if(name==='LUNG') return <Frame title="lung · rib shadows prove the pleural line"><svg viewBox="0 0 600 420">
+    <path className="rv-sector" d="M300 50L78 370h444z"/><ellipse className="rv-ring" cx="210" cy="180" rx="42" ry="78"/><ellipse className="rv-ring" cx="390" cy="180" rx="42" ry="78"/>
+    <text className="small" x="210" y="92">RIB SHADOW</text><text className="small" x="390" y="92">RIB SHADOW</text><path className="rv-line gold" d="M210 270h180"/>
+    <text className="small" x="300" y="300">PLEURAL LINE</text><path className="rv-wave" d="M230 330h45l15-20 18 40 18-20h44"/>
+    <text className="small" x="300" y="397">watch sliding dynamically · compare matched zones · one absent sign is not the diagnosis</text>
+  </svg></Frame>;
+  return <Frame title={name}><svg viewBox="0 0 600 420"><text className="small" x="300" y="210">rebuild anatomy before interpretation</text></svg></Frame>;
+}
 function RealFast(){return <Frame title="real positive RUQ FAST" real><div className="rv-realmedia"><video controls playsInline muted poster="../imaging/real/fast-ruq-positive.jpg"><source src="../imaging/real/fast-ruq-positive.mp4" type="video/mp4"/><source src="../imaging/real/fast-ruq-positive.webm" type="video/webm"/></video><span>Gillman et al. · CC BY 2.0</span></div></Frame>}
 function IjLandmarks(){return <Frame title="right IJ · surface triangle → ultrasound proof"><svg viewBox="0 0 600 420">
   <path className="rv-body" d="M82 45q95-25 190 0v285H82z"/><path className="rv-line" d="M128 84l48 218M226 84l-50 218M82 302h190"/>
@@ -136,15 +179,16 @@ function Piv({mode}:{mode:string}){return <Frame title="ultrasound-guided periph
   {mode==='piv-confirm'&&<><path className="rv-line gold" d="M310 235q48 20 95 0"/><text className="small" x="405" y="278">catheter intraluminal</text></>}
   <text className="small" x="150" y="120">true needle tip</text>
 </svg></Frame>}
-function Airway({mode}:{mode:string}){return <Frame title={mode==='airway-preoxygenation'?'preoxygenation + rescue':'airway plan before induction'}><svg viewBox="0 0 600 420">
-  <circle className="rv-head" cx="145" cy="175" r="72"/><path className="rv-line gold" d="M118 126q58 2 85 38"/><path className="rv-line" d="M194 180q62 12 94 64"/>
-  <path className="rv-soft" d="M74 150q35-52 82-12q28 24 18 65q-42 30-88 1q-23-24-12-54z"/><text className="small" x="123" y="222">MASK · SEAL</text>
-  <rect className="rv-soft" x="36" y="286" width="132" height="54" rx="9"/><text className="small" x="102" y="309">SUCTION</text><text className="small" x="102" y="327">ON + IN REACH</text>
-  <rect className="rv-soft" x="330" y="62" width="210" height="58" rx="10"/><text className="small" x="435" y="87">PLAN A · LARYNGOSCOPE</text><text className="small" x="435" y="105">TUBE · CUFF · BOUGIE</text>
-  <rect className="rv-soft" x="330" y="145" width="210" height="58" rx="10"/><text className="small" x="435" y="170">BAG-MASK + ADJUNCTS</text><text className="small" x="435" y="188">CAPNOGRAPHY READY</text>
-  <rect className="rv-soft" x="330" y="228" width="210" height="58" rx="10"/><text className="small" x="435" y="253">BACKUP SGA</text><text className="small" x="435" y="271">RESCUE OXYGENATION</text>
-  <rect className="rv-soft" x="330" y="311" width="210" height="58" rx="10"/><text className="small" x="435" y="336">FRONT-OF-NECK KIT</text><text className="small" x="435" y="354">ROLE + LOCATION KNOWN</text>
-  {mode==='airway-preoxygenation'&&<><path className="rv-wave" d="M188 325h70l16-35 18 70 17-35h42"/><text className="small" x="266" y="390">watch reserve · optimize before paralysis</text></>}
+function Airway({mode}:{mode:string}){return <Frame title={mode==='airway-preoxygenation'?'position → preoxygenate → rescue':'airway plan before induction'}><svg viewBox="0 0 600 420">
+  <circle className="rv-head" cx="145" cy="150" r="70"/><circle className="rv-dot" cx="195" cy="145" r="6"/><text className="small" x="190" y="128">EAM</text>
+  <path className="rv-body" d="M72 220q70-35 146 0v118H72z"/><circle className="rv-dot" cx="178" cy="250" r="6"/><text className="small" x="162" y="276">STERNAL NOTCH</text>
+  <path className="rv-line gold" d="M195 145l-17 105"/><text className="small" x="74" y="365">ramp when needed until ear-canal level aligns with sternal notch</text>
+  <path className="rv-soft" d="M82 135q34-45 78-10q25 21 17 56q-40 25-82 0q-20-20-13-46z"/><text className="small" x="128" y="205">MASK · SEAL</text>
+  <rect className="rv-soft" x="330" y="52" width="218" height="56" rx="10"/><text className="small" x="439" y="76">PLAN A · LARYNGOSCOPE</text><text className="small" x="439" y="94">TUBE · CUFF · BOUGIE</text>
+  <rect className="rv-soft" x="330" y="130" width="218" height="56" rx="10"/><text className="small" x="439" y="154">SUCTION ON</text><text className="small" x="439" y="172">BAG-MASK + CAPNOGRAPHY</text>
+  <rect className="rv-soft" x="330" y="208" width="218" height="56" rx="10"/><text className="small" x="439" y="232">BACKUP SGA</text><text className="small" x="439" y="250">RESCUE OXYGENATION</text>
+  <rect className="rv-soft" x="330" y="286" width="218" height="56" rx="10"/><text className="small" x="439" y="310">FRONT-OF-NECK KIT</text><text className="small" x="439" y="328">ROLE + LOCATION KNOWN</text>
+  {mode==='airway-preoxygenation'&&<path className="rv-wave" d="M220 322h55l14-32 17 64 16-32h45"/>}
 </svg></Frame>}
 function PostTube(){return <Frame title="first five minutes"><svg viewBox="0 0 600 420"><circle className="rv-head" cx="95" cy="115" r="42"/><path className="rv-line gold" d="M125 120h105"/><rect className="rv-soft" x="230" y="84" width="105" height="72" rx="9"/><text className="small" x="282" y="112">ETCO₂</text><path className="rv-wave" d="M247 137h15v-16h32v16h22"/><path className="rv-line" d="M335 120h92"/><rect className="rv-soft" x="427" y="80" width="105" height="80" rx="9"/><text className="small" x="479" y="112">VENT</text><text className="small" x="479" y="132">SETTINGS</text><text className="big" x="90" y="285">86/50</text><text className="small" x="90" y="310">reassess pressure · oxygenation · sedation</text></svg></Frame>}
 function Sedation(){return <Frame title="analgesia + sedation + goal"><svg viewBox="0 0 600 420"><rect className="rv-label" x="75" y="85" width="135" height="70" rx="8"/><text className="small" x="142" y="112">PAIN?</text><text className="small" x="142" y="135">analgesia</text><rect className="rv-soft" x="232" y="85" width="135" height="70" rx="8"/><text className="small" x="299" y="112">TARGET</text><text className="small" x="299" y="135">RASS / exam</text><rect className="rv-soft" x="389" y="85" width="135" height="70" rx="8"/><text className="small" x="456" y="112">PHYSIOLOGY</text><text className="small" x="456" y="135">BP · HR · vent</text><path className="rv-line gold" d="M142 155v110h314v-110"/><rect className="rv-soft" x="210" y="265" width="180" height="72" rx="9"/><text className="small" x="300" y="296">REASSESS TARGET</text><text className="small" x="300" y="317">not just the infusion</text></svg></Frame>}
