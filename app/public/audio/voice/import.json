@@ -55,6 +55,13 @@
       "url": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/3ba2180d-bd3a-4795-b579-681d341b2ea0.mp3",
       "voice": "Natural clinical narrator prototype",
       "provider": "AI Voice Generator"
+    },
+    {
+      "id": "episode.dose-normal-spo2",
+      "file": "episode.dose-normal-spo2.mp3",
+      "url": "https://www.aidocmaker.com/g0/audio?name=d3bfe9f41d8f403c86a9879decc4b8f5",
+      "voice": "Natural clinical narrator",
+      "provider": "AI Voice Generator"
     }
   ]
 }
