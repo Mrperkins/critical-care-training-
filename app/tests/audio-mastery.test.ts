@@ -96,4 +96,20 @@ describe('critical care audio mastery model', () => {
       expect(rep.beats.some((b) => /stop|re-orient|remap|identify|landmark|reference|anatom/i.test(b.narration)), `${id} needs explicit landmark logic`).toBe(true);
     }
   });
+
+  it('core procedural Mental Reps keep literal hands-first choreography', () => {
+    const required: Record<string, RegExp[]> = {
+      'rep-blood': [/pick up the blood product/i, /tubing and filter/i, /spike the verified unit/i, /stop the blood immediately/i],
+      'rep-art-line': [/flush bag/i, /stopcock/i, /select zero/i, /fast-flush/i],
+      'rep-chest-tube': [/lay out the tube/i, /skin incision/i, /bluntly dissect/i, /connect it immediately/i],
+      'rep-central-line': [/probe in one hand/i, /true tip/i, /before dilation/i, /guidewire/i],
+      'rep-io': [/stabilize the limb/i, /needle length/i, /extension set/i, /flush according to protocol/i],
+      'rep-us-piv': [/choose a catheter/i, /true tip/i, /thread the catheter/i, /connect the extension/i],
+    };
+    for (const [id, patterns] of Object.entries(required)) {
+      const rep = MENTAL_REPS.find((x) => x.id === id)!;
+      const script = rep.beats.map((b) => b.narration).join(' ');
+      for (const pattern of patterns) expect(script, `${id} lost hands-first step ${pattern}`).toMatch(pattern);
+    }
+  });
 });
