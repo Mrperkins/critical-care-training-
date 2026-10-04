@@ -49,7 +49,15 @@ jobs:
             echo "No production script changes"
           else
             git commit -m "chore(audio): materialize expertise scripts [skip ci]"
-            git fetch origin audio-mastery
-            git rebase origin/audio-mastery
-            git push origin HEAD:audio-mastery
+            for attempt in 1 2 3 4 5; do
+              git fetch origin audio-mastery
+              git rebase origin/audio-mastery
+              if git push origin HEAD:audio-mastery; then
+                exit 0
+              fi
+              echo "Production script push raced with branch update; retrying ($attempt/5)"
+              sleep $((attempt * 2))
+            done
+            echo "Unable to publish production scripts after retries" >&2
+            exit 1
           fi
