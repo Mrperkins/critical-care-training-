@@ -59,7 +59,7 @@ export function App() {
       <a className="skip-link" href="#controls" onClick={(e) => { e.preventDefault(); const el = document.getElementById('controls'); el?.focus(); el?.scrollIntoView({ block: 'start' }); }}>Skip to controls</a>
       <header className="topbar">
         <div className="brand"><Mark /><div><h1 className="b1">Critical Care Physiology</h1><div className="b2">one patient · lungs · blood · cells · lines</div></div></div>
-        <nav className="modules" ref={(n) => { n?.querySelector('button.on')?.scrollIntoView?.({ block: 'nearest', inline: 'nearest' }); }}>{MODULES.map(([k, l]) => <button key={k} className={module === k ? 'on' : ''} onClick={() => useUI.getState().set({ module: k })}>{l}</button>)}</nav>
+        <nav className="modules" aria-label="Learning areas" ref={(n) => { n?.querySelector('button.on')?.scrollIntoView?.({ block: 'nearest', inline: 'nearest' }); }}>{MODULES.map(([k, l]) => <button key={k} className={module === k ? 'on' : ''} onClick={() => useUI.getState().set({ module: k })}>{l}</button>)}<a className="audio-entry" href="audio/" aria-label="Open Critical Care Audio">Audio <span aria-hidden="true">♪</span></a></nav>
         <Seg value={mode} options={MODES} onChange={(v) => useUI.getState().set({ mode: v })} />
       </header>
       {module === 'vent' && <VentModule />}

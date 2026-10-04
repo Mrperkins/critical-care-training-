@@ -37,6 +37,14 @@ export function CurriculumModule() {
           <label className="cur-hide"><input type="checkbox" checked={hideDone} onChange={(e) => setHideDone(e.target.checked)} /> Hide completed</label>
         </section>
         <OfflineCard />
+        <section className="card cur-audio-callout">
+          <div>
+            <div className="eyebrow">Listen · reason · rehearse</div>
+            <h3>Critical Care Audio</h3>
+            <p className="muted small">Build expert-level ICU literacy with natural-voice rounds, deep dives, cases and guided procedural Mental Reps. Audio learning uses its own mastery and spaced-review system while linking back to the same physiology.</p>
+          </div>
+          <a className="cur-audio-cta" href="audio/"><span aria-hidden="true">♪</span><b>Open Critical Care Audio</b><small>Expert tracks · Mental Reps · review</small></a>
+        </section>
 
         <div className="cur-cols">
           <section className="card">
