@@ -58,7 +58,7 @@ export function AudioApp() {
         <div className="aa-level"><span>MASTERy PATH</span><b>{done} sessions completed</b><small>Expert-level literacy + reasoning. Bedside expertise still requires supervised clinical practice.</small></div>
         <a className="aa-back" href="../">← Critical Care Physiology</a>
       </aside>
-      <main className="aa-main">
+      <main className="aa-main"><a className="aa-global-return" href="../">← Visual app</a>
         {episode ? <EpisodePlayer episode={episode} onBack={() => setEpisode(null)}
            onReview={() => { setEpisode(null); setPage('review'); }}
            onFocus={(id) => { setEpisode(null); setFocus(id); }}
@@ -268,7 +268,7 @@ function EpisodePlayer({ episode, onBack, onReview, onFocus, onExample }: { epis
 
 function RepPlayer({ rep, onBack, onReview, onFocus, onExample }: { rep: MentalRep; onBack: () => void; onReview: () => void; onFocus: (id: string) => void; onExample: (e: AudioEpisode) => void }) {
   const p = useAudioProgress(); const [i, setI] = useState(0); const beat = rep.beats[i];
-  const audio = useRef<HTMLAudioElement>(null); const [guided, setGuided] = useState(false); const [voicePlaying, setVoicePlaying] = useState(false);
+  const audio = useRef<HTMLAudioElement>(null); const advanceTimer = useRef<number | null>(null); const [guided, setGuided] = useState(false); const [voicePlaying, setVoicePlaying] = useState(false);
   const [listening, setListening] = useState(false); const [heard, setHeard] = useState('');
   const beatVoiceId = `rep.${rep.id}.${beat.id}`; const durableBeat = durableVoiceAsset(beatVoiceId);
   const voiceSrc = durableBeat ? `voice/${durableBeat.file}` : beat.voice?.src ?? beat.voice?.previewSrc;
@@ -281,7 +281,7 @@ function RepPlayer({ rep, onBack, onReview, onFocus, onExample }: { rep: MentalR
     return () => { window.clearTimeout(id); a.pause(); setVoicePlaying(false); };
   }, [i, guided, voiceSrc]);
 
-  useEffect(() => () => { audio.current?.pause(); }, []);
+  useEffect(() => () => { if (advanceTimer.current !== null) window.clearTimeout(advanceTimer.current); audio.current?.pause(); }, []);
 
   const startGuided = async () => {
     if (!voiceSrc || !audio.current) return;
@@ -290,7 +290,7 @@ function RepPlayer({ rep, onBack, onReview, onFocus, onExample }: { rep: MentalR
   };
   const toggleVoice = async () => {
     const a = audio.current; if (!a || !voiceSrc) return;
-    if (a.paused) { try { await a.play(); setVoicePlaying(true); } catch { /* browser blocked */ } }
+    if (a.paused) { try { setGuided(true); await a.play(); setVoicePlaying(true); } catch { setGuided(false); /* browser blocked */ } }
     else { a.pause(); setVoicePlaying(false); }
   };
   const ended = () => {
@@ -300,13 +300,17 @@ function RepPlayer({ rep, onBack, onReview, onFocus, onExample }: { rep: MentalR
     if (i < rep.beats.length - 1) {
       // Guided mode is intentionally hands-free. Prompts create a timed reflection pause,
       // then the next narrated beat starts without requiring a button press.
-      window.setTimeout(() => setI((x) => Math.min(rep.beats.length - 1, x + 1)), reflectionMs);
+      if (advanceTimer.current !== null) window.clearTimeout(advanceTimer.current);
+      advanceTimer.current = window.setTimeout(() => {
+        advanceTimer.current = null;
+        setI((x) => Math.min(rep.beats.length - 1, x + 1));
+      }, reflectionMs);
     } else {
       p.completeRep(rep.id, rep.concepts);
       setGuided(false);
     }
   };
-  const go = (next: number) => { audio.current?.pause(); setVoicePlaying(false); setI(Math.max(0, Math.min(rep.beats.length - 1, next))); };
+  const go = (next: number) => { if (advanceTimer.current !== null) { window.clearTimeout(advanceTimer.current); advanceTimer.current = null; } audio.current?.pause(); setVoicePlaying(false); setI(Math.max(0, Math.min(rep.beats.length - 1, next))); };
   const command = async (cmd: HandsFreeCommand, transcript: string) => {
     setHeard(transcript);
     if (cmd === 'pause') { audio.current?.pause(); setVoicePlaying(false); setGuided(false); }
@@ -326,13 +330,13 @@ function RepPlayer({ rep, onBack, onReview, onFocus, onExample }: { rep: MentalR
 
   return <div className="aa-page aa-rehearsal"><button className="aa-backbtn" onClick={onBack}>← Mental Reps</button>
     <div className="aa-rephead"><span className="aa-kicker">GUIDED PROCEDURAL VISUALIZATION</span><h1>{rep.title}</h1><p>{rep.subtitle}</p><div className="aa-warning"><b>Training boundary</b><span>{rep.disclaimer}</span></div>
-      {hasVoice && <div className="aa-guided-launch"><div><span className="aa-kicker">NATURAL-VOICE GUIDED MODE</span><b>Let the narration carry the visualization.</b><small>It advances automatically between narrated beats and stops when you need to think.</small></div>
+      {hasVoice && <div className="aa-guided-launch"><div><span className="aa-kicker">NATURAL-VOICE GUIDED MODE</span><b>Let the narration carry the visualization.</b><small>It advances automatically through every narrated beat. Reflection prompts pause briefly, then continue without a Next button.</small></div>
         {!guided ? <button className="aa-primary" onClick={startGuided}>▶ Start guided rep</button> : <button className="aa-secondary" onClick={() => { audio.current?.pause(); setVoicePlaying(false); setGuided(false); }}>Exit guided mode</button>}</div>}
     </div>
     <div className="aa-repstage">
       <div className={`aa-visual ${beat.danger ? 'danger' : ''}`}><RepVisual beat={beat} /><small className="aa-vphase">VISUAL CUE · {beat.phase.toUpperCase()}</small></div>
       <section><div className="aa-stepcount">BEAT {i + 1} OF {rep.beats.length}</div><h2>{beat.title}</h2><p className="aa-narration">{beat.narration}</p>
-        {voiceSrc && <><audio ref={audio} src={voiceSrc} onEnded={ended} /><div className="aa-beatvoice"><button onClick={toggleVoice}>{voicePlaying ? '❚❚ Pause narration' : '▶ Narrate this beat'}</button>{handsFreeAvailable() && <button className={`aa-mic ${listening ? 'on' : ''}`} onClick={mic}>{listening ? 'Listening…' : '⌁ Hands-free'}</button>}<span>{durableBeat?.reviewed || beat.voice?.reviewed ? 'Reviewed narration' : durableBeat ? 'Durable natural voice · review pending' : 'Natural-voice prototype'}</span></div>{heard && <div className="aa-heard">Heard: “{heard}”</div>}<div className="aa-command-hint">Say: pause · repeat · next · go deeper · give me an example · quiz me</div></>}
+        {voiceSrc && <><audio ref={audio} src={voiceSrc} onEnded={ended} /><div className="aa-beatvoice"><button onClick={toggleVoice}>{voicePlaying ? '❚❚ Pause narration' : '▶ Play guided sequence'}</button>{handsFreeAvailable() && <button className={`aa-mic ${listening ? 'on' : ''}`} onClick={mic}>{listening ? 'Listening…' : '⌁ Hands-free'}</button>}<span>{durableBeat?.reviewed || beat.voice?.reviewed ? 'Reviewed narration' : durableBeat ? 'Durable natural voice · review pending' : 'Natural-voice prototype'}</span></div>{heard && <div className="aa-heard">Heard: “{heard}”</div>}<div className="aa-command-hint">Say: pause · repeat · next · go deeper · give me an example · quiz me</div></>}
         {beat.pauseSeconds && <div className="aa-pause">Pause · {beat.pauseSeconds} seconds</div>}
         {beat.prompt && <div className="aa-prompt"><b>Mentally answer before moving on</b><p>{beat.prompt}</p></div>}
         {guided ? <div className="aa-autoflow"><span className="aa-kicker">HANDS-FREE FLOW</span><b>{i < rep.beats.length - 1 ? 'Next beat will begin automatically.' : 'Final beat — completion will be recorded automatically.'}</b>{beat.prompt && <small>Reflection pause: {beat.pauseSeconds ?? 5} seconds, then narration continues.</small>}</div> :
