@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { EPISODES, MENTAL_REPS } from '../src/audio/catalog';
 import { MASTERY, MASTERY_BY_ID } from '../src/audio/mastery';
 import { MASTERY_NOTES } from '../src/audio/masteryNotes';
+import { REVIEW_PROMPTS } from '../src/audio/review';
 
 describe('critical care audio mastery model', () => {
   it('has unique concept, episode and Mental Rep ids', () => {
@@ -37,6 +38,20 @@ describe('critical care audio mastery model', () => {
   it('gives every mastery concept at least one expertise-audio teaching path', () => {
     const covered = new Set(EPISODES.flatMap((e) => e.concepts));
     for (const c of MASTERY) expect(covered.has(c.id), `audio coverage missing: ${c.id}`).toBe(true);
+  });
+
+  it('gives every mastery concept spaced-retrieval coverage', () => {
+    const ids = REVIEW_PROMPTS.map((q) => q.id);
+    expect(new Set(ids).size).toBe(ids.length);
+    const covered = new Set(REVIEW_PROMPTS.map((q) => q.concept));
+    for (const c of MASTERY) expect(covered.has(c.id), `review coverage missing: ${c.id}`).toBe(true);
+    for (const q of REVIEW_PROMPTS) {
+      expect(MASTERY_BY_ID[q.concept], `${q.id} -> ${q.concept}`).toBeTruthy();
+      expect(q.options).toHaveLength(4);
+      expect(q.answer).toBeGreaterThanOrEqual(0);
+      expect(q.answer).toBeLessThan(q.options.length);
+      expect(q.explain.length).toBeGreaterThan(40);
+    }
   });
 
   it('keeps the core procedural visualization set present', () => {
