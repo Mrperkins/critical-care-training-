@@ -77,7 +77,7 @@ function Home({ onEpisode, onRep, navigate }: { onEpisode: (e: AudioEpisode) => 
     <section className="aa-section"><div className="aa-section-h"><div><span className="aa-kicker">RECOMMENDED FOR YOU</span><h2>{featured.title}</h2></div><button className="aa-primary" onClick={() => onEpisode(featured)}>▶ Start round</button></div>
       <div className="aa-feature">
         <div className="aa-orbit" aria-hidden="true"><i /><i /><i /><b>RV</b></div>
-        <div><p>{featured.subtitle}</p><div className="aa-tags"><span>Level {featured.level}</span><span>{featured.minutes} min</span><span>{featured.concepts.length} concepts</span><span className="voice">Natural voice sample</span></div>
+        <div><p>{featured.subtitle}</p><div className="aa-tags"><span>Level {featured.level}</span><span>{featured.minutes} min</span><span>{featured.concepts.length} concepts</span>{featured.voice ? <span className="voice">{featured.voice.reviewed ? 'Reviewed natural voice' : 'Natural voice prototype'}</span> : <span>Script ready · voice pending</span>}</div>
           <h3>After this round</h3><ul>{featured.outcomes.map((x) => <li key={x}>{x}</li>)}</ul></div>
       </div>
     </section>
@@ -96,7 +96,7 @@ function Tracks({ onEpisode }: { onEpisode: (e: AudioEpisode) => void }) {
       const pct = t.episodes.length ? Math.round(100 * done / t.episodes.length) : 0;
       const next = t.episodes.find((e) => !p.completed[e.id]) ?? t.episodes[0];
       return <article key={t.id}><div className="aa-tracktop"><span>{t.episodes.length} sessions</span><b>{pct}%</b></div><h2>{t.title}</h2><p>{t.promise}</p><div className="aa-meter"><i style={{width:`${pct}%`}} /></div>
-        <div className="aa-trackepisodes">{t.episodes.slice(0,4).map((e) => <button key={e.id} onClick={() => onEpisode(e)} className={p.completed[e.id] ? 'done' : ''}><span>{p.completed[e.id] ? '✓' : '▶'}</span><b>{e.title}</b><small>L{e.level} · {e.minutes} min</small></button>)}</div>
+        <div className="aa-trackepisodes">{t.episodes.slice(0,4).map((e) => <button key={e.id} onClick={() => onEpisode(e)} className={p.completed[e.id] ? 'done' : ''}><span>{p.completed[e.id] ? '✓' : e.voice?.src ? '♪' : '▶'}</span><b>{e.title}</b><small>L{e.level} · {e.minutes} min · {e.voice?.reviewed ? 'reviewed audio' : e.voice?.src ? 'voice rendered' : e.voice?.previewSrc ? 'voice preview' : 'scripted'}</small></button>)}</div>
         {t.episodes.length > 4 && <small className="aa-more">+{t.episodes.length - 4} more sessions</small>}
         <button className="aa-primary" onClick={() => onEpisode(next)}>{done ? 'Continue track →' : 'Start track →'}</button>
       </article>;
