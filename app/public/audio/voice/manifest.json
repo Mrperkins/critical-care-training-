@@ -8,9 +8,9 @@
       "published": false,
       "voice": "Natural clinical narrator",
       "provider": "AI Voice Generator",
-      "sha256": "25a079e10d2bc21e650a7ce4469342c2ec590e1a29a4e06a1f19197d324ea7a3",
-      "durationSeconds": 11.136,
-      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/fe507cdd-ef5c-4f9c-b341-f22cb2cf53b6.mp3",
+      "sha256": "2e1266cf80fed0992607a4b0ac42b3ea3afdd858ed41db2a561c86bdd554c408",
+      "durationSeconds": 29.928,
+      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/e6489f51-af6b-45d8-a07c-213ae9e36253.mp3",
       "note": "Durable imported prototype; requires listening + clinical review before publication."
     },
     {
@@ -229,9 +229,9 @@
       "published": false,
       "voice": "Natural clinical narrator",
       "provider": "AI Voice Generator",
-      "sha256": "e020b8522777d0c5794d1eb0ded03980275dd7423fb7dc1ea56edc3bc8aec11b",
-      "durationSeconds": 9.816,
-      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/9c6f4862-ddf2-445c-beef-84b9d80e8dae.mp3",
+      "sha256": "ef421eb6673f91f4ada79a7ebad7148e485f3084d62bad81c969942e76a5f45e",
+      "durationSeconds": 29.76,
+      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/bc91a561-3a41-4ec3-9154-7f5afab2f155.mp3",
       "note": "Durable imported prototype; requires listening + clinical review before publication."
     },
     {
@@ -268,9 +268,9 @@
       "published": false,
       "voice": "Natural clinical narrator",
       "provider": "AI Voice Generator",
-      "sha256": "ebc878904b5c45c8916d7c72759c749d6bc565083ed5c15bc722d15ff775446a",
-      "durationSeconds": 11.664,
-      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/c1f96728-27a3-403a-9381-bdf6e3c93a85.mp3",
+      "sha256": "ab594f33170c4ea8688c8810d4df3f96a5e6c3f8d87f3eb7f683b6d7bb8a51fe",
+      "durationSeconds": 29.736,
+      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/33e3ca61-65b2-426d-8c00-53960e23cff4.mp3",
       "note": "Durable imported prototype; requires listening + clinical review before publication."
     },
     {
@@ -552,11 +552,11 @@
       "transcriptHash": "f0b6d4e17921f3e1",
       "reviewed": false,
       "published": false,
-      "voice": "Natural clinical narrator prototype",
+      "voice": "Natural clinical narrator",
       "provider": "AI Voice Generator",
-      "sha256": "346174282796ef459fad858b57ab3051e17a86da306896320b0ac58332ab2bd4",
-      "durationSeconds": 10.56,
-      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/842ec09c-d369-417d-86d8-2098c24f4f01.mp3",
+      "sha256": "2a4217d4d74d6a49a53728caa9eedc43afc48e361410b8a062cf2c811468e40e",
+      "durationSeconds": 27.504,
+      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/f844002a-eceb-4aaa-8a5a-9b92872fa7e6.mp3",
       "note": "Durable imported prototype; requires listening + clinical review before publication."
     },
     {
@@ -565,11 +565,11 @@
       "transcriptHash": "d9867e884c112d0d",
       "reviewed": false,
       "published": false,
-      "voice": "Natural clinical narrator prototype",
+      "voice": "Natural clinical narrator",
       "provider": "AI Voice Generator",
-      "sha256": "4759eee95016061a2f51bbd6110a2f23bd62a9f8495f96992805e88c43061b1c",
-      "durationSeconds": 11.688,
-      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/9ac0ac09-9191-4d60-a043-90caeae7ddb3.mp3",
+      "sha256": "7014347b61373040489d63704a99641f5b348d89a0d41adaf5213d4adb20ea9d",
+      "durationSeconds": 28.704,
+      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/fc4ad59b-157f-4908-85c9-174fefa09630.mp3",
       "note": "Durable imported prototype; requires listening + clinical review before publication."
     },
     {
@@ -578,11 +578,11 @@
       "transcriptHash": "598e8e5750210d23",
       "reviewed": false,
       "published": false,
-      "voice": "Natural clinical narrator prototype",
+      "voice": "Natural clinical narrator",
       "provider": "AI Voice Generator",
-      "sha256": "e9afc7291c115a8a8162f19c52a9e4e20bd3e84f57df2f2cc199da01a1947497",
-      "durationSeconds": 7.824,
-      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/9882ce63-7637-4b89-b5ab-3c7700d9b690.mp3",
+      "sha256": "f3fbfa03313640882c58dab78d52683935d15a8f2bd6f106f854454abdd3d9bd",
+      "durationSeconds": 23.712,
+      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/aa57e9e4-c5a3-43cf-b09d-21ad00769e74.mp3",
       "note": "Durable imported prototype; requires listening + clinical review before publication."
     },
     {
@@ -591,11 +591,11 @@
       "transcriptHash": "d7b2c80dba421852",
       "reviewed": false,
       "published": false,
-      "voice": "Natural clinical narrator prototype",
+      "voice": "Natural clinical narrator",
       "provider": "AI Voice Generator",
-      "sha256": "d1329211b3c79443e28ac7ca8a380a6a5614fab56cb53a0e4736292d000fd3f3",
-      "durationSeconds": 11.328,
-      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/2ac01d70-907d-4deb-862f-0199e9048964.mp3",
+      "sha256": "49d56f584f4b78ce4be794c3294b93acc74067dc48f2a350d9528f8b73214c90",
+      "durationSeconds": 26.928,
+      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/777e23d1-53ae-4313-ac99-a27d8bab05c7.mp3",
       "note": "Durable imported prototype; requires listening + clinical review before publication."
     },
     {
@@ -604,11 +604,11 @@
       "transcriptHash": "91f2f0fbe75d024d",
       "reviewed": false,
       "published": false,
-      "voice": "Natural clinical narrator prototype",
+      "voice": "Natural clinical narrator",
       "provider": "AI Voice Generator",
-      "sha256": "1983854fb857aa05425d2bbaff0ce92843cb02e8b742e196a02fc41baa813636",
-      "durationSeconds": 6.816,
-      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/2e6bc861-8638-494d-aee6-376657c5cdb7.mp3",
+      "sha256": "1a24b0919ff48fbbc91fe9d18ff9fb096c393e7cffdf77d4cf856f52779b85c3",
+      "durationSeconds": 26.088,
+      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/ec5c3245-929a-4836-bc54-72356d373a01.mp3",
       "note": "Durable imported prototype; requires listening + clinical review before publication."
     },
     {
@@ -630,11 +630,11 @@
       "transcriptHash": "a8495284a09d0790",
       "reviewed": false,
       "published": false,
-      "voice": "Natural clinical narrator prototype",
+      "voice": "Natural clinical narrator",
       "provider": "AI Voice Generator",
-      "sha256": "b07d44b619efd54d4d21f20763e28f96ed5572d3fc1510bf6bcf7f6785d23e1f",
-      "durationSeconds": 10.128,
-      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/6f2d9ce4-ca13-4de8-b31a-4ca27002e1d7.mp3",
+      "sha256": "f8a2618c1aca63ea02bd068109ad978f1c33149b92ff3dc761c55bc705811dc1",
+      "durationSeconds": 28.488,
+      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/5564c538-9318-44b3-bd50-5f44c6a70713.mp3",
       "note": "Durable imported prototype; requires listening + clinical review before publication."
     },
     {
@@ -684,9 +684,9 @@
       "published": false,
       "voice": "Natural clinical narrator",
       "provider": "AI Voice Generator",
-      "sha256": "8e2373e4e05efc953bc2a926efd671851463ca6ad39a4d156eae55e456006719",
-      "durationSeconds": 8.832,
-      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/ddd9418e-2dd8-4fb4-b19b-f42b6eedb488.mp3",
+      "sha256": "237a7127c598d6888226a6e481984526daadd487fb1c04ba505d40c5b097f775",
+      "durationSeconds": 30.024,
+      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/0cdebd1e-1e6a-41f8-b72b-c8eb36663002.mp3",
       "note": "Durable imported prototype; requires listening + clinical review before publication."
     },
     {
@@ -697,9 +697,9 @@
       "published": false,
       "voice": "Natural clinical narrator",
       "provider": "AI Voice Generator",
-      "sha256": "dfebd50087dac201f70f1a873953680a6ea39c0f97f4bbbd00c4a7b6d9feadda",
-      "durationSeconds": 9.984,
-      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/0dafbd73-b4f1-4e12-abbe-4f46ead16cc7.mp3",
+      "sha256": "cd9575933eee476e55ac89970f681131393f9d59fb288acf7d05593aff6fd6b7",
+      "durationSeconds": 22.368,
+      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/1bbf34f2-1beb-408b-9495-d6131f4bcfb2.mp3",
       "note": "Durable imported prototype; requires listening + clinical review before publication."
     },
     {
@@ -853,9 +853,9 @@
       "published": false,
       "voice": "Natural clinical narrator",
       "provider": "AI Voice Generator",
-      "sha256": "2439e6b7f61b6cce99b59e84f4fe1e7010198c3ca8a819eddb37bab3828d1e2c",
-      "durationSeconds": 7.44,
-      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/929bbc01-d152-4627-b20b-1a2f20f4d8cb.mp3",
+      "sha256": "9d7dfb6c3f9a586bf2b24edb4728bfa04c14735914a76c15d39bb21a01509922",
+      "durationSeconds": 29.736,
+      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/592c5d69-8200-4890-8dce-ce5288f1ef99.mp3",
       "note": "Durable imported prototype; requires listening + clinical review before publication."
     },
     {
@@ -1594,9 +1594,9 @@
       "published": false,
       "voice": "Natural clinical narrator",
       "provider": "AI Voice Generator",
-      "sha256": "828ddc12c531c52ce6a57bb9fe526a5f056cf6005c256b750f5a1542694fb196",
-      "durationSeconds": 8.664,
-      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/ad1e4bb6-bb06-4190-85c4-a9e25ed6d776.mp3",
+      "sha256": "931eaa84eacfbbba14363a822752a77c2dc255888de08f5c213950a60c3c8705",
+      "durationSeconds": 29.76,
+      "sourceUrl": "https://storage.googleapis.com/adm--audio-playback--7d--public/mcp-preview/1afbea9e-5a3a-4374-a63a-884ab356ed13.mp3",
       "note": "Durable imported prototype; requires listening + clinical review before publication."
     },
     {
