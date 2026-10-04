@@ -12,7 +12,7 @@ export interface ExpertTrack {
 
 const order: CriticalCareDomain[] = [
   'foundations','respiratory','hemodynamics','cardiac','neuro','renal-metabolic',
-  'infectious','hematology','pharmacology','imaging-monitoring','gi-hepatic',
+  'infectious','hematology','pharmacology','imaging-monitoring','procedures','gi-hepatic',
   'endocrine','toxicology','transplant','trauma-burns','obstetric',
   'peds-neonatal','recovery','communication-systems','multisystem'
 ];
@@ -28,6 +28,7 @@ const promise: Partial<Record<CriticalCareDomain,string>> = {
   hematology:'Understand transfusion, hemorrhage and coagulation as interacting systems rather than isolated lab numbers.',
   pharmacology:'Choose vasoactives, analgesia and sedation from physiology, receptor effects and tradeoffs.',
   'imaging-monitoring':'Turn waveforms and bedside imaging into physiologic evidence rather than decorative data.',
+  procedures:'Understand why, when and how procedures fail—not just the mechanical sequence.',
   'gi-hepatic':'Manage liver failure, GI hemorrhage, pancreatitis and nutrition as multisystem critical illness.',
   endocrine:'Recognize endocrine crises by the organ failure they cause, not just the hormone level.',
   toxicology:'Use toxicodynamics, acid-base and electrophysiology to build the antidote/support strategy.',
