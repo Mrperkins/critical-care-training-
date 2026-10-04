@@ -112,23 +112,30 @@ Mental Rep engine:
 ### Hands-free
 - Progressive Web Speech command parser/capture after explicit mic tap.
 - Implemented player commands: play/resume, pause/stop, next, previous, repeat.
-- Parser also recognizes `quiz me`, `go deeper` and `give me an example`; these still need tutor/content routing.
+- `quiz me` routes to deterministic spaced review.
+- `go deeper` routes to the concept's Teach-Me mastery pathway.
+- `give me an example` routes to a related pre-authored Audio Case when available, otherwise to the mastery pathway.
+- No browser TTS is used to synthesize medical answers.
 
 ### Premium voice pipeline
 - `scripts/audio-voice-lines.ts`: canonical narration inventory + transcript hashes.
 - `public/audio/voice/pronunciations.json`: provider-neutral medical pronunciation glossary.
 - `scripts/audio_voice_validate.py`: checks transcript hash, file hash, duration and review state for durable assets.
+- `scripts/audio_voice_import.py` + `audio-voice-import.yml`: imports explicitly approved public voice files, validates them, then commits durable assets to `audio-mastery`.
+- `scripts/audio-review-packet.ts`: generates clinical, pronunciation and listening-QA review rows.
 - Production publish gate requires reviewed durable audio before an episode may be `published`.
 - `npm run site` generates the premium-voice inventory and packages the standalone audio app.
 
 ### CI / verification
 - `.github/workflows/audio-ci.yml`: npm ci → Vitest → TypeScript → full site build → assert `dist/pub/audio/index.html`.
 - CI caught and we fixed a sparse-array catalog regression introduced during batch expansion.
-- Verified green through commit `9986c82` (pathway tests / full suite).
-- Current head includes graph closure, offline/PWA isolation and resume-position changes; its CI is still running at this checkpoint.
+- CI also caught an offline pre-cache test assumption when the generated `audio/index.html` shell was introduced; the test/build contract was corrected.
+- Duplicate push/PR verification runs now cancel via CI concurrency.
+- **Verified green at code commit `6521233`**: 384/384 tests, TypeScript clean, full `npm run site` build clean, standalone `dist/pub/audio/index.html` assertion passed.
+- Durable eFAST voice import workflow also completed successfully and validated all 8 assets.
 
 ## KNOWN BOUNDARIES / PENDING
-- Current natural-voice files are prototype external preview URLs, not project-owned durable production MP3s.
+- eFAST narration is now project-owned/durable but still prototype/unreviewed. RV and oxygen-delivery episode samples still use external preview URLs.
 - No episode/rep should be marked production-reviewed until transcript + pronunciation + listening QA are complete.
 - Full browser visual QA of `/audio/` at desktop/tablet/phone still required.
 - `quiz me`, `go deeper`, and `give me an example` hands-free commands need deterministic/tutor routing.
@@ -136,12 +143,12 @@ Mental Rep engine:
 - Additional Mental Reps worth adding: ultrasound-guided PIV, airway/RSI setup, post-intubation stabilization, PA-catheter waveform run, CRRT circuit walk-through, ECMO circuit walk-through, IABP timing, sedation/analgesia setup, seizure/status sequence.
 
 ## NEXT SLICE
-1. Require latest `audio-mastery` CI green; fix before stacking more.
-2. Browser-QA `/audio/` desktop + phone, including guided eFAST, real clips, Review and Teach-Me pathway.
-3. Ingest first **durable project-owned natural-voice MP3s** and validate them with the premium voice manifest.
-4. Clinically review + lock the first production modules:
+1. Browser-QA `/audio/` desktop + phone, including guided eFAST, offline reload, Review, hands-free controls and Teach-Me pathway.
+2. Clinically review + lock the first production modules:
+   - eFAST Mental Rep (durable audio already present)
    - oxygen-delivery Daily Dose
    - RV/intubation Round
-   - eFAST Mental Rep
-5. Wire `quiz me / go deeper / example` hands-free commands into deterministic learning content.
-6. Expand mastery graph and audio curriculum into remaining ICU expert domains.
+3. Import durable project-owned full episode audio after transcript/pronunciation sign-off.
+4. Add additional narrated Mental Reps and richer synchronized visual states.
+5. Expand mastery graph and audio curriculum into remaining ICU expert domains.
+6. Add instructor/SME review workflow for approving manifest `reviewed/published` state without hand-editing JSON.
