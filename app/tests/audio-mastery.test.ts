@@ -86,4 +86,14 @@ describe('critical care audio mastery model', () => {
       expect(r.beats.length).toBeGreaterThanOrEqual(5);
     }
   });
+
+  it('landmark-dependent Mental Reps explicitly rehearse anatomical orientation', () => {
+    for (const id of ['rep-art-line','rep-efast','rep-chest-tube','rep-central-line','rep-io','rep-evd','rep-us-piv']) {
+      const rep = MENTAL_REPS.find((x) => x.id === id)!;
+      const orientation = rep.beats.filter((b) => b.phase === 'orientation');
+      expect(orientation.length, `${id} needs an orientation beat`).toBeGreaterThan(0);
+      expect(orientation.some((b) => b.narration.length > 180), `${id} orientation is too shallow`).toBe(true);
+      expect(rep.beats.some((b) => /stop|re-orient|remap|identify|landmark|reference|anatom/i.test(b.narration)), `${id} needs explicit landmark logic`).toBe(true);
+    }
+  });
 });
