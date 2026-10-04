@@ -142,7 +142,7 @@ export function nextIntervalDays(s?: MasteryState) {
 }
 
 export function reviewDue(s?: MasteryState, now = Date.now()) {
-  if (!s?.lastSeen) return true;
+  if (!s?.lastSeen) return false;
   return now >= new Date(s.lastSeen).getTime() + nextIntervalDays(s) * DAY;
 }
 
