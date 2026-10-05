@@ -3,6 +3,7 @@ import { EPISODES, MENTAL_REPS } from '../src/audio/catalog';
 import { MASTERY, MASTERY_BY_ID } from '../src/audio/mastery';
 import { MASTERY_NOTES } from '../src/audio/masteryNotes';
 import { REVIEW_PROMPTS } from '../src/audio/review';
+import { hasProcedureSpecificVisual } from '../src/audio/repVisualRouting';
 
 describe('critical care audio mastery model', () => {
   it('has unique concept, episode and Mental Rep ids', () => {
@@ -62,6 +63,18 @@ describe('critical care audio mastery model', () => {
       'rep-crrt','rep-ecmo','rep-iabp','rep-sedation','rep-status',
       'rep-io','rep-vent-emergency','rep-evd','rep-mtp','rep-escharotomy','rep-finger-thoracostomy','rep-cricothyrotomy','rep-pericardiocentesis','rep-thoracentesis','rep-transvenous-pacing','rep-dialysis-catheter','rep-pocus-shock'
     ]) expect(ids.has(id), `Mental Rep missing: ${id}`).toBe(true);
+  });
+
+  it('gives every non-debrief Mental Rep beat a renderer-backed procedure-specific visual', () => {
+    for (const rep of MENTAL_REPS) {
+      for (const beat of rep.beats) {
+        if (beat.phase === 'debrief') continue;
+        expect(
+          hasProcedureSpecificVisual(rep.id, beat),
+          `${rep.id}/${beat.id} falls back to a generic phase visual`,
+        ).toBe(true);
+      }
+    }
   });
 
   it('requires reviewed durable audio before anything can be published', () => {
