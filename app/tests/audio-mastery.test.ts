@@ -60,7 +60,7 @@ describe('critical care audio mastery model', () => {
       'rep-push-dose-pressor','rep-blood','rep-art-line','rep-efast','rep-chest-tube',
       'rep-central-line','rep-us-piv','rep-rsi','rep-post-intubation','rep-pac',
       'rep-crrt','rep-ecmo','rep-iabp','rep-sedation','rep-status',
-      'rep-io','rep-vent-emergency','rep-evd','rep-mtp','rep-pocus-shock'
+      'rep-io','rep-vent-emergency','rep-evd','rep-mtp','rep-escharotomy','rep-pocus-shock'
     ]) expect(ids.has(id), `Mental Rep missing: ${id}`).toBe(true);
   });
 
@@ -92,7 +92,7 @@ describe('critical care audio mastery model', () => {
   });
 
   it('landmark-dependent Mental Reps explicitly rehearse anatomical orientation', () => {
-    for (const id of ['rep-art-line','rep-efast','rep-chest-tube','rep-central-line','rep-io','rep-evd','rep-us-piv','rep-pocus-shock']) {
+    for (const id of ['rep-art-line','rep-efast','rep-chest-tube','rep-central-line','rep-io','rep-evd','rep-us-piv','rep-escharotomy','rep-pocus-shock']) {
       const rep = MENTAL_REPS.find((x) => x.id === id)!;
       const orientation = rep.beats.filter((b) => b.phase === 'orientation');
       expect(orientation.length, `${id} needs an orientation beat`).toBeGreaterThan(0);
@@ -105,9 +105,9 @@ describe('critical care audio mastery model', () => {
     const required: Record<string, RegExp[]> = {
       'rep-blood': [/pick up the blood product/i, /tubing and filter/i, /spike the verified unit/i, /stop the blood immediately/i],
       'rep-art-line': [/flush bag/i, /stopcock/i, /select zero/i, /fast-flush/i],
-      'rep-chest-tube': [/lay out the tube/i, /skin incision/i, /bluntly dissect/i, /connect it immediately/i],
-      'rep-central-line': [/probe in one hand/i, /true tip/i, /before dilation/i, /guidewire/i],
-      'rep-io': [/stabilize the limb/i, /needle length/i, /extension set/i, /flush according to protocol/i],
+      'rep-chest-tube': [/lay out the tube/i, /skin incision/i, /bluntly spread/i, /connect the tube immediately/i],
+      'rep-central-line': [/nondominant hand/i, /true needle tip/i, /before dilation/i, /guidewire/i],
+      'rep-io': [/stabilize the leg/i, /black depth mark/i, /primed EZ-Connect extension set/i, /five to ten milliliters/i],
       'rep-us-piv': [/choose a catheter/i, /true tip/i, /thread the catheter/i, /connect the extension/i],
       'rep-rsi': [/suction within reach/i, /cuff checked/i, /label every syringe/i, /final sweep/i],
       'rep-post-intubation': [/attach waveform capnography/i, /trace the tube and circuit/i, /predicted body weight/i, /analgesia and sedation/i],
@@ -166,6 +166,7 @@ describe('critical care audio mastery model', () => {
       'rep-iabp': ['why','inflate','deflate','early','late','debrief'],
       'rep-sedation': ['pain','goal','hemo','paralysis','reassess','debrief'],
       'rep-status': ['clock','support','first','second','airway','silent','debrief'],
+      'rep-escharotomy': ['recognize','map','setup','release','reassess','chest','failure','aftercare','debrief'],
       'rep-pocus-shock': ['question','heart','lung','venous','abdomen','integrate','debrief'],
     };
     expect(Object.keys(order).sort()).toEqual(MENTAL_REPS.map((x) => x.id).sort());
@@ -196,6 +197,7 @@ describe('critical care audio mastery model', () => {
       'rep-iabp': [/trigger source/i, /unassisted beat/i, /dicrotic notch/i, /inflation marker/i, /assisted end-diastolic/i, /late deflation/i],
       'rep-sedation': [/drug name and concentration/i, /pump channel/i, /trace the infusion/i, /sedation target/i, /not occluded or empty/i],
       'rep-status': [/active seizure protocol/i, /route you actually have/i, /read the .* concentration/i, /exact volume/i, /completion time/i, /next-line row/i],
+      'rep-escharotomy': [/deep partial-thickness or full-thickness/i, /one centimeter beyond/i, /mid-lateral and mid-medial/i, /ulnar nerve/i, /medial epicondyle/i, /peroneal nerve/i, /posterior tibial/i, /subcutaneous fat/i, /do not deliberately enter the deep fascia/i, /anterior axillary lines/i, /costal margin/i, /Doppler/i, /gloved finger/i],
       'rep-pocus-shock': [/xiphoid/i, /inferior tip of the sternum/i, /left edge of the sternum/i, /point of maximal impulse/i, /two rib shadows/i, /pubic symphysis/i, /vertebral body/i, /aorta/i, /put the probe down/i, /make one prediction/i],
     };
     expect(Object.keys(required).sort(), 'every Mental Rep must have a protocol-grade anchor checklist').toEqual(MENTAL_REPS.map((x) => x.id).sort());
