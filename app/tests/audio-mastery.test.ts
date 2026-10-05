@@ -137,6 +137,16 @@ describe('critical care audio mastery model', () => {
     }
   });
 
+  it('keeps every non-debrief Mental Rep beat substantive enough for guided rehearsal', () => {
+    for (const rep of MENTAL_REPS) {
+      for (const beat of rep.beats) {
+        if (beat.phase === 'debrief') continue;
+        const words = beat.narration.trim().split(/\s+/).filter(Boolean).length;
+        expect(words, `${rep.id}/${beat.id} is too terse for protocol-grade rehearsal`).toBeGreaterThanOrEqual(25);
+      }
+    }
+  });
+
   it('protocol-grade Mental Reps do not hide critical steps behind vague shorthand', () => {
     const banned = [
       /identify the correct site/i,
