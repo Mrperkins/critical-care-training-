@@ -34,6 +34,7 @@ export function RepVisual({ beat }: { beat: MentalRepBeat }) {
   if (key === 'ecmo-circuit' || key === 'ecmo-return') return <Ecmo mode={key} />;
   if (key === 'iabp-wave' || key === 'iabp-errors') return <Iabp errors={key === 'iabp-errors'} />;
   if (key === 'seizure-timeline' || key === 'seizure-eeg') return <Seizure mode={key} />;
+  if (key.startsWith('eschar-')) return <Escharotomy mode={key} />;
   if (key.startsWith('pocus-')) return <Pocus mode={key} />;
   return <PhaseVisual beat={beat} />;
 }
@@ -242,6 +243,54 @@ function Iabp({errors}:{errors:boolean}){return <Frame title={errors?'IABP timin
   <text className="small" x="330" y="375">{errors?'compare marker with notch and next systolic upstroke':'inflate at closure · deflate before next systole'}</text>
   <text className="small" x="126" y="344">assisted EDP</text><text className="small" x="248" y="344">augmentation</text>
 </svg></Frame>}
+function Escharotomy({mode}:{mode:string}) {
+  if(mode==='eschar-extremity') return <Frame title="extremity release · mark both lines before cutting"><svg viewBox="0 0 600 420">
+    <path className="rv-body" d="M255 42q45-20 90 0l25 120-18 190h-104l-18-190z"/>
+    <path className="rv-line gold" d="M250 66q-22 120-18 270"/><path className="rv-line gold" d="M350 66q22 120 18 270"/>
+    <text className="small" x="205" y="75">MID-MEDIAL</text><text className="small" x="395" y="75">MID-LATERAL</text>
+    <circle className="rv-ring" cx="262" cy="160" r="18"/><text className="small" x="138" y="165">medial epicondyle · ulnar nerve behind</text>
+    <circle className="rv-ring" cx="344" cy="268" r="18"/><text className="small" x="425" y="273">fibular head/neck · peroneal nerve</text>
+    <circle className="rv-ring" cx="272" cy="332" r="18"/><text className="small" x="118" y="350">medial malleolus · posterior tibial bundle behind</text>
+    <text className="small" x="300" y="395">start ~1 cm before burn · cross involved joint · finish ~1 cm beyond burn</text>
+  </svg></Frame>;
+  if(mode==='eschar-depth') return <Frame title="depth endpoint · eschar opens to subcutaneous fat"><svg viewBox="0 0 600 420">
+    <rect className="rv-soft" x="75" y="70" width="450" height="55" rx="8"/><text className="small" x="300" y="103">RIGID ESCHAR / FULL-THICKNESS SKIN</text>
+    <rect className="rv-label" x="75" y="125" width="450" height="105" rx="8"/><text className="small" x="300" y="180">SUBCUTANEOUS FAT · STOP DEPTH</text>
+    <rect className="rv-soft" x="75" y="230" width="450" height="58" rx="8"/><text className="small" x="300" y="264">DEEP FASCIA · DO NOT ENTER FOR ESCHAROTOMY</text>
+    <rect className="rv-soft" x="75" y="288" width="450" height="62" rx="8"/><text className="small" x="300" y="324">MUSCLE</text>
+    <path className="rv-line gold" d="M300 44v136"/><path className="rv-line bad" d="M300 230v118"/>
+    <text className="small" x="390" y="155">edges separate / fat bulges</text><text className="small" x="392" y="253">fasciotomy is a different operation</text>
+  </svg></Frame>;
+  if(mode==='eschar-chest') return <Frame title="thoracic release · free a mobile chest-wall plate"><svg viewBox="0 0 600 420">
+    <path className="rv-body" d="M135 55q165-48 330 0l55 290H80z"/>
+    <path className="rv-line gold" d="M205 78v238M395 78v238"/><text className="small" x="182" y="65">ANTERIOR AXILLARY</text><text className="small" x="418" y="65">ANTERIOR AXILLARY</text>
+    <path className="rv-line gold" d="M205 316q95 55 190 0"/><text className="small" x="300" y="370">SUBCOSTAL / EPIGASTRIC CONNECTOR IF NEEDED</text>
+    <path className="rv-line" d="M160 112h280"/><text className="small" x="300" y="102">clavicular region</text>
+    <text className="small" x="300" y="205">release the rigid “breastplate”</text>
+    <text className="small" x="300" y="397">reassess chest excursion · airway pressure · delivered volume</text>
+  </svg></Frame>;
+  if(mode==='eschar-setup') return <Frame title="setup · cut only after the map and monitoring exist"><svg viewBox="0 0 600 420">
+    <rect className="rv-soft" x="55" y="70" width="140" height="80" rx="10"/><text className="small" x="125" y="98">DOPPLER</text><text className="small" x="125" y="120">PULSE-OX</text>
+    <rect className="rv-soft" x="230" y="70" width="140" height="80" rx="10"/><text className="small" x="300" y="98">STERILE FIELD</text><text className="small" x="300" y="120">DRAPES · GLOVES</text>
+    <rect className="rv-soft" x="405" y="70" width="140" height="80" rx="10"/><text className="small" x="475" y="98">SCALPEL / CAUTERY</text><text className="small" x="475" y="120">HEMOSTASIS READY</text>
+    <path className="rv-line gold" d="M90 235h420"/><circle className="rv-dot" cx="140" cy="235" r="8"/><circle className="rv-dot" cx="300" cy="235" r="8"/><circle className="rv-dot" cx="460" cy="235" r="8"/>
+    <text className="small" x="140" y="215">baseline</text><text className="small" x="300" y="215">mark</text><text className="small" x="460" y="215">release</text>
+    <text className="small" x="300" y="325">analgesia / sedation plan · local anesthetic in viable margins when required</text>
+  </svg></Frame>;
+  if(mode==='eschar-aftercare') return <Frame title="aftercare · the physiology must stay improved"><svg viewBox="0 0 600 420">
+    <path className="rv-line gold" d="M75 110h450"/><circle className="rv-dot" cx="135" cy="110" r="8"/><circle className="rv-dot" cx="300" cy="110" r="8"/><circle className="rv-dot" cx="465" cy="110" r="8"/>
+    <text className="small" x="135" y="90">HEMOSTASIS</text><text className="small" x="300" y="90">DRESS OPEN RELEASE</text><text className="small" x="465" y="90">RECHECK</text>
+    <path className="rv-wave" d="M95 250h50l14-35 18 70 18-35h55"/><text className="small" x="170" y="315">distal Doppler / pulse-ox</text>
+    <path className="rv-wave" d="M350 250h42l15-28 18 56 18-28h62"/><text className="small" x="430" y="315">airway pressure / delivered volume</text>
+    <text className="small" x="300" y="382">edema continues to evolve · serial exams continue after the release</text>
+  </svg></Frame>;
+  return <Frame title="constricting burn · prove the problem before release"><svg viewBox="0 0 600 420">
+    <ellipse className="rv-ring gold" cx="190" cy="205" rx="85" ry="125"/><path className="rv-line bad" d="M105 205h170"/><text className="small" x="190" y="205">RIGID ESCHAR</text>
+    <path className="rv-wave" d="M340 150h40l14-30 17 60 18-30h65"/><text className="small" x="420" y="205">DOPPLER / DISTAL FLOW</text>
+    <path className="rv-wave" d="M340 280h38l13-28 17 56 16-28h70"/><text className="small" x="420" y="335">CHEST EXCURSION / VENT</text>
+  </svg></Frame>;
+}
+
 function Seizure({mode}:{mode:string}){return <Frame title={mode==='seizure-eeg'?'convulsions stopped · brain may not have':'status is a time problem'}><svg viewBox="0 0 600 420">{mode==='seizure-eeg'?<><path className="rv-wave" d="M55 210l18-60 18 118 18-96 18 62 18-112 18 142 18-110 18 56 18-82 18 108 18-74 18 38 18-95 18 133 18-118 18 92 18-62 18 42 18-78 18 100 18-56 18 22"/><text className="small" x="300" y="310">persistent altered state → consider EEG</text></>:<><path className="rv-line gold" d="M75 220h450"/><circle className="rv-dot" cx="140" cy="220" r="9"/><circle className="rv-dot" cx="295" cy="220" r="9"/><circle className="rv-dot" cx="450" cy="220" r="9"/><text className="small" x="140" y="190">recognize</text><text className="small" x="295" y="190">first-line</text><text className="small" x="450" y="190">escalate</text><text className="small" x="300" y="278">do not restart the same ineffective loop</text></>}</svg></Frame>}
 
 function Pocus({mode}:{mode:string}) {
