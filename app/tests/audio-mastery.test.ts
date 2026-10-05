@@ -103,16 +103,16 @@ describe('critical care audio mastery model', () => {
 
   it('core procedural Mental Reps keep literal hands-first choreography', () => {
     const required: Record<string, RegExp[]> = {
-      'rep-blood': [/pick up the blood product/i, /tubing and filter/i, /spike the verified unit/i, /stop the blood immediately/i],
+      'rep-blood': [/pick up the blood product/i, /blood-administration tubing/i, /in-line filter/i, /spike the verified unit/i, /stop flow immediately/i],
       'rep-art-line': [/flush bag/i, /stopcock/i, /select zero/i, /fast-flush/i],
       'rep-chest-tube': [/lay out the tube/i, /skin incision/i, /bluntly spread/i, /connect the tube immediately/i],
-      'rep-central-line': [/nondominant hand/i, /true needle tip/i, /before dilation/i, /guidewire/i],
+      'rep-central-line': [/nondominant hand/i, /needle tip/i, /before dilation/i, /guidewire/i],
       'rep-io': [/stabilize the leg/i, /black depth mark/i, /primed EZ-Connect extension set/i, /five to ten milliliters/i],
       'rep-us-piv': [/choose a catheter/i, /true tip/i, /thread the catheter/i, /connect the extension/i],
-      'rep-rsi': [/suction within reach/i, /cuff checked/i, /label every syringe/i, /final sweep/i],
+      'rep-rsi': [/suction in your dominant-hand reach/i, /cuff checked/i, /label every syringe/i, /final sweep/i],
       'rep-post-intubation': [/attach waveform capnography/i, /trace the tube and circuit/i, /predicted body weight/i, /analgesia and sedation/i],
-      'rep-pocus-shock': [/below the xiphoid/i, /two rib shadows/i, /IVC/i, /bladder as the anchor/i],
-      'rep-pac': [/trace the pressure system/i, /right-atrial waveform/i, /watch the waveform change/i, /dicrotic notch/i, /deflate promptly/i],
+      'rep-pocus-shock': [/below the xiphoid/i, /two rib shadows/i, /IVC/i, /pubic symphysis/i, /bladder/i],
+      'rep-pac': [/pressure system/i, /right-atrial waveform/i, /abrupt change/i, /dicrotic notch/i, /deflate promptly/i],
       'rep-crrt': [/trace the blood path/i, /trace the non-blood fluids/i, /net patient-fluid-removal/i, /named pressure and its trend/i],
       'rep-ecmo': [/trace where blood is drained/i, /drainage limb/i, /pump speed and measured blood flow/i, /sweep-gas source/i, /return limb/i, /console in isolation/i],
       'rep-iabp': [/trigger source/i, /dicrotic notch/i, /assisted end-diastolic/i, /early inflation/i, /late deflation/i],
