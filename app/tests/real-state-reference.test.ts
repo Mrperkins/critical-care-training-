@@ -1,4 +1,6 @@
 import { describe, expect, it } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
 import { NORMAL_CXR, type CxrState } from '../src/vent/cxr';
 import { lusFromCxr } from '../src/vent/lus';
 import { emptyAbdomen } from '../src/abdomen/state';
@@ -16,6 +18,10 @@ const cxr = (patch: Partial<CxrState>): CxrState => ({
     { ...NORMAL_CXR.side[1] },
   ],
 });
+
+const shippedRealIds = new Set(
+  (JSON.parse(fs.readFileSync(path.resolve('../imaging/real/manifest.json'), 'utf8')) as { items: { id: string }[] }).items.map((x) => x.id),
+);
 
 describe('state-matched real clinical references', () => {
   it('maps clear, ARDS, cardiogenic oedema and pneumothorax CXR states to honest references', () => {
@@ -63,6 +69,20 @@ describe('state-matched real clinical references', () => {
     const aaa = emptyAbdomen();
     aaa.aaa.diameterCm = 5.5;
     expect(selectAbdomenRealReference(aaa)?.id).toBe('aaa-us-sagittal-haggstrom');
+  });
+
+  it('only selects reference IDs that are actually shipped in the real-media manifest', () => {
+    const candidates = [
+      selectCxrRealReference(cxr({})),
+      selectCxrRealReference(cxr({ ards: 1 })),
+      selectCxrRealReference(cxr({ edema: 1 })),
+      selectCxrRealReference(cxr({ side: [{ ...NORMAL_CXR.side[0], ptx: 0.7 }, { ...NORMAL_CXR.side[1] }] })),
+      selectLusRealReference({ ...lusFromCxr(cxr({}))[0], sliding: false, lungPoint: true, lungPulse: false }),
+      selectLusRealReference({ ...lusFromCxr(cxr({}))[0], aLines: false, bLines: 8, white: true }),
+      selectAbdomenRealReference(Object.assign(emptyAbdomen(), { aaa: { diameterCm: 4.5, rupture: 'none' as const } })),
+    ].filter((x): x is NonNullable<typeof x> => x != null);
+
+    for (const match of candidates) expect(shippedRealIds.has(match.id), match.id).toBe(true);
   });
 
   it('does not invent tamponade or IVC physiology from the abdominal model', () => {
