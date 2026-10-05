@@ -4,9 +4,9 @@ import { session } from './session';
 import { cxrFromVent, renderCxr, cxrFindings, type CxrState } from './cxr';
 import { ImagePanel } from '../scene/imaging/ImagePanel';
 import { IS_PHONE } from '../scene/Studio';
-import { RealExamples } from '../scene/imaging/RealExamples';
-import { RealCase } from '../scene/imaging/RealCase';
 import { useHideFindings } from '../challenge/caseStore';
+import { StateRealFinding } from '../scene/imaging/StateRealFinding';
+import { selectCxrRealReference } from '../scene/imaging/realStateReference';
 
 const round = (st: CxrState) => JSON.stringify(st, (_k, v) => (typeof v === 'number' ? Math.round(v * 40) / 40 : v)); // ignore sub-visible changes
 export function useCxr() {
@@ -24,8 +24,7 @@ export function CxrScene() {
         </ImagePanel>
         <section className="cxr-find"><h4>Findings</h4>{hide ? <p className="muted small">Hidden while you answer — read the film.</p> : <ul>{f.map((l) => <li key={l}>{l}</li>)}</ul>}</section>
       </div>
-      {!hide && st.side.some((s) => s.ptx > 0) && <><RealCase kind="ptx" title="Real pneumothorax film" /><RealCase kind="ptxseries" title="Real films: before and after a chest tube" /></>}
-      {!hide && <RealExamples kind="xray" title="Real portable films" />}
+      {!hide && <StateRealFinding match={selectCxrRealReference(st)} />}
       <div className="img-bar"><p className="img-note">Synthetic teaching radiograph drawn from the ventilator model’s own state — not a patient image. Radiological convention: patient’s right on the image left.</p></div>
     </div>
   );
