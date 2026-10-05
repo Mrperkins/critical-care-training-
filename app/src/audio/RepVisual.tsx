@@ -1,8 +1,9 @@
 import type { ReactNode } from 'react';
 import type { MentalRepBeat } from './types';
+import { resolveRepVisualKey } from './repVisualRouting';
 
-export function RepVisual({ beat }: { beat: MentalRepBeat }) {
-  const key = beat.visual ?? beat.phase;
+export function RepVisual({ beat, repId }: { beat: MentalRepBeat; repId?: string }) {
+  const key = resolveRepVisualKey(repId, beat);
   if (key === 'efast-ruq') return <RealFast />;
   if (key === 'ijv-real') return <RealIjv />;
   if (key === 'medication-prep') return <Medication />;
@@ -24,7 +25,7 @@ export function RepVisual({ beat }: { beat: MentalRepBeat }) {
   if (key === 'drain-system' || key === 'drain-water-seal') return <Drain active={key === 'drain-water-seal'} />;
   if (key === 'evd-level') return <Evd />;
   if (key === 'vent-check') return <Vent />;
-  if (key === 'io-landmark') return <Io />;
+  if (key.startsWith('io-')) return <Io mode={key} />;
   if (key === 'piv-map' || key === 'piv-tip' || key === 'piv-confirm') return <Piv mode={key} />;
   if (key === 'airway-overview' || key === 'airway-preoxygenation') return <Airway mode={key} />;
   if (key === 'post-tube') return <PostTube />;
@@ -33,7 +34,9 @@ export function RepVisual({ beat }: { beat: MentalRepBeat }) {
   if (key === 'crrt-circuit') return <Crrt />;
   if (key === 'ecmo-circuit' || key === 'ecmo-return') return <Ecmo mode={key} />;
   if (key === 'iabp-wave' || key === 'iabp-errors') return <Iabp errors={key === 'iabp-errors'} />;
-  if (key === 'seizure-timeline' || key === 'seizure-eeg') return <Seizure mode={key} />;
+  if (key.startsWith('seizure-')) return <Seizure mode={key} />;
+  if (key.startsWith('ij-sequence-')) return <IjSequence mode={key} />;
+  if (key.startsWith('mtp-')) return <Mtp mode={key} />;
   if (key.startsWith('eschar-')) return <Escharotomy mode={key} />;
   if (key.startsWith('finger-thorax-')) return <FingerThoracostomy mode={key} />;
   if (key.startsWith('cric-')) return <Cricothyrotomy mode={key} />;
