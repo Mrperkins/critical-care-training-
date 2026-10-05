@@ -17,7 +17,7 @@ const requiredReps = [
   'rep-push-dose-pressor','rep-blood','rep-art-line','rep-efast','rep-chest-tube',
   'rep-central-line','rep-us-piv','rep-rsi','rep-post-intubation','rep-pac',
   'rep-crrt','rep-ecmo','rep-iabp','rep-sedation','rep-status',
-  'rep-io','rep-vent-emergency','rep-evd','rep-mtp','rep-escharotomy','rep-finger-thoracostomy','rep-cricothyrotomy','rep-pericardiocentesis','rep-pocus-shock'
+  'rep-io','rep-vent-emergency','rep-evd','rep-mtp','rep-escharotomy','rep-finger-thoracostomy','rep-cricothyrotomy','rep-pericardiocentesis','rep-thoracentesis','rep-pocus-shock'
 ];
 
 const audioCovered = new Set(EPISODES.flatMap(e=>e.concepts));
