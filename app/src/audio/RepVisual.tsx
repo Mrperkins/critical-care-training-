@@ -180,17 +180,38 @@ function Evd(){return <Frame title="ear landmark → horizontal zero → ordered
   <text className="small" x="300" y="382">move? close ordered pathway → reposition → re-find patient reference → re-level → set height → restore ordered state</text>
 </svg></Frame>}
 function Vent(){return <Frame title="patient → tube → circuit → ventilator"><svg viewBox="0 0 600 420"><circle className="rv-head" cx="110" cy="160" r="60"/><path className="rv-line" d="M165 170h170"/><path className="rv-line gold" d="M265 170v75"/><rect className="rv-soft" x="335" y="85" width="160" height="215" rx="15"/><path className="rv-wave" d="M360 225h25l12-70 18 115 16-45h37"/><text className="small" x="362" y="120">VENT</text><text className="small" x="200" y="150">trace the circuit</text></svg></Frame>}
-function Io(){return <Frame title="adult proximal tibia · build the landmark from the knee"><svg viewBox="0 0 600 420">
-  <ellipse className="rv-ring" cx="300" cy="72" rx="78" ry="36"/><text className="small" x="300" y="77">PATELLA</text>
-  <path className="rv-line" d="M300 108v46"/><circle className="rv-ring" cx="300" cy="168" r="18"/><text className="small" x="300" y="145">TIBIAL TUBEROSITY</text>
-  <path className="rv-bone" d="M270 187q-22 88-14 180h88q8-92-14-180z"/>
-  <path className="rv-line gold" d="M300 168l-45 48"/><circle className="rv-dot" cx="255" cy="216" r="10"/>
-  <text className="small" x="157" y="211">~2 cm medial</text><text className="small" x="185" y="235">flat anteromedial tibia</text>
-  <path className="rv-line" d="M105 88h100"/><text className="small" x="155" y="73">alternate anchor</text><text className="small" x="155" y="105">~3 cm below patella</text>
-  <path className="rv-needle" d="M255 125v80"/><text className="small" x="390" y="195">needle 90° to bone</text>
-  <text className="small" x="300" y="397">EZ-IO-style adult example · other sites/ages get their own landmark sequence</text>
-</svg></Frame>}
-
+function Io({mode}:{mode:string}) {
+  if(mode==='io-place') return <Frame title="stabilize · depth mark visible · drill 90° to bone"><svg viewBox="0 0 600 420">
+    <path className="rv-bone" d="M245 115q-20 110-10 235h130q10-125-10-235z"/>
+    <path className="rv-needle" d="M300 45v130"/><circle className="rv-dot" cx="300" cy="96" r="7"/>
+    <text className="small" x="390" y="92">black depth mark still visible above skin before drilling</text>
+    <path className="rv-line gold" d="M180 175h240"/><text className="small" x="300" y="160">skin surface</text>
+    <text className="small" x="300" y="385">stabilize leg · driver perpendicular · stop after cortex gives and hub seats</text>
+  </svg></Frame>;
+  if(mode==='io-confirm') return <Frame title="extension set → flush → watch the limb"><svg viewBox="0 0 600 420">
+    <rect className="rv-label" x="75" y="95" width="130" height="70" rx="10"/><text className="small" x="140" y="127">IO HUB</text><text className="small" x="140" y="147">STABLE</text>
+    <path className="rv-line gold" d="M205 130h115"/><rect className="rv-soft" x="320" y="95" width="150" height="70" rx="10"/><text className="small" x="395" y="127">PRIMED EXTENSION</text><text className="small" x="395" y="147">SET</text>
+    <path className="rv-line" d="M395 165v85"/><rect className="rv-soft" x="330" y="250" width="130" height="65" rx="10"/><text className="small" x="395" y="278">FLUSH</text><text className="small" x="395" y="298">per protocol</text>
+    <text className="small" x="250" y="360">easy flow + no swelling around site = functional evidence</text>
+  </svg></Frame>;
+  if(mode==='io-comp') return <Frame title="swelling or pain outside expected pattern = stop"><svg viewBox="0 0 600 420">
+    <path className="rv-bone" d="M255 70q-18 130-8 285h106q10-155-8-285z"/>
+    <circle className="rv-ring gold" cx="300" cy="150" r="24"/><path className="rv-line bad" d="M245 150q55-58 110 0q-55 58-110 0z"/>
+    <text className="small" x="300" y="230">new swelling / coolness / firmness</text>
+    <text className="small" x="300" y="268">STOP INFUSION · reassess placement and limb perfusion</text>
+    <text className="small" x="300" y="330">compartment pressure can rise even when the device initially worked</text>
+  </svg></Frame>;
+  return <Frame title="adult proximal tibia · build the landmark from the knee"><svg viewBox="0 0 600 420">
+    <ellipse className="rv-ring" cx="300" cy="72" rx="78" ry="36"/><text className="small" x="300" y="77">PATELLA</text>
+    <path className="rv-line" d="M300 108v46"/><circle className="rv-ring" cx="300" cy="168" r="18"/><text className="small" x="300" y="145">TIBIAL TUBEROSITY</text>
+    <path className="rv-bone" d="M270 187q-22 88-14 180h88q8-92-14-180z"/>
+    <path className="rv-line gold" d="M300 168l-45 48"/><circle className="rv-dot" cx="255" cy="216" r="10"/>
+    <text className="small" x="157" y="211">~2 cm medial</text><text className="small" x="185" y="235">flat anteromedial tibia</text>
+    <path className="rv-line" d="M105 88h100"/><text className="small" x="155" y="73">alternate anchor</text><text className="small" x="155" y="105">~3 cm below patella</text>
+    <path className="rv-needle" d="M255 125v80"/><text className="small" x="390" y="195">needle 90° to bone</text>
+    <text className="small" x="300" y="397">EZ-IO-style adult example · other sites/ages get their own landmark sequence</text>
+  </svg></Frame>;
+}
 function Piv({mode}:{mode:string}){return <Frame title="ultrasound-guided peripheral IV"><svg viewBox="0 0 600 420">
   <path className="rv-sector" d="M300 55L95 365h410z"/>
   <ellipse className="rv-vessel" cx="330" cy="245" rx="70" ry="44"/><text className="small" x="330" y="250">VEIN</text>
@@ -588,6 +609,71 @@ function FingerThoracostomy({mode}:{mode:string}) {
   </svg></Frame>;
 }
 
+function IjSequence({mode}:{mode:string}) {
+  if(mode==='ij-sequence-confirm') return <Frame title="needle tip in vein · prove venous access before dilation"><svg viewBox="0 0 600 420">
+    <path className="rv-sector" d="M300 45L75 365h450z"/><ellipse className="rv-vessel" cx="360" cy="245" rx="78" ry="48"/><text className="small" x="360" y="250">IJ</text>
+    <ellipse className="rv-ring" cx="205" cy="248" rx="55" ry="45"/><text className="small" x="205" y="253">CAROTID</text>
+    <path className="rv-needle" d="M120 110L315 225"/><circle className="rv-dot" cx="315" cy="225" r="7"/><text className="small" x="210" y="95">TRUE NEEDLE TIP</text>
+    <text className="small" x="300" y="390">venous return + ultrasound location · no dilation until access makes sense</text>
+  </svg></Frame>;
+  if(mode==='ij-sequence-wire') return <Frame title="wire enters through needle · one hand always owns it"><svg viewBox="0 0 600 420">
+    <ellipse className="rv-vessel" cx="300" cy="230" rx="120" ry="70"/><text className="small" x="300" y="235">IJ LUMEN</text>
+    <path className="rv-line gold" d="M95 95q110 55 155 120q45 65 130 45"/><text className="small" x="145" y="75">GUIDEWIRE</text>
+    <circle className="rv-dot" cx="95" cy="95" r="7"/><text className="small" x="190" y="340">never release proximal wire · resistance/ectopy = stop</text>
+  </svg></Frame>;
+  if(mode==='ij-sequence-dilate') return <Frame title="skin nick → dilator over wire → soft tissue only"><svg viewBox="0 0 600 420">
+    <path className="rv-line gold" d="M300 55v280"/><text className="small" x="340" y="80">WIRE</text>
+    <rect className="rv-soft" x="150" y="150" width="300" height="48" rx="8"/><text className="small" x="300" y="180">SKIN / SUBCUTANEOUS TISSUE</text>
+    <path className="rv-needle" d="M255 100l45 95"/><text className="small" x="190" y="100">DILATOR</text>
+    <path className="rv-line bad" d="M255 215l45 100"/><text className="small" x="390" y="285">do not bury dilator to arbitrary depth</text>
+  </svg></Frame>;
+  if(mode==='ij-sequence-catheter') return <Frame title="catheter over wire → wire out → every lumen proven"><svg viewBox="0 0 600 420">
+    <path className="rv-line gold" d="M130 90q100 55 155 140q50 75 145 40"/><text className="small" x="175" y="72">WIRE</text>
+    <path className="rv-line" d="M145 115q90 58 140 132q45 65 125 42"/><text className="small" x="435" y="285">CATHETER</text>
+    <rect className="rv-label" x="95" y="310" width="125" height="55" rx="8"/><text className="small" x="157" y="343">WIRE OUT</text>
+    <rect className="rv-soft" x="245" y="310" width="125" height="55" rx="8"/><text className="small" x="307" y="343">ASPIRATE</text>
+    <rect className="rv-soft" x="395" y="310" width="125" height="55" rx="8"/><text className="small" x="457" y="343">FLUSH / CAP</text>
+  </svg></Frame>;
+  return <Frame title="resistance or unexpected anatomy = stop and re-map"><svg viewBox="0 0 600 420">
+    <circle className="rv-ring gold" cx="300" cy="165" r="58"/><text className="small" x="300" y="170">STOP</text>
+    <path className="rv-line bad" d="M120 285h360"/><text className="small" x="300" y="270">wire resistance · ectopy · swelling · wrong structure</text>
+    <text className="small" x="300" y="330">do not force the next Seldinger step</text>
+  </svg></Frame>;
+}
+
+function Mtp({mode}:{mode:string}) {
+  if(mode==='mtp-source') return <Frame title="transfusion buys time · source control stops bleeding"><svg viewBox="0 0 600 420">
+    <circle className="rv-ring gold" cx="120" cy="170" r="55"/><text className="small" x="120" y="175">BLEED</text>
+    <path className="rv-line gold" d="M175 170h95"/><rect className="rv-soft" x="270" y="125" width="120" height="90" rx="10"/><text className="small" x="330" y="160">BLOOD</text><text className="small" x="330" y="180">BUYS TIME</text>
+    <path className="rv-line" d="M390 170h80"/><rect className="rv-label" x="455" y="95" width="110" height="150" rx="10"/><text className="small" x="510" y="130">OR</text><text className="small" x="510" y="155">IR</text><text className="small" x="510" y="180">OB CONTROL</text><text className="small" x="510" y="205">ENDOSCOPY</text>
+    <text className="small" x="300" y="325">if source control has not advanced, resuscitation has not solved the central problem</text>
+  </svg></Frame>;
+  if(mode==='mtp-phys') return <Frame title="transfusion changes physiology too"><svg viewBox="0 0 600 420">
+    <rect className="rv-soft" x="55" y="85" width="120" height="80" rx="10"/><text className="small" x="115" y="118">TEMP</text><text className="small" x="115" y="140">WARM</text>
+    <rect className="rv-soft" x="195" y="85" width="120" height="80" rx="10"/><text className="small" x="255" y="118">iCa</text><text className="small" x="255" y="140">TREND</text>
+    <rect className="rv-soft" x="335" y="85" width="120" height="80" rx="10"/><text className="small" x="395" y="118">FIBRINOGEN</text><text className="small" x="395" y="140">PLATELETS</text>
+    <rect className="rv-soft" x="475" y="85" width="70" height="80" rx="10"/><text className="small" x="510" y="118">pH</text><text className="small" x="510" y="140">TREND</text>
+    <path className="rv-line gold" d="M90 245h420"/><text className="small" x="300" y="230">component/adjunct changes follow actual trigger or pathway</text>
+    <text className="small" x="300" y="330">warm patient + products · repeat key labs as hemorrhage evolves</text>
+  </svg></Frame>;
+  if(mode==='mtp-response') return <Frame title="prove perfusion is improving"><svg viewBox="0 0 600 420">
+    <path className="rv-wave" d="M65 125h40l14-30 18 60 18-30h75"/><text className="small" x="150" y="195">BP / pulse / ETCO₂</text>
+    <rect className="rv-soft" x="285" y="85" width="115" height="80" rx="10"/><text className="small" x="342" y="116">MENTAL</text><text className="small" x="342" y="138">STATUS</text>
+    <rect className="rv-soft" x="430" y="85" width="115" height="80" rx="10"/><text className="small" x="487" y="116">BLOOD</text><text className="small" x="487" y="138">LOSS</text>
+    <path className="rv-line gold" d="M90 270h420"/><text className="small" x="300" y="255">after each meaningful step → patient again</text>
+    <text className="small" x="300" y="335">endpoint = improving perfusion + hemorrhage control, not a unit count</text>
+  </svg></Frame>;
+  return <Frame title="MTP is a room system, not a stack of bags"><svg viewBox="0 0 600 420">
+    <rect className="rv-label" x="35" y="70" width="120" height="80" rx="10"/><text className="small" x="95" y="102">BLOOD</text><text className="small" x="95" y="122">BANK</text>
+    <path className="rv-line gold" d="M155 110h80"/><rect className="rv-soft" x="235" y="70" width="130" height="80" rx="10"/><text className="small" x="300" y="102">WARMER /</text><text className="small" x="300" y="122">RAPID INFUSER</text>
+    <path className="rv-line gold" d="M365 110h80"/><rect className="rv-soft" x="445" y="70" width="120" height="80" rx="10"/><text className="small" x="505" y="102">PATIENT</text><text className="small" x="505" y="122">ACCESS</text>
+    <rect className="rv-soft" x="80" y="235" width="120" height="65" rx="10"/><text className="small" x="140" y="272">VERIFY</text>
+    <rect className="rv-soft" x="240" y="235" width="120" height="65" rx="10"/><text className="small" x="300" y="272">TRACK</text>
+    <rect className="rv-soft" x="400" y="235" width="120" height="65" rx="10"/><text className="small" x="460" y="272">SOURCE</text>
+    <text className="small" x="300" y="365">assign roles before cooler arrival · one person owns product/time tally</text>
+  </svg></Frame>;
+}
+
 function Escharotomy({mode}:{mode:string}) {
   if(mode==='eschar-extremity') return <Frame title="extremity release · mark both lines before cutting"><svg viewBox="0 0 600 420">
     <path className="rv-body" d="M255 42q45-20 90 0l25 120-18 190h-104l-18-190z"/>
@@ -636,8 +722,32 @@ function Escharotomy({mode}:{mode:string}) {
   </svg></Frame>;
 }
 
-function Seizure({mode}:{mode:string}){return <Frame title={mode==='seizure-eeg'?'convulsions stopped · brain may not have':'status is a time problem'}><svg viewBox="0 0 600 420">{mode==='seizure-eeg'?<><path className="rv-wave" d="M55 210l18-60 18 118 18-96 18 62 18-112 18 142 18-110 18 56 18-82 18 108 18-74 18 38 18-95 18 133 18-118 18 92 18-62 18 42 18-78 18 100 18-56 18 22"/><text className="small" x="300" y="310">persistent altered state → consider EEG</text></>:<><path className="rv-line gold" d="M75 220h450"/><circle className="rv-dot" cx="140" cy="220" r="9"/><circle className="rv-dot" cx="295" cy="220" r="9"/><circle className="rv-dot" cx="450" cy="220" r="9"/><text className="small" x="140" y="190">recognize</text><text className="small" x="295" y="190">first-line</text><text className="small" x="450" y="190">escalate</text><text className="small" x="300" y="278">do not restart the same ineffective loop</text></>}</svg></Frame>}
-
+function Seizure({mode}:{mode:string}) {
+  if(mode==='seizure-eeg') return <Frame title="convulsions stopped · brain may not have"><svg viewBox="0 0 600 420"><path className="rv-wave" d="M55 210l18-60 18 118 18-96 18 62 18-112 18 142 18-110 18 56 18-82 18 108 18-74 18 38 18-95 18 133 18-118 18 92 18-62 18 42 18-78 18 100-18 22"/><text className="small" x="300" y="310">persistent altered state → consider EEG</text></svg></Frame>;
+  if(mode==='seizure-support') return <Frame title="protect physiology while the clock keeps running"><svg viewBox="0 0 600 420">
+    <rect className="rv-soft" x="35" y="70" width="120" height="70" rx="10"/><text className="small" x="95" y="102">SUCTION</text><text className="small" x="95" y="120">ON</text>
+    <rect className="rv-soft" x="175" y="70" width="120" height="70" rx="10"/><text className="small" x="235" y="102">OXYGEN /</text><text className="small" x="235" y="120">BVM</text>
+    <rect className="rv-soft" x="315" y="70" width="120" height="70" rx="10"/><text className="small" x="375" y="102">ECG + SpO₂</text><text className="small" x="375" y="120">MONITOR</text>
+    <rect className="rv-soft" x="455" y="70" width="110" height="70" rx="10"/><text className="small" x="510" y="102">GLUCOSE</text><text className="small" x="510" y="120">EARLY</text>
+    <path className="rv-line gold" d="M90 240h420"/><text className="small" x="300" y="225">IV if fast · approved alternate route if access delays therapy</text>
+    <text className="small" x="300" y="330">stabilization and medication sequence run in parallel</text>
+  </svg></Frame>;
+  if(mode==='seizure-first' || mode==='seizure-second') return <Frame title={mode==='seizure-first'?'first-line · full protocol dose · mark time':'treatment phase changed · prepare next-line therapy'}><svg viewBox="0 0 600 420">
+    <rect className="rv-label" x="65" y="85" width="150" height="85" rx="10"/><text className="small" x="140" y="115">ACTIVE PROTOCOL</text><text className="small" x="140" y="137">{mode==='seizure-first'?'FIRST-LINE ROW':'NEXT-LINE ROW'}</text>
+    <rect className="rv-soft" x="255" y="85" width="135" height="85" rx="10"/><text className="small" x="322" y="115">READ DRUG +</text><text className="small" x="322" y="137">CONCENTRATION</text>
+    <rect className="rv-soft" x="430" y="85" width="115" height="85" rx="10"/><text className="small" x="487" y="115">DOSE →</text><text className="small" x="487" y="137">VOLUME</text>
+    <path className="rv-line gold" d="M140 230h347"/><circle className="rv-dot" cx="140" cy="230" r="7"/><circle className="rv-dot" cx="322" cy="230" r="7"/><circle className="rv-dot" cx="487" cy="230" r="7"/>
+    <text className="small" x="300" y="305">{mode==='seizure-first'?'give complete dose · mark completion time · start reassessment interval':'verify access · program pump/syringe · airway/rescue setup occurs in parallel'}</text>
+  </svg></Frame>;
+  if(mode==='seizure-airway') return <Frame title="airway escalation does not stop seizure treatment"><svg viewBox="0 0 600 420">
+    <rect className="rv-soft" x="55" y="70" width="150" height="80" rx="10"/><text className="small" x="130" y="102">SUCTION +</text><text className="small" x="130" y="122">OXYGENATION</text>
+    <rect className="rv-soft" x="225" y="70" width="150" height="80" rx="10"/><text className="small" x="300" y="102">AIRWAY +</text><text className="small" x="300" y="122">RESCUE PLAN</text>
+    <rect className="rv-soft" x="395" y="70" width="150" height="80" rx="10"/><text className="small" x="470" y="102">POST-TUBE</text><text className="small" x="470" y="122">SEDATION</text>
+    <path className="rv-wave" d="M95 250h42l14-30 18 60 18-30h70"/><text className="small" x="175" y="315">paralysis can hide ongoing seizure</text>
+    <path className="rv-line gold" d="M330 250h175"/><text className="small" x="418" y="235">continue seizure-control pathway</text>
+  </svg></Frame>;
+  return <Frame title="status is a time problem"><svg viewBox="0 0 600 420"><path className="rv-line gold" d="M75 220h450"/><circle className="rv-dot" cx="140" cy="220" r="9"/><circle className="rv-dot" cx="295" cy="220" r="9"/><circle className="rv-dot" cx="450" cy="220" r="9"/><text className="small" x="140" y="190">recognize</text><text className="small" x="295" y="190">first-line</text><text className="small" x="450" y="190">escalate</text><text className="small" x="300" y="278">do not restart the same ineffective loop</text></svg></Frame>;
+}
 function Pocus({mode}:{mode:string}) {
   if(mode==='pocus-map') return <Frame title="POCUS shock survey"><svg viewBox="0 0 600 420"><circle className="rv-head" cx="300" cy="80" r="42"/><path className="rv-body" d="M235 122q-80 48-72 194h274q8-146-72-194z"/><circle className="rv-dot" cx="300" cy="175" r="8"/><circle className="rv-dot" cx="225" cy="190" r="8"/><circle className="rv-dot" cx="375" cy="190" r="8"/><circle className="rv-dot" cx="245" cy="275" r="8"/><circle className="rv-dot" cx="355" cy="275" r="8"/><text className="small" x="300" y="365">heart · lungs · venous context · abdomen</text></svg></Frame>;
   if(mode==='pocus-heart') return <Frame title="cardiac windows · prove orientation"><svg viewBox="0 0 600 420">
