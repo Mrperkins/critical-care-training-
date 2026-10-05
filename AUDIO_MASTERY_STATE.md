@@ -21,8 +21,8 @@ Voice-first critical-care expertise training plus guided procedural Mental Reps.
 - 130/130 concepts have at least one standalone expertise-audio teaching path.
 - 79 expertise audio episodes total.
 - 21 ordered domain tracks.
-- 26 required Mental Reps.
-- 201 Mental Rep narration beats on the active protocol-grade branch. The protocol-grade re-audit added four missing beats to existing reps plus new burn-escharotomy, simple/finger-thoracostomy, emergency surgical-cricothyrotomy, ultrasound-guided pericardiocentesis, ultrasound-guided thoracentesis and emergency transvenous-pacing reps.
+- 27 required Mental Reps.
+- 213 Mental Rep narration beats on the active protocol-grade branch. The protocol-grade re-audit added four missing beats to existing reps plus new burn-escharotomy, simple/finger-thoracostomy, emergency surgical-cricothyrotomy, ultrasound-guided pericardiocentesis, ultrasound-guided thoracentesis, emergency transvenous-pacing and dialysis-catheter-troubleshooting reps.
 - The previously merged 132-beat set has durable natural-voice assets. Protocol-grade revisions have changed many transcripts and added three beats, so matching voice materialization is intentionally pending; stale/missing audio remains blocked by the transcript-hash production gate.
 - 130/130 concepts have spaced-retrieval coverage: bespoke questions where available plus deterministic mechanism-vs-trap prompts.
 - Unseen concepts are not marked overdue; spaced review starts after exposure.
@@ -154,7 +154,7 @@ When a landmark term itself could be unfamiliar (for example "safe triangle," "p
 
 Branch: `mental-reps-emergency-systems-v5`
 
-- All 26 required Mental Reps are now covered by the protocol-grade standard; the original 20 were re-audited and burn escharotomy, simple/finger thoracostomy, emergency surgical cricothyrotomy, ultrasound-guided pericardiocentesis, ultrasound-guided thoracentesis and emergency transvenous pacing were authored at protocol-grade depth from their first versions.
+- All 27 required Mental Reps are now covered by the protocol-grade standard; the original 20 were re-audited and burn escharotomy, simple/finger thoracostomy, emergency surgical cricothyrotomy, ultrasound-guided pericardiocentesis, ultrasound-guided thoracentesis, emergency transvenous pacing and dialysis-catheter troubleshooting were authored at protocol-grade depth from their first versions.
 - Detailed audit: `MENTAL_REP_PROTOCOL_AUDIT.md`.
 - Anatomy-heavy reps now define the landmark itself and the route to it rather than naming it.
 - System/device reps now require a physical patient→hardware→monitor/circuit trace rather than generic "check/prepare/reassess" language.
