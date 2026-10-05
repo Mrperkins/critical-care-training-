@@ -37,6 +37,14 @@ const compactItem = (item: MentalRepVoiceState) => ({
   suggestedFile: item.suggestedFile,
   words: item.words,
   characters: item.characters,
+  importTemplate: {
+    id: item.id,
+    transcriptHash: item.transcriptHash,
+    file: item.suggestedFile,
+    url: null,
+    voice: 'Natural clinical narrator',
+    provider: 'AI Voice Generator',
+  },
   ...(item.currentAsset ? {
     staleAsset: {
       file: item.currentAsset.file,
