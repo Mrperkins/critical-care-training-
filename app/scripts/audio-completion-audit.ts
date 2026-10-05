@@ -1,17 +1,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import crypto from 'node:crypto';
 import { EPISODES, MENTAL_REPS } from '../src/audio/catalog';
 import type { AudioEpisode } from '../src/audio/types';
 import { MASTERY, MASTERY_BY_ID } from '../src/audio/mastery';
 import { EXPERT_TRACKS } from '../src/audio/tracks';
 import { draftTranscriptForEpisode } from '../src/audio/scriptDraft';
+import { mentalRepVoiceStates, type DurableVoiceManifest } from './audio-voice-state';
 
 const voiceManifestPath = path.resolve('public/audio/voice/manifest.json');
-const voiceManifest = fs.existsSync(voiceManifestPath) ? JSON.parse(fs.readFileSync(voiceManifestPath,'utf8')) as { assets?: { id:string; file:string; transcriptHash?:string; reviewed?:boolean }[] } : { assets:[] };
-const durableVoice = new Map((voiceManifest.assets ?? []).map((a)=>[a.id,a]));
-const durableVoiceIds = new Set(durableVoice.keys());
-const transcriptHash = (text:string) => crypto.createHash('sha256').update(text.replace(/\s+/g,' ').trim()).digest('hex').slice(0,16);
+const voiceManifest = fs.existsSync(voiceManifestPath) ? JSON.parse(fs.readFileSync(voiceManifestPath,'utf8')) as DurableVoiceManifest : { assets:[] };
 
 const requiredReps = [
   'rep-push-dose-pressor','rep-blood','rep-art-line','rep-efast','rep-chest-tube',
@@ -24,11 +21,9 @@ const audioCovered = new Set(EPISODES.flatMap(e=>e.concepts));
 const repIds = new Set(MENTAL_REPS.map(r=>r.id));
 const missingAudio = MASTERY.filter(c=>!audioCovered.has(c.id)).map(c=>c.id);
 const missingReps = requiredReps.filter(id=>!repIds.has(id));
-const mentalRepLines = MENTAL_REPS.flatMap(r=>r.beats.map(b=>({id:`rep.${r.id}.${b.id}`,text:b.narration})));
-const missingMentalRepVoice = mentalRepLines.filter(x=>!durableVoiceIds.has(x.id)).map(x=>x.id);
-const staleMentalRepVoice = mentalRepLines.filter(x=>{
-  const a=durableVoice.get(x.id); return !!a && a.transcriptHash !== transcriptHash(x.text);
-}).map(x=>x.id);
+const mentalRepVoice = mentalRepVoiceStates(MENTAL_REPS, voiceManifest);
+const missingMentalRepVoice = mentalRepVoice.filter(x=>x.status==='missing').map(x=>x.id);
+const staleMentalRepVoice = mentalRepVoice.filter(x=>x.status==='stale').map(x=>x.id);
 const dangling = MASTERY.flatMap(c=>[
   ...c.prereq.filter(id=>!MASTERY_BY_ID[id]).map(id=>`${c.id}:prereq:${id}`),
   ...c.related.filter(id=>!MASTERY_BY_ID[id]).map(id=>`${c.id}:related:${id}`)
