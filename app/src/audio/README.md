@@ -48,6 +48,21 @@ A published asset must:
 
 The current `rounds-rv-intubation` asset is a **prototype natural-voice preview only**. Its `reviewed` flag is false and the tests prevent a lesson from being marked `published` without reviewed durable audio.
 
+### Voice refresh and import safety
+
+Mental Rep voice refresh is deterministic and transcript-hash locked.
+
+- Run `npm run site` or `npm run audio:voice:refresh-queue` to generate `review/mental-rep-voice-refresh.json`.
+- The refresh queue contains only missing or stale Mental Rep beats. Each item carries the current transcript, transcript hash, suggested hash-versioned filename and an import template.
+- The connected voice provider accepts one transcript per call. Preserve one beat per render; do not concatenate multiple beats into one audio file.
+- Populate `app/public/audio/voice/import.json` only from the current refresh queue plus a newly generated provider URL.
+- Every import item must include the exact current `transcriptHash` and destination filename `<line-id>.v<transcriptHash>.mp3`.
+- Run `npm run audio:voice:preflight` before import. The preflight rejects stale hashes, wrong filenames, duplicate URLs and accidental replacement of an already-current durable asset.
+- The import workflow is manual-only. Catalog or script edits do not automatically download or relabel voice files.
+- `audio_voice_import.py` independently checks the requested hash against `lines.json` before downloading the MP3.
+- Imported audio remains `reviewed=false` and `published=false` until listening and clinical review are explicitly completed.
+- If a provider call stalls, stop that render attempt and continue engineering or another queue item; voice generation must not block the rest of the app.
+
 ## Mental Reps
 
 Mental Reps are guided procedural visualizations, not unsupervised procedural authorization. They use a consistent cognitive sequence:
@@ -79,6 +94,16 @@ Mental Reps should feel like calm, literal guided rehearsal rather than a concep
 - include a deliberate stop point when a stock concentration, device, anatomy, policy or patient response does not match the rehearsed scenario.
 
 The learner should be able to close their eyes and mentally perform the sequence. Avoid replacing choreography with abstractions such as "prepare per protocol" when the purpose of the rep is to rehearse an explicitly defined, protocol-approved example.
+
+### Procedure-specific visual contract
+
+Protocol-grade narration and visuals must describe the same physical task.
+
+- Every non-debrief Mental Rep beat must resolve to a renderer-backed procedure-specific visual.
+- Catalog beats may name a visual explicitly; otherwise `repVisualRouting.ts` resolves a rep-aware fallback from the rep ID and beat ID.
+- A visual-key typo or unsupported fallback is a test failure rather than a silent generic diagram.
+- Generic phase diagrams are reserved for debrief/fallback content, not active procedural rehearsal.
+- When the script names a landmark, device path, stop plane, waveform transition, circuit component or confirmation maneuver, the visual should show that same concept.
 
 ### Protocol-grade rule: never hide a step inside a noun phrase
 
