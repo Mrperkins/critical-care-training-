@@ -39,6 +39,7 @@ export function RepVisual({ beat }: { beat: MentalRepBeat }) {
   if (key.startsWith('cric-')) return <Cricothyrotomy mode={key} />;
   if (key.startsWith('pericard-')) return <Pericardiocentesis mode={key} />;
   if (key.startsWith('thorac-')) return <Thoracentesis mode={key} />;
+  if (key.startsWith('tvp-')) return <TransvenousPacing mode={key} />;
   if (key.startsWith('pocus-')) return <Pocus mode={key} />;
   return <PhaseVisual beat={beat} />;
 }
@@ -247,6 +248,76 @@ function Iabp({errors}:{errors:boolean}){return <Frame title={errors?'IABP timin
   <text className="small" x="330" y="375">{errors?'compare marker with notch and next systolic upstroke':'inflate at closure · deflate before next systole'}</text>
   <text className="small" x="126" y="344">assisted EDP</text><text className="small" x="248" y="344">augmentation</text>
 </svg></Frame>}
+function TransvenousPacing({mode}:{mode:string}) {
+  if(mode==='tvp-setup') return <Frame title="temporary transvenous pacing system"><svg viewBox="0 0 600 420">
+    <rect className="rv-soft" x="35" y="55" width="150" height="82" rx="10"/><text className="small" x="110" y="86">INTRODUCER</text><text className="small" x="110" y="108">SHEATH + US</text>
+    <rect className="rv-soft" x="225" y="55" width="150" height="82" rx="10"/><text className="small" x="300" y="86">BIPOLAR LEAD</text><text className="small" x="300" y="108">BALLOON + MARKS</text>
+    <rect className="rv-soft" x="415" y="55" width="150" height="82" rx="10"/><text className="small" x="490" y="86">GENERATOR</text><text className="small" x="490" y="108">RATE · OUTPUT · SENSE</text>
+    <path className="rv-line gold" d="M110 220h380"/><circle className="rv-dot" cx="130" cy="220" r="7"/><circle className="rv-dot" cx="300" cy="220" r="7"/><circle className="rv-dot" cx="470" cy="220" r="7"/>
+    <text className="small" x="130" y="202">ACCESS</text><text className="small" x="300" y="202">LEAD</text><text className="small" x="470" y="202">CAPTURE</text>
+    <text className="small" x="300" y="340">transcutaneous pads stay on as backup while invasive pacing is built</text>
+  </svg></Frame>;
+  if(mode==='tvp-access') return <Frame title="right IJ introducer reference"><svg viewBox="0 0 600 420">
+    <path className="rv-body" d="M70 55q95-25 190 0v285H70z"/><path className="rv-line" d="M118 90l45 210M222 90l-59 210M70 300h190"/>
+    <text className="small" x="160" y="330">SCM heads + clavicle</text><circle className="rv-dot" cx="148" cy="210" r="8"/><text className="small" x="113" y="232">CAROTID</text>
+    <circle className="rv-ring gold" cx="203" cy="210" r="18"/><text className="small" x="226" y="214">IJ</text>
+    <path className="rv-line gold" d="M288 250h100"/><rect className="rv-label" x="388" y="210" width="130" height="80" rx="12"/><text className="small" x="453" y="241">INTRODUCER</text><text className="small" x="453" y="261">SHEATH</text>
+    <text className="small" x="405" y="335">wire out · sheath aspirated/flushed · sheath secured before pacing lead</text>
+  </svg></Frame>;
+  if(mode==='tvp-generator') return <Frame title="generator controls are active clinical variables"><svg viewBox="0 0 600 420">
+    <rect className="rv-soft" x="105" y="55" width="390" height="300" rx="18"/>
+    <circle className="rv-ring gold" cx="190" cy="150" r="45"/><circle className="rv-ring gold" cx="300" cy="150" r="45"/><circle className="rv-ring gold" cx="410" cy="150" r="45"/>
+    <text className="small" x="190" y="154">RATE</text><text className="small" x="300" y="154">OUTPUT</text><text className="small" x="410" y="154">SENSE</text>
+    <path className="rv-wave" d="M145 270h45l12-28 15 56 15-28h44l12-28 15 56 15-28h44"/>
+    <text className="small" x="300" y="325">watch native beats, pacing spikes, QRS response and inhibition behavior</text>
+  </svg></Frame>;
+  if(mode==='tvp-lead') return <Frame title="balloon stays deflated inside sheath"><svg viewBox="0 0 600 420">
+    <rect className="rv-soft" x="65" y="110" width="180" height="80" rx="14"/><text className="small" x="155" y="145">INTRODUCER SHEATH</text>
+    <path className="rv-line gold" d="M105 150h365"/><circle className="rv-ring gold" cx="315" cy="150" r="18"/><circle className="rv-dot" cx="355" cy="150" r="6"/><circle className="rv-dot" cx="380" cy="150" r="6"/>
+    <text className="small" x="320" y="110">balloon + distal electrodes must clear sheath</text>
+    <path className="rv-line bad" d="M180 205v85"/><text className="small" x="180" y="316">NO BALLOON INFLATION INSIDE SHEATH</text>
+    <text className="small" x="300" y="365">use catheter markings and actual sheath length · common adult reference ≈ 20 cm</text>
+  </svg></Frame>;
+  if(mode==='tvp-advance') return <Frame title="float RA → RV while rhythm stays visible"><svg viewBox="0 0 600 420">
+    <path className="rv-soft" d="M110 205q70-115 165-35q70-105 170-10q45 100-120 180q-170-70-215-135z"/>
+    <text className="small" x="210" y="170">RA</text><text className="small" x="350" y="235">RV</text>
+    <path className="rv-line gold" d="M85 95q105 55 155 105q60 62 112 50"/><circle className="rv-ring gold" cx="352" cy="250" r="18"/>
+    <path className="rv-wave" d="M345 75h32l10-22 14 44 14-22h38"/><text className="small" x="420" y="118">paced wide QRS / LBBB pattern</text>
+    <text className="small" x="300" y="385">VT/VF, marked ectopy or resistance = stop and withdraw to safer position</text>
+  </svg></Frame>;
+  if(mode==='tvp-capture') return <Frame title="electrical capture ≠ mechanical capture"><svg viewBox="0 0 600 420">
+    <path className="rv-wave" d="M55 135h40v-65h12v65h58l14-45 20 90 20-45h58"/><text className="small" x="165" y="210">PACER SPIKE → PACED QRS</text>
+    <path className="rv-wave gold" d="M320 135h40l14-28 18 56 18-28h85"/><text className="small" x="410" y="210">ARTERIAL / PLETH PULSE</text>
+    <path className="rv-line gold" d="M165 255h245"/><text className="small" x="290" y="290">rates must match</text>
+    <text className="small" x="300" y="355">electrical QRS without pulse = no useful mechanical capture</text>
+  </svg></Frame>;
+  if(mode==='tvp-threshold') return <Frame title="find threshold · then restore safety margin"><svg viewBox="0 0 600 420">
+    <path className="rv-line gold" d="M95 120h410"/><circle className="rv-dot" cx="390" cy="120" r="8"/><text className="small" x="390" y="95">capture lost</text>
+    <path className="rv-line" d="M95 220h410"/><circle className="rv-dot" cx="345" cy="220" r="8"/><text className="small" x="345" y="195">capture returns = threshold</text>
+    <path className="rv-line gold" d="M345 280h120"/><text className="small" x="405" y="315">final output above threshold</text>
+    <text className="small" x="300" y="375">record threshold · rising threshold later may mean lead or physiology changed</text>
+  </svg></Frame>;
+  if(mode==='tvp-secure') return <Frame title="secure sheath → lead → cable → generator"><svg viewBox="0 0 600 420">
+    <rect className="rv-soft" x="50" y="110" width="120" height="65" rx="10"/><text className="small" x="110" y="148">SHEATH</text>
+    <path className="rv-line gold" d="M170 142h115"/><rect className="rv-label" x="285" y="110" width="120" height="65" rx="10"/><text className="small" x="345" y="148">LEAD DEPTH</text>
+    <path className="rv-line" d="M405 142h80"/><rect className="rv-soft" x="460" y="102" width="100" height="80" rx="10"/><text className="small" x="510" y="148">GEN</text>
+    <path className="rv-line" d="M250 225q75 55 150 0"/><text className="small" x="325" y="295">strain relief loop</text>
+    <text className="small" x="300" y="365">record depth · mode · rate · output · sensitivity · threshold · mechanical-capture method</text>
+  </svg></Frame>;
+  if(mode==='tvp-troubleshoot') return <Frame title="spike → QRS → pulse: find the broken link"><svg viewBox="0 0 600 420">
+    <circle className="rv-ring gold" cx="125" cy="180" r="45"/><circle className="rv-ring" cx="300" cy="180" r="45"/><circle className="rv-ring" cx="475" cy="180" r="45"/>
+    <text className="small" x="125" y="185">SPIKE</text><text className="small" x="300" y="185">QRS</text><text className="small" x="475" y="185">PULSE</text>
+    <path className="rv-line gold" d="M170 180h85M345 180h85"/><text className="small" x="210" y="160">capture?</text><text className="small" x="388" y="160">mechanical?</text>
+    <text className="small" x="300" y="300">then check depth · cable · power · output · sensitivity · patient</text>
+    <text className="small" x="300" y="350">transcutaneous backup remains immediately available</text>
+  </svg></Frame>;
+  return <Frame title="temporary pacing · electrical and mechanical system"><svg viewBox="0 0 600 420">
+    <path className="rv-wave" d="M60 150h40v-60h12v60h55l14-38 18 76 18-38h60"/><path className="rv-wave gold" d="M335 150h45l14-28 18 56 18-28h80"/>
+    <text className="small" x="170" y="220">paced ECG</text><text className="small" x="425" y="220">mechanical pulse</text>
+    <text className="small" x="300" y="340">bridge to definitive therapy · reversible cause treatment continues</text>
+  </svg></Frame>;
+}
+
 function Thoracentesis({mode}:{mode:string}) {
   if(mode==='thorac-position') return <Frame title="upright + supported when feasible"><svg viewBox="0 0 600 420">
     <circle className="rv-head" cx="250" cy="95" r="42"/><path className="rv-body" d="M205 135q45-25 90 0l38 160H167z"/>
