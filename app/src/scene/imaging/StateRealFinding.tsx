@@ -8,8 +8,8 @@ export function StateRealFinding({ match }: { match: RealReferenceMatch | null }
 
   useEffect(() => {
     let alive = true;
+    setItem(null);
     if (!match) {
-      setItem(null);
       return () => { alive = false; };
     }
     loadReal().then((items) => {
