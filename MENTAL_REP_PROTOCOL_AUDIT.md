@@ -77,6 +77,17 @@ These are not yet part of the current required set, but when authored they must 
 
 The new escharotomy rep demonstrates the required depth. It does **not** say "identify the standard escharotomy incision line." It defines the constricting physiology, exposes the entire involved segment, establishes proximal/distal viable margins, maps the medial/lateral or chest release lines, names location-specific neurovascular danger zones, stops the release at subcutaneous fat rather than fascia, and requires immediate objective reassessment.
 
+## Visual non-regression
+
+Protocol-grade scripts are not allowed to pair with generic procedure visuals.
+
+- `RepVisual` receives the Mental Rep ID and resolves missing catalog visuals through `repVisualRouting.ts`.
+- Every non-debrief beat across all required Mental Reps must resolve to a renderer-backed custom visual key.
+- Current procedure-specific families include IJ Seldinger progression, IO placement/confirmation/complication, MTP system/source/physiology/response, status-seizure support/escalation/airway, escharotomy, finger thoracostomy, cricothyrotomy, pericardiocentesis, thoracentesis, transvenous pacing and dialysis-catheter troubleshooting.
+- Existing device/anatomy visuals are reused only where they match the narration.
+- CI rejects unsupported visual keys and any active beat that falls back to a generic phase diagram.
+- CI also rejects non-debrief narration under 25 words, while the existing vague-shorthand ban and anchor/route/proof checklists remain mandatory.
+
 ## Voice-production state
 
 Narration changes in this audit intentionally do **not** block further engineering on external voice rendering.
