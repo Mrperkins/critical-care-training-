@@ -60,7 +60,7 @@ describe('critical care audio mastery model', () => {
       'rep-push-dose-pressor','rep-blood','rep-art-line','rep-efast','rep-chest-tube',
       'rep-central-line','rep-us-piv','rep-rsi','rep-post-intubation','rep-pac',
       'rep-crrt','rep-ecmo','rep-iabp','rep-sedation','rep-status',
-      'rep-io','rep-vent-emergency','rep-evd','rep-mtp','rep-escharotomy','rep-finger-thoracostomy','rep-cricothyrotomy','rep-pericardiocentesis','rep-thoracentesis','rep-pocus-shock'
+      'rep-io','rep-vent-emergency','rep-evd','rep-mtp','rep-escharotomy','rep-finger-thoracostomy','rep-cricothyrotomy','rep-pericardiocentesis','rep-thoracentesis','rep-transvenous-pacing','rep-pocus-shock'
     ]) expect(ids.has(id), `Mental Rep missing: ${id}`).toBe(true);
   });
 
@@ -92,7 +92,7 @@ describe('critical care audio mastery model', () => {
   });
 
   it('landmark-dependent Mental Reps explicitly rehearse anatomical orientation', () => {
-    for (const id of ['rep-art-line','rep-efast','rep-chest-tube','rep-central-line','rep-io','rep-evd','rep-us-piv','rep-escharotomy','rep-finger-thoracostomy','rep-cricothyrotomy','rep-pericardiocentesis','rep-thoracentesis','rep-pocus-shock']) {
+    for (const id of ['rep-art-line','rep-efast','rep-chest-tube','rep-central-line','rep-io','rep-evd','rep-us-piv','rep-escharotomy','rep-finger-thoracostomy','rep-cricothyrotomy','rep-pericardiocentesis','rep-thoracentesis','rep-transvenous-pacing','rep-pocus-shock']) {
       const rep = MENTAL_REPS.find((x) => x.id === id)!;
       const orientation = rep.beats.filter((b) => b.phase === 'orientation');
       expect(orientation.length, `${id} needs an orientation beat`).toBeGreaterThan(0);
@@ -171,6 +171,7 @@ describe('critical care audio mastery model', () => {
       'rep-cricothyrotomy': ['recognize','landmark','setup','skin','membrane','open','tube','confirm','secure','debrief'],
       'rep-pericardiocentesis': ['recognize','map','setup','needle','fluid','wire','catheter','drain','recheck','failure','debrief'],
       'rep-thoracentesis': ['indication','position','map','rib','setup','anesthetize','access','sample','drain','finish','recheck','debrief'],
+      'rep-transvenous-pacing': ['indication','equipment','access','connect','sheath','advance','capture','position','threshold','sense','secure','recheck','debrief'],
       'rep-pocus-shock': ['question','heart','lung','venous','abdomen','integrate','debrief'],
     };
     expect(Object.keys(order).sort()).toEqual(MENTAL_REPS.map((x) => x.id).sort());
@@ -206,6 +207,7 @@ describe('critical care audio mastery model', () => {
       'rep-cricothyrotomy': [/thyroid cartilage/i, /cricothyroid membrane/i, /cricoid cartilage/i, /three to four finger widths/i, /vertical skin incision/i, /horizontal.*membrane/i, /direct it caudally/i, /cuff.*just inside/i, /waveform capnography/i, /bilateral chest rise/i, /secure/i],
       'rep-pericardiocentesis': [/pericardial effusion/i, /right-atrial or right-ventricular diastolic collapse/i, /subxiphoid, apical or parasternal/i, /skin-to-fluid depth/i, /internal thoracic vessel/i, /sterile sheath/i, /true needle tip/i, /agitated saline/i, /guidewire/i, /pigtail/i, /pericardial decompression syndrome/i, /operative or surgical drainage/i],
       'rep-thoracentesis': [/sit them upright/i, /forearms supported/i, /two rib shadows/i, /diaphragm/i, /liver/i, /spleen/i, /skin-to-fluid depth/i, /superior border of the rib below/i, /parietal pleura/i, /three-way stopcock/i, /thread the flexible catheter/i, /sample first/i, /re-expansion pulmonary edema/i, /mechanically ventilated/i],
+      'rep-transvenous-pacing': [/transcutaneous pacing pads/i, /pulse generator/i, /bipolar pacing catheter/i, /balloon port/i, /right-internal-jugular/i, /introducer sheath/i, /balloon remains completely deflated/i, /twenty-centimeter/i, /left-bundle-branch-block pattern/i, /electrical capture/i, /mechanical capture/i, /capture threshold/i, /two to three times threshold/i, /demand pacing/i, /strain relief/i],
       'rep-pocus-shock': [/xiphoid/i, /inferior tip of the sternum/i, /left edge of the sternum/i, /point of maximal impulse/i, /two rib shadows/i, /pubic symphysis/i, /vertebral body/i, /aorta/i, /put the probe down/i, /make one prediction/i],
     };
     expect(Object.keys(required).sort(), 'every Mental Rep must have a protocol-grade anchor checklist').toEqual(MENTAL_REPS.map((x) => x.id).sort());
