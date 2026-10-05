@@ -27,10 +27,11 @@ jobs:
           cache: npm
           cache-dependency-path: app/package-lock.json
       - run: npm ci
+      - run: npm run audio:lines
+      - run: npm run audio:voice:preflight
       - name: Install audio validator
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
         working-directory: .
-      - run: npm run audio:lines
       - run: python3 scripts/audio_voice_import.py
       - run: python3 scripts/audio_voice_validate.py
       - name: Commit durable assets
