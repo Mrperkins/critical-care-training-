@@ -4,7 +4,7 @@ Updated: 2026-10-04
 
 ## Purpose
 
-Every Mental Rep has been re-reviewed against the new **protocol-grade narration** standard.
+Every existing Mental Rep has been re-reviewed against the new **protocol-grade narration** standard, and new reps must meet that standard on first entry.
 
 A rep passes only when a learner can mentally rehearse the physical sequence without having to supply missing procedural knowledge from memory. "Hands-first" is necessary but not sufficient. Anatomical, device and workflow shorthand must be unpacked inside the narration itself.
 
@@ -47,6 +47,7 @@ A local protocol, manufacturer IFU or medical-direction dependency may control a
 | IABP timing | PASS | Trigger source, unassisted beat, dicrotic notch, inflation/deflation markers, assisted end-diastolic pressure and timing errors are explicitly compared on the waveform. |
 | Post-intubation analgesia/sedation | PASS — revised | Drug/concentration, patient line, pump channel, target depth, hemodynamic response, paralysis check and bag→pump→tubing→patient trace are explicit. |
 | Status epilepticus | PASS — revised | Actual protocol row/route, source concentration, dose-to-volume, administration time, reassessment interval, next-line row and airway escalation run in a timed physical sequence. |
+| Burn escharotomy | PASS — new protocol-grade rep | Establishes pre-incision limb/chest physiology, maps viable margins plus mid-medial/mid-lateral release paths and named danger structures, builds a sterile/hemostasis field, releases eschar only to subcutaneous fat, uses finger tracing for residual bands, branches to thoracic anterior-axillary/subcostal release, and requires immediate objective perfusion/ventilation reassessment with escalation when skin release is insufficient. |
 | Integrated shock POCUS | PASS — revised | Xiphoid, left sternal border, PMI, rib shadows/pleural line, IVC-vs-aorta, pubic symphysis/bladder and vertebral-body/aortic anchors are defined spatially. |
 
 ## Specific terminology rule
@@ -68,7 +69,6 @@ Examples now enforced in current scripts:
 
 These are not yet part of the current 20-rep required set, but when authored they must start at this protocol-grade depth rather than receiving a later rewrite:
 
-- escharotomy;
 - needle/finger thoracostomy;
 - surgical cricothyrotomy;
 - pericardiocentesis;
@@ -78,11 +78,9 @@ These are not yet part of the current 20-rep required set, but when authored the
 - dialysis-catheter troubleshooting;
 - targeted burn and compartment-release procedures as appropriate to scope.
 
-### Escharotomy example of the required depth
+### Escharotomy implementation benchmark
 
-Do **not** write "identify the standard escharotomy incision line."
-
-A future escharotomy rep must:
+The new escharotomy rep demonstrates the required depth. It does **not** say "identify the standard escharotomy incision line." It:
 - define the constricting circumferential eschar and the perfusion/ventilation endpoint that creates the indication;
 - expose the entire involved segment and establish proximal/distal viable margins;
 - explicitly map the intended medial/lateral limb or chest release lines;
@@ -110,6 +108,8 @@ These references support the generic anatomy/technique framework used in the edu
 - Neurocritical Care Society — EVD consensus resources: https://www.neurocriticalcare.org/Resources-Publications/Neurocritical-Care-Guidelines
 - Royal Children’s Hospital Melbourne — EVD leveling/transport reference: https://www.rch.org.au/rchcpg/hospital_clinical_guideline_index/External_Ventricular_Drains_and_Intracranial_Pressure_Monitoring/
 - MSD Manual Professional — Burn Escharotomy: https://www.msdmanuals.com/professional/injuries-poisoning/how-to-do-skin-soft-tissue-and-minor-surgical-procedures/how-to-do-burn-escharotomy
+- Joint Trauma System — Burn Care CPG (10 Jun 2025): https://jts.health.mil/assets/docs/cpgs/Burn_Care_CPG_10_June_2025_ID12_v1.2.pdf
+- NCBI StatPearls — Escharotomy (updated 31 Jan 2026): https://www.ncbi.nlm.nih.gov/books/NBK482120/
 
 
 ### Sequence-order gate
