@@ -30,9 +30,11 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run typecheck
-      - run: npm run audio:audit
       - run: npm run site
       - name: Assert standalone audio build
         run: |
           test -s dist/pub/audio/index.html
           grep -q "Critical Care Audio" dist/pub/audio/index.html
+      # Keep the strict publication/completeness gate last so expected voice debt
+      # does not hide code, typecheck or bundle failures earlier in the job.
+      - run: npm run audio:audit
