@@ -15,12 +15,12 @@ export interface RealReferenceMatch {
  */
 export function selectCxrRealReference(st: CxrState): RealReferenceMatch | null {
   const maxPtx = Math.max(...st.side.map((s) => s.ptx));
-  if (maxPtx > 0.08) {
-    if (st.drain) return {
-      id: 'ptx-series-bonilla',
-      label: 'Real reference · pneumothorax with tube treatment',
-      reason: 'The model still contains pleural air and a chest drain. This real before/after series demonstrates the treatment pattern without claiming identical laterality or tube position.',
-    };
+  if (st.drain) return {
+    id: 'ptx-series-bonilla',
+    label: 'Real reference · pneumothorax with tube treatment',
+    reason: 'The model contains a chest drain placed for pneumothorax. This real before/after series demonstrates the treatment pattern even when the modeled pleural air has largely resolved.',
+  };
+  if (maxPtx > 0.08 || st.needle) {
     return {
       id: 'ptx-expiratory',
       label: 'Real reference · pneumothorax',
@@ -80,15 +80,15 @@ export function selectLusRealReference(z: LusZone): RealReferenceMatch | null {
     label: 'Real reference · pleural effusion',
     reason: 'The selected simulated posterolateral zone contains pleural fluid, so this real clip demonstrates an anechoic pleural collection above the diaphragm.',
   };
-  if (z.consolidation > 0.4) return {
-    id: 'lus-hepatisation-gillman',
-    label: 'Real reference · consolidated lung',
-    reason: 'The selected simulated zone contains substantial consolidation. This real clip demonstrates tissue-like hepatization rather than aerated lung artifact.',
-  };
   if (z.white) return {
     id: 'whitelung',
     label: 'Real reference · confluent B-lines / white lung',
     reason: 'The selected simulated zone has confluent B-lines, so this real clip demonstrates the white-lung pattern and abnormal pleural line.',
+  };
+  if (z.consolidation > 0.4) return {
+    id: 'lus-hepatisation-gillman',
+    label: 'Real reference · consolidated lung',
+    reason: 'The selected simulated zone contains substantial consolidation. This real clip demonstrates tissue-like hepatization rather than aerated lung artifact.',
   };
   if (z.bLines >= 3) return {
     id: 'lus-blines-gargani',
