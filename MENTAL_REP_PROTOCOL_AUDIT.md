@@ -67,9 +67,10 @@ Examples now enforced in current scripts:
 
 ## New procedure reps that must use the same standard
 
+Temporary pacing-wire troubleshooting is intentionally integrated into the emergency transvenous-pacing rep rather than duplicated as a second module. Its recheck beat covers lead displacement after movement, loss of capture, sensing failure, cable/generator faults and mechanical-capture failure.
+
 These are not yet part of the current required set, but when authored they must start at this protocol-grade depth rather than receiving a later rewrite:
 
-- temporary pacing-wire troubleshooting;
 - dialysis-catheter troubleshooting;
 - targeted burn and compartment-release procedures as appropriate to scope.
 
