@@ -23,7 +23,7 @@ Voice-first critical-care expertise training plus guided procedural Mental Reps.
 - 21 ordered domain tracks.
 - 27 required Mental Reps.
 - 213 Mental Rep narration beats on the active protocol-grade branch. The protocol-grade re-audit added four missing beats to existing reps plus new burn-escharotomy, simple/finger-thoracostomy, emergency surgical-cricothyrotomy, ultrasound-guided pericardiocentesis, ultrasound-guided thoracentesis, emergency transvenous-pacing and dialysis-catheter-troubleshooting reps.
-- The previously merged 132-beat set has durable natural-voice assets, but protocol-grade revisions and new reps changed the production truth. Current strict audit debt is 142 Mental Rep clips: 81 missing durable assets + 61 stale assets whose transcript hashes no longer match current narration. Stale/missing audio remains blocked by the transcript-hash production gate.
+- The previously merged 132-beat set has durable natural-voice assets, but protocol-grade revisions and new reps changed the production truth. Current strict audit debt is 150 Mental Rep clips: 81 missing durable assets + 69 stale assets whose transcript hashes no longer match current narration. Stale/missing audio remains blocked by the transcript-hash production gate.
 - 130/130 concepts have spaced-retrieval coverage: bespoke questions where available plus deterministic mechanism-vs-trap prompts.
 - Unseen concepts are not marked overdue; spaced review starts after exposure.
 
@@ -166,6 +166,8 @@ Branch: `mental-reps-emergency-systems-v5`
 - Anatomy-heavy reps now define the landmark itself and the route to it rather than naming it.
 - System/device reps now require a physical patient→hardware→monitor/circuit trace rather than generic "check/prepare/reassess" language.
 - Four missing procedural beats were added: radial arterial puncture/threading, IJ sterile setup, IJ dilation, and IJ catheter completion.
+- Every non-debrief Mental Rep beat must resolve to a renderer-backed procedure-specific visual; generic phase diagrams are now a CI failure.
+- Every non-debrief Mental Rep beat must contain at least 25 words, in addition to the banned-vague-shorthand and per-rep anchor/route/proof checks.
 - Voice rendering is no longer on the engineering critical path. Revised narration may remain voice-pending on the feature branch, but cannot be merged as production-complete while transcript hashes are stale.
 - Engineering verification on the 27-rep baseline is green through unit tests, TypeScript typecheck, site build and standalone Audio build; the strict final audio audit is intentionally red only for missing/stale Mental Rep voice.
 - `npm run site` now writes `review/mental-rep-voice-refresh.json`, a deterministic render queue containing only missing/stale Mental Rep beats with their current transcript, transcript hash, suggested hash-versioned filename, status and safe import template.
