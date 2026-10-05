@@ -3,11 +3,11 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { session } from './session';
 import { lusFromVent, lusSummary, lusScene, renderMmode, LUS_ZONES, LUS_W, LUS_D, type LusZone, type LusZoneId } from './lus';
 import { renderLinear } from '../scene/ultrasound/bmode';
-import { RealExamples } from '../scene/imaging/RealExamples';
-import { RealCase } from '../scene/imaging/RealCase';
 import { IS_PHONE } from '../scene/Studio';
 import { useHideFindings } from '../challenge/caseStore';
 import { create } from 'zustand';
+import { StateRealFinding } from '../scene/imaging/StateRealFinding';
+import { selectLusRealReference } from '../scene/imaging/realStateReference';
 /** selected probe zone (lessons can point the probe) */
 export const useLusUI = create<{ zone: LusZoneId; set: (z: LusZoneId) => void }>((set) => ({ zone: 'R-ant', set: (zone) => set({ zone }) }));
 
@@ -47,9 +47,7 @@ export function LusScene() {
         <figure className="img-panel lus-m"><canvas ref={mref} aria-label={hide ? 'M-mode' : `M-mode, ${z.mmode}`} /><figcaption>M-mode{hide ? '' : ` · ${z.mmode}`}</figcaption></figure>
         <section className="cxr-find"><h4>{LUS_ZONES.find((x) => x.id === sel)!.name}</h4>{hide ? <p className="muted small">Reading hidden while you answer — tap each zone and watch the pleural line and the M-mode.</p> : <><p className="small">{z.pattern}.</p><h4>Reading</h4><ul>{lusSummary(zs).map((l) => <li key={l}>{l}</li>)}</ul></>}</section>
       </div>
-      {!hide && zs.some((x) => x.lungPoint || (!x.sliding && !x.lungPulse)) && <RealCase kind="ptxlus" title="Real pneumothorax ultrasound" />}
-      {!hide && zs.some((x) => x.effusion > 0.05) && <RealCase kind="pleuraleff" title="Real pleural effusion" />}
-      {!hide && <RealExamples kind="lus" title="Real lung ultrasound" />}
+      {!hide && <StateRealFinding match={selectLusRealReference(z)} />}
       <div className="img-bar"><p className="img-note">Synthetic lung ultrasound drawn from the ventilator model’s state (linear probe, 4 × 6 cm). Patterns follow standard lung-ultrasound teaching; not patient images except the labelled real clips.</p></div>
     </div>
   );
