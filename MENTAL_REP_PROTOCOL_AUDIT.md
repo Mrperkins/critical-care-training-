@@ -48,7 +48,7 @@ A local protocol, manufacturer IFU or medical-direction dependency may control a
 | Post-intubation analgesia/sedation | PASS — revised | Drug/concentration, patient line, pump channel, target depth, hemodynamic response, paralysis check and bag→pump→tubing→patient trace are explicit. |
 | Status epilepticus | PASS — revised | Actual protocol row/route, source concentration, dose-to-volume, administration time, reassessment interval, next-line row and airway escalation run in a timed physical sequence. |
 | Burn escharotomy | PASS — new protocol-grade rep | Establishes pre-incision limb/chest physiology, maps viable margins plus mid-medial/mid-lateral release paths and named danger structures, builds a sterile/hemostasis field, releases eschar only to subcutaneous fat, uses finger tracing for residual bands, branches to thoracic anterior-axillary/subcostal release, and requires immediate objective perfusion/ventilation reassessment with escalation when skin release is insufficient. |
-| Simple / finger thoracostomy | PASS — new protocol-grade rep | Separates the decompression procedure from tube placement; explicitly builds the mid-axillary 4th/5th interspace from rib landmarks, uses the lower rib as a tactile rail, limits blunt instrument depth, requires pleural give + finger confirmation, branches to vented seal versus immediate tube, and returns to objective oxygenation/hemodynamic/ventilator endpoints. |\n| Integrated shock POCUS | PASS — revised | Xiphoid, left sternal border, PMI, rib shadows/pleural line, IVC-vs-aorta, pubic symphysis/bladder and vertebral-body/aortic anchors are defined spatially. |
+| Simple / finger thoracostomy | PASS — new protocol-grade rep | Separates the decompression procedure from tube placement; explicitly builds the mid-axillary 4th/5th interspace from rib landmarks, uses the lower rib as a tactile rail, limits blunt instrument depth, requires pleural give + finger confirmation, branches to vented seal versus immediate tube, and returns to objective oxygenation/hemodynamic/ventilator endpoints. |\n| Emergency surgical cricothyrotomy | PASS — new protocol-grade rep | Starts with failed-airway physiology, teaches thyroid cartilage → cricothyroid membrane → cricoid palpation, requires maintained laryngeal control, separates vertical skin from horizontal membrane incision, maintains the opening during device exchange, directs the guide/tube caudally, stops the cuff just inside the airway, and requires sustained waveform capnography plus bilateral ventilation before securement. |\n| Integrated shock POCUS | PASS — revised | Xiphoid, left sternal border, PMI, rib shadows/pleural line, IVC-vs-aorta, pubic symphysis/bladder and vertebral-body/aortic anchors are defined spatially. |
 
 ## Specific terminology rule
 
@@ -69,7 +69,6 @@ Examples now enforced in current scripts:
 
 These are not yet part of the current required set, but when authored they must start at this protocol-grade depth rather than receiving a later rewrite:
 
-- surgical cricothyrotomy;
 - pericardiocentesis;
 - thoracentesis / pleural catheter placement;
 - emergency transvenous pacing;
@@ -107,4 +106,4 @@ These references support the generic anatomy/technique framework used in the edu
 ### Sequence-order gate
 
 Protocol-grade CI now verifies not only that required landmarks/actions exist, but that each Mental Rep retains its intended beat order. This prevents correct steps from drifting into the wrong sequence—for example, arterial-system priming after puncture or IJ sterile setup after the needle has already entered.
-\n- Joint Trauma System / U.S. Army Aeromedical Evacuation Standard Medical Operating Guidelines (26 Nov 2025), Simple Finger Thoracostomy: https://jts.health.mil/assets/docs/cpgs/US_Army_Aeromedical_Evacuation_Standard_Medical_Operating_Guidelines_26NOV2025.pdf\n
+\n- Joint Trauma System / U.S. Army Aeromedical Evacuation Standard Medical Operating Guidelines (26 Nov 2025), Simple Finger Thoracostomy: https://jts.health.mil/assets/docs/cpgs/US_Army_Aeromedical_Evacuation_Standard_Medical_Operating_Guidelines_26NOV2025.pdf\n\n- Joint Trauma System — Airway Management in Trauma CPG (28 Jan 2026), Appendix E Cricothyroidotomy Procedure Checklist: https://jts.health.mil/assets/docs/cpgs/Airway_Management_in_Trauma_28_Jan_2026_ID39.pdf\n
