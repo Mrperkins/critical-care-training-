@@ -37,6 +37,7 @@ export function RepVisual({ beat }: { beat: MentalRepBeat }) {
   if (key.startsWith('eschar-')) return <Escharotomy mode={key} />;
   if (key.startsWith('finger-thorax-')) return <FingerThoracostomy mode={key} />;
   if (key.startsWith('cric-')) return <Cricothyrotomy mode={key} />;
+  if (key.startsWith('pericard-')) return <Pericardiocentesis mode={key} />;
   if (key.startsWith('pocus-')) return <Pocus mode={key} />;
   return <PhaseVisual beat={beat} />;
 }
@@ -245,6 +246,61 @@ function Iabp({errors}:{errors:boolean}){return <Frame title={errors?'IABP timin
   <text className="small" x="330" y="375">{errors?'compare marker with notch and next systolic upstroke':'inflate at closure · deflate before next systole'}</text>
   <text className="small" x="126" y="344">assisted EDP</text><text className="small" x="248" y="344">augmentation</text>
 </svg></Frame>}
+function Pericardiocentesis({mode}:{mode:string}) {
+  if(mode==='pericard-map') return <Frame title="scan every window · choose the shortest safe fluid path"><svg viewBox="0 0 600 420">
+    <path className="rv-body" d="M95 55q205-55 410 0v285H95z"/>
+    <ellipse className="rv-soft" cx="300" cy="205" rx="88" ry="105"/><text className="small" x="300" y="204">HEART</text>
+    <ellipse className="rv-ring gold" cx="300" cy="205" rx="118" ry="138"/><text className="small" x="300" y="365">PERICARDIAL FLUID</text>
+    <circle className="rv-dot" cx="170" cy="176" r="7"/><text className="small" x="116" y="154">PARASTERNAL</text>
+    <circle className="rv-dot" cx="225" cy="300" r="7"/><text className="small" x="180" y="330">APICAL</text>
+    <circle className="rv-dot" cx="332" cy="338" r="7"/><text className="small" x="370" y="340">SUBXIPHOID</text>
+    <path className="rv-line gold" d="M170 176l65 15"/><path className="rv-line" d="M225 300l30-38"/><path className="rv-line" d="M332 338l-2-74"/>
+    <text className="small" x="300" y="392">largest accessible pocket · shortest skin-to-fluid distance · no lung/liver/vessel in path</text>
+  </svg></Frame>;
+  if(mode==='pericard-setup') return <Frame title="sterile image-guided drainage system"><svg viewBox="0 0 600 420">
+    <rect className="rv-soft" x="38" y="60" width="150" height="78" rx="10"/><text className="small" x="113" y="90">STERILE PROBE</text><text className="small" x="113" y="112">SHEATH + GEL</text>
+    <rect className="rv-soft" x="225" y="60" width="150" height="78" rx="10"/><text className="small" x="300" y="90">NEEDLE + SYRINGE</text><text className="small" x="300" y="112">WIRE · DILATOR</text>
+    <rect className="rv-soft" x="412" y="60" width="150" height="78" rx="10"/><text className="small" x="487" y="90">PIGTAIL DRAIN</text><text className="small" x="487" y="112">STOPCOCK · BAG</text>
+    <path className="rv-line gold" d="M90 226h420"/><circle className="rv-dot" cx="120" cy="226" r="7"/><circle className="rv-dot" cx="260" cy="226" r="7"/><circle className="rv-dot" cx="400" cy="226" r="7"/><circle className="rv-dot" cx="510" cy="226" r="7"/>
+    <text className="small" x="120" y="208">MAP</text><text className="small" x="260" y="208">NEEDLE</text><text className="small" x="400" y="208">WIRE</text><text className="small" x="510" y="208">DRAIN</text>
+    <rect className="rv-label" x="170" y="285" width="260" height="60" rx="8"/><text className="small" x="300" y="313">ECG · BP · SpO₂ · RESUSCITATION READY</text><text className="small" x="300" y="332">before puncture</text>
+  </svg></Frame>;
+  if(mode==='pericard-needle') return <Frame title="needle moves only when the true tip is known"><svg viewBox="0 0 600 420">
+    <path className="rv-sector" d="M300 42L80 365h440z"/>
+    <ellipse className="rv-ring gold" cx="336" cy="250" rx="105" ry="72"/><text className="small" x="336" y="332">PERICARDIAL FLUID</text>
+    <ellipse className="rv-soft" cx="336" cy="245" rx="68" ry="48"/><text className="small" x="336" y="250">MYOCARDIUM</text>
+    <path className="rv-needle" d="M130 120L250 220"/><circle className="rv-dot" cx="250" cy="220" r="7"/>
+    <text className="small" x="185" y="98">TRUE NEEDLE TIP</text>
+    <path className="rv-line bad" d="M255 220l95 28"/><text className="small" x="445" y="242">do not advance blind toward myocardium</text>
+    <text className="small" x="300" y="392">needle moves → needle stops → probe reacquires tip → next advance</text>
+  </svg></Frame>;
+  if(mode==='pericard-confirm') return <Frame title="prove pericardial position before wire or drain"><svg viewBox="0 0 600 420">
+    <ellipse className="rv-ring gold" cx="300" cy="210" rx="130" ry="115"/><ellipse className="rv-soft" cx="300" cy="210" rx="88" ry="75"/>
+    <text className="small" x="300" y="214">HEART</text><text className="small" x="300" y="348">PERICARDIAL SPACE</text>
+    <circle className="rv-dot" cx="215" cy="290" r="5"/><circle className="rv-dot" cx="245" cy="312" r="5"/><circle className="rv-dot" cx="275" cy="300" r="5"/>
+    <text className="small" x="125" y="330">agitated-saline bubbles should stay outside chamber if used for confirmation</text>
+    <path className="rv-wave" d="M390 125h35l12-30 16 60 16-30h50"/><text className="small" x="454" y="186">ectopy / ST change = stop + withdraw</text>
+  </svg></Frame>;
+  if(mode==='pericard-wire') return <Frame title="wire control → short dilation → pigtail"><svg viewBox="0 0 600 420">
+    <ellipse className="rv-ring gold" cx="300" cy="220" rx="135" ry="105"/><ellipse className="rv-soft" cx="300" cy="220" rx="88" ry="65"/>
+    <path className="rv-line gold" d="M125 105q115 70 145 120q38 50 98 35"/><text className="small" x="135" y="88">GUIDEWIRE</text>
+    <rect className="rv-label" x="390" y="200" width="120" height="42" rx="18"/><text className="small" x="450" y="226">PIGTAIL</text>
+    <path className="rv-line" d="M330 275q55 35 90 0q38-30 70 8"/>
+    <text className="small" x="300" y="372">one hand owns wire · dilator only through soft tissue tract · catheter follows wire</text>
+  </svg></Frame>;
+  if(mode==='pericard-drain') return <Frame title="decompress to physiology · keep reassessing"><svg viewBox="0 0 600 420">
+    <ellipse className="rv-ring gold" cx="205" cy="205" rx="105" ry="90"/><ellipse className="rv-soft" cx="205" cy="205" rx="72" ry="58"/><path className="rv-line gold" d="M260 248q65 22 90 72"/>
+    <rect className="rv-soft" x="365" y="255" width="110" height="78" rx="10"/><text className="small" x="420" y="285">DRAINAGE</text><text className="small" x="420" y="306">SYSTEM</text>
+    <path className="rv-wave" d="M330 105h35l12-30 16 60 16-30h75"/><text className="small" x="405" y="165">BP · ETCO₂ · PERFUSION</text>
+    <text className="small" x="300" y="388">repeat echo + hemodynamics · do not chase an arbitrary empty sac</text>
+  </svg></Frame>;
+  return <Frame title="tamponade physiology → drain only if anatomy and indication agree"><svg viewBox="0 0 600 420">
+    <ellipse className="rv-ring gold" cx="210" cy="210" rx="110" ry="115"/><ellipse className="rv-soft" cx="210" cy="210" rx="72" ry="78"/><text className="small" x="210" y="214">HEART</text>
+    <path className="rv-wave" d="M365 145h35l12-30 16 60 16-30h75"/><text className="small" x="440" y="205">shock + effusion + echo physiology</text>
+    <text className="small" x="300" y="370">traumatic hemopericardium may need operative drainage</text>
+  </svg></Frame>;
+}
+
 function Cricothyrotomy({mode}:{mode:string}) {
   if(mode==='cric-landmark') return <Frame title="thyroid cartilage → membrane → cricoid"><svg viewBox="0 0 600 420">
     <path className="rv-body" d="M220 45q80-30 160 0l-30 310H250z"/>
