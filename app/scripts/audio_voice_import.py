@@ -32,10 +32,20 @@ def main():
     for item in req.get("assets",[]):
         aid=item["id"]
         if aid not in lines: raise SystemExit(f"{aid}: no canonical transcript in lines.json")
-        name=item.get("file") or aid.replace("/","_")+".mp3"
-        if not name.endswith(".mp3"): raise SystemExit(f"{aid}: MP3 destination required")
+        requested_hash=item.get("transcriptHash")
+        canonical_hash=lines[aid]["transcriptHash"]
+        if not requested_hash:
+            raise SystemExit(f"{aid}: import request must include transcriptHash")
+        if requested_hash != canonical_hash:
+            raise SystemExit(
+                f"{aid}: import transcriptHash {requested_hash} does not match current canonical transcript {canonical_hash}"
+            )
+        expected_name=f"{aid}.v{requested_hash}.mp3"
+        name=item.get("file") or expected_name
+        if name != expected_name:
+            raise SystemExit(f"{aid}: destination must be hash-versioned as {expected_name}")
         out=VOICE/name
-        print("fetch", aid, "->", name, flush=True)
+        print("fetch", aid, requested_hash, "->", name, flush=True)
         rq=urllib.request.Request(item["url"],headers={"User-Agent":"critical-care-audio-import/1.0"})
         with urllib.request.urlopen(rq,timeout=60) as r:
             data=r.read()
@@ -70,7 +80,7 @@ def main():
         assets[aid]={
             "id":aid,
             "file":name,
-            "transcriptHash":lines[aid]["transcriptHash"],
+            "transcriptHash":requested_hash,
             "reviewed":False,
             "published":False,
             "voice":item.get("voice","Natural clinical narrator prototype"),
