@@ -48,7 +48,7 @@ A local protocol, manufacturer IFU or medical-direction dependency may control a
 | Post-intubation analgesia/sedation | PASS — revised | Drug/concentration, patient line, pump channel, target depth, hemodynamic response, paralysis check and bag→pump→tubing→patient trace are explicit. |
 | Status epilepticus | PASS — revised | Actual protocol row/route, source concentration, dose-to-volume, administration time, reassessment interval, next-line row and airway escalation run in a timed physical sequence. |
 | Burn escharotomy | PASS — new protocol-grade rep | Establishes pre-incision limb/chest physiology, maps viable margins plus mid-medial/mid-lateral release paths and named danger structures, builds a sterile/hemostasis field, releases eschar only to subcutaneous fat, uses finger tracing for residual bands, branches to thoracic anterior-axillary/subcostal release, and requires immediate objective perfusion/ventilation reassessment with escalation when skin release is insufficient. |
-| Integrated shock POCUS | PASS — revised | Xiphoid, left sternal border, PMI, rib shadows/pleural line, IVC-vs-aorta, pubic symphysis/bladder and vertebral-body/aortic anchors are defined spatially. |
+| Simple / finger thoracostomy | PASS — new protocol-grade rep | Separates the decompression procedure from tube placement; explicitly builds the mid-axillary 4th/5th interspace from rib landmarks, uses the lower rib as a tactile rail, limits blunt instrument depth, requires pleural give + finger confirmation, branches to vented seal versus immediate tube, and returns to objective oxygenation/hemodynamic/ventilator endpoints. |\n| Integrated shock POCUS | PASS — revised | Xiphoid, left sternal border, PMI, rib shadows/pleural line, IVC-vs-aorta, pubic symphysis/bladder and vertebral-body/aortic anchors are defined spatially. |
 
 ## Specific terminology rule
 
@@ -67,9 +67,8 @@ Examples now enforced in current scripts:
 
 ## New procedure reps that must use the same standard
 
-These are not yet part of the current 20-rep required set, but when authored they must start at this protocol-grade depth rather than receiving a later rewrite:
+These are not yet part of the current required set, but when authored they must start at this protocol-grade depth rather than receiving a later rewrite:
 
-- needle/finger thoracostomy;
 - surgical cricothyrotomy;
 - pericardiocentesis;
 - thoracentesis / pleural catheter placement;
@@ -80,14 +79,7 @@ These are not yet part of the current 20-rep required set, but when authored the
 
 ### Escharotomy implementation benchmark
 
-The new escharotomy rep demonstrates the required depth. It does **not** say "identify the standard escharotomy incision line." It:
-- define the constricting circumferential eschar and the perfusion/ventilation endpoint that creates the indication;
-- expose the entire involved segment and establish proximal/distal viable margins;
-- explicitly map the intended medial/lateral limb or chest release lines;
-- name location-specific structures that change the safe route (for example ulnar nerve at the elbow, radial nerve at the wrist, superficial peroneal nerve near the fibular head, posterior tibial artery near the ankle, major jugular/carotid structures in the neck);
-- describe the tissue-depth endpoint as release through eschar to subcutaneous fat, not a fasciotomy;
-- describe the expected physical opening/softening of the eschar and the distal perfusion or ventilatory response used to judge adequacy;
-- require immediate reassessment if the expected release does not occur.
+The new escharotomy rep demonstrates the required depth. It does **not** say "identify the standard escharotomy incision line." It defines the constricting physiology, exposes the entire involved segment, establishes proximal/distal viable margins, maps the medial/lateral or chest release lines, names location-specific neurovascular danger zones, stops the release at subcutaneous fat rather than fascia, and requires immediate objective reassessment.
 
 ## Voice-production state
 
@@ -115,3 +107,4 @@ These references support the generic anatomy/technique framework used in the edu
 ### Sequence-order gate
 
 Protocol-grade CI now verifies not only that required landmarks/actions exist, but that each Mental Rep retains its intended beat order. This prevents correct steps from drifting into the wrong sequence—for example, arterial-system priming after puncture or IJ sterile setup after the needle has already entered.
+\n- Joint Trauma System / U.S. Army Aeromedical Evacuation Standard Medical Operating Guidelines (26 Nov 2025), Simple Finger Thoracostomy: https://jts.health.mil/assets/docs/cpgs/US_Army_Aeromedical_Evacuation_Standard_Medical_Operating_Guidelines_26NOV2025.pdf\n
