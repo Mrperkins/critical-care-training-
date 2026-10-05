@@ -36,6 +36,7 @@ export function RepVisual({ beat }: { beat: MentalRepBeat }) {
   if (key === 'seizure-timeline' || key === 'seizure-eeg') return <Seizure mode={key} />;
   if (key.startsWith('eschar-')) return <Escharotomy mode={key} />;
   if (key.startsWith('finger-thorax-')) return <FingerThoracostomy mode={key} />;
+  if (key.startsWith('cric-')) return <Cricothyrotomy mode={key} />;
   if (key.startsWith('pocus-')) return <Pocus mode={key} />;
   return <PhaseVisual beat={beat} />;
 }
@@ -244,6 +245,54 @@ function Iabp({errors}:{errors:boolean}){return <Frame title={errors?'IABP timin
   <text className="small" x="330" y="375">{errors?'compare marker with notch and next systolic upstroke':'inflate at closure · deflate before next systole'}</text>
   <text className="small" x="126" y="344">assisted EDP</text><text className="small" x="248" y="344">augmentation</text>
 </svg></Frame>}
+function Cricothyrotomy({mode}:{mode:string}) {
+  if(mode==='cric-landmark') return <Frame title="thyroid cartilage → membrane → cricoid"><svg viewBox="0 0 600 420">
+    <path className="rv-body" d="M220 45q80-30 160 0l-30 310H250z"/>
+    <path className="rv-rib" d="M250 110q50-45 100 0l-18 55h-64z"/><text className="small" x="300" y="84">THYROID CARTILAGE</text>
+    <rect className="rv-label" x="270" y="166" width="60" height="36" rx="8"/><text className="small" x="300" y="189">CTM</text>
+    <ellipse className="rv-ring" cx="300" cy="235" rx="45" ry="24"/><text className="small" x="300" y="240">CRICOID</text>
+    <path className="rv-line gold" d="M160 175h110"/><text className="small" x="120" y="162">soft depression</text><text className="small" x="120" y="181">between firm cartilages</text>
+    <path className="rv-line" d="M300 259v86"/><text className="small" x="300" y="382">keep larynx stabilized and midline</text>
+  </svg></Frame>;
+  if(mode==='cric-setup') return <Frame title="rescue airway equipment order"><svg viewBox="0 0 600 420">
+    <rect className="rv-soft" x="40" y="75" width="110" height="65" rx="8"/><text className="small" x="95" y="113">SCALPEL</text>
+    <rect className="rv-soft" x="170" y="75" width="110" height="65" rx="8"/><text className="small" x="225" y="105">HOOK /</text><text className="small" x="225" y="123">HEMOSTAT</text>
+    <rect className="rv-soft" x="300" y="75" width="110" height="65" rx="8"/><text className="small" x="355" y="113">BOUGIE</text>
+    <rect className="rv-soft" x="430" y="75" width="110" height="65" rx="8"/><text className="small" x="485" y="105">CUFFED</text><text className="small" x="485" y="123">TUBE</text>
+    <path className="rv-line gold" d="M95 180h390"/><circle className="rv-dot" cx="95" cy="180" r="6"/><circle className="rv-dot" cx="225" cy="180" r="6"/><circle className="rv-dot" cx="355" cy="180" r="6"/><circle className="rv-dot" cx="485" cy="180" r="6"/>
+    <rect className="rv-label" x="95" y="245" width="160" height="64" rx="8"/><text className="small" x="175" y="274">SUCTION + BVM</text><text className="small" x="175" y="292">READY</text>
+    <rect className="rv-label" x="345" y="245" width="160" height="64" rx="8"/><text className="small" x="425" y="274">WAVEFORM</text><text className="small" x="425" y="292">CAPNOGRAPHY</text>
+  </svg></Frame>;
+  if(mode==='cric-skin') return <Frame title="vertical skin incision · then re-palpate"><svg viewBox="0 0 600 420">
+    <path className="rv-body" d="M225 50q75-25 150 0l-28 300H253z"/>
+    <path className="rv-line gold" d="M300 120v155"/><text className="small" x="360" y="190">VERTICAL MIDLINE SKIN INCISION</text>
+    <circle className="rv-dot" cx="300" cy="198" r="8"/><text className="small" x="185" y="305">re-palpate CTM through open skin</text>
+  </svg></Frame>;
+  if(mode==='cric-membrane') return <Frame title="horizontal membrane incision"><svg viewBox="0 0 600 420">
+    <path className="rv-rib" d="M220 110q80-50 160 0l-24 58H244z"/><text className="small" x="300" y="90">THYROID</text>
+    <rect className="rv-label" x="245" y="170" width="110" height="55" rx="10"/><text className="small" x="300" y="202">CTM</text>
+    <ellipse className="rv-ring" cx="300" cy="265" rx="62" ry="28"/><text className="small" x="300" y="270">CRICOID</text>
+    <path className="rv-line gold" d="M250 197h100"/><text className="small" x="410" y="202">horizontal cut</text>
+    <path className="rv-line bad" d="M300 225v95"/><text className="small" x="300" y="350">do not sweep blade deep</text>
+  </svg></Frame>;
+  if(mode==='cric-open') return <Frame title="maintain the opening · guide goes caudal"><svg viewBox="0 0 600 420">
+    <rect className="rv-label" x="170" y="110" width="260" height="55" rx="10"/><text className="small" x="300" y="144">CRICOTHYROID OPENING</text>
+    <path className="rv-line gold" d="M300 165v155"/><path className="rv-line" d="M300 320l-15-24M300 320l15-24"/><text className="small" x="360" y="255">BOUGIE / HOOK</text>
+    <text className="small" x="300" y="365">direction = caudal toward lungs</text>
+  </svg></Frame>;
+  if(mode==='cric-tube') return <Frame title="tube caudal · cuff just inside"><svg viewBox="0 0 600 420">
+    <rect className="rv-soft" x="250" y="70" width="100" height="280" rx="45"/><text className="small" x="300" y="96">TRACHEA</text>
+    <path className="rv-line gold" d="M300 120v165"/><rect className="rv-label" x="260" y="182" width="80" height="38" rx="18"/><text className="small" x="300" y="206">CUFF</text>
+    <text className="small" x="410" y="192">balloon just inside airway</text>
+    <path className="rv-line bad" d="M300 285v55"/><text className="small" x="420" y="328">avoid unnecessary depth</text>
+  </svg></Frame>;
+  return <Frame title="prove tracheal ventilation"><svg viewBox="0 0 600 420">
+    <path className="rv-wave" d="M65 200h45v-55h70v55h50v-55h70v55h50"/><text className="small" x="205" y="125">SUSTAINED ETCO₂</text>
+    <path className="rv-body" d="M360 95q75-35 150 0v190q-75 30-150 0z"/><path className="rv-line gold" d="M435 112v145"/>
+    <text className="small" x="435" y="320">bilateral chest rise + ventilation</text>
+  </svg></Frame>;
+}
+
 function FingerThoracostomy({mode}:{mode:string}) {
   if(mode==='finger-thorax-setup') return <Frame title="simple thoracostomy setup"><svg viewBox="0 0 600 420">
     <rect className="rv-soft" x="45" y="70" width="145" height="78" rx="10"/><text className="small" x="117" y="98">SCALPEL</text><text className="small" x="117" y="120">STERILE FIELD</text>
