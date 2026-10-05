@@ -21,9 +21,9 @@ Voice-first critical-care expertise training plus guided procedural Mental Reps.
 - 130/130 concepts have at least one standalone expertise-audio teaching path.
 - 79 expertise audio episodes total.
 - 21 ordered domain tracks.
-- 20 required Mental Reps.
-- 132 Mental Rep narration beats.
-- 132/132 Mental Rep beats have durable natural-voice MP3 assets in the project.
+- 27 required Mental Reps.
+- 213 Mental Rep narration beats on the active protocol-grade branch. The protocol-grade re-audit added four missing beats to existing reps plus new burn-escharotomy, simple/finger-thoracostomy, emergency surgical-cricothyrotomy, ultrasound-guided pericardiocentesis, ultrasound-guided thoracentesis, emergency transvenous-pacing and dialysis-catheter-troubleshooting reps.
+- The previously merged 132-beat set has durable natural-voice assets, but protocol-grade revisions and new reps changed the production truth. Current strict audit debt is 150 Mental Rep clips: 81 missing durable assets + 69 stale assets whose transcript hashes no longer match current narration. Stale/missing audio remains blocked by the transcript-hash production gate.
 - 130/130 concepts have spaced-retrieval coverage: bespoke questions where available plus deterministic mechanism-vs-trap prompts.
 - Unseen concepts are not marked overdue; spaced review starts after exposure.
 
@@ -59,6 +59,13 @@ Runway can render durable full audio, but at the current plan the complete long-
 - IABP timing
 - Sedation / analgesia
 - Status epilepticus
+- Burn escharotomy
+- Simple / finger thoracostomy
+- Emergency surgical cricothyrotomy
+- Ultrasound-guided pericardiocentesis
+- Ultrasound-guided thoracentesis
+- Emergency transvenous pacing
+- Dialysis catheter dysfunction
 - Integrated POCUS shock survey
 
 ## UI / learning system
@@ -129,3 +136,42 @@ Current landmark-expanded reps:
 - ultrasound-guided peripheral IV.
 
 The completion audit now treats a durable Mental Rep MP3 as stale when its transcript hash does not match the current narration. Script changes therefore require a fresh natural-voice render/import before the branch can pass the audio completion gate.
+
+### Protocol-grade expansion
+
+The hands-first/landmark-first standard is now strengthened to **protocol-grade narration**.
+
+Every invasive or anatomy-dependent Mental Rep must explicitly narrate:
+- patient/body/probe starting position;
+- first unmistakable anchor landmark;
+- the physical route from anchor to target;
+- adjacent structures;
+- structures to avoid;
+- the sensory, imaging, waveform or device feature that proves the target;
+- the next literal hand/device action;
+- explicit stop/re-orient criteria;
+- a specific endpoint proving the step worked.
+
+Banned as stand-alone abstractions: "identify the correct site," "find the landmark," "obtain access," "prepare the system," "use the standard approach," "confirm placement," or "reassess" without the operational steps that make those phrases real.
+
+When a landmark term itself could be unfamiliar (for example "safe triangle," "pleural access," "phlebostatic axis," "tragus reference," "anterior axillary line," or an escharotomy release line), the narration must define the term spatially instead of assuming it is self-explanatory.
+
+
+## Active protocol-grade re-audit
+
+Branch: `mental-reps-emergency-systems-v5`
+
+- All 27 required Mental Reps are now covered by the protocol-grade standard; the original 20 were re-audited and burn escharotomy, simple/finger thoracostomy, emergency surgical cricothyrotomy, ultrasound-guided pericardiocentesis, ultrasound-guided thoracentesis, emergency transvenous pacing and dialysis-catheter troubleshooting were authored at protocol-grade depth from their first versions.
+- Detailed audit: `MENTAL_REP_PROTOCOL_AUDIT.md`.
+- Anatomy-heavy reps now define the landmark itself and the route to it rather than naming it.
+- System/device reps now require a physical patient→hardware→monitor/circuit trace rather than generic "check/prepare/reassess" language.
+- Four missing procedural beats were added: radial arterial puncture/threading, IJ sterile setup, IJ dilation, and IJ catheter completion.
+- Every non-debrief Mental Rep beat must resolve to a renderer-backed procedure-specific visual; generic phase diagrams are now a CI failure.
+- Every non-debrief Mental Rep beat must contain at least 25 words, in addition to the banned-vague-shorthand and per-rep anchor/route/proof checks.
+- Voice rendering is no longer on the engineering critical path. Revised narration may remain voice-pending on the feature branch, but cannot be merged as production-complete while transcript hashes are stale.
+- Engineering verification on the 27-rep baseline is green through unit tests, TypeScript typecheck, site build and standalone Audio build; the strict final audio audit is intentionally red only for missing/stale Mental Rep voice.
+- `npm run site` now writes `review/mental-rep-voice-refresh.json`, a deterministic render queue containing only missing/stale Mental Rep beats with their current transcript, transcript hash, suggested hash-versioned filename, status and safe import template.
+- Voice import is manual-only. Catalog/script edits no longer auto-trigger the import workflow.
+- Every future voice import request must carry the exact current `transcriptHash` and exact filename `<line-id>.v<transcriptHash>.mp3`; old requests cannot be replayed after a script rewrite.
+- The legacy `app/public/audio/voice/import.json` request was cleared. Populate it only from the current refresh queue and a newly generated provider URL.
+- The AI voice provider accepts one transcript per call. Do not concatenate multiple Mental Rep beats into one render; preserve beat-level playback/import/review. Because provider calls have intermittently stalled, render in small increments and move on immediately after a stalled call.

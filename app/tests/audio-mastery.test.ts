@@ -3,6 +3,7 @@ import { EPISODES, MENTAL_REPS } from '../src/audio/catalog';
 import { MASTERY, MASTERY_BY_ID } from '../src/audio/mastery';
 import { MASTERY_NOTES } from '../src/audio/masteryNotes';
 import { REVIEW_PROMPTS } from '../src/audio/review';
+import { hasProcedureSpecificVisual } from '../src/audio/repVisualRouting';
 
 describe('critical care audio mastery model', () => {
   it('has unique concept, episode and Mental Rep ids', () => {
@@ -60,8 +61,20 @@ describe('critical care audio mastery model', () => {
       'rep-push-dose-pressor','rep-blood','rep-art-line','rep-efast','rep-chest-tube',
       'rep-central-line','rep-us-piv','rep-rsi','rep-post-intubation','rep-pac',
       'rep-crrt','rep-ecmo','rep-iabp','rep-sedation','rep-status',
-      'rep-io','rep-vent-emergency','rep-evd','rep-mtp','rep-pocus-shock'
+      'rep-io','rep-vent-emergency','rep-evd','rep-mtp','rep-escharotomy','rep-finger-thoracostomy','rep-cricothyrotomy','rep-pericardiocentesis','rep-thoracentesis','rep-transvenous-pacing','rep-dialysis-catheter','rep-pocus-shock'
     ]) expect(ids.has(id), `Mental Rep missing: ${id}`).toBe(true);
+  });
+
+  it('gives every non-debrief Mental Rep beat a renderer-backed procedure-specific visual', () => {
+    for (const rep of MENTAL_REPS) {
+      for (const beat of rep.beats) {
+        if (beat.phase === 'debrief') continue;
+        expect(
+          hasProcedureSpecificVisual(rep.id, beat),
+          `${rep.id}/${beat.id} falls back to a generic phase visual`,
+        ).toBe(true);
+      }
+    }
   });
 
   it('requires reviewed durable audio before anything can be published', () => {
@@ -72,11 +85,15 @@ describe('critical care audio mastery model', () => {
     }
   });
 
-  it('the eFAST showcase has natural narration on every beat', () => {
-    const rep = MENTAL_REPS.find((x) => x.id === 'rep-efast')!;
-    expect(rep.beats.length).toBeGreaterThan(5);
-    expect(rep.beats.every((b) => !!b.voice?.previewSrc || !!b.voice?.src)).toBe(true);
-    expect(rep.beats.every((b) => b.voice?.tier === 'premium-human')).toBe(true);
+  it('inline Mental Rep voice metadata never points at a stale transcript', () => {
+    const normalize = (text: string) => text.replace(/\\s+/g, ' ').trim();
+    for (const rep of MENTAL_REPS) {
+      for (const beat of rep.beats) {
+        if (!beat.voice) continue;
+        expect(normalize(beat.voice.transcript), `${rep.id}/${beat.id} inline voice is stale`).toBe(normalize(beat.narration));
+        expect(beat.voice.tier).toBe('premium-human');
+      }
+    }
   });
 
   it('Mental Reps include a debrief and an explicit training boundary', () => {
@@ -88,7 +105,7 @@ describe('critical care audio mastery model', () => {
   });
 
   it('landmark-dependent Mental Reps explicitly rehearse anatomical orientation', () => {
-    for (const id of ['rep-art-line','rep-efast','rep-chest-tube','rep-central-line','rep-io','rep-evd','rep-us-piv','rep-pocus-shock']) {
+    for (const id of ['rep-art-line','rep-efast','rep-chest-tube','rep-central-line','rep-io','rep-evd','rep-us-piv','rep-escharotomy','rep-finger-thoracostomy','rep-cricothyrotomy','rep-pericardiocentesis','rep-thoracentesis','rep-transvenous-pacing','rep-dialysis-catheter','rep-pocus-shock']) {
       const rep = MENTAL_REPS.find((x) => x.id === id)!;
       const orientation = rep.beats.filter((b) => b.phase === 'orientation');
       expect(orientation.length, `${id} needs an orientation beat`).toBeGreaterThan(0);
@@ -99,16 +116,16 @@ describe('critical care audio mastery model', () => {
 
   it('core procedural Mental Reps keep literal hands-first choreography', () => {
     const required: Record<string, RegExp[]> = {
-      'rep-blood': [/pick up the blood product/i, /tubing and filter/i, /spike the verified unit/i, /stop the blood immediately/i],
+      'rep-blood': [/pick up the blood product/i, /blood-administration tubing/i, /in-line filter/i, /spike the verified unit/i, /stop flow immediately/i],
       'rep-art-line': [/flush bag/i, /stopcock/i, /select zero/i, /fast-flush/i],
-      'rep-chest-tube': [/lay out the tube/i, /skin incision/i, /bluntly dissect/i, /connect it immediately/i],
-      'rep-central-line': [/probe in one hand/i, /true tip/i, /before dilation/i, /guidewire/i],
-      'rep-io': [/stabilize the limb/i, /needle length/i, /extension set/i, /flush according to protocol/i],
+      'rep-chest-tube': [/lay out the tube/i, /skin incision/i, /bluntly spread/i, /connect the tube immediately/i],
+      'rep-central-line': [/nondominant hand/i, /needle tip/i, /before dilation/i, /guidewire/i],
+      'rep-io': [/stabilize the leg/i, /black depth mark/i, /primed EZ-Connect extension set/i, /five to ten milliliters/i],
       'rep-us-piv': [/choose a catheter/i, /true tip/i, /thread the catheter/i, /connect the extension/i],
-      'rep-rsi': [/suction within reach/i, /cuff checked/i, /label every syringe/i, /final sweep/i],
+      'rep-rsi': [/suction in your dominant-hand reach/i, /cuff checked/i, /label every syringe/i, /final sweep/i],
       'rep-post-intubation': [/attach waveform capnography/i, /trace the tube and circuit/i, /predicted body weight/i, /analgesia and sedation/i],
-      'rep-pocus-shock': [/below the xiphoid/i, /two rib shadows/i, /IVC/i, /bladder as the anchor/i],
-      'rep-pac': [/trace the pressure system/i, /right-atrial waveform/i, /watch the waveform change/i, /dicrotic notch/i, /deflate promptly/i],
+      'rep-pocus-shock': [/below the xiphoid/i, /two rib shadows/i, /IVC/i, /pubic symphysis/i, /bladder/i],
+      'rep-pac': [/pressure system/i, /right-atrial waveform/i, /abrupt change/i, /dicrotic notch/i, /deflate promptly/i],
       'rep-crrt': [/trace the blood path/i, /trace the non-blood fluids/i, /net patient-fluid-removal/i, /named pressure and its trend/i],
       'rep-ecmo': [/trace where blood is drained/i, /drainage limb/i, /pump speed and measured blood flow/i, /sweep-gas source/i, /return limb/i, /console in isolation/i],
       'rep-iabp': [/trigger source/i, /dicrotic notch/i, /assisted end-diastolic/i, /early inflation/i, /late deflation/i],
@@ -117,6 +134,114 @@ describe('critical care audio mastery model', () => {
       const rep = MENTAL_REPS.find((x) => x.id === id)!;
       const script = rep.beats.map((b) => b.narration).join(' ');
       for (const pattern of patterns) expect(script, `${id} lost hands-first step ${pattern}`).toMatch(pattern);
+    }
+  });
+
+  it('keeps every non-debrief Mental Rep beat substantive enough for guided rehearsal', () => {
+    for (const rep of MENTAL_REPS) {
+      for (const beat of rep.beats) {
+        if (beat.phase === 'debrief') continue;
+        const words = beat.narration.trim().split(/\s+/).filter(Boolean).length;
+        expect(words, `${rep.id}/${beat.id} is too terse for protocol-grade rehearsal`).toBeGreaterThanOrEqual(25);
+      }
+    }
+  });
+
+  it('protocol-grade Mental Reps do not hide critical steps behind vague shorthand', () => {
+    const banned = [
+      /identify the correct site/i,
+      /find the landmark/i,
+      /use the standard approach/i,
+      /obtain (?:pleural |vascular )?access/i,
+      /prepare the system/i,
+      /place (?:it|the line|the tube) in the usual/i,
+      /confirm placement\.?$/i,
+      /reassess the patient\.?$/i,
+    ];
+    for (const rep of MENTAL_REPS) {
+      for (const beat of rep.beats) {
+        for (const pattern of banned) {
+          expect(beat.narration, `${rep.id}/${beat.id} hides a procedural step behind ${pattern}`).not.toMatch(pattern);
+        }
+      }
+    }
+  });
+
+
+  it('protocol-grade Mental Reps preserve the physical procedure order', () => {
+    const order: Record<string, string[]> = {
+      'rep-push-dose-pressor': ['arrival','orient','equip','verify','give','comp','debrief'],
+      'rep-blood': ['arrival','verify','setup','start','reaction','debrief'],
+      'rep-art-line': ['arrival','anatomy','system','puncture','level','wave','square','debrief'],
+      'rep-efast': ['arrival','orientation','ruq','luq','pelvis','cardiac','lung','repeat'],
+      'rep-chest-tube': ['arrival','anatomy','setup','sequence','connect','failure','debrief'],
+      'rep-central-line': ['arrival','scan','setup','tip','confirm','wire','dilate','catheter','comp','debrief'],
+      'rep-io': ['arrival','landmark','place','confirm','comp','debrief'],
+      'rep-vent-emergency': ['alarm','oxygen','trace','pressure','hemo','debrief'],
+      'rep-evd': ['before','level','clamp','move','verify','debrief'],
+      'rep-mtp': ['activate','roles','source','phys','response','debrief'],
+      'rep-us-piv': ['scan','setup','tip','thread','confirm','debrief'],
+      'rep-rsi': ['why','phys','oxygen','room','meds','commit','debrief'],
+      'rep-post-intubation': ['confirm','pressure','vent','sed','recheck','debrief'],
+      'rep-pac': ['zero','ra','rv','pa','wedge','integrate','debrief'],
+      'rep-crrt': ['purpose','blood','transport','effluent','alarm','drugs','debrief'],
+      'rep-ecmo': ['type','drain','pump','lung','return','mismatch','debrief'],
+      'rep-iabp': ['why','inflate','deflate','early','late','debrief'],
+      'rep-sedation': ['pain','goal','hemo','paralysis','reassess','debrief'],
+      'rep-status': ['clock','support','first','second','airway','silent','debrief'],
+      'rep-escharotomy': ['recognize','map','setup','release','reassess','chest','failure','aftercare','debrief'],
+      'rep-finger-thoracostomy': ['recognize','landmark','setup','incision','dissect','enter','sweep','dress','reassess','debrief'],
+      'rep-cricothyrotomy': ['recognize','landmark','setup','skin','membrane','open','tube','confirm','secure','debrief'],
+      'rep-pericardiocentesis': ['recognize','map','setup','needle','fluid','wire','catheter','drain','recheck','failure','debrief'],
+      'rep-thoracentesis': ['indication','position','map','rib','setup','anesthetize','access','sample','drain','finish','recheck','debrief'],
+      'rep-transvenous-pacing': ['indication','equipment','access','connect','sheath','advance','capture','position','threshold','sense','secure','recheck','debrief'],
+      'rep-dialysis-catheter': ['alarm','trace','position','access','return','test','compare','reverse','thrombus','resume','danger','debrief'],
+      'rep-pocus-shock': ['question','heart','lung','venous','abdomen','integrate','debrief'],
+    };
+    expect(Object.keys(order).sort()).toEqual(MENTAL_REPS.map((x) => x.id).sort());
+    for (const [id, expected] of Object.entries(order)) {
+      const rep = MENTAL_REPS.find((x) => x.id === id)!;
+      expect(rep.beats.map((b) => b.id), `${id} procedure order changed`).toEqual(expected);
+    }
+  });
+
+  it('protocol-grade Mental Reps retain their physical anchors, routes and proof steps', () => {
+    const required: Record<string, RegExp[]> = {
+      'rep-push-dose-pressor': [/read the label/i, /expel one milliliter/i, /nine milliliters/i, /one hundred micrograms/i, /label it/i],
+      'rep-blood': [/in-line filter/i, /close the clamps/i, /visible air (?:is )?clear|clear(?:ed)? visible air/i, /patient identifiers/i, /stop flow immediately/i],
+      'rep-art-line': [/radial styloid/i, /flexor carpi radialis/i, /thirty- to forty-five-degree angle/i, /true needle tip/i, /catheter-over-wire/i, /angiocatheter/i, /about two millimeters/i, /about ten minutes/i, /fourth intercostal space/i, /mid-axillary line/i, /open to atmosphere/i, /aortic-valve closure/i],
+      'rep-efast': [/mid-axillary line/i, /hepatorenal recess/i, /posterior axillary line/i, /pubic bone/i, /xiphoid process/i, /two rib shadows/i],
+      'rep-chest-tube': [/sternal angle/i, /second rib/i, /fourth intercostal space/i, /fifth intercostal space/i, /fifth rib for a fourth-space/i, /sixth rib for a fifth-space/i, /pectoralis major/i, /latissimus dorsi/i, /one-and-a-half- to two-centimeter/i, /gloved finger/i, /side hole/i],
+      'rep-central-line': [/clavicle/i, /sternocleidomastoid/i, /carotid/i, /compressible/i, /maximal sterile barrier/i, /sterile probe cover/i, /pre-flush each catheter lumen/i, /forty-five-degree angle/i, /probe midpoint/i, /true needle tip/i, /J-tipped guidewire/i, /ten to fifteen centimeters/i, /dilator/i, /leave it in place/i, /vascular\/surgical consultation/i, /wire completely/i],
+      'rep-io': [/patella/i, /tibial tuberosity/i, /two centimeters medial/i, /five millimeters/i, /ninety degrees/i, /one to two centimeters/i, /medullary space/i, /five to ten milliliters/i, /distal foot/i, /compartment compromise/i],
+      'rep-vent-emergency': [/disconnect the ventilator/i, /manual resuscitation bag/i, /suction catheter/i, /peak inspiratory pressure/i, /plateau pressure/i, /expiratory flow/i],
+      'rep-evd': [/tragus/i, /cartilaginous projection/i, /ear canal/i, /patient-to-drain/i, /horizontal/i, /re-level/i],
+      'rep-mtp': [/cooler/i, /rapid infuser/i, /warmer/i, /unit label/i, /live tally/i, /source-control/i],
+      'rep-us-piv': [/short and long axis/i, /compressibility/i, /true tip/i, /anterior vein wall/i, /thread the catheter/i, /soft-tissue expansion/i],
+      'rep-rsi': [/external auditory meatus/i, /sternal notch/i, /suction/i, /laryngoscope/i, /cuff checked/i, /label every syringe/i, /final sweep/i, /compensatory minute ventilation/i],
+      'rep-post-intubation': [/waveform capnography/i, /tube depth/i, /predicted body weight/i, /expiratory flow/i, /analgesia and sedation/i],
+      'rep-pac': [/fourth intercostal space/i, /mid-axillary line/i, /a wave after the P wave/i, /right ventricle/i, /pulmonic-valve closure/i, /static column of blood/i, /end expiration/i, /deflate promptly/i],
+      'rep-crrt': [/access limb/i, /blood pump/i, /filter/i, /return limb/i, /dialysate/i, /replacement solution/i, /effluent/i, /transmembrane pressure/i, /net patient-fluid-removal target/i, /therapy has actually been interrupted/i],
+      'rep-ecmo': [/drainage limb/i, /pump speed/i, /measured blood flow/i, /sweep-gas/i, /membrane lung/i, /return limb/i, /recirculation/i],
+      'rep-iabp': [/trigger source/i, /unassisted beat/i, /dicrotic notch/i, /inflation marker/i, /assisted end-diastolic/i, /late deflation/i],
+      'rep-sedation': [/drug name and concentration/i, /pump channel/i, /trace the infusion/i, /sedation target/i, /not occluded or empty/i],
+      'rep-status': [/active seizure protocol/i, /route you actually have/i, /read the .* concentration/i, /exact volume/i, /completion time/i, /next-line row/i],
+      'rep-escharotomy': [/deep partial-thickness or full-thickness/i, /one centimeter beyond/i, /mid-lateral and mid-medial/i, /ulnar nerve/i, /medial epicondyle/i, /peroneal nerve/i, /posterior tibial/i, /subcutaneous fat/i, /do not deliberately enter the deep fascia/i, /anterior axillary lines/i, /costal margin/i, /Doppler/i, /gloved finger/i],
+      'rep-finger-thoracostomy': [/mid-axillary line/i, /fourth or fifth intercostal space/i, /sternal angle/i, /second rib/i, /superior border/i, /two to three centimeters/i, /closed curved hemostat/i, /finger positioned close to the clamp tip/i, /pleural space/i, /gloved finger/i, /vented chest seal/i, /peak pressure/i],
+      'rep-cricothyrotomy': [/thyroid cartilage/i, /cricothyroid membrane/i, /cricoid cartilage/i, /three to four finger widths/i, /vertical skin incision/i, /horizontal.*membrane/i, /direct it caudally/i, /cuff.*just inside/i, /waveform capnography/i, /bilateral chest rise/i, /secure/i],
+      'rep-pericardiocentesis': [/pericardial effusion/i, /right-atrial or right-ventricular diastolic collapse/i, /subxiphoid, apical or parasternal/i, /skin-to-fluid depth/i, /internal thoracic vessel/i, /sterile sheath/i, /true needle tip/i, /agitated saline/i, /guidewire/i, /pigtail/i, /pericardial decompression syndrome/i, /operative or surgical drainage/i],
+      'rep-thoracentesis': [/sit them upright/i, /forearms supported/i, /two rib shadows/i, /diaphragm/i, /liver/i, /spleen/i, /skin-to-fluid depth/i, /superior border of the rib below/i, /parietal pleura/i, /three-way stopcock/i, /thread the flexible catheter/i, /sample first/i, /re-expansion pulmonary edema/i, /mechanically ventilated/i],
+      'rep-transvenous-pacing': [/transcutaneous pacing pads/i, /pulse generator/i, /bipolar pacing catheter/i, /balloon port/i, /right-internal-jugular/i, /introducer sheath/i, /balloon remains completely deflated/i, /twenty-centimeter/i, /left-bundle-branch-block pattern/i, /electrical capture/i, /mechanical capture/i, /capture threshold/i, /two to three times threshold/i, /demand pacing/i, /strain relief/i],
+      'rep-dialysis-catheter': [/access limb is usually under negative pressure/i, /return limb is normally positive/i, /read the lumen labels rather than trusting color/i, /head and neck toward neutral/i, /reduce excessive hip flexion/i, /three-way|stopcock|Luer/i, /gently aspirate/i, /do not overcome it by pushing harder/i, /flushes but will not aspirate/i, /reversing access and return/i, /recirculation/i, /fibrin sheath/i, /thrombolytic dwell/i, /re-established its pressure operating points/i],
+      'rep-pocus-shock': [/xiphoid/i, /inferior tip of the sternum/i, /left edge of the sternum/i, /point of maximal impulse/i, /two rib shadows/i, /pubic symphysis/i, /vertebral body/i, /aorta/i, /put the probe down/i, /make one prediction/i],
+    };
+    expect(Object.keys(required).sort(), 'every Mental Rep must have a protocol-grade anchor checklist').toEqual(MENTAL_REPS.map((x) => x.id).sort());
+    for (const [id, patterns] of Object.entries(required)) {
+      const rep = MENTAL_REPS.find((x) => x.id === id)!;
+      const script = rep.beats.map((b) => b.narration).join(' ');
+      for (const pattern of patterns) {
+        expect(script, `${id} lost protocol-grade anchor ${pattern}`).toMatch(pattern);
+      }
     }
   });
 });

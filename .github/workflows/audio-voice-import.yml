@@ -1,18 +1,6 @@
 name: Import Audio Voice Assets
 
 on:
-  push:
-    branches: [main, mental-reps-hands-on]
-    paths:
-      - app/public/audio/voice/import.json
-      - app/src/audio/catalog.ts
-      - app/src/audio/mastery.ts
-      - app/src/audio/masteryNotes.ts
-      - app/src/audio/expertEpisodes.ts
-      - app/src/audio/scriptDraft.ts
-      - app/scripts/audio-voice-lines.ts
-      - app/scripts/audio_voice_import.py
-      - .github/workflows/audio-voice-import.yml
   workflow_dispatch:
 
 permissions:
@@ -39,10 +27,11 @@ jobs:
           cache: npm
           cache-dependency-path: app/package-lock.json
       - run: npm ci
+      - run: npm run audio:lines
+      - run: npm run audio:voice:preflight
       - name: Install audio validator
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
         working-directory: .
-      - run: npm run audio:lines
       - run: python3 scripts/audio_voice_import.py
       - run: python3 scripts/audio_voice_validate.py
       - name: Commit durable assets

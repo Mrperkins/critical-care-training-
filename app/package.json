@@ -6,7 +6,7 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "build": "tsx scripts/build-app.ts",
-    "site": "tsx scripts/audio-voice-lines.ts && tsx scripts/audio-production-queue.ts && tsx scripts/audio-completion-audit.ts && tsx scripts/label-index.ts && tsx scripts/review-packet.ts && tsx scripts/build-app.ts && node scripts/copy-site.mjs",
+    "site": "tsx scripts/audio-voice-lines.ts && tsx scripts/audio-production-queue.ts && tsx scripts/audio-mental-rep-refresh-queue.ts && tsx scripts/label-index.ts && tsx scripts/review-packet.ts && tsx scripts/build-app.ts && node scripts/copy-site.mjs",
     "asset:body": "tsx pipeline/build-body.ts",
     "asset:resp": "tsx pipeline/build-resp.ts",
     "asset:micro": "tsx pipeline/build-micro.ts",
@@ -16,7 +16,9 @@
     "audio:review": "tsx scripts/audio-review-packet.ts",
     "audio:production": "tsx scripts/audio-production-queue.ts && tsx scripts/audio-render-plan.ts",
     "audio:audit": "tsx scripts/audio-completion-audit.ts",
-    "audio:render-plan": "tsx scripts/audio-render-plan.ts"
+    "audio:render-plan": "tsx scripts/audio-render-plan.ts",
+    "audio:voice:refresh-queue": "tsx scripts/audio-mental-rep-refresh-queue.ts",
+    "audio:voice:preflight": "tsx scripts/audio-voice-import-preflight.ts"
   },
   "dependencies": {
     "@react-three/drei": "9.99.7",

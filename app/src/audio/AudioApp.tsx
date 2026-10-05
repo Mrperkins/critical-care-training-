@@ -9,7 +9,7 @@ import { recommendedEpisode, recommendedRep } from './recommend';
 import { handsFreeAvailable, listenForCommand, type HandsFreeCommand } from './handsfree';
 import { buildLearningPath } from './pathway';
 import { EXPERT_TRACKS } from './tracks';
-import type { AudioEpisode, MentalRep } from './types';
+import type { AudioEpisode, MentalRep, MentalRepBeat, VoiceAsset } from './types';
 
 type Page = 'home' | 'tracks' | 'listen' | 'reps' | 'review' | 'mastery';
 
@@ -28,6 +28,12 @@ function voiceAssetSrc(a: DurableVoiceAsset) {
 function durableVoiceSrc(id: string) {
   const a = durableVoiceAsset(id);
   return a ? voiceAssetSrc(a) : undefined;
+}
+const normalizeTranscript = (text: string) => text.replace(/\s+/g, ' ').trim();
+function currentInlineBeatVoice(beat: MentalRepBeat): VoiceAsset | null {
+  const voice = beat.voice;
+  if (!voice) return null;
+  return normalizeTranscript(voice.transcript) === normalizeTranscript(beat.narration) ? voice : null;
 }
 function durableVoiceParts(prefix: string) {
   if (typeof window === 'undefined') return [] as { id: string; file: string; reviewed: boolean; transcriptHash?: string }[];
@@ -274,9 +280,9 @@ function RepPlayer({ rep, onBack, onReview, onFocus, onExample }: { rep: MentalR
   const p = useAudioProgress(); const [i, setI] = useState(0); const beat = rep.beats[i];
   const audio = useRef<HTMLAudioElement>(null); const advanceTimer = useRef<number | null>(null); const [guided, setGuided] = useState(false); const [voicePlaying, setVoicePlaying] = useState(false);
   const [listening, setListening] = useState(false); const [heard, setHeard] = useState('');
-  const beatVoiceId = `rep.${rep.id}.${beat.id}`; const durableBeat = durableVoiceAsset(beatVoiceId);
-  const voiceSrc = durableBeat ? voiceAssetSrc(durableBeat) : beat.voice?.src ?? beat.voice?.previewSrc;
-  const hasVoice = rep.beats.some((b) => !!(durableVoiceSrc(`rep.${rep.id}.${b.id}`) ?? b.voice?.src ?? b.voice?.previewSrc));
+  const beatVoiceId = `rep.${rep.id}.${beat.id}`; const durableBeat = durableVoiceAsset(beatVoiceId); const inlineBeatVoice = currentInlineBeatVoice(beat);
+  const voiceSrc = durableBeat ? voiceAssetSrc(durableBeat) : inlineBeatVoice?.src ?? inlineBeatVoice?.previewSrc;
+  const hasVoice = rep.beats.some((b) => { const inline = currentInlineBeatVoice(b); return !!(durableVoiceSrc(`rep.${rep.id}.${b.id}`) ?? inline?.src ?? inline?.previewSrc); });
 
   useEffect(() => {
     if (!guided || !voiceSrc || !audio.current) return;
@@ -338,9 +344,9 @@ function RepPlayer({ rep, onBack, onReview, onFocus, onExample }: { rep: MentalR
         {!guided ? <button className="aa-primary" onClick={startGuided}>▶ Start guided rep</button> : <button className="aa-secondary" onClick={() => { audio.current?.pause(); setVoicePlaying(false); setGuided(false); }}>Exit guided mode</button>}</div>}
     </div>
     <div className="aa-repstage">
-      <div className={`aa-visual ${beat.danger ? 'danger' : ''}`}><RepVisual beat={beat} /><small className="aa-vphase">VISUAL CUE · {beat.phase.toUpperCase()}</small></div>
+      <div className={`aa-visual ${beat.danger ? 'danger' : ''}`}><RepVisual beat={beat} repId={rep.id} /><small className="aa-vphase">VISUAL CUE · {beat.phase.toUpperCase()}</small></div>
       <section><div className="aa-stepcount">BEAT {i + 1} OF {rep.beats.length}</div><h2>{beat.title}</h2><p className="aa-narration">{beat.narration}</p>
-        {voiceSrc && <><audio ref={audio} src={voiceSrc} onEnded={ended} /><div className="aa-beatvoice"><button onClick={toggleVoice}>{voicePlaying ? '❚❚ Pause narration' : '▶ Play guided sequence'}</button>{handsFreeAvailable() && <button className={`aa-mic ${listening ? 'on' : ''}`} onClick={mic}>{listening ? 'Listening…' : '⌁ Hands-free'}</button>}<span>{durableBeat?.reviewed || beat.voice?.reviewed ? 'Reviewed narration' : durableBeat ? 'Durable natural voice · review pending' : 'Natural-voice prototype'}</span></div>{heard && <div className="aa-heard">Heard: “{heard}”</div>}<div className="aa-command-hint">Say: pause · repeat · next · go deeper · give me an example · quiz me</div></>}
+        {voiceSrc && <><audio ref={audio} src={voiceSrc} onEnded={ended} /><div className="aa-beatvoice"><button onClick={toggleVoice}>{voicePlaying ? '❚❚ Pause narration' : '▶ Play guided sequence'}</button>{handsFreeAvailable() && <button className={`aa-mic ${listening ? 'on' : ''}`} onClick={mic}>{listening ? 'Listening…' : '⌁ Hands-free'}</button>}<span>{durableBeat?.reviewed || inlineBeatVoice?.reviewed ? 'Reviewed narration' : durableBeat ? 'Durable natural voice · review pending' : 'Natural-voice prototype'}</span></div>{heard && <div className="aa-heard">Heard: “{heard}”</div>}<div className="aa-command-hint">Say: pause · repeat · next · go deeper · give me an example · quiz me</div></>}
         {beat.pauseSeconds && <div className="aa-pause">Pause · {beat.pauseSeconds} seconds</div>}
         {beat.prompt && <div className="aa-prompt"><b>Mentally answer before moving on</b><p>{beat.prompt}</p></div>}
         {guided ? <div className="aa-autoflow"><span className="aa-kicker">HANDS-FREE FLOW</span><b>{i < rep.beats.length - 1 ? 'Next beat will begin automatically.' : 'Final beat — completion will be recorded automatically.'}</b>{beat.prompt && <small>Reflection pause: {beat.pauseSeconds ?? 5} seconds, then narration continues.</small>}</div> :
