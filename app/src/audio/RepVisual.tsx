@@ -35,6 +35,7 @@ export function RepVisual({ beat }: { beat: MentalRepBeat }) {
   if (key === 'iabp-wave' || key === 'iabp-errors') return <Iabp errors={key === 'iabp-errors'} />;
   if (key === 'seizure-timeline' || key === 'seizure-eeg') return <Seizure mode={key} />;
   if (key.startsWith('eschar-')) return <Escharotomy mode={key} />;
+  if (key.startsWith('finger-thorax-')) return <FingerThoracostomy mode={key} />;
   if (key.startsWith('pocus-')) return <Pocus mode={key} />;
   return <PhaseVisual beat={beat} />;
 }
@@ -243,6 +244,51 @@ function Iabp({errors}:{errors:boolean}){return <Frame title={errors?'IABP timin
   <text className="small" x="330" y="375">{errors?'compare marker with notch and next systolic upstroke':'inflate at closure · deflate before next systole'}</text>
   <text className="small" x="126" y="344">assisted EDP</text><text className="small" x="248" y="344">augmentation</text>
 </svg></Frame>}
+function FingerThoracostomy({mode}:{mode:string}) {
+  if(mode==='finger-thorax-setup') return <Frame title="simple thoracostomy setup"><svg viewBox="0 0 600 420">
+    <rect className="rv-soft" x="45" y="70" width="145" height="78" rx="10"/><text className="small" x="117" y="98">SCALPEL</text><text className="small" x="117" y="120">STERILE FIELD</text>
+    <rect className="rv-soft" x="225" y="70" width="145" height="78" rx="10"/><text className="small" x="297" y="98">CURVED KELLY</text><text className="small" x="297" y="120">DEPTH CONTROL</text>
+    <rect className="rv-soft" x="405" y="70" width="145" height="78" rx="10"/><text className="small" x="477" y="98">VENTED SEAL</text><text className="small" x="477" y="120">OR TUBE SYSTEM</text>
+    <path className="rv-line gold" d="M85 242h430"/><circle className="rv-dot" cx="120" cy="242" r="7"/><circle className="rv-dot" cx="300" cy="242" r="7"/><circle className="rv-dot" cx="480" cy="242" r="7"/>
+    <text className="small" x="120" y="222">mark</text><text className="small" x="300" y="222">open pleura</text><text className="small" x="480" y="222">seal / tube</text>
+    <text className="small" x="300" y="350">suction + monitoring remain visible during the procedure</text>
+  </svg></Frame>;
+  if(mode==='finger-thorax-incision') return <Frame title="2–3 cm transverse skin incision"><svg viewBox="0 0 600 420">
+    <path className="rv-rib" d="M85 150q215-65 430 0M78 235q222-65 444 0"/><text className="small" x="515" y="145">rib above</text><text className="small" x="520" y="230">rib below</text>
+    <path className="rv-line gold" d="M210 198h180"/><text className="small" x="300" y="185">TRANSVERSE INCISION</text>
+    <path className="rv-line" d="M300 198v68"/><text className="small" x="300" y="292">open skin + SQ to chest wall · do not stab deep</text>
+  </svg></Frame>;
+  if(mode==='finger-thorax-dissection') return <Frame title="lower rib = the rail"><svg viewBox="0 0 600 420">
+    <ellipse className="rv-rib" cx="300" cy="235" rx="145" ry="45"/><text className="small" x="300" y="240">RIB BELOW TARGET</text>
+    <path className="rv-needle" d="M120 105L265 200"/><circle className="rv-dot" cx="265" cy="200" r="7"/>
+    <path className="rv-line gold" d="M265 200q25-40 70-48"/><text className="small" x="380" y="155">walk over superior border</text>
+    <path className="rv-line bad" d="M300 276v72"/><text className="small" x="405" y="320">bundle is under rib above</text>
+    <text className="small" x="300" y="392">finger near clamp tip limits uncontrolled depth</text>
+  </svg></Frame>;
+  if(mode==='finger-thorax-entry') return <Frame title="pleural pop → spread, not plunge"><svg viewBox="0 0 600 420">
+    <rect className="rv-soft" x="55" y="65" width="490" height="58" rx="9"/><text className="small" x="300" y="100">CHEST WALL / INTERCOSTAL TISSUE</text>
+    <path className="rv-line gold" d="M300 123v82"/><circle className="rv-dot" cx="300" cy="208" r="8"/><text className="small" x="360" y="205">PLEURAL GIVE / POP</text>
+    <path className="rv-fluid" d="M140 235q160-45 320 0v110H140z"/><text className="small" x="300" y="295">PLEURAL SPACE</text>
+    <path className="rv-line bad" d="M300 224v110"/><text className="small" x="415" y="338">do not drive clamp deeper</text>
+  </svg></Frame>;
+  if(mode==='finger-thorax-sweep') return <Frame title="finger confirmation"><svg viewBox="0 0 600 420">
+    <path className="rv-body" d="M75 90h450v240H75z"/><path className="rv-line gold" d="M300 90v110"/><ellipse className="rv-ring gold" cx="300" cy="230" rx="65" ry="92"/>
+    <text className="small" x="300" y="235">GLOVED FINGER</text><text className="small" x="300" y="350">feel inside chest wall · sweep for adhesions · prove pleural cavity</text>
+  </svg></Frame>;
+  if(mode==='finger-thorax-seal') return <Frame title="simple thoracostomy endpoint"><svg viewBox="0 0 600 420">
+    <circle className="rv-ring gold" cx="150" cy="205" r="52"/><text className="small" x="150" y="202">OPEN</text><text className="small" x="150" y="220">TRACT</text>
+    <path className="rv-line gold" d="M202 205h100"/><rect className="rv-soft" x="302" y="155" width="105" height="100" rx="10"/><text className="small" x="354" y="195">VENTED</text><text className="small" x="354" y="214">SEAL</text>
+    <path className="rv-line" d="M407 205h90"/><rect className="rv-soft" x="470" y="160" width="85" height="90" rx="10"/><text className="small" x="512" y="198">OR</text><text className="small" x="512" y="217">TUBE</text>
+    <text className="small" x="300" y="332">do not seal first if a chest tube is immediately following</text>
+  </svg></Frame>;
+  return <Frame title="decompress → then prove physiology changed"><svg viewBox="0 0 600 420">
+    <path className="rv-wave" d="M60 140h55l14-30 17 60 18-30h70"/><text className="small" x="150" y="200">SpO₂ / ETCO₂ / BP</text>
+    <path className="rv-wave" d="M340 140h48l16-32 18 64 18-32h72"/><text className="small" x="425" y="200">VENT PRESSURE / VOLUME</text>
+    <path className="rv-line gold" d="M110 285h380"/><text className="small" x="300" y="270">before → decompression → after</text>
+    <text className="small" x="300" y="345">no improvement? recheck tract, side, diagnosis, hemorrhage and airway</text>
+  </svg></Frame>;
+}
+
 function Escharotomy({mode}:{mode:string}) {
   if(mode==='eschar-extremity') return <Frame title="extremity release · mark both lines before cutting"><svg viewBox="0 0 600 420">
     <path className="rv-body" d="M255 42q45-20 90 0l25 120-18 190h-104l-18-190z"/>
