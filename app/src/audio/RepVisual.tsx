@@ -38,6 +38,7 @@ export function RepVisual({ beat }: { beat: MentalRepBeat }) {
   if (key.startsWith('finger-thorax-')) return <FingerThoracostomy mode={key} />;
   if (key.startsWith('cric-')) return <Cricothyrotomy mode={key} />;
   if (key.startsWith('pericard-')) return <Pericardiocentesis mode={key} />;
+  if (key.startsWith('thorac-')) return <Thoracentesis mode={key} />;
   if (key.startsWith('pocus-')) return <Pocus mode={key} />;
   return <PhaseVisual beat={beat} />;
 }
@@ -246,6 +247,69 @@ function Iabp({errors}:{errors:boolean}){return <Frame title={errors?'IABP timin
   <text className="small" x="330" y="375">{errors?'compare marker with notch and next systolic upstroke':'inflate at closure · deflate before next systole'}</text>
   <text className="small" x="126" y="344">assisted EDP</text><text className="small" x="248" y="344">augmentation</text>
 </svg></Frame>}
+function Thoracentesis({mode}:{mode:string}) {
+  if(mode==='thorac-position') return <Frame title="upright + supported when feasible"><svg viewBox="0 0 600 420">
+    <circle className="rv-head" cx="250" cy="95" r="42"/><path className="rv-body" d="M205 135q45-25 90 0l38 160H167z"/>
+    <path className="rv-line gold" d="M205 168l-85 58M295 168l85 58"/><rect className="rv-soft" x="72" y="226" width="356" height="42" rx="8"/>
+    <text className="small" x="250" y="325">lean slightly forward · forearms supported · posterior interspaces open</text>
+    <text className="small" x="250" y="355">recumbent / ventilated patient = ultrasound chooses the actual dependent pocket</text>
+  </svg></Frame>;
+  if(mode==='thorac-map') return <Frame title="rib + pleural fluid + lung + diaphragm + solid organ"><svg viewBox="0 0 600 420">
+    <path className="rv-sector" d="M300 45L70 365h460z"/>
+    <ellipse className="rv-ring" cx="175" cy="130" rx="45" ry="72"/><ellipse className="rv-ring" cx="425" cy="130" rx="45" ry="72"/><text className="small" x="175" y="65">RIB</text><text className="small" x="425" y="65">RIB</text>
+    <path className="rv-fluid" d="M150 235q150-70 300 0v78H150z"/><text className="small" x="300" y="285">PLEURAL FLUID</text>
+    <path className="rv-line gold" d="M115 315q185-85 370 0"/><text className="small" x="300" y="350">DIAPHRAGM</text>
+    <ellipse className="rv-soft" cx="280" cy="185" rx="78" ry="42"/><text className="small" x="280" y="190">COMPRESSED LUNG</text>
+    <text className="small" x="300" y="395">measure skin→fluid depth and safe depth above diaphragm through respiration</text>
+  </svg></Frame>;
+  if(mode==='thorac-rib') return <Frame title="enter over the superior border of the lower rib"><svg viewBox="0 0 600 420">
+    <ellipse className="rv-rib" cx="300" cy="160" rx="160" ry="38"/><ellipse className="rv-rib" cx="300" cy="265" rx="160" ry="38"/>
+    <text className="small" x="300" y="165">RIB ABOVE</text><text className="small" x="300" y="270">RIB BELOW</text>
+    <path className="rv-line bad" d="M165 198h115"/><text className="small" x="220" y="215">intercostal vein / artery / nerve under rib above</text>
+    <path className="rv-needle" d="M135 340L235 288"/><circle className="rv-dot" cx="235" cy="288" r="7"/><text className="small" x="370" y="332">needle rides just over superior border of lower rib</text>
+  </svg></Frame>;
+  if(mode==='thorac-setup') return <Frame title="sampling + drainage system ready before puncture"><svg viewBox="0 0 600 420">
+    <rect className="rv-soft" x="40" y="65" width="150" height="75" rx="10"/><text className="small" x="115" y="95">LOCAL ANESTHETIC</text><text className="small" x="115" y="116">SMALL + LONG NEEDLE</text>
+    <rect className="rv-soft" x="225" y="65" width="150" height="75" rx="10"/><text className="small" x="300" y="95">NEEDLE-CATHETER</text><text className="small" x="300" y="116">SYRINGE + STOPCOCK</text>
+    <rect className="rv-soft" x="410" y="65" width="150" height="75" rx="10"/><text className="small" x="485" y="95">DRAIN TUBING</text><text className="small" x="485" y="116">BAG + SPECIMENS</text>
+    <path className="rv-line gold" d="M95 235h410"/><circle className="rv-dot" cx="130" cy="235" r="7"/><circle className="rv-dot" cx="280" cy="235" r="7"/><circle className="rv-dot" cx="430" cy="235" r="7"/>
+    <text className="small" x="130" y="215">MAP</text><text className="small" x="280" y="215">ANESTHETIZE</text><text className="small" x="430" y="215">ACCESS + DRAIN</text>
+    <text className="small" x="300" y="350">stopcock prevents an open path from pleural space to room air</text>
+  </svg></Frame>;
+  if(mode==='thorac-anesthesia') return <Frame title="anesthetize layer by layer and learn the pleural depth"><svg viewBox="0 0 600 420">
+    <rect className="rv-soft" x="95" y="55" width="410" height="52" rx="8"/><text className="small" x="300" y="86">SKIN / SUBCUTANEOUS</text>
+    <rect className="rv-soft" x="95" y="107" width="410" height="62" rx="8"/><text className="small" x="300" y="143">INTERCOSTAL MUSCLE</text>
+    <rect className="rv-label" x="95" y="169" width="410" height="35" rx="8"/><text className="small" x="300" y="192">PARIETAL PLEURA · PAIN-SENSITIVE</text>
+    <path className="rv-fluid" d="M95 204h410v112H95z"/><text className="small" x="300" y="265">PLEURAL FLUID</text>
+    <path className="rv-needle" d="M300 35v190"/><circle className="rv-dot" cx="300" cy="225" r="7"/>
+    <text className="small" x="300" y="352">first fluid return = note skin→pleural depth</text>
+  </svg></Frame>;
+  if(mode==='thorac-access') return <Frame title="fluid return → stop needle → thread catheter"><svg viewBox="0 0 600 420">
+    <path className="rv-fluid" d="M95 195q205-35 410 0v135H95z"/><text className="small" x="300" y="290">PLEURAL SPACE</text>
+    <path className="rv-needle" d="M150 80L290 210"/><circle className="rv-dot" cx="290" cy="210" r="7"/>
+    <path className="rv-line gold" d="M290 210q85 10 145 55"/><text className="small" x="430" y="250">FLEXIBLE CATHETER</text>
+    <text className="small" x="300" y="372">free fluid return = needle stops · catheter advances · needle comes out</text>
+  </svg></Frame>;
+  if(mode==='thorac-drain') return <Frame title="sample first · then controlled therapeutic drainage"><svg viewBox="0 0 600 420">
+    <rect className="rv-soft" x="65" y="95" width="130" height="90" rx="10"/><text className="small" x="130" y="128">PLEURAL</text><text className="small" x="130" y="149">CATHETER</text>
+    <path className="rv-line gold" d="M195 140h120"/><circle className="rv-ring gold" cx="335" cy="140" r="30"/><text className="small" x="335" y="145">3-WAY</text>
+    <path className="rv-line" d="M365 140h95"/><rect className="rv-soft" x="460" y="95" width="90" height="100" rx="10"/><text className="small" x="505" y="135">BAG</text>
+    <path className="rv-line" d="M335 170v70"/><rect className="rv-label" x="270" y="240" width="130" height="55" rx="8"/><text className="small" x="335" y="273">SAMPLE SYRINGE</text>
+    <text className="small" x="300" y="355">watch symptoms · BP · oxygenation · stop for pain, dyspnea, hypotension, resistance</text>
+  </svg></Frame>;
+  if(mode==='thorac-finish') return <Frame title="close system → remove catheter → seal site"><svg viewBox="0 0 600 420">
+    <circle className="rv-ring gold" cx="120" cy="150" r="34"/><text className="small" x="120" y="155">CLOSE</text><path className="rv-line gold" d="M154 150h110"/>
+    <path className="rv-line" d="M264 150h92"/><text className="small" x="310" y="132">REMOVE CATHETER</text>
+    <rect className="rv-label" x="395" y="115" width="125" height="70" rx="8"/><text className="small" x="458" y="145">DRESSING</text>
+    <path className="rv-wave" d="M105 280h45l14-30 17 60 18-30h55"/><text className="small" x="180" y="338">then reassess lung + patient</text>
+  </svg></Frame>;
+  return <Frame title="thoracentesis · indication → map → access → drain → recheck"><svg viewBox="0 0 600 420">
+    <path className="rv-fluid" d="M85 220q215-80 430 0v100H85z"/><path className="rv-line gold" d="M100 250q200-105 400 0"/>
+    <text className="small" x="300" y="355">ultrasound before puncture · no blind low posterior stick</text>
+    <path className="rv-wave" d="M165 100h45l14-28 18 56 18-28h55"/><text className="small" x="245" y="165">SpO₂ · BP · symptoms</text>
+  </svg></Frame>;
+}
+
 function Pericardiocentesis({mode}:{mode:string}) {
   if(mode==='pericard-map') return <Frame title="scan every window · choose the shortest safe fluid path"><svg viewBox="0 0 600 420">
     <path className="rv-body" d="M95 55q205-55 410 0v285H95z"/>
