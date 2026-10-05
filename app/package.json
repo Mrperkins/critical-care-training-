@@ -17,7 +17,8 @@
     "audio:production": "tsx scripts/audio-production-queue.ts && tsx scripts/audio-render-plan.ts",
     "audio:audit": "tsx scripts/audio-completion-audit.ts",
     "audio:render-plan": "tsx scripts/audio-render-plan.ts",
-    "audio:voice:refresh-queue": "tsx scripts/audio-mental-rep-refresh-queue.ts"
+    "audio:voice:refresh-queue": "tsx scripts/audio-mental-rep-refresh-queue.ts",
+    "audio:voice:preflight": "tsx scripts/audio-voice-import-preflight.ts"
   },
   "dependencies": {
     "@react-three/drei": "9.99.7",
