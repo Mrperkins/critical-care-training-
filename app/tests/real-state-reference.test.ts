@@ -31,9 +31,12 @@ describe('state-matched real clinical references', () => {
     expect(selectCxrRealReference(cxr({ side: [{ ...NORMAL_CXR.side[0], ptx: 0.6 }, { ...NORMAL_CXR.side[1] }] }))?.id).toBe('ptx-expiratory');
   });
 
-  it('uses the treatment series when a pneumothorax state includes a chest drain', () => {
-    const st = cxr({ drain: true, side: [{ ...NORMAL_CXR.side[0], ptx: 0.25 }, { ...NORMAL_CXR.side[1] }] });
-    expect(selectCxrRealReference(st)?.id).toBe('ptx-series-bonilla');
+  it('uses the treatment series whenever the modeled pneumothorax has a chest drain, even after pleural air resolves', () => {
+    const active = cxr({ drain: true, side: [{ ...NORMAL_CXR.side[0], ptx: 0.25 }, { ...NORMAL_CXR.side[1] }] });
+    expect(selectCxrRealReference(active)?.id).toBe('ptx-series-bonilla');
+
+    const resolved = cxr({ drain: true, side: [{ ...NORMAL_CXR.side[0], ptx: 0.01 }, { ...NORMAL_CXR.side[1] }] });
+    expect(selectCxrRealReference(resolved)?.id).toBe('ptx-series-bonilla');
   });
 
   it('withholds a CXR reference when no shipped media honestly matches hyperinflation', () => {
@@ -54,7 +57,7 @@ describe('state-matched real clinical references', () => {
     expect(selectLusRealReference({ ...base, sliding: false, lungPoint: true, lungPulse: false })?.id).toBe('lus-lung-point-gillman');
     expect(selectLusRealReference({ ...base, effusion: 0.7 })?.id).toBe('pleural-fluid-gillman');
     expect(selectLusRealReference({ ...base, aLines: false, bLines: 0, consolidation: 0.8 })?.id).toBe('lus-hepatisation-gillman');
-    expect(selectLusRealReference({ ...base, aLines: false, bLines: 9, white: true })?.id).toBe('whitelung');
+    expect(selectLusRealReference({ ...base, aLines: false, bLines: 9, white: true, consolidation: 0.8 })?.id).toBe('whitelung');
     expect(selectLusRealReference({ ...base, aLines: false, bLines: 4, white: false })?.id).toBe('lus-blines-gargani');
   });
 
