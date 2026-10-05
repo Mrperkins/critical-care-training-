@@ -40,6 +40,7 @@ export function RepVisual({ beat }: { beat: MentalRepBeat }) {
   if (key.startsWith('pericard-')) return <Pericardiocentesis mode={key} />;
   if (key.startsWith('thorac-')) return <Thoracentesis mode={key} />;
   if (key.startsWith('tvp-')) return <TransvenousPacing mode={key} />;
+  if (key.startsWith('dialysis-')) return <DialysisCatheter mode={key} />;
   if (key.startsWith('pocus-')) return <Pocus mode={key} />;
   return <PhaseVisual beat={beat} />;
 }
@@ -248,6 +249,61 @@ function Iabp({errors}:{errors:boolean}){return <Frame title={errors?'IABP timin
   <text className="small" x="330" y="375">{errors?'compare marker with notch and next systolic upstroke':'inflate at closure · deflate before next systole'}</text>
   <text className="small" x="126" y="344">assisted EDP</text><text className="small" x="248" y="344">augmentation</text>
 </svg></Frame>}
+function DialysisCatheter({mode}:{mode:string}) {
+  if(mode==='dialysis-pressure') return <Frame title="access pulls · return pushes"><svg viewBox="0 0 600 420">
+    <circle className="rv-ring gold" cx="110" cy="210" r="48"/><text className="small" x="110" y="214">PATIENT</text>
+    <path className="rv-line gold" d="M158 180h135"/><text className="small" x="225" y="162">ACCESS · usually NEGATIVE</text>
+    <rect className="rv-soft" x="293" y="145" width="110" height="70" rx="10"/><text className="small" x="348" y="187">PUMP</text>
+    <path className="rv-line" d="M403 240h115"/><text className="small" x="462" y="222">RETURN · POSITIVE</text>
+    <path className="rv-line" d="M518 240q40 0 40-30q0-30-40-30"/><text className="small" x="300" y="330">more negative access = harder draw · higher positive return = harder push back</text>
+  </svg></Frame>;
+  if(mode==='dialysis-trace') return <Frame title="trace every centimeter from catheter to circuit"><svg viewBox="0 0 600 420">
+    <rect className="rv-label" x="55" y="110" width="125" height="80" rx="10"/><text className="small" x="118" y="142">CATHETER</text><text className="small" x="118" y="161">2 LUMENS</text>
+    <path className="rv-line gold" d="M180 135h115"/><path className="rv-line" d="M180 165h115"/>
+    <rect className="rv-soft" x="295" y="105" width="130" height="90" rx="10"/><text className="small" x="360" y="137">CLAMPS · HUBS</text><text className="small" x="360" y="157">KINKS · LUERS</text>
+    <path className="rv-line gold" d="M425 135h110"/><path className="rv-line" d="M425 165h110"/>
+    <text className="small" x="300" y="285">look under patient · mattress edge · bed rail · dressing</text>
+    <text className="small" x="300" y="335">read lumen labels · do not trust color alone</text>
+  </svg></Frame>;
+  if(mode==='dialysis-position') return <Frame title="patient position can change catheter geometry"><svg viewBox="0 0 600 420">
+    <circle className="rv-head" cx="210" cy="100" r="48"/><path className="rv-body" d="M150 155q60-30 120 0v160H150z"/>
+    <path className="rv-line gold" d="M220 135q20 70 45 110"/><text className="small" x="330" y="125">IJ: return head/neck toward neutral</text>
+    <path className="rv-line" d="M270 300h120"/><text className="small" x="410" y="306">femoral: reduce hip flexion</text>
+    <text className="small" x="300" y="370">watch pressures while position changes · reproducible improvement suggests geometry</text>
+  </svg></Frame>;
+  if(mode==='dialysis-test') return <Frame title="sterile lumen test · aspirate gently · never force"><svg viewBox="0 0 600 420">
+    <rect className="rv-soft" x="75" y="90" width="130" height="70" rx="10"/><text className="small" x="140" y="132">CLAMPED</text>
+    <path className="rv-line gold" d="M205 125h110"/><rect className="rv-label" x="315" y="92" width="120" height="66" rx="10"/><text className="small" x="375" y="131">SYRINGE</text>
+    <path className="rv-line" d="M435 125h85"/><text className="small" x="300" y="230">remove lock per policy → release clamp → aspirate</text>
+    <text className="small" x="300" y="275">free return? sluggish? none?</text>
+    <text className="small" x="300" y="330">resistance / swelling / pain = STOP · do not push harder</text>
+  </svg></Frame>;
+  if(mode==='dialysis-reverse') return <Frame title="line reversal = temporary test or bridge"><svg viewBox="0 0 600 420">
+    <rect className="rv-label" x="70" y="110" width="120" height="60" rx="10"/><text className="small" x="130" y="146">ACCESS</text>
+    <rect className="rv-label" x="410" y="110" width="120" height="60" rx="10"/><text className="small" x="470" y="146">RETURN</text>
+    <path className="rv-line gold" d="M190 125q110-80 220 0"/><path className="rv-line" d="M190 155q110 80 220 0"/>
+    <text className="small" x="300" y="270">trace new blood direction out loud before restart</text>
+    <text className="small" x="300" y="320">may increase recirculation · not a definitive normal configuration</text>
+  </svg></Frame>;
+  if(mode==='dialysis-escalate') return <Frame title="persistent dysfunction needs a catheter diagnosis"><svg viewBox="0 0 600 420">
+    <circle className="rv-ring gold" cx="120" cy="130" r="40"/><text className="small" x="120" y="135">CLOT?</text>
+    <circle className="rv-ring" cx="300" cy="130" r="40"/><text className="small" x="300" y="135">SHEATH?</text>
+    <circle className="rv-ring" cx="480" cy="130" r="40"/><text className="small" x="480" y="135">TIP?</text>
+    <path className="rv-line gold" d="M120 190h360"/><text className="small" x="300" y="230">protocolized thrombolytic · imaging · exchange · new access</text>
+    <text className="small" x="300" y="320">do not improvise medication dose or keep repeating forceful bedside maneuvers</text>
+  </svg></Frame>;
+  if(mode==='dialysis-danger') return <Frame title="some alarms mean stop troubleshooting and treat the patient"><svg viewBox="0 0 600 420">
+    <circle className="rv-ring gold" cx="300" cy="150" r="62"/><text className="small" x="300" y="155">STOP</text>
+    <path className="rv-line bad" d="M175 275h250"/><text className="small" x="300" y="260">AIR · CRACK · OPEN HUB · BLEEDING</text>
+    <text className="small" x="300" y="315">unstable infection · thrombosis symptoms · patient deterioration</text>
+  </svg></Frame>;
+  return <Frame title="dialysis catheter troubleshooting"><svg viewBox="0 0 600 420">
+    <path className="rv-line gold" d="M75 180h450"/><circle className="rv-dot" cx="120" cy="180" r="7"/><circle className="rv-dot" cx="260" cy="180" r="7"/><circle className="rv-dot" cx="400" cy="180" r="7"/><circle className="rv-dot" cx="510" cy="180" r="7"/>
+    <text className="small" x="120" y="160">PRESSURE</text><text className="small" x="260" y="160">TRACE</text><text className="small" x="400" y="160">TEST</text><text className="small" x="510" y="160">ESCALATE</text>
+    <text className="small" x="300" y="300">mechanical causes first · never force a resistant lumen</text>
+  </svg></Frame>;
+}
+
 function TransvenousPacing({mode}:{mode:string}) {
   if(mode==='tvp-setup') return <Frame title="temporary transvenous pacing system"><svg viewBox="0 0 600 420">
     <rect className="rv-soft" x="35" y="55" width="150" height="82" rx="10"/><text className="small" x="110" y="86">INTRODUCER</text><text className="small" x="110" y="108">SHEATH + US</text>
