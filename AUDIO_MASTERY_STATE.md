@@ -21,8 +21,8 @@ Voice-first critical-care expertise training plus guided procedural Mental Reps.
 - 130/130 concepts have at least one standalone expertise-audio teaching path.
 - 79 expertise audio episodes total.
 - 21 ordered domain tracks.
-- 20 required Mental Reps.
-- 136 Mental Rep narration beats on the active protocol-grade branch (four new procedural beats added: arterial puncture/threading plus IJ sterile setup, dilation and catheter completion).
+- 21 required Mental Reps.
+- 145 Mental Rep narration beats on the active protocol-grade branch. The protocol-grade re-audit added four missing beats to existing reps and a new 9-beat burn-escharotomy rep.
 - The previously merged 132-beat set has durable natural-voice assets. Protocol-grade revisions have changed many transcripts and added three beats, so matching voice materialization is intentionally pending; stale/missing audio remains blocked by the transcript-hash production gate.
 - 130/130 concepts have spaced-retrieval coverage: bespoke questions where available plus deterministic mechanism-vs-trap prompts.
 - Unseen concepts are not marked overdue; spaced review starts after exposure.
@@ -154,7 +154,7 @@ When a landmark term itself could be unfamiliar (for example "safe triangle," "p
 
 Branch: `mental-reps-emergency-systems-v5`
 
-- All 20 required Mental Reps have been re-read against the protocol-grade standard.
+- All 21 required Mental Reps are now covered by the protocol-grade standard; the original 20 were re-audited and burn escharotomy was authored at protocol-grade depth from its first version.
 - Detailed audit: `MENTAL_REP_PROTOCOL_AUDIT.md`.
 - Anatomy-heavy reps now define the landmark itself and the route to it rather than naming it.
 - System/device reps now require a physical patient→hardware→monitor/circuit trace rather than generic "check/prepare/reassess" language.
