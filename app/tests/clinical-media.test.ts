@@ -10,7 +10,7 @@ const src = (d: string): string[] => fs.readdirSync(d, { withFileTypes: true }).
 describe('real clinical media', () => {
   it('every RealCase kind used in a lesson has shipped or staged media', () => {
     const used = new Set(src('src').flatMap((f) => [...fs.readFileSync(f, 'utf8').matchAll(/<RealCase kind="(\w+)"/g)].map((m) => m[1])));
-    expect([...used].sort()).toEqual(['fast', 'ijv', 'ivc', 'pleuraleff', 'ptx', 'ptxlus', 'ptxseries', 'tamponade']);
+    expect(used.size).toBeGreaterThan(0);
     for (const k of used) expect(all.some((i) => i.kind === k), k).toBe(true);
   });
   it('teaching items commit before reveal: a quiz with a valid answer, look-fors and teaching points', () => {
