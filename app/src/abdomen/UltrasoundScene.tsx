@@ -5,8 +5,9 @@ import { renderUs, US_WINDOWS, US_LABELS, usUV, type UsWindow } from './ultrasou
 import { IS_PHONE } from '../scene/Studio';
 import type { AbdomenState } from './state';
 import { useHideFindings } from '../challenge/caseStore';
-import { RealCase } from '../scene/imaging/RealCase';
 import { useSceneLabelMode } from '../scene/labels';
+import { StateRealFinding } from '../scene/imaging/StateRealFinding';
+import { selectAbdomenRealReference } from '../scene/imaging/realStateReference';
 
 function UsPanel({ win, st }: { win: UsWindow; st: AbdomenState }) {
   const ref = useRef<HTMLCanvasElement>(null); const meta = US_WINDOWS.find((w) => w.id === win)!;
@@ -47,7 +48,7 @@ export function UltrasoundScene() {
   return (
     <div className="imaging us-view">
       <div className="img-grid us-grid">{US_WINDOWS.map((w) => <UsPanel key={w.id} win={w.id} st={st} />)}<ProbeMap st={st} /></div>
-      {!hide && <div className="rc-pair"><RealCase kind="fast" title="Real positive FAST" /><RealCase kind="tamponade" title="Real tamponade (pericardial window)" /><RealCase kind="ivc" title="Real IVC scans" /></div>}
+      {!hide && <StateRealFinding match={selectAbdomenRealReference(st)} />}
       <div className="img-bar"><p className="img-note">Synthetic teaching ultrasound generated from the model state — not patient scans. Free fluid is black (anechoic); FAST sees only intraperitoneal and pericardial fluid, never the retroperitoneum.</p></div>
     </div>
   );
