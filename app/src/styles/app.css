@@ -1060,3 +1060,8 @@ button.lchip.ldot.q-hint{border-color:var(--gold)!important;animation:qpulse 1s 
 .video-skill-filter-scroll button.on{
   border-style:solid;
 }
+
+.video-skill-filter-scroll button:disabled{
+  opacity:.36;
+  cursor:not-allowed;
+}
