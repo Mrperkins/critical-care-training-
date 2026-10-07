@@ -150,7 +150,8 @@ function FeedCard({
       {active
         ? <FeedPlayer video={video} muted={muted} />
         : <img src={youtubeThumbnailUrl(video)} alt="" loading="lazy" />}
-      <div className="video-feed-shade" />
+    </div>
+    <div className="video-feed-info">
       <div className="video-feed-copy">
         <div className="video-feed-meta">
           <span>{video.format === 'short' ? 'SHORT' : 'VIDEO'}</span>
