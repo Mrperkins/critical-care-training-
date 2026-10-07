@@ -205,6 +205,78 @@ export function videoMatchesSkill(video: ClinicalVideo, skill: VideoSkillCollect
 
 export const VIDEO_LIBRARY: ClinicalVideo[] = [
   {
+    id: 'bbraun-infusomat-space-official-media',
+    title: 'Infusomat Space — Official Product Media & Training',
+    channel: 'B. Braun',
+    provider: 'external',
+    sourceClass: 'manufacturer',
+    sourceUrl: 'https://catalogs.bbraun.com/en-01/p/PRID00001229/infusomat-space',
+    sourceLabel: 'Official B. Braun product media',
+    format: 'long',
+    category: 'devices',
+    subcategory: 'infusion-pumps',
+    intents: ['learn', 'setup', 'manage', 'troubleshoot'],
+    level: 'intermediate',
+    tags: ['B. Braun', 'Infusomat Space', 'infusion pump', 'manufacturer training', 'official media'],
+    summary: 'Official B. Braun Infusomat Space product resource with product documentation and manufacturer media.',
+    reviewStatus: 'listed',
+    featured: true,
+    published: '2026-09-30',
+  },
+  {
+    id: 'bbraun-perfusor-space-official-media',
+    title: 'Perfusor Space — Official Product Media & Training',
+    channel: 'B. Braun',
+    provider: 'external',
+    sourceClass: 'manufacturer',
+    sourceUrl: 'https://catalogs.bbraun.com/en-gb/p/PRID00001226/perfusor-space',
+    sourceLabel: 'Official B. Braun product media',
+    format: 'long',
+    category: 'devices',
+    subcategory: 'infusion-pumps',
+    intents: ['learn', 'setup', 'manage', 'troubleshoot'],
+    level: 'intermediate',
+    tags: ['B. Braun', 'Perfusor Space', 'syringe pump', 'manufacturer training', 'official media'],
+    summary: 'Official B. Braun Perfusor Space product resource with manufacturer media and device documentation.',
+    reviewStatus: 'listed',
+    featured: true,
+  },
+  {
+    id: 'bbraun-spaceplus-mri-handling',
+    title: 'Spaceplus MRI Station Handling Video',
+    channel: 'B. Braun',
+    provider: 'external',
+    sourceClass: 'manufacturer',
+    sourceUrl: 'https://www.bbraun.com/en/products-and-solutions/therapies/infusion-therapy/automated-infusion-pumps-spaceplus/registration-form-for-mri-video.html',
+    sourceLabel: 'Official B. Braun handling video',
+    format: 'long',
+    category: 'devices',
+    subcategory: 'infusion-pumps',
+    intents: ['setup', 'manage'],
+    level: 'intermediate',
+    tags: ['B. Braun', 'Spaceplus', 'MRI station', 'Infusomat', 'Perfusor', 'manufacturer video'],
+    summary: 'Official B. Braun Spaceplus MRI Station handling video covering pump placement, line insertion and station locking.',
+    reviewStatus: 'listed',
+    featured: true,
+  },
+  {
+    id: 'bbraun-space-technical-training',
+    title: 'Space Infusion System — Official Technical Training',
+    channel: 'B. Braun',
+    provider: 'external',
+    sourceClass: 'manufacturer',
+    sourceUrl: 'https://www.bbraunusa.com/en/products-and-partnerships/smart-infusion/smart-infusion-pumps/infusion-systems-technical-training.html',
+    sourceLabel: 'Official B. Braun USA training',
+    format: 'long',
+    category: 'devices',
+    subcategory: 'infusion-pumps',
+    intents: ['learn', 'setup', 'manage', 'troubleshoot'],
+    level: 'advanced',
+    tags: ['B. Braun', 'Infusomat Space', 'Perfusor Space', 'SpaceStation', 'SpaceCom', 'technical training'],
+    summary: 'Official B. Braun USA Space-system technical training covering system design, use, operation, calibration, maintenance and components.',
+    reviewStatus: 'listed',
+  },
+  {
     id: 'criticalcarenow-vent-trauma-management',
     title: 'Vent Management In The Critical Trauma Patient',
     channel: 'CriticalCareNow',
@@ -644,13 +716,28 @@ export const VIDEO_LIBRARY: ClinicalVideo[] = [
   },
 ];
 
-export const youtubeWatchUrl = (video: ClinicalVideo) =>
-  video.format === 'short'
+export const videoProvider = (video: ClinicalVideo) => video.provider ?? 'youtube';
+
+export const youtubeWatchUrl = (video: ClinicalVideo) => {
+  if (!video.youtubeId) return video.sourceUrl ?? '#';
+  return video.format === 'short'
     ? `https://www.youtube.com/shorts/${video.youtubeId}`
     : `https://www.youtube.com/watch?v=${video.youtubeId}`;
+};
+
+export const videoSourceUrl = (video: ClinicalVideo) =>
+  video.sourceUrl ?? youtubeWatchUrl(video);
 
 export const youtubeThumbnailUrl = (video: ClinicalVideo) =>
-  `https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`;
+  video.thumbnailUrl ?? (video.youtubeId ? `https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg` : '');
+
+export const canAutoplayInFeed = (video: ClinicalVideo) => {
+  const provider = videoProvider(video);
+  if (provider === 'youtube') return Boolean(video.youtubeId);
+  if (provider === 'html5') return Boolean(video.mediaUrl);
+  if (provider === 'embed') return Boolean(video.embedUrl);
+  return false;
+};
 
 export function filterVideoLibrary(filters: VideoFilters, source = VIDEO_LIBRARY) {
   const q = filters.query.trim().toLowerCase();
