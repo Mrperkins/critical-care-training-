@@ -143,7 +143,7 @@ export const VIDEO_LIBRARY: ClinicalVideo[] = [
     level: 'foundational',
     tags: ['chest tube', 'atrium', 'oasis', 'water seal', 'suction', 'air leak', 'tidaling'],
     summary: 'Setup of an Atrium Oasis chest drain with air-leak, tidaling and troubleshooting review.',
-    reviewStatus: 'approved',
+    reviewStatus: 'listed',
     featured: true,
     published: '2017-05-09',
   },
@@ -159,7 +159,7 @@ export const VIDEO_LIBRARY: ClinicalVideo[] = [
     level: 'intermediate',
     tags: ['EVD', 'ICP', 'CSF', 'leveling', 'transducer', 'zeroing', 'drainage'],
     summary: 'EVD setup, priming, leveling, zeroing and bedside management concepts.',
-    reviewStatus: 'approved',
+    reviewStatus: 'listed',
     featured: true,
     published: '2025-05-05',
   },
@@ -175,7 +175,7 @@ export const VIDEO_LIBRARY: ClinicalVideo[] = [
     level: 'foundational',
     tags: ['EVD', 'ICP', 'CSF', 'hydrocephalus', 'ventricular drain'],
     summary: 'Clinical overview of why an EVD is placed, what it drains and how it fits into neurocritical care.',
-    reviewStatus: 'approved',
+    reviewStatus: 'listed',
     featured: true,
     published: '2019-07-12',
   },
@@ -191,7 +191,7 @@ export const VIDEO_LIBRARY: ClinicalVideo[] = [
     level: 'intermediate',
     tags: ['EVD', 'ICP', 'CSF drainage', 'indications', 'complications'],
     summary: 'Concise overview of EVD indications, placement, drainage and complications.',
-    reviewStatus: 'approved',
+    reviewStatus: 'listed',
     published: '2024-05-05',
   },
 ];
@@ -207,7 +207,7 @@ export const youtubeThumbnailUrl = (video: ClinicalVideo) =>
 export function filterVideoLibrary(filters: VideoFilters, source = VIDEO_LIBRARY) {
   const q = filters.query.trim().toLowerCase();
   return source.filter((video) => {
-    if (video.reviewStatus !== 'approved') return false;
+    if (video.reviewStatus !== 'listed') return false;
     if (filters.category && video.category !== filters.category) return false;
     if (filters.subcategory && video.subcategory !== filters.subcategory) return false;
     if (filters.format && video.format !== filters.format) return false;
@@ -221,5 +221,5 @@ export function filterVideoLibrary(filters: VideoFilters, source = VIDEO_LIBRARY
 
 export function pairedLongForm(video: ClinicalVideo, source = VIDEO_LIBRARY) {
   if (!video.pairedLongFormId) return undefined;
-  return source.find((candidate) => candidate.id === video.pairedLongFormId && candidate.reviewStatus === 'approved');
+  return source.find((candidate) => candidate.id === video.pairedLongFormId && candidate.reviewStatus === 'listed');
 }
