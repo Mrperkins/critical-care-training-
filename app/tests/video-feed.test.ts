@@ -43,6 +43,13 @@ describe('critical-care video feed', () => {
     expect(lecturioSkills.length).toBeGreaterThanOrEqual(7);
   });
 
+  it('keeps every device-first skills shelf populated', () => {
+    const required = ['ventilators','infusion','chest-drains','evd-icp','arterial-lines','central-lines','hfnc','iabp','ecmo'] as const;
+    for (const skill of required) {
+      expect(VIDEO_LIBRARY.filter((video) => video.reviewStatus === 'listed' && videoMatchesSkill(video, skill)).length).toBeGreaterThan(0);
+    }
+  });
+
   it('routes device and procedure videos into useful skill collections', () => {
     const chestTube = VIDEO_LIBRARY.find((video) => video.id === 'lecturio-nursing-chest-tube')!;
     const ivStart = VIDEO_LIBRARY.find((video) => video.id === 'lecturio-nursing-iv-start')!;

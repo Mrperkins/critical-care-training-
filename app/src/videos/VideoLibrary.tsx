@@ -304,6 +304,14 @@ export function VideoLibrary() {
     };
   }, [channel]);
 
+  const skillCounts = useMemo(() => {
+    const source = VIDEO_LIBRARY.filter((video) => video.reviewStatus === 'listed' && (!channel || video.channel === channel));
+    return new Map(VIDEO_SKILL_COLLECTIONS.map((item) => [
+      item.id,
+      source.filter((video) => videoMatchesSkill(video, item.id)).length,
+    ]));
+  }, [channel]);
+
   const [activeFeedId, setActiveFeedId] = useState<string | null>(() => feedVideos[0]?.id ?? null);
   const activeFeedIndex = Math.max(0, feedVideos.findIndex((video) => video.id === activeFeedId));
 
@@ -397,7 +405,10 @@ export function VideoLibrary() {
           <button className={feedKind === 'deep' ? 'on' : ''} onClick={() => setFeedKind('deep')}>Deep dives <small>{feedCounts.deep}</small></button>
         </div>
         {feedKind === 'skills' && <div className="video-feed-filter-scroll video-skill-filter-scroll" aria-label="Clinical skill">
-          {VIDEO_SKILL_COLLECTIONS.map((item) => <button key={item.id} className={skillCollection === item.id ? 'on' : ''} onClick={() => setSkillCollection(item.id)}>{item.label}</button>)}
+          {VIDEO_SKILL_COLLECTIONS.map((item) => {
+            const count = skillCounts.get(item.id) ?? 0;
+            return <button key={item.id} className={skillCollection === item.id ? 'on' : ''} disabled={count === 0} onClick={() => setSkillCollection(item.id)}>{item.label} <small>{count}</small></button>;
+          })}
         </div>}
       </section>
       {feedVideos.length ? <section className="video-feed" aria-label={feedKind === 'skills' ? 'Autoplay clinical skills video feed' : 'Autoplay critical-care video feed'}>
