@@ -25,6 +25,7 @@ export function CurriculumModule() {
   const total = CATALOG.length, done = CATALOG.filter((e) => p.completed[e.id]).length;
   const nextLesson = CATALOG.find((e) => !p.completed[e.id]) ?? CATALOG[0];
   const launchExplore = () => useUI.getState().set({ module: 'vent', mode: 'explore' });
+  const launchVideos = () => useUI.getState().set({ module: 'videos' });
   const launchPractice = () => {
     if (weak[0]?.challenges?.[0]) openChallenge(weak[0].challenges[0]);
     else useUI.getState().set({ module: 'vent', mode: 'challenge' });
@@ -70,6 +71,12 @@ export function CurriculumModule() {
             <p>Expert tracks and guided procedural Mental Reps with natural voice.</p>
             <em>Open Audio →</em>
           </a>
+          <button className="cur-homecard cur-homecard-video" onClick={launchVideos}>
+            <span className="eyebrow">Watch</span>
+            <b>Critical Care Videos</b>
+            <p>Curated Shorts and deep dives organized by device, procedure, topic and learning goal.</p>
+            <em>Browse videos →</em>
+          </button>
         </section>
 
         <details className="card cur-filter-drawer">
