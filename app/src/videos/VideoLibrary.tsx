@@ -159,6 +159,7 @@ function FeedCard({
   return <article
     ref={(node) => register(video.id, node)}
     data-video-id={video.id}
+    data-video-format={video.format}
     className={`video-feed-card${active ? ' active' : ''}`}
     aria-label={video.title}
   >
