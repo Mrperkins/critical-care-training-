@@ -503,14 +503,34 @@ export function VideoLibrary() {
           <button className="video-close" onClick={() => setPlayer(null)} aria-label="Close video player">✕</button>
         </div>
         <div className="video-embed-wrap">
-          <iframe
-            key={player.kind === 'playlist' ? player.playlistId : player.video.youtubeId}
-            src={player.kind === 'playlist' ? playlistEmbed(player.playlistId) : videoEmbed(player.video.youtubeId)}
-            title={player.kind === 'playlist' ? `${player.label} YouTube uploads` : player.video.title}
+          {player.kind === 'playlist' ? <iframe
+            key={player.playlistId}
+            src={playlistEmbed(player.playlistId)}
+            title={`${player.label} YouTube uploads`}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
-          />
+          /> : videoProvider(player.video) === 'youtube' && player.video.youtubeId ? <iframe
+            key={player.video.youtubeId}
+            src={videoEmbed(player.video.youtubeId)}
+            title={player.video.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          /> : videoProvider(player.video) === 'html5' && player.video.mediaUrl ? <video
+            key={player.video.mediaUrl}
+            src={player.video.mediaUrl}
+            controls
+            autoPlay
+            playsInline
+          /> : videoProvider(player.video) === 'embed' && player.video.embedUrl ? <iframe
+            key={player.video.embedUrl}
+            src={player.video.embedUrl}
+            title={player.video.title}
+            allow="autoplay; fullscreen; picture-in-picture"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          /> : <ManufacturerResource video={player.video} />}
         </div>
         <div className="video-player-foot">
           <span>{player.kind === 'playlist'
@@ -518,7 +538,9 @@ export function VideoLibrary() {
             : 'When you are finished, stay here and continue into related videos, lessons, Mental Reps and simulations.'}</span>
           <a href={player.kind === 'playlist'
             ? `https://www.youtube.com/channel/${player.channelId}/videos`
-            : youtubeWatchUrl(player.video)} target="_blank" rel="noreferrer">Open on YouTube ↗</a>
+            : videoSourceUrl(player.video)} target="_blank" rel="noreferrer">{player.kind === 'playlist'
+              ? 'Open on YouTube ↗'
+              : player.video.sourceClass === 'manufacturer' ? 'Open official source ↗' : 'Open source ↗'}</a>
         </div>
       </section>}
 
@@ -536,6 +558,24 @@ export function VideoLibrary() {
           </button>)}
         </div>
       </section>
+
+      {manufacturerSources.length > 0 && <section className="video-channels video-manufacturer-sources">
+        <div className="video-section-head">
+          <div><span className="eyebrow">Official manufacturers</span><h3>Manufacturer-hosted training & media</h3></div>
+          <span className="muted small">Official external sources</span>
+        </div>
+        <div className="video-channel-grid">
+          {manufacturerSources.map((name) => {
+            const count = VIDEO_LIBRARY.filter((video) => video.reviewStatus === 'listed' && video.channel === name && video.sourceClass === 'manufacturer').length;
+            return <button key={name} onClick={() => setChannel(name)}>
+              <span className="video-channel-play" aria-hidden="true">◎</span>
+              <b>{name}</b>
+              <p>Official manufacturer-hosted training, media and device resources.</p>
+              <small>{count} indexed resource{count === 1 ? '' : 's'} →</small>
+            </button>;
+          })}
+        </div>
+      </section>}
 
       <section className="video-searchbar" aria-label="Video search and sorting">
         <label>
@@ -566,6 +606,7 @@ export function VideoLibrary() {
         <div className="video-filter-row"><span>Channel</span><div className="chips">
           <button className={`chip${channel == null ? ' on' : ''}`} onClick={() => setChannel(null)}>All</button>
           {CHANNEL_COLLECTIONS.map((item) => <button key={item.id} className={`chip${channel === item.label ? ' on' : ''}`} onClick={() => setChannel(channel === item.label ? null : item.label)}>{item.label}</button>)}
+          {manufacturerSources.map((name) => <button key={name} className={`chip${channel === name ? ' on' : ''}`} onClick={() => setChannel(channel === name ? null : name)}>{name}</button>)}
         </div></div>
         {categoryDef && <div className="video-filter-row"><span>Topic</span><div className="chips">
           <button className={`chip${subcategory == null ? ' on' : ''}`} onClick={() => setSubcategory(null)}>All</button>
@@ -593,21 +634,29 @@ export function VideoLibrary() {
         </div>
         {browseVideos.length ? <div className="video-grid">{browseVideos.map((video) => {
           const pair = pairedLongForm(video);
-          return <article key={video.id} className="video-card">
-            <button className="video-thumb" onClick={() => openVideo(video)} aria-label={`Play ${video.title} in app`}>
-              <img src={youtubeThumbnailUrl(video)} alt="" loading="lazy" />
+          const thumb = youtubeThumbnailUrl(video);
+          const externalOnly = videoProvider(video) === 'external';
+          return <article key={video.id} className={`video-card${video.sourceClass === 'manufacturer' ? ' video-card-manufacturer' : ''}`}>
+            {externalOnly ? <a className="video-thumb video-thumb-resource" href={videoSourceUrl(video)} target="_blank" rel="noreferrer" aria-label={`Open official source for ${video.title}`}>
+              {thumb ? <img src={thumb} alt="" loading="lazy" /> : <div className="video-resource-poster"><span>OFFICIAL</span><b>{video.channel}</b><small>{video.sourceLabel ?? 'Manufacturer training'}</small></div>}
+              <span className="video-play" aria-hidden="true">↗</span>
+              <em>OFFICIAL SOURCE</em>
+            </a> : <button className="video-thumb" onClick={() => openVideo(video)} aria-label={`Play ${video.title} in app`}>
+              {thumb ? <img src={thumb} alt="" loading="lazy" /> : <div className="video-resource-poster"><b>{video.channel}</b></div>}
               <span className="video-play" aria-hidden="true">▶</span>
               <em>{video.format === 'short' ? 'SHORT' : 'VIDEO'}{fmtDuration(video.durationSeconds) ? ` · ${fmtDuration(video.durationSeconds)}` : ''}</em>
-            </button>
+            </button>}
             <div className="video-card-body">
-              <div className="video-meta"><span>{video.level}</span><span>{video.channel}</span></div>
+              <div className="video-meta"><span>{video.sourceClass === 'manufacturer' ? 'official manufacturer' : video.level}</span><span>{video.channel}</span></div>
               <h4>{video.title}</h4>
               <p>{video.summary}</p>
               <div className="video-tags">{video.intents.slice(0, 3).map((tag) => <span key={tag}>{INTENTS.find((item) => item.id === tag)?.label ?? tag}</span>)}</div>
               <div className="video-actions">
-                <button className="video-watch-inapp" onClick={() => openVideo(video)}>▶ Watch in app</button>
+                {externalOnly
+                  ? <a className="video-watch-inapp" href={videoSourceUrl(video)} target="_blank" rel="noreferrer">↗ Open official training</a>
+                  : <button className="video-watch-inapp" onClick={() => openVideo(video)}>▶ Watch in app</button>}
                 {pair && <button className="deep-link video-related" onClick={() => openVideo(pair)}>Full lesson: {pair.title} →</button>}
-                <a href={youtubeWatchUrl(video)} target="_blank" rel="noreferrer">YouTube ↗</a>
+                <a href={videoSourceUrl(video)} target="_blank" rel="noreferrer">{video.sourceClass === 'manufacturer' ? 'Official source ↗' : 'Source ↗'}</a>
               </div>
             </div>
           </article>;
@@ -621,7 +670,7 @@ export function VideoLibrary() {
 
     <section className="video-boundary">
       <b>Curated learning resources, not protocol.</b>
-      <span>YouTube videos play through YouTube’s official embedded player. Device setup and procedures should be checked against current manufacturer instructions, local policy and medical direction.</span>
+      <span>YouTube content uses YouTube’s embedded player. Manufacturer resources open or embed only when the publisher supports it. Device setup and procedures should still be checked against current manufacturer instructions, local policy and medical direction.</span>
     </section>
   </main>;
 }
