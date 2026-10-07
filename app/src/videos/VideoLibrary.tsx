@@ -1,10 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { CHANNEL_COLLECTIONS, VIDEO_CATEGORIES, VIDEO_LIBRARY, filterVideoLibrary, pairedLongForm, youtubeThumbnailUrl, youtubeWatchUrl } from './catalog';
+import { CHANNEL_COLLECTIONS, VIDEO_CATEGORIES, VIDEO_LIBRARY, VIDEO_SKILL_COLLECTIONS, filterVideoLibrary, pairedLongForm, videoMatchesSkill, youtubeThumbnailUrl, youtubeWatchUrl } from './catalog';
+import type { VideoSkillCollectionId } from './catalog';
 import { buildFeedEmbedUrl, inFeedPreloadWindow, mostVisibleVideoId } from './feed';
 import type { ClinicalVideo, VideoFormat, VideoIntent, VideoLevel } from './types';
 
 type Sort = 'featured' | 'newest' | 'shortest' | 'az';
 type VideoView = 'feed' | 'browse';
+type FeedKind = 'all' | 'shorts' | 'skills' | 'deep';
 type PlayerTarget =
   | { kind: 'video'; video: ClinicalVideo }
   | { kind: 'playlist'; label: string; playlistId: string; channelId: string };
@@ -258,32 +260,47 @@ export function VideoLibrary() {
   const [sort, setSort] = useState<Sort>('featured');
   const [channel, setChannel] = useState<string | null>(null);
   const [player, setPlayer] = useState<PlayerTarget | null>(null);
+  const [feedKind, setFeedKind] = useState<FeedKind>('all');
+  const [skillCollection, setSkillCollection] = useState<VideoSkillCollectionId>('all');
   const [feedMuted, setFeedMuted] = useState(true);
   const libraryRef = useRef<HTMLElement>(null);
   const feedNodes = useRef(new Map<string, HTMLElement>());
   const feedRatios = useRef(new Map<string, number>());
 
   const categoryDef = VIDEO_CATEGORIES.find((item) => item.id === category);
-  const videos = useMemo(() => {
+  const browseVideos = useMemo(() => {
     const filtered = filterVideoLibrary({ query, category, subcategory, format, level, intent }).filter((video) => !channel || video.channel === channel);
     return [...filtered].sort((a, b) => {
       if (sort === 'newest') return (b.published ?? '').localeCompare(a.published ?? '');
       if (sort === 'shortest') return (a.durationSeconds ?? Number.MAX_SAFE_INTEGER) - (b.durationSeconds ?? Number.MAX_SAFE_INTEGER);
       if (sort === 'az') return a.title.localeCompare(b.title);
-      if (view === 'feed') {
+      return Number(!!b.featured) - Number(!!a.featured) || a.title.localeCompare(b.title);
+    });
+  }, [query, category, subcategory, format, level, intent, sort, channel]);
+
+  const feedVideos = useMemo(() => {
+    let filtered = VIDEO_LIBRARY.filter((video) => video.reviewStatus === 'listed' && (!channel || video.channel === channel));
+    if (feedKind === 'shorts') filtered = filtered.filter((video) => video.format === 'short');
+    if (feedKind === 'deep') filtered = filtered.filter((video) => video.format === 'long');
+    if (feedKind === 'skills') filtered = filtered.filter((video) => videoMatchesSkill(video, skillCollection));
+    return [...filtered].sort((a, b) => {
+      if (feedKind === 'all') {
         const formatBias = Number(b.format === 'short') - Number(a.format === 'short');
         if (formatBias) return formatBias;
       }
-      return Number(!!b.featured) - Number(!!a.featured) || a.title.localeCompare(b.title);
+      const featuredBias = Number(!!b.featured) - Number(!!a.featured);
+      if (featuredBias) return featuredBias;
+      return (b.published ?? '').localeCompare(a.published ?? '') || a.title.localeCompare(b.title);
     });
-  }, [query, category, subcategory, format, level, intent, sort, channel, view]);
-  const [activeFeedId, setActiveFeedId] = useState<string | null>(() => videos[0]?.id ?? null);
-  const activeFeedIndex = Math.max(0, videos.findIndex((video) => video.id === activeFeedId));
+  }, [channel, feedKind, skillCollection]);
+
+  const [activeFeedId, setActiveFeedId] = useState<string | null>(() => feedVideos[0]?.id ?? null);
+  const activeFeedIndex = Math.max(0, feedVideos.findIndex((video) => video.id === activeFeedId));
 
   useEffect(() => {
-    if (view !== 'feed' || videos.length === 0) return;
-    if (!activeFeedId || !videos.some((video) => video.id === activeFeedId)) setActiveFeedId(videos[0].id);
-  }, [view, videos, activeFeedId]);
+    if (view !== 'feed' || feedVideos.length === 0) return;
+    if (!activeFeedId || !feedVideos.some((video) => video.id === activeFeedId)) setActiveFeedId(feedVideos[0].id);
+  }, [view, feedVideos, activeFeedId]);
 
   useEffect(() => {
     if (view !== 'feed') return;
@@ -300,7 +317,7 @@ export function VideoLibrary() {
       // YouTube's minimum-functionality rules require autoplay only after more
       // than half the player is visible. Switching at 51% also makes the feed
       // deterministic rather than depending on which observer entry fired last.
-      const bestId = mostVisibleVideoId(videos.map((video) => video.id), feedRatios.current, 0.51);
+      const bestId = mostVisibleVideoId(feedVideos.map((video) => video.id), feedRatios.current, 0.51);
       if (bestId) setActiveFeedId(bestId);
     }, {
       root,
@@ -309,7 +326,7 @@ export function VideoLibrary() {
 
     for (const node of feedNodes.current.values()) observer.observe(node);
     return () => observer.disconnect();
-  }, [view, videos]);
+  }, [view, feedVideos]);
 
   const registerFeedNode = (id: string, node: HTMLElement | null) => {
     if (node) feedNodes.current.set(id, node);
@@ -364,13 +381,17 @@ export function VideoLibrary() {
           <button className={channel == null ? 'on' : ''} onClick={() => setChannel(null)}>All sources</button>
           {CHANNEL_COLLECTIONS.map((item) => <button key={item.id} className={channel === item.label ? 'on' : ''} onClick={() => setChannel(channel === item.label ? null : item.label)}>{item.label}</button>)}
           <i aria-hidden="true" />
-          <button className={format == null ? 'on' : ''} onClick={() => setFormat(null)}>All videos</button>
-          <button className={format === 'short' ? 'on' : ''} onClick={() => setFormat(format === 'short' ? null : 'short')}>Shorts</button>
-          <button className={format === 'long' ? 'on' : ''} onClick={() => setFormat(format === 'long' ? null : 'long')}>Deep dives</button>
+          <button className={feedKind === 'all' ? 'on' : ''} onClick={() => setFeedKind('all')}>For you</button>
+          <button className={feedKind === 'shorts' ? 'on' : ''} onClick={() => setFeedKind('shorts')}>Shorts</button>
+          <button className={feedKind === 'skills' ? 'on' : ''} onClick={() => setFeedKind('skills')}>Skills</button>
+          <button className={feedKind === 'deep' ? 'on' : ''} onClick={() => setFeedKind('deep')}>Deep dives</button>
         </div>
+        {feedKind === 'skills' && <div className="video-feed-filter-scroll video-skill-filter-scroll" aria-label="Clinical skill">
+          {VIDEO_SKILL_COLLECTIONS.map((item) => <button key={item.id} className={skillCollection === item.id ? 'on' : ''} onClick={() => setSkillCollection(item.id)}>{item.label}</button>)}
+        </div>}
       </section>
-      {videos.length ? <section className="video-feed" aria-label="Autoplay critical-care video feed">
-        {videos.map((video, index) => <FeedCard
+      {feedVideos.length ? <section className="video-feed" aria-label={feedKind === 'skills' ? 'Autoplay clinical skills video feed' : 'Autoplay critical-care video feed'}>
+        {feedVideos.map((video, index) => <FeedCard
           key={video.id}
           video={video}
           active={activeFeedId === video.id}
@@ -382,7 +403,7 @@ export function VideoLibrary() {
         />)}
       </section> : <div className="video-empty video-feed-empty">
         <b>No indexed videos match this feed filter yet.</b>
-        <p>Switch sources or format, or use Browse to explore the complete priority-channel upload collections.</p>
+        <p>Switch sources or feed sections, or use Browse to explore the complete priority-channel upload collections.</p>
         <button onClick={clear}>Reset feed</button>
       </div>}
       <div className="video-feed-note">The current video starts muted automatically. The previous and next videos stay preloaded, so scrolling hands playback off immediately instead of waiting for a new YouTube player to load.</div>
@@ -486,10 +507,10 @@ export function VideoLibrary() {
 
       <section className="video-results">
         <div className="video-section-head">
-          <div><span className="eyebrow">Indexed library</span><h3>{videos.length} video{videos.length === 1 ? '' : 's'}</h3></div>
+          <div><span className="eyebrow">Indexed library</span><h3>{browseVideos.length} video{browseVideos.length === 1 ? '' : 's'}</h3></div>
           {(query || category || subcategory || format || level || intent || channel) && <button className="linkish" onClick={clear}>Clear filters</button>}
         </div>
-        {videos.length ? <div className="video-grid">{videos.map((video) => {
+        {browseVideos.length ? <div className="video-grid">{browseVideos.map((video) => {
           const pair = pairedLongForm(video);
           return <article key={video.id} className="video-card">
             <button className="video-thumb" onClick={() => openVideo(video)} aria-label={`Play ${video.title} in app`}>
