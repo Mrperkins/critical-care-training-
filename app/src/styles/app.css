@@ -894,3 +894,37 @@ button.lchip.ldot.q-hint{border-color:var(--gold)!important;animation:qpulse 1s 
   .video-grid{grid-template-columns:1fr}
   .video-boundary{flex-direction:column}.video-boundary b{white-space:normal}
 }
+
+
+/* In-app video playback + priority channels */
+.video-player-shell{margin:18px 0 22px;border:1px solid rgba(211,178,122,.28);border-radius:18px;background:#0d0e11;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.28);scroll-margin-top:14px}
+.video-player-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;padding:15px 17px;border-bottom:1px solid var(--line)}
+.video-player-head h3{font:600 22px/1.18 var(--fs);margin:1px 0 4px}
+.video-player-head p{margin:0;color:var(--dim);font-size:12px}
+.video-close{border:1px solid var(--line2);background:var(--card);border-radius:999px;width:34px;height:34px;display:grid;place-items:center;flex:none}
+.video-embed-wrap{position:relative;aspect-ratio:16/9;background:#000}
+.video-embed-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-player-foot{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:11px 15px;color:var(--mute);font-size:11px}
+.video-player-foot a{color:var(--gold);text-decoration:none;white-space:nowrap}
+
+.video-channels{padding:20px 0 22px;border-bottom:1px solid var(--line)}
+.video-channel-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.video-channel-grid button{position:relative;text-align:left;min-height:152px;padding:16px 16px 14px 52px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,rgba(211,178,122,.07),rgba(124,196,212,.025));display:flex;flex-direction:column;align-items:flex-start}
+.video-channel-grid button:hover{border-color:rgba(211,178,122,.55);transform:translateY(-1px)}
+.video-channel-play{position:absolute;left:15px;top:16px;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;background:rgba(211,178,122,.14);color:var(--gold);font-size:10px}
+.video-channel-grid b{font:600 19px/1.15 var(--fs)}
+.video-channel-grid p{margin:7px 0 12px;color:var(--dim);font-size:12px;line-height:1.45}
+.video-channel-grid small{margin-top:auto;color:var(--gold);font:500 10px var(--fm);letter-spacing:.04em}
+
+.video-thumb{border:0;padding:0;width:100%;color:inherit;text-align:initial}
+.video-actions button{border:0;background:none;padding:0;text-align:left;font:600 12px var(--fb);color:var(--ink)}
+.video-actions button:hover{color:var(--gold)}
+.video-actions .video-watch-inapp{display:inline-flex;align-items:center;justify-content:center;min-height:36px;border:1px solid rgba(211,178,122,.35);border-radius:9px;padding:7px 10px;background:rgba(211,178,122,.08);color:var(--gold);text-align:center}
+.video-actions .video-related{color:var(--gold)}
+
+@media(max-width:760px){
+  .video-channel-grid{display:flex;overflow-x:auto;padding-bottom:5px;scroll-snap-type:x proximity}
+  .video-channel-grid button{min-width:255px;scroll-snap-align:start}
+  .video-player-head h3{font-size:18px}
+  .video-player-foot{align-items:flex-start;flex-direction:column}
+}

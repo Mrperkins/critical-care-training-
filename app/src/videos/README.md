@@ -44,3 +44,17 @@ YOUTUBE_API_KEY=... npm run video:discover
 ```
 
 The discovery query set lives in `scripts/youtube-discovery.ts`. Keep it aligned with the taxonomy in `src/videos/catalog.ts`.
+
+
+## In-app playback
+
+Individual videos play through the official privacy-enhanced YouTube embed inside the Critical Care Videos surface. The external YouTube link remains as a fallback only.
+
+Priority channel collections currently include:
+- CriticalCareNow
+- Lecturio Medical
+- Lecturio Nursing
+
+Each collection uses the channel's YouTube uploads playlist so the learner can browse the broader channel library in-app even before every individual video has been classified into the critical-care taxonomy.
+
+The indexed shelf remains separate from the raw channel collections. Channel crawling/classification is handled by `npm run video:discover`, which reviews up to `CHANNEL_VIDEO_LIMIT` uploads per priority channel and writes only candidates to the review queue.
