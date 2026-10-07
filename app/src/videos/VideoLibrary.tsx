@@ -241,7 +241,6 @@ function FeedCard({
           <span aria-hidden="true">↗</span><small>YouTube</small>
         </a>
       </div>
-      {active && muted && <button className="video-feed-sound-hint" onClick={() => setMuted(false)}>Tap for sound</button>}
     </div>
   </article>;
 }
