@@ -2,6 +2,8 @@ export type VideoFormat = 'short' | 'long';
 export type VideoLevel = 'foundational' | 'intermediate' | 'advanced';
 export type VideoIntent = 'learn' | 'setup' | 'perform' | 'manage' | 'troubleshoot' | 'case-review';
 export type VideoReviewStatus = 'listed' | 'review';
+export type VideoProvider = 'youtube' | 'html5' | 'embed' | 'external';
+export type VideoSourceClass = 'educator' | 'manufacturer';
 
 export interface VideoCategoryDefinition {
   id: string;
@@ -14,7 +16,14 @@ export interface ClinicalVideo {
   id: string;
   title: string;
   channel: string;
-  youtubeId: string;
+  youtubeId?: string;
+  provider?: VideoProvider;
+  sourceClass?: VideoSourceClass;
+  sourceUrl?: string;
+  embedUrl?: string;
+  mediaUrl?: string;
+  thumbnailUrl?: string;
+  sourceLabel?: string;
   format: VideoFormat;
   category: string;
   subcategory: string;
