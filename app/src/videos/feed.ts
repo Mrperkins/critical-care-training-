@@ -4,6 +4,8 @@ export function buildFeedEmbedUrl(videoId: string, origin: string, autoplay: boo
     origin,
     playsinline: '1',
     controls: '0',
+    disablekb: '1',
+    cc_load_policy: '1',
     rel: '0',
     loop: '1',
     playlist: videoId,
