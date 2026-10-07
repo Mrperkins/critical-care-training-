@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { buildFeedEmbedUrl, inFeedPreloadWindow, mostVisibleVideoId } from '../src/videos/feed';
-import { VIDEO_LIBRARY, videoMatchesSkill } from '../src/videos/catalog';
+import { VIDEO_LIBRARY, canAutoplayInFeed, videoMatchesSkill, videoProvider, videoSourceUrl } from '../src/videos/catalog';
 
 describe('critical-care video feed', () => {
   it('builds an autoplay-safe first-player URL', () => {
@@ -48,6 +48,24 @@ describe('critical-care video feed', () => {
     for (const skill of required) {
       expect(VIDEO_LIBRARY.filter((video) => video.reviewStatus === 'listed' && videoMatchesSkill(video, skill)).length).toBeGreaterThan(0);
     }
+  });
+
+  it('supports official manufacturer-hosted sources without pretending they are YouTube', () => {
+    const infusomat = VIDEO_LIBRARY.find((video) => video.id === 'bbraun-infusomat-space-official-media')!;
+    const mri = VIDEO_LIBRARY.find((video) => video.id === 'bbraun-spaceplus-mri-handling')!;
+    expect(videoProvider(infusomat)).toBe('external');
+    expect(infusomat.sourceClass).toBe('manufacturer');
+    expect(videoSourceUrl(infusomat)).toContain('bbraun.com');
+    expect(canAutoplayInFeed(infusomat)).toBe(false);
+    expect(videoMatchesSkill(infusomat, 'infusion')).toBe(true);
+    expect(videoSourceUrl(mri)).toContain('registration-form-for-mri-video');
+  });
+
+  it('keeps provider support ready for native and embeddable manufacturer media', () => {
+    const native = { ...VIDEO_LIBRARY[0], provider: 'html5' as const, mediaUrl: 'https://example.com/device.mp4', youtubeId: undefined };
+    const embedded = { ...VIDEO_LIBRARY[0], provider: 'embed' as const, embedUrl: 'https://example.com/embed/device', youtubeId: undefined };
+    expect(canAutoplayInFeed(native)).toBe(true);
+    expect(canAutoplayInFeed(embedded)).toBe(true);
   });
 
   it('routes device and procedure videos into useful skill collections', () => {
