@@ -994,10 +994,6 @@ button.lchip.ldot.q-hint{border-color:var(--gold)!important;animation:qpulse 1s 
 }
 .video-feed-actions button:hover,.video-feed-actions a:hover{border-color:rgba(211,178,122,.55);color:var(--gold)}
 .video-feed-actions span{font-size:15px;line-height:1}.video-feed-actions small{font-size:8px;color:var(--mute)}
-.video-feed-sound-hint{
-  position:absolute;right:14px;top:-42px;border:1px solid rgba(255,255,255,.22);background:rgba(10,10,12,.9);
-  color:#fff;border-radius:999px;padding:7px 10px;font-size:10px;backdrop-filter:blur(8px)
-}
 .video-feed-note{max-width:620px;margin:9px auto 0;color:var(--mute);font-size:10.5px;line-height:1.45}
 .video-feed-empty{max-width:620px;margin:0 auto}
 
@@ -1025,6 +1021,23 @@ button.lchip.ldot.q-hint{border-color:var(--gold)!important;animation:qpulse 1s 
   .video-feed-copy h3{font-size:16px}
   .video-feed-copy p{font-size:10.5px;-webkit-line-clamp:2}
   .video-feed-actions button,.video-feed-actions a{width:42px;min-height:42px;border-radius:11px}
-  .video-feed-sound-hint{right:10px;top:-38px}
-  .video-feed-note{padding:0 12px}
+    .video-feed-note{padding:0 12px}
 }
+
+
+/* Feed interaction stability: the video library is the real scroll viewport. */
+.video-view-feed{
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior-y:contain;
+  touch-action:pan-y;
+  scroll-snap-type:y proximity;
+  scroll-padding-top:62px;
+}
+.video-view-feed .video-feed-card{scroll-snap-align:start}
+.video-view-feed .video-feed-media{scroll-margin-top:62px}
+.video-feed-player{display:block;border:0}
+
+/* Feed players are passive autoplay surfaces so a vertical drag anywhere over
+   the video scrolls the parent feed. Full interactive YouTube controls are
+   available through Expand/Browse. */
+.video-view-feed .video-feed-player{pointer-events:none;touch-action:pan-y}
