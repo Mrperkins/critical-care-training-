@@ -946,29 +946,30 @@ button.lchip.ldot.q-hint{border-color:var(--gold)!important;animation:qpulse 1s 
 .video-feed-filter-scroll i{width:1px;height:22px;background:var(--line2);margin:0 2px;flex:none}
 
 .video-feed{
-  max-width:720px;
+  max-width:760px;
   margin:0 auto;
   overflow:visible;
   display:flex;
   flex-direction:column;
-  gap:18px;
+  gap:10px;
+  padding-bottom:12px;
 }
 .video-feed-card{
-  min-height:clamp(560px,78dvh,820px);
   display:grid;
-  grid-template-rows:minmax(0,1fr) auto;
+  grid-template-rows:auto auto;
   background:#07080a;
   border:1px solid var(--line);
-  border-radius:20px;
+  border-radius:18px;
   overflow:hidden;
   scroll-margin-top:86px;
 }
 .video-feed-card:last-child{margin-bottom:0}
 .video-feed-card.active{box-shadow:inset 0 0 0 1px rgba(211,178,122,.12)}
-.video-feed-media{position:relative;min-height:0;background:#000;display:grid;place-items:center;overflow:hidden}
+.video-feed-media{position:relative;aspect-ratio:16/9;min-height:0;background:#000;display:grid;place-items:center;overflow:hidden}
+.video-feed-card[data-video-format="short"] .video-feed-media{aspect-ratio:9/16;max-height:72dvh}
 .video-feed-media>img{width:100%;height:100%;object-fit:contain;background:#000}
-.video-feed-player{width:100%;height:100%;min-height:0;background:#000}
-.video-feed-player iframe{display:block!important;width:100%!important;height:100%!important;border:0!important}
+.video-feed-player{width:100%;height:100%;min-height:0;background:#000;overflow:hidden}
+.video-feed-player-mount,.video-feed-player iframe{display:block!important;width:100%!important;height:100%!important;border:0!important}
 .video-feed-info{
   position:relative;
   display:grid;
@@ -1009,14 +1010,15 @@ button.lchip.ldot.q-hint{border-color:var(--gold)!important;animation:qpulse 1s 
   .video-feed{
     max-width:none;
     width:100%;
-    gap:12px
+    gap:8px
   }
   .video-feed-card{
-    min-height:calc(100dvh - 190px);
     border-left:0;
     border-right:0;
     border-radius:0
   }
+  .video-feed-media{aspect-ratio:16/9}
+  .video-feed-card[data-video-format="short"] .video-feed-media{aspect-ratio:9/16;max-height:68dvh}
   .video-feed-info{grid-template-columns:1fr;padding:10px 12px 11px;gap:8px}
   .video-feed-actions{position:absolute;right:10px;top:10px;flex-direction:column}
   .video-feed-copy{padding-right:58px}

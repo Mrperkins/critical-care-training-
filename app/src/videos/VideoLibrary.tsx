@@ -76,14 +76,23 @@ const playlistEmbed = (playlistId: string) =>
   `https://www.youtube-nocookie.com/embed/videoseries?list=${encodeURIComponent(playlistId)}&autoplay=1&rel=0&playsinline=1`;
 
 function FeedPlayer({ video, muted }: { video: ClinicalVideo; muted: boolean }) {
-  const mount = useRef<HTMLDivElement>(null);
+  // React owns only this wrapper. YouTube is allowed to replace/remove the child
+  // node it receives without racing React's reconciler during feed transitions.
+  const host = useRef<HTMLDivElement>(null);
   const player = useRef<YTPlayer | null>(null);
 
   useEffect(() => {
     let cancelled = false;
+    let mountNode: HTMLDivElement | null = null;
+
     loadYouTubeApi().then(() => {
-      if (cancelled || !mount.current || !window.YT?.Player) return;
-      player.current = new window.YT.Player(mount.current, {
+      if (cancelled || !host.current || !window.YT?.Player) return;
+
+      mountNode = document.createElement('div');
+      mountNode.className = 'video-feed-player-mount';
+      host.current.replaceChildren(mountNode);
+
+      player.current = new window.YT.Player(mountNode, {
         host: 'https://www.youtube-nocookie.com',
         videoId: video.youtubeId,
         playerVars: {
@@ -108,21 +117,28 @@ function FeedPlayer({ video, muted }: { video: ClinicalVideo; muted: boolean }) 
         },
       });
     });
+
     return () => {
       cancelled = true;
-      player.current?.destroy();
+      try { player.current?.destroy(); } catch { /* YouTube may already have removed its iframe. */ }
       player.current = null;
+      if (host.current) host.current.replaceChildren();
+      mountNode = null;
     };
   }, [video.youtubeId]);
 
   useEffect(() => {
     const p = player.current;
     if (!p) return;
-    if (muted) p.mute(); else p.unMute();
-    p.playVideo();
+    try {
+      if (muted) p.mute(); else p.unMute();
+      p.playVideo();
+    } catch {
+      // Player may be between destruction and replacement during a fast scroll.
+    }
   }, [muted]);
 
-  return <div className="video-feed-player" ref={mount} />;
+  return <div className="video-feed-player" ref={host} />;
 }
 
 function FeedCard({
@@ -143,6 +159,7 @@ function FeedCard({
   return <article
     ref={(node) => register(video.id, node)}
     data-video-id={video.id}
+    data-video-format={video.format}
     className={`video-feed-card${active ? ' active' : ''}`}
     aria-label={video.title}
   >
@@ -192,6 +209,7 @@ export function VideoLibrary() {
   const [player, setPlayer] = useState<PlayerTarget | null>(null);
   const [activeFeedId, setActiveFeedId] = useState<string | null>(null);
   const [feedMuted, setFeedMuted] = useState(true);
+  const libraryRef = useRef<HTMLElement>(null);
   const feedNodes = useRef(new Map<string, HTMLElement>());
 
   const categoryDef = VIDEO_CATEGORIES.find((item) => item.id === category);
@@ -216,6 +234,9 @@ export function VideoLibrary() {
 
   useEffect(() => {
     if (view !== 'feed') return;
+    const root = libraryRef.current;
+    if (!root) return;
+
     const observer = new IntersectionObserver((entries) => {
       const visible = entries
         .filter((entry) => entry.isIntersecting)
@@ -225,9 +246,9 @@ export function VideoLibrary() {
         if (id) setActiveFeedId(id);
       }
     }, {
-      root: null,
-      rootMargin: '-28% 0px -28% 0px',
-      threshold: [0.01, 0.2, 0.45, 0.7],
+      root,
+      rootMargin: '-20% 0px -20% 0px',
+      threshold: [0.01, 0.15, 0.35, 0.55],
     });
 
     for (const node of feedNodes.current.values()) observer.observe(node);
@@ -265,7 +286,7 @@ export function VideoLibrary() {
     window.setTimeout(() => document.getElementById('video-player')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 0);
   };
 
-  return <main className={`video-library video-view-${view}`}>
+  return <main ref={libraryRef} className={`video-library video-view-${view}`}>
     <section className="video-hero">
       <div>
         <span className="eyebrow">{view === 'feed' ? 'Swipe · watch · keep learning' : 'Watch here · stay in the learning flow'}</span>
@@ -306,7 +327,7 @@ export function VideoLibrary() {
         <p>Switch sources or format, or use Browse to explore the complete priority-channel upload collections.</p>
         <button onClick={clear}>Reset feed</button>
       </div>}
-      <div className="video-feed-note">Scroll normally through the page. The video nearest the center becomes active and the previous one stops. Autoplay begins muted to comply with browser media rules; tap “Sound” once to unmute.</div>
+      <div className="video-feed-note">Scroll normally through the feed. The card entering the center of this workspace becomes active and the previous player is torn down safely. Autoplay begins muted; tap “Sound” once to unmute.</div>
     </>}
 
     {view === 'browse' && <>
