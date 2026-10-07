@@ -7,7 +7,8 @@ This module is the learner-facing library for curated external critical-care vid
 A video can be found by:
 - clinical category and nested topic
 - learning goal: Learn it / Set it up / Perform it / Manage it / Troubleshoot it / See cases
-- format: YouTube Short or long form
+- format: Short or long form
+- provider: YouTube, direct HTML5 media, embeddable external media, or official external manufacturer training
 - learner level
 - search terms
 - sort order
@@ -46,9 +47,19 @@ YOUTUBE_API_KEY=... npm run video:discover
 The discovery query set lives in `scripts/youtube-discovery.ts`. Keep it aligned with the taxonomy in `src/videos/catalog.ts`.
 
 
-## In-app playback
+## In-app playback and providers
 
-Individual videos play through the official privacy-enhanced YouTube embed inside the Critical Care Videos surface. The external YouTube link remains as a fallback only.
+The library is provider-aware. `ClinicalVideo.provider` supports:
+- `youtube`: privacy-enhanced YouTube embed with muted autoplay/feed handoff;
+- `html5`: direct publisher-authorized media URL played through an HTML5 `<video>` element;
+- `embed`: publisher-provided iframe embed URL;
+- `external`: official manufacturer training/media page when the publisher does not expose a reliable public embed.
+
+Do not scrape or reverse-engineer protected media URLs. If a manufacturer only exposes training through its own page, list that official page as an `external` resource and let the learner open it. The feed must never pretend an external resource is autoplay-capable.
+
+Manufacturer entries should set `sourceClass: 'manufacturer'`, `sourceUrl`, and a short `sourceLabel`. Direct or embeddable publisher media can additionally set `mediaUrl` or `embedUrl`.
+
+YouTube remains the primary autoplay provider today, but the feed and Browse surfaces no longer assume every indexed resource is YouTube.
 
 Priority channel collections currently include:
 - CriticalCareNow
@@ -58,3 +69,16 @@ Priority channel collections currently include:
 Each collection uses the channel's YouTube uploads playlist so the learner can browse the broader channel library in-app even before every individual video has been classified into the critical-care taxonomy.
 
 The indexed shelf remains separate from the raw channel collections. Channel crawling/classification is handled by `npm run video:discover`, which reviews up to `CHANNEL_VIDEO_LIMIT` uploads per priority channel and writes only candidates to the review queue.
+
+
+## Manufacturer sources
+
+Official manufacturer-hosted resources are curated separately from the YouTube discovery queue. Current examples include B. Braun Infusomat/Perfusor Space product media, Spaceplus handling media, and B. Braun USA technical training.
+
+For manufacturer sources:
+1. prefer the manufacturer's current official domain;
+2. preserve the exact device/model identity in tags;
+3. do not mirror or download proprietary videos unless the publisher explicitly permits it;
+4. use `external` when no stable embed is provided;
+5. use `html5` or `embed` only when the publisher exposes a public, authorized media/embed URL;
+6. keep manufacturer IFU/documentation review as the final authority for setup and operation.
