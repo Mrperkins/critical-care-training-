@@ -1,7 +1,7 @@
 export type VideoFormat = 'short' | 'long';
 export type VideoLevel = 'foundational' | 'intermediate' | 'advanced';
 export type VideoIntent = 'learn' | 'setup' | 'perform' | 'manage' | 'troubleshoot' | 'case-review';
-export type VideoReviewStatus = 'approved' | 'review';
+export type VideoReviewStatus = 'listed' | 'review';
 
 export interface VideoCategoryDefinition {
   id: string;
