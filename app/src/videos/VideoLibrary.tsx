@@ -188,6 +188,7 @@ function FeedPlayer({
     title={video.title}
     allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
     loading="eager"
+    tabIndex={-1}
     referrerPolicy="strict-origin-when-cross-origin"
     allowFullScreen
   />;
