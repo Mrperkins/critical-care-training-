@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { CHANNEL_COLLECTIONS, VIDEO_CATEGORIES, VIDEO_LIBRARY, filterVideoLibrary, pairedLongForm, youtubeThumbnailUrl, youtubeWatchUrl } from './catalog';
+import { buildFeedEmbedUrl, inFeedPreloadWindow, mostVisibleVideoId } from './feed';
 import type { ClinicalVideo, VideoFormat, VideoIntent, VideoLevel } from './types';
 
 type Sort = 'featured' | 'newest' | 'shortest' | 'az';
@@ -78,24 +79,6 @@ const videoEmbed = (videoId: string) =>
 const playlistEmbed = (playlistId: string) =>
   `https://www.youtube-nocookie.com/embed/videoseries?list=${encodeURIComponent(playlistId)}&autoplay=1&rel=0&playsinline=1`;
 
-function feedIframeSrc(videoId: string, autoplay: boolean) {
-  const origin = window.location.origin;
-  const params = new URLSearchParams({
-    enablejsapi: '1',
-    origin,
-    playsinline: '1',
-    controls: '1',
-    rel: '0',
-    loop: '1',
-    playlist: videoId,
-    // Starting muted is what makes browser autoplay reliable. We unmute only
-    // after an explicit learner action.
-    mute: '1',
-    autoplay: autoplay ? '1' : '0',
-  });
-  return `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?${params.toString()}`;
-}
-
 function FeedPlayer({
   video,
   active,
@@ -115,7 +98,7 @@ function FeedPlayer({
   // Keep the iframe src stable while this card is preloaded. The first card
   // can begin muted autoplay before the JS API handshake even finishes.
   const initialAutoplay = useRef(active).current;
-  const src = useMemo(() => feedIframeSrc(video.youtubeId, initialAutoplay), [video.youtubeId, initialAutoplay]);
+  const src = useMemo(() => buildFeedEmbedUrl(video.youtubeId, window.location.origin, initialAutoplay), [video.youtubeId, initialAutoplay]);
 
   const syncPlayback = (target = player.current) => {
     if (!target || !ready.current) return;
@@ -313,20 +296,11 @@ export function VideoLibrary() {
         if (id) feedRatios.current.set(id, entry.isIntersecting ? entry.intersectionRatio : 0);
       }
 
-      let bestId: string | null = null;
-      let bestRatio = 0;
-      for (const video of videos) {
-        const ratio = feedRatios.current.get(video.id) ?? 0;
-        if (ratio > bestRatio) {
-          bestRatio = ratio;
-          bestId = video.id;
-        }
-      }
-
       // YouTube's minimum-functionality rules require autoplay only after more
       // than half the player is visible. Switching at 51% also makes the feed
       // deterministic rather than depending on which observer entry fired last.
-      if (bestId && bestRatio >= 0.51) setActiveFeedId(bestId);
+      const bestId = mostVisibleVideoId(videos.map((video) => video.id), feedRatios.current, 0.51);
+      if (bestId) setActiveFeedId(bestId);
     }, {
       root,
       threshold: [0, 0.25, 0.51, 0.75, 1],
@@ -399,7 +373,7 @@ export function VideoLibrary() {
           key={video.id}
           video={video}
           active={activeFeedId === video.id}
-          hydrate={Math.abs(index - activeFeedIndex) <= 1}
+          hydrate={inFeedPreloadWindow(index, activeFeedIndex, 1)}
           muted={feedMuted}
           setMuted={setFeedMuted}
           register={registerFeedNode}
