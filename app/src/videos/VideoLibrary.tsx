@@ -220,11 +220,15 @@ export function VideoLibrary() {
       const visible = entries
         .filter((entry) => entry.isIntersecting)
         .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (visible && visible.intersectionRatio >= 0.62) {
+      if (visible) {
         const id = (visible.target as HTMLElement).dataset.videoId;
         if (id) setActiveFeedId(id);
       }
-    }, { threshold: [0.35, 0.62, 0.78, 0.92] });
+    }, {
+      root: null,
+      rootMargin: '-28% 0px -28% 0px',
+      threshold: [0.01, 0.2, 0.45, 0.7],
+    });
 
     for (const node of feedNodes.current.values()) observer.observe(node);
     return () => observer.disconnect();
@@ -302,7 +306,7 @@ export function VideoLibrary() {
         <p>Switch sources or format, or use Browse to explore the complete priority-channel upload collections.</p>
         <button onClick={clear}>Reset feed</button>
       </div>}
-      <div className="video-feed-note">Autoplay begins muted to comply with browser media rules. Tap “Sound” once to unmute the active player; the feed keeps that preference as you swipe when the browser permits autoplay with audio.</div>
+      <div className="video-feed-note">Scroll normally through the page. The video nearest the center becomes active and the previous one stops. Autoplay begins muted to comply with browser media rules; tap “Sound” once to unmute.</div>
     </>}
 
     {view === 'browse' && <>
