@@ -1028,3 +1028,16 @@ button.lchip.ldot.q-hint{border-color:var(--gold)!important;animation:qpulse 1s 
   .video-feed-sound-hint{right:10px;top:-38px}
   .video-feed-note{padding:0 12px}
 }
+
+
+/* Feed interaction stability: the video library is the real scroll viewport. */
+.video-view-feed{
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior-y:contain;
+  touch-action:pan-y;
+  scroll-snap-type:y proximity;
+  scroll-padding-top:62px;
+}
+.video-view-feed .video-feed-card{scroll-snap-align:start}
+.video-view-feed .video-feed-media{scroll-margin-top:62px}
+.video-feed-player{display:block;border:0}
