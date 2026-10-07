@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { CHANNEL_COLLECTIONS, VIDEO_CATEGORIES, VIDEO_LIBRARY, VIDEO_SKILL_COLLECTIONS, filterVideoLibrary, pairedLongForm, videoMatchesSkill, youtubeThumbnailUrl, youtubeWatchUrl } from './catalog';
+import { CHANNEL_COLLECTIONS, VIDEO_CATEGORIES, VIDEO_LIBRARY, VIDEO_SKILL_COLLECTIONS, canAutoplayInFeed, filterVideoLibrary, pairedLongForm, videoMatchesSkill, videoProvider, videoSourceUrl, youtubeThumbnailUrl } from './catalog';
 import type { VideoSkillCollectionId } from './catalog';
 import { buildFeedEmbedUrl, inFeedPreloadWindow, mostVisibleVideoId } from './feed';
 import type { ClinicalVideo, VideoFormat, VideoIntent, VideoLevel } from './types';
@@ -100,7 +100,8 @@ function FeedPlayer({
   // Keep the iframe src stable while this card is preloaded. The first card
   // can begin muted autoplay before the JS API handshake even finishes.
   const initialAutoplay = useRef(active).current;
-  const src = useMemo(() => buildFeedEmbedUrl(video.youtubeId, window.location.origin, initialAutoplay), [video.youtubeId, initialAutoplay]);
+  const youtubeId = video.youtubeId ?? '';
+  const src = useMemo(() => buildFeedEmbedUrl(youtubeId, window.location.origin, initialAutoplay), [youtubeId, initialAutoplay]);
 
   const syncPlayback = (target = player.current) => {
     if (!target || !ready.current) return;
@@ -181,7 +182,7 @@ function FeedPlayer({
       // errors during fast scrolling.
       player.current = null;
     };
-  }, [video.youtubeId]);
+  }, [youtubeId]);
 
   return <iframe
     ref={iframe}
@@ -195,6 +196,62 @@ function FeedPlayer({
     allowFullScreen
   />;
 }
+
+function Html5FeedPlayer({ video, active, muted }: { video: ClinicalVideo; active: boolean; muted: boolean }) {
+  const media = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    const node = media.current;
+    if (!node) return;
+    node.muted = muted;
+    if (active) {
+      node.play().catch(() => { node.muted = true; void node.play().catch(() => undefined); });
+    } else {
+      node.pause();
+    }
+  }, [active, muted]);
+  if (!video.mediaUrl) return null;
+  return <video ref={media} className="video-feed-player" src={video.mediaUrl} muted={muted} playsInline loop preload="auto" />;
+}
+
+function ManufacturerResource({ video }: { video: ClinicalVideo }) {
+  return <div className="video-manufacturer-resource">
+    <span className="video-provider-badge">OFFICIAL MANUFACTURER</span>
+    <b>{video.sourceLabel ?? video.channel}</b>
+    <p>This manufacturer hosts the training on its own site. Open the official source for the current media, documentation or training experience.</p>
+    <a href={videoSourceUrl(video)} target="_blank" rel="noreferrer">Open official training ↗</a>
+  </div>;
+}
+
+function FeedMedia({
+  video,
+  active,
+  hydrate,
+  muted,
+  setMuted,
+}: {
+  video: ClinicalVideo;
+  active: boolean;
+  hydrate: boolean;
+  muted: boolean;
+  setMuted: (value: boolean) => void;
+}) {
+  const provider = videoProvider(video);
+  if (provider === 'external') return <ManufacturerResource video={video} />;
+  if (!hydrate) {
+    const thumb = youtubeThumbnailUrl(video);
+    return thumb
+      ? <img src={thumb} alt="" loading="lazy" />
+      : <div className="video-provider-placeholder"><span>{video.channel}</span><b>{video.title}</b></div>;
+  }
+  if (provider === 'html5') return <Html5FeedPlayer video={video} active={active} muted={muted} />;
+  if (provider === 'embed' && video.embedUrl) {
+    return active
+      ? <iframe className="video-feed-player" src={video.embedUrl} title={video.title} allow="autoplay; fullscreen; picture-in-picture" tabIndex={-1} allowFullScreen />
+      : <div className="video-provider-placeholder"><span>{video.channel}</span><b>{video.title}</b></div>;
+  }
+  return <FeedPlayer video={video} active={active} muted={muted} onAutoplayBlocked={() => setMuted(true)} />;
+}
+
 function FeedCard({
   video,
   active,
@@ -218,15 +275,13 @@ function FeedCard({
     aria-label={video.title}
   >
     <div ref={(node) => register(video.id, node)} data-video-id={video.id} className="video-feed-media">
-      {hydrate
-        ? <FeedPlayer video={video} active={active} muted={muted} onAutoplayBlocked={() => setMuted(true)} />
-        : <img src={youtubeThumbnailUrl(video)} alt="" loading="lazy" />}
+      <FeedMedia video={video} active={active} hydrate={hydrate} muted={muted} setMuted={setMuted} />
     </div>
     <div className="video-feed-info">
       <div className="video-feed-copy">
         <div className="video-feed-meta">
           <span>{video.format === 'short' ? 'SHORT' : 'VIDEO'}</span>
-          <span>{video.level}</span>
+          <span>{video.sourceClass === 'manufacturer' ? 'OFFICIAL' : video.level}</span>
           {fmtDuration(video.durationSeconds) && <span>{fmtDuration(video.durationSeconds)}</span>}
         </div>
         <h3>{video.title}</h3>
@@ -235,14 +290,14 @@ function FeedCard({
         <div className="video-feed-tags">{video.intents.slice(0, 3).map((tag) => <span key={tag}>{INTENTS.find((item) => item.id === tag)?.label ?? tag}</span>)}</div>
       </div>
       <div className="video-feed-actions" aria-label="Feed actions">
-        <button onClick={() => setMuted(!muted)} aria-label={muted ? 'Turn sound on' : 'Mute feed'}>
+        {canAutoplayInFeed(video) && <button onClick={() => setMuted(!muted)} aria-label={muted ? 'Turn sound on' : 'Mute feed'}>
           <span aria-hidden="true">{muted ? '🔇' : '🔊'}</span><small>{muted ? 'Sound' : 'Mute'}</small>
-        </button>
-        <button onClick={() => openVideo(video)} aria-label="Open expanded player">
+        </button>}
+        {videoProvider(video) !== 'external' && <button onClick={() => openVideo(video)} aria-label="Open expanded player">
           <span aria-hidden="true">⛶</span><small>Expand</small>
-        </button>
-        <a href={youtubeWatchUrl(video)} target="_blank" rel="noreferrer" aria-label="Open on YouTube">
-          <span aria-hidden="true">↗</span><small>YouTube</small>
+        </button>}
+        <a href={videoSourceUrl(video)} target="_blank" rel="noreferrer" aria-label={video.sourceClass === 'manufacturer' ? 'Open official manufacturer training' : 'Open source'}>
+          <span aria-hidden="true">↗</span><small>{video.sourceClass === 'manufacturer' ? 'Official' : 'Source'}</small>
         </a>
       </div>
     </div>
@@ -266,6 +321,10 @@ export function VideoLibrary() {
   const libraryRef = useRef<HTMLElement>(null);
   const feedNodes = useRef(new Map<string, HTMLElement>());
   const feedRatios = useRef(new Map<string, number>());
+
+  const manufacturerSources = useMemo(() => Array.from(new Set(
+    VIDEO_LIBRARY.filter((video) => video.reviewStatus === 'listed' && video.sourceClass === 'manufacturer').map((video) => video.channel)
+  )).sort(), []);
 
   const categoryDef = VIDEO_CATEGORIES.find((item) => item.id === category);
   const browseVideos = useMemo(() => {
@@ -384,8 +443,8 @@ export function VideoLibrary() {
         <span className="eyebrow">{view === 'feed' ? 'Swipe · watch · keep learning' : 'Watch here · stay in the learning flow'}</span>
         <h2>Critical Care Videos</h2>
         <p>{view === 'feed'
-          ? 'Autoplay critical-care video, Shorts and hands-on Skills in one scrollable feed. Skills emphasizes device setup and procedures from sources such as Lecturio Nursing.'
-          : 'Browse YouTube teaching directly inside the app, then narrow the indexed library by device, procedure, topic and learning goal.'}</p>
+          ? 'Autoplay critical-care video, Shorts and hands-on Skills in one scrollable feed, now combining educators with official manufacturer training.'
+          : 'Browse indexed teaching from YouTube and manufacturer-hosted training sources, then narrow by device, procedure, topic and learning goal.'}</p>
       </div>
       <div className="video-view-switch" role="group" aria-label="Video view">
         <button className={view === 'feed' ? 'on' : ''} onClick={() => { setPlayer(null); setView('feed'); }}>Feed</button>
@@ -398,6 +457,7 @@ export function VideoLibrary() {
         <div className="video-feed-filter-scroll">
           <button className={channel == null ? 'on' : ''} onClick={() => setChannel(null)}>All sources</button>
           {CHANNEL_COLLECTIONS.map((item) => <button key={item.id} className={channel === item.label ? 'on' : ''} onClick={() => setChannel(channel === item.label ? null : item.label)}>{item.label}</button>)}
+          {manufacturerSources.map((name) => <button key={name} className={channel === name ? 'on' : ''} onClick={() => setChannel(channel === name ? null : name)}>{name}</button>)}
           <i aria-hidden="true" />
           <button className={feedKind === 'all' ? 'on' : ''} onClick={() => setFeedKind('all')}>For you <small>{feedCounts.all}</small></button>
           <button className={feedKind === 'shorts' ? 'on' : ''} onClick={() => setFeedKind('shorts')}>Shorts <small>{feedCounts.shorts}</small></button>
