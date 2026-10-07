@@ -160,13 +160,20 @@ export const CHANNEL_COLLECTIONS = [
 ] as const;
 
 export const VIDEO_SKILL_COLLECTIONS = [
-  { id: 'all', label: 'All skills' },
-  { id: 'iv-vascular', label: 'IV & vascular access' },
+  { id: 'all', label: 'All skills & devices' },
+  { id: 'ventilators', label: 'Ventilators' },
+  { id: 'infusion', label: 'Infusion pumps & tubing' },
   { id: 'chest-drains', label: 'Chest tubes & drains' },
+  { id: 'evd-icp', label: 'EVD / ICP' },
+  { id: 'arterial-lines', label: 'Arterial lines & transducers' },
+  { id: 'central-lines', label: 'Central lines' },
+  { id: 'hfnc', label: 'HFNC / AIRVO' },
+  { id: 'iabp', label: 'IABP' },
+  { id: 'ecmo', label: 'ECMO' },
   { id: 'airway-trach', label: 'Airway & trach' },
-  { id: 'tubes', label: 'NG & tubes' },
+  { id: 'iv-vascular', label: 'IV & vascular access' },
   { id: 'blood', label: 'Blood & transfusion' },
-  { id: 'monitoring', label: 'Lines & monitoring' },
+  { id: 'tubes', label: 'NG & tubes' },
 ] as const;
 
 export type VideoSkillCollectionId = typeof VIDEO_SKILL_COLLECTIONS[number]['id'];
@@ -180,16 +187,181 @@ export function isSkillVideo(video: ClinicalVideo) {
 export function videoMatchesSkill(video: ClinicalVideo, skill: VideoSkillCollectionId) {
   if (skill === 'all') return isSkillVideo(video);
   const haystack = [video.title, video.subcategory, ...video.tags].join(' ').toLowerCase();
-  if (skill === 'iv-vascular') return /\b(iv|intravenous|venipuncture|vascular|central line|arterial line|catheter)\b/.test(haystack);
-  if (skill === 'chest-drains') return /chest tube|chest drain|pleural|water seal|suction/.test(haystack);
-  if (skill === 'airway-trach') return /airway|intubat|trach|cric/.test(haystack);
-  if (skill === 'tubes') return /nasogastric|\bng\b|enteral|feeding tube/.test(haystack);
+  if (skill === 'ventilators') return /ventilator|mechanical ventilation|vent management|peep|plateau pressure|peak pressure|revel|ltv|hamilton|servo/.test(haystack);
+  if (skill === 'infusion') return /infusion pump|iv tubing|piggyback|primary line|secondary line|sapphire|infusomat|braun|pump setup/.test(haystack);
+  if (skill === 'chest-drains') return /chest tube|chest drain|pleural|water seal|thoracic drainage/.test(haystack);
+  if (skill === 'evd-icp') return /evd|external ventricular|ventriculostomy|icp|csf drainage|leveling|zeroing/.test(haystack);
+  if (skill === 'arterial-lines') return /arterial line|a-line|transducer|square wave|leveling|zeroing|femoral arterial/.test(haystack);
+  if (skill === 'central-lines') return /central line|central venous|cvc|picc|central-line/.test(haystack);
+  if (skill === 'hfnc') return /hfnc|high flow|high-flow|airvo|optiflow/.test(haystack);
+  if (skill === 'iabp') return /iabp|intra-aortic balloon|balloon pump|counterpulsation/.test(haystack);
+  if (skill === 'ecmo') return /ecmo|extracorporeal|vv ecmo|va ecmo|membrane oxygenation/.test(haystack);
+  if (skill === 'airway-trach') return /airway|intubat|trach|cric|suction/.test(haystack);
+  if (skill === 'iv-vascular') return /\b(iv|intravenous|venipuncture|vascular|catheter)\b/.test(haystack);
   if (skill === 'blood') return /blood|transfusion|whole blood|massive transfusion/.test(haystack);
-  if (skill === 'monitoring') return /evd|transducer|leveling|zeroing|arterial line|monitor|iabp|ecmo/.test(haystack);
+  if (skill === 'tubes') return /nasogastric|\bng\b|enteral|feeding tube/.test(haystack);
   return false;
 }
 
 export const VIDEO_LIBRARY: ClinicalVideo[] = [
+  {
+    id: 'criticalcarenow-vent-trauma-management',
+    title: 'Vent Management In The Critical Trauma Patient',
+    channel: 'CriticalCareNow',
+    youtubeId: 'QEXZuGAerh0',
+    format: 'long',
+    category: 'airway-vent',
+    subcategory: 'vent-setup',
+    intents: ['learn', 'manage', 'troubleshoot'],
+    level: 'advanced',
+    tags: ['ventilator', 'vent management', 'peak pressure', 'plateau pressure', 'PEEP', 'trauma', 'air leak'],
+    summary: 'Stepwise ventilator troubleshooting in a crashing trauma patient, including peak-versus-plateau pressure, air leak, positioning and PEEP/hemodynamic tradeoffs.',
+    reviewStatus: 'listed',
+    featured: true,
+    published: '2026-06-18',
+  },
+  {
+    id: 'criticalcarenow-arterial-lines',
+    title: 'Arterial Lines in Cardiac Arrest',
+    channel: 'CriticalCareNow',
+    youtubeId: 'kVdMjkl4UHY',
+    format: 'long',
+    category: 'procedures',
+    subcategory: 'vascular-access',
+    intents: ['learn', 'perform', 'manage', 'troubleshoot'],
+    level: 'advanced',
+    tags: ['arterial line', 'femoral arterial line', 'a-line', 'waveform', 'cardiac arrest', 'hemodynamics'],
+    summary: 'Placement and interpretation of arterial-line monitoring during cardiac arrest, with emphasis on continuous pressure feedback.',
+    reviewStatus: 'listed',
+    featured: true,
+    published: '2023-04-09',
+  },
+  {
+    id: 'criticalcarenow-arterial-lines-short',
+    title: 'Please Arterial Lines in Cardiac Arrest',
+    channel: 'CriticalCareNow',
+    youtubeId: 'mH_Yqy2jMdg',
+    format: 'short',
+    category: 'procedures',
+    subcategory: 'vascular-access',
+    intents: ['learn', 'perform'],
+    level: 'advanced',
+    tags: ['arterial line', 'a-line', 'cardiac arrest', 'resuscitation'],
+    summary: 'Short CriticalCareNow pearl on using arterial lines during cardiac arrest.',
+    reviewStatus: 'listed',
+    published: '2023-04-11',
+  },
+  {
+    id: 'lecturio-nursing-blood-transfusion',
+    title: 'Blood Transfusions: A Step by Step Guide for Nurses',
+    channel: 'Lecturio Nursing',
+    youtubeId: '-AbU1m-zpq4',
+    format: 'long',
+    category: 'procedures',
+    subcategory: 'blood',
+    intents: ['setup', 'perform', 'manage', 'troubleshoot'],
+    level: 'intermediate',
+    tags: ['blood transfusion', 'blood administration', 'verification', 'transfusion reaction', 'blood tubing'],
+    summary: 'Step-by-step blood-product administration including verification, assessment timing and transfusion-safety workflow.',
+    reviewStatus: 'listed',
+    featured: true,
+    published: '2022-01-18',
+  },
+  {
+    id: 'sapphire-pump-setup-official',
+    title: 'Sapphire Infusion Pump - Setup Training Video',
+    channel: 'Eitan Medical',
+    youtubeId: 'IOHzN6B_qXg',
+    format: 'long',
+    category: 'devices',
+    subcategory: 'infusion-pumps',
+    intents: ['setup', 'manage', 'troubleshoot'],
+    level: 'intermediate',
+    tags: ['Sapphire', 'infusion pump', 'pump setup', 'administration set', 'Eitan Medical'],
+    summary: 'Manufacturer training covering Sapphire pump setup for infusion and basic system operation.',
+    reviewStatus: 'listed',
+    featured: true,
+    published: '2020-04-19',
+  },
+  {
+    id: 'sapphire-pump-overview-official',
+    title: 'Sapphire Infusion Pump: System Overview Training Video',
+    channel: 'Eitan Medical',
+    youtubeId: '-4yEB7XE9gQ',
+    format: 'long',
+    category: 'devices',
+    subcategory: 'infusion-pumps',
+    intents: ['learn', 'setup', 'manage'],
+    level: 'foundational',
+    tags: ['Sapphire', 'infusion pump', 'system overview', 'administration sets', 'Eitan Medical'],
+    summary: 'Manufacturer overview of the Sapphire pump, power supply, administration sets and basic operation.',
+    reviewStatus: 'listed',
+    published: '2020-04-19',
+  },
+  {
+    id: 'airvo2-setup-official',
+    title: 'How to set-up your F&P Airvo 2 for Optiflow Nasal High Flow therapy',
+    channel: 'F&P Healthcare',
+    youtubeId: 'f_OkSQshJQU',
+    format: 'long',
+    category: 'devices',
+    subcategory: 'high-flow',
+    intents: ['setup', 'manage'],
+    level: 'foundational',
+    tags: ['AIRVO 2', 'HFNC', 'high flow', 'Optiflow', 'Fisher Paykel', 'device setup'],
+    summary: 'Manufacturer step-by-step setup of the AIRVO 2 high-flow system and patient interfaces.',
+    reviewStatus: 'listed',
+    featured: true,
+    published: '2019-02-17',
+  },
+  {
+    id: 'evd-system-setup-head2toe',
+    title: 'External Ventricular Drain (EVD) Insertion and Drainage System Set-up',
+    channel: 'Head2Toe Academy',
+    youtubeId: 'aM6NkpdEc1I',
+    format: 'long',
+    category: 'devices',
+    subcategory: 'evd',
+    intents: ['setup', 'manage', 'troubleshoot'],
+    level: 'advanced',
+    tags: ['EVD', 'external ventricular drain', 'ICP', 'CSF drainage', 'leveling', 'zeroing', 'waveform'],
+    summary: 'Detailed EVD drainage-system setup with equipment, sterile preparation, leveling, zeroing, waveforms and documentation.',
+    reviewStatus: 'listed',
+    featured: true,
+    published: '2025-05-16',
+  },
+  {
+    id: 'icu-advantage-iabp-management',
+    title: 'Management of the Intra-Aortic Balloon Pump (IABP)',
+    channel: 'ICU Advantage',
+    youtubeId: 'iZsaV9qQczs',
+    format: 'long',
+    category: 'devices',
+    subcategory: 'iabp',
+    intents: ['learn', 'setup', 'manage', 'troubleshoot'],
+    level: 'advanced',
+    tags: ['IABP', 'intra-aortic balloon pump', 'balloon pump', 'counterpulsation', 'timing', 'weaning'],
+    summary: 'IABP setup, pump assessment, patient assessment, timing concepts and weaning considerations.',
+    reviewStatus: 'listed',
+    featured: true,
+    published: '2021-10-12',
+  },
+  {
+    id: 'wbm-ecmo-basics',
+    title: 'Extracorporeal Membrane Oxygenation (ECMO) Basics - Comprehensive Overview',
+    channel: 'WBM Emergency & Critical Care',
+    youtubeId: 'WPf5I0CP_yE',
+    format: 'long',
+    category: 'devices',
+    subcategory: 'ecmo',
+    intents: ['learn', 'manage', 'troubleshoot'],
+    level: 'advanced',
+    tags: ['ECMO', 'VV ECMO', 'VA ECMO', 'extracorporeal', 'oxygenator', 'circuit', 'mechanical support'],
+    summary: 'Overview of VV/VA ECMO, circuit components, indications, daily management and common complications.',
+    reviewStatus: 'listed',
+    featured: true,
+    published: '2021-02-08',
+  },
   {
     id: 'lecturio-nursing-clinical-skills-compilation',
     title: 'Clinical Skills for NCLEX — Full Nursing Skills Compilation',
