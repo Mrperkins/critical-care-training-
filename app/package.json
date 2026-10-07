@@ -16,7 +16,8 @@
     "audio:review": "tsx scripts/audio-review-packet.ts",
     "audio:production": "tsx scripts/audio-production-queue.ts && tsx scripts/audio-render-plan.ts",
     "audio:audit": "tsx scripts/audio-completion-audit.ts",
-    "audio:render-plan": "tsx scripts/audio-render-plan.ts"
+    "audio:render-plan": "tsx scripts/audio-render-plan.ts",
+    "video:discover": "tsx scripts/youtube-discovery.ts"
   },
   "dependencies": {
     "@react-three/drei": "9.99.7",

@@ -24,6 +24,7 @@ import { HeartModule } from '../heart/HeartModule';
 import { AbdomenModule } from '../abdomen/AbdomenModule';
 import { lines } from '../lines/session';
 import { SceneWrap } from '../scene/labels';
+import { VideoLibrary } from '../videos/VideoLibrary';
 
 export function useIsPhone() {
   const q = '(max-width: 760px)';
@@ -76,7 +77,9 @@ export function App() {
   useEngine(); useEffect(() => initProgressTracking(), []);
   const module = useUI((s) => s.module); const mode = useUI((s) => s.mode); const phone = useIsPhone();
   const experience = experienceFor(mode);
-  const domain = DOMAINS.find((d) => d.module === module) ?? DOMAINS[0];
+  const domain = module === 'videos'
+    ? { module: 'videos' as Module, label: 'Videos', short: 'VD', eyebrow: 'Curated clinical media' }
+    : DOMAINS.find((d) => d.module === module) ?? DOMAINS[0];
   const chooseExperience = (next: Experience) => {
     if (next === 'practice') useUI.getState().set({ mode: mode === 'sim' ? 'sim' : 'challenge' });
     else useUI.getState().set({ mode: next });
@@ -88,9 +91,10 @@ export function App() {
         <button className="brand brand-home" onClick={() => useUI.getState().set({ module: 'curriculum' })} aria-label="Go to learning home">
           <Mark /><div><h1 className="b1">Critical Care</h1><div className="b2">see · understand · manipulate · apply</div></div>
         </button>
-        <nav className="experience-nav" aria-label="Learning mode">
+        {module !== 'videos' ? <nav className="experience-nav" aria-label="Learning mode">
           {EXPERIENCE.map((item) => <button key={item.key} className={experience === item.key ? 'on' : ''} onClick={() => chooseExperience(item.key)}>{item.label}</button>)}
-        </nav>
+        </nav> : <div className="video-mode-label">Curated clinical media</div>}
+        <button className={`video-launch${module === 'videos' ? ' on' : ''}`} onClick={() => useUI.getState().set({ module: 'videos' })}><span className="video-launch-icon" aria-hidden="true">▶</span><span><b>Videos</b><small>Shorts + deep dives</small></span></button>
         <a className="audio-launch" href="audio/"><span className="audio-icon" aria-hidden="true">♪</span><span><b>Audio</b><small>Expert tracks</small></span></a>
       </header>
 
@@ -103,9 +107,9 @@ export function App() {
 
         <div id="workspace" tabIndex={-1} className="workspace">
           <div className="workspace-head">
-            <div><div className="eyebrow">{domain.eyebrow}</div><div className="workspace-title">{module === 'curriculum' ? 'What do you want to learn?' : domain.label}</div></div>
-            <p>{module === 'curriculum' ? 'Continue where you left off, choose a domain, or jump into a focused practice session.' : experienceCopy[experience]}</p>
-            {experience === 'practice' && module !== 'curriculum' && <div className="practice-switch" role="group" aria-label="Practice type">
+            <div><div className="eyebrow">{domain.eyebrow}</div><div className="workspace-title">{module === 'curriculum' ? 'What do you want to learn?' : module === 'videos' ? 'Critical Care Videos' : domain.label}</div></div>
+            <p>{module === 'curriculum' ? 'Continue where you left off, choose a domain, or jump into a focused practice session.' : module === 'videos' ? 'Browse critical-care Shorts and long-form teaching by category, device, task and level.' : experienceCopy[experience]}</p>
+            {experience === 'practice' && module !== 'curriculum' && module !== 'videos' && <div className="practice-switch" role="group" aria-label="Practice type">
               <button className={mode === 'challenge' ? 'on' : ''} onClick={() => useUI.getState().set({ mode: 'challenge' })}>Cases</button>
               <button className={mode === 'sim' ? 'on' : ''} onClick={() => useUI.getState().set({ mode: 'sim' })}>Simulator</button>
             </div>}
@@ -119,6 +123,7 @@ export function App() {
           {module === 'heart' && <HeartModule />}
           {module === 'abdomen' && <AbdomenModule />}
           {module === 'curriculum' && <CurriculumModule />}
+          {module === 'videos' && <VideoLibrary />}
         </div>
       </div>
     </div>
