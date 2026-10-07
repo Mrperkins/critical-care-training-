@@ -1041,3 +1041,22 @@ button.lchip.ldot.q-hint{border-color:var(--gold)!important;animation:qpulse 1s 
    the video scrolls the parent feed. Full interactive YouTube controls are
    available through Expand/Browse. */
 .video-view-feed .video-feed-player{pointer-events:none;touch-action:pan-y}
+
+
+.video-feed-filter-scroll button small{
+  margin-left:4px;
+  font:600 9px var(--fm);
+  opacity:.62;
+}
+.video-feed-filter-scroll button.on small{opacity:.82}
+.video-skill-filter-scroll{
+  padding-top:0;
+  margin-top:-3px;
+  border-top:1px solid rgba(255,255,255,.04);
+}
+.video-skill-filter-scroll button{
+  border-style:dashed;
+}
+.video-skill-filter-scroll button.on{
+  border-style:solid;
+}

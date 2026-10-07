@@ -28,6 +28,10 @@ export const VIDEO_CATEGORIES: VideoCategoryDefinition[] = [
       { id: 'cricothyrotomy', label: 'Cricothyrotomy' },
       { id: 'vascular-access', label: 'Arterial / central access' },
       { id: 'blood', label: 'Blood administration' },
+      { id: 'tracheostomy', label: 'Tracheostomy care' },
+      { id: 'enteral-access', label: 'NG / enteral access' },
+      { id: 'venipuncture', label: 'Venipuncture / blood draw' },
+      { id: 'medication-admin', label: 'Medication administration' },
       { id: 'pressors', label: 'Push-dose pressors' },
       { id: 'transducers', label: 'Transducer setup / leveling' },
     ],
@@ -155,7 +159,146 @@ export const CHANNEL_COLLECTIONS = [
   },
 ] as const;
 
+export const VIDEO_SKILL_COLLECTIONS = [
+  { id: 'all', label: 'All skills' },
+  { id: 'iv-vascular', label: 'IV & vascular access' },
+  { id: 'chest-drains', label: 'Chest tubes & drains' },
+  { id: 'airway-trach', label: 'Airway & trach' },
+  { id: 'tubes', label: 'NG & tubes' },
+  { id: 'blood', label: 'Blood & transfusion' },
+  { id: 'monitoring', label: 'Lines & monitoring' },
+] as const;
+
+export type VideoSkillCollectionId = typeof VIDEO_SKILL_COLLECTIONS[number]['id'];
+
+export function isSkillVideo(video: ClinicalVideo) {
+  return video.category === 'devices'
+    || video.category === 'procedures'
+    || video.intents.some((intent) => intent === 'setup' || intent === 'perform' || intent === 'troubleshoot');
+}
+
+export function videoMatchesSkill(video: ClinicalVideo, skill: VideoSkillCollectionId) {
+  if (skill === 'all') return isSkillVideo(video);
+  const haystack = [video.title, video.subcategory, ...video.tags].join(' ').toLowerCase();
+  if (skill === 'iv-vascular') return /\b(iv|intravenous|venipuncture|vascular|central line|arterial line|catheter)\b/.test(haystack);
+  if (skill === 'chest-drains') return /chest tube|chest drain|pleural|water seal|suction/.test(haystack);
+  if (skill === 'airway-trach') return /airway|intubat|trach|cric/.test(haystack);
+  if (skill === 'tubes') return /nasogastric|\bng\b|enteral|feeding tube/.test(haystack);
+  if (skill === 'blood') return /blood|transfusion|whole blood|massive transfusion/.test(haystack);
+  if (skill === 'monitoring') return /evd|transducer|leveling|zeroing|arterial line|monitor|iabp|ecmo/.test(haystack);
+  return false;
+}
+
 export const VIDEO_LIBRARY: ClinicalVideo[] = [
+  {
+    id: 'lecturio-nursing-clinical-skills-compilation',
+    title: 'Clinical Skills for NCLEX — Full Nursing Skills Compilation',
+    channel: 'Lecturio Nursing',
+    youtubeId: 'hXlFNILv2w8',
+    format: 'long',
+    category: 'procedures',
+    subcategory: 'vascular-access',
+    intents: ['learn', 'setup', 'perform', 'manage'],
+    level: 'foundational',
+    tags: ['clinical skills', 'IV catheter', 'IM injection', 'venipuncture', 'blood transfusion', 'NG tube', 'wound care', 'sterile technique'],
+    summary: 'Large clinical-skills compilation covering IV insertion, injections, venipuncture, blood transfusion, NG insertion, wound care, ostomy care and sterile technique.',
+    reviewStatus: 'listed',
+    featured: true,
+    published: '2026-05-24',
+  },
+  {
+    id: 'lecturio-nursing-iv-start',
+    title: 'How to Start an IV: Setup, Supplies & Patient Prep',
+    channel: 'Lecturio Nursing',
+    youtubeId: '3bdiwHIlJQk',
+    format: 'long',
+    category: 'procedures',
+    subcategory: 'vascular-access',
+    intents: ['setup', 'perform', 'troubleshoot'],
+    level: 'foundational',
+    tags: ['IV', 'intravenous catheter', 'IV start', 'vascular access', 'supplies', 'priming'],
+    summary: 'Step-by-step IV-start setup, equipment, patient preparation and catheter priming.',
+    reviewStatus: 'listed',
+    featured: true,
+    published: '2021-08-26',
+  },
+  {
+    id: 'lecturio-nursing-ng-insertion',
+    title: 'How to Insert a Nasogastric Tube Like a Pro',
+    channel: 'Lecturio Nursing',
+    youtubeId: 'ief6SBTHqrw',
+    format: 'long',
+    category: 'procedures',
+    subcategory: 'enteral-access',
+    intents: ['setup', 'perform', 'manage', 'troubleshoot'],
+    level: 'intermediate',
+    tags: ['NG tube', 'nasogastric tube', 'Salem sump', 'gastric decompression', 'enteral access'],
+    summary: 'NG-tube preparation, measurement, insertion, placement confirmation and troubleshooting.',
+    reviewStatus: 'listed',
+    featured: true,
+    published: '2022-10-26',
+  },
+  {
+    id: 'lecturio-nursing-trach-care',
+    title: 'Tracheostomy Care: How To Perform Trach Care',
+    channel: 'Lecturio Nursing',
+    youtubeId: 'J5cxrht6t-c',
+    format: 'long',
+    category: 'procedures',
+    subcategory: 'tracheostomy',
+    intents: ['setup', 'perform', 'manage', 'troubleshoot'],
+    level: 'intermediate',
+    tags: ['tracheostomy', 'trach care', 'airway', 'inner cannula', 'stoma'],
+    summary: 'Theory plus live demonstration of routine tracheostomy care and airway-device maintenance.',
+    reviewStatus: 'listed',
+    featured: true,
+    published: '2023-06-24',
+  },
+  {
+    id: 'lecturio-nursing-venipuncture',
+    title: 'How To Draw Labs Via Venipuncture for Nurses',
+    channel: 'Lecturio Nursing',
+    youtubeId: 'uizbFDmlJFM',
+    format: 'long',
+    category: 'procedures',
+    subcategory: 'venipuncture',
+    intents: ['setup', 'perform'],
+    level: 'foundational',
+    tags: ['venipuncture', 'blood draw', 'labs', 'vascular access'],
+    summary: 'Step-by-step venipuncture demonstration from client preparation through needle removal and post-procedure care.',
+    reviewStatus: 'listed',
+    published: '2022-12-20',
+  },
+  {
+    id: 'lecturio-nursing-iv-tubing',
+    title: 'IV Tubing Explained: Primary Line, Secondary Line and Piggy Back',
+    channel: 'Lecturio Nursing',
+    youtubeId: 'DAVMm09spXI',
+    format: 'long',
+    category: 'devices',
+    subcategory: 'infusion-pumps',
+    intents: ['learn', 'setup', 'manage', 'troubleshoot'],
+    level: 'foundational',
+    tags: ['IV tubing', 'primary line', 'secondary line', 'IV piggyback', 'infusion pump'],
+    summary: 'Walkthrough of primary and secondary IV tubing, piggyback setup and common line-management concepts.',
+    reviewStatus: 'listed',
+    published: '2026-02-04',
+  },
+  {
+    id: 'lecturio-nursing-med-rights-short',
+    title: 'Master the 7 Rights of Medication Administration',
+    channel: 'Lecturio Nursing',
+    youtubeId: 'GGE4wi9UzOI',
+    format: 'short',
+    category: 'procedures',
+    subcategory: 'medication-admin',
+    intents: ['learn', 'perform'],
+    level: 'foundational',
+    tags: ['medication administration', '7 rights', 'med safety', 'nursing skill'],
+    summary: 'Quick medication-safety review of the seven rights of medication administration.',
+    reviewStatus: 'listed',
+    published: '2024-07-08',
+  },
   {
     id: 'lecturio-nursing-chest-tube',
     title: 'How To Assess and Manage A Chest Tube For Nurses',
