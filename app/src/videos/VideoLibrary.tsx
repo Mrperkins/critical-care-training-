@@ -37,18 +37,19 @@ export function VideoLibrary() {
   const [level, setLevel] = useState<VideoLevel | null>(null);
   const [intent, setIntent] = useState<VideoIntent | null>(null);
   const [sort, setSort] = useState<Sort>('featured');
+  const [channel, setChannel] = useState<string | null>(null);
   const [player, setPlayer] = useState<PlayerTarget | null>(null);
 
   const categoryDef = VIDEO_CATEGORIES.find((item) => item.id === category);
   const videos = useMemo(() => {
-    const filtered = filterVideoLibrary({ query, category, subcategory, format, level, intent });
+    const filtered = filterVideoLibrary({ query, category, subcategory, format, level, intent }).filter((video) => !channel || video.channel === channel);
     return [...filtered].sort((a, b) => {
       if (sort === 'newest') return (b.published ?? '').localeCompare(a.published ?? '');
       if (sort === 'shortest') return (a.durationSeconds ?? Number.MAX_SAFE_INTEGER) - (b.durationSeconds ?? Number.MAX_SAFE_INTEGER);
       if (sort === 'az') return a.title.localeCompare(b.title);
       return Number(!!b.featured) - Number(!!a.featured) || a.title.localeCompare(b.title);
     });
-  }, [query, category, subcategory, format, level, intent, sort]);
+  }, [query, category, subcategory, format, level, intent, sort, channel]);
 
   const selectCategory = (id: string | null) => {
     setCategory(id);
@@ -63,6 +64,7 @@ export function VideoLibrary() {
     setLevel(null);
     setIntent(null);
     setSort('featured');
+    setChannel(null);
   };
 
   const openVideo = (video: ClinicalVideo) => {
@@ -161,6 +163,10 @@ export function VideoLibrary() {
     </section>
 
     <section className="video-filters" aria-label="Video filters">
+      <div className="video-filter-row"><span>Channel</span><div className="chips">
+        <button className={`chip${channel == null ? ' on' : ''}`} onClick={() => setChannel(null)}>All</button>
+        {CHANNEL_COLLECTIONS.map((item) => <button key={item.id} className={`chip${channel === item.label ? ' on' : ''}`} onClick={() => setChannel(channel === item.label ? null : item.label)}>{item.label}</button>)}
+      </div></div>
       {categoryDef && <div className="video-filter-row"><span>Topic</span><div className="chips">
         <button className={`chip${subcategory == null ? ' on' : ''}`} onClick={() => setSubcategory(null)}>All</button>
         {categoryDef.subcategories.map((item) => <button key={item.id} className={`chip${subcategory === item.id ? ' on' : ''}`} onClick={() => setSubcategory(subcategory === item.id ? null : item.id)}>{item.label}</button>)}
@@ -183,7 +189,7 @@ export function VideoLibrary() {
     <section className="video-results">
       <div className="video-section-head">
         <div><span className="eyebrow">Indexed library</span><h3>{videos.length} video{videos.length === 1 ? '' : 's'}</h3></div>
-        {(query || category || subcategory || format || level || intent) && <button className="linkish" onClick={clear}>Clear filters</button>}
+        {(query || category || subcategory || format || level || intent || channel) && <button className="linkish" onClick={clear}>Clear filters</button>}
       </div>
       {videos.length ? <div className="video-grid">{videos.map((video) => {
         const pair = pairedLongForm(video);
