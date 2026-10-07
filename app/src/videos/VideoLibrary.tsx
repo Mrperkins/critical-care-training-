@@ -294,6 +294,16 @@ export function VideoLibrary() {
     });
   }, [channel, feedKind, skillCollection]);
 
+  const feedCounts = useMemo(() => {
+    const source = VIDEO_LIBRARY.filter((video) => video.reviewStatus === 'listed' && (!channel || video.channel === channel));
+    return {
+      all: source.length,
+      shorts: source.filter((video) => video.format === 'short').length,
+      skills: source.filter((video) => videoMatchesSkill(video, 'all')).length,
+      deep: source.filter((video) => video.format === 'long').length,
+    };
+  }, [channel]);
+
   const [activeFeedId, setActiveFeedId] = useState<string | null>(() => feedVideos[0]?.id ?? null);
   const activeFeedIndex = Math.max(0, feedVideos.findIndex((video) => video.id === activeFeedId));
 
@@ -366,7 +376,7 @@ export function VideoLibrary() {
         <span className="eyebrow">{view === 'feed' ? 'Swipe · watch · keep learning' : 'Watch here · stay in the learning flow'}</span>
         <h2>Critical Care Videos</h2>
         <p>{view === 'feed'
-          ? 'A vertical autoplay feed built from the curated CriticalCareNow, Lecturio Medical and Lecturio Nursing library. Swipe to the next video; only the visible video plays.'
+          ? 'Autoplay critical-care video, Shorts and hands-on Skills in one scrollable feed. Skills emphasizes device setup and procedures from sources such as Lecturio Nursing.'
           : 'Browse YouTube teaching directly inside the app, then narrow the indexed library by device, procedure, topic and learning goal.'}</p>
       </div>
       <div className="video-view-switch" role="group" aria-label="Video view">
@@ -381,10 +391,10 @@ export function VideoLibrary() {
           <button className={channel == null ? 'on' : ''} onClick={() => setChannel(null)}>All sources</button>
           {CHANNEL_COLLECTIONS.map((item) => <button key={item.id} className={channel === item.label ? 'on' : ''} onClick={() => setChannel(channel === item.label ? null : item.label)}>{item.label}</button>)}
           <i aria-hidden="true" />
-          <button className={feedKind === 'all' ? 'on' : ''} onClick={() => setFeedKind('all')}>For you</button>
-          <button className={feedKind === 'shorts' ? 'on' : ''} onClick={() => setFeedKind('shorts')}>Shorts</button>
-          <button className={feedKind === 'skills' ? 'on' : ''} onClick={() => setFeedKind('skills')}>Skills</button>
-          <button className={feedKind === 'deep' ? 'on' : ''} onClick={() => setFeedKind('deep')}>Deep dives</button>
+          <button className={feedKind === 'all' ? 'on' : ''} onClick={() => setFeedKind('all')}>For you <small>{feedCounts.all}</small></button>
+          <button className={feedKind === 'shorts' ? 'on' : ''} onClick={() => setFeedKind('shorts')}>Shorts <small>{feedCounts.shorts}</small></button>
+          <button className={feedKind === 'skills' ? 'on' : ''} onClick={() => setFeedKind('skills')}>Skills <small>{feedCounts.skills}</small></button>
+          <button className={feedKind === 'deep' ? 'on' : ''} onClick={() => setFeedKind('deep')}>Deep dives <small>{feedCounts.deep}</small></button>
         </div>
         {feedKind === 'skills' && <div className="video-feed-filter-scroll video-skill-filter-scroll" aria-label="Clinical skill">
           {VIDEO_SKILL_COLLECTIONS.map((item) => <button key={item.id} className={skillCollection === item.id ? 'on' : ''} onClick={() => setSkillCollection(item.id)}>{item.label}</button>)}
