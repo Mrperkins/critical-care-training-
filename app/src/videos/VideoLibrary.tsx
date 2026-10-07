@@ -60,11 +60,11 @@ export function VideoLibrary() {
       <div>
         <span className="eyebrow">Shorts → deep dives → application</span>
         <h2>Critical Care Videos</h2>
-        <p>Browse clinically useful external videos by topic, device and learning goal. Shorts can link directly to a paired long-form lesson when one has been reviewed and approved.</p>
+        <p>Browse clinically useful external videos by topic, device and learning goal. Shorts can link directly to a paired long-form lesson when one has been reviewed and listed.</p>
       </div>
       <div className="video-hero-stat">
-        <b>{VIDEO_LIBRARY.filter((video) => video.reviewStatus === 'approved').length}</b>
-        <span>approved starter videos</span>
+        <b>{VIDEO_LIBRARY.filter((video) => video.reviewStatus === 'listed').length}</b>
+        <span>curated starter videos</span>
         <small>The catalog is intentionally curated before automated YouTube ingestion is turned on.</small>
       </div>
     </section>
@@ -86,9 +86,9 @@ export function VideoLibrary() {
       <div className="video-section-head"><div><span className="eyebrow">Browse by category</span><h3>What are you working on?</h3></div>{category && <button className="linkish" onClick={() => selectCategory(null)}>View all categories</button>}</div>
       <div className="video-category-grid">
         {VIDEO_CATEGORIES.map((item) => {
-          const count = VIDEO_LIBRARY.filter((video) => video.reviewStatus === 'approved' && video.category === item.id).length;
+          const count = VIDEO_LIBRARY.filter((video) => video.reviewStatus === 'listed' && video.category === item.id).length;
           return <button key={item.id} className={category === item.id ? 'on' : ''} onClick={() => selectCategory(category === item.id ? null : item.id)}>
-            <b>{item.label}</b><span>{item.description}</span><small>{count ? `${count} approved` : 'Catalog ready'}</small>
+            <b>{item.label}</b><span>{item.description}</span><small>{count ? `${count} listed` : 'Catalog ready'}</small>
           </button>;
         })}
       </div>
@@ -139,7 +139,7 @@ export function VideoLibrary() {
           </div>
         </article>;
       })}</div> : <div className="video-empty">
-        <b>No approved videos match these filters yet.</b>
+        <b>No curated videos match these filters yet.</b>
         <p>Keep the filter if this is the category you want — the ingestion pipeline can fill the shelf as new videos are reviewed.</p>
         <button onClick={clear}>Clear filters</button>
       </div>}
