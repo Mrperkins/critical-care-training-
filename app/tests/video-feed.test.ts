@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { buildFeedEmbedUrl, inFeedPreloadWindow, mostVisibleVideoId } from '../src/videos/feed';
+import { VIDEO_LIBRARY, videoMatchesSkill } from '../src/videos/catalog';
 
 describe('critical-care video feed', () => {
   it('builds an autoplay-safe first-player URL', () => {
@@ -29,5 +30,27 @@ describe('critical-care video feed', () => {
     const ids = ['a', 'b', 'c'];
     expect(mostVisibleVideoId(ids, new Map([['a', 0.49], ['b', 0.5], ['c', 0.1]]))).toBeNull();
     expect(mostVisibleVideoId(ids, new Map([['a', 0.2], ['b', 0.64], ['c', 0.55]]))).toBe('b');
+  });
+
+  it('ships more than one Short and a useful Lecturio Nursing skills shelf', () => {
+    const shorts = VIDEO_LIBRARY.filter((video) => video.reviewStatus === 'listed' && video.format === 'short');
+    const lecturioSkills = VIDEO_LIBRARY.filter((video) =>
+      video.reviewStatus === 'listed'
+      && video.channel === 'Lecturio Nursing'
+      && videoMatchesSkill(video, 'all')
+    );
+    expect(shorts.length).toBeGreaterThanOrEqual(2);
+    expect(lecturioSkills.length).toBeGreaterThanOrEqual(7);
+  });
+
+  it('routes device and procedure videos into useful skill collections', () => {
+    const chestTube = VIDEO_LIBRARY.find((video) => video.id === 'lecturio-nursing-chest-tube')!;
+    const ivStart = VIDEO_LIBRARY.find((video) => video.id === 'lecturio-nursing-iv-start')!;
+    const trach = VIDEO_LIBRARY.find((video) => video.id === 'lecturio-nursing-trach-care')!;
+    const ng = VIDEO_LIBRARY.find((video) => video.id === 'lecturio-nursing-ng-insertion')!;
+    expect(videoMatchesSkill(chestTube, 'chest-drains')).toBe(true);
+    expect(videoMatchesSkill(ivStart, 'iv-vascular')).toBe(true);
+    expect(videoMatchesSkill(trach, 'airway-trach')).toBe(true);
+    expect(videoMatchesSkill(ng, 'tubes')).toBe(true);
   });
 });
