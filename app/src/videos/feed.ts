@@ -3,7 +3,7 @@ export function buildFeedEmbedUrl(videoId: string, origin: string, autoplay: boo
     enablejsapi: '1',
     origin,
     playsinline: '1',
-    controls: '1',
+    controls: '0',
     rel: '0',
     loop: '1',
     playlist: videoId,
