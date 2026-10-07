@@ -14,7 +14,7 @@ const qp = new URLSearchParams(location.search);
 const linkedLesson = qp.get('lesson');
 if (linkedLesson) setTimeout(() => openLesson(linkedLesson), 0);
 else {
-  const modules: Module[] = ['vent','abg','labs','lines','neuro','moa','heart','abdomen','curriculum'];
+  const modules: Module[] = ['vent','abg','labs','lines','neuro','moa','heart','abdomen','curriculum','videos'];
   const modes: Mode[] = ['explore','learn','challenge','sim'];
   const module = qp.get('module') as Module | null, mode = qp.get('mode') as Mode | null;
   const patch: Partial<ReturnType<typeof useUI.getState>> = {};
