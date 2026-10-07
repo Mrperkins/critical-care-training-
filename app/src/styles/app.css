@@ -1036,3 +1036,8 @@ button.lchip.ldot.q-hint{border-color:var(--gold)!important;animation:qpulse 1s 
 .video-view-feed .video-feed-card{scroll-snap-align:start}
 .video-view-feed .video-feed-media{scroll-margin-top:62px}
 .video-feed-player{display:block;border:0}
+
+/* Feed players are passive autoplay surfaces so a vertical drag anywhere over
+   the video scrolls the parent feed. Full interactive YouTube controls are
+   available through Expand/Browse. */
+.video-view-feed .video-feed-player{pointer-events:none;touch-action:pan-y}
