@@ -226,13 +226,11 @@ function FeedCard({
   openVideo: (video: ClinicalVideo) => void;
 }) {
   return <article
-    ref={(node) => register(video.id, node)}
-    data-video-id={video.id}
     data-video-format={video.format}
     className={`video-feed-card${active ? ' active' : ''}`}
     aria-label={video.title}
   >
-    <div className="video-feed-media">
+    <div ref={(node) => register(video.id, node)} data-video-id={video.id} className="video-feed-media">
       {hydrate
         ? <FeedPlayer video={video} active={active} muted={muted} onAutoplayBlocked={() => setMuted(true)} />
         : <img src={youtubeThumbnailUrl(video)} alt="" loading="lazy" />}
