@@ -280,7 +280,7 @@ function FeedCard({
     <div className="video-feed-info">
       <div className="video-feed-copy">
         <div className="video-feed-meta">
-          <span>{video.format === 'short' ? 'SHORT' : 'VIDEO'}</span>
+          <span>{videoProvider(video) === 'external' ? 'RESOURCE' : video.format === 'short' ? 'SHORT' : 'VIDEO'}</span>
           <span>{video.sourceClass === 'manufacturer' ? 'OFFICIAL' : video.level}</span>
           {fmtDuration(video.durationSeconds) && <span>{fmtDuration(video.durationSeconds)}</span>}
         </div>
@@ -487,7 +487,7 @@ export function VideoLibrary() {
         <p>Switch sources or feed sections, or use Browse to explore the complete priority-channel upload collections.</p>
         <button onClick={clear}>Reset feed</button>
       </div>}
-      <div className="video-feed-note">The current video starts muted automatically. The previous and next videos stay preloaded, so scrolling hands playback off immediately instead of waiting for a new YouTube player to load.</div>
+      <div className="video-feed-note">Playable feed media starts muted automatically and adjacent media is preloaded for fast handoff. Official manufacturer resources that do not expose a public embed stay in the same Skills feed but open the publisher’s training environment.</div>
     </>}
 
     {view === 'browse' && <>
