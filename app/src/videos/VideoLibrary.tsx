@@ -11,10 +11,11 @@ type PlayerTarget =
 type YTPlayer = {
   playVideo: () => void;
   pauseVideo: () => void;
+  stopVideo: () => void;
   mute: () => void;
   unMute: () => void;
   seekTo: (seconds: number, allowSeekAhead?: boolean) => void;
-  destroy: () => void;
+  getIframe: () => HTMLIFrameElement;
 };
 
 declare global {
@@ -22,11 +23,13 @@ declare global {
     YT?: {
       Player: new (el: HTMLElement, opts: {
         host?: string;
-        videoId: string;
+        videoId?: string;
         playerVars?: Record<string, string | number>;
         events?: {
           onReady?: (event: { target: YTPlayer }) => void;
           onStateChange?: (event: { data: number; target: YTPlayer }) => void;
+          onAutoplayBlocked?: (event: { target: YTPlayer }) => void;
+          onError?: (event: { data: number; target: YTPlayer }) => void;
         };
       }) => YTPlayer;
       PlayerState?: { ENDED: number };
@@ -75,44 +78,110 @@ const videoEmbed = (videoId: string) =>
 const playlistEmbed = (playlistId: string) =>
   `https://www.youtube-nocookie.com/embed/videoseries?list=${encodeURIComponent(playlistId)}&autoplay=1&rel=0&playsinline=1`;
 
-function FeedPlayer({ video, muted }: { video: ClinicalVideo; muted: boolean }) {
-  // React owns only this wrapper. YouTube is allowed to replace/remove the child
-  // node it receives without racing React's reconciler during feed transitions.
-  const host = useRef<HTMLDivElement>(null);
+function feedIframeSrc(videoId: string, autoplay: boolean) {
+  const origin = window.location.origin;
+  const params = new URLSearchParams({
+    enablejsapi: '1',
+    origin,
+    playsinline: '1',
+    controls: '1',
+    rel: '0',
+    loop: '1',
+    playlist: videoId,
+    // Starting muted is what makes browser autoplay reliable. We unmute only
+    // after an explicit learner action.
+    mute: '1',
+    autoplay: autoplay ? '1' : '0',
+  });
+  return `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?${params.toString()}`;
+}
+
+function FeedPlayer({
+  video,
+  active,
+  muted,
+  onAutoplayBlocked,
+}: {
+  video: ClinicalVideo;
+  active: boolean;
+  muted: boolean;
+  onAutoplayBlocked: () => void;
+}) {
+  const iframe = useRef<HTMLIFrameElement>(null);
   const player = useRef<YTPlayer | null>(null);
+  const ready = useRef(false);
+  const activeRef = useRef(active);
+  const mutedRef = useRef(muted);
+  // Keep the iframe src stable while this card is preloaded. The first card
+  // can begin muted autoplay before the JS API handshake even finishes.
+  const initialAutoplay = useRef(active).current;
+  const src = useMemo(() => feedIframeSrc(video.youtubeId, initialAutoplay), [video.youtubeId, initialAutoplay]);
+
+  const syncPlayback = (target = player.current) => {
+    if (!target || !ready.current) return;
+    try {
+      if (!activeRef.current) {
+        target.pauseVideo();
+        return;
+      }
+
+      // Always enter playback muted first. This avoids the browser rejecting
+      // the playback request before we have a user gesture for sound.
+      target.mute();
+      target.playVideo();
+
+      if (!mutedRef.current) {
+        window.setTimeout(() => {
+          if (!activeRef.current || !player.current) return;
+          try {
+            player.current.unMute();
+            player.current.playVideo();
+          } catch { /* iframe may have left the preload window */ }
+        }, 60);
+      }
+    } catch { /* player may be transitioning between cards */ }
+  };
+
+  useEffect(() => {
+    activeRef.current = active;
+    mutedRef.current = muted;
+    syncPlayback();
+  }, [active, muted]);
 
   useEffect(() => {
     let cancelled = false;
-    let mountNode: HTMLDivElement | null = null;
 
     loadYouTubeApi().then(() => {
-      if (cancelled || !host.current || !window.YT?.Player) return;
+      if (cancelled || !iframe.current || !window.YT?.Player) return;
 
-      mountNode = document.createElement('div');
-      mountNode.className = 'video-feed-player-mount';
-      host.current.replaceChildren(mountNode);
-
-      player.current = new window.YT.Player(mountNode, {
-        host: 'https://www.youtube-nocookie.com',
-        videoId: video.youtubeId,
-        playerVars: {
-          autoplay: 1,
-          playsinline: 1,
-          rel: 0,
-          controls: 1,
-          loop: 1,
-          playlist: video.youtubeId,
-        },
+      // The iframe is created by React first. Per YouTube's documented
+      // existing-iframe API path, YT.Player attaches to it instead of
+      // replacing a React-owned DOM node.
+      player.current = new window.YT.Player(iframe.current, {
         events: {
           onReady: ({ target }) => {
-            if (muted) target.mute(); else target.unMute();
-            target.playVideo();
+            if (cancelled) return;
+            ready.current = true;
+            syncPlayback(target);
           },
           onStateChange: ({ data, target }) => {
-            if (data === window.YT?.PlayerState?.ENDED) {
+            if (data === window.YT?.PlayerState?.ENDED && activeRef.current) {
               target.seekTo(0, true);
               target.playVideo();
             }
+          },
+          onAutoplayBlocked: ({ target }) => {
+            if (!activeRef.current) return;
+            // Automatically fall back to muted playback rather than asking the
+            // learner to hit Play.
+            onAutoplayBlocked();
+            try {
+              target.mute();
+              target.playVideo();
+            } catch { /* leave the thumbnail/player available as a final fallback */ }
+          },
+          onError: ({ data }) => {
+            console.warn(`YouTube feed playback error ${data} for ${video.youtubeId}`);
           },
         },
       });
@@ -120,30 +189,29 @@ function FeedPlayer({ video, muted }: { video: ClinicalVideo; muted: boolean }) 
 
     return () => {
       cancelled = true;
-      try { player.current?.destroy(); } catch { /* YouTube may already have removed its iframe. */ }
+      ready.current = false;
+      try { player.current?.pauseVideo(); } catch { /* iframe is already leaving */ }
+      // Do not call player.destroy(): React owns this existing iframe and will
+      // remove it. Letting YouTube remove it first can trigger DOM reconciliation
+      // errors during fast scrolling.
       player.current = null;
-      if (host.current) host.current.replaceChildren();
-      mountNode = null;
     };
   }, [video.youtubeId]);
 
-  useEffect(() => {
-    const p = player.current;
-    if (!p) return;
-    try {
-      if (muted) p.mute(); else p.unMute();
-      p.playVideo();
-    } catch {
-      // Player may be between destruction and replacement during a fast scroll.
-    }
-  }, [muted]);
-
-  return <div className="video-feed-player" ref={host} />;
+  return <iframe
+    ref={iframe}
+    className="video-feed-player"
+    src={src}
+    title={video.title}
+    allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+    referrerPolicy="strict-origin-when-cross-origin"
+    allowFullScreen
+  />;
 }
-
 function FeedCard({
   video,
   active,
+  hydrate,
   muted,
   setMuted,
   register,
@@ -151,6 +219,7 @@ function FeedCard({
 }: {
   video: ClinicalVideo;
   active: boolean;
+  hydrate: boolean;
   muted: boolean;
   setMuted: (value: boolean) => void;
   register: (id: string, node: HTMLElement | null) => void;
@@ -164,8 +233,8 @@ function FeedCard({
     aria-label={video.title}
   >
     <div className="video-feed-media">
-      {active
-        ? <FeedPlayer video={video} muted={muted} />
+      {hydrate
+        ? <FeedPlayer video={video} active={active} muted={muted} onAutoplayBlocked={() => setMuted(true)} />
         : <img src={youtubeThumbnailUrl(video)} alt="" loading="lazy" />}
     </div>
     <div className="video-feed-info">
@@ -207,10 +276,10 @@ export function VideoLibrary() {
   const [sort, setSort] = useState<Sort>('featured');
   const [channel, setChannel] = useState<string | null>(null);
   const [player, setPlayer] = useState<PlayerTarget | null>(null);
-  const [activeFeedId, setActiveFeedId] = useState<string | null>(null);
   const [feedMuted, setFeedMuted] = useState(true);
   const libraryRef = useRef<HTMLElement>(null);
   const feedNodes = useRef(new Map<string, HTMLElement>());
+  const feedRatios = useRef(new Map<string, number>());
 
   const categoryDef = VIDEO_CATEGORIES.find((item) => item.id === category);
   const videos = useMemo(() => {
@@ -226,6 +295,8 @@ export function VideoLibrary() {
       return Number(!!b.featured) - Number(!!a.featured) || a.title.localeCompare(b.title);
     });
   }, [query, category, subcategory, format, level, intent, sort, channel, view]);
+  const [activeFeedId, setActiveFeedId] = useState<string | null>(() => videos[0]?.id ?? null);
+  const activeFeedIndex = Math.max(0, videos.findIndex((video) => video.id === activeFeedId));
 
   useEffect(() => {
     if (view !== 'feed' || videos.length === 0) return;
@@ -237,18 +308,30 @@ export function VideoLibrary() {
     const root = libraryRef.current;
     if (!root) return;
 
+    feedRatios.current.clear();
     const observer = new IntersectionObserver((entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (visible) {
-        const id = (visible.target as HTMLElement).dataset.videoId;
-        if (id) setActiveFeedId(id);
+      for (const entry of entries) {
+        const id = (entry.target as HTMLElement).dataset.videoId;
+        if (id) feedRatios.current.set(id, entry.isIntersecting ? entry.intersectionRatio : 0);
       }
+
+      let bestId: string | null = null;
+      let bestRatio = 0;
+      for (const video of videos) {
+        const ratio = feedRatios.current.get(video.id) ?? 0;
+        if (ratio > bestRatio) {
+          bestRatio = ratio;
+          bestId = video.id;
+        }
+      }
+
+      // YouTube's minimum-functionality rules require autoplay only after more
+      // than half the player is visible. Switching at 51% also makes the feed
+      // deterministic rather than depending on which observer entry fired last.
+      if (bestId && bestRatio >= 0.51) setActiveFeedId(bestId);
     }, {
       root,
-      rootMargin: '-20% 0px -20% 0px',
-      threshold: [0.01, 0.15, 0.35, 0.55],
+      threshold: [0, 0.25, 0.51, 0.75, 1],
     });
 
     for (const node of feedNodes.current.values()) observer.observe(node);
@@ -278,6 +361,7 @@ export function VideoLibrary() {
 
   const openVideo = (video: ClinicalVideo) => {
     setPlayer({ kind: 'video', video });
+    setView('browse');
     window.setTimeout(() => document.getElementById('video-player')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 0);
   };
 
@@ -313,10 +397,11 @@ export function VideoLibrary() {
         </div>
       </section>
       {videos.length ? <section className="video-feed" aria-label="Autoplay critical-care video feed">
-        {videos.map((video) => <FeedCard
+        {videos.map((video, index) => <FeedCard
           key={video.id}
           video={video}
           active={activeFeedId === video.id}
+          hydrate={Math.abs(index - activeFeedIndex) <= 1}
           muted={feedMuted}
           setMuted={setFeedMuted}
           register={registerFeedNode}
@@ -327,7 +412,7 @@ export function VideoLibrary() {
         <p>Switch sources or format, or use Browse to explore the complete priority-channel upload collections.</p>
         <button onClick={clear}>Reset feed</button>
       </div>}
-      <div className="video-feed-note">Scroll normally through the feed. The card entering the center of this workspace becomes active and the previous player is torn down safely. Autoplay begins muted; tap “Sound” once to unmute.</div>
+      <div className="video-feed-note">The current video starts muted automatically. The previous and next videos stay preloaded, so scrolling hands playback off immediately instead of waiting for a new YouTube player to load.</div>
     </>}
 
     {view === 'browse' && <>
