@@ -31,3 +31,7 @@ A separate read-only GitHub Actions browser QA job covers 1440, 1024, 390, and 3
 Reviewable screenshots and results are in the `bedside-browser-qa` artifact of [Clinical app validation run 37796410100](https://github.com/Mrperkins/critical-care-training-/actions/runs/37796410100) (7-day retention).
 
 Keep PR #28 as a draft despite passing CI and responsive QA; the fidelity and device-validation work below remains outstanding. Pediatric anatomy remains a scaled adult-derived mesh, with an in-app disclosure. Equipment meshes remain geometric prototypes. Clinical predictive validation and physical-device cross-browser/performance testing are outstanding.
+
+## Follow-up 3D fidelity work
+
+Application commit `03ad879d6343acfd535b00b7834cd5bb3348055a` adds licensed HRA trachea, bronchi and cartilage with source geometry retained, an unobstructed inspection view, and corrected patient/mattress alignment. Final validation expanded to 755 tests in 57 files and 12 passing browser/viewport combinations (Chromium, Firefox, WebKit × 1440/1024/390/320 px). Detailed provenance, screenshot review, low virtual-graphics frame scheduling, pediatric licensing restrictions and equipment acquisition gaps are recorded in [OPEN_3D_ASSET_REVIEW.md](OPEN_3D_ASSET_REVIEW.md). Physical-device performance remains unverified.

@@ -27,3 +27,13 @@ The listings were discovered through web research. No files from these listings 
 ## QA scope
 
 Chromium, Firefox and WebKit CI at desktop/tablet/phone widths is browser coverage, not physical-device validation. CI frame scheduling samples use software/virtual graphics and cannot establish Galaxy Tab or iPhone rendering performance. Exact run results and remaining failures belong in the PR review record.
+
+## Physical-device acceptance pass (not yet performed)
+
+Use a build of this PR on a real iPhone and Galaxy Tab S9+ before claiming device readiness. Record device, OS, browser, orientation, load time and observed stalls. Open the adult ARDS scenario; orbit and pinch the bedside for at least one minute, inspect the airway, return to the whole bedside, operate a circuit disconnect/reconnect, confirm a ventilator setting, then record a reassessment. Repeat after portrait/landscape rotation and background/resume. Verify readable equipment displays, responsive gestures and controls, continued physiology after returning to the foreground, and absence of a lost WebGL context. CI width coverage alone does not perform this pass.
+
+## Completed validation for application commit 03ad879d6343acfd535b00b7834cd5bb3348055a
+
+[Clinical app validation run 37812297310](https://github.com/Mrperkins/critical-care-training-/actions/runs/37812297310) passed: 755 tests in 57 files, typecheck, audio audit, production build and asset validation. Chromium, Firefox and WebKit each passed the 1440, 1024, 390 and 320 px interaction checks, with no detected page runtime errors or horizontal page overflow. Desktop and phone airway/bedside/control screenshots across the browser engines were visually reviewed; the patient fits the mattress and the airway inspection is unobstructed. The 7-day browser artifacts contain screenshots and per-viewport results.
+
+Frame scheduling on virtual/software graphics ranged from 0 to about 11 callbacks/sec, including one Chromium sample that expired without a callback. These measurements do not meet a smoothness acceptance criterion and do not establish physical-device performance; functionality passing is not a performance sign-off. The pediatric and equipment asset gaps above and the real-device acceptance pass remain open. Do not recommend merging on the basis of these tests alone.
