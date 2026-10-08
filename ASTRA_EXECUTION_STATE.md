@@ -1,69 +1,73 @@
 # Clinical completion execution state
 
-Read this file first. Do not repeat the initial source audit.
+Read this file first. The initial audit is complete; continue from the implementation and QA evidence below.
 
 ## CURRENT BRANCH
-feat/clinical-completion-20261008 (isolated from canonical main)
+feat/clinical-completion-20261008. Draft PR #27: https://github.com/Mrperkins/critical-care-training-/pull/27
 
 ## CURRENT COMMIT
-Baseline: 1e5aee3a16bd2d6ab547be9af3c4892f4cf50347. Implementation: 133aa500b01ae199bf271f76048a690707b7a95e (pushed; tree matches local e40eb92); consult git rev-parse HEAD for subsequent handoff/CI commits.
+Latest verified implementation: ea45a7c91817a71b6f25fc275e7a83a619343024. Earlier shell/CI repairs: d3764dcd1b2c82a13d66660eceab5226e3b6c909. Consult `git rev-parse HEAD` for a subsequent documentation checkpoint. Remote implementation tree equals the locally tested tree (37f0f0c6fede093ef6439b03138b1060f9fac917).
 
 ## LATEST VERIFIED LIVE DEPLOY
-Live URL opened in the cloud browser on 2026-10-08. Home rendered. Main/Pages HEAD verified via GitHub and git: 1e5aee3, parent 809a92c. Pages run 37753798843 succeeded for this SHA. Source build-sync run 37753473305 succeeded for 809a92c.
+Main and generated Pages SHA: 1e5aee3a16bd2d6ab547be9af3c4892f4cf50347, reconfirmed via GitHub on 2026-10-08. Parent source: 809a92c7f7f9bd54a49e23fe3291dc59ee47a7bc. Existing Pages run 37753798843 succeeded. Live Home and Videos/Skills used in the cloud browser. Feature implementation has NOT been merged or deployed.
 
 ## CURRENT VISUAL BASELINE
-Iteration 1, Simplify & Focus, inspected from ASTRA Medical Learning Redesign Board.png. Baseline Home screenshot reveals Audio wrapping onto domain rail due to four header children in a three-column grid with a fixed 66px app row. Entering Respiratory crashes the entire React root in this browser when WebGL creation fails.
+Iteration 1, Simplify & Focus, inspected from the supplied ASTRA redesign board. Live baseline Home has a four-child header in a three-column fixed-height grid; Audio wraps onto the clinical rail. Entering Respiratory blanked the React root after WebGL failed. Only baseline browser screenshots exist. Six updated procedural organ diagrams have been rendered and visually reviewed separately; those are not application screenshots or responsive sign-off.
 
 ## COMPLETED WORK
-- Fresh clone, fetched latest main; clean feature branch created.
-- app/ confirmed authoritative TypeScript source; root index.html is generated.
-- Dependencies installed; local HTTP server started on 8765.
-- Redesign reference found and inspected.
-- Live Home used; Respiratory Learn entered; crash captured in browser logs.
-- Live Videos, Skills and nine-item infusion-pump filter used; source implementations preserved.
-- Home/Resources mode transitions repaired; within-domain mode transitions preserve the domain.
-- Responsive shell: one resources disclosure; auto-height header; native domain drawer; Scene/context task tabs; navy/blue palette; focused Home; curriculum progressively disclosed; lesson step/progress and transport labels; touch-size primary controls.
-- Scene failure boundary and capability fallback; DPR reacts to viewport and is capped at 1.25 on phones; drawing paused offscreen or when document hidden.
-- 27 new tests (16 navigation destinations, 9 DOM interactions, 2 graphics failures).
-- npm test 439/439; typecheck, audio:audit, site, asset validation passed.
-- Build scripts use node --import tsx, avoiding the tsx CLI's unsupported Unix IPC listener in this runtime.
-- Production artifacts generated locally; not authorized for production merge while gates remain open.
+- Fetched latest main, inspected source architecture, installed dependencies, started local HTTP server on 8765 and used live Home/Respiratory/Videos/Skills. app/ is authoritative; root index.html is generated.
+- Restored one primary Learn / Explore / Practice hierarchy, restrained Resources disclosure, navy shell, domain drawer at <=1024px, Scene/context task tabs, focused Home, progressive curriculum disclosure, visible lesson progress/Previous/Next and touch-size primary controls.
+- Fixed Home/Resources mode dead-end; within-domain mode changes preserve clinical context. DOM regression verifies Learn interaction states at 320/360/390/430/768px. This is not actual responsive browser reproduction or visual verification of the originally reported mobile bug.
+- First-class Pediatrics and Women’s Health / OB, with substantive condition-specific content in all three experiences.
+- Shared disease-state engine: 84 conditions, 12 organ/modality primitives, bounded progression, labels, distinctions, references and decision consequences. Four-step Director lessons use semantic targets and deterministic progression. Chemistry/systemic circulation have distinct targets so affected-anatomy actions actually reveal their mechanism.
+- Atlas lessons integrated into shared curriculum, completion tracking, recent learning, Home resume, bookmarks and deep links. Paused moments and ten-second checkpoints persist without per-frame storage writes.
+- Whole-patient adult view reuses shipped HuBMAP geometry, eased semantic camera focus, skin translucency, organ emphasis and procedural pathology overlays. Pediatric/reproductive content uses separate anatomy schematics, not an adult male reproductive stand-in.
+- Sixteen atlas conditions integrate exact, shipped real imaging comparators through existing RealCaseCard; provenance and attribution remain. No new external media assets added. Clinical review packet includes 420 atlas mechanism/distinction/decision rows.
+- Equipment simulator reuses VentSession / Mechanics / SyntheticPatient: seven modes, 17 constrained numeric parameters, draft editing/atomic confirmation, alarms/limits, holds, circuit faults, patient monitoring, ABG, scalars/loops, feedback and 13 scenario selections. Full patient/stretcher/circuit/monitor is procedural SVG with lung volume/oxygenation response.
+- Pediatric ventilation uses scenario weight instead of adult PBW, including dead space and mL/kg reporting.
+- Mobile equipment uses Patient / Ventilator / Waveforms / Feedback tabs; global duplicate Scene/context tabs removed for equipment.
+- Graphics failure contained; mobile DPR capped at 1.25; offscreen/hidden drawing paused; waveform observers no longer rebuild at each UI pulse; owned 3D geometry/materials explicitly disposed and per-frame vector/color allocation reduced.
+- Existing video feeds/providers/manufacturer resources preserved. npm scripts avoid unsupported tsx CLI IPC in this runtime. CI includes pinned Python/NumPy setup for asset validation.
 
 ## CURRENT SLICE
-Responsive repairs implemented and locally tested. Built-application visual QA is externally blocked. Preserve as draft PR; do not merge.
+Implementation checkpoint persisted in draft PR. Local source tests/build are green. CI for the expansion is running; inspect current PR check status. Production-build visual QA remains externally blocked; do not merge.
 
 ## NEXT SLICE
-Verify repaired shell in a browser that can reach a development build; reproduce mobile Learn across the requested widths before calling it fixed. Then guided disease/camera work and simulator expansion.
+Use a permitted browser-accessible feature build with WebGL and viewport control for the requested visual/touch matrix. Compare the actual UI, anatomy, Learn animation and equipment simulator to Simplify & Focus; fix findings on this branch. This is the remaining release gate, not a new initial audit.
 
 ## OPEN BUGS
-- Baseline header collision: source repair implemented, AFTER visual verification blocked.
-- Home mode dead-end: repaired and DOM-tested; full mobile bug reproduction and real-device verification still required.
-- Renderer failure: contained in source and tested; graphics-capable browser QA still required.
-- Drawer replaces phone/tablet strip in source; native Escape/Tab behavior not yet browser-tested.
-- Core touch-size CSS implemented; full viewport hitbox audit is not yet run.
+- Baseline header collision: repaired in source; AFTER visual confirmation missing.
+- Mobile Learn dead-end/state bug: repaired/tested in DOM; original mobile browser failure has not been independently reproduced at exact widths or touch-verified.
+- Renderer root crash: contained in source/tests; graphics-capable scene quality unverified.
+- Native drawer Escape/Tab/focus behavior, actual scroll containment, tap hitboxes, contrast and overflow need built-app browser verification.
+- Atlas/vent patient and reproductive/pediatric anatomy fidelity, equipment hierarchy and teaching animation quality require actual rendered-app review. Schematics are not realistic replacement 3D models.
+- Source has broad coverage; physiological intensity is illustrative, not a validated clinical predictor. Do not equate registry/tests with clinical validation.
 
 ## RESPONSIVE QA STATUS
-Live desktop baseline inspected at browser default 1363x930. None of the required exact viewport classes passed. No unsupported resize/CDP methods used.
+Live baseline Home/Skills inspected at default 1363x930 only. Exact 1440x900, 1920x1080, 1280x800, 1024x768, 768x1024, 430x932, 390x844, 360x800 and 320px-wide matrix NOT signed off. Phone/tablet navigation, atlas transport/bookmarks, mechanism destinations and equipment interaction states are DOM-tested; no visual/layout measurements are claimed.
 
 ## SCREENSHOTS CAPTURED
-docs/qa/completion-20261008/home-desktop-before.jpg and skills-desktop-before.jpg (live baseline at 1363x930). UI_FINAL_REVIEW.md records inspection and missing AFTER/matrix evidence.
+- docs/qa/completion-20261008/home-desktop-before.jpg
+- docs/qa/completion-20261008/skills-desktop-before.jpg
+- docs/qa/completion-20261008/atlas-static-review.png: six procedural diagrams, visibly labeled STATIC / NOT BROWSER QA.
+See UI_FINAL_REVIEW.md. Required AFTER Home/Learn/Explore/Practice/Videos/Skills/vent/disease desktop/mobile screenshots remain missing.
 
 ## DISEASE VISUALIZATION COVERAGE
-Existing respiratory, neuro, cardiac, abdominal and metabolic scenes inspected in source only. Broad disease registry and coverage expansion NOT implemented in this completion phase.
+84 definitions: 48 adult, 19 pediatric/neonatal, 17 Women’s/OB. All requested adult respiratory, cardiovascular, neuro, shock/trauma and metabolic/toxicology conditions have state-driven schematic mechanisms, Explore and decision cases; no coming-soon entries. PCOS/endometriosis, normal maternal/fetal physiology and major OB emergencies included. See DISEASE_ATLAS_COVERAGE.md for exact inventory. Every condition’s actual affected-anatomy destination is DOM-tested; each diagram changes geometry/flow with progression. All semantic target references resolve.
 
 ## VENT SIMULATOR STATUS
-Existing VentSession/Mechanics, scenarios, scalars, loops and simulation are present. Equipment-style simulator and requested new scenario coverage NOT implemented in this phase.
+Seven existing-engine modes: VC, PC, PSV, SIMV, PRVC, CPAP, APRV. Equipment scenarios: ARDS, severe asthma, COPD/auto-PEEP, cardiogenic edema, pneumonia, tension pneumothorax, post-intubation hypotension, high peak/normal plateau, high peak/high plateau, tube obstruction, circuit leak, disconnection, pediatric asthma (20 kg). Tests demonstrate confirmed tidal-volume response, ARDS recruitment, asthma expiratory emptying/auto-PEEP, circuit loss/reconnection and valid initial settings. Equipment scene is procedural SVG, not yet visually signed off. Original guided intubation cases remain available from the simulator.
 
 ## TEST STATUS
-npm test: 439 passed / 51 files. npm run typecheck: passed. npm run audio:audit: complete, all gate lists empty. npm run site: passed. tools/validate_visual_assets.py: passed. No repaired-build browser or a11y visual sign-off.
+Latest local: npm test 748/748, 54 files; npm run typecheck passed; npm run audio:audit complete with all eight gate lists empty; npm run site passed; tools/validate_visual_assets.py passed. Production JS 2.56 MB uncompressed, self-contained index 28.12 MB. Existing build is IIFE; lazy React components defer mounting/assets but do NOT provide network JS splitting. Build output stays separate from source commit while merge gates are open.
 
 ## CI STATUS
-Source repairs published on the feature branch through the GitHub connector. Draft PR/checks pending. Added Clinical app validation workflow (test/typecheck/audio audit/site/asset validation). Current main Pages/source CI succeeded. Do not merge without all implementation and visual gates.
+Earlier shell/CI commit d3764dc had Clinical app validation and Audio Mastery CI green. Expansion ea45a7c triggers Clinical app validation run 37774717443 and Audio Mastery CI run 37774717426; both were in progress at checkpoint creation. Check latest head/runs; fix any failures. Draft PR #27 remains unmerged.
 
 ## EXTERNAL BLOCKERS
-- Cloud browser WebGL is disabled (GL_VENDOR/GL_RENDERER=Disabled). Opening Respiratory on the deployed baseline produces WebGL context error and a blank React root.
-- Cloud browser cannot reach local 127.0.0.1:8765 (connection refused; separate runtime).
-- Browser file:// navigation is explicitly blocked by browser policy. Do not attempt workarounds, raw CDP, alternate browser surfaces, or indirect file execution.
-- Supported browser API advertises no viewport/emulation capability. Exact responsive matrix cannot currently be performed with this browser.
+- Cloud browser WebGL disabled: GL_VENDOR/GL_RENDERER=Disabled; deployed baseline fails creating its context.
+- Cloud browser cannot reach shell-local 127.0.0.1:8765: connection refused, separate runtime. Local server/build working is not a browser preview.
+- Browser file:// navigation explicitly prohibited. Do not try raw CDP, alternate browser surfaces or indirect file execution as workarounds.
+- Supported browser API advertises no viewport/emulation controls. Exact matrix cannot be run in this browser.
 
-User authorizes implementation and merge only AFTER all completion gates. Draft PR is permitted; no production merge while these gates remain unverified.
+User authorizes merge only AFTER full implementation and visual gates. Keep draft; do not merge, publish the generated bundle or call the assignment complete while these checks remain unverified.
