@@ -187,7 +187,7 @@ function Camera({ view, revision, child }: { view: View; revision: number; child
     if (!c) return;
     if (view === 'airway') c.setLookAt(.0,1.8,-.55,-1.2,.84,-1.35,true);
     else if (view === 'lungs') c.setLookAt(1.1,2.7,.7,-1.2,child?.7:.8,child?-.9:-1.25,true);
-    else if (view === 'ventilator') c.setLookAt(4.58,2.02,5.41,1.6,.16,.32,true);
+    else if (view === 'ventilator') c.setLookAt(5.62,2.67,7.19,1.6,.16,.32,true);
     else { const distance=Math.max(1,1.25/(size.width/size.height)); c.setLookAt(4.0*distance,5.8*distance,6.1*distance,0,.45,0,true); }
   },[view,revision,child,size.width,size.height]);
   return <CameraControls
