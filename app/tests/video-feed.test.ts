@@ -44,7 +44,7 @@ describe('critical-care video feed', () => {
   });
 
   it('keeps every device-first skills shelf populated', () => {
-    const required = ['ventilators','infusion','chest-drains','evd-icp','arterial-lines','central-lines','hfnc','iabp','ecmo'] as const;
+    const required = ['ventilators','infusion','chest-drains','evd-icp','arterial-lines','central-lines','hfnc','iabp','ecmo','monitor-defib'] as const;
     for (const skill of required) {
       expect(VIDEO_LIBRARY.filter((video) => video.reviewStatus === 'listed' && videoMatchesSkill(video, skill)).length).toBeGreaterThan(0);
     }
@@ -68,6 +68,28 @@ describe('critical-care video feed', () => {
     expect(canAutoplayInFeed(embedded)).toBe(true);
   });
 
+  it('ships official resources for priority critical-care manufacturers', () => {
+    const requiredManufacturers = ['B. Braun','Eitan Medical','F&P Healthcare','Hamilton Medical','ZOLL','Stryker','Getinge','Medtronic'];
+    for (const manufacturer of requiredManufacturers) {
+      const resources = VIDEO_LIBRARY.filter((video) =>
+        video.reviewStatus === 'listed'
+        && video.sourceClass === 'manufacturer'
+        && video.channel === manufacturer
+      );
+      expect(resources.length, manufacturer).toBeGreaterThan(0);
+      expect(resources.some((video) => videoSourceUrl(video).startsWith('https://'))).toBe(true);
+    }
+  });
+
+  it('keeps autoplay feed content playable even as external manufacturer resources grow', () => {
+    const external = VIDEO_LIBRARY.find((video) => video.id === 'hamilton-t1-official-training-hub')!;
+    const youtubeManufacturer = VIDEO_LIBRARY.find((video) => video.id === 'airvo2-setup-official')!;
+    expect(canAutoplayInFeed(external)).toBe(false);
+    expect(videoProvider(external)).toBe('external');
+    expect(canAutoplayInFeed(youtubeManufacturer)).toBe(true);
+    expect(videoProvider(youtubeManufacturer)).toBe('youtube');
+  });
+
   it('routes device and procedure videos into useful skill collections', () => {
     const chestTube = VIDEO_LIBRARY.find((video) => video.id === 'lecturio-nursing-chest-tube')!;
     const ivStart = VIDEO_LIBRARY.find((video) => video.id === 'lecturio-nursing-iv-start')!;
@@ -77,5 +99,11 @@ describe('critical-care video feed', () => {
     expect(videoMatchesSkill(ivStart, 'iv-vascular')).toBe(true);
     expect(videoMatchesSkill(trach, 'airway-trach')).toBe(true);
     expect(videoMatchesSkill(ng, 'tubes')).toBe(true);
+    const lifepak = VIDEO_LIBRARY.find((video) => video.id === 'stryker-lifepak15-training-hub')!;
+    const ltv = VIDEO_LIBRARY.find((video) => video.id === 'zoll-ltv-resources')!;
+    const cardiohelp = VIDEO_LIBRARY.find((video) => video.id === 'getinge-cardiohelp-howto')!;
+    expect(videoMatchesSkill(lifepak, 'monitor-defib')).toBe(true);
+    expect(videoMatchesSkill(ltv, 'ventilators')).toBe(true);
+    expect(videoMatchesSkill(cardiohelp, 'ecmo')).toBe(true);
   });
 });
