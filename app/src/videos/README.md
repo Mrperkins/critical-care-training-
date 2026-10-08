@@ -82,3 +82,18 @@ For manufacturer sources:
 4. use `external` when no stable embed is provided;
 5. use `html5` or `embed` only when the publisher exposes a public, authorized media/embed URL;
 6. keep manufacturer IFU/documentation review as the final authority for setup and operation.
+
+
+## Priority manufacturer libraries
+
+The current manufacturer catalog prioritizes critical-care transport and high-acuity bedside devices:
+- B. Braun — Infusomat / Perfusor Space
+- Eitan Medical — Sapphire infusion pumps
+- Fisher & Paykel Healthcare — AIRVO 2 / Optiflow
+- Hamilton Medical — HAMILTON-T1 transport ventilation
+- ZOLL — Z Vent and LTV respiratory care
+- Stryker — LIFEPAK 15 monitor/defibrillator
+- Getinge — Cardiosave IABP and Cardiohelp ECMO
+- Medtronic — VitalFlow ECMO
+
+Autoplay-oriented feed modes must contain only `canAutoplayInFeed(video) === true` items. External manufacturer resources belong in Skills and Browse so official training can grow without inserting non-playable cards into the normal For You / Shorts / Deep Dives playback flow.
