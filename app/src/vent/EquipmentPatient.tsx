@@ -7,9 +7,14 @@
  */
 import { useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
-import { useFrame } from '@react-three/fiber';
+import { useFrame, useThree } from '@react-three/fiber';
 import { CameraControls } from '@react-three/drei';
 import { loadBodyAsset, type BodyAsset } from '../asset/body';
+import { loadMeshes } from '../asset/gltf';
+
+declare global { interface Window { __AIRWAY_GLB__?: string } }
+let airwayCache: Promise<Record<string,THREE.Mesh>> | null = null;
+const loadAirway = () => airwayCache ??= loadMeshes(window.__AIRWAY_GLB__, 'models/bedside-airway.glb').catch(e=>{airwayCache=null;throw e;});
 import { StudioCanvas } from '../scene/Studio';
 import { session } from './session';
 import { ventNumbers } from './numbers';
@@ -59,8 +64,8 @@ function Bed({ child }: { child: boolean }) {
   </group>;
 }
 
-function BreathingLung({ body, id, side, focus }: {
-  body: BodyAsset; id: string; side: 0 | 1; focus: () => void;
+function BreathingLung({ body, id, side, focus, revealAirway }: {
+  body: BodyAsset; id: string; side: 0 | 1; focus: () => void; revealAirway: boolean;
 }) {
   const centre = body.mapping.centres[id] ?? [0,4.9,0];
   const geometry = useMemo(
@@ -70,6 +75,7 @@ function BreathingLung({ body, id, side, focus }: {
   const material = useMemo(() => new THREE.MeshPhysicalMaterial({
     color:LUNG, roughness:.67, clearcoat:.14, transparent:true, opacity:.94, depthWrite:true,
   }), []);
+  useEffect(()=>{material.opacity=revealAirway?.18:.94;material.depthWrite=!revealAirway;},[material,revealAirway]);
   const mesh = useRef<THREE.Mesh>(null);
   useEffect(() => () => { geometry.dispose(); material.dispose(); }, [geometry,material]);
   useFrame((_,dt) => {
@@ -93,19 +99,20 @@ function BreathingLung({ body, id, side, focus }: {
   />;
 }
 
-function AnatomicalPatient({ body, child, focus, transparent }: {
-  body: BodyAsset; child: boolean; focus: () => void; transparent: boolean;
+function AnatomicalPatient({ body, child, focus, transparent, airway }: {
+  body: BodyAsset; child: boolean; focus: () => void; transparent: boolean; airway: Record<string,THREE.Mesh> | null;
 }) {
-  const factor = child ? .30 : .42;
+  const factor = child ? .18 : .245;
   const ids = ['heart','brain','aorta','vena_cava'];
-  return <group position={[-1.2,.49,0]} rotation={[-Math.PI/2,0,0]} scale={factor}>
-    <group position={[0,-4.6,0]}>
+  return <group position={[-1.2,child?.64:.74,0]} rotation={[-Math.PI/2,0,0]} scale={factor}>
+    <group position={[0,0,0]}>
       {body.meshes.skin && <mesh geometry={body.meshes.skin.geometry} dispose={null}>
         <meshPhysicalMaterial color={SKIN} transparent={transparent} opacity={transparent?.25:1} depthWrite={!transparent} roughness={.79} side={THREE.DoubleSide} />
       </mesh>}
       {(['lung_R','lung_L'] as const).map((id,index) => body.meshes[id]
-        ? <BreathingLung key={id} id={id} body={body} side={index as 0|1} focus={focus} />
+        ? <BreathingLung key={id} id={id} body={body} side={index as 0|1} focus={focus} revealAirway={!!airway} />
         : null)}
+      {airway && ['airway','cartilage'].map(id=>airway[id] && <mesh key={id} geometry={airway[id].geometry} material={airway[id].material} onClick={focus} dispose={null} />)}
       {ids.map(id => body.meshes[id]
         ? <mesh key={id} geometry={body.meshes[id].geometry} dispose={null}>
           <meshStandardMaterial color={id==='heart'?'#965260':id==='brain'?'#a78693':'#86565e'} roughness={.72} />
@@ -140,7 +147,7 @@ function BedsideMonitor() {
 
 function Tubing({ disconnected, child, onToggle }: { disconnected: boolean; child: boolean; onToggle: () => void }) {
   // Path from the ventilator inspiratory limb to the Y-piece, then to the ETT.
-  const offset = child ? .52 : .90;
+  const offset = child ? 1 : 1.2;
   const pts = useMemo(() => [
     new THREE.Vector3(1.12,1.43,.64),
     new THREE.Vector3(.85,1.7,.9),
@@ -172,15 +179,16 @@ function Tubing({ disconnected, child, onToggle }: { disconnected: boolean; chil
   </group>;
 }
 
-function Camera({ view, revision }: { view: View; revision: number }) {
+function Camera({ view, revision, child }: { view: View; revision: number; child: boolean }) {
+  const { size } = useThree();
   const controls = useRef<CameraControls>(null);
   useEffect(() => {
     const c = controls.current;
     if (!c) return;
-    if (view === 'lungs') c.setLookAt(1.5,3.1,2.3,-1.2,.54,-.25,true);
+    if (view === 'lungs') c.setLookAt(1.1,2.7,.7,-1.2,child?.7:.8,child?-.9:-1.25,true);
     else if (view === 'ventilator') c.setLookAt(3.5,2.45,3,1.4,1.25,.2,true);
-    else c.setLookAt(4.0,5.8,6.1,0,.45,0,true);
-  },[view,revision]);
+    else { const distance=Math.max(1,1.25/(size.width/size.height)); c.setLookAt(4.0*distance,5.8*distance,6.1*distance,0,.45,0,true); }
+  },[view,revision,child,size.width,size.height]);
   return <CameraControls
     ref={controls} makeDefault minDistance={1.1} maxDistance={15}
     dollySpeed={.45} truckSpeed={.35} smoothTime={.55}
@@ -193,12 +201,16 @@ export function EquipmentPatient({ onCircuitChange, onVentilator }: { onCircuitC
   const [view,setView]=useState<View>('bedside');
   const [revision,setRevision]=useState(0);
   const [transparent,setTransparent]=useState(true);
+  const [airway,setAirway]=useState<Record<string,THREE.Mesh>|null>(null);
+  const [airwayError,setAirwayError]=useState(false);
+  const [revealAirway,setRevealAirway]=useState(false);
   const focus=(v:View)=>{setView(v);setRevision(r=>r+1);};
   useEffect(() => {
     let active=true;
     loadBodyAsset().then(asset=>{if(active)setBody(asset);}).catch(()=>{if(active)setError(true);});
     return ()=>{active=false;};
   },[]);
+  useEffect(()=>{let active=true;loadAirway().then(a=>{if(!a.airway||!a.cartilage)throw new Error('Missing airway surfaces');if(active)setAirway(a);}).catch(()=>{if(active)setAirwayError(true);});return()=>{active=false;};},[]);
   const n=ventNumbers(session), g=session.snap;
   const disconnected=session.circuitFault==='disconnect'||session.circuitFault==='both';
   const child=session.pt.p.age<18;
@@ -212,11 +224,11 @@ export function EquipmentPatient({ onCircuitChange, onVentilator }: { onCircuitC
       {body
         ? <StudioCanvas camera={{position:[4,5,6],fov:39}} fog={false} label="Interactive 3D ventilated patient, bed, circuit and medical equipment">
             <Bed child={child} />
-            <AnatomicalPatient body={body} child={child} transparent={transparent} focus={()=>focus('lungs')} />
+            <AnatomicalPatient body={body} child={child} transparent={transparent} airway={!child&&revealAirway?airway:null} focus={()=>focus('lungs')} />
             <EquipmentCabinet onFocus={()=>focus('ventilator')} />
             <BedsideMonitor />
             <Tubing child={child} disconnected={disconnected} onToggle={toggleCircuit} />
-            <Camera view={view} revision={revision} />
+            <Camera view={view} revision={revision} child={child} />
           </StudioCanvas>
         : <p className="loading" role="status">{error
           ? 'The licensed 3D patient mesh could not load. Check the anatomy asset and retry.'
@@ -226,8 +238,10 @@ export function EquipmentPatient({ onCircuitChange, onVentilator }: { onCircuitC
       {(['bedside','lungs','ventilator'] as const).map(v=>
         <button key={v} className={view===v?'act primary':'act'} aria-pressed={view===v}
           onClick={()=>focus(v)}>{v==='bedside'?'Whole bedside':v==='lungs'?'Focus lungs':'Inspect ventilator'}</button>)}
-      <button className="act" aria-pressed={transparent} onClick={()=>setTransparent(v=>!v)}>{transparent?'Show skin surface':'Reveal organs'}</button>
+      <button className="act" aria-pressed={transparent} onClick={()=>{setTransparent(v=>!v);setRevealAirway(false);}}>{transparent?'Show skin surface':'Reveal organs'}</button>
+    {!child && <button className="act" aria-pressed={revealAirway} disabled={!airway} onClick={()=>{setRevealAirway(v=>!v);setTransparent(true);focus('lungs');}}>{airwayError?'Airway model unavailable':!airway?'Loading airway…':revealAirway?'Hide airway anatomy':'Inspect airway anatomy'}</button>}
     </div>
+    {revealAirway&&!child&&<p className="muted small">Adult trachea, branching bronchi and cartilage · lungs are translucent for inspection. Airway surfaces show reference anatomy; bronchospasm is represented by the physiology and waveforms.</p>}
     <p className="muted small">Drag to orbit · pinch or scroll to zoom · tap the green/red circuit connector to disconnect or reconnect. Camera buttons restore their views.</p>
     <div className="actions"><button className="act" onClick={toggleCircuit}>{disconnected?'Reconnect 3D circuit':'Disconnect 3D circuit'}</button><button className="act" onClick={onVentilator}>Operate ventilator controls</button></div>
     {child && <p className="muted small">Pediatric scenario · {session.pt.p.weightKg} kg. The available whole-body 3D mesh is adult-derived and scaled; it is not a pediatric anatomical reference.</p>}
@@ -238,6 +252,6 @@ export function EquipmentPatient({ onCircuitChange, onVentilator }: { onCircuitC
       <div><dt>EtCO₂</dt><dd>{Math.round(g.etco2)} mmHg</dd></div>
     </dl>
     <p className="muted small">3D lung motion follows live simulated regional volume and collapse. Monitor values, ventilator controls and circuit faults share one physiology session. Motion is amplified for teaching and is not a validated bedside prediction.</p>
-    {body && <p className="credit">3D patient anatomy: {body.mapping.attribution.creators} · <a href={body.mapping.attribution.licenseUrl} target="_blank" rel="noreferrer">{body.mapping.attribution.license}</a>. The ventilator, stretcher and circuit are original 3D training models. <span className="sr-only">Vte {Math.round(n.vte)} mL</span></p>}
+    {body && <p className="credit">3D patient anatomy: {body.mapping.attribution.creators} · <a href={body.mapping.attribution.licenseUrl} target="_blank" rel="noreferrer">{body.mapping.attribution.license}</a>. Airway: HRA Visible Human Male, CC BY 4.0. The ventilator, stretcher and circuit are original 3D training models. <span className="sr-only">Vte {Math.round(n.vte)} mL</span></p>}
   </div>;
 }

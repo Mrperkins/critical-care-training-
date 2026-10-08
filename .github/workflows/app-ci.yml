@@ -42,6 +42,10 @@ jobs:
           path: app/dist/pub
           retention-days: 7
   bedside-browser-qa:
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox, webkit]
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -55,14 +59,17 @@ jobs:
           cache-dependency-path: app/package-lock.json
       - run: npm ci
       - run: npm run build
-      - run: npx playwright install --with-deps chromium
+      - run: npx playwright install --with-deps ${{ matrix.browser }}
       - name: Test desktop, tablet and phone bedside simulation
+        env:
+          QA_BROWSER: ${{ matrix.browser }}
+          QA_HEADED: 1
         run: |
           python3 -m http.server 8765 --directory dist > /tmp/bedside-preview.log 2>&1 &
-          node scripts/vent-browser-qa.cjs
+          xvfb-run --auto-servernum node scripts/vent-browser-qa.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: bedside-browser-qa
+          name: bedside-browser-qa-${{ matrix.browser }}
           path: app/browser-qa
           retention-days: 7

@@ -1,15 +1,18 @@
 /** Independent Chromium QA of the built application. Produces reviewable WebGL screenshots. */
-const { chromium } = require('@playwright/test');
+const { chromium, firefox, webkit } = require('@playwright/test');
+const engine=process.env.QA_BROWSER || 'chromium';
+const browserType={chromium,firefox,webkit}[engine];
+if(!browserType) throw new Error('Unknown QA_BROWSER '+engine);
 const { mkdirSync, writeFileSync } = require('node:fs');
 const assert = require('node:assert/strict');
 const out = 'browser-qa';
 mkdirSync(out, { recursive: true });
 (async () => {
-  const browser = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
+  const browser = await browserType.launch(engine==='chromium'?{args:['--use-angle=swiftshader','--enable-unsafe-swiftshader']}:{headless:process.env.QA_HEADED!=='1'});
   const results=[];
   try {
     for (const [width,height] of [[1440,1000],[1024,900],[390,844],[320,740]]) {
-      const page = await browser.newPage({ viewport:{width,height}, deviceScaleFactor:1 });
+      const page = await browser.newPage({ viewport:{width,height}, deviceScaleFactor:1, hasTouch:width<=1024 });
       const errors=[]; page.on('pageerror',e=>errors.push(e.message));
       try {
         await page.goto('http://127.0.0.1:8765/?module=vent&mode=sim');
@@ -21,6 +24,11 @@ mkdirSync(out, { recursive: true });
         await page.getByRole('button',{name:'Focus lungs',exact:true}).click();
         await page.waitForTimeout(1800); // camera's damped transition, not an assertion delay
         await page.screenshot({path:`${out}/${width}-lungs.png`});
+        await page.getByRole('button',{name:'Inspect airway anatomy',exact:true}).click();
+        await page.waitForTimeout(1800);
+        const frames=await page.evaluate(()=>new Promise(resolve=>{let count=0;const start=performance.now();const sample=()=>{count++;if(performance.now()-start<2000)requestAnimationFrame(sample);else resolve({fps:+(count*1000/(performance.now()-start)).toFixed(1)});};requestAnimationFrame(sample);}));
+        await page.screenshot({path:`${out}/${width}-airway.png`});
+        await page.getByRole('button',{name:'Hide airway anatomy',exact:true}).click();
         await page.getByRole('button',{name:'Whole bedside',exact:true}).click();
         await page.waitForTimeout(1800);
         await page.screenshot({path:`${out}/${width}-bedside.png`});
@@ -52,14 +60,14 @@ mkdirSync(out, { recursive: true });
         await page.getByRole('button',{name:'Record reassessment',exact:true}).click();
         assert.ok(await page.getByText('Scenario debrief · 1 observations').isVisible());
         await page.locator('.equipment-reassessment').scrollIntoViewIfNeeded();
-        await page.screenshot({path:`${out}/${width}-debrief.png`});
+        await page.screenshot({path:`${out}/${width}-debrief.png`,fullPage:true});
         const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1);
         assert.equal(overflow,false,`horizontal page overflow at ${width}`);
         assert.deepEqual(errors,[],`runtime errors at ${width}`);
-        results.push({width,height,passed:true});
+        results.push({engine,width,height,passed:true,frameScheduling:frames});
       } catch(e) {
         await page.screenshot({path:`${out}/${width}-failure.png`});
-        results.push({width,height,passed:false,error:String(e),runtimeErrors:errors});
+        results.push({engine,width,height,passed:false,error:String(e),runtimeErrors:errors});
       }
       await page.close();
     }
