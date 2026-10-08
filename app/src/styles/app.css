@@ -1334,3 +1334,6 @@ button.lchip.ldot.q-hint{border-color:var(--gold)!important;animation:qpulse 1s 
 @media(max-width:1024px){.app[data-equipment=true] .workspace{grid-template-rows:auto minmax(0,1fr)}}
 
 .home-recent{padding:4px 0 18px}.home-recent h3{font-size:17px;margin:0 0 8px}.home-recent button{display:flex;justify-content:space-between;gap:16px;text-align:left;min-height:48px;width:100%;border:0;border-bottom:1px solid #19303e;background:transparent;color:var(--ink);padding:12px 0;cursor:pointer}.home-recent small{color:var(--dim);white-space:nowrap}
+
+/* Phone diagrams prioritize anatomy; readable HTML captions/findings carry the duplicate SVG labels. */
+@media(max-width:430px){.atlas-visual>svg text{display:none}}

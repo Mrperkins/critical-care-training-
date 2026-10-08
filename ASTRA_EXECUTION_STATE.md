@@ -6,7 +6,7 @@ Read this file first. The initial audit is complete; continue from the implement
 feat/clinical-completion-20261008. Draft PR #27: https://github.com/Mrperkins/critical-care-training-/pull/27
 
 ## CURRENT COMMIT
-Latest verified implementation: ea45a7c91817a71b6f25fc275e7a83a619343024. Earlier shell/CI repairs: d3764dcd1b2c82a13d66660eceab5226e3b6c909. Consult `git rev-parse HEAD` for a subsequent documentation checkpoint. Remote implementation tree equals the locally tested tree (37f0f0c6fede093ef6439b03138b1060f9fac917).
+Disease/vent implementation: ea45a7c91817a71b6f25fc275e7a83a619343024. Subsequent navigation/phone-label polish belongs to CURRENT BRANCH HEAD; use `git rev-parse HEAD` for the full current SHA. Earlier shell/CI repairs: d3764dcd1b2c82a13d66660eceab5226e3b6c909. Consult `git rev-parse HEAD` for a subsequent documentation checkpoint. Remote implementation tree equals the locally tested tree (37f0f0c6fede093ef6439b03138b1060f9fac917).
 
 ## LATEST VERIFIED LIVE DEPLOY
 Main and generated Pages SHA: 1e5aee3a16bd2d6ab547be9af3c4892f4cf50347, reconfirmed via GitHub on 2026-10-08. Parent source: 809a92c7f7f9bd54a49e23fe3291dc59ee47a7bc. Existing Pages run 37753798843 succeeded. Live Home and Videos/Skills used in the cloud browser. Feature implementation has NOT been merged or deployed.
@@ -25,7 +25,7 @@ Iteration 1, Simplify & Focus, inspected from the supplied ASTRA redesign board.
 - Sixteen atlas conditions integrate exact, shipped real imaging comparators through existing RealCaseCard; provenance and attribution remain. No new external media assets added. Clinical review packet includes 420 atlas mechanism/distinction/decision rows.
 - Equipment simulator reuses VentSession / Mechanics / SyntheticPatient: seven modes, 17 constrained numeric parameters, draft editing/atomic confirmation, alarms/limits, holds, circuit faults, patient monitoring, ABG, scalars/loops, feedback and 13 scenario selections. Full patient/stretcher/circuit/monitor is procedural SVG with lung volume/oxygenation response.
 - Pediatric ventilation uses scenario weight instead of adult PBW, including dead space and mL/kg reporting.
-- Mobile equipment uses Patient / Ventilator / Waveforms / Feedback tabs; global duplicate Scene/context tabs removed for equipment.
+- Mobile equipment uses Patient / Ventilator / Waveforms / Feedback tabs; global duplicate Scene/context tabs removed for equipment. Atlas Practice uses one decision experience rather than a duplicate Cases/Simulator switch. On small phones, readable HTML captions/findings replace scaled SVG annotation text.
 - Graphics failure contained; mobile DPR capped at 1.25; offscreen/hidden drawing paused; waveform observers no longer rebuild at each UI pulse; owned 3D geometry/materials explicitly disposed and per-frame vector/color allocation reduced.
 - Existing video feeds/providers/manufacturer resources preserved. npm scripts avoid unsupported tsx CLI IPC in this runtime. CI includes pinned Python/NumPy setup for asset validation.
 
@@ -62,7 +62,7 @@ Seven existing-engine modes: VC, PC, PSV, SIMV, PRVC, CPAP, APRV. Equipment scen
 Latest local: npm test 748/748, 54 files; npm run typecheck passed; npm run audio:audit complete with all eight gate lists empty; npm run site passed; tools/validate_visual_assets.py passed. Production JS 2.56 MB uncompressed, self-contained index 28.12 MB. Existing build is IIFE; lazy React components defer mounting/assets but do NOT provide network JS splitting. Build output stays separate from source commit while merge gates are open. Local generated index.html, sw.js, audio production queue and review packets are intentionally uncommitted; app/dist/pub is the tested production output and CI uploads that build as an artifact.
 
 ## CI STATUS
-Expansion ea45a7c: Clinical app validation run 37774717443 and Audio Mastery CI run 37774717426 both completed successfully. Documentation checkpoint f91e27e triggered runs 37775146567 / 37775146729, in progress at last observation. Source remains identical to the tested implementation. Check latest PR head/runs; fix any failures. Draft PR #27 remains unmerged.
+Expansion ea45a7c: Clinical app validation run 37774717443 and Audio Mastery CI run 37774717426 both completed successfully. Later documentation/navigation commits trigger the same workflows again. Check latest PR head/runs; fix any failures. Draft PR #27 remains unmerged.
 
 ## EXTERNAL BLOCKERS
 - Cloud browser WebGL disabled: GL_VENDOR/GL_RENDERER=Disabled; deployed baseline fails creating its context.

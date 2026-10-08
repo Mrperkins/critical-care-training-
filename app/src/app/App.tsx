@@ -137,7 +137,7 @@ export function App() {
             <div><div className="eyebrow">{domain.eyebrow}</div><div className="workspace-title">{module === 'curriculum' ? 'What do you want to learn?' : module === 'videos' ? 'Critical Care Videos' : domain.label}</div></div>
             <p>{module === 'curriculum' ? 'Continue where you left off, choose a domain, or jump into a focused practice session.' : module === 'videos' ? 'Browse critical-care Shorts and long-form teaching by category, device, task and level.' : experienceCopy[experience]}</p>
             {atlasDomain && !showingAtlas && <AtlasEntry domain={atlasDomain} onOpen={() => useUI.getState().set({atlasDisease:conditionsFor(atlasDomain)[0].id})} />}
-            {experience === 'practice' && module !== 'curriculum' && module !== 'videos' && <div className="practice-switch" role="group" aria-label="Practice type">
+            {experience === 'practice' && module !== 'curriculum' && module !== 'videos' && !showingAtlas && <div className="practice-switch" role="group" aria-label="Practice type">
               <button className={mode === 'challenge' ? 'on' : ''} onClick={() => useUI.getState().set({ mode: 'challenge' })}>Cases</button>
               <button className={mode === 'sim' ? 'on' : ''} onClick={() => useUI.getState().set({ mode: 'sim' })}>Simulator</button>
             </div>}

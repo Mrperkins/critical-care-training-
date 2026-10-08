@@ -121,6 +121,7 @@ describe('phone navigation interactions', () => {
     expect(container.textContent).toContain('Start 4-step lesson');
     await click('Explore'); expect(useUI.getState().module).toBe(module); expect(container.querySelector('.atlas-range input')).toBeTruthy();
     await click('Practice'); expect(useUI.getState().module).toBe(module); expect(container.querySelectorAll('.atlas-decisions button')).toHaveLength(3);
+    expect(container.querySelector('[aria-label="Practice type"]')).toBeNull();
     await act(async () => container.querySelector<HTMLButtonElement>('.atlas-decisions button')!.click());
     expect(container.textContent).toContain('Replay decision'); expect(container.querySelector('.atlas-consequence')).toBeTruthy();
   });
