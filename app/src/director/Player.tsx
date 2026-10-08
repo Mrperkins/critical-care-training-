@@ -16,7 +16,9 @@ export function DirectorPlayer({ onExit }: { onExit?: () => void }) {
   return (
     <section className="card lesson director">
       {onExit && <button className="back" onClick={() => { director.unload(); onExit(); }}>← All lessons</button>}
-      <div className="eyebrow">{tl.title} · {Math.max(1, k + 1)}/{S.length}</div>
+      <div className="eyebrow">{tl.title}</div>
+      <p className="lesson-step-count">Step {Math.max(1, k + 1)} of {S.length}</p>
+      <progress className="lesson-progress" value={Math.max(0, t)} max={D || 1} aria-label="Lesson progress" />
       <h2 className="h2">{cur?.title ?? tl.title}</h2>
       <p className="say" aria-live="polite">{cur?.say ?? tl.blurb}</p>
       <div className="dir-track">
@@ -25,9 +27,9 @@ export function DirectorPlayer({ onExit }: { onExit?: () => void }) {
         <div className="dir-time"><span>{mmss(t)}</span><span className="muted">{holding ? 'waiting for narration…' : speaking ? 'narrating' : ''}</span><span>{mmss(D)}</span></div>
       </div>
       <div className="actions">
-        <button className="act" onClick={() => director.step(-1)} aria-label="Previous step">←</button>
+        <button className="act" onClick={() => director.step(-1)} aria-label="Previous step" disabled={k <= 0}>← Previous</button>
         <button className="act primary" onClick={() => director.toggle()}>{playing ? 'Pause' : t >= D - 0.01 ? 'Replay' : 'Play'}</button>
-        <button className="act" onClick={() => director.step(1)} aria-label="Next step">→</button>
+        <button className="act" onClick={() => director.step(1)} aria-label="Next step" disabled={k >= S.length - 1}>Next →</button>
         <button className={`act${muted ? '' : ' done'}`} onClick={() => director.setMuted(!muted)}>{muted ? 'Voice off' : 'Voice on'}</button>
         <button className="act" onClick={() => director.setRate(rate >= 2 ? 0.75 : rate + 0.25)}>{rate.toFixed(2).replace(/0$/, '')}×</button>
         {CATALOG_BY_ID[tl.id] && <BookmarkBtn id={tl.id} t={t} title={`${tl.title} · ${cur?.title ?? ''}`} />}

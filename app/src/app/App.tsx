@@ -1,6 +1,7 @@
 import { CurriculumModule } from '../curriculum/CurriculumModule';
 import { initProgressTracking } from '../curriculum/track';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { EXPERIENCES, experienceFor, selectExperience } from './experience';
 import { useUI, type Module, type Mode } from './store';
 import { session } from '../vent/session';
 import { loadRespAsset, type RespAsset } from '../asset/resp';
@@ -60,14 +61,7 @@ const DOMAINS: { module: Module; label: string; short: string; eyebrow: string }
   { module: 'neuro', label: 'Neuro', short: 'NR', eyebrow: 'Brain, perfusion & pressure' },
   { module: 'moa', label: 'Pharmacology', short: 'RX', eyebrow: 'Mechanism to whole patient' },
 ];
-type Experience = 'learn' | 'explore' | 'practice';
-const EXPERIENCE: { key: Experience; label: string }[] = [
-  { key: 'learn', label: 'Learn' },
-  { key: 'explore', label: 'Explore' },
-  { key: 'practice', label: 'Practice' },
-];
-const experienceFor = (mode: Mode): Experience => mode === 'challenge' || mode === 'sim' ? 'practice' : mode;
-const experienceCopy: Record<Experience, string> = {
+const experienceCopy: Record<ReturnType<typeof experienceFor>, string> = {
   learn: 'Guided lessons with a single clinical objective at a time.',
   explore: 'Manipulate physiology and inspect what changes.',
   practice: 'Cases and simulation that make you commit to a decision.',
@@ -80,29 +74,53 @@ export function App() {
   const domain = module === 'videos'
     ? { module: 'videos' as Module, label: 'Videos', short: 'VD', eyebrow: 'Curated clinical media' }
     : DOMAINS.find((d) => d.module === module) ?? DOMAINS[0];
-  const chooseExperience = (next: Experience) => {
-    if (next === 'practice') useUI.getState().set({ mode: mode === 'sim' ? 'sim' : 'challenge' });
-    else useUI.getState().set({ mode: next });
+  const [mobilePane, setMobilePane] = useState<'scene' | 'context'>('context');
+  const menu = useRef<HTMLDialogElement>(null);
+  const menuTrigger = useRef<HTMLButtonElement>(null);
+  const resources = useRef<HTMLDetailsElement>(null);
+  const chooseDomain = (next: Module) => {
+    useUI.getState().set({ module: next }); setMobilePane('context');
+    menu.current?.close(); resources.current?.removeAttribute('open');
   };
+  const chooseExperience = (next: typeof experience) => {
+    selectExperience(next); setMobilePane(next === 'explore' ? 'scene' : 'context'); resources.current?.removeAttribute('open');
+  };
+  useEffect(() => { setMobilePane(mode === 'explore' ? 'scene' : 'context'); }, [module, mode]);
+  useEffect(() => {
+    const close = (e: PointerEvent) => { if (resources.current && !resources.current.contains(e.target as Node)) resources.current.removeAttribute('open'); };
+    document.addEventListener('pointerdown', close); return () => document.removeEventListener('pointerdown', close);
+  }, []);
+  const domainItems = DOMAINS.map((d) => <button key={d.module} className={module === d.module ? 'on' : ''} onClick={() => chooseDomain(d.module)} aria-current={module === d.module ? 'page' : undefined}>
+    <span className="domain-short" aria-hidden="true">{d.short}</span><span className="domain-label">{d.label}</span>
+  </button>);
   return (
-    <div className={`app app-v2 m-${module}${phone ? ' phone' : ''}`}>
+    <div className={`app app-v2 m-${module}${phone ? ' phone' : ''}`} data-mobile-pane={mobilePane}>
       <a className="skip-link" href="#workspace" onClick={(e) => { e.preventDefault(); const el = document.getElementById('workspace'); el?.focus(); el?.scrollIntoView({ block: 'start' }); }}>Skip to learning workspace</a>
       <header className="topbar topbar-v2">
+        <button ref={menuTrigger} className="domain-menu-button" aria-label="Open clinical domains" aria-haspopup="dialog" onClick={() => menu.current?.showModal()}>☰</button>
         <button className="brand brand-home" onClick={() => useUI.getState().set({ module: 'curriculum' })} aria-label="Go to learning home">
           <Mark /><div><h1 className="b1">Critical Care</h1><div className="b2">see · understand · manipulate · apply</div></div>
         </button>
-        {module !== 'videos' ? <nav className="experience-nav" aria-label="Learning mode">
-          {EXPERIENCE.map((item) => <button key={item.key} className={experience === item.key ? 'on' : ''} onClick={() => chooseExperience(item.key)}>{item.label}</button>)}
-        </nav> : <div className="video-mode-label">Curated clinical media</div>}
-        <button className={`video-launch${module === 'videos' ? ' on' : ''}`} onClick={() => useUI.getState().set({ module: 'videos' })}><span className="video-launch-icon" aria-hidden="true">▶</span><span><b>Videos</b><small>Shorts + deep dives</small></span></button>
-        <a className="audio-launch" href="audio/"><span className="audio-icon" aria-hidden="true">♪</span><span><b>Audio</b><small>Expert tracks</small></span></a>
+        <nav className="experience-nav" aria-label="Learning mode">
+          {EXPERIENCES.map((item) => <button key={item.key} className={module !== 'curriculum' && module !== 'videos' && experience === item.key ? 'on' : ''} aria-pressed={module !== 'curriculum' && module !== 'videos' && experience === item.key} onClick={() => chooseExperience(item.key)}>{item.label}</button>)}
+        </nav>
+        <details className="resources-menu" ref={resources} onKeyDown={(e) => { if (e.key === 'Escape') { resources.current?.removeAttribute('open'); resources.current?.querySelector('summary')?.focus(); } }}>
+          <summary aria-label="Learning resources"><span aria-hidden="true">⋯</span><span className="resource-label">Resources</span></summary>
+          <nav aria-label="Learning resources">
+            <button onClick={() => chooseDomain('videos')}>Videos &amp; Skills</button>
+            <a href="audio/">Audio &amp; Mental Reps</a>
+            <button onClick={() => chooseDomain('curriculum')}>Progress &amp; bookmarks</button>
+          </nav>
+        </details>
       </header>
 
+      <dialog ref={menu} className="domain-dialog" aria-labelledby="domain-dialog-title" onClose={() => menuTrigger.current?.focus()} onClick={(e) => { if (e.target === e.currentTarget) menu.current?.close(); }}>
+        <div className="domain-dialog-header"><h2 id="domain-dialog-title">Clinical domains</h2><button aria-label="Close clinical domains" onClick={() => menu.current?.close()}>×</button></div>
+        <nav className="domain-drawer-list" aria-label="Choose a clinical domain">{domainItems}</nav>
+      </dialog>
       <div className="product-shell">
         <aside className="domain-rail" aria-label="Clinical domains">
-          {DOMAINS.map((d) => <button key={d.module} className={module === d.module ? 'on' : ''} onClick={() => useUI.getState().set({ module: d.module })} aria-current={module === d.module ? 'page' : undefined}>
-            <span className="domain-short" aria-hidden="true">{d.short}</span><span className="domain-label">{d.label}</span>
-          </button>)}
+          {domainItems}
         </aside>
 
         <div id="workspace" tabIndex={-1} className="workspace">
@@ -114,6 +132,10 @@ export function App() {
               <button className={mode === 'sim' ? 'on' : ''} onClick={() => useUI.getState().set({ mode: 'sim' })}>Simulator</button>
             </div>}
           </div>
+          {module !== 'curriculum' && module !== 'videos' && <nav className="mobile-workspace-tabs" aria-label="Workspace view">
+            <button aria-pressed={mobilePane === 'scene'} onClick={() => setMobilePane('scene')}>Scene</button>
+            <button data-context-button aria-pressed={mobilePane === 'context'} onClick={() => setMobilePane('context')}>{experience === 'learn' ? 'Lessons' : experience === 'practice' ? 'Cases & controls' : 'Patient & controls'}</button>
+          </nav>}
           {module === 'vent' && <VentModule />}
           {module === 'abg' && <AbgModule />}
           {module === 'labs' && <LabModule />}

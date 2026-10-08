@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { Canvas } from '@react-three/fiber';
 import { Environment, Lightformer } from '@react-three/drei';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { SceneBoundary, SceneUnavailable, supportsWebGL } from './SceneBoundary';
 
 export const IS_PHONE = typeof window !== 'undefined' && window.matchMedia('(max-width: 640px)').matches;
 export const damp = (cur: number, tgt: number, rate: number, dt: number) => THREE.MathUtils.lerp(cur, tgt, 1 - Math.exp(-rate * dt));
@@ -36,13 +37,25 @@ export function useOnScreen<T extends Element>() {
 export function StudioCanvas({ children, camera, className = 'scene-canvas', fog = true, label = 'Interactive 3D anatomy' }: { children: ReactNode; camera: { position: [number, number, number]; fov?: number }; className?: string; fog?: boolean; label?: string }) {
   // stop drawing while scrolled out of view (battery on phones); the physiology engines keep their own clock
   const [ref, onScreen] = useOnScreen<HTMLDivElement>();
+  const [available, setAvailable] = useState(() => supportsWebGL());
+  const [generation, setGeneration] = useState(0);
+  const [visible, setVisible] = useState(() => !document.hidden);
+  const [small, setSmall] = useState(() => window.matchMedia('(max-width: 760px)').matches);
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 760px)');
+    const resized = () => setSmall(mq.matches); const changed = () => setVisible(!document.hidden);
+    mq.addEventListener('change', resized); document.addEventListener('visibilitychange', changed);
+    return () => { mq.removeEventListener('change', resized); document.removeEventListener('visibilitychange', changed); };
+  }, []);
+  const retry = () => { setAvailable(supportsWebGL()); setGeneration((v) => v + 1); };
+  if (!available) return <SceneUnavailable label={label} onRetry={retry} />;
   return (
-    <Canvas
+    <SceneBoundary key={generation} label={label} onRetry={retry}><Canvas
       ref={ref as never}
       role="img" aria-label={label}
-      frameloop={onScreen ? 'always' : 'never'}
+      frameloop={onScreen && visible ? 'always' : 'never'}
       className={className}
-      dpr={IS_PHONE ? [1, 1.4] : [1, 2]}
+      dpr={small ? [1, 1.25] : [1, 1.75]}
       gl={{ antialias: true, alpha: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 0.93, powerPreference: 'high-performance', preserveDrawingBuffer: false }}
       camera={{ fov: camera.fov ?? 30, near: 0.05, far: 80, position: camera.position }}
     >
@@ -50,7 +63,7 @@ export function StudioCanvas({ children, camera, className = 'scene-canvas', fog
       {fog && <fog attach="fog" args={['#05090d', 24, 52]} />}
       <StudioLights />
       {children}
-    </Canvas>
+    </Canvas></SceneBoundary>
   );
 }
 

@@ -36,8 +36,8 @@ export function CurriculumModule() {
         <section className="cur-hero">
           <div className="cur-hero-copy">
             <div className="eyebrow">Your critical-care learning home</div>
-            <h2>Build the model. See it change. Then prove you understand it.</h2>
-            <p>Move between guided lessons, interactive physiology, clinical cases and natural-voice expert audio without losing the thread.</p>
+            <h2>Your next clinical insight starts here.</h2>
+            <p>Continue a lesson, explore a patient, or apply what you know in a clinical case.</p>
           </div>
           <div className="cur-progress-card">
             <span>Overall progress</span><b>{done}<small> / {total}</small></b>
@@ -65,20 +65,14 @@ export function CurriculumModule() {
             <p>{weak[0] ? 'Target a concept your recent answers flagged.' : 'Commit to a decision, see the response, then debrief.'}</p>
             <em>Practice now →</em>
           </button>
-          <a className="cur-homecard cur-homecard-audio" href="audio/">
-            <span className="eyebrow">Listen</span>
-            <b>Critical Care Audio</b>
-            <p>Expert tracks and guided procedural Mental Reps with natural voice.</p>
-            <em>Open Audio →</em>
-          </a>
-          <button className="cur-homecard cur-homecard-video" onClick={launchVideos}>
-            <span className="eyebrow">Watch</span>
-            <b>Critical Care Videos</b>
-            <p>Curated Shorts and deep dives organized by device, procedure, topic and learning goal.</p>
-            <em>Browse videos →</em>
-          </button>
         </section>
-
+        <section className="home-resources" aria-labelledby="home-resources-title">
+          <h3 id="home-resources-title">Resources</h3>
+          <button onClick={launchVideos}>Videos &amp; Skills <span aria-hidden="true">→</span></button>
+          <a href="audio/">Audio &amp; Mental Reps <span aria-hidden="true">→</span></a>
+        </section>
+        <details className="curriculum-browser">
+          <summary>Browse curriculum <span>{total} lessons and procedures</span></summary>
         <details className="card cur-filter-drawer">
           <summary><span><b>Browse the full curriculum</b><small>Domains · certification alignment · procedures · lesson types</small></span><span aria-hidden="true">＋</span></summary>
           <div className="cur-filter-body">
@@ -91,35 +85,6 @@ export function CurriculumModule() {
             <label className="cur-hide"><input type="checkbox" checked={hideDone} onChange={(e) => setHideDone(e.target.checked)} /> Hide completed</label>
           </div>
         </details>
-        <OfflineCard />
-        <section className="card cur-audio-callout">
-          <div>
-            <div className="eyebrow">Listen · reason · rehearse</div>
-            <h3>Critical Care Audio</h3>
-            <p className="muted small">Build expert-level ICU literacy with natural-voice rounds, deep dives, cases and guided procedural Mental Reps. Audio learning uses its own mastery and spaced-review system while linking back to the same physiology.</p>
-          </div>
-          <a className="cur-audio-cta" href="audio/"><span aria-hidden="true">♪</span><b>Open Critical Care Audio</b><small>Expert tracks · Mental Reps · review</small></a>
-        </section>
-
-        <div className="cur-cols">
-          <section className="card">
-            <div className="card-h"><h3>Weak topics</h3><span className="muted small">from your challenge answers</span></div>
-            {weak.length === 0 ? <p className="muted small">{Object.keys(p.attempts).length ? 'Nothing flagged — your latest answers were right.' : 'Answer some Challenge cases and missed concepts will appear here with the lesson that fixes them.'}</p>
-              : <ul className="cur-weak">{weak.map((w) => <li key={w.concept}>
-                <b>{w.name}</b> <span className="muted small">missed {w.missed} of {w.tried}</span>
-                <div className="chips">{CONCEPTS[w.concept].remediate.map((r) => 'lesson' in r
-                  ? <button key={r.lesson} className="chip" onClick={() => openLesson(r.lesson)}>Learn: {titleOf(r.lesson)} →</button>
-                  : <button key={r.drug} className="chip" onClick={() => openDrug(r.drug)}>Drug: {MECH[r.drug]?.drug ?? r.drug} →</button>)}
-                  <button className="chip" onClick={() => openChallenge(w.challenges[0])}>Retry: {titleOf(w.challenges[0])}</button></div>
-              </li>)}</ul>}
-          </section>
-          <section className="card">
-            <div className="card-h"><h3>Bookmarks</h3><span className="muted small">☆ in any lesson player</span></div>
-            {p.bookmarks.length === 0 ? <p className="muted small">None yet.</p>
-              : <ul className="cur-bm">{p.bookmarks.map((b, i) => <li key={`${b.lessonId}-${b.t}`}><button className="linkish" onClick={() => openLesson(b.lessonId, b.t)}>{b.title} <span className="muted small">at {mmss(b.t)}</span></button><button className="linkish" aria-label="Remove bookmark" onClick={() => p.removeBookmark(i)}>✕</button></li>)}</ul>}
-          </section>
-        </div>
-
         {doms.map((d) => (
           <section key={d.domain} className="card cur-dom">
             <div className="card-h"><h3>{d.domain}</h3><span className="muted small">{d.entries.length ? `${d.done}/${d.entries.length}` : ''}</span></div>
@@ -145,6 +110,27 @@ export function CurriculumModule() {
                 </li>); })}</ul></>}
           </section>
         ))}
+        </details>
+        <div className="cur-cols">
+          <section className="card">
+            <div className="card-h"><h3>Weak topics</h3><span className="muted small">from your challenge answers</span></div>
+            {weak.length === 0 ? <p className="muted small">{Object.keys(p.attempts).length ? 'Nothing flagged — your latest answers were right.' : 'Answer some Challenge cases and missed concepts will appear here with the lesson that fixes them.'}</p>
+              : <ul className="cur-weak">{weak.map((w) => <li key={w.concept}>
+                <b>{w.name}</b> <span className="muted small">missed {w.missed} of {w.tried}</span>
+                <div className="chips">{CONCEPTS[w.concept].remediate.map((r) => 'lesson' in r
+                  ? <button key={r.lesson} className="chip" onClick={() => openLesson(r.lesson)}>Learn: {titleOf(r.lesson)} →</button>
+                  : <button key={r.drug} className="chip" onClick={() => openDrug(r.drug)}>Drug: {MECH[r.drug]?.drug ?? r.drug} →</button>)}
+                  <button className="chip" onClick={() => openChallenge(w.challenges[0])}>Retry: {titleOf(w.challenges[0])}</button></div>
+              </li>)}</ul>}
+          </section>
+          <section className="card">
+            <div className="card-h"><h3>Bookmarks</h3><span className="muted small">☆ in any lesson player</span></div>
+            {p.bookmarks.length === 0 ? <p className="muted small">None yet.</p>
+              : <ul className="cur-bm">{p.bookmarks.map((b, i) => <li key={`${b.lessonId}-${b.t}`}><button className="linkish" onClick={() => openLesson(b.lessonId, b.t)}>{b.title} <span className="muted small">at {mmss(b.t)}</span></button><button className="linkish" aria-label="Remove bookmark" onClick={() => p.removeBookmark(i)}>✕</button></li>)}</ul>}
+          </section>
+        </div>
+
+        <details className="offline-disclosure"><summary>Offline access</summary><OfflineCard /></details>
         <p className="muted small" style={{ padding: '0 4px 20px' }}>Teaching tool, not a certification prep course or a protocol. <button className="linkish" onClick={() => { if (confirm('Clear your progress, bookmarks and challenge answers in this browser?')) p.reset(); }}>Reset progress</button></p>
       </div>
     </main>
