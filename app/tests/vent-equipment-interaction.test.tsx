@@ -5,6 +5,8 @@ import { afterEach, beforeEach, expect, it, vi } from 'vitest';
 import { VentWorkbench } from '../src/vent/VentWorkbench';
 import { session } from '../src/vent/session';
 vi.mock('../src/vent/Waveforms',()=>({Scalars:()=> <div>Scalars</div>,Loops:()=> <div>Loops</div>}));
+// DOM controls are tested here; real WebGL rendering is covered by the browser QA suite.
+vi.mock('../src/vent/EquipmentPatient',()=>({EquipmentPatient:()=> <div>3D patient test boundary</div>}));
 let root:Root,container:HTMLDivElement;
 beforeEach(()=>{(globalThis as unknown as {IS_REACT_ACT_ENVIRONMENT:boolean}).IS_REACT_ACT_ENVIRONMENT=true;
   Object.defineProperty(window,'matchMedia',{configurable:true,value:()=>({matches:false,addEventListener:vi.fn(),removeEventListener:vi.fn()})});
@@ -29,4 +31,12 @@ it('mobile view selection preserves the pending parameter and scene state',async
   await act(async()=>button('Waveforms').click()); await act(async()=>button('Ventilator').click());
   expect(session.m.s.vt).toBe(initial); expect(button('Confirm settings').disabled).toBe(false);
   await act(async()=>button('Confirm settings').click()); expect(session.m.s.vt).toBeCloseTo(initial+.01);
+});
+it('restart clears debrief and pause cannot leak into the next workspace',async()=>{
+  await act(async()=>root.render(<VentWorkbench/>));
+  await act(async()=>button('Pause to inspect').click()); expect(session.paused).toBe(true);
+  await act(async()=>button('Restart scenario').click()); expect(session.paused).toBe(false);
+  await act(async()=>button('Pause to inspect').click());
+  await act(async()=>root.unmount()); expect(session.paused).toBe(false);
+  root=createRoot(container);
 });

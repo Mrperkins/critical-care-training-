@@ -13,6 +13,7 @@ import { loadBodyAsset, type BodyAsset } from '../asset/body';
 import { StudioCanvas } from '../scene/Studio';
 import { session } from './session';
 import { ventNumbers } from './numbers';
+import { EquipmentScreen } from './EquipmentScreen';
 
 type View = 'bedside' | 'lungs' | 'ventilator';
 const SKIN = '#c7a18d';
@@ -92,15 +93,15 @@ function BreathingLung({ body, id, side, focus }: {
   />;
 }
 
-function AnatomicalPatient({ body, child, focus }: {
-  body: BodyAsset; child: boolean; focus: () => void;
+function AnatomicalPatient({ body, child, focus, transparent }: {
+  body: BodyAsset; child: boolean; focus: () => void; transparent: boolean;
 }) {
   const factor = child ? .30 : .42;
   const ids = ['heart','brain','aorta','vena_cava'];
   return <group position={[-1.2,.49,0]} rotation={[-Math.PI/2,0,0]} scale={factor}>
     <group position={[0,-4.6,0]}>
       {body.meshes.skin && <mesh geometry={body.meshes.skin.geometry} dispose={null}>
-        <meshPhysicalMaterial color={SKIN} transparent opacity={.43} depthWrite={false} roughness={.79} side={THREE.DoubleSide} />
+        <meshPhysicalMaterial color={SKIN} transparent={transparent} opacity={transparent?.25:1} depthWrite={!transparent} roughness={.79} side={THREE.DoubleSide} />
       </mesh>}
       {(['lung_R','lung_L'] as const).map((id,index) => body.meshes[id]
         ? <BreathingLung key={id} id={id} body={body} side={index as 0|1} focus={focus} />
@@ -119,7 +120,7 @@ function EquipmentCabinet({ onFocus }: { onFocus: () => void }) {
     <mesh position={[0,.57,0]}><boxGeometry args={[.92,1.05,.62]} /><meshStandardMaterial color="#657986" metalness={.45} roughness={.48} /></mesh>
     <mesh position={[0,1.34,.17]}><boxGeometry args={[1.13,.95,.30]} /><meshStandardMaterial color="#9eafb8" metalness={.45} roughness={.36} /></mesh>
     <mesh position={[0,1.36,.338]}><boxGeometry args={[.96,.73,.03]} /><meshStandardMaterial color="#071a24" emissive="#08242d" emissiveIntensity={.35} /></mesh>
-    {[.23,.06,-.11].map((y,i)=><mesh key={i} position={[-.18,1.42+y,.365]}><boxGeometry args={[.42,.027,.012]} /><meshBasicMaterial color={['#65c6ae','#71aada','#d1bd7b'][i]} /></mesh>)}
+    <EquipmentScreen kind="vent" position={[0,1.36,.36]} size={[.94,.71]} />
     <mesh position={[.37,1.08,.38]} rotation={[Math.PI/2,0,0]}><cylinderGeometry args={[.13,.13,.045,32]} /><meshStandardMaterial color="#d3dce1" metalness={.65} roughness={.32} /></mesh>
     {[.55,-.55].map(z=><mesh key={z} position={[0,-.01,z*.46]} rotation={[0,0,Math.PI/2]}>
       <cylinderGeometry args={[.17,.17,.10,20]} /><meshStandardMaterial color="#27313c" roughness={.74} />
@@ -133,11 +134,11 @@ function BedsideMonitor() {
     <mesh position={[0,-.45,-.14]}><boxGeometry args={[.10,1.65,.10]} /><meshStandardMaterial color="#96a6b0" metalness={.64} roughness={.37} /></mesh>
     <mesh position={[0,0,0]}><boxGeometry args={[1.05,.76,.2]} /><meshStandardMaterial color="#748896" metalness={.42} roughness={.41} /></mesh>
     <mesh position={[0,0,.112]}><boxGeometry args={[.89,.61,.016]} /><meshStandardMaterial color="#05161d" emissive="#0d242d" emissiveIntensity={.3} /></mesh>
-    {[.17,.03,-.11].map((y,i)=><mesh key={i} position={[0,y,.126]}><boxGeometry args={[.66,.018,.006]} /><meshBasicMaterial color={['#73c58a','#6ebad0','#e1b46f'][i]} /></mesh>)}
+    <EquipmentScreen kind="monitor" position={[0,0,.13]} size={[.87,.59]} />
   </group>;
 }
 
-function Tubing({ disconnected, child }: { disconnected: boolean; child: boolean }) {
+function Tubing({ disconnected, child, onToggle }: { disconnected: boolean; child: boolean; onToggle: () => void }) {
   // Path from the ventilator inspiratory limb to the Y-piece, then to the ETT.
   const offset = child ? .52 : .90;
   const pts = useMemo(() => [
@@ -158,6 +159,9 @@ function Tubing({ disconnected, child }: { disconnected: boolean; child: boolean
   ),[pts]);
   useEffect(() => () => { complete.dispose(); limb.dispose(); ett.dispose(); },[complete,limb,ett]);
   return <group>
+    <mesh position={pts[2]} onClick={e=>{e.stopPropagation();onToggle();}}>
+      <sphereGeometry args={[.12,24,16]} /><meshStandardMaterial color={disconnected?'#d86368':'#80c6bd'} emissive={disconnected?'#672b36':'#163b3b'} emissiveIntensity={.3}/>
+    </mesh>
     {!disconnected
       ? <mesh geometry={complete}><meshPhysicalMaterial color="#a0d9d9" roughness={.31} metalness={.08} transparent opacity={.83} /></mesh>
       : <>
@@ -168,7 +172,7 @@ function Tubing({ disconnected, child }: { disconnected: boolean; child: boolean
   </group>;
 }
 
-function Camera({ view }: { view: View }) {
+function Camera({ view, revision }: { view: View; revision: number }) {
   const controls = useRef<CameraControls>(null);
   useEffect(() => {
     const c = controls.current;
@@ -176,17 +180,20 @@ function Camera({ view }: { view: View }) {
     if (view === 'lungs') c.setLookAt(1.5,3.1,2.3,-1.2,.54,-.25,true);
     else if (view === 'ventilator') c.setLookAt(3.5,2.45,3,1.4,1.25,.2,true);
     else c.setLookAt(4.0,5.8,6.1,0,.45,0,true);
-  },[view]);
+  },[view,revision]);
   return <CameraControls
     ref={controls} makeDefault minDistance={1.1} maxDistance={15}
     dollySpeed={.45} truckSpeed={.35} smoothTime={.55}
   />;
 }
 
-export function EquipmentPatient() {
+export function EquipmentPatient({ onCircuitChange, onVentilator }: { onCircuitChange: () => void; onVentilator: () => void }) {
   const [body,setBody]=useState<BodyAsset|null>(null);
   const [error,setError]=useState(false);
   const [view,setView]=useState<View>('bedside');
+  const [revision,setRevision]=useState(0);
+  const [transparent,setTransparent]=useState(true);
+  const focus=(v:View)=>{setView(v);setRevision(r=>r+1);};
   useEffect(() => {
     let active=true;
     loadBodyAsset().then(asset=>{if(active)setBody(asset);}).catch(()=>{if(active)setError(true);});
@@ -195,6 +202,7 @@ export function EquipmentPatient() {
   const n=ventNumbers(session), g=session.snap;
   const disconnected=session.circuitFault==='disconnect'||session.circuitFault==='both';
   const child=session.pt.p.age<18;
+  const toggleCircuit=()=>{session.circuit(disconnected?(session.circuitFault==='both'?'cuffLeak':'none'):(session.circuitFault==='cuffLeak'?'both':'disconnect'));onCircuitChange();};
   return <div className="equipment-patient">
     <div className="equipment-patient-3d" style={{
       position:'relative',height:'clamp(300px,34vw,470px)',width:'100%',
@@ -204,11 +212,11 @@ export function EquipmentPatient() {
       {body
         ? <StudioCanvas camera={{position:[4,5,6],fov:39}} fog={false} label="Interactive 3D ventilated patient, bed, circuit and medical equipment">
             <Bed child={child} />
-            <AnatomicalPatient body={body} child={child} focus={()=>setView('lungs')} />
-            <EquipmentCabinet onFocus={()=>setView('ventilator')} />
+            <AnatomicalPatient body={body} child={child} transparent={transparent} focus={()=>focus('lungs')} />
+            <EquipmentCabinet onFocus={()=>focus('ventilator')} />
             <BedsideMonitor />
-            <Tubing child={child} disconnected={disconnected} />
-            <Camera view={view} />
+            <Tubing child={child} disconnected={disconnected} onToggle={toggleCircuit} />
+            <Camera view={view} revision={revision} />
           </StudioCanvas>
         : <p className="loading" role="status">{error
           ? 'The licensed 3D patient mesh could not load. Check the anatomy asset and retry.'
@@ -217,8 +225,11 @@ export function EquipmentPatient() {
     <div className="actions" role="group" aria-label="3D bedside camera views" style={{marginTop:10,flexWrap:'wrap'}}>
       {(['bedside','lungs','ventilator'] as const).map(v=>
         <button key={v} className={view===v?'act primary':'act'} aria-pressed={view===v}
-          onClick={()=>setView(v)}>{v==='bedside'?'Whole bedside':v==='lungs'?'Focus lungs':'Inspect ventilator'}</button>)}
+          onClick={()=>focus(v)}>{v==='bedside'?'Whole bedside':v==='lungs'?'Focus lungs':'Inspect ventilator'}</button>)}
+      <button className="act" aria-pressed={transparent} onClick={()=>setTransparent(v=>!v)}>{transparent?'Show skin surface':'Reveal organs'}</button>
     </div>
+    <p className="muted small">Drag to orbit · pinch or scroll to zoom · tap the green/red circuit connector to disconnect or reconnect. Camera buttons restore their views.</p>
+    <div className="actions"><button className="act" onClick={toggleCircuit}>{disconnected?'Reconnect 3D circuit':'Disconnect 3D circuit'}</button><button className="act" onClick={onVentilator}>Operate ventilator controls</button></div>
     {child && <p className="muted small">Pediatric scenario · {session.pt.p.weightKg} kg. The available whole-body 3D mesh is adult-derived and scaled; it is not a pediatric anatomical reference.</p>}
     <dl className="equipment-vitals">
       <div><dt>SpO₂</dt><dd>{Math.round(g.spo2*100)}%</dd></div>

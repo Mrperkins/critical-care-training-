@@ -1283,7 +1283,18 @@ button.lchip.ldot.q-hint{border-color:var(--gold)!important;animation:qpulse 1s 
 .equipment-mobile-nav{display:none}
 .equipment-patient-pane{grid-area:patient;min-width:0}
 .equipment-patient-pane h3,.equipment-waveforms h3,.equipment-feedback h3{font-size:18px;margin:0 0 16px}
-.equipment-patient>svg{width:100%;max-height:470px;background:#0a1925;border-radius:12px;display:block}
+.equipment-patient-3d .scene-canvas{height:100%!important;width:100%!important;touch-action:none}
+.equipment-reassessment{margin:20px 0;padding:18px;border:1px solid #345162;border-radius:12px;background:#0a1722}
+.equipment-reassessment label{display:grid;gap:8px;font-size:14px;color:#b2c7d2}
+.equipment-reassessment textarea{resize:vertical;box-sizing:border-box;width:100%;min-height:90px;background:#132936;color:#e0eef4;border:1px solid #4b6877;border-radius:8px;padding:12px;font:inherit}
+.equipment-reassessment .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.equipment-comparison{max-width:100%;overflow-x:auto}
+.equipment-comparison table{border-collapse:collapse;width:100%;font-size:13px}
+.equipment-comparison caption{text-align:left;color:#a9cbbd;padding:12px 0;line-height:1.5}
+.equipment-comparison th,.equipment-comparison td{text-align:left;padding:10px 6px;border-bottom:1px solid #273e4d;font-variant-numeric:tabular-nums}
+.equipment-comparison th small{display:block;color:#a1b8c6;font-weight:400;font-size:11px}
+.equipment-reassessment article{margin:18px 0;padding-bottom:12px;border-bottom:1px solid #345162}
+.equipment-reassessment p{font-size:14px;line-height:1.6;overflow-wrap:anywhere}
 .equipment-vitals{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0}
 .equipment-vitals dt{font-size:12px;color:var(--dim)}
 .equipment-vitals dd{margin:8px 0 0;font-size:18px;font-weight:600;font-family:var(--mono)}

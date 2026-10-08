@@ -543,7 +543,7 @@ export function VideoLibrary() {
             allow="autoplay; fullscreen; picture-in-picture"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
-          /> : <ManufacturerResource video={player.video} />}
+          /> : <ExternalEducationResource video={player.video} />}
         </div>
         <div className="video-player-foot">
           <span>{player.kind === 'playlist'
