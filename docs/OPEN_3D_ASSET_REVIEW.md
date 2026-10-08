@@ -1,6 +1,6 @@
 # Open 3D bedside asset review — 2026-10-08
 
-The user's requirement is high-fidelity openly licensed 3D anatomy and equipment. No new 2D anatomy/equipment substitutes or primitive replacement models are authorized. Existing equipment prototypes remain visible while replacements are evaluated; this is not a completed equipment-fidelity upgrade.
+The user's requirement is high-fidelity openly licensed 3D anatomy and equipment. No new 2D anatomy/equipment substitutes or primitive replacement models are authorized. The ventilator now uses an openly licensed detailed asset. Existing monitor, bed and patient-circuit prototypes remain while replacements are evaluated; the full equipment-fidelity upgrade is incomplete.
 
 ## Integrated
 
@@ -10,15 +10,23 @@ Rebuild with `app/pipeline/build-bedside-airway.ts`, supplying the source lung v
 
 The existing patient was too large for the mattress and partly intersected it. Placement and camera targets now use the body-centred source frame and fit the licensed mesh to the bed. This changes placement, not source anatomical proportions.
 
+## Licensed ventilator integration
+
+“Medical Ventilator” by lazarys, [source](https://skfb.ly/oSHxK), CC BY 4.0. The user supplied `Medical_Ventilator.usdz` and its attribution after Google sign-in in the cloud browser returned 502 Connection refused. The public listing independently showed CC Attribution. The derived self-contained `medical-ventilator.glb` retains all 66,944 triangles, 51,012 split vertices, source normals, UVs and twelve embedded texture maps (three PBR materials). Texture images retain the original 1024px resolution. Metallic/roughness maps are packed losslessly for glTF. No decimation or generated equipment geometry is used.
+
+Rebuild with `python app/pipeline/convert-ventilator.py Medical_Ventilator.usdz` (usd-core 26.8, NumPy, Pillow). Source SHA-256 and conversion changes are in `medical-ventilator.provenance.json`. The app rotates/scales the equipment to the bedside coordinate frame and overlays the live training display in the authored bezel. Source display graphics are covered by live values. Authored hanging hoses remain static and are disclosed; the existing interactive patient circuit and fault logic remain. The authored markings are not a device specification. If the GLB fails, the app reports the missing asset rather than silently substituting the old housing.
+
+Offline 3D rendering verified front, rear and oblique views, source texture placement and bezel geometry. Browser visual/responsive regression checks are pending for this integration; the prior QA results below do not validate it.
+
 ## Candidates requiring acquisition and visual review
 
 | Asset | Source | Publisher license | Status |
 | --- | --- | --- | --- |
-| Medical ventilator | [lazarys](https://sketchfab.com/3d-models/medical-ventilator-a03a99fab9314aab96fd41ec69acf1a3) | CC Attribution | Listed as downloadable, 66.9k triangles; downloadable file and fidelity not verified. |
+| Medical ventilator | [lazarys](https://sketchfab.com/3d-models/medical-ventilator-a03a99fab9314aab96fd41ec69acf1a3) | CC Attribution | User-supplied USDZ converted and integrated; see above. |
 | Patient monitor | [Ram-je](https://sketchfab.com/3d-models/patient-monitor-80db1fb4584d4feea54936ea640d00db) | CC Attribution | Listed as downloadable, 156.5k triangles; downloadable file and fidelity not verified. |
 | Hospital bed | [Ansh_Singla](https://sketchfab.com/3d-models/hospital-bed-0e974ea6eb9a4c069c56f152ae5162a4) | CC Attribution | Listed as downloadable, 28.3k triangles, described as low poly; must visually verify fidelity before use. |
 
-The listings were discovered through web research. No files from these listings are bundled. Browser downloads may require a user account and a browser handoff; a listing or triangle count alone does not establish fidelity.
+The listings were discovered through web research. The ventilator is bundled; monitor and bed files have not been acquired. Browser downloads may require a user account and a browser handoff; a listing or triangle count alone does not establish fidelity.
 
 ## Pediatric gap
 

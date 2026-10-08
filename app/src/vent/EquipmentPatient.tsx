@@ -12,9 +12,11 @@ import { CameraControls } from '@react-three/drei';
 import { loadBodyAsset, type BodyAsset } from '../asset/body';
 import { loadMeshes } from '../asset/gltf';
 
-declare global { interface Window { __AIRWAY_GLB__?: string } }
+declare global { interface Window { __AIRWAY_GLB__?: string; __VENTILATOR_GLB__?: string } }
 let airwayCache: Promise<Record<string,THREE.Mesh>> | null = null;
 const loadAirway = () => airwayCache ??= loadMeshes(window.__AIRWAY_GLB__, 'models/bedside-airway.glb').catch(e=>{airwayCache=null;throw e;});
+let ventilatorCache: Promise<Record<string,THREE.Mesh>> | null = null;
+const loadVentilator = () => ventilatorCache ??= loadMeshes(window.__VENTILATOR_GLB__, 'models/medical-ventilator.glb').catch(e=>{ventilatorCache=null;throw e;});
 import { StudioCanvas } from '../scene/Studio';
 import { session } from './session';
 import { ventNumbers } from './numbers';
@@ -122,17 +124,15 @@ function AnatomicalPatient({ body, child, focus, transparent, airway }: {
   </group>;
 }
 
-function EquipmentCabinet({ onFocus }: { onFocus: () => void }) {
-  return <group position={[1.57,0,.32]} onClick={onFocus}>
-    <mesh position={[0,.57,0]}><boxGeometry args={[.92,1.05,.62]} /><meshStandardMaterial color="#657986" metalness={.45} roughness={.48} /></mesh>
-    <mesh position={[0,1.34,.17]}><boxGeometry args={[1.13,.95,.30]} /><meshStandardMaterial color="#9eafb8" metalness={.45} roughness={.36} /></mesh>
-    <mesh position={[0,1.36,.338]}><boxGeometry args={[.96,.73,.03]} /><meshStandardMaterial color="#071a24" emissive="#08242d" emissiveIntensity={.35} /></mesh>
-    <EquipmentScreen kind="vent" position={[0,1.36,.36]} size={[.94,.71]} />
-    <mesh position={[.37,1.08,.38]} rotation={[Math.PI/2,0,0]}><cylinderGeometry args={[.13,.13,.045,32]} /><meshStandardMaterial color="#d3dce1" metalness={.65} roughness={.32} /></mesh>
-    {[.55,-.55].map(z=><mesh key={z} position={[0,-.01,z*.46]} rotation={[0,0,Math.PI/2]}>
-      <cylinderGeometry args={[.17,.17,.10,20]} /><meshStandardMaterial color="#27313c" roughness={.74} />
-    </mesh>)}
-    <mesh position={[-.35,.89,.34]}><sphereGeometry args={[.05,16,12]} /><meshStandardMaterial color="#75b8ba" emissive="#23575f" emissiveIntensity={.45} /></mesh>
+function EquipmentCabinet({ model, onFocus }: { model: Record<string,THREE.Mesh>; onFocus: () => void }) {
+  return <group position={[1.6,-1.55,.32]} rotation={[0,-Math.PI/2,0]} scale={2.2} onClick={onFocus}>
+    {Object.entries(model).map(([id,m])=><mesh key={id} geometry={m.geometry} material={m.material} dispose={null} />)}
+    {/* Mounted inside the authored display bezel, with its measured face tilt. */}
+    <group position={[.132,1.03,-.009]} rotation={[0,0,.154]}>
+      <group rotation={[0,Math.PI/2,0]}>
+        <EquipmentScreen kind="vent" position={[0,0,0]} size={[.194,.105]} />
+      </group>
+    </group>
   </group>;
 }
 
@@ -149,7 +149,7 @@ function Tubing({ disconnected, child, onToggle }: { disconnected: boolean; chil
   // Path from the ventilator inspiratory limb to the Y-piece, then to the ETT.
   const offset = child ? 1 : 1.2;
   const pts = useMemo(() => [
-    new THREE.Vector3(1.12,1.43,.64),
+    new THREE.Vector3(1.53,.32,.64),
     new THREE.Vector3(.85,1.7,.9),
     new THREE.Vector3(.16,1.58,.76),
     new THREE.Vector3(-.36,1.25,-.06),
@@ -187,7 +187,7 @@ function Camera({ view, revision, child }: { view: View; revision: number; child
     if (!c) return;
     if (view === 'airway') c.setLookAt(.0,1.8,-.55,-1.2,.84,-1.35,true);
     else if (view === 'lungs') c.setLookAt(1.1,2.7,.7,-1.2,child?.7:.8,child?-.9:-1.25,true);
-    else if (view === 'ventilator') c.setLookAt(3.5,2.45,3,1.4,1.25,.2,true);
+    else if (view === 'ventilator') c.setLookAt(2.2,1.3,2.25,1.62,.72,.61,true);
     else { const distance=Math.max(1,1.25/(size.width/size.height)); c.setLookAt(4.0*distance,5.8*distance,6.1*distance,0,.45,0,true); }
   },[view,revision,child,size.width,size.height]);
   return <CameraControls
@@ -205,6 +205,8 @@ export function EquipmentPatient({ onCircuitChange, onVentilator }: { onCircuitC
   const [airway,setAirway]=useState<Record<string,THREE.Mesh>|null>(null);
   const [airwayError,setAirwayError]=useState(false);
   const [revealAirway,setRevealAirway]=useState(false);
+  const [ventilator,setVentilator]=useState<Record<string,THREE.Mesh>|null>(null);
+  const [ventilatorError,setVentilatorError]=useState(false);
   const focus=(v:View)=>{setView(v);setRevision(r=>r+1);};
   useEffect(() => {
     let active=true;
@@ -212,6 +214,7 @@ export function EquipmentPatient({ onCircuitChange, onVentilator }: { onCircuitC
     return ()=>{active=false;};
   },[]);
   useEffect(()=>{let active=true;loadAirway().then(a=>{if(!a.airway||!a.cartilage)throw new Error('Missing airway surfaces');if(active)setAirway(a);}).catch(()=>{if(active)setAirwayError(true);});return()=>{active=false;};},[]);
+  useEffect(()=>{let active=true;loadVentilator().then(a=>{if(!a.Base||!a.Tubes||!a.Other)throw new Error('Missing ventilator surfaces');if(active)setVentilator(a);}).catch(()=>{if(active)setVentilatorError(true);});return()=>{active=false;};},[]);
   const n=ventNumbers(session), g=session.snap;
   const disconnected=session.circuitFault==='disconnect'||session.circuitFault==='both';
   const child=session.pt.p.age<18;
@@ -226,7 +229,7 @@ export function EquipmentPatient({ onCircuitChange, onVentilator }: { onCircuitC
         ? <StudioCanvas camera={{position:[4,5,6],fov:39}} fog={false} label="Interactive 3D ventilated patient, bed, circuit and medical equipment">
             <Bed child={child} />
             <AnatomicalPatient body={body} child={child} transparent={transparent} airway={!child&&revealAirway?airway:null} focus={()=>focus('lungs')} />
-            <EquipmentCabinet onFocus={()=>focus('ventilator')} />
+            {ventilator && <EquipmentCabinet model={ventilator} onFocus={()=>focus('ventilator')} />}
             <BedsideMonitor />
             {!(revealAirway&&!child) && <Tubing child={child} disconnected={disconnected} onToggle={toggleCircuit} />}
             <Camera view={view} revision={revision} child={child} />
@@ -235,6 +238,7 @@ export function EquipmentPatient({ onCircuitChange, onVentilator }: { onCircuitC
           ? 'The licensed 3D patient mesh could not load. Check the anatomy asset and retry.'
           : 'Loading 3D patient anatomy…'}</p>}
     </div>
+    {!ventilator && <p className="muted small" role="status">{ventilatorError?'The licensed 3D ventilator model could not load. Reload to retry.':'Loading licensed 3D ventilator…'}</p>}
     <div className="actions" role="group" aria-label="3D bedside camera views" style={{marginTop:10,flexWrap:'wrap'}}>
       {(['bedside','lungs','ventilator'] as const).map(v=>
         <button key={v} className={view===v?'act primary':'act'} aria-pressed={view===v}
@@ -253,6 +257,6 @@ export function EquipmentPatient({ onCircuitChange, onVentilator }: { onCircuitC
       <div><dt>EtCO₂</dt><dd>{Math.round(g.etco2)} mmHg</dd></div>
     </dl>
     <p className="muted small">3D lung motion follows live simulated regional volume and collapse. Monitor values, ventilator controls and circuit faults share one physiology session. Motion is amplified for teaching and is not a validated bedside prediction.</p>
-    {body && <p className="credit">3D patient anatomy: {body.mapping.attribution.creators} · <a href={body.mapping.attribution.licenseUrl} target="_blank" rel="noreferrer">{body.mapping.attribution.license}</a>. Airway: HRA Visible Human Male, CC BY 4.0. The ventilator, stretcher and circuit are original 3D training models. <span className="sr-only">Vte {Math.round(n.vte)} mL</span></p>}
+    {body && <p className="credit">3D patient anatomy: {body.mapping.attribution.creators} · <a href={body.mapping.attribution.licenseUrl} target="_blank" rel="noreferrer">{body.mapping.attribution.license}</a>. Airway: HRA Visible Human Male, CC BY 4.0. <a href="https://skfb.ly/oSHxK" target="_blank" rel="noreferrer">Medical Ventilator by lazarys</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC BY 4.0</a> · converted from USDZ; live training display added. Authored hanging hoses are static; the highlighted patient connection follows the simulated circuit fault. Device markings are visual reference only. Stretcher, monitor and patient circuit remain original 3D prototypes. <span className="sr-only">Vte {Math.round(n.vte)} mL</span></p>}
   </div>;
 }

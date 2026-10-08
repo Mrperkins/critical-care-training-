@@ -20,6 +20,8 @@ mkdirSync(out, { recursive: true });
         await page.getByLabel('Patient scenario').selectOption('ards');
         if(width<=1024) await page.getByRole('button',{name:'Patient',exact:true}).click();
         await page.locator('.equipment-patient-3d canvas').waitFor({timeout:30000});
+        await page.getByText('Loading licensed 3D ventilator…',{exact:true}).waitFor({state:'hidden',timeout:30000});
+        assert.equal(await page.getByText('The licensed 3D ventilator model could not load. Reload to retry.',{exact:true}).count(),0);
         await page.locator('.equipment-patient-3d').scrollIntoViewIfNeeded();
         await page.getByRole('button',{name:'Focus lungs',exact:true}).click();
         await page.waitForTimeout(1800); // camera's damped transition, not an assertion delay
@@ -61,6 +63,8 @@ mkdirSync(out, { recursive: true });
         assert.ok(await page.getByText('Scenario debrief · 1 observations').isVisible());
         await page.locator('.equipment-reassessment').scrollIntoViewIfNeeded();
         await page.screenshot({path:`${out}/${width}-debrief.png`,fullPage:true});
+        await page.locator('.equipment-reassessment table').last().scrollIntoViewIfNeeded();
+        await page.screenshot({path:`${out}/${width}-comparison.png`});
         const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1);
         assert.equal(overflow,false,`horizontal page overflow at ${width}`);
         assert.deepEqual(errors,[],`runtime errors at ${width}`);
