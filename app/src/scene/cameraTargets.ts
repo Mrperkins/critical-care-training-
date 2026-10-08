@@ -5,8 +5,32 @@
  */
 import type * as THREE from 'three';
 
-export interface TargetDef { scene: 'cell' | 'body' | 'vent' | 'lines' | 'neuro' | 'heart' | 'abdomen'; anchor: string; view?: 'whole' | 'zoom' }
+export interface TargetDef { scene: 'cell' | 'body' | 'vent' | 'lines' | 'neuro' | 'heart' | 'abdomen' | 'pelvis'; anchor: string; view?: 'whole' | 'zoom' }
 export const CAMERA_TARGETS = Object.freeze({
+  'body.whole': { scene: 'body', anchor: 'whole', view: 'whole' },
+  'blood.chemistry': { scene: 'cell', anchor: 'chemistry', view: 'zoom' },
+  'circulation.systemic': { scene: 'body', anchor: 'circulation', view: 'zoom' },
+  'body.head': { scene: 'body', anchor: 'head', view: 'zoom' },
+  'body.chest': { scene: 'body', anchor: 'chest', view: 'zoom' },
+  'body.abdomen': { scene: 'body', anchor: 'abdomen', view: 'zoom' },
+  'body.pelvis': { scene: 'body', anchor: 'pelvis', view: 'zoom' },
+  'lung.airway': { scene: 'vent', anchor: 'airway', view: 'zoom' },
+  'lung.pleura': { scene: 'vent', anchor: 'pleura', view: 'zoom' },
+  'lung.pulmonary_artery': { scene: 'vent', anchor: 'pulmonary_artery', view: 'zoom' },
+  'heart.coronary': { scene: 'heart', anchor: 'coronary', view: 'zoom' },
+  'heart.pericardium': { scene: 'heart', anchor: 'pericardium', view: 'zoom' },
+  'heart.conduction': { scene: 'heart', anchor: 'conduction', view: 'zoom' },
+  'brain.mca': { scene: 'neuro', anchor: 'mca_l', view: 'zoom' },
+  'brain.hemorrhage': { scene: 'neuro', anchor: 'hemorrhage', view: 'zoom' },
+  'brain.ventricles': { scene: 'neuro', anchor: 'ventricles', view: 'zoom' },
+  'brain.brainstem': { scene: 'neuro', anchor: 'brainstem', view: 'zoom' },
+  'aorta.arch': { scene: 'heart', anchor: 'arch', view: 'zoom' },
+  'aorta.thoracic': { scene: 'body', anchor: 'chest', view: 'zoom' },
+  'aorta.abdominal': { scene: 'abdomen', anchor: 'aaa', view: 'zoom' },
+  'uterus.whole': { scene: 'pelvis', anchor: 'uterus', view: 'whole' },
+  'placenta': { scene: 'pelvis', anchor: 'placenta', view: 'zoom' },
+  'ovary.left': { scene: 'pelvis', anchor: 'ovary_left', view: 'zoom' },
+  'ovary.right': { scene: 'pelvis', anchor: 'ovary_right', view: 'zoom' },
   'cell.whole': { scene: 'cell', anchor: 'whole', view: 'whole' },
   'cell.nucleus': { scene: 'cell', anchor: 'nucleus', view: 'whole' },
   'cell.mitochondria': { scene: 'cell', anchor: 'mito', view: 'whole' },

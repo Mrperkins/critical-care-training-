@@ -1234,3 +1234,103 @@ button.lchip.ldot.q-hint{border-color:var(--gold)!important;animation:qpulse 1s 
   .scene-menu-trigger{height:44px!important}.scene-popover,.phone .scene-popover{top:50px}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
+
+/* One shared clinical condition experience; a single primary task on touch layouts. */
+.atlas-entry{align-self:center;border:0;border-radius:8px;background:#173546;color:var(--ink);min-height:44px;padding:10px 14px;font-size:13px;cursor:pointer}
+.atlas-entry span{color:var(--dim);margin-left:8px}
+.atlas-scene{display:flex;flex-direction:column;gap:16px;padding:24px;min-width:0;overflow:auto}
+.atlas-scene-head{display:flex;justify-content:space-between;align-items:start;gap:16px}
+.atlas-scene-head h2{font-size:clamp(21px,2vw,30px);line-height:1.25;margin:8px 0 0}
+.atlas-view-switch,.atlas-camera-actions{display:flex;gap:6px;flex-wrap:wrap}
+.atlas-view-switch button,.atlas-camera-actions button{min-height:44px;padding:10px 14px;background:#122735;border:0;border-radius:8px;color:var(--dim);cursor:pointer}
+.atlas-view-switch button[aria-pressed=true],.atlas-camera-actions button[aria-pressed=true]{background:#1c4850;color:#c9f3ec}
+.atlas-visual{position:relative;min-height:340px;flex:1;background:#081521;border-radius:12px;display:grid;align-content:center;overflow:hidden}
+.atlas-visual>svg{width:100%;max-height:570px;min-height:290px;display:block}
+.atlas-visual>.scene-canvas{min-height:390px;height:100%;width:100%}
+.atlas-visual>.credit{position:relative;padding:8px 14px;margin:0;font-size:11px}
+.atlas-caption{font-size:15px;line-height:1.6;max-width:75ch;margin:0;color:#cbdce8}
+.atlas-findings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 24px}
+.atlas-findings>div{display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--dim)}
+.atlas-findings meter{width:100%;height:8px;accent-color:#63c6b4}
+.atlas-condition-select{display:flex;flex-direction:column;gap:8px;font-size:13px;color:var(--dim);padding:4px 0 18px}
+.atlas-condition-select select{width:100%;min-height:48px;font:inherit;font-size:15px;background:#102331;color:var(--ink);border:1px solid #314b5d;border-radius:8px;padding:10px}
+.atlas-context{padding:20px;min-width:0}
+.atlas-context h3{font-size:19px;margin:8px 0 14px;line-height:1.4}
+.atlas-context p{line-height:1.65;font-size:15px}
+.atlas-range{display:flex;flex-direction:column;gap:16px;font-size:14px}
+.atlas-range input{width:100%;min-height:44px;accent-color:#63c6b4}
+.atlas-decisions{display:grid;gap:10px}
+.atlas-decisions button{border:1px solid #294654;background:#142d3b;border-radius:8px;padding:14px;color:var(--ink);text-align:left;font:inherit;line-height:1.5;min-height:48px;cursor:pointer}
+.atlas-decisions button:focus-visible,.atlas-entry:focus-visible{outline:2px solid #8bbde3;outline-offset:3px}
+.atlas-consequence>div{display:flex;justify-content:space-between;gap:16px;margin:12px 0;font-size:13px}
+.atlas-consequence dd{margin:0;color:#9edbcd}
+.atlas-reference{margin:20px 0;color:var(--dim);font-size:14px}
+.atlas-reference summary{cursor:pointer;min-height:44px;padding:12px 0}
+.atlas-flow{stroke-dasharray:10 8;animation:atlas-flow 3s linear infinite}
+.disease-diagram{animation:atlas-reveal .45s ease-out}
+@keyframes atlas-flow{to{stroke-dashoffset:-72}}
+@keyframes atlas-reveal{from{opacity:.1;transform:scale(.98)}to{opacity:1;transform:scale(1)}}
+@media(max-width:1024px){.atlas-scene{padding:18px}.atlas-stage{min-height:0}.atlas-scene-head{flex-direction:column}.atlas-visual{min-height:300px;flex:initial}.atlas-context{padding:18px}.atlas-visual>svg{min-height:240px}.atlas-findings{gap:12px}}
+@media(max-width:430px){.atlas-scene{padding:14px}.atlas-visual{min-height:230px}.atlas-visual>svg{min-height:210px}.atlas-visual svg text{display:none}.atlas-findings{grid-template-columns:1fr}.atlas-caption{font-size:15px}.atlas-view-switch button,.atlas-camera-actions button{font-size:13px;padding:10px}.atlas-context .card{padding:16px}.atlas-visual>.scene-canvas{min-height:300px}}
+@media(prefers-reduced-motion:reduce){.atlas-flow,.disease-diagram{animation:none}}
+
+/* Digital equipment interface, with deliberate patient/vent/waveform tasks on touch screens. */
+.equipment-workbench{display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,1fr);grid-template-areas:'heading heading' 'patient console' 'waves console' 'feedback feedback';gap:24px;padding:24px;overflow:auto;min-height:0;align-content:start}
+.equipment-heading{grid-area:heading;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.equipment-heading h2{font-size:clamp(23px,2.3vw,32px);margin:6px 0}
+.equipment-heading label{display:flex;flex-direction:column;gap:8px;color:var(--dim);font-size:13px;min-width:240px}
+.equipment-heading select,.equipment-mode select{background:#132936;color:var(--ink);border:1px solid #345162;border-radius:8px;min-height:48px;padding:10px;font:inherit;font-size:15px;max-width:100%}
+.equipment-mobile-nav{display:none}
+.equipment-patient-pane{grid-area:patient;min-width:0}
+.equipment-patient-pane h3,.equipment-waveforms h3,.equipment-feedback h3{font-size:18px;margin:0 0 16px}
+.equipment-patient>svg{width:100%;max-height:470px;background:#0a1925;border-radius:12px;display:block}
+.equipment-vitals{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0}
+.equipment-vitals dt{font-size:12px;color:var(--dim)}
+.equipment-vitals dd{margin:8px 0 0;font-size:18px;font-weight:600;font-family:var(--mono)}
+.equipment-patient-pane>p{line-height:1.6;font-size:15px}
+.equipment-console{grid-area:console;background:#101e2b;border:1px solid #334b5c;border-radius:16px;padding:20px;min-width:0;align-self:start;box-shadow:0 12px 36px #0003}
+.equipment-console>header{display:flex;justify-content:space-between;gap:12px;color:#a8bbc8;font-size:13px;letter-spacing:.025em}
+.equipment-console>header b{color:#a9ded4}
+.equipment-alarm{background:#172e35;color:#b0d3c9;border-radius:8px;padding:12px;margin:16px 0;font-size:14px;line-height:1.5}
+.equipment-alarm.active{background:#442d29;color:#f5c493}
+.equipment-alarm span{display:block;font-size:12px;opacity:.8;margin-top:4px}
+.equipment-mode{display:flex;flex-direction:column;gap:8px;font-size:13px;color:var(--dim)}
+.equipment-readings{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:20px 0}
+.equipment-readings>div{display:flex;flex-direction:column;gap:6px}
+.equipment-readings span,.equipment-readings small{font-size:12px;color:#9bb2c0}
+.equipment-readings b{font:600 27px var(--mono);color:#d9eaf2;line-height:1.15}
+.equipment-settings{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.equipment-settings button{background:#1a3040;border:1px solid transparent;border-radius:8px;min-height:82px;text-align:left;color:var(--ink);padding:12px;cursor:pointer}
+.equipment-settings button[aria-pressed=true]{border-color:#80beac;background:#20423f}
+.equipment-settings span{display:block;font-size:12px;line-height:1.3;color:#adc4cf;margin-bottom:8px}
+.equipment-settings b{font:500 16px var(--mono)}
+.equipment-settings small{display:block;color:#efc878;margin-top:5px}
+.equipment-disclosure{min-height:44px;background:none;border:0;color:#91b9cb;padding:12px 0;cursor:pointer;font-size:13px;text-align:left}
+.equipment-knob{padding:18px;background:#0a1722;border-radius:12px}
+.equipment-knob label{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:14px;color:#b2c7d2}
+.equipment-knob output{font:600 21px var(--mono);color:#d7efe7}
+.equipment-knob-row{display:flex;align-items:center;gap:16px;margin:18px 0}
+.equipment-knob-row button{width:52px;height:52px;border-radius:50%;flex:none;border:2px solid #5e7888;background:#203443;color:#e0eef4;font-size:24px;cursor:pointer}
+.equipment-knob-row input{width:100%;min-width:0;min-height:44px;accent-color:#83d1bd}
+.equipment-knob p{font-size:12px;color:#9eb4c1;margin:0}
+.equipment-confirm{display:flex;gap:8px;justify-content:flex-end;margin-top:16px}
+.equipment-message{font-size:13px;color:#a9cbbd;line-height:1.5;min-height:2em}
+.equipment-holds{display:flex;gap:8px}
+.equipment-holds button{min-height:44px;background:#203341;color:#c5d7e1;border:0;border-radius:7px;padding:10px 14px;font-size:13px;cursor:pointer}
+.equipment-limits{margin-top:14px;color:#a1b8c6;font-size:13px}
+.equipment-limits summary,.equipment-feedback summary{min-height:44px;padding:14px 0;cursor:pointer}
+.equipment-limits label{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:12px 0}
+.equipment-limits input{width:90px;min-height:44px;background:#162b39;border:1px solid #3b596a;border-radius:7px;padding:8px;color:var(--ink);font:inherit;font-size:15px}
+.equipment-waveforms{grid-area:waves;min-width:0;background:#081521;border-radius:12px;padding:18px}
+.equipment-waveforms canvas{width:100%;display:block}.equipment-waveforms .loops{height:230px}
+.equipment-feedback{grid-area:feedback;min-width:0}.equipment-feedback>p{font-size:14px;color:var(--dim)}
+.equipment-feedback .card{max-width:100%}.equipment-feedback li{margin:12px 0;font-size:14px}.equipment-feedback li p{line-height:1.6}
+.equipment-guided{overflow:auto;padding:24px;max-width:860px;margin:auto;width:100%}
+@media(max-width:1024px){.equipment-workbench{display:flex;flex-direction:column;gap:16px;padding:16px}.equipment-heading{flex-direction:column;align-items:stretch;gap:12px}.equipment-heading label{min-width:0}.equipment-mobile-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}.equipment-mobile-nav button{min-height:48px;background:#112937;border:0;color:#a3bccb;border-radius:7px;font-size:13px;cursor:pointer}.equipment-mobile-nav button[aria-pressed=true]{background:#24504b;color:#d4ede6}.equipment-workbench>section{display:none}.equipment-pane-patient>.equipment-patient-pane,.equipment-pane-ventilator>.equipment-console,.equipment-pane-waveforms>.equipment-waveforms,.equipment-pane-feedback>.equipment-feedback{display:block;width:100%}.equipment-patient-pane>svg{max-height:430px}.equipment-console{padding:18px}.equipment-readings b{font-size:25px}.equipment-vitals{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:430px){.equipment-workbench{padding:14px 10px 28px}.equipment-settings{grid-template-columns:repeat(2,minmax(0,1fr))}.equipment-console{padding:14px}.equipment-knob{padding:14px}.equipment-knob-row{gap:10px}.equipment-knob output{font-size:18px}.equipment-confirm{flex-wrap:wrap}.equipment-readings{gap:10px}.equipment-readings b{font-size:23px}.equipment-patient svg text{display:none}.equipment-mobile-nav button{font-size:13px;padding:4px}.equipment-holds button{padding:8px}.equipment-workbench .abg-row{font-size:13px;gap:10px}}
+.equipment-patient .chest-excursion{transition:transform .14s linear}
+@media(prefers-reduced-motion:reduce){.equipment-patient .chest-excursion{transform:none!important;transition:none}}
+
+@media(max-width:1024px){.app[data-equipment=true] .workspace{grid-template-rows:auto minmax(0,1fr)}}
+
+.home-recent{padding:4px 0 18px}.home-recent h3{font-size:17px;margin:0 0 8px}.home-recent button{display:flex;justify-content:space-between;gap:16px;text-align:left;min-height:48px;width:100%;border:0;border-bottom:1px solid #19303e;background:transparent;color:var(--ink);padding:12px 0;cursor:pointer}.home-recent small{color:var(--dim);white-space:nowrap}

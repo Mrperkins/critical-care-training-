@@ -10,7 +10,7 @@ describe('global clinical experiences', () => {
       expect(result.mode).toBe(next === 'practice' ? 'challenge' : next);
     }
   });
-  it.each(['vent', 'abg', 'labs', 'lines', 'heart', 'abdomen', 'neuro', 'moa'] as Module[])('preserves %s when switching modes', (module) => {
+  it.each(['vent', 'abg', 'labs', 'lines', 'heart', 'abdomen', 'neuro', 'moa', 'pediatrics', 'womens'] as Module[])('preserves %s when switching modes', (module) => {
     for (const next of ['learn', 'explore', 'practice'] as const) {
       expect(experienceDestination(module, 'explore', next)).toEqual({ module, mode: next === 'practice' ? 'challenge' : next });
     }

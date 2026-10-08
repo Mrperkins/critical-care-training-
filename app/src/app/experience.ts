@@ -14,5 +14,5 @@ export function experienceDestination(module: Module, mode: Mode, next: Experien
 }
 export function selectExperience(next: Experience) {
   const state = useUI.getState();
-  state.set(experienceDestination(state.module, state.mode, next));
+  state.set({ ...experienceDestination(state.module, state.mode, next), ...(state.module === 'curriculum' || state.module === 'videos' ? { atlasDisease: null } : {}) });
 }

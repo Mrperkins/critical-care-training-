@@ -46,7 +46,8 @@ describe('lab bench writes causes into the shared patient', () => {
 describe('scenario data runs on the model', () => {
   it('every vent scenario reaches a physiological steady state', () => {
     for (const sc of VENT_SCENARIOS) { const m = new Mechanics(scenarioSettings(sc), buildLung(sc, sc.spasm), sc.effort); m.run(20); const b = m.stats!;
-      expect(b.vti, sc.id).toBeGreaterThan(0.2); expect(b.pip, sc.id).toBeLessThan(60); expect(isFinite(b.pip)).toBe(true); }
+      const minVolume = sc.gas.age != null && sc.gas.age < 18 ? 0.004 * sc.gas.weightKg! : 0.2;
+      expect(b.vti, sc.id).toBeGreaterThan(minVolume); expect(b.pip, sc.id).toBeLessThan(60); expect(isFinite(b.pip)).toBe(true); }
   });
   it('every dyssynchrony challenge starts with the problem present', () => {
     for (const d of DYSSYNCHRONIES) { const sc = VENT_SCENARIOS.find((s) => s.id === d.scenario)!; const m = new Mechanics({ ...scenarioSettings(sc), ...d.bad }, buildLung(sc, sc.spasm), d.effort); m.run(45);

@@ -24,14 +24,14 @@ export function openLesson(lessonId: string, t = 0) {
   const hit = lessonById(lessonId);
   if (!hit) { // a step lesson or a workflow: switch module, let its LessonShell open it
     const e = CATALOG_BY_ID[lessonId]; if (!e || e.kind === 'director') return;
-    usePendingOpen.getState().set({ kind: e.kind, id: lessonId }); useUI.getState().set({ module: e.module, mode: 'learn' }); return;
+    usePendingOpen.getState().set({ kind: e.kind, id: lessonId }); useUI.getState().set({ module: e.module, mode: 'learn', atlasDisease:null }); return;
   }
-  useUI.getState().set({ module: hit.module, mode: 'learn' });
+  useUI.getState().set({ module: hit.module, mode: 'learn', atlasDisease:lessonId.startsWith('atlas-') ? lessonId.slice(6) : null });
   setTimeout(() => { director.load(hit.tl, false); director.seek(t, false); }, 0);
 }
 
 /** Open a challenge in its module; the module's challenge view starts that exact case when it can (pending store). */
-export function openChallenge(id: string) { usePendingOpen.getState().set({ kind: 'challenge', id }); useUI.getState().set({ module: challengeModule(id), mode: 'challenge' }); }
+export function openChallenge(id: string) { usePendingOpen.getState().set({ kind: 'challenge', id }); useUI.getState().set({ module: challengeModule(id), mode: 'challenge', atlasDisease: null }); }
 /** For challenge views: take the pending challenge id if it matches `accept`, clearing it. */
 export function takePendingChallenge(accept: (id: string) => boolean): string | null {
   const p = usePendingOpen.getState(); if (p.kind !== 'challenge' || !p.id || !accept(p.id)) return null;

@@ -9,8 +9,8 @@ import { syncVisualConcepts } from '../audio/visualSync';
 
 export interface Bookmark { lessonId: string; t: number; title: string; at: string }
 export interface Attempt { ok: boolean; at: string }
-export interface ProgressData { completed: Record<string, string>; bookmarks: Bookmark[]; attempts: Record<string, Attempt[]> }
-const KEY = 'ccp.progress.v1'; const EMPTY = (): ProgressData => ({ completed: {}, bookmarks: [], attempts: {} });
+export interface ProgressData { completed: Record<string, string>; bookmarks: Bookmark[]; attempts: Record<string, Attempt[]>; recent: Bookmark[] }
+const KEY = 'ccp.progress.v1'; const EMPTY = (): ProgressData => ({ completed: {}, bookmarks: [], attempts: {}, recent: [] });
 function load(): ProgressData { try { const s = globalThis.localStorage?.getItem(KEY); if (s) { const d = JSON.parse(s); return { ...EMPTY(), ...d }; } } catch { /* storage unavailable */ } return EMPTY(); }
 function save(d: ProgressData) { try { globalThis.localStorage?.setItem(KEY, JSON.stringify(d)); } catch { /* storage unavailable or full */ } }
 const now = () => new Date().toISOString();
@@ -18,14 +18,16 @@ const now = () => new Date().toISOString();
 interface ProgressUI extends ProgressData {
   markComplete: (id: string) => void; toggleBookmark: (b: Omit<Bookmark, 'at'>) => void; removeBookmark: (i: number) => void;
   record: (challengeId: string, ok: boolean) => void; reset: () => void;
+  rememberLesson: (b: Omit<Bookmark, 'at'>) => void;
 }
 export const useProgress = create<ProgressUI>((set, get) => {
-  const commit = (p: Partial<ProgressData>) => { set(p); const s = get(); save({ completed: s.completed, bookmarks: s.bookmarks, attempts: s.attempts }); };
+  const commit = (p: Partial<ProgressData>) => { set(p); const s = get(); save({ completed: s.completed, bookmarks: s.bookmarks, attempts: s.attempts, recent: s.recent }); };
   return {
     ...load(),
     markComplete: (id) => { if (!get().completed[id]) commit({ completed: { ...get().completed, [id]: now() } }); },
     toggleBookmark: (b) => { const bs = get().bookmarks; const i = bs.findIndex((x) => x.lessonId === b.lessonId && Math.abs(x.t - b.t) < 2); commit({ bookmarks: i >= 0 ? bs.filter((_, k) => k !== i) : [{ ...b, at: now() }, ...bs].slice(0, 50) }); },
     removeBookmark: (i) => commit({ bookmarks: get().bookmarks.filter((_, k) => k !== i) }),
+    rememberLesson: (b) => commit({ recent: [{ ...b, at: now() }, ...get().recent.filter(x => x.lessonId !== b.lessonId)].slice(0, 6) }),
     record: (id, ok) => {
       commit({ attempts: { ...get().attempts, [id]: [...(get().attempts[id] ?? []), { ok, at: now() }].slice(-10) } });
       syncVisualConcepts(CHALLENGE_CONCEPTS[id] ?? [], ok);

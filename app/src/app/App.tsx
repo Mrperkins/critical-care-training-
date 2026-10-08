@@ -13,7 +13,7 @@ import { Scalars, Loops } from '../vent/Waveforms';
 import { VentControls, VentNumbersCard, GasCard, ExplainCard, ScenarioPicker, ScenarioStory, Interventions, Seg, loadVentScenario } from '../vent/VentPanel';
 import { VentLearn } from '../vent/VentLearn';
 import { VentChallenge } from '../vent/VentChallenge';
-import { VentSim } from '../vent/VentSim';
+import { VentWorkbench } from '../vent/VentWorkbench';
 import { AbgModule } from '../abg/AbgModule';
 import { lab } from '../abg/lab';
 import { LabModule } from '../labs/LabModule';
@@ -26,6 +26,9 @@ import { AbdomenModule } from '../abdomen/AbdomenModule';
 import { lines } from '../lines/session';
 import { SceneWrap } from '../scene/labels';
 import { VideoLibrary } from '../videos/VideoLibrary';
+import { AtlasEntry, AtlasModule } from '../atlas/AtlasModule';
+import type { AtlasDomain } from '../atlas/types';
+import { conditionsFor, DISEASE_BY_ID } from '../atlas/registry';
 
 export function useIsPhone() {
   const q = '(max-width: 760px)';
@@ -60,7 +63,10 @@ const DOMAINS: { module: Module; label: string; short: string; eyebrow: string }
   { module: 'abdomen', label: 'Abdomen', short: 'GI', eyebrow: 'Perfusion, bleeding & imaging' },
   { module: 'neuro', label: 'Neuro', short: 'NR', eyebrow: 'Brain, perfusion & pressure' },
   { module: 'moa', label: 'Pharmacology', short: 'RX', eyebrow: 'Mechanism to whole patient' },
+  { module: 'pediatrics', label: 'Pediatrics', short: 'PD', eyebrow: 'Children & neonatal physiology' },
+  { module: 'womens', label: 'Women’s Health / OB', short: 'OB', eyebrow: 'Gynecology, pregnancy & maternal care' },
 ];
+const ATLAS_DOMAINS: Partial<Record<Module, AtlasDomain>> = { vent: 'vent', heart: 'heart', neuro: 'neuro', lines: 'lines', abdomen: 'abdomen', labs: 'labs', pediatrics: 'pediatrics', womens: 'womens' };
 const experienceCopy: Record<ReturnType<typeof experienceFor>, string> = {
   learn: 'Guided lessons with a single clinical objective at a time.',
   explore: 'Manipulate physiology and inspect what changes.',
@@ -75,11 +81,14 @@ export function App() {
     ? { module: 'videos' as Module, label: 'Videos', short: 'VD', eyebrow: 'Curated clinical media' }
     : DOMAINS.find((d) => d.module === module) ?? DOMAINS[0];
   const [mobilePane, setMobilePane] = useState<'scene' | 'context'>('context');
+  const atlasDisease = useUI(s=>s.atlasDisease);
+  const atlasDomain = ATLAS_DOMAINS[module];
+  const showingAtlas = !!atlasDomain && (DISEASE_BY_ID[atlasDisease ?? '']?.domain === atlasDomain || module === 'pediatrics' || module === 'womens');
   const menu = useRef<HTMLDialogElement>(null);
   const menuTrigger = useRef<HTMLButtonElement>(null);
   const resources = useRef<HTMLDetailsElement>(null);
   const chooseDomain = (next: Module) => {
-    useUI.getState().set({ module: next }); setMobilePane('context');
+    useUI.getState().set({ module: next, atlasDisease: null }); setMobilePane('context');
     menu.current?.close(); resources.current?.removeAttribute('open');
   };
   const chooseExperience = (next: typeof experience) => {
@@ -94,7 +103,7 @@ export function App() {
     <span className="domain-short" aria-hidden="true">{d.short}</span><span className="domain-label">{d.label}</span>
   </button>);
   return (
-    <div className={`app app-v2 m-${module}${phone ? ' phone' : ''}`} data-mobile-pane={mobilePane}>
+    <div className={`app app-v2 m-${module}${phone ? ' phone' : ''}`} data-mobile-pane={mobilePane} data-equipment={module === 'vent' && mode === 'sim' && !showingAtlas ? true : undefined}>
       <a className="skip-link" href="#workspace" onClick={(e) => { e.preventDefault(); const el = document.getElementById('workspace'); el?.focus(); el?.scrollIntoView({ block: 'start' }); }}>Skip to learning workspace</a>
       <header className="topbar topbar-v2">
         <button ref={menuTrigger} className="domain-menu-button" aria-label="Open clinical domains" aria-haspopup="dialog" onClick={() => menu.current?.showModal()}>☰</button>
@@ -127,23 +136,26 @@ export function App() {
           <div className="workspace-head">
             <div><div className="eyebrow">{domain.eyebrow}</div><div className="workspace-title">{module === 'curriculum' ? 'What do you want to learn?' : module === 'videos' ? 'Critical Care Videos' : domain.label}</div></div>
             <p>{module === 'curriculum' ? 'Continue where you left off, choose a domain, or jump into a focused practice session.' : module === 'videos' ? 'Browse critical-care Shorts and long-form teaching by category, device, task and level.' : experienceCopy[experience]}</p>
+            {atlasDomain && !showingAtlas && <AtlasEntry domain={atlasDomain} onOpen={() => useUI.getState().set({atlasDisease:conditionsFor(atlasDomain)[0].id})} />}
             {experience === 'practice' && module !== 'curriculum' && module !== 'videos' && <div className="practice-switch" role="group" aria-label="Practice type">
               <button className={mode === 'challenge' ? 'on' : ''} onClick={() => useUI.getState().set({ mode: 'challenge' })}>Cases</button>
               <button className={mode === 'sim' ? 'on' : ''} onClick={() => useUI.getState().set({ mode: 'sim' })}>Simulator</button>
             </div>}
           </div>
-          {module !== 'curriculum' && module !== 'videos' && <nav className="mobile-workspace-tabs" aria-label="Workspace view">
+          {module !== 'curriculum' && module !== 'videos' && !(module === 'vent' && mode === 'sim' && !showingAtlas) && <nav className="mobile-workspace-tabs" aria-label="Workspace view">
             <button aria-pressed={mobilePane === 'scene'} onClick={() => setMobilePane('scene')}>Scene</button>
             <button data-context-button aria-pressed={mobilePane === 'context'} onClick={() => setMobilePane('context')}>{experience === 'learn' ? 'Lessons' : experience === 'practice' ? 'Cases & controls' : 'Patient & controls'}</button>
           </nav>}
-          {module === 'vent' && <VentModule />}
-          {module === 'abg' && <AbgModule />}
-          {module === 'labs' && <LabModule />}
-          {module === 'lines' && <LinesModule />}
-          {module === 'neuro' && <NeuroModule />}
-          {module === 'moa' && <MoaModule />}
-          {module === 'heart' && <HeartModule />}
-          {module === 'abdomen' && <AbdomenModule />}
+          {showingAtlas ? <AtlasModule key={module} domain={atlasDomain!} onExit={module === 'pediatrics' || module === 'womens' ? undefined : () => useUI.getState().set({atlasDisease:null})} onOpenVent={scenario => { useUI.getState().set({atlasDisease:null,module:'vent',mode:'sim',ventScenario:scenario}); }} /> : <>
+            {module === 'vent' && <VentModule />}
+            {module === 'abg' && <AbgModule />}
+            {module === 'labs' && <LabModule />}
+            {module === 'lines' && <LinesModule />}
+            {module === 'neuro' && <NeuroModule />}
+            {module === 'moa' && <MoaModule />}
+            {module === 'heart' && <HeartModule />}
+            {module === 'abdomen' && <AbdomenModule />}
+          </>}
           {module === 'curriculum' && <CurriculumModule />}
           {module === 'videos' && <VideoLibrary />}
         </div>
@@ -153,12 +165,14 @@ export function App() {
 }
 
 function VentModule() {
+  const mode = useUI((s) => s.mode);
   const [asset, setAsset] = useState<RespAsset | null>(null); const [err, setErr] = useState<string | null>(null);
   const [panel, setPanel] = useState<'patient' | 'controls' | 'findings' | 'reference'>('patient');
   // semantic hook for lessons, the Lesson Director and automated checks (same calls the buttons make)
   useEffect(() => { (window as unknown as { __CCVent: unknown }).__CCVent = { session, focus: focusVentTarget, load: loadVentScenario, set: (p: Record<string, number>) => session.set(p) }; }, []);
-  useEffect(() => { loadRespAsset().then(setAsset).catch((e) => { console.error(e); setErr(String(e?.message || e)); }); }, []);
-  const mode = useUI((s) => s.mode); const showLoops = useUI((s) => s.showLoops); const phone = useIsPhone(); const alv = useUI((s) => s.ventView === 'alveolus'); const xray = useUI((s) => s.ventView === 'xray'); const lus = useUI((s) => s.ventView === 'lus');
+  useEffect(() => { if(mode==='sim') return; loadRespAsset().then(setAsset).catch((e) => { console.error(e); setErr(String(e?.message || e)); }); }, [mode]);
+  const showLoops = useUI((s) => s.showLoops); const phone = useIsPhone(); const alv = useUI((s) => s.ventView === 'alveolus'); const xray = useUI((s) => s.ventView === 'xray'); const lus = useUI((s) => s.ventView === 'lus');
+  if(mode==='sim') return <VentWorkbench />;
   return (
     <main className="stage">
       <section className="scene-pane">
@@ -180,7 +194,6 @@ function VentModule() {
         </>}
         {mode === 'learn' && <VentLearn />}
         {mode === 'challenge' && <VentChallenge />}
-        {mode === 'sim' && <VentSim />}
         {asset && <p className="credit">Anatomy: {asset.mapping.attribution.creators}, {asset.mapping.attribution.data} — <a href={asset.mapping.attribution.licenseUrl} target="_blank" rel="noreferrer">{asset.mapping.attribution.license}</a>. {asset.mapping.attribution.changes} Lung motion is drawn 1.6× so tidal changes are visible.</p>}
       </aside>
     </main>

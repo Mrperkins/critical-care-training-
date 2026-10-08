@@ -1,11 +1,12 @@
 import { create } from 'zustand';
 
-export type Module = 'vent' | 'abg' | 'labs' | 'lines' | 'neuro' | 'moa' | 'heart' | 'abdomen' | 'curriculum' | 'videos';
+export type Module = 'vent' | 'abg' | 'labs' | 'lines' | 'neuro' | 'moa' | 'heart' | 'abdomen' | 'pediatrics' | 'womens' | 'curriculum' | 'videos';
 export type Mode = 'explore' | 'learn' | 'challenge' | 'sim';
 export type VentView = 'front' | 'side' | 'airway' | 'base' | 'alveolus' | 'xray' | 'lus';
 
 export interface UIState {
   module: Module; mode: Mode;
+  atlasDisease: string | null; atlasSeverity: number; atlasTarget: string;
   ventScenario: string; ventView: VentView;
   /** semantic camera target inside the vent module (lung.whole, lung.alveolus, lung.membrane …) */
   ventTarget: string; labels: boolean; showPmus: boolean; showLoops: boolean;
@@ -15,6 +16,7 @@ export interface UIState {
 }
 export const useUI = create<UIState>((set) => ({
   module: 'curriculum', mode: 'learn',
+  atlasDisease: null, atlasSeverity: .5, atlasTarget: 'body.whole',
   ventScenario: 'normal', ventView: 'front', ventTarget: 'lung.whole', labels: true, showPmus: false, showLoops: true,
   pulse: 0,
   set: (p) => set(p),

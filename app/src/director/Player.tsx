@@ -41,5 +41,5 @@ export function DirectorPlayer({ onExit }: { onExit?: () => void }) {
 
 function BookmarkBtn({ id, t, title }: { id: string; t: number; title: string }) {
   const on = useProgress((s) => s.bookmarks.some((b) => b.lessonId === id && Math.abs(b.t - t) < 2));
-  return <button className={`act${on ? ' done' : ''}`} aria-pressed={on} onClick={() => useProgress.getState().toggleBookmark({ lessonId: id, t, title })} title="Bookmark this moment">{on ? '★' : '☆'}</button>;
+  return <button className={`act${on ? ' done' : ''}`} aria-label={on ? 'Remove bookmark' : 'Bookmark this moment'} aria-pressed={on} onClick={() => useProgress.getState().toggleBookmark({ lessonId: id, t, title })} title="Bookmark this moment">{on ? '★' : '☆'}</button>;
 }
