@@ -62,7 +62,7 @@ mkdirSync(out, { recursive: true });
         if(width<=1024) await page.getByRole('button',{name:'Feedback',exact:true}).click();
         await page.getByLabel('Your clinical reasoning').fill('Compare ventilation with pressure and perfusion after this change.');
         await page.getByRole('button',{name:'Record reassessment',exact:true}).waitFor();
-        await page.waitForFunction(()=>!document.querySelector('.equipment-reassessment .primary').disabled, undefined, {timeout:30000});
+        await page.waitForFunction(()=>[...document.querySelectorAll('.equipment-reassessment .primary')].some(button=>!button.disabled&&button.getClientRects().length>0), undefined, {timeout:30000});
         await page.getByRole('button',{name:'Record reassessment',exact:true}).click();
         assert.ok(await page.getByText('Scenario debrief · 1 observations').isVisible());
         await page.locator('.equipment-reassessment').scrollIntoViewIfNeeded();
