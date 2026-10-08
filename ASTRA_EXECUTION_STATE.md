@@ -30,7 +30,7 @@ Iteration 1, Simplify & Focus, inspected from the supplied ASTRA redesign board.
 - Existing video feeds/providers/manufacturer resources preserved. npm scripts avoid unsupported tsx CLI IPC in this runtime. CI includes pinned Python/NumPy setup for asset validation.
 
 ## CURRENT SLICE
-Implementation checkpoint persisted in draft PR. Local source tests/build are green. CI for the expansion is running; inspect current PR check status. Production-build visual QA remains externally blocked; do not merge.
+Implementation and coverage checkpoints persisted in draft PR. Local tests/build and both source CI workflows are green. Production-build visual QA remains externally blocked; do not merge. Documentation-only commits may trigger the same checks again; verify the latest PR status before continuing.
 
 ## NEXT SLICE
 Use a permitted browser-accessible feature build with WebGL and viewport control for the requested visual/touch matrix. Compare the actual UI, anatomy, Learn animation and equipment simulator to Simplify & Focus; fix findings on this branch. This is the remaining release gate, not a new initial audit.
@@ -59,10 +59,10 @@ See UI_FINAL_REVIEW.md. Required AFTER Home/Learn/Explore/Practice/Videos/Skills
 Seven existing-engine modes: VC, PC, PSV, SIMV, PRVC, CPAP, APRV. Equipment scenarios: ARDS, severe asthma, COPD/auto-PEEP, cardiogenic edema, pneumonia, tension pneumothorax, post-intubation hypotension, high peak/normal plateau, high peak/high plateau, tube obstruction, circuit leak, disconnection, pediatric asthma (20 kg). Tests demonstrate confirmed tidal-volume response, ARDS recruitment, asthma expiratory emptying/auto-PEEP, circuit loss/reconnection and valid initial settings. Equipment scene is procedural SVG, not yet visually signed off. Original guided intubation cases remain available from the simulator.
 
 ## TEST STATUS
-Latest local: npm test 748/748, 54 files; npm run typecheck passed; npm run audio:audit complete with all eight gate lists empty; npm run site passed; tools/validate_visual_assets.py passed. Production JS 2.56 MB uncompressed, self-contained index 28.12 MB. Existing build is IIFE; lazy React components defer mounting/assets but do NOT provide network JS splitting. Build output stays separate from source commit while merge gates are open.
+Latest local: npm test 748/748, 54 files; npm run typecheck passed; npm run audio:audit complete with all eight gate lists empty; npm run site passed; tools/validate_visual_assets.py passed. Production JS 2.56 MB uncompressed, self-contained index 28.12 MB. Existing build is IIFE; lazy React components defer mounting/assets but do NOT provide network JS splitting. Build output stays separate from source commit while merge gates are open. Local generated index.html, sw.js, audio production queue and review packets are intentionally uncommitted; app/dist/pub is the tested production output and CI uploads that build as an artifact.
 
 ## CI STATUS
-Earlier shell/CI commit d3764dc had Clinical app validation and Audio Mastery CI green. Expansion ea45a7c triggers Clinical app validation run 37774717443 and Audio Mastery CI run 37774717426; both were in progress at checkpoint creation. Check latest head/runs; fix any failures. Draft PR #27 remains unmerged.
+Expansion ea45a7c: Clinical app validation run 37774717443 and Audio Mastery CI run 37774717426 both completed successfully. Documentation checkpoint f91e27e triggered runs 37775146567 / 37775146729, in progress at last observation. Source remains identical to the tested implementation. Check latest PR head/runs; fix any failures. Draft PR #27 remains unmerged.
 
 ## EXTERNAL BLOCKERS
 - Cloud browser WebGL disabled: GL_VENDOR/GL_RENDERER=Disabled; deployed baseline fails creating its context.
