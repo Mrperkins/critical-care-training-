@@ -1,4 +1,4 @@
-/** Independent Chromium QA of the built application. Produces reviewable WebGL screenshots. */
+/** Independent browser QA of the built application. Produces reviewable WebGL screenshots. */
 const { chromium, firefox, webkit } = require('@playwright/test');
 const engine=process.env.QA_BROWSER || 'chromium';
 const browserType={chromium,firefox,webkit}[engine];
@@ -26,7 +26,7 @@ mkdirSync(out, { recursive: true });
         await page.screenshot({path:`${out}/${width}-lungs.png`});
         await page.getByRole('button',{name:'Inspect airway anatomy',exact:true}).click();
         await page.waitForTimeout(1800);
-        const frames=await page.evaluate(()=>new Promise(resolve=>{let count=0;const start=performance.now();const sample=()=>{count++;if(performance.now()-start<2000)requestAnimationFrame(sample);else resolve({fps:+(count*1000/(performance.now()-start)).toFixed(1)});};requestAnimationFrame(sample);}));
+        const frames=await page.evaluate(()=>new Promise(resolve=>{let count=0, raf=0;const start=performance.now();const finish=()=>{cancelAnimationFrame(raf);resolve({fps:+(count*1000/(performance.now()-start)).toFixed(1)});};const timer=setTimeout(finish,2500);const sample=()=>{count++;if(performance.now()-start<2000)raf=requestAnimationFrame(sample);else{clearTimeout(timer);finish();}};raf=requestAnimationFrame(sample);}));
         await page.screenshot({path:`${out}/${width}-airway.png`});
         await page.getByRole('button',{name:'Hide airway anatomy',exact:true}).click();
         await page.getByRole('button',{name:'Whole bedside',exact:true}).click();

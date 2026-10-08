@@ -15,7 +15,7 @@ it('ships a detailed self-contained airway aligned inside the adult body frame',
     const matrix = new THREE.Matrix4().fromArray(node.getWorldMatrix());
     for(const p of node.getMesh()?.listPrimitives()??[]) {
       const position=p.getAttribute('POSITION')!; const indices=p.getIndices()!.getArray()!;
-      vertices+=position.getCount(); expect(indices.reduce((max,n)=>Math.max(max,n),0)).toBeLessThan(position.getCount());
+      vertices+=position.getCount(); expect(indices.reduce((max:number,n:number)=>Math.max(max,n),0)).toBeLessThan(position.getCount());
       for(let i=0;i<position.getCount();i++) {
         const v=new THREE.Vector3().fromArray(position.getElement(i,[])).applyMatrix4(matrix);
         expect(Number.isFinite(v.x+v.y+v.z)).toBe(true);bounds.expandByPoint(v);

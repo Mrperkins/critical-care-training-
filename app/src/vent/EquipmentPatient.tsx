@@ -20,7 +20,7 @@ import { session } from './session';
 import { ventNumbers } from './numbers';
 import { EquipmentScreen } from './EquipmentScreen';
 
-type View = 'bedside' | 'lungs' | 'ventilator';
+type View = 'bedside' | 'lungs' | 'ventilator' | 'airway';
 const SKIN = '#c7a18d';
 const LUNG = '#c48983';
 
@@ -107,13 +107,13 @@ function AnatomicalPatient({ body, child, focus, transparent, airway }: {
   return <group position={[-1.2,child?.64:.74,0]} rotation={[-Math.PI/2,0,0]} scale={factor}>
     <group position={[0,0,0]}>
       {body.meshes.skin && <mesh geometry={body.meshes.skin.geometry} dispose={null}>
-        <meshPhysicalMaterial color={SKIN} transparent={transparent} opacity={transparent?.25:1} depthWrite={!transparent} roughness={.79} side={THREE.DoubleSide} />
+        <meshPhysicalMaterial color={SKIN} transparent={transparent} opacity={transparent?(airway?.06:.25):1} depthWrite={!transparent} roughness={.79} side={THREE.DoubleSide} />
       </mesh>}
       {(['lung_R','lung_L'] as const).map((id,index) => body.meshes[id]
         ? <BreathingLung key={id} id={id} body={body} side={index as 0|1} focus={focus} revealAirway={!!airway} />
         : null)}
       {airway && ['airway','cartilage'].map(id=>airway[id] && <mesh key={id} geometry={airway[id].geometry} material={airway[id].material} onClick={focus} dispose={null} />)}
-      {ids.map(id => body.meshes[id]
+      {!airway && ids.map(id => body.meshes[id]
         ? <mesh key={id} geometry={body.meshes[id].geometry} dispose={null}>
           <meshStandardMaterial color={id==='heart'?'#965260':id==='brain'?'#a78693':'#86565e'} roughness={.72} />
         </mesh>
@@ -185,7 +185,8 @@ function Camera({ view, revision, child }: { view: View; revision: number; child
   useEffect(() => {
     const c = controls.current;
     if (!c) return;
-    if (view === 'lungs') c.setLookAt(1.1,2.7,.7,-1.2,child?.7:.8,child?-.9:-1.25,true);
+    if (view === 'airway') c.setLookAt(.0,1.8,-.55,-1.2,.84,-1.35,true);
+    else if (view === 'lungs') c.setLookAt(1.1,2.7,.7,-1.2,child?.7:.8,child?-.9:-1.25,true);
     else if (view === 'ventilator') c.setLookAt(3.5,2.45,3,1.4,1.25,.2,true);
     else { const distance=Math.max(1,1.25/(size.width/size.height)); c.setLookAt(4.0*distance,5.8*distance,6.1*distance,0,.45,0,true); }
   },[view,revision,child,size.width,size.height]);
@@ -227,7 +228,7 @@ export function EquipmentPatient({ onCircuitChange, onVentilator }: { onCircuitC
             <AnatomicalPatient body={body} child={child} transparent={transparent} airway={!child&&revealAirway?airway:null} focus={()=>focus('lungs')} />
             <EquipmentCabinet onFocus={()=>focus('ventilator')} />
             <BedsideMonitor />
-            <Tubing child={child} disconnected={disconnected} onToggle={toggleCircuit} />
+            {!(revealAirway&&!child) && <Tubing child={child} disconnected={disconnected} onToggle={toggleCircuit} />}
             <Camera view={view} revision={revision} child={child} />
           </StudioCanvas>
         : <p className="loading" role="status">{error
@@ -239,9 +240,9 @@ export function EquipmentPatient({ onCircuitChange, onVentilator }: { onCircuitC
         <button key={v} className={view===v?'act primary':'act'} aria-pressed={view===v}
           onClick={()=>focus(v)}>{v==='bedside'?'Whole bedside':v==='lungs'?'Focus lungs':'Inspect ventilator'}</button>)}
       <button className="act" aria-pressed={transparent} onClick={()=>{setTransparent(v=>!v);setRevealAirway(false);}}>{transparent?'Show skin surface':'Reveal organs'}</button>
-    {!child && <button className="act" aria-pressed={revealAirway} disabled={!airway} onClick={()=>{setRevealAirway(v=>!v);setTransparent(true);focus('lungs');}}>{airwayError?'Airway model unavailable':!airway?'Loading airway…':revealAirway?'Hide airway anatomy':'Inspect airway anatomy'}</button>}
+    {!child && <button className="act" aria-pressed={revealAirway} disabled={!airway} onClick={()=>{setRevealAirway(v=>!v);setTransparent(true);focus(revealAirway?'lungs':'airway');}}>{airwayError?'Airway model unavailable':!airway?'Loading airway…':revealAirway?'Hide airway anatomy':'Inspect airway anatomy'}</button>}
     </div>
-    {revealAirway&&!child&&<p className="muted small">Adult trachea, branching bronchi and cartilage · lungs are translucent for inspection. Airway surfaces show reference anatomy; bronchospasm is represented by the physiology and waveforms.</p>}
+    {revealAirway&&!child&&<p className="muted small">Adult trachea, branching bronchi and cartilage · lungs are translucent; other organs and the external circuit are hidden for inspection. Airway surfaces show reference anatomy; bronchospasm is represented by the physiology and waveforms.</p>}
     <p className="muted small">Drag to orbit · pinch or scroll to zoom · tap the green/red circuit connector to disconnect or reconnect. Camera buttons restore their views.</p>
     <div className="actions"><button className="act" onClick={toggleCircuit}>{disconnected?'Reconnect 3D circuit':'Disconnect 3D circuit'}</button><button className="act" onClick={onVentilator}>Operate ventilator controls</button></div>
     {child && <p className="muted small">Pediatric scenario · {session.pt.p.weightKg} kg. The available whole-body 3D mesh is adult-derived and scaled; it is not a pediatric anatomical reference.</p>}

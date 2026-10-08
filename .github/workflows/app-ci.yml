@@ -42,6 +42,7 @@ jobs:
           path: app/dist/pub
           retention-days: 7
   bedside-browser-qa:
+    timeout-minutes: 15
     strategy:
       fail-fast: false
       matrix:
