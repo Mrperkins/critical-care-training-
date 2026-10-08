@@ -29,6 +29,11 @@ jobs:
       - run: npm run typecheck
       - run: npm run audio:audit
       - run: npm run site
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install visual asset validator dependency
+        run: python -m pip install numpy==2.2.6
       - name: Validate generated visual assets
         run: python ../tools/validate_visual_assets.py
       - uses: actions/upload-artifact@v4
