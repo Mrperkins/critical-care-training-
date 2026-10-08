@@ -98,7 +98,7 @@ export function VentNumbersCard() {
   const cells: [string, string, string, string?][] = [
     ['PIP', fx(n.pip), 'cmH₂O'], [n.pplatMeasured ? 'Pplat' : 'Pplat ≈', fx(n.pplat), 'cmH₂O', n.pplatMeasured ? '' : 'est — do an insp hold'],
     ['PEEP tot', fx(n.peepTot), 'cmH₂O'], ['ΔP', fx(n.dp), 'cmH₂O'],
-    ['Vte', fx(n.vte), 'mL'], ['Vt/PBW', fx(n.vtPerKg, 1), 'mL/kg'], ['RR', fx(n.rr), '/min'], ['V̇E', fx(n.mv, 1), 'L/min'],
+    ['Vte', fx(n.vte), 'mL'], [session.pt.p.age < 18 ? 'Vt/weight' : 'Vt/PBW', fx(n.vtPerKg, 1), 'mL/kg'], ['RR', fx(n.rr), '/min'], ['V̇E', fx(n.mv, 1), 'L/min'],
     ['Cstat', fx(n.cstat), 'mL/cmH₂O'], ['Raw', fx(n.raw), 'cmH₂O/L/s'], ['τ', fx(n.tau, 2), 's'], ['I:E', n.ie, ''],
   ];
   return (

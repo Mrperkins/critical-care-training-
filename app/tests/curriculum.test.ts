@@ -1,3 +1,4 @@
+import { DISEASES } from '../src/atlas/registry';
 import { describe, it, expect } from 'vitest';
 import { CATALOG, CATALOG_BY_ID, CONCEPTS, CHALLENGE_CONCEPTS, CERTS } from '../src/curriculum/catalog';
 import { weakTopics, domainProgress, missingPrereqs, useProgress } from '../src/curriculum/progress';
@@ -19,7 +20,7 @@ import { SCENE_CASES } from '../src/challenge/sceneCases';
 
 describe('curriculum catalog', () => {
   it('covers every Director lesson, step lesson and workflow — and nothing else', () => {
-    const ids = [...LESSON_HOSTS.flatMap((h) => h.timelines.map((t) => t.id)), ...[...VENT_LESSONS, ...ABG_LESSONS, ...LAB_LESSONS, ...LINES_LESSONS].map((l) => (l as { id: string }).id), ...[...VENT_WORKFLOWS, ...LINES_WORKFLOWS, CENTRAL_LINE].map((w) => w.id)];
+    const ids = [...DISEASES.map(d => `atlas-${d.id}`), ...LESSON_HOSTS.flatMap((h) => h.timelines.map((t) => t.id)), ...[...VENT_LESSONS, ...ABG_LESSONS, ...LAB_LESSONS, ...LINES_LESSONS].map((l) => (l as { id: string }).id), ...[...VENT_WORKFLOWS, ...LINES_WORKFLOWS, CENTRAL_LINE].map((w) => w.id)];
     expect(new Set(ids).size).toBe(ids.length);
     expect(CATALOG.map((e) => e.id).sort()).toEqual([...ids].sort());
   });
@@ -37,7 +38,7 @@ describe('curriculum catalog', () => {
     for (const [k, v] of Object.entries(CONCEPTS)) for (const r of v.remediate) { if ('lesson' in r) expect(CATALOG_BY_ID[r.lesson], `${k}:${r.lesson}`).toBeTruthy(); else expect(MECH[r.drug], `${k}:${r.drug}`).toBeTruthy(); }
   });
   it('Paediatric / Neonatal / OB are in the taxonomy and each has lessons', () => {
-    const d = domainProgress({}); for (const x of ['Paediatric', 'Neonatal', 'OB']) { expect(d.some((y) => y.domain === x)).toBe(true); expect(d.find((y) => y.domain === x)!.entries.length, x).toBeGreaterThanOrEqual(2); }
+    const d = domainProgress({}); for (const x of ['Paediatric', 'Neonatal', 'OB', 'Women’s health']) { expect(d.some((y) => y.domain === x)).toBe(true); expect(d.find((y) => y.domain === x)!.entries.length, x).toBeGreaterThanOrEqual(2); }
   });
 });
 
@@ -54,6 +55,24 @@ describe('progress', () => {
     const s = useProgress.getState(); expect(s.completed.eom).toBeTruthy(); expect(s.bookmarks).toHaveLength(1); expect(s.attempts['vent-goal-ards']).toHaveLength(1);
     s.toggleBookmark({ lessonId: 'vent-ards-signature', t: 43.5, title: 'x' }); expect(useProgress.getState().bookmarks).toHaveLength(0);
     expect(missingPrereqs(CATALOG_BY_ID['vent-ards-signature'], useProgress.getState().completed)).toEqual(['peep']);
+  });
+  it('atlas bookmarks reopen the correct population, moment and clinical focus and track completion', async () => {
+    const { initProgressTracking } = await import('../src/curriculum/track');
+    const { director, useDirector } = await import('../src/director/director');
+    const { duration, steps } = await import('../src/director/timeline');
+    const { openLesson } = await import('../src/app/navigate');
+    const { useUI } = await import('../src/app/store');
+    const { lessonById } = await import('../src/director/lessonIndex');
+    useProgress.getState().reset(); initProgressTracking();
+    const hit = lessonById('atlas-pcos')!; const moment = steps(hit.tl)[2].at;
+    useProgress.getState().toggleBookmark({ lessonId: hit.tl.id, t: moment, title: hit.tl.title });
+    const bookmark = useProgress.getState().bookmarks[0]; openLesson(bookmark.lessonId, bookmark.t);
+    await new Promise(resolve => setTimeout(resolve, 10));
+    expect(useUI.getState()).toMatchObject({ module: 'womens', mode: 'learn', atlasDisease: 'pcos', atlasTarget: DISEASES.find(d => d.id === 'pcos')!.target });
+    expect(useDirector.getState().tl?.id).toBe('atlas-pcos'); expect(useDirector.getState().t).toBe(moment);
+    expect(useProgress.getState().recent[0]).toMatchObject({ lessonId: 'atlas-pcos', t: moment });
+    director.seek(duration(hit.tl)); expect(useProgress.getState().completed['atlas-pcos']).toBeTruthy();
+    openLesson('ln-damp'); expect(useUI.getState().atlasDisease).toBeNull(); director.unload();
   });
   it('playing a lesson to the end marks it complete; deep links open step lessons and workflows in their module', async () => {
     const { initProgressTracking } = await import('../src/curriculum/track');

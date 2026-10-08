@@ -15,9 +15,10 @@ import { ABG_LESSONS } from '../src/lessons/abg';
 import { LAB_LESSONS } from '../src/lessons/labs';
 import { LINES_LESSONS } from '../src/lines/lessons';
 import { LESSON_HOSTS } from '../src/director/lessonIndex';
+import { DISEASES } from '../src/atlas/registry';
 
 const here = path.dirname(fileURLToPath(import.meta.url)); const REPO = path.resolve(here, '..', '..');
-const MOD: Record<string, string> = { vent: 'Ventilator', abg: 'Blood gas', labs: 'Labs', lines: 'Lines', neuro: 'Brain', heart: 'Heart', abdomen: 'Abdomen', img: 'Ventilator', moa: 'Drugs' };
+const MOD: Record<string, string> = { vent: 'Ventilator', abg: 'Blood gas', labs: 'Labs', lines: 'Lines', neuro: 'Brain', heart: 'Heart', abdomen: 'Abdomen', img: 'Ventilator', moa: 'Drugs', pediatrics: 'Pediatrics', womens: 'Women’s Health / OB' };
 const modName = (m?: string) => (m ? MOD[m] ?? m : '');
 export interface Row { section: string; id: string; where: string; item: string; content: string; source?: string }
 const rows: Row[] = []; const add = (r: Row) => rows.push({ ...r, content: r.content.replace(/\s+/g, ' ').trim() });
@@ -53,6 +54,13 @@ for (const it of man.items) {
 // 5 label descriptions (glossary)
 const gloss: { title: string; desc: string; modules: string[] }[] = JSON.parse(fs.readFileSync(path.join(here, '..', 'src/scene/labelIndex.json'), 'utf8'));
 for (const g of gloss) add({ section: '5 Label descriptions', id: `label:${g.title}`, where: `3D labels › ${g.modules.join(', ')}`, item: g.title, content: g.desc });
+// 6 disease atlas: include distinctions and every simulated decision, not just the lesson title.
+for (const d of DISEASES) {
+  const base = { section: '6 Disease atlas', where: `${modName(d.domain)} › ${d.group} › ${d.title}`, source: d.sources.map(s => `${s.title} (${s.url})`).join('; ') };
+  add({ ...base, id: `atlas:${d.id}:mechanism`, item: 'Mechanism and visual findings', content: `${d.mechanism} Visual findings: ${d.findings.map(f => f.label).join('; ')}.` });
+  add({ ...base, id: `atlas:${d.id}:distinction`, item: 'Clinical distinction', content: d.distinction });
+  for (const choice of d.decisions) add({ ...base, id: `atlas:${d.id}:${choice.id}`, item: `${d.question} — ${choice.label}`, content: choice.explanation });
+}
 
 const csv = (s: string) => `"${s.replace(/"/g, '""')}"`;
 const header = ['Section', 'ID', 'Where in the app', 'Item', 'Content to review', 'Source / credit', 'Verdict (OK / Change / Remove)', 'Reviewer comment'];

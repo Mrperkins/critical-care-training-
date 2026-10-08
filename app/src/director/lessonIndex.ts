@@ -1,6 +1,8 @@
 /** Every Director lesson and the module that hosts it — for cross-links (lesson ↔ drug mechanism) and returning to a lesson. */
 import type { Timeline } from './timeline';
-import type { Module } from '../app/store';
+import { useUI, type Module } from '../app/store';
+import { DISEASE_BY_ID } from '../atlas/registry';
+import { diseaseLesson } from '../atlas/engine';
 import { VENT_TIMELINES } from './lessons/vent';
 import { NEEDLE_LESSON } from './lessons/needle';
 import { ABG_TIMELINES } from './lessons/abg';
@@ -26,4 +28,7 @@ export const LESSON_HOSTS: { module: Module; timelines: Timeline[] }[] = [
   { module: 'heart', timelines: [...HEART_LESSONS, NEO_TRANSITION_LESSON] },
   { module: 'abdomen', timelines: [...ABDOMEN_LESSONS, DISSECTION_LESSON, ...ABDOMEN_LESSONS_2] },
 ];
-export const lessonById = (id: string) => { for (const h of LESSON_HOSTS) { const tl = h.timelines.find((t) => t.id === id); if (tl) return { tl, module: h.module }; } return null; };
+export const lessonById = (id: string) => {
+  if(id.startsWith('atlas-')) { const d=DISEASE_BY_ID[id.slice(6)]; if(d) return {module:d.domain,tl:diseaseLesson(d,(atlasSeverity,atlasTarget)=>useUI.getState().set({atlasSeverity,atlasTarget}))}; }
+  for (const h of LESSON_HOSTS) { const tl = h.timelines.find((t) => t.id === id); if (tl) return { tl, module: h.module }; } return null;
+};

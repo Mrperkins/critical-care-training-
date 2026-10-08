@@ -5,9 +5,11 @@
  * learner to look up), never quoted text. Certification tags mark topic ALIGNMENT with the FP-C / CCP-C
  * (IBSC) and CFRN (BCEN) content areas; NAEMT tags name the NAEMT course whose scope the topic touches.
  */
+import { DISEASES } from '../atlas/registry';
+
 export type Domain = 'Cardiology' | 'Respiratory' | 'Haemodynamics & shock' | 'Acid–base & labs' | 'Neuro' | 'Trauma & haemorrhage' | 'Renal & metabolic'
-  | 'Pharmacology' | 'Ventilation' | 'Blood' | 'Procedures' | 'Devices' | 'Imaging & POCUS' | 'Paediatric' | 'Neonatal' | 'OB';
-export const DOMAINS: Domain[] = ['Ventilation', 'Respiratory', 'Haemodynamics & shock', 'Cardiology', 'Acid–base & labs', 'Renal & metabolic', 'Neuro', 'Trauma & haemorrhage', 'Blood', 'Pharmacology', 'Procedures', 'Devices', 'Imaging & POCUS', 'Paediatric', 'Neonatal', 'OB'];
+  | 'Pharmacology' | 'Ventilation' | 'Blood' | 'Procedures' | 'Devices' | 'Imaging & POCUS' | 'Paediatric' | 'Neonatal' | 'OB' | 'Women’s health';
+export const DOMAINS: Domain[] = ['Ventilation', 'Respiratory', 'Haemodynamics & shock', 'Cardiology', 'Acid–base & labs', 'Renal & metabolic', 'Neuro', 'Trauma & haemorrhage', 'Blood', 'Pharmacology', 'Procedures', 'Devices', 'Imaging & POCUS', 'Paediatric', 'Neonatal', 'OB', 'Women’s health'];
 export type Cert = 'FP-C' | 'CCP-C' | 'CFRN';
 export const CERTS: Cert[] = ['FP-C', 'CCP-C', 'CFRN'];
 export type Naemt = 'PHTLS' | 'AMLS' | 'TECC' | 'TCCC' | 'EPC' | 'GEMS' | 'AHDR';
@@ -18,7 +20,7 @@ export const NAEMT: { id: Naemt; name: string }[] = [
 export type Kind = 'director' | 'step' | 'workflow';
 export type Difficulty = 'core' | 'intermediate' | 'advanced';
 export interface Entry {
-  id: string; kind: Kind; module: 'vent' | 'abg' | 'labs' | 'lines' | 'neuro' | 'heart' | 'abdomen'; domains: Domain[]; certs: Cert[]; naemt: Naemt[];
+  id: string; kind: Kind; module: 'vent' | 'abg' | 'labs' | 'lines' | 'neuro' | 'heart' | 'abdomen' | 'pediatrics' | 'womens'; domains: Domain[]; certs: Cert[]; naemt: Naemt[];
   objectives: string[]; sources: string[]; reviewed: string; difficulty: Difficulty; prereq: string[]; protocol?: string;
 }
 const ALL: Cert[] = ['FP-C', 'CCP-C', 'CFRN'];
@@ -116,6 +118,15 @@ export const CATALOG: Entry[] = [
   e('wf-artline', 'workflow', 'lines', ['Devices'], 'core', [], ['Level, zero and damping-check an arterial line'], [S.gardner], ['ln-level']),
   e('wf-central-line', 'workflow', 'lines', ['Procedures', 'Imaging & POCUS'], 'advanced', [], ['Place an ultrasound-guided IJ line with vein confirmation before dilation'], [S.asaCvc, S.aseCvc], ['lines-cvc']),
 ];
+// Shared atlas lessons participate in bookmarks, progress and deep links like core lessons.
+const ATLAS_DOMAIN: Record<string, Domain> = { vent: 'Respiratory', heart: 'Cardiology', neuro: 'Neuro', lines: 'Haemodynamics & shock', abdomen: 'Trauma & haemorrhage', labs: 'Renal & metabolic', pediatrics: 'Paediatric', womens: 'Women’s health' };
+CATALOG.push(...DISEASES.map((d): Entry => ({
+  id: `atlas-${d.id}`, kind: 'director', module: d.domain,
+  domains: [...new Set<Domain>([ATLAS_DOMAIN[d.domain], ...(d.population === 'neonate' ? ['Neonatal' as Domain] : []), ...(d.population === 'maternal' ? ['OB' as Domain] : [])])],
+  certs: d.population === 'female' ? [] : ALL, naemt: d.domain === 'pediatrics' ? ['EPC'] : [],
+  objectives: [`Explain ${d.title.toLowerCase()} through ${d.findings.map(f => f.label.toLowerCase()).join(', ')}`, d.distinction],
+  sources: d.sources.map(s => `${s.title} — ${s.url}`), reviewed: '2026-10-08', difficulty: 'core', prereq: [],
+})));
 export const CATALOG_BY_ID: Record<string, Entry> = Object.fromEntries(CATALOG.map((x) => [x.id, x]));
 
 /* ---------------------------------------------------------------- concepts for challenges → remediation */

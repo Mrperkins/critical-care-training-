@@ -105,6 +105,8 @@ export const NORMAL: PatientParams = {
 };
 
 export function pbw(sex: 'M' | 'F', heightCm: number) { return (sex === 'M' ? 50 : 45.5) + 0.91 * (heightCm - 152.4); }
+/** Adult PBW formulas are not valid for children. Pediatric teaching uses scenario weight. */
+export function ventilationWeight(p: Pick<PatientParams, 'age' | 'weightKg' | 'sex' | 'heightCm'>) { return p.age < 18 ? p.weightKg : pbw(p.sex,p.heightCm); }
 
 export function createPatient(over: Partial<PatientParams> = {}, init: Partial<Pick<PatientState, 'paco2' | 'lactate' | 'ketones' | 'renalAdj' | 'kBal' | 'naBrain'>> & { k?: number } = {}): PatientState {
   const p = { ...NORMAL, ...over };
@@ -171,7 +173,7 @@ export function spontaneous(st: PatientState, hco3: number, pao2: number): Spont
   if (ve > p.maxVE) { const f = p.maxVE / ve; ve = p.maxVE; vt *= Math.sqrt(f); rr = ve / vt; }
   return { rr: Math.max(2, rr), vt, ve: Math.max(0.5, ve) };
 }
-function vdTotal(st: PatientState, vt: number) { const anat = 2.2 * pbw(st.p.sex, st.p.heightCm) / 1000; return anat + vt * alvDeadFrac(st, st.vent); }
+function vdTotal(st: PatientState, vt: number) { const anat = 2.2 * ventilationWeight(st.p) / 1000; return anat + vt * alvDeadFrac(st, st.vent); }
 function alvDeadFrac(st: PatientState, v: VentInput | null) {
   const co = cardiacOutput(st, v);
   let f = st.p.vdAlv + Math.max(0, (3.5 - co) / 3.5) ** 0.8 * 0.8; // low flow → unperfused alveoli (arrest, PE, shock)

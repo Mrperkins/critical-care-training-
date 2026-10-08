@@ -13,14 +13,19 @@ const FONT = '500 10px "IBM Plex Mono", ui-monospace, monospace';
 
 function useCanvas(draw: (ctx: CanvasRenderingContext2D, w: number, h: number) => void) {
   const ref = useRef<HTMLCanvasElement>(null);
+  const currentDraw = useRef(draw); currentDraw.current = draw;
   useEffect(() => {
-    const c = ref.current!; const ctx = c.getContext('2d')!; let raf = 0; let w = 0, h = 0;
-    const ro = new ResizeObserver(() => { const r = c.getBoundingClientRect(); const d = Math.min(2, window.devicePixelRatio || 1); w = r.width; h = r.height; c.width = Math.round(w * d); c.height = Math.round(h * d); ctx.setTransform(d, 0, 0, d, 0, 0); });
+    const c = ref.current!; const ctx = c.getContext('2d'); if (!ctx) return;
+    let raf = 0; let w = 0, h = 0, onScreen = true;
+    const resize = () => { const r = c.getBoundingClientRect(); const d = Math.min(window.innerWidth <= 760 ? 1.25 : 2, window.devicePixelRatio || 1); w = r.width; h = r.height; c.width = Math.round(w * d); c.height = Math.round(h * d); ctx.setTransform(d, 0, 0, d, 0, 0); };
+    const ro = new ResizeObserver(resize);
     ro.observe(c);
-    const loop = () => { raf = requestAnimationFrame(loop); if (w > 0 && h > 0) { ctx.clearRect(0, 0, w, h); draw(ctx, w, h); } };
-    raf = requestAnimationFrame(loop);
-    return () => { cancelAnimationFrame(raf); ro.disconnect(); };
-  }, [draw]);
+    const loop = () => { raf = 0; if (document.hidden || !onScreen) return; if (w > 0 && h > 0) { ctx.clearRect(0, 0, w, h); currentDraw.current(ctx, w, h); } raf = requestAnimationFrame(loop); };
+    const resume = () => { if (!document.hidden && onScreen && !raf) raf = requestAnimationFrame(loop); };
+    const io = typeof IntersectionObserver === 'undefined' ? null : new IntersectionObserver(es => { onScreen = es.some(e => e.isIntersecting); if (!onScreen) { cancelAnimationFrame(raf); raf=0; } else resume(); });
+    io?.observe(c); document.addEventListener('visibilitychange',resume); resize(); resume();
+    return () => { cancelAnimationFrame(raf); ro.disconnect(); io?.disconnect(); document.removeEventListener('visibilitychange',resume); };
+  }, []);
   return ref;
 }
 const niceMax = (x: number, step: number, min: number) => Math.max(min, Math.ceil(x / step) * step);

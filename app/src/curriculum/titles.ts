@@ -1,4 +1,5 @@
 /** Human titles for every catalog id, from the lessons and workflows themselves (one source of truth). */
+import { DISEASES } from '../atlas/registry';
 import { LESSON_HOSTS } from '../director/lessonIndex';
 import { VENT_LESSONS } from '../lessons/vent';
 import { ABG_LESSONS } from '../lessons/abg';
@@ -22,4 +23,5 @@ for (const c of LAB_CASES) TITLES[`lab-${c.id}`] = c.story.split('.')[0];
 for (const c of LINES_CASES as { id: string; title: string }[]) TITLES[`lines-${c.id}`] = c.title;
 for (const p of ABG_PRESETS) TITLES[`abg-${p.id}`] = p.name;
 for (const c of SCENE_CASES) TITLES[c.id] = c.title;
+for (const d of DISEASES) TITLES[`atlas-${d.id}`] = d.title;
 export const titleOf = (id: string) => TITLES[id] ?? id;
