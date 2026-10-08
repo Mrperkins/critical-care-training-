@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { CHANNEL_COLLECTIONS, VIDEO_CATEGORIES, VIDEO_LIBRARY, VIDEO_SKILL_COLLECTIONS, canAutoplayInFeed, filterVideoLibrary, pairedLongForm, videoMatchesSkill, videoProvider, videoSourceUrl, youtubeThumbnailUrl } from './catalog';
+import { CHANNEL_COLLECTIONS, MANUFACTURER_COLLECTIONS, VIDEO_CATEGORIES, VIDEO_LIBRARY, VIDEO_SKILL_COLLECTIONS, canAutoplayInFeed, filterVideoLibrary, pairedLongForm, videoMatchesSkill, videoProvider, videoSourceUrl, youtubeThumbnailUrl } from './catalog';
 import type { VideoSkillCollectionId } from './catalog';
 import { buildFeedEmbedUrl, inFeedPreloadWindow, mostVisibleVideoId } from './feed';
 import type { ClinicalVideo, VideoFormat, VideoIntent, VideoLevel } from './types';
@@ -322,9 +322,12 @@ export function VideoLibrary() {
   const feedNodes = useRef(new Map<string, HTMLElement>());
   const feedRatios = useRef(new Map<string, number>());
 
-  const manufacturerSources = useMemo(() => Array.from(new Set(
-    VIDEO_LIBRARY.filter((video) => video.reviewStatus === 'listed' && video.sourceClass === 'manufacturer').map((video) => video.channel)
-  )).sort(), []);
+  const manufacturerSources = useMemo(() => MANUFACTURER_COLLECTIONS
+    .map((item) => ({
+      ...item,
+      count: VIDEO_LIBRARY.filter((video) => video.reviewStatus === 'listed' && video.sourceClass === 'manufacturer' && video.channel === item.label).length,
+    }))
+    .filter((item) => item.count > 0), []);
 
   const categoryDef = VIDEO_CATEGORIES.find((item) => item.id === category);
   const browseVideos = useMemo(() => {
@@ -339,9 +342,15 @@ export function VideoLibrary() {
 
   const feedVideos = useMemo(() => {
     let filtered = VIDEO_LIBRARY.filter((video) => video.reviewStatus === 'listed' && (!channel || video.channel === channel));
-    if (feedKind === 'shorts') filtered = filtered.filter((video) => video.format === 'short');
-    if (feedKind === 'deep') filtered = filtered.filter((video) => video.format === 'long');
-    if (feedKind === 'skills') filtered = filtered.filter((video) => videoMatchesSkill(video, skillCollection));
+    if (feedKind === 'skills') {
+      filtered = filtered.filter((video) => videoMatchesSkill(video, skillCollection));
+    } else {
+      // Keep the TikTok/Shorts-style feed truly playable. External manufacturer
+      // resources remain discoverable in Skills and Browse without interrupting autoplay.
+      filtered = filtered.filter(canAutoplayInFeed);
+      if (feedKind === 'shorts') filtered = filtered.filter((video) => video.format === 'short');
+      if (feedKind === 'deep') filtered = filtered.filter((video) => video.format === 'long');
+    }
     return [...filtered].sort((a, b) => {
       if (feedKind === 'all') {
         const formatBias = Number(b.format === 'short') - Number(a.format === 'short');
@@ -355,11 +364,12 @@ export function VideoLibrary() {
 
   const feedCounts = useMemo(() => {
     const source = VIDEO_LIBRARY.filter((video) => video.reviewStatus === 'listed' && (!channel || video.channel === channel));
+    const playable = source.filter(canAutoplayInFeed);
     return {
-      all: source.length,
-      shorts: source.filter((video) => video.format === 'short').length,
+      all: playable.length,
+      shorts: playable.filter((video) => video.format === 'short').length,
       skills: source.filter((video) => videoMatchesSkill(video, 'all')).length,
-      deep: source.filter((video) => video.format === 'long').length,
+      deep: playable.filter((video) => video.format === 'long').length,
     };
   }, [channel]);
 
@@ -457,7 +467,7 @@ export function VideoLibrary() {
         <div className="video-feed-filter-scroll">
           <button className={channel == null ? 'on' : ''} onClick={() => setChannel(null)}>All sources</button>
           {CHANNEL_COLLECTIONS.map((item) => <button key={item.id} className={channel === item.label ? 'on' : ''} onClick={() => setChannel(channel === item.label ? null : item.label)}>{item.label}</button>)}
-          {manufacturerSources.map((name) => <button key={name} className={channel === name ? 'on' : ''} onClick={() => setChannel(channel === name ? null : name)}>{name}</button>)}
+          {manufacturerSources.map((item) => <button key={item.id} className={channel === item.label ? 'on' : ''} onClick={() => setChannel(channel === item.label ? null : item.label)}>{item.label}</button>)}
           <i aria-hidden="true" />
           <button className={feedKind === 'all' ? 'on' : ''} onClick={() => setFeedKind('all')}>For you <small>{feedCounts.all}</small></button>
           <button className={feedKind === 'shorts' ? 'on' : ''} onClick={() => setFeedKind('shorts')}>Shorts <small>{feedCounts.shorts}</small></button>
@@ -565,15 +575,12 @@ export function VideoLibrary() {
           <span className="muted small">Official external sources</span>
         </div>
         <div className="video-channel-grid">
-          {manufacturerSources.map((name) => {
-            const count = VIDEO_LIBRARY.filter((video) => video.reviewStatus === 'listed' && video.channel === name && video.sourceClass === 'manufacturer').length;
-            return <button key={name} onClick={() => setChannel(name)}>
-              <span className="video-channel-play" aria-hidden="true">◎</span>
-              <b>{name}</b>
-              <p>Official manufacturer-hosted training, media and device resources.</p>
-              <small>{count} indexed resource{count === 1 ? '' : 's'} →</small>
-            </button>;
-          })}
+          {manufacturerSources.map((item) => <button key={item.id} onClick={() => setChannel(item.label)}>
+            <span className="video-channel-play" aria-hidden="true">◎</span>
+            <b>{item.label}</b>
+            <p>{item.focus}</p>
+            <small>{item.count} indexed resource{item.count === 1 ? '' : 's'} →</small>
+          </button>)}
         </div>
       </section>}
 
@@ -606,7 +613,7 @@ export function VideoLibrary() {
         <div className="video-filter-row"><span>Channel</span><div className="chips">
           <button className={`chip${channel == null ? ' on' : ''}`} onClick={() => setChannel(null)}>All</button>
           {CHANNEL_COLLECTIONS.map((item) => <button key={item.id} className={`chip${channel === item.label ? ' on' : ''}`} onClick={() => setChannel(channel === item.label ? null : item.label)}>{item.label}</button>)}
-          {manufacturerSources.map((name) => <button key={name} className={`chip${channel === name ? ' on' : ''}`} onClick={() => setChannel(channel === name ? null : name)}>{name}</button>)}
+          {manufacturerSources.map((item) => <button key={item.id} className={`chip${channel === item.label ? ' on' : ''}`} onClick={() => setChannel(channel === item.label ? null : item.label)}>{item.label}</button>)}
         </div></div>
         {categoryDef && <div className="video-filter-row"><span>Topic</span><div className="chips">
           <button className={`chip${subcategory == null ? ' on' : ''}`} onClick={() => setSubcategory(null)}>All</button>
