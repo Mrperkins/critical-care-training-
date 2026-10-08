@@ -213,12 +213,15 @@ function Html5FeedPlayer({ video, active, muted }: { video: ClinicalVideo; activ
   return <video ref={media} className="video-feed-player" src={video.mediaUrl} muted={muted} playsInline loop preload="auto" />;
 }
 
-function ManufacturerResource({ video }: { video: ClinicalVideo }) {
+function ExternalEducationResource({ video }: { video: ClinicalVideo }) {
+  const manufacturer = video.sourceClass === 'manufacturer';
   return <div className="video-manufacturer-resource">
-    <span className="video-provider-badge">OFFICIAL MANUFACTURER</span>
+    <span className="video-provider-badge">{manufacturer ? 'OFFICIAL MANUFACTURER' : 'ORIGINAL EDUCATOR SOURCE'}</span>
     <b>{video.sourceLabel ?? video.channel}</b>
-    <p>This manufacturer hosts the training on its own site. Open the official source for the current media, documentation or training experience.</p>
-    <a href={videoSourceUrl(video)} target="_blank" rel="noreferrer">Open official training ↗</a>
+    <p>{manufacturer
+      ? 'The manufacturer hosts this training on its own site. Open the official source for current media, documentation or training.'
+      : 'This educator hosts its original educational materials and simulations on its own site. A separate sign-in or enrollment may be required.'}</p>
+    <a href={videoSourceUrl(video)} target="_blank" rel="noreferrer">{manufacturer ? 'Open official training ↗' : 'Open original learning resource ↗'}</a>
   </div>;
 }
 
@@ -236,7 +239,7 @@ function FeedMedia({
   setMuted: (value: boolean) => void;
 }) {
   const provider = videoProvider(video);
-  if (provider === 'external') return <ManufacturerResource video={video} />;
+  if (provider === 'external') return <ExternalEducationResource video={video} />;
   if (!hydrate) {
     const thumb = youtubeThumbnailUrl(video);
     return thumb
