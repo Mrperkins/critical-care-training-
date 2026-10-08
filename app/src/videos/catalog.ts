@@ -1,4 +1,5 @@
 import type { ClinicalVideo, VideoCategoryDefinition, VideoFilters } from './types';
+import { OPENPEDIATRICS_RESOURCES } from './openpediatrics';
 
 export const VIDEO_CATEGORIES: VideoCategoryDefinition[] = [
   {
@@ -217,6 +218,7 @@ export function videoMatchesSkill(video: ClinicalVideo, skill: VideoSkillCollect
 }
 
 export const VIDEO_LIBRARY: ClinicalVideo[] = [
+  ...OPENPEDIATRICS_RESOURCES,
   {
     id: 'hamilton-t1-official-training-hub',
     title: 'HAMILTON-T1 — Official Training Hub',
