@@ -1,6 +1,6 @@
 # Ventilator bedside reference review — 2026-10-08
 
-The user signed into OPENPediatrics in the dedicated cloud browser. The reference review then inspected the simulator walkthrough, bedside/circuit checks, monitoring, capnography, blood-gas panel, a troubleshooting exercise, diagnostic decision feedback, and the exercise debrief. The critical-care landing page was also inspected.
+The user signed into OPENPediatrics in the dedicated cloud browser. The reference review then inspected the simulator walkthrough, bedside/circuit checks, monitoring, capnography, blood-gas panel, a troubleshooting exercise, diagnostic decision feedback, and the exercise debrief. The opening workflow of an adult clinical case and the critical-care organ-system catalog were also inspected. Numeric control adjustment was attempted in the reference simulator but not successfully completed; the confirm workflow was examined through its walkthrough and interface.
 
 ## Design observations
 
@@ -24,8 +24,10 @@ These are interaction observations, not copied lessons. No provider case narrati
 
 ## Validation
 
-754 unit/interaction tests passed across 56 files before the observation-module filename change; targeted tests and typecheck/build were rerun after resolving an esbuild filename-case conflict.
+754 unit/interaction tests passed across 56 files locally. Final app CI passed unit tests, typecheck, audio audit, production site build and visual asset validation. Audio Mastery CI also passed. Tested application commit: `ae6f728ed49ba7163440f3fe616a55f1c2efe54e`.
 
-A separate read-only GitHub Actions browser QA job covers 1440, 1024, 390, and 320 px viewports. It captures bedside, lung, equipment, console, and debrief screenshots and exercises pending/confirmed settings and circuit changes. Screenshots require human/model visual review; a passing script alone does not prove anatomical fidelity.
+A separate read-only GitHub Actions browser QA job covers 1440, 1024, 390, and 320 px viewports. It captures bedside, lung, equipment, console, and debrief screenshots and exercises pending/confirmed settings and circuit changes. All four viewports passed. The browser verified that pending inputs leave the engine unchanged until confirmation, that disconnection/reconnection preserves a pre-existing cuff leak, and that reassessment becomes available after actual completed breaths. No page runtime errors or horizontal page overflow were detected. Desktop, tablet and phone screenshots were visually reviewed for 3D rendering, camera views, controls and reassessment layout. Equipment remains a geometric prototype, and the monitor is partly outside the focused ventilator camera view. A passing script does not prove anatomical fidelity.
 
-Keep PR #28 as a draft until screenshots and CI are reviewed. Pediatric anatomy remains a scaled adult-derived mesh, with an in-app disclosure. Equipment meshes remain geometric prototypes. Clinical predictive validation and physical-device cross-browser/performance testing are outstanding.
+Reviewable screenshots and results are in the `bedside-browser-qa` artifact of [Clinical app validation run 37796410100](https://github.com/Mrperkins/critical-care-training-/actions/runs/37796410100) (7-day retention).
+
+Keep PR #28 as a draft despite passing CI and responsive QA; the fidelity and device-validation work below remains outstanding. Pediatric anatomy remains a scaled adult-derived mesh, with an in-app disclosure. Equipment meshes remain geometric prototypes. Clinical predictive validation and physical-device cross-browser/performance testing are outstanding.
