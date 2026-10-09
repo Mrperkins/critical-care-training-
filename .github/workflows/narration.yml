@@ -58,7 +58,10 @@ jobs:
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install -q kokoro-onnx soundfile numpy
       - run: python scripts/narrate.py --model ~/kokoro/kokoro-v1.0.onnx --voices ~/kokoro/voices-v1.0.bin --jobs narration/jobs.json --skip narration/done.json --out "$RUNNER_TEMP/out" --shard ${{ matrix.shard }} --of $SHARDS
       - uses: actions/upload-artifact@v4
-        with: { name: narration-${{ matrix.shard }}, path: '${{ runner.temp }}/out/', retention-days: 3 }
+        with:
+          name: narration-${{ matrix.shard }}
+          path: ${{ runner.temp }}/out/
+          retention-days: 3
 
   collect:
     needs: [plan, render]
@@ -69,7 +72,9 @@ jobs:
       - uses: actions/download-artifact@v4
         with: { name: narration-jobs, path: app/narration }
       - uses: actions/download-artifact@v4
-        with: { pattern: 'narration-[0-9]*', path: '${{ runner.temp }}/clips' }
+        with:
+          pattern: narration-[0-9]*
+          path: ${{ runner.temp }}/clips
       - run: python3 scripts/narration_collect.py "$RUNNER_TEMP/clips"
       - name: Commit to the branch that asked
         working-directory: .
