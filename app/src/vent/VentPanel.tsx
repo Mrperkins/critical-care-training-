@@ -1,5 +1,5 @@
-import { Picker } from '../scene/pane';
-import { useMemo } from 'react';
+import { Picker, Fold } from '../scene/pane';
+import { useMemo, useState } from 'react';
 import { session } from './session';
 import { ventNumbers } from './numbers';
 import { useUI } from '../app/store';
@@ -47,30 +47,51 @@ export function VentControls() {
   return (
     <section className="card">
       <div className="card-h"><h3>Ventilator</h3><Seg value={m} options={MODES} onChange={(v) => set({ mode: v })} small /></div>
-      <p className="mode-info">{MODE_INFO[m]}</p>
       <div className="knobs">
         {m !== 'APRV' && m !== 'CPAP' && m !== 'PSV' && <Knob label="RR" value={s.rr} min={4} max={40} step={1} unit="/min" onChange={(v) => set({ rr: v })} />}
         {volume && <Knob label="Vt" value={s.vt * 1000} min={200} max={900} step={10} unit="mL" onChange={(v) => set({ vt: v / 1000 })} />}
-        {(m === 'VC' || m === 'SIMV') && <Knob label="Peak flow" value={s.flow} min={20} max={120} step={5} unit="L/min" onChange={(v) => set({ flow: v })} />}
-        {(m === 'PC' || m === 'PRVC') && <Knob label="Ti" value={s.ti} min={0.4} max={3} step={0.1} unit="s" onChange={(v) => set({ ti: v })} />}
         {m === 'PC' && <Knob label="P insp" value={s.pinsp} min={4} max={40} step={1} unit="cmH₂O" onChange={(v) => set({ pinsp: v })} hint="above PEEP" />}
         {(m === 'PSV' || m === 'SIMV') && <Knob label="Pressure support" value={s.ps} min={0} max={25} step={1} unit="cmH₂O" onChange={(v) => set({ ps: v })} />}
         {m !== 'APRV' && <Knob label="PEEP" value={s.peep} min={0} max={24} step={1} unit="cmH₂O" onChange={(v) => set({ peep: v })} />}
         {m === 'APRV' && <>
           <Knob label="P high" value={s.phigh} min={10} max={35} step={1} unit="cmH₂O" onChange={(v) => set({ phigh: v })} />
           <Knob label="P low" value={s.plow} min={0} max={10} step={1} unit="cmH₂O" onChange={(v) => set({ plow: v })} />
-          <Knob label="T high" value={s.thigh} min={2} max={8} step={0.1} unit="s" onChange={(v) => set({ thigh: v })} />
-          <Knob label="T low" value={s.tlow} min={0.2} max={1.5} step={0.05} unit="s" onChange={(v) => set({ tlow: v })} />
         </>}
         <Knob label="FiO₂" value={s.fio2} min={0.21} max={1} step={0.05} fmt={(v) => v.toFixed(2)} onChange={(v) => set({ fio2: v })} />
-        {(m === 'VC' || m === 'SIMV') && <div className="knob"><div className="knob-top"><span className="knob-l">Flow pattern</span></div><Seg value={s.pattern} options={[['square', 'Square'], ['decel', 'Decelerating']]} onChange={(v) => set({ pattern: v })} small /></div>}
-        {(m === 'VC') && <Knob label="Insp pause" value={s.pause} min={0} max={1} step={0.1} unit="s" onChange={(v) => set({ pause: v })} hint="shows Pplat every breath" />}
-        {(m === 'PC' || m === 'PRVC' || m === 'PSV' || m === 'SIMV') && <Knob label="Rise time" value={s.rise} min={0.05} max={0.6} step={0.05} unit="s" onChange={(v) => set({ rise: v })} />}
-        {(m === 'PSV' || m === 'SIMV') && <Knob label="Cycle-off" value={s.cyclePct} min={5} max={80} step={5} unit="% peak" onChange={(v) => set({ cyclePct: v })} hint="expiratory trigger sensitivity" />}
-        {m !== 'APRV' && <Knob label="Trigger" value={s.trigType === 'flow' ? s.trigFlow : s.trigPressure} min={0.5} max={10} step={0.5} unit={s.trigType === 'flow' ? 'L/min' : 'cmH₂O'} onChange={(v) => set(s.trigType === 'flow' ? { trigFlow: v } : { trigPressure: v })} hint="lower = more sensitive" />}
       </div>
+      <details className="more-set">
+        <summary>More settings <span className="muted small">{m === 'APRV' ? 'T high, T low' : 'flow, timing, trigger'}</span></summary>
+        <p className="mode-info">{MODE_INFO[m]}</p>
+        <div className="knobs">
+          {(m === 'VC' || m === 'SIMV') && <Knob label="Peak flow" value={s.flow} min={20} max={120} step={5} unit="L/min" onChange={(v) => set({ flow: v })} />}
+          {(m === 'PC' || m === 'PRVC') && <Knob label="Ti" value={s.ti} min={0.4} max={3} step={0.1} unit="s" onChange={(v) => set({ ti: v })} />}
+          {m === 'APRV' && <>
+            <Knob label="T high" value={s.thigh} min={2} max={8} step={0.1} unit="s" onChange={(v) => set({ thigh: v })} />
+            <Knob label="T low" value={s.tlow} min={0.2} max={1.5} step={0.05} unit="s" onChange={(v) => set({ tlow: v })} />
+          </>}
+          {(m === 'VC' || m === 'SIMV') && <div className="knob"><div className="knob-top"><span className="knob-l">Flow pattern</span></div><Seg value={s.pattern} options={[['square', 'Square'], ['decel', 'Decelerating']]} onChange={(v) => set({ pattern: v })} small /></div>}
+          {(m === 'VC') && <Knob label="Insp pause" value={s.pause} min={0} max={1} step={0.1} unit="s" onChange={(v) => set({ pause: v })} hint="shows Pplat every breath" />}
+          {(m === 'PC' || m === 'PRVC' || m === 'PSV' || m === 'SIMV') && <Knob label="Rise time" value={s.rise} min={0.05} max={0.6} step={0.05} unit="s" onChange={(v) => set({ rise: v })} />}
+          {(m === 'PSV' || m === 'SIMV') && <Knob label="Cycle-off" value={s.cyclePct} min={5} max={80} step={5} unit="% peak" onChange={(v) => set({ cyclePct: v })} hint="expiratory trigger sensitivity" />}
+          {m !== 'APRV' && <Knob label="Trigger" value={s.trigType === 'flow' ? s.trigFlow : s.trigPressure} min={0.5} max={10} step={0.5} unit={s.trigType === 'flow' ? 'L/min' : 'cmH₂O'} onChange={(v) => set(s.trigType === 'flow' ? { trigFlow: v } : { trigPressure: v })} hint="lower = more sensitive" />}
+        </div>
+      </details>
     </section>
   );
+}
+
+/** one line that says what the ventilator is set to */
+export function settingsLine() {
+  const s = session.m.s; const m = s.mode; const f = (x: number, d = 0) => x.toFixed(d);
+  const parts = m === 'APRV' ? [`P high ${s.phigh}`, `P low ${s.plow}`, `T high ${f(s.thigh, 1)} s`] : [
+    ...(m === 'VC' || m === 'SIMV' || m === 'PRVC' ? [`Vt ${Math.round(s.vt * 1000)}`] : []), ...(m === 'PC' ? [`Pinsp ${s.pinsp}`] : []), ...(m === 'PSV' || m === 'SIMV' ? [`PS ${s.ps}`] : []),
+    ...(m !== 'CPAP' && m !== 'PSV' ? [`RR ${s.rr}`] : []), `PEEP ${s.peep}`];
+  return `${m} · ${parts.join(' · ')} · FiO₂ ${f(s.fio2, 2)}`;
+}
+/** the ventilator settings as a collapsed line that opens to the controls — the same in every tab */
+export function VentSettingsFold({ group, title = 'Ventilator settings', defaultOpen = false }: { group: string; title?: string; defaultOpen?: boolean }) {
+  useUI((s) => s.pulse);
+  return <Fold group={group} id="settings" title={title} summary={settingsLine()} defaultOpen={defaultOpen}><VentControls /></Fold>;
 }
 
 export function Interventions() {
@@ -91,9 +112,10 @@ export function Interventions() {
   );
 }
 
+const KEY_NUMS = ['PIP', 'Pplat', 'ΔP', 'Vt/PBW'];
 const fx = (v: number | null | undefined, d = 0) => (v == null || !isFinite(v) ? '—' : v.toFixed(d));
 export function VentNumbersCard() {
-  useUI((s) => s.pulse);
+  useUI((s) => s.pulse); const [more, setMore] = useState(false);
   const n = ventNumbers(session);
   const res = Math.max(0, n.pip - n.pplat), el = n.dp, pe = n.peepTot; const tot = Math.max(1, res + el + pe);
   const cells: [string, string, string, string?][] = [
@@ -104,7 +126,7 @@ export function VentNumbersCard() {
   ];
   return (
     <section className="card nums">
-      <div className="numgrid">{cells.map(([l, v, u, t]) => <div key={l} className="num" title={t}><span className="nl">{l}</span><span className="nv">{v}</span><span className="nu">{u}</span></div>)}</div>
+      <div className="numgrid">{(more ? cells : KEY_NUMS.map((k) => cells.find((c) => c[0].startsWith(k))!)).map(([l, v, u, t]) => <div key={l} className="num" title={t}><span className="nl">{l}</span><span className="nv">{v}</span><span className="nu">{u}</span></div>)}</div>
       <div className="eom" aria-label="Equation of motion breakdown">
         <div className="eom-bar">
           <span style={{ width: `${(pe / tot) * 100}%` }} className="b-peep" />
@@ -113,10 +135,13 @@ export function VentNumbersCard() {
         </div>
         <div className="eom-leg"><span><i className="b-peep" />PEEP {fx(pe)}</span><span><i className="b-el" />Elastic Vt/C {fx(el)}</span><span><i className="b-res" />Resistive R·V̇ {fx(res)}</span></div>
       </div>
+      <button type="button" className="linklike more-nums" onClick={() => setMore(!more)} aria-expanded={more}>{more ? 'Fewer numbers' : 'All 12 numbers (Vte, RR, V̇E, Cstat, Raw, τ, I:E…)'}</button>
     </section>
   );
 }
 
+export function gasLine() { const g = session.snap; return `pH ${g.pH.toFixed(2)} · PaCO₂ ${g.paco2.toFixed(0)} · PaO₂ ${g.pao2.toFixed(0)} · SpO₂ ${Math.round(g.spo2 * 100)}%`; }
+export function GasFold({ group, defaultOpen = false }: { group: string; defaultOpen?: boolean }) { useUI((s) => s.pulse); return <Fold group={group} id="gas" title="Patient & blood gas" summary={gasLine()} defaultOpen={defaultOpen}><GasCard /></Fold>; }
 export function GasCard({ compact }: { compact?: boolean }) {
   useUI((s) => s.pulse);
   const g = session.snap; const fio2 = session.m.s.fio2;

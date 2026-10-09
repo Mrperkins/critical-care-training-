@@ -1,3 +1,4 @@
+import { useExploreMemory } from './exploreMemory';
 import { Fold } from '../scene/pane';
 import { CurriculumModule } from '../curriculum/CurriculumModule';
 import { initProgressTracking } from '../curriculum/track';
@@ -10,7 +11,7 @@ import { CxrScene } from '../vent/CxrScene';
 import { LusScene } from '../vent/LusScene';
 import { AlveolusScene, AlveolusHud, focusVentTarget } from '../vent/AlveolusScene';
 import { Scalars, Loops } from '../vent/Waveforms';
-import { VentControls, VentNumbersCard, GasCard, ExplainCard, ScenarioPicker, ScenarioStory, Interventions, Seg, loadVentScenario } from '../vent/VentPanel';
+import { VentControls, VentSettingsFold, GasFold, VentNumbersCard, GasCard, ExplainCard, ScenarioPicker, ScenarioStory, Interventions, Seg, loadVentScenario } from '../vent/VentPanel';
 import { VentLearn } from '../vent/VentLearn';
 import { VentChallenge } from '../vent/VentChallenge';
 import { VentSim } from '../vent/VentSim';
@@ -82,6 +83,8 @@ function VentModule() {
   useEffect(() => { (window as unknown as { __CCVent: unknown }).__CCVent = { session, focus: focusVentTarget, load: loadVentScenario, set: (p: Record<string, number>) => session.set(p) }; }, []);
   useEffect(() => { loadRespAsset().then(setAsset).catch((e) => { console.error(e); setErr(String(e?.message || e)); }); }, []);
   const mode = useUI((s) => s.mode); const showLoops = useUI((s) => s.showLoops); const phone = useIsPhone(); const alv = useUI((s) => s.ventView === 'alveolus'); const xray = useUI((s) => s.ventView === 'xray'); const lus = useUI((s) => s.ventView === 'lus');
+  useExploreMemory('vent', () => ({ id: useUI.getState().ventScenario, dyss: session.dyss, s: structuredClone(session.m.s), view: useUI.getState().ventView }),
+    (m) => { loadVentScenario(m.id, m.dyss); session.set(m.s); useUI.getState().set({ ventView: m.view, pulse: useUI.getState().pulse + 1 }); });
   return (
     <main className="stage">
       <section className="scene-pane">
@@ -95,11 +98,11 @@ function VentModule() {
         {mode === 'explore' && <>
           <ScenarioPicker />
           <VentNumbersCard />
-          <VentControls />
+          <VentSettingsFold group="vent" />
           <Fold group="vent" id="act" title="Interventions" summary="holds, suction, recruit…"><Interventions /></Fold>
           <Fold group="vent" id="story" title="The patient" summary="story & what to look for"><ScenarioStory /></Fold>
           {showLoops && <Fold group="vent" id="loops" title="Loops"><section className="card"><Loops /></section></Fold>}
-          <Fold group="vent" id="gas" title="Blood gas & clock"><GasCard /></Fold>
+          <GasFold group="vent" />
           <Fold group="vent" id="why" title="Why"><ExplainCard /></Fold>
         </>}
         {mode === 'learn' && <VentLearn />}

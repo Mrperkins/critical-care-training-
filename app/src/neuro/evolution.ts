@@ -36,7 +36,7 @@ export interface Evolution {
 }
 
 /** swelling after infarction: starts after ~12 h, peaks days 2–5, mostly gone by day 14 */
-export const swellingCurve = (m: number) => sig((m - 1440) / 600) * Math.exp(-Math.max(0, m - 5760) / 4320);
+export const swellingCurve = (m: number) => sig((m - 1800) / 400) * Math.exp(-Math.max(0, m - 5760) / 4320);
 /** clot density on CT: slightly heterogeneous and less dense while still liquid, densest after retraction (day 1–3), then falls to isodense by ~2–3 weeks */
 export const clotDensityCurve = (m: number) => (m < 180 ? 0.82 + 0.18 * (m / 180) : m < 4320 ? 1 : Math.max(0.45, 1 - 0.55 * ((m - 4320) / (25920 - 4320))));
 

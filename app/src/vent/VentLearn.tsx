@@ -1,7 +1,8 @@
 import { session } from './session';
 import { useUI } from '../app/store';
 import { VENT_LESSONS, type Lesson, type StepSetup } from '../lessons/vent';
-import { loadVentScenario, VentNumbersCard, GasCard, Interventions, VentControls } from './VentPanel';
+import { loadVentScenario, VentNumbersCard, GasCard, GasFold, Interventions, VentSettingsFold } from './VentPanel';
+import { Fold } from '../scene/pane';
 import { Loops } from './Waveforms';
 import { LessonShell } from '../app/LessonShell';
 import { VENT_WORKFLOWS } from '../workflows/chestTube';
@@ -31,16 +32,17 @@ export function applyLessonStep(lesson: Lesson, i: number) {
 
 export function VentLearn() {
   return (
-    <LessonShell lessons={VENT_LESSONS} apply={applyLessonStep} timelines={[...VENT_TIMELINES, NEEDLE_LESSON, PEDS_AIRWAY_LESSON]} timelineChildren={() => <TimelineCards />} workflows={VENT_WORKFLOWS} workflowChildren={(w) => <>{w.id === 'wf-drain-check' && <DrainCard />}{w.id === 'wf-chest-tube' && <NeedleCard />}<VentNumbersCard /><GasCard compact /></>} reference={() => <VentNormals />} intro="The narrator changes the ventilator and the patient; everything you see is the simulation responding. Pause at any point and take the controls.">
+    <LessonShell lessons={VENT_LESSONS} apply={applyLessonStep} timelines={[...VENT_TIMELINES, NEEDLE_LESSON, PEDS_AIRWAY_LESSON]} timelineChildren={() => <TimelineCards />} workflows={VENT_WORKFLOWS} workflowChildren={(w) => <>{w.id === 'wf-drain-check' && <DrainCard />}{w.id === 'wf-chest-tube' && <NeedleCard />}<VentNumbersCard /><GasFold group="vent-learn" /></>} reference={() => <VentNormals />} intro="The narrator changes the ventilator and the patient; everything you see is the simulation responding. Pause at any point and take the controls.">
       {(l, i) => { const st = l.steps[i]; return <>
         {st.focus && <p className="focus">Watch: {st.focus.map((f) => ({ pressure: 'pressure trace', flow: 'flow trace', volume: 'volume trace', loops: 'loops', numbers: 'numbers', lungs: 'the lungs', gas: 'SpO₂ and blood gas' }[f])).join(' · ')}</p>}
         <VentNumbersCard />
         {st.focus?.includes('loops') && <section className="card"><Loops /></section>}
-        <GasCard compact={!st.focus?.includes('gas')} />
-        <details className="card"><summary>Take the controls</summary><Interventions /><VentControls /></details>
+        {st.focus?.includes('gas') ? <GasCard /> : <GasFold group="vent-learn" />}
+        <VentSettingsFold group="vent-learn" title="Take the controls" />
+        <Fold group="vent-learn" id="act" title="Interventions"><Interventions /></Fold>
       </>; }}
     </LessonShell>
   );
 }
 
-function TimelineCards() { const id = useDirector((s) => s.tl?.id); return <>{id === NEEDLE_LESSON.id && <NeedleCard />}{id === PEDS_AIRWAY_LESSON.id && <AirwayCard />}<VentNumbersCard /><GasCard compact /></>; }
+function TimelineCards() { const id = useDirector((s) => s.tl?.id); return <>{id === NEEDLE_LESSON.id && <NeedleCard />}{id === PEDS_AIRWAY_LESSON.id && <AirwayCard />}<VentNumbersCard /><GasFold group="vent-learn" /></>; }

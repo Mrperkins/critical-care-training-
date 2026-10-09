@@ -4,7 +4,8 @@ import { session } from './session';
 import { useUI } from '../app/store';
 import { VENT_CHALLENGES, type VentChallenge as VC } from '../scenarios/ventChallenges';
 import { DYSS, DYSSYNCHRONIES } from '../scenarios/dyssynchrony';
-import { loadVentScenario, VentControls, VentNumbersCard, Interventions, GasCard } from './VentPanel';
+import { loadVentScenario, VentSettingsFold, VentNumbersCard, Interventions, GasFold } from './VentPanel';
+import { Fold } from '../scene/pane';
 import { Loops } from './Waveforms';
 import { ventNumbers } from './numbers';
 import { CaseList, CaseRun } from '../challenge/CaseChallenge';
@@ -98,9 +99,10 @@ function ChallengeRun({ c, onExit, onDone }: { c: VC; onExit: () => void; onDone
       )}
       {status}
       <VentNumbersCard />
-      {c.kind === 'alarm' ? <Interventions /> : <><Interventions /><VentControls /></>}
-      <section className="card"><Loops /></section>
-      <GasCard />
+      <section className="card"><div className="card-h"><h3>Act</h3></div><Interventions /></section>
+      {c.kind !== 'alarm' && <VentSettingsFold group="vent-chal" />}
+      <Fold group="vent-chal" id="loops" title="Loops"><section className="card"><Loops /></section></Fold>
+      <GasFold group="vent-chal" />
     </div>
   );
 }

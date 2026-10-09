@@ -9,7 +9,9 @@ export interface RealMark { layer: 'landmark' | 'pathology'; label: string; shap
 export interface RealItem {
   file: string; poster?: string; webm?: string; posterAt?: number; /** display order within a kind */ order?: number;
   /** xray / lus: comparison strips; ptx / fast / ivc / ijv: single-case teaching items (RealCase) */
-  kind: 'xray' | 'lus' | 'ptx' | 'fast' | 'ivc' | 'ijv' | 'ptxlus' | 'pleuraleff' | 'tamponade' | 'ptxseries'; id: string; title: string; caption: string; look: string[];
+  kind: 'xray' | 'lus' | 'ptx' | 'fast' | 'ivc' | 'ijv' | 'ptxlus' | 'pleuraleff' | 'tamponade' | 'ptxseries' | (string & {}); id: string;
+  /** simulator findings this image shows (state → real image) */ findings?: string[];
+  /** place on a stroke time course */ stage?: { course: 'ischemic' | 'ich'; fromMin: number; toMin: number; label: string }; title: string; caption: string; look: string[];
   teach?: string[]; quiz?: { q: string; options: string[]; answer: number; explain: string }; marks?: RealMark[];
   license: string; licenseUrl: string; author: string; source: string; changes: string; credit?: string; /** button text for the pathology layer, e.g. “Show the collapse point” */ findingLabel?: string;
   provenance?: { pageUrl: string; originalUrl: string; doi?: string; retrieved: string };

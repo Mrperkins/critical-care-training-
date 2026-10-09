@@ -1,3 +1,4 @@
+import { useExploreMemory } from '../app/exploreMemory';
 /** Abdomen module: trauma / vascular / surgical abdomen on the shared body, driven by one pure state. */
 import { MiniSelect, Picker, Fold } from '../scene/pane';
 import { CtaScene } from './CtaScene';
@@ -29,6 +30,7 @@ export function AbdomenModule() {
   useEffect(() => { loadBodyAsset().then(setBody).catch((e) => { console.error(e); setErr(String(e?.message || e)); }); }, []);
   useEffect(() => { (window as unknown as { __CCAbd: unknown }).__CCAbd = { store: useAbdUI, load: loadAbdPreset, minutes: (m: number) => useAbdUI.getState().set({ minutes: m }), focus: (id: string) => useAbdUI.getState().set({ target: id }), state: () => currentAbdomen(), view: (v: AbdView) => useAbdUI.getState().set({ view: v }) }; }, []);
   const view = useAbdUI((s) => s.view); const mode = useUI((s) => s.mode);
+  useExploreMemory('abd', () => { const s = useAbdUI.getState(); return { preset: s.preset, base: structuredClone(s.base), minutes: s.minutes, target: s.target, view: s.view }; }, (m) => useAbdUI.getState().set(m));
   const dTarget = useDirector((s) => s.target);
   useEffect(() => { if (dTarget?.startsWith('abdomen.')) useAbdUI.getState().set({ target: dTarget }); }, [dTarget]);
   return (

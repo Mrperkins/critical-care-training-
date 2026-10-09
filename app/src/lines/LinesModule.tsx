@@ -1,3 +1,5 @@
+import { lines } from './session';
+import { useExploreMemory } from '../app/exploreMemory';
 import { Fold } from '../scene/pane';
 import { useEffect, useState } from 'react';
 import { ObCard } from '../populations/Cards';
@@ -24,6 +26,7 @@ export function LinesModule() {
   useEffect(() => { (window as unknown as { __CCLines: unknown }).__CCLines = { session: linesSession, run: (sec: number) => { for (let k = 0; k < sec * 20; k++) linesSession.tick(0.05); } }; }, []);
   useEffect(() => { Promise.all([loadBodyAsset(), loadLinesAsset()]).then(([body, lines]) => setAssets({ body, lines })).catch((e) => { console.error(e); setErr(String(e?.message || e)); }); }, []);
   const mode = useUI((s) => s.mode); const phone = useIsPhone();
+  useExploreMemory('lines', () => ({ id: lines.sc.id }), (m) => { lines.load(m.id); useUI.getState().set({ pulse: useUI.getState().pulse + 1 }); });
   return (
     <main className="stage lines-stage">
       <section className="scene-pane">

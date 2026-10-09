@@ -1,3 +1,5 @@
+import { lab } from './lab';
+import { useExploreMemory } from '../app/exploreMemory';
 import { Fold } from '../scene/pane';
 import { useEffect, useState } from 'react';
 import { ApnoeaCard } from '../populations/Cards';
@@ -16,6 +18,8 @@ export function AbgModule() {
   const [assets, setAssets] = useState<{ resp: RespAsset; micro: MicroAsset } | null>(null); const [err, setErr] = useState<string | null>(null);
   useEffect(() => { Promise.all([loadRespAsset(), loadMicroAsset()]).then(([resp, micro]) => setAssets({ resp, micro })).catch((e) => { console.error(e); setErr(String(e?.message || e)); }); }, []);
   const mode = useUI((s) => s.mode);
+  useExploreMemory('abg', () => ({ id: lab.preset.id, p: { ...lab.pt.p }, control: lab.control, rr: lab.rr, vt: lab.vt, metab: lab.metab }),
+    (m) => { lab.load(m.id); Object.assign(lab.pt.p, m.p); lab.setMetab(m.metab); if (m.control === 'set') lab.setVent(m.rr, m.vt); else lab.setControl('own'); useUI.getState().set({ pulse: useUI.getState().pulse + 1 }); });
   return (
     <main className="stage">
       <section className="scene-pane">

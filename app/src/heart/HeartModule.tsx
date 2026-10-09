@@ -1,3 +1,4 @@
+import { useExploreMemory } from '../app/exploreMemory';
 /** Congenital heart module: shunt physiology on a live four-chamber heart. */
 import { MiniSelect } from '../scene/pane';
 import { useEffect, useMemo } from 'react';
@@ -31,6 +32,7 @@ const LESION_FOCUS: Record<LesionKind, string> = { none: 'heart.four_chamber', v
 
 export function HeartModule() {
   const mode = useUI((s) => s.mode);
+  useExploreMemory('heart', () => { const s = useHeartUI.getState(); return { preset: s.preset, input: { ...s.input }, target: s.target, cut: s.cut, mode: s.mode }; }, (m) => useHeartUI.getState().set(m));
   const dTarget = useDirector((s) => s.target);
   useEffect(() => { if (dTarget?.startsWith('heart.')) useHeartUI.getState().set({ target: dTarget }); }, [dTarget]);
   useEffect(() => { (window as unknown as { __CCHeart: unknown }).__CCHeart = { store: useHeartUI, load: loadHeartPreset, set: setHeartInput, focus: (id: string) => useHeartUI.getState().set({ target: id }) }; }, []);

@@ -4,7 +4,8 @@ import { useUI } from '../app/store';
 import { SIM_CASES, type SimCase, type Feedback } from '../scenarios/cases';
 import { createPatient, settle, derive, type PatientState, type Snapshot } from '../physiology/patient';
 import { interpret } from '../physiology/interpret';
-import { loadVentScenario, VentControls, VentNumbersCard, GasCard, Interventions } from './VentPanel';
+import { loadVentScenario, VentSettingsFold, VentNumbersCard, GasFold, Interventions } from './VentPanel';
+import { Fold } from '../scene/pane';
 import { ventNumbers } from './numbers';
 
 interface Draw { t: string; setting: string; g: Snapshot; fio2: number; fb: Feedback[] }
@@ -71,9 +72,9 @@ function SimRun({ c, onExit }: { c: SimCase; onExit: () => void }) {
           {last && <ul className="findings" style={{ marginTop: 10 }}>{last.fb.map((f, i) => <li key={i} className={`f-${f.level}`}><span>{f.text}</span></li>)}</ul>}
         </section>
         <VentNumbersCard />
-        <VentControls />
-        <Interventions />
-        <GasCard compact />
+        <VentSettingsFold group="vent-sim" defaultOpen />
+        <Fold group="vent-sim" id="act" title="Interventions"><Interventions /></Fold>
+        <GasFold group="vent-sim" />
       </>}
     </div>
   );
