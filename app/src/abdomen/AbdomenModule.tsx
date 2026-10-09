@@ -1,4 +1,5 @@
 /** Abdomen module: trauma / vascular / surgical abdomen on the shared body, driven by one pure state. */
+import { MiniSelect, Picker, Fold } from '../scene/pane';
 import { CtaScene } from './CtaScene';
 import { CaseChallenge } from '../challenge/CaseChallenge';
 import { useHideFindings } from '../challenge/caseStore';
@@ -36,8 +37,8 @@ export function AbdomenModule() {
         <SceneWrap>{view === 'us' ? <UltrasoundScene /> : view === 'cta' ? <CtaScene /> : body ? <AbdomenScene body={body} /> : <div className="loading">{err ? `Could not load anatomy: ${err}` : 'Loading anatomy…'}</div>}<AbdOverlay /></SceneWrap>
       </section>
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
-        {mode === 'challenge' ? <CaseChallenge module="abdomen" /> : mode === 'learn' ? <AbdLearn /> : <><PresetCard /><TimeCard /><FastCard /><ShockCard /><FindingsCard /></>}
-        <p className="credit">Solid organs: HuBMAP 3D reference organs (CC BY 4.0) via the shared body model. Stomach, bowel, diaphragm, peritoneal fluid and pathology are drawn procedurally. Bleeding rates, FAST thresholds and the haemorrhage-class table are teaching approximations, not clinical rules.</p>
+        {mode === 'challenge' ? <CaseChallenge module="abdomen" /> : mode === 'learn' ? <AbdLearn /> : <><PresetCard /><TimeCard /><Fold group="abd" id="find" title="Findings" defaultOpen><FindingsCard /></Fold><Fold group="abd" id="shock" title="Haemodynamics" summary="bleeding, shock class"><ShockCard /></Fold><Fold group="abd" id="fast" title="FAST" summary="where to look for fluid"><FastCard /></Fold></>}
+        <details className="credit"><summary>Sources & model notes</summary>Solid organs: HuBMAP 3D reference organs (CC BY 4.0) via the shared body model. Stomach, bowel, diaphragm, peritoneal fluid and pathology are drawn procedurally. Bleeding rates, FAST thresholds and the haemorrhage-class table are teaching approximations, not clinical rules.</details>
       </aside>
     </main>
   );
@@ -54,14 +55,18 @@ function AbdOverlay() {
       {st.retroMl > 0 && <div className="alv-row"><span>Retroperitoneal</span><b>{Math.round(st.retroMl)} mL</b></div>}
       <div className="alv-row"><span>Haemorrhage class</span><b>{['I', 'II', 'III', 'IV'][sc.cls - 1]}</b></div>
     </div>}
-    <div className="alv-focus"><div className="seg small ch-focus" role="group" aria-label="Focus">{FOCUS.map(([id, l]) => <button key={id} className={target === id ? 'on' : ''} onClick={() => set({ target: id })}>{l}</button>)}</div></div>
+    <div className="alv-focus"><MiniSelect label="View" value={target} options={FOCUS as [string, string][]} onChange={(v) => set({ target: v })} className="ch-focus" /></div>
     <div className="legend"><span><i style={{ background: '#b0101f' }} />Blood</span><span><i style={{ background: '#8a7a3a' }} />Enteric</span><span><i style={{ background: '#d9c77a' }} />Ascites</span><span><i style={{ background: '#dff4ff' }} />Free air</span></div>
   </>}</>);
 }
 
 function PresetCard() {
   const preset = useAbdUI((s) => s.preset); const p = ABD_PRESETS.find((x) => x.id === preset)!;
-  return <section className="card story"><div className="chips" role="group" aria-label="Presets">{ABD_PRESETS.map((x) => <button key={x.id} className={`chip${preset === x.id ? ' on' : ''}`} onClick={() => loadAbdPreset(x.id as AbdPreset)}>{x.name}</button>)}</div><p className="muted small" style={{ marginTop: 8 }}>{p.short}</p></section>;
+  const G: [string, string[]][] = [['Trauma', ['normal', 'spleen4', 'liver3']], ['Aorta', ['aaa6', 'aaaContained', 'aaaFree', 'dissectB', 'dissectA']], ['Acute abdomen', ['perforation', 'sbo', 'mesenteric', 'pancreatitis']]];
+  const it = (id: string) => { const x = ABD_PRESETS.find((y) => y.id === id); return x ? { id, name: x.name, hint: x.short } : null; };
+  const placed = new Set(G.flatMap(([, i]) => i)); const extra = ABD_PRESETS.filter((x) => !placed.has(x.id));
+  return <Picker label="Scenario" value={preset} onPick={(id) => loadAbdPreset(id as AbdPreset)} sub={p.short}
+    groups={[...G.map(([label, ids]) => ({ label, items: ids.map(it).filter((x): x is NonNullable<typeof x> => !!x) })), ...(extra.length ? [{ label: 'More', items: extra.map((x) => ({ id: x.id, name: x.name, hint: x.short })) }] : [])]} />;
 }
 function TimeCard() {
   const minutes = useAbdUI((s) => s.minutes); const base = useAbdUI((s) => s.base);

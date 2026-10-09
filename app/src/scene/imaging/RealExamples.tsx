@@ -18,6 +18,12 @@ let cache: Promise<RealItem[]> | null = null;
 export function loadReal(): Promise<RealItem[]> {
   return (cache ??= fetch('imaging/real/manifest.json').then((r) => (r.ok ? r.json() : { items: [] })).then((m) => m.items as RealItem[]).catch(() => []));
 }
+/** how many shipped real items there are of a kind (0 while loading) */
+export function useRealCount(kind: string) {
+  const [n, setN] = useState(0);
+  useEffect(() => { let on = true; loadReal().then((x) => on && setN(x.filter((i) => i.kind === kind).length)); return () => { on = false; }; }, [kind]);
+  return n;
+}
 export function RealExamples({ kind, title }: { kind: RealItem['kind']; title: string }) {
   const [items, setItems] = useState<RealItem[] | null>(null); const [open, setOpen] = useState<string | null>(null);
   useEffect(() => { let on = true; loadReal().then((x) => on && setItems(x.filter((i) => i.kind === kind))); return () => { on = false; }; }, [kind]);

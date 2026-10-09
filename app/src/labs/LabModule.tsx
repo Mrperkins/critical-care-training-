@@ -1,3 +1,4 @@
+import { Fold } from '../scene/pane';
 import { useEffect, useState } from 'react';
 import { CoagCard } from './CoagCard';
 import { loadBodyAsset, type BodyAsset } from '../asset/body';
@@ -5,7 +6,7 @@ import { loadMicroAsset, type MicroAsset } from '../asset/micro';
 import { LabScene } from './LabScene';
 import { useLabUI } from './labStore';
 import { useUI } from '../app/store';
-import { LabList, LabCard, Consequences } from './LabPanel';
+import { LabList, LabCard, Consequences, hasConsequences } from './LabPanel';
 import { LabLearn } from './LabLearn';
 import { LabChallenge } from './LabChallenge';
 import { LabSim } from './LabSim';
@@ -39,11 +40,11 @@ export function LabModule() {
         </SceneWrap>
       </section>
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
-        {mode === 'explore' && <><LabList /><LabCard />{LAB[lab]?.group === 'Coagulation' && <CoagCard interactive />}{view === 'cell' && sceneOf(lab) && <CellStory />}{view === 'cell' && bloodKindOf(lab) && <BloodStory />}<Consequences /></>}
+        {mode === 'explore' && <><LabList /><LabCard />{LAB[lab]?.group === 'Coagulation' && <Fold group="labs" id="coag" title="Clotting over time" summary="drugs, reversal, viscoelastic trace"><CoagCard interactive /></Fold>}{view === 'cell' && sceneOf(lab) && <Fold group="labs" id="cell" title="Inside the cell" defaultOpen><CellStory /></Fold>}{view === 'cell' && bloodKindOf(lab) && <Fold group="labs" id="blood" title="In the blood" defaultOpen><BloodStory /></Fold>}{hasConsequences(lab) && <Fold group="labs" id="cons" title="What it does to the patient" summary="ECG, membrane, treatment"><Consequences /></Fold>}</>}
         {mode === 'learn' && <LabLearn />}
         {mode === 'challenge' && <LabChallenge />}
         {mode === 'sim' && <LabSim />}
-        {assets && <p className="credit">Organs: {assets.body.mapping.attribution.creators}, {assets.body.mapping.attribution.data} — CC BY 4.0 ({assets.body.mapping.attribution.changes}). Cells modelled from histological proportions (membrane drawn far thicker than its real 7 nm so it can be seen); ion counts drawn on a compressed scale, legend numbers are real.</p>}
+        {assets && <details className="credit"><summary>Sources & model notes</summary>Organs: {assets.body.mapping.attribution.creators}, {assets.body.mapping.attribution.data} — CC BY 4.0 ({assets.body.mapping.attribution.changes}). Cells modelled from histological proportions (membrane drawn far thicker than its real 7 nm so it can be seen); ion counts drawn on a compressed scale, legend numbers are real.</details>}
       </aside>
     </main>
   );

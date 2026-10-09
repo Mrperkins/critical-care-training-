@@ -1,3 +1,4 @@
+import { Picker } from '../scene/pane';
 /** Side-panel cards for the invasive-lines module. */
 import { useEffect, useRef, useState } from 'react';
 import { useUI } from '../app/store';
@@ -11,16 +12,8 @@ const bump = () => useUI.getState().set({ pulse: useUI.getState().pulse + 1 });
 
 export function ScenarioPicker({ onPick }: { onPick?: (s: LinesScenario) => void }) {
   useUI((s) => s.pulse); const groups = [...new Set(SCENARIOS.map((s) => s.group))];
-  return (
-    <section className="card">
-      <div className="card-h"><h3>Patient</h3><span className="muted small">{lines.sc.blurb}</span></div>
-      {groups.map((g) => (
-        <div key={g} className="ln-group"><div className="eyebrow">{g}</div>
-          <div className="chips">{SCENARIOS.filter((s) => s.group === g).map((s) => <button key={s.id} className={`chip${lines.sc.id === s.id ? ' on' : ''}`} onClick={() => { lines.load(s.id); onPick?.(s); bump(); }}>{s.short}</button>)}</div>
-        </div>
-      ))}
-    </section>
-  );
+  return <Picker label="Patient" value={lines.sc.id} sub={lines.sc.blurb} onPick={(id) => { lines.load(id); onPick?.(SCENARIOS.find((x) => x.id === id)!); bump(); }}
+    groups={groups.map((g) => ({ label: g, items: SCENARIOS.filter((s) => s.group === g).map((s) => ({ id: s.id, name: s.short, hint: s.blurb })) }))} />;
 }
 
 export function StoryCard() {

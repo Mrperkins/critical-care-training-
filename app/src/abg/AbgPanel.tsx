@@ -1,3 +1,4 @@
+import { Picker } from '../scene/pane';
 import { useEffect, useMemo, useRef } from 'react';
 import { lab, type Knob as KnobKey } from './lab';
 import { useUI } from '../app/store';
@@ -12,7 +13,11 @@ const flag = (v: number, lo: number, hi: number) => (v < lo ? 'lo' : v > hi ? 'h
 
 export function AbgPresets() {
   useUI((s) => s.pulse);
-  return <div className="chips">{ABG_PRESETS.map((p) => <button key={p.id} className={`chip${lab.preset.id === p.id ? ' on' : ''}`} onClick={() => { lab.load(p.id); bump(); }}>{p.name}</button>)}</div>;
+  const G: [string, string[]][] = [['Breathing', ['normal', 'opioid', 'asthma', 'copd', 'edema']], ['Metabolic', ['dka', 'sepsis', 'salicylate']], ['Arrest', ['arrest', 'rosc']], ['Pregnancy', ['pregnant', 'pregAsthma']]];
+  const placed = new Set(G.flatMap(([, ids]) => ids)); const extra = ABG_PRESETS.filter((p) => !placed.has(p.id)).map((p) => p.id);
+  const it = (id: string) => { const p = ABG_PRESETS.find((x) => x.id === id)!; return { id, name: p.name, hint: p.story }; };
+  return <Picker label="Patient" value={lab.preset.id} onPick={(id) => { lab.load(id); bump(); }} sub={lab.preset.story}
+    groups={[...G.map(([label, ids]) => ({ label, items: ids.filter((i) => ABG_PRESETS.some((p) => p.id === i)).map(it) })), ...(extra.length ? [{ label: 'More', items: extra.map(it) }] : [])]} />;
 }
 export function AbgStory() {
   useUI((s) => s.pulse);

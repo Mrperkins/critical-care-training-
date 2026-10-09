@@ -7,6 +7,7 @@
  *    the glossary (scene/labelInfo.ts). The card lives inside the scene wrapper, so it also works in full screen.
  *  • SceneWrap = the scene container with the full-screen and label-mode controls.
  */
+import { useLabUI } from '../labs/labStore';
 import { forwardRef, useCallback, useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { create } from 'zustand';
 import { describeLabel, labelKey } from './labelInfo';
@@ -173,6 +174,15 @@ function useFullscreen(el: React.RefObject<HTMLElement>) {
   return { active: on || pseudo, pseudo, toggle };
 }
 
+/** One place for 3D quality (was a High / Medium / Low pill row on every scene). Cycles high → medium → low. */
+function QualityButton() {
+  const tier = useLabUI((s) => s.visualTier); const next = tier === 'high' ? 'medium' : tier === 'medium' ? 'low' : 'high';
+  const name = { high: 'High', medium: 'Medium', low: 'Low' }[tier];
+  return <button type="button" className="st-btn st-q" onClick={() => useLabUI.getState().set({ visualTier: next })} title={`3D quality: ${name} — tap for ${next}`} aria-label={`3D quality ${name}. Change`}>
+    <span className="st-ico" aria-hidden="true">{tier === 'high' ? 'HQ' : tier === 'medium' ? 'MQ' : 'LQ'}</span><span className="st-txt">Quality: {name}</span>
+  </button>;
+}
+
 /** Scene container used by every module: full-screen button, label-mode switch, and the label info card. */
 export function SceneWrap({ className = '', children, labels = true }: { className?: string; children: ReactNode; labels?: boolean }) {
   const ref = useRef<HTMLDivElement>(null); const fs = useFullscreen(ref); const mode = useSceneLabelMode(); const setMode = useLabels((s) => s.setMode);
@@ -197,6 +207,7 @@ export function SceneWrap({ className = '', children, labels = true }: { classNa
         {labels && <button type="button" className={`st-btn st-gloss${gloss ? ' on' : ''}`} aria-pressed={gloss} onClick={() => setGloss(!gloss)} title="Glossary — search every labelled structure" aria-label="Glossary">
           <span className="st-ico" aria-hidden="true">A–Z</span><span className="st-txt">Glossary</span>
         </button>}
+        <QualityButton />
         <button type="button" className="st-btn st-fs" onClick={fs.toggle} aria-pressed={fs.active} title={fs.active ? 'Exit full screen (Esc)' : 'Full screen'} aria-label={fs.active ? 'Exit full screen' : 'Full screen'}>
           <span className="st-ico" aria-hidden="true">{fs.active ? '⤡' : '⤢'}</span><span className="st-txt">{fs.active ? 'Exit' : 'Full screen'}</span>
         </button>

@@ -1,3 +1,4 @@
+import { Fold } from '../scene/pane';
 import { CurriculumModule } from '../curriculum/CurriculumModule';
 import { initProgressTracking } from '../curriculum/track';
 import { useEffect, useState } from 'react';
@@ -93,18 +94,18 @@ function VentModule() {
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         {mode === 'explore' && <>
           <ScenarioPicker />
-          <ScenarioStory />
           <VentNumbersCard />
-          <Interventions />
-          {showLoops && <section className="card"><Loops /></section>}
           <VentControls />
-          <GasCard />
-          <ExplainCard />
+          <Fold group="vent" id="act" title="Interventions" summary="holds, suction, recruit…"><Interventions /></Fold>
+          <Fold group="vent" id="story" title="The patient" summary="story & what to look for"><ScenarioStory /></Fold>
+          {showLoops && <Fold group="vent" id="loops" title="Loops"><section className="card"><Loops /></section></Fold>}
+          <Fold group="vent" id="gas" title="Blood gas & clock"><GasCard /></Fold>
+          <Fold group="vent" id="why" title="Why"><ExplainCard /></Fold>
         </>}
         {mode === 'learn' && <VentLearn />}
         {mode === 'challenge' && <VentChallenge />}
         {mode === 'sim' && <VentSim />}
-        {asset && <p className="credit">Anatomy: {asset.mapping.attribution.creators}, {asset.mapping.attribution.data} — <a href={asset.mapping.attribution.licenseUrl} target="_blank" rel="noreferrer">{asset.mapping.attribution.license}</a>. {asset.mapping.attribution.changes} Lung motion is drawn 1.6× so tidal changes are visible.</p>}
+        {asset && <details className="credit"><summary>Sources & model notes</summary>Anatomy: {asset.mapping.attribution.creators}, {asset.mapping.attribution.data} — <a href={asset.mapping.attribution.licenseUrl} target="_blank" rel="noreferrer">{asset.mapping.attribution.license}</a>. {asset.mapping.attribution.changes} Lung motion is drawn 1.6× so tidal changes are visible.</details>}
       </aside>
     </main>
   );

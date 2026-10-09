@@ -1,3 +1,4 @@
+import { Fold } from '../scene/pane';
 import { useEffect, useState } from 'react';
 import { ApnoeaCard } from '../populations/Cards';
 import { loadRespAsset, type RespAsset } from '../asset/resp';
@@ -29,19 +30,19 @@ export function AbgModule() {
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         {mode === 'explore' && <>
           <AbgPresets />
-          <AbgStory />
           <SampleCards />
-          <StationCard />
-          <AbgControls />
-          <AbgTime />
-          <AcidBaseMap />
-          <AbgInterpret />
-          <ApnoeaCard />
+          <Fold group="abg" id="causes" title="Change the causes" summary="drive, FiO₂, shunt, metabolism…"><AbgControls /></Fold>
+          <Fold group="abg" id="interp" title="Interpret it" summary="step-by-step reading"><AbgInterpret /></Fold>
+          <Fold group="abg" id="map" title="Acid–base map"><AcidBaseMap /></Fold>
+          <Fold group="abg" id="station" title="What's happening here" summary="the station on screen"><StationCard /></Fold>
+          <Fold group="abg" id="story" title="Teaching points"><AbgStory /></Fold>
+          <Fold group="abg" id="time" title="Time & compensation"><AbgTime /></Fold>
+          <Fold group="abg" id="apnoea" title="Apnoea: how fast SpO₂ falls"><ApnoeaCard /></Fold>
         </>}
         {mode === 'learn' && <AbgLearn />}
         {mode === 'challenge' && <AbgChallenge />}
         {mode === 'sim' && <AbgSim />}
-        {assets && <p className="credit">Lungs &amp; kidneys: {assets.resp.mapping.attribution.creators}, {assets.resp.mapping.attribution.data} — CC BY 4.0. Microanatomy: {assets.micro.mapping.attribution.data}; capillaries and RBCs to scale (1 alveolus ≈ 0.2 mm), blood flow slowed ~10×.</p>}
+        {assets && <details className="credit"><summary>Sources & model notes</summary>Lungs &amp; kidneys: {assets.resp.mapping.attribution.creators}, {assets.resp.mapping.attribution.data} — CC BY 4.0. Microanatomy: {assets.micro.mapping.attribution.data}; capillaries and RBCs to scale (1 alveolus ≈ 0.2 mm), blood flow slowed ~10×.</details>}
       </aside>
     </main>
   );

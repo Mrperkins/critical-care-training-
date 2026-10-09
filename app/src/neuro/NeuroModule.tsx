@@ -1,3 +1,4 @@
+import { MiniSelect, Picker, Fold } from '../scene/pane';
 import { useEffect, useState } from 'react';
 import { CaseChallenge } from '../challenge/CaseChallenge';
 import { loadBodyAsset, type BodyAsset } from '../asset/body';
@@ -50,14 +51,14 @@ export function NeuroModule() {
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         {mode === 'challenge' ? <CaseChallenge module="neuro" /> : mode === 'learn' ? <NeuroLearn /> : <>
         <PresetCard />
-        <NeuroExamCard />
         <TimeCard />
         <TissueCard />
-        <SystemicCard />
+        <Fold group="neuro" id="exam" title="Bedside exam" summary="NIHSS, deficits"><NeuroExamCard /></Fold>
+        <Fold group="neuro" id="sys" title="Blood pressure & CO₂" summary="drive collateral flow"><SystemicCard /></Fold>
         <IcpIfMass />
-        <NeuroExplain />
+        <Fold group="neuro" id="why" title="Why"><NeuroExplain /></Fold>
         </>}
-        {body && <p className="credit">Brain: {body.mapping.attribution.creators}, {body.mapping.attribution.data} — CC BY 4.0. Cerebral arteries are drawn from standard neurovascular anatomy onto that brain (schematic; calibres ×1.6). Perfusion thresholds (CBF ≈ 50 normal, &lt;20 penumbra, &lt;10 core) and infarct timing are teaching approximations, not a prediction for any patient.</p>}
+        {body && <details className="credit"><summary>Sources & model notes</summary>Brain: {body.mapping.attribution.creators}, {body.mapping.attribution.data} — CC BY 4.0. Cerebral arteries are drawn from standard neurovascular anatomy onto that brain (schematic; calibres ×1.6). Perfusion thresholds (CBF ≈ 50 normal, &lt;20 penumbra, &lt;10 core) and infarct timing are teaching approximations, not a prediction for any patient.</details>}
       </aside>
     </main>
   );
@@ -74,8 +75,7 @@ function NeuroOverlay() {
       <button className={`tgl${glass ? ' on' : ''}`} onClick={() => set({ glass: !glass })}>{glass ? 'Glass brain' : 'Solid brain'}</button>
     </div>
     <div className="alv-focus">
-      <div className="seg small ch-focus" role="group" aria-label="Focus">{FOCUS.map(([id, l]) => <button key={id} className={target === id ? 'on' : ''} onClick={() => set({ target: id })}>{l}</button>)}</div>
-      <div className="seg small ch-quality" role="group" aria-label="Visual quality">{(['high', 'medium', 'low'] as VisualTier[]).map((k) => <button key={k} className={tier === k ? 'on' : ''} onClick={() => useLabUI.getState().set({ visualTier: k })}>{k[0].toUpperCase() + k.slice(1)}</button>)}</div>
+      <MiniSelect label="View" value={target} options={FOCUS as [string, string][]} onChange={(v) => set({ target: v })} className="ch-focus" />
     </div>
     <div className="legend"><span><i style={{ background: '#c81e2a' }} />Perfused</span><span><i style={{ background: '#3a2a3e' }} />No flow</span><span><i style={{ background: '#ed9e2e' }} />Penumbra</span><span><i style={{ background: '#c71f52' }} />Core</span><span><i style={{ background: '#4b0c12' }} />Clot / blood</span></div>
   </>}
@@ -84,12 +84,9 @@ function NeuroOverlay() {
 
 function PresetCard() {
   const preset = useNeuroUI((s) => s.preset); const cur = NEURO_PRESETS.find((p) => p.id === preset)!;
-  return (
-    <section className="card story">
-      <div className="chips" role="group" aria-label="Presets">{NEURO_PRESETS.map((p) => <button key={p.id} className={`chip${preset === p.id ? ' on' : ''}`} onClick={() => loadNeuroPreset(p.id as NeuroPreset)}>{p.name}</button>)}</div>
-      <p className="muted" style={{ marginTop: 10 }}>{cur.short}</p>
-    </section>
-  );
+  const G: [string, NeuroPreset[]][] = [['', ['none']], ['Ischaemic', ['m1_L', 'm1_R', 'm2s_L', 'ica_L', 'ica_L_iso', 'basilar', 'p2_R']], ['Haemorrhagic', ['ich', 'sah']]];
+  const it = (id: NeuroPreset) => { const p = NEURO_PRESETS.find((x) => x.id === id)!; return { id, name: p.name, hint: p.short }; };
+  return <Picker label="Scenario" value={preset} sub={cur.short} onPick={(id) => loadNeuroPreset(id as NeuroPreset)} groups={G.map(([label, ids]) => ({ label: label || undefined, items: ids.filter((i) => NEURO_PRESETS.some((p) => p.id === i)).map(it) }))} />;
 }
 
 function TimeCard() {
@@ -176,4 +173,4 @@ function NeuroLearn() {
   );
 }
 
-function IcpIfMass() { const h = useNeuroUI((s) => !!s.state.hemorrhage); return h ? <IcpCard /> : null; }
+function IcpIfMass() { const h = useNeuroUI((s) => !!s.state.hemorrhage); return h ? <Fold group="neuro" id="icp" title="Intracranial pressure" summary="ICP, CPP, EVD"><IcpCard /></Fold> : null; }

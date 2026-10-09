@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-10-09T07:17:32.292Z",
+  "counts": {
+    "masteryConcepts": 130,
+    "audioEpisodes": 79,
+    "mentalReps": 20,
+    "expertTracks": 21,
+    "audioCoveredConcepts": 130
+  },
+  "gates": {
+    "missingAudio": [],
+    "missingReps": [],
+    "missingMentalRepVoice": [],
+    "dangling": [],
+    "shallowScripts": [],
+    "untrackedEpisodes": [],
+    "falselyPublished": []
+  },
+  "complete": true
+}

@@ -1,3 +1,4 @@
+import { Picker } from '../scene/pane';
 import { useMemo } from 'react';
 import { session } from './session';
 import { ventNumbers } from './numbers';
@@ -154,11 +155,10 @@ export function ExplainCard() {
 
 export function ScenarioPicker() {
   const cur = useUI((s) => s.ventScenario);
-  return (
-    <div className="chips" role="group" aria-label="Scenarios">
-      {VENT_SCENARIOS.map((sc) => <button key={sc.id} className={`chip${cur === sc.id ? ' on' : ''}`} onClick={() => loadVentScenario(sc.id)}>{sc.name}</button>)}
-    </div>
-  );
+  const item = (id: string) => ({ id, name: VENT_SCENARIO[id].name, hint: VENT_SCENARIO[id].short });
+  const emerg = ['ptx', 'ett', 'plug', 'mainstem'];
+  return <Picker label="Scenario" value={cur} onPick={(id) => loadVentScenario(id)} sub={VENT_SCENARIO[cur]?.short}
+    groups={[{ label: 'Lungs', items: VENT_SCENARIOS.filter((s) => !emerg.includes(s.id)).map((s) => item(s.id)) }, { label: 'Sudden problems', items: VENT_SCENARIOS.filter((s) => emerg.includes(s.id)).map((s) => item(s.id)) }]} />;
 }
 export function loadVentScenario(id: string, dyss: Parameters<typeof session.load>[1] = null) {
   session.load(id, dyss); const sc = VENT_SCENARIO[id];
