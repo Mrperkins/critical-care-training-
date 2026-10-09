@@ -1979,6 +1979,21 @@ Teaching content is written; the media has not been downloaded and the licence h
 | lus-consolidation-tsung | consolidation | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Prospective-application-of-clinician-performed-lung-ultrasonography-during-the-2009-H1N1-influenza-2036-7902-4-16-S3.ogv |
 | echo-vsd-color-commons | ventricular septal defect | Public Domain (unverified) | https://commons.wikimedia.org/wiki/File:Ventricular_Septal_Defect.jpg |
 | echo-asd-secundum-commons | secundum atrial septal defect | Public Domain (unverified) | https://commons.wikimedia.org/wiki/File:Echokardiogram_von_Atriumseptumdefekt_(Ostium_secundum).jpg |
+| fast-pericardial-negative-subcostal-2020 | fast_pericardial_negative | CC BY 4.0 (unverified) | https://doi.org/10.1186/s13089-020-00197-0 |
+| aorta-normal-us-axial-haggstrom | aorta_normal_us | CC0 (unverified) | https://commons.wikimedia.org/wiki/File:Axial_plane_ultrasound_at_the_navel.jpg |
+| lus-lung-pulse-mmode-cureus-2025 | lung_pulse | CC BY 4.0 (unverified) | https://doi.org/10.7759/cureus.88584 |
+| ij-thrombus-compression-cureus-2025 | ij_thrombus | CC BY 4.0 (unverified) | https://doi.org/10.7759/cureus.95740 |
+| ij-thrombus-longitudinal-cureus-2026 | ij_thrombus | CC BY 4.0 (unverified) | https://doi.org/10.7759/cureus.109678 |
+| cxr-tension-ptx-right-hydatid-2023 | tension_ptx | CC BY 4.0 (unverified) | https://doi.org/10.1002/ccr3.7542 |
+| cxr-tension-ptx-right-covid-2022 | tension_ptx | CC BY 4.0 (unverified) | https://doi.org/10.1002/ccr3.5852 |
+| peds-bronchiolitis-hyperinflation-commons | bronchiolitis_hyperinflation | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Bronchiolitis_chest_X-ray.jpg |
+| peds-pneumonia-bocavirus-commons | pediatric_pneumonia | Public Domain (unverified) | https://commons.wikimedia.org/wiki/File:Human_bocavirus_1_pneumonia.jpg |
+| ct-dissection-type-a-ascending-flap-2022 | dissection_type_a | CC BY 4.0 (unverified) | https://doi.org/10.1186/s12872-022-02596-8 |
+| ct-dissection-type-a-ascending-tear-2020 | dissection_type_a | CC BY 4.0 (unverified) | https://doi.org/10.1186/s12872-020-01440-1 |
+| ct-aaa-mural-thrombus-8cm-2021 | aaa | CC BY 4.0 (unverified) | https://doi.org/10.1186/s13256-021-02703-x |
+| ct-pneumatosis-colon-wall-2021 | pneumatosis | CC BY 4.0 (unverified) | https://doi.org/10.1186/s13256-021-03158-w |
+| ct-pneumatosis-cystoides-coronal-2021 | pneumatosis | CC BY 4.0 (unverified) | https://doi.org/10.1186/s13256-021-03183-9 |
+| ct-mesenteric-injury-hemoperitoneum-2026 | hemoperitoneum | CC BY 4.0 (unverified) | https://doi.org/10.5811/cpcem.48848 |
 
 ## Considered and rejected
 

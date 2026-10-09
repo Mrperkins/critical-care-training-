@@ -1253,5 +1253,170 @@
   "licenseVerified": false,
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Echokardiogram_von_Atriumseptumdefekt_(Ostium_secundum).jpg",
   "localSources": {}
+ },
+ {
+  "id": "fast-pericardial-negative-subcostal-2020",
+  "status": "pending",
+  "type": "ultrasound",
+  "modality": "Point-of-care ultrasound",
+  "finding": "fast_pericardial_negative",
+  "license": "CC BY 4.0",
+  "licenseVerified": false,
+  "sourceUrl": "https://doi.org/10.1186/s13089-020-00197-0",
+  "localSources": {}
+ },
+ {
+  "id": "aorta-normal-us-axial-haggstrom",
+  "status": "pending",
+  "type": "ultrasound",
+  "modality": "Point-of-care ultrasound",
+  "finding": "aorta_normal_us",
+  "license": "CC0",
+  "licenseVerified": false,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Axial_plane_ultrasound_at_the_navel.jpg",
+  "localSources": {}
+ },
+ {
+  "id": "lus-lung-pulse-mmode-cureus-2025",
+  "status": "pending",
+  "type": "ultrasound",
+  "modality": "Point-of-care lung ultrasound (M-mode)",
+  "finding": "lung_pulse",
+  "license": "CC BY 4.0",
+  "licenseVerified": false,
+  "sourceUrl": "https://doi.org/10.7759/cureus.88584",
+  "localSources": {}
+ },
+ {
+  "id": "ij-thrombus-compression-cureus-2025",
+  "status": "pending",
+  "type": "ultrasound",
+  "modality": "Point-of-care ultrasound",
+  "finding": "ij_thrombus",
+  "license": "CC BY 4.0",
+  "licenseVerified": false,
+  "sourceUrl": "https://doi.org/10.7759/cureus.95740",
+  "localSources": {}
+ },
+ {
+  "id": "ij-thrombus-longitudinal-cureus-2026",
+  "status": "pending",
+  "type": "ultrasound",
+  "modality": "Point-of-care ultrasound",
+  "finding": "ij_thrombus",
+  "license": "CC BY 4.0",
+  "licenseVerified": false,
+  "sourceUrl": "https://doi.org/10.7759/cureus.109678",
+  "localSources": {}
+ },
+ {
+  "id": "cxr-tension-ptx-right-hydatid-2023",
+  "status": "pending",
+  "type": "xray",
+  "modality": "Chest radiograph (portable AP)",
+  "finding": "tension_ptx",
+  "license": "CC BY 4.0",
+  "licenseVerified": false,
+  "sourceUrl": "https://doi.org/10.1002/ccr3.7542",
+  "localSources": {}
+ },
+ {
+  "id": "cxr-tension-ptx-right-covid-2022",
+  "status": "pending",
+  "type": "xray",
+  "modality": "Chest radiograph (portable)",
+  "finding": "tension_ptx",
+  "license": "CC BY 4.0",
+  "licenseVerified": false,
+  "sourceUrl": "https://doi.org/10.1002/ccr3.5852",
+  "localSources": {}
+ },
+ {
+  "id": "peds-bronchiolitis-hyperinflation-commons",
+  "status": "pending",
+  "type": "xray",
+  "modality": "Chest radiograph (infant)",
+  "finding": "bronchiolitis_hyperinflation",
+  "license": "CC BY 2.0",
+  "licenseVerified": false,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bronchiolitis_chest_X-ray.jpg",
+  "localSources": {}
+ },
+ {
+  "id": "peds-pneumonia-bocavirus-commons",
+  "status": "pending",
+  "type": "xray",
+  "modality": "Chest radiograph (toddler, intubated)",
+  "finding": "pediatric_pneumonia",
+  "license": "Public Domain",
+  "licenseVerified": false,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Human_bocavirus_1_pneumonia.jpg",
+  "localSources": {}
+ },
+ {
+  "id": "ct-dissection-type-a-ascending-flap-2022",
+  "status": "pending",
+  "type": "ct",
+  "modality": "CT angiography (axial)",
+  "finding": "dissection_type_a",
+  "license": "CC BY 4.0",
+  "licenseVerified": false,
+  "sourceUrl": "https://doi.org/10.1186/s12872-022-02596-8",
+  "localSources": {}
+ },
+ {
+  "id": "ct-dissection-type-a-ascending-tear-2020",
+  "status": "pending",
+  "type": "ct",
+  "modality": "CT angiography (axial)",
+  "finding": "dissection_type_a",
+  "license": "CC BY 4.0",
+  "licenseVerified": false,
+  "sourceUrl": "https://doi.org/10.1186/s12872-020-01440-1",
+  "localSources": {}
+ },
+ {
+  "id": "ct-aaa-mural-thrombus-8cm-2021",
+  "status": "pending",
+  "type": "ct",
+  "modality": "CT angiography (axial)",
+  "finding": "aaa",
+  "license": "CC BY 4.0",
+  "licenseVerified": false,
+  "sourceUrl": "https://doi.org/10.1186/s13256-021-02703-x",
+  "localSources": {}
+ },
+ {
+  "id": "ct-pneumatosis-colon-wall-2021",
+  "status": "pending",
+  "type": "ct",
+  "modality": "CT (axial, lung window)",
+  "finding": "pneumatosis",
+  "license": "CC BY 4.0",
+  "licenseVerified": false,
+  "sourceUrl": "https://doi.org/10.1186/s13256-021-03158-w",
+  "localSources": {}
+ },
+ {
+  "id": "ct-pneumatosis-cystoides-coronal-2021",
+  "status": "pending",
+  "type": "ct",
+  "modality": "CT (coronal, lung window)",
+  "finding": "pneumatosis",
+  "license": "CC BY 4.0",
+  "licenseVerified": false,
+  "sourceUrl": "https://doi.org/10.1186/s13256-021-03183-9",
+  "localSources": {}
+ },
+ {
+  "id": "ct-mesenteric-injury-hemoperitoneum-2026",
+  "status": "pending",
+  "type": "ct",
+  "modality": "Contrast CT (axial)",
+  "finding": "hemoperitoneum",
+  "license": "CC BY 4.0",
+  "licenseVerified": false,
+  "sourceUrl": "https://doi.org/10.5811/cpcem.48848",
+  "localSources": {}
  }
 ]

@@ -6312,6 +6312,718 @@
    "pageUrl": "https://commons.wikimedia.org/wiki/File:Echokardiogram_von_Atriumseptumdefekt_(Ostium_secundum).jpg",
    "marks": [],
    "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "fast-pericardial-negative-subcostal-2020",
+   "kind": "fast",
+   "type": "ultrasound",
+   "modality": "Point-of-care ultrasound",
+   "finding": "fast_pericardial_negative",
+   "findings": [
+    "fast_pericardial_negative"
+   ],
+   "title": "Normal subcostal four-chamber view",
+   "caption": "Subcostal four-chamber view through the liver showing all four chambers with the pericardium lying directly against the heart and no anechoic fluid stripe.",
+   "look": [
+    "Liver as the acoustic window at the top of the sector",
+    "Bright pericardial line hugging the right ventricle",
+    "No black (anechoic) band between pericardium and myocardium",
+    "All four chambers labelled RA, RV, LA, LV"
+   ],
+   "teach": [
+    "A negative cardiac FAST window shows the pericardium directly apposed to the heart along its whole length.",
+    "Look for fluid first in the dependent part of the sac, between the liver-side pericardium and the right ventricle.",
+    "Read this against the patient in front of you: the image teaches the pattern, the clinical picture makes the call."
+   ],
+   "quiz": {
+    "q": "In this subcostal view, what makes the cardiac FAST window negative?",
+    "options": [
+     "No anechoic band between the pericardium and the heart",
+     "The right ventricle is larger than the left",
+     "The liver is visible above the heart",
+     "The left atrium appears dark"
+    ],
+    "answer": 0,
+    "explain": "A pericardial effusion appears as a black stripe separating the bright pericardium from the myocardium; here there is none. Dark chambers are blood, not effusion."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC7702202",
+    "fig": "Fig3"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.1186/s13089-020-00197-0",
+   "crop": [
+    0.0,
+    0.0,
+    0.333,
+    1.0
+   ],
+   "marks": [],
+   "claimedBy": "discovery round 4 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "aorta-normal-us-axial-haggstrom",
+   "kind": "aorta-us",
+   "type": "ultrasound",
+   "modality": "Point-of-care ultrasound",
+   "finding": "aorta_normal_us",
+   "findings": [
+    "aorta_normal_us"
+   ],
+   "title": "Normal abdominal aorta, transverse view",
+   "caption": "Transverse ultrasound at the level of the umbilicus in a healthy adult showing a round, normal-calibre abdominal aorta (about 2 cm) with the compressed inferior vena cava beside it.",
+   "look": [
+    "Round, thick-walled anechoic aorta in front of the spine",
+    "Diameter under 3 cm (depth scale on the right)",
+    "Flattened inferior vena cava running to the side of the aorta",
+    "Small vessel anterior to the aorta"
+   ],
+   "teach": [
+    "An abdominal aorta under 3 cm outer-wall to outer-wall is normal; 3 cm or more is an aneurysm.",
+    "Firm, graded probe pressure pushes bowel gas aside; the IVC flattens under pressure but the aorta stays round.",
+    "Read this against the patient in front of you: the image teaches the pattern, the clinical picture makes the call."
+   ],
+   "quiz": {
+    "q": "What is the upper limit of normal for the infrarenal abdominal aortic diameter?",
+    "options": [
+     "Under 3 cm",
+     "Under 5 cm",
+     "Under 1 cm",
+     "Under 4.5 cm"
+    ],
+    "answer": 0,
+    "explain": "An infrarenal aorta of 3 cm or more (outer wall to outer wall) defines an abdominal aortic aneurysm."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:Axial plane ultrasound at the navel.jpg"
+   },
+   "licenseClaimed": "CC0",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Axial_plane_ultrasound_at_the_navel.jpg",
+   "marks": [],
+   "claimedBy": "discovery round 4 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "lus-lung-pulse-mmode-cureus-2025",
+   "kind": "lus",
+   "type": "ultrasound",
+   "modality": "Point-of-care lung ultrasound (M-mode)",
+   "finding": "lung_pulse",
+   "findings": [
+    "lung_pulse"
+   ],
+   "title": "Lung pulse on M-mode",
+   "caption": "M-mode trace through the pleural line showing regular vertical flickers in time with the heartbeat while the usual seashore granularity of sliding is absent.",
+   "look": [
+    "Horizontal lines above and below the pleura (no seashore pattern)",
+    "Regular vertical beats at the pleural line (arrows)",
+    "Beats spaced at the heart rate, not the respiratory rate"
+   ],
+   "teach": [
+    "The lung pulse is cardiac motion transmitted through lung that is still touching the chest wall but not ventilating.",
+    "It rules out pneumothorax at that spot and points to an unventilated lung, such as mainstem intubation, a mucus plug or apnoea.",
+    "Read this against the patient in front of you: the image teaches the pattern, the clinical picture makes the call."
+   ],
+   "quiz": {
+    "q": "No lung sliding but a lung pulse is seen on the left after intubation. What is the most likely cause?",
+    "options": [
+     "Right mainstem intubation",
+     "Left tension pneumothorax",
+     "Normal ventilation",
+     "Oesophageal intubation with bilateral sliding"
+    ],
+    "answer": 0,
+    "explain": "A lung pulse means the pleural layers are still in contact, which excludes pneumothorax there. Absent sliding with a pulse fits a lung that is not being ventilated, classically after right mainstem intubation."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC12309786",
+    "fig": "FIG2"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.7759/cureus.88584",
+   "crop": [
+    0.655,
+    0.54,
+    0.345,
+    0.46
+   ],
+   "marks": [],
+   "claimedBy": "discovery round 4 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "ij-thrombus-compression-cureus-2025",
+   "kind": "ijv",
+   "type": "ultrasound",
+   "modality": "Point-of-care ultrasound",
+   "finding": "ij_thrombus",
+   "findings": [
+    "ij_thrombus"
+   ],
+   "title": "Internal jugular thrombus that does not compress",
+   "caption": "Paired transverse views of the left internal jugular vein before and during probe compression: the vein holds its shape and contains echogenic clot, while a normal vein would collapse.",
+   "look": [
+    "Distended IJV lateral to the round carotid",
+    "Faint echogenic material inside the vein (arrows)",
+    "Vein stays open with compression in the right-hand panel"
+   ],
+   "teach": [
+    "A healthy IJV collapses fully under gentle pressure; failure to compress is the key sign of thrombus, even when the clot looks almost anechoic.",
+    "Choose another site for central access when the IJV is thrombosed.",
+    "Read this against the patient in front of you: the image teaches the pattern, the clinical picture makes the call."
+   ],
+   "quiz": {
+    "q": "Before IJ cannulation, the vein does not collapse with firm probe pressure. What does this suggest?",
+    "options": [
+     "Venous thrombosis",
+     "Normal vein in a hypovolaemic patient",
+     "You are compressing the carotid",
+     "Too much gel"
+    ],
+    "answer": 0,
+    "explain": "Non-compressibility of a vein is the main ultrasound sign of thrombus. A hypovolaemic vein collapses more easily, not less."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC12664772",
+    "fig": "FIG2"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.7759/cureus.95740",
+   "marks": [],
+   "claimedBy": "discovery round 4 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "ij-thrombus-longitudinal-cureus-2026",
+   "kind": "ijv",
+   "type": "ultrasound",
+   "modality": "Point-of-care ultrasound",
+   "finding": "ij_thrombus",
+   "findings": [
+    "ij_thrombus"
+   ],
+   "title": "Internal jugular thrombus, long axis",
+   "caption": "Long-axis view of the left internal jugular vein with grey echogenic clot stuck to the wall, filling much of the lumen.",
+   "look": [
+    "Tubular vein running across the image",
+    "Grey intraluminal material against the vessel wall (arrows)",
+    "Loss of the normal black lumen"
+   ],
+   "teach": [
+    "Thrombus can be seen directly as echogenic material inside the lumen, but always confirm by trying to compress the vein.",
+    "IJV thrombosis with septic lung emboli after a throat infection suggests Lemierre syndrome.",
+    "Read this against the patient in front of you: the image teaches the pattern, the clinical picture makes the call."
+   ],
+   "quiz": {
+    "q": "Which finding best confirms internal jugular thrombosis at the bedside?",
+    "options": [
+     "Vein does not compress under probe pressure",
+     "Vein is larger than the carotid",
+     "Vein changes size with breathing",
+     "Vein is lateral to the carotid"
+    ],
+    "answer": 0,
+    "explain": "Non-compressibility confirms clot. The other findings are normal features of the IJV."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC13296912",
+    "fig": "FIG2"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.7759/cureus.109678",
+   "marks": [],
+   "claimedBy": "discovery round 4 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "cxr-tension-ptx-right-hydatid-2023",
+   "kind": "cxr",
+   "type": "xray",
+   "modality": "Chest radiograph (portable AP)",
+   "finding": "tension_ptx",
+   "findings": [
+    "tension_ptx",
+    "ptx"
+   ],
+   "title": "Right tension pneumothorax (portable film)",
+   "caption": "Supine portable film with a black, markings-free right chest, the right lung shrunk toward the hilum and the heart pushed into the left chest.",
+   "look": [
+    "No lung markings across the right hemithorax",
+    "Collapsed right lung at the hilum",
+    "Mediastinum and heart shifted left",
+    "Flattened, depressed right hemidiaphragm"
+   ],
+   "teach": [
+    "Tension is a clinical diagnosis; a film like this means decompression was overdue.",
+    "Contralateral shift plus a depressed hemidiaphragm signals rising pleural pressure that is compressing venous return.",
+    "Read this against the patient in front of you: the image teaches the pattern, the clinical picture makes the call."
+   ],
+   "quiz": {
+    "q": "Which radiograph feature most supports tension rather than a simple pneumothorax?",
+    "options": [
+     "A visible pleural line",
+     "Mediastinal shift away from the affected side",
+     "Small apical lucency",
+     "Subcutaneous air"
+    ],
+    "answer": 1,
+    "explain": "Shift of the mediastinum away from the collapsed lung reflects a positive-pressure pleural space, the hallmark of tension physiology."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC10323720",
+    "fig": "ccr37542-fig-0001"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.1002/ccr3.7542",
+   "maskRects": [
+    [
+     0,
+     0,
+     0.3,
+     0.1
+    ],
+    [
+     0.7,
+     0,
+     0.3,
+     0.11
+    ],
+    [
+     0.66,
+     0.12,
+     0.34,
+     0.055
+    ]
+   ],
+   "marks": [],
+   "claimedBy": "discovery round 4 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "cxr-tension-ptx-right-covid-2022",
+   "kind": "cxr",
+   "type": "xray",
+   "modality": "Chest radiograph (portable)",
+   "finding": "tension_ptx",
+   "findings": [
+    "tension_ptx",
+    "ptx"
+   ],
+   "title": "Right tension pneumothorax in COVID-19 pneumonia",
+   "caption": "Portable film of a ventilated-lung-disease patient showing a hyperlucent right chest with the heart and trachea displaced to the left, while the left lung stays hazy from pneumonia.",
+   "look": [
+    "Lucent right hemithorax without vessels",
+    "Heart border displaced past the midline",
+    "Diseased, stiff left lung",
+    "Widened right intercostal spaces"
+   ],
+   "teach": [
+    "Barotrauma and spontaneous pneumothorax complicate severe viral pneumonia; sudden desaturation or high airway pressures should prompt this diagnosis.",
+    "Stiff lungs may not collapse fully, so look for shift and lucency rather than a dramatic lung edge.",
+    "Read this against the patient in front of you: the image teaches the pattern, the clinical picture makes the call."
+   ],
+   "quiz": {
+    "q": "A ventilated patient with severe pneumonia suddenly develops high peak pressures and hypotension. The film shows this. First action?",
+    "options": [
+     "Repeat chest film in 1 hour",
+     "Immediate pleural decompression",
+     "Increase PEEP",
+     "Start diuretics"
+    ],
+    "answer": 1,
+    "explain": "Tension pneumothorax with haemodynamic compromise needs decompression now; added PEEP worsens it."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC9083808",
+    "fig": "ccr35852-fig-0001"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.1002/ccr3.5852",
+   "crop": [
+    0.547,
+    0,
+    0.453,
+    1
+   ],
+   "maskRects": [
+    [
+     0.547,
+     0.08,
+     0.1,
+     0.16
+    ]
+   ],
+   "marks": [],
+   "claimedBy": "discovery round 4 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "peds-bronchiolitis-hyperinflation-commons",
+   "kind": "peds-xray",
+   "type": "xray",
+   "modality": "Chest radiograph (infant)",
+   "finding": "bronchiolitis_hyperinflation",
+   "findings": [
+    "bronchiolitis_hyperinflation"
+   ],
+   "title": "Bronchiolitis: hyperinflation with patchy atelectasis",
+   "caption": "Newborn chest film with over-expanded lungs, low flat diaphragms and patchy collapse at the right apex and left base.",
+   "look": [
+    "Flattened hemidiaphragms",
+    "More than 8–9 posterior ribs visible",
+    "Right upper zone opacity (atelectasis)",
+    "Left basal density"
+   ],
+   "teach": [
+    "Small-airway plugging traps air (hyperinflation) and causes shifting areas of collapse that are often mistaken for pneumonia.",
+    "Bronchiolitis is a clinical diagnosis; films are for atypical or severe courses.",
+    "Read this against the patient in front of you: the image teaches the pattern, the clinical picture makes the call."
+   ],
+   "quiz": {
+    "q": "Patchy opacities on an infant's bronchiolitis film are most often…",
+    "options": [
+     "Bacterial lobar pneumonia",
+     "Atelectasis from mucus plugging",
+     "Pulmonary oedema",
+     "Pleural effusion"
+    ],
+    "answer": 1,
+    "explain": "Mucus plugs cause migrating subsegmental collapse; antibiotics are not indicated for these opacities alone."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:Bronchiolitis chest X-ray.jpg"
+   },
+   "licenseClaimed": "CC BY 2.0",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Bronchiolitis_chest_X-ray.jpg",
+   "marks": [],
+   "claimedBy": "discovery round 4 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "peds-pneumonia-bocavirus-commons",
+   "kind": "peds-xray",
+   "type": "xray",
+   "modality": "Chest radiograph (toddler, intubated)",
+   "finding": "pediatric_pneumonia",
+   "findings": [
+    "pediatric_pneumonia"
+   ],
+   "title": "Viral pneumonia in a toddler",
+   "caption": "Intubated 16-month-old with dense right upper and central opacity and patchy infiltrates in the left lung from viral pneumonia.",
+   "look": [
+    "Dense right upper zone opacity",
+    "Bilateral perihilar infiltrates",
+    "Endotracheal and gastric tubes in place",
+    "Hyperexpanded lower zones"
+   ],
+   "teach": [
+    "Viral pneumonia in young children is often bilateral and perihilar, with lobar collapse that can mimic bacterial consolidation.",
+    "Severe hypoxaemia and work of breathing, not the film alone, drive the decision to intubate.",
+    "Read this against the patient in front of you: the image teaches the pattern, the clinical picture makes the call."
+   ],
+   "quiz": {
+    "q": "Bilateral perihilar infiltrates with upper-lobe collapse in a wheezy toddler most suggest…",
+    "options": [
+     "Foreign body",
+     "Viral lower respiratory infection",
+     "Pneumothorax",
+     "Normal thymus"
+    ],
+    "answer": 1,
+    "explain": "Diffuse, bilateral, perihilar changes with atelectasis are typical of viral infection in this age group."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:Human bocavirus 1 pneumonia.jpg"
+   },
+   "licenseClaimed": "Public Domain",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Human_bocavirus_1_pneumonia.jpg",
+   "marks": [],
+   "claimedBy": "discovery round 4 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "ct-dissection-type-a-ascending-flap-2022",
+   "kind": "ct-aorta",
+   "type": "ct",
+   "modality": "CT angiography (axial)",
+   "finding": "dissection_type_a",
+   "findings": [
+    "dissection_type_a"
+   ],
+   "title": "Type A dissection: flap in the ascending aorta",
+   "caption": "Axial contrast CT at the level of the pulmonary artery showing a thin dividing membrane running through the enlarged ascending aorta.",
+   "look": [
+    "Thin dark line inside the ascending aorta",
+    "Two contrast-filled channels",
+    "Dilated ascending aorta",
+    "Descending aorta at this level"
+   ],
+   "teach": [
+    "Any flap in the ascending aorta makes it Stanford type A, a surgical emergency.",
+    "Proximal extension threatens the coronaries, aortic valve and pericardium (tamponade).",
+    "Read this against the patient in front of you: the image teaches the pattern, the clinical picture makes the call."
+   ],
+   "quiz": {
+    "q": "A flap is seen in the ascending aorta. What is the definitive management?",
+    "options": [
+     "Blood-pressure control only",
+     "Emergency surgical repair",
+     "Elective endovascular stent",
+     "Thrombolysis"
+    ],
+    "answer": 1,
+    "explain": "Stanford type A dissection carries high early mortality and needs emergency surgery; thrombolysis is contraindicated."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC8981714",
+    "fig": "Fig4"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.1186/s12872-022-02596-8",
+   "crop": [
+    0,
+    0,
+    0.605,
+    1
+   ],
+   "marks": [],
+   "claimedBy": "discovery round 4 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "ct-dissection-type-a-ascending-tear-2020",
+   "kind": "ct-aorta",
+   "type": "ct",
+   "modality": "CT angiography (axial)",
+   "finding": "dissection_type_a",
+   "findings": [
+    "dissection_type_a"
+   ],
+   "title": "Type A dissection with flaps in ascending and descending aorta",
+   "caption": "Axial CT angiogram with an intimal flap curling through the ascending aorta and a second channel in the descending aorta at the same level.",
+   "look": [
+    "Curved flap in the ascending aorta (arrow)",
+    "Double lumen in the descending aorta",
+    "Ascending aorta wider than descending",
+    "No mediastinal haematoma at this slice"
+   ],
+   "teach": [
+    "Seeing the flap on both sides of the arch on one slice means the dissection involves the ascending aorta: type A.",
+    "Type A dissection can develop from an earlier intramural haematoma, so these patients need follow-up imaging.",
+    "Read this against the patient in front of you: the image teaches the pattern, the clinical picture makes the call."
+   ],
+   "quiz": {
+    "q": "On one axial slice a flap is seen in both the ascending and descending aorta. Classification?",
+    "options": [
+     "Stanford type B",
+     "Stanford type A",
+     "Intramural haematoma",
+     "Penetrating ulcer"
+    ],
+    "answer": 1,
+    "explain": "Involvement of the ascending aorta defines Stanford type A, whatever happens distally."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC7137196",
+    "fig": "Fig3"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.1186/s12872-020-01440-1",
+   "crop": [
+    0,
+    0,
+    0.345,
+    1
+   ],
+   "marks": [],
+   "claimedBy": "discovery round 4 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "ct-aaa-mural-thrombus-8cm-2021",
+   "kind": "ct-aorta",
+   "type": "ct",
+   "modality": "CT angiography (axial)",
+   "finding": "aaa",
+   "findings": [
+    "aaa"
+   ],
+   "title": "Intact 8 cm AAA with mural thrombus",
+   "caption": "Axial contrast CT of a large infrarenal aneurysm: a bright, off-centre flow channel surrounded by a thick grey rim of thrombus inside a calcified wall, with no surrounding blood.",
+   "look": [
+    "Calcified outer wall",
+    "Thick crescent of grey thrombus",
+    "Small bright residual lumen",
+    "No periaortic stranding or haematoma"
+   ],
+   "teach": [
+    "Measure the outer wall-to-wall diameter: thrombus is part of the aneurysm even though the lumen looks normal-sized.",
+    "A high-density crescent inside the thrombus can herald impending rupture.",
+    "Read this against the patient in front of you: the image teaches the pattern, the clinical picture makes the call."
+   ],
+   "quiz": {
+    "q": "How should AAA diameter be measured on CT?",
+    "options": [
+     "Lumen only",
+     "Outer wall to outer wall",
+     "Thrombus thickness only",
+     "Inner wall to lumen"
+    ],
+    "answer": 1,
+    "explain": "The lumen underestimates aneurysm size; repair decisions use outer-to-outer diameter."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC8052834",
+    "fig": "Fig1"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.1186/s13256-021-02703-x",
+   "crop": [
+    0,
+    0,
+    0.495,
+    1
+   ],
+   "marks": [],
+   "claimedBy": "discovery round 4 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "ct-pneumatosis-colon-wall-2021",
+   "kind": "ct-aorta",
+   "type": "ct",
+   "modality": "CT (axial, lung window)",
+   "finding": "pneumatosis",
+   "findings": [
+    "pneumatosis"
+   ],
+   "title": "Pneumatosis of the ascending colon",
+   "caption": "Axial CT on a lung window showing streaks and bubbles of gas tracking within the wall of the ascending colon (arrowheads).",
+   "look": [
+    "Gas outlining the bowel wall itself",
+    "Arrowheads on the right colon",
+    "Gas separate from luminal contents",
+    "Use a lung/wide window"
+   ],
+   "teach": [
+    "Wall gas can be benign (drugs, steroids) or ischaemic; lactate, exam and portal venous gas decide which.",
+    "Wide window settings make thin intramural gas much easier to see.",
+    "Read this against the patient in front of you: the image teaches the pattern, the clinical picture makes the call."
+   ],
+   "quiz": {
+    "q": "Which accompanying finding makes pneumatosis most worrying for bowel ischaemia?",
+    "options": [
+     "Cystic bubbles in a well patient",
+     "Portal venous gas with raised lactate",
+     "Normal bowel wall enhancement",
+     "Incidental finding on a routine scan"
+    ],
+    "answer": 1,
+    "explain": "Portal venous gas, acidosis and peritonitis point to transmural ischaemia needing urgent surgery."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC8588671",
+    "fig": "Fig3"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.1186/s13256-021-03158-w",
+   "marks": [],
+   "claimedBy": "discovery round 4 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "ct-pneumatosis-cystoides-coronal-2021",
+   "kind": "ct-aorta",
+   "type": "ct",
+   "modality": "CT (coronal, lung window)",
+   "finding": "pneumatosis",
+   "findings": [
+    "pneumatosis",
+    "pneumoperitoneum"
+   ],
+   "title": "Cystic pneumatosis of the splenic flexure",
+   "caption": "Coronal CT showing clusters of round gas cysts in the colonic wall at the splenic flexure with a trace of free air under the diaphragm.",
+   "look": [
+    "Round gas cysts in the bowel wall (arrows)",
+    "Thin rim of free air (arrowheads)",
+    "Cysts at the splenic flexure",
+    "Rest of bowel unremarkable"
+   ],
+   "teach": [
+    "Cystic pneumatosis can rupture and cause free air without perforation; a well patient may not need laparotomy.",
+    "Linear wall gas with sick physiology is the dangerous pattern.",
+    "Read this against the patient in front of you: the image teaches the pattern, the clinical picture makes the call."
+   ],
+   "quiz": {
+    "q": "A well patient has free air plus cystic gas in the colon wall. Best interpretation?",
+    "options": [
+     "Certain perforation, operate now",
+     "Possible benign pneumatosis cystoides; correlate clinically",
+     "Normal finding",
+     "Bowel obstruction"
+    ],
+    "answer": 1,
+    "explain": "Ruptured submucosal gas cysts can produce benign pneumoperitoneum; management depends on the patient's condition."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC8680031",
+    "fig": "Fig1"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.1186/s13256-021-03183-9",
+   "crop": [
+    0.268,
+    0,
+    0.398,
+    1
+   ],
+   "marks": [],
+   "claimedBy": "discovery round 4 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "ct-mesenteric-injury-hemoperitoneum-2026",
+   "kind": "ct-aorta",
+   "type": "ct",
+   "modality": "Contrast CT (axial)",
+   "finding": "hemoperitoneum",
+   "findings": [
+    "hemoperitoneum"
+   ],
+   "title": "Blunt mesenteric injury with active bleeding",
+   "caption": "Axial contrast CT after blunt abdominal trauma showing bright contrast blushes in the mesentery and free fluid in the lower abdomen.",
+   "look": [
+    "Bright contrast blush in the mesentery (arrows)",
+    "Free fluid (asterisk)",
+    "Lower-abdominal location",
+    "Bowel loops adjacent to the bleed"
+   ],
+   "teach": [
+    "Active extravasation after blunt trauma means ongoing haemorrhage: plan surgery or angioembolisation, not observation.",
+    "Free fluid without solid-organ injury should raise suspicion of bowel or mesenteric injury (seat-belt mechanism).",
+    "Read this against the patient in front of you: the image teaches the pattern, the clinical picture makes the call."
+   ],
+   "quiz": {
+    "q": "Free fluid with no liver or spleen injury after a seat-belt crash suggests…",
+    "options": [
+     "Nothing; discharge",
+     "Bowel or mesenteric injury",
+     "Renal colic",
+     "Ascites from cirrhosis"
+    ],
+    "answer": 1,
+    "explain": "Unexplained free fluid in blunt trauma is a red flag for hollow-viscus or mesenteric injury."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC13135440",
+    "fig": "f1-cpcem-10-219"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.5811/cpcem.48848",
+   "marks": [],
+   "claimedBy": "discovery round 4 (media-candidates branch), reviewed visually"
   }
  ]
 }

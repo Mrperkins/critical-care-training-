@@ -1,0 +1,29 @@
+discover epmc: ("steeple sign") AND ("neck radiograph" OR "anteroposterior") AND PUB_TYPE:"Case Reports" AND OPEN_ACCESS:y | n=8
+discover epmc: (JOURNAL:"Cureus" OR JOURNAL:"J Med Case Rep" OR JOURNAL:"Int J Emerg Med" OR JOURNAL:"Clin Case Rep") AND (intraosseous) AND (tibia OR tibial) AND (photograph OR "clinical image" OR "needle in situ") AND (child OR adult OR resuscitation) | n=8
+discover epmc: (JOURNAL:"Cureus" OR JOURNAL:"Ultrasound J" OR JOURNAL:"Crit Ultrasound J") AND ("lung pulse") AND ("mainstem" OR "endobronchial" OR "one-lung" OR "selective intubation") | n=8
+discover epmc: (JOURNAL:"Cureus" OR JOURNAL:"Ultrasound J" OR JOURNAL:"J Med Case Rep" OR JOURNAL:"Radiol Case Rep") AND ("splenorenal" OR "perisplenic" OR "splenorenal recess") AND ("no free fluid" OR "without free fluid" OR "negative FAST") | n=8
+discover epmc: (JOURNAL:"Cureus" OR JOURNAL:"Ultrasound J" OR JOURNAL:"J Med Case Rep") AND ("hepatorenal space" OR "hepatorenal recess" OR "Morison's pouch") AND ("no free fluid" OR "without free fluid" OR "no free intraperitoneal fluid") | n=8
+discover epmc: (JOURNAL:"Ultrasound J" OR JOURNAL:"Crit Ultrasound J" OR JOURNAL:"BMC Anesthesiol" OR JOURNAL:"Cureus" OR JOURNAL:"J Clin Monit Comput") AND ("radial artery") AND ("short-axis" OR "short axis" OR "out-of-plane" OR "dynamic needle tip") AND ultrasound AND (figure OR image) | n=8
+discover epmc: (JOURNAL:"Ultrasound J" OR JOURNAL:"Crit Ultrasound J" OR JOURNAL:"BMC Emerg Med" OR JOURNAL:"Cureus" OR JOURNAL:"J Vasc Access") AND ("forearm vein" OR "basilic vein" OR "cephalic vein") AND ("ultrasound-guided" OR "ultrasound guided") AND (cannulation OR catheter) AND NOT phantom | n=8
+discover epmc: (JOURNAL:"Ultrasound J" OR JOURNAL:"Crit Ultrasound J" OR JOURNAL:"Cardiovasc Ultrasound" OR JOURNAL:"Echo Res Pract") AND ("subcostal view" OR "subxiphoid view") AND ("normal" OR "healthy volunteer") AND (figure OR "additional file") | n=8
+discover epmc: (JOURNAL:"Ultrasound J" OR JOURNAL:"Crit Ultrasound J" OR JOURNAL:"Scand J Trauma Resusc Emerg Med" OR JOURNAL:"Int J Emerg Med") AND (FAST OR "focused assessment with sonography") AND ("right upper quadrant" OR hepatorenal OR "Morison") AND ("normal" OR "negative") AND (tutorial OR review OR "teaching") | n=8
+discover epmc: (TITLE:"morbid obesity" OR TITLE:"obesity hypoventilation") AND ("chest radiograph" OR "chest x-ray") AND PUB_TYPE:"Case Reports" AND (JOURNAL:"Cureus" OR JOURNAL:"Clin Case Rep") | n=8
+discover epmc: (TITLE:"right upper lobe" OR TITLE:"Golden S" OR TITLE:"reverse S sign") AND (collapse OR atelectasis) AND (JOURNAL:"Cureus" OR JOURNAL:"Radiol Case Rep" OR JOURNAL:"Respirol Case Rep" OR JOURNAL:"Clin Case Rep" OR JOURNAL:"J Med Case Rep") | n=8
+discover epmc: TITLE:("anaphylaxis mimicking" OR croup) AND "steeple sign" AND (JOURNAL:"Cureus" OR JOURNAL:"Clin Pract Cases Emerg Med" OR JOURNAL:"Int J Emerg Med") | n=6
+discover epmc: TITLE:("endobronchial" OR "bronchial carcinoid" OR "lung cancer") AND ("right upper lobe collapse" OR "lobar collapse" OR "S sign of Golden") AND "chest radiograph" | n=8
+discover epmc: TITLE:("liver laceration" OR "hepatic laceration" OR "liver injury" OR "hepatic trauma") AND ("computed tomography" OR CT) AND (hemoperitoneum OR haemoperitoneum) AND PUB_TYPE:"Case Reports" AND OPEN_ACCESS:y | n=8
+discover epmc: TITLE:(intraosseous) AND (extravasation OR "compartment syndrome" OR dislodgement) AND PUB_TYPE:"Case Reports" AND (tibia OR tibial) | n=8
+discover search: EZ-IO
+discover search: Golden S sign
+discover search: Morison pouch ultrasound
+discover search: Ultrasonography of normal liver and right kidney
+discover search: Ultrasonography of normal spleen
+discover search: Ultrasonography of spleen and left kidney
+discover search: basilic vein ultrasound
+discover search: cephalic vein ultrasonography forearm
+discover search: chest radiograph low lung volumes
+discover search: intraosseous access tibia patient
+discover search: lung pulse ultrasound endobronchial intubation ogv
+discover search: radial artery ultrasonography wrist
+discover search: right upper lobe collapse
+discover search: subcostal view echocardiography ogv
