@@ -1,0 +1,38 @@
+Round 4: fetch + ingest the 27 items reviewed from round 3 (tension/simple pneumothorax, chest tubes, collapse, pediatric croup/epiglottitis/RDS, aortic and abdominal CT, FAST LUQ/pelvis/pericardial, IJ compression, chest drain units, decompression site).
+Discovery round 4: remaining gaps.
+
+discover epmc: ("lung pulse") AND (JOURNAL:"Ultrasound J" OR JOURNAL:"Crit Ultrasound J" OR JOURNAL:"Crit Care" OR JOURNAL:"BMC Anesthesiol" OR JOURNAL:"Cureus") AND (M-mode OR atelectasis OR "one-lung") | n=8
+discover epmc: (JOURNAL:"Ultrasound J" OR JOURNAL:"Crit Ultrasound J" OR JOURNAL:"Cardiovasc Ultrasound") AND (subxiphoid OR subcostal) AND "four-chamber" AND normal AND (video OR "additional file") | n=8
+discover epmc: (JOURNAL:"Ultrasound J" OR JOURNAL:"Crit Ultrasound J" OR JOURNAL:"Cureus") AND ("Morison's pouch" OR "hepatorenal") AND (normal OR negative) AND ultrasound AND (figure OR video) | n=8
+discover epmc: (JOURNAL:"Ultrasound J" OR JOURNAL:"Crit Ultrasound J" OR JOURNAL:"Cureus") AND ("abdominal aorta") AND (normal OR diameter) AND ("point-of-care" OR bedside) AND ultrasound | n=8
+discover epmc: (JOURNAL:"Ultrasound J" OR JOURNAL:"Crit Ultrasound J" OR JOURNAL:"Cureus") AND ("splenorenal" OR "left upper quadrant") AND (normal OR negative) AND ("point-of-care" OR FAST) | n=8
+discover epmc: TITLE:("abdominal aortic aneurysm") AND ("mural thrombus" OR "intraluminal thrombus") AND ("computed tomography" OR CTA) AND (JOURNAL:"Radiol Case Rep" OR JOURNAL:"BMC Cardiovasc Disord" OR JOURNAL:"J Med Case Rep" OR JOURNAL:"Clin Case Rep") | n=8
+discover epmc: TITLE:("blunt abdominal trauma" OR "traumatic splenic" OR "liver laceration" OR "hepatic injury") AND (CT OR "computed tomography") AND PUB_TYPE:"Case Reports" AND OPEN_ACCESS:y | n=8
+discover epmc: TITLE:("community-acquired pneumonia" OR "lobar pneumonia" OR "round pneumonia") AND (child OR children OR pediatric) AND PUB_TYPE:"Case Reports" | n=6
+discover epmc: TITLE:("jugular vein thrombosis" OR "Lemierre") AND PUB_TYPE:"Case Reports" AND (ultrasound OR ultrasonography OR Doppler) AND (JOURNAL:"Cureus" OR JOURNAL:"J Med Case Rep" OR JOURNAL:"Radiol Case Rep" OR JOURNAL:"Clin Case Rep") | n=8
+discover epmc: TITLE:("mucus plug" OR "mucus plugging") AND (JOURNAL:"Cureus" OR JOURNAL:"Radiol Case Rep" OR JOURNAL:"Respirol Case Rep") AND (right OR atelectasis) | n=8
+discover epmc: TITLE:("peripheral intravenous" OR "peripheral venous" OR "difficult intravenous access") AND ("ultrasound-guided" OR "ultrasound guided") AND OPEN_ACCESS:y | n=8
+discover epmc: TITLE:("pneumatosis intestinalis" OR "pneumatosis cystoides") AND PUB_TYPE:"Case Reports" AND (JOURNAL:"Radiol Case Rep" OR JOURNAL:"BMC Gastroenterol" OR JOURNAL:"J Med Case Rep" OR JOURNAL:"Int J Surg Case Rep" OR JOURNAL:"Clin Case Rep") | n=8
+discover epmc: TITLE:("radial artery") AND ("ultrasound-guided" OR "ultrasound guided") AND (cannulation OR catheterization) AND OPEN_ACCESS:y | n=8
+discover epmc: TITLE:("right upper lobe collapse" OR "right upper lobe atelectasis" OR "right lung atelectasis" OR "Golden S sign") AND (radiograph OR "chest x-ray") | n=8
+discover epmc: TITLE:("tension pneumothorax") AND PUB_TYPE:"Case Reports" AND (JOURNAL:"Clin Case Rep" OR JOURNAL:"Radiol Case Rep" OR JOURNAL:"BMC Pulm Med" OR JOURNAL:"Respirol Case Rep") | n=8
+discover epmc: TITLE:("type A aortic dissection" OR "Stanford type A") AND ("ascending aorta" OR "intimal flap") AND PUB_TYPE:"Case Reports" AND (JOURNAL:"Radiol Case Rep" OR JOURNAL:"BMC Cardiovasc Disord" OR JOURNAL:"J Med Case Rep" OR JOURNAL:"Int J Emerg Med") | n=8
+discover epmc: TITLE:(croup OR "steeple sign" OR "subglottic narrowing") AND PUB_TYPE:"Case Reports" | n=6
+discover epmc: TITLE:(intraosseous) AND (tibia OR tibial) AND (photograph OR "case report" OR placement) AND OPEN_ACCESS:y | n=8
+discover epmc: TITLE:(obesity OR "morbid obesity" OR "body habitus") AND TITLE:("chest radiograph" OR "chest x-ray" OR "portable radiograph" OR "image quality") | n=6
+discover epmc: TITLE:bronchiolitis AND (radiograph OR "chest x-ray" OR hyperinflation) AND PUB_TYPE:"Case Reports" | n=6
+discover search: Golden S sign radiograph
+discover search: Lung-ultrasound lung pulse ogv
+discover search: Ultrasonography Morison's pouch normal liver kidney
+discover search: Ultrasonography of normal abdominal aorta
+discover search: Ultrasonography of normal spleen kidney
+discover search: bronchiolitis chest radiograph infant
+discover search: intraosseous needle tibia
+discover search: jugular vein thrombosis ultrasonography
+discover search: obese patient chest radiograph
+discover search: pediatric pneumonia chest X-ray
+discover search: radial artery ultrasound
+discover search: right upper lobe atelectasis chest X-ray
+discover search: steeple sign radiograph
+discover search: subcostal four chamber view echocardiography normal
+discover search: ultrasound guided peripheral intravenous cannulation

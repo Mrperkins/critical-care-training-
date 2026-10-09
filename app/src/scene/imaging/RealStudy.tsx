@@ -50,8 +50,8 @@ const creditOf = (it: RealItem) => (it as RealItem & { credit?: string }).credit
  * kinds: manifest kinds to draw from. want: finding keys for this patient, most important first. required: keys a
  * study must carry to be shown at all. reading: the model's findings in words. hide: practice mode (no captions).
  */
-export function RealStudy({ kinds, want, required = [], reading, hide = false, label, missing, children }: {
-  kinds: string[]; want: string[]; required?: string[]; reading: string[]; hide?: boolean; label: string; missing?: string; children?: React.ReactNode;
+export function RealStudy({ kinds, want, required = [], reading, hide = false, label, missing, children, compact = false }: {
+  kinds: string[]; want: string[]; required?: string[]; reading: string[]; hide?: boolean; label: string; missing?: string; children?: React.ReactNode; compact?: boolean;
 }) {
   const items = useRealItems(); const ranked = useMemo(() => (items ? rankReal(items, kinds, want, required) : []), [items, kinds.join(), want.join(), required.join()]); // eslint-disable-line react-hooks/exhaustive-deps
   const [pick, setPick] = useState<string | null>(null);
@@ -59,7 +59,7 @@ export function RealStudy({ kinds, want, required = [], reading, hide = false, l
   if (!items) return <div className="loading">Loading real images…</div>;
   const it = ranked.find((x) => x.id === pick) ?? ranked[0];
   return (
-    <div className="study">
+    <div className={`study${compact ? ' compact' : ''}`}>
       <div className="study-frame">
         {it ? <RealMedia it={it} /> : <div className="study-missing"><b>No real {label} for this finding yet</b><span>{missing ?? 'The model’s reading is on the right. Real studies are added only when an openly licensed one has been checked.'}</span></div>}
         {children}

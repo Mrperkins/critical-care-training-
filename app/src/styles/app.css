@@ -1606,3 +1606,24 @@ body{font:14px/1.5 var(--fb);background:var(--bezel)}
 .lines-stage .scene-wrap .view-btns{top:12px}
 .scene-wrap:has(.view-btns) .scene-primary-tools{top:58px}
 .scene-wrap:has(.view-btns) .imaging{padding-top:58px}
+.study.compact{grid-template-columns:1fr;grid-template-rows:auto auto;margin:6px 0}
+.study.compact .study-frame{min-height:170px;max-height:280px}
+.study.compact .study-side{overflow:visible}
+.depth-chart{margin:10px 0 4px;display:flex;flex-direction:column;gap:6px}
+.dc-bar{position:relative;height:22px;border-radius:5px;overflow:hidden;background:#20292e}
+.dc-bar span{position:absolute;top:0;bottom:0}
+.dc-cath{position:relative;height:6px;border-radius:3px;background:var(--accent)}
+.dc-cath i{position:absolute;left:100%;top:-5px;margin-left:6px;font:500 11.5px var(--fb);font-style:normal;color:var(--dim);white-space:nowrap}
+.dc-tip{position:relative;width:10px;height:10px;margin-left:-5px;margin-top:-14px;border-radius:50%;background:var(--ink);border:2px solid #000}
+.dc-tip.decompressed{background:var(--ok)}.dc-tip.short,.dc-tip.rib{background:var(--bad)}
+.dc-scale{position:relative;height:16px;font-size:11px;color:var(--mute)}.dc-scale span{position:absolute;transform:translateX(-50%);white-space:nowrap}.dc-scale span:first-child{transform:none}.dc-scale span:last-child{transform:translateX(-100%)}
+.dc-key{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:11.5px;color:var(--dim)}.dc-key i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+.drain-gauges{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:8px 0}
+.dg{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:11.5px;color:var(--mute);text-align:center}
+.dg small{font:600 12px var(--fm);color:var(--ink)}
+.dg-col{position:relative;width:22px;height:84px;border-radius:6px;background:#1c262b;border:1px solid var(--line2);overflow:hidden}
+.dg-col b{position:absolute;left:3px;right:3px;height:6px;border-radius:3px;background:#6fb3c4;transform:translateY(50%)}
+.dg-col.fill b{bottom:0;transform:none;left:0;right:0;border-radius:0}
+.dg-zero{position:absolute;left:0;right:0;top:50%;border-top:1px dashed var(--mute)}
+.dg-bub{min-height:84px;display:grid;place-items:center;padding:0 6px;border-radius:6px;border:1px solid var(--line2);color:var(--dim);font-size:12px;width:100%}
+.dg-bub.on{border-color:#6fb3c4;color:var(--ink);background:rgba(111,179,196,.12)}

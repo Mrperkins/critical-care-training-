@@ -10,7 +10,7 @@ const src = (d: string): string[] => fs.readdirSync(d, { withFileTypes: true }).
 describe('real clinical media', () => {
   it('every real-media kind used by a scene has shipped or staged media', () => {
     const used = new Set(src('src').flatMap((f) => { const t = fs.readFileSync(f, 'utf8');
-      return [...[...t.matchAll(/<RealCase kind="([\w-]+)"/g)].map((m) => m[1]), ...[...t.matchAll(/<RealStudy kinds=\{\[([^\]]+)\]/g)].flatMap((m) => [...m[1].matchAll(/'([\w-]+)'/g)].map((x) => x[1]))]; }));
+      return [...[...t.matchAll(/<RealCase kind="([\w-]+)"/g)].map((m) => m[1]), ...[...t.matchAll(/<RealStudy[^>]*?kinds=\{\[([^\]]+)\]/g)].flatMap((m) => [...m[1].matchAll(/'([\w-]+)'/g)].map((x) => x[1]))]; }));
     for (const k of ['cxr', 'lus', 'fast', 'ct-aorta', 'ijv']) expect(used.has(k), k).toBe(true);
     for (const k of used) expect(all.some((i) => i.kind === k), k).toBe(true);
   });

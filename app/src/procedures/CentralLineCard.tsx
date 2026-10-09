@@ -38,7 +38,7 @@ export function CentralLineCard() {
     <section className="card cline">
       <div className="card-h"><h3>Ultrasound-guided right IJ</h3><span className="muted small">{input.axis === 'short' ? 'short axis' : 'long axis'} · {input.plane === 'out' ? 'out-of-plane' : 'in-plane'}</span></div>
       <div className="cl-views">
-        <RealStudy kinds={['ijv']} want={[key]} required={[key]} label="IJ ultrasound"
+        <RealStudy compact kinds={['ijv']} want={[key]} required={[key]} label="IJ ultrasound"
           reading={[`Tip in ${TIP[st.tipIn]}.`, st.shownZ == null ? 'Screen: no needle in the beam.' : st.seesTip ? 'Screen shows the tip.' : `Screen shows the shaft; the real tip is ${(st.trueZ - st.shownZ).toFixed(1)} cm deeper.`, input.axis === 'short' ? 'Short axis: IJ lateral, carotid medial and deeper.' : 'Long axis along the IJ.']}
           missing={key === 'ij_wrong_vessel' ? 'No real scan of this complication is shown on purpose: the tip is outside the vein. Withdraw to the skin and re-aim.' : undefined} />
         <svg viewBox={`0 0 ${SW} ${SH}`} className="dr-svg cl-side" role="img" aria-label="Depth chart: true needle tip depth against the vein and artery">

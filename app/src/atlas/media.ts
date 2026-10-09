@@ -1,8 +1,8 @@
 /** Exact shipped, attributed comparators; never pretend the model predicts this reference patient's scan. */
 export const ATLAS_MEDIA: Record<string, { ids:string[]; context:string }> = {
-  ards:{ids:['cxr-ards-2019'],context:'Compare bilateral opacities with the schematic alveolar injury.'},
+  ards:{ids:['cxr-ards-2019','cxr-ards-ecmo-recovery-2026'],context:'Compare bilateral opacities with the schematic alveolar injury.'},
   pneumonia:{ids:['lus-hepatisation-gillman'],context:'Compare a real consolidation pattern; ultrasound alone does not establish its cause.'},
-  'pulmonary-edema':{ids:['cxr-chf-haggstrom'],context:'Compare hydrostatic pulmonary congestion with the model.'},
+  'pulmonary-edema':{ids:['cxr-chf-haggstrom','cxr-flash-edema-portable-2026'],context:'Compare hydrostatic pulmonary congestion with the model.'},
   atelectasis:{ids:['cxr-collapse-before-after-2021'],context:'Compare lung volume loss and re-expansion in a reference patient.'},
   'simple-pneumothorax':{ids:['ptx-expiratory','lus-lung-point-gillman'],context:'Compare pleural air findings. Imaging does not by itself determine hemodynamic tension.'},
   'tension-pneumothorax':{ids:['ptx-series-bonilla'],context:'Compare lung expansion before and after drainage; this reference does not establish tension in the simulated patient.'},
@@ -14,6 +14,9 @@ export const ATLAS_MEDIA: Record<string, { ids:string[]; context:string }> = {
   'cerebral-edema':{ids:['stroke-malignant-edema-2023'],context:'This reference illustrates edema after an infarct; other causes of edema differ.'},
   'rising-icp':{ids:['stroke-mass-effect-2021','ich-thalamic-hydro-yadav'],context:'Compare mass effect and hydrocephalus. A scan is not an ICP measurement.'},
   aaa:{ids:['aaa-us-sagittal-haggstrom','aaa-us-axial-haggstrom'],context:'Compare the aneurysmal abdominal aortic lumen in two views.'},
-  'rupturing-aaa':{ids:['aaa-us-sagittal-haggstrom'],context:'This comparator shows aneurysmal anatomy, not proof of rupture. Retroperitoneal blood may be missed by FAST.'},
-  'abdominal-hemorrhage':{ids:['fast-ruq-positive'],context:'Compare free fluid in the right upper quadrant; the image alone does not identify its source.'},
+  'rupturing-aaa':{ids:['ct-aaa-rupture-96mm-2026','ct-aaa-rupture-right-hematoma-2025','aaa-us-sagittal-haggstrom'],context:'Compare a ruptured aneurysm with retroperitoneal blood on CT; the ultrasound shows aneurysmal anatomy only. Retroperitoneal blood may be missed by FAST.'},
+  'abdominal-hemorrhage':{ids:['fast-ruq-positive','fast-pelvis-positive-vats'],context:'Compare free fluid in the right upper quadrant; the image alone does not identify its source.'},
+  'acute-heart-failure':{ids:['cxr-flash-edema-portable-2026'],context:'Compare acute cardiogenic pulmonary oedema on a portable film with the model.'},
+  'aortic-dissection':{ids:['ct-dissection-type-b-flap-2026'],context:'Compare an intimal flap confined to the descending aorta (type B pattern) in a reference patient.'},
+  'pediatric-asthma':{ids:['cxr-hyperinflation-asthma-2025'],context:'Compare hyperinflation in near-fatal asthma in a 12-year-old: flat diaphragms, long lung fields.'},
 };

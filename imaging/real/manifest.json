@@ -4200,7 +4200,8 @@
    ],
    "teach": [
     "The pelvis is the most dependent space in a supine patient — small bleeds often show here first.",
-    "Scan with a full bladder if possible; free fluid is shapeless and has sharp corners, unlike the smooth-walled bladder."
+    "Scan with a full bladder if possible; free fluid is shapeless and has sharp corners, unlike the smooth-walled bladder.",
+    "In a supine patient blood pools first in Morison’s pouch, then spills to the pelvis; a positive pelvic view usually means a larger bleed."
    ],
    "quiz": {
     "q": "In a hypotensive trauma patient, an irregular black collection behind or above the bladder on the suprapubic FAST view most likely represents…",
@@ -4264,7 +4265,8 @@
    ],
    "teach": [
     "The IJ usually sits anterolateral to the carotid, but overlap is common — always find both before you puncture.",
-    "Confirm the vein by compressibility and the artery by its pulsatility and round shape."
+    "Confirm the vein by compressibility and the artery by its pulsatility and round shape.",
+    "Before any needle, press gently: the vein flattens, the artery stays round and pulses. That single test separates them."
    ],
    "quiz": {
     "q": "On a transverse neck scan, which feature best identifies the internal jugular vein rather than the carotid?",
@@ -4326,7 +4328,8 @@
    ],
    "teach": [
     "In-plane technique shows the whole shaft and tip, reducing the risk of back-wall or carotid puncture.",
-    "Never advance unless you can see the tip — the shaft alone can mislead."
+    "Never advance unless you can see the tip — the shaft alone can mislead.",
+    "If you cannot see the tip, stop advancing: slide or tilt the probe until the bright tip reappears, then continue."
    ],
    "quiz": {
     "q": "The main advantage of an in-plane approach for IJ cannulation is…",
@@ -4560,6 +4563,1252 @@
    "pageUrl": "https://commons.wikimedia.org/wiki/File:Echokardiogram_von_Atriumseptumdefekt_(Ostium_secundum).jpg",
    "marks": [],
    "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "cxr-tension-ptx-right-olv-2024",
+   "kind": "cxr",
+   "type": "xray",
+   "modality": "Chest radiograph",
+   "finding": "tension_ptx",
+   "findings": [
+    "tension_ptx",
+    "ptx",
+    "ptx_right"
+   ],
+   "title": "Right tension pneumothorax during one-lung ventilation",
+   "caption": "Bedside frontal film in which the right hemithorax is hyperlucent with no lung markings, the right lung is fully collapsed against the hilum and the mediastinum is pushed into the left chest.",
+   "look": [
+    "Black right hemithorax with no vessels reaching the wall",
+    "Right lung shrunk to a small density at the hilum",
+    "Heart and trachea displaced to the left",
+    "Widened right rib spaces and a flattened right hemidiaphragm"
+   ],
+   "teach": [
+    "Tension pneumothorax is a clinical diagnosis: hypotension, rising airway pressures and falling SpO2 in a ventilated patient should prompt decompression before any film.",
+    "Positive-pressure ventilation turns a simple pneumothorax into tension quickly, because every breath adds air to the pleural space."
+   ],
+   "quiz": {
+    "q": "A ventilated patient becomes hypotensive with high peak pressures and absent right breath sounds. This film is obtained. What is the priority?",
+    "options": [
+     "Repeat the film in the upright position",
+     "Immediate right-sided decompression (finger thoracostomy or needle), then a chest drain",
+     "Start a noradrenaline infusion and observe",
+     "Bronchoscopy for a mucus plug"
+    ],
+    "answer": 1,
+    "explain": "The film shows tension physiology (complete collapse with contralateral shift); decompress immediately, then place a definitive drain."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC11135384",
+    "fig": "FIG1"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.7759/cureus.61306",
+   "marks": [],
+   "claimedBy": "discovery round 3 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "cxr-ptx-left-large-2024",
+   "kind": "cxr",
+   "type": "xray",
+   "modality": "Chest radiograph",
+   "finding": "ptx",
+   "findings": [
+    "ptx",
+    "ptx_left"
+   ],
+   "title": "Large left pneumothorax",
+   "caption": "Upright PA film with a large left pneumothorax: the collapsed left lung is outlined by a thin pleural edge near the hilum and the lateral left chest is black and avascular.",
+   "look": [
+    "Visceral pleural line running down the left mid-zone",
+    "No lung markings lateral to that line",
+    "Lung edge well away from the chest wall at the apex and lateral margin",
+    "Mediastinum still near the midline"
+   ],
+   "teach": [
+    "Follow the thin white visceral pleural line and confirm there are no vessels beyond it; skin folds and the scapula edge can mimic it.",
+    "A large pneumothorax without hypotension or significant shift is not tension, but it can progress, especially if the patient needs positive-pressure ventilation."
+   ],
+   "quiz": {
+    "q": "What feature on this film best confirms a pneumothorax rather than a skin fold?",
+    "options": [
+     "A white pleural line with absent lung markings beyond it",
+     "Blunting of the costophrenic angle",
+     "Air bronchograms",
+     "An enlarged cardiac silhouette"
+    ],
+    "answer": 0,
+    "explain": "A true pneumothorax shows a visceral pleural line with no vascular markings peripheral to it; a skin fold usually extends beyond the chest wall and has markings on both sides."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC11368579",
+    "fig": "FIG1"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.7759/cureus.66037",
+   "marks": [],
+   "claimedBy": "discovery round 3 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "cxr-ptx-right-spontaneous-2026",
+   "kind": "cxr",
+   "type": "xray",
+   "modality": "Chest radiograph",
+   "finding": "ptx",
+   "findings": [
+    "ptx",
+    "ptx_right"
+   ],
+   "title": "Moderate right spontaneous pneumothorax",
+   "caption": "PA film of a young man with a moderate right pneumothorax; arrows mark the visceral pleural edge at the apex and along the lateral chest wall.",
+   "look": [
+    "Pleural edge at the right apex and lateral wall (arrows)",
+    "Avascular rim between the lung edge and the ribs",
+    "Normal-sized heart with the mediastinum in the midline"
+   ],
+   "teach": [
+    "Primary spontaneous pneumothorax typically affects tall, thin young men who smoke, usually from apical blebs.",
+    "Size and symptoms guide management: observation, aspiration or a small-bore drain."
+   ],
+   "quiz": {
+    "q": "An 18-year-old has sudden right pleuritic pain and mild breathlessness; the film shows this. Which is the most likely cause?",
+    "options": [
+     "Rupture of an apical subpleural bleb",
+     "Pulmonary embolism",
+     "Right lower lobe pneumonia",
+     "Rib fracture"
+    ],
+    "answer": 0,
+    "explain": "Primary spontaneous pneumothorax in a young adult usually results from rupture of apical blebs."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC13332831",
+    "fig": "FIG1"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.7759/cureus.110257",
+   "marks": [],
+   "claimedBy": "discovery round 3 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "cxr-pigtail-drain-reexpanded-2026",
+   "kind": "cxr",
+   "type": "xray",
+   "modality": "Chest radiograph",
+   "finding": "chest_tube",
+   "findings": [
+    "chest_tube",
+    "ptx_right"
+   ],
+   "title": "Pigtail drain in place, right lung re-expanded",
+   "caption": "Follow-up portable film after a right small-bore pigtail catheter was inserted: the coiled catheter lies over the right mid-zone and the lung has largely re-expanded, with only a small apical rim left.",
+   "look": [
+    "Coiled pigtail tip over the right mid-zone, tubing exiting laterally",
+    "Lung markings now reach most of the right chest wall",
+    "Small residual apical gap (measured on the film)"
+   ],
+   "teach": [
+    "After any drain, check the film for tube position, side holes inside the pleural space and lung re-expansion.",
+    "A small residual apical pneumothorax with a functioning drain and a well patient can usually be watched."
+   ],
+   "quiz": {
+    "q": "What should you confirm on a post-drain film?",
+    "options": [
+     "Only that the tube is visible",
+     "Tube course and tip inside the pleural space, and lung re-expansion",
+     "That the costophrenic angle is sharp",
+     "Endotracheal tube depth"
+    ],
+    "answer": 1,
+    "explain": "The post-procedure film confirms the drain is intrapleural (side holes inside the chest) and that the lung has re-expanded."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC13332831",
+    "fig": "FIG2"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.7759/cureus.110257",
+   "maskRects": [
+    [
+     0.0,
+     0.0,
+     0.42,
+     0.035
+    ],
+    [
+     0.86,
+     0.0,
+     0.14,
+     0.06
+    ]
+   ],
+   "marks": [],
+   "claimedBy": "discovery round 3 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "cxr-drain-persistent-ptx-2024",
+   "kind": "cxr",
+   "type": "xray",
+   "modality": "Chest radiograph",
+   "finding": "chest_tube",
+   "findings": [
+    "chest_tube",
+    "ptx",
+    "ptx_left"
+   ],
+   "title": "Chest drain in place with a persistent left pneumothorax",
+   "caption": "AP erect film with a left intercostal drain in place, yet a large left pneumothorax persists with a visible lung edge, the situation that preceded tension from a blocked drain.",
+   "look": [
+    "Drain entering laterally on the left and running deep into the chest",
+    "Left lung edge still well away from the chest wall",
+    "Compare with the re-expanded lung expected after a working drain"
+   ],
+   "teach": [
+    "A drain does not guarantee resolution; a persistent or enlarging pneumothorax means the tube is blocked, kinked, clamped, positioned wrongly or facing a large air leak.",
+    "Check the whole system: swinging and bubbling in the underwater seal, tubing, connections and tube position."
+   ],
+   "quiz": {
+    "q": "A patient with a left drain becomes breathless and the film shows a persistent large pneumothorax; the underwater seal is not swinging. Most likely problem?",
+    "options": [
+     "Re-expansion pulmonary oedema",
+     "Blocked or kinked drain",
+     "Normal post-drain appearance",
+     "Right mainstem intubation"
+    ],
+    "answer": 1,
+    "explain": "Loss of swinging with persistent pneumothorax points to an obstructed or malpositioned drain; fix or replace it before tension develops."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC11368579",
+    "fig": "FIG3"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.7759/cureus.66037",
+   "marks": [],
+   "claimedBy": "discovery round 3 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "cxr-left-whiteout-mucus-plug-2026",
+   "kind": "cxr",
+   "type": "xray",
+   "modality": "Chest radiograph",
+   "finding": "collapse_left",
+   "findings": [
+    "collapse_left"
+   ],
+   "title": "Left lung collapse from mucus plugging (adult)",
+   "caption": "Portable film of an adult with acute hypoxia: the left hemithorax is almost completely opaque and the trachea and heart are pulled toward the left, in keeping with whole-lung collapse from an obstructed airway.",
+   "look": [
+    "Opaque left hemithorax",
+    "Trachea and mediastinum shifted toward the white side",
+    "Crowded left ribs and loss of the left heart and diaphragm borders",
+    "Hyperexpanded right lung crossing the midline"
+   ],
+   "teach": [
+    "A white-out with shift toward the opacity means volume loss (collapse); shift away from it means a space-occupying process such as a large effusion.",
+    "In ventilated patients, mucus plugging is a common, reversible cause: suction, physiotherapy and bronchoscopy can re-expand the lung."
+   ],
+   "quiz": {
+    "q": "A white left hemithorax with the trachea pulled to the left most likely represents:",
+    "options": [
+     "Massive left pleural effusion",
+     "Left lung collapse from bronchial obstruction",
+     "Right tension pneumothorax",
+     "Left-sided pneumonia without volume loss"
+    ],
+    "answer": 1,
+    "explain": "Mediastinal shift toward the opacity indicates volume loss, which points to collapse rather than effusion."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC13265034",
+    "fig": "FIG1"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.7759/cureus.108907",
+   "marks": [],
+   "claimedBy": "discovery round 3 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "peds-croup-steeple-2019",
+   "kind": "peds-xray",
+   "type": "xray",
+   "modality": "Neck radiograph (frontal)",
+   "finding": "croup_steeple",
+   "findings": [
+    "croup_steeple"
+   ],
+   "title": "Croup: steeple sign on a frontal neck film",
+   "caption": "Frontal soft-tissue neck film of a child with croup in which the subglottic air column tapers to a point, giving the church-steeple shape.",
+   "look": [
+    "Air column in the midline of the neck",
+    "Normal shoulder-shaped subglottic margins replaced by a tapering point",
+    "Narrowing just below the vocal cords"
+   ],
+   "teach": [
+    "The steeple sign shows subglottic oedema from viral laryngotracheobronchitis; it supports the diagnosis but croup is diagnosed clinically.",
+    "Treat with dexamethasone and, for stridor at rest, nebulised adrenaline; do not delay treatment for imaging."
+   ],
+   "quiz": {
+    "q": "A 2-year-old has a barking cough and inspiratory stridor after a cold. The frontal neck film shows subglottic tapering. Best initial treatment?",
+    "options": [
+     "Oral dexamethasone, plus nebulised adrenaline if stridor at rest",
+     "Immediate intubation",
+     "IV ceftriaxone only",
+     "Lateral neck film before any treatment"
+    ],
+    "answer": 0,
+    "explain": "This is croup; corticosteroids reduce airway oedema and nebulised adrenaline gives rapid relief for moderate to severe stridor."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC6884517",
+    "fig": "Fig2"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.1038/s41598-019-54140-y",
+   "crop": [
+    0.0,
+    0.0,
+    0.49,
+    1.0
+   ],
+   "marks": [],
+   "claimedBy": "discovery round 3 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "peds-epiglottitis-thumb-2026",
+   "kind": "peds-xray",
+   "type": "xray",
+   "modality": "Neck radiograph (lateral)",
+   "finding": "epiglottitis_thumb",
+   "findings": [
+    "epiglottitis_thumb"
+   ],
+   "title": "Epiglottitis: thumb sign on a lateral neck film",
+   "caption": "Lateral soft-tissue neck film from a case of Haemophilus influenzae epiglottitis; the arrow points to a swollen, rounded epiglottis in the place of the normal thin leaf-like shadow.",
+   "look": [
+    "Arrow at the swollen epiglottis above the larynx",
+    "Rounded thumb shape instead of a thin curved leaf",
+    "Narrowed airway in the hypopharynx"
+   ],
+   "teach": [
+    "Epiglottitis is an airway emergency: keep the child calm and upright, and do not lie them down or examine the throat before an airway team is ready.",
+    "Imaging must never delay securing the airway; the lateral film is only for stable, uncertain cases."
+   ],
+   "quiz": {
+    "q": "A toxic-looking child is drooling, sitting forward and has muffled voice and stridor. What is the most appropriate first step?",
+    "options": [
+     "Examine the throat with a tongue depressor",
+     "Send for a lateral neck film in radiology",
+     "Keep the child calm and upright and call senior anaesthesia/ENT to secure the airway",
+     "Lay the child flat for IV access"
+    ],
+    "answer": 2,
+    "explain": "Suspected epiglottitis needs a controlled airway in theatre; agitation or lying flat can cause complete obstruction."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC12906715",
+    "fig": "FIG1"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.7759/cureus.101680",
+   "marks": [],
+   "claimedBy": "discovery round 3 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "peds-irds-preterm-haggstrom",
+   "kind": "peds-xray",
+   "type": "xray",
+   "modality": "Chest radiograph",
+   "finding": "neonatal_rds",
+   "findings": [
+    "neonatal_rds"
+   ],
+   "title": "Neonatal respiratory distress syndrome in a 29-week infant",
+   "caption": "Day-one film of a 29-week preterm boy showing low-volume, bell-shaped lungs with diffuse fine granular (ground-glass) opacity and air bronchograms, with umbilical lines and a gastric tube in place.",
+   "look": [
+    "Diffuse fine granular ground-glass opacity in both lungs",
+    "Air bronchograms outlined against the opaque lung",
+    "Low lung volumes with a bell-shaped chest",
+    "Umbilical arterial and venous catheters and a gastric tube"
+   ],
+   "teach": [
+    "Surfactant deficiency causes alveolar collapse, producing low volumes and a uniform granular pattern.",
+    "Management is CPAP and early surfactant; antenatal steroids before preterm birth reduce the risk."
+   ],
+   "quiz": {
+    "q": "A 29-week infant grunts and retracts soon after birth; the film shows low volumes and diffuse ground-glass opacity with air bronchograms. Most likely diagnosis?",
+    "options": [
+     "Transient tachypnoea of the newborn",
+     "Surfactant-deficient respiratory distress syndrome",
+     "Meconium aspiration",
+     "Congenital diaphragmatic hernia"
+    ],
+    "answer": 1,
+    "explain": "Prematurity with low-volume, uniformly granular lungs and air bronchograms is typical of RDS; TTN has normal or high volumes and fluid in the fissures."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:X-ray of infant respiratory distress syndrome (IRDS).png"
+   },
+   "licenseClaimed": "CC0",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:X-ray_of_infant_respiratory_distress_syndrome_(IRDS).png",
+   "marks": [],
+   "claimedBy": "discovery round 3 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "ct-dissection-type-a-arch-flap-2025",
+   "modality": "CT angiography",
+   "finding": "dissection_type_a",
+   "findings": [
+    "dissection_type_a"
+   ],
+   "title": "Type A dissection: flap through the aortic arch",
+   "caption": "Axial contrast CT at the level of the aortic arch in a patient with Stanford type A dissection, showing a thin intimal flap running the length of the arch and splitting it into two contrast-filled channels.",
+   "look": [
+    "Thin dark line running along the arch",
+    "Two contrast channels (true and false lumen)",
+    "Flap reaching the front of the arch toward the great-vessel origins"
+   ],
+   "teach": [
+    "Stanford A means the ascending aorta is involved, wherever the tear starts",
+    "Type A is a surgical emergency; type B is usually managed medically unless complicated",
+    "Keep SBP low and heart rate under 60 while you transfer"
+   ],
+   "quiz": {
+    "q": "A dissection flap that involves the ascending aorta is classified as:",
+    "options": [
+     "Stanford A",
+     "Stanford B",
+     "DeBakey III",
+     "Penetrating ulcer"
+    ],
+    "answer": 0,
+    "explain": "Any involvement of the ascending aorta makes it Stanford type A, which needs emergency surgery."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC12755286",
+    "fig": "FIG1"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.7759/cureus.98241",
+   "kind": "ct-aorta",
+   "type": "ct",
+   "marks": [],
+   "claimedBy": "discovery round 3 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "ct-aaa-intact-66mm-coronal-2025",
+   "modality": "CT abdomen (coronal reformat)",
+   "finding": "aaa",
+   "findings": [
+    "aaa"
+   ],
+   "title": "Intact infrarenal abdominal aortic aneurysm",
+   "caption": "Coronal CT showing a 66 mm infrarenal abdominal aortic aneurysm with calcified walls and no surrounding haematoma, found incidentally in a patient being scanned for diverticulitis.",
+   "look": [
+    "Aorta widened well beyond 3 cm below the renal arteries",
+    "Calcified rim of the aneurysm wall",
+    "No blood tracking into the retroperitoneum"
+   ],
+   "teach": [
+    "An abdominal aorta over 3 cm is aneurysmal; repair is usually advised from about 5.5 cm",
+    "An intact AAA with stable vital signs can be a planned repair, but pain plus hypotension means rupture until proven otherwise"
+   ],
+   "quiz": {
+    "q": "What diameter defines an abdominal aortic aneurysm?",
+    "options": [
+     "Over 3 cm",
+     "Over 1.5 cm",
+     "Over 6 cm",
+     "Over 10 cm"
+    ],
+    "answer": 0,
+    "explain": "An infrarenal aorta wider than 3 cm is called aneurysmal."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC11910892",
+    "fig": "FIG2"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.7759/cureus.78987",
+   "crop": [
+    0.34,
+    0.0,
+    0.5,
+    0.97
+   ],
+   "kind": "ct-aorta",
+   "type": "ct",
+   "marks": [],
+   "claimedBy": "discovery round 3 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "ct-renal-malperfusion-dissection-fl-2025",
+   "modality": "CT angiography (coronal)",
+   "finding": "renal_malperfusion",
+   "findings": [
+    "renal_malperfusion",
+    "dissection_type_b"
+   ],
+   "title": "Renal malperfusion from aortic dissection",
+   "caption": "Coronal CT angiogram of both kidneys in acute type B dissection: the right kidney enhances brightly while the left kidney, supplied from the false lumen, is patchy and poorly enhanced.",
+   "look": [
+    "Compare the brightness of the two kidneys",
+    "Patchy, mottled enhancement on the poorly perfused side",
+    "Kidney sizes still roughly equal (acute stage)"
+   ],
+   "teach": [
+    "A branch artery fed by the false lumen, or squeezed by the flap, can starve an organ",
+    "Rising creatinine, flank pain or new hypertension after dissection should prompt a look at the kidneys",
+    "Malperfusion turns an uncomplicated type B into a complicated one needing intervention"
+   ],
+   "quiz": {
+    "q": "One kidney enhances poorly in a patient with aortic dissection. The most likely cause is:",
+    "options": [
+     "Its renal artery is fed by the false lumen or compressed by the flap",
+     "Contrast nephropathy",
+     "Renal vein thrombosis from dehydration",
+     "Normal variation"
+    ],
+    "answer": 0,
+    "explain": "Asymmetric enhancement in dissection usually means static or dynamic obstruction of that renal artery."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC12926182",
+    "fig": "fig2"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.1016/j.jaccas.2025.106060",
+   "crop": [
+    0.005,
+    0.07,
+    0.235,
+    0.21
+   ],
+   "kind": "ct-aorta",
+   "type": "ct",
+   "marks": [],
+   "claimedBy": "discovery round 3 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "ct-renal-hypoperfusion-type-b-renal-level-2026",
+   "modality": "CT angiography",
+   "finding": "renal_malperfusion",
+   "findings": [
+    "renal_malperfusion",
+    "dissection_type_b"
+   ],
+   "title": "Dissection at renal level with poor kidney enhancement",
+   "caption": "Axial contrast CT at the level of the renal arteries in acute type B dissection, with a false lumen beside a narrowed true lumen and both kidneys enhancing much less than the aorta.",
+   "look": [
+    "Flap and false lumen in the abdominal aorta",
+    "Renal arteries arising near the compressed true lumen",
+    "Kidney cortex darker than expected for the arterial phase"
+   ],
+   "teach": [
+    "The flap can flutter over a branch origin and cut off flow even when the artery arises from the true lumen (dynamic obstruction)",
+    "Covering the entry tear with a stent graft can re-expand the true lumen and restore renal flow"
+   ],
+   "quiz": {
+    "q": "In dynamic obstruction, organ ischaemia is caused by:",
+    "options": [
+     "The flap and pressurised false lumen collapsing the true lumen over a branch origin",
+     "A clot embolising from the heart",
+     "Low cardiac output alone",
+     "Contrast allergy"
+    ],
+    "answer": 0,
+    "explain": "The true lumen is compressed, so branches arising from it are under-filled."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC13195809",
+    "fig": "ytag336-F1"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.1093/ehjcr/ytag336",
+   "crop": [
+    0.0,
+    0.705,
+    0.495,
+    0.295
+   ],
+   "kind": "ct-aorta",
+   "type": "ct",
+   "marks": [],
+   "claimedBy": "discovery round 3 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "ct-sma-embolism-coronal-2023",
+   "modality": "CT angiography (coronal)",
+   "finding": "sma_occlusion",
+   "findings": [
+    "sma_occlusion"
+   ],
+   "title": "Superior mesenteric artery embolism",
+   "caption": "Coronal contrast CT showing the superior mesenteric artery filling normally near its origin and then stopping abruptly at an embolus in its mid-portion.",
+   "look": [
+    "Bright SMA trunk running down beside the aorta",
+    "Sudden loss of contrast partway along the vessel",
+    "Bowel loops downstream of the cut-off"
+   ],
+   "teach": [
+    "Pain out of proportion to the exam, especially with AF, is mesenteric ischaemia until proven otherwise",
+    "Lactate can be normal early; CT angiography is the test",
+    "Emboli usually lodge a few centimetres past the SMA origin, sparing the first jejunal branches"
+   ],
+   "quiz": {
+    "q": "Which history most raises concern for acute SMA embolism?",
+    "options": [
+     "Atrial fibrillation with sudden severe abdominal pain and a soft abdomen",
+     "Gradual right lower quadrant pain with fever",
+     "Postprandial pain for months with weight loss",
+     "Vomiting after a large meal"
+    ],
+    "answer": 0,
+    "explain": "Embolic SMA occlusion classically presents suddenly in AF, with pain out of proportion to the findings."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC10513010",
+    "fig": "F2"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.1259/bjrcr.20220149",
+   "crop": [
+    0.0,
+    0.53,
+    0.47,
+    0.47
+   ],
+   "kind": "ct-aorta",
+   "type": "ct",
+   "marks": [],
+   "claimedBy": "discovery round 3 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "ct-gastric-pneumatosis-portal-gas-2026",
+   "modality": "Contrast-enhanced CT",
+   "finding": "pneumatosis",
+   "findings": [
+    "pneumatosis"
+   ],
+   "title": "Gas in the stomach wall with portal venous gas",
+   "caption": "Axial contrast CT of the upper abdomen showing gas bubbles tracking within the wall of a distended stomach, together with branching gas in the portal veins of the left liver.",
+   "look": [
+    "Bubbly or linear gas inside the gut wall rather than in the lumen",
+    "Branching gas reaching the edge of the liver (portal venous gas)",
+    "Distended, fluid-filled stomach"
+   ],
+   "teach": [
+    "Portal venous gas reaches the liver periphery; biliary gas stays central near the hilum",
+    "Wall gas plus portal venous gas raises concern for ischaemic or necrotic bowel, though benign causes exist",
+    "Interpret with lactate, exam and haemodynamics, not the picture alone"
+   ],
+   "quiz": {
+    "q": "Gas that branches out to the periphery of the liver on CT is most likely:",
+    "options": [
+     "Portal venous gas",
+     "Pneumobilia",
+     "Free intraperitoneal air",
+     "Hepatic abscess"
+    ],
+    "answer": 0,
+    "explain": "Portal blood flows toward the periphery, carrying gas there; biliary gas collects centrally."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC13128150",
+    "fig": "FIG1"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.7759/cureus.106116",
+   "crop": [
+    0.48,
+    0.19,
+    0.51,
+    0.565
+   ],
+   "maskRects": [
+    [
+     0.483,
+     0.645,
+     0.075,
+     0.09
+    ]
+   ],
+   "kind": "ct-aorta",
+   "type": "ct",
+   "marks": [],
+   "claimedBy": "discovery round 3 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "ct-sbo-coronal-feces-sign-2026",
+   "modality": "Non-contrast CT (coronal)",
+   "finding": "sbo",
+   "findings": [
+    "sbo"
+   ],
+   "title": "Small bowel obstruction with small-bowel feces sign",
+   "caption": "Coronal non-contrast CT showing multiple dilated, fluid-filled small-bowel loops filling the lower abdomen and pelvis, with a segment of mottled gas and debris marking the region just before the transition point.",
+   "look": [
+    "Small-bowel loops wider than about 3 cm, fluid-filled",
+    "Mottled faeces-like content in a small-bowel loop",
+    "Collapsed bowel beyond the transition point"
+   ],
+   "teach": [
+    "The small-bowel feces sign sits just proximal to the transition point and helps find it",
+    "Signs of strangulation: poor wall enhancement, mesenteric swirl, fluid, or a closed loop",
+    "Decompress with an NG tube, replace fluid, and get surgical review"
+   ],
+   "quiz": {
+    "q": "The small-bowel feces sign on CT usually indicates:",
+    "options": [
+     "The region just before the transition point in obstruction",
+     "Normal colon",
+     "Pneumatosis",
+     "Bowel perforation"
+    ],
+    "answer": 0,
+    "explain": "Stasis just proximal to an obstruction makes small-bowel content look like stool."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC13371963",
+    "fig": "f2"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.1093/jscr/rjag586",
+   "maskRects": [
+    [
+     0.0,
+     0.0,
+     0.07,
+     0.03
+    ],
+    [
+     0.72,
+     0.08,
+     0.28,
+     0.2
+    ]
+   ],
+   "kind": "ct-aorta",
+   "type": "ct",
+   "marks": [],
+   "claimedBy": "discovery round 3 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "ct-pneumoperitoneum-large-2026",
+   "modality": "Contrast-enhanced CT",
+   "finding": "pneumoperitoneum",
+   "findings": [
+    "pneumoperitoneum"
+   ],
+   "title": "Large-volume pneumoperitoneum",
+   "caption": "Axial contrast CT of the upper abdomen showing a large collection of free air filling the front of the peritoneal cavity and pushing the bowel loops toward the back.",
+   "look": [
+    "Black air under the anterior abdominal wall, outside any bowel loop",
+    "Bowel and mesentery pushed down toward the back",
+    "Air outlining both sides of the bowel walls"
+   ],
+   "teach": [
+    "Free air usually means a perforated viscus until proven otherwise",
+    "Very large volumes can raise abdominal pressure and impair ventilation and venous return",
+    "Review CT in lung window to see small amounts of free air"
+   ],
+   "quiz": {
+    "q": "Where does free intraperitoneal air collect on a supine CT?",
+    "options": [
+     "Anteriorly, under the abdominal wall",
+     "In the posterior gutters",
+     "Within the bowel wall",
+     "In the portal veins"
+    ],
+    "answer": 0,
+    "explain": "Air rises to the highest point, which is anterior in a supine patient."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC13276633",
+    "fig": "FIG1"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.7759/cureus.109171",
+   "kind": "ct-aorta",
+   "type": "ct",
+   "marks": [],
+   "claimedBy": "discovery round 3 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "ct-splenic-laceration-hemoperitoneum-2025",
+   "modality": "Contrast-enhanced CT",
+   "finding": "hemoperitoneum",
+   "findings": [
+    "hemoperitoneum"
+   ],
+   "title": "Splenic injury with haemoperitoneum",
+   "caption": "Axial and coronal contrast CT after an iatrogenic splenic laceration showing a large perisplenic haematoma and blood around the liver.",
+   "look": [
+    "Large collection hugging and compressing the spleen",
+    "Fluid around the liver edge (blood spreading through the peritoneum)",
+    "Blood is denser than simple fluid on CT"
+   ],
+   "teach": [
+    "Splenic injury can follow blunt trauma or even procedures such as colonoscopy",
+    "Unstable patient with haemoperitoneum goes to theatre or angiography, not back to the scanner",
+    "Left shoulder-tip pain (Kehr sign) can come from blood irritating the diaphragm"
+   ],
+   "quiz": {
+    "q": "A hypotensive trauma patient has a positive FAST for free fluid. Next step?",
+    "options": [
+     "Haemorrhage control: surgery or angioembolisation while resuscitating",
+     "Repeat CT in 6 hours",
+     "Discharge with analgesia",
+     "Start diuretics"
+    ],
+    "answer": 0,
+    "explain": "Unstable haemoperitoneum needs immediate control of bleeding."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC12646259",
+    "fig": "f1"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.1093/jscr/rjaf940",
+   "crop": [
+    0.0,
+    0.0,
+    1.0,
+    0.9
+   ],
+   "kind": "ct-aorta",
+   "type": "ct",
+   "marks": [],
+   "claimedBy": "discovery round 3 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "ct-splenic-rupture-hemoperitoneum-axial-2026",
+   "modality": "Contrast-enhanced CT",
+   "finding": "hemoperitoneum",
+   "findings": [
+    "hemoperitoneum"
+   ],
+   "title": "Splenic rupture with subcapsular haematoma",
+   "caption": "Axial contrast CT showing an enlarged spleen wrapped by a crescent of subcapsular haematoma, with fluid also tracking around the liver.",
+   "look": [
+    "Low-density crescent around the spleen, flattening its outline",
+    "Fluid around the liver as well",
+    "Enlarged spleen"
+   ],
+   "teach": [
+    "This case was non-traumatic (infection-related splenomegaly), but the CT appearance is the same as a traumatic tear",
+    "A subcapsular haematoma can rupture later, so these patients are watched closely"
+   ],
+   "quiz": {
+    "q": "A crescent of fluid that flattens the edge of the spleen is most consistent with:",
+    "options": [
+     "Subcapsular haematoma",
+     "Normal splenic lobulation",
+     "Splenic infarct",
+     "Pleural effusion"
+    ],
+    "answer": 0,
+    "explain": "Blood trapped under the capsule compresses the parenchyma and gives a flattened, crescent shape."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC13428986",
+    "fig": "FIG1"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.7759/cureus.111978",
+   "kind": "ct-aorta",
+   "type": "ct",
+   "marks": [],
+   "claimedBy": "discovery round 3 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "fast-luq-positive-scandj-2023",
+   "kind": "fast",
+   "type": "ultrasound",
+   "modality": "Point-of-care ultrasound",
+   "finding": "fast_luq_positive",
+   "findings": [
+    "fast_luq_positive"
+   ],
+   "title": "Positive FAST: fluid in the splenorenal space",
+   "caption": "Left upper quadrant FAST view in a trauma patient with a black stripe of free blood lying between the spleen and the left kidney.",
+   "look": [
+    "Spleen (S) above, left kidney (LK) below",
+    "Anechoic black wedge (HP) between them",
+    "Fluid may also sit above the spleen, under the diaphragm"
+   ],
+   "teach": [
+    "In the LUQ, blood collects first above the spleen (subphrenic), then tracks into the splenorenal space.",
+    "Scan the whole LUQ including the diaphragm tip, the window most often missed.",
+    "The left upper quadrant is harder to see: aim higher and more posterior than you think, and check above the spleen as well as around it."
+   ],
+   "quiz": {
+    "q": "In the LUQ FAST view, where does free blood often collect first?",
+    "options": [
+     "Between liver and kidney",
+     "Above the spleen, under the diaphragm",
+     "Behind the bladder",
+     "Around the heart"
+    ],
+    "answer": 1,
+    "explain": "The phrenicocolic ligament steers LUQ blood to the subphrenic space above the spleen before it reaches the splenorenal recess."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC10207757",
+    "fig": "Fig3"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.1186/s13049-023-01088-8",
+   "crop": [
+    0,
+    0.495,
+    0.497,
+    0.505
+   ],
+   "cropNote": "panel b (LUQ view)",
+   "maskRects": [
+    [
+     0,
+     0.49,
+     0.5,
+     0.045
+    ]
+   ],
+   "marks": [],
+   "claimedBy": "discovery round 3 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "fast-pelvis-negative-pocus-2021",
+   "kind": "fast",
+   "type": "ultrasound",
+   "modality": "Point-of-care ultrasound",
+   "finding": "fast_pelvis_negative",
+   "findings": [
+    "fast_pelvis_negative"
+   ],
+   "title": "Negative FAST: normal transverse pelvic view",
+   "caption": "Transverse suprapubic view in a man showing a full, round, black bladder with no dark fluid around or behind it.",
+   "look": [
+    "Bladder (a) as a round anechoic structure",
+    "Bright bladder wall with no black stripe outside it",
+    "Rectum (e) deep to the bladder"
+   ],
+   "teach": [
+    "A full bladder is the acoustic window, so scan the pelvis before a urinary catheter is placed or the bladder is drained.",
+    "Free fluid sits outside the bladder wall, posterior and superior in men (rectovesical pouch).",
+    "A full bladder is the acoustic window; scan in two planes before calling the pelvis negative."
+   ],
+   "quiz": {
+    "q": "Why is the pelvic FAST view easiest with a full bladder?",
+    "options": [
+     "Urine is a good acoustic window",
+     "The bladder pushes bowel gas aside and lets the beam through",
+     "Both of the above",
+     "It is not easier"
+    ],
+    "answer": 2,
+    "explain": "Urine transmits sound well and a distended bladder displaces gas-filled bowel, giving a clear view of the rectovesical pouch."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC7919994",
+    "fig": "Fig2"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.1186/s13089-021-00209-7",
+   "crop": [
+    0.49,
+    0,
+    0.51,
+    0.89
+   ],
+   "cropNote": "ultrasound panel only (drawing on the left removed)",
+   "marks": [],
+   "claimedBy": "discovery round 3 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "fast-pelvis-seminal-vesicles-2021",
+   "kind": "fast",
+   "type": "ultrasound",
+   "modality": "Point-of-care ultrasound",
+   "finding": "fast_pelvis_negative",
+   "findings": [
+    "fast_pelvis_negative"
+   ],
+   "title": "Pelvic FAST pitfall: seminal vesicles",
+   "caption": "Transverse pelvic view angled low in a man, where the paired seminal vesicles form a thin dark band behind the bladder that is not free fluid.",
+   "look": [
+    "Black bladder (a) at the top",
+    "Thin, symmetric, dark band (d) just behind the bladder wall",
+    "Rectum (e) below it"
+   ],
+   "teach": [
+    "Seminal vesicles are paired, symmetric and tubular. Free fluid is a pointed, irregular black wedge that changes shape as you fan.",
+    "Fan the probe up toward the peritoneal space before calling the scan positive.",
+    "Paired, symmetric, slightly echogenic structures behind the bladder are seminal vesicles, not free fluid; fluid is black and follows the space."
+   ],
+   "quiz": {
+    "q": "A thin symmetric dark band behind a man's bladder, seen only with the probe angled low, is most likely…",
+    "options": [
+     "Hemoperitoneum",
+     "Seminal vesicles",
+     "Ascites",
+     "Bladder rupture"
+    ],
+    "answer": 1,
+    "explain": "Seminal vesicles mimic free fluid on low-angled transverse views. Fluid is irregular, angular and seen when you fan toward the peritoneum."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC7919994",
+    "fig": "Fig1"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.1186/s13089-021-00209-7",
+   "crop": [
+    0.49,
+    0,
+    0.51,
+    0.86
+   ],
+   "cropNote": "ultrasound panel only (drawing on the left removed)",
+   "marks": [],
+   "claimedBy": "discovery round 3 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "fast-pericardial-positive-focus-2026",
+   "kind": "fast",
+   "type": "ultrasound",
+   "modality": "Point-of-care ultrasound",
+   "finding": "fast_pericardial_positive",
+   "findings": [
+    "fast_pericardial_positive"
+   ],
+   "title": "Subxiphoid view: large pericardial effusion",
+   "caption": "Subxiphoid four-chamber view with a wide black rim of fluid surrounding the whole heart, compressing the right-sided chambers.",
+   "look": [
+    "Black band all the way around the heart",
+    "Effusion closest to the probe, between liver and right ventricle",
+    "Small, compressed right heart"
+   ],
+   "teach": [
+    "In the subxiphoid window, fluid first appears as a dark stripe between the liver and the right ventricle.",
+    "Tamponade is a clinical diagnosis: effusion plus hypotension and a plethoric IVC means drain it.",
+    "A large effusion with a collapsing right heart in a shocked patient is tamponade until proven otherwise."
+   ],
+   "quiz": {
+    "q": "Which chamber collapses first in tamponade?",
+    "options": [
+     "Left ventricle",
+     "Right atrium",
+     "Left atrium",
+     "Aortic root"
+    ],
+    "answer": 1,
+    "explain": "The thin-walled, low-pressure right atrium (then RV in diastole) is compressed first as pericardial pressure rises."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC12920499",
+    "fig": "F1"
+   },
+   "licenseClaimed": "CC BY 4.0",
+   "pageUrl": "https://doi.org/10.3389/fcvm.2026.1753361",
+   "crop": [
+    0.04,
+    0.5,
+    0.96,
+    0.5
+   ],
+   "cropNote": "panel B (subxiphoid four-chamber view)",
+   "marks": [],
+   "claimedBy": "discovery round 3 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "ij-compression-gillman-2010",
+   "kind": "ijv",
+   "type": "ultrasound",
+   "modality": "Point-of-care ultrasound",
+   "finding": "ij_compression",
+   "findings": [
+    "ij_compression"
+   ],
+   "title": "IJ vein flattens under probe pressure",
+   "caption": "Short-axis neck clip before a left internal jugular line, where gentle probe pressure fully flattens the vein while the round carotid stays open.",
+   "look": [
+    "Vein (larger, oval) disappears completely with pressure",
+    "Carotid stays round and pulsatile",
+    "Vein reappears when pressure is released"
+   ],
+   "teach": [
+    "Full compressibility identifies the vein and excludes thrombus at that level.",
+    "A vein that will not flatten under pressure should be treated as thrombosed: do not cannulate it.",
+    "If the vein does not flatten completely with gentle pressure, think thrombus before you think needle."
+   ],
+   "quiz": {
+    "q": "The IJ does not compress with firm probe pressure. Most likely…",
+    "options": [
+     "It is normal",
+     "It is thrombosed",
+     "The patient is hypovolemic",
+     "It is the carotid"
+    ],
+    "answer": 1,
+    "explain": "A healthy vein flattens easily. Non-compressibility suggests thrombus, so choose another site."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:Ultrasound-confirmation-of-guidewire-position-may-eliminate-accidental-arterial-dilatation-during-1757-7241-18-39-S3.ogv"
+   },
+   "licenseClaimed": "CC BY 2.0",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Ultrasound-confirmation-of-guidewire-position-may-eliminate-accidental-arterial-dilatation-during-1757-7241-18-39-S3.ogv",
+   "maskTop": 32,
+   "marks": [],
+   "claimedBy": "discovery round 3 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "chest-drain-unit-atrium",
+   "kind": "procedure",
+   "type": "photo",
+   "modality": "Clinical photograph",
+   "finding": "chest_drain_unit",
+   "findings": [
+    "chest_drain_unit"
+   ],
+   "title": "Water-seal chest drainage unit",
+   "caption": "A disposable three-chamber water-seal chest drain standing upright, with its collection columns, water-seal and suction-control chambers and tubing.",
+   "look": [
+    "Graduated collection columns (right)",
+    "Water-seal chamber with its blue fluid level",
+    "Suction-control chamber and patient tubing on top"
+   ],
+   "teach": [
+    "Keep the unit upright and below the chest so fluid cannot run back into the pleura.",
+    "Tidaling in the water seal means the system is patent; continuous bubbling means an air leak.",
+    "Keep the unit upright and below the chest; tipping it floods the water seal and loses the reading."
+   ],
+   "quiz": {
+    "q": "Continuous bubbling in the water-seal chamber suggests…",
+    "options": [
+     "Normal function",
+     "An air leak (patient or system)",
+     "A blocked tube",
+     "Too little suction"
+    ],
+    "answer": 1,
+    "explain": "Bubbling in the water seal is air passing through it, from a pleural leak or a loose connection."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:Chest drain - empty.jpg"
+   },
+   "licenseClaimed": "CC BY 2.5",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Chest_drain_-_empty.jpg",
+   "marks": [],
+   "claimedBy": "discovery round 3 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "chest-drain-unit-bedside",
+   "kind": "procedure",
+   "type": "photo",
+   "modality": "Clinical photograph",
+   "finding": "chest_drain_unit",
+   "findings": [
+    "chest_drain_unit"
+   ],
+   "title": "Chest drain in use at the bedside",
+   "caption": "A water-seal chest drainage unit on the floor beside a hospital bed, connected to its patient tube with bloody drainage in the first collection column.",
+   "look": [
+    "Unit below chest level, on the floor",
+    "Blood in the first collection column",
+    "Suction tubing connected at the top"
+   ],
+   "teach": [
+    "Mark and time the fluid level each shift. More than 200 mL/h of blood for several hours, or a large first-hour output, is a surgical concern.",
+    "Never lift the unit above the patient's chest during transport.",
+    "Mark the drainage level with the time: the trend, not one reading, tells you whether bleeding continues."
+   ],
+   "quiz": {
+    "q": "Where should a chest drainage unit sit during transport?",
+    "options": [
+     "On the patient's chest",
+     "Below the level of the chest, upright",
+     "Clamped and on its side",
+     "At any height"
+    ],
+    "answer": 1,
+    "explain": "Below the chest and upright keeps the water seal intact and stops drainage flowing back."
+   },
+   "fetch": {
+    "type": "commons",
+    "title": "File:Chest drain - bedside with fluids.jpg"
+   },
+   "licenseClaimed": "CC BY 2.5",
+   "pageUrl": "https://commons.wikimedia.org/wiki/File:Chest_drain_-_bedside_with_fluids.jpg",
+   "marks": [],
+   "claimedBy": "discovery round 3 (media-candidates branch), reviewed visually"
+  },
+  {
+   "id": "needle-decompression-site-cureus-2022",
+   "kind": "procedure",
+   "type": "photo",
+   "modality": "Clinical photograph",
+   "finding": "needle_decompression_site",
+   "findings": [
+    "needle_decompression_site"
+   ],
+   "title": "Where paramedics placed needle decompression",
+   "caption": "A volunteer's bare chest with the 2nd intercostal space at the mid-clavicular line starred and dots showing the sites paramedics chose, many too medial or too low.",
+   "look": [
+    "Star: 2nd ICS, mid-clavicular line",
+    "Spread of dots, several near the sternum and heart",
+    "Nipple line as a landmark below"
+   ],
+   "teach": [
+    "Medial placement risks the internal mammary vessels, the great vessels and the heart. Stay at or lateral to the mid-clavicular line.",
+    "The 4th/5th ICS anterior-axillary line often has a thinner chest wall and is an accepted alternative.",
+    "Sites chosen by eye drift medially and low; count rib spaces from the sternal angle every time."
+   ],
+   "quiz": {
+    "q": "The commonest error in anterior needle decompression is placement that is…",
+    "options": [
+     "Too lateral",
+     "Too medial",
+     "Too superior (1st ICS)",
+     "Over the rib's upper border"
+    ],
+    "answer": 1,
+    "explain": "Studies show sites drift medially toward the sternum, where the heart and great vessels lie."
+   },
+   "fetch": {
+    "type": "epmc-fig",
+    "pmcid": "PMC9386319",
+    "fig": "FIG1"
+   },
+   "licenseClaimed": "CC BY 3.0",
+   "pageUrl": "https://doi.org/10.7759/cureus.27013",
+   "marks": [],
+   "claimedBy": "discovery round 3 (media-candidates branch), reviewed visually"
   }
  ]
 }
