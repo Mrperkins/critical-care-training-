@@ -71,3 +71,11 @@ Expansion ea45a7c: Clinical app validation run 37774717443 and Audio Mastery CI 
 - Supported browser API advertises no viewport/emulation controls. Exact matrix cannot be run in this browser.
 
 User authorizes merge only AFTER full implementation and visual gates. Keep draft; do not merge, publish the generated bundle or call the assignment complete while these checks remain unverified.
+
+## UI overhaul branch (`ui-overhaul`, PR to main — not merged by the agent)
+- Shell v3: domain header strip removed; domain name, Learn/Explore/Practice, condition atlas and Cases/Simulator live in the top bar. Rail has line icons and full labels. One accent (#6cc4b6, selection only), one family (Atkinson Hyperlegible Next + Mono). Sentence-case labels replace tracked capitals.
+- Home: one heading with progress, three action cards, no filler hero. Videos: duplicate title removed; feed sections as one segmented control and sources as a dropdown.
+- Ported from `visual-overhaul`: scenario picker plus folding sections (Respiratory's four context tabs replaced), compact vent/ABG readouts, Explore memory, and the stroke time slider to day 14 with real CT per stage. Synthetic neuro CT panels (`ClinicalImagingScene`, `synth.ts`) were removed; `realReference.ts` and its tests are kept. Simulator stays on main's `VentWorkbench`.
+- Scene toolbar uses SVG icons. Canvas fonts were switched to Atkinson.
+- Verified on a local build at 1440×900 and 390×844 with 758/758 tests passing and the visual-asset validator passing. In the sandbox the YouTube embeds render white because there is no network; this is not a layout bug.
+- Not done yet: the Peds/OB atlas mannequin restyle; real media for the remaining drawn imaging (CXR, LUS, FAST/aorta, IJ); a review of discovery round 2; 4 pending media items.

@@ -23,7 +23,7 @@ export function glyphAtlas(): THREE.CanvasTexture {
     return [cx, cy] as const;
   };
   const label = (cx: number, cy: number, text: string, ink: string, size: number) => {
-    g.fillStyle = ink; g.textAlign = 'center'; g.textBaseline = 'middle'; g.font = `700 ${size}px "IBM Plex Sans", system-ui, sans-serif`;
+    g.fillStyle = ink; g.textAlign = 'center'; g.textBaseline = 'middle'; g.font = `700 ${size}px "Atkinson Hyperlegible Next", system-ui, sans-serif`;
     g.shadowColor = ink === '#ffffff' ? 'rgba(0,0,0,0.5)' : 'rgba(255,255,255,0.35)'; g.shadowBlur = 4; g.fillText(text, cx, cy + size * 0.04); g.shadowBlur = 0;
   };
   for (const k of ['na', 'k', 'ca', 'mg', 'cl', 'pi'] as SpeciesKey[]) {
@@ -43,7 +43,7 @@ export function glyphAtlas(): THREE.CanvasTexture {
     const gr = g.createRadialGradient(cx - 30, cy - 30, 10, cx, cy, r); gr.addColorStop(0, '#9ff2e8'); gr.addColorStop(1, SPECIES.osm.color); g.fillStyle = gr; g.fill(); g.lineWidth = 10; g.strokeStyle = '#0f6f66'; g.stroke();
     label(cx, cy, 'osm', '#00211d', 70);
   }
-  const sign = (i: number, s: string, col: string) => { const [x, y] = cell(i); g.fillStyle = col; g.textAlign = 'center'; g.textBaseline = 'middle'; g.font = '700 190px "IBM Plex Mono", monospace'; g.fillText(s, x + C / 2, y + C / 2 + 8); };
+  const sign = (i: number, s: string, col: string) => { const [x, y] = cell(i); g.fillStyle = col; g.textAlign = 'center'; g.textBaseline = 'middle'; g.font = '700 190px "Atkinson Hyperlegible Mono", monospace'; g.fillText(s, x + C / 2, y + C / 2 + 8); };
   sign(GLYPH.plus, '+', '#ff8a7a'); sign(GLYPH.minus, '−', '#8ab8ff');
   const pill = (i: number, text: string, col: string) => { const [x, y] = cell(i); g.fillStyle = col; const w = 220, h = 110; const rx = x + (C - w) / 2, ry = y + (C - h) / 2; g.beginPath(); g.roundRect(rx, ry, w, h, 50); g.fill(); label(x + C / 2, y + C / 2, text, '#1b1300', 70); };
   pill(GLYPH.atp, 'ATP', '#ffd66b'); pill(GLYPH.adp, 'ADP', '#b9a37a');

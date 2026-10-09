@@ -70,6 +70,6 @@ export function AtlasModule({ domain, onExit, onOpenVent }: { domain: AtlasDomai
 /** Only existing clinical domains receive this secondary curriculum entry. */
 export function AtlasEntry({ domain, onOpen }: { domain: AtlasDomain; onOpen: () => void }) {
   const count = conditionsFor(domain).length;
-  return <button className="atlas-entry" onClick={onOpen}>Clinical conditions <span>{count}</span></button>;
+  return <button className="atlas-entry" onClick={onOpen} title="Open the condition atlas for this domain">{count} conditions</button>;
 }
 export { DISEASE_BY_ID };

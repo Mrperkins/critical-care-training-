@@ -26,7 +26,6 @@ export function CurriculumModule() {
   const nextLesson = CATALOG.find((e) => !p.completed[e.id]) ?? CATALOG[0];
   const resume = p.recent.find(b => CATALOG.some(e => e.id === b.lessonId) && !p.completed[b.lessonId]);
   const launchExplore = () => useUI.getState().set({ module: 'vent', mode: 'explore', atlasDisease: null });
-  const launchVideos = () => useUI.getState().set({ module: 'videos' });
   const launchPractice = () => {
     if (weak[0]?.challenges?.[0]) openChallenge(weak[0].challenges[0]);
     else useUI.getState().set({ module: 'vent', mode: 'challenge', atlasDisease: null });
@@ -34,52 +33,42 @@ export function CurriculumModule() {
   return (
     <main id="controls" tabIndex={-1} className="stage curriculum-stage">
       <div className="cur-page cur-home">
-        <section className="cur-hero">
-          <div className="cur-hero-copy">
-            <div className="eyebrow">Your critical-care learning home</div>
-            <h2>Your next clinical insight starts here.</h2>
-            <p>Continue a lesson, explore a patient, or apply what you know in a clinical case.</p>
-          </div>
-          <div className="cur-progress-card">
-            <span>Overall progress</span><b>{done}<small> / {total}</small></b>
+        <section className="home-head">
+          <h2>Pick up where you left off</h2>
+          <div className="home-progress" aria-label={`${done} of ${total} lessons completed`}>
+            <span>{done === 0 ? `${total} lessons and procedures` : `${done} of ${total} done`}</span>
             <div className="cur-bar"><i style={{ width: `${(100 * done) / total}%` }} /></div>
-            <em>{Math.round((100 * done) / total)}% complete</em>
           </div>
         </section>
 
         <section className="cur-homegrid">
           <button className="cur-homecard cur-homecard-primary" onClick={() => openLesson(resume?.lessonId ?? nextLesson.id, resume?.t ?? 0)}>
-            <span className="eyebrow">Continue learning</span>
+            <span className="eyebrow">{resume ? 'Resume lesson' : 'Next lesson'}</span>
             <b>{titleOf(resume?.lessonId ?? nextLesson.id)}</b>
-            <p>{resume ? `Resume your lesson at ${mmss(resume.t)}.` : 'Begin the next unfinished guided lesson.'}</p>
-            <em>Continue →</em>
+            <p>{resume ? `Resume at ${mmss(resume.t)}.` : 'A narrated walk-through on the live model.'}</p>
+            <em>{resume ? 'Resume' : 'Start lesson'}</em>
           </button>
           <button className="cur-homecard" onClick={launchExplore}>
             <span className="eyebrow">Explore</span>
-            <b>Manipulate live physiology</b>
-            <p>Change the patient and watch anatomy, waveforms and numbers respond.</p>
-            <em>Open physiology →</em>
+            <b>Ventilate a patient</b>
+            <p>Change settings and watch the lungs, waveforms and gases respond.</p>
+            <em>Open the ventilator</em>
           </button>
           <button className="cur-homecard" onClick={launchPractice}>
             <span className="eyebrow">Practice</span>
-            <b>{weak[0] ? `Revisit: ${weak[0].name}` : 'Start a clinical case'}</b>
+            <b>{weak[0] ? `Revisit: ${weak[0].name}` : 'Run a clinical case'}</b>
             <p>{weak[0] ? 'Target a concept your recent answers flagged.' : 'Commit to a decision, see the response, then debrief.'}</p>
-            <em>Practice now →</em>
+            <em>Start a case</em>
           </button>
         </section>
         {p.recent.length > 0 && <section className="home-recent" aria-labelledby="home-recent-title">
           <h3 id="home-recent-title">Recently viewed</h3>
           {p.recent.filter(b => CATALOG.some(e => e.id === b.lessonId)).slice(0, 3).map(b => <button key={b.lessonId} onClick={() => openLesson(b.lessonId, b.t)}><span>{titleOf(b.lessonId)}</span><small>{p.completed[b.lessonId] ? 'Completed' : `Resume ${mmss(b.t)}`}</small></button>)}
         </section>}
-        <section className="home-resources" aria-labelledby="home-resources-title">
-          <h3 id="home-resources-title">Resources</h3>
-          <button onClick={launchVideos}>Videos &amp; Skills <span aria-hidden="true">→</span></button>
-          <a href="audio/">Audio &amp; Mental Reps <span aria-hidden="true">→</span></a>
-        </section>
         <details className="curriculum-browser">
           <summary>Browse curriculum <span>{total} lessons and procedures</span></summary>
         <details className="card cur-filter-drawer">
-          <summary><span><b>Browse the full curriculum</b><small>Domains · certification alignment · procedures · lesson types</small></span><span aria-hidden="true">＋</span></summary>
+          <summary><span><b>Browse the full curriculum</b><small>Filter by domain, certification, course or lesson type</small></span><span aria-hidden="true">＋</span></summary>
           <div className="cur-filter-body">
             <p className="muted small">Topics are tagged by alignment with FP-C / CCP-C, CFRN and NAEMT course scope. Objectives are this app’s own; sources are guidelines, trials and textbooks to read further.</p>
             <div className="cur-certs">{CERTS.map((c) => { const es = CATALOG.filter((e) => e.certs.includes(c)); const d = es.filter((e) => p.completed[e.id]).length; return <span key={c}>{c} {d}/{es.length}</span>; })}</div>

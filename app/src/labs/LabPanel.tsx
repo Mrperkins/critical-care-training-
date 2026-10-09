@@ -77,7 +77,7 @@ export function EcgStrip() {
       const now = (performance.now() - t0) / 1000; const mv = pxs / 5 * 2; // 10 mm/mV
       ctx.strokeStyle = '#1b1b1f'; ctx.lineWidth = 1.6; ctx.beginPath();
       for (let x = 0; x <= w; x += 1) { const tt = now - (w - x) / pxs; const ph = ((tt % per) + per) % per; const y = h * 0.62 - ecgAt(ph, sh) * mv; if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y); }
-      ctx.stroke(); ctx.fillStyle = '#1b1b1f'; ctx.font = '600 11px "IBM Plex Mono", monospace'; ctx.fillText('II', 8, 16); ctx.font = '500 11px "IBM Plex Mono", monospace'; ctx.fillText(sh.label, 30, 16);
+      ctx.stroke(); ctx.fillStyle = '#1b1b1f'; ctx.font = '600 11px "Atkinson Hyperlegible Mono", monospace'; ctx.fillText('II', 8, 16); ctx.font = '500 11px "Atkinson Hyperlegible Mono", monospace'; ctx.fillText(sh.label, 30, 16);
     };
     raf = requestAnimationFrame(draw); return () => { cancelAnimationFrame(raf); ro.disconnect(); };
   }, []);

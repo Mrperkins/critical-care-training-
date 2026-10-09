@@ -126,7 +126,7 @@ export function AcidBaseMap() {
     const draw = () => {
       raf = requestAnimationFrame(draw); if (!w) return; ctx.clearRect(0, 0, w, h);
       const pad = { l: 34, r: 10, t: 10, b: 26 }; const X = (pc: number) => pad.l + (w - pad.l - pad.r) * (pc - 10) / 90; const Y = (hc: number) => h - pad.b - (h - pad.t - pad.b) * (hc - 4) / 46;
-      ctx.font = '500 10px "IBM Plex Mono", monospace'; ctx.fillStyle = '#8e8a84'; ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+      ctx.font = '500 10px "Atkinson Hyperlegible Mono", monospace'; ctx.fillStyle = '#8e8a84'; ctx.strokeStyle = 'rgba(255,255,255,0.06)';
       for (let pc = 20; pc <= 100; pc += 20) { ctx.beginPath(); ctx.moveTo(X(pc), pad.t); ctx.lineTo(X(pc), h - pad.b); ctx.stroke(); ctx.textAlign = 'center'; ctx.fillText(String(pc), X(pc), h - 10); }
       for (let hc = 10; hc <= 50; hc += 10) { ctx.beginPath(); ctx.moveTo(pad.l, Y(hc)); ctx.lineTo(w - pad.r, Y(hc)); ctx.stroke(); ctx.textAlign = 'right'; ctx.fillText(String(hc), pad.l - 5, Y(hc) + 3); }
       ctx.save(); ctx.translate(10, (h - pad.b) / 2); ctx.rotate(-Math.PI / 2); ctx.textAlign = 'center'; ctx.fillText('HCO₃⁻', 0, 0); ctx.restore(); ctx.textAlign = 'right'; ctx.fillText('PaCO₂ →', w - pad.r, h - 10);
