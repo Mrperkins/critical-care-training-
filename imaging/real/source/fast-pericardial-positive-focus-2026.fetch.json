@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC12920499",
+ "pageUrl": "https://doi.org/10.3389/fcvm.2026.1753361",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "https://creativecommons.org/licenses/by/4.0/ This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY) . The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited an",
+ "authors": "H. A. Nati-Castillo, Martin Ocampo-Posada, Wilfredo Antonio Rivera-Martínez, Fredy Lizarazo Davila, Alice Gaibor-Pazmiño, Marlon Rojas-Cadena, Juan S. Izquierdo-Condoy",
+ "title": "Myxedema-related cardiac tamponade diagnosed by focused cardiac ultrasound (FoCUS): a case report",
+ "publication": "Frontiers in cardiovascular medicine",
+ "published": "2026-02-06",
+ "doi": "10.3389/fcvm.2026.1753361",
+ "volume": "13",
+ "firstpage": "1753361",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12920499.1/fcvm-13-1753361-g001.jpg",
+ "originalName": "fcvm-13-1753361-g001.jpg",
+ "description": "Figure 1 FoCUS parasternal long-axis view (A) and subxiphoid four-chamber view (B) A massive circumferential pericardial effusion is observed (28 mm in diastole), with collapse of right-sided chambers.",
+ "thirdParty": false,
+ "figure": "F1",
+ "licenseEvidence": "Europe PMC full text of PMC12920499 (doi 10.3389/fcvm.2026.1753361), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY) . The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited an”; Figure 1 caption checked for a separate credit.",
+ "id": "fast-pericardial-positive-focus-2026",
+ "retrieved": "2026-10-09T16:42Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

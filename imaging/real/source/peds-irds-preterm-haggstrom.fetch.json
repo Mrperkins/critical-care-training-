@@ -1,0 +1,21 @@
+{
+ "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bf/X-ray_of_infant_respiratory_distress_syndrome_%28IRDS%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+ "pageUrl": "https://commons.wikimedia.org/wiki/File:X-ray_of_infant_respiratory_distress_syndrome_(IRDS).png",
+ "originalName": "X-ray of infant respiratory distress syndrome (IRDS).png",
+ "mime": "image/png",
+ "bytes": 271984,
+ "sha1": "dd20a7b61e98ea7713ac0e3309792499dc566d4b",
+ "width": 551,
+ "height": 471,
+ "license": "CC0",
+ "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+ "licenseEvidence": "Wikimedia Commons API extmetadata for File:X-ray of infant respiratory distress syndrome (IRDS).png: LicenseShortName = “CC0”, UsageTerms = “Creative Commons Zero, Public Domain Dedication” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AX-ray+of+infant+respiratory+distress+syndrome+%28IRDS%29.png&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+ "authors": "Mikael Häggström, M.D.",
+ "credit": "Own work",
+ "published": "2018-08-16",
+ "description": "Chest radiograph one day after birth of a boy after 29 weeks and 3 days of gestational age who developed respiratory distress. It shows signs of infant respiratory distress syndrome (IRDS), in the form of a generalized fine granular opacities that creates air bronchograms. The thorax is bell-shaped due to decreased lung volume. In addition, there are both arterial and venous umbilical lines , a nasogastric tube and electrocardiography electrodes.",
+ "restrictions": "",
+ "id": "peds-irds-preterm-haggstrom",
+ "retrieved": "2026-10-09T16:41Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

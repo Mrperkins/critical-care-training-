@@ -429,6 +429,195 @@ Real, openly licensed clinical images shown beside the synthetic ones. Only CC0 
 - Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
 - Changes: None — the displayed file is the original, byte for byte.
 
+## cxr-tension-ptx-right-olv-2024.jpg
+- Right tension pneumothorax during one-lung ventilation — Bedside frontal film in which the right hemithorax is hyperlucent with no lung markings, the right lung is fully collapsed against the hilum and the mediastinum is pushed into the left chest.
+- Author: Angie H Chang, Hongchengcheng Chen, Lei Li, Yirui Hu, Ruoxi Zhang, Xiaopeng Zhang
+- Source: “Contralateral Tension Pneumothorax in One-Lung Ventilation: A Case Report and Systematic Review”, Cureus 16:e61306 (2024), https://doi.org/10.7759/cureus.61306 — https://pmc-oa-opendata.s3.amazonaws.com/PMC11135384.1/cureus-0016-00000061306-i01.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## cxr-ptx-left-large-2024.jpg
+- Large left pneumothorax — Upright PA film with a large left pneumothorax: the collapsed left lung is outlined by a thin pleural edge near the hilum and the lateral left chest is black and avascular.
+- Author: Mohammed Adul Hai Amer, Saquib Siddiqui
+- Source: “Tale of a Blocked Chest Drain Resulting in Tension Pneumothorax: Are We Always Competent Enough to Troubleshoot a Chest Drain?”, Cureus 16:e66037 (2024), https://doi.org/10.7759/cureus.66037 — https://pmc-oa-opendata.s3.amazonaws.com/PMC11368579.1/cureus-0016-00000066037-i01.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## cxr-ptx-right-spontaneous-2026.jpg
+- Moderate right spontaneous pneumothorax — PA film of a young man with a moderate right pneumothorax; arrows mark the visceral pleural edge at the apex and along the lateral chest wall.
+- Author: Louise Nicolette Mendoza, Wyatt Mayer, Mario Loomis
+- Source: “Recurrent Primary Spontaneous Pneumothorax in an 18-Year-Old Man: A Case Report and Review of Considerations for Prophylactic Contralateral Pleurodesis”, Cureus 18:e110257 (2026), https://doi.org/10.7759/cureus.110257 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13332831.1/cureus-0018-00000110257-i01.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## cxr-pigtail-drain-reexpanded-2026.jpg
+- Pigtail drain in place, right lung re-expanded — Follow-up portable film after a right small-bore pigtail catheter was inserted: the coiled catheter lies over the right mid-zone and the lung has largely re-expanded, with only a small apical rim left.
+- Author: Louise Nicolette Mendoza, Wyatt Mayer, Mario Loomis
+- Source: “Recurrent Primary Spontaneous Pneumothorax in an 18-Year-Old Man: A Case Report and Review of Considerations for Prophylactic Contralateral Pleurodesis”, Cureus 18:e110257 (2026), https://doi.org/10.7759/cureus.110257 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13332831.1/cureus-0018-00000110257-i02.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; 2 region(s) with identifiers or burnt-in text blacked out; no crop, mirroring or filtering.
+
+## cxr-drain-persistent-ptx-2024.jpg
+- Chest drain in place with a persistent left pneumothorax — AP erect film with a left intercostal drain in place, yet a large left pneumothorax persists with a visible lung edge, the situation that preceded tension from a blocked drain.
+- Author: Mohammed Adul Hai Amer, Saquib Siddiqui
+- Source: “Tale of a Blocked Chest Drain Resulting in Tension Pneumothorax: Are We Always Competent Enough to Troubleshoot a Chest Drain?”, Cureus 16:e66037 (2024), https://doi.org/10.7759/cureus.66037 — https://pmc-oa-opendata.s3.amazonaws.com/PMC11368579.1/cureus-0016-00000066037-i03.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## cxr-left-whiteout-mucus-plug-2026.jpg
+- Left lung collapse from mucus plugging (adult) — Portable film of an adult with acute hypoxia: the left hemithorax is almost completely opaque and the trachea and heart are pulled toward the left, in keeping with whole-lung collapse from an obstructed airway.
+- Author: Sitha Konopack
+- Source: “Severe Mucus Plugging Causing Acute Hypoxic Respiratory Failure and Delayed Hemoptysis in a Renal Transplant Recipient Without Chronic Pulmonary Disease”, Cureus 18:e108907 (2026), https://doi.org/10.7759/cureus.108907 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13265034.1/cureus-0018-00000108907-i01.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## peds-croup-steeple-2019.jpg
+- Croup: steeple sign on a frontal neck film — Frontal soft-tissue neck film of a child with croup in which the subglottic air column tapers to a point, giving the church-steeple shape.
+- Author: Yang WC, Hsu YL, Chen CY, Peng YC, Chen JN, Fu YC, Chang YJ, Lee EP, Lin MJ, Wu HP.
+- Source: “Initial radiographic tracheal ratio in predicting clinical outcomes in croup in children”, Scientific reports 9:17893 (2019), https://doi.org/10.1038/s41598-019-54140-y — https://pmc-oa-opendata.s3.amazonaws.com/PMC6884517.1/41598_2019_54140_Fig2_HTML.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; one panel taken from the figure (region x 0.00–0.49, y 0.00–1.00 of the original); no other crop, mirroring or filtering.
+
+## peds-epiglottitis-thumb-2026.jpg
+- Epiglottitis: thumb sign on a lateral neck film — Lateral soft-tissue neck film from a case of Haemophilus influenzae epiglottitis; the arrow points to a swollen, rounded epiglottis in the place of the normal thin leaf-like shadow.
+- Author: Madalena Ferreira, Luzia Condessa, Margarida Roquette, Rita Antão, Carina Cardoso, Margarida Chaves
+- Source: “Haemophilus influenzae Epiglottitis: A Rare Disease Not to Be Forgotten”, Cureus 18:e101680 (2026), https://doi.org/10.7759/cureus.101680 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12906715.1/cureus-0018-00000101680-i01.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## peds-irds-preterm-haggstrom.jpg
+- Neonatal respiratory distress syndrome in a 29-week infant — Day-one film of a 29-week preterm boy showing low-volume, bell-shaped lungs with diffuse fine granular (ground-glass) opacity and air bronchograms, with umbilical lines and a gastric tube in place.
+- Author: Mikael Häggström, M.D.
+- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:X-ray_of_infant_respiratory_distress_syndrome_(IRDS).png
+- Licence: CC0 (http://creativecommons.org/publicdomain/zero/1.0/deed.en)
+- Changes: Converted to JPEG; padded by one black pixel to even dimensions; no crop, mirroring or filtering.
+
+## ct-dissection-type-a-arch-flap-2025.jpg
+- Type A dissection: flap through the aortic arch — Axial contrast CT at the level of the aortic arch in a patient with Stanford type A dissection, showing a thin intimal flap running the length of the arch and splitting it into two contrast-filled channels.
+- Author: Heloise Paccaud, Guérisse Fabien, Michael Beauprez, Quentin Vangyte
+- Source: “Stanford Type A Aortic Dissection Manifesting as Acute Lower Limb Ischemia”, Cureus 17:e98241 (2025), https://doi.org/10.7759/cureus.98241 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12755286.1/cureus-0017-00000098241-i01.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## ct-aaa-intact-66mm-coronal-2025.jpg
+- Intact infrarenal abdominal aortic aneurysm — Coronal CT showing a 66 mm infrarenal abdominal aortic aneurysm with calcified walls and no surrounding haematoma, found incidentally in a patient being scanned for diverticulitis.
+- Author: Jesse O'Rorke, Greyson Butler, John A Moss
+- Source: “Management of Acute Diverticulitis and Incidental Abdominal Aortic Aneurysm in a 67-Year-Old Male: A Case Report of Balancing Priorities in a High-Risk Patient”, Cureus 17:e78987 (2025), https://doi.org/10.7759/cureus.78987 — https://pmc-oa-opendata.s3.amazonaws.com/PMC11910892.1/cureus-0017-00000078987-i02.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; one panel taken from the figure (region x 0.34–0.84, y 0.00–0.97 of the original); padded by one black pixel to even dimensions; no other crop, mirroring or filtering.
+
+## ct-renal-malperfusion-dissection-fl-2025.jpg
+- Renal malperfusion from aortic dissection — Coronal CT angiogram of both kidneys in acute type B dissection: the right kidney enhances brightly while the left kidney, supplied from the false lumen, is patchy and poorly enhanced.
+- Author: Yang C, Shao S, Leng X, Qi W, Chen Y, Huang L, Xu L, Luo Y.
+- Source: “Computational Fluid Dynamics in Predicting Renal Malperfusion After Aortic Dissection Repair”, JACC. Case reports 31:106060 (2025), https://doi.org/10.1016/j.jaccas.2025.106060 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12926182.1/gr2.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; one panel taken from the figure (region x 0.01–0.24, y 0.07–0.28 of the original); no other crop, mirroring or filtering.
+
+## ct-renal-hypoperfusion-type-b-renal-level-2026.jpg
+- Dissection at renal level with poor kidney enhancement — Axial contrast CT at the level of the renal arteries in acute type B dissection, with a false lumen beside a narrowed true lumen and both kidneys enhancing much less than the aorta.
+- Author: Kurobe H, Higaki T, Fukunishi T, Nishimura T, Izutani H.
+- Source: “Successful thoracic endovascular aortic repair for complicated Stanford type B acute aortic dissection with acute renal failure and vascular remodelling after intervention: case report and 5-year follow-up”, European heart journal. Case reports 10:ytag336 (2026), https://doi.org/10.1093/ehjcr/ytag336 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13195809.1/ytag336f1.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; one panel taken from the figure (region x 0.00–0.49, y 0.70–1.00 of the original); no other crop, mirroring or filtering.
+
+## ct-sma-embolism-coronal-2023.jpg
+- Superior mesenteric artery embolism — Coronal contrast CT showing the superior mesenteric artery filling normally near its origin and then stopping abruptly at an embolus in its mid-portion.
+- Author: Aoki R, Kato S, Nakajima K, Sakai J, Yoshida K, Masui H, Ikeda S, Yoshigi J, Utsunomiya D.
+- Source: “Superior mesenteric artery embolism associated with Cisplatin-induced aortic thrombosis”, BJR case reports 9:20220149 (2023), https://doi.org/10.1259/bjrcr.20220149 — https://pmc-oa-opendata.s3.amazonaws.com/PMC10513010.1/bjrcr.20220149.g002.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; one panel taken from the figure (region x 0.00–0.47, y 0.53–1.00 of the original); no other crop, mirroring or filtering.
+
+## ct-gastric-pneumatosis-portal-gas-2026.jpg
+- Gas in the stomach wall with portal venous gas — Axial contrast CT of the upper abdomen showing gas bubbles tracking within the wall of a distended stomach, together with branching gas in the portal veins of the left liver.
+- Author: Harsh V Baranwal, Muskan Dugar, Ronit Biswas, Sumit Sharma, Vivek Katiyar
+- Source: “Gas Beyond the Lumen: Gastric Pneumatosis With Portal Venous Gas Following Blunt Abdominal Trauma”, Cureus 18:e106116 (2026), https://doi.org/10.7759/cureus.106116 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13128150.1/cureus-0018-00000106116-i01.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; 1 region(s) with identifiers or burnt-in text blacked out; one panel taken from the figure (region x 0.48–0.99, y 0.19–0.75 of the original); no other crop, mirroring or filtering.
+
+## ct-sbo-coronal-feces-sign-2026.jpg
+- Small bowel obstruction with small-bowel feces sign — Coronal non-contrast CT showing multiple dilated, fluid-filled small-bowel loops filling the lower abdomen and pelvis, with a segment of mottled gas and debris marking the region just before the transition point.
+- Author: Erum U, Jamil OBK, Shahid R, Noman A, Imtiaz S, Zafar Z, Babar M.
+- Source: “Strangulated transomental hernia causing small bowel obstruction in a virgin abdomen”, Journal of surgical case reports 2026:rjag586 (2026), https://doi.org/10.1093/jscr/rjag586 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13371963.1/rjag586f2.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; 2 region(s) with identifiers or burnt-in text blacked out; padded by one black pixel to even dimensions; no crop, mirroring or filtering.
+
+## ct-pneumoperitoneum-large-2026.jpg
+- Large-volume pneumoperitoneum — Axial contrast CT of the upper abdomen showing a large collection of free air filling the front of the peritoneal cavity and pushing the bowel loops toward the back.
+- Author: Yifan Liu, Michael Auld, Geoffrey Stieler
+- Source: “The Silent Abdomen: The Conservative Management of Large Idiopathic Pneumoperitoneum”, Cureus 18:e109171 (2026), https://doi.org/10.7759/cureus.109171 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13276633.1/cureus-0018-00000109171-i01.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## ct-splenic-laceration-hemoperitoneum-2025.jpg
+- Splenic injury with haemoperitoneum — Axial and coronal contrast CT after an iatrogenic splenic laceration showing a large perisplenic haematoma and blood around the liver.
+- Author: Bertch A, Motika C.
+- Source: “Splenic laceration following routine colonoscopy: a case report”, Journal of surgical case reports 2025:rjaf940 (2025), https://doi.org/10.1093/jscr/rjaf940 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12646259.1/rjaf940f1.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; one panel taken from the figure (region x 0.00–1.00, y 0.00–0.90 of the original); padded by one black pixel to even dimensions; no other crop, mirroring or filtering.
+
+## ct-splenic-rupture-hemoperitoneum-axial-2026.jpg
+- Splenic rupture with subcapsular haematoma — Axial contrast CT showing an enlarged spleen wrapped by a crescent of subcapsular haematoma, with fluid also tracking around the liver.
+- Author: Kiara Sejfullai, Federica Giannini, Martina Sorrentino
+- Source: “Spontaneous Splenic Rupture Associated With Cytomegalovirus Infection: A Case Report”, Cureus 18:e111978 (2026), https://doi.org/10.7759/cureus.111978 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13428986.1/cureus-0018-00000111978-i01.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## fast-luq-positive-scandj-2023.jpg
+- Positive FAST: fluid in the splenorenal space — Left upper quadrant FAST view in a trauma patient with a black stripe of free blood lying between the spleen and the left kidney.
+- Author: Latif RK, Clifford SP, Baker JA, Lenhardt R, Haq MZ, Huang J, Farah I, Businger JR.
+- Source: “Traumatic hemorrhage and chain of survival”, Scandinavian journal of trauma, resuscitation and emergency medicine 31:25 (2023), https://doi.org/10.1186/s13049-023-01088-8 — https://pmc-oa-opendata.s3.amazonaws.com/PMC10207757.1/13049_2023_1088_Fig3_HTML.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; 1 region(s) with identifiers or burnt-in text blacked out; one panel taken from the figure (panel b (LUQ view)); no other crop, mirroring or filtering.
+
+## fast-pelvis-negative-pocus-2021.jpg
+- Negative FAST: normal transverse pelvic view — Transverse suprapubic view in a man showing a full, round, black bladder with no dark fluid around or behind it.
+- Author: Fasseaux A, Pès P, Steenebruggen F, Dupriez F.
+- Source: “Are seminal vesicles a potential pitfall during pelvic exploration using point-of-care ultrasound (POCUS)?”, The ultrasound journal 13:14 (2021), https://doi.org/10.1186/s13089-021-00209-7 — https://pmc-oa-opendata.s3.amazonaws.com/PMC7919994.2/13089_2021_209_Fig2_HTML.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; one panel taken from the figure (ultrasound panel only (drawing on the left removed)); padded by one black pixel to even dimensions; no other crop, mirroring or filtering.
+
+## fast-pelvis-seminal-vesicles-2021.jpg
+- Pelvic FAST pitfall: seminal vesicles — Transverse pelvic view angled low in a man, where the paired seminal vesicles form a thin dark band behind the bladder that is not free fluid.
+- Author: Fasseaux A, Pès P, Steenebruggen F, Dupriez F.
+- Source: “Are seminal vesicles a potential pitfall during pelvic exploration using point-of-care ultrasound (POCUS)?”, The ultrasound journal 13:14 (2021), https://doi.org/10.1186/s13089-021-00209-7 — https://pmc-oa-opendata.s3.amazonaws.com/PMC7919994.2/13089_2021_209_Fig1_HTML.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; one panel taken from the figure (ultrasound panel only (drawing on the left removed)); padded by one black pixel to even dimensions; no other crop, mirroring or filtering.
+
+## fast-pericardial-positive-focus-2026.jpg
+- Subxiphoid view: large pericardial effusion — Subxiphoid four-chamber view with a wide black rim of fluid surrounding the whole heart, compressing the right-sided chambers.
+- Author: H. A. Nati-Castillo, Martin Ocampo-Posada, Wilfredo Antonio Rivera-Martínez, Fredy Lizarazo Davila, Alice Gaibor-Pazmiño, Marlon Rojas-Cadena, Juan S. Izquierdo-Condoy
+- Source: “Myxedema-related cardiac tamponade diagnosed by focused cardiac ultrasound (FoCUS): a case report”, Frontiers in cardiovascular medicine 13:1753361 (2026), https://doi.org/10.3389/fcvm.2026.1753361 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12920499.1/fcvm-13-1753361-g001.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; one panel taken from the figure (panel B (subxiphoid four-chamber view)); padded by one black pixel to even dimensions; no other crop, mirroring or filtering.
+
+## ij-compression-gillman-2010.mp4
+- IJ vein flattens under probe pressure — Short-axis neck clip before a left internal jugular line, where gentle probe pressure fully flattens the vein while the round carotid stays open.
+- Author: Gillman L, Blaivas M, Lord J, Al-Kadi A, Kirkpatrick A
+- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Ultrasound-confirmation-of-guidewire-position-may-eliminate-accidental-arterial-dilatation-during-1757-7241-18-39-S3.ogv
+- Licence: CC BY 2.0 (https://creativecommons.org/licenses/by/2.0)
+- Changes: Original OGV (theora, 640×480, 15.0 fps, 6.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; the scanner’s top status bar blacked out; audio none in the source; no crop, mirroring, speed change or other filtering. Poster = frame at 1.0 s.
+
+## chest-drain-unit-atrium.jpg
+- Water-seal chest drainage unit — A disposable three-chamber water-seal chest drain standing upright, with its collection columns, water-seal and suction-control chambers and tubing.
+- Author: Johntex
+- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Chest_drain_-_empty.jpg
+- Licence: CC BY 2.5 (https://creativecommons.org/licenses/by/2.5)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## chest-drain-unit-bedside.jpg
+- Chest drain in use at the bedside — A water-seal chest drainage unit on the floor beside a hospital bed, connected to its patient tube with bloody drainage in the first collection column.
+- Author: Johntex
+- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Chest_drain_-_bedside_with_fluids.jpg
+- Licence: CC BY 2.5 (https://creativecommons.org/licenses/by/2.5)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## needle-decompression-site-cureus-2022.jpg
+- Where paramedics placed needle decompression — A volunteer's bare chest with the 2nd intercostal space at the mid-clavicular line starred and dots showing the sites paramedics chose, many too medial or too low.
+- Author: Jeffrey S Lubin, Joshua Knapp, Maude L Kettenmann
+- Source: “Paramedic Understanding of Tension Pneumothorax and Needle Thoracostomy (NT) Site Selection”, Cureus 14:e27013 (2022), https://doi.org/10.7759/cureus.27013 — https://pmc-oa-opendata.s3.amazonaws.com/PMC9386319.1/cureus-0014-00000027013-i01.jpg
+- Licence: CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
 ## Considered and rejected
 
 - Open Critical Care anesthesia POCUS pocket card (2022): No licence stated; images credited “courtesy of” third parties (JACC, austincc.edu, echocardiographer.org). Used for facts only, in our own words.

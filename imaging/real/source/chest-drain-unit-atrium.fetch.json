@@ -1,0 +1,21 @@
+{
+ "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/34/Chest_drain_-_empty.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+ "pageUrl": "https://commons.wikimedia.org/wiki/File:Chest_drain_-_empty.jpg",
+ "originalName": "Chest drain - empty.jpg",
+ "mime": "image/jpeg",
+ "bytes": 3000898,
+ "sha1": "d57732552b6b2959df83272fe03acf00d8f6377c",
+ "width": 3456,
+ "height": 2304,
+ "license": "CC BY 2.5",
+ "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+ "licenseEvidence": "Wikimedia Commons API extmetadata for File:Chest drain - empty.jpg: LicenseShortName = “CC BY 2.5”, UsageTerms = “Creative Commons Attribution 2.5” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AChest+drain+-+empty.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+ "authors": "Johntex",
+ "credit": "Own work Johntex",
+ "published": "2006-11",
+ "description": "chest drain - empty",
+ "restrictions": "",
+ "id": "chest-drain-unit-atrium",
+ "retrieved": "2026-10-09T16:42Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

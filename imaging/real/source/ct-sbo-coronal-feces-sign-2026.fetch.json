@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC13371963",
+ "pageUrl": "https://doi.org/10.1093/jscr/rjag586",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "This is an Open Access article distributed under the terms of the Creative Commons Attribution License ( https://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited.",
+ "authors": "Erum U, Jamil OBK, Shahid R, Noman A, Imtiaz S, Zafar Z, Babar M.",
+ "title": "Strangulated transomental hernia causing small bowel obstruction in a virgin abdomen",
+ "publication": "Journal of surgical case reports",
+ "published": "2026-07-15",
+ "doi": "10.1093/jscr/rjag586",
+ "volume": "2026",
+ "firstpage": "rjag586",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13371963.1/rjag586f2.jpg",
+ "originalName": "rjag586f2.jpg",
+ "description": "Figure 2 Coronal non-contrast CT image showing clustered dilated ileal loops in the lower abdomen and pelvis, with narrowing toward the transition point.",
+ "thirdParty": false,
+ "figure": "f2",
+ "licenseEvidence": "Europe PMC full text of PMC13371963 (doi 10.1093/jscr/rjag586), <license>: “This is an Open Access article distributed under the terms of the Creative Commons Attribution License ( https://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited.”; Figure 2 caption checked for a separate credit.",
+ "id": "ct-sbo-coronal-feces-sign-2026",
+ "retrieved": "2026-10-09T16:42Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}
