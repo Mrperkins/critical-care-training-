@@ -7265,7 +7265,8 @@
    "licenseClaimed": "CC0",
    "pageUrl": "https://commons.wikimedia.org/wiki/File:Axial_plane_ultrasound_at_the_navel.jpg",
    "marks": [],
-   "claimedBy": "discovery round 4 (media-candidates branch), reviewed visually"
+   "claimedBy": "discovery round 4 (media-candidates branch), reviewed visually",
+   "expect": "image"
   }
  ]
 }

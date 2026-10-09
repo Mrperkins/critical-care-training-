@@ -1,0 +1,1 @@
+Round 5b: retry aorta-normal-us-axial-haggstrom as a still image (expect: image).
