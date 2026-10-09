@@ -1627,3 +1627,9 @@ body{font:14px/1.5 var(--fb);background:var(--bezel)}
 .dg-zero{position:absolute;left:0;right:0;top:50%;border-top:1px dashed var(--mute)}
 .dg-bub{min-height:84px;display:grid;place-items:center;padding:0 6px;border-radius:6px;border:1px solid var(--line2);color:var(--dim);font-size:12px;width:100%}
 .dg-bub.on{border-color:#6fb3c4;color:var(--ink);background:rgba(111,179,196,.12)}
+@media(max-width:1180px){.study-frame{min-height:0;aspect-ratio:4/3;max-height:58vh}}
+@media(max-width:760px){
+  .scene-wrap .view-btns{top:52px;left:8px;max-width:calc(100% - 16px)}
+  .scene-wrap:has(.view-btns) .imaging{padding-top:98px}
+  .scene-wrap:has(.view-btns) .scene-primary-tools{top:98px}
+}
