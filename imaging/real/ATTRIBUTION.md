@@ -618,6 +618,104 @@ Real, openly licensed clinical images shown beside the synthetic ones. Only CC0 
 - Licence: CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)
 - Changes: None — the displayed file is the original, byte for byte.
 
+## fast-pericardial-negative-subcostal-2020.jpg
+- Normal subcostal four-chamber view — Subcostal four-chamber view through the liver showing all four chambers with the pericardium lying directly against the heart and no anechoic fluid stripe.
+- Author: Rajkumar Rajendram, Arif Hussain, Naveed Mahmood, Mubashar Kharal
+- Source: “Feasibility of using a handheld ultrasound device to detect and characterize shunt and deep vein thrombosis in patients with COVID-19: an observational study”, The ultrasound journal 12:49 (2020), https://doi.org/10.1186/s13089-020-00197-0 — https://pmc-oa-opendata.s3.amazonaws.com/PMC7702202.2/13089_2020_197_Fig3_HTML.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; one panel taken from the figure (region x 0.00–0.33, y 0.00–1.00 of the original); padded by one black pixel to even dimensions; no other crop, mirroring or filtering.
+
+## lus-lung-pulse-mmode-cureus-2025.jpg
+- Lung pulse on M-mode — M-mode trace through the pleural line showing regular vertical flickers in time with the heartbeat while the usual seashore granularity of sliding is absent.
+- Author: Keith Killu, Monika Kakol
+- Source: “Practical Applications of Lung and Diaphragm Ultrasound in the Intensive Care Unit: An Updated Narrative Review”, Cureus 17:e88584 (2025), https://doi.org/10.7759/cureus.88584 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12309786.1/cureus-0017-00000088584-i02.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; one panel taken from the figure (region x 0.66–1.00, y 0.54–1.00 of the original); padded by one black pixel to even dimensions; no other crop, mirroring or filtering.
+
+## ij-thrombus-compression-cureus-2025.jpg
+- Internal jugular thrombus that does not compress — Paired transverse views of the left internal jugular vein before and during probe compression: the vein holds its shape and contains echogenic clot, while a normal vein would collapse.
+- Author: Vaaragie Subramaniam, William Echols, Jessica Houck
+- Source: “Atypical Presentation of Lemierre Syndrome Without an Oropharyngeal Source in a Young Adult Male Patient”, Cureus 17:e95740 (2025), https://doi.org/10.7759/cureus.95740 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12664772.1/cureus-0017-00000095740-i02.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## ij-thrombus-longitudinal-cureus-2026.jpg
+- Internal jugular thrombus, long axis — Long-axis view of the left internal jugular vein with grey echogenic clot stuck to the wall, filling much of the lumen.
+- Author: Nikolaos I Davanellos, Despoina Paraskeva, Dimitrios Argiropoulos, Michalis Apergis, Christina Pachi, Ioannis Maragkos, Nikolaos Palyvos
+- Source: “Lemierre Syndrome Presenting With Septic Pulmonary Emboli: A Case Report and Diagnostic Challenges”, Cureus 18:e109678 (2026), https://doi.org/10.7759/cureus.109678 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13296912.1/cureus-0018-00000109678-i02.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## cxr-tension-ptx-right-hydatid-2023.jpg
+- Right tension pneumothorax (portable film) — Supine portable film with a black, markings-free right chest, the right lung shrunk toward the hilum and the heart pushed into the left chest.
+- Author: Rezaei R, Sadidi H, Taqanaki PB.
+- Source: “Tension pneumothorax caused by the ruptured hydatid cyst of the lung”, Clinical case reports 11:e07542 (2023), https://doi.org/10.1002/ccr3.7542 — https://pmc-oa-opendata.s3.amazonaws.com/PMC10323720.1/CCR3-11-e07542-g001.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; 3 region(s) with identifiers or burnt-in text blacked out; padded by one black pixel to even dimensions; no crop, mirroring or filtering.
+
+## cxr-tension-ptx-right-covid-2022.jpg
+- Right tension pneumothorax in COVID-19 pneumonia — Portable film of a ventilated-lung-disease patient showing a hyperlucent right chest with the heart and trachea displaced to the left, while the left lung stays hazy from pneumonia.
+- Author: Ata F, Yousaf Z, Farsakoury R, Khan AA, Arshad A, Omran M, Ananthegowda DC, Khatib M, Chughtai TS.
+- Source: “Spontaneous tension pneumothorax as a complication of Coronavirus disease 2019: Case report and literature review”, Clinical case reports 10:e05852 (2022), https://doi.org/10.1002/ccr3.5852 — https://pmc-oa-opendata.s3.amazonaws.com/PMC9083808.2/CCR3-10-0-g003.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; 1 region(s) with identifiers or burnt-in text blacked out; one panel taken from the figure (region x 0.55–1.00, y 0.00–1.00 of the original); padded by one black pixel to even dimensions; no other crop, mirroring or filtering.
+
+## peds-bronchiolitis-hyperinflation-commons.jpg
+- Bronchiolitis: hyperinflation with patchy atelectasis — Newborn chest film with over-expanded lungs, low flat diaphragms and patchy collapse at the right apex and left base.
+- Author: Matteo Di Nardo, Daniela Perrotta, Francesca Stoppa, Corrado Cecchetti, Marco Marano and Nicola Pirozzi
+- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Bronchiolitis_chest_X-ray.jpg
+- Licence: CC BY 2.0 (https://creativecommons.org/licenses/by/2.0)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## peds-pneumonia-bocavirus-commons.jpg
+- Viral pneumonia in a toddler — Intubated 16-month-old with dense right upper and central opacity and patchy infiltrates in the left lung from viral pneumonia.
+- Author: Alma Jula, Matti Waris, Kalle Kantola, Ville Peltola, Maria Söderlund-Venermo, Klaus Hedman, and Olli Ruuskanen
+- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Human_bocavirus_1_pneumonia.jpg
+- Licence: Public Domain (https://creativecommons.org/publicdomain/mark/1.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## ct-dissection-type-a-ascending-flap-2022.jpg
+- Type A dissection: flap in the ascending aorta — Axial contrast CT at the level of the pulmonary artery showing a thin dividing membrane running through the enlarged ascending aorta.
+- Author: Zhang Q, Yang DD, Xu YF, Qiu YG, Zhang ZY.
+- Source: “De Winter electrocardiogram pattern due to type A aortic dissection: a case report”, BMC cardiovascular disorders 22:150 (2022), https://doi.org/10.1186/s12872-022-02596-8 — https://pmc-oa-opendata.s3.amazonaws.com/PMC8981714.1/12872_2022_2596_Fig4_HTML.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; one panel taken from the figure (region x 0.00–0.60, y 0.00–1.00 of the original); padded by one black pixel to even dimensions; no other crop, mirroring or filtering.
+
+## ct-dissection-type-a-ascending-tear-2020.jpg
+- Type A dissection with flaps in ascending and descending aorta — Axial CT angiogram with an intimal flap curling through the ascending aorta and a second channel in the descending aorta at the same level.
+- Author: Zhang K, Dong SB, Pan XD, Sun LZ.
+- Source: “The onset of acute type A aortic dissection following recovery of type B intramural haematoma: a case report”, BMC cardiovascular disorders 20:162 (2020), https://doi.org/10.1186/s12872-020-01440-1 — https://pmc-oa-opendata.s3.amazonaws.com/PMC7137196.1/12872_2020_1440_Fig3_HTML.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; one panel taken from the figure (region x 0.00–0.34, y 0.00–1.00 of the original); no other crop, mirroring or filtering.
+
+## ct-aaa-mural-thrombus-8cm-2021.jpg
+- Intact 8 cm AAA with mural thrombus — Axial contrast CT of a large infrarenal aneurysm: a bright, off-centre flow channel surrounded by a thick grey rim of thrombus inside a calcified wall, with no surrounding blood.
+- Author: Peña R, Valverde S, Alcázar JA, Cebrián P, González-Porras JR, Lozano FS.
+- Source: “Abdominal aortic aneurysm and acute appendicitis: a case report and review of the literature”, Journal of medical case reports 15:203 (2021), https://doi.org/10.1186/s13256-021-02703-x — https://pmc-oa-opendata.s3.amazonaws.com/PMC8052834.1/13256_2021_2703_Fig1_HTML.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; one panel taken from the figure (region x 0.00–0.49, y 0.00–1.00 of the original); no other crop, mirroring or filtering.
+
+## ct-pneumatosis-colon-wall-2021.jpg
+- Pneumatosis of the ascending colon — Axial CT on a lung window showing streaks and bubbles of gas tracking within the wall of the ascending colon (arrowheads).
+- Author: Toda S, Iwasaki H, Murayama D, Isoda M, Nakayama H, Suganuma N, Masudo K.
+- Source: “Pneumatosis intestinalis associated with lenvatinib during thyroid cancer treatment: a case report”, Journal of medical case reports 15:556 (2021), https://doi.org/10.1186/s13256-021-03158-w — https://pmc-oa-opendata.s3.amazonaws.com/PMC8588671.1/13256_2021_3158_Fig3_HTML.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## ct-pneumatosis-cystoides-coronal-2021.jpg
+- Cystic pneumatosis of the splenic flexure — Coronal CT showing clusters of round gas cysts in the colonic wall at the splenic flexure with a trace of free air under the diaphragm.
+- Author: Lebby E, Hanna M, Bui TL, Rudd A, Lee W, Houshyar R.
+- Source: “Pneumatosis cystoides intestinalis in a trauma patient presenting with pneumoperitoneum: a case report”, Journal of medical case reports 15:597 (2021), https://doi.org/10.1186/s13256-021-03183-9 — https://pmc-oa-opendata.s3.amazonaws.com/PMC8680031.1/13256_2021_3183_Fig1_HTML.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; one panel taken from the figure (region x 0.27–0.67, y 0.00–1.00 of the original); padded by one black pixel to even dimensions; no other crop, mirroring or filtering.
+
+## ct-mesenteric-injury-hemoperitoneum-2026.jpg
+- Blunt mesenteric injury with active bleeding — Axial contrast CT after blunt abdominal trauma showing bright contrast blushes in the mesentery and free fluid in the lower abdomen.
+- Author: Gottam B, McCoy CE.
+- Source: “Bucket Handle Injury in Blunt Abdominal Trauma”, Clinical practice and cases in emergency medicine 10:219-221 (2026), https://doi.org/10.5811/cpcem.48848 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13135440.1/cpcem-10-219-g001.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
 ## Considered and rejected
 
 - Open Critical Care anesthesia POCUS pocket card (2022): No licence stated; images credited “courtesy of” third parties (JACC, austincc.edu, echocardiographer.org). Used for facts only, in our own words.

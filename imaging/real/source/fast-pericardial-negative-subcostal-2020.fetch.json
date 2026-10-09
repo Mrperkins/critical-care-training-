@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC7702202",
+ "pageUrl": "https://doi.org/10.1186/s13089-020-00197-0",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original auth",
+ "authors": "Rajkumar Rajendram, Arif Hussain, Naveed Mahmood, Mubashar Kharal",
+ "title": "Feasibility of using a handheld ultrasound device to detect and characterize shunt and deep vein thrombosis in patients with COVID-19: an observational study",
+ "publication": "The ultrasound journal",
+ "published": "2020-11-30",
+ "doi": "10.1186/s13089-020-00197-0",
+ "volume": "12",
+ "firstpage": "49",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC7702202.2/13089_2020_197_Fig3_HTML.jpg",
+ "originalName": "13089_2020_197_Fig3_HTML.jpg",
+ "description": "Fig. 3 Intrapulmonary shunt in a mechanically ventilated patient with consolidated lung. Intrapulmonary shunt in a mechanically ventilated patient with consolidated lung. a Labeled 2-D subcostal 4-chamber transthoracic echocardiographic (TTE) view of the heart. RA right atrium, RV right ventricle, LA left atrium, LV left ventricle. b 2-D subcostal 4-chamber echocardiographic view of the heart after i.v. injection of saline microbubble contrast showing the arrival of the contrast in the RA and RV. c Labeled 2-D subcostal 4-chamber echocardiographic view of the heart after i.v. injection of saline microbubble contrast demonstrating grade 3 shunt (> 25 bubbles). Bubbles appeared in the left ventricle 5 cardiac cycles after opacification of the right ventricle suggesting the presence of an intrapulmonary shunt",
+ "thirdParty": false,
+ "figure": "Fig3",
+ "licenseEvidence": "Europe PMC full text of PMC7702202 (doi 10.1186/s13089-020-00197-0), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original auth”; Fig. 3 caption checked for a separate credit.",
+ "id": "fast-pericardial-negative-subcostal-2020",
+ "retrieved": "2026-10-09T17:10Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

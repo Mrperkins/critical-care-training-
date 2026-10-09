@@ -1,0 +1,21 @@
+{
+ "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Axial_plane_ultrasound_at_the_navel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+ "pageUrl": "https://commons.wikimedia.org/wiki/File:Axial_plane_ultrasound_at_the_navel.jpg",
+ "originalName": "Axial plane ultrasound at the navel.jpg",
+ "mime": "image/jpeg",
+ "bytes": 79258,
+ "sha1": "74e802374264af9be8cb25e30cbf92c300780002",
+ "width": 618,
+ "height": 486,
+ "license": "CC0",
+ "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+ "licenseEvidence": "Wikimedia Commons API extmetadata for File:Axial plane ultrasound at the navel.jpg: LicenseShortName = “CC0”, UsageTerms = “Creative Commons Zero, Public Domain Dedication” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AAxial+plane+ultrasound+at+the+navel.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+ "authors": "Mikael Häggström, M.D.",
+ "credit": "Own work",
+ "published": "2018-01-24",
+ "description": "Abdominal ultrasound in the axial plane at the level of the navel of a 31 year old man, showing normal anatomy. It uses compression to decrease the distance to the aorta for better visualization, resulting in flat shapes of the inferior mesenteric vein and the inferior vena cava .",
+ "restrictions": "",
+ "id": "aorta-normal-us-axial-haggstrom",
+ "retrieved": "2026-10-09T17:10Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

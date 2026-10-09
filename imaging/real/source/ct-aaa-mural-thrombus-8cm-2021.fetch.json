@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC8052834",
+ "pageUrl": "https://doi.org/10.1186/s13256-021-02703-x",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C",
+ "authors": "Peña R, Valverde S, Alcázar JA, Cebrián P, González-Porras JR, Lozano FS.",
+ "title": "Abdominal aortic aneurysm and acute appendicitis: a case report and review of the literature",
+ "publication": "Journal of medical case reports",
+ "published": "2021-04-17",
+ "doi": "10.1186/s13256-021-02703-x",
+ "volume": "15",
+ "firstpage": "203",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC8052834.1/13256_2021_2703_Fig1_HTML.jpg",
+ "originalName": "13256_2021_2703_Fig1_HTML.jpg",
+ "description": "Fig. 1 Preoperative computed tomography (transverse sections): a Aortic abdominal aneurysm of 8 cm (antero-posterior) × 8.5 cm (transversal), without signs of rupture (no free liquid or signs of retroperitoneal hematoma are visible), and radiological signs of intrathrombal hemorrhage (arrow). b Thickening of the sigmoid wall and slight increase in the echogenicity of the adjacent fat (5 cm in length). Inflamed appendix and increased echogenicity of adjacent fat (arrows)",
+ "thirdParty": false,
+ "figure": "Fig1",
+ "licenseEvidence": "Europe PMC full text of PMC8052834 (doi 10.1186/s13256-021-02703-x), <license>: “Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C”; Fig. 1 caption checked for a separate credit.",
+ "id": "ct-aaa-mural-thrombus-8cm-2021",
+ "retrieved": "2026-10-09T17:10Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

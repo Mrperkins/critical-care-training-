@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC8981714",
+ "pageUrl": "https://doi.org/10.1186/s12872-022-02596-8",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C",
+ "authors": "Zhang Q, Yang DD, Xu YF, Qiu YG, Zhang ZY.",
+ "title": "De Winter electrocardiogram pattern due to type A aortic dissection: a case report",
+ "publication": "BMC cardiovascular disorders",
+ "published": "2022-04-05",
+ "doi": "10.1186/s12872-022-02596-8",
+ "volume": "22",
+ "firstpage": "150",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC8981714.1/12872_2022_2596_Fig4_HTML.jpg",
+ "originalName": "12872_2022_2596_Fig4_HTML.jpg",
+ "description": "Fig. 4 Computed tomography scan of the chest",
+ "thirdParty": false,
+ "figure": "Fig4",
+ "licenseEvidence": "Europe PMC full text of PMC8981714 (doi 10.1186/s12872-022-02596-8), <license>: “Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C”; Fig. 4 caption checked for a separate credit.",
+ "id": "ct-dissection-type-a-ascending-flap-2022",
+ "retrieved": "2026-10-09T17:10Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}
