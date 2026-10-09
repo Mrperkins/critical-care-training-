@@ -12,6 +12,7 @@ import { atlasLayers } from '../src/atlas/PatientScene';
 import { DISEASE_BY_ID } from '../src/atlas/registry';
 import { effusionThickness, type PericardiumMapping } from '../src/asset/anatomy';
 import type { DiseaseState } from '../src/atlas/types';
+import { vesselCentrelines } from '../src/heart/heartGeometry';
 
 const json = (f: string) => JSON.parse(fs.readFileSync('public/models/' + f, 'utf8'));
 const body = json('body.mapping.json').centres as Record<string, number[]>;
@@ -103,6 +104,19 @@ describe('atlas layers', () => {
   it('swells the supraglottis in upper-airway obstruction and narrows the subglottis in croup', () => {
     expect(atlasLayers(DISEASE_BY_ID['upper-airway-obstruction'], s({ edema: 0.8 })).airway).toEqual({ edema: 0.8, site: 'supraglottic' });
     expect(atlasLayers(DISEASE_BY_ID.croup, s({ obstruction: 0.6 })).airway!.site).toBe('subglottic');
+  });
+  it('shapes pathology on the real vessels and pleura instead of placeholder blobs', () => {
+    const pe = atlasLayers(DISEASE_BY_ID['pulmonary-embolism'], s({ obstruction: 0.8 })); expect(pe.pe!.extent).toBe(0.8); expect(pe.xray).toContain('lung_R');
+    expect(atlasLayers(DISEASE_BY_ID['aortic-dissection'], s({ obstruction: 0.6, pressure: 0.7 })).dissection).toEqual({ compression: 0.6, wallStress: 0.7 });
+    expect(atlasLayers(DISEASE_BY_ID['rupturing-aaa'], s({ overdistension: 0.8, bleeding: 0.9 })).aneurysm).toEqual({ dilation: 0.8, bleeding: 0.9 });
+    expect(atlasLayers(DISEASE_BY_ID.hemothorax, s({ bleeding: 0.7 })).pleural).toEqual({ air: 0, blood: 0.7 });
+    expect(atlasLayers(DISEASE_BY_ID['tension-pneumothorax'], s({ collapse: 0.8 })).pleural!.air).toBe(0.8);
+  });
+  it('measures the pulmonary arteries and aorta on the correct sides', () => {
+    const v = vesselCentrelines();
+    expect(v.lpa[v.lpa.length - 1].p.x).toBeGreaterThan(0.3); expect(v.rpa[v.rpa.length - 1].p.x).toBeLessThan(-0.1); // patient left / right
+    expect(v.desc[v.desc.length - 1].p.z).toBeLessThan(v.asc[0].p.z); // descending aorta is posterior to the root
+    expect(v.asc.every((w) => w.r > 0.04 && w.r < 0.09)).toBe(true); // ~1.6–3.6 cm calibre
   });
   it('shows the right-sided decompression ribs in tension pneumothorax', () => {
     expect(atlasLayers(DISEASE_BY_ID['tension-pneumothorax'], s({})).bones).toEqual(['rib_R2', 'rib_R3', 'rib_R4', 'rib_R5']);

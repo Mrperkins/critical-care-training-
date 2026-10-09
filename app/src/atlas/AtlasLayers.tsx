@@ -6,7 +6,8 @@
  */
 import { useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
-import { useFrame } from '@react-three/fiber';
+import { useFrame, useThree } from '@react-three/fiber';
+import { vesselCentrelines } from '../heart/heartGeometry';
 import { loadSkeleton, loadPericardium, loadNeuroDeep, loadHeartInternals, loadUpperAirway, effusionThickness, CONDUCTION, VENTRICLES, DEEP_NUCLEI, LARYNX, UPPER_SOFT, type Layer, type PericardiumMapping } from '../asset/anatomy';
 import { conductionMaterial, branchOf, cycleMs } from '../scene/conduction';
 
@@ -126,4 +127,92 @@ export function UpperAirwayLayer({ edema = 0, site }: { edema?: number; site?: '
     })}
     {ring && cric && <mesh position={[cric.x, cric.y - 0.02, cric.z + 0.02]} rotation={[Math.PI / 2, 0, 0]} scale={[1, 1, 3.2]} renderOrder={3}><torusGeometry args={[ring.r - ring.tube * 0.4, ring.tube, 16, 40]} /><meshStandardMaterial color="#c25b4f" roughness={0.45} transparent opacity={0.85} /></mesh>}
   </group>;
+}
+
+/* ================================================================== pathology shaped on the real anatomy */
+type W = { p: THREE.Vector3; r: number };
+/** a tube along way points, radius = lumen radius × k (optionally varying along the path) */
+function lumenTube(ws: W[], k: number | ((u: number, r: number) => number), seg = 18) {
+  const curve = new THREE.CatmullRomCurve3(ws.map((w) => w.p), false, 'centripetal'); const n = Math.max(12, ws.length * 10);
+  const g = new THREE.TubeGeometry(curve, n, 1, seg, false); const p = g.attributes.position; const ring = seg + 1; const c = new THREE.Vector3(); const v = new THREE.Vector3();
+  for (let i = 0; i <= n; i++) {
+    const u = i / n; const fi = u * (ws.length - 1); const a = Math.floor(fi), b = Math.min(ws.length - 1, a + 1); const r = ws[a].r + (ws[b].r - ws[a].r) * (fi - a);
+    const rr = typeof k === 'number' ? r * k : k(u, r); curve.getPointAt(u, c);
+    for (let j = 0; j < ring; j++) { const o = i * ring + j; v.fromBufferAttribute(p, o).sub(c).multiplyScalar(rr).add(c); p.setXYZ(o, v.x, v.y, v.z); }
+  }
+  g.computeVertexNormals(); g.deleteAttribute('uv'); return g;
+}
+const cutPath = (ws: W[], frac: number) => { const n = Math.max(2, Math.round(1 + frac * (ws.length - 1))); return ws.slice(0, n); };
+function useDisposable<T extends { dispose: () => void }>(make: () => T, deps: unknown[]) { const x = useMemo(make, deps); useEffect(() => () => x.dispose(), [x]); return x; } // eslint-disable-line react-hooks/exhaustive-deps
+
+/** Pulmonary embolism: a saddle clot astride the bifurcation of the real pulmonary trunk, extending down both
+ *  pulmonary arteries with `extent` (0–1), inside a see-through arterial tree. */
+export function PulmonaryEmbolusLayer({ extent }: { extent: number }) {
+  const v = useMemo(() => vesselCentrelines(), []);
+  const tree = useDisposable(() => { const gs = [lumenTube(v.trunk, 1), lumenTube([v.trunk[v.trunk.length - 1], ...v.rpa], 1), lumenTube([v.trunk[v.trunk.length - 1], ...v.lpa], 1)]; return mergeTubes(gs); }, [v]);
+  const clot = useDisposable(() => {
+    const e = Math.max(0.15, extent); const tip = v.trunk[v.trunk.length - 1];
+    return mergeTubes([lumenTube([v.trunk[v.trunk.length - 2], tip], 0.55), lumenTube([tip, ...cutPath(v.rpa, e)], (u, r) => r * 0.78 * (1 - 0.35 * u)), lumenTube([tip, ...cutPath(v.lpa, e)], (u, r) => r * 0.78 * (1 - 0.35 * u))]);
+  }, [v, Math.round(extent * 20)]);
+  return <group>
+    <mesh geometry={tree} renderOrder={4}><meshStandardMaterial color="#6a6fb8" roughness={0.4} transparent opacity={0.28} depthWrite={false} side={THREE.DoubleSide} /></mesh>
+    <mesh geometry={clot} renderOrder={5}><meshStandardMaterial color="#9e1f33" roughness={0.6} emissive="#7a1020" emissiveIntensity={0.55} /></mesh>
+  </group>;
+}
+
+/** Aortic dissection (Stanford A): the true lumen compressed by a false lumen running along the outer curvature of the
+ *  real ascending aorta, arch and descending thoracic aorta. */
+export function DissectionLayer({ compression, wallStress }: { compression: number; wallStress: number }) {
+  const v = useMemo(() => vesselCentrelines(), []);
+  const ao = useMemo(() => [...v.asc, ...v.desc], [v]);
+  const centre = useMemo(() => ao.reduce((a, w) => a.add(w.p), new THREE.Vector3()).divideScalar(ao.length), [ao]);
+  const tl = useDisposable(() => lumenTube(ao, 1 - 0.4 * compression), [ao, Math.round(compression * 20)]);
+  const fl = useDisposable(() => {
+    // offset each way point outward (away from the arch's centre, perpendicular to the vessel)
+    const curve = new THREE.CatmullRomCurve3(ao.map((w) => w.p), false, 'centripetal');
+    const off: W[] = ao.map((w, i) => { const t = curve.getTangentAt(i / (ao.length - 1)); const out = w.p.clone().sub(centre); out.addScaledVector(t, -out.dot(t)).normalize(); return { p: w.p.clone().addScaledVector(out, w.r * (0.45 + 0.15 * wallStress)), r: w.r }; });
+    return lumenTube(off, 0.45 + 0.2 * wallStress);
+  }, [ao, centre, Math.round(wallStress * 20)]);
+  return <group>
+    <mesh geometry={tl} renderOrder={4}><meshStandardMaterial color="#c8322b" roughness={0.4} transparent opacity={0.55} depthWrite={false} /></mesh>
+    <mesh geometry={fl} renderOrder={5}><meshStandardMaterial color="#6e2a2a" roughness={0.6} transparent opacity={0.92} /></mesh>
+  </group>;
+}
+
+/** Infrarenal abdominal aortic aneurysm measured on the real aorta: slices of body.glb's aorta between the renal level
+ *  and the bifurcation give the centreline and calibre; the sac bulges fusiformly with `dilation`. Rupture adds a
+ *  retroperitoneal haematoma against the sac's left posterolateral wall. */
+export function AneurysmLayer({ aorta, kidneyY, dilation, bleeding = 0 }: { aorta: THREE.BufferGeometry; kidneyY: number; dilation: number; bleeding?: number }) {
+  const path = useMemo(() => {
+    const p = aorta.attributes.position; aorta.computeBoundingBox(); const lo = aorta.boundingBox!.min.y + 0.12, hi = kidneyY - 0.12; const N = 10; const out: W[] = [];
+    for (let i = 0; i <= N; i++) { const y = hi - ((hi - lo) * i) / N; const c = new THREE.Vector3(); let n = 0; const pts: THREE.Vector3[] = []; const v = new THREE.Vector3();
+      for (let k = 0; k < p.count; k++) { v.fromBufferAttribute(p, k); if (Math.abs(v.y - y) < 0.03) { c.add(v); pts.push(v.clone()); n++; } }
+      if (n < 6) continue; c.divideScalar(n); const r = pts.reduce((s, q) => s + Math.hypot(q.x - c.x, q.z - c.z), 0) / n; out.push({ p: c, r }); }
+    return out;
+  }, [aorta, kidneyY]);
+  const sac = useDisposable(() => lumenTube(path, (u, r) => r * (1 + 2.2 * dilation * Math.exp(-(((u - 0.55) / 0.22) ** 2)))), [path, Math.round(dilation * 20)]);
+  if (path.length < 3) return null;
+  const mid = path[Math.floor(path.length * 0.55)]; const r = mid.r * (1 + 2.2 * dilation);
+  return <group>
+    <mesh geometry={sac} renderOrder={4}><meshStandardMaterial color="#b6595f" roughness={0.45} transparent opacity={0.85} side={THREE.DoubleSide} /></mesh>
+    {bleeding > 0.02 && <mesh position={[mid.p.x + r * 0.9, mid.p.y - 0.05, mid.p.z - r * 0.7]} scale={[0.12 + 0.3 * bleeding, 0.25 + 0.35 * bleeding, 0.14 + 0.2 * bleeding]} renderOrder={5}><sphereGeometry args={[1, 24, 16]} /><meshStandardMaterial color="#6d1726" roughness={0.6} transparent opacity={0.85} /></mesh>}
+  </group>;
+}
+
+/** Pleural space of one lung, from the lung's own (uncollapsed) surface: air fills it as a pale shell around the
+ *  collapsing lung; blood layers in its dependent part up to a level set by the volume. */
+export function PleuralLayer({ lung, air = 0, blood = 0 }: { lung: THREE.BufferGeometry; air?: number; blood?: number }) {
+  const gl = useThree((s) => s.gl); useEffect(() => { gl.localClippingEnabled = true; }, [gl]);
+  const bb = useMemo(() => { lung.computeBoundingBox(); return lung.boundingBox!.clone(); }, [lung]);
+  const level = bb.min.y + (bb.max.y - bb.min.y) * (0.08 + 0.5 * blood);
+  const plane = useMemo(() => new THREE.Plane(new THREE.Vector3(0, -1, 0), level), [level]);
+  return <group>
+    {air > 0.02 && <mesh geometry={lung} renderOrder={6}><meshStandardMaterial color="#cfe3ee" roughness={0.2} transparent opacity={0.12 + 0.22 * air} depthWrite={false} side={THREE.DoubleSide} /></mesh>}
+    {blood > 0.02 && <mesh geometry={lung} renderOrder={5}><meshStandardMaterial color="#7d1f30" roughness={0.5} transparent opacity={0.85} side={THREE.DoubleSide} clippingPlanes={[plane]} /></mesh>}
+  </group>;
+}
+function mergeTubes(gs: THREE.BufferGeometry[]) {
+  const pos: number[] = []; const idx: number[] = []; let off = 0;
+  for (const g of gs) { const p = g.attributes.position; for (let i = 0; i < p.count; i++) pos.push(p.getX(i), p.getY(i), p.getZ(i)); const ix = g.index!.array; for (let i = 0; i < ix.length; i++) idx.push(ix[i] + off); off += p.count; g.dispose(); }
+  const r = new THREE.BufferGeometry(); r.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); r.setIndex(idx); r.computeVertexNormals(); return r;
 }
