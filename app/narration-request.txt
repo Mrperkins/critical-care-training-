@@ -1,1 +1,0 @@
-Initial render of every spoken line with the natural narrator (Kokoro-82M v1.0, af_heart). (retry)
