@@ -16,6 +16,6 @@
  "description": "Abdominal ultrasound in the axial plane at the level of the navel of a 31 year old man, showing normal anatomy. It uses compression to decrease the distance to the aorta for better visualization, resulting in flat shapes of the inferior mesenteric vein and the inferior vena cava .",
  "restrictions": "",
  "id": "aorta-normal-us-axial-haggstrom",
- "retrieved": "2026-10-09T17:10Z",
+ "retrieved": "2026-10-09T17:20Z",
  "verifiedBy": "tools/clinical_media.py fetch"
 }

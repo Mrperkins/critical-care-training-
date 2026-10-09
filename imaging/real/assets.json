@@ -1401,6 +1401,19 @@
   }
  },
  {
+  "id": "aorta-normal-us-axial-haggstrom",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Point-of-care ultrasound",
+  "finding": "aorta_normal_us",
+  "license": "CC0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Axial_plane_ultrasound_at_the_navel.jpg",
+  "localSources": {
+   "image": "imaging/real/aorta-normal-us-axial-haggstrom.jpg"
+  }
+ },
+ {
   "id": "lus-confluent-tsung",
   "status": "pending",
   "type": "ultrasound",
@@ -1442,17 +1455,6 @@
   "license": "Public Domain",
   "licenseVerified": false,
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Echokardiogram_von_Atriumseptumdefekt_(Ostium_secundum).jpg",
-  "localSources": {}
- },
- {
-  "id": "aorta-normal-us-axial-haggstrom",
-  "status": "pending",
-  "type": "ultrasound",
-  "modality": "Point-of-care ultrasound",
-  "finding": "aorta_normal_us",
-  "license": "CC0",
-  "licenseVerified": false,
-  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Axial_plane_ultrasound_at_the_navel.jpg",
   "localSources": {}
  }
 ]

@@ -716,6 +716,13 @@ Real, openly licensed clinical images shown beside the synthetic ones. Only CC0 
 - Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
 - Changes: None — the displayed file is the original, byte for byte.
 
+## aorta-normal-us-axial-haggstrom.jpg
+- Normal abdominal aorta, transverse view — Transverse ultrasound at the level of the umbilicus in a healthy adult showing a round, normal-calibre abdominal aorta (about 2 cm) with the compressed inferior vena cava beside it.
+- Author: Mikael Häggström, M.D.
+- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Axial_plane_ultrasound_at_the_navel.jpg
+- Licence: CC0 (http://creativecommons.org/publicdomain/zero/1.0/deed.en)
+- Changes: None — the displayed file is the original, byte for byte.
+
 ## Considered and rejected
 
 - Open Critical Care anesthesia POCUS pocket card (2022): No licence stated; images credited “courtesy of” third parties (JACC, austincc.edu, echocardiographer.org). Used for facts only, in our own words.

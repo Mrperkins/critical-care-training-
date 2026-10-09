@@ -2291,6 +2291,29 @@ so ingested media appear without rebuilding `index.html`. Overlay marks (`marks`
 | Licence evidence | Europe PMC full text of PMC13135440 (doi 10.5811/cpcem.48848), <license>: “This is an open access article distributed in accordance with the terms of the Creative Commons Attribution (CC BY 4.0) License. See: http://creativecommons.org/licenses/by/4.0/”; Image 1 caption checked for a separate credit. |
 | Verified by | tools/clinical_media.py fetch |
 
+## aorta-normal-us-axial-haggstrom — Normal abdominal aorta, transverse view
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/aorta-normal-us-axial-haggstrom.jpg` |
+| Clinical purpose | aorta_normal_us (aorta-us) |
+| Creator / authors | Mikael Häggström, M.D. |
+| Source | Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Axial_plane_ultrasound_at_the_navel.jpg |
+| Licence | CC0 — http://creativecommons.org/publicdomain/zero/1.0/deed.en |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | Mikael Häggström, M.D.. Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Axial_plane_ultrasound_at_the_navel.jpg. CC0. |
+| Original title | Abdominal ultrasound in the axial plane at the level of the navel of a 31 year old man, showing normal anatomy. It uses compression to decrease the distance to  |
+| Source page | https://commons.wikimedia.org/wiki/File:Axial_plane_ultrasound_at_the_navel.jpg |
+| Original media URL | https://upload.wikimedia.org/wikipedia/commons/4/4a/Axial_plane_ultrasound_at_the_navel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original |
+| DOI | — |
+| Published | 2018-01-24 |
+| Retrieved | 2026-10-09T17:20Z |
+| Original format | image/jpeg · 79,258 bytes · `Axial plane ultrasound at the navel.jpg` |
+| Original SHA-256 | `9ffb334aae173d6f88d758a25b9541b223115110e98c095797f0a2260760d2aa` |
+| Original preserved | imaging/real/aorta-normal-us-axial-haggstrom.jpg (identical to the original) |
+| Licence evidence | Wikimedia Commons API extmetadata for File:Axial plane ultrasound at the navel.jpg: LicenseShortName = “CC0”, UsageTerms = “Creative Commons Zero, Public Domain Dedication” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AAxial+plane+ultrasound+at+the+navel.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
+| Verified by | tools/clinical_media.py fetch |
+
 ## Pending — staged, not yet in the app
 
 Teaching content is written; the media has not been downloaded and the licence has not been verified from the source.
@@ -2301,7 +2324,6 @@ Teaching content is written; the media has not been downloaded and the licence h
 | lus-consolidation-tsung | consolidation | CC BY 2.0 (unverified) | https://commons.wikimedia.org/wiki/File:Prospective-application-of-clinician-performed-lung-ultrasonography-during-the-2009-H1N1-influenza-2036-7902-4-16-S3.ogv |
 | echo-vsd-color-commons | ventricular septal defect | Public Domain (unverified) | https://commons.wikimedia.org/wiki/File:Ventricular_Septal_Defect.jpg |
 | echo-asd-secundum-commons | secundum atrial septal defect | Public Domain (unverified) | https://commons.wikimedia.org/wiki/File:Echokardiogram_von_Atriumseptumdefekt_(Ostium_secundum).jpg |
-| aorta-normal-us-axial-haggstrom | aorta_normal_us | CC0 (unverified) | https://commons.wikimedia.org/wiki/File:Axial_plane_ultrasound_at_the_navel.jpg |
 
 ## Considered and rejected
 

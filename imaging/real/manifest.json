@@ -7033,6 +7033,70 @@
     }
    },
    "fileSha256": "27c672fcd4d6637c26855822ad97f0f508ef68a14d845a19cf8be1973142d508"
+  },
+  {
+   "id": "aorta-normal-us-axial-haggstrom",
+   "kind": "aorta-us",
+   "type": "ultrasound",
+   "modality": "Point-of-care ultrasound",
+   "finding": "aorta_normal_us",
+   "findings": [
+    "aorta_normal_us"
+   ],
+   "title": "Normal abdominal aorta, transverse view",
+   "caption": "Transverse ultrasound at the level of the umbilicus in a healthy adult showing a round, normal-calibre abdominal aorta (about 2 cm) with the compressed inferior vena cava beside it.",
+   "look": [
+    "Round, thick-walled anechoic aorta in front of the spine",
+    "Diameter under 3 cm (depth scale on the right)",
+    "Flattened inferior vena cava running to the side of the aorta",
+    "Small vessel anterior to the aorta"
+   ],
+   "teach": [
+    "An abdominal aorta under 3 cm outer-wall to outer-wall is normal; 3 cm or more is an aneurysm.",
+    "Firm, graded probe pressure pushes bowel gas aside; the IVC flattens under pressure but the aorta stays round.",
+    "Read this against the patient in front of you: the image teaches the pattern, the clinical picture makes the call."
+   ],
+   "quiz": {
+    "q": "What is the upper limit of normal for the infrarenal abdominal aortic diameter?",
+    "options": [
+     "Under 3 cm",
+     "Under 5 cm",
+     "Under 1 cm",
+     "Under 4.5 cm"
+    ],
+    "answer": 0,
+    "explain": "An infrarenal aorta of 3 cm or more (outer wall to outer wall) defines an abdominal aortic aneurysm."
+   },
+   "marks": [],
+   "file": "aorta-normal-us-axial-haggstrom.jpg",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "author": "Mikael Häggström, M.D.",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Axial_plane_ultrasound_at_the_navel.jpg",
+   "credit": "Häggström, Wikimedia Commons, 2018 · CC0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Axial_plane_ultrasound_at_the_navel.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Axial_plane_ultrasound_at_the_navel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "Abdominal ultrasound in the axial plane at the level of the navel of a 31 year old man, showing normal anatomy. It uses compression to decrease the distance to ",
+    "published": "2018-01-24",
+    "retrieved": "2026-10-09T17:20Z",
+    "originalName": "Axial plane ultrasound at the navel.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 79258,
+    "originalSha256": "9ffb334aae173d6f88d758a25b9541b223115110e98c095797f0a2260760d2aa",
+    "preserved": "imaging/real/aorta-normal-us-axial-haggstrom.jpg (identical to the original)",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Axial plane ultrasound at the navel.jpg: LicenseShortName = “CC0”, UsageTerms = “Creative Commons Zero, Public Domain Dedication” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AAxial+plane+ultrasound+at+the+navel.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 618,
+      "h": 486
+     }
+    }
+   },
+   "fileSha256": "9ffb334aae173d6f88d758a25b9541b223115110e98c095797f0a2260760d2aa"
   }
  ],
  "rejected": [
@@ -7224,49 +7288,6 @@
    "pageUrl": "https://commons.wikimedia.org/wiki/File:Echokardiogram_von_Atriumseptumdefekt_(Ostium_secundum).jpg",
    "marks": [],
    "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
-  },
-  {
-   "id": "aorta-normal-us-axial-haggstrom",
-   "kind": "aorta-us",
-   "type": "ultrasound",
-   "modality": "Point-of-care ultrasound",
-   "finding": "aorta_normal_us",
-   "findings": [
-    "aorta_normal_us"
-   ],
-   "title": "Normal abdominal aorta, transverse view",
-   "caption": "Transverse ultrasound at the level of the umbilicus in a healthy adult showing a round, normal-calibre abdominal aorta (about 2 cm) with the compressed inferior vena cava beside it.",
-   "look": [
-    "Round, thick-walled anechoic aorta in front of the spine",
-    "Diameter under 3 cm (depth scale on the right)",
-    "Flattened inferior vena cava running to the side of the aorta",
-    "Small vessel anterior to the aorta"
-   ],
-   "teach": [
-    "An abdominal aorta under 3 cm outer-wall to outer-wall is normal; 3 cm or more is an aneurysm.",
-    "Firm, graded probe pressure pushes bowel gas aside; the IVC flattens under pressure but the aorta stays round.",
-    "Read this against the patient in front of you: the image teaches the pattern, the clinical picture makes the call."
-   ],
-   "quiz": {
-    "q": "What is the upper limit of normal for the infrarenal abdominal aortic diameter?",
-    "options": [
-     "Under 3 cm",
-     "Under 5 cm",
-     "Under 1 cm",
-     "Under 4.5 cm"
-    ],
-    "answer": 0,
-    "explain": "An infrarenal aorta of 3 cm or more (outer wall to outer wall) defines an abdominal aortic aneurysm."
-   },
-   "fetch": {
-    "type": "commons",
-    "title": "File:Axial plane ultrasound at the navel.jpg"
-   },
-   "licenseClaimed": "CC0",
-   "pageUrl": "https://commons.wikimedia.org/wiki/File:Axial_plane_ultrasound_at_the_navel.jpg",
-   "marks": [],
-   "claimedBy": "discovery round 4 (media-candidates branch), reviewed visually",
-   "expect": "image"
   }
  ]
 }

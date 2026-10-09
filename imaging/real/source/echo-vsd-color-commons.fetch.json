@@ -16,6 +16,6 @@
  "description": "",
  "restrictions": "",
  "id": "echo-vsd-color-commons",
- "retrieved": "2026-10-09T17:10Z",
+ "retrieved": "2026-10-09T17:20Z",
  "verifiedBy": "tools/clinical_media.py fetch"
 }
