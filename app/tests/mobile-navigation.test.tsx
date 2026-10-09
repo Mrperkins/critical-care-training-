@@ -43,15 +43,17 @@ beforeEach(() => {
 afterEach(async () => { await act(async () => root.unmount()); container.remove(); vi.unstubAllGlobals(); });
 
 describe('phone navigation interactions', () => {
-  it('every condition opens its actual mechanism from the whole-patient view', async () => {
+  it('every condition opens its affected anatomy in 3D from the whole-patient view', async () => {
     for (const disease of DISEASES) {
       await act(async () => {
         useUI.getState().set({ module: disease.domain, mode: 'explore', atlasDisease: disease.id });
         root.render(<AtlasModule domain={disease.domain} />);
       });
       await click('Affected anatomy');
-      expect(container.querySelector('.disease-diagram'), disease.id).toBeTruthy();
-      expect(container.querySelector('.disease-diagram title')?.textContent, disease.id).toContain(disease.title);
+      const fig = container.querySelector('.atlas-visual-3d');
+      expect(fig, disease.id).toBeTruthy();
+      expect(fig?.getAttribute('aria-label'), disease.id).toContain(disease.title);
+      expect(fig?.getAttribute('data-organs'), disease.id).toBeTruthy();
       expect(useUI.getState().atlasTarget).toBe(disease.target);
     }
   });

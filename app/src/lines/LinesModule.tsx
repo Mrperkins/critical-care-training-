@@ -1,3 +1,6 @@
+import { lines } from './session';
+import { useExploreMemory } from '../app/exploreMemory';
+import { Fold } from '../scene/pane';
 import { useEffect, useState } from 'react';
 import { ObCard } from '../populations/Cards';
 function PregSlot() { useUI((s) => s.pulse); return linesSession.sc.group === 'Pregnancy' ? <ObCard /> : linesSession.sc.group === 'Children' ? <PedsCard /> : null; }
@@ -23,6 +26,7 @@ export function LinesModule() {
   useEffect(() => { (window as unknown as { __CCLines: unknown }).__CCLines = { session: linesSession, run: (sec: number) => { for (let k = 0; k < sec * 20; k++) linesSession.tick(0.05); } }; }, []);
   useEffect(() => { Promise.all([loadBodyAsset(), loadLinesAsset()]).then(([body, lines]) => setAssets({ body, lines })).catch((e) => { console.error(e); setErr(String(e?.message || e)); }); }, []);
   const mode = useUI((s) => s.mode); const phone = useIsPhone();
+  useExploreMemory('lines', () => ({ id: lines.sc.id }), (m) => { lines.load(m.id); useUI.getState().set({ pulse: useUI.getState().pulse + 1 }); });
   return (
     <main className="stage lines-stage">
       <section className="scene-pane">
@@ -37,21 +41,21 @@ export function LinesModule() {
         {mode === 'explore' && <>
           <ScenarioPicker />
           <ExplainCard />
-          <SetupCard />
-          <LineCard id="art" />
-          <LineCard id="cvp" />
-          <FlushCard />
-          <NumbersCard />
-          <BreathingCard />
-          <TreatCard />
           <IabpSlot />
-          <StoryCard />
           <PregSlot />
+          <Fold group="lines" id="numbers" title="Monitor vs true pressure" defaultOpen><NumbersCard /></Fold>
+          <Fold group="lines" id="treat" title="Treat & check" summary="fluids, pressors, checks"><TreatCard /></Fold>
+          <Fold group="lines" id="level" title="Bed & transducer level" summary="levelling, zeroing"><SetupCard /></Fold>
+          <Fold group="lines" id="art" title="Arterial line" summary="bag, faults"><LineCard id="art" /></Fold>
+          <Fold group="lines" id="cvp" title="CVP line" summary="bag, faults"><LineCard id="cvp" /></Fold>
+          <Fold group="lines" id="flush" title="Fast-flush test" summary="damping"><FlushCard /></Fold>
+          <Fold group="lines" id="breath" title="Breathing" summary="spontaneous / ventilated"><BreathingCard /></Fold>
+          <Fold group="lines" id="story" title="About this patient"><StoryCard /></Fold>
         </>}
         {mode === 'learn' && <LinesLearn />}
         {mode === 'challenge' && <LinesChallenge />}
         {mode === 'sim' && <LinesSim />}
-        {assets && <p className="credit">Anatomy: {assets.lines.mapping.attribution.creators}, {assets.lines.mapping.attribution.data} — <a href={assets.lines.mapping.attribution.licenseUrl} target="_blank" rel="noreferrer">{assets.lines.mapping.attribution.license}</a>. {assets.lines.mapping.attribution.changes} Pressures come from a beat-by-beat circulation model (three-element Windkessel, right-atrial a–c–x–v–y timing) and a second-order model of the catheter–tubing–transducer system.</p>}
+        {assets && <details className="credit"><summary>Sources & model notes</summary>Anatomy: {assets.lines.mapping.attribution.creators}, {assets.lines.mapping.attribution.data} — <a href={assets.lines.mapping.attribution.licenseUrl} target="_blank" rel="noreferrer">{assets.lines.mapping.attribution.license}</a>. {assets.lines.mapping.attribution.changes} Pressures come from a beat-by-beat circulation model (three-element Windkessel, right-atrial a–c–x–v–y timing) and a second-order model of the catheter–tubing–transducer system.</details>}
       </aside>
     </main>
   );

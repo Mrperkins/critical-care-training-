@@ -5,7 +5,7 @@
 const VERSION = '__VERSION__';
 const SHELL = `cc-shell-${VERSION}`, MEDIA = 'cc-media-v1';
 const CORE = ['./', 'index.html', 'audio/index.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'imaging/real/manifest.json',
-  'models/body.glb.txt', 'models/body.mapping.json', 'models/resp.glb.txt', 'models/resp.mapping.json',
+  'models/body.glb.txt', 'models/body.mapping.json', 'models/body-f.glb.txt', 'models/body-f.mapping.json', 'models/eyes.glb.txt', 'models/eyes.mapping.json', 'models/resp.glb.txt', 'models/resp.mapping.json',
   'models/micro.glb.txt', 'models/micro.mapping.json', 'models/lines.glb.txt', 'models/lines.mapping.json'];
 
 self.addEventListener('install', (e) => {

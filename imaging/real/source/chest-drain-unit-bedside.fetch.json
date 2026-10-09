@@ -1,0 +1,21 @@
+{
+ "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Chest_drain_-_bedside_with_fluids.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+ "pageUrl": "https://commons.wikimedia.org/wiki/File:Chest_drain_-_bedside_with_fluids.jpg",
+ "originalName": "Chest drain - bedside with fluids.jpg",
+ "mime": "image/jpeg",
+ "bytes": 3241849,
+ "sha1": "a5a32e37b7dde6c3d7a5bacfcc7a10ba37fa0c4c",
+ "width": 3456,
+ "height": 2304,
+ "license": "CC BY 2.5",
+ "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+ "licenseEvidence": "Wikimedia Commons API extmetadata for File:Chest drain - bedside with fluids.jpg: LicenseShortName = “CC BY 2.5”, UsageTerms = “Creative Commons Attribution 2.5” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AChest+drain+-+bedside+with+fluids.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+ "authors": "Johntex",
+ "credit": "Own work",
+ "published": "2006-11",
+ "description": "chest drain - bedside with fluids",
+ "restrictions": "",
+ "id": "chest-drain-unit-bedside",
+ "retrieved": "2026-10-09T16:42Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

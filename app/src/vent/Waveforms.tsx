@@ -9,7 +9,7 @@ import { useUI } from '../app/store';
 import { IS_PHONE } from '../scene/Studio';
 
 export const COL = { p: '#e9b949', q: '#5cc8b0', v: '#9fb2ff', mus: '#e0645a', grid: 'rgba(255,255,255,0.06)', axis: 'rgba(255,255,255,0.16)', text: '#8e8a84', insp: 'rgba(233,185,73,0.05)', hold: 'rgba(159,178,255,0.10)' };
-const FONT = '500 10px "IBM Plex Mono", ui-monospace, monospace';
+const FONT = '500 10px "Atkinson Hyperlegible Mono", ui-monospace, monospace';
 
 function useCanvas(draw: (ctx: CanvasRenderingContext2D, w: number, h: number) => void) {
   const ref = useRef<HTMLCanvasElement>(null);
@@ -70,10 +70,10 @@ export function Scalars({ height }: { height?: number }) {
       for (let b = maxBack - 1; b >= 0; b--) { const i = S.at(b); const x = X(S.t[i]); const y = Y(st.arr[i]); if (b === maxBack - 1) ctx.moveTo(x, y); else ctx.lineTo(x, y); }
       ctx.stroke(); ctx.setLineDash([]);
       // labels
-      ctx.fillStyle = st.col; ctx.textAlign = 'left'; ctx.fillText(st.label, 4, y0 + 10);
-      ctx.fillStyle = COL.text; ctx.fillText(st.unit, 4, y0 + 23);
+      ctx.fillStyle = st.col; ctx.textAlign = 'left'; ctx.fillText(st.label, 4, y0 + ch / 2 - 7);
+      ctx.fillStyle = COL.text; ctx.fillText(st.unit, 4, y0 + ch / 2 + 7);
       ctx.textAlign = 'right'; ctx.fillText(String(Math.round(st.hi)), padL - 6, y0 + 6); ctx.fillText(String(Math.round(st.lo)), padL - 6, y1 - 6);
-      const cur = st.arr[S.at(0)]; ctx.fillStyle = st.col; ctx.textAlign = 'left'; ctx.font = '600 13px "IBM Plex Mono", ui-monospace, monospace';
+      const cur = st.arr[S.at(0)]; ctx.fillStyle = st.col; ctx.textAlign = 'left'; ctx.font = '600 13px "Atkinson Hyperlegible Mono", ui-monospace, monospace';
       ctx.fillText(st.key === 'v' ? Math.round(cur).toString() : cur.toFixed(st.key === 'q' ? 0 : 1), w - padR + 8, y0 + ch / 2); ctx.font = FONT;
       // sweep head
       ctx.fillStyle = st.col; ctx.beginPath(); ctx.arc(X(tNew), Y(cur), 2.6, 0, Math.PI * 2); ctx.fill();

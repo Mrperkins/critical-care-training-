@@ -453,11 +453,10 @@ export function VideoLibrary() {
   return <main ref={libraryRef} className={`video-library video-view-${view}`}>
     <section className="video-hero">
       <div>
-        <span className="eyebrow">{view === 'feed' ? 'Swipe · watch · keep learning' : 'Watch here · stay in the learning flow'}</span>
-        <h2>Critical Care Videos</h2>
+        <h2 className="sr-only">Videos and Skills</h2>
         <p>{view === 'feed'
-          ? 'Autoplay critical-care video, Shorts and hands-on Skills in one scrollable feed, now combining educators with official manufacturer training.'
-          : 'Browse indexed teaching from YouTube and manufacturer-hosted training sources, then narrow by device, procedure, topic and learning goal.'}</p>
+          ? 'Shorts, skills and deep dives from critical-care educators and device makers. Feed videos start muted.'
+          : 'Search indexed teaching by device, procedure, topic and learning goal.'}</p>
       </div>
       <div className="video-view-switch" role="group" aria-label="Video view">
         <button className={view === 'feed' ? 'on' : ''} onClick={() => { setPlayer(null); setView('feed'); }}>Feed</button>
@@ -467,15 +466,20 @@ export function VideoLibrary() {
 
     {view === 'feed' && <>
       <section className="video-feed-filterbar" aria-label="Feed filters">
-        <div className="video-feed-filter-scroll">
-          <button className={channel == null ? 'on' : ''} onClick={() => setChannel(null)}>All sources</button>
-          {CHANNEL_COLLECTIONS.map((item) => <button key={item.id} className={channel === item.label ? 'on' : ''} onClick={() => setChannel(channel === item.label ? null : item.label)}>{item.label}</button>)}
-          {manufacturerSources.map((item) => <button key={item.id} className={channel === item.label ? 'on' : ''} onClick={() => setChannel(channel === item.label ? null : item.label)}>{item.label}</button>)}
-          <i aria-hidden="true" />
-          <button className={feedKind === 'all' ? 'on' : ''} onClick={() => setFeedKind('all')}>For you <small>{feedCounts.all}</small></button>
-          <button className={feedKind === 'shorts' ? 'on' : ''} onClick={() => setFeedKind('shorts')}>Shorts <small>{feedCounts.shorts}</small></button>
-          <button className={feedKind === 'skills' ? 'on' : ''} onClick={() => setFeedKind('skills')}>Skills <small>{feedCounts.skills}</small></button>
-          <button className={feedKind === 'deep' ? 'on' : ''} onClick={() => setFeedKind('deep')}>Deep dives <small>{feedCounts.deep}</small></button>
+        <div className="video-feed-filter-row">
+          <div className="video-kind-seg" role="group" aria-label="Feed section">
+            <button className={feedKind === 'all' ? 'on' : ''} aria-pressed={feedKind === 'all'} onClick={() => setFeedKind('all')}>For you <small>{feedCounts.all}</small></button>
+            <button className={feedKind === 'shorts' ? 'on' : ''} aria-pressed={feedKind === 'shorts'} onClick={() => setFeedKind('shorts')}>Shorts <small>{feedCounts.shorts}</small></button>
+            <button className={feedKind === 'skills' ? 'on' : ''} aria-pressed={feedKind === 'skills'} onClick={() => setFeedKind('skills')}>Skills <small>{feedCounts.skills}</small></button>
+            <button className={feedKind === 'deep' ? 'on' : ''} aria-pressed={feedKind === 'deep'} onClick={() => setFeedKind('deep')}>Deep dives <small>{feedCounts.deep}</small></button>
+          </div>
+          <label className="video-source-select"><span>Source</span>
+            <select value={channel ?? ''} onChange={(e) => setChannel(e.target.value || null)}>
+              <option value="">All sources</option>
+              <optgroup label="Educators">{CHANNEL_COLLECTIONS.map((item) => <option key={item.id} value={item.label}>{item.label}</option>)}</optgroup>
+              {manufacturerSources.length > 0 && <optgroup label="Device makers">{manufacturerSources.map((item) => <option key={item.id} value={item.label}>{item.label}</option>)}</optgroup>}
+            </select>
+          </label>
         </div>
         {feedKind === 'skills' && <div className="video-feed-filter-scroll video-skill-filter-scroll" aria-label="Clinical skill">
           {VIDEO_SKILL_COLLECTIONS.map((item) => {

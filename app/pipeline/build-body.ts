@@ -13,6 +13,7 @@ await MeshoptSimplifier.ready;
 
 const body = await readGLB('assets/source/VH_M_United.glb');
 const lung = await readGLB('assets/source/3d-vh-m-lung.glb');
+const airwaySrc = [...(await readGLB('assets/source/3d-vh-m-larynx.glb')).values(), ...[...(await readGLB('assets/source/3d-vh-m-trachea.glb')).entries()].filter(([n]) => /trachea$|carina/.test(n)).map(([, g]) => g), ...[...(await readGLB('assets/source/3d-vh-m-main-bronchus.glb')).entries()].filter(([n]) => /main_bronchus$/.test(n)).map(([, g]) => g)];
 const pick = (m: Map<string, THREE.BufferGeometry>, re: RegExp) => [...m.entries()].filter(([n]) => re.test(n)).map(([, g]) => g);
 const skin = pick(body, /VH_M_skin$/)[0]; skin.computeBoundingBox();
 const C = skin.boundingBox!.getCenter(new V3()); const S = 10;
@@ -34,6 +35,7 @@ add('heart', 'heart', fuse(pick(body, /VH_M_(heart_left_ventricle|heart_right_ve
 const segs = [...lung.entries()].filter(([n]) => /bronchopulmonary_segment/.test(n));
 add('lung_R', 'lung', fuse(segs.filter(([n]) => /_right_|_R_|right/.test(n)).map(([, g]) => tf(g)), 0.05, 0.3, 2));
 add('lung_L', 'lung', fuse(segs.filter(([n]) => !/_right_|_R_|right/.test(n)).map(([, g]) => tf(g)), 0.05, 0.3, 2));
+add('airway', 'airway', fuse(airwaySrc.map(tf), 0.012, 0.4));
 add('liver', 'liver', direct(pick(body, /VH_M_liver_capsule$/).map(tf), 0.5));
 add('gallbladder', 'gallbladder', direct(pick(body, /VH_M_gallbladder$/).map(tf), 0.8));
 add('pancreas', 'pancreas', fuse(pick(body, /(head|neck|body)_of_pancreas|tail_of_pancreas|uncinate_process/).map(tf), 0.025, 0.5));
@@ -51,6 +53,6 @@ const centres: Record<string, number[]> = {};
 for (const p of parts) { p.geo.computeBoundingBox(); centres[p.id] = p.geo.boundingBox!.getCenter(new V3()).toArray().map((x) => +x.toFixed(3)); }
 fs.writeFileSync(path.join(ROOT, 'public/models/body.mapping.json'), JSON.stringify({
   units: 'decimetres, body-centred', frame: '+X patient left, +Y up, +Z anterior', centres,
-  attribution: { title: '3D Reference Organs: Visible Human Male (united body, lung)', creators: 'HuBMAP / Human Reference Atlas consortium (brain: Allen Institute regions)', data: 'Visible Human Male, U.S. National Library of Medicine', license: 'CC BY 4.0', licenseUrl: 'https://creativecommons.org/licenses/by/4.0/', sourceUrl: 'https://github.com/hubmapconsortium/ccf-3d-reference-object-library', changes: 'Multi-part organs fused into single surfaces; meshes simplified; renamed by organ.' },
+  attribution: { title: '3D Reference Organs: Visible Human Male (united body, lung, larynx, trachea, main bronchi)', creators: 'HuBMAP / Human Reference Atlas consortium (brain: Allen Institute regions)', data: 'Visible Human Male, U.S. National Library of Medicine', license: 'CC BY 4.0', licenseUrl: 'https://creativecommons.org/licenses/by/4.0/', sourceUrl: 'https://github.com/hubmapconsortium/ccf-3d-reference-object-library', changes: 'Multi-part organs fused into single surfaces; meshes simplified; renamed by organ.' },
 }, null, 1));
 log('done');

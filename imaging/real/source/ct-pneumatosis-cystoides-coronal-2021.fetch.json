@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC8680031",
+ "pageUrl": "https://doi.org/10.1186/s13256-021-03183-9",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C",
+ "authors": "Lebby E, Hanna M, Bui TL, Rudd A, Lee W, Houshyar R.",
+ "title": "Pneumatosis cystoides intestinalis in a trauma patient presenting with pneumoperitoneum: a case report",
+ "publication": "Journal of medical case reports",
+ "published": "2021-12-17",
+ "doi": "10.1186/s13256-021-03183-9",
+ "volume": "15",
+ "firstpage": "597",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC8680031.1/13256_2021_3183_Fig1_HTML.jpg",
+ "originalName": "13256_2021_3183_Fig1_HTML.jpg",
+ "description": "Fig. 1 Computed tomography scan of the abdomen/pelvis sagittal view ( a ), coronal view ( b ), and axial view ( c ) demonstrating findings of numerous cysts within the wall of the splenic flexure of the colon (arrows) with trace pneumoperitoneum in the subphrenic spaces (arrowheads)",
+ "thirdParty": false,
+ "figure": "Fig1",
+ "licenseEvidence": "Europe PMC full text of PMC8680031 (doi 10.1186/s13256-021-03183-9), <license>: “Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C”; Fig. 1 caption checked for a separate credit.",
+ "id": "ct-pneumatosis-cystoides-coronal-2021",
+ "retrieved": "2026-10-09T17:10Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

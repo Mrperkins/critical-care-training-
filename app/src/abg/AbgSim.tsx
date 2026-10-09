@@ -1,3 +1,4 @@
+import { Picker } from '../scene/pane';
 import { useState } from 'react';
 import { lab } from './lab';
 import { useUI } from '../app/store';
@@ -17,7 +18,7 @@ export function AbgSim() {
   return (
     <div className="chal-run">
       <section className="card"><div className="eyebrow">Simulation</div><h2 className="h2">Treat the patient over time</h2><p className="muted">Pick a patient, act, let time pass, draw gases. The table keeps every result so you can see the trajectory your decisions produce.</p>
-        <div className="chips" style={{ marginTop: 8 }}>{ABG_PRESETS.filter((p) => p.id !== 'normal').map((p) => <button key={p.id} className={`chip${lab.preset.id === p.id ? ' on' : ''}`} onClick={() => { lab.load(p.id); setRows([]); setLog([]); bump(); }}>{p.name}</button>)}</div>
+        <div style={{ marginTop: 8 }}><Picker label="Patient" value={lab.preset.id} onPick={(id) => { lab.load(id); setRows([]); setLog([]); bump(); }} groups={[{ items: ABG_PRESETS.filter((p) => p.id !== 'normal').map((p) => ({ id: p.id, name: p.name, hint: p.story })) }]} /></div>
         <p style={{ margin: '10px 0 0' }}>{lab.preset.story}</p>
       </section>
       <section className="card"><div className="card-h"><h3>Act</h3><span className="clock">{Math.floor(lab.pt.t / 60)} h {Math.round(lab.pt.t % 60)} min</span></div>

@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC13422630",
+ "pageUrl": "https://doi.org/10.1093/ehjcr/ytag524",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "This is an Open Access article distributed under the terms of the Creative Commons Attribution License ( https://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited.",
+ "authors": "Ruiz-López A, Salido Iniesta M, Gómez Revelles S, Taroncher Domingo C, Viladés Medel D.",
+ "title": "Computed tomography pitfalls and diagnostic value in a patient with post-infarction ventricular septal defect, cardiogenic shock, and iatrogenic type B aortic dissection during extracorporeal membrane oxygenation support: a case report",
+ "publication": "European heart journal. Case reports",
+ "published": "2026-07-14",
+ "doi": "10.1093/ehjcr/ytag524",
+ "volume": "10",
+ "firstpage": "ytag524",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13422630.1/ytag524f2.jpg",
+ "originalName": "ytag524f2.jpg",
+ "description": "Figure 2 Computed tomography (CT) images showing an aortic dissection and the intra-aortic balloon pump (IABP) catheter placed in the false lumen (FL). The entry and partial thrombosis of the false lumen is detected ( A , B ). IABP catheter tip placed in the FL (arrow, C , D ). The outer wall calcification (usually only present in the true lumen) can help to distinguish TL and the FL ( E , F ).",
+ "thirdParty": false,
+ "figure": "ytag524-F2",
+ "licenseEvidence": "Europe PMC full text of PMC13422630 (doi 10.1093/ehjcr/ytag524), <license>: “This is an Open Access article distributed under the terms of the Creative Commons Attribution License ( https://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited.”; Figure 2 caption checked for a separate credit.",
+ "id": "ct-dissection-type-b-flap-2026",
+ "retrieved": "2026-10-09T15:43Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

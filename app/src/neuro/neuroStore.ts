@@ -1,3 +1,4 @@
+import { EVO_MAX } from './evolution';
 import { create } from 'zustand';
 import { emptyNeuro, DEFAULT_SYSTEMIC, type NeuroState, type Systemic, type Hemorrhage } from './perfusion';
 
@@ -35,15 +36,16 @@ export interface NeuroUI {
   preset: NeuroPreset; state: NeuroState; sys: Systemic;
   /** semantic camera target (brain.*) */ target: string;
   labels: boolean; glass: boolean; playing: boolean;
+  /** brain cut open along the axial plane at `slice` (pathology painted on the cut face) */ cut: boolean;
   /** 3D anatomy or synthetic clinical imaging */ view: '3d' | 'imaging';
   /** axial slice level for imaging (local brain units, −1 base … +1 vertex) */ slice: number;
   set: (p: Partial<NeuroUI>) => void;
 }
 export const useNeuroUI = create<NeuroUI>((set) => ({
-  preset: 'none', state: emptyNeuro(), sys: { ...DEFAULT_SYSTEMIC }, target: 'brain.whole', labels: true, glass: true, playing: false, view: '3d', slice: -0.3,
+  preset: 'none', state: emptyNeuro(), sys: { ...DEFAULT_SYSTEMIC }, target: 'brain.whole', labels: true, glass: true, playing: false, cut: false, view: '3d', slice: -0.15,
   set: (p) => set(p),
 }));
 /** Deterministic clock: lessons call this with a time; the play button calls it with dt. */
-export function setNeuroMinutes(m: number) { const st = useNeuroUI.getState(); st.set({ state: { ...st.state, minutes: Math.max(0, Math.min(1440, m)) } }); }
-export function loadNeuroPreset(id: NeuroPreset) { const st = useNeuroUI.getState(); st.set({ preset: id, state: presetState(id, st.state), playing: false }); }
+export function setNeuroMinutes(m: number) { const st = useNeuroUI.getState(); st.set({ state: { ...st.state, minutes: Math.max(0, Math.min(EVO_MAX, m)) } }); }
+export function loadNeuroPreset(id: NeuroPreset) { const st = useNeuroUI.getState(); st.set({ preset: id, state: presetState(id, st.state), playing: false, cut: id !== 'none' && id !== 'sah' }); }
 export function recanalize() { const st = useNeuroUI.getState(); if (!Object.keys(st.state.occlusion).length) return; st.set({ state: { ...st.state, recanalizedAt: st.state.recanalizedAt ?? st.state.minutes } }); }

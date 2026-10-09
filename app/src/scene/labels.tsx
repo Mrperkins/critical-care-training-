@@ -7,6 +7,7 @@
  *    the glossary (scene/labelInfo.ts). The card lives inside the scene wrapper, so it also works in full screen.
  *  • SceneWrap = the scene container with the full-screen and label-mode controls.
  */
+import { useLabUI } from '../labs/labStore';
 import { forwardRef, useCallback, useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { create } from 'zustand';
 import { describeLabel, labelKey } from './labelInfo';
@@ -173,6 +174,29 @@ function useFullscreen(el: React.RefObject<HTMLElement>) {
   return { active: on || pseudo, pseudo, toggle };
 }
 
+
+/** Toolbar glyphs: 20-unit line icons. */
+const TI: Record<string, string> = {
+  labels: 'M3.5 10.2V4.5a1 1 0 0 1 1-1h5.7l7.3 7.3a1 1 0 0 1 0 1.4l-5.7 5.7a1 1 0 0 1-1.4 0zM7 7h.01',
+  dots: 'M5 10h.01M10 10h.01M15 10h.01',
+  off: 'M4 4l12 12M3.5 10.2V4.5a1 1 0 0 1 1-1h5.7l7.3 7.3a1 1 0 0 1 0 1.4l-2.4 2.4',
+  quiz: 'M10 17.5a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15zM10 13.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM10 10h.01',
+  gloss: 'M4 3.5h9.5a2 2 0 0 1 2 2v11H6a2 2 0 0 1-2-2zM4 14.5a2 2 0 0 1 2-2h9.5M7.5 7h5',
+  quality: 'M3 6h8M15 6h2M3 14h2M9 14h8M13 4v4M7 12v4',
+  fs: 'M3.5 7.5v-4h4M16.5 7.5v-4h-4M3.5 12.5v4h4M16.5 12.5v4h-4',
+  fsx: 'M7.5 3.5v4h-4M12.5 3.5v4h4M7.5 16.5v-4h-4M12.5 16.5v-4h4',
+};
+function Ti({ k }: { k: keyof typeof TI }) { return <svg className="st-svg" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d={TI[k]} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>; }
+
+/** One place for 3D quality (was a High / Medium / Low pill row on every scene). Cycles high → medium → low. */
+function QualityButton() {
+  const tier = useLabUI((s) => s.visualTier); const next = tier === 'high' ? 'medium' : tier === 'medium' ? 'low' : 'high';
+  const name = { high: 'High', medium: 'Medium', low: 'Low' }[tier];
+  return <button type="button" className="st-btn st-q" onClick={() => useLabUI.getState().set({ visualTier: next })} title={`3D quality: ${name} — tap for ${next}`} aria-label={`3D quality ${name}. Change`}>
+    <span className="st-ico" aria-hidden="true"><Ti k="quality" /></span><span className="st-txt">Quality: {name}</span>
+  </button>;
+}
+
 /** Scene container used by every module: full-screen button, label-mode switch, and the label info card. */
 export function SceneWrap({ className = '', children, labels = true }: { className?: string; children: ReactNode; labels?: boolean }) {
   const ref = useRef<HTMLDivElement>(null); const fs = useFullscreen(ref); const mode = useSceneLabelMode(); const setMode = useLabels((s) => s.setMode);
@@ -188,17 +212,18 @@ export function SceneWrap({ className = '', children, labels = true }: { classNa
       <div className="scene-tools2" role="toolbar" aria-label="View options">
         {labels && <button type="button" className={`st-btn st-lab m-${mode}`} onClick={() => { const m = NEXT[mode]; setMode(m); setHint(MODE_HINT[m]); }}
           title="Labels: names → dots (tap a dot for its name) → off" aria-label={`Labels: ${MODE_TEXT[mode]}. Change`}>
-          <span className="st-ico" aria-hidden="true">{mode === 'all' ? 'Aa' : mode === 'dots' ? '•••' : '⊘'}</span><span className="st-txt">{MODE_TEXT[mode]}</span>
+          <span className="st-ico" aria-hidden="true"><Ti k={mode === 'all' ? 'labels' : mode === 'dots' ? 'dots' : 'off'} /></span><span className="st-txt">{MODE_TEXT[mode]}</span>
         </button>}
         {labels && <button type="button" className={`st-btn st-quiz${quizOn ? ' on' : ''}`} aria-pressed={quizOn} onClick={() => { if (quizOn) useLabels.getState().setQuiz(null); else if (ref.current) startQuiz(ref.current); }}
           title="Name that structure — find each named structure among the dots" aria-label={quizOn ? 'Stop the name-that-structure drill' : 'Name that structure drill'}>
-          <span className="st-ico" aria-hidden="true">?</span><span className="st-txt">{quizOn ? 'Stop drill' : 'Name it'}</span>
+          <span className="st-ico" aria-hidden="true"><Ti k="quiz" /></span><span className="st-txt">{quizOn ? 'Stop drill' : 'Name it'}</span>
         </button>}
         {labels && <button type="button" className={`st-btn st-gloss${gloss ? ' on' : ''}`} aria-pressed={gloss} onClick={() => setGloss(!gloss)} title="Glossary — search every labelled structure" aria-label="Glossary">
-          <span className="st-ico" aria-hidden="true">A–Z</span><span className="st-txt">Glossary</span>
+          <span className="st-ico" aria-hidden="true"><Ti k="gloss" /></span><span className="st-txt">Glossary</span>
         </button>}
+        <QualityButton />
         <button type="button" className="st-btn st-fs" onClick={fs.toggle} aria-pressed={fs.active} title={fs.active ? 'Exit full screen (Esc)' : 'Full screen'} aria-label={fs.active ? 'Exit full screen' : 'Full screen'}>
-          <span className="st-ico" aria-hidden="true">{fs.active ? '⤡' : '⤢'}</span><span className="st-txt">{fs.active ? 'Exit' : 'Full screen'}</span>
+          <span className="st-ico" aria-hidden="true"><Ti k={fs.active ? 'fsx' : 'fs'} /></span><span className="st-txt">{fs.active ? 'Exit' : 'Full screen'}</span>
         </button>
       </div>
       {hint && <div className="st-hint" role="status">{hint}</div>}

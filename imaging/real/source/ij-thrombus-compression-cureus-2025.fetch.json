@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC12664772",
+ "pageUrl": "https://doi.org/10.7759/cureus.95740",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+ "authors": "Vaaragie Subramaniam, William Echols, Jessica Houck",
+ "title": "Atypical Presentation of Lemierre Syndrome Without an Oropharyngeal Source in a Young Adult Male Patient",
+ "publication": "Cureus",
+ "published": "2025-10-30",
+ "doi": "10.7759/cureus.95740",
+ "volume": "17",
+ "firstpage": "e95740",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12664772.1/cureus-0017-00000095740-i02.jpg",
+ "originalName": "cureus-0017-00000095740-i02.jpg",
+ "description": "Figure 2 Ultrasound of the left internal jugular vein showing a clot (arrows) without compression (A), which persists with compression (B).",
+ "thirdParty": false,
+ "figure": "FIG2",
+ "licenseEvidence": "Europe PMC full text of PMC12664772 (doi 10.7759/cureus.95740), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 2 caption checked for a separate credit.",
+ "id": "ij-thrombus-compression-cureus-2025",
+ "retrieved": "2026-10-09T17:10Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

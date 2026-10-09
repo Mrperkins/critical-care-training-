@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC7137196",
+ "pageUrl": "https://doi.org/10.1186/s12872-020-01440-1",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C",
+ "authors": "Zhang K, Dong SB, Pan XD, Sun LZ.",
+ "title": "The onset of acute type A aortic dissection following recovery of type B intramural haematoma: a case report",
+ "publication": "BMC cardiovascular disorders",
+ "published": "2020-04-06",
+ "doi": "10.1186/s12872-020-01440-1",
+ "volume": "20",
+ "firstpage": "162",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC7137196.1/12872_2020_1440_Fig3_HTML.jpg",
+ "originalName": "12872_2020_1440_Fig3_HTML.jpg",
+ "description": "Fig. 3 Progressing into aortic dissection, 3 months later. The red arrow points to the intimal tear",
+ "thirdParty": false,
+ "figure": "Fig3",
+ "licenseEvidence": "Europe PMC full text of PMC7137196 (doi 10.1186/s12872-020-01440-1), <license>: “Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C”; Fig. 3 caption checked for a separate credit.",
+ "id": "ct-dissection-type-a-ascending-tear-2020",
+ "retrieved": "2026-10-09T17:10Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

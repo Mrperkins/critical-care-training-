@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC13265034",
+ "pageUrl": "https://doi.org/10.7759/cureus.108907",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+ "authors": "Sitha Konopack",
+ "title": "Severe Mucus Plugging Causing Acute Hypoxic Respiratory Failure and Delayed Hemoptysis in a Renal Transplant Recipient Without Chronic Pulmonary Disease",
+ "publication": "Cureus",
+ "published": "2026-05-15",
+ "doi": "10.7759/cureus.108907",
+ "volume": "18",
+ "firstpage": "e108907",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13265034.1/cureus-0018-00000108907-i01.jpg",
+ "originalName": "cureus-0018-00000108907-i01.jpg",
+ "description": "Figure 1 Near-complete white-out of one hemithorax Chest radiograph demonstrating complete opacification of the left hemithorax with mediastinal shift toward the left, consistent with collapse of the left lung secondary to airway obstruction",
+ "thirdParty": false,
+ "figure": "FIG1",
+ "licenseEvidence": "Europe PMC full text of PMC13265034 (doi 10.7759/cureus.108907), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 1 caption checked for a separate credit.",
+ "id": "cxr-left-whiteout-mucus-plug-2026",
+ "retrieved": "2026-10-09T16:41Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

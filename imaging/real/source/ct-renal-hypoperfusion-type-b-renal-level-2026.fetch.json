@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC13195809",
+ "pageUrl": "https://doi.org/10.1093/ehjcr/ytag336",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "This is an Open Access article distributed under the terms of the Creative Commons Attribution License ( https://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited.",
+ "authors": "Kurobe H, Higaki T, Fukunishi T, Nishimura T, Izutani H.",
+ "title": "Successful thoracic endovascular aortic repair for complicated Stanford type B acute aortic dissection with acute renal failure and vascular remodelling after intervention: case report and 5-year follow-up",
+ "publication": "European heart journal. Case reports",
+ "published": "2026-05-08",
+ "doi": "10.1093/ehjcr/ytag336",
+ "volume": "10",
+ "firstpage": "ytag336",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13195809.1/ytag336f1.jpg",
+ "originalName": "ytag336f1.jpg",
+ "description": "Figure 1 Preoperative enhanced computed tomography images of Stanford type B aortic dissection. An asterisk (*) indicates the false lumen. The primary entry tear is indicated by a yellow arrow in the sagittal ( A ) and axial ( B ) images of the distal aortic arch. The celiac artery ( C ), superior mesenteric artery ( D ), left renal artery ( E ), and right renal artery ( F ) branch from the true lumen. The density at the kidney in the early phase is lower than that at the aorta, suggesting renal ischaemia.",
+ "thirdParty": false,
+ "figure": "ytag336-F1",
+ "licenseEvidence": "Europe PMC full text of PMC13195809 (doi 10.1093/ehjcr/ytag336), <license>: “This is an Open Access article distributed under the terms of the Creative Commons Attribution License ( https://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited.”; Figure 1 caption checked for a separate credit.",
+ "id": "ct-renal-hypoperfusion-type-b-renal-level-2026",
+ "retrieved": "2026-10-09T16:41Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

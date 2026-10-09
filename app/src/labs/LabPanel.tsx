@@ -1,3 +1,4 @@
+import { Picker, Fold } from '../scene/pane';
 import { useEffect, useRef } from 'react';
 import { bench } from './bench';
 import { useLabUI } from './labStore';
@@ -14,15 +15,10 @@ export const fmt = (l: Lab, v: number) => (l.step < 0.1 ? v.toFixed(2) : l.step 
 
 export function LabList() {
   useUI((s) => s.pulse); const sel = useLabUI((s) => s.lab);
-  return (
-    <section className="card lablist">
-      {LAB_GROUPS.map((g) => (
-        <div key={g} className="lg"><div className="lg-h">{g}</div>
-          <div className="lg-row">{LABS.filter((l) => l.group === g).map((l) => { const v = bench.value(l.id); const f = flagOf(l, v); return <button key={l.id} className={`labchip f-${f}${sel === l.id ? ' on' : ''}`} onClick={() => useLabUI.getState().set({ lab: l.id })}><span>{l.abbr}</span><b>{fmt(l, v)}</b></button>; })}</div>
-        </div>
-      ))}
-    </section>
-  );
+  const abnormal = LABS.filter((l) => flagOf(l, bench.value(l.id)) !== 'normal');
+  return <Picker label="Lab" value={sel} onPick={(id) => useLabUI.getState().set({ lab: id })}
+    sub={abnormal.length ? <>Abnormal now: {abnormal.slice(0, 6).map((l) => `${l.abbr} ${fmt(l, bench.value(l.id))}`).join(' · ')}{abnormal.length > 6 ? ' …' : ''}</> : 'All values in the normal range'}
+    groups={LAB_GROUPS.map((g) => ({ label: g, items: LABS.filter((l) => l.group === g).map((l) => { const v = bench.value(l.id); const f = flagOf(l, v); return { id: l.id, name: `${l.name} (${l.abbr})`, right: fmt(l, v), tone: f === 'normal' ? undefined : 'bad' as const }; }) }))} />;
 }
 
 export function LabCard() {
@@ -38,6 +34,7 @@ export function LabCard() {
         <div className="actions"><button className="act" onClick={() => { bench.set(id, l.normal[0] - (l.normal[1] - l.normal[0]) * 0.8 - l.step); bump(); }}>Make it low</button><button className="act" onClick={() => { bench.set(id, (l.normal[0] + l.normal[1]) / 2); bump(); }}>Normal</button><button className="act" onClick={() => { bench.set(id, l.normal[1] + (l.normal[1] - l.normal[0]) * 1.2 + l.step); bump(); }}>Make it high</button>
           <button className={`act${useLabUI.getState().view === 'cell' ? ' primary' : ''}`} onClick={() => useLabUI.getState().set({ view: useLabUI.getState().view === 'cell' ? 'body' : 'cell' })}>{useLabUI.getState().view === 'cell' ? '← Back to the body' : 'Zoom into the cells →'}</button></div>
       </div>
+      <Fold group="labcard" id="about" title="About this lab" summary="causes of high and low, bedside">
       <dl className="chain">
         <dt>What it is</dt><dd>{l.what}</dd>
         <dt>Where it comes from</dt><dd>{l.source}</dd>
@@ -46,12 +43,14 @@ export function LabCard() {
         <dt className={f.includes('low') ? 'hot' : ''}>Low · {l.low.label}</dt><dd className={f.includes('low') ? 'hot' : ''}><ul>{l.low.causes.map((c) => <li key={c}>{c}</li>)}</ul>{l.low.effects}</dd>
         <dt>At the bedside</dt><dd>{l.bedside}</dd>
       </dl>
+      </Fold>
       {sceneOf(id) ? <p className="muted small">In the cell view: a cell sliced open with all its organelles — switch between a heart muscle cell, a nerve cell and a textbook cell, or zoom into the membrane to watch individual ions cross.</p> : <p className="muted small">In the cell view: {spec.caption} {spec.species.length > 0 && <>Dots: {spec.species.map((s) => <span key={s.key} className="sp"><i style={{ background: s.color }} />{s.label}</span>)}</>}</p>}
     </section>
   );
 }
 
 /* ------------------------------------------------------------------ consequence panels */
+export const hasConsequences = (id: string) => ['k', 'ca', 'mg', 'na', 'hb', 'hct', 'rbc', 'lac', 'cr', 'egfr', 'bun', 'ag', 'hco3', 'cl', 'ket', 'glu'].includes(id);
 export function Consequences() {
   useUI((s) => s.pulse); const id = useLabUI((s) => s.lab);
   if (['k', 'ca', 'mg'].includes(id)) return <><EcgStrip /><Membrane /><KTreat /></>;
@@ -78,7 +77,7 @@ export function EcgStrip() {
       const now = (performance.now() - t0) / 1000; const mv = pxs / 5 * 2; // 10 mm/mV
       ctx.strokeStyle = '#1b1b1f'; ctx.lineWidth = 1.6; ctx.beginPath();
       for (let x = 0; x <= w; x += 1) { const tt = now - (w - x) / pxs; const ph = ((tt % per) + per) % per; const y = h * 0.62 - ecgAt(ph, sh) * mv; if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y); }
-      ctx.stroke(); ctx.fillStyle = '#1b1b1f'; ctx.font = '600 11px "IBM Plex Mono", monospace'; ctx.fillText('II', 8, 16); ctx.font = '500 11px "IBM Plex Mono", monospace'; ctx.fillText(sh.label, 30, 16);
+      ctx.stroke(); ctx.fillStyle = '#1b1b1f'; ctx.font = '600 11px "Atkinson Hyperlegible Mono", monospace'; ctx.fillText('II', 8, 16); ctx.font = '500 11px "Atkinson Hyperlegible Mono", monospace'; ctx.fillText(sh.label, 30, 16);
     };
     raf = requestAnimationFrame(draw); return () => { cancelAnimationFrame(raf); ro.disconnect(); };
   }, []);

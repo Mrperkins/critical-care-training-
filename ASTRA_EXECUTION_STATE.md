@@ -71,3 +71,19 @@ Expansion ea45a7c: Clinical app validation run 37774717443 and Audio Mastery CI 
 - Supported browser API advertises no viewport/emulation controls. Exact matrix cannot be run in this browser.
 
 User authorizes merge only AFTER full implementation and visual gates. Keep draft; do not merge, publish the generated bundle or call the assignment complete while these checks remain unverified.
+
+## UI overhaul branch (`ui-overhaul`, PR to main — not merged by the agent)
+- Shell v3: domain header strip removed; domain name, Learn/Explore/Practice, condition atlas and Cases/Simulator live in the top bar. Rail has line icons and full labels. One accent (#6cc4b6, selection only), one family (Atkinson Hyperlegible Next + Mono). Sentence-case labels replace tracked capitals.
+- Home: one heading with progress, three action cards, no filler hero. Videos: duplicate title removed; feed sections as one segmented control and sources as a dropdown.
+- Ported from `visual-overhaul`: scenario picker plus folding sections (Respiratory's four context tabs replaced), compact vent/ABG readouts, Explore memory, and the stroke time slider to day 14 with real CT per stage. Synthetic neuro CT panels (`ClinicalImagingScene`, `synth.ts`) were removed; `realReference.ts` and its tests are kept. Simulator stays on main's `VentWorkbench`.
+- Scene toolbar uses SVG icons. Canvas fonts were switched to Atkinson.
+- Verified on a local build at 1440×900 and 390×844 with 758/758 tests passing and the visual-asset validator passing. In the sandbox the YouTube embeds render white because there is no network; this is not a layout bug.
+- Not done yet: the Peds/OB atlas mannequin restyle; real media for the remaining drawn imaging (CXR, LUS, FAST/aorta, IJ); a review of discovery round 2; 4 pending media items.
+
+### Real images and open 3D models (same branch)
+- Rule: anything picturing anatomy, a patient, a device or a medical image is a real openly licensed image/clip or an open 3D model. Live data (waveforms, monitor traces, ABG map, PK and pressure–volume curves, to-scale depth charts, drain gauges) stays programmatic.
+- 3D: HuBMAP Visible Human Female body (`app/pipeline/build-body-f.ts` → `body-f.glb`: organs, airway, uterus, ovaries, tubes, term placenta/amnion/cord) and airway added to the male body; HuBMAP eyes (`build-eyes.ts` → `eyes.glb`) for the pupil exam; the condition atlas is 3D for all 84 conditions (`atlas/anatomy3d.ts` maps condition → body/organs; pediatric congenital-heart conditions open the real 3D heart). `atlas/Diagrams.tsx` deleted. Neuro exam shows a 3D weakness map on the reference body.
+- Imaging: `scene/imaging/RealStudy.tsx` picks the real study by finding keys from the model (`cxrKeys`, `lusKeys`, `fastKey`, `ctaKeys`, `ijKey`); if no real study carries the finding it says so instead of showing something else. Synthetic renderers removed (`renderCxr`, LUS/FAST/CTA B-mode and HU renderers, `scene/ultrasound/bmode.ts`, `ImagePanel`).
+- Media pipeline: `clinical-media.yml` now also runs on `ui-overhaul`. Discovery rounds 2–4 reviewed visually; 103 real items shipped (56 added on this branch). Remaining gaps: normal FAST RUQ and LUQ, adult right-lung collapse film, obese-habitus film, liver/spleen blunt-trauma CT, IO tibia photo, radial-artery and PIV ultrasound. Next discovery lines: `imaging/real/discovery-next.txt` (copy into fetch-request.txt to run). Where a gap remains the imaging view says no real study is sourced; audio rep frames fall back to their schematic only for those gaps.
+- Known tool issues: the two Tsung LUS clips fail the duration check (5.87 vs 6.00 s); the two echo stills lack licence evidence.
+- Children are shown on the adult reference body (no open pediatric body model found); the scene says so.

@@ -1,3 +1,4 @@
+import { Picker, Fold } from '../scene/pane';
 /** Drugs module: mechanism graph (SVG) + patient response from an existing engine + Lesson Director. */
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useUI } from '../app/store';
@@ -45,8 +46,8 @@ export function MoaModule() {
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         <ReturnBanner />
         <section className="card story">
-          <div className="moa-groups">{MOA_GROUPS.map((g) => <div key={g.label} className="moa-group"><div className="eyebrow">{g.label}</div><div className="chips" role="group" aria-label={g.label}>{g.ids.map((id) => MECH[id]).map((m) => <button key={m.id} className={`chip${m.id === defId ? ' on' : ''}`} aria-pressed={m.id === defId} onClick={() => useMoa.getState().set({ defId: m.id, ctx: null })}>{m.drug}</button>)}</div></div>)}</div>
-          <p className="muted" style={{ marginTop: 10 }}>{def.drugClass}</p>
+          <Picker label="Drug" value={defId} sub={def.drugClass} onPick={(id) => useMoa.getState().set({ defId: id, ctx: null })}
+            groups={MOA_GROUPS.map((g) => ({ label: g.label, items: g.ids.map((id) => MECH[id]).map((m) => ({ id: m.id, name: m.drug, hint: m.drugClass })) }))} />
           {def.contexts && <div className="moa-ctx"><div className="eyebrow">Same drug, different patient</div><Seg small value={ctx ?? def.contexts[0].id} options={def.contexts.map((c) => [c.id, c.label] as [string, string])} onChange={(v) => useMoa.getState().set({ ctx: v })} /><p className="muted small">{(def.contexts.find((c) => c.id === ctx) ?? def.contexts[0]).note}</p></div>}
         </section>
         <ModeBar def={def} />
@@ -55,10 +56,10 @@ export function MoaModule() {
         {moaMode === 'compare' && <CompareCard def={def} />}
         <Vitals def={def} />
         <AdverseCard def={def} />
-        <TimeCard id={def.id} />
-        <LessonsCard id={def.id} />
+        {TIMECOURSE[def.id] && <Fold group="moa" id="time" title="Onset & duration"><TimeCard id={def.id} /></Fold>}
+        {lessonsForDrug(def.id).length > 0 && <Fold group="moa" id="lessons" title="Used in lessons"><LessonsCard id={def.id} /></Fold>}
         {mode !== 'explore' && <p className="muted small" style={{ padding: '0 4px' }}>Challenge and Simulate views for drugs are coming; Guided, Explore and Compare above cover learning.</p>}
-        <p className="credit">Mechanism graph: original teaching summary. Patient response: {def.patient ? <>{def.patient.engine} ({def.patient.scenario}) — an existing engine of this app; the drug layer only sets exposure.</> : 'none yet (see above).'}</p>
+        <details className="credit"><summary>Sources & model notes</summary>Mechanism graph: original teaching summary. Patient response: {def.patient ? <>{def.patient.engine} ({def.patient.scenario}) — an existing engine of this app; the drug layer only sets exposure.</> : 'none yet (see above).'}</details>
       </aside>
     </main>
   );

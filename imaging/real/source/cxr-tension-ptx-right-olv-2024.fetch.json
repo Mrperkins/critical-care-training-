@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC11135384",
+ "pageUrl": "https://doi.org/10.7759/cureus.61306",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+ "authors": "Angie H Chang, Hongchengcheng Chen, Lei Li, Yirui Hu, Ruoxi Zhang, Xiaopeng Zhang",
+ "title": "Contralateral Tension Pneumothorax in One-Lung Ventilation: A Case Report and Systematic Review",
+ "publication": "Cureus",
+ "published": "2024-05-29",
+ "doi": "10.7759/cureus.61306",
+ "volume": "16",
+ "firstpage": "e61306",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC11135384.1/cureus-0016-00000061306-i01.jpg",
+ "originalName": "cureus-0016-00000061306-i01.jpg",
+ "description": "Figure 1 Right lung was completely compressed on bedside chest x-ray.",
+ "thirdParty": false,
+ "figure": "FIG1",
+ "licenseEvidence": "Europe PMC full text of PMC11135384 (doi 10.7759/cureus.61306), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 1 caption checked for a separate credit.",
+ "id": "cxr-tension-ptx-right-olv-2024",
+ "retrieved": "2026-10-09T16:41Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

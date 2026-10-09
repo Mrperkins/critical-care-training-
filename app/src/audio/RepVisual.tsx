@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import type { MentalRepBeat } from './types';
 
 export function RepVisual({ beat }: { beat: MentalRepBeat }) {
@@ -12,28 +12,63 @@ export function RepVisual({ beat }: { beat: MentalRepBeat }) {
   if (key === 'epi-label') return <EpiPrep step="label" />;
   if (key === 'monitor-response') return <Monitor />;
   if (key === 'blood-circuit') return <Blood />;
-  if (key === 'artery-ultrasound') return <ArteryUs />;
+  if (key === 'artery-ultrasound') return <RealRep k={key} fallback={<ArteryUs />} />;
   if (key === 'transducer-system') return <Transducer />;
   if (key === 'arterial-waveform') return <ArtWave />;
   if (key === 'square-wave-test') return <SquareWave />;
   if (key === 'efast-map') return <EfastMap />;
-  if (key === 'efast-luq' || key === 'efast-pelvis' || key === 'efast-cardiac' || key === 'efast-lung') return <UsWindow name={key.replace('efast-', '').toUpperCase()} />;
-  if (key === 'chest-wall-anatomy') return <ChestWall />;
-  if (key === 'drain-system' || key === 'drain-water-seal') return <Drain active={key === 'drain-water-seal'} />;
+  if (key === 'efast-luq' || key === 'efast-pelvis' || key === 'efast-cardiac' || key === 'efast-lung') return <RealRep k={key} fallback={<UsWindow name={key.replace('efast-', '').toUpperCase()} />} />;
+  if (key === 'chest-wall-anatomy') return <RealRep k={key} fallback={<ChestWall />} />;
+  if (key === 'drain-system' || key === 'drain-water-seal') return <RealRep k={key} fallback={<Drain active={key === 'drain-water-seal'} />} />;
   if (key === 'evd-level') return <Evd />;
   if (key === 'vent-check') return <Vent />;
-  if (key === 'io-landmark') return <Io />;
-  if (key === 'piv-map' || key === 'piv-tip' || key === 'piv-confirm') return <Piv mode={key} />;
+  if (key === 'io-landmark') return <RealRep k={key} fallback={<Io />} />;
+  if (key === 'piv-map' || key === 'piv-tip') return <RealRep k={key} fallback={<Piv mode={key} />} />;
+  if (key === 'piv-confirm') return <Piv mode={key} />;
   if (key === 'airway-overview' || key === 'airway-preoxygenation') return <Airway mode={key} />;
-  if (key === 'post-tube') return <PostTube />;
+  if (key === 'post-tube') return <RealRep k={key} fallback={<PostTube />} />;
   if (key === 'sedation-lines') return <Sedation />;
   if (key.startsWith('pac-')) return <Pac chamber={key.replace('pac-','')} />;
   if (key === 'crrt-circuit') return <Crrt />;
   if (key === 'ecmo-circuit' || key === 'ecmo-return') return <Ecmo mode={key} />;
   if (key === 'iabp-wave' || key === 'iabp-errors') return <Iabp errors={key === 'iabp-errors'} />;
   if (key === 'seizure-timeline' || key === 'seizure-eeg') return <Seizure mode={key} />;
+  if (key === 'pocus-lung' || key === 'pocus-venous' || key === 'pocus-abdomen') return <RealRep k={key} fallback={<Pocus mode={key} />} />;
   if (key.startsWith('pocus-')) return <Pocus mode={key} />;
   return <PhaseVisual beat={beat} />;
+}
+
+/** Real, openly licensed media for a rep beat, chosen by finding keys from imaging/real/manifest.json. */
+interface RealRepItem { id: string; kind: string; file: string; webm?: string; poster?: string; title: string; credit?: string; author: string; license: string; findings?: string[]; finding?: string }
+let manifest: Promise<RealRepItem[]> | null = null;
+const loadManifest = () => (manifest ??= fetch('../imaging/real/manifest.json').then((r) => (r.ok ? r.json() : { items: [] })).then((m) => m.items as RealRepItem[]).catch(() => []));
+const REP_KEYS: Record<string, { keys: string[]; ids?: string[]; title: string }> = {
+  'efast-luq': { keys: ['fast_luq_positive', 'fast_luq_negative'], title: 'real LUQ view' },
+  'efast-pelvis': { keys: ['fast_pelvis_positive', 'fast_pelvis_negative'], title: 'real pelvic view' },
+  'efast-cardiac': { keys: ['fast_pericardial_negative'], ids: ['tamponade-ginghina'], title: 'real subxiphoid view' },
+  'efast-lung': { keys: ['sliding'], ids: ['lus-sliding-gillman2012', 'lus-lung-point-gillman'], title: 'real lung sliding' },
+  'post-tube': { keys: ['ett_ok'], title: 'real film: tube above the carina' },
+  'chest-wall-anatomy': { keys: ['needle_decompression_site', 'chest_wall'], title: 'real chest wall' },
+  'drain-system': { keys: ['chest_drain_unit'], title: 'real chest drain unit' }, 'drain-water-seal': { keys: ['chest_drain_unit'], title: 'real water seal' },
+  'io-landmark': { keys: ['io_tibia'], title: 'real proximal tibia landmark' },
+  'artery-ultrasound': { keys: ['radial_artery_us'], title: 'real artery ultrasound' },
+  'piv-map': { keys: ['piv_us'], title: 'real vein ultrasound' }, 'piv-tip': { keys: ['ij_needle', 'piv_us'], title: 'real needle tip in a vein' },
+  'pocus-lung': { keys: ['sliding'], ids: ['lus-sliding-gillman2012', 'blines'], title: 'real lung ultrasound' },
+  'pocus-venous': { keys: ['ivc_collapsing'], ids: ['ivc-collapse-gillman'], title: 'real IVC' },
+  'pocus-abdomen': { keys: ['fast_ruq_positive'], ids: ['fast-ruq-positive'], title: 'real RUQ view' },
+};
+function RealRep({ k, fallback }: { k: string; fallback: ReactNode }) {
+  const want = REP_KEYS[k]; const [it, setIt] = useState<RealRepItem | null | undefined>(undefined);
+  useEffect(() => { let on = true; loadManifest().then((items) => { if (!on) return;
+    const byId = (want.ids ?? []).map((id) => items.find((x) => x.id === id)).find(Boolean);
+    const byKey = items.find((x) => want.keys.some((w) => (x.findings ?? []).includes(w) || x.finding === w));
+    setIt(byKey ?? byId ?? null); }); return () => { on = false; }; }, [k]); // eslint-disable-line react-hooks/exhaustive-deps
+  if (it === undefined) return null;
+  if (!it) return <>{fallback}</>;
+  const src = (f: string) => `../imaging/real/${f}`;
+  return <Frame title={want.title} real><div className="rv-realmedia">{it.file.endsWith('.mp4')
+    ? <video controls playsInline muted loop autoPlay poster={it.poster ? src(it.poster) : undefined}><source src={src(it.file)} type="video/mp4" />{it.webm && <source src={src(it.webm)} type="video/webm" />}</video>
+    : <img src={src(it.file)} alt={it.title} />}<span>{it.credit ?? `${it.author} · ${it.license}`}</span></div></Frame>;
 }
 
 function Frame({ title, children, real = false }: { title: string; children: ReactNode; real?: boolean }) {

@@ -1,3 +1,4 @@
+import { Picker } from '../scene/pane';
 /** Side-panel cards for the invasive-lines module. */
 import { useEffect, useRef, useState } from 'react';
 import { useUI } from '../app/store';
@@ -11,16 +12,8 @@ const bump = () => useUI.getState().set({ pulse: useUI.getState().pulse + 1 });
 
 export function ScenarioPicker({ onPick }: { onPick?: (s: LinesScenario) => void }) {
   useUI((s) => s.pulse); const groups = [...new Set(SCENARIOS.map((s) => s.group))];
-  return (
-    <section className="card">
-      <div className="card-h"><h3>Patient</h3><span className="muted small">{lines.sc.blurb}</span></div>
-      {groups.map((g) => (
-        <div key={g} className="ln-group"><div className="eyebrow">{g}</div>
-          <div className="chips">{SCENARIOS.filter((s) => s.group === g).map((s) => <button key={s.id} className={`chip${lines.sc.id === s.id ? ' on' : ''}`} onClick={() => { lines.load(s.id); onPick?.(s); bump(); }}>{s.short}</button>)}</div>
-        </div>
-      ))}
-    </section>
-  );
+  return <Picker label="Patient" value={lines.sc.id} sub={lines.sc.blurb} onPick={(id) => { lines.load(id); onPick?.(SCENARIOS.find((x) => x.id === id)!); bump(); }}
+    groups={groups.map((g) => ({ label: g, items: SCENARIOS.filter((s) => s.group === g).map((s) => ({ id: s.id, name: s.short, hint: s.blurb })) }))} />;
 }
 
 export function StoryCard() {
@@ -151,7 +144,7 @@ export function FlushCard() {
     const X = (i: number) => 6 + (i / (all.length - 1)) * (w - 12); const Y = (v: number) => h - 8 - ((v - lo) / (hi - lo)) * (h - 22);
     ctx.strokeStyle = 'rgba(255,255,255,0.08)'; for (let k = 0; k <= all.length; k += 40) { ctx.beginPath(); ctx.moveTo(X(k), 10); ctx.lineTo(X(k), h - 6); ctx.stroke(); }
     ctx.strokeStyle = id === 'art' ? '#ff5a57' : '#57b6ff'; ctx.lineWidth = 1.6; ctx.beginPath(); all.forEach((v, i) => (i ? ctx.lineTo(X(i), Y(v)) : ctx.moveTo(X(i), Y(v)))); ctx.stroke();
-    ctx.fillStyle = 'rgba(255,255,255,0.6)'; ctx.font = '500 10px "IBM Plex Mono", monospace'; ctx.fillText(`flush ${r0(r.bagP)} mmHg → release`, 8, 12); ctx.fillText('grid = 40 ms', w - 86, 12);
+    ctx.fillStyle = 'rgba(255,255,255,0.6)'; ctx.font = '500 10px "Atkinson Hyperlegible Mono", monospace'; ctx.fillText(`flush ${r0(r.bagP)} mmHg → release`, 8, 12); ctx.fillText('grid = 40 ms', w - 86, 12);
     r.ext?.forEach((e, k) => { const i = e.i + pre; ctx.fillStyle = '#e9b949'; ctx.beginPath(); ctx.arc(X(i), Y(r.cap[e.i]), 2.6, 0, 7); ctx.fill(); if (k < 6) ctx.fillText(String(k + 1), X(i) - 3, Y(r.cap[e.i]) + (e.v > 0 ? -6 : 13)); });
   }, [r?.at, id]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => { const t = setInterval(() => force((x) => x + 1), 1500); return () => clearInterval(t); }, []);

@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC13332831",
+ "pageUrl": "https://doi.org/10.7759/cureus.110257",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+ "authors": "Louise Nicolette Mendoza, Wyatt Mayer, Mario Loomis",
+ "title": "Recurrent Primary Spontaneous Pneumothorax in an 18-Year-Old Man: A Case Report and Review of Considerations for Prophylactic Contralateral Pleurodesis",
+ "publication": "Cureus",
+ "published": "2026-06-04",
+ "doi": "10.7759/cureus.110257",
+ "volume": "18",
+ "firstpage": "e110257",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13332831.1/cureus-0018-00000110257-i02.jpg",
+ "originalName": "cureus-0018-00000110257-i02.jpg",
+ "description": "Figure 2 Chest radiograph following pigtail catheter placement confirming catheter position, lung re-expansion, and resolution of the PTX Note the reduction in PTX compared to Figure 1 . PTX: pneumothorax",
+ "thirdParty": false,
+ "figure": "FIG2",
+ "licenseEvidence": "Europe PMC full text of PMC13332831 (doi 10.7759/cureus.110257), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 2 caption checked for a separate credit.",
+ "id": "cxr-pigtail-drain-reexpanded-2026",
+ "retrieved": "2026-10-09T16:41Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}
