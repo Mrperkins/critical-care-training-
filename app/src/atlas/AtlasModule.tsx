@@ -4,7 +4,7 @@ import { director, useDirector } from '../director/director';
 import { DirectorPlayer } from '../director/Player';
 import { DISEASE_BY_ID, conditionsFor } from './registry';
 import { applyDecision, diseaseLesson, diseaseState, stageIndex } from './engine';
-import { DiseaseDiagram, PatientDiagram } from './Diagrams';
+import { affectedOrgans } from './anatomy3d';
 import type { AtlasDomain, Decision, DiseaseState } from './types';
 import { ATLAS_MEDIA } from './media';
 
@@ -18,7 +18,6 @@ export function AtlasModule({ domain, onExit, onOpenVent }: { domain: AtlasDomai
   const target = useUI(s=>s.atlasTarget);
   const setSeverity=(atlasSeverity:number)=>useUI.getState().set({atlasSeverity});
   const setTarget=(atlasTarget:string)=>useUI.getState().set({atlasTarget});
-  const [view, setView] = useState<'diagram' | 'patient'>('diagram');
   const [mediaOpen,setMediaOpen] = useState(false);
   const [result, setResult] = useState<{ decision: Decision; before: DiseaseState; after: DiseaseState } | null>(null);
   const mode = useUI(s => s.mode);
@@ -43,16 +42,17 @@ export function AtlasModule({ domain, onExit, onOpenVent }: { domain: AtlasDomai
   }, [disease]);
   return <main className="stage atlas-stage">
     <section className="scene-pane atlas-scene" aria-label="Disease visualization">
-      <div className="atlas-scene-head"><div><span className="eyebrow">Pathophysiology atlas · {disease.population}</span><h2>{disease.title}</h2></div>
-        <div className="atlas-view-switch" role="group" aria-label="Visualization modality"><button aria-pressed={view === 'diagram'} onClick={() => setView('diagram')}>Mechanism</button>{disease.population === 'adult' && <button aria-pressed={view === 'patient'} onClick={() => setView('patient')}>3D patient</button>}</div>
+      <div className="atlas-scene-head"><div><span className="eyebrow">Condition atlas, {disease.population === 'adult' ? 'adult' : disease.population}</span><h2>{disease.title}</h2></div>
       </div>
       <div className="atlas-visual">
-        {view === 'patient' ? <Suspense fallback={<p className="loading">Loading patient anatomy…</p>}><PatientScene disease={disease} state={state} target={target} /></Suspense> : target === 'body.whole' ? <PatientDiagram disease={disease} /> : <DiseaseDiagram disease={disease} state={state} />}
+        <div className="atlas-visual-3d" role="figure" aria-label={`${disease.title}: ${disease.findings.map(f => f.label).join(', ')}`} data-organs={affectedOrgans(disease).join(' ')}>
+          <Suspense fallback={<p className="loading">Loading 3D anatomy…</p>}><PatientScene disease={disease} state={state} target={target} /></Suspense>
+        </div>
       </div>
       <div className="atlas-camera-actions" role="group" aria-label="Clinical focus"><button aria-pressed={target === 'body.whole'} onClick={() => { director.pause(); setTarget('body.whole'); }}>Whole patient</button><button aria-pressed={target === disease.target} onClick={() => { director.pause(); setTarget(disease.target); }}>Affected anatomy</button>{mode === 'learn' && <button onClick={openContext}>Lesson &amp; progress</button>}</div>
       <p className="atlas-caption">{target === 'body.whole' ? disease.distinction : disease.mechanism}</p>
       <div className="atlas-findings" aria-label="Visual findings">{disease.findings.map(f => <div key={f.channel}><span>{f.label}</span><meter min="0" max="1" value={state[f.channel]} aria-label={`${f.label}, illustrative intensity`} /><span className="sr-only">{Math.round(state[f.channel] * 100)}% of illustrative range</span></div>)}</div>
-      <p className="credit">Schematic teaching model. Relative visual intensity is not a measured clinical value or a prediction for a patient. Each visual finding also appears in the written lesson.</p>
+      <p className="credit">Finding bars show illustrative intensity, not measured values. Each finding also appears in the written lesson.</p>
     </section>
     <aside id="controls" tabIndex={-1} className="side-pane atlas-context" aria-label="Disease lessons and controls">
       {onExit && <button className="back" onClick={onExit}>← Core curriculum &amp; organ scene</button>}

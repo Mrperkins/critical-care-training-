@@ -1,8 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { renderToStaticMarkup } from 'react-dom/server';
 import { DISEASES, conditionsFor, PEDIATRIC_CONDITIONS, WOMENS_CONDITIONS } from '../src/atlas/registry';
 import { applyDecision, diseaseLesson, diseaseState, HEALTHY } from '../src/atlas/engine';
-import { DiseaseDiagram, PatientDiagram } from '../src/atlas/Diagrams';
+import { affectedOrgans, bodySexFor, HEART_PRESET_FOR, isPregnant } from '../src/atlas/anatomy3d';
+import { HEART_PRESETS } from '../src/heart/shunt';
+import maleMap from '../public/models/body.mapping.json';
+import femaleMap from '../public/models/body-f.mapping.json';
 import { CAMERA_TARGETS } from '../src/scene/cameraTargets';
 import { duration, resolve, targetAt } from '../src/director/timeline';
 import { EQUIPMENT_SCENARIOS } from '../src/vent/equipment';
@@ -45,13 +47,13 @@ describe('clinical disease registry', () => {
     for (const decision of d.decisions) { expect(decision.explanation.length).toBeGreaterThan(60); const s=applyDecision(diseaseState(d,.75),decision); for(const value of Object.values(s)) { expect(value).toBeGreaterThanOrEqual(0); expect(value).toBeLessThanOrEqual(1); } }
     expect(d.sources.every(s => s.url.startsWith('https://'))).toBe(true);
   });
-  it.each(DISEASES)('$id renders anatomy and accessible matching textual findings', d => {
-    const visual = renderToStaticMarkup(<DiseaseDiagram disease={d} state={diseaseState(d,.8)} />);
-    const geometry=(s:number)=>renderToStaticMarkup(<DiseaseDiagram disease={d} state={diseaseState(d,s)}/>).replace(/<title[^>]*>.*?<\/title>/,'').replace(/aria-labelledby="[^"]*"/,'');
-    expect(geometry(1),`${d.id} must change anatomy or flow, not just the title`).not.toEqual(geometry(0));
-    expect(visual).toContain('<svg'); expect(visual).toContain('role="img"'); expect(visual).toContain('<title');
-    for(const f of d.findings) expect(visual).toContain(f.label);
-    expect(renderToStaticMarkup(<PatientDiagram disease={d} />)).toContain(d.population);
+  it.each(DISEASES)('$id is shown on real 3D anatomy that contains every affected organ', d => {
+    const centres = (bodySexFor(d) === 'female' ? femaleMap : maleMap).centres as Record<string, number[]>;
+    const organs = affectedOrgans(d); expect(organs.length).toBeGreaterThan(0);
+    for (const o of organs) expect(centres[o], `${d.id} needs ${o}`).toBeDefined();
+    if (isPregnant(d)) for (const o of ['placenta', 'amnion', 'cord']) expect(femaleMap.centres).toHaveProperty(o);
+    if (d.population === 'female' || d.population === 'maternal') expect(bodySexFor(d)).toBe('female');
+    const preset = HEART_PRESET_FOR[d.id]; if (preset) { expect(d.anatomy).toBe('heart'); expect(HEART_PRESETS[preset]).toBeDefined(); }
   });
   it.each(DISEASES)('$id lesson is deterministic, seekable and uses only semantic camera targets', d => {
     let state={severity:0,target:''}; const lesson=diseaseLesson(d,(severity,target) => { state={severity,target}; });

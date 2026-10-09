@@ -1,100 +1,152 @@
+/**
+ * Atlas anatomy in 3D: the HuBMAP Visible Human Male or Female reference body (CC BY 4.0) with the organs that
+ * carry the condition highlighted and the rest ghosted. Maternal conditions show the library's term placenta,
+ * amnion and cord in place; pediatric congenital-heart conditions open the real 3D congenital heart instead.
+ * Pathology marks (blood, clot, oedema) are 3D overlays sized by the illustrative state, not measurements.
+ */
 import { useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { CameraControls } from '@react-three/drei';
 import { useFrame, useThree } from '@react-three/fiber';
 import { loadBodyAsset, type BodyAsset } from '../asset/body';
 import { StudioCanvas } from '../scene/Studio';
-import { resolveTarget } from '../scene/cameraTargets';
+import { HeartScene } from '../heart/HeartScene';
+import { loadHeartPreset, useHeartUI } from '../heart/heartStore';
 import type { DiseaseDefinition, DiseaseState } from './types';
+import { affectedOrgans, bodySexFor, isPregnant, usesAdultReference, HEART_PRESET_FOR, FEMALE_ORGANS, MALE_ORGANS, ORGAN_COLOR, type OrganId } from './anatomy3d';
 
-const COLORS: Record<string,string> = { heart: '#96535b', lung_L: '#bb8790', lung_R: '#bb8790', brain: '#ad8c9a', liver: '#763e35', kidney_L: '#986f6b', kidney_R: '#986f6b', aorta: '#b6595f', vena_cava: '#5d739b' };
-function affected(d: DiseaseDefinition): string[] {
-  if (['airway', 'alveoli', 'pleura'].includes(d.anatomy)) return ['lung_L', 'lung_R'];
-  if (d.anatomy === 'pulmonary-vessels') return ['lung_L', 'lung_R', 'heart'];
-  if (d.anatomy === 'heart') return ['heart'];
-  if (d.anatomy === 'aorta') return ['aorta'];
-  if (d.anatomy === 'brain') return ['brain'];
-  return ['heart', 'aorta', 'kidney_L', 'kidney_R'];
-}
 function useReducedMotion() {
   const [reduced, setReduced] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   useEffect(() => { const q = window.matchMedia('(prefers-reduced-motion: reduce)'); const f = () => setReduced(q.matches); q.addEventListener('change', f); return () => q.removeEventListener('change', f); }, []);
   return reduced;
 }
-function focusPoint(body: BodyAsset, disease: DiseaseDefinition, target: string) {
-  const centres = body.mapping.centres;
-  const point = (key: string, fallback: [number,number,number]) => new THREE.Vector3(...(centres[key] ?? fallback));
-  const region = disease.anatomy === 'brain' ? point('brain',[0,8.3,0]) : disease.anatomy === 'heart' || disease.anatomy === 'pulmonary-vessels' ? point('heart',[0,4.8,0]) : disease.anatomy === 'aorta' ? new THREE.Vector3(0, disease.target === 'aorta.thoracic' ? 5 : 2.4, 0) : ['airway','alveoli','pleura'].includes(disease.anatomy) ? point('lung_R',[-.65,5,0]) : new THREE.Vector3(0,2.6,0);
-  const resolved = resolveTarget(target);
-  // Scene-local anchors retain semantic names and use the actual source anatomy's centres.
-  const anchors: Record<string, THREE.Vector3> = { whole: new THREE.Vector3(), head: point('brain',[0,8.3,0]), chest: point('heart',[0,4.8,0]), abdomen: new THREE.Vector3(0,2.5,0), pelvis: new THREE.Vector3(0,.5,0) };
-  if (resolved && !anchors[resolved.anchor]) anchors[resolved.anchor] = region;
-  return resolveTarget(target, anchors)?.position ?? region;
+const PREGNANCY_PARTS: OrganId[] = ['placenta', 'amnion', 'cord'];
+
+/** Bounding box of the given meshes in body space (meshes are in body space already). */
+function boxOf(body: BodyAsset, ids: string[]) {
+  const b = new THREE.Box3();
+  for (const id of ids) { const m = body.meshes[id]; if (!m) continue; m.geometry.computeBoundingBox(); b.union(m.geometry.boundingBox!); }
+  return b;
 }
-function Camera({ body, disease, target }: { body: BodyAsset; disease: DiseaseDefinition; target: string }) {
+
+function Camera({ body, focus, whole, boost = 1 }: { body: BodyAsset; focus: string[]; whole: boolean; boost?: number }) {
   const controls = useRef<CameraControls>(null); const reduced = useReducedMotion();
-  const aspect = useThree(s => s.size.width / Math.max(1,s.size.height));
+  const aspect = useThree((s) => s.size.width / Math.max(1, s.size.height));
   useEffect(() => {
-    const p = focusPoint(body, disease, target); const whole = target === 'body.whole';
-    const size = whole ? 19 : disease.anatomy === 'brain' ? 3.1 : 4.1;
-    const distance = size / (2 * Math.tan(THREE.MathUtils.degToRad(17))) * Math.max(1,1/aspect);
-    controls.current?.setLookAt(p.x+.12,p.y+.15,p.z+distance,p.x,p.y,p.z,!reduced);
-  },[body,disease,target,aspect,reduced]);
-  return <CameraControls ref={controls} makeDefault smoothTime={.65} minDistance={2} maxDistance={50} />;
+    const box = whole ? boxOf(body, ['skin']) : boxOf(body, focus);
+    const p = box.getCenter(new THREE.Vector3()); const size = Math.max(whole ? 18 : 1.6, box.getSize(new THREE.Vector3()).length() * (whole ? 1 : 1.25 * boost));
+    const distance = size / (2 * Math.tan(THREE.MathUtils.degToRad(17))) * Math.max(1, 1 / aspect);
+    controls.current?.setLookAt(p.x + distance * 0.18, p.y + distance * 0.08, p.z + distance, p.x, p.y, p.z, !reduced);
+  }, [body, focus.join(), whole, aspect, reduced, boost]); // eslint-disable-line react-hooks/exhaustive-deps
+  return <CameraControls ref={controls} makeDefault smoothTime={0.65} minDistance={0.8} maxDistance={60} />;
 }
-function Organ({ body, name, active, state, disease }: { body: BodyAsset; name: string; active: boolean; state: DiseaseState; disease: DiseaseDefinition }) {
-  const mesh = useRef<THREE.Mesh<THREE.BufferGeometry,THREE.MeshStandardMaterial>>(null);
-  const centre = body.mapping.centres[name] ?? [0,0,0]; const reduced = useReducedMotion();
-  const geometry = useMemo(() => body.meshes[name].geometry.clone().translate(-centre[0],-centre[1],-centre[2]),[body,name]);
-  const material = useMemo(() => new THREE.MeshStandardMaterial({ color: COLORS[name], roughness: .65, transparent: true }),[name]);
-  const nextScale = useMemo(() => new THREE.Vector3(), []);
-  const nextColor = useMemo(() => {
-    const color = new THREE.Color(COLORS[name]);
-    if (active) color.lerp(new THREE.Color('#623149'),state.ischemia*.65).lerp(new THREE.Color('#6985a6'),state.fluid*.55);
-    return color;
-  }, [name,active,state.ischemia,state.fluid]);
-  useEffect(() => () => { geometry.dispose(); material.dispose(); },[geometry,material]);
-  useFrame((_,dt) => {
-    if (!mesh.current) return;
-    const lung = name.startsWith('lung');
-    const unilateral = ['tension','pleural-air','pleural-blood'].includes(disease.variant);
-    const changed = active && (!unilateral || name === 'lung_R');
-    const size = changed && lung ? 1 - .48 * state.collapse + .18 * state.overdistension : changed && name === 'brain' ? 1 + .035 * state.edema : 1;
-    const u = reduced ? 1 : 1 - Math.exp(-4*Math.min(dt,.1));
-    mesh.current.scale.lerp(nextScale.set(size,size,size),u);
-    mesh.current.material.color.lerp(nextColor,u); mesh.current.material.opacity = active ? 1 : .12;
+
+/** Per-organ deformation for the condition (scale about the organ's own centre; placenta repositioned for previa). */
+function organPose(id: OrganId, d: DiseaseDefinition, s: DiseaseState, body: BodyAsset): { scale: number; offset?: THREE.Vector3; rotX?: number } {
+  const unilateral = ['tension', 'pleural-air', 'pleural-blood', 'trauma'].includes(d.variant);
+  if (id.startsWith('lung') && affectedOrgans(d).includes(id) && (!unilateral || id === 'lung_R')) return { scale: 1 - 0.42 * s.collapse + 0.15 * s.overdistension };
+  if (id === 'brain' && d.anatomy === 'brain') return { scale: 1 + 0.03 * s.edema };
+  if (id === 'heart' && d.anatomy === 'heart' && ['pump', 'congestion'].includes(d.variant)) return { scale: 1 + 0.18 * (s.pumpLoss + s.fluid) / 2 };
+  if (id === 'ovary_R' && d.variant === 'torsion') return { scale: 1 + 1.4 * s.edema + 0.6 * s.obstruction };
+  if (id.startsWith('ovary') && d.variant === 'follicles') return { scale: 1.5 + 0.5 * s.endocrine };
+  if (id === 'uterus' && (d.variant === 'postpartum' || d.variant === 'atony')) return { scale: 3.4 + 0.8 * s.pumpLoss }; // postpartum fundus near the umbilicus
+  if (id === 'placenta' && d.variant === 'previa') {
+    const amn = boxOf(body, ['amnion']); const pl = boxOf(body, ['placenta']);
+    const target = new THREE.Vector3((amn.min.x + amn.max.x) / 2, amn.min.y + 0.35, (amn.min.z + amn.max.z) / 2);
+    return { scale: 0.9, offset: target.sub(pl.getCenter(new THREE.Vector3())), rotX: Math.PI / 2 };
+  }
+  return { scale: 1 };
+}
+
+function Organ({ body, id, active, state, disease }: { body: BodyAsset; id: OrganId; active: boolean; state: DiseaseState; disease: DiseaseDefinition }) {
+  const mesh = useRef<THREE.Mesh<THREE.BufferGeometry, THREE.MeshStandardMaterial>>(null); const reduced = useReducedMotion();
+  const centre = useMemo(() => boxOf(body, [id]).getCenter(new THREE.Vector3()), [body, id]);
+  const geometry = useMemo(() => body.meshes[id].geometry.clone().translate(-centre.x, -centre.y, -centre.z), [body, id, centre]);
+  const amnion = id === 'amnion';
+  const material = useMemo(() => new THREE.MeshStandardMaterial({ color: ORGAN_COLOR[id], roughness: amnion ? 0.25 : 0.62, transparent: true, side: amnion ? THREE.DoubleSide : THREE.FrontSide }), [id, amnion]);
+  const pose = useMemo(() => organPose(id, disease, state, body), [id, disease, state, body]);
+  const target = useMemo(() => new THREE.Vector3(pose.scale, pose.scale, pose.scale), [pose.scale]);
+  const position = useMemo(() => centre.clone().add(pose.offset ?? new THREE.Vector3()), [centre, pose.offset]);
+  const color = useMemo(() => {
+    const c = new THREE.Color(ORGAN_COLOR[id]);
+    if (active) c.lerp(new THREE.Color('#4b2236'), state.ischemia * 0.7).lerp(new THREE.Color('#6985a6'), (amnion ? 0 : state.fluid) * 0.5).lerp(new THREE.Color('#c25b4f'), state.inflammation * 0.35);
+    return c;
+  }, [id, active, amnion, state.ischemia, state.fluid, state.inflammation]);
+  useEffect(() => () => { geometry.dispose(); material.dispose(); }, [geometry, material]);
+  useFrame((_, dt) => {
+    const m = mesh.current; if (!m) return; const u = reduced ? 1 : 1 - Math.exp(-4 * Math.min(dt, 0.1));
+    m.scale.lerp(target, u); m.material.color.lerp(color, u);
+    m.material.opacity = amnion ? (active ? 0.22 : 0.1) : active ? 1 : 0.1; m.material.depthWrite = active && !amnion;
   });
-  material.depthWrite = active;
-  return <mesh ref={mesh} geometry={geometry} material={material} position={centre} dispose={null} />;
+  return <mesh ref={mesh} geometry={geometry} material={material} position={position} rotation={[pose.rotX ?? 0, 0, 0]} dispose={null} />;
 }
+
 function Skin({ body, whole }: { body: BodyAsset; whole: boolean }) {
-  const material = useMemo(() => new THREE.MeshStandardMaterial({ color: '#b99b87', transparent: true, depthWrite: false }),[]);
-  material.opacity = whole ? .35 : .06;
-  useEffect(() => () => material.dispose(),[material]);
+  const material = useMemo(() => new THREE.MeshStandardMaterial({ color: '#b99b87', transparent: true, depthWrite: false, roughness: 0.7 }), []);
+  material.opacity = whole ? 0.3 : 0.05;
+  useEffect(() => () => material.dispose(), [material]);
   return <mesh geometry={body.meshes.skin.geometry} material={material} dispose={null} />;
 }
-function Pathology({ body, disease, state }: { body: BodyAsset; disease: DiseaseDefinition; state: DiseaseState }) {
-  const point = focusPoint(body,disease,disease.target); const anterior = point.clone().add(new THREE.Vector3(.18,0,.55));
-  const brain = disease.anatomy === 'brain';
-  return <group>
-    {state.bleeding > .02 && <mesh position={anterior} scale={[.15+state.bleeding*.4,.12+state.bleeding*.35,.15]}><sphereGeometry args={[1,20,14]} /><meshStandardMaterial color="#9b263e" roughness={.48} /></mesh>}
-    {brain && state.edema > .02 && <mesh position={anterior} scale={[.2+state.edema*.45,.2+state.edema*.4,.19]}><sphereGeometry args={[1,20,14]} /><meshStandardMaterial color="#ddbc82" transparent opacity={.16} depthWrite={false} /></mesh>}
-    {state.ischemia > .05 && <mesh position={anterior.clone().add(new THREE.Vector3(-.22,.12,.01))} scale={[.12+state.ischemia*.25,.15+state.ischemia*.25,.12]}><sphereGeometry args={[1,20,14]} /><meshStandardMaterial color="#58334c" roughness={.8} /></mesh>}
-    {disease.variant === 'clot' && <mesh position={point.clone().add(new THREE.Vector3(-.35,.25,.5))} scale={[.18,.25,.17]}><sphereGeometry args={[1,18,12]} /><meshStandardMaterial color="#962b3c" /></mesh>}
-    {disease.anatomy === 'aorta' && ['aneurysm','rupture'].includes(disease.variant) && <mesh position={point} scale={[.17+state.overdistension*.3,.6,.17+state.overdistension*.3]}><sphereGeometry args={[1,24,16]} /><meshStandardMaterial color="#b6595f" roughness={.65} /></mesh>}
-    {disease.variant === 'pericardial' && <mesh position={point} scale={[.67,.95,.67]}><sphereGeometry args={[1,24,16]} /><meshStandardMaterial color="#75a3c7" transparent opacity={state.fluid*.28} depthWrite={false} /></mesh>}
-    {['diffuse-fluid','focal-fluid','hydrostatic-fluid'].includes(disease.variant) && Array.from({length: disease.variant === 'focal-fluid' ? 5 : 10},(_,i) => <mesh key={i} position={[((i%2) ? .65 : -.65)+(i%3)*.12,4.5+Math.floor(i/2)*.18,.5]} scale={[.12,.1+.15*state.fluid,.1]}><sphereGeometry args={[1,12,8]} /><meshStandardMaterial color="#709fc1" transparent opacity={state.fluid*.65} /></mesh>)}
-  </group>;
+
+const blob = (key: string, pos: THREE.Vector3, r: [number, number, number], color: string, opacity = 1) =>
+  <mesh key={key} position={pos} scale={r}><sphereGeometry args={[1, 22, 16]} /><meshStandardMaterial color={color} roughness={0.5} transparent={opacity < 1} opacity={opacity} depthWrite={opacity >= 1} /></mesh>;
+
+/** Blood, clot and fluid marks placed on the real organ surfaces. */
+function Pathology({ body, d, s }: { body: BodyAsset; d: DiseaseDefinition; s: DiseaseState }) {
+  const c = (ids: string[]) => boxOf(body, ids).getCenter(new THREE.Vector3());
+  const top = (ids: string[]) => { const b = boxOf(body, ids); return new THREE.Vector3((b.min.x + b.max.x) / 2, b.max.y, (b.min.z + b.max.z) / 2); };
+  const out: JSX.Element[] = []; const bl = s.bleeding;
+  if (d.variant === 'clot' || d.variant === 'afe') out.push(blob('pe', c(['heart']).add(new THREE.Vector3(-0.05, 0.55, -0.05)), [0.09, 0.12, 0.09], d.variant === 'afe' ? '#d9d2b4' : '#7d1f30'));
+  if (d.anatomy === 'aorta' && ['aneurysm', 'rupture'].includes(d.variant)) { const a = boxOf(body, ['aorta']); out.push(blob('aaa', new THREE.Vector3(a.getCenter(new THREE.Vector3()).x, a.min.y + 0.55, a.getCenter(new THREE.Vector3()).z + 0.05), [0.2 + s.overdistension * 0.25, 0.42, 0.2 + s.overdistension * 0.25], '#b6595f')); }
+  if (d.variant === 'rupture' && bl > 0.02) { const a = boxOf(body, ['aorta']); out.push(blob('rp', new THREE.Vector3(a.max.x + 0.2, a.min.y + 0.6, a.min.z), [0.3 * bl + 0.1, 0.35 * bl + 0.1, 0.25], '#8a1d2f', 0.85)); }
+  if (d.variant === 'dissection') { const a = boxOf(body, ['aorta']); out.push(blob('fl', new THREE.Vector3(a.getCenter(new THREE.Vector3()).x + 0.06, a.max.y - 0.35, a.max.z - 0.05), [0.07, 0.35, 0.07], '#d8c3a5', 0.9)); }
+  if (d.variant === 'pericardial') out.push(blob('pc', c(['heart']), [0.62, 0.72, 0.6].map((v) => v + 0.15 * s.fluid) as [number, number, number], '#75a3c7', 0.18 + s.fluid * 0.25));
+  if (['pleural-blood', 'trauma'].includes(d.variant) && bl > 0.02) { const l = boxOf(body, ['lung_R']); out.push(blob('hx', new THREE.Vector3(l.min.x + 0.25, l.min.y + 0.25, l.min.z + 0.3), [0.25, 0.12 + 0.3 * bl, 0.3], '#7d1f30', 0.85)); }
+  if (d.anatomy === 'brain' && ['ich', 'trauma'].includes(d.variant)) out.push(blob('ich', c(['brain']).add(new THREE.Vector3(0.22, 0.05, 0.1)), [0.08 + 0.12 * bl, 0.07 + 0.1 * bl, 0.09 + 0.1 * bl], '#6d1726'));
+  if (d.variant === 'sah') out.push(blob('sah', boxOf(body, ['brain']).getCenter(new THREE.Vector3()).setY(boxOf(body, ['brain']).min.y + 0.12), [0.32, 0.03 + 0.04 * bl, 0.25], '#7d1f30', 0.8));
+  if (d.variant === 'core-penumbra' && s.ischemia > 0.05) out.push(blob('core', c(['brain']).add(new THREE.Vector3(0.3, 0.12, 0.05)), [0.1 + 0.18 * s.ischemia, 0.1 + 0.16 * s.ischemia, 0.12 + 0.15 * s.ischemia], '#4b2236', 0.85));
+  if (d.variant === 'abdominal-blood' && bl > 0.02) { const l = boxOf(body, ['liver', 'spleen']); out.push(blob('hp', new THREE.Vector3((l.min.x + l.max.x) / 2, l.min.y - 0.25, l.max.z - 0.1), [0.55 * bl + 0.15, 0.12 + 0.2 * bl, 0.25], '#7d1f30', 0.7)); }
+  if (['pelvic-blood', 'maternal-blood', 'uterine-blood', 'postpartum', 'atony'].includes(d.variant) && bl > 0.02) out.push(blob('pv', c(['uterus']).add(new THREE.Vector3(0, -0.25, 0.05)), [0.18 + 0.25 * bl, 0.08 + 0.15 * bl, 0.15 + 0.15 * bl], '#7d1f30', 0.8));
+  if (d.variant === 'abruption' && bl > 0.02) { const pl = c(['placenta']); const dir = pl.clone().sub(c(['amnion'])).normalize(); out.push(blob('ab', pl.add(dir.multiplyScalar(0.35)), [0.25 + 0.3 * bl, 0.2 + 0.25 * bl, 0.08 + 0.08 * bl], '#5e1424', 0.9)); }
+  if (d.variant === 'tubal') { const t = boxOf(body, ['tube_R']); out.push(blob('ect', new THREE.Vector3(t.min.x + 0.12, (t.min.y + t.max.y) / 2, (t.min.z + t.max.z) / 2), [0.1 + 0.08 * s.overdistension, 0.09 + 0.07 * s.overdistension, 0.09], '#8b4a55')); if (bl > 0.05) out.push(blob('hemo', c(['uterus']).add(new THREE.Vector3(0, -0.2, -0.3)), [0.2 * bl + 0.08, 0.1, 0.18], '#7d1f30', 0.8)); }
+  if (d.variant === 'lesions') [[-0.35, 0.05, -0.2], [0.35, 0.1, -0.15], [0.05, -0.15, -0.35], [-0.1, 0.25, 0.2]].forEach(([x, y, z], i) => out.push(blob('en' + i, c(['uterus']).add(new THREE.Vector3(x, y, z)), [0.04 + 0.03 * s.inflammation, 0.04, 0.04], '#3e1d33')));
+  if (d.variant === 'follicles') (['ovary_L', 'ovary_R'] as const).forEach((o) => { const oc = c([o]); for (let i = 0; i < 6; i++) { const a = (i / 6) * Math.PI * 2; out.push(blob(o + i, oc.clone().add(new THREE.Vector3(Math.cos(a) * 0.1, Math.sin(a) * 0.17, 0.06)), [0.035, 0.035, 0.035], '#e8dccf', 0.95)); } });
+  if (d.variant === 'subglottic' || d.variant === 'upper') { const a = boxOf(body, ['airway']); out.push(blob('sg', new THREE.Vector3((a.min.x + a.max.x) / 2, a.max.y - 0.75, (a.min.z + a.max.z) / 2 + 0.05), [0.1 + 0.05 * s.edema, 0.12, 0.1 + 0.05 * s.edema], '#c25b4f', 0.55)); }
+  if (['diffuse-fluid', 'focal-fluid', 'hydrostatic-fluid'].includes(d.variant) && s.fluid > 0.02) (['lung_L', 'lung_R'] as const).forEach((l) => { if (d.variant === 'focal-fluid' && l === 'lung_L') return; const b = boxOf(body, [l]); out.push(blob('fl' + l, new THREE.Vector3((b.min.x + b.max.x) / 2, b.min.y + (b.max.y - b.min.y) * (d.variant === 'hydrostatic-fluid' ? 0.25 : 0.4), b.min.z + 0.35), [0.3, 0.2 + 0.25 * s.fluid, 0.28], '#6f9ec2', 0.25 + 0.4 * s.fluid)); });
+  if (d.variant === 'pleural-air' || d.variant === 'tension') { const l = top(['lung_R']); out.push(blob('ptx', l.add(new THREE.Vector3(-0.1, -0.2, 0.1)), [0.35, 0.3 + 0.4 * s.collapse, 0.35], '#cfe3ee', 0.18)); }
+  return <group>{out}</group>;
 }
+
+function BodyScene({ disease, state, target }: { disease: DiseaseDefinition; state: DiseaseState; target: string }) {
+  const sex = bodySexFor(disease);
+  const [body, setBody] = useState<BodyAsset | null>(null); const [error, setError] = useState(false);
+  useEffect(() => { let cancelled = false; setBody(null); loadBodyAsset(sex).then((a) => { if (!cancelled) setBody(a); }).catch(() => { if (!cancelled) setError(true); }); return () => { cancelled = true; }; }, [sex]);
+  if (error) return <p role="alert">The 3D anatomy could not load. The condition’s findings are listed below.</p>;
+  if (!body) return <p className="loading">Loading 3D anatomy…</p>;
+  const organs = affectedOrgans(disease); const pregnant = isPregnant(disease);
+  const list = (sex === 'female' ? FEMALE_ORGANS : MALE_ORGANS).filter((id) => body.meshes[id] && (!PREGNANCY_PARTS.includes(id) || pregnant));
+  const focus = organs.filter((id) => body.meshes[id]).concat(pregnant && disease.anatomy === 'placenta' ? ['amnion'] : []);
+  const a = body.mapping.attribution;
+  return <>
+    <StudioCanvas camera={{ position: [0, 1, 34], fov: 34 }} fog={false} label={`${disease.title}: 3D ${sex} reference anatomy with the affected organs highlighted`}>
+      <Skin body={body} whole={target === 'body.whole'} />
+      {list.map((id) => <Organ key={id} body={body} id={id} active={organs.includes(id)} state={state} disease={disease} />)}
+      <Pathology body={body} d={disease} s={state} />
+      <Camera body={body} focus={focus} whole={target === 'body.whole'} boost={Math.max(1, ...focus.map((id) => organPose(id as OrganId, disease, state, body).scale))} />
+    </StudioCanvas>
+    <details className="credit"><summary>Sources &amp; model notes</summary>{a.title} — {a.creators}; {a.data}. <a href={a.licenseUrl} target="_blank" rel="noreferrer">{a.license}</a>. {a.changes}
+      {usesAdultReference(disease) && ' Children are shown on the adult reference body: a child has a proportionally larger head, a shorter neck and a narrower, more anterior airway.'}
+      {' '}Blood, clot, fluid and lesion marks are 3D overlays sized by the illustrative state, not measurements.</details>
+  </>;
+}
+
+function CongenitalHeart({ preset }: { preset: NonNullable<(typeof HEART_PRESET_FOR)[string]> }) {
+  useEffect(() => { loadHeartPreset(preset); useHeartUI.getState().set({ target: 'heart.four_chamber', cut: 'auto' }); }, [preset]);
+  return <><HeartScene /><p className="credit">Real HuBMAP heart (CC BY 4.0), opened to show the defect; blood colour follows the shunt model. The same heart is in Cardiac → Explore.</p></>;
+}
+
 export default function PatientScene({ disease, state, target }: { disease: DiseaseDefinition; state: DiseaseState; target: string }) {
-  const [body,setBody] = useState<BodyAsset|null>(null); const [error,setError] = useState(false);
-  useEffect(() => { let cancelled = false; loadBodyAsset().then(asset => { if (!cancelled) setBody(asset); }).catch(() => { if (!cancelled) setError(true); }); return () => { cancelled = true; }; },[]);
-  if (error) return <p>The patient asset could not load. Use the Mechanism view for the same disease findings.</p>;
-  if (!body) return <p className="loading">Loading patient anatomy…</p>;
-  const organs = affected(disease);
-  return <><StudioCanvas camera={{position:[0,1,34],fov:34}} fog={false} label={`${disease.title}, whole patient and affected anatomy`}>
-    <Skin body={body} whole={target === 'body.whole'} />
-    {Object.keys(COLORS).filter(name => body.meshes[name]).map(name => <Organ key={name} body={body} name={name} active={organs.includes(name)} state={state} disease={disease} />)}
-    <Pathology body={body} disease={disease} state={state} /><Camera body={body} disease={disease} target={target} />
-  </StudioCanvas><p className="credit">Adult anatomy: {body.mapping.attribution.creators} · <a href={body.mapping.attribution.licenseUrl} target="_blank" rel="noreferrer">{body.mapping.attribution.license}</a>. Pathology overlays are procedural, schematic and not to scale. Pediatric and reproductive teaching use separate schematic anatomy.</p></>;
+  const preset = HEART_PRESET_FOR[disease.id];
+  if (preset && target !== 'body.whole') return <CongenitalHeart preset={preset} />;
+  return <BodyScene disease={disease} state={state} target={target} />;
 }
