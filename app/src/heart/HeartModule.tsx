@@ -1,4 +1,6 @@
+import { useExploreMemory } from '../app/exploreMemory';
 /** Congenital heart module: shunt physiology on a live four-chamber heart. */
+import { MiniSelect } from '../scene/pane';
 import { useEffect, useMemo } from 'react';
 import { NEO_TRANSITION_LESSON } from '../director/lessons/populations';
 import { NeoCard } from '../populations/Cards';
@@ -11,6 +13,8 @@ import { HeartScene } from './HeartScene';
 import { useHeartUI, loadHeartPreset, setHeartInput, type FlowMode, type CutMode } from './heartStore';
 import { autoCut, CUT_LABEL } from './HeartScene';
 import { RealCase } from '../scene/imaging/RealCase';
+import { Picker, Fold } from '../scene/pane';
+import { useRealCount } from '../scene/imaging/RealExamples';
 import { solveShunt, type HeartPresetId, type LesionKind } from './shunt';
 import { director, useDirector } from '../director/director';
 import { DirectorPlayer } from '../director/Player';
@@ -28,6 +32,7 @@ const LESION_FOCUS: Record<LesionKind, string> = { none: 'heart.four_chamber', v
 
 export function HeartModule() {
   const mode = useUI((s) => s.mode);
+  useExploreMemory('heart', () => { const s = useHeartUI.getState(); return { preset: s.preset, input: { ...s.input }, target: s.target, cut: s.cut, mode: s.mode }; }, (m) => useHeartUI.getState().set(m));
   const dTarget = useDirector((s) => s.target);
   useEffect(() => { if (dTarget?.startsWith('heart.')) useHeartUI.getState().set({ target: dTarget }); }, [dTarget]);
   useEffect(() => { (window as unknown as { __CCHeart: unknown }).__CCHeart = { store: useHeartUI, load: loadHeartPreset, set: setHeartInput, focus: (id: string) => useHeartUI.getState().set({ target: id }) }; }, []);
@@ -37,8 +42,16 @@ export function HeartModule() {
         <SceneWrap><HeartScene /><HeartOverlay /></SceneWrap>
       </section>
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
-        {mode === 'challenge' ? <CaseChallenge module="heart" /> : mode === 'learn' ? <HeartLearn /> : <><PresetCard /><ControlsCard /><NeoSlot /><HemoCard /><WhyCard /><RealHeartImaging /></>}
-        <p className="credit">3D heart: HuBMAP 3D Reference Organs, Visible Human Male heart (CC BY 4.0) — an adult heart at true scale, cut open in the app; the defects are carved into its own septa and vessels (sizes drawn to scale; newborn defects drawn relative to a heart about 2.5× smaller). Flows, pressures and saturations come from a simplified circulation model (orifice flow across restrictive defects, conductance across atrial defects, parallel outlets in tetralogy, an isthmus resistance with collaterals and duct in coarctation) — a teaching model, not a patient calculator.</p>
+        {mode === 'challenge' ? <CaseChallenge module="heart" /> : mode === 'learn' ? <HeartLearn /> : <>
+          <PresetCard />
+          <ControlsCard />
+          <NeoSlot />
+          <Fold group="heart" id="circ" title="Circulation" summary="PVR, SVR, patient size"><CirculationCard /></Fold>
+          <Fold group="heart" id="nums" title="Pressures & saturations" summary={<HemoSummary />}><HemoCard /></Fold>
+          <Fold group="heart" id="why" title="Why it happens"><WhyCard /></Fold>
+          <RealHeartImaging />
+        </>}
+        <details className="credit"><summary>Sources & model notes</summary>3D heart: HuBMAP 3D Reference Organs, Visible Human Male heart (CC BY 4.0) — an adult heart at true scale, cut open in the app; the defects are carved into its own septa and vessels (sizes drawn to scale; newborn defects drawn relative to a heart about 2.5× smaller). Flows, pressures and saturations come from a simplified circulation model (orifice flow across restrictive defects, conductance across atrial defects, parallel outlets in tetralogy, an isthmus resistance with collaterals and duct in coarctation) — a teaching model, not a patient calculator.</details>
       </aside>
     </main>
   );
@@ -51,7 +64,7 @@ function HeartOverlay() {
   return (<>
     <div className="scene-tools">
       <div className="seg small" role="group" aria-label="Flow colour">{([['sat', 'O₂ saturation'], ['doppler', 'Flow direction']] as [FlowMode, string][]).map(([k, l]) => <button key={k} className={flow === k ? 'on' : ''} onClick={() => set({ mode: k })}>{l}</button>)}</div>
-      <label className="cut-sel small"><span className="sr-only">How the heart is opened</span><select value={cut} onChange={(e) => set({ cut: e.target.value as CutMode })} aria-label="How the heart is opened">{CUTS.map(([k, l]) => <option key={k} value={k}>{k === 'auto' ? `Auto · ${CUT_LABEL[autoCut(target)]}` : l}</option>)}</select></label>
+      <MiniSelect label="Open" value={cut} options={CUTS.map(([k, l]) => [k, k === 'auto' ? `Auto · ${CUT_LABEL[autoCut(target)]}` : l]) as [CutMode, string][]} onChange={(v) => set({ cut: v })} />
     </div>
     {!hide && <div className="alv-hud">
       <div className="alv-row"><span>Shunt</span><b className={`dir dir-${s.direction === 'L→R' ? 'lr' : s.direction === 'R→L' ? 'rl' : s.direction === 'bidirectional' ? 'bi' : 'none'}`}>{s.direction === 'none' ? 'none' : s.direction}</b></div>
@@ -64,8 +77,7 @@ function HeartOverlay() {
       <div className="alv-row"><span>SpO₂ (pre / post)</span><b>{pct(s.sat.ao)}{s.input.lesion === 'pda' || s.input.lesion === 'coarct' ? ` / ${pct(s.sat.aoPost)}` : ''}</b></div>
     </div>}
     <div className="alv-focus">
-      <div className="seg small ch-focus" role="group" aria-label="Focus">{FOCUS.map(([id, l]) => <button key={id} className={target === id ? 'on' : ''} onClick={() => set({ target: id })}>{l}</button>)}</div>
-      <div className="seg small ch-quality" role="group" aria-label="Visual quality">{(['high', 'medium', 'low'] as VisualTier[]).map((k) => <button key={k} className={tier === k ? 'on' : ''} onClick={() => useLabUI.getState().set({ visualTier: k })}>{k[0].toUpperCase() + k.slice(1)}</button>)}</div>
+      <MiniSelect label="View" value={target} options={FOCUS as [string, string][]} onChange={(v) => set({ target: v })} className="ch-focus" />
     </div>
     <div className="legend">{flow === 'sat'
       ? <><span><i style={{ background: SAT_PALETTE.teachArterial }} />Oxygenated</span><span><i style={{ background: SAT_PALETTE.teachVenous }} />Deoxygenated</span><span>▲ jet = shunt</span></>
@@ -73,17 +85,24 @@ function HeartOverlay() {
   </>);
 }
 
+const PRESET_GROUPS: { label: string; ids: HeartPresetId[] }[] = [
+  { label: 'Shunts', ids: ['normal', 'vsdSmall', 'vsdLarge', 'vsdEisen', 'asd', 'pfo', 'pfoValsalva', 'pda'] },
+  { label: 'Obstruction', ids: ['tof', 'pinkTet', 'tetSpell', 'coarct'] },
+  { label: 'Newborn', ids: ['newborn', 'pphn', 'coarctNeoDuct', 'coarctNeoClosed'] },
+];
+const PRESET_NAME = Object.fromEntries(PRESETS) as Record<HeartPresetId, string>;
 function PresetCard() {
   const preset = useHeartUI((s) => s.preset);
-  const pick = (id: HeartPresetId) => { loadHeartPreset(id); useHeartUI.getState().set({ target: LESION_FOCUS[useHeartUI.getState().input.lesion] }); };
-  return <section className="card story"><div className="chips" role="group" aria-label="Presets">{PRESETS.map(([id, l]) => <button key={id} className={`chip${preset === id ? ' on' : ''}`} onClick={() => pick(id)}>{l}</button>)}</div></section>;
+  const pick = (id: string) => { loadHeartPreset(id as HeartPresetId); useHeartUI.getState().set({ target: LESION_FOCUS[useHeartUI.getState().input.lesion] }); };
+  return <Picker label="Scenario" value={preset === 'custom' ? 'custom' : preset} onPick={pick}
+    groups={[...PRESET_GROUPS.map((g) => ({ label: g.label, items: g.ids.map((id) => ({ id, name: PRESET_NAME[id] })) })), ...(preset === 'custom' ? [{ items: [{ id: 'custom', name: 'Custom (adjusted)' }] }] : [])]} />;
 }
+function HemoSummary() { const inp = useHeartUI((s) => s.input); const s = useMemo(() => solveShunt(inp), [inp]); return <>Qp:Qs {s.qpqs.toFixed(1)} · SaO₂ {Math.round(s.sat.ao * 100)}%</>; }
 function ControlsCard() {
   const inp = useHeartUI((s) => s.input); const neo = (inp.qs ?? 5) < 2;
   return (
     <section className="card">
-      <div className="card-h"><h3>Defect & circulation</h3></div>
-      <Seg<LesionKind> small value={inp.lesion} options={[['none', 'None'], ['vsd', 'VSD'], ['asd', 'ASD'], ['pfo', 'PFO'], ['pda', 'PDA'], ['tof', 'ToF'], ['coarct', 'Coarct']]} onChange={(l) => { setHeartInput({ lesion: l, sizeMm: l === 'none' || l === 'coarct' ? 0 : l === 'tof' ? 14 : inp.sizeMm || 8, rvot: l === 'tof' ? inp.rvot ?? 0.5 : inp.rvot, coarct: l === 'coarct' ? inp.coarct ?? 0.55 : inp.coarct }); useHeartUI.getState().set({ target: LESION_FOCUS[l] }); }} />
+      <div className="card-h"><h3>Adjust the defect</h3></div>
       {['vsd', 'asd', 'pfo', 'pda'].includes(inp.lesion) && <Knob label="Defect size" value={inp.sizeMm} min={1} max={inp.lesion === 'asd' ? 30 : 20} step={1} unit=" mm" onChange={(v) => setHeartInput({ sizeMm: v })} hint="Bigger hole → more flow for the same gradient (drawn to scale in the 3D heart)" />}
       {inp.lesion === 'vsd' && <div className="nd-row"><span className="muted small">Where</span><Seg small value={inp.vsdSite ?? 'perimembranous'} options={[['perimembranous', 'Perimembranous'], ['muscular', 'Muscular']]} onChange={(v) => setHeartInput({ vsdSite: v })} /></div>}
       {inp.lesion === 'tof' && <Knob label="RV outflow narrowing" value={Math.round((inp.rvot ?? 0.5) * 100)} min={0} max={95} step={5} unit=" %" onChange={(v) => setHeartInput({ rvot: v / 100 })} hint="Infundibular + valve narrowing. Spasm (crying, dehydration) makes it worse; beta-blockade relaxes it." />}
@@ -91,6 +110,14 @@ function ControlsCard() {
         <Knob label="Isthmus narrowing" value={Math.round((inp.coarct ?? 0.55) * 100)} min={10} max={95} step={5} unit=" %" onChange={(v) => setHeartInput({ coarct: v / 100 })} hint="Older children grow collaterals around it; a newborn has none." />
         <Knob label="Duct" value={inp.ductMm ?? 0} min={0} max={6} step={0.5} unit=" mm" onChange={(v) => setHeartInput({ ductMm: v })} hint="Prostaglandin E1 keeps it open; closure in the first days unmasks a critical coarctation." />
       </>}
+      {!['vsd', 'asd', 'pfo', 'pda', 'tof', 'coarct'].includes(inp.lesion) && <p className="muted small">No defect — pick one from Scenario, or change the circulation below.</p>}
+    </section>
+  );
+}
+function CirculationCard() {
+  const inp = useHeartUI((s) => s.input); const neo = (inp.qs ?? 5) < 2;
+  return (
+    <section className="card">
       <div className="nd-row"><span className="muted small">Patient</span><Seg small value={neo ? 'neo' : 'adult'} options={[['adult', 'Adult'], ['neo', 'Newborn']]} onChange={(v) => setHeartInput(v === 'neo' ? { qs: 0.6, svr: 60, pvr: Math.min(150, inp.pvr * 3.3) } : { qs: 5, svr: 18, pvr: Math.max(0.5, Math.min(22, inp.pvr / 3.3)) })} /></div>
       {neo ? <>
         <Knob label="PVR" value={inp.pvr} min={2} max={150} step={1} unit=" WU" onChange={(v) => setHeartInput({ pvr: v })} hint="Newborn scale (output ≈ 0.6 L/min). Very high before the first breath; falls over hours to days. Stays high in PPHN." />
@@ -144,8 +171,8 @@ function WhyCard() {
 
 /** real echocardiography / CT for the current lesion (shown only once licensed media is in imaging/real) */
 function RealHeartImaging() {
-  const L = useHeartUI((s) => s.input.lesion); if (L === 'none') return null;
-  return <RealCase kind={`echo-${L}` as never} title="Real imaging of this lesion" card />;
+  const L = useHeartUI((s) => s.input.lesion); const n = useRealCount(`echo-${L}`); if (L === 'none' || !n) return null;
+  return <Fold group="heart" id="real" title="Real echo" summary={`${n} real ${n === 1 ? 'study' : 'studies'}`}><RealCase kind={`echo-${L}` as never} /></Fold>;
 }
 
 const HEART_LEARN = [...HEART_LESSONS, NEO_TRANSITION_LESSON];

@@ -6,6 +6,7 @@
  * interstitial thickening from the scenario's lung, and blood colour from the shared patient's
  * mixed-venous and end-capillary saturations. There is no second respiratory model here.
  */
+import { MiniSelect } from '../scene/pane';
 import { useEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
@@ -448,8 +449,7 @@ export function AlveolusHud() {
       {target === 'lung.membrane' && row('Diffusion path', `×${(barrierWidths(st).reduce((a, b) => a + b, 0) / barrierWidths({ wet: 0, floodFrac: 0, surfactant: 1 }).reduce((a, b) => a + b, 0)).toFixed(1)} normal`)}
     </div>
     <div className="alv-focus">
-      <div className="seg small ch-focus" role="group" aria-label="Focus">{FOCUS.map(([id, l]) => <button key={id} className={target === id ? 'on' : ''} onClick={() => focusVentTarget(id)}>{l}</button>)}</div>
-      <div className="seg small ch-quality" role="group" aria-label="Visual quality">{(['high', 'medium', 'low'] as const).map((k) => <button key={k} className={tier === k ? 'on' : ''} onClick={() => setLab({ visualTier: k })}>{k[0].toUpperCase() + k.slice(1)}</button>)}</div>
+      <MiniSelect label="View" value={target} options={FOCUS as [string, string][]} onChange={(v) => focusVentTarget(v)} className="ch-focus" />
     </div>
     <div className="legend alv-legend">
       <span><i className="lg-air" />Aerated</span><span><i className="lg-col" />Collapsed</span><span><i style={{ background: '#e7a3a2' }} />Flooded</span><span><i style={{ background: '#8fd0ff' }} />O₂</span><span><i style={{ background: '#f2b35a' }} />CO₂</span><span><i style={{ background: SAT_PALETTE.teachVenous }} />Deoxygenated</span><span><i style={{ background: SAT_PALETTE.teachArterial }} />Oxygenated</span>

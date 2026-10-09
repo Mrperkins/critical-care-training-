@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { Picker } from '../scene/pane';
 import { useEffect, useMemo, useRef } from 'react';
 import { lab, type Knob as KnobKey } from './lab';
 import { useUI } from '../app/store';
@@ -12,7 +14,11 @@ const flag = (v: number, lo: number, hi: number) => (v < lo ? 'lo' : v > hi ? 'h
 
 export function AbgPresets() {
   useUI((s) => s.pulse);
-  return <div className="chips">{ABG_PRESETS.map((p) => <button key={p.id} className={`chip${lab.preset.id === p.id ? ' on' : ''}`} onClick={() => { lab.load(p.id); bump(); }}>{p.name}</button>)}</div>;
+  const G: [string, string[]][] = [['Breathing', ['normal', 'opioid', 'asthma', 'copd', 'edema']], ['Metabolic', ['dka', 'sepsis', 'salicylate']], ['Arrest', ['arrest', 'rosc']], ['Pregnancy', ['pregnant', 'pregAsthma']]];
+  const placed = new Set(G.flatMap(([, ids]) => ids)); const extra = ABG_PRESETS.filter((p) => !placed.has(p.id)).map((p) => p.id);
+  const it = (id: string) => { const p = ABG_PRESETS.find((x) => x.id === id)!; return { id, name: p.name, hint: p.story }; };
+  return <Picker label="Patient" value={lab.preset.id} onPick={(id) => { lab.load(id); bump(); }} sub={lab.preset.story}
+    groups={[...G.map(([label, ids]) => ({ label, items: ids.filter((i) => ABG_PRESETS.some((p) => p.id === i)).map(it) })), ...(extra.length ? [{ label: 'More', items: extra.map(it) }] : [])]} />;
 }
 export function AbgStory() {
   useUI((s) => s.pulse);
@@ -20,10 +26,10 @@ export function AbgStory() {
 }
 
 export function SampleCards() {
-  useUI((s) => s.pulse);
+  useUI((s) => s.pulse); const [vbg, setVbg] = useState(false); const [o2, setO2] = useState(false);
   const g = lab.snap; const v = g.vbg; const fio2 = lab.pt.p.fio2;
   return (
-    <section className="card samples">
+    <section className={`card samples${vbg ? '' : ' one'}`}>
       <div className="sample art">
         <div className="s-h"><span className="s-dot art" />ABG · arterial <small>radial artery</small></div>
         <div className="s-grid">
@@ -34,11 +40,10 @@ export function SampleCards() {
           <span>BE</span><b className={flag(g.sbe, -2, 2)}>{g.sbe.toFixed(1)}</b>
           <span>SaO₂</span><b className={flag(g.sao2 * 100, 94, 101)}>{(g.sao2 * 100).toFixed(0)}%</b>
           <span>Lactate</span><b className={flag(g.lactate, 0, 2)}>{g.lactate.toFixed(1)}</b>
-          <span>CaO₂</span><b className={flag(g.cao2, 16, 99)}>{g.cao2.toFixed(1)}</b>
+          <span>FiO₂</span><b>{fio2.toFixed(2)}</b>
         </div>
-        <p className="s-note">Oxygenation is judged here: PaO₂ and SaO₂ describe blood leaving the lungs.</p>
       </div>
-      <div className="sample ven">
+      {vbg && <div className="sample ven">
         <div className="s-h"><span className="s-dot ven" />VBG · venous <small>antecubital vein</small></div>
         <div className="s-grid">
           <span>pH</span><b>{v.pH.toFixed(2)}</b>
@@ -48,9 +53,10 @@ export function SampleCards() {
           <span>SvO₂</span><b className="venous">{(v.so2 * 100).toFixed(0)}%</b>
           <span>Lactate</span><b>{v.lactate.toFixed(1)}</b>
         </div>
-        <p className="s-note warn">Venous PO₂ reflects what the tissues left behind — it is <b>not</b> oxygenation. Use a VBG for pH, CO₂ trend, HCO₃⁻ and lactate.</p>
-      </div>
-      <div className="o2-row"><span>SpO₂ <b>{Math.round(g.spo2 * 100)}%</b></span><span>Hb <b>{lab.pt.p.hb.toFixed(1)}</b></span><span>DO₂ <b>{g.do2.toFixed(0)}</b> mL/min</span><span>VO₂ <b>{g.vo2.toFixed(0)}</b></span><span>SvO₂ (mixed) <b>{Math.round(g.svo2 * 100)}%</b></span><span>A–a <b>{g.aaGrad.toFixed(0)}</b></span><span>FiO₂ <b>{fio2.toFixed(2)}</b></span><span>EtCO₂ <b>{g.etco2.toFixed(0)}</b></span></div>
+        <p className="s-note warn">Venous PO₂ is what the tissues left behind — <b>not</b> oxygenation. Use a VBG for pH, CO₂ trend, HCO₃⁻ and lactate.</p>
+      </div>}
+      {o2 && <div className="o2-row"><span>SpO₂ <b>{Math.round(g.spo2 * 100)}%</b></span><span>Hb <b>{lab.pt.p.hb.toFixed(1)}</b></span><span>CaO₂ <b>{g.cao2.toFixed(1)}</b></span><span>DO₂ <b>{g.do2.toFixed(0)}</b> mL/min</span><span>VO₂ <b>{g.vo2.toFixed(0)}</b></span><span>SvO₂ (mixed) <b>{Math.round(g.svo2 * 100)}%</b></span><span>A–a <b>{g.aaGrad.toFixed(0)}</b></span><span>EtCO₂ <b>{g.etco2.toFixed(0)}</b></span></div>}
+      <div className="s-more"><button type="button" className={`chip${vbg ? ' on' : ''}`} aria-pressed={vbg} onClick={() => setVbg(!vbg)}>Compare with VBG</button><button type="button" className={`chip${o2 ? ' on' : ''}`} aria-pressed={o2} onClick={() => setO2(!o2)}>O₂ delivery</button></div>
     </section>
   );
 }

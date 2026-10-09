@@ -1,3 +1,5 @@
+import { useExploreMemory } from './exploreMemory';
+import { Fold } from '../scene/pane';
 import { CurriculumModule } from '../curriculum/CurriculumModule';
 import { initProgressTracking } from '../curriculum/track';
 import { useEffect, useRef, useState } from 'react';
@@ -10,7 +12,7 @@ import { CxrScene } from '../vent/CxrScene';
 import { LusScene } from '../vent/LusScene';
 import { AlveolusScene, AlveolusHud, focusVentTarget } from '../vent/AlveolusScene';
 import { Scalars, Loops } from '../vent/Waveforms';
-import { VentControls, VentNumbersCard, GasCard, ExplainCard, ScenarioPicker, ScenarioStory, Interventions, Seg, loadVentScenario } from '../vent/VentPanel';
+import { VentControls, VentSettingsFold, GasFold, VentNumbersCard, GasCard, ExplainCard, ScenarioPicker, ScenarioStory, Interventions, Seg, loadVentScenario } from '../vent/VentPanel';
 import { VentLearn } from '../vent/VentLearn';
 import { VentChallenge } from '../vent/VentChallenge';
 import { VentWorkbench } from '../vent/VentWorkbench';
@@ -167,11 +169,12 @@ export function App() {
 function VentModule() {
   const mode = useUI((s) => s.mode);
   const [asset, setAsset] = useState<RespAsset | null>(null); const [err, setErr] = useState<string | null>(null);
-  const [panel, setPanel] = useState<'patient' | 'controls' | 'findings' | 'reference'>('patient');
   // semantic hook for lessons, the Lesson Director and automated checks (same calls the buttons make)
   useEffect(() => { (window as unknown as { __CCVent: unknown }).__CCVent = { session, focus: focusVentTarget, load: loadVentScenario, set: (p: Record<string, number>) => session.set(p) }; }, []);
   useEffect(() => { if(mode==='sim') return; loadRespAsset().then(setAsset).catch((e) => { console.error(e); setErr(String(e?.message || e)); }); }, [mode]);
   const showLoops = useUI((s) => s.showLoops); const phone = useIsPhone(); const alv = useUI((s) => s.ventView === 'alveolus'); const xray = useUI((s) => s.ventView === 'xray'); const lus = useUI((s) => s.ventView === 'lus');
+  useExploreMemory('vent', () => ({ id: useUI.getState().ventScenario, dyss: session.dyss, s: structuredClone(session.m.s), view: useUI.getState().ventView }),
+    (m) => { loadVentScenario(m.id, m.dyss); session.set(m.s); useUI.getState().set({ ventView: m.view, pulse: useUI.getState().pulse + 1 }); });
   if(mode==='sim') return <VentWorkbench />;
   return (
     <main className="stage">
@@ -184,17 +187,18 @@ function VentModule() {
       </section>
       <aside id="controls" tabIndex={-1} className="side-pane contextual-pane" aria-label="Learning context and controls"><h2 className="sr-only">Learning context and controls</h2>
         {mode === 'explore' && <>
-          <nav className="context-tabs" aria-label="Respiratory workspace panel">
-            {([['patient','Patient'],['controls','Controls'],['findings','Findings'],['reference','Reference']] as const).map(([k,l]) => <button key={k} className={panel === k ? 'on' : ''} onClick={() => setPanel(k)}>{l}</button>)}
-          </nav>
-          {panel === 'patient' && <div className="context-stack"><ScenarioPicker /><ScenarioStory /><VentNumbersCard /></div>}
-          {panel === 'controls' && <div className="context-stack"><VentControls /><Interventions />{showLoops && <section className="card"><Loops /></section>}</div>}
-          {panel === 'findings' && <div className="context-stack"><GasCard /><VentNumbersCard /></div>}
-          {panel === 'reference' && <div className="context-stack"><ExplainCard /></div>}
+          <ScenarioPicker />
+          <VentNumbersCard />
+          <VentSettingsFold group="vent" />
+          <Fold group="vent" id="act" title="Interventions" summary="holds, suction, recruit…"><Interventions /></Fold>
+          <Fold group="vent" id="story" title="The patient" summary="story & what to look for"><ScenarioStory /></Fold>
+          {showLoops && <Fold group="vent" id="loops" title="Loops"><section className="card"><Loops /></section></Fold>}
+          <GasFold group="vent" />
+          <Fold group="vent" id="why" title="Why"><ExplainCard /></Fold>
         </>}
         {mode === 'learn' && <VentLearn />}
         {mode === 'challenge' && <VentChallenge />}
-        {asset && <p className="credit">Anatomy: {asset.mapping.attribution.creators}, {asset.mapping.attribution.data} — <a href={asset.mapping.attribution.licenseUrl} target="_blank" rel="noreferrer">{asset.mapping.attribution.license}</a>. {asset.mapping.attribution.changes} Lung motion is drawn 1.6× so tidal changes are visible.</p>}
+        {asset && <details className="credit"><summary>Sources & model notes</summary>Anatomy: {asset.mapping.attribution.creators}, {asset.mapping.attribution.data} — <a href={asset.mapping.attribution.licenseUrl} target="_blank" rel="noreferrer">{asset.mapping.attribution.license}</a>. {asset.mapping.attribution.changes} Lung motion is drawn 1.6× so tidal changes are visible.</details>}
       </aside>
     </main>
   );
