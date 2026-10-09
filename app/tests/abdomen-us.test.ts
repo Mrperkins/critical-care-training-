@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { renderUs, stripeMm, US_WINDOWS, usUV } from '../src/abdomen/ultrasound';
+import { stripeMm, US_WINDOWS } from '../src/abdomen/ultrasound';
+import { fastKey } from '../src/abdomen/UltrasoundScene';
 import { emptyAbdomen, evolve, fastExam } from '../src/abdomen/state';
 import { ABD_PRESETS, currentAbdomen, useAbdUI } from '../src/abdomen/abdomenStore';
 import { resolve, duration } from '../src/director/timeline';
@@ -7,23 +8,23 @@ import { FAST_LESSON, AAA_LESSON } from '../src/director/lessons/abdomen';
 
 const liver = (ml: number) => ({ ...emptyAbdomen(), injury: { liver: 3 }, freeFluidMl: ml });
 
-describe('synthetic ultrasound', () => {
+describe('FAST reading (real clip chosen by window and finding)', () => {
   it('stripe is zero until positive, then grows with volume', () => {
     expect(stripeMm(500, false)).toBe(0);
     const a = stripeMm(60, true), b = stripeMm(200, true), c = stripeMm(900, true);
     expect(a).toBeGreaterThan(0); expect(b).toBeGreaterThan(a); expect(c).toBeGreaterThan(b); expect(c).toBeLessThanOrEqual(35);
   });
-  it('normal abdomen: no fluid pixels in any window', () => {
-    for (const w of US_WINDOWS) expect(renderUs(w.id, emptyAbdomen(), 120).fluidPx).toBe(0);
+  it('normal abdomen: every window asks for a real negative view', () => {
+    for (const w of US_WINDOWS) expect(fastKey(w.id, emptyAbdomen())).toMatch(/negative$|aorta_normal_us/);
   });
-  it('RUQ fluid area grows monotonically with bleeding', () => {
-    const px = [150, 300, 600, 1200].map((ml) => renderUs('ruq', liver(ml), 140).fluidPx);
-    for (let i = 1; i < px.length; i++) expect(px[i]).toBeGreaterThan(px[i - 1]);
-    expect(px[0]).toBe(0); // below threshold in this window
+  it('RUQ fluid volume grows monotonically with bleeding and turns the window positive', () => {
+    const ml = [150, 300, 600, 1200].map((v) => fastExam(liver(v)).find((w) => w.id === 'ruq')!.ml);
+    for (let i = 1; i < ml.length; i++) expect(ml[i]).toBeGreaterThan(ml[i - 1]);
+    expect(fastKey('ruq', liver(1200))).toBe('fast_ruq_positive');
   });
   it('pelvic fluid appears behind the bladder once the pelvis is positive', () => {
     const st = liver(900); expect(fastExam(st).find((w) => w.id === 'pelvis')!.positive).toBe(true);
-    expect(renderUs('pelvis', st, 140).fluidPx).toBeGreaterThan(0);
+    expect(fastKey('pelvis', st)).toBe('fast_pelvis_positive');
   });
   it('a liver bleed turns the RUQ positive before the pelvis or LUQ', () => {
     const s0 = ABD_PRESETS.find((p) => p.id === 'liver3')!.make(); let first: string | null = null;
@@ -33,14 +34,8 @@ describe('synthetic ultrasound', () => {
   it('retroperitoneal rupture leaves every FAST image identical to normal; the aorta view changes', () => {
     const aaa = currentAbdomen({ base: ABD_PRESETS.find((p) => p.id === 'aaaContained')!.make(), minutes: 60 });
     const normalAaa = { ...emptyAbdomen(), aaa: { ...aaa.aaa } };
-    for (const w of ['ruq', 'luq', 'pelvis', 'pericardial'] as const) expect(Buffer.from(renderUs(w, aaa, 100).rgba).equals(Buffer.from(renderUs(w, normalAaa, 100).rgba))).toBe(true);
-    expect(Buffer.from(renderUs('aorta', aaa, 100).rgba).equals(Buffer.from(renderUs('aorta', emptyAbdomen(), 100).rgba))).toBe(false);
-  });
-  it('rendering is deterministic', () => {
-    const st = liver(400); expect(Buffer.from(renderUs('ruq', st, 90).rgba).equals(Buffer.from(renderUs('ruq', st, 90).rgba))).toBe(true);
-  });
-  it('label mapping stays inside the image', () => {
-    const p = usUV('ruq', 0, 8); expect(p.u).toBeGreaterThan(0.3); expect(p.u).toBeLessThan(0.7); expect(p.v).toBeGreaterThan(0.3); expect(p.v).toBeLessThan(0.7);
+    for (const w of ['ruq', 'luq', 'pelvis', 'pericardial'] as const) expect(fastKey(w, aaa)).toBe(fastKey(w, normalAaa));
+    expect(fastKey('aorta', aaa)).toBe('aaa'); expect(fastKey('aorta', emptyAbdomen())).toBe('aorta_normal_us');
   });
 });
 

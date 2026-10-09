@@ -1,14 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import { anatomy, clState, clScene, needle, vesselCheck, CL_DEFAULT, CL_WIDTH, CL_DEPTH, type ClInput } from '../src/procedures/centralLine';
-import { renderLinear } from '../src/scene/ultrasound/bmode';
+import { anatomy, clState, needle, vesselCheck, CL_DEFAULT, type ClInput } from '../src/procedures/centralLine';
+import { ijKey } from '../src/procedures/CentralLineCard';
 
 const C = (p: Partial<ClInput>): ClInput => ({ ...CL_DEFAULT, ...p });
-const img = (p: Partial<ClInput>) => renderLinear(clScene(C(p)), CL_WIDTH, CL_DEPTH, 120);
-/** mean brightness in a cm box */
-function mean(r: ReturnType<typeof img>, x0: number, x1: number, z0: number, z1: number) {
-  let s = 0, n = 0; for (let j = 0; j < r.h; j++) for (let i = 0; i < r.w; i++) { const x = ((i + 0.5) / r.w - 0.5) * CL_WIDTH, z = ((j + 0.5) / r.h) * CL_DEPTH; if (x >= x0 && x <= x1 && z >= z0 && z <= z1) { s += r.rgba[(j * r.w + i) * 4]; n++; } }
-  return s / n;
-}
 
 describe('neck anatomy and probe pressure', () => {
   it('IJ is lateral and superficial to the carotid; the vein compresses fully, the artery does not', () => {
@@ -19,14 +13,12 @@ describe('neck anatomy and probe pressure', () => {
     expect(anatomy(C({ trendelenburg: true })).ij.rz).toBeGreaterThan(anatomy(C({ trendelenburg: false })).ij.rz);
     expect(anatomy(C({ volume: 0.5, trendelenburg: false })).ij.rz).toBeLessThan(anatomy(C({ trendelenburg: false })).ij.rz * 0.6);
   });
-  it('the image shows black lumens where the vessels are, and compression blanks the vein only', () => {
-    const r = img({}); const a = anatomy(C({}));
-    expect(mean(r, a.ij.x - 0.2, a.ij.x + 0.2, a.ij.z - 0.15, a.ij.z + 0.15)).toBeLessThan(25);
-    expect(mean(r, a.ca.x - 0.1, a.ca.x + 0.1, a.ca.z - 0.1, a.ca.z + 0.1)).toBeLessThan(25);
-    const p = img({ compress: 0.8 });
-    expect(mean(p, a.ij.x - 0.2, a.ij.x + 0.2, a.ij.z - 0.15, a.ij.z + 0.15)).toBeGreaterThan(40);
-    expect(mean(p, a.ca.x - 0.1, a.ca.x + 0.1, a.ca.z - 0.1, a.ca.z + 0.1)).toBeLessThan(25);
+  it('the real scan follows the moment: transverse IJ over the carotid, compression, needle, and none for a wrong vessel', () => {
+    const k = (p: Partial<ClInput>, wire: 'none' | 'inVein' | 'inArtery' = 'none') => ijKey(C(p), clState(C(p)), wire);
+    expect(k({ advance: 0, compress: 0 })).toBe('ij_carotid'); expect(k({ advance: 0, compress: 0.8 })).toBe('ij_compression');
+    expect(k({ advance: 0 }, 'inVein')).toBe('ij_needle'); expect(k({ advance: 0 }, 'inArtery')).toBe('ij_wrong_vessel');
   });
+
 });
 
 describe('needle, tip and what the screen shows', () => {
@@ -83,9 +75,5 @@ describe('central line workflow and lesson', async () => {
     expect(at('cvc-7').s.flash).toBe('arterial'); expect(at('cvc-8').s.tipIn).toBe('carotid'); expect(at('cvc-9').wire).toBe('inVein');
     const a = at('cvc-7').j; at('cvc-1'); expect(at('cvc-7').j).toBe(a);
   });
-  it('the wire renders as a bright echo inside the vein lumen', () => {
-    const c = C({ advance: 0 }); const A = anatomy(c);
-    const r = renderLinear(clScene(c, 'inVein'), CL_WIDTH, CL_DEPTH, 160); const r0 = renderLinear(clScene(c), CL_WIDTH, CL_DEPTH, 160);
-    expect(mean(r as never, A.ij.x - 0.08, A.ij.x + 0.08, A.ij.z + 0.35 * A.ij.rz - 0.05, A.ij.z + 0.35 * A.ij.rz + 0.05)).toBeGreaterThan(mean(r0 as never, A.ij.x - 0.08, A.ij.x + 0.08, A.ij.z + 0.35 * A.ij.rz - 0.05, A.ij.z + 0.35 * A.ij.rz + 0.05) + 60);
-  });
+
 });

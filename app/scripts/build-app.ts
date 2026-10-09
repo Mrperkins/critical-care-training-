@@ -15,6 +15,7 @@ add('__RESP_GLB__', 'public/models/resp.glb'); add('__RESP_MAP__', 'public/model
 add('__AIRWAY_GLB__', 'public/models/bedside-airway.glb');
 add('__VENTILATOR_GLB__', 'public/models/medical-ventilator.glb');
 add('__BODY_GLB__', 'public/models/body.glb'); add('__BODY_MAP__', 'public/models/body.mapping.json', true);
+add('__EYES_GLB__', 'public/models/eyes.glb');
 add('__BODYF_GLB__', 'public/models/body-f.glb'); add('__BODYF_MAP__', 'public/models/body-f.mapping.json', true);
 add('__MICRO_GLB__', 'public/models/micro.glb'); add('__MICRO_MAP__', 'public/models/micro.mapping.json', true);
 add('__LINES_GLB__', 'public/models/lines.glb'); add('__LINES_MAP__', 'public/models/lines.mapping.json', true);
@@ -25,7 +26,7 @@ fs.writeFileSync(path.join(out, 'index.html'), html);
 fs.writeFileSync(path.join(out, 'dev.html'), `${head}<div id="root"></div><script src="bundle.js"></script>`);
 // publishable multi-file version: small page + separate model / narration files
 const pub = path.join(out, 'pub'); fs.rmSync(pub, { recursive: true, force: true }); fs.mkdirSync(path.join(pub, 'models'), { recursive: true }); fs.mkdirSync(path.join(pub, 'vo'), { recursive: true });
-for (const f of ['medical-ventilator.glb', 'medical-ventilator.provenance.json', 'bedside-airway.glb', 'bedside-airway.provenance.json', 'resp.glb', 'resp.mapping.json', 'micro.glb', 'micro.mapping.json', 'body.glb', 'body.mapping.json', 'body-f.glb', 'body-f.mapping.json', 'lines.glb', 'lines.mapping.json']) { const p = path.join(ROOT, 'public/models', f); if (fs.existsSync(p)) { if (f.endsWith('.glb')) fs.writeFileSync(path.join(pub, 'models', f + '.txt'), fs.readFileSync(p).toString('base64')); else fs.copyFileSync(p, path.join(pub, 'models', f)); } }
+for (const f of ['medical-ventilator.glb', 'medical-ventilator.provenance.json', 'bedside-airway.glb', 'bedside-airway.provenance.json', 'resp.glb', 'resp.mapping.json', 'micro.glb', 'micro.mapping.json', 'body.glb', 'body.mapping.json', 'body-f.glb', 'body-f.mapping.json', 'eyes.glb', 'eyes.mapping.json', 'lines.glb', 'lines.mapping.json']) { const p = path.join(ROOT, 'public/models', f); if (fs.existsSync(p)) { if (f.endsWith('.glb')) fs.writeFileSync(path.join(pub, 'models', f + '.txt'), fs.readFileSync(p).toString('base64')); else fs.copyFileSync(p, path.join(pub, 'models', f)); } }
 let voIds: string[] = []; const voJson = path.join(ROOT, 'public/vo/vo.json');
 if (fs.existsSync(voJson)) { const vo: Record<string, string> = JSON.parse(fs.readFileSync(voJson, 'utf8')); voIds = Object.keys(vo); for (const [id, b64] of Object.entries(vo)) fs.writeFileSync(path.join(pub, 'vo', id + '.mp3'), Buffer.from(b64, 'base64')); }
 fs.writeFileSync(path.join(pub, 'index.html'), `${head}\n<div id="root"></div>\n<script>window.__VO_IDS__=${JSON.stringify(voIds)};window.__B64_MODELS__=true;</script>\n<script>${js.replace(/<\/script/g, '<\\/script')}</script>\n`);

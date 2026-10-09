@@ -1569,3 +1569,40 @@ body{font:14px/1.5 var(--fb);background:var(--bezel)}
 .video-source-select select{background:var(--pane);color:var(--ink);border:1px solid var(--line2);border-radius:8px;padding:7px 10px;font:500 13px var(--fb);min-height:36px;max-width:220px}
 .video-feed-filter-scroll button.on{background:var(--accent-soft);color:var(--ink);border-color:var(--accent)}
 @media(max-width:760px){.video-hero{grid-template-columns:1fr}.video-view-feed .video-hero p{display:block;font-size:13px}.video-source-select span{display:none}}
+
+/* ---- real-imaging study view (CXR, lung US, FAST, CTA, IJ) */
+.imaging:has(.study){padding:52px 12px 12px}
+.study{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:12px}
+.study-frame{position:relative;min-height:260px;background:#000;border-radius:10px;overflow:hidden;display:grid;place-items:center}
+.study-frame>img,.study-frame>video{width:100%;height:100%;object-fit:contain;display:block}
+.study-tag{position:absolute;left:10px;bottom:10px;font:600 11.5px var(--fb);color:#e5ecee;background:rgba(0,0,0,.55);padding:3px 8px;border-radius:6px}
+.study-missing{display:flex;flex-direction:column;gap:6px;max-width:380px;padding:24px;text-align:center;color:var(--dim);font-size:13.5px;line-height:1.5}.study-missing b{color:var(--ink);font-size:15px}
+.study-side{display:flex;flex-direction:column;gap:8px;min-height:0;overflow:auto;font-size:13.5px;line-height:1.5}
+.study-t{font:700 16px/1.3 var(--fb)}.study-c{margin:0;color:var(--dim)}
+.study-look{margin:0;padding-left:18px;color:var(--dim)}.study-read{margin:0;padding-left:18px}
+.study-side h4{margin:6px 0 0;font:600 13px var(--fb);color:var(--mute)}
+.study-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.study-strip button{width:58px;height:46px;padding:0;border:1px solid var(--line2);border-radius:6px;overflow:hidden;background:#000}
+.study-strip button.on{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.study-strip img{width:100%;height:100%;object-fit:cover;display:block}
+.lus-zones{display:flex;gap:4px;flex-wrap:wrap;padding:3px;border:1px solid var(--line);border-radius:10px;background:var(--pane);align-self:flex-start;max-width:100%}
+.lus-zones button{display:flex;flex-direction:column;align-items:flex-start;gap:1px;border:0;border-radius:7px;background:none;color:var(--dim);padding:5px 11px;font:600 13px var(--fb);min-height:36px}
+.lus-zones button small{font:500 11.5px var(--fb);color:var(--mute)}.lus-zones button small.bad{color:var(--bad)}
+.lus-zones button.on{background:var(--accent-soft);color:var(--ink)}
+@media(max-width:1180px){.study{grid-template-columns:1fr;grid-template-rows:minmax(240px,1fr) auto}.study-side{overflow:visible}}
+.pupils3d{margin:8px 0;display:flex;flex-direction:column;gap:6px}
+.pupils3d-stage{position:relative;height:150px;border-radius:10px;overflow:hidden;background:#0a0d10}
+.pupils3d-stage>*{position:absolute!important;inset:0}
+.pupils3d figcaption{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12.5px;color:var(--dim)}
+.deficit3d{margin:0;display:flex;flex-direction:column;gap:4px;width:150px;flex:none}
+.deficit3d-stage{position:relative;height:250px;border-radius:10px;overflow:hidden;background:#0a0d10}
+.deficit3d-stage>*{position:absolute!important;inset:0}
+.deficit3d figcaption{display:flex;justify-content:space-between;font-size:11.5px;color:var(--mute)}
+
+/* scene view switch (3D / ultrasound / CT …): one segmented control, top-left of the scene */
+.scene-wrap .view-btns{display:inline-flex!important;position:absolute;left:12px;right:auto;top:12px;z-index:36;gap:2px;padding:3px;border:1px solid var(--line2);border-radius:10px;background:rgba(11,17,20,.82);backdrop-filter:blur(8px);flex-wrap:nowrap;max-width:calc(100% - 70px);overflow-x:auto;scrollbar-width:none}
+.scene-wrap .view-btns button{border:0;border-radius:7px;background:none;color:var(--dim);padding:5px 11px;font:600 12.5px var(--fb);white-space:nowrap;min-height:32px!important}
+.scene-wrap .view-btns button.on{background:var(--accent-soft);color:var(--ink)}
+.lines-stage .scene-wrap .view-btns{top:12px}
+.scene-wrap:has(.view-btns) .scene-primary-tools{top:58px}
+.scene-wrap:has(.view-btns) .imaging{padding-top:58px}
