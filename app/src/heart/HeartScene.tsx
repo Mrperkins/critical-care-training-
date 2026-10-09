@@ -23,11 +23,12 @@ import { useLabUI } from '../labs/labStore';
 import { loadLinesAsset, type LinesAsset } from '../asset/lines';
 import { loadHeartInternals, loadPericardium, CONDUCTION, VALVE_APPARATUS, type Layer, type HeartInternalsMapping, type PericardiumMapping } from '../asset/anatomy';
 import { conductionMaterial, branchOf } from '../scene/conduction';
+import { wiggers, beatUniforms, partUniforms, addBeat, valveSpecs, heartRateFor, type BeatUniforms } from './beat';
 import { useHeartUI, type CutMode } from './heartStore';
 import { solveShunt, type ShuntState } from './shunt';
 import { CENTRE, SCALE, toScene, LM, SEPTUM_N, ATRIAL_N, holesFor, holeRadius, lesionShape, pinch, shift, thicken, OVERRIDE, overrideWeight, flowPaths, type Hole, type FlowPathId, type Way, type LesionShape } from './heartGeometry';
 
-const HR = 84; const PERIOD = 60 / HR;
+const HR = 84; const PERIOD = 60 / HR; // legacy fixed clock (cyclePhase); the scene now runs on wiggers() at the model's rate
 /** ventricular systole (0–1) and atrial systole for a time in seconds */
 export function cyclePhase(t: number) { const ph = (t % PERIOD) / PERIOD; const sys = ph < 0.36 ? Math.sin((ph / 0.36) * Math.PI) : 0; const atr = ph > 0.82 ? Math.sin(((ph - 0.82) / 0.18) * Math.PI) : 0; return { ph, sys, atr }; }
 
@@ -125,11 +126,16 @@ function Heart({ asset, s, tier }: { asset: LinesAsset; s: ShuntState; tier: Tie
   useEffect(() => { const p = cutPlane(cut); planes.length = 0; planes.push(trim); if (p) planes.push(p); scene.traverse((o) => { const m = (o as THREE.Mesh).material as THREE.Material | undefined; if (m && 'clippingPlanes' in m && m.clippingPlanes === planes) m.needsUpdate = true; }); }, [cut, planes, trim, scene]);
 
   // geometry: our own copies so lesions can reshape them; originals kept for recomputing
+  const shared = useMemo(() => beatUniforms(), []);
+  const valves = useMemo(() => valveSpecs({ mitral: asset.meshes.mitral?.geometry, tricuspid: asset.meshes.tricuspid?.geometry, aortic_valve: asset.meshes.aortic_valve?.geometry, pulm_valve: asset.meshes.pulm_valve?.geometry }), [asset]);
   const parts = useMemo(() => PARTS.filter((id) => asset.meshes[id]).map((id) => {
     const geo = asset.meshes[id].geometry.clone(); const base = (geo.getAttribute('position').array as Float32Array).slice();
     if (!geo.getAttribute('normal')) geo.computeVertexNormals(); const nrm = (geo.getAttribute('normal').array as Float32Array).slice();
-    const { m, U } = heartMaterial(id, planes); return { id, geo, base, nrm, m, U };
-  }), [asset, planes]);
+    const { m, U } = heartMaterial(id, planes);
+    const radial = /^(lv|rv|septum|coronary_art|cardiac_veins)$/.test(id) ? 1 : 0; const atr = id === 'ra' || id === 'la';
+    addBeat(m, shared, partUniforms({ radial, atr: atr ? 1 : 0, atrC: atr ? CHAMBER[id] : undefined, valve: valves[id] }), id);
+    return { id, geo, base, nrm, m, U };
+  }), [asset, planes, shared, valves]);
   const byId = useMemo(() => Object.fromEntries(parts.map((p) => [p.id, p])) as Record<PartId, (typeof parts)[number]>, [parts]);
   useEffect(() => () => parts.forEach((p) => { p.geo.dispose(); p.m.dispose(); }), [parts]);
   useEffect(() => { (window as unknown as { __heart3d?: unknown }).__heart3d = { byId }; }, [byId]); // automation / tests
@@ -189,15 +195,17 @@ function Heart({ asset, s, tier }: { asset: LinesAsset; s: ShuntState; tier: Tie
     for (; k < NP; k++) pts[k].alive = false;
   }, [s, pts, NP]);
 
-  const cur = useRef({ lv: 1, la: 1, ra: 1, rv: 1 }); const t = useRef(0);
+  const cur = useRef({ lv: 1, la: 1, ra: 1, rv: 1 }); const t = useRef(0); const hr = heartRateFor(s.input.qs);
   const tmp = useMemo(() => ({ o: new THREE.Object3D(), p: new THREE.Vector3(), d: new THREE.Vector3(), c: new THREE.Color(), q: new THREE.Vector3(), probe: LM.lvApex.clone().add(new THREE.Vector3(0.1, -0.1, 0.15)) }), []);
   useFrame((_, dtRaw) => {
-    const dt = frameDt(dtRaw); t.current += Math.min(0.05, dtRaw); const c = cyclePhase(t.current); const k = cur.current;
+    const dt = frameDt(dtRaw); t.current += Math.min(0.05, dtRaw); const w = wiggers(t.current, hr); const c = { sys: w.slOpen, atr: w.atr }; const k = cur.current;
+    const fz = (window as unknown as { __beat?: { v: number; atr: number; avOpen: number; slOpen: number } }).__beat; // automation: freeze a phase
+    const b = fz ?? w; shared.uV.value = b.v; shared.uAtr.value = b.atr; shared.uAvOpen.value = b.avOpen; shared.uSlOpen.value = b.slOpen;
     k.lv = approach(k.lv, Math.min(1.25, 1 + 0.12 * (s.load.lv - 1)), 3, dt); k.la = approach(k.la, Math.min(1.25, 1 + 0.15 * (s.load.la - 1)), 3, dt);
     k.rv = approach(k.rv, Math.min(1.25, 1 + 0.13 * (s.load.rv - 1)), 3, dt); k.ra = approach(k.ra, Math.min(1.25, 1 + 0.15 * (s.load.ra - 1)), 3, dt);
     const sat: Partial<Record<PartId, number>> = { ra: s.sat.ra, rv: s.sat.rv, la: s.sat.la, lv: s.sat.lv, aorta: s.sat.ao, arch_branches: s.sat.ao, pulm_art: s.sat.pa, svc: s.sat.sv, ivc: s.sat.sv, pulm_veins: 0.98 };
     for (const p of parts) {
-      const K = p.id === 'lv' ? k.lv * (1 - 0.05 * c.sys) : p.id === 'rv' ? k.rv * (1 - 0.045 * c.sys) : p.id === 'la' ? k.la * (1 - 0.04 * c.atr) : p.id === 'ra' ? k.ra * (1 - 0.04 * c.atr) : p.id === 'septum' ? 1 - 0.015 * c.sys : 1;
+      const K = p.id === 'lv' ? k.lv : p.id === 'rv' ? k.rv : p.id === 'la' ? k.la : p.id === 'ra' ? k.ra : 1; // chronic dilation only; the beat is the shared field
       p.U.uK.value = K; const sv = sat[p.id];
       if (sv != null) { if (CHAMBER[p.id]) { saturationColor(sv, p.U.uBlood.value, true); p.U.uBloodMix.value = 0.42; } else saturationColor(sv, p.m.color, true); }
     }
@@ -232,7 +240,7 @@ function Heart({ asset, s, tier }: { asset: LinesAsset; s: ShuntState; tier: Tie
       </group>}
       {ductGeo && <mesh geometry={ductGeo} material={ductMat} />}
       <instancedMesh key={NP} ref={inst} args={[new THREE.SphereGeometry(1, 8, 6), undefined, NP]} frustumCulled={false}><meshBasicMaterial toneMapped={false} clippingPlanes={planes} /></instancedMesh>
-      <Internals planes={planes} />
+      <Internals planes={planes} shared={shared} hr={hr} clock={t} />
       <Labels s={s} shape={shape} cut={cut} />
     </group>
   );
@@ -241,7 +249,7 @@ function Heart({ asset, s, tier }: { asset: LinesAsset; s: ShuntState; tier: Tie
 /* ------------------------------------------------------------------ heart internals (heart-internals.glb, pericardium.glb; body frame) */
 /** Papillary muscles and chordae are always drawn (they are what the cut opens onto); the conduction system lights a
  *  wavefront on the same 84/min clock as the beating chambers; the pericardium is a toggle (it hides the epicardium). */
-function Internals({ planes }: { planes: THREE.Plane[] }) {
+function Internals({ planes, shared, hr, clock }: { planes: THREE.Plane[]; shared: BeatUniforms; hr: number; clock: React.MutableRefObject<number> }) {
   const [hi, setHi] = useState<Layer<HeartInternalsMapping> | null>(null); const [pc, setPc] = useState<Layer<PericardiumMapping> | null>(null);
   const showC = useHeartUI((s) => s.conduction); const showP = useHeartUI((s) => s.pericardium);
   useEffect(() => { let off = false; loadHeartInternals().then((x) => { if (!off) setHi(x); }).catch(() => undefined); return () => { off = true; }; }, []);
@@ -250,11 +258,11 @@ function Internals({ planes }: { planes: THREE.Plane[] }) {
     pap: new THREE.MeshPhysicalMaterial({ color: '#8f2c24', roughness: 0.5, clearcoat: 0.35, clippingPlanes: planes, side: THREE.DoubleSide }),
     chord: new THREE.MeshStandardMaterial({ color: '#f1e8d8', roughness: 0.35, clippingPlanes: planes }),
     sac: new THREE.MeshPhysicalMaterial({ color: '#e8ddcc', roughness: 0.3, clearcoat: 0.4, transparent: true, opacity: 0.32, depthWrite: false, side: THREE.DoubleSide, clippingPlanes: planes }),
-    cond: [0, 1, 2].map((b) => { const c = conductionMaterial(b as 0 | 1 | 2); c.material.clippingPlanes = planes; return c; }),
-  }), [planes]);
+    cond: [0, 1, 2].map((b) => { const c = conductionMaterial(b as 0 | 1 | 2); c.material.clippingPlanes = planes; addBeat(c.material, shared, partUniforms({ radial: 1 }), 'cond' + b); return c; }),
+  }), [planes, shared]);
+  useMemo(() => { addBeat(mats.pap, shared, partUniforms({ radial: 1 }), 'pap'); addBeat(mats.chord, shared, partUniforms({ radial: 1 }), 'chord'); addBeat(mats.sac, shared, partUniforms({ radial: 0.6 }), 'sac'); }, [mats, shared]);
   useEffect(() => () => { mats.pap.dispose(); mats.chord.dispose(); mats.sac.dispose(); mats.cond.forEach((c) => c.material.dispose()); }, [mats]);
-  const t = useRef(0);
-  useFrame((_, dt) => { t.current += Math.min(0.05, dt); const ms = ((t.current + 0.19) % PERIOD) * 1000; /* electrical precedes mechanical: the SA node fires ~190 ms before systole */ for (const c of mats.cond) { c.uniforms.uT.value = ms; c.uniforms.uHisStart.value = hi?.mapping.activation.hisStart ?? 120; } });
+  useFrame(() => { const rr = 60 / hr; const ms = ((clock.current + 0.19) % rr) * 1000; /* electrical precedes mechanical: the SA node fires ~190 ms before ventricular systole (same clock as wiggers) */ for (const c of mats.cond) { c.uniforms.uT.value = ms; c.uniforms.uHisStart.value = hi?.mapping.activation.hisStart ?? 120; } });
   if (!hi) return null;
   return (<>
     {VALVE_APPARATUS.filter((id) => hi.meshes[id]).map((id) => <mesh key={id} geometry={hi.meshes[id].geometry} material={/^chordae/.test(id) ? mats.chord : mats.pap} dispose={null} />)}
