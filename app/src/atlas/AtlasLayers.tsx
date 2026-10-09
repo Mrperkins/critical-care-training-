@@ -7,7 +7,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
-import { loadSkeleton, loadPericardium, loadNeuroDeep, loadHeartInternals, effusionThickness, CONDUCTION, VENTRICLES, DEEP_NUCLEI, type Layer, type PericardiumMapping } from '../asset/anatomy';
+import { loadSkeleton, loadPericardium, loadNeuroDeep, loadHeartInternals, loadUpperAirway, effusionThickness, CONDUCTION, VENTRICLES, DEEP_NUCLEI, LARYNX, UPPER_SOFT, type Layer, type PericardiumMapping } from '../asset/anatomy';
 import { conductionMaterial, branchOf, cycleMs } from '../scene/conduction';
 
 function useLayer<M>(load: () => Promise<Layer<M>>) {
@@ -97,5 +97,33 @@ export function DeepBrainLayer({ highlight = [], ventricleScale = 1, ich, ichMl 
       return <mesh key={id} ref={isV ? (el) => { vRefs.current[id] = el; if (el && !el.userData.c) el.userData.c = centreOf(m); } : undefined} geometry={m.geometry} material={mat} renderOrder={4} dispose={null} />;
     })}
     {ichC && r > 0 && <mesh position={ichC} scale={[r * 1.1, r * 0.95, r * 1.25]} renderOrder={5}><sphereGeometry args={[1, 28, 20]} /><meshStandardMaterial color="#6d1726" roughness={0.5} /></mesh>}
+  </group>;
+}
+
+/* ------------------------------------------------------------------ upper airway */
+/**
+ * Supraglottic swelling (epiglottitis, angioedema): epiglottis, vestibular folds and tongue enlarge with `edema`.
+ * Subglottic swelling (croup): a ring of oedema inside the real cricoid narrows the lumen — the narrowest point of the
+ * airway, so the ring's inner radius is what the condition is about.
+ */
+export function UpperAirwayLayer({ edema = 0, site }: { edema?: number; site?: 'supraglottic' | 'subglottic' }) {
+  const ua = useLayer(loadUpperAirway);
+  const soft = useMemo(() => new THREE.MeshStandardMaterial({ color: '#d48a8a', roughness: 0.45, transparent: true, opacity: 0.3, depthWrite: false, side: THREE.DoubleSide }), []);
+  const swollen = useMemo(() => new THREE.MeshStandardMaterial({ color: '#c25b4f', roughness: 0.45 }), []);
+  useEffect(() => () => { soft.dispose(); swollen.dispose(); }, [soft, swollen]);
+  const refs = useRef<Record<string, THREE.Mesh | null>>({});
+  const grow: Record<string, number> = site === 'supraglottic' ? { epiglottis: 1 + 0.7 * edema, vestibular_fold_R: 1 + 0.6 * edema, vestibular_fold_L: 1 + 0.6 * edema, tongue: 1 + 0.22 * edema } : {};
+  useFrame((_, dt) => { const k = 1 - Math.exp(-3 * Math.min(dt, 0.1)); for (const [id, m] of Object.entries(refs.current)) { if (!m) continue; const target = grow[id] ?? 1; const s = m.scale.x + (target - m.scale.x) * k; m.scale.setScalar(s); const c = m.userData.c as THREE.Vector3 | undefined; if (c) m.position.copy(c).multiplyScalar(1 - s); } });
+  if (!ua) return null;
+  const cric = ua.meshes.cricoid_cartilage ? centreOf(ua.meshes.cricoid_cartilage) : null;
+  const ring = site === 'subglottic' && cric ? { r: 0.055, tube: 0.01 + 0.035 * edema } : null; // lumen ≈ 1.1 cm → inner radius 5.5 − tube; the swelling runs ~1 cm down the subglottis
+  return <group>
+    {[...LARYNX, ...UPPER_SOFT].filter((id) => ua.meshes[id]).map((id) => {
+      const m = ua.meshes[id]; const hot = (grow[id] ?? 1) > 1.02;
+      // croup: the ring sits inside the cricoid, so the cartilages around it are drawn see-through
+      const soft_ = (UPPER_SOFT.includes(id) && !(id === 'tongue' && site === 'supraglottic' && edema > 0.05)) || (site === 'subglottic' && /^(thyroid|cricoid)_cartilage$|^cricothyroid/.test(id));
+      return <mesh key={id} ref={(el) => { refs.current[id] = el; if (el && !el.userData.c) el.userData.c = centreOf(m); }} geometry={m.geometry} material={hot ? swollen : soft_ ? soft : m.material} renderOrder={soft_ ? 4 : 2} dispose={null} />;
+    })}
+    {ring && cric && <mesh position={[cric.x, cric.y - 0.02, cric.z + 0.02]} rotation={[Math.PI / 2, 0, 0]} scale={[1, 1, 3.2]} renderOrder={3}><torusGeometry args={[ring.r - ring.tube * 0.4, ring.tube, 16, 40]} /><meshStandardMaterial color="#c25b4f" roughness={0.45} transparent opacity={0.85} /></mesh>}
   </group>;
 }

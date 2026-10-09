@@ -100,7 +100,33 @@ describe('atlas layers', () => {
   it('puts a hypertensive ICH in the left putamen next to the internal capsule', () => {
     const b = atlasLayers(DISEASE_BY_ID.ich, s({ bleeding: 0.5 })).brain!; expect(b.ich).toBe('putamen_L'); expect(b.highlight).toContain('internal_capsule_L');
   });
+  it('swells the supraglottis in upper-airway obstruction and narrows the subglottis in croup', () => {
+    expect(atlasLayers(DISEASE_BY_ID['upper-airway-obstruction'], s({ edema: 0.8 })).airway).toEqual({ edema: 0.8, site: 'supraglottic' });
+    expect(atlasLayers(DISEASE_BY_ID.croup, s({ obstruction: 0.6 })).airway!.site).toBe('subglottic');
+  });
   it('shows the right-sided decompression ribs in tension pneumothorax', () => {
     expect(atlasLayers(DISEASE_BY_ID['tension-pneumothorax'], s({})).bones).toEqual(['rib_R2', 'rib_R3', 'rib_R4', 'rib_R5']);
   });
+});
+
+describe('upper airway', () => {
+  const m = json('upper-airway.mapping.json'); const c = m.centres as Record<string, number[]>; const lm = m.landmarks;
+  it('has the real laryngeal cartilages and the landmark-built soft tissue', async () => {
+    const n = new Set(await names('upper-airway.glb'));
+    for (const id of ['thyroid_cartilage', 'cricoid_cartilage', 'arytenoid_L', 'arytenoid_R', 'epiglottis', 'trachea', 'vocal_fold_L', 'vocal_fold_R', 'cricothyroid_membrane', 'pharynx', 'tongue', 'soft_palate']) expect(n.has(id), id).toBe(true);
+  }, 30000);
+  it('places the cricothyroid membrane between thyroid and cricoid, ~1 cm tall and a few mm under the skin', () => {
+    const ctm = lm.cricothyroidMembrane;
+    expect(ctm.heightMm).toBeGreaterThan(6); expect(ctm.heightMm).toBeLessThan(14);
+    expect(ctm.skinDepthMm).toBeGreaterThan(2); expect(ctm.skinDepthMm).toBeLessThan(20);
+    expect(ctm.centre[1]).toBeLessThan(lm.anteriorCommissure[1]); // below the vocal folds
+  });
+  it('keeps sides and the front-to-back order: tongue and larynx in front of the pharynx, pharynx in front of the spine', () => {
+    expect(c.vocal_fold_L[0]).toBeGreaterThan(0); expect(c.vocal_fold_R[0]).toBeLessThan(0); expect(c.arytenoid_L[0]).toBeGreaterThan(0);
+    const verts = lm.vertebralFaces as Record<string, number[]>;
+    expect(c.cricoid_cartilage[2]).toBeGreaterThan(c.pharynx[2]);
+    expect(c.pharynx[2]).toBeGreaterThan(verts.C5[2]);
+    expect(c.tongue[2]).toBeGreaterThan(c.pharynx[2]);
+  });
+  it('says which parts are schematic', () => { expect(m.schematic).toMatch(/schematic/); });
 });

@@ -11,6 +11,7 @@ import { useFrame, useThree } from '@react-three/fiber';
 import { CameraControls } from '@react-three/drei';
 import { loadBodyAsset, type BodyAsset } from '../asset/body';
 import { loadMeshes } from '../asset/gltf';
+import { loadUpperAirway, LARYNX, UPPER_SOFT } from '../asset/anatomy';
 
 declare global { interface Window { __AIRWAY_GLB__?: string; __VENTILATOR_GLB__?: string } }
 let airwayCache: Promise<Record<string,THREE.Mesh>> | null = null;
@@ -101,6 +102,18 @@ function BreathingLung({ body, id, side, focus, revealAirway }: {
   />;
 }
 
+/** Larynx (HuBMAP cartilages + landmark-built folds and cricothyroid membrane) with a see-through pharynx and tongue,
+ *  continuing the tracheobronchial tree up to the mouth when the airway is revealed. */
+function UpperAirway({ onClick }: { onClick: () => void }) {
+  const [ua, setUa] = useState<Record<string, THREE.Mesh> | null>(null);
+  useEffect(() => { let on = true; loadUpperAirway().then((l) => { if (on) setUa(l.meshes); }).catch(() => undefined); return () => { on = false; }; }, []);
+  const soft = useMemo(() => new THREE.MeshPhysicalMaterial({ color: '#d48a8a', roughness: .45, transparent: true, opacity: .32, depthWrite: false, side: THREE.DoubleSide }), []);
+  useEffect(() => () => soft.dispose(), [soft]);
+  if (!ua) return null;
+  return <>{LARYNX.filter((id) => ua[id]).map((id) => <mesh key={id} geometry={ua[id].geometry} material={ua[id].material} onClick={onClick} dispose={null} />)}
+    {UPPER_SOFT.filter((id) => ua[id]).map((id) => <mesh key={id} geometry={ua[id].geometry} material={soft} renderOrder={3} dispose={null} />)}</>;
+}
+
 function AnatomicalPatient({ body, child, focus, transparent, airway }: {
   body: BodyAsset; child: boolean; focus: () => void; transparent: boolean; airway: Record<string,THREE.Mesh> | null;
 }) {
@@ -115,6 +128,7 @@ function AnatomicalPatient({ body, child, focus, transparent, airway }: {
         ? <BreathingLung key={id} id={id} body={body} side={index as 0|1} focus={focus} revealAirway={!!airway} />
         : null)}
       {airway && ['airway','cartilage'].map(id=>airway[id] && <mesh key={id} geometry={airway[id].geometry} material={airway[id].material} onClick={focus} dispose={null} />)}
+      {airway && <UpperAirway onClick={focus} />}
       {!airway && ids.map(id => body.meshes[id]
         ? <mesh key={id} geometry={body.meshes[id].geometry} dispose={null}>
           <meshStandardMaterial color={id==='heart'?'#965260':id==='brain'?'#a78693':'#86565e'} roughness={.72} />
@@ -246,7 +260,7 @@ export function EquipmentPatient({ onCircuitChange, onVentilator }: { onCircuitC
       <button className="act" aria-pressed={transparent} onClick={()=>{setTransparent(v=>!v);setRevealAirway(false);}}>{transparent?'Show skin surface':'Reveal organs'}</button>
     {!child && <button className="act" aria-pressed={revealAirway} disabled={!airway} onClick={()=>{setRevealAirway(v=>!v);setTransparent(true);focus(revealAirway?'lungs':'airway');}}>{airwayError?'Airway model unavailable':!airway?'Loading airway…':revealAirway?'Hide airway anatomy':'Inspect airway anatomy'}</button>}
     </div>
-    {revealAirway&&!child&&<p className="muted small">Adult trachea, branching bronchi and cartilage · lungs are translucent; other organs and the external circuit are hidden for inspection. Airway surfaces show reference anatomy; bronchospasm is represented by the physiology and waveforms.</p>}
+    {revealAirway&&!child&&<p className="muted small">Adult larynx (cartilages, vocal folds, cricothyroid membrane), trachea, branching bronchi and cartilage; pharynx and tongue see-through · lungs are translucent; other organs and the external circuit are hidden for inspection. Airway surfaces show reference anatomy; bronchospasm is represented by the physiology and waveforms.</p>}
     <p className="muted small">Drag to orbit · pinch or scroll to zoom · tap the green/red circuit connector to disconnect or reconnect. Camera buttons restore their views.</p>
     <div className="actions"><button className="act" onClick={toggleCircuit}>{disconnected?'Reconnect 3D circuit':'Disconnect 3D circuit'}</button><button className="act" onClick={onVentilator}>Operate ventilator controls</button></div>
     {child && <p className="muted small">Pediatric scenario · {session.pt.p.weightKg} kg. The available whole-body 3D mesh is adult-derived and scaled; it is not a pediatric anatomical reference.</p>}

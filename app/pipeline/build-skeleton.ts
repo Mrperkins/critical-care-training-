@@ -33,6 +33,8 @@ const rnd = () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296);
 
 /* ------------------------------------------------------------------ HuBMAP target, in the body frame of build-body.ts */
 const body = await readGLB('assets/source/VH_M_United.glb');
+// the neck has no bone in the reference body, so its own laryngeal cartilages, hyoid and trachea anchor the cervical fit
+const larynx = await readGLB('assets/source/3d-vh-m-larynx.glb'); const trachea = await readGLB('assets/source/3d-vh-m-trachea.glb');
 const pick = (re: RegExp) => [...body.entries()].filter(([n]) => re.test(n)).map(([, g]) => g);
 const skinSrc = pick(/VH_M_skin$/)[0]; skinSrc.computeBoundingBox();
 const C = skinSrc.boundingBox!.getCenter(new V3()); const S = 10;
@@ -53,6 +55,9 @@ const target = {
   sacrum: T(/VH_M_sacrum$/),
   femur_R: T(/VH_M_femur_R$/),
   femur_L: T(/VH_M_femur_L$/),
+  hyoid: T(/VH_M_hyoid$/),
+  thyroid: tf(larynx.get('VH_M_thyroid_cartilage')!),
+  trachea: tf(trachea.get('VH_M_trachea')!),
 };
 type Key = keyof typeof target;
 const bvh: Record<string, MeshBVH> = {};
@@ -92,6 +97,9 @@ const source: Record<Key, THREE.BufferGeometry> = {
   sacrum: readSTL(fma('sacrum')),
   femur_R: readSTL(fma('right femur')),
   femur_L: readSTL(fma('left femur')),
+  hyoid: readSTL(fma('hyoid bone')),
+  thyroid: readSTL(fma('thyroid cartilage')),
+  trachea: readSTL(fma('trachea')),
 };
 
 /* ------------------------------------------------------------------ surface sampling */
@@ -113,6 +121,7 @@ function sample(g: THREE.BufferGeometry, n: number) {
 const PLAN: [Key, number, number][] = [
   ['skin', 6000, 1], ['lung_R', 1500, 2], ['lung_L', 1500, 2], ['liver', 600, 1], ['kidney_R', 300, 1], ['kidney_L', 300, 1],
   ['heart', 500, 1], ['hip_R', 700, 2], ['hip_L', 700, 2], ['sacrum', 400, 2], ['femur_R', 500, 1], ['femur_L', 500, 1],
+  ['hyoid', 300, 4], ['thyroid', 500, 4], ['trachea', 600, 3],
 ];
 interface Pt { p: THREE.Vector3; k: Key; w: number }
 const pts: Pt[] = PLAN.flatMap(([k, n, w]) => sample(source[k], n).map((p) => ({ p, k, w })));
@@ -215,7 +224,6 @@ const SIDE = { L: 'left', R: 'right' } as const;
 const bp: { id: string; role: string; en: string[]; tri: number; label: string }[] = [];
 bp.push({ id: 'skull', role: 'bone', en: ['frontal bone', 'occipital bone', 'sphenoid bone', 'right parietal bone', 'left parietal bone', 'right temporal bone', 'left temporal bone', 'right zygomatic bone', 'left zygomatic bone', 'right maxilla', 'left maxilla', 'right nasal bone', 'left nasal bone', 'right lacrimal bone', 'left lacrimal bone', 'right palatine bone', 'left palatine bone'], tri: 30000, label: 'Skull' });
 bp.push({ id: 'mandible', role: 'bone', en: ['mandible'], tri: 4000, label: 'Mandible' });
-bp.push({ id: 'hyoid', role: 'bone', en: ['hyoid bone'], tri: 800, label: 'Hyoid' });
 bp.push({ id: 'C1', role: 'vertebra', en: ['atlas'], tri: 2000, label: 'C1 (atlas)' });
 bp.push({ id: 'C2', role: 'vertebra', en: ['axis'], tri: 2000, label: 'C2 (axis)' });
 for (let i = 3; i <= 7; i++) bp.push({ id: 'C' + i, role: 'vertebra', en: [ORD[i - 1] + ' cervical vertebra'], tri: 1800, label: 'C' + i });
@@ -335,7 +343,7 @@ for (const s of ['R', 'L'] as const) {
 /* HuBMAP bones: the reference body's own (no fitting) */
 const hub: [string, RegExp, number, string][] = [
   ['hip_R', /VH_M_(ilium|ischium|pubis)_compact_bone_R$/, 6000, 'Right hip bone'], ['hip_L', /VH_M_(ilium|ischium|pubis)_compact_bone_L$/, 6000, 'Left hip bone'],
-  ['sacrum', /VH_M_sacrum$/, 4000, 'Sacrum'], ['coccyx', /VH_M_coccyx$/, 600, 'Coccyx'],
+  ['hyoid', /VH_M_hyoid$/, 1200, 'Hyoid'], ['sacrum', /VH_M_sacrum$/, 4000, 'Sacrum'], ['coccyx', /VH_M_coccyx$/, 600, 'Coccyx'],
   ['femur_R', /VH_M_femur_R$/, 5000, 'Right femur'], ['femur_L', /VH_M_femur_L$/, 5000, 'Left femur'],
   ['tibia_R', /VH_M_tibia_R$/, 3000, 'Right tibia'], ['tibia_L', /VH_M_tibia_L$/, 3000, 'Left tibia'],
   ['fibula_R', /VH_M_fibula_R$/, 1200, 'Right fibula'], ['fibula_L', /VH_M_fibula_L$/, 1200, 'Left fibula'],
@@ -362,6 +370,10 @@ const report = {
 };
 { const l5 = parts.find((p) => p.id === 'L5'); const sac = parts.find((p) => p.id === 'sacrum');
   if (l5 && sac) { const b = new MeshBVH(sac.geo); let best = 1e9; const v = new V3(); const a = l5.geo.attributes.position; for (let i = 0; i < a.count; i++) { v.fromBufferAttribute(a, i); b.closestPointToPoint(v, tgt); best = Math.min(best, tgt.distance); } report.l5ToSacrumGapMm = +(best * 100).toFixed(1); } }
+/* vertebral levels of the neck landmarks (textbook: hyoid C3, thyroid cartilage C4–C5, cricoid C6) */
+{ const lev = (y: number) => { let best = '', d = Infinity; for (const p of parts) if (/^C\d$|^T1$/.test(p.id)) { const c = cen(p.geo).y; if (Math.abs(c - y) < d) { d = Math.abs(c - y); best = p.id; } } return best; };
+  const yOf = (g: THREE.BufferGeometry) => cen(g).y;
+  (report as Record<string, unknown>).levels = { hyoid: lev(yOf(target.hyoid)), thyroidCartilage: lev(yOf(target.thyroid)), cricoid: lev(yOf(tf(larynx.get('VH_M_cricoid_cartilage')!))) }; }
 log('fit report', JSON.stringify(report));
 
 /* humeri that poke out of the arm skin are dropped rather than shipped wrong */

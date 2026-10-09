@@ -6,6 +6,8 @@
  *  - pericardium.glb    pipeline/build-pericardium.ts     — sac grown from the real heart; `aEff` = effusion freedom 0–1
  *  - neuro.glb          pipeline/build-neuro.ts           — ventricles, basal ganglia, thalamus, limbic, brainstem, cerebellum
  *  - heart-internals.glb pipeline/build-heart-internals.ts — papillary muscles, chordae, conduction system; `aAct` = ms
+ *  - upper-airway.glb   pipeline/build-upper-airway.ts    — laryngeal cartilages, epiglottis, trachea (HuBMAP); folds,
+ *                       cricothyroid membrane, pharynx, tongue, soft palate (landmark-positioned, schematic)
  *
  * The female reference body (body-f.glb) has its own frame, so these layers are male-body only.
  */
@@ -25,12 +27,14 @@ export interface HeartInternalsMapping {
   activation: { saToAv: number; avNodalDelay: number; hisStart: number; lastVentricularActivation: number };
   schematic: string; attribution: Attribution;
 }
+export interface UpperAirwayMapping { centres: Record<string, [number, number, number]>; labels: Record<string, string>; landmarks: { cricothyroidMembrane: { centre: [number, number, number]; heightMm: number; skinDepthMm: number | null }; glottisLengthMm: number; anteriorCommissure: [number, number, number]; epiglottisTip: [number, number, number] }; schematic: string; attribution: Attribution }
 export interface Layer<M> { meshes: Record<string, THREE.Mesh>; mapping: M }
 
 declare global {
   interface Window {
     __SKELETON_GLB__?: string; __SKELETON_MAP__?: SkeletonMapping; __PERICARDIUM_GLB__?: string; __PERICARDIUM_MAP__?: PericardiumMapping;
     __NEURO_GLB__?: string; __NEURO_MAP__?: NeuroMapping; __HEARTINT_GLB__?: string; __HEARTINT_MAP__?: HeartInternalsMapping;
+    __UPPERAIRWAY_GLB__?: string; __UPPERAIRWAY_MAP__?: UpperAirwayMapping;
   }
 }
 
@@ -52,6 +56,9 @@ export const loadSkeleton = layer<SkeletonMapping>('skeleton', () => window.__SK
 export const loadPericardium = layer<PericardiumMapping>('pericardium', () => window.__PERICARDIUM_GLB__, () => window.__PERICARDIUM_MAP__, ['aEff']);
 export const loadNeuroDeep = layer<NeuroMapping>('neuro', () => window.__NEURO_GLB__, () => window.__NEURO_MAP__);
 export const loadHeartInternals = layer<HeartInternalsMapping>('heart-internals', () => window.__HEARTINT_GLB__, () => window.__HEARTINT_MAP__, ['aAct']);
+export const loadUpperAirway = layer<UpperAirwayMapping>('upper-airway', () => window.__UPPERAIRWAY_GLB__, () => window.__UPPERAIRWAY_MAP__);
+export const LARYNX = ['thyroid_cartilage', 'cricoid_cartilage', 'arytenoid_R', 'arytenoid_L', 'corniculate_R', 'corniculate_L', 'epiglottis', 'vocal_fold_R', 'vocal_fold_L', 'vestibular_fold_R', 'vestibular_fold_L', 'cricothyroid_membrane'];
+export const UPPER_SOFT = ['pharynx', 'tongue', 'soft_palate'];
 
 /** Effusion volume (mL) → outward sac displacement (dm) along the normal at full `aEff`: the extra volume spread over ∫EFF·dA. */
 export const effusionThickness = (m: PericardiumMapping, ml: number) => Math.max(0, ml) / 1000 / m.sac.effAreaDm2;
