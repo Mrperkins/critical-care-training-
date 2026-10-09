@@ -8,8 +8,10 @@
 import { useEffect, useState } from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js';
 
-export const OPEN_CELL_URL = 'models/cell/markdragan-human-cell/cell.glb';
+/** meshopt-compressed delivery copy (3.1 MB; geometry identical to the 12 MB original cell.glb, see SOURCE.md) */
+export const OPEN_CELL_URL = 'models/cell/markdragan-human-cell/cell.opt.glb';
 export const OPEN_CELL_CREDIT = { title: 'Human Cell — markdragan', url: 'https://sketchfab.com/3d-models/human-cell-60ef7d2515b0403986ff9e8b7f234a66', license: 'CC BY 4.0' };
 /** membrane site kind → PDB-derived mesh id */
 export const PROTEIN_FOR_TARGET: Record<string, [site: string, pdb: string]> = {
@@ -31,7 +33,8 @@ export function loadOpenCell() {
   return (openCellPromise ??= (async () => {
     try {
       const r = await fetch(OPEN_CELL_URL, { mode: 'cors', cache: 'force-cache' }); if (!r.ok) throw new Error('HTTP ' + r.status);
-      const scene = (await new GLTFLoader().parseAsync(await r.arrayBuffer(), '')).scene.clone(true); scene.updateMatrixWorld(true);
+      await MeshoptDecoder.ready; const loader = new GLTFLoader(); loader.setMeshoptDecoder(MeshoptDecoder);
+      const scene = (await loader.parseAsync(await r.arrayBuffer(), '')).scene.clone(true); scene.updateMatrixWorld(true);
       const box = new THREE.Box3().setFromObject(scene); const c = box.getCenter(new THREE.Vector3()); const size = box.getSize(new THREE.Vector3());
       const g = new THREE.Group(); scene.position.sub(c); g.add(scene); g.scale.setScalar(5.35 / Math.max(0.001, size.x, size.y, size.z));
       // tone the source materials toward the app's matte, wet-tissue look
