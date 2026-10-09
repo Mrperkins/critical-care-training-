@@ -1,12 +1,12 @@
 # Fetch the staged real clinical media (imaging/real/manifest.json → "pending"), verify each licence from the source
 # itself (Wikimedia Commons API / the article page), transcode, validate and commit to visual-overhaul.
-# Start it by creating or editing imaging/real/fetch-request.txt on visual-overhaul (GitHub: Add file → Create new
+# Start it by creating or editing imaging/real/fetch-request.txt on visual-overhaul or ui-overhaul (GitHub: Add file → Create new
 # file; any text). GitHub only offers the "Run workflow" button for workflows on the default branch, so the file is
 # the trigger while this lives on visual-overhaul. Never runs on, or pushes to, main.
 name: Fetch clinical media
 on:
   push:
-    branches: [visual-overhaul]
+    branches: [visual-overhaul, ui-overhaul]
     paths: ['imaging/real/fetch-request.txt']
   workflow_dispatch:
     inputs:
@@ -21,12 +21,12 @@ concurrency:
   cancel-in-progress: false
 jobs:
   fetch:
-    if: github.ref == 'refs/heads/visual-overhaul'
+    if: github.ref == 'refs/heads/visual-overhaul' || github.ref == 'refs/heads/ui-overhaul'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: visual-overhaul
+          ref: ${{ github.ref_name }}
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -52,7 +52,7 @@ jobs:
         run: python tools/validate_visual_assets.py
       - name: Keep the fetch record
         run: shopt -s nullglob; mkdir -p imaging/real/source && for d in "$RUNNER_TEMP"/media/*/; do cp "$d/meta.json" "imaging/real/source/$(basename "$d").fetch.json"; done
-      - name: Commit to visual-overhaul
+      - name: Commit to the branch that asked
         run: |
           git config user.name "clinical-media-bot"
           git config user.email "clinical-media-bot@users.noreply.github.com"
@@ -60,5 +60,5 @@ jobs:
           git add imaging/real
           git diff --cached --quiet && { echo "nothing new"; exit 0; }
           git commit -m "Real clinical media fetched and verified from source (tools/clinical_media.py)"
-          git pull --rebase origin visual-overhaul
-          git push origin HEAD:visual-overhaul
+          git pull --rebase origin ${{ github.ref_name }}
+          git push origin HEAD:${{ github.ref_name }}
