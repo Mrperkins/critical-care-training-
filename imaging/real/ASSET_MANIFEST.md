@@ -1026,6 +1026,328 @@ so ingested media appear without rebuilding `index.html`. Overlay marks (`marks`
 | Licence evidence | Wikimedia Commons API extmetadata for File:Portable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3APortable-bedside-ultrasound-the-visual-stethoscope-of-the-21st-century-1757-7241-20-18-S5.ogv&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
 | Verified by | tools/clinical_media.py fetch |
 
+## cxr-mainstem-right-ebi-2019 — Right mainstem (endobronchial) intubation
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/cxr-mainstem-right-ebi-2019.jpg` · `imaging/real/source/cxr-mainstem-right-ebi-2019-source.jpg` |
+| Clinical purpose | mainstem_right (cxr) |
+| Creator / authors | Hernandez Padilla AC, Trampont T, Lafon T, Daix T, Cailloce D, Barraud O, Dalmay F, Vignon P, François B. |
+| Source | “Is prehospital endobronchial intubation a risk factor for subsequent ventilator associated pneumonia? A retrospective analysis”, PloS one 14:e0217466 (2019), https://doi.org/10.1371/journal.pone.0217466 — https://pmc-oa-opendata.s3.amazonaws.com/PMC6532927.1/pone.0217466.g002.jpg |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
+| Modifications | Converted to JPEG; one panel taken from the figure (region x 0.17–0.57, y 0.04–0.51 of the original); no other crop, mirroring or filtering. |
+| Required attribution | Hernandez Padilla AC, Trampont T, Lafon T, Daix T, Cailloce D, Barraud O, Dalmay F, Vignon P, François B.. “Is prehospital endobronchial intubation a risk factor for subsequent ventilator associated pneumonia? A retrospective analysis”, PloS one 14:e0217466 (2019), https://doi.org/10.1371/journal.pone.0217466 — https://pmc-oa-opendata.s3.amazonaws.com/PMC6532927.1/pone.0217466.g002.jpg. CC BY 4.0. |
+| Original title | Is prehospital endobronchial intubation a risk factor for subsequent ventilator associated pneumonia? A retrospective analysis |
+| Source page | https://doi.org/10.1371/journal.pone.0217466 |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC6532927.1/pone.0217466.g002.jpg |
+| DOI | 10.1371/journal.pone.0217466 |
+| Published | 2019-05-23 |
+| Retrieved | 2026-10-09T15:42Z |
+| Original format | image/jpeg · 84,003 bytes · `pone.0217466.g002.jpg` |
+| Original SHA-256 | `0b3a19991f4b6b71c963cd7afa2384963186a50dadc8c225d3d49294e459165f` |
+| Original preserved | imaging/real/source/cxr-mainstem-right-ebi-2019-source.jpg |
+| Licence evidence | Europe PMC full text of PMC6532927 (doi 10.1371/journal.pone.0217466), <license>: “This is an open access article distributed under the terms of the Creative Commons Attribution License , which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Fig 2 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## cxr-ett-ok-ebi-2019 — Endotracheal tube in good position
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/cxr-ett-ok-ebi-2019.jpg` · `imaging/real/source/cxr-ett-ok-ebi-2019-source.jpg` |
+| Clinical purpose | ett_ok (cxr) |
+| Creator / authors | Hernandez Padilla AC, Trampont T, Lafon T, Daix T, Cailloce D, Barraud O, Dalmay F, Vignon P, François B. |
+| Source | “Is prehospital endobronchial intubation a risk factor for subsequent ventilator associated pneumonia? A retrospective analysis”, PloS one 14:e0217466 (2019), https://doi.org/10.1371/journal.pone.0217466 — https://pmc-oa-opendata.s3.amazonaws.com/PMC6532927.1/pone.0217466.g002.jpg |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
+| Modifications | Converted to JPEG; one panel taken from the figure (region x 0.17–0.57, y 0.55–1.00 of the original); no other crop, mirroring or filtering. |
+| Required attribution | Hernandez Padilla AC, Trampont T, Lafon T, Daix T, Cailloce D, Barraud O, Dalmay F, Vignon P, François B.. “Is prehospital endobronchial intubation a risk factor for subsequent ventilator associated pneumonia? A retrospective analysis”, PloS one 14:e0217466 (2019), https://doi.org/10.1371/journal.pone.0217466 — https://pmc-oa-opendata.s3.amazonaws.com/PMC6532927.1/pone.0217466.g002.jpg. CC BY 4.0. |
+| Original title | Is prehospital endobronchial intubation a risk factor for subsequent ventilator associated pneumonia? A retrospective analysis |
+| Source page | https://doi.org/10.1371/journal.pone.0217466 |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC6532927.1/pone.0217466.g002.jpg |
+| DOI | 10.1371/journal.pone.0217466 |
+| Published | 2019-05-23 |
+| Retrieved | 2026-10-09T15:42Z |
+| Original format | image/jpeg · 84,003 bytes · `pone.0217466.g002.jpg` |
+| Original SHA-256 | `0b3a19991f4b6b71c963cd7afa2384963186a50dadc8c225d3d49294e459165f` |
+| Original preserved | imaging/real/source/cxr-ett-ok-ebi-2019-source.jpg |
+| Licence evidence | Europe PMC full text of PMC6532927 (doi 10.1371/journal.pone.0217466), <license>: “This is an open access article distributed under the terms of the Creative Commons Attribution License , which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Fig 2 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## cxr-normal-pa-haggstrom — Normal chest radiograph (PA)
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/cxr-normal-pa-haggstrom.jpg` |
+| Clinical purpose | cxr_normal (cxr) |
+| Creator / authors | Mikael Häggström |
+| Source | Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Normal_posteroanterior_(PA)_chest_radiograph_(X-ray).jpg |
+| Licence | CC0 — http://creativecommons.org/publicdomain/zero/1.0/deed.en |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | Mikael Häggström. Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Normal_posteroanterior_(PA)_chest_radiograph_(X-ray).jpg. CC0. |
+| Original title | Posteroanterior chest radiograph ("X-ray") taken of a 21 year old woman who presented with pain on the left side of her thorax after colliding with another play |
+| Source page | https://commons.wikimedia.org/wiki/File:Normal_posteroanterior_(PA)_chest_radiograph_(X-ray).jpg |
+| Original media URL | https://upload.wikimedia.org/wikipedia/commons/a/a1/Normal_posteroanterior_%28PA%29_chest_radiograph_%28X-ray%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original |
+| DOI | — |
+| Published | 2017-06-28 |
+| Retrieved | 2026-10-09T15:42Z |
+| Original format | image/jpeg · 906,335 bytes · `Normal posteroanterior (PA) chest radiograph (X-ray).jpg` |
+| Original SHA-256 | `4cbbcf805291db949e4ff085ca3c7258b2823de21b2857ae684e6c91ff9a38a4` |
+| Original preserved | imaging/real/cxr-normal-pa-haggstrom.jpg (identical to the original) |
+| Licence evidence | Wikimedia Commons API extmetadata for File:Normal posteroanterior (PA) chest radiograph (X-ray).jpg: LicenseShortName = “CC0”, UsageTerms = “Creative Commons Zero, Public Domain Dedication” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3ANormal+posteroanterior+%28PA%29+chest+radiograph+%28X-ray%29.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
+| Verified by | tools/clinical_media.py fetch |
+
+## cxr-hyperinflation-asthma-2025 — Hyperinflation in near-fatal asthma
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/cxr-hyperinflation-asthma-2025.jpg` |
+| Clinical purpose | hyperinflation (cxr) |
+| Creator / authors | Almutairi A, Althobaiti K, Antar M, Al Alem H, Kashgari A. |
+| Source | “Near-fatal asthma in a 12-year-old girl leading to life-threatening tonsillar herniation: a case report”, Journal of medical case reports 19:435 (2025), https://doi.org/10.1186/s13256-025-05507-5 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12400729.1/13256_2025_5507_Fig1_HTML.jpg |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | Almutairi A, Althobaiti K, Antar M, Al Alem H, Kashgari A.. “Near-fatal asthma in a 12-year-old girl leading to life-threatening tonsillar herniation: a case report”, Journal of medical case reports 19:435 (2025), https://doi.org/10.1186/s13256-025-05507-5 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12400729.1/13256_2025_5507_Fig1_HTML.jpg. CC BY 4.0. |
+| Original title | Near-fatal asthma in a 12-year-old girl leading to life-threatening tonsillar herniation: a case report |
+| Source page | https://doi.org/10.1186/s13256-025-05507-5 |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC12400729.1/13256_2025_5507_Fig1_HTML.jpg |
+| DOI | 10.1186/s13256-025-05507-5 |
+| Published | 2025-09-01 |
+| Retrieved | 2026-10-09T15:42Z |
+| Original format | image/jpeg · 1,914,633 bytes · `13256_2025_5507_Fig1_HTML.jpg` |
+| Original SHA-256 | `ff28d0f878bc378484198e687992062a6db3b7201a51cf4b20fe688465add74c` |
+| Original preserved | imaging/real/cxr-hyperinflation-asthma-2025.jpg (identical to the original) |
+| Licence evidence | Europe PMC full text of PMC12400729 (doi 10.1186/s13256-025-05507-5), <license>: “Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C”; Fig. 1 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## cxr-flash-edema-portable-2026 — Flash pulmonary edema on a portable film
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/cxr-flash-edema-portable-2026.jpg` |
+| Clinical purpose | pulmonary_edema (cxr) |
+| Creator / authors | Fahed J, Ganthan RR, Al-Zakhari R, Isber R, Isber N. |
+| Source | “Flash Pulmonary Edema From Brief Loss of Biventricular Pacing During CRT-D Generator Exchange”, JACC. Case reports 31:107942 (2026), https://doi.org/10.1016/j.jaccas.2026.107942 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13221883.1/gr2.jpg |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | Fahed J, Ganthan RR, Al-Zakhari R, Isber R, Isber N.. “Flash Pulmonary Edema From Brief Loss of Biventricular Pacing During CRT-D Generator Exchange”, JACC. Case reports 31:107942 (2026), https://doi.org/10.1016/j.jaccas.2026.107942 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13221883.1/gr2.jpg. CC BY 4.0. |
+| Original title | Flash Pulmonary Edema From Brief Loss of Biventricular Pacing During CRT-D Generator Exchange |
+| Source page | https://doi.org/10.1016/j.jaccas.2026.107942 |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC13221883.1/gr2.jpg |
+| DOI | 10.1016/j.jaccas.2026.107942 |
+| Published | 2026-04-16 |
+| Retrieved | 2026-10-09T15:42Z |
+| Original format | image/jpeg · 305,939 bytes · `gr2.jpg` |
+| Original SHA-256 | `ea8f24b26f553f3c7ce03489f882c1a90fdb80783713f30392839824169c6703` |
+| Original preserved | imaging/real/cxr-flash-edema-portable-2026.jpg (identical to the original) |
+| Licence evidence | Europe PMC full text of PMC13221883 (doi 10.1016/j.jaccas.2026.107942), <license>: “This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).”; Figure 2 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## cxr-ards-ecmo-recovery-2026 — ARDS on VV-ECMO, then recovery
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/cxr-ards-ecmo-recovery-2026.jpg` |
+| Clinical purpose | ards (cxr) |
+| Creator / authors | Zhang S, Zhang Z, Yang J, Peng J, Yang Y, Su L, Jiang J. |
+| Source | “Case Report: Navigating the bleeding-thrombosis paradox: regional nafamostat anticoagulation in a post-intracerebral hemorrhage patient on VV-ECMO”, Frontiers in medicine 13:1840332 (2026), https://doi.org/10.3389/fmed.2026.1840332 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13416251.1/fmed-13-1840332-g002.jpg |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | Zhang S, Zhang Z, Yang J, Peng J, Yang Y, Su L, Jiang J.. “Case Report: Navigating the bleeding-thrombosis paradox: regional nafamostat anticoagulation in a post-intracerebral hemorrhage patient on VV-ECMO”, Frontiers in medicine 13:1840332 (2026), https://doi.org/10.3389/fmed.2026.1840332 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13416251.1/fmed-13-1840332-g002.jpg. CC BY 4.0. |
+| Original title | Case Report: Navigating the bleeding-thrombosis paradox: regional nafamostat anticoagulation in a post-intracerebral hemorrhage patient on VV-ECMO |
+| Source page | https://doi.org/10.3389/fmed.2026.1840332 |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC13416251.1/fmed-13-1840332-g002.jpg |
+| DOI | 10.3389/fmed.2026.1840332 |
+| Published | 2026-07-15 |
+| Retrieved | 2026-10-09T15:42Z |
+| Original format | image/jpeg · 52,861 bytes · `fmed-13-1840332-g002.jpg` |
+| Original SHA-256 | `351df7d7c392a1a824add2b22db579c1cb81c8dac98382e15520df765c8978f6` |
+| Original preserved | imaging/real/cxr-ards-ecmo-recovery-2026.jpg (identical to the original) |
+| Licence evidence | Europe PMC full text of PMC13416251 (doi 10.3389/fmed.2026.1840332), <license>: “This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY) . The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journ”; Figure 2 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## ct-aaa-rupture-96mm-2026 — Ruptured AAA with left retroperitoneal haematoma
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/ct-aaa-rupture-96mm-2026.jpg` |
+| Clinical purpose | aaa_rupture (ct-aorta) |
+| Creator / authors | van Schaik TG, Rastogi V, Vriens PWHE, Dinkelman MK, De Fijter MW, Heyligers JMM. |
+| Source | “Use of an artificial intelligence-driven software device to assist endovascular repair of a ruptured abdominal aortic aneurysm”, Journal of vascular surgery cases and innovative techniques 12:102288 (2026), https://doi.org/10.1016/j.jvscit.2026.102288 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13285273.1/gr1.jpg |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | van Schaik TG, Rastogi V, Vriens PWHE, Dinkelman MK, De Fijter MW, Heyligers JMM.. “Use of an artificial intelligence-driven software device to assist endovascular repair of a ruptured abdominal aortic aneurysm”, Journal of vascular surgery cases and innovative techniques 12:102288 (2026), https://doi.org/10.1016/j.jvscit.2026.102288 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13285273.1/gr1.jpg. CC BY 4.0. |
+| Original title | Use of an artificial intelligence-driven software device to assist endovascular repair of a ruptured abdominal aortic aneurysm |
+| Source page | https://doi.org/10.1016/j.jvscit.2026.102288 |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC13285273.1/gr1.jpg |
+| DOI | 10.1016/j.jvscit.2026.102288 |
+| Published | 2026-04-30 |
+| Retrieved | 2026-10-09T15:43Z |
+| Original format | image/jpeg · 239,990 bytes · `gr1.jpg` |
+| Original SHA-256 | `5d4664df63e4f770716a5e7598573cab912d780ea788d5189be409122d298fde` |
+| Original preserved | imaging/real/ct-aaa-rupture-96mm-2026.jpg (identical to the original) |
+| Licence evidence | Europe PMC full text of PMC13285273 (doi 10.1016/j.jvscit.2026.102288), <license>: “This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).”; Fig 1 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## ct-aaa-rupture-right-hematoma-2025 — AAA rupture site and massive retroperitoneal haematoma
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/ct-aaa-rupture-right-hematoma-2025.jpg` |
+| Clinical purpose | retroperitoneal_hematoma (ct-aorta) |
+| Creator / authors | Taguchi S, Nakaji S, Matsumaru I, Hisatomi K, Teratani H, Miura T. |
+| Source | “Pulmonary embolism following endovascular aortic repair for a ruptured abdominal aortic aneurysm: A case report”, International journal of surgery case reports 133:111685 (2025), https://doi.org/10.1016/j.ijscr.2025.111685 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12284653.1/gr1.jpg |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | Taguchi S, Nakaji S, Matsumaru I, Hisatomi K, Teratani H, Miura T.. “Pulmonary embolism following endovascular aortic repair for a ruptured abdominal aortic aneurysm: A case report”, International journal of surgery case reports 133:111685 (2025), https://doi.org/10.1016/j.ijscr.2025.111685 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12284653.1/gr1.jpg. CC BY 4.0. |
+| Original title | Pulmonary embolism following endovascular aortic repair for a ruptured abdominal aortic aneurysm: A case report |
+| Source page | https://doi.org/10.1016/j.ijscr.2025.111685 |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC12284653.1/gr1.jpg |
+| DOI | 10.1016/j.ijscr.2025.111685 |
+| Published | 2025-07-15 |
+| Retrieved | 2026-10-09T15:43Z |
+| Original format | image/jpeg · 24,681 bytes · `gr1.jpg` |
+| Original SHA-256 | `a53ddb671732ceb7073d81bc2d00426cfb656533bff227dbab898ac634e5b833` |
+| Original preserved | imaging/real/ct-aaa-rupture-right-hematoma-2025.jpg (identical to the original) |
+| Licence evidence | Europe PMC full text of PMC12284653 (doi 10.1016/j.ijscr.2025.111685), <license>: “This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).”; Fig. 1 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## ct-dissection-type-b-flap-2026 — Intimal flap confined to the descending aorta
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/ct-dissection-type-b-flap-2026.jpg` · `imaging/real/source/ct-dissection-type-b-flap-2026-source.jpg` |
+| Clinical purpose | dissection_type_b (ct-aorta) |
+| Creator / authors | Ruiz-López A, Salido Iniesta M, Gómez Revelles S, Taroncher Domingo C, Viladés Medel D. |
+| Source | “Computed tomography pitfalls and diagnostic value in a patient with post-infarction ventricular septal defect, cardiogenic shock, and iatrogenic type B aortic dissection during extracorporeal membrane oxygenation support: a case report”, European heart journal. Case reports 10:ytag524 (2026), https://doi.org/10.1093/ehjcr/ytag524 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13422630.1/ytag524f2.jpg |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
+| Modifications | Converted to JPEG; 1 region(s) with identifiers or burnt-in text blacked out; one panel taken from the figure (panel E (contrast axial, top right)); no other crop, mirroring or filtering. |
+| Required attribution | Ruiz-López A, Salido Iniesta M, Gómez Revelles S, Taroncher Domingo C, Viladés Medel D.. “Computed tomography pitfalls and diagnostic value in a patient with post-infarction ventricular septal defect, cardiogenic shock, and iatrogenic type B aortic dissection during extracorporeal membrane oxygenation support: a case report”, European heart journal. Case reports 10:ytag524 (2026), https://doi.org/10.1093/ehjcr/ytag524 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13422630.1/ytag524f2.jpg. CC BY 4.0. |
+| Original title | Computed tomography pitfalls and diagnostic value in a patient with post-infarction ventricular septal defect, cardiogenic shock, and iatrogenic type B aortic dissection during extracorporeal membrane oxygenation support: a case report |
+| Source page | https://doi.org/10.1093/ehjcr/ytag524 |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC13422630.1/ytag524f2.jpg |
+| DOI | 10.1093/ehjcr/ytag524 |
+| Published | 2026-07-14 |
+| Retrieved | 2026-10-09T15:43Z |
+| Original format | image/jpeg · 88,058 bytes · `ytag524f2.jpg` |
+| Original SHA-256 | `d2967e0a25c15cbdec134b10662994756741f514ef4199b5e134515b1c9a67d1` |
+| Original preserved | imaging/real/source/ct-dissection-type-b-flap-2026-source.jpg |
+| Licence evidence | Europe PMC full text of PMC13422630 (doi 10.1093/ehjcr/ytag524), <license>: “This is an Open Access article distributed under the terms of the Creative Commons Attribution License ( https://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited.”; Figure 2 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## ct-renal-nonperfusion-aaa-2026 — Non-enhancing left kidney
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/ct-renal-nonperfusion-aaa-2026.jpg` · `imaging/real/source/ct-renal-nonperfusion-aaa-2026-source.jpg` |
+| Clinical purpose | renal_malperfusion (ct-aorta) |
+| Creator / authors | Jiang Y, Ni J, Zhang L, Jiang L, Li X. |
+| Source | “Refractory abdominal compartment syndrome secondary to ruptured abdominal aortic aneurysm treated with total colectomy and upper rectal resection: A case report and literature review”, Medicine 105:e48285 (2026), https://doi.org/10.1097/md.0000000000048285 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13124428.1/medi-105-e48285-g001.jpg |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
+| Modifications | Converted to JPEG; 1 region(s) with identifiers or burnt-in text blacked out; one panel taken from the figure (panel B (post-contrast, renal level)); padded by one black pixel to even dimensions; no other crop, mirroring or filtering. |
+| Required attribution | Jiang Y, Ni J, Zhang L, Jiang L, Li X.. “Refractory abdominal compartment syndrome secondary to ruptured abdominal aortic aneurysm treated with total colectomy and upper rectal resection: A case report and literature review”, Medicine 105:e48285 (2026), https://doi.org/10.1097/md.0000000000048285 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13124428.1/medi-105-e48285-g001.jpg. CC BY 4.0. |
+| Original title | Refractory abdominal compartment syndrome secondary to ruptured abdominal aortic aneurysm treated with total colectomy and upper rectal resection: A case report and literature review |
+| Source page | https://doi.org/10.1097/md.0000000000048285 |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC13124428.1/medi-105-e48285-g001.jpg |
+| DOI | 10.1097/md.0000000000048285 |
+| Published | 2026-04-01 |
+| Retrieved | 2026-10-09T15:43Z |
+| Original format | image/jpeg · 84,347 bytes · `medi-105-e48285-g001.jpg` |
+| Original SHA-256 | `21ef1840c62f58cfa3aeb0b630308f69aaa514881ca1a4c75000e473e796373f` |
+| Original preserved | imaging/real/source/ct-renal-nonperfusion-aaa-2026-source.jpg |
+| Licence evidence | Europe PMC full text of PMC13124428 (doi 10.1097/md.0000000000048285), <license>: “This is an open access article distributed under the Creative Commons Attribution License 4.0 (CCBY) , which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.”; Figure 1. caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## ct-aorta-normal-coronal-haggstrom — Normal abdominal aorta, coronal CT
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/ct-aorta-normal-coronal-haggstrom.jpg` · `imaging/real/source/ct-aorta-normal-coronal-haggstrom-source.png` |
+| Clinical purpose | aorta_normal (ct-aorta) |
+| Creator / authors | Mikael Häggström, M.D. |
+| Source | Wikimedia Commons — https://commons.wikimedia.org/wiki/File:CT_of_a_normal_abdomen_and_pelvis,_coronal_plane_60.png |
+| Licence | CC0 — http://creativecommons.org/publicdomain/zero/1.0/deed.en |
+| Modifications | Converted to JPEG; one panel taken from the figure (main coronal image without the axial localiser inset); no other crop, mirroring or filtering. |
+| Required attribution | Mikael Häggström, M.D.. Wikimedia Commons — https://commons.wikimedia.org/wiki/File:CT_of_a_normal_abdomen_and_pelvis,_coronal_plane_60.png. CC0. |
+| Original title | edit Computed tomography of the abdomen and pelvis , performed as a contrast CT , here presented in the coronal plane with 3 mm slice thickness. It shows normal |
+| Source page | https://commons.wikimedia.org/wiki/File:CT_of_a_normal_abdomen_and_pelvis,_coronal_plane_60.png |
+| Original media URL | https://upload.wikimedia.org/wikipedia/commons/4/4b/CT_of_a_normal_abdomen_and_pelvis%2C_coronal_plane_60.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original |
+| DOI | — |
+| Published | 2019-03-16 |
+| Retrieved | 2026-10-09T15:43Z |
+| Original format | image/png · 310,398 bytes · `CT of a normal abdomen and pelvis, coronal plane 60.png` |
+| Original SHA-256 | `649735e95567a27ed8d05981e025ba8980d15343d7a54d9d73cc93c15e65cdba` |
+| Original preserved | imaging/real/source/ct-aorta-normal-coronal-haggstrom-source.png |
+| Licence evidence | Wikimedia Commons API extmetadata for File:CT of a normal abdomen and pelvis, coronal plane 60.png: LicenseShortName = “CC0”, UsageTerms = “Creative Commons Zero, Public Domain Dedication” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3ACT+of+a+normal+abdomen+and+pelvis%2C+coronal+plane+60.png&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata) |
+| Verified by | tools/clinical_media.py fetch |
+
+## fast-pelvis-positive-vats — Pelvic free fluid on FAST
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/fast-pelvis-positive-vats.jpg` · `imaging/real/source/fast-pelvis-positive-vats-source.jpg` |
+| Clinical purpose | fast_pelvis_positive (fast) |
+| Creator / authors | Jinming Yao, Yan Xin, Xianzhen Liu |
+| Source | “Case Report: Occult splenic rupture during left-sided VATS decortication: diagnostic role of early perioperative FAST”, Frontiers in surgery 13:1883987 (2026), https://doi.org/10.3389/fsurg.2026.1883987 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13429830.1/fsurg-13-1883987-g002.jpg |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
+| Modifications | Converted to JPEG; one panel taken from the figure (region x 0.34–0.69, y 0.00–0.93 of the original); padded by one black pixel to even dimensions; no other crop, mirroring or filtering. |
+| Required attribution | Jinming Yao, Yan Xin, Xianzhen Liu. “Case Report: Occult splenic rupture during left-sided VATS decortication: diagnostic role of early perioperative FAST”, Frontiers in surgery 13:1883987 (2026), https://doi.org/10.3389/fsurg.2026.1883987 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13429830.1/fsurg-13-1883987-g002.jpg. CC BY 4.0. |
+| Original title | Case Report: Occult splenic rupture during left-sided VATS decortication: diagnostic role of early perioperative FAST |
+| Source page | https://doi.org/10.3389/fsurg.2026.1883987 |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC13429830.1/fsurg-13-1883987-g002.jpg |
+| DOI | 10.3389/fsurg.2026.1883987 |
+| Published | 2026-07-20 |
+| Retrieved | 2026-10-09T15:43Z |
+| Original format | image/jpeg · 60,200 bytes · `fsurg-13-1883987-g002.jpg` |
+| Original SHA-256 | `04bcee315f8fb035bf23b1940366705af0c8c6ec37dd2a3d4acbebc0e4321fa3` |
+| Original preserved | imaging/real/source/fast-pelvis-positive-vats-source.jpg |
+| Licence evidence | Europe PMC full text of PMC13429830 (doi 10.3389/fsurg.2026.1883987), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY) . The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited an”; Figure 2 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## ij-carotid-vexus-2024 — Internal jugular vein beside the carotid
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/ij-carotid-vexus-2024.jpg` |
+| Clinical purpose | ij_carotid (ijv) |
+| Creator / authors | Suppawee Klangthamneam, Krissada Meemook, Tananchai Petnak, Anchana Sonkaew, Taweevat Assavapokee |
+| Source | “Correlation between right atrial pressure measured via right heart catheterization and venous excess ultrasound, inferior vena cava diameter, and ultrasound-measured jugular venous pressure: a prospective observational study”, The ultrasound journal 16:50 (2024), https://doi.org/10.1186/s13089-024-00397-y — https://pmc-oa-opendata.s3.amazonaws.com/PMC11607288.1/13089_2024_397_Fig4_HTML.jpg |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | Suppawee Klangthamneam, Krissada Meemook, Tananchai Petnak, Anchana Sonkaew, Taweevat Assavapokee. “Correlation between right atrial pressure measured via right heart catheterization and venous excess ultrasound, inferior vena cava diameter, and ultrasound-measured jugular venous pressure: a prospective observational study”, The ultrasound journal 16:50 (2024), https://doi.org/10.1186/s13089-024-00397-y — https://pmc-oa-opendata.s3.amazonaws.com/PMC11607288.1/13089_2024_397_Fig4_HTML.jpg. CC BY 4.0. |
+| Original title | Correlation between right atrial pressure measured via right heart catheterization and venous excess ultrasound, inferior vena cava diameter, and ultrasound-measured jugular venous pressure: a prospective observational study |
+| Source page | https://doi.org/10.1186/s13089-024-00397-y |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC11607288.1/13089_2024_397_Fig4_HTML.jpg |
+| DOI | 10.1186/s13089-024-00397-y |
+| Published | 2024-11-29 |
+| Retrieved | 2026-10-09T15:43Z |
+| Original format | image/jpeg · 46,797 bytes · `13089_2024_397_Fig4_HTML.jpg` |
+| Original SHA-256 | `995d3ecb2109537c0c2b6bf27bcae4588d5aea2d230aa08ec3bae9294be165ad` |
+| Original preserved | imaging/real/ij-carotid-vexus-2024.jpg (identical to the original) |
+| Licence evidence | Europe PMC full text of PMC11607288 (doi 10.1186/s13089-024-00397-y), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original auth”; Fig. 4 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
+## ij-needle-inplane-2025 — In-plane needle approaching the IJ
+
+| Field | Value |
+|---|---|
+| Local file(s) | `imaging/real/ij-needle-inplane-2025.jpg` |
+| Clinical purpose | ij_needle (ijv) |
+| Creator / authors | Michal Kalina, Patricia Vargová, Adéla Bubeníková, Roman Škulec, Vladimír Černý, David Astapenko |
+| Source | “A novel "lateral approach short axis in-plane" technique vs. conventional "short-axis out-of-plane approach" for ultrasound-guided internal jugular vein access: a prospective randomized non-inferiority trial”, The ultrasound journal 17:5 (2025), https://doi.org/10.1186/s13089-025-00405-9 — https://pmc-oa-opendata.s3.amazonaws.com/PMC11739437.1/13089_2025_405_Fig3_HTML.jpg |
+| Licence | CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ |
+| Modifications | None — the displayed file is the original, byte for byte. |
+| Required attribution | Michal Kalina, Patricia Vargová, Adéla Bubeníková, Roman Škulec, Vladimír Černý, David Astapenko. “A novel "lateral approach short axis in-plane" technique vs. conventional "short-axis out-of-plane approach" for ultrasound-guided internal jugular vein access: a prospective randomized non-inferiority trial”, The ultrasound journal 17:5 (2025), https://doi.org/10.1186/s13089-025-00405-9 — https://pmc-oa-opendata.s3.amazonaws.com/PMC11739437.1/13089_2025_405_Fig3_HTML.jpg. CC BY 4.0. |
+| Original title | A novel "lateral approach short axis in-plane" technique vs. conventional "short-axis out-of-plane approach" for ultrasound-guided internal jugular vein access: a prospective randomized non-inferiority trial |
+| Source page | https://doi.org/10.1186/s13089-025-00405-9 |
+| Original media URL | https://pmc-oa-opendata.s3.amazonaws.com/PMC11739437.1/13089_2025_405_Fig3_HTML.jpg |
+| DOI | 10.1186/s13089-025-00405-9 |
+| Published | 2025-01-16 |
+| Retrieved | 2026-10-09T15:43Z |
+| Original format | image/jpeg · 62,557 bytes · `13089_2025_405_Fig3_HTML.jpg` |
+| Original SHA-256 | `8b068d0d70179f7a094c839432b1bd923b1a7ae1fc7ef552ab4c3be17565eb80` |
+| Original preserved | imaging/real/ij-needle-inplane-2025.jpg (identical to the original) |
+| Licence evidence | Europe PMC full text of PMC11739437 (doi 10.1186/s13089-025-00405-9), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original auth”; Fig. 3 caption checked for a separate credit. |
+| Verified by | tools/clinical_media.py fetch |
+
 ## Pending — staged, not yet in the app
 
 Teaching content is written; the media has not been downloaded and the licence has not been verified from the source.

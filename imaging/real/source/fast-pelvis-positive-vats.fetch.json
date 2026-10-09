@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC13429830",
+ "pageUrl": "https://doi.org/10.3389/fsurg.2026.1883987",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "https://creativecommons.org/licenses/by/4.0/ This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY) . The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited an",
+ "authors": "Jinming Yao, Yan Xin, Xianzhen Liu",
+ "title": "Case Report: Occult splenic rupture during left-sided VATS decortication: diagnostic role of early perioperative FAST",
+ "publication": "Frontiers in surgery",
+ "published": "2026-07-20",
+ "doi": "10.3389/fsurg.2026.1883987",
+ "volume": "13",
+ "firstpage": "1883987",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13429830.1/fsurg-13-1883987-g002.jpg",
+ "originalName": "fsurg-13-1883987-g002.jpg",
+ "description": "Figure 2 Bedside FAST exam findings. (A) Right upper quadrant ultrasound with free fluid surrounding the liver; (B) suprapubic ultrasound with free fluid in the abdominal cavity above the bladder; (C) left upper quadrant ultrasound with free fluid around the spleen.",
+ "thirdParty": false,
+ "figure": "F2",
+ "licenseEvidence": "Europe PMC full text of PMC13429830 (doi 10.3389/fsurg.2026.1883987), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY) . The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited an”; Figure 2 caption checked for a separate credit.",
+ "id": "fast-pelvis-positive-vats",
+ "retrieved": "2026-10-09T15:43Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

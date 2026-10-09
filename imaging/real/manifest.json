@@ -3483,6 +3483,892 @@
    "webmSha256": "c958190ba113b0d3770b4e6e90ea426c968ea6d5dae4e758d066b9c3b37654ab",
    "posterSha256": "1cf9c6b09024db037368fd84f96d8b4cb00f78862402d6790a7a9cabae14567d",
    "originalSha256": "e735389f555584aec9e392ee21f8de0242627d4186ca2ed413d709b278fa77b5"
+  },
+  {
+   "kind": "cxr",
+   "type": "xray",
+   "modality": "Chest radiograph",
+   "marks": [],
+   "id": "cxr-mainstem-right-ebi-2019",
+   "finding": "mainstem_right",
+   "findings": [
+    "mainstem_right"
+   ],
+   "title": "Right mainstem (endobronchial) intubation",
+   "caption": "Supine AP film in which the endotracheal tube tip sits beyond the carina in the right main bronchus; the airway outline is traced in black.",
+   "look": [
+    "Tube tip below the carina, angled down the right bronchus",
+    "Arrow marks the tip; black lines trace trachea and both bronchi",
+    "Compare left lung aeration with the right"
+   ],
+   "teach": [
+    "The right main bronchus is shorter, wider and more vertical, so a tube advanced too far usually goes right.",
+    "Suspect it with unilateral breath sounds, rising peak pressures and falling SpO2; pull back to 3-5 cm above the carina (roughly 21-23 cm at the teeth in adults)."
+   ],
+   "quiz": {
+    "q": "After intubation, breath sounds are only heard on the right and peak pressure is high. The film shows the tube tip past the carina. Best next step?",
+    "options": [
+     "Insert a left chest drain",
+     "Withdraw the tube until the tip is above the carina, then reassess",
+     "Increase PEEP",
+     "Give a bronchodilator"
+    ],
+    "answer": 1,
+    "explain": "This is right endobronchial intubation; deflate the cuff, withdraw the tube a few centimetres, re-inflate and confirm bilateral ventilation."
+   },
+   "file": "cxr-mainstem-right-ebi-2019.jpg",
+   "original": "source/cxr-mainstem-right-ebi-2019-source.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Hernandez Padilla AC, Trampont T, Lafon T, Daix T, Cailloce D, Barraud O, Dalmay F, Vignon P, François B.",
+   "source": "“Is prehospital endobronchial intubation a risk factor for subsequent ventilator associated pneumonia? A retrospective analysis”, PloS one 14:e0217466 (2019), https://doi.org/10.1371/journal.pone.0217466 — https://pmc-oa-opendata.s3.amazonaws.com/PMC6532927.1/pone.0217466.g002.jpg",
+   "credit": "Hernandez et al., PloS one, 2019 · CC BY 4.0",
+   "changes": "Converted to JPEG; one panel taken from the figure (region x 0.17–0.57, y 0.04–0.51 of the original); no other crop, mirroring or filtering.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1371/journal.pone.0217466",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC6532927.1/pone.0217466.g002.jpg",
+    "doi": "10.1371/journal.pone.0217466",
+    "originalTitle": "Is prehospital endobronchial intubation a risk factor for subsequent ventilator associated pneumonia? A retrospective analysis",
+    "published": "2019-05-23",
+    "retrieved": "2026-10-09T15:42Z",
+    "originalName": "pone.0217466.g002.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 84003,
+    "originalSha256": "0b3a19991f4b6b71c963cd7afa2384963186a50dadc8c225d3d49294e459165f",
+    "preserved": "imaging/real/source/cxr-mainstem-right-ebi-2019-source.jpg",
+    "licenseEvidence": "Europe PMC full text of PMC6532927 (doi 10.1371/journal.pone.0217466), <license>: “This is an open access article distributed under the terms of the Creative Commons Attribution License , which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Fig 2 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 280,
+      "h": 242
+     }
+    }
+   },
+   "fileSha256": "7456767677df22838077cdc262a0cdd146d9ec5c6c22507b37b1223f501ff230",
+   "originalSha256": "0b3a19991f4b6b71c963cd7afa2384963186a50dadc8c225d3d49294e459165f"
+  },
+  {
+   "kind": "cxr",
+   "type": "xray",
+   "modality": "Chest radiograph",
+   "marks": [],
+   "id": "cxr-ett-ok-ebi-2019",
+   "finding": "ett_ok",
+   "findings": [
+    "ett_ok",
+    "cxr_normal"
+   ],
+   "title": "Endotracheal tube in good position",
+   "caption": "Supine AP film of an intubated adult with the tube tip in the mid trachea above the carina and clear lung fields; the airway is traced in black.",
+   "look": [
+    "Arrow marks the tube tip above the carina",
+    "Carina outlined where the bronchi divide",
+    "Both lungs aerated, no collapse"
+   ],
+   "teach": [
+    "Aim for the tip 3-5 cm above the carina, or level with the medial clavicle ends, in an adult.",
+    "Neck flexion pushes the tip down and extension pulls it up, by up to about 2 cm each way."
+   ],
+   "quiz": {
+    "q": "Where should an adult endotracheal tube tip sit on a chest film?",
+    "options": [
+     "At the vocal cords",
+     "3-5 cm above the carina",
+     "At the carina",
+     "In the right main bronchus"
+    ],
+    "answer": 1,
+    "explain": "3-5 cm above the carina leaves room for head and neck movement without the tube slipping into a bronchus or up to the cords."
+   },
+   "file": "cxr-ett-ok-ebi-2019.jpg",
+   "original": "source/cxr-ett-ok-ebi-2019-source.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Hernandez Padilla AC, Trampont T, Lafon T, Daix T, Cailloce D, Barraud O, Dalmay F, Vignon P, François B.",
+   "source": "“Is prehospital endobronchial intubation a risk factor for subsequent ventilator associated pneumonia? A retrospective analysis”, PloS one 14:e0217466 (2019), https://doi.org/10.1371/journal.pone.0217466 — https://pmc-oa-opendata.s3.amazonaws.com/PMC6532927.1/pone.0217466.g002.jpg",
+   "credit": "Hernandez et al., PloS one, 2019 · CC BY 4.0",
+   "changes": "Converted to JPEG; one panel taken from the figure (region x 0.17–0.57, y 0.55–1.00 of the original); no other crop, mirroring or filtering.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1371/journal.pone.0217466",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC6532927.1/pone.0217466.g002.jpg",
+    "doi": "10.1371/journal.pone.0217466",
+    "originalTitle": "Is prehospital endobronchial intubation a risk factor for subsequent ventilator associated pneumonia? A retrospective analysis",
+    "published": "2019-05-23",
+    "retrieved": "2026-10-09T15:42Z",
+    "originalName": "pone.0217466.g002.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 84003,
+    "originalSha256": "0b3a19991f4b6b71c963cd7afa2384963186a50dadc8c225d3d49294e459165f",
+    "preserved": "imaging/real/source/cxr-ett-ok-ebi-2019-source.jpg",
+    "licenseEvidence": "Europe PMC full text of PMC6532927 (doi 10.1371/journal.pone.0217466), <license>: “This is an open access article distributed under the terms of the Creative Commons Attribution License , which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Fig 2 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 280,
+      "h": 238
+     }
+    }
+   },
+   "fileSha256": "ed6c7d52f9ef490462f4c724bd46c9a4c8ac93277081f5b35526276a6f9466ef",
+   "originalSha256": "0b3a19991f4b6b71c963cd7afa2384963186a50dadc8c225d3d49294e459165f"
+  },
+  {
+   "kind": "cxr",
+   "type": "xray",
+   "modality": "Chest radiograph",
+   "marks": [],
+   "id": "cxr-normal-pa-haggstrom",
+   "finding": "cxr_normal",
+   "findings": [
+    "cxr_normal"
+   ],
+   "title": "Normal chest radiograph (PA)",
+   "caption": "Upright PA film of a healthy young adult: clear lungs, sharp angles, normal heart size; a reference for comparison with ICU films.",
+   "look": [
+    "Heart width under half the chest width",
+    "Sharp costophrenic angles and domed diaphragms",
+    "Vessels visible out to the periphery"
+   ],
+   "teach": [
+    "A PA film is the reference for heart size; portable AP films magnify the heart and can't be read the same way.",
+    "Learn a fixed order (airway, breathing, cardiac, diaphragm, everything else) and use it on every film."
+   ],
+   "quiz": {
+    "q": "Why can't you judge cardiomegaly reliably on a portable AP film?",
+    "options": [
+     "The heart is further from the detector, so it looks bigger",
+     "AP films are always underexposed",
+     "The patient is always rotated",
+     "The heart is hidden by the diaphragm"
+    ],
+    "answer": 0,
+    "explain": "On an AP film the beam passes front to back and the heart sits away from the detector, so it is magnified."
+   },
+   "file": "cxr-normal-pa-haggstrom.jpg",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "author": "Mikael Häggström",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Normal_posteroanterior_(PA)_chest_radiograph_(X-ray).jpg",
+   "credit": "Häggström, Wikimedia Commons, 2017 · CC0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Normal_posteroanterior_(PA)_chest_radiograph_(X-ray).jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Normal_posteroanterior_%28PA%29_chest_radiograph_%28X-ray%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "Posteroanterior chest radiograph (\"X-ray\") taken of a 21 year old woman who presented with pain on the left side of her thorax after colliding with another play",
+    "published": "2017-06-28",
+    "retrieved": "2026-10-09T15:42Z",
+    "originalName": "Normal posteroanterior (PA) chest radiograph (X-ray).jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 906335,
+    "originalSha256": "4cbbcf805291db949e4ff085ca3c7258b2823de21b2857ae684e6c91ff9a38a4",
+    "preserved": "imaging/real/cxr-normal-pa-haggstrom.jpg (identical to the original)",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:Normal posteroanterior (PA) chest radiograph (X-ray).jpg: LicenseShortName = “CC0”, UsageTerms = “Creative Commons Zero, Public Domain Dedication” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3ANormal+posteroanterior+%28PA%29+chest+radiograph+%28X-ray%29.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 1929,
+      "h": 2207
+     }
+    }
+   },
+   "fileSha256": "4cbbcf805291db949e4ff085ca3c7258b2823de21b2857ae684e6c91ff9a38a4"
+  },
+  {
+   "kind": "cxr",
+   "type": "xray",
+   "modality": "Chest radiograph",
+   "marks": [],
+   "id": "cxr-hyperinflation-asthma-2025",
+   "finding": "hyperinflation",
+   "findings": [
+    "hyperinflation"
+   ],
+   "title": "Hyperinflation in near-fatal asthma",
+   "caption": "Supine portable film from a child with life-threatening asthma: over-expanded, dark lungs with low flat diaphragms and a narrow heart, with a gastric tube in place.",
+   "look": [
+    "Many ribs visible above the diaphragm",
+    "Flattened, low hemidiaphragms",
+    "Long narrow heart shadow",
+    "Hazy patch at the right heart border"
+   ],
+   "teach": [
+    "Air trapping on the ventilator (auto-PEEP) worsens hyperinflation and can drop blood pressure; give long expiratory times.",
+    "A sudden drop in BP or rise in pressure in a ventilated asthmatic: disconnect to let air out, then look for a pneumothorax."
+   ],
+   "quiz": {
+    "q": "A ventilated asthmatic becomes hypotensive and the film shows severe hyperinflation, no pneumothorax. First action?",
+    "options": [
+     "Increase the respiratory rate",
+     "Briefly disconnect the circuit to let trapped air escape",
+     "Increase tidal volume",
+     "Add more PEEP"
+    ],
+    "answer": 1,
+    "explain": "Dynamic hyperinflation raises intrathoracic pressure and cuts venous return; letting the trapped gas out, then slowing the rate, restores it."
+   },
+   "file": "cxr-hyperinflation-asthma-2025.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Almutairi A, Althobaiti K, Antar M, Al Alem H, Kashgari A.",
+   "source": "“Near-fatal asthma in a 12-year-old girl leading to life-threatening tonsillar herniation: a case report”, Journal of medical case reports 19:435 (2025), https://doi.org/10.1186/s13256-025-05507-5 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12400729.1/13256_2025_5507_Fig1_HTML.jpg",
+   "credit": "Almutairi et al., Journal of medical case reports, 2025 · CC BY 4.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1186/s13256-025-05507-5",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12400729.1/13256_2025_5507_Fig1_HTML.jpg",
+    "doi": "10.1186/s13256-025-05507-5",
+    "originalTitle": "Near-fatal asthma in a 12-year-old girl leading to life-threatening tonsillar herniation: a case report",
+    "published": "2025-09-01",
+    "retrieved": "2026-10-09T15:42Z",
+    "originalName": "13256_2025_5507_Fig1_HTML.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 1914633,
+    "originalSha256": "ff28d0f878bc378484198e687992062a6db3b7201a51cf4b20fe688465add74c",
+    "preserved": "imaging/real/cxr-hyperinflation-asthma-2025.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC12400729 (doi 10.1186/s13256-025-05507-5), <license>: “Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C”; Fig. 1 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 1943,
+      "h": 2060
+     }
+    }
+   },
+   "fileSha256": "ff28d0f878bc378484198e687992062a6db3b7201a51cf4b20fe688465add74c"
+  },
+  {
+   "kind": "cxr",
+   "type": "xray",
+   "modality": "Chest radiograph",
+   "marks": [],
+   "id": "cxr-flash-edema-portable-2026",
+   "finding": "pulmonary_edema",
+   "findings": [
+    "pulmonary_edema"
+   ],
+   "title": "Flash pulmonary edema on a portable film",
+   "caption": "Portable AP film after a pacing interruption: hazy perihilar and lower-zone airspace shadowing in both lungs, with a biventricular device and leads.",
+   "look": [
+    "Bilateral perihilar haze, worse in the lower zones",
+    "Blurred vessel outlines",
+    "Cardiac device and leads in place"
+   ],
+   "teach": [
+    "Cardiogenic edema is typically central and symmetric; treat with nitrates, preload reduction and CPAP or BiPAP.",
+    "Flash edema can follow a sudden fall in LV performance, such as losing pacing, ischemia or a hypertensive surge."
+   ],
+   "quiz": {
+    "q": "Which pattern best fits acute cardiogenic pulmonary edema?",
+    "options": [
+     "Single lobe consolidation with air bronchograms",
+     "Bilateral perihilar haze, worse at the bases",
+     "Hyperlucent lung with no markings",
+     "Unilateral white-out with tracheal shift toward it"
+    ],
+    "answer": 1,
+    "explain": "Raised left atrial pressure floods the central and dependent lung first, giving a bilateral perihilar pattern."
+   },
+   "file": "cxr-flash-edema-portable-2026.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Fahed J, Ganthan RR, Al-Zakhari R, Isber R, Isber N.",
+   "source": "“Flash Pulmonary Edema From Brief Loss of Biventricular Pacing During CRT-D Generator Exchange”, JACC. Case reports 31:107942 (2026), https://doi.org/10.1016/j.jaccas.2026.107942 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13221883.1/gr2.jpg",
+   "credit": "Fahed et al., JACC. Case reports, 2026 · CC BY 4.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1016/j.jaccas.2026.107942",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13221883.1/gr2.jpg",
+    "doi": "10.1016/j.jaccas.2026.107942",
+    "originalTitle": "Flash Pulmonary Edema From Brief Loss of Biventricular Pacing During CRT-D Generator Exchange",
+    "published": "2026-04-16",
+    "retrieved": "2026-10-09T15:42Z",
+    "originalName": "gr2.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 305939,
+    "originalSha256": "ea8f24b26f553f3c7ce03489f882c1a90fdb80783713f30392839824169c6703",
+    "preserved": "imaging/real/cxr-flash-edema-portable-2026.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC13221883 (doi 10.1016/j.jaccas.2026.107942), <license>: “This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).”; Figure 2 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 700,
+      "h": 579
+     }
+    }
+   },
+   "fileSha256": "ea8f24b26f553f3c7ce03489f882c1a90fdb80783713f30392839824169c6703"
+  },
+  {
+   "kind": "cxr",
+   "type": "xray",
+   "modality": "Chest radiograph",
+   "marks": [],
+   "id": "cxr-ards-ecmo-recovery-2026",
+   "finding": "ards",
+   "findings": [
+    "ards"
+   ],
+   "title": "ARDS on VV-ECMO, then recovery",
+   "caption": "Two supine films from one patient: dense opacities in both lungs when ECMO started (A), and much clearer lungs at ECMO weaning eight days later (B).",
+   "look": [
+    "A: dense airspace shadowing in both lungs",
+    "Lines, ECG leads and cannula in place",
+    "B: aeration much better, lung edges visible again"
+   ],
+   "teach": [
+    "VV-ECMO takes over gas exchange so the ventilator can be turned down to rest the lungs.",
+    "Radiographic clearing usually lags behind improving compliance and oxygenation."
+   ],
+   "quiz": {
+    "q": "What is the main goal of the ventilator while a patient is on VV-ECMO for ARDS?",
+    "options": [
+     "Normal CO2 using high tidal volumes",
+     "Lung rest with low pressures and volumes",
+     "Maximum PEEP to recruit all lung",
+     "Spontaneous breathing only"
+    ],
+    "answer": 1,
+    "explain": "ECMO supports oxygenation and CO2 removal, so the ventilator is set to minimise injury: low plateau pressure, low tidal volume and low rate."
+   },
+   "file": "cxr-ards-ecmo-recovery-2026.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Zhang S, Zhang Z, Yang J, Peng J, Yang Y, Su L, Jiang J.",
+   "source": "“Case Report: Navigating the bleeding-thrombosis paradox: regional nafamostat anticoagulation in a post-intracerebral hemorrhage patient on VV-ECMO”, Frontiers in medicine 13:1840332 (2026), https://doi.org/10.3389/fmed.2026.1840332 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13416251.1/fmed-13-1840332-g002.jpg",
+   "credit": "Zhang et al., Frontiers in medicine, 2026 · CC BY 4.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.3389/fmed.2026.1840332",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13416251.1/fmed-13-1840332-g002.jpg",
+    "doi": "10.3389/fmed.2026.1840332",
+    "originalTitle": "Case Report: Navigating the bleeding-thrombosis paradox: regional nafamostat anticoagulation in a post-intracerebral hemorrhage patient on VV-ECMO",
+    "published": "2026-07-15",
+    "retrieved": "2026-10-09T15:42Z",
+    "originalName": "fmed-13-1840332-g002.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 52861,
+    "originalSha256": "351df7d7c392a1a824add2b22db579c1cb81c8dac98382e15520df765c8978f6",
+    "preserved": "imaging/real/cxr-ards-ecmo-recovery-2026.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC13416251 (doi 10.3389/fmed.2026.1840332), <license>: “This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY) . The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journ”; Figure 2 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 567,
+      "h": 352
+     }
+    }
+   },
+   "fileSha256": "351df7d7c392a1a824add2b22db579c1cb81c8dac98382e15520df765c8978f6"
+  },
+  {
+   "id": "ct-aaa-rupture-96mm-2026",
+   "kind": "ct-aorta",
+   "type": "ct",
+   "modality": "CT angiography",
+   "finding": "aaa_rupture",
+   "findings": [
+    "aaa_rupture",
+    "aaa",
+    "retroperitoneal_hematoma"
+   ],
+   "title": "Ruptured AAA with left retroperitoneal haematoma",
+   "caption": "Axial CTA through a 96 mm infrarenal aneurysm: a bright contrast-filled lumen sits inside a thick grey rim of mural thrombus, with blood tracking into the left flank.",
+   "look": [
+    "Aortic diameter far above 3 cm (calliper marks 96 mm)",
+    "Crescent of grey mural thrombus around the bright lumen",
+    "Soft-tissue blood spreading into the left retroperitoneum and psoas region"
+   ],
+   "teach": [
+    "Most AAAs rupture posterolaterally into the left retroperitoneum, which can briefly tamponade the bleed.",
+    "A contained retroperitoneal leak buys minutes, not hours: permissive hypotension and direct transfer to a vascular centre."
+   ],
+   "quiz": {
+    "q": "Where does an infrarenal AAA most often rupture?",
+    "options": [
+     "Into the free peritoneal cavity anteriorly",
+     "Into the left retroperitoneum",
+     "Into the duodenum",
+     "Into the IVC"
+    ],
+    "answer": 1,
+    "explain": "Posterolateral rupture into the left retroperitoneum is the commonest pattern; the haematoma may temporarily contain the bleed."
+   },
+   "marks": [],
+   "file": "ct-aaa-rupture-96mm-2026.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "van Schaik TG, Rastogi V, Vriens PWHE, Dinkelman MK, De Fijter MW, Heyligers JMM.",
+   "source": "“Use of an artificial intelligence-driven software device to assist endovascular repair of a ruptured abdominal aortic aneurysm”, Journal of vascular surgery cases and innovative techniques 12:102288 (2026), https://doi.org/10.1016/j.jvscit.2026.102288 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13285273.1/gr1.jpg",
+   "credit": "van et al., Journal of vascular surgery cases and innovative techniques, 2026 · CC BY 4.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1016/j.jvscit.2026.102288",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13285273.1/gr1.jpg",
+    "doi": "10.1016/j.jvscit.2026.102288",
+    "originalTitle": "Use of an artificial intelligence-driven software device to assist endovascular repair of a ruptured abdominal aortic aneurysm",
+    "published": "2026-04-30",
+    "retrieved": "2026-10-09T15:43Z",
+    "originalName": "gr1.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 239990,
+    "originalSha256": "5d4664df63e4f770716a5e7598573cab912d780ea788d5189be409122d298fde",
+    "preserved": "imaging/real/ct-aaa-rupture-96mm-2026.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC13285273 (doi 10.1016/j.jvscit.2026.102288), <license>: “This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).”; Fig 1 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 677,
+      "h": 478
+     }
+    }
+   },
+   "fileSha256": "5d4664df63e4f770716a5e7598573cab912d780ea788d5189be409122d298fde"
+  },
+  {
+   "id": "ct-aaa-rupture-right-hematoma-2025",
+   "kind": "ct-aorta",
+   "type": "ct",
+   "modality": "CT",
+   "finding": "retroperitoneal_hematoma",
+   "findings": [
+    "retroperitoneal_hematoma",
+    "aaa_rupture",
+    "aaa"
+   ],
+   "title": "AAA rupture site and massive retroperitoneal haematoma",
+   "caption": "Contrast CT of an aneurysmal aorta with a small contrast blister at its posterior-right wall (labelled rupture site) feeding a large right-sided retroperitoneal haematoma.",
+   "look": [
+    "Bright aneurysm lumen with an outpouching at the posterolateral wall",
+    "Large grey haematoma displacing bowel to the right flank",
+    "Fat planes around the aorta lost"
+   ],
+   "teach": [
+    "A focal contrast blister or breach in the aneurysm wall marks the rupture point.",
+    "Retroperitoneal blood is a soft-tissue density mass, brighter than fluid on non-contrast images but darker than the contrast-filled lumen."
+   ],
+   "quiz": {
+    "q": "In a hypotensive patient with known AAA, what CT finding confirms rupture?",
+    "options": [
+     "Calcification of the aortic wall",
+     "Mural thrombus",
+     "Periaortic retroperitoneal haematoma",
+     "Aortic diameter of 4 cm"
+    ],
+    "answer": 2,
+    "explain": "Calcification, thrombus and diameter describe the aneurysm; blood outside the wall in the retroperitoneum proves rupture."
+   },
+   "marks": [],
+   "file": "ct-aaa-rupture-right-hematoma-2025.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Taguchi S, Nakaji S, Matsumaru I, Hisatomi K, Teratani H, Miura T.",
+   "source": "“Pulmonary embolism following endovascular aortic repair for a ruptured abdominal aortic aneurysm: A case report”, International journal of surgery case reports 133:111685 (2025), https://doi.org/10.1016/j.ijscr.2025.111685 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12284653.1/gr1.jpg",
+   "credit": "Taguchi et al., International journal of surgery case reports, 2025 · CC BY 4.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1016/j.ijscr.2025.111685",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12284653.1/gr1.jpg",
+    "doi": "10.1016/j.ijscr.2025.111685",
+    "originalTitle": "Pulmonary embolism following endovascular aortic repair for a ruptured abdominal aortic aneurysm: A case report",
+    "published": "2025-07-15",
+    "retrieved": "2026-10-09T15:43Z",
+    "originalName": "gr1.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 24681,
+    "originalSha256": "a53ddb671732ceb7073d81bc2d00426cfb656533bff227dbab898ac634e5b833",
+    "preserved": "imaging/real/ct-aaa-rupture-right-hematoma-2025.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC12284653 (doi 10.1016/j.ijscr.2025.111685), <license>: “This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).”; Fig. 1 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 676,
+      "h": 436
+     }
+    }
+   },
+   "fileSha256": "a53ddb671732ceb7073d81bc2d00426cfb656533bff227dbab898ac634e5b833"
+  },
+  {
+   "id": "ct-dissection-type-b-flap-2026",
+   "kind": "ct-aorta",
+   "type": "ct",
+   "modality": "CT angiography",
+   "finding": "dissection_type_b",
+   "findings": [
+    "dissection_type_b"
+   ],
+   "title": "Intimal flap confined to the descending aorta",
+   "caption": "Axial contrast CT of the chest at the pulmonary trunk level: the ascending aorta is smooth and single-lumen while a thin curved flap splits the descending aorta into two channels.",
+   "look": [
+    "Thin dark line crossing the descending aortic lumen",
+    "Two contrast-filled channels (true and false lumen)",
+    "Ascending aorta has no flap"
+   ],
+   "teach": [
+    "Stanford B = the ascending aorta is spared; usually managed with heart-rate and BP control (beta-blocker first) unless complicated.",
+    "Always check the ascending aorta on every slice before calling a dissection type B."
+   ],
+   "quiz": {
+    "q": "A flap is seen only in the descending thoracic aorta. Stanford class and first-line management?",
+    "options": [
+     "Type A, emergency surgery",
+     "Type B, IV beta-blocker then vasodilator to target HR <60 and SBP 100-120",
+     "Type B, thrombolysis",
+     "Type A, beta-blocker only"
+    ],
+    "answer": 1,
+    "explain": "Ascending aorta spared = type B; uncomplicated cases get anti-impulse therapy, with TEVAR reserved for malperfusion, rupture or refractory pain."
+   },
+   "marks": [],
+   "file": "ct-dissection-type-b-flap-2026.jpg",
+   "original": "source/ct-dissection-type-b-flap-2026-source.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Ruiz-López A, Salido Iniesta M, Gómez Revelles S, Taroncher Domingo C, Viladés Medel D.",
+   "source": "“Computed tomography pitfalls and diagnostic value in a patient with post-infarction ventricular septal defect, cardiogenic shock, and iatrogenic type B aortic dissection during extracorporeal membrane oxygenation support: a case report”, European heart journal. Case reports 10:ytag524 (2026), https://doi.org/10.1093/ehjcr/ytag524 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13422630.1/ytag524f2.jpg",
+   "credit": "Ruiz-López et al., European heart journal. Case reports, 2026 · CC BY 4.0",
+   "changes": "Converted to JPEG; 1 region(s) with identifiers or burnt-in text blacked out; one panel taken from the figure (panel E (contrast axial, top right)); no other crop, mirroring or filtering.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1093/ehjcr/ytag524",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13422630.1/ytag524f2.jpg",
+    "doi": "10.1093/ehjcr/ytag524",
+    "originalTitle": "Computed tomography pitfalls and diagnostic value in a patient with post-infarction ventricular septal defect, cardiogenic shock, and iatrogenic type B aortic dissection during extracorporeal membrane oxygenation support: a case report",
+    "published": "2026-07-14",
+    "retrieved": "2026-10-09T15:43Z",
+    "originalName": "ytag524f2.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 88058,
+    "originalSha256": "d2967e0a25c15cbdec134b10662994756741f514ef4199b5e134515b1c9a67d1",
+    "preserved": "imaging/real/source/ct-dissection-type-b-flap-2026-source.jpg",
+    "licenseEvidence": "Europe PMC full text of PMC13422630 (doi 10.1093/ehjcr/ytag524), <license>: “This is an Open Access article distributed under the terms of the Creative Commons Attribution License ( https://creativecommons.org/licenses/by/4.0/ ), which permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited.”; Figure 2 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 232,
+      "h": 198
+     }
+    }
+   },
+   "fileSha256": "e6c94c5b584fd1c7290b45d2a90aaee4fcea518fb5d9b20114c2a7d681a5149d",
+   "originalSha256": "d2967e0a25c15cbdec134b10662994756741f514ef4199b5e134515b1c9a67d1"
+  },
+  {
+   "id": "ct-renal-nonperfusion-aaa-2026",
+   "kind": "ct-aorta",
+   "type": "ct",
+   "modality": "CT",
+   "finding": "renal_malperfusion",
+   "findings": [
+    "renal_malperfusion"
+   ],
+   "title": "Non-enhancing left kidney",
+   "caption": "Contrast CT at renal level: the right kidney enhances brightly while the left kidney (arrow) stays grey because its renal artery has lost continuity (here in a ruptured AAA, not a dissection).",
+   "look": [
+    "Compare cortical brightness of both kidneys",
+    "Left kidney uniformly dull, no corticomedullary pattern",
+    "Look back along the renal artery for the cut-off or a flap"
+   ],
+   "teach": [
+    "A kidney that fails to enhance means its arterial inflow is cut off: flap, false-lumen origin, embolus or vessel disruption.",
+    "In dissection, branch malperfusion (renal, mesenteric, limb) makes it 'complicated' and changes management toward urgent repair."
+   ],
+   "quiz": {
+    "q": "One kidney does not enhance on aortic CTA in a dissection. What does that signify?",
+    "options": [
+     "Normal variant",
+     "Renal malperfusion, a complicated dissection",
+     "Contrast timing error only",
+     "Hydronephrosis"
+    ],
+    "answer": 1,
+    "explain": "Unilateral non-enhancement signals loss of arterial supply; in dissection it defines complicated disease needing intervention."
+   },
+   "marks": [],
+   "file": "ct-renal-nonperfusion-aaa-2026.jpg",
+   "original": "source/ct-renal-nonperfusion-aaa-2026-source.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Jiang Y, Ni J, Zhang L, Jiang L, Li X.",
+   "source": "“Refractory abdominal compartment syndrome secondary to ruptured abdominal aortic aneurysm treated with total colectomy and upper rectal resection: A case report and literature review”, Medicine 105:e48285 (2026), https://doi.org/10.1097/md.0000000000048285 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13124428.1/medi-105-e48285-g001.jpg",
+   "credit": "Jiang et al., Medicine, 2026 · CC BY 4.0",
+   "changes": "Converted to JPEG; 1 region(s) with identifiers or burnt-in text blacked out; one panel taken from the figure (panel B (post-contrast, renal level)); padded by one black pixel to even dimensions; no other crop, mirroring or filtering.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1097/md.0000000000048285",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13124428.1/medi-105-e48285-g001.jpg",
+    "doi": "10.1097/md.0000000000048285",
+    "originalTitle": "Refractory abdominal compartment syndrome secondary to ruptured abdominal aortic aneurysm treated with total colectomy and upper rectal resection: A case report and literature review",
+    "published": "2026-04-01",
+    "retrieved": "2026-10-09T15:43Z",
+    "originalName": "medi-105-e48285-g001.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 84347,
+    "originalSha256": "21ef1840c62f58cfa3aeb0b630308f69aaa514881ca1a4c75000e473e796373f",
+    "preserved": "imaging/real/source/ct-renal-nonperfusion-aaa-2026-source.jpg",
+    "licenseEvidence": "Europe PMC full text of PMC13124428 (doi 10.1097/md.0000000000048285), <license>: “This is an open access article distributed under the Creative Commons Attribution License 4.0 (CCBY) , which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.”; Figure 1. caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 388,
+      "h": 306
+     }
+    }
+   },
+   "fileSha256": "51f82d616b9f1aea396faf028a08348afd2676e5647592d50eb3f8c5337b489f",
+   "originalSha256": "21ef1840c62f58cfa3aeb0b630308f69aaa514881ca1a4c75000e473e796373f"
+  },
+  {
+   "id": "ct-aorta-normal-coronal-haggstrom",
+   "kind": "ct-aorta",
+   "type": "ct",
+   "modality": "CT",
+   "finding": "aorta_normal",
+   "findings": [
+    "aorta_normal"
+   ],
+   "title": "Normal abdominal aorta, coronal CT",
+   "caption": "Coronal contrast CT of a normal abdomen showing a slim, uniformly opacified abdominal aorta running down in front of the spine with no flap, thrombus or surrounding blood.",
+   "look": [
+    "Aorta narrow and parallel-walled (under 3 cm)",
+    "Uniform contrast, no line through the lumen",
+    "Clean fat around the aorta, no haematoma"
+   ],
+   "teach": [
+    "Normal infrarenal aorta is about 2 cm; 3 cm or more is aneurysmal.",
+    "A clean coronal view is the baseline to compare with dilated, dissected or ruptured aortas."
+   ],
+   "quiz": {
+    "q": "Above what diameter is the infrarenal abdominal aorta called aneurysmal?",
+    "options": [
+     "1.5 cm",
+     "2 cm",
+     "3 cm",
+     "5.5 cm"
+    ],
+    "answer": 2,
+    "explain": "3 cm defines AAA; 5.5 cm (men) is the usual elective repair threshold."
+   },
+   "marks": [],
+   "file": "ct-aorta-normal-coronal-haggstrom.jpg",
+   "original": "source/ct-aorta-normal-coronal-haggstrom-source.png",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "author": "Mikael Häggström, M.D.",
+   "source": "Wikimedia Commons — https://commons.wikimedia.org/wiki/File:CT_of_a_normal_abdomen_and_pelvis,_coronal_plane_60.png",
+   "credit": "Häggström, Wikimedia Commons, 2019 · CC0",
+   "changes": "Converted to JPEG; one panel taken from the figure (main coronal image without the axial localiser inset); no other crop, mirroring or filtering.",
+   "provenance": {
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:CT_of_a_normal_abdomen_and_pelvis,_coronal_plane_60.png",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4b/CT_of_a_normal_abdomen_and_pelvis%2C_coronal_plane_60.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "doi": "",
+    "originalTitle": "edit Computed tomography of the abdomen and pelvis , performed as a contrast CT , here presented in the coronal plane with 3 mm slice thickness. It shows normal",
+    "published": "2019-03-16",
+    "retrieved": "2026-10-09T15:43Z",
+    "originalName": "CT of a normal abdomen and pelvis, coronal plane 60.png",
+    "originalFormat": "image/png",
+    "originalBytes": 310398,
+    "originalSha256": "649735e95567a27ed8d05981e025ba8980d15343d7a54d9d73cc93c15e65cdba",
+    "preserved": "imaging/real/source/ct-aorta-normal-coronal-haggstrom-source.png",
+    "licenseEvidence": "Wikimedia Commons API extmetadata for File:CT of a normal abdomen and pelvis, coronal plane 60.png: LicenseShortName = “CC0”, UsageTerms = “Creative Commons Zero, Public Domain Dedication” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3ACT+of+a+normal+abdomen+and+pelvis%2C+coronal+plane+60.png&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 462,
+      "h": 672
+     }
+    }
+   },
+   "fileSha256": "8ff7e05bdaefde0394ee25cea4b31ba7690f6020547eb53bc54df602209ca5bc",
+   "originalSha256": "649735e95567a27ed8d05981e025ba8980d15343d7a54d9d73cc93c15e65cdba"
+  },
+  {
+   "id": "fast-pelvis-positive-vats",
+   "kind": "fast",
+   "type": "ultrasound",
+   "modality": "Point-of-care ultrasound",
+   "finding": "fast_pelvis_positive",
+   "findings": [
+    "fast_pelvis_positive"
+   ],
+   "title": "Pelvic free fluid on FAST",
+   "caption": "Suprapubic FAST view from a patient with occult splenic rupture, showing a large irregular anechoic collection of blood in the pelvis above the bladder.",
+   "look": [
+    "Black (anechoic) irregular collection in the pelvis",
+    "Fluid outlines bowel and pelvic structures",
+    "Calipers measure the depth of the collection"
+   ],
+   "teach": [
+    "The pelvis is the most dependent space in a supine patient — small bleeds often show here first.",
+    "Scan with a full bladder if possible; free fluid is shapeless and has sharp corners, unlike the smooth-walled bladder."
+   ],
+   "quiz": {
+    "q": "In a hypotensive trauma patient, an irregular black collection behind or above the bladder on the suprapubic FAST view most likely represents…",
+    "options": [
+     "Normal bladder urine",
+     "Free intraperitoneal fluid (blood)",
+     "Bowel gas",
+     "Reverberation artifact"
+    ],
+    "answer": 1,
+    "explain": "Shapeless anechoic fluid outside the bladder in the pelvis is a positive FAST; in an unstable trauma patient assume haemoperitoneum."
+   },
+   "marks": [],
+   "file": "fast-pelvis-positive-vats.jpg",
+   "original": "source/fast-pelvis-positive-vats-source.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Jinming Yao, Yan Xin, Xianzhen Liu",
+   "source": "“Case Report: Occult splenic rupture during left-sided VATS decortication: diagnostic role of early perioperative FAST”, Frontiers in surgery 13:1883987 (2026), https://doi.org/10.3389/fsurg.2026.1883987 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13429830.1/fsurg-13-1883987-g002.jpg",
+   "credit": "Yao et al., Frontiers in surgery, 2026 · CC BY 4.0",
+   "changes": "Converted to JPEG; one panel taken from the figure (region x 0.34–0.69, y 0.00–0.93 of the original); padded by one black pixel to even dimensions; no other crop, mirroring or filtering.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.3389/fsurg.2026.1883987",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13429830.1/fsurg-13-1883987-g002.jpg",
+    "doi": "10.3389/fsurg.2026.1883987",
+    "originalTitle": "Case Report: Occult splenic rupture during left-sided VATS decortication: diagnostic role of early perioperative FAST",
+    "published": "2026-07-20",
+    "retrieved": "2026-10-09T15:43Z",
+    "originalName": "fsurg-13-1883987-g002.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 60200,
+    "originalSha256": "04bcee315f8fb035bf23b1940366705af0c8c6ec37dd2a3d4acbebc0e4321fa3",
+    "preserved": "imaging/real/source/fast-pelvis-positive-vats-source.jpg",
+    "licenseEvidence": "Europe PMC full text of PMC13429830 (doi 10.3389/fsurg.2026.1883987), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY) . The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited an”; Figure 2 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 268,
+      "h": 248
+     }
+    }
+   },
+   "fileSha256": "5be119268bb436e6d0c1b8d52681c491f6743d2fd4863191d4097fc55bf1a08a",
+   "originalSha256": "04bcee315f8fb035bf23b1940366705af0c8c6ec37dd2a3d4acbebc0e4321fa3"
+  },
+  {
+   "id": "ij-carotid-vexus-2024",
+   "kind": "ijv",
+   "type": "ultrasound",
+   "modality": "Point-of-care ultrasound",
+   "finding": "ij_carotid",
+   "findings": [
+    "ij_carotid"
+   ],
+   "title": "Internal jugular vein beside the carotid",
+   "caption": "Transverse linear-probe view of the neck showing the oval internal jugular vein lying superficial to the round, thick-walled common carotid artery.",
+   "look": [
+    "IJV: larger, thin-walled, oval, superficial",
+    "CCA: round, thick-walled, deeper",
+    "Both vessels anechoic in transverse section"
+   ],
+   "teach": [
+    "The IJ usually sits anterolateral to the carotid, but overlap is common — always find both before you puncture.",
+    "Confirm the vein by compressibility and the artery by its pulsatility and round shape."
+   ],
+   "quiz": {
+    "q": "On a transverse neck scan, which feature best identifies the internal jugular vein rather than the carotid?",
+    "options": [
+     "Round shape with thick walls",
+     "Collapses with gentle probe pressure",
+     "Pulsatile and non-compressible",
+     "Always lies medial to the carotid"
+    ],
+    "answer": 1,
+    "explain": "Veins compress easily under light pressure; the carotid stays round and pulsatile."
+   },
+   "marks": [],
+   "file": "ij-carotid-vexus-2024.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Suppawee Klangthamneam, Krissada Meemook, Tananchai Petnak, Anchana Sonkaew, Taweevat Assavapokee",
+   "source": "“Correlation between right atrial pressure measured via right heart catheterization and venous excess ultrasound, inferior vena cava diameter, and ultrasound-measured jugular venous pressure: a prospective observational study”, The ultrasound journal 16:50 (2024), https://doi.org/10.1186/s13089-024-00397-y — https://pmc-oa-opendata.s3.amazonaws.com/PMC11607288.1/13089_2024_397_Fig4_HTML.jpg",
+   "credit": "Klangthamneam et al., The ultrasound journal, 2024 · CC BY 4.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1186/s13089-024-00397-y",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC11607288.1/13089_2024_397_Fig4_HTML.jpg",
+    "doi": "10.1186/s13089-024-00397-y",
+    "originalTitle": "Correlation between right atrial pressure measured via right heart catheterization and venous excess ultrasound, inferior vena cava diameter, and ultrasound-measured jugular venous pressure: a prospective observational study",
+    "published": "2024-11-29",
+    "retrieved": "2026-10-09T15:43Z",
+    "originalName": "13089_2024_397_Fig4_HTML.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 46797,
+    "originalSha256": "995d3ecb2109537c0c2b6bf27bcae4588d5aea2d230aa08ec3bae9294be165ad",
+    "preserved": "imaging/real/ij-carotid-vexus-2024.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC11607288 (doi 10.1186/s13089-024-00397-y), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original auth”; Fig. 4 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 598,
+      "h": 583
+     }
+    }
+   },
+   "fileSha256": "995d3ecb2109537c0c2b6bf27bcae4588d5aea2d230aa08ec3bae9294be165ad"
+  },
+  {
+   "id": "ij-needle-inplane-2025",
+   "kind": "ijv",
+   "type": "ultrasound",
+   "modality": "Point-of-care ultrasound",
+   "finding": "ij_needle",
+   "findings": [
+    "ij_needle"
+   ],
+   "title": "In-plane needle approaching the IJ",
+   "caption": "Ultrasound-guided internal jugular cannulation with the needle shaft seen in-plane as a bright oblique line advancing toward the vein (arrow).",
+   "look": [
+    "Bright straight hyperechoic line = needle shaft",
+    "Arrow marks the needle near the vein",
+    "IJ (labelled VJI) as the dark target lumen"
+   ],
+   "teach": [
+    "In-plane technique shows the whole shaft and tip, reducing the risk of back-wall or carotid puncture.",
+    "Never advance unless you can see the tip — the shaft alone can mislead."
+   ],
+   "quiz": {
+    "q": "The main advantage of an in-plane approach for IJ cannulation is…",
+    "options": [
+     "It needs no sterile cover",
+     "The full needle shaft and tip are visible as you advance",
+     "It makes the carotid compressible",
+     "It removes the need to aspirate"
+    ],
+    "answer": 1,
+    "explain": "Keeping the needle in the beam lets you follow the tip all the way into the vessel."
+   },
+   "marks": [],
+   "file": "ij-needle-inplane-2025.jpg",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Michal Kalina, Patricia Vargová, Adéla Bubeníková, Roman Škulec, Vladimír Černý, David Astapenko",
+   "source": "“A novel \"lateral approach short axis in-plane\" technique vs. conventional \"short-axis out-of-plane approach\" for ultrasound-guided internal jugular vein access: a prospective randomized non-inferiority trial”, The ultrasound journal 17:5 (2025), https://doi.org/10.1186/s13089-025-00405-9 — https://pmc-oa-opendata.s3.amazonaws.com/PMC11739437.1/13089_2025_405_Fig3_HTML.jpg",
+   "credit": "Kalina et al., The ultrasound journal, 2025 · CC BY 4.0",
+   "changes": "None — the displayed file is the original, byte for byte.",
+   "provenance": {
+    "pageUrl": "https://doi.org/10.1186/s13089-025-00405-9",
+    "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC11739437.1/13089_2025_405_Fig3_HTML.jpg",
+    "doi": "10.1186/s13089-025-00405-9",
+    "originalTitle": "A novel \"lateral approach short axis in-plane\" technique vs. conventional \"short-axis out-of-plane approach\" for ultrasound-guided internal jugular vein access: a prospective randomized non-inferiority trial",
+    "published": "2025-01-16",
+    "retrieved": "2026-10-09T15:43Z",
+    "originalName": "13089_2025_405_Fig3_HTML.jpg",
+    "originalFormat": "image/jpeg",
+    "originalBytes": 62557,
+    "originalSha256": "8b068d0d70179f7a094c839432b1bd923b1a7ae1fc7ef552ab4c3be17565eb80",
+    "preserved": "imaging/real/ij-needle-inplane-2025.jpg (identical to the original)",
+    "licenseEvidence": "Europe PMC full text of PMC11739437 (doi 10.1186/s13089-025-00405-9), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original auth”; Fig. 3 caption checked for a separate credit.",
+    "verifiedBy": "tools/clinical_media.py fetch",
+    "qc": {
+     "image": {
+      "w": 598,
+      "h": 411
+     }
+    }
+   },
+   "fileSha256": "8b068d0d70179f7a094c839432b1bd923b1a7ae1fc7ef552ab4c3be17565eb80"
   }
  ],
  "rejected": [
@@ -3674,639 +4560,6 @@
    "pageUrl": "https://commons.wikimedia.org/wiki/File:Echokardiogram_von_Atriumseptumdefekt_(Ostium_secundum).jpg",
    "marks": [],
    "claimedBy": "discovery round 1 (media-candidates branch), reviewed visually"
-  },
-  {
-   "kind": "cxr",
-   "type": "xray",
-   "modality": "Chest radiograph",
-   "marks": [],
-   "claimedBy": "discovery round 2 (media-candidates branch), reviewed visually",
-   "id": "cxr-mainstem-right-ebi-2019",
-   "finding": "mainstem_right",
-   "findings": [
-    "mainstem_right"
-   ],
-   "title": "Right mainstem (endobronchial) intubation",
-   "caption": "Supine AP film in which the endotracheal tube tip sits beyond the carina in the right main bronchus; the airway outline is traced in black.",
-   "look": [
-    "Tube tip below the carina, angled down the right bronchus",
-    "Arrow marks the tip; black lines trace trachea and both bronchi",
-    "Compare left lung aeration with the right"
-   ],
-   "teach": [
-    "The right main bronchus is shorter, wider and more vertical, so a tube advanced too far usually goes right.",
-    "Suspect it with unilateral breath sounds, rising peak pressures and falling SpO2; pull back to 3-5 cm above the carina (roughly 21-23 cm at the teeth in adults)."
-   ],
-   "quiz": {
-    "q": "After intubation, breath sounds are only heard on the right and peak pressure is high. The film shows the tube tip past the carina. Best next step?",
-    "options": [
-     "Insert a left chest drain",
-     "Withdraw the tube until the tip is above the carina, then reassess",
-     "Increase PEEP",
-     "Give a bronchodilator"
-    ],
-    "answer": 1,
-    "explain": "This is right endobronchial intubation; deflate the cuff, withdraw the tube a few centimetres, re-inflate and confirm bilateral ventilation."
-   },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC6532927",
-    "fig": "pone.0217466.g002"
-   },
-   "licenseClaimed": "CC BY 4.0",
-   "pageUrl": "https://doi.org/10.1371/journal.pone.0217466",
-   "crop": [
-    0.17,
-    0.04,
-    0.4,
-    0.465
-   ]
-  },
-  {
-   "kind": "cxr",
-   "type": "xray",
-   "modality": "Chest radiograph",
-   "marks": [],
-   "claimedBy": "discovery round 2 (media-candidates branch), reviewed visually",
-   "id": "cxr-ett-ok-ebi-2019",
-   "finding": "ett_ok",
-   "findings": [
-    "ett_ok",
-    "cxr_normal"
-   ],
-   "title": "Endotracheal tube in good position",
-   "caption": "Supine AP film of an intubated adult with the tube tip in the mid trachea above the carina and clear lung fields; the airway is traced in black.",
-   "look": [
-    "Arrow marks the tube tip above the carina",
-    "Carina outlined where the bronchi divide",
-    "Both lungs aerated, no collapse"
-   ],
-   "teach": [
-    "Aim for the tip 3-5 cm above the carina, or level with the medial clavicle ends, in an adult.",
-    "Neck flexion pushes the tip down and extension pulls it up, by up to about 2 cm each way."
-   ],
-   "quiz": {
-    "q": "Where should an adult endotracheal tube tip sit on a chest film?",
-    "options": [
-     "At the vocal cords",
-     "3-5 cm above the carina",
-     "At the carina",
-     "In the right main bronchus"
-    ],
-    "answer": 1,
-    "explain": "3-5 cm above the carina leaves room for head and neck movement without the tube slipping into a bronchus or up to the cords."
-   },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC6532927",
-    "fig": "pone.0217466.g002"
-   },
-   "licenseClaimed": "CC BY 4.0",
-   "pageUrl": "https://doi.org/10.1371/journal.pone.0217466",
-   "crop": [
-    0.17,
-    0.545,
-    0.4,
-    0.455
-   ]
-  },
-  {
-   "kind": "cxr",
-   "type": "xray",
-   "modality": "Chest radiograph",
-   "marks": [],
-   "claimedBy": "discovery round 2 (media-candidates branch), reviewed visually",
-   "id": "cxr-normal-pa-haggstrom",
-   "finding": "cxr_normal",
-   "findings": [
-    "cxr_normal"
-   ],
-   "title": "Normal chest radiograph (PA)",
-   "caption": "Upright PA film of a healthy young adult: clear lungs, sharp angles, normal heart size; a reference for comparison with ICU films.",
-   "look": [
-    "Heart width under half the chest width",
-    "Sharp costophrenic angles and domed diaphragms",
-    "Vessels visible out to the periphery"
-   ],
-   "teach": [
-    "A PA film is the reference for heart size; portable AP films magnify the heart and can't be read the same way.",
-    "Learn a fixed order (airway, breathing, cardiac, diaphragm, everything else) and use it on every film."
-   ],
-   "quiz": {
-    "q": "Why can't you judge cardiomegaly reliably on a portable AP film?",
-    "options": [
-     "The heart is further from the detector, so it looks bigger",
-     "AP films are always underexposed",
-     "The patient is always rotated",
-     "The heart is hidden by the diaphragm"
-    ],
-    "answer": 0,
-    "explain": "On an AP film the beam passes front to back and the heart sits away from the detector, so it is magnified."
-   },
-   "fetch": {
-    "type": "commons",
-    "title": "File:Normal posteroanterior (PA) chest radiograph (X-ray).jpg"
-   },
-   "licenseClaimed": "CC0",
-   "pageUrl": "https://commons.wikimedia.org/wiki/File:Normal_posteroanterior_(PA)_chest_radiograph_(X-ray).jpg"
-  },
-  {
-   "kind": "cxr",
-   "type": "xray",
-   "modality": "Chest radiograph",
-   "marks": [],
-   "claimedBy": "discovery round 2 (media-candidates branch), reviewed visually",
-   "id": "cxr-hyperinflation-asthma-2025",
-   "finding": "hyperinflation",
-   "findings": [
-    "hyperinflation"
-   ],
-   "title": "Hyperinflation in near-fatal asthma",
-   "caption": "Supine portable film from a child with life-threatening asthma: over-expanded, dark lungs with low flat diaphragms and a narrow heart, with a gastric tube in place.",
-   "look": [
-    "Many ribs visible above the diaphragm",
-    "Flattened, low hemidiaphragms",
-    "Long narrow heart shadow",
-    "Hazy patch at the right heart border"
-   ],
-   "teach": [
-    "Air trapping on the ventilator (auto-PEEP) worsens hyperinflation and can drop blood pressure; give long expiratory times.",
-    "A sudden drop in BP or rise in pressure in a ventilated asthmatic: disconnect to let air out, then look for a pneumothorax."
-   ],
-   "quiz": {
-    "q": "A ventilated asthmatic becomes hypotensive and the film shows severe hyperinflation, no pneumothorax. First action?",
-    "options": [
-     "Increase the respiratory rate",
-     "Briefly disconnect the circuit to let trapped air escape",
-     "Increase tidal volume",
-     "Add more PEEP"
-    ],
-    "answer": 1,
-    "explain": "Dynamic hyperinflation raises intrathoracic pressure and cuts venous return; letting the trapped gas out, then slowing the rate, restores it."
-   },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC12400729",
-    "fig": "Fig1"
-   },
-   "licenseClaimed": "CC BY 4.0",
-   "pageUrl": "https://doi.org/10.1186/s13256-025-05507-5"
-  },
-  {
-   "kind": "cxr",
-   "type": "xray",
-   "modality": "Chest radiograph",
-   "marks": [],
-   "claimedBy": "discovery round 2 (media-candidates branch), reviewed visually",
-   "id": "cxr-flash-edema-portable-2026",
-   "finding": "pulmonary_edema",
-   "findings": [
-    "pulmonary_edema"
-   ],
-   "title": "Flash pulmonary edema on a portable film",
-   "caption": "Portable AP film after a pacing interruption: hazy perihilar and lower-zone airspace shadowing in both lungs, with a biventricular device and leads.",
-   "look": [
-    "Bilateral perihilar haze, worse in the lower zones",
-    "Blurred vessel outlines",
-    "Cardiac device and leads in place"
-   ],
-   "teach": [
-    "Cardiogenic edema is typically central and symmetric; treat with nitrates, preload reduction and CPAP or BiPAP.",
-    "Flash edema can follow a sudden fall in LV performance, such as losing pacing, ischemia or a hypertensive surge."
-   ],
-   "quiz": {
-    "q": "Which pattern best fits acute cardiogenic pulmonary edema?",
-    "options": [
-     "Single lobe consolidation with air bronchograms",
-     "Bilateral perihilar haze, worse at the bases",
-     "Hyperlucent lung with no markings",
-     "Unilateral white-out with tracheal shift toward it"
-    ],
-    "answer": 1,
-    "explain": "Raised left atrial pressure floods the central and dependent lung first, giving a bilateral perihilar pattern."
-   },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC13221883",
-    "fig": "fig2"
-   },
-   "licenseClaimed": "CC BY 4.0",
-   "pageUrl": "https://doi.org/10.1016/j.jaccas.2026.107942"
-  },
-  {
-   "kind": "cxr",
-   "type": "xray",
-   "modality": "Chest radiograph",
-   "marks": [],
-   "claimedBy": "discovery round 2 (media-candidates branch), reviewed visually",
-   "id": "cxr-ards-ecmo-recovery-2026",
-   "finding": "ards",
-   "findings": [
-    "ards"
-   ],
-   "title": "ARDS on VV-ECMO, then recovery",
-   "caption": "Two supine films from one patient: dense opacities in both lungs when ECMO started (A), and much clearer lungs at ECMO weaning eight days later (B).",
-   "look": [
-    "A: dense airspace shadowing in both lungs",
-    "Lines, ECG leads and cannula in place",
-    "B: aeration much better, lung edges visible again"
-   ],
-   "teach": [
-    "VV-ECMO takes over gas exchange so the ventilator can be turned down to rest the lungs.",
-    "Radiographic clearing usually lags behind improving compliance and oxygenation."
-   ],
-   "quiz": {
-    "q": "What is the main goal of the ventilator while a patient is on VV-ECMO for ARDS?",
-    "options": [
-     "Normal CO2 using high tidal volumes",
-     "Lung rest with low pressures and volumes",
-     "Maximum PEEP to recruit all lung",
-     "Spontaneous breathing only"
-    ],
-    "answer": 1,
-    "explain": "ECMO supports oxygenation and CO2 removal, so the ventilator is set to minimise injury: low plateau pressure, low tidal volume and low rate."
-   },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC13416251",
-    "fig": "fig2"
-   },
-   "licenseClaimed": "CC BY 4.0",
-   "pageUrl": "https://doi.org/10.3389/fmed.2026.1840332"
-  },
-  {
-   "id": "ct-aaa-rupture-96mm-2026",
-   "kind": "ct-aorta",
-   "type": "ct",
-   "modality": "CT angiography",
-   "finding": "aaa_rupture",
-   "findings": [
-    "aaa_rupture",
-    "aaa",
-    "retroperitoneal_hematoma"
-   ],
-   "title": "Ruptured AAA with left retroperitoneal haematoma",
-   "caption": "Axial CTA through a 96 mm infrarenal aneurysm: a bright contrast-filled lumen sits inside a thick grey rim of mural thrombus, with blood tracking into the left flank.",
-   "look": [
-    "Aortic diameter far above 3 cm (calliper marks 96 mm)",
-    "Crescent of grey mural thrombus around the bright lumen",
-    "Soft-tissue blood spreading into the left retroperitoneum and psoas region"
-   ],
-   "teach": [
-    "Most AAAs rupture posterolaterally into the left retroperitoneum, which can briefly tamponade the bleed.",
-    "A contained retroperitoneal leak buys minutes, not hours: permissive hypotension and direct transfer to a vascular centre."
-   ],
-   "quiz": {
-    "q": "Where does an infrarenal AAA most often rupture?",
-    "options": [
-     "Into the free peritoneal cavity anteriorly",
-     "Into the left retroperitoneum",
-     "Into the duodenum",
-     "Into the IVC"
-    ],
-    "answer": 1,
-    "explain": "Posterolateral rupture into the left retroperitoneum is the commonest pattern; the haematoma may temporarily contain the bleed."
-   },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC13285273",
-    "fig": "fig1"
-   },
-   "licenseClaimed": "CC BY 4.0",
-   "pageUrl": "https://doi.org/10.1016/j.jvscit.2026.102288",
-   "marks": [],
-   "claimedBy": "discovery round 2 (media-candidates branch), reviewed visually"
-  },
-  {
-   "id": "ct-aaa-rupture-right-hematoma-2025",
-   "kind": "ct-aorta",
-   "type": "ct",
-   "modality": "CT",
-   "finding": "retroperitoneal_hematoma",
-   "findings": [
-    "retroperitoneal_hematoma",
-    "aaa_rupture",
-    "aaa"
-   ],
-   "title": "AAA rupture site and massive retroperitoneal haematoma",
-   "caption": "Contrast CT of an aneurysmal aorta with a small contrast blister at its posterior-right wall (labelled rupture site) feeding a large right-sided retroperitoneal haematoma.",
-   "look": [
-    "Bright aneurysm lumen with an outpouching at the posterolateral wall",
-    "Large grey haematoma displacing bowel to the right flank",
-    "Fat planes around the aorta lost"
-   ],
-   "teach": [
-    "A focal contrast blister or breach in the aneurysm wall marks the rupture point.",
-    "Retroperitoneal blood is a soft-tissue density mass, brighter than fluid on non-contrast images but darker than the contrast-filled lumen."
-   ],
-   "quiz": {
-    "q": "In a hypotensive patient with known AAA, what CT finding confirms rupture?",
-    "options": [
-     "Calcification of the aortic wall",
-     "Mural thrombus",
-     "Periaortic retroperitoneal haematoma",
-     "Aortic diameter of 4 cm"
-    ],
-    "answer": 2,
-    "explain": "Calcification, thrombus and diameter describe the aneurysm; blood outside the wall in the retroperitoneum proves rupture."
-   },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC12284653",
-    "fig": "f0005"
-   },
-   "licenseClaimed": "CC BY 4.0",
-   "pageUrl": "https://doi.org/10.1016/j.ijscr.2025.111685",
-   "marks": [],
-   "claimedBy": "discovery round 2 (media-candidates branch), reviewed visually"
-  },
-  {
-   "id": "ct-dissection-type-b-flap-2026",
-   "kind": "ct-aorta",
-   "type": "ct",
-   "modality": "CT angiography",
-   "finding": "dissection_type_b",
-   "findings": [
-    "dissection_type_b"
-   ],
-   "title": "Intimal flap confined to the descending aorta",
-   "caption": "Axial contrast CT of the chest at the pulmonary trunk level: the ascending aorta is smooth and single-lumen while a thin curved flap splits the descending aorta into two channels.",
-   "look": [
-    "Thin dark line crossing the descending aortic lumen",
-    "Two contrast-filled channels (true and false lumen)",
-    "Ascending aorta has no flap"
-   ],
-   "teach": [
-    "Stanford B = the ascending aorta is spared; usually managed with heart-rate and BP control (beta-blocker first) unless complicated.",
-    "Always check the ascending aorta on every slice before calling a dissection type B."
-   ],
-   "quiz": {
-    "q": "A flap is seen only in the descending thoracic aorta. Stanford class and first-line management?",
-    "options": [
-     "Type A, emergency surgery",
-     "Type B, IV beta-blocker then vasodilator to target HR <60 and SBP 100-120",
-     "Type B, thrombolysis",
-     "Type A, beta-blocker only"
-    ],
-    "answer": 1,
-    "explain": "Ascending aorta spared = type B; uncomplicated cases get anti-impulse therapy, with TEVAR reserved for malperfusion, rupture or refractory pain."
-   },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC13422630",
-    "fig": "ytag524-F2"
-   },
-   "licenseClaimed": "CC BY 4.0",
-   "pageUrl": "https://doi.org/10.1093/ehjcr/ytag524",
-   "crop": [
-    0.705,
-    0.02,
-    0.29,
-    0.47
-   ],
-   "cropNote": "panel E (contrast axial, top right)",
-   "maskRects": [
-    [
-     0.7,
-     0.03,
-     0.14,
-     0.05
-    ]
-   ],
-   "marks": [],
-   "claimedBy": "discovery round 2 (media-candidates branch), reviewed visually"
-  },
-  {
-   "id": "ct-renal-nonperfusion-aaa-2026",
-   "kind": "ct-aorta",
-   "type": "ct",
-   "modality": "CT",
-   "finding": "renal_malperfusion",
-   "findings": [
-    "renal_malperfusion"
-   ],
-   "title": "Non-enhancing left kidney",
-   "caption": "Contrast CT at renal level: the right kidney enhances brightly while the left kidney (arrow) stays grey because its renal artery has lost continuity (here in a ruptured AAA, not a dissection).",
-   "look": [
-    "Compare cortical brightness of both kidneys",
-    "Left kidney uniformly dull, no corticomedullary pattern",
-    "Look back along the renal artery for the cut-off or a flap"
-   ],
-   "teach": [
-    "A kidney that fails to enhance means its arterial inflow is cut off: flap, false-lumen origin, embolus or vessel disruption.",
-    "In dissection, branch malperfusion (renal, mesenteric, limb) makes it 'complicated' and changes management toward urgent repair."
-   ],
-   "quiz": {
-    "q": "One kidney does not enhance on aortic CTA in a dissection. What does that signify?",
-    "options": [
-     "Normal variant",
-     "Renal malperfusion, a complicated dissection",
-     "Contrast timing error only",
-     "Hydronephrosis"
-    ],
-    "answer": 1,
-    "explain": "Unilateral non-enhancement signals loss of arterial supply; in dissection it defines complicated disease needing intervention."
-   },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC13124428",
-    "fig": "F1"
-   },
-   "licenseClaimed": "CC BY 4.0",
-   "pageUrl": "https://doi.org/10.1097/md.0000000000048285",
-   "crop": [
-    0.515,
-    0.0,
-    0.485,
-    1.0
-   ],
-   "cropNote": "panel B (post-contrast, renal level)",
-   "maskRects": [
-    [
-     0.92,
-     0.88,
-     0.08,
-     0.1
-    ]
-   ],
-   "marks": [],
-   "claimedBy": "discovery round 2 (media-candidates branch), reviewed visually"
-  },
-  {
-   "id": "ct-aorta-normal-coronal-haggstrom",
-   "kind": "ct-aorta",
-   "type": "ct",
-   "modality": "CT",
-   "finding": "aorta_normal",
-   "findings": [
-    "aorta_normal"
-   ],
-   "title": "Normal abdominal aorta, coronal CT",
-   "caption": "Coronal contrast CT of a normal abdomen showing a slim, uniformly opacified abdominal aorta running down in front of the spine with no flap, thrombus or surrounding blood.",
-   "look": [
-    "Aorta narrow and parallel-walled (under 3 cm)",
-    "Uniform contrast, no line through the lumen",
-    "Clean fat around the aorta, no haematoma"
-   ],
-   "teach": [
-    "Normal infrarenal aorta is about 2 cm; 3 cm or more is aneurysmal.",
-    "A clean coronal view is the baseline to compare with dilated, dissected or ruptured aortas."
-   ],
-   "quiz": {
-    "q": "Above what diameter is the infrarenal abdominal aorta called aneurysmal?",
-    "options": [
-     "1.5 cm",
-     "2 cm",
-     "3 cm",
-     "5.5 cm"
-    ],
-    "answer": 2,
-    "explain": "3 cm defines AAA; 5.5 cm (men) is the usual elective repair threshold."
-   },
-   "fetch": {
-    "type": "commons",
-    "title": "File:CT of a normal abdomen and pelvis, coronal plane 60.png"
-   },
-   "licenseClaimed": "CC0",
-   "pageUrl": "https://commons.wikimedia.org/wiki/File:CT_of_a_normal_abdomen_and_pelvis,_coronal_plane_60.png",
-   "crop": [
-    0.0,
-    0.0,
-    0.585,
-    1.0
-   ],
-   "cropNote": "main coronal image without the axial localiser inset",
-   "marks": [],
-   "claimedBy": "discovery round 2 (media-candidates branch), reviewed visually"
-  },
-  {
-   "id": "fast-pelvis-positive-vats",
-   "kind": "fast",
-   "type": "ultrasound",
-   "modality": "Point-of-care ultrasound",
-   "finding": "fast_pelvis_positive",
-   "findings": [
-    "fast_pelvis_positive"
-   ],
-   "title": "Pelvic free fluid on FAST",
-   "caption": "Suprapubic FAST view from a patient with occult splenic rupture, showing a large irregular anechoic collection of blood in the pelvis above the bladder.",
-   "look": [
-    "Black (anechoic) irregular collection in the pelvis",
-    "Fluid outlines bowel and pelvic structures",
-    "Calipers measure the depth of the collection"
-   ],
-   "teach": [
-    "The pelvis is the most dependent space in a supine patient — small bleeds often show here first.",
-    "Scan with a full bladder if possible; free fluid is shapeless and has sharp corners, unlike the smooth-walled bladder."
-   ],
-   "quiz": {
-    "q": "In a hypotensive trauma patient, an irregular black collection behind or above the bladder on the suprapubic FAST view most likely represents…",
-    "options": [
-     "Normal bladder urine",
-     "Free intraperitoneal fluid (blood)",
-     "Bowel gas",
-     "Reverberation artifact"
-    ],
-    "answer": 1,
-    "explain": "Shapeless anechoic fluid outside the bladder in the pelvis is a positive FAST; in an unstable trauma patient assume haemoperitoneum."
-   },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC13429830",
-    "fig": "F2"
-   },
-   "licenseClaimed": "CC BY 4.0",
-   "pageUrl": "https://doi.org/10.3389/fsurg.2026.1883987",
-   "crop": [
-    0.338,
-    0.0,
-    0.352,
-    0.93
-   ],
-   "marks": [],
-   "claimedBy": "discovery round 2 (media-candidates branch), reviewed visually"
-  },
-  {
-   "id": "ij-carotid-vexus-2024",
-   "kind": "ijv",
-   "type": "ultrasound",
-   "modality": "Point-of-care ultrasound",
-   "finding": "ij_carotid",
-   "findings": [
-    "ij_carotid"
-   ],
-   "title": "Internal jugular vein beside the carotid",
-   "caption": "Transverse linear-probe view of the neck showing the oval internal jugular vein lying superficial to the round, thick-walled common carotid artery.",
-   "look": [
-    "IJV: larger, thin-walled, oval, superficial",
-    "CCA: round, thick-walled, deeper",
-    "Both vessels anechoic in transverse section"
-   ],
-   "teach": [
-    "The IJ usually sits anterolateral to the carotid, but overlap is common — always find both before you puncture.",
-    "Confirm the vein by compressibility and the artery by its pulsatility and round shape."
-   ],
-   "quiz": {
-    "q": "On a transverse neck scan, which feature best identifies the internal jugular vein rather than the carotid?",
-    "options": [
-     "Round shape with thick walls",
-     "Collapses with gentle probe pressure",
-     "Pulsatile and non-compressible",
-     "Always lies medial to the carotid"
-    ],
-    "answer": 1,
-    "explain": "Veins compress easily under light pressure; the carotid stays round and pulsatile."
-   },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC11607288",
-    "fig": "Fig4"
-   },
-   "licenseClaimed": "CC BY 4.0",
-   "pageUrl": "https://doi.org/10.1186/s13089-024-00397-y",
-   "marks": [],
-   "claimedBy": "discovery round 2 (media-candidates branch), reviewed visually"
-  },
-  {
-   "id": "ij-needle-inplane-2025",
-   "kind": "ijv",
-   "type": "ultrasound",
-   "modality": "Point-of-care ultrasound",
-   "finding": "ij_needle",
-   "findings": [
-    "ij_needle"
-   ],
-   "title": "In-plane needle approaching the IJ",
-   "caption": "Ultrasound-guided internal jugular cannulation with the needle shaft seen in-plane as a bright oblique line advancing toward the vein (arrow).",
-   "look": [
-    "Bright straight hyperechoic line = needle shaft",
-    "Arrow marks the needle near the vein",
-    "IJ (labelled VJI) as the dark target lumen"
-   ],
-   "teach": [
-    "In-plane technique shows the whole shaft and tip, reducing the risk of back-wall or carotid puncture.",
-    "Never advance unless you can see the tip — the shaft alone can mislead."
-   ],
-   "quiz": {
-    "q": "The main advantage of an in-plane approach for IJ cannulation is…",
-    "options": [
-     "It needs no sterile cover",
-     "The full needle shaft and tip are visible as you advance",
-     "It makes the carotid compressible",
-     "It removes the need to aspirate"
-    ],
-    "answer": 1,
-    "explain": "Keeping the needle in the beam lets you follow the tip all the way into the vessel."
-   },
-   "fetch": {
-    "type": "epmc-fig",
-    "pmcid": "PMC11739437",
-    "fig": "Fig3"
-   },
-   "licenseClaimed": "CC BY 4.0",
-   "pageUrl": "https://doi.org/10.1186/s13089-025-00405-9",
-   "marks": [],
-   "claimedBy": "discovery round 2 (media-candidates branch), reviewed visually"
   }
  ]
 }

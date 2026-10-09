@@ -16,6 +16,6 @@
  "description": "Title: Confluent B-lines. Description: Confluent B-lines consistent with viral lung ultrasound pattern.",
  "restrictions": "",
  "id": "lus-confluent-tsung",
- "retrieved": "2026-10-04T03:25Z",
+ "retrieved": "2026-10-09T15:42Z",
  "verifiedBy": "tools/clinical_media.py fetch"
 }

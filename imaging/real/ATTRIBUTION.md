@@ -331,6 +331,104 @@ Real, openly licensed clinical images shown beside the synthetic ones. Only CC0 
 - Licence: CC BY 2.0 (https://creativecommons.org/licenses/by/2.0)
 - Changes: Original OGV (theora, 640×480, 30.0 fps, 10.0 s) re-encoded to H.264 MP4 (CRF 20) and VP9 WebM (CRF 30) at the original frame rate and length; audio none in the source; no crop, mirroring, speed change or other filtering. Poster = frame at 1.0 s.
 
+## cxr-mainstem-right-ebi-2019.jpg
+- Right mainstem (endobronchial) intubation — Supine AP film in which the endotracheal tube tip sits beyond the carina in the right main bronchus; the airway outline is traced in black.
+- Author: Hernandez Padilla AC, Trampont T, Lafon T, Daix T, Cailloce D, Barraud O, Dalmay F, Vignon P, François B.
+- Source: “Is prehospital endobronchial intubation a risk factor for subsequent ventilator associated pneumonia? A retrospective analysis”, PloS one 14:e0217466 (2019), https://doi.org/10.1371/journal.pone.0217466 — https://pmc-oa-opendata.s3.amazonaws.com/PMC6532927.1/pone.0217466.g002.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; one panel taken from the figure (region x 0.17–0.57, y 0.04–0.51 of the original); no other crop, mirroring or filtering.
+
+## cxr-ett-ok-ebi-2019.jpg
+- Endotracheal tube in good position — Supine AP film of an intubated adult with the tube tip in the mid trachea above the carina and clear lung fields; the airway is traced in black.
+- Author: Hernandez Padilla AC, Trampont T, Lafon T, Daix T, Cailloce D, Barraud O, Dalmay F, Vignon P, François B.
+- Source: “Is prehospital endobronchial intubation a risk factor for subsequent ventilator associated pneumonia? A retrospective analysis”, PloS one 14:e0217466 (2019), https://doi.org/10.1371/journal.pone.0217466 — https://pmc-oa-opendata.s3.amazonaws.com/PMC6532927.1/pone.0217466.g002.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; one panel taken from the figure (region x 0.17–0.57, y 0.55–1.00 of the original); no other crop, mirroring or filtering.
+
+## cxr-normal-pa-haggstrom.jpg
+- Normal chest radiograph (PA) — Upright PA film of a healthy young adult: clear lungs, sharp angles, normal heart size; a reference for comparison with ICU films.
+- Author: Mikael Häggström
+- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Normal_posteroanterior_(PA)_chest_radiograph_(X-ray).jpg
+- Licence: CC0 (http://creativecommons.org/publicdomain/zero/1.0/deed.en)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## cxr-hyperinflation-asthma-2025.jpg
+- Hyperinflation in near-fatal asthma — Supine portable film from a child with life-threatening asthma: over-expanded, dark lungs with low flat diaphragms and a narrow heart, with a gastric tube in place.
+- Author: Almutairi A, Althobaiti K, Antar M, Al Alem H, Kashgari A.
+- Source: “Near-fatal asthma in a 12-year-old girl leading to life-threatening tonsillar herniation: a case report”, Journal of medical case reports 19:435 (2025), https://doi.org/10.1186/s13256-025-05507-5 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12400729.1/13256_2025_5507_Fig1_HTML.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## cxr-flash-edema-portable-2026.jpg
+- Flash pulmonary edema on a portable film — Portable AP film after a pacing interruption: hazy perihilar and lower-zone airspace shadowing in both lungs, with a biventricular device and leads.
+- Author: Fahed J, Ganthan RR, Al-Zakhari R, Isber R, Isber N.
+- Source: “Flash Pulmonary Edema From Brief Loss of Biventricular Pacing During CRT-D Generator Exchange”, JACC. Case reports 31:107942 (2026), https://doi.org/10.1016/j.jaccas.2026.107942 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13221883.1/gr2.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## cxr-ards-ecmo-recovery-2026.jpg
+- ARDS on VV-ECMO, then recovery — Two supine films from one patient: dense opacities in both lungs when ECMO started (A), and much clearer lungs at ECMO weaning eight days later (B).
+- Author: Zhang S, Zhang Z, Yang J, Peng J, Yang Y, Su L, Jiang J.
+- Source: “Case Report: Navigating the bleeding-thrombosis paradox: regional nafamostat anticoagulation in a post-intracerebral hemorrhage patient on VV-ECMO”, Frontiers in medicine 13:1840332 (2026), https://doi.org/10.3389/fmed.2026.1840332 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13416251.1/fmed-13-1840332-g002.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## ct-aaa-rupture-96mm-2026.jpg
+- Ruptured AAA with left retroperitoneal haematoma — Axial CTA through a 96 mm infrarenal aneurysm: a bright contrast-filled lumen sits inside a thick grey rim of mural thrombus, with blood tracking into the left flank.
+- Author: van Schaik TG, Rastogi V, Vriens PWHE, Dinkelman MK, De Fijter MW, Heyligers JMM.
+- Source: “Use of an artificial intelligence-driven software device to assist endovascular repair of a ruptured abdominal aortic aneurysm”, Journal of vascular surgery cases and innovative techniques 12:102288 (2026), https://doi.org/10.1016/j.jvscit.2026.102288 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13285273.1/gr1.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## ct-aaa-rupture-right-hematoma-2025.jpg
+- AAA rupture site and massive retroperitoneal haematoma — Contrast CT of an aneurysmal aorta with a small contrast blister at its posterior-right wall (labelled rupture site) feeding a large right-sided retroperitoneal haematoma.
+- Author: Taguchi S, Nakaji S, Matsumaru I, Hisatomi K, Teratani H, Miura T.
+- Source: “Pulmonary embolism following endovascular aortic repair for a ruptured abdominal aortic aneurysm: A case report”, International journal of surgery case reports 133:111685 (2025), https://doi.org/10.1016/j.ijscr.2025.111685 — https://pmc-oa-opendata.s3.amazonaws.com/PMC12284653.1/gr1.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## ct-dissection-type-b-flap-2026.jpg
+- Intimal flap confined to the descending aorta — Axial contrast CT of the chest at the pulmonary trunk level: the ascending aorta is smooth and single-lumen while a thin curved flap splits the descending aorta into two channels.
+- Author: Ruiz-López A, Salido Iniesta M, Gómez Revelles S, Taroncher Domingo C, Viladés Medel D.
+- Source: “Computed tomography pitfalls and diagnostic value in a patient with post-infarction ventricular septal defect, cardiogenic shock, and iatrogenic type B aortic dissection during extracorporeal membrane oxygenation support: a case report”, European heart journal. Case reports 10:ytag524 (2026), https://doi.org/10.1093/ehjcr/ytag524 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13422630.1/ytag524f2.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; 1 region(s) with identifiers or burnt-in text blacked out; one panel taken from the figure (panel E (contrast axial, top right)); no other crop, mirroring or filtering.
+
+## ct-renal-nonperfusion-aaa-2026.jpg
+- Non-enhancing left kidney — Contrast CT at renal level: the right kidney enhances brightly while the left kidney (arrow) stays grey because its renal artery has lost continuity (here in a ruptured AAA, not a dissection).
+- Author: Jiang Y, Ni J, Zhang L, Jiang L, Li X.
+- Source: “Refractory abdominal compartment syndrome secondary to ruptured abdominal aortic aneurysm treated with total colectomy and upper rectal resection: A case report and literature review”, Medicine 105:e48285 (2026), https://doi.org/10.1097/md.0000000000048285 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13124428.1/medi-105-e48285-g001.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; 1 region(s) with identifiers or burnt-in text blacked out; one panel taken from the figure (panel B (post-contrast, renal level)); padded by one black pixel to even dimensions; no other crop, mirroring or filtering.
+
+## ct-aorta-normal-coronal-haggstrom.jpg
+- Normal abdominal aorta, coronal CT — Coronal contrast CT of a normal abdomen showing a slim, uniformly opacified abdominal aorta running down in front of the spine with no flap, thrombus or surrounding blood.
+- Author: Mikael Häggström, M.D.
+- Source: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:CT_of_a_normal_abdomen_and_pelvis,_coronal_plane_60.png
+- Licence: CC0 (http://creativecommons.org/publicdomain/zero/1.0/deed.en)
+- Changes: Converted to JPEG; one panel taken from the figure (main coronal image without the axial localiser inset); no other crop, mirroring or filtering.
+
+## fast-pelvis-positive-vats.jpg
+- Pelvic free fluid on FAST — Suprapubic FAST view from a patient with occult splenic rupture, showing a large irregular anechoic collection of blood in the pelvis above the bladder.
+- Author: Jinming Yao, Yan Xin, Xianzhen Liu
+- Source: “Case Report: Occult splenic rupture during left-sided VATS decortication: diagnostic role of early perioperative FAST”, Frontiers in surgery 13:1883987 (2026), https://doi.org/10.3389/fsurg.2026.1883987 — https://pmc-oa-opendata.s3.amazonaws.com/PMC13429830.1/fsurg-13-1883987-g002.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: Converted to JPEG; one panel taken from the figure (region x 0.34–0.69, y 0.00–0.93 of the original); padded by one black pixel to even dimensions; no other crop, mirroring or filtering.
+
+## ij-carotid-vexus-2024.jpg
+- Internal jugular vein beside the carotid — Transverse linear-probe view of the neck showing the oval internal jugular vein lying superficial to the round, thick-walled common carotid artery.
+- Author: Suppawee Klangthamneam, Krissada Meemook, Tananchai Petnak, Anchana Sonkaew, Taweevat Assavapokee
+- Source: “Correlation between right atrial pressure measured via right heart catheterization and venous excess ultrasound, inferior vena cava diameter, and ultrasound-measured jugular venous pressure: a prospective observational study”, The ultrasound journal 16:50 (2024), https://doi.org/10.1186/s13089-024-00397-y — https://pmc-oa-opendata.s3.amazonaws.com/PMC11607288.1/13089_2024_397_Fig4_HTML.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
+## ij-needle-inplane-2025.jpg
+- In-plane needle approaching the IJ — Ultrasound-guided internal jugular cannulation with the needle shaft seen in-plane as a bright oblique line advancing toward the vein (arrow).
+- Author: Michal Kalina, Patricia Vargová, Adéla Bubeníková, Roman Škulec, Vladimír Černý, David Astapenko
+- Source: “A novel "lateral approach short axis in-plane" technique vs. conventional "short-axis out-of-plane approach" for ultrasound-guided internal jugular vein access: a prospective randomized non-inferiority trial”, The ultrasound journal 17:5 (2025), https://doi.org/10.1186/s13089-025-00405-9 — https://pmc-oa-opendata.s3.amazonaws.com/PMC11739437.1/13089_2025_405_Fig3_HTML.jpg
+- Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Changes: None — the displayed file is the original, byte for byte.
+
 ## Considered and rejected
 
 - Open Critical Care anesthesia POCUS pocket card (2022): No licence stated; images credited “courtesy of” third parties (JACC, austincc.edu, echocardiographer.org). Used for facts only, in our own words.

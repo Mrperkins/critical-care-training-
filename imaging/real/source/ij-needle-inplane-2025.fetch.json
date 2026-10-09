@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC11739437",
+ "pageUrl": "https://doi.org/10.1186/s13089-025-00405-9",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original auth",
+ "authors": "Michal Kalina, Patricia Vargová, Adéla Bubeníková, Roman Škulec, Vladimír Černý, David Astapenko",
+ "title": "A novel \"lateral approach short axis in-plane\" technique vs. conventional \"short-axis out-of-plane approach\" for ultrasound-guided internal jugular vein access: a prospective randomized non-inferiority trial",
+ "publication": "The ultrasound journal",
+ "published": "2025-01-16",
+ "doi": "10.1186/s13089-025-00405-9",
+ "volume": "17",
+ "firstpage": "5",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC11739437.1/13089_2025_405_Fig3_HTML.jpg",
+ "originalName": "13089_2025_405_Fig3_HTML.jpg",
+ "description": "Fig. 3 Ultrasound image visualizing needle (white arrow) in-plane as hyperechogenic line entering an IJV",
+ "thirdParty": false,
+ "figure": "Fig3",
+ "licenseEvidence": "Europe PMC full text of PMC11739437 (doi 10.1186/s13089-025-00405-9), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original auth”; Fig. 3 caption checked for a separate credit.",
+ "id": "ij-needle-inplane-2025",
+ "retrieved": "2026-10-09T15:43Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

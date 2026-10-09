@@ -655,6 +655,194 @@
   }
  },
  {
+  "id": "cxr-mainstem-right-ebi-2019",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest radiograph",
+  "finding": "mainstem_right",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1371/journal.pone.0217466",
+  "localSources": {
+   "original": "imaging/real/source/cxr-mainstem-right-ebi-2019-source.jpg",
+   "image": "imaging/real/cxr-mainstem-right-ebi-2019.jpg"
+  }
+ },
+ {
+  "id": "cxr-ett-ok-ebi-2019",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest radiograph",
+  "finding": "ett_ok",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1371/journal.pone.0217466",
+  "localSources": {
+   "original": "imaging/real/source/cxr-ett-ok-ebi-2019-source.jpg",
+   "image": "imaging/real/cxr-ett-ok-ebi-2019.jpg"
+  }
+ },
+ {
+  "id": "cxr-normal-pa-haggstrom",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest radiograph",
+  "finding": "cxr_normal",
+  "license": "CC0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Normal_posteroanterior_(PA)_chest_radiograph_(X-ray).jpg",
+  "localSources": {
+   "image": "imaging/real/cxr-normal-pa-haggstrom.jpg"
+  }
+ },
+ {
+  "id": "cxr-hyperinflation-asthma-2025",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest radiograph",
+  "finding": "hyperinflation",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1186/s13256-025-05507-5",
+  "localSources": {
+   "image": "imaging/real/cxr-hyperinflation-asthma-2025.jpg"
+  }
+ },
+ {
+  "id": "cxr-flash-edema-portable-2026",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest radiograph",
+  "finding": "pulmonary_edema",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1016/j.jaccas.2026.107942",
+  "localSources": {
+   "image": "imaging/real/cxr-flash-edema-portable-2026.jpg"
+  }
+ },
+ {
+  "id": "cxr-ards-ecmo-recovery-2026",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest radiograph",
+  "finding": "ards",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.3389/fmed.2026.1840332",
+  "localSources": {
+   "image": "imaging/real/cxr-ards-ecmo-recovery-2026.jpg"
+  }
+ },
+ {
+  "id": "ct-aaa-rupture-96mm-2026",
+  "status": "ready",
+  "type": "ct",
+  "modality": "CT angiography",
+  "finding": "aaa_rupture",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1016/j.jvscit.2026.102288",
+  "localSources": {
+   "image": "imaging/real/ct-aaa-rupture-96mm-2026.jpg"
+  }
+ },
+ {
+  "id": "ct-aaa-rupture-right-hematoma-2025",
+  "status": "ready",
+  "type": "ct",
+  "modality": "CT",
+  "finding": "retroperitoneal_hematoma",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1016/j.ijscr.2025.111685",
+  "localSources": {
+   "image": "imaging/real/ct-aaa-rupture-right-hematoma-2025.jpg"
+  }
+ },
+ {
+  "id": "ct-dissection-type-b-flap-2026",
+  "status": "ready",
+  "type": "ct",
+  "modality": "CT angiography",
+  "finding": "dissection_type_b",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1093/ehjcr/ytag524",
+  "localSources": {
+   "original": "imaging/real/source/ct-dissection-type-b-flap-2026-source.jpg",
+   "image": "imaging/real/ct-dissection-type-b-flap-2026.jpg"
+  }
+ },
+ {
+  "id": "ct-renal-nonperfusion-aaa-2026",
+  "status": "ready",
+  "type": "ct",
+  "modality": "CT",
+  "finding": "renal_malperfusion",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1097/md.0000000000048285",
+  "localSources": {
+   "original": "imaging/real/source/ct-renal-nonperfusion-aaa-2026-source.jpg",
+   "image": "imaging/real/ct-renal-nonperfusion-aaa-2026.jpg"
+  }
+ },
+ {
+  "id": "ct-aorta-normal-coronal-haggstrom",
+  "status": "ready",
+  "type": "ct",
+  "modality": "CT",
+  "finding": "aorta_normal",
+  "license": "CC0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:CT_of_a_normal_abdomen_and_pelvis,_coronal_plane_60.png",
+  "localSources": {
+   "original": "imaging/real/source/ct-aorta-normal-coronal-haggstrom-source.png",
+   "image": "imaging/real/ct-aorta-normal-coronal-haggstrom.jpg"
+  }
+ },
+ {
+  "id": "fast-pelvis-positive-vats",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Point-of-care ultrasound",
+  "finding": "fast_pelvis_positive",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.3389/fsurg.2026.1883987",
+  "localSources": {
+   "original": "imaging/real/source/fast-pelvis-positive-vats-source.jpg",
+   "image": "imaging/real/fast-pelvis-positive-vats.jpg"
+  }
+ },
+ {
+  "id": "ij-carotid-vexus-2024",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Point-of-care ultrasound",
+  "finding": "ij_carotid",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1186/s13089-024-00397-y",
+  "localSources": {
+   "image": "imaging/real/ij-carotid-vexus-2024.jpg"
+  }
+ },
+ {
+  "id": "ij-needle-inplane-2025",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Point-of-care ultrasound",
+  "finding": "ij_needle",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1186/s13089-025-00405-9",
+  "localSources": {
+   "image": "imaging/real/ij-needle-inplane-2025.jpg"
+  }
+ },
+ {
   "id": "lus-confluent-tsung",
   "status": "pending",
   "type": "ultrasound",
