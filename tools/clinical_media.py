@@ -222,8 +222,8 @@ def jats_license(root) -> tuple[str | None, str]:
     raw = ET.tostring(el, encoding='unicode'); txt = strip_tags(raw)
     lic = norm_license(el.get(XL, '')) or next((norm_license(u) for u in re.findall(r'https?://creativecommons\.org/[a-z/]+\d\.\d/?', raw)), None)
     if not lic:  # licence stated only in words
-        m = re.search(r'Creative Commons Attribution (\d\.\d)', txt)
-        lic = f'CC BY {m.group(1)}' if m and not re.search(r'Non-?Commercial|NoDerivs|No ?Derivatives|ShareAlike', txt, re.I) else None
+        m = re.search(r'Creative Commons Attribution (\d\.\d)', txt) or re.search(r'\bCC[ -]BY[ -](\d\.\d)\b', txt)
+        lic = f'CC BY {m.group(1)}' if m and not re.search(r'Non-?Commercial|NoDerivs|No ?Derivatives|ShareAlike|\bCC[ -]BY[ -](NC|ND|SA)', txt, re.I) else None
     return lic, txt
 
 
