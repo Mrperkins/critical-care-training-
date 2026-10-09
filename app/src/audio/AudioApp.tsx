@@ -23,7 +23,7 @@ function durableVoiceAsset(id: string): DurableVoiceAsset | null {
 }
 function voiceAssetSrc(a: DurableVoiceAsset) {
   const version = a.transcriptHash ? `?v=${encodeURIComponent(a.transcriptHash)}` : '';
-  return `voice/${a.file}${version}`;
+  return `${a.file.includes('/') ? a.file : `voice/${a.file}`}${version}`; // natural-narrator clips live in narration/
 }
 function durableVoiceSrc(id: string) {
   const a = durableVoiceAsset(id);

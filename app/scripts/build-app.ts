@@ -3,6 +3,7 @@ import { build } from 'esbuild';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
+import { narrationJobs } from './narration-common';
 import { MENTAL_REPS } from '../src/audio/catalog';
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const out = path.join(ROOT, 'dist'); fs.mkdirSync(out, { recursive: true });
@@ -19,7 +20,6 @@ add('__EYES_GLB__', 'public/models/eyes.glb');
 add('__BODYF_GLB__', 'public/models/body-f.glb'); add('__BODYF_MAP__', 'public/models/body-f.mapping.json', true);
 add('__MICRO_GLB__', 'public/models/micro.glb'); add('__MICRO_MAP__', 'public/models/micro.mapping.json', true);
 add('__LINES_GLB__', 'public/models/lines.glb'); add('__LINES_MAP__', 'public/models/lines.mapping.json', true);
-add('__VO__', 'public/vo/vo.json', true);
 const head = `<!doctype html>\n<html lang="en">\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n<title>Critical Care Physiology</title>\n<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#05090d"><link rel="apple-touch-icon" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">\n<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;500;600&family=Atkinson+Hyperlegible+Next:wght@400;500;600;700&display=swap" rel="stylesheet">\n<style>${css}</style>`;
 const html = `${head}\n<div id="root"></div>\n<script>${inline.join('\n')}</script>\n<script>${js.replace(/<\/script/g, '<\\/script')}</script>\n`;
 fs.writeFileSync(path.join(out, 'index.html'), html);
@@ -27,8 +27,12 @@ fs.writeFileSync(path.join(out, 'dev.html'), `${head}<div id="root"></div><scrip
 // publishable multi-file version: small page + separate model / narration files
 const pub = path.join(out, 'pub'); fs.rmSync(pub, { recursive: true, force: true }); fs.mkdirSync(path.join(pub, 'models'), { recursive: true }); fs.mkdirSync(path.join(pub, 'vo'), { recursive: true });
 for (const f of ['medical-ventilator.glb', 'medical-ventilator.provenance.json', 'bedside-airway.glb', 'bedside-airway.provenance.json', 'resp.glb', 'resp.mapping.json', 'micro.glb', 'micro.mapping.json', 'body.glb', 'body.mapping.json', 'body-f.glb', 'body-f.mapping.json', 'eyes.glb', 'eyes.mapping.json', 'lines.glb', 'lines.mapping.json']) { const p = path.join(ROOT, 'public/models', f); if (fs.existsSync(p)) { if (f.endsWith('.glb')) fs.writeFileSync(path.join(pub, 'models', f + '.txt'), fs.readFileSync(p).toString('base64')); else fs.copyFileSync(p, path.join(pub, 'models', f)); } }
-let voIds: string[] = []; const voJson = path.join(ROOT, 'public/vo/vo.json');
-if (fs.existsSync(voJson)) { const vo: Record<string, string> = JSON.parse(fs.readFileSync(voJson, 'utf8')); voIds = Object.keys(vo); for (const [id, b64] of Object.entries(vo)) fs.writeFileSync(path.join(pub, 'vo', id + '.mp3'), Buffer.from(b64, 'base64')); }
+// narration: clips live at repo-root vo/<id>.mp3 (scripts/narration_collect.py); only clips whose hash matches the current line play
+const narration = narrationJobs(ROOT); const want = new Map(narration.map((j) => [j.id, j.hash]));
+const voMetaP = path.join(ROOT, 'public/vo/narration.json'); const voMeta: Record<string, { hash: string }> = fs.existsSync(voMetaP) ? JSON.parse(fs.readFileSync(voMetaP, 'utf8')) : {};
+let voIds = Object.entries(voMeta).filter(([id, m]) => want.get(id) === m.hash).map(([id]) => id);
+const voJson = path.join(ROOT, 'public/vo/vo.json'); // previous clip store, used until the natural narrator has covered every line
+if (!voIds.length && fs.existsSync(voJson)) { const vo: Record<string, string> = JSON.parse(fs.readFileSync(voJson, 'utf8')); voIds = Object.keys(vo); for (const [id, b64] of Object.entries(vo)) fs.writeFileSync(path.join(pub, 'vo', id + '.mp3'), Buffer.from(b64, 'base64')); }
 fs.writeFileSync(path.join(pub, 'index.html'), `${head}\n<div id="root"></div>\n<script>window.__VO_IDS__=${JSON.stringify(voIds)};window.__B64_MODELS__=true;</script>\n<script>${js.replace(/<\/script/g, '<\\/script')}</script>\n`);
 
 // Standalone Critical Care Audio / Mental Reps learner surface.
@@ -51,8 +55,9 @@ if (fs.existsSync(audioVoice)) {
   fs.cpSync(audioVoice, path.join(audioDir, 'voice'), { recursive: true, force: true });
   const voiceManifest = path.join(audioVoice, 'manifest.json');
   if (fs.existsSync(voiceManifest)) {
-    const parsed = JSON.parse(fs.readFileSync(voiceManifest, 'utf8')) as { assets?: { id: string; file: string; transcriptHash?: string; reviewed?: boolean }[] };
+    const parsed = JSON.parse(fs.readFileSync(voiceManifest, 'utf8')) as { assets?: { id: string; file: string; transcriptHash?: string; narrationHash?: string; reviewed?: boolean }[] };
     audioVoiceAssets = Object.fromEntries((parsed.assets ?? []).filter((a) => {
+      if (a.narrationHash) return want.get(a.id) === a.narrationHash; // natural narrator: current only if its line is unchanged
       if (!a.id.startsWith('rep.')) return true;
       const expected = expectedRepHash.get(a.id);
       return !!expected && a.transcriptHash === expected;

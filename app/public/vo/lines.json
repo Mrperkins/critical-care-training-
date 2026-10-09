@@ -1366,5 +1366,2117 @@
  {
   "id": "sb-6",
   "t": "On CT the air sits in front of the liver and bowel, outside the gut. Perforation with peritonitis needs resuscitation, antibiotics and an operation."
+ },
+ {
+  "id": "asthma-see",
+  "t": "Asthma. Locate the affected airway within the patient. Bronchospasm affects airflow; the alveoli need not initially be flooded."
+ },
+ {
+  "id": "asthma-zoom",
+  "t": "Smooth-muscle constriction, mucosal swelling and mucus narrow the conducting airway, increasing resistance."
+ },
+ {
+  "id": "asthma-understand",
+  "t": "Follow the highlighted changes: narrowed bronchial lumen, inflamed airway wall. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "asthma-apply",
+  "t": "For asthma, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "copd-see",
+  "t": "COPD / emphysema. Locate the affected alveoli within the patient. Emphysema changes tissue structure, rather than simply adding bronchospasm."
+ },
+ {
+  "id": "copd-zoom",
+  "t": "Loss of alveolar walls reduces elastic recoil and capillary surface; small airways narrow during expiration."
+ },
+ {
+  "id": "copd-understand",
+  "t": "Follow the highlighted changes: enlarged air spaces, reduced capillary bed, expiratory flow limitation. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "copd-apply",
+  "t": "For COPD / emphysema, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "bronchospasm-see",
+  "t": "Severe bronchospasm / air trapping. Locate the affected airway within the patient. A quiet chest can mean critically little airflow, rather than improvement."
+ },
+ {
+  "id": "bronchospasm-zoom",
+  "t": "A long expiratory time constant prevents complete emptying before the next breath. End-expiratory volume rises."
+ },
+ {
+  "id": "bronchospasm-understand",
+  "t": "Follow the highlighted changes: critical airway narrowing, retained expiratory gas, rising intrathoracic pressure. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "bronchospasm-apply",
+  "t": "For severe bronchospasm / air trapping, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "auto-peep-see",
+  "t": "Auto-PEEP. Locate the affected alveoli within the patient. Intrinsic PEEP is trapped pressure, not the ventilator’s set PEEP."
+ },
+ {
+  "id": "auto-peep-zoom",
+  "t": "Incomplete exhalation leaves alveolar pressure above applied PEEP; the patient must overcome that threshold to trigger."
+ },
+ {
+  "id": "auto-peep-understand",
+  "t": "Follow the highlighted changes: dynamic hyperinflation, intrinsic PEEP, reduced venous return. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "auto-peep-apply",
+  "t": "For Auto-PEEP, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "pneumonia-see",
+  "t": "Pneumonia. Locate the affected alveoli within the patient. Consolidation can be regional; oxygenation and mechanics vary with its extent."
+ },
+ {
+  "id": "pneumonia-zoom",
+  "t": "Inflammatory exudate occupies a region of alveoli, leaving perfused units inadequately ventilated."
+ },
+ {
+  "id": "pneumonia-understand",
+  "t": "Follow the highlighted changes: focal alveolar exudate, inflamed tissue, perfusion without ventilation. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "pneumonia-apply",
+  "t": "For pneumonia, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "ards-see",
+  "t": "ARDS. Locate the affected alveoli within the patient. Diffuse permeability injury differs from hydrostatic edema due to left-heart failure."
+ },
+ {
+  "id": "ards-zoom",
+  "t": "Barrier injury allows protein-rich fluid into air spaces; unstable units collapse and the aerated lung becomes smaller."
+ },
+ {
+  "id": "ards-understand",
+  "t": "Follow the highlighted changes: permeability edema, unstable collapsed alveoli, intrapulmonary shunt, barrier injury. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "ards-apply",
+  "t": "For ARDS, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "pulmonary-edema-see",
+  "t": "Cardiogenic pulmonary edema. Locate the affected alveoli within the patient. The initiating problem is hydrostatic pressure; recruitment support does not remove the cardiac cause."
+ },
+ {
+  "id": "pulmonary-edema-zoom",
+  "t": "Elevated pulmonary venous pressure drives fluid from capillaries into interstitium and alveoli."
+ },
+ {
+  "id": "pulmonary-edema-understand",
+  "t": "Follow the highlighted changes: pulmonary venous pressure, alveolar flooding, poorly ventilated perfused units. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "pulmonary-edema-apply",
+  "t": "For cardiogenic pulmonary edema, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "atelectasis-see",
+  "t": "Atelectasis. Locate the affected alveoli within the patient. Collapsed units create shunt; a blocked bronchus may need relief before recruitment works."
+ },
+ {
+  "id": "atelectasis-zoom",
+  "t": "Loss of aeration reduces functional lung volume while blood continues through the collapsed region."
+ },
+ {
+  "id": "atelectasis-understand",
+  "t": "Follow the highlighted changes: volume loss, perfused unventilated units. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "atelectasis-apply",
+  "t": "For atelectasis, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "simple-pneumothorax-see",
+  "t": "Simple pneumothorax. Locate the affected pleura within the patient. There is pleural air without the pressure-driven shock shown in tension physiology."
+ },
+ {
+  "id": "simple-pneumothorax-zoom",
+  "t": "Pleural gas separates visceral and parietal surfaces, allowing elastic recoil to shrink the affected lung."
+ },
+ {
+  "id": "simple-pneumothorax-understand",
+  "t": "Follow the highlighted changes: ipsilateral lung recoil, reduced ventilation. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "simple-pneumothorax-apply",
+  "t": "For simple pneumothorax, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "tension-pneumothorax-see",
+  "t": "Tension pneumothorax. Locate the affected pleura within the patient. Tension is a clinical pressure-and-perfusion problem, not a requirement for a dramatic radiograph."
+ },
+ {
+  "id": "tension-pneumothorax-zoom",
+  "t": "Progressively trapped pleural gas compresses lung and impedes cardiac filling; perfusion falls as pressure rises."
+ },
+ {
+  "id": "tension-pneumothorax-understand",
+  "t": "Follow the highlighted changes: compressed lung, pressurized pleural space, impaired venous return. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "tension-pneumothorax-apply",
+  "t": "For tension pneumothorax, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "hemothorax-see",
+  "t": "Hemothorax. Locate the affected pleura within the patient. Both ventilation and blood-volume loss matter."
+ },
+ {
+  "id": "hemothorax-zoom",
+  "t": "Blood collects in the pleural space, compressing lung while circulating volume is lost."
+ },
+ {
+  "id": "hemothorax-understand",
+  "t": "Follow the highlighted changes: pleural blood, compressed lung, circulating blood loss. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "hemothorax-apply",
+  "t": "For hemothorax, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "pulmonary-embolism-see",
+  "t": "Pulmonary embolism. Locate the affected pulmonary vessels within the patient. Dead space and RV strain differ from the shunt mechanism of flooded alveoli."
+ },
+ {
+  "id": "pulmonary-embolism-zoom",
+  "t": "Pulmonary arterial obstruction creates ventilated but underperfused lung and increases right-ventricular afterload."
+ },
+ {
+  "id": "pulmonary-embolism-understand",
+  "t": "Follow the highlighted changes: pulmonary arterial clot, reduced regional perfusion, RV pressure load. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "pulmonary-embolism-apply",
+  "t": "For pulmonary embolism, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "upper-airway-obstruction-see",
+  "t": "Upper-airway obstruction. Locate the affected airway within the patient. Stridor and poor air entry require interpretation alongside effort and mentation."
+ },
+ {
+  "id": "upper-airway-obstruction-zoom",
+  "t": "Narrowing above the intrathoracic bronchi limits airflow through a small common passage."
+ },
+ {
+  "id": "upper-airway-obstruction-understand",
+  "t": "Follow the highlighted changes: upper-airway narrowing, reduced airflow. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "upper-airway-obstruction-apply",
+  "t": "For upper-airway obstruction, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "aspiration-see",
+  "t": "Aspiration. Locate the affected airway within the patient. Aspiration pneumonitis and bacterial pneumonia are different processes that can coexist."
+ },
+ {
+  "id": "aspiration-zoom",
+  "t": "Aspirated material obstructs distal airways and can provoke chemical inflammation, alveolar injury and impaired gas exchange."
+ },
+ {
+  "id": "aspiration-understand",
+  "t": "Follow the highlighted changes: airway material, chemical injury, distal alveolar injury, impaired gas exchange. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "aspiration-apply",
+  "t": "For aspiration, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "stemi-see",
+  "t": "STEMI / acute MI. Locate the affected heart within the patient. The ECG helps identify a pattern; this schematic does not diagnose or localize a patient’s infarct."
+ },
+ {
+  "id": "stemi-zoom",
+  "t": "An acutely obstructed coronary artery deprives downstream myocardium of oxygen, producing regional injury and loss of contraction."
+ },
+ {
+  "id": "stemi-understand",
+  "t": "Follow the highlighted changes: coronary obstruction, myocardial injury territory, regional contraction loss, electrical instability. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "stemi-apply",
+  "t": "For STEMI / acute MI, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "cardiogenic-shock-see",
+  "t": "Cardiogenic shock. Locate the affected heart within the patient. Low forward flow and pulmonary congestion can occur together."
+ },
+ {
+  "id": "cardiogenic-shock-zoom",
+  "t": "Severely reduced forward pumping lowers tissue perfusion even when ventricular filling pressure is high."
+ },
+ {
+  "id": "cardiogenic-shock-understand",
+  "t": "Follow the highlighted changes: impaired LV pump, low systemic flow, upstream congestion. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "cardiogenic-shock-apply",
+  "t": "For cardiogenic shock, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "acute-heart-failure-see",
+  "t": "Acute decompensated heart failure. Locate the affected heart within the patient. Congestion is not the same as intravascular depletion."
+ },
+ {
+  "id": "acute-heart-failure-zoom",
+  "t": "Elevated ventricular filling pressures transmit backward into the venous circulation; forward output may also fall."
+ },
+ {
+  "id": "acute-heart-failure-understand",
+  "t": "Follow the highlighted changes: reduced ventricular function, venous congestion, elevated filling pressure. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "acute-heart-failure-apply",
+  "t": "For acute decompensated heart failure, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "rv-failure-see",
+  "t": "Right-ventricular failure. Locate the affected heart within the patient. An RV-sensitive patient may deteriorate with abrupt increases in intrathoracic pressure."
+ },
+ {
+  "id": "rv-failure-zoom",
+  "t": "A pressure- or volume-loaded RV dilates, impairs LV filling and raises systemic venous pressure."
+ },
+ {
+  "id": "rv-failure-understand",
+  "t": "Follow the highlighted changes: RV failure, RV load, reduced LV preload. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "rv-failure-apply",
+  "t": "For right-ventricular failure, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "tamponade-see",
+  "t": "Cardiac tamponade. Locate the affected heart within the patient. Hemodynamic impact depends on pressure and accumulation rate, not fluid volume alone."
+ },
+ {
+  "id": "tamponade-zoom",
+  "t": "Pericardial pressure restricts diastolic filling, reducing stroke volume despite compensatory tachycardia."
+ },
+ {
+  "id": "tamponade-understand",
+  "t": "Follow the highlighted changes: pericardial fluid, external filling constraint, reduced stroke volume. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "tamponade-apply",
+  "t": "For cardiac tamponade, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "tachydysrhythmia-see",
+  "t": "Major tachydysrhythmia concepts. Locate the affected heart within the patient. A fast rate may be causal or compensatory; identify the rhythm and perfusion."
+ },
+ {
+  "id": "tachydysrhythmia-zoom",
+  "t": "Rapid activation shortens filling time and can reduce stroke volume; rhythm organization and ventricular function alter tolerance."
+ },
+ {
+  "id": "tachydysrhythmia-understand",
+  "t": "Follow the highlighted changes: rapid electrical activation, reduced filling time. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "tachydysrhythmia-apply",
+  "t": "For major tachydysrhythmia concepts, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "bradydysrhythmia-see",
+  "t": "Major bradydysrhythmia concepts. Locate the affected heart within the patient. The pressure and mental-status response determine clinical significance."
+ },
+ {
+  "id": "bradydysrhythmia-zoom",
+  "t": "Slow impulse generation or failed conduction reduces ventricular activations and can lower cardiac output."
+ },
+ {
+  "id": "bradydysrhythmia-understand",
+  "t": "Follow the highlighted changes: delayed / blocked conduction, insufficient forward flow. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "bradydysrhythmia-apply",
+  "t": "For major bradydysrhythmia concepts, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "aortic-dissection-see",
+  "t": "Aortic dissection. Locate the affected aorta within the patient. Malperfusion, rupture and valve involvement are distinct consequences."
+ },
+ {
+  "id": "aortic-dissection-zoom",
+  "t": "Blood enters an injured aortic wall, separating layers into true and false lumens and potentially compromising branch flow."
+ },
+ {
+  "id": "aortic-dissection-understand",
+  "t": "Follow the highlighted changes: compressed true lumen, false-lumen wall stress, branch malperfusion. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "aortic-dissection-apply",
+  "t": "For aortic dissection, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "aaa-see",
+  "t": "Abdominal aortic aneurysm. Locate the affected aorta within the patient. An aneurysm can be intact; size and symptoms do not alone establish rupture."
+ },
+ {
+  "id": "aaa-zoom",
+  "t": "A weakened abdominal aortic wall expands, changing geometry and increasing wall stress as diameter enlarges."
+ },
+ {
+  "id": "aaa-understand",
+  "t": "Follow the highlighted changes: aortic wall expansion, wall stress. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "aaa-apply",
+  "t": "For abdominal aortic aneurysm, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "rupturing-aaa-see",
+  "t": "Rupturing AAA. Locate the affected aorta within the patient. Retroperitoneal bleeding may be concealed."
+ },
+ {
+  "id": "rupturing-aaa-zoom",
+  "t": "Aortic wall failure releases blood into retroperitoneal or peritoneal spaces, reducing circulating volume and tissue flow."
+ },
+ {
+  "id": "rupturing-aaa-understand",
+  "t": "Follow the highlighted changes: aneurysmal sac, extravasated blood, blood-volume loss, systemic hypoperfusion. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "rupturing-aaa-apply",
+  "t": "For rupturing AAA, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "hypertensive-emergency-see",
+  "t": "Hypertensive emergency. Locate the affected circulation within the patient. A high number alone is not a hypertensive emergency; acute organ injury is required."
+ },
+ {
+  "id": "hypertensive-emergency-zoom",
+  "t": "Severe pressure accompanied by acute organ injury can overwhelm vascular regulation and injure brain, heart or kidneys."
+ },
+ {
+  "id": "hypertensive-emergency-understand",
+  "t": "Follow the highlighted changes: elevated vascular pressure, organ injury, barrier dysfunction. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "hypertensive-emergency-apply",
+  "t": "For hypertensive emergency, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "lvo-see",
+  "t": "Large-vessel ischemic stroke. Locate the affected brain within the patient. Time, collaterals and imaging determine tissue status; the colored regions are schematic."
+ },
+ {
+  "id": "lvo-zoom",
+  "t": "An arterial occlusion reduces downstream blood delivery; collateral supply supports some threatened tissue around an irreversibly injured core."
+ },
+ {
+  "id": "lvo-understand",
+  "t": "Follow the highlighted changes: large-vessel occlusion, ischemic core, threatened penumbra. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "lvo-apply",
+  "t": "For large-vessel ischemic stroke, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "core-penumbra-see",
+  "t": "Ischemic core vs penumbra. Locate the affected brain within the patient. Penumbra is not a fixed ring or a guaranteed outcome; this is a concept illustration."
+ },
+ {
+  "id": "core-penumbra-zoom",
+  "t": "The core has severely impaired energy supply; the surrounding penumbra has reduced flow but may retain recoverable tissue."
+ },
+ {
+  "id": "core-penumbra-understand",
+  "t": "Follow the highlighted changes: established injury core, potentially salvageable low-flow tissue. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "core-penumbra-apply",
+  "t": "For ischemic core vs penumbra, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "ich-see",
+  "t": "Intracerebral hemorrhage. Locate the affected brain within the patient. A parenchymal hematoma differs from blood in the subarachnoid space."
+ },
+ {
+  "id": "ich-zoom",
+  "t": "Blood collects within brain parenchyma, damaging tissue directly and adding mass and surrounding edema."
+ },
+ {
+  "id": "ich-understand",
+  "t": "Follow the highlighted changes: parenchymal hematoma, perihematomal edema, mass effect, secondary perfusion burden. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "ich-apply",
+  "t": "For intracerebral hemorrhage, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "sah-see",
+  "t": "Subarachnoid hemorrhage. Locate the affected brain within the patient. Surface/CSF-space blood is distinct from an intraparenchymal clot."
+ },
+ {
+  "id": "sah-zoom",
+  "t": "Blood enters CSF spaces around the brain, with risks of impaired CSF circulation and secondary vascular complications."
+ },
+ {
+  "id": "sah-understand",
+  "t": "Follow the highlighted changes: blood in subarachnoid spaces, impaired CSF outflow, secondary perfusion risk. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "sah-apply",
+  "t": "For subarachnoid hemorrhage, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "cerebral-edema-see",
+  "t": "Cerebral edema. Locate the affected brain within the patient. Edema can follow ischemia, trauma or other injury; a rigid container limits reserve."
+ },
+ {
+  "id": "cerebral-edema-zoom",
+  "t": "Water accumulation expands tissue inside a rigid skull, initially displacing CSF and venous blood."
+ },
+ {
+  "id": "cerebral-edema-understand",
+  "t": "Follow the highlighted changes: swollen brain tissue, lost intracranial reserve, secondary perfusion burden. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "cerebral-edema-apply",
+  "t": "For cerebral edema, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "rising-icp-see",
+  "t": "Rising ICP. Locate the affected brain within the patient. CPP depends on arterial pressure and ICP; the diagram does not measure either."
+ },
+ {
+  "id": "rising-icp-zoom",
+  "t": "Once compensatory reserve is exhausted, additional intracranial volume sharply increases pressure and threatens perfusion."
+ },
+ {
+  "id": "rising-icp-understand",
+  "t": "Follow the highlighted changes: intracranial volume burden, rising intracranial pressure, reduced perfusion gradient. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "rising-icp-apply",
+  "t": "For rising ICP, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "herniation-see",
+  "t": "Herniation. Locate the affected brain within the patient. Herniation is displacement and compression, not just an elevated pressure number."
+ },
+ {
+  "id": "herniation-zoom",
+  "t": "Pressure gradients displace brain tissue across rigid boundaries, compressing critical neural and vascular structures."
+ },
+ {
+  "id": "herniation-understand",
+  "t": "Follow the highlighted changes: tissue expansion, compartment pressure gradient, brainstem vascular compression. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "herniation-apply",
+  "t": "For herniation, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "status-see",
+  "t": "Seizure / status epilepticus. Locate the affected brain within the patient. Motor activity may stop while electrical seizure persists."
+ },
+ {
+  "id": "status-zoom",
+  "t": "Sustained abnormal electrical activity increases metabolic demand and can compromise ventilation, oxygen delivery and neural function."
+ },
+ {
+  "id": "status-understand",
+  "t": "Follow the highlighted changes: sustained abnormal activation, increased energy demand, supply–demand stress, secondary perfusion burden. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "status-apply",
+  "t": "For seizure / status epilepticus, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "tbi-see",
+  "t": "Traumatic brain injury. Locate the affected brain within the patient. Supportive care limits secondary harm without reversing the primary injury."
+ },
+ {
+  "id": "tbi-zoom",
+  "t": "Primary mechanical injury may combine contusions, hemorrhage and swelling; hypoxia and hypotension add secondary injury."
+ },
+ {
+  "id": "tbi-understand",
+  "t": "Follow the highlighted changes: traumatic contusion, post-injury swelling, secondary injury risk, secondary perfusion burden. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "tbi-apply",
+  "t": "For traumatic brain injury, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "hemorrhagic-shock-see",
+  "t": "Hemorrhagic shock. Locate the affected circulation within the patient. Pressure can be initially compensated even while tissue flow falls."
+ },
+ {
+  "id": "hemorrhagic-shock-zoom",
+  "t": "Loss of circulating blood decreases venous return, stroke volume and oxygen-carrying capacity."
+ },
+ {
+  "id": "hemorrhagic-shock-understand",
+  "t": "Follow the highlighted changes: ongoing blood loss, reduced circulating volume, reduced tissue flow. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "hemorrhagic-shock-apply",
+  "t": "For hemorrhagic shock, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "septic-shock-see",
+  "t": "Distributive / septic shock. Locate the affected circulation within the patient. Warm skin or a high cardiac output does not establish adequate cellular oxygen use."
+ },
+ {
+  "id": "septic-shock-zoom",
+  "t": "Vasodilation, endothelial leak and disordered microcirculatory flow reduce effective perfusion; cardiac dysfunction may coexist."
+ },
+ {
+  "id": "septic-shock-understand",
+  "t": "Follow the highlighted changes: endothelial activation, capillary leak, maldistributed flow. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "septic-shock-apply",
+  "t": "For distributive / septic shock, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "anaphylaxis-see",
+  "t": "Anaphylactic shock. Locate the affected circulation within the patient. Skin findings can be absent; airway and circulatory consequences can coexist."
+ },
+ {
+  "id": "anaphylaxis-zoom",
+  "t": "Mediator release combines vasodilation and capillary leak with possible bronchospasm and upper-airway swelling."
+ },
+ {
+  "id": "anaphylaxis-understand",
+  "t": "Follow the highlighted changes: airway / tissue swelling, bronchospasm, effective intravascular loss, distributive collapse. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "anaphylaxis-apply",
+  "t": "For anaphylactic shock, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "obstructive-shock-see",
+  "t": "Obstructive shock. Locate the affected circulation within the patient. Tension pneumothorax, tamponade and pulmonary embolism obstruct different parts of the circuit."
+ },
+ {
+  "id": "obstructive-shock-zoom",
+  "t": "A mechanical barrier to filling or ejection restricts blood flow despite a potentially intact myocardial pump."
+ },
+ {
+  "id": "obstructive-shock-understand",
+  "t": "Follow the highlighted changes: mechanical flow barrier, upstream pressure, reduced forward flow. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "obstructive-shock-apply",
+  "t": "For obstructive shock, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "chest-trauma-see",
+  "t": "Chest trauma. Locate the affected pleura within the patient. Identify the dominant reversible threat rather than assuming one lesion explains all findings."
+ },
+ {
+  "id": "chest-trauma-zoom",
+  "t": "Chest injury can combine impaired chest-wall mechanics, pulmonary contusion and pleural blood or air."
+ },
+ {
+  "id": "chest-trauma-understand",
+  "t": "Follow the highlighted changes: thoracic blood, contused lung, lost ventilation. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "chest-trauma-apply",
+  "t": "For chest trauma, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "abdominal-hemorrhage-see",
+  "t": "Abdominal hemorrhage. Locate the affected circulation within the patient. A negative early external examination does not exclude internal hemorrhage."
+ },
+ {
+  "id": "abdominal-hemorrhage-zoom",
+  "t": "Solid-organ or vascular injury spills blood into abdominal compartments, reducing circulating volume."
+ },
+ {
+  "id": "abdominal-hemorrhage-understand",
+  "t": "Follow the highlighted changes: intraperitoneal blood, lost circulating volume, falling perfusion. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "abdominal-hemorrhage-apply",
+  "t": "For abdominal hemorrhage, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "pelvic-hemorrhage-see",
+  "t": "Pelvic hemorrhage. Locate the affected circulation within the patient. The hemorrhage may be retroperitoneal and absent from abdominal free-fluid views."
+ },
+ {
+  "id": "pelvic-hemorrhage-zoom",
+  "t": "Pelvic injury can disrupt venous plexuses and arteries, allowing substantial concealed bleeding in the pelvis."
+ },
+ {
+  "id": "pelvic-hemorrhage-understand",
+  "t": "Follow the highlighted changes: pelvic / retroperitoneal blood, circulating-volume loss. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "pelvic-hemorrhage-apply",
+  "t": "For pelvic hemorrhage, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "burns-see",
+  "t": "Burns / capillary leak. Locate the affected circulation within the patient. Swollen tissues can coexist with inadequate circulating volume."
+ },
+ {
+  "id": "burns-zoom",
+  "t": "Barrier injury and inflammatory permeability shift fluid into interstitium while effective intravascular volume falls."
+ },
+ {
+  "id": "burns-understand",
+  "t": "Follow the highlighted changes: inflammatory injury, interstitial fluid shift, intravascular depletion. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "burns-apply",
+  "t": "For burns / capillary leak, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "dka-see",
+  "t": "DKA. Locate the affected chemistry within the patient. Serum potassium may be high despite depleted total-body stores; ventilation compensates for acidosis."
+ },
+ {
+  "id": "dka-zoom",
+  "t": "Insulin deficiency promotes ketone production and osmotic diuresis, producing an anion-gap acidosis and volume/electrolyte loss."
+ },
+ {
+  "id": "dka-understand",
+  "t": "Follow the highlighted changes: ketone accumulation, osmotic diuresis, potassium-shift risk. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "dka-apply",
+  "t": "For DKA, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "hyperkalemia-see",
+  "t": "Severe hyperkalemia. Locate the affected chemistry within the patient. ECG findings are variable; a normal-looking tracing does not safely exclude dangerous hyperkalemia."
+ },
+ {
+  "id": "hyperkalemia-zoom",
+  "t": "Raised extracellular potassium changes the resting membrane potential and can impair myocardial conduction."
+ },
+ {
+  "id": "hyperkalemia-understand",
+  "t": "Follow the highlighted changes: extracellular potassium excess, conduction instability. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "hyperkalemia-apply",
+  "t": "For severe hyperkalemia, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "hypoglycemia-see",
+  "t": "Severe hypoglycemia. Locate the affected chemistry within the patient. Autonomic symptoms may precede neuroglycopenia, but presentation varies."
+ },
+ {
+  "id": "hypoglycemia-zoom",
+  "t": "Insufficient glucose delivery impairs cellular energy supply, especially in the brain."
+ },
+ {
+  "id": "hypoglycemia-understand",
+  "t": "Follow the highlighted changes: reduced glucose availability, neuroglycopenic dysfunction. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "hypoglycemia-apply",
+  "t": "For severe hypoglycemia, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "metabolic-acidosis-see",
+  "t": "Metabolic acidosis. Locate the affected chemistry within the patient. Compensation does not remove the metabolic cause; losing compensatory ventilation can be hazardous."
+ },
+ {
+  "id": "metabolic-acidosis-zoom",
+  "t": "Reduced bicarbonate or increased nonvolatile acid lowers pH; respiratory compensation increases CO₂ clearance."
+ },
+ {
+  "id": "metabolic-acidosis-understand",
+  "t": "Follow the highlighted changes: metabolic acid burden, possible perfusion cause. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "metabolic-acidosis-apply",
+  "t": "For metabolic acidosis, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "opioid-toxicity-see",
+  "t": "Opioid toxicity. Locate the affected chemistry within the patient. Oxygen can conceal hypoventilation on pulse oximetry; assess ventilation directly."
+ },
+ {
+  "id": "opioid-toxicity-zoom",
+  "t": "Opioid receptor effects depress respiratory drive, reducing alveolar ventilation and increasing CO₂."
+ },
+ {
+  "id": "opioid-toxicity-understand",
+  "t": "Follow the highlighted changes: CO₂ retention, depressed respiratory drive, reduced gas exchange. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "opioid-toxicity-apply",
+  "t": "For opioid toxicity, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "sympathomimetic-see",
+  "t": "Sympathomimetic physiology. Locate the affected chemistry within the patient. Hyperthermia and agitation add physiologic stress beyond the pulse rate."
+ },
+ {
+  "id": "sympathomimetic-zoom",
+  "t": "Excess adrenergic stimulation increases heart rate, vascular tone, temperature and metabolic demand."
+ },
+ {
+  "id": "sympathomimetic-understand",
+  "t": "Follow the highlighted changes: adrenergic activation, vascular pressure load, heat / metabolic demand. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "sympathomimetic-apply",
+  "t": "For sympathomimetic physiology, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "pediatric-airway-see",
+  "t": "Pediatric airway differences. Locate the affected airway within the patient. Children are not scaled-down adults; oxygen consumption and airway dimensions change the reserve."
+ },
+ {
+  "id": "pediatric-airway-zoom",
+  "t": "A smaller airway lumen means a similar thickness of mucosal swelling occupies a larger fraction of the passage. The relatively large tongue and occiput affect positioning."
+ },
+ {
+  "id": "pediatric-airway-understand",
+  "t": "Follow the highlighted changes: small lumen vulnerable to swelling. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "pediatric-airway-apply",
+  "t": "For pediatric airway differences, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "croup-see",
+  "t": "Croup. Locate the affected airway within the patient. Hypoxemia is a late sign; minimize distress and assess air entry and effort."
+ },
+ {
+  "id": "croup-zoom",
+  "t": "Inflammatory swelling narrows the subglottic upper airway, producing inspiratory stridor and a barking cough."
+ },
+ {
+  "id": "croup-understand",
+  "t": "Follow the highlighted changes: subglottic swelling, narrowed upper airway. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "croup-apply",
+  "t": "For croup, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "bronchiolitis-see",
+  "t": "Bronchiolitis. Locate the affected airway within the patient. Bronchiolitis is not interchangeable with asthma; supportive care is central."
+ },
+ {
+  "id": "bronchiolitis-zoom",
+  "t": "Small-airway inflammation, secretions and debris impair airflow in infants; feeding difficulty and apnea may accompany respiratory distress."
+ },
+ {
+  "id": "bronchiolitis-understand",
+  "t": "Follow the highlighted changes: bronchiolar inflammation, secretions in small airways, distal atelectasis. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "bronchiolitis-apply",
+  "t": "For bronchiolitis, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "pediatric-asthma-see",
+  "t": "Pediatric asthma. Locate the affected airway within the patient. Changing effort, mentation and air entry can be more informative than wheeze intensity alone."
+ },
+ {
+  "id": "pediatric-asthma-zoom",
+  "t": "Bronchospasm and airway inflammation narrow a child’s conducting airways; expiratory flow limitation can cause fatigue and trapped gas."
+ },
+ {
+  "id": "pediatric-asthma-understand",
+  "t": "Follow the highlighted changes: bronchial narrowing, mucosal inflammation, trapped gas. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "pediatric-asthma-apply",
+  "t": "For pediatric asthma, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "pediatric-respiratory-failure-see",
+  "t": "Pediatric respiratory failure. Locate the affected alveoli within the patient. A falling respiratory rate with worsening mentation can signal exhaustion rather than recovery."
+ },
+ {
+  "id": "pediatric-respiratory-failure-zoom",
+  "t": "Inadequate ventilation or oxygenation can follow exhausted respiratory effort, obstruction or parenchymal disease."
+ },
+ {
+  "id": "pediatric-respiratory-failure-understand",
+  "t": "Follow the highlighted changes: lost effective ventilation, impaired oxygenation, ventilatory fatigue / CO₂ burden. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "pediatric-respiratory-failure-apply",
+  "t": "For pediatric respiratory failure, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "pediatric-shock-see",
+  "t": "Pediatric shock. Locate the affected circulation within the patient. Assess mental status, pulses, skin, capillary refill and trends rather than waiting for adult pressure thresholds."
+ },
+ {
+  "id": "pediatric-shock-zoom",
+  "t": "Reduced effective circulating flow triggers compensatory tachycardia and vasoconstriction; arterial pressure may remain preserved until late."
+ },
+ {
+  "id": "pediatric-shock-understand",
+  "t": "Follow the highlighted changes: reduced effective preload, compensated then failing perfusion. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "pediatric-shock-apply",
+  "t": "For pediatric shock, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "dehydration-see",
+  "t": "Dehydration. Locate the affected circulation within the patient. A percentage of body-weight loss is interpreted with clinical assessment and the pattern of losses."
+ },
+ {
+  "id": "dehydration-zoom",
+  "t": "Loss of water and electrolytes reduces extracellular and intravascular volume; intake may fall while ongoing losses continue."
+ },
+ {
+  "id": "dehydration-understand",
+  "t": "Follow the highlighted changes: extracellular-volume depletion, reduced organ flow, electrolyte disturbance. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "dehydration-apply",
+  "t": "For dehydration, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "pediatric-sepsis-see",
+  "t": "Pediatric sepsis. Locate the affected circulation within the patient. The perfusion pattern can be warm or cold; fluid response and cardiac function require reassessment."
+ },
+ {
+  "id": "pediatric-sepsis-zoom",
+  "t": "Infection-associated organ dysfunction combines abnormal vascular tone, capillary leak and sometimes myocardial dysfunction."
+ },
+ {
+  "id": "pediatric-sepsis-understand",
+  "t": "Follow the highlighted changes: systemic inflammatory injury, capillary leak, disordered tissue flow. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "pediatric-sepsis-apply",
+  "t": "For pediatric sepsis, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "pediatric-dka-see",
+  "t": "Pediatric DKA. Locate the affected chemistry within the patient. Neurologic change can signal cerebral injury; correction requires pediatric-specific monitoring and protocols."
+ },
+ {
+  "id": "pediatric-dka-zoom",
+  "t": "Insulin deficiency produces ketones, acidosis, osmotic diuresis and electrolyte depletion in a developing child."
+ },
+ {
+  "id": "pediatric-dka-understand",
+  "t": "Follow the highlighted changes: ketone / acid burden, osmotic fluid loss, cerebral injury risk. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "pediatric-dka-apply",
+  "t": "For pediatric DKA, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "pediatric-status-see",
+  "t": "Pediatric seizure / status. Locate the affected brain within the patient. Age, fever, glucose, injury and previous seizure history shape the differential."
+ },
+ {
+  "id": "pediatric-status-zoom",
+  "t": "Prolonged seizure raises cerebral energy demand while airway protection, glucose and ventilation may be compromised."
+ },
+ {
+  "id": "pediatric-status-understand",
+  "t": "Follow the highlighted changes: sustained seizure activity, energy demand, secondary perfusion burden. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "pediatric-status-apply",
+  "t": "For pediatric seizure / status, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "pediatric-trauma-see",
+  "t": "Pediatric trauma. Locate the affected circulation within the patient. Absence of a fractured rib does not exclude substantial intrathoracic injury."
+ },
+ {
+  "id": "pediatric-trauma-zoom",
+  "t": "Blunt or penetrating injury can cause concealed hemorrhage and brain injury; a relatively large head and compliant chest alter injury patterns."
+ },
+ {
+  "id": "pediatric-trauma-understand",
+  "t": "Follow the highlighted changes: concealed blood loss, reduced circulating reserve, secondary tissue injury. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "pediatric-trauma-apply",
+  "t": "For pediatric trauma, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "pediatric-ventilation-see",
+  "t": "Pediatric ventilation principles. Locate the affected alveoli within the patient. Interpret exhaled volume and weight-based targets with equipment dead space and the child’s condition."
+ },
+ {
+  "id": "pediatric-ventilation-zoom",
+  "t": "Small tidal volumes, airway resistance, dead space and leak materially affect delivered alveolar ventilation in children."
+ },
+ {
+  "id": "pediatric-ventilation-understand",
+  "t": "Follow the highlighted changes: small-airway resistance, excess volume for lung size, unrecruited units. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "pediatric-ventilation-apply",
+  "t": "For pediatric ventilation principles, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "congenital-heart-see",
+  "t": "Congenital-heart physiology foundations. Locate the affected heart within the patient. A structural label alone does not determine oxygenation or systemic delivery."
+ },
+ {
+  "id": "congenital-heart-zoom",
+  "t": "A communication or obstructed outflow changes the balance of pulmonary and systemic circulation; pressure and resistance determine direction."
+ },
+ {
+  "id": "congenital-heart-understand",
+  "t": "Follow the highlighted changes: abnormal circuit communication, unbalanced systemic delivery. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "congenital-heart-apply",
+  "t": "For congenital-heart physiology foundations, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "left-right-shunt-see",
+  "t": "Left-to-right shunt concepts. Locate the affected heart within the patient. Pulmonary overcirculation may occur without cyanosis."
+ },
+ {
+  "id": "left-right-shunt-zoom",
+  "t": "Higher-pressure oxygenated blood crosses into the pulmonary circuit, increasing pulmonary flow and returning volume to the left heart."
+ },
+ {
+  "id": "left-right-shunt-understand",
+  "t": "Follow the highlighted changes: left-to-right flow, pulmonary / ventricular volume load. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "left-right-shunt-apply",
+  "t": "For left-to-right shunt concepts, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "right-left-shunt-see",
+  "t": "Right-to-left shunt concepts. Locate the affected heart within the patient. Increasing inspired oxygen cannot fully correct blood that never reaches ventilated alveoli."
+ },
+ {
+  "id": "right-left-shunt-zoom",
+  "t": "Venous blood bypasses pulmonary gas exchange through an abnormal or reopened communication."
+ },
+ {
+  "id": "right-left-shunt-understand",
+  "t": "Follow the highlighted changes: venous blood entering systemic flow, reduced effective pulmonary flow. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "right-left-shunt-apply",
+  "t": "For right-to-left shunt concepts, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "neonatal-rds-see",
+  "t": "Neonatal respiratory distress. Locate the affected alveoli within the patient. This neonatal mechanism differs from adult inflammatory ARDS."
+ },
+ {
+  "id": "neonatal-rds-zoom",
+  "t": "In a premature lung, inadequate surfactant destabilizes alveoli, increasing opening pressure and causing atelectasis and impaired gas exchange."
+ },
+ {
+  "id": "neonatal-rds-understand",
+  "t": "Follow the highlighted changes: surfactant-deficient collapse, perfusion of unventilated units, high opening-pressure burden. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "neonatal-rds-apply",
+  "t": "For neonatal respiratory distress, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "neonatal-ventilation-see",
+  "t": "Neonatal ventilation concepts. Locate the affected alveoli within the patient. Avoid applying adult settings; neonatal equipment and monitoring must match the patient."
+ },
+ {
+  "id": "neonatal-ventilation-zoom",
+  "t": "Very small lung volumes, unstable recruitment and airway leak make delivered volume and pressure highly consequential."
+ },
+ {
+  "id": "neonatal-ventilation-understand",
+  "t": "Follow the highlighted changes: unstable recruitment, fragile open units, gas-exchange imbalance. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "neonatal-ventilation-apply",
+  "t": "For neonatal ventilation concepts, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "transitional-circulation-see",
+  "t": "Transitional circulation. Locate the affected heart within the patient. Transition is dynamic; persistent high pulmonary resistance can maintain right-to-left flow."
+ },
+ {
+  "id": "transitional-circulation-zoom",
+  "t": "Lung aeration lowers pulmonary resistance while placental separation raises systemic resistance, changing flow through fetal communications."
+ },
+ {
+  "id": "transitional-circulation-understand",
+  "t": "Follow the highlighted changes: fetal communications, changing pulmonary resistance. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "transitional-circulation-apply",
+  "t": "For transitional circulation, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "duct-dependent-circulation-see",
+  "t": "Duct-dependent circulation. Locate the affected heart within the patient. Duct dependence differs from a simple large left-to-right PDA."
+ },
+ {
+  "id": "duct-dependent-circulation-zoom",
+  "t": "Some obstructed systemic or pulmonary outflows depend on a patent duct to deliver blood; closure can expose critical low-flow physiology."
+ },
+ {
+  "id": "duct-dependent-circulation-understand",
+  "t": "Follow the highlighted changes: critical outflow narrowing, ductal supply route, loss of systemic or pulmonary supply. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "duct-dependent-circulation-apply",
+  "t": "For duct-dependent circulation, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "pcos-see",
+  "t": "PCOS. Locate the affected ovaries within the patient. Ovarian morphology alone neither proves nor is required for PCOS. Other causes must be assessed."
+ },
+ {
+  "id": "pcos-zoom",
+  "t": "Altered ovulation and androgen regulation can coexist with insulin resistance. Multiple small follicles may be present in the ovaries."
+ },
+ {
+  "id": "pcos-understand",
+  "t": "Follow the highlighted changes: ovulatory / androgen dysregulation, insulin-resistance concept. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "pcos-apply",
+  "t": "For PCOS, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "endometriosis-see",
+  "t": "Endometriosis. Locate the affected uterus within the patient. Lesion appearance or extent does not reliably measure pain severity."
+ },
+ {
+  "id": "endometriosis-zoom",
+  "t": "Endometrial-like lesions outside the uterine cavity can provoke local inflammation, pain, fibrosis and adhesions."
+ },
+ {
+  "id": "endometriosis-understand",
+  "t": "Follow the highlighted changes: inflammatory ectopic lesions, local tissue response. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "endometriosis-apply",
+  "t": "For endometriosis, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "ectopic-pregnancy-see",
+  "t": "Ectopic pregnancy. Locate the affected uterus within the patient. A small amount of vaginal bleeding can coexist with substantial intraperitoneal blood loss."
+ },
+ {
+  "id": "ectopic-pregnancy-zoom",
+  "t": "Implantation outside the uterine cavity, often in a fallopian tube, can distend and rupture surrounding tissue with internal hemorrhage."
+ },
+ {
+  "id": "ectopic-pregnancy-understand",
+  "t": "Follow the highlighted changes: tubal implantation / distension, rupture-related internal blood, circulating-volume loss. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "ectopic-pregnancy-apply",
+  "t": "For ectopic pregnancy, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "ovarian-torsion-see",
+  "t": "Ovarian torsion. Locate the affected ovaries within the patient. Intermittent twisting and dual supply mean preserved Doppler flow cannot alone exclude torsion."
+ },
+ {
+  "id": "ovarian-torsion-zoom",
+  "t": "Twisting of the adnexal vascular pedicle impairs venous drainage and can progress to arterial compromise and ischemia."
+ },
+ {
+  "id": "ovarian-torsion-understand",
+  "t": "Follow the highlighted changes: twisted vascular pedicle, venous congestion, threatened ovary. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "ovarian-torsion-apply",
+  "t": "For ovarian torsion, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "abnormal-uterine-bleeding-see",
+  "t": "Severe abnormal uterine bleeding. Locate the affected uterus within the patient. Do not assume all uterine bleeding shares a cause; assess pregnancy possibility and perfusion."
+ },
+ {
+  "id": "abnormal-uterine-bleeding-zoom",
+  "t": "Heavy uterine bleeding can reduce circulating volume and hemoglobin; structural, ovulatory, coagulation and pregnancy-related causes differ."
+ },
+ {
+  "id": "abnormal-uterine-bleeding-understand",
+  "t": "Follow the highlighted changes: uterine blood loss, reduced circulating capacity. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "abnormal-uterine-bleeding-apply",
+  "t": "For severe abnormal uterine bleeding, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "maternal-physiology-see",
+  "t": "Normal maternal physiologic changes. Locate the affected circulation within the patient. Physiologic adaptations alter baseline readings and airway/oxygen reserve; they are not themselves disease."
+ },
+ {
+  "id": "maternal-physiology-zoom",
+  "t": "Pregnancy increases blood volume, cardiac output and ventilatory demand while the growing uterus can affect venous return."
+ },
+ {
+  "id": "maternal-physiology-understand",
+  "t": "Follow the highlighted changes: pregnancy adaptation, increased metabolic demand. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "maternal-physiology-apply",
+  "t": "For normal maternal physiologic changes, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "fetal-placental-circulation-see",
+  "t": "Normal fetal / placental circulation. Locate the affected placenta within the patient. The two circulations normally remain separate rather than freely mixing their blood."
+ },
+ {
+  "id": "fetal-placental-circulation-zoom",
+  "t": "Maternal and fetal blood exchange gases and nutrients across placental tissue; fetal shunts direct flow around unventilated lungs."
+ },
+ {
+  "id": "fetal-placental-circulation-understand",
+  "t": "Follow the highlighted changes: normal fetal bypass routes, placental support. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "fetal-placental-circulation-apply",
+  "t": "For normal fetal / placental circulation, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "placenta-previa-see",
+  "t": "Placenta previa. Locate the affected placenta within the patient. Placental position is distinct from separation; unexplained later-pregnancy bleeding needs assessment before digital examination."
+ },
+ {
+  "id": "placenta-previa-zoom",
+  "t": "Placental tissue overlies or approaches the cervical opening, creating a bleeding risk as the lower uterine segment changes."
+ },
+ {
+  "id": "placenta-previa-understand",
+  "t": "Follow the highlighted changes: bleeding near cervical opening, maternal blood loss. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "placenta-previa-apply",
+  "t": "For placenta previa, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "placental-abruption-see",
+  "t": "Placental abruption. Locate the affected placenta within the patient. Hemorrhage can be concealed behind the placenta; visible blood may underestimate severity."
+ },
+ {
+  "id": "placental-abruption-zoom",
+  "t": "Premature placental separation produces maternal bleeding and reduces the fetal exchange surface."
+ },
+ {
+  "id": "placental-abruption-understand",
+  "t": "Follow the highlighted changes: retroplacental hematoma, lost placental exchange, maternal blood loss. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "placental-abruption-apply",
+  "t": "For placental abruption, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "preeclampsia-see",
+  "t": "Preeclampsia. Locate the affected placenta within the patient. Proteinuria is not the only route to the diagnosis; acute organ involvement matters."
+ },
+ {
+  "id": "preeclampsia-zoom",
+  "t": "A pregnancy-associated endothelial disorder can combine hypertension with renal, hepatic, hematologic, pulmonary or neurologic dysfunction."
+ },
+ {
+  "id": "preeclampsia-understand",
+  "t": "Follow the highlighted changes: maternal hypertension, endothelial barrier injury, placental / organ perfusion risk. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "preeclampsia-apply",
+  "t": "For preeclampsia, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "eclampsia-see",
+  "t": "Eclampsia. Locate the affected brain within the patient. Seizure can occur during pregnancy or postpartum; clinical assessment must also consider other causes."
+ },
+ {
+  "id": "eclampsia-zoom",
+  "t": "Pregnancy-associated hypertensive/endothelial disease can produce cerebral dysfunction and seizures."
+ },
+ {
+  "id": "eclampsia-understand",
+  "t": "Follow the highlighted changes: seizure activity, cerebral endothelial injury, hypertensive burden, secondary perfusion burden. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "eclampsia-apply",
+  "t": "For eclampsia, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "hellp-see",
+  "t": "HELLP syndrome. Locate the affected chemistry within the patient. The platelet and hepatic findings have consequences beyond a blood-pressure reading."
+ },
+ {
+  "id": "hellp-zoom",
+  "t": "Hemolysis, elevated liver enzymes and low platelets reflect a severe maternal microvascular process."
+ },
+ {
+  "id": "hellp-understand",
+  "t": "Follow the highlighted changes: hemolysis / liver injury, platelet-related bleeding risk, microvascular organ injury. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "hellp-apply",
+  "t": "For HELLP syndrome, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "postpartum-hemorrhage-see",
+  "t": "Postpartum hemorrhage. Locate the affected uterus within the patient. Tone, trauma, tissue and thrombin organize causes; they are not interchangeable treatments."
+ },
+ {
+  "id": "postpartum-hemorrhage-zoom",
+  "t": "After birth, inadequate uterine contraction, trauma, retained tissue or coagulation problems can allow continued bleeding."
+ },
+ {
+  "id": "postpartum-hemorrhage-understand",
+  "t": "Follow the highlighted changes: postpartum blood loss, maternal circulating-volume loss, falling organ delivery. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "postpartum-hemorrhage-apply",
+  "t": "For postpartum hemorrhage, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "uterine-atony-see",
+  "t": "Uterine atony. Locate the affected uterus within the patient. Atony is one cause of postpartum hemorrhage; retained tissue or trauma may coexist."
+ },
+ {
+  "id": "uterine-atony-zoom",
+  "t": "An inadequately contracted postpartum myometrium fails to compress vessels at the placental bed."
+ },
+ {
+  "id": "uterine-atony-understand",
+  "t": "Follow the highlighted changes: reduced myometrial contraction, uncompressed placental-bed vessels, maternal blood-volume loss. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "uterine-atony-apply",
+  "t": "For uterine atony, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "obstetric-hemorrhage-see",
+  "t": "Major obstetric hemorrhage. Locate the affected circulation within the patient. Maternal stabilization and rapid identification of the source protect both circulations."
+ },
+ {
+  "id": "obstetric-hemorrhage-zoom",
+  "t": "Rapid maternal blood loss reduces preload and oxygen delivery; coagulopathy can compound continued hemorrhage."
+ },
+ {
+  "id": "obstetric-hemorrhage-understand",
+  "t": "Follow the highlighted changes: major maternal blood loss, reduced preload, maternal / fetal delivery failure. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "obstetric-hemorrhage-apply",
+  "t": "For major obstetric hemorrhage, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "amniotic-fluid-embolism-see",
+  "t": "Amniotic fluid embolism. Locate the affected pulmonary vessels within the patient. This is not simply a large amniotic-fluid clot like a thrombotic pulmonary embolus."
+ },
+ {
+  "id": "amniotic-fluid-embolism-zoom",
+  "t": "A rare peripartum syndrome can abruptly combine pulmonary vascular dysfunction, hypoxia, cardiovascular collapse and coagulopathy."
+ },
+ {
+  "id": "amniotic-fluid-embolism-understand",
+  "t": "Follow the highlighted changes: acute pulmonary vascular burden, cardiovascular collapse, coagulopathy, severe oxygenation failure. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "amniotic-fluid-embolism-apply",
+  "t": "For amniotic fluid embolism, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "peripartum-cardiomyopathy-see",
+  "t": "Peripartum cardiomyopathy. Locate the affected heart within the patient. Dyspnea and edema require interpretation beyond presumed normal pregnancy symptoms."
+ },
+ {
+  "id": "peripartum-cardiomyopathy-zoom",
+  "t": "New LV systolic dysfunction near the end of pregnancy or postpartum can produce congestion and reduced systemic output."
+ },
+ {
+  "id": "peripartum-cardiomyopathy-understand",
+  "t": "Follow the highlighted changes: LV systolic impairment, pulmonary congestion, reduced forward flow. Compare the baseline with the progressive state."
+ },
+ {
+  "id": "peripartum-cardiomyopathy-apply",
+  "t": "For peripartum cardiomyopathy, which decision best addresses the illustrated mechanism?"
+ },
+ {
+  "id": "norepinephrine-0",
+  "t": "A patient in septic shock: the arterioles have lost their tone and the pressure is low. Norepinephrine is started and titrated up."
+ },
+ {
+  "id": "norepinephrine-r0",
+  "t": "Norepinephrine is the body’s own sympathetic transmitter, given here as a continuous infusion."
+ },
+ {
+  "id": "norepinephrine-r1",
+  "t": "Its strongest action is on alpha-1 receptors in the smooth muscle of arterioles and veins. It also stimulates beta-1 receptors on heart muscle, less strongly. It has almost no beta-2 effect, so it does not dilate muscle beds."
+ },
+ {
+  "id": "norepinephrine-r2",
+  "t": "Alpha-1 couples to Gq, which switches on phospholipase C. Beta-1 couples to Gs, which switches on adenylyl cyclase."
+ },
+ {
+  "id": "norepinephrine-r3",
+  "t": "Phospholipase C makes IP3, which releases calcium from the sarcoplasmic reticulum. Adenylyl cyclase makes cyclic AMP, which activates protein kinase A."
+ },
+ {
+  "id": "norepinephrine-r4",
+  "t": "In smooth muscle, calcium–calmodulin activates myosin light-chain kinase and the muscle contracts. In the heart, protein kinase A opens more L-type calcium channels and speeds calcium cycling. The sinus node would speed up…"
+ },
+ {
+  "id": "norepinephrine-r5",
+  "t": "Arterioles narrow, raising systemic vascular resistance. Veins stiffen too, shifting blood from unstressed to stressed volume, which supports venous return. Each beat is stronger."
+ },
+ {
+  "id": "norepinephrine-r7",
+  "t": "…but the rising pressure triggers the baroreflex, so the heart rate barely changes, or even falls."
+ },
+ {
+  "id": "norepinephrine-r8",
+  "t": "The net result is a higher mean arterial pressure, mainly from resistance, with cardiac output roughly maintained."
+ },
+ {
+  "id": "norepinephrine-sum",
+  "t": "Watch the numbers: at a modest dose the resistance climbs, the mean pressure recovers past sixty-five, and the heart rate stays about the same. That profile, pressure mostly from resistance with output preserved, is why norepinephrine is the first-line vasopressor in septic shock. Too much raises afterload, lowers output and starves the gut and limbs, so titrate to a mean pressure target, usually sixty-five."
+ },
+ {
+  "id": "epinephrine-0",
+  "t": "Septic shock that is not responding to norepinephrine alone. An epinephrine infusion is added."
+ },
+ {
+  "id": "epinephrine-r0",
+  "t": "Epinephrine is the adrenal medulla’s hormone. It activates all the adrenergic receptors, and which ones dominate depends on the dose."
+ },
+ {
+  "id": "epinephrine-r1",
+  "t": "On the heart, beta-1 receptors… …on muscle arterioles, airways and liver, beta-2… …and on skin and gut vessels, alpha-1, which takes over at higher doses."
+ },
+ {
+  "id": "epinephrine-r3",
+  "t": "Cyclic AMP in heart cells raises contractility and heart rate. In smooth muscle, cyclic AMP relaxes the muscle: muscle-bed arterioles dilate and the bronchi open. In the liver and muscle it mobilises glucose and raises lactate, even when perfusion is fine. Remember this when you read a lactate on epinephrine. Alpha-1 constricts the skin and splanchnic beds."
+ },
+ {
+  "id": "epinephrine-r6",
+  "t": "Output and resistance both rise, so pressure climbs — with more tachycardia and more lactate than norepinephrine."
+ },
+ {
+  "id": "epinephrine-sum",
+  "t": "Epinephrine raises pressure through both output and resistance. The price is tachycardia, arrhythmia risk and a lactate that rises for metabolic reasons, not only because of poor perfusion."
+ },
+ {
+  "id": "vasopressin-0",
+  "t": "Septic shock on rising norepinephrine. Low-dose vasopressin is added to spare catecholamine."
+ },
+ {
+  "id": "vasopressin-r0",
+  "t": "Vasopressin is antidiuretic hormone. In septic shock its own level is inappropriately low, so a small fixed dose replaces it."
+ },
+ {
+  "id": "vasopressin-r1",
+  "t": "It acts on V1a receptors on vascular smooth muscle — not on adrenergic receptors at all. In the kidney it acts on V2 receptors in the collecting duct."
+ },
+ {
+  "id": "vasopressin-r2",
+  "t": "V1a couples to Gq, releasing intracellular calcium. V2 couples to Gs and cyclic AMP."
+ },
+ {
+  "id": "vasopressin-r3",
+  "t": "It also closes the ATP-sensitive potassium channels that sepsis and acidosis hold open, so vessels respond again. Aquaporin-2 channels move into the duct membrane and water is reabsorbed."
+ },
+ {
+  "id": "vasopressin-r5",
+  "t": "The result is vasoconstriction that still works when acidosis blunts the response to catecholamines."
+ },
+ {
+  "id": "vasopressin-r7",
+  "t": "Pressure rises with little change in heart rate, which lets the norepinephrine dose come down."
+ },
+ {
+  "id": "vasopressin-sum",
+  "t": "Vasopressin raises resistance through a separate receptor and restores vascular responsiveness, so it adds to norepinephrine rather than competing with it. It is not titrated like a catecholamine. At higher doses, gut, skin and coronary ischaemia become the limit."
+ },
+ {
+  "id": "phenylephrine-0",
+  "t": "Vasodilated and hypotensive. Phenylephrine is given — and the heart rate falls."
+ },
+ {
+  "id": "phenylephrine-r0",
+  "t": "Phenylephrine is a synthetic agonist that acts almost only on alpha-1 receptors."
+ },
+ {
+  "id": "phenylephrine-r1",
+  "t": "It binds alpha-1 receptors on arterioles and veins, and has no beta action on the heart."
+ },
+ {
+  "id": "phenylephrine-r3",
+  "t": "Vessels constrict: resistance rises and venous return is supported."
+ },
+ {
+  "id": "phenylephrine-r5",
+  "t": "The pressure rise is sensed by the carotid and aortic baroreceptors, and vagal tone slows the heart."
+ },
+ {
+  "id": "phenylephrine-r6",
+  "t": "With no beta effect to oppose it, the reflex bradycardia shows."
+ },
+ {
+  "id": "phenylephrine-sum",
+  "t": "Phenylephrine raises pressure by resistance alone. That can help a tachycardic patient, or in fixed outflow obstruction such as aortic stenosis. In a failing heart the extra afterload and lower rate reduce output."
+ },
+ {
+  "id": "dobutamine-0",
+  "t": "Cardiogenic shock with a poorly contracting left ventricle and cold extremities. Dobutamine is started."
+ },
+ {
+  "id": "dobutamine-r0",
+  "t": "Dobutamine is a synthetic catecholamine that mainly stimulates beta-1 receptors."
+ },
+ {
+  "id": "dobutamine-r2",
+  "t": "In heart muscle, cyclic AMP activates protein kinase A."
+ },
+ {
+  "id": "dobutamine-r3",
+  "t": "More calcium enters each beat and the sarcoplasmic reticulum reloads faster, so the heart contracts harder and relaxes faster. A smaller beta-2 effect dilates arterioles, lowering afterload."
+ },
+ {
+  "id": "dobutamine-r5",
+  "t": "Stronger contraction against a lower afterload raises stroke volume and output."
+ },
+ {
+  "id": "dobutamine-sum",
+  "t": "Output rises, but pressure may not, because resistance falls. If the patient is also hypotensive, a vasopressor is usually needed alongside. Watch for tachycardia and arrhythmias."
+ },
+ {
+  "id": "dopamine-0",
+  "t": "An older vasoactive drug whose receptor profile changes with the dose. Watch the same patient at three dose ranges."
+ },
+ {
+  "id": "dopamine-r0",
+  "t": "Dopamine is norepinephrine’s precursor. Which receptors it activates depends on the dose — and patients vary widely."
+ },
+ {
+  "id": "dopamine-r1",
+  "t": "At low doses, dopamine-1 receptors dilate renal and splanchnic vessels. This does not protect the kidneys. In the middle range, beta-1 effects add contractility and rate, partly by releasing norepinephrine. At high doses, alpha-1 vasoconstriction dominates."
+ },
+ {
+  "id": "dopamine-sum",
+  "t": "One drug, three receptor profiles, and overlapping, unpredictable dose ranges. In shock, norepinephrine is generally preferred because dopamine causes more arrhythmias."
+ },
+ {
+  "id": "milrinone-0",
+  "t": "Low-output heart failure with a high systemic resistance, perhaps already on a beta-blocker. Milrinone is started."
+ },
+ {
+  "id": "milrinone-r0",
+  "t": "Milrinone inhibits phosphodiesterase-3, the enzyme that breaks down cyclic AMP in heart and vascular muscle."
+ },
+ {
+  "id": "milrinone-r1",
+  "t": "It works downstream of the receptors, so it still acts when beta-receptors are blocked or down-regulated."
+ },
+ {
+  "id": "milrinone-r3",
+  "t": "In vessels, cyclic AMP relaxes the muscle: systemic and pulmonary resistance fall."
+ },
+ {
+  "id": "milrinone-r4",
+  "t": "In the heart: stronger contraction and faster relaxation."
+ },
+ {
+  "id": "milrinone-sum",
+  "t": "More output with less resistance, independent of beta-receptors. Hypotension and arrhythmias are the costs, and it accumulates in renal failure."
+ },
+ {
+  "id": "nicardipine-0",
+  "t": "A patient whose blood pressure must come down smoothly — for example after an intracerebral haemorrhage. A nicardipine infusion is titrated."
+ },
+ {
+  "id": "nicardipine-r0",
+  "t": "Nicardipine is a dihydropyridine: it blocks L-type calcium channels, with strong selectivity for vascular smooth muscle over heart muscle."
+ },
+ {
+  "id": "nicardipine-r1",
+  "t": "It binds the L-type channel in arteriolar smooth muscle and keeps it from opening when the membrane depolarises."
+ },
+ {
+  "id": "nicardipine-r2",
+  "t": "Less calcium enters each smooth-muscle cell."
+ },
+ {
+  "id": "nicardipine-r3",
+  "t": "With less calcium–calmodulin, myosin light-chain kinase is less active and the muscle relaxes."
+ },
+ {
+  "id": "nicardipine-r4",
+  "t": "Arterioles dilate; veins much less, so preload is largely preserved."
+ },
+ {
+  "id": "nicardipine-r6",
+  "t": "The falling pressure is sensed by the baroreceptors, which may speed the heart a little. The main effect is a controlled fall in blood pressure, adjustable minute to minute by the infusion rate."
+ },
+ {
+  "id": "nicardipine-sum",
+  "t": "Nicardipine lowers pressure by relaxing arterioles, with little effect on the heart itself. Titrate to the target, and watch for reflex tachycardia and headache."
+ },
+ {
+  "id": "clevidipine-0",
+  "t": "Severe hypertension that needs tight, minute-to-minute control. A clevidipine infusion is started and titrated."
+ },
+ {
+  "id": "clevidipine-r0",
+  "t": "Clevidipine is a dihydropyridine given as a lipid emulsion. Blood and tissue esterases break it down within a minute or two, so its effect follows the infusion rate closely."
+ },
+ {
+  "id": "clevidipine-r1",
+  "t": "Because it does not depend on the liver or kidney, stopping it ends the effect within minutes. It blocks L-type calcium channels in arteriolar smooth muscle."
+ },
+ {
+  "id": "clevidipine-r6",
+  "t": "Afterload falls with little change in venous return, and pressure can be walked down in small steps."
+ },
+ {
+  "id": "clevidipine-sum",
+  "t": "Arteriolar dilation with a very short half-life: fast on, fast off. It is a lipid emulsion — count the calories and avoid it with soy or egg allergy or disordered lipid metabolism."
+ },
+ {
+  "id": "esmolol-0",
+  "t": "Aortic dissection, or a rapid rate that needs slowing now. Esmolol is given as a bolus and infusion."
+ },
+ {
+  "id": "esmolol-r0",
+  "t": "Esmolol blocks beta-1 receptors on the heart. Red-cell esterases clear it in minutes."
+ },
+ {
+  "id": "esmolol-r1",
+  "t": "It competes with norepinephrine and epinephrine at the beta-1 receptor."
+ },
+ {
+  "id": "esmolol-r3",
+  "t": "Less cyclic AMP slows the pacemaker current, slows conduction through the AV node and reduces calcium entry into myocytes."
+ },
+ {
+  "id": "esmolol-r7",
+  "t": "Rate and force of ejection fall, which is exactly what a torn aortic wall needs. In a failing ventricle, the same effect can precipitate shock."
+ },
+ {
+  "id": "esmolol-sum",
+  "t": "Pure rate and contractility control that can be switched off in minutes. Watch for bradycardia, hypotension and heart failure; it does not lower vascular resistance."
+ },
+ {
+  "id": "labetalol-0",
+  "t": "Hypertensive emergency, or blood-pressure control after a stroke. Labetalol is given in IV boluses."
+ },
+ {
+  "id": "labetalol-r0",
+  "t": "Labetalol blocks beta-1, beta-2 and alpha-1 receptors, with much more beta than alpha blockade when given intravenously."
+ },
+ {
+  "id": "labetalol-r3",
+  "t": "Alpha-1 blockade relaxes the arterioles and lowers resistance. Because the heart is beta-blocked at the same time, the usual reflex speeding of the heart is prevented."
+ },
+ {
+  "id": "labetalol-sum",
+  "t": "Resistance falls without a reflex tachycardia. Beta-2 blockade can tighten the airways, and it slows AV conduction — caution in asthma, heart block and decompensated heart failure."
+ },
+ {
+  "id": "nitroglycerin-0",
+  "t": "Acute pulmonary oedema from a failing left ventricle, or ischaemic chest pain. A nitroglycerin infusion is started."
+ },
+ {
+  "id": "nitroglycerin-r0",
+  "t": "Nitroglycerin is converted inside smooth-muscle cells into nitric oxide. Phosphodiesterase-5 inhibitors keep cyclic GMP high: combined with a nitrate the pressure can collapse."
+ },
+ {
+  "id": "nitroglycerin-r1",
+  "t": "Nitric oxide diffuses to soluble guanylate cyclase."
+ },
+ {
+  "id": "nitroglycerin-r3",
+  "t": "Cyclic GMP activates protein kinase G, which lowers calcium and switches on myosin light-chain phosphatase. The muscle relaxes."
+ },
+ {
+  "id": "nitroglycerin-r4",
+  "t": "At low doses the veins dilate most. Blood pools in the capacitance vessels, so less returns to the heart."
+ },
+ {
+  "id": "nitroglycerin-r6",
+  "t": "A congested, failing ventricle ejects more when filling pressure and afterload fall. A preload-dependent heart — right-ventricular infarction, obstruction, hypovolaemia — loses output and pressure."
+ },
+ {
+  "id": "nitroglycerin-sum",
+  "t": "Nitric oxide → cyclic GMP → relaxation, mostly venous at low dose. It helps a congested left ventricle and harms a preload-dependent one; never with a PDE5 inhibitor on board. Tolerance develops over a day."
+ },
+ {
+  "id": "etomidate-0",
+  "t": "Rapid-sequence intubation in a patient whose blood pressure is borderline. Etomidate is chosen for induction."
+ },
+ {
+  "id": "etomidate-r0",
+  "t": "Etomidate makes GABA-A receptors open more readily in response to GABA."
+ },
+ {
+  "id": "etomidate-r1",
+  "t": "It provides no analgesia — laryngoscopy still hurts and still drives the sympathetic response. It has little effect on vascular tone or contractility, which is why it is used when pressure is borderline. It also inhibits 11-beta-hydroxylase, suppressing cortisol production for many hours after a single dose."
+ },
+ {
+  "id": "etomidate-r2",
+  "t": "Chloride flows in and neurons are held further from threshold: rapid loss of consciousness."
+ },
+ {
+  "id": "etomidate-sum",
+  "t": "Hypnosis with haemodynamic stability, no analgesia, and transient adrenal suppression. The laryngoscopy and positive-pressure ventilation that follow still move the pressure."
+ },
+ {
+  "id": "propofol-0",
+  "t": "Sedation for a ventilated patient, or induction. The same dose in two different patients."
+ },
+ {
+  "id": "propofol-r0",
+  "t": "Propofol potentiates GABA-A receptors: fast onset, fast offset, and a smooth sedation."
+ },
+ {
+  "id": "propofol-r1",
+  "t": "…and relaxes vascular smooth muscle directly, arterial and venous."
+ },
+ {
+  "id": "propofol-r3",
+  "t": "It lowers sympathetic tone centrally…"
+ },
+ {
+  "id": "propofol-r5",
+  "t": "The pressure falls — modestly in a well-filled patient, sharply in one who is hypovolaemic or relying on sympathetic tone."
+ },
+ {
+  "id": "propofol-sum",
+  "t": "GABA-A hypnosis with vasodilation, sympatholysis and respiratory depression. No analgesia. Prolonged high doses risk propofol-infusion syndrome; count the lipid calories."
+ },
+ {
+  "id": "ketamine-0",
+  "t": "Induction for intubation. Ketamine is often chosen because it usually supports blood pressure — but not in every patient."
+ },
+ {
+  "id": "ketamine-r0",
+  "t": "Ketamine blocks the NMDA glutamate receptor, the brain’s main excitatory receptor channel."
+ },
+ {
+  "id": "ketamine-r1",
+  "t": "It plugs the open NMDA channel. Thalamo-cortical and limbic circuits are functionally dissociated. Separately, it increases sympathetic outflow and blocks the reuptake of norepinephrine. Ketamine also depresses the heart muscle directly. Normally the sympathetic effect hides this."
+ },
+ {
+  "id": "ketamine-r2",
+  "t": "The result is dissociative anaesthesia and strong analgesia, with airway reflexes and breathing largely preserved. In a patient who has been in shock for a long time and has exhausted their catecholamines, the direct depression can show and pressure can fall. The response depends on the patient."
+ },
+ {
+  "id": "ketamine-sum",
+  "t": "Ketamine is the same molecule in both patients; the patient decides the blood pressure response. In the depleted patient, reduce the dose and have a pressor ready."
+ },
+ {
+  "id": "midazolam-0",
+  "t": "Seizures, agitation or sedation. Midazolam is given."
+ },
+ {
+  "id": "midazolam-r0",
+  "t": "Midazolam binds the benzodiazepine site between the alpha and gamma-2 subunits of the GABA-A receptor."
+ },
+ {
+  "id": "midazolam-r2",
+  "t": "It does not open the channel by itself; it makes GABA open it more often."
+ },
+ {
+  "id": "midazolam-r4",
+  "t": "Alone it depresses breathing modestly; with an opioid the effect is multiplied."
+ },
+ {
+  "id": "midazolam-sum",
+  "t": "More frequent chloride-channel opening, not direct opening — which is why benzodiazepines have a ceiling alone and not with opioids or alcohol. An active metabolite accumulates in renal failure."
+ },
+ {
+  "id": "fentanyl-0",
+  "t": "Analgesia for a ventilated or injured patient. Fentanyl is given — and the patient’s state decides what happens to the pressure."
+ },
+ {
+  "id": "fentanyl-r0",
+  "t": "Fentanyl is a potent, lipid-soluble agonist at the mu-opioid receptor."
+ },
+ {
+  "id": "fentanyl-r2",
+  "t": "The receptor couples to inhibitory G proteins: potassium channels open, calcium channels close and cyclic AMP falls."
+ },
+ {
+  "id": "fentanyl-r4",
+  "t": "In the brainstem it blunts the response to carbon dioxide: slower, then absent, breathing."
+ },
+ {
+  "id": "fentanyl-sum",
+  "t": "Mu-receptor activation: analgesia, respiratory depression and vagal slowing; the blood pressure falls when it was being held up by pain and fear. Rapid large doses can stiffen the chest wall."
+ },
+ {
+  "id": "dexmedetomidine-0",
+  "t": "Light, rousable sedation for an agitated patient on or off the ventilator. Dexmedetomidine is started."
+ },
+ {
+  "id": "dexmedetomidine-r0",
+  "t": "Dexmedetomidine activates alpha-2 receptors with very high selectivity over alpha-1."
+ },
+ {
+  "id": "dexmedetomidine-r1",
+  "t": "In the locus coeruleus it reduces noradrenergic firing: a sleep-like, rousable sedation. Unlike opioids and GABA drugs, it barely depresses breathing."
+ },
+ {
+  "id": "dexmedetomidine-sum",
+  "t": "Sympatholysis from the brainstem down: calm, rousable, breathing preserved — and bradycardia and hypotension, especially with a loading dose."
+ },
+ {
+  "id": "rocuronium-0",
+  "t": "Rapid-sequence intubation, then a patient fighting the ventilator. Rocuronium stops the muscles — and nothing else."
+ },
+ {
+  "id": "rocuronium-r0",
+  "t": "Rocuronium is a non-depolarising neuromuscular blocker."
+ },
+ {
+  "id": "rocuronium-r1",
+  "t": "It competes with acetylcholine for the nicotinic receptors on the motor end-plate, without opening them. It has no effect on the brain: no sedation, no analgesia, no amnesia. A paralysed patient can be fully awake and in pain — always give sedation and analgesia first and keep them going."
+ },
+ {
+  "id": "rocuronium-r2",
+  "t": "Acetylcholine still arrives, but too few receptors open, so the end-plate never reaches threshold."
+ },
+ {
+  "id": "rocuronium-r4",
+  "t": "Every skeletal muscle goes flaccid, including the diaphragm: the patient cannot breathe or move."
+ },
+ {
+  "id": "rocuronium-r5",
+  "t": "On the ventilator, all patient effort disappears and every breath is machine-delivered."
+ },
+ {
+  "id": "rocuronium-sum",
+  "t": "Paralysis removes the patient’s effort and protects the ventilator settings, but it hides pain and awareness. Sedation and analgesia are separate drugs and must continue."
+ },
+ {
+  "id": "succinylcholine-0",
+  "t": "Rapid-sequence intubation. Succinylcholine is the paralytic — in two very different patients."
+ },
+ {
+  "id": "succinylcholine-r0",
+  "t": "Succinylcholine is two acetylcholine molecules joined together. It activates the nicotinic receptor at the end-plate — and stays there."
+ },
+ {
+  "id": "succinylcholine-r1",
+  "t": "The channel opens and the membrane depolarises, causing visible fasciculations."
+ },
+ {
+  "id": "succinylcholine-r2",
+  "t": "Because it is not broken down by acetylcholinesterase, the end-plate stays depolarised."
+ },
+ {
+  "id": "succinylcholine-r3",
+  "t": "The surrounding sodium channels inactivate and cannot fire again: flaccid paralysis follows the fasciculations. Every open channel lets potassium out. Normally plasma potassium rises by about half a millimole per litre. With up-regulated receptors all over the muscle — burns, denervation, crush, long immobility — it can rise several-fold."
+ },
+ {
+  "id": "succinylcholine-sum",
+  "t": "Fast, short paralysis by depolarisation, with a potassium rise that is small in healthy muscle and life-threatening in up-regulated muscle. It is also a malignant-hyperthermia trigger, and repeat doses can slow the heart."
+ },
+ {
+  "id": "albuterol-0",
+  "t": "A ventilated patient in status asthmaticus: high peak pressures, prolonged expiration, air trapping. Nebulised albuterol is given in-line."
+ },
+ {
+  "id": "albuterol-r0",
+  "t": "Albuterol, called salbutamol outside North America, is a selective beta-2 agonist delivered straight to the airways."
+ },
+ {
+  "id": "albuterol-r1",
+  "t": "It binds beta-2 receptors on bronchial smooth muscle."
+ },
+ {
+  "id": "albuterol-r2",
+  "t": "Beta-2 couples to Gs, which switches on adenylyl cyclase."
+ },
+ {
+  "id": "albuterol-r4",
+  "t": "Cyclic AMP and protein kinase A switch off myosin light-chain kinase and lower intracellular calcium, so the smooth muscle relaxes. Absorbed drug also stimulates the sodium potassium pump in skeletal muscle, moving potassium into cells — useful in hyperkalaemia, a cause of hypokalaemia in repeated dosing."
+ },
+ {
+  "id": "albuterol-r6",
+  "t": "The airways widen. Resistance depends on the fourth power of the radius, so a small widening makes a large difference."
+ },
+ {
+  "id": "albuterol-r7",
+  "t": "Resistance falls: peak pressure drops while the plateau barely changes, expiratory flow improves and trapped gas empties."
+ },
+ {
+  "id": "albuterol-sum",
+  "t": "The gap between peak and plateau pressure is the resistive pressure. Albuterol shrinks it by opening the airways. Watch potassium and heart rate with repeated doses."
+ },
+ {
+  "id": "ipratropium-0",
+  "t": "A ventilated COPD patient with high airway resistance. Ipratropium is added to the bronchodilator."
+ },
+ {
+  "id": "ipratropium-r0",
+  "t": "Ipratropium blocks muscarinic receptors in the airway, where vagal acetylcholine keeps the smooth muscle toned and the glands secreting."
+ },
+ {
+  "id": "ipratropium-r2",
+  "t": "With M3 blocked, acetylcholine can no longer raise calcium through Gq."
+ },
+ {
+  "id": "ipratropium-r4",
+  "t": "Wider airways and less mucus lower the resistance to flow — on the ventilator the peak pressure falls toward the plateau."
+ },
+ {
+  "id": "ipratropium-sum",
+  "t": "Anticholinergic bronchodilation: slower onset than a beta-2 agonist and additive to it, with drier secretions. (The ventilator engine uses one bronchodilator effect for any drug; the magnitude here is not drug-specific.)"
+ },
+ {
+  "id": "hypertonic-0",
+  "t": "Acute hyponatraemia with seizures: sodium 118 and swollen brain cells. Hypertonic saline is given in small boluses."
+ },
+ {
+  "id": "hypertonic-r0",
+  "t": "Three-percent saline carries about five hundred millimoles of sodium per litre, far more than plasma."
+ },
+ {
+  "id": "hypertonic-r1",
+  "t": "Each hundred-millilitre bolus raises plasma sodium by roughly two."
+ },
+ {
+  "id": "hypertonic-r2",
+  "t": "Extracellular fluid becomes more concentrated than the inside of the cells."
+ },
+ {
+  "id": "hypertonic-r3",
+  "t": "Sodium cannot cross an intact blood–brain barrier quickly, but water can, through aquaporin-4."
+ },
+ {
+  "id": "hypertonic-r5",
+  "t": "Water moves out of the swollen cells, and brain volume falls."
+ },
+ {
+  "id": "hypertonic-r6",
+  "t": "Intracranial pressure falls and the seizures usually stop with a rise of only four to six."
+ },
+ {
+  "id": "hypertonic-sum",
+  "t": "A small rise in sodium is enough to shrink swollen brain cells. In chronic hyponatraemia the brain has already adapted, so correct slowly: too fast a rise risks osmotic demyelination."
+ },
+ {
+  "id": "mannitol-0",
+  "t": "A haematoma past the knee of the pressure–volume curve, with a pupil starting to dilate. Mannitol is given as a bolus."
+ },
+ {
+  "id": "mannitol-r0",
+  "t": "Mannitol is a sugar alcohol that stays in the blood and extracellular fluid: it does not cross an intact blood–brain barrier."
+ },
+ {
+  "id": "mannitol-r1",
+  "t": "Early on it also thins the blood; vessels constrict a little to keep flow constant, lowering cerebral blood volume. Filtered but not reabsorbed, it pulls water and electrolytes into the urine."
+ },
+ {
+  "id": "mannitol-r2",
+  "t": "Where the barrier is intact, the osmotic gradient draws water out of brain tissue into the blood."
+ },
+ {
+  "id": "mannitol-sum",
+  "t": "An osmotic gradient across an intact barrier draws water out of the brain; the kidneys then lose that water. It works on the same pressure–volume curve as every other ICP treatment, and it buys time rather than removing the cause."
+ },
+ {
+  "id": "nimodipine-0",
+  "t": "Aneurysmal subarachnoid haemorrhage, day 1. Oral nimodipine is started for three weeks."
+ },
+ {
+  "id": "nimodipine-r0",
+  "t": "Nimodipine is a lipid-soluble dihydropyridine that reaches the brain well."
+ },
+ {
+  "id": "nimodipine-r3",
+  "t": "After aneurysmal bleeding it lowers delayed ischaemia and improves outcome — probably through the microcirculation and neuroprotection. It does not reliably widen the large arteries that go into spasm; the benefit is not measured on the angiogram."
+ },
+ {
+  "id": "nimodipine-r4",
+  "t": "The systemic side effect matters: a fall in pressure lowers cerebral perfusion. Smaller, more frequent doses help."
+ },
+ {
+  "id": "nimodipine-sum",
+  "t": "Better outcome after aneurysmal SAH without reliably reversing angiographic spasm; the dose-limiting problem is systemic hypotension."
+ },
+ {
+  "id": "thrombolytic-0",
+  "t": "Left M1 occlusion, 90 minutes from onset, eligible for thrombolysis. The bolus is given while the team prepares for thrombectomy."
+ },
+ {
+  "id": "thrombolytic-r0",
+  "t": "Tissue plasminogen activator binds fibrin in the clot."
+ },
+ {
+  "id": "thrombolytic-r1",
+  "t": "Bound to fibrin, it converts nearby plasminogen much more efficiently than plasminogen floating free in plasma."
+ },
+ {
+  "id": "thrombolytic-r3",
+  "t": "Plasmin does not know which fibrin is the stroke clot: bleeding, including into the infarct, is the main risk."
+ },
+ {
+  "id": "thrombolytic-r4",
+  "t": "The clot dissolves from its surface. Large proximal clots often do not fully open, which is why thrombectomy follows."
+ },
+ {
+  "id": "thrombolytic-sum",
+  "t": "Fibrin-bound plasminogen activation dissolves the clot; flow returns to the penumbra if it is in time. Bleeding is the price; tenecteplase is more fibrin-specific and given as a single bolus."
+ },
+ {
+  "id": "calcium-0",
+  "t": "Potassium 7.8 with a widening QRS. Calcium is given first — and potassium does not change."
+ },
+ {
+  "id": "calcium-r0",
+  "t": "Intravenous calcium raises the ionised calcium outside the cells."
+ },
+ {
+  "id": "calcium-r1",
+  "t": "Calcium ions crowd the negative charges on the outer face of the membrane. Potassium itself does not change at all."
+ },
+ {
+  "id": "calcium-r2",
+  "t": "The sodium channel voltage sensors now need a larger depolarisation before they open."
+ },
+ {
+  "id": "calcium-r3",
+  "t": "So the threshold potential moves up, away from the raised resting potential."
+ },
+ {
+  "id": "calcium-r5",
+  "t": "The gap between rest and threshold is restored, conduction recovers and the QRS narrows within minutes."
+ },
+ {
+  "id": "calcium-sum",
+  "t": "Calcium protects the heart while you treat the potassium. The effect lasts roughly thirty to sixty minutes and may need repeating. It buys time and does nothing to the potassium level."
+ },
+ {
+  "id": "insulin-0",
+  "t": "Potassium 7.4 after calcium. Insulin with dextrose is given to move potassium into the cells."
+ },
+ {
+  "id": "insulin-r0",
+  "t": "Insulin is given intravenously, with dextrose to prevent hypoglycaemia."
+ },
+ {
+  "id": "insulin-r1",
+  "t": "It binds the insulin receptor, a tyrosine kinase, mainly on muscle and liver cells."
+ },
+ {
+  "id": "insulin-r2",
+  "t": "That signals through PI3 kinase and Akt."
+ },
+ {
+  "id": "insulin-r3",
+  "t": "The sodium potassium pump speeds up, pulling potassium into the cells. Glucose enters too, so blood glucose falls. Check it for hours."
+ },
+ {
+  "id": "insulin-r5",
+  "t": "Plasma potassium falls by about one within the hour. Total-body potassium is unchanged, so it will drift back as the insulin wears off."
+ },
+ {
+  "id": "insulin-sum",
+  "t": "Insulin buys hours, not a cure. Salbutamol adds to it through beta-2 receptors on the same pump. Only removal — binders, diuretics or dialysis — lowers total-body potassium."
+ },
+ {
+  "id": "txa-0",
+  "t": "Traumatic haemorrhage within three hours of injury. Tranexamic acid is given with blood."
+ },
+ {
+  "id": "txa-r0",
+  "t": "Tranexamic acid is a lysine analogue."
+ },
+ {
+  "id": "txa-r1",
+  "t": "It occupies the lysine-binding sites plasminogen uses to attach to fibrin."
+ },
+ {
+  "id": "txa-r4",
+  "t": "Clots that have formed are broken down more slowly."
+ },
+ {
+  "id": "txa-r6",
+  "t": "Given early it reduces death from bleeding; given late after trauma it does not help and may harm."
+ },
+ {
+  "id": "txa-sum",
+  "t": "It stops clots being dissolved; it does not make clots form. Timing matters. High doses can cause seizures."
+ },
+ {
+  "id": "pcc-0",
+  "t": "Warfarin-associated intracranial haemorrhage, INR 3.4. Four-factor PCC and IV vitamin K are given."
+ },
+ {
+  "id": "pcc-r0",
+  "t": "The concentrate contains the four vitamin-K-dependent clotting factors, already made and carboxylated. Factor VII lasts only hours, so vitamin K is given at the same time for the liver to make its own factors."
+ },
+ {
+  "id": "pcc-r1",
+  "t": "Warfarin left these factors low or non-functional. PCC replaces them directly, within minutes."
+ },
+ {
+  "id": "pcc-sum",
+  "t": "Immediate replacement of the vitamin-K-dependent factors, sustained by giving vitamin K at the same time."
+ },
+ {
+  "id": "vitamink-0",
+  "t": "A supratherapeutic INR on warfarin. Vitamin K is given — and the INR takes hours to respond."
+ },
+ {
+  "id": "vitamink-r0",
+  "t": "Vitamin K is the cofactor the liver needs to finish making clotting factors II, VII, IX and X."
+ },
+ {
+  "id": "vitamink-r1",
+  "t": "Warfarin blocks the enzyme that recycles vitamin K. Enough fresh vitamin K bypasses the block."
+ },
+ {
+  "id": "vitamink-r3",
+  "t": "Carboxylated factors can bind calcium and phospholipid membranes — without that they do nothing."
+ },
+ {
+  "id": "vitamink-r5",
+  "t": "New factors have to be made, so the INR falls over hours, not minutes. That is why bleeding needs PCC as well."
+ },
+ {
+  "id": "vitamink-sum",
+  "t": "Vitamin K lets the liver make working factors again, so the effect is delayed by hours. IV is faster than oral; give it slowly."
+ },
+ {
+  "id": "protamine-0",
+  "t": "Bleeding after a heparin infusion, or reversal after bypass. Protamine is given slowly."
+ },
+ {
+  "id": "protamine-r0",
+  "t": "Protamine is a strongly positive protein."
+ },
+ {
+  "id": "protamine-r1",
+  "t": "It binds the negatively charged heparin chains in a stable, inactive complex."
+ },
+ {
+  "id": "protamine-r2",
+  "t": "Heparin works by accelerating antithrombin. Bound heparin cannot do that, so thrombin and factor Xa are free to work again."
+ },
+ {
+  "id": "protamine-sum",
+  "t": "A charge-based antidote: it neutralises unfractionated heparin completely and low-molecular-weight heparin only partly. Too much protamine is itself anticoagulant; fast injection causes hypotension."
  }
 ]

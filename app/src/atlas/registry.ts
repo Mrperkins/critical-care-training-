@@ -1,6 +1,8 @@
 import type { TargetId } from '../scene/cameraTargets';
 import type { Anatomy, AtlasDomain, DiseaseDefinition, VisualChannel } from './types';
 import { DECISIONS, type DecisionProfile } from './decisions';
+/** lower-case a title for use mid-sentence, keeping acronyms and chemical symbols (STEMI, CO₂) as written */
+export const lowerKeepAcronyms = (t: string) => t.split(/(\s+|\/)/).map((w) => (/[A-Z].*[A-Z0-9₀-₉]|^[A-Z]{2,}/.test(w) ? w : w.toLowerCase())).join('');
 
 const source = (title: string, url: string) => ({ title, url });
 export const SOURCES = {
@@ -56,7 +58,7 @@ function condition(id: string, title: string, domain: AtlasDomain, group: string
   return { id, title, domain, group, anatomy, target, variant, mechanism, distinction,
     peak: Object.fromEntries(features.map(([key, value]) => [key, value])), findings: features.map(([channel, , label]) => ({ channel, label })),
     stages: profile === 'interpretation' ? ['Baseline', 'Compare anatomy', 'Full illustration'] : ['Baseline', 'Evolving changes', 'Marked changes'],
-    question: question ?? `For ${title.toLowerCase()}, which decision best addresses the illustrated mechanism?`,
+    question: question ?? `For ${lowerKeepAcronyms(title)}, which decision best addresses the illustrated mechanism?`,
     decisions: DECISIONS[profile], sources: [SOURCES[reference]], population,
   };
 }
