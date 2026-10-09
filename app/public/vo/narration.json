@@ -1,0 +1,3482 @@
+{
+ "aaa-1": {
+  "hash": "67f1291f4d45af52",
+  "seconds": 10.05
+ },
+ "aaa-2": {
+  "hash": "7bd83829e645f293",
+  "seconds": 16.17
+ },
+ "aaa-3": {
+  "hash": "2e55e8daf2f0ab8c",
+  "seconds": 10.69
+ },
+ "aaa-4": {
+  "hash": "a13e424894d3bf86",
+  "seconds": 9.66
+ },
+ "aaa-5": {
+  "hash": "5cae1546a8d8e97d",
+  "seconds": 9.58
+ },
+ "aaa-6": {
+  "hash": "e70798ca6624dbda",
+  "seconds": 10.11
+ },
+ "aaa-7": {
+  "hash": "c527daadc5b5149b",
+  "seconds": 10.33
+ },
+ "aaa-8": {
+  "hash": "4cc7e89d2e1467e9",
+  "seconds": 15.42
+ },
+ "aaa-apply": {
+  "hash": "addd600b796d2d8e",
+  "seconds": 5.99
+ },
+ "aaa-see": {
+  "hash": "acc961940154fe8f",
+  "seconds": 11.03
+ },
+ "aaa-understand": {
+  "hash": "475c878cd7bb091a",
+  "seconds": 7.51
+ },
+ "aaa-zoom": {
+  "hash": "6f35c962043da35a",
+  "seconds": 7.89
+ },
+ "abdominal-hemorrhage-apply": {
+  "hash": "a26c7c2a9086a0dd",
+  "seconds": 5.1
+ },
+ "abdominal-hemorrhage-see": {
+  "hash": "4e602e2e8172000b",
+  "seconds": 9.98
+ },
+ "abdominal-hemorrhage-understand": {
+  "hash": "c84457ede5b9d9c5",
+  "seconds": 9.51
+ },
+ "abdominal-hemorrhage-zoom": {
+  "hash": "1e7e1d92ed45389c",
+  "seconds": 7.27
+ },
+ "abnormal-uterine-bleeding-apply": {
+  "hash": "77e60386c15c8a7d",
+  "seconds": 6.12
+ },
+ "abnormal-uterine-bleeding-see": {
+  "hash": "51ff5e5eb5ce09a9",
+  "seconds": 11.93
+ },
+ "abnormal-uterine-bleeding-understand": {
+  "hash": "e739c978f8b471d3",
+  "seconds": 8.51
+ },
+ "abnormal-uterine-bleeding-zoom": {
+  "hash": "bfff040c1498f16a",
+  "seconds": 9.86
+ },
+ "ac-1": {
+  "hash": "293121f484a0adaa",
+  "seconds": 17.28
+ },
+ "ac-2": {
+  "hash": "eff95358ed3da82e",
+  "seconds": 19.07
+ },
+ "ac-3": {
+  "hash": "ee78648b83e67d57",
+  "seconds": 16.13
+ },
+ "ac-4": {
+  "hash": "39817397075de9ff",
+  "seconds": 18.92
+ },
+ "ac-5": {
+  "hash": "653d4ea8c9e76862",
+  "seconds": 17.75
+ },
+ "ac-6": {
+  "hash": "74525ae3a5ec6583",
+  "seconds": 17.05
+ },
+ "acute-heart-failure-apply": {
+  "hash": "e5835aa142b58917",
+  "seconds": 5.99
+ },
+ "acute-heart-failure-see": {
+  "hash": "f3b0034c92119822",
+  "seconds": 9.11
+ },
+ "acute-heart-failure-understand": {
+  "hash": "664a00b274b219d0",
+  "seconds": 10.03
+ },
+ "acute-heart-failure-zoom": {
+  "hash": "0828ea5aeb531907",
+  "seconds": 7.42
+ },
+ "ad-1": {
+  "hash": "57c04491bd75a25c",
+  "seconds": 15.83
+ },
+ "ad-10": {
+  "hash": "85241cad4f38eefd",
+  "seconds": 14.81
+ },
+ "ad-2": {
+  "hash": "18ef659e8130d9fe",
+  "seconds": 14.51
+ },
+ "ad-3": {
+  "hash": "06c1edc3abb93a3e",
+  "seconds": 13.03
+ },
+ "ad-4": {
+  "hash": "ed0063ac108997e1",
+  "seconds": 13.89
+ },
+ "ad-5": {
+  "hash": "775dde9651e44bfe",
+  "seconds": 14.93
+ },
+ "ad-6": {
+  "hash": "c681758cb81bd15f",
+  "seconds": 9.66
+ },
+ "ad-7": {
+  "hash": "ce61ab0b8a1130ec",
+  "seconds": 13.1
+ },
+ "ad-8": {
+  "hash": "0f1fd5748243eb7b",
+  "seconds": 12.39
+ },
+ "ad-9": {
+  "hash": "f20cc2d4a1efe5ed",
+  "seconds": 10.92
+ },
+ "albuterol-0": {
+  "hash": "b3ab9f5ea0360982",
+  "seconds": 9.64
+ },
+ "albuterol-r0": {
+  "hash": "c2babedff7e9e797",
+  "seconds": 7.85
+ },
+ "albuterol-r1": {
+  "hash": "a2e91adb39879fd2",
+  "seconds": 3.65
+ },
+ "albuterol-r2": {
+  "hash": "48bdb7c1c770cbec",
+  "seconds": 4.29
+ },
+ "albuterol-r4": {
+  "hash": "7baa1a332f1f8264",
+  "seconds": 21.95
+ },
+ "albuterol-r6": {
+  "hash": "b709d43f5ed22c55",
+  "seconds": 7.55
+ },
+ "albuterol-r7": {
+  "hash": "49a01e8c74e86007",
+  "seconds": 7.83
+ },
+ "albuterol-sum": {
+  "hash": "74b5d53233d95059",
+  "seconds": 10.39
+ },
+ "amniotic-fluid-embolism-apply": {
+  "hash": "f17b74ef4296cc78",
+  "seconds": 5.57
+ },
+ "amniotic-fluid-embolism-see": {
+  "hash": "8db616560df9ef8a",
+  "seconds": 12.16
+ },
+ "amniotic-fluid-embolism-understand": {
+  "hash": "1384ecb098114cd3",
+  "seconds": 12.65
+ },
+ "amniotic-fluid-embolism-zoom": {
+  "hash": "e161cee26dda6a32",
+  "seconds": 9.43
+ },
+ "an1": {
+  "hash": "04e9a4e754a6903c",
+  "seconds": 14.66
+ },
+ "an2": {
+  "hash": "b853c92466270ddf",
+  "seconds": 18.92
+ },
+ "an3": {
+  "hash": "efaeb3519fa2a5a8",
+  "seconds": 13.21
+ },
+ "anaphylaxis-apply": {
+  "hash": "a20d0a1dd1ede21b",
+  "seconds": 4.89
+ },
+ "anaphylaxis-see": {
+  "hash": "7d23b95618daab52",
+  "seconds": 10.62
+ },
+ "anaphylaxis-understand": {
+  "hash": "659993f7f80800f8",
+  "seconds": 11.52
+ },
+ "anaphylaxis-zoom": {
+  "hash": "304fe0d8b4056664",
+  "seconds": 7.15
+ },
+ "aortic-dissection-apply": {
+  "hash": "126bbee5bc9e36c3",
+  "seconds": 5.1
+ },
+ "aortic-dissection-see": {
+  "hash": "4b5dd6eb0ea93446",
+  "seconds": 9.3
+ },
+ "aortic-dissection-understand": {
+  "hash": "3fdc0f02d6cbb59f",
+  "seconds": 9.11
+ },
+ "aortic-dissection-zoom": {
+  "hash": "062bc609841b3bdc",
+  "seconds": 8.0
+ },
+ "ap-1": {
+  "hash": "413689c540a78202",
+  "seconds": 16.02
+ },
+ "ap-2": {
+  "hash": "38751a1a89454c68",
+  "seconds": 15.53
+ },
+ "ap-3": {
+  "hash": "eb03f262f5a20ba7",
+  "seconds": 18.67
+ },
+ "ap-4": {
+  "hash": "8622f6b43535a297",
+  "seconds": 16.81
+ },
+ "ap-5": {
+  "hash": "177b74c72c60b303",
+  "seconds": 11.5
+ },
+ "ap-6": {
+  "hash": "b570d812f7853ef0",
+  "seconds": 13.67
+ },
+ "ap-7": {
+  "hash": "35cd0a790d953eb4",
+  "seconds": 19.54
+ },
+ "ap-8": {
+  "hash": "cc8d4d2bc4c19db1",
+  "seconds": 16.3
+ },
+ "ards-1": {
+  "hash": "bd758dcb769c9321",
+  "seconds": 13.06
+ },
+ "ards-10": {
+  "hash": "5d851db202c56186",
+  "seconds": 9.88
+ },
+ "ards-11": {
+  "hash": "e740ec242293b71c",
+  "seconds": 9.22
+ },
+ "ards-2": {
+  "hash": "2045596fe715b571",
+  "seconds": 9.66
+ },
+ "ards-3": {
+  "hash": "6bb6bff245528380",
+  "seconds": 14.02
+ },
+ "ards-4": {
+  "hash": "8eb07c5663d04553",
+  "seconds": 10.41
+ },
+ "ards-5": {
+  "hash": "8efa064067ebecf2",
+  "seconds": 15.38
+ },
+ "ards-6": {
+  "hash": "0de6f3524bd80a87",
+  "seconds": 11.11
+ },
+ "ards-7": {
+  "hash": "6118a7f3b4f6747e",
+  "seconds": 14.44
+ },
+ "ards-8": {
+  "hash": "c2aff9372accafa0",
+  "seconds": 12.57
+ },
+ "ards-9": {
+  "hash": "f8084ced8a245da0",
+  "seconds": 10.97
+ },
+ "ards-apply": {
+  "hash": "fd1ac3b80080df97",
+  "seconds": 4.69
+ },
+ "ards-see": {
+  "hash": "b8c98f3050afeee5",
+  "seconds": 10.24
+ },
+ "ards-understand": {
+  "hash": "ef9df0a1588c1986",
+  "seconds": 11.24
+ },
+ "ards-zoom": {
+  "hash": "62bc4ee5a1714d68",
+  "seconds": 8.15
+ },
+ "aspiration-apply": {
+  "hash": "7351e9084e95cc7f",
+  "seconds": 4.63
+ },
+ "aspiration-see": {
+  "hash": "bcaf6bbba5d10217",
+  "seconds": 9.9
+ },
+ "aspiration-understand": {
+  "hash": "afe72d470a827af1",
+  "seconds": 11.03
+ },
+ "aspiration-zoom": {
+  "hash": "2ebe27488b499852",
+  "seconds": 8.68
+ },
+ "asthma-apply": {
+  "hash": "239e70504dd21eb6",
+  "seconds": 4.1
+ },
+ "asthma-see": {
+  "hash": "b39a18ffb038d6ff",
+  "seconds": 8.41
+ },
+ "asthma-understand": {
+  "hash": "6e520f0962d93303",
+  "seconds": 8.13
+ },
+ "asthma-zoom": {
+  "hash": "bf8672b1688b0762",
+  "seconds": 6.95
+ },
+ "atelectasis-apply": {
+  "hash": "604fe7f44fe8aba4",
+  "seconds": 4.67
+ },
+ "atelectasis-see": {
+  "hash": "21a4da86695e6f8f",
+  "seconds": 9.88
+ },
+ "atelectasis-understand": {
+  "hash": "abde69cfba6621f1",
+  "seconds": 8.13
+ },
+ "atelectasis-zoom": {
+  "hash": "9e91605cc753eefc",
+  "seconds": 6.02
+ },
+ "au1": {
+  "hash": "428ae17a574b6382",
+  "seconds": 19.31
+ },
+ "au2": {
+  "hash": "ba31f4b9da6a7893",
+  "seconds": 17.79
+ },
+ "au3": {
+  "hash": "127efb139447dc29",
+  "seconds": 18.82
+ },
+ "auto-peep-apply": {
+  "hash": "c7ab6f300bb29c0a",
+  "seconds": 4.33
+ },
+ "auto-peep-see": {
+  "hash": "9e1d08029cb35c09",
+  "seconds": 8.06
+ },
+ "auto-peep-understand": {
+  "hash": "fa261c5beb9defb1",
+  "seconds": 9.58
+ },
+ "auto-peep-zoom": {
+  "hash": "9071f2ae9e6347fd",
+  "seconds": 7.51
+ },
+ "bradydysrhythmia-apply": {
+  "hash": "0e91d2e02c7ac2c6",
+  "seconds": 5.87
+ },
+ "bradydysrhythmia-see": {
+  "hash": "4681429a8a4fcbe6",
+  "seconds": 10.18
+ },
+ "bradydysrhythmia-understand": {
+  "hash": "f2684bd85f5bbc7a",
+  "seconds": 8.79
+ },
+ "bradydysrhythmia-zoom": {
+  "hash": "4e58439e7dfd01ee",
+  "seconds": 7.89
+ },
+ "bronchiolitis-apply": {
+  "hash": "9cb0a63fd5fd0c7e",
+  "seconds": 4.61
+ },
+ "bronchiolitis-see": {
+  "hash": "db7a71a1a8d99a87",
+  "seconds": 9.41
+ },
+ "bronchiolitis-understand": {
+  "hash": "bda3bcb425f008e5",
+  "seconds": 10.65
+ },
+ "bronchiolitis-zoom": {
+  "hash": "dbfd9819b5839bc5",
+  "seconds": 9.66
+ },
+ "bronchospasm-apply": {
+  "hash": "debac1a41c0cb70c",
+  "seconds": 6.25
+ },
+ "bronchospasm-see": {
+  "hash": "571f543faa9b294a",
+  "seconds": 10.05
+ },
+ "bronchospasm-understand": {
+  "hash": "edbbbf853983034c",
+  "seconds": 10.69
+ },
+ "bronchospasm-zoom": {
+  "hash": "2bc1854b396b28c2",
+  "seconds": 7.74
+ },
+ "burns-apply": {
+  "hash": "f20c05f71ff0e17e",
+  "seconds": 5.42
+ },
+ "burns-see": {
+  "hash": "61a039d93e76dcfd",
+  "seconds": 9.66
+ },
+ "burns-understand": {
+  "hash": "2f2b5411a0123c6a",
+  "seconds": 10.03
+ },
+ "burns-zoom": {
+  "hash": "d05da7b5ccd7b82a",
+  "seconds": 7.7
+ },
+ "calcium-0": {
+  "hash": "d2a78bbadfd53287",
+  "seconds": 7.4
+ },
+ "calcium-r0": {
+  "hash": "f1982a2428593888",
+  "seconds": 4.54
+ },
+ "calcium-r1": {
+  "hash": "30dcd8b1c5457e08",
+  "seconds": 7.68
+ },
+ "calcium-r2": {
+  "hash": "3a5811261f23bfe8",
+  "seconds": 5.76
+ },
+ "calcium-r3": {
+  "hash": "8c02c83fefd67fb1",
+  "seconds": 4.48
+ },
+ "calcium-r5": {
+  "hash": "842b2b53431619e3",
+  "seconds": 6.76
+ },
+ "calcium-sum": {
+  "hash": "80e0a5975b480288",
+  "seconds": 11.37
+ },
+ "cardiogenic-shock-apply": {
+  "hash": "3d70caf1d884a374",
+  "seconds": 4.91
+ },
+ "cardiogenic-shock-see": {
+  "hash": "636590c290dd2cfc",
+  "seconds": 8.58
+ },
+ "cardiogenic-shock-understand": {
+  "hash": "d1d80ac494c0f3a8",
+  "seconds": 9.6
+ },
+ "cardiogenic-shock-zoom": {
+  "hash": "0928aedca4d6bf5b",
+  "seconds": 6.42
+ },
+ "cerebral-edema-apply": {
+  "hash": "4c8a4a35bf413748",
+  "seconds": 4.86
+ },
+ "cerebral-edema-see": {
+  "hash": "907d358fd5a9b8dd",
+  "seconds": 10.35
+ },
+ "cerebral-edema-understand": {
+  "hash": "d1d148329f06de84",
+  "seconds": 10.37
+ },
+ "cerebral-edema-zoom": {
+  "hash": "8d52b0acb36cee38",
+  "seconds": 7.19
+ },
+ "chest-trauma-apply": {
+  "hash": "95ab5e734d53436e",
+  "seconds": 4.48
+ },
+ "chest-trauma-see": {
+  "hash": "dea9e7e73c741a87",
+  "seconds": 10.62
+ },
+ "chest-trauma-understand": {
+  "hash": "261fe4c20f1bf7a5",
+  "seconds": 8.64
+ },
+ "chest-trauma-zoom": {
+  "hash": "c01bac9beed54272",
+  "seconds": 6.61
+ },
+ "clevidipine-0": {
+  "hash": "1e96014272884a72",
+  "seconds": 7.3
+ },
+ "clevidipine-r0": {
+  "hash": "7ed0abfa0e6adf5a",
+  "seconds": 11.75
+ },
+ "clevidipine-r1": {
+  "hash": "d2a11738c71c6578",
+  "seconds": 10.15
+ },
+ "clevidipine-r6": {
+  "hash": "ee8603b4d61bd68d",
+  "seconds": 5.74
+ },
+ "clevidipine-sum": {
+  "hash": "4e440c918f2392ff",
+  "seconds": 12.61
+ },
+ "co-1": {
+  "hash": "2e69067fa96e9fdc",
+  "seconds": 12.67
+ },
+ "co-2": {
+  "hash": "3cf118159adc341b",
+  "seconds": 17.13
+ },
+ "co-3": {
+  "hash": "e6e88f8852b202d9",
+  "seconds": 9.71
+ },
+ "co-4": {
+  "hash": "4e65efa36b64c47a",
+  "seconds": 10.86
+ },
+ "co-5": {
+  "hash": "d0dd8c30351d0689",
+  "seconds": 9.11
+ },
+ "co-6": {
+  "hash": "8c1a7f7725436b00",
+  "seconds": 11.84
+ },
+ "co-7": {
+  "hash": "19305f49b2e37d1e",
+  "seconds": 12.97
+ },
+ "co-8": {
+  "hash": "5753c12eaf381160",
+  "seconds": 13.33
+ },
+ "co-9": {
+  "hash": "4576611743cc58d9",
+  "seconds": 13.89
+ },
+ "congenital-heart-apply": {
+  "hash": "dbe01d52e13f1244",
+  "seconds": 6.25
+ },
+ "congenital-heart-see": {
+  "hash": "c5511b42aa22152f",
+  "seconds": 11.5
+ },
+ "congenital-heart-understand": {
+  "hash": "769e5359c8603e7f",
+  "seconds": 9.37
+ },
+ "congenital-heart-zoom": {
+  "hash": "cc82706d4035f83a",
+  "seconds": 9.49
+ },
+ "copd-apply": {
+  "hash": "d1e81a1fa78da7b5",
+  "seconds": 5.65
+ },
+ "copd-see": {
+  "hash": "02c649e47f62a7a3",
+  "seconds": 10.47
+ },
+ "copd-understand": {
+  "hash": "446f7486b5846081",
+  "seconds": 10.47
+ },
+ "copd-zoom": {
+  "hash": "6a13510ed3787007",
+  "seconds": 7.83
+ },
+ "core-penumbra-apply": {
+  "hash": "d485e96344231d20",
+  "seconds": 5.7
+ },
+ "core-penumbra-see": {
+  "hash": "e25ef275eabc1ef7",
+  "seconds": 11.31
+ },
+ "core-penumbra-understand": {
+  "hash": "f6269cc181c2bc0a",
+  "seconds": 9.17
+ },
+ "core-penumbra-zoom": {
+  "hash": "a4af8063b632ad0d",
+  "seconds": 7.79
+ },
+ "cr-1": {
+  "hash": "1837755327d24f4e",
+  "seconds": 18.15
+ },
+ "cr-2": {
+  "hash": "dce8fb3f74c39524",
+  "seconds": 15.15
+ },
+ "cr-3": {
+  "hash": "bb8208971be636e2",
+  "seconds": 14.46
+ },
+ "cr-4": {
+  "hash": "ca70b8bda72bc369",
+  "seconds": 17.47
+ },
+ "cr-5": {
+  "hash": "a771940e30575215",
+  "seconds": 11.52
+ },
+ "cr-6": {
+  "hash": "1151f2a5c0c33143",
+  "seconds": 14.72
+ },
+ "cr-7": {
+  "hash": "30ba6d7914131f8f",
+  "seconds": 13.8
+ },
+ "cr-8": {
+  "hash": "9938d897278fac3b",
+  "seconds": 13.21
+ },
+ "croup-apply": {
+  "hash": "b01699b9eb826f6e",
+  "seconds": 3.95
+ },
+ "croup-see": {
+  "hash": "c8fb93c0a7cf0535",
+  "seconds": 8.7
+ },
+ "croup-understand": {
+  "hash": "d07b7663bd9e96d6",
+  "seconds": 7.59
+ },
+ "croup-zoom": {
+  "hash": "584c90fc104eff06",
+  "seconds": 6.78
+ },
+ "cvc-1": {
+  "hash": "c3ed5f1bb2202606",
+  "seconds": 15.57
+ },
+ "cvc-2": {
+  "hash": "dda6792c05fd93fd",
+  "seconds": 8.73
+ },
+ "cvc-3": {
+  "hash": "dc21df419829bf17",
+  "seconds": 7.72
+ },
+ "cvc-4": {
+  "hash": "fd34d1fdeb85c38c",
+  "seconds": 14.06
+ },
+ "cvc-5": {
+  "hash": "31b784b381c95ab1",
+  "seconds": 11.71
+ },
+ "cvc-6": {
+  "hash": "e821f539ff6a2a2f",
+  "seconds": 9.26
+ },
+ "cvc-7": {
+  "hash": "ec4bb3cfc57db7b0",
+  "seconds": 15.13
+ },
+ "cvc-8": {
+  "hash": "49cad90bd161fa4d",
+  "seconds": 9.56
+ },
+ "cvc-9": {
+  "hash": "d0a8cfb4aa0002bf",
+  "seconds": 14.53
+ },
+ "dehydration-apply": {
+  "hash": "328f67ded1669334",
+  "seconds": 4.76
+ },
+ "dehydration-see": {
+  "hash": "dd7cefce3bab171d",
+  "seconds": 10.56
+ },
+ "dehydration-understand": {
+  "hash": "3e9c000deeeb2969",
+  "seconds": 10.37
+ },
+ "dehydration-zoom": {
+  "hash": "1c942a241ef73aaf",
+  "seconds": 9.02
+ },
+ "dexmedetomidine-0": {
+  "hash": "25b13886157f654b",
+  "seconds": 7.4
+ },
+ "dexmedetomidine-r0": {
+  "hash": "4d83d389a1142196",
+  "seconds": 6.1
+ },
+ "dexmedetomidine-r1": {
+  "hash": "67045651e5bab400",
+  "seconds": 11.05
+ },
+ "dexmedetomidine-sum": {
+  "hash": "68f25f6e0b033b1f",
+  "seconds": 9.37
+ },
+ "dka-1": {
+  "hash": "7d996ab921aaa6bf",
+  "seconds": 13.85
+ },
+ "dka-2": {
+  "hash": "d32f7533c581dee7",
+  "seconds": 10.86
+ },
+ "dka-3": {
+  "hash": "a4332eba21173e33",
+  "seconds": 10.05
+ },
+ "dka-4": {
+  "hash": "c3692f713b384336",
+  "seconds": 14.36
+ },
+ "dka-5": {
+  "hash": "a4fe0b3a973f81c9",
+  "seconds": 6.53
+ },
+ "dka-6": {
+  "hash": "1d75a4884fa5a3e7",
+  "seconds": 15.74
+ },
+ "dka-7": {
+  "hash": "60bdb816dda276ef",
+  "seconds": 10.56
+ },
+ "dka-apply": {
+  "hash": "96b4a82c3941bee7",
+  "seconds": 4.57
+ },
+ "dka-see": {
+  "hash": "5417e1e827bfcb8d",
+  "seconds": 11.46
+ },
+ "dka-understand": {
+  "hash": "6c88d72e369f1aac",
+  "seconds": 9.69
+ },
+ "dka-zoom": {
+  "hash": "92146f32de22b38e",
+  "seconds": 9.9
+ },
+ "do-1": {
+  "hash": "e61cd240a79ab3e0",
+  "seconds": 22.74
+ },
+ "do-2": {
+  "hash": "f14404a26f49e3d9",
+  "seconds": 21.53
+ },
+ "do-3": {
+  "hash": "09ef453db8aaee45",
+  "seconds": 11.58
+ },
+ "do-4": {
+  "hash": "fdc2e377c84dc67a",
+  "seconds": 11.84
+ },
+ "do-5": {
+  "hash": "2da0e88ef5755552",
+  "seconds": 13.23
+ },
+ "do-6": {
+  "hash": "b195786014aca3e6",
+  "seconds": 17.88
+ },
+ "dobutamine-0": {
+  "hash": "8fc5b42cab3cde81",
+  "seconds": 6.89
+ },
+ "dobutamine-r0": {
+  "hash": "e3589c8ff8533ee4",
+  "seconds": 5.74
+ },
+ "dobutamine-r2": {
+  "hash": "fd022e6167c129ac",
+  "seconds": 4.12
+ },
+ "dobutamine-r3": {
+  "hash": "d8af3465898448e7",
+  "seconds": 13.01
+ },
+ "dobutamine-r5": {
+  "hash": "92956cf73164955b",
+  "seconds": 5.1
+ },
+ "dobutamine-sum": {
+  "hash": "bd44bcc13fdebac8",
+  "seconds": 12.57
+ },
+ "dopamine-0": {
+  "hash": "93ae225cebad8ec1",
+  "seconds": 7.79
+ },
+ "dopamine-r0": {
+  "hash": "7938f57f450594a9",
+  "seconds": 7.55
+ },
+ "dopamine-r1": {
+  "hash": "85b44434642b9be0",
+  "seconds": 18.13
+ },
+ "dopamine-sum": {
+  "hash": "aaf5fafd89c5214e",
+  "seconds": 11.48
+ },
+ "duct-dependent-circulation-apply": {
+  "hash": "30cdd4f4bfc8c143",
+  "seconds": 5.4
+ },
+ "duct-dependent-circulation-see": {
+  "hash": "2720d87ca60611be",
+  "seconds": 9.34
+ },
+ "duct-dependent-circulation-understand": {
+  "hash": "d0b0922fd72eb52d",
+  "seconds": 10.92
+ },
+ "duct-dependent-circulation-zoom": {
+  "hash": "1eb40d24e565bac4",
+  "seconds": 9.49
+ },
+ "eclampsia-apply": {
+  "hash": "96a8861e1596a374",
+  "seconds": 4.5
+ },
+ "eclampsia-see": {
+  "hash": "bb25473c2bbcd1ed",
+  "seconds": 10.67
+ },
+ "eclampsia-understand": {
+  "hash": "ab5520970b1c5b6a",
+  "seconds": 11.78
+ },
+ "eclampsia-zoom": {
+  "hash": "e6e7592a8c5ce2a7",
+  "seconds": 7.08
+ },
+ "ectopic-pregnancy-apply": {
+  "hash": "c0a9d7269fe7f03f",
+  "seconds": 5.03
+ },
+ "ectopic-pregnancy-see": {
+  "hash": "86caec9d1e1ace77",
+  "seconds": 10.54
+ },
+ "ectopic-pregnancy-understand": {
+  "hash": "f3c982c6f1e0a4a1",
+  "seconds": 11.5
+ },
+ "ectopic-pregnancy-zoom": {
+  "hash": "3235a4476a52f955",
+  "seconds": 8.75
+ },
+ "endometriosis-apply": {
+  "hash": "dd92960cb8a68103",
+  "seconds": 4.91
+ },
+ "endometriosis-see": {
+  "hash": "3b370ee8324ec39d",
+  "seconds": 9.09
+ },
+ "endometriosis-understand": {
+  "hash": "8f6f16c5ad2acf5b",
+  "seconds": 8.75
+ },
+ "endometriosis-zoom": {
+  "hash": "3ab651208a059546",
+  "seconds": 7.96
+ },
+ "eom1": {
+  "hash": "df632e2abe018d5a",
+  "seconds": 21.93
+ },
+ "eom2": {
+  "hash": "59ce3f4a982b7025",
+  "seconds": 23.17
+ },
+ "eom3": {
+  "hash": "424007349c26b6bf",
+  "seconds": 23.64
+ },
+ "eom4": {
+  "hash": "7b3723f2c0eaf26e",
+  "seconds": 22.57
+ },
+ "eom5": {
+  "hash": "ac19fe5263826304",
+  "seconds": 23.79
+ },
+ "epinephrine-0": {
+  "hash": "057ef60e0c62cc33",
+  "seconds": 5.97
+ },
+ "epinephrine-r0": {
+  "hash": "daecb3c51f2e37e4",
+  "seconds": 8.75
+ },
+ "epinephrine-r1": {
+  "hash": "077a7bd8b4047f54",
+  "seconds": 10.92
+ },
+ "epinephrine-r3": {
+  "hash": "ea7aaeb86d937b8f",
+  "seconds": 24.83
+ },
+ "epinephrine-r6": {
+  "hash": "bb9fafac4068dea6",
+  "seconds": 7.08
+ },
+ "epinephrine-sum": {
+  "hash": "b86226ea9d65afc9",
+  "seconds": 12.59
+ },
+ "esmolol-0": {
+  "hash": "409cb4df1b80dafb",
+  "seconds": 7.19
+ },
+ "esmolol-r0": {
+  "hash": "6fc70d7e3b0b274c",
+  "seconds": 5.57
+ },
+ "esmolol-r1": {
+  "hash": "7afb47a320bd90c4",
+  "seconds": 4.33
+ },
+ "esmolol-r3": {
+  "hash": "80de0f333540a71b",
+  "seconds": 8.87
+ },
+ "esmolol-r7": {
+  "hash": "abf2f99672584b8c",
+  "seconds": 9.56
+ },
+ "esmolol-sum": {
+  "hash": "8c55edeed5d972aa",
+  "seconds": 10.52
+ },
+ "etomidate-0": {
+  "hash": "9c8b28feb020414f",
+  "seconds": 7.19
+ },
+ "etomidate-r0": {
+  "hash": "0dfcb31cda1d5f06",
+  "seconds": 4.84
+ },
+ "etomidate-r1": {
+  "hash": "9b886164df99467d",
+  "seconds": 21.4
+ },
+ "etomidate-r2": {
+  "hash": "9319fd7ea1078b98",
+  "seconds": 5.76
+ },
+ "etomidate-sum": {
+  "hash": "593367e6925fa9f1",
+  "seconds": 11.71
+ },
+ "fast-1": {
+  "hash": "3b5d2acd86d755b3",
+  "seconds": 15.51
+ },
+ "fast-10": {
+  "hash": "66735b252a4cf51c",
+  "seconds": 14.12
+ },
+ "fast-2": {
+  "hash": "168b11d33de7d144",
+  "seconds": 14.14
+ },
+ "fast-3": {
+  "hash": "843f31674fa6c4ad",
+  "seconds": 13.93
+ },
+ "fast-4": {
+  "hash": "eb05b48c32a26ce9",
+  "seconds": 12.82
+ },
+ "fast-5": {
+  "hash": "ea33a4d705695958",
+  "seconds": 6.89
+ },
+ "fast-6": {
+  "hash": "36595651de867d8d",
+  "seconds": 11.33
+ },
+ "fast-7": {
+  "hash": "caaa3a903e67bb4b",
+  "seconds": 14.53
+ },
+ "fast-8": {
+  "hash": "22f048bd0dd39c4f",
+  "seconds": 12.01
+ },
+ "fast-9": {
+  "hash": "e65b4a0fdbea80b7",
+  "seconds": 14.91
+ },
+ "fentanyl-0": {
+  "hash": "a6e368bff5ebe417",
+  "seconds": 8.28
+ },
+ "fentanyl-r0": {
+  "hash": "01b7883a193d8840",
+  "seconds": 5.08
+ },
+ "fentanyl-r2": {
+  "hash": "564410a7f168c11d",
+  "seconds": 8.58
+ },
+ "fentanyl-r4": {
+  "hash": "d9753accc2189e97",
+  "seconds": 6.04
+ },
+ "fentanyl-sum": {
+  "hash": "412749ad9a7b1537",
+  "seconds": 12.67
+ },
+ "fetal-placental-circulation-apply": {
+  "hash": "38e879c9c1a605a2",
+  "seconds": 6.57
+ },
+ "fetal-placental-circulation-see": {
+  "hash": "2ecc7f0a569b24c8",
+  "seconds": 11.2
+ },
+ "fetal-placental-circulation-understand": {
+  "hash": "524b3d72f57573c8",
+  "seconds": 7.89
+ },
+ "fetal-placental-circulation-zoom": {
+  "hash": "52c6612f7719a093",
+  "seconds": 9.24
+ },
+ "hellp-apply": {
+  "hash": "44b8f528072986c1",
+  "seconds": 4.5
+ },
+ "hellp-see": {
+  "hash": "58af99198523f09f",
+  "seconds": 9.34
+ },
+ "hellp-understand": {
+  "hash": "34bcb48d16370149",
+  "seconds": 11.33
+ },
+ "hellp-zoom": {
+  "hash": "2c76f4fade4194f9",
+  "seconds": 7.38
+ },
+ "hemorrhagic-shock-apply": {
+  "hash": "8553704b7ce2a9a7",
+  "seconds": 4.69
+ },
+ "hemorrhagic-shock-see": {
+  "hash": "d83598aa2183a4e6",
+  "seconds": 9.02
+ },
+ "hemorrhagic-shock-understand": {
+  "hash": "64576bc906354750",
+  "seconds": 9.88
+ },
+ "hemorrhagic-shock-zoom": {
+  "hash": "e71d8a3970a4e923",
+  "seconds": 6.44
+ },
+ "hemothorax-apply": {
+  "hash": "352a3ccfc732ccfe",
+  "seconds": 4.44
+ },
+ "hemothorax-see": {
+  "hash": "023a9b9e00e63809",
+  "seconds": 7.21
+ },
+ "hemothorax-understand": {
+  "hash": "30f0e124f2d9e10d",
+  "seconds": 8.47
+ },
+ "hemothorax-zoom": {
+  "hash": "26c563de47467260",
+  "seconds": 5.16
+ },
+ "herniation-apply": {
+  "hash": "b838a0e255f93eb1",
+  "seconds": 4.57
+ },
+ "herniation-see": {
+  "hash": "4c990ecfb645d424",
+  "seconds": 9.11
+ },
+ "herniation-understand": {
+  "hash": "f149ae78906fa959",
+  "seconds": 10.18
+ },
+ "herniation-zoom": {
+  "hash": "4070e74f8898e007",
+  "seconds": 7.36
+ },
+ "hk1": {
+  "hash": "17fdee33ffe4c3a4",
+  "seconds": 18.05
+ },
+ "hk2": {
+  "hash": "ea570b180e7d534b",
+  "seconds": 21.06
+ },
+ "hk3": {
+  "hash": "143012cd9f271f3c",
+  "seconds": 20.86
+ },
+ "hk4": {
+  "hash": "633d6920d1e1e90c",
+  "seconds": 18.01
+ },
+ "hk5": {
+  "hash": "fb6be51a1add14d1",
+  "seconds": 12.05
+ },
+ "hk6": {
+  "hash": "a11451c5ec6137f8",
+  "seconds": 12.61
+ },
+ "hks-1": {
+  "hash": "39a1ad91c727cab3",
+  "seconds": 14.61
+ },
+ "hks-2": {
+  "hash": "2562f292bd7ee02a",
+  "seconds": 10.69
+ },
+ "hks-3": {
+  "hash": "808c80a43158f340",
+  "seconds": 16.73
+ },
+ "hks-4": {
+  "hash": "0e7749959e68f73c",
+  "seconds": 9.64
+ },
+ "hks-5": {
+  "hash": "2fd4aa982fef6496",
+  "seconds": 15.68
+ },
+ "hks-6": {
+  "hash": "7145ea090a89d278",
+  "seconds": 14.31
+ },
+ "hks-7": {
+  "hash": "758c267b0978bfa3",
+  "seconds": 6.02
+ },
+ "hks-8": {
+  "hash": "dac9c2f06a825fac",
+  "seconds": 10.88
+ },
+ "hn1": {
+  "hash": "1438f7b1437ff89c",
+  "seconds": 17.54
+ },
+ "hn2": {
+  "hash": "c626eb95af7258e2",
+  "seconds": 23.79
+ },
+ "hn3": {
+  "hash": "85fc4b4292986023",
+  "seconds": 15.74
+ },
+ "hn4": {
+  "hash": "6f574975b88be456",
+  "seconds": 21.97
+ },
+ "ht-1": {
+  "hash": "db0ccf8e1026633b",
+  "seconds": 4.78
+ },
+ "ht-2": {
+  "hash": "b9e3831443757cdd",
+  "seconds": 16.75
+ },
+ "ht-3": {
+  "hash": "27b4caad79a79411",
+  "seconds": 15.66
+ },
+ "ht-4": {
+  "hash": "f3489547b53a5b58",
+  "seconds": 16.6
+ },
+ "ht-5": {
+  "hash": "dde02bb708618702",
+  "seconds": 17.71
+ },
+ "ht-6": {
+  "hash": "a40967c5ee695d08",
+  "seconds": 8.79
+ },
+ "hy1": {
+  "hash": "7054347e338e8d0d",
+  "seconds": 21.91
+ },
+ "hy2": {
+  "hash": "0f45a99435d66c23",
+  "seconds": 17.47
+ },
+ "hy3": {
+  "hash": "1408fc3ed2f77f4f",
+  "seconds": 15.27
+ },
+ "hy4": {
+  "hash": "71d81bef05f38789",
+  "seconds": 22.17
+ },
+ "hy5": {
+  "hash": "4038b7c58ddf985e",
+  "seconds": 21.06
+ },
+ "hyperkalemia-apply": {
+  "hash": "fc06cc6acc8fddaf",
+  "seconds": 5.46
+ },
+ "hyperkalemia-see": {
+  "hash": "e32f56285fff28af",
+  "seconds": 12.52
+ },
+ "hyperkalemia-understand": {
+  "hash": "2cd84a4eab03c29d",
+  "seconds": 8.83
+ },
+ "hyperkalemia-zoom": {
+  "hash": "fe9c8aef5b3dbf56",
+  "seconds": 7.49
+ },
+ "hypertensive-emergency-apply": {
+  "hash": "a654cf73741520d9",
+  "seconds": 5.5
+ },
+ "hypertensive-emergency-see": {
+  "hash": "2337a24e29ea626d",
+  "seconds": 11.37
+ },
+ "hypertensive-emergency-understand": {
+  "hash": "4cdf70441a97af85",
+  "seconds": 9.19
+ },
+ "hypertensive-emergency-zoom": {
+  "hash": "5c683e35e98a2f17",
+  "seconds": 8.43
+ },
+ "hypertonic-0": {
+  "hash": "9b1147806c799bde",
+  "seconds": 9.49
+ },
+ "hypertonic-r0": {
+  "hash": "5f63768d380f41b0",
+  "seconds": 6.34
+ },
+ "hypertonic-r1": {
+  "hash": "49363643976d6045",
+  "seconds": 4.44
+ },
+ "hypertonic-r2": {
+  "hash": "c65b9af44e623c33",
+  "seconds": 4.71
+ },
+ "hypertonic-r3": {
+  "hash": "1bfc8bc076a8c4c3",
+  "seconds": 5.97
+ },
+ "hypertonic-r5": {
+  "hash": "73de0cb8be6301b1",
+  "seconds": 3.5
+ },
+ "hypertonic-r6": {
+  "hash": "94a5b34ee338323d",
+  "seconds": 5.67
+ },
+ "hypertonic-sum": {
+  "hash": "45a72c6e0b7fe901",
+  "seconds": 13.38
+ },
+ "hypoglycemia-apply": {
+  "hash": "f7eaf4a2da53428e",
+  "seconds": 5.55
+ },
+ "hypoglycemia-see": {
+  "hash": "f79495ee0da847a6",
+  "seconds": 10.28
+ },
+ "hypoglycemia-understand": {
+  "hash": "c9e84286ff1185a8",
+  "seconds": 8.92
+ },
+ "hypoglycemia-zoom": {
+  "hash": "934750081510ea63",
+  "seconds": 5.65
+ },
+ "iabp-1": {
+  "hash": "76157a8325049cf0",
+  "seconds": 17.9
+ },
+ "iabp-2": {
+  "hash": "77b0b359c354d381",
+  "seconds": 12.91
+ },
+ "iabp-3": {
+  "hash": "0bba9d3d46f485c1",
+  "seconds": 13.8
+ },
+ "iabp-4": {
+  "hash": "9af331756638bf3a",
+  "seconds": 9.88
+ },
+ "iabp-5": {
+  "hash": "b580a851304f52c7",
+  "seconds": 8.49
+ },
+ "iabp-6": {
+  "hash": "2ade53c402388c7d",
+  "seconds": 11.71
+ },
+ "iabp-7": {
+  "hash": "d91f408427b4f457",
+  "seconds": 13.44
+ },
+ "iabp-8": {
+  "hash": "5d8dcd8d5982d53e",
+  "seconds": 5.14
+ },
+ "ich-1": {
+  "hash": "0ad078b5fa686d0a",
+  "seconds": 11.52
+ },
+ "ich-2": {
+  "hash": "11e29afdb4045b5a",
+  "seconds": 14.23
+ },
+ "ich-3": {
+  "hash": "65d303a47b537ae6",
+  "seconds": 9.3
+ },
+ "ich-4": {
+  "hash": "408659ff6a275aa7",
+  "seconds": 13.55
+ },
+ "ich-5": {
+  "hash": "939a7406a8d3dd33",
+  "seconds": 10.67
+ },
+ "ich-apply": {
+  "hash": "a2281903e797854e",
+  "seconds": 5.33
+ },
+ "ich-see": {
+  "hash": "666653eef3487a3d",
+  "seconds": 9.15
+ },
+ "ich-understand": {
+  "hash": "bf351ed7fbfe01d0",
+  "seconds": 11.05
+ },
+ "ich-zoom": {
+  "hash": "515728301a4aaee4",
+  "seconds": 6.34
+ },
+ "icp-1": {
+  "hash": "61988fc5874265ce",
+  "seconds": 12.1
+ },
+ "icp-10": {
+  "hash": "6d3c8f11db397de2",
+  "seconds": 13.33
+ },
+ "icp-11": {
+  "hash": "e3fdca30ae50fb6b",
+  "seconds": 14.7
+ },
+ "icp-12": {
+  "hash": "af92f6c245726d5b",
+  "seconds": 10.88
+ },
+ "icp-2": {
+  "hash": "ea95a55bea9cba42",
+  "seconds": 12.05
+ },
+ "icp-3": {
+  "hash": "63d88a37d64fba68",
+  "seconds": 12.48
+ },
+ "icp-4": {
+  "hash": "1a02935862c62e10",
+  "seconds": 14.04
+ },
+ "icp-5": {
+  "hash": "053c719a03da37e5",
+  "seconds": 15.1
+ },
+ "icp-6": {
+  "hash": "78c90a46c7f04da8",
+  "seconds": 12.03
+ },
+ "icp-7": {
+  "hash": "701e8b5cd5c9ba0a",
+  "seconds": 16.58
+ },
+ "icp-8": {
+  "hash": "475ff19c01d946fc",
+  "seconds": 11.43
+ },
+ "icp-9": {
+  "hash": "9df23158cba90465",
+  "seconds": 14.61
+ },
+ "insulin-0": {
+  "hash": "8cbe72446930a9a1",
+  "seconds": 7.15
+ },
+ "insulin-r0": {
+  "hash": "dbe75a225c311301",
+  "seconds": 4.86
+ },
+ "insulin-r1": {
+  "hash": "8861df277a06afd2",
+  "seconds": 5.72
+ },
+ "insulin-r2": {
+  "hash": "c65e4d1eb3c30fc7",
+  "seconds": 2.82
+ },
+ "insulin-r3": {
+  "hash": "57dac8985a5fc28e",
+  "seconds": 9.07
+ },
+ "insulin-r5": {
+  "hash": "958cbcb6f6bd91af",
+  "seconds": 8.75
+ },
+ "insulin-sum": {
+  "hash": "29677260854ba6b9",
+  "seconds": 13.01
+ },
+ "ipratropium-0": {
+  "hash": "af9845c503a9c261",
+  "seconds": 7.45
+ },
+ "ipratropium-r0": {
+  "hash": "9f15c782aa86e7d9",
+  "seconds": 8.85
+ },
+ "ipratropium-r2": {
+  "hash": "650590e52fc620e2",
+  "seconds": 4.97
+ },
+ "ipratropium-r4": {
+  "hash": "42c282ff69de8df7",
+  "seconds": 7.55
+ },
+ "ipratropium-sum": {
+  "hash": "ee13c95f08703a18",
+  "seconds": 15.64
+ },
+ "ketamine-0": {
+  "hash": "cdf84ee31fccb564",
+  "seconds": 7.94
+ },
+ "ketamine-r0": {
+  "hash": "71f4ad27de1d8f90",
+  "seconds": 6.27
+ },
+ "ketamine-r1": {
+  "hash": "eeda29c9861d2ce0",
+  "seconds": 19.09
+ },
+ "ketamine-r2": {
+  "hash": "975af5dbbf6e337f",
+  "seconds": 19.05
+ },
+ "ketamine-sum": {
+  "hash": "031d2c8b12f52ef0",
+  "seconds": 10.22
+ },
+ "labetalol-0": {
+  "hash": "df5c4bbdab3a4298",
+  "seconds": 7.3
+ },
+ "labetalol-r0": {
+  "hash": "e4417b14efa8636f",
+  "seconds": 8.68
+ },
+ "labetalol-r3": {
+  "hash": "6f0afb6b3317a005",
+  "seconds": 11.01
+ },
+ "labetalol-sum": {
+  "hash": "0d9a87e95a6e785b",
+  "seconds": 12.54
+ },
+ "lc1": {
+  "hash": "98fad0448c7cfd3e",
+  "seconds": 8.53
+ },
+ "lc2": {
+  "hash": "2ef77076ac85f6b7",
+  "seconds": 17.77
+ },
+ "lc3": {
+  "hash": "1f21a78d029d7578",
+  "seconds": 11.22
+ },
+ "left-right-shunt-apply": {
+  "hash": "9274bc1c6dd08a11",
+  "seconds": 5.21
+ },
+ "left-right-shunt-see": {
+  "hash": "b56757917b6738a1",
+  "seconds": 8.55
+ },
+ "left-right-shunt-understand": {
+  "hash": "3ccfa221beb2eba7",
+  "seconds": 8.81
+ },
+ "left-right-shunt-zoom": {
+  "hash": "63f79f24cfdf0334",
+  "seconds": 8.77
+ },
+ "ln-art-1": {
+  "hash": "7d81dad5e4b67037",
+  "seconds": 19.35
+ },
+ "ln-art-2": {
+  "hash": "9e0c71104cda2c99",
+  "seconds": 23.15
+ },
+ "ln-art-3": {
+  "hash": "41c2730b44403542",
+  "seconds": 15.68
+ },
+ "ln-art-4": {
+  "hash": "bdaeebb9af593adf",
+  "seconds": 8.02
+ },
+ "ln-art-5": {
+  "hash": "4ee7ad82405268e9",
+  "seconds": 18.41
+ },
+ "ln-cvp-1": {
+  "hash": "a121e2d1c901d8f7",
+  "seconds": 26.24
+ },
+ "ln-cvp-2": {
+  "hash": "a16ba09ba7cc6751",
+  "seconds": 13.4
+ },
+ "ln-cvp-3": {
+  "hash": "0777278548891be3",
+  "seconds": 14.59
+ },
+ "ln-cvp-4": {
+  "hash": "9a44e67b670b53c5",
+  "seconds": 18.18
+ },
+ "ln-cvp-5": {
+  "hash": "d39093aa7a82b4b6",
+  "seconds": 12.97
+ },
+ "ln-cvp-6": {
+  "hash": "bcbcc68f4280e90d",
+  "seconds": 12.16
+ },
+ "ln-cvp-7": {
+  "hash": "0086ac317d276e2a",
+  "seconds": 13.42
+ },
+ "ln-damp-1": {
+  "hash": "cfc5354c7745932d",
+  "seconds": 15.21
+ },
+ "ln-damp-2": {
+  "hash": "5419484b39df78fb",
+  "seconds": 20.1
+ },
+ "ln-damp-3": {
+  "hash": "7ad8aac131d373e0",
+  "seconds": 13.12
+ },
+ "ln-damp-4": {
+  "hash": "8e0a312042f18d14",
+  "seconds": 15.94
+ },
+ "ln-damp-5": {
+  "hash": "8cb57957dcdfe0ff",
+  "seconds": 19.88
+ },
+ "ln-dz-1": {
+  "hash": "3e21bc6be1074429",
+  "seconds": 10.6
+ },
+ "ln-dz-2": {
+  "hash": "992e8ca471703752",
+  "seconds": 13.85
+ },
+ "ln-dz-3": {
+  "hash": "8543d96e82b14426",
+  "seconds": 13.93
+ },
+ "ln-dz-4": {
+  "hash": "40792e4a7c2f709f",
+  "seconds": 10.3
+ },
+ "ln-dz-5": {
+  "hash": "c7593587acd80fac",
+  "seconds": 12.27
+ },
+ "ln-hl-1": {
+  "hash": "832aadb0eb02d50f",
+  "seconds": 17.47
+ },
+ "ln-hl-2": {
+  "hash": "e4039f9fb6004a67",
+  "seconds": 12.48
+ },
+ "ln-hl-3": {
+  "hash": "a8270539ef9e2927",
+  "seconds": 20.84
+ },
+ "ln-hl-4": {
+  "hash": "0cf0afd6f3bc8fe4",
+  "seconds": 9.22
+ },
+ "ln-hl-5": {
+  "hash": "36075561d4b3b94b",
+  "seconds": 20.95
+ },
+ "ln-hl-6": {
+  "hash": "fdc5314928580968",
+  "seconds": 9.51
+ },
+ "ln-level-1": {
+  "hash": "749b27ca0d69d363",
+  "seconds": 11.95
+ },
+ "ln-level-2": {
+  "hash": "420ed470a93310e9",
+  "seconds": 21.97
+ },
+ "ln-level-3": {
+  "hash": "810ae6b20c938393",
+  "seconds": 21.31
+ },
+ "ln-level-4": {
+  "hash": "62def23e13762cd0",
+  "seconds": 11.11
+ },
+ "ln-level-5": {
+  "hash": "10b25fea401ebf12",
+  "seconds": 15.23
+ },
+ "ln-setup-1": {
+  "hash": "ef07cab2a8db69dd",
+  "seconds": 17.02
+ },
+ "ln-setup-2": {
+  "hash": "db4b64c43c17c22c",
+  "seconds": 16.87
+ },
+ "ln-setup-3": {
+  "hash": "cab3b711c608c88e",
+  "seconds": 18.33
+ },
+ "ln-setup-4": {
+  "hash": "5ee486781451b0df",
+  "seconds": 17.69
+ },
+ "ln-setup-5": {
+  "hash": "a95b1d98adda627b",
+  "seconds": 16.49
+ },
+ "lvo-1": {
+  "hash": "f66721a905d262aa",
+  "seconds": 15.08
+ },
+ "lvo-2": {
+  "hash": "96959a5658650a3b",
+  "seconds": 15.74
+ },
+ "lvo-3": {
+  "hash": "a4ae5c47a7176ee3",
+  "seconds": 6.85
+ },
+ "lvo-4": {
+  "hash": "b96e3e54cfa0853d",
+  "seconds": 7.79
+ },
+ "lvo-5": {
+  "hash": "412dfa3f7d7508be",
+  "seconds": 9.15
+ },
+ "lvo-6": {
+  "hash": "7c381eb82dc5f4e4",
+  "seconds": 16.15
+ },
+ "lvo-apply": {
+  "hash": "b8a15ed932db38b5",
+  "seconds": 5.61
+ },
+ "lvo-see": {
+  "hash": "cbc8c27c71630583",
+  "seconds": 11.03
+ },
+ "lvo-understand": {
+  "hash": "158ae813b4b45447",
+  "seconds": 8.85
+ },
+ "lvo-zoom": {
+  "hash": "e90137a94c219d08",
+  "seconds": 9.62
+ },
+ "mannitol-0": {
+  "hash": "5cf6e12a0e5cd1bf",
+  "seconds": 7.74
+ },
+ "mannitol-r0": {
+  "hash": "5367eaadf1bd57d2",
+  "seconds": 8.17
+ },
+ "mannitol-r1": {
+  "hash": "357a008019aaf539",
+  "seconds": 12.42
+ },
+ "mannitol-r2": {
+  "hash": "6006192577e8e1b2",
+  "seconds": 5.59
+ },
+ "mannitol-sum": {
+  "hash": "61bb4a6eb755ca26",
+  "seconds": 15.19
+ },
+ "maternal-physiology-apply": {
+  "hash": "b73fed27a547fe4a",
+  "seconds": 6.23
+ },
+ "maternal-physiology-see": {
+  "hash": "c60419f566cec6f6",
+  "seconds": 14.12
+ },
+ "maternal-physiology-understand": {
+  "hash": "8ea9f9e369d7876b",
+  "seconds": 8.64
+ },
+ "maternal-physiology-zoom": {
+  "hash": "487807b31f3598e0",
+  "seconds": 8.21
+ },
+ "me-1": {
+  "hash": "4baf0e9b012c64fe",
+  "seconds": 15.59
+ },
+ "me-2": {
+  "hash": "d4e7b000fdb18763",
+  "seconds": 14.29
+ },
+ "me-3": {
+  "hash": "f55ec159e9b0875c",
+  "seconds": 8.85
+ },
+ "me-4": {
+  "hash": "1d25c8202c7de845",
+  "seconds": 13.87
+ },
+ "me-5": {
+  "hash": "61dad95488dae00b",
+  "seconds": 17.41
+ },
+ "metabolic-acidosis-apply": {
+  "hash": "8f464d94a73b4517",
+  "seconds": 5.29
+ },
+ "metabolic-acidosis-see": {
+  "hash": "263f159985646a8b",
+  "seconds": 11.95
+ },
+ "metabolic-acidosis-understand": {
+  "hash": "93df784cb1a4f696",
+  "seconds": 8.34
+ },
+ "metabolic-acidosis-zoom": {
+  "hash": "e7907c544f08e6bf",
+  "seconds": 8.81
+ },
+ "midazolam-0": {
+  "hash": "a0dde54ed89af36d",
+  "seconds": 3.86
+ },
+ "midazolam-r0": {
+  "hash": "885ea3a719171672",
+  "seconds": 6.81
+ },
+ "midazolam-r2": {
+  "hash": "cdce912590c9ae52",
+  "seconds": 4.52
+ },
+ "midazolam-r4": {
+  "hash": "753982a6fe2e27df",
+  "seconds": 5.06
+ },
+ "midazolam-sum": {
+  "hash": "d7cbddd480e1e71d",
+  "seconds": 13.61
+ },
+ "milrinone-0": {
+  "hash": "0b4398331c2364b5",
+  "seconds": 7.45
+ },
+ "milrinone-r0": {
+  "hash": "1ebde37382e546a1",
+  "seconds": 7.83
+ },
+ "milrinone-r1": {
+  "hash": "0e0ca324e5aeca9f",
+  "seconds": 6.08
+ },
+ "milrinone-r3": {
+  "hash": "9560103a022ff5cc",
+  "seconds": 6.12
+ },
+ "milrinone-r4": {
+  "hash": "306ee91269167fce",
+  "seconds": 3.46
+ },
+ "milrinone-sum": {
+  "hash": "508de3db23832fc1",
+  "seconds": 9.71
+ },
+ "mt1": {
+  "hash": "bf753e453f825a22",
+  "seconds": 19.43
+ },
+ "mt2": {
+  "hash": "5e4d50505b60d1f7",
+  "seconds": 19.86
+ },
+ "mt3": {
+  "hash": "286a7b93851e4003",
+  "seconds": 17.49
+ },
+ "mt4": {
+  "hash": "c40de74ea02b72b0",
+  "seconds": 22.76
+ },
+ "nd-1": {
+  "hash": "6fd0f49756073cef",
+  "seconds": 11.9
+ },
+ "nd-2": {
+  "hash": "e899da12d63664d7",
+  "seconds": 14.34
+ },
+ "nd-3": {
+  "hash": "d8cd7c3d833d236b",
+  "seconds": 12.76
+ },
+ "nd-4": {
+  "hash": "c3e4ac862ed5b01b",
+  "seconds": 11.46
+ },
+ "nd-5": {
+  "hash": "4bfbf8f2d8f02170",
+  "seconds": 17.13
+ },
+ "nd-6": {
+  "hash": "bb593f9aad210538",
+  "seconds": 11.29
+ },
+ "nd-7": {
+  "hash": "c4052675bbfd4a85",
+  "seconds": 10.39
+ },
+ "neonatal-rds-apply": {
+  "hash": "16606d0b251efd92",
+  "seconds": 5.93
+ },
+ "neonatal-rds-see": {
+  "hash": "27dfdb782e5ff4bf",
+  "seconds": 10.79
+ },
+ "neonatal-rds-understand": {
+  "hash": "f7607ffc8a0151c2",
+  "seconds": 11.18
+ },
+ "neonatal-rds-zoom": {
+  "hash": "b4137d8dc9d5fcd6",
+  "seconds": 9.86
+ },
+ "neonatal-ventilation-apply": {
+  "hash": "00cb8c3e4e3e3b84",
+  "seconds": 5.93
+ },
+ "neonatal-ventilation-see": {
+  "hash": "ea6267659def1440",
+  "seconds": 11.56
+ },
+ "neonatal-ventilation-understand": {
+  "hash": "a74ed2a00ea1ca72",
+  "seconds": 9.75
+ },
+ "neonatal-ventilation-zoom": {
+  "hash": "99b936f8097e789e",
+  "seconds": 7.72
+ },
+ "nicardipine-0": {
+  "hash": "72ed3b7900181a89",
+  "seconds": 9.0
+ },
+ "nicardipine-r0": {
+  "hash": "f99baa170347e160",
+  "seconds": 9.51
+ },
+ "nicardipine-r1": {
+  "hash": "56b9830fadb920d4",
+  "seconds": 6.91
+ },
+ "nicardipine-r2": {
+  "hash": "94dcfe2746b19257",
+  "seconds": 2.52
+ },
+ "nicardipine-r3": {
+  "hash": "68900304650e9f43",
+  "seconds": 6.42
+ },
+ "nicardipine-r4": {
+  "hash": "be632964a1e6d5f3",
+  "seconds": 4.71
+ },
+ "nicardipine-r6": {
+  "hash": "725c65ab17cc72e9",
+  "seconds": 11.24
+ },
+ "nicardipine-sum": {
+  "hash": "5a7fdcd9770e183a",
+  "seconds": 10.41
+ },
+ "nimodipine-0": {
+  "hash": "c4aac6e511079467",
+  "seconds": 5.72
+ },
+ "nimodipine-r0": {
+  "hash": "710889cf8eafcaef",
+  "seconds": 5.1
+ },
+ "nimodipine-r3": {
+  "hash": "020dcdebef9ec136",
+  "seconds": 16.49
+ },
+ "nimodipine-r4": {
+  "hash": "f4fd46d40ecaeb0e",
+  "seconds": 7.72
+ },
+ "nimodipine-sum": {
+  "hash": "11be6a14f083531e",
+  "seconds": 9.88
+ },
+ "nitroglycerin-0": {
+  "hash": "177b3859f133e06d",
+  "seconds": 7.68
+ },
+ "nitroglycerin-r0": {
+  "hash": "0fe5c813abacd7de",
+  "seconds": 13.31
+ },
+ "nitroglycerin-r1": {
+  "hash": "62c7ae1e687be31d",
+  "seconds": 3.95
+ },
+ "nitroglycerin-r3": {
+  "hash": "859192eecf5233e6",
+  "seconds": 9.81
+ },
+ "nitroglycerin-r4": {
+  "hash": "95a5fec2e61e37eb",
+  "seconds": 7.02
+ },
+ "nitroglycerin-r6": {
+  "hash": "82172d5e1153e596",
+  "seconds": 13.01
+ },
+ "nitroglycerin-sum": {
+  "hash": "d8b91d3232b37542",
+  "seconds": 16.87
+ },
+ "norepinephrine-0": {
+  "hash": "e075c06116975aa6",
+  "seconds": 8.38
+ },
+ "norepinephrine-r0": {
+  "hash": "4633ec64a359d7aa",
+  "seconds": 5.95
+ },
+ "norepinephrine-r1": {
+  "hash": "6b70989798f4d978",
+  "seconds": 15.23
+ },
+ "norepinephrine-r2": {
+  "hash": "4544a58302901610",
+  "seconds": 8.87
+ },
+ "norepinephrine-r3": {
+  "hash": "fa50cd7d0d5ed456",
+  "seconds": 12.25
+ },
+ "norepinephrine-r4": {
+  "hash": "d8d846d39b64fe26",
+  "seconds": 15.85
+ },
+ "norepinephrine-r5": {
+  "hash": "c825b2dbda590758",
+  "seconds": 12.46
+ },
+ "norepinephrine-r7": {
+  "hash": "481caaadb29b9d68",
+  "seconds": 6.1
+ },
+ "norepinephrine-r8": {
+  "hash": "b1155285724aedb4",
+  "seconds": 7.34
+ },
+ "norepinephrine-sum": {
+  "hash": "5b2eb5625296df3d",
+  "seconds": 25.71
+ },
+ "nt-1": {
+  "hash": "7fdbde1af3156597",
+  "seconds": 17.9
+ },
+ "nt-2": {
+  "hash": "709d5ef17623c80d",
+  "seconds": 16.47
+ },
+ "nt-3": {
+  "hash": "bfae302d4160e4b2",
+  "seconds": 17.32
+ },
+ "nt-4": {
+  "hash": "d68e570cb2d87260",
+  "seconds": 12.44
+ },
+ "nt-5": {
+  "hash": "a69740fd6cb14e7c",
+  "seconds": 20.57
+ },
+ "nt-6": {
+  "hash": "4ecdf66a7fd0bc1c",
+  "seconds": 14.49
+ },
+ "nt-7": {
+  "hash": "9a7e095cd429c2c8",
+  "seconds": 21.25
+ },
+ "nt-8": {
+  "hash": "da157c78bb49f033",
+  "seconds": 16.9
+ },
+ "obstetric-hemorrhage-apply": {
+  "hash": "3ef888f93d3d4312",
+  "seconds": 5.42
+ },
+ "obstetric-hemorrhage-see": {
+  "hash": "b96a6a84bf5e91fb",
+  "seconds": 11.39
+ },
+ "obstetric-hemorrhage-understand": {
+  "hash": "157d93f24421a469",
+  "seconds": 10.35
+ },
+ "obstetric-hemorrhage-zoom": {
+  "hash": "a10d8a70a2820abb",
+  "seconds": 7.98
+ },
+ "obstructive-shock-apply": {
+  "hash": "baa95bba10d6218f",
+  "seconds": 4.63
+ },
+ "obstructive-shock-see": {
+  "hash": "549580c50cf566eb",
+  "seconds": 11.05
+ },
+ "obstructive-shock-understand": {
+  "hash": "e5ca3bc53583c629",
+  "seconds": 9.17
+ },
+ "obstructive-shock-zoom": {
+  "hash": "3a22400665d4cc68",
+  "seconds": 7.59
+ },
+ "oc-1": {
+  "hash": "a1ed8620e2698de6",
+  "seconds": 18.54
+ },
+ "oc-2": {
+  "hash": "5864f49e374a7c90",
+  "seconds": 15.96
+ },
+ "oc-3": {
+  "hash": "0b267c4eccddc99c",
+  "seconds": 12.63
+ },
+ "oc-4": {
+  "hash": "3bf412511706adb2",
+  "seconds": 15.25
+ },
+ "oc-5": {
+  "hash": "62ec5b9cd407a2af",
+  "seconds": 16.47
+ },
+ "oc-6": {
+  "hash": "6bed4e972ec967b3",
+  "seconds": 10.13
+ },
+ "oc-7": {
+  "hash": "736f88c32d207390",
+  "seconds": 17.71
+ },
+ "og-1": {
+  "hash": "aa1203fa881f4514",
+  "seconds": 10.15
+ },
+ "og-2": {
+  "hash": "df642e97d6d1fd0c",
+  "seconds": 18.6
+ },
+ "og-3": {
+  "hash": "276f94521388ee17",
+  "seconds": 15.13
+ },
+ "og-4": {
+  "hash": "63be810033f6985e",
+  "seconds": 12.84
+ },
+ "og-5": {
+  "hash": "659b6c32728c52d0",
+  "seconds": 18.58
+ },
+ "og-6": {
+  "hash": "4866ef47d9bef658",
+  "seconds": 17.43
+ },
+ "opioid-toxicity-apply": {
+  "hash": "04fbfdd33c3e04e4",
+  "seconds": 5.21
+ },
+ "opioid-toxicity-see": {
+  "hash": "69ce5256cd11c5a6",
+  "seconds": 10.75
+ },
+ "opioid-toxicity-understand": {
+  "hash": "ce55a6093f75f5ab",
+  "seconds": 10.07
+ },
+ "opioid-toxicity-zoom": {
+  "hash": "80d69ef9b4aceedc",
+  "seconds": 7.47
+ },
+ "ovarian-torsion-apply": {
+  "hash": "cd9052863ee7a217",
+  "seconds": 4.89
+ },
+ "ovarian-torsion-see": {
+  "hash": "bff69740ac605880",
+  "seconds": 11.03
+ },
+ "ovarian-torsion-understand": {
+  "hash": "2ea8197c2edec1f1",
+  "seconds": 9.28
+ },
+ "ovarian-torsion-zoom": {
+  "hash": "fc5411ba7bb086b9",
+  "seconds": 7.74
+ },
+ "ox1": {
+  "hash": "d10c75bf26bc1fb6",
+  "seconds": 20.97
+ },
+ "ox2": {
+  "hash": "addcd674790ec177",
+  "seconds": 23.1
+ },
+ "ox3": {
+  "hash": "58831f778e0183a1",
+  "seconds": 16.11
+ },
+ "ox4": {
+  "hash": "71a607542fb8d138",
+  "seconds": 19.5
+ },
+ "ox5": {
+  "hash": "30ce207e1bd403bf",
+  "seconds": 26.94
+ },
+ "pa-1": {
+  "hash": "77f615b264726b60",
+  "seconds": 14.46
+ },
+ "pa-2": {
+  "hash": "c0c6b8743d27f777",
+  "seconds": 19.5
+ },
+ "pa-3": {
+  "hash": "b7987dfb0ff7a37c",
+  "seconds": 15.04
+ },
+ "pa-4": {
+  "hash": "79267fef27d152bf",
+  "seconds": 12.18
+ },
+ "pa-5": {
+  "hash": "2603998ae4c2a530",
+  "seconds": 16.28
+ },
+ "pa-6": {
+  "hash": "3074c1318212f66b",
+  "seconds": 17.02
+ },
+ "pa-7": {
+  "hash": "4823a78ddb6767e0",
+  "seconds": 6.57
+ },
+ "pcc-0": {
+  "hash": "43b2115663670f8c",
+  "seconds": 8.85
+ },
+ "pcc-r0": {
+  "hash": "883fe6f2a5da44a7",
+  "seconds": 14.31
+ },
+ "pcc-r1": {
+  "hash": "908c09f5f7558b9a",
+  "seconds": 6.83
+ },
+ "pcc-sum": {
+  "hash": "754f505d50c4991e",
+  "seconds": 7.08
+ },
+ "pcos-apply": {
+  "hash": "b8ce345d6e666b55",
+  "seconds": 4.82
+ },
+ "pcos-see": {
+  "hash": "93fcba94b2734313",
+  "seconds": 12.12
+ },
+ "pcos-understand": {
+  "hash": "5c91bcc441ae78f0",
+  "seconds": 9.86
+ },
+ "pcos-zoom": {
+  "hash": "28b354378a2e4c0b",
+  "seconds": 9.45
+ },
+ "pe1": {
+  "hash": "c6045dbec6307432",
+  "seconds": 19.5
+ },
+ "pe2": {
+  "hash": "ed97b2f7b5e87424",
+  "seconds": 22.55
+ },
+ "pe3": {
+  "hash": "054d94f4184a8343",
+  "seconds": 21.8
+ },
+ "pe4": {
+  "hash": "bd20ed589851e80a",
+  "seconds": 15.1
+ },
+ "pediatric-airway-apply": {
+  "hash": "a0120e8dd1a13634",
+  "seconds": 5.57
+ },
+ "pediatric-airway-see": {
+  "hash": "265ff5641a314f4a",
+  "seconds": 11.61
+ },
+ "pediatric-airway-understand": {
+  "hash": "eb7b17f2fc65490b",
+  "seconds": 7.19
+ },
+ "pediatric-airway-zoom": {
+  "hash": "376da58643006f32",
+  "seconds": 11.41
+ },
+ "pediatric-asthma-apply": {
+  "hash": "528738b2bf93aa7a",
+  "seconds": 4.97
+ },
+ "pediatric-asthma-see": {
+  "hash": "3d1bc1c53283380c",
+  "seconds": 10.58
+ },
+ "pediatric-asthma-understand": {
+  "hash": "28804f95b586ac7d",
+  "seconds": 8.64
+ },
+ "pediatric-asthma-zoom": {
+  "hash": "ba58d3aeb5eec3bb",
+  "seconds": 9.47
+ },
+ "pediatric-dka-apply": {
+  "hash": "9662e36857662d89",
+  "seconds": 5.48
+ },
+ "pediatric-dka-see": {
+  "hash": "228cfbfe520e70ff",
+  "seconds": 13.08
+ },
+ "pediatric-dka-understand": {
+  "hash": "fead017dafa75977",
+  "seconds": 10.13
+ },
+ "pediatric-dka-zoom": {
+  "hash": "d09a2493935eec0f",
+  "seconds": 8.26
+ },
+ "pediatric-respiratory-failure-apply": {
+  "hash": "125b35087463601f",
+  "seconds": 5.67
+ },
+ "pediatric-respiratory-failure-see": {
+  "hash": "08a8b67fffc4a64a",
+  "seconds": 11.78
+ },
+ "pediatric-respiratory-failure-understand": {
+  "hash": "6197ad5c408fd7d4",
+  "seconds": 11.95
+ },
+ "pediatric-respiratory-failure-zoom": {
+  "hash": "15f6a217a5982df6",
+  "seconds": 8.19
+ },
+ "pediatric-sepsis-apply": {
+  "hash": "fc485fd89668d9c6",
+  "seconds": 5.06
+ },
+ "pediatric-sepsis-see": {
+  "hash": "67e458effd7f61e4",
+  "seconds": 12.01
+ },
+ "pediatric-sepsis-understand": {
+  "hash": "6f903cd4ee41a80d",
+  "seconds": 9.79
+ },
+ "pediatric-sepsis-zoom": {
+  "hash": "2d3219ec50dce5b3",
+  "seconds": 8.81
+ },
+ "pediatric-shock-apply": {
+  "hash": "aa08b52f57517b9a",
+  "seconds": 4.78
+ },
+ "pediatric-shock-see": {
+  "hash": "a858651026f4e201",
+  "seconds": 12.46
+ },
+ "pediatric-shock-understand": {
+  "hash": "04c4aa71f9a9c3a0",
+  "seconds": 9.26
+ },
+ "pediatric-shock-zoom": {
+  "hash": "d2e2f32a218be8a0",
+  "seconds": 9.47
+ },
+ "pediatric-status-apply": {
+  "hash": "8026aaab79980b34",
+  "seconds": 5.74
+ },
+ "pediatric-status-see": {
+  "hash": "aa1ac2cdc93b4870",
+  "seconds": 10.82
+ },
+ "pediatric-status-understand": {
+  "hash": "6185ee81a3087c9e",
+  "seconds": 9.6
+ },
+ "pediatric-status-zoom": {
+  "hash": "533c08586d1d03db",
+  "seconds": 7.66
+ },
+ "pediatric-trauma-apply": {
+  "hash": "6bfead362f43a1ca",
+  "seconds": 4.97
+ },
+ "pediatric-trauma-see": {
+  "hash": "33cb6d00bbe32d06",
+  "seconds": 9.9
+ },
+ "pediatric-trauma-understand": {
+  "hash": "0eb7e8738518fb04",
+  "seconds": 10.09
+ },
+ "pediatric-trauma-zoom": {
+  "hash": "25d96db87e6edbfa",
+  "seconds": 9.73
+ },
+ "pediatric-ventilation-apply": {
+  "hash": "8d9548efb1f1e29f",
+  "seconds": 5.93
+ },
+ "pediatric-ventilation-see": {
+  "hash": "2711babbfa2eef82",
+  "seconds": 12.1
+ },
+ "pediatric-ventilation-understand": {
+  "hash": "7aee07fbde271a06",
+  "seconds": 10.24
+ },
+ "pediatric-ventilation-zoom": {
+  "hash": "a285eba01613db0a",
+  "seconds": 8.28
+ },
+ "pelvic-hemorrhage-apply": {
+  "hash": "6988acb6b379823e",
+  "seconds": 4.76
+ },
+ "pelvic-hemorrhage-see": {
+  "hash": "0199d1d063f7594e",
+  "seconds": 10.01
+ },
+ "pelvic-hemorrhage-understand": {
+  "hash": "baf4cfcb8bb25c5e",
+  "seconds": 9.32
+ },
+ "pelvic-hemorrhage-zoom": {
+  "hash": "694ff314be0009b2",
+  "seconds": 7.25
+ },
+ "peripartum-cardiomyopathy-apply": {
+  "hash": "91162001d72e4582",
+  "seconds": 5.85
+ },
+ "peripartum-cardiomyopathy-see": {
+  "hash": "dc9afb81925d64c9",
+  "seconds": 11.56
+ },
+ "peripartum-cardiomyopathy-understand": {
+  "hash": "33f70ae7d9c1fc07",
+  "seconds": 10.18
+ },
+ "peripartum-cardiomyopathy-zoom": {
+  "hash": "f65292ce3245489e",
+  "seconds": 8.66
+ },
+ "phenylephrine-0": {
+  "hash": "6b143447becdaa58",
+  "seconds": 5.35
+ },
+ "phenylephrine-r0": {
+  "hash": "0156f8b6246c99d0",
+  "seconds": 5.67
+ },
+ "phenylephrine-r1": {
+  "hash": "cd24321237d1e859",
+  "seconds": 5.8
+ },
+ "phenylephrine-r3": {
+  "hash": "b21925013a14210e",
+  "seconds": 4.44
+ },
+ "phenylephrine-r5": {
+  "hash": "a0da9e7461d32e8d",
+  "seconds": 6.04
+ },
+ "phenylephrine-r6": {
+  "hash": "1f69ff00a1fa5ee9",
+  "seconds": 3.84
+ },
+ "phenylephrine-sum": {
+  "hash": "0aa7b88e47dc11b1",
+  "seconds": 14.78
+ },
+ "placenta-previa-apply": {
+  "hash": "0d7ea42f004a6a0d",
+  "seconds": 4.84
+ },
+ "placenta-previa-see": {
+  "hash": "75fec422287007fe",
+  "seconds": 13.35
+ },
+ "placenta-previa-understand": {
+  "hash": "97e27d4cd43b8d8c",
+  "seconds": 8.3
+ },
+ "placenta-previa-zoom": {
+  "hash": "2d83a80b3b044d50",
+  "seconds": 8.36
+ },
+ "placental-abruption-apply": {
+  "hash": "ba39060420de4ae3",
+  "seconds": 4.93
+ },
+ "placental-abruption-see": {
+  "hash": "8f4b8b819a7088af",
+  "seconds": 10.43
+ },
+ "placental-abruption-understand": {
+  "hash": "f6d481117cb47f24",
+  "seconds": 10.05
+ },
+ "placental-abruption-zoom": {
+  "hash": "8a9a7adbcf7444b5",
+  "seconds": 6.4
+ },
+ "pneumonia-apply": {
+  "hash": "ac3f2b0218e8b4b8",
+  "seconds": 4.39
+ },
+ "pneumonia-see": {
+  "hash": "53d5f531f0aa04da",
+  "seconds": 9.66
+ },
+ "pneumonia-understand": {
+  "hash": "94d14c24e9276076",
+  "seconds": 10.28
+ },
+ "pneumonia-zoom": {
+  "hash": "0929370354fbf856",
+  "seconds": 6.93
+ },
+ "postpartum-hemorrhage-apply": {
+  "hash": "2de52c45cc02ac71",
+  "seconds": 5.06
+ },
+ "postpartum-hemorrhage-see": {
+  "hash": "b033d53c59601e81",
+  "seconds": 11.03
+ },
+ "postpartum-hemorrhage-understand": {
+  "hash": "70c3bd0d6cbebc52",
+  "seconds": 10.65
+ },
+ "postpartum-hemorrhage-zoom": {
+  "hash": "07876c6ca0909cbc",
+  "seconds": 8.34
+ },
+ "preeclampsia-apply": {
+  "hash": "b4771a5bfef7be5c",
+  "seconds": 4.57
+ },
+ "preeclampsia-see": {
+  "hash": "064e83780fc9c9fc",
+  "seconds": 9.79
+ },
+ "preeclampsia-understand": {
+  "hash": "08077c9b8525fbd8",
+  "seconds": 11.22
+ },
+ "preeclampsia-zoom": {
+  "hash": "7ead7c7d7304c50d",
+  "seconds": 9.98
+ },
+ "propofol-0": {
+  "hash": "7c93090d0ae208cb",
+  "seconds": 5.67
+ },
+ "propofol-r0": {
+  "hash": "1c03fe351faa6eff",
+  "seconds": 6.29
+ },
+ "propofol-r1": {
+  "hash": "82d03e7e9ce7d8d6",
+  "seconds": 4.25
+ },
+ "propofol-r3": {
+  "hash": "cdf0f1d12b522971",
+  "seconds": 2.22
+ },
+ "propofol-r5": {
+  "hash": "6f96a8f89e350255",
+  "seconds": 8.04
+ },
+ "propofol-sum": {
+  "hash": "92dd2301b0017781",
+  "seconds": 12.37
+ },
+ "protamine-0": {
+  "hash": "78c0c2407e57ddd8",
+  "seconds": 5.89
+ },
+ "protamine-r0": {
+  "hash": "93d5b727c6a018fe",
+  "seconds": 2.79
+ },
+ "protamine-r1": {
+  "hash": "080f35ca836aa223",
+  "seconds": 5.01
+ },
+ "protamine-r2": {
+  "hash": "88e0574702239fa6",
+  "seconds": 7.94
+ },
+ "protamine-sum": {
+  "hash": "e1f9c2370ff582bc",
+  "seconds": 14.27
+ },
+ "ps-1": {
+  "hash": "3cdaa88fed6eafd2",
+  "seconds": 18.9
+ },
+ "ps-2": {
+  "hash": "5a00e8597568bce8",
+  "seconds": 13.74
+ },
+ "ps-3": {
+  "hash": "3c0c4cacd0cb665e",
+  "seconds": 16.79
+ },
+ "ps-4": {
+  "hash": "1d0228ca66b2809f",
+  "seconds": 13.14
+ },
+ "ps-5": {
+  "hash": "6a4f7f6aa52c42f0",
+  "seconds": 10.56
+ },
+ "ps-6": {
+  "hash": "7c418da718d74b09",
+  "seconds": 16.73
+ },
+ "ptx-1": {
+  "hash": "4b2031090d3354b8",
+  "seconds": 6.23
+ },
+ "ptx-2": {
+  "hash": "cc3e1d1d5b6ba41a",
+  "seconds": 13.27
+ },
+ "ptx-3": {
+  "hash": "b9e97f8cb82e82f0",
+  "seconds": 8.66
+ },
+ "ptx-4": {
+  "hash": "3f67e1a4d4fcac00",
+  "seconds": 17.54
+ },
+ "ptx-5": {
+  "hash": "2d43b62a264c1451",
+  "seconds": 11.26
+ },
+ "ptx-6": {
+  "hash": "68513e13f9fb77c4",
+  "seconds": 22.91
+ },
+ "ptx-7": {
+  "hash": "bf11120ba0ad5ade",
+  "seconds": 15.21
+ },
+ "ptx-8": {
+  "hash": "cbcece74161047df",
+  "seconds": 21.97
+ },
+ "pulmonary-edema-apply": {
+  "hash": "543ee93b74672ccd",
+  "seconds": 5.82
+ },
+ "pulmonary-edema-see": {
+  "hash": "42db59ba18de6479",
+  "seconds": 12.39
+ },
+ "pulmonary-edema-understand": {
+  "hash": "7600fe14d8454c08",
+  "seconds": 10.35
+ },
+ "pulmonary-edema-zoom": {
+  "hash": "f94282eb60d9dc6f",
+  "seconds": 6.34
+ },
+ "pulmonary-embolism-apply": {
+  "hash": "3ce1645c0755135d",
+  "seconds": 5.4
+ },
+ "pulmonary-embolism-see": {
+  "hash": "9ec9a9a6f22f8a8d",
+  "seconds": 10.97
+ },
+ "pulmonary-embolism-understand": {
+  "hash": "413eceb8a322318b",
+  "seconds": 10.15
+ },
+ "pulmonary-embolism-zoom": {
+  "hash": "e37605001570ede2",
+  "seconds": 7.66
+ },
+ "rc1": {
+  "hash": "a091ca48b855d669",
+  "seconds": 22.08
+ },
+ "rc2": {
+  "hash": "8a3b3fc0cdfe54b0",
+  "seconds": 20.37
+ },
+ "rc3": {
+  "hash": "e5b84540e5c7a518",
+  "seconds": 16.15
+ },
+ "rc4": {
+  "hash": "645683395d104a9a",
+  "seconds": 20.69
+ },
+ "right-left-shunt-apply": {
+  "hash": "bf17fcac07017b15",
+  "seconds": 5.21
+ },
+ "right-left-shunt-see": {
+  "hash": "98d692a441796c5f",
+  "seconds": 11.48
+ },
+ "right-left-shunt-understand": {
+  "hash": "fed8b7c9f8dabc49",
+  "seconds": 9.92
+ },
+ "right-left-shunt-zoom": {
+  "hash": "8cb09cd4fc590f3e",
+  "seconds": 6.08
+ },
+ "rising-icp-apply": {
+  "hash": "7a84069eaf658beb",
+  "seconds": 5.21
+ },
+ "rising-icp-see": {
+  "hash": "70636bf6c29a69cf",
+  "seconds": 10.62
+ },
+ "rising-icp-understand": {
+  "hash": "cc1f70e6f0f5a944",
+  "seconds": 11.05
+ },
+ "rising-icp-zoom": {
+  "hash": "4286bc529a6425c4",
+  "seconds": 8.17
+ },
+ "rocuronium-0": {
+  "hash": "a56c228c350ba611",
+  "seconds": 7.4
+ },
+ "rocuronium-r0": {
+  "hash": "baca522f3dcd4cc8",
+  "seconds": 3.95
+ },
+ "rocuronium-r1": {
+  "hash": "45456d0b284fb73e",
+  "seconds": 19.26
+ },
+ "rocuronium-r2": {
+  "hash": "a7fcd5fecaf1ad17",
+  "seconds": 6.27
+ },
+ "rocuronium-r4": {
+  "hash": "bb594227c21a19f4",
+  "seconds": 6.08
+ },
+ "rocuronium-r5": {
+  "hash": "48cacfded0832977",
+  "seconds": 5.29
+ },
+ "rocuronium-sum": {
+  "hash": "aaae6823896bed46",
+  "seconds": 11.24
+ },
+ "rs1": {
+  "hash": "9f064a18fe565414",
+  "seconds": 23.64
+ },
+ "rs2": {
+  "hash": "875c1c0ef69698fc",
+  "seconds": 9.43
+ },
+ "rs3": {
+  "hash": "29d1298026e0fd37",
+  "seconds": 24.45
+ },
+ "rs4": {
+  "hash": "5279b764088dea66",
+  "seconds": 17.37
+ },
+ "rupturing-aaa-apply": {
+  "hash": "a1b5dfaa9eb2cc92",
+  "seconds": 5.1
+ },
+ "rupturing-aaa-see": {
+  "hash": "8575c8509d08211d",
+  "seconds": 7.27
+ },
+ "rupturing-aaa-understand": {
+  "hash": "dee72ea751b899e5",
+  "seconds": 10.92
+ },
+ "rupturing-aaa-zoom": {
+  "hash": "a31869962869b2c6",
+  "seconds": 8.73
+ },
+ "rv-failure-apply": {
+  "hash": "c96b951c9da874cd",
+  "seconds": 5.23
+ },
+ "rv-failure-see": {
+  "hash": "d830021f95bad9d3",
+  "seconds": 10.92
+ },
+ "rv-failure-understand": {
+  "hash": "d72476592fb0f202",
+  "seconds": 8.73
+ },
+ "rv-failure-zoom": {
+  "hash": "8ee4411e1bef5723",
+  "seconds": 6.78
+ },
+ "sah-1": {
+  "hash": "7ea0c06b456c6811",
+  "seconds": 13.93
+ },
+ "sah-2": {
+  "hash": "f244b0d1fc3a561f",
+  "seconds": 13.65
+ },
+ "sah-3": {
+  "hash": "9ede215a0485c9c5",
+  "seconds": 14.76
+ },
+ "sah-4": {
+  "hash": "5d3ee48d4489bacb",
+  "seconds": 8.81
+ },
+ "sah-apply": {
+  "hash": "8383cdc41da1224e",
+  "seconds": 5.29
+ },
+ "sah-see": {
+  "hash": "156323e509049624",
+  "seconds": 10.05
+ },
+ "sah-understand": {
+  "hash": "c10d98b406cdbc2d",
+  "seconds": 11.22
+ },
+ "sah-zoom": {
+  "hash": "8666d34845e5070c",
+  "seconds": 8.68
+ },
+ "sb-1": {
+  "hash": "c23d9cfc59e03089",
+  "seconds": 11.99
+ },
+ "sb-2": {
+  "hash": "cf22267d4d2c0396",
+  "seconds": 14.57
+ },
+ "sb-3": {
+  "hash": "23e912f83e0453ec",
+  "seconds": 15.3
+ },
+ "sb-4": {
+  "hash": "1550985ade1cfd91",
+  "seconds": 11.73
+ },
+ "sb-5": {
+  "hash": "1085e2f0f5494c99",
+  "seconds": 16.51
+ },
+ "sb-6": {
+  "hash": "ebabeadb74181cec",
+  "seconds": 10.35
+ },
+ "septic-shock-apply": {
+  "hash": "e76d8fb8f8bb36c0",
+  "seconds": 5.61
+ },
+ "septic-shock-see": {
+  "hash": "d8a966ab7fadba07",
+  "seconds": 12.12
+ },
+ "septic-shock-understand": {
+  "hash": "2c12ab7afa364fca",
+  "seconds": 9.51
+ },
+ "septic-shock-zoom": {
+  "hash": "6e3ec946b6863b86",
+  "seconds": 9.58
+ },
+ "sh-0": {
+  "hash": "b7ba92502db4bbf6",
+  "seconds": 18.71
+ },
+ "sh-1": {
+  "hash": "3c5ecc8402e8fcfd",
+  "seconds": 19.29
+ },
+ "sh-10": {
+  "hash": "2e2c50147fed78e0",
+  "seconds": 17.43
+ },
+ "sh-2": {
+  "hash": "9ccd50effbfd6477",
+  "seconds": 15.47
+ },
+ "sh-3": {
+  "hash": "fd4afcae10e10392",
+  "seconds": 17.3
+ },
+ "sh-4": {
+  "hash": "a434d3ea6d2e74c2",
+  "seconds": 18.73
+ },
+ "sh-5": {
+  "hash": "1934f01e61185a3f",
+  "seconds": 17.73
+ },
+ "sh-6": {
+  "hash": "d1b581f198b84294",
+  "seconds": 16.6
+ },
+ "sh-7": {
+  "hash": "2832da6b3b7ef7e8",
+  "seconds": 12.52
+ },
+ "sh-8": {
+  "hash": "baeefaeee22cffeb",
+  "seconds": 22.02
+ },
+ "sh-9": {
+  "hash": "f4e43c31ef51ae85",
+  "seconds": 16.43
+ },
+ "simple-pneumothorax-apply": {
+  "hash": "5f7fe4c011183a52",
+  "seconds": 4.86
+ },
+ "simple-pneumothorax-see": {
+  "hash": "4bf4c7214f90e96d",
+  "seconds": 9.3
+ },
+ "simple-pneumothorax-understand": {
+  "hash": "3e644f453ee74a5c",
+  "seconds": 8.32
+ },
+ "simple-pneumothorax-zoom": {
+  "hash": "d6f3104f9624e74f",
+  "seconds": 7.23
+ },
+ "so-1": {
+  "hash": "b4f515c0ccdb74c2",
+  "seconds": 18.54
+ },
+ "so-2": {
+  "hash": "235877c2ca37665f",
+  "seconds": 10.35
+ },
+ "so-3": {
+  "hash": "23636d70961e1d44",
+  "seconds": 12.82
+ },
+ "so-4": {
+  "hash": "bafaac0c429b6cc8",
+  "seconds": 17.0
+ },
+ "so-5": {
+  "hash": "dc805c7a16e3564a",
+  "seconds": 15.27
+ },
+ "so-6": {
+  "hash": "73959eb5154a656d",
+  "seconds": 11.2
+ },
+ "status-apply": {
+  "hash": "cdde0e57aeb07e6e",
+  "seconds": 6.02
+ },
+ "status-see": {
+  "hash": "a055d768dad4cdb6",
+  "seconds": 9.34
+ },
+ "status-understand": {
+  "hash": "93ca89f32313584a",
+  "seconds": 12.27
+ },
+ "status-zoom": {
+  "hash": "3cd780aacf0903a8",
+  "seconds": 9.56
+ },
+ "stemi-apply": {
+  "hash": "17f4423800fdbb27",
+  "seconds": 5.48
+ },
+ "stemi-see": {
+  "hash": "fa26726c07a9de87",
+  "seconds": 12.07
+ },
+ "stemi-understand": {
+  "hash": "589e5b58e18f4352",
+  "seconds": 12.22
+ },
+ "stemi-zoom": {
+  "hash": "269418a50eaf9b80",
+  "seconds": 9.11
+ },
+ "succinylcholine-0": {
+  "hash": "009df9a76650f85e",
+  "seconds": 6.04
+ },
+ "succinylcholine-r0": {
+  "hash": "4f75b74b6bf5f37f",
+  "seconds": 8.7
+ },
+ "succinylcholine-r1": {
+  "hash": "34b72a4c59ae3972",
+  "seconds": 5.31
+ },
+ "succinylcholine-r2": {
+  "hash": "2967e1cffe90327f",
+  "seconds": 5.46
+ },
+ "succinylcholine-r3": {
+  "hash": "7e6cec4014c6c867",
+  "seconds": 23.19
+ },
+ "succinylcholine-sum": {
+  "hash": "c2002c7e7329136f",
+  "seconds": 15.15
+ },
+ "sy1": {
+  "hash": "48b991de69532626",
+  "seconds": 20.69
+ },
+ "sy2": {
+  "hash": "2be2d46edfb7b5b8",
+  "seconds": 16.32
+ },
+ "sy3": {
+  "hash": "3976764cd25f2f3c",
+  "seconds": 18.35
+ },
+ "sy4": {
+  "hash": "4966acf3c03c91e3",
+  "seconds": 20.37
+ },
+ "sympathomimetic-apply": {
+  "hash": "c85d8a9e3b0074df",
+  "seconds": 5.78
+ },
+ "sympathomimetic-see": {
+  "hash": "6c5f538004ee794d",
+  "seconds": 10.71
+ },
+ "sympathomimetic-understand": {
+  "hash": "1a49febb69b7826d",
+  "seconds": 10.35
+ },
+ "sympathomimetic-zoom": {
+  "hash": "0cbe322628f551ac",
+  "seconds": 7.04
+ },
+ "tachydysrhythmia-apply": {
+  "hash": "e0a4ac1bc45deda4",
+  "seconds": 5.87
+ },
+ "tachydysrhythmia-see": {
+  "hash": "c1486e5cb0e0f3ad",
+  "seconds": 10.77
+ },
+ "tachydysrhythmia-understand": {
+  "hash": "8e7cd55336af4cf3",
+  "seconds": 8.68
+ },
+ "tachydysrhythmia-zoom": {
+  "hash": "65c613f1607bc10f",
+  "seconds": 8.94
+ },
+ "tamponade-apply": {
+  "hash": "0405860f02a2b5cb",
+  "seconds": 4.95
+ },
+ "tamponade-see": {
+  "hash": "7d02d2bfea006e12",
+  "seconds": 10.39
+ },
+ "tamponade-understand": {
+  "hash": "112cb3b4c58fd6a6",
+  "seconds": 9.81
+ },
+ "tamponade-zoom": {
+  "hash": "286364cd8b5c5f55",
+  "seconds": 7.38
+ },
+ "tbi-apply": {
+  "hash": "055cee60df2a33ef",
+  "seconds": 5.14
+ },
+ "tbi-see": {
+  "hash": "23d789ec08aacc23",
+  "seconds": 9.45
+ },
+ "tbi-understand": {
+  "hash": "45d2b64b4aab65b0",
+  "seconds": 11.37
+ },
+ "tbi-zoom": {
+  "hash": "90eb531ca415d5b7",
+  "seconds": 8.51
+ },
+ "tension-pneumothorax-apply": {
+  "hash": "95ac879030a7fdf3",
+  "seconds": 5.12
+ },
+ "tension-pneumothorax-see": {
+  "hash": "cfb2b01661fe54f7",
+  "seconds": 10.84
+ },
+ "tension-pneumothorax-understand": {
+  "hash": "0111b96b5c5179cc",
+  "seconds": 9.66
+ },
+ "tension-pneumothorax-zoom": {
+  "hash": "a8c8d48b76917327",
+  "seconds": 7.19
+ },
+ "thrombolytic-0": {
+  "hash": "991da432ce3487a2",
+  "seconds": 8.85
+ },
+ "thrombolytic-r0": {
+  "hash": "db2127f2fb8c2427",
+  "seconds": 3.48
+ },
+ "thrombolytic-r1": {
+  "hash": "780836b2f804292d",
+  "seconds": 7.27
+ },
+ "thrombolytic-r3": {
+  "hash": "a6044a0922be6e1f",
+  "seconds": 6.68
+ },
+ "thrombolytic-r4": {
+  "hash": "5cc1f14dc8f0320b",
+  "seconds": 7.77
+ },
+ "thrombolytic-sum": {
+  "hash": "68d98f7a621d9e50",
+  "seconds": 13.1
+ },
+ "tib-1": {
+  "hash": "407d1d4894a4ce9f",
+  "seconds": 9.75
+ },
+ "tib-2": {
+  "hash": "86731a142a4ac2c1",
+  "seconds": 8.7
+ },
+ "tib-3": {
+  "hash": "1118efca7846e77a",
+  "seconds": 16.87
+ },
+ "tib-4": {
+  "hash": "f8f9e35650516b23",
+  "seconds": 6.12
+ },
+ "tib-5": {
+  "hash": "d1f75ecf2e38ddd3",
+  "seconds": 10.39
+ },
+ "tib-6": {
+  "hash": "2948d98b5c4a95de",
+  "seconds": 3.07
+ },
+ "tib-7": {
+  "hash": "6e861d43a5413017",
+  "seconds": 10.03
+ },
+ "tib-8": {
+  "hash": "6f1bdd0bf6bf77e1",
+  "seconds": 8.96
+ },
+ "tm-1": {
+  "hash": "a033728d6248c7bc",
+  "seconds": 7.08
+ },
+ "tm-2": {
+  "hash": "4849de48fd73c208",
+  "seconds": 7.17
+ },
+ "tm-3": {
+  "hash": "641115a0f23b94f7",
+  "seconds": 15.36
+ },
+ "tm-4": {
+  "hash": "09ac0d04a1b34c05",
+  "seconds": 9.45
+ },
+ "tm-5": {
+  "hash": "1243cfdc06a93d44",
+  "seconds": 12.67
+ },
+ "tm-6": {
+  "hash": "b001782f1001a4a2",
+  "seconds": 6.68
+ },
+ "tm-7": {
+  "hash": "ecb3fd9665aaee35",
+  "seconds": 7.94
+ },
+ "tm-8": {
+  "hash": "07961c516a0bf339",
+  "seconds": 11.14
+ },
+ "transitional-circulation-apply": {
+  "hash": "86859776b21e8fae",
+  "seconds": 5.4
+ },
+ "transitional-circulation-see": {
+  "hash": "e9a87b24395d449a",
+  "seconds": 11.52
+ },
+ "transitional-circulation-understand": {
+  "hash": "e9ddbdcc0bb010f1",
+  "seconds": 8.77
+ },
+ "transitional-circulation-zoom": {
+  "hash": "8341497683c6016e",
+  "seconds": 9.75
+ },
+ "txa-0": {
+  "hash": "b06a50a248c1fb88",
+  "seconds": 5.72
+ },
+ "txa-r0": {
+  "hash": "5b10f4bd5a48f742",
+  "seconds": 2.79
+ },
+ "txa-r1": {
+  "hash": "705a9be87c09804e",
+  "seconds": 5.12
+ },
+ "txa-r4": {
+  "hash": "c0cc78b8da8df148",
+  "seconds": 2.92
+ },
+ "txa-r6": {
+  "hash": "1df50c810bd9aaec",
+  "seconds": 6.21
+ },
+ "txa-sum": {
+  "hash": "8a96e00d2461941a",
+  "seconds": 6.98
+ },
+ "upper-airway-obstruction-apply": {
+  "hash": "18081d8cc17a89ea",
+  "seconds": 5.12
+ },
+ "upper-airway-obstruction-see": {
+  "hash": "4ed60e202c2156c5",
+  "seconds": 10.58
+ },
+ "upper-airway-obstruction-understand": {
+  "hash": "fce62768e1f9457a",
+  "seconds": 7.49
+ },
+ "upper-airway-obstruction-zoom": {
+  "hash": "9fe70317a9ae6f18",
+  "seconds": 5.33
+ },
+ "uterine-atony-apply": {
+  "hash": "1472f031ffe9bb37",
+  "seconds": 4.84
+ },
+ "uterine-atony-see": {
+  "hash": "57122cab09c8394b",
+  "seconds": 10.65
+ },
+ "uterine-atony-understand": {
+  "hash": "1d6f31f70ab3e225",
+  "seconds": 11.56
+ },
+ "uterine-atony-zoom": {
+  "hash": "8ea857a21ad107f3",
+  "seconds": 5.95
+ },
+ "vasopressin-0": {
+  "hash": "56278c2b57317e0d",
+  "seconds": 6.27
+ },
+ "vasopressin-r0": {
+  "hash": "595bee74849e84b2",
+  "seconds": 8.9
+ },
+ "vasopressin-r1": {
+  "hash": "f0c11a7ba4f1356c",
+  "seconds": 11.14
+ },
+ "vasopressin-r2": {
+  "hash": "062f8ff13b7999e1",
+  "seconds": 7.87
+ },
+ "vasopressin-r3": {
+  "hash": "3d8a552c0b1685a7",
+  "seconds": 14.23
+ },
+ "vasopressin-r5": {
+  "hash": "eaaac8d0cf106061",
+  "seconds": 6.49
+ },
+ "vasopressin-r7": {
+  "hash": "c8813f51b3353542",
+  "seconds": 5.33
+ },
+ "vasopressin-sum": {
+  "hash": "5af532f9d5350da6",
+  "seconds": 17.41
+ },
+ "vb1": {
+  "hash": "99797685f4035d08",
+  "seconds": 21.03
+ },
+ "vb2": {
+  "hash": "377f39a26a53a4bd",
+  "seconds": 17.9
+ },
+ "vb3": {
+  "hash": "55761f0e4dae3cf9",
+  "seconds": 17.58
+ },
+ "vitamink-0": {
+  "hash": "970bb58267137abc",
+  "seconds": 7.27
+ },
+ "vitamink-r0": {
+  "hash": "84754329478eaa13",
+  "seconds": 6.74
+ },
+ "vitamink-r1": {
+  "hash": "e8438f740681a3a7",
+  "seconds": 7.04
+ },
+ "vitamink-r3": {
+  "hash": "085d5e26a120d347",
+  "seconds": 5.99
+ },
+ "vitamink-r5": {
+  "hash": "714c85b8cc36b200",
+  "seconds": 7.79
+ },
+ "vitamink-sum": {
+  "hash": "5c653ee165fb6f15",
+  "seconds": 8.66
+ },
+ "vp1": {
+  "hash": "af2db38d851c54cb",
+  "seconds": 16.32
+ },
+ "vp2": {
+  "hash": "1feb2762c922df3e",
+  "seconds": 16.66
+ },
+ "vp3": {
+  "hash": "fd0085697f2e1b46",
+  "seconds": 17.17
+ },
+ "vp4": {
+  "hash": "b8f3771e7fdc2a0b",
+  "seconds": 15.79
+ },
+ "vsd-1": {
+  "hash": "0f75fcb386c1bed9",
+  "seconds": 8.81
+ },
+ "vsd-2": {
+  "hash": "a351e7e95e1c70a9",
+  "seconds": 5.72
+ },
+ "vsd-3": {
+  "hash": "aef3aa171c5972bc",
+  "seconds": 17.45
+ },
+ "vsd-4": {
+  "hash": "cf33b3f9248c083c",
+  "seconds": 12.57
+ },
+ "vsd-5": {
+  "hash": "c08aa19b7cced7aa",
+  "seconds": 11.05
+ },
+ "vsd-6": {
+  "hash": "cd1c30c42ad3cc2d",
+  "seconds": 11.82
+ },
+ "vsd-7": {
+  "hash": "ef4b944e1c35aeb9",
+  "seconds": 14.83
+ },
+ "vsd-8": {
+  "hash": "1197ea616b52f0f4",
+  "seconds": 15.66
+ },
+ "vsd-9": {
+  "hash": "8e9701190ee28ca9",
+  "seconds": 12.67
+ }
+}

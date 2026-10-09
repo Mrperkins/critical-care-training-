@@ -1,0 +1,88 @@
+# Renders every spoken line in both apps with the one natural neural narrator (Kokoro-82M v1.0, Apache-2.0;
+# voice and settings in app/src/audio/narrator.ts), then commits the clips to the branch that asked.
+# Start it by creating or editing app/narration-request.txt (any text). Only lines whose text or voice changed are rendered.
+name: Render narration
+on:
+  push:
+    branches: [natural-voice]
+    paths: ['app/narration-request.txt']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: narration-${{ github.ref_name }}
+  cancel-in-progress: false
+env:
+  SHARDS: 20
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: app } }
+    outputs:
+      todo: ${{ steps.p.outputs.todo }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: npm, cache-dependency-path: app/package-lock.json }
+      - run: npm ci
+      - run: npx tsx scripts/vo-lines.ts && npx tsx scripts/narration-jobs.ts
+      - id: p
+        run: echo "todo=$(node -e "const j=require('./narration/jobs.json').jobs,d=require('./narration/done.json');console.log(j.filter(x=>(d[x.id]||{}).hash!==x.hash).length)")" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v4
+        with: { name: narration-jobs, path: app/narration/ }
+
+  render:
+    needs: plan
+    if: needs.plan.outputs.todo != '0'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+    defaults: { run: { working-directory: app } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { name: narration-jobs, path: app/narration }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - name: Model (Kokoro-82M v1.0 ONNX, Apache-2.0)
+        id: model
+        uses: actions/cache@v4
+        with: { path: ~/kokoro, key: kokoro-v1.0 }
+      - if: steps.model.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p ~/kokoro && cd ~/kokoro
+          curl -sSLf -o kokoro-v1.0.onnx https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.onnx
+          curl -sSLf -o voices-v1.0.bin https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install -q kokoro-onnx soundfile numpy
+      - run: python scripts/narrate.py --model ~/kokoro/kokoro-v1.0.onnx --voices ~/kokoro/voices-v1.0.bin --jobs narration/jobs.json --skip narration/done.json --out "$RUNNER_TEMP/out" --shard ${{ matrix.shard }} --of $SHARDS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: narration-${{ matrix.shard }}
+          path: ${{ runner.temp }}/out/
+          retention-days: 3
+
+  collect:
+    needs: [plan, render]
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: app } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { name: narration-jobs, path: app/narration }
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: narration-[0-9]*
+          path: ${{ runner.temp }}/clips
+      - run: python3 scripts/narration_collect.py "$RUNNER_TEMP/clips"
+      - name: Commit to the branch that asked
+        working-directory: .
+        run: |
+          git config user.name "narration-bot"
+          git config user.email "narration-bot@users.noreply.github.com"
+          git rm -q --ignore-unmatch app/narration-request.txt
+          git add -A vo audio/narration app/public/vo app/public/audio/voice
+          git diff --cached --quiet && { echo "nothing new"; exit 0; }
+          git commit -q -m "Narration rendered with the natural neural narrator (Kokoro-82M, scripts/narrate.py)"
+          for i in 1 2 3 4 5; do git pull -q --rebase origin "${{ github.ref_name }}" && git push -q origin "HEAD:${{ github.ref_name }}" && exit 0; sleep $((i*5)); done; exit 1

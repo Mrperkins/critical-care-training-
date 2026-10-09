@@ -152,3 +152,11 @@ Mental Rep engine:
 4. Add additional narrated Mental Reps and richer synchronized visual states.
 5. Expand mastery graph and audio curriculum into remaining ICU expert domains.
 6. Add instructor/SME review workflow for approving manifest `reviewed/published` state without hand-editing JSON.
+
+## NATURAL NARRATOR (branch `natural-voice`)
+- Every spoken line in both apps is rendered offline by one natural neural narrator: Kokoro-82M v1.0 full-precision ONNX (Apache-2.0), voice `af_heart`, speed 0.95 (`app/src/audio/narrator.ts`). Replaces the int8 Kokoro `bf_emma` clips at 24 kb/s, the browser speech fallback, the expired 7-day preview links and the external "AI Voice Generator" rep prototypes.
+- Coverage: 870 visual-app lines (Director cues, step lessons, all 84 condition-atlas lessons and pharmacology walk-throughs — the last two previously fell back to robotic browser speech) = 2.6 h; 132 Mental Rep beats + 404 episode parts (all 79 episodes) = 30.5 h.
+- Clinical speech normalisation in `app/scripts/narrate.py`: acronyms spelled from explicit phonemes, word-acronyms said as words, subscripts/units/symbols expanded, roman-numeral factors as numbers. −18 LUFS, 24 kHz mono, MP3 48 kb/s (episodes 32 kb/s).
+- Storage: repo-root `vo/` and `audio/narration/`; hashes in `app/public/vo/narration.json` and `app/public/audio/voice/manifest.json` (`narrationHash`). The build only plays clips whose hash matches the current text.
+- Re-render changed lines: edit `app/narration-request.txt` on `natural-voice` → `.github/workflows/narration.yml` (20 shards, ~1 h for everything; changed lines only otherwise).
+- No browser/OS speech anywhere (test enforced). All narration remains `reviewed:false` pending listening + clinical review.

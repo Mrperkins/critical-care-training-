@@ -14,19 +14,16 @@ export interface DirectorState {
 }
 export const useDirector = create<DirectorState>((set) => ({ tl: null, t: 0, playing: false, rate: 1, muted: false, holding: false, speaking: false, target: null, set: (p) => set(p) }));
 
-/* ------------------------------------------------------------------ narration: clip → speech synthesis → captions only */
-let utter: SpeechSynthesisUtterance | null = null; let narrationToken = 0;
-function stopNarration() { narrationToken++; voice.stop(); if (typeof speechSynthesis !== 'undefined') speechSynthesis.cancel(); utter = null; useDirector.getState().set({ speaking: false }); }
+/* ------------------------------------------------------------------ narration: pre-rendered natural voice → captions only (never browser speech) */
+let narrationToken = 0;
+function stopNarration() { narrationToken++; voice.stop(); useDirector.getState().set({ speaking: false }); }
 function narrate(c: Cue) {
   stopNarration(); const st = useDirector.getState(); if (!c.say || st.muted) return;
   const token = ++narrationToken; const done = () => { if (token === narrationToken) useDirector.getState().set({ speaking: false }); };
   st.set({ speaking: true });
   const clip = c.voice ?? c.id; // pre-rendered clips are keyed by cue id unless the cue names one
   if (voice.has(clip)) { voice.play(clip, done); return; }
-  if (typeof speechSynthesis !== 'undefined' && typeof SpeechSynthesisUtterance !== 'undefined') {
-    utter = new SpeechSynthesisUtterance(c.say); utter.rate = Math.min(1.4, 0.98 * st.rate); utter.onend = done; utter.onerror = done; speechSynthesis.speak(utter); return;
-  }
-  done(); // captions only
+  done(); // no clip yet: the caption carries the line
 }
 
 /* ------------------------------------------------------------------ clock */

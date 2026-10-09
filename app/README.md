@@ -16,20 +16,22 @@ python ../tools/validate_visual_assets.py   # molecular GLB integrity + bundle s
 - `public/models/*.glb` — built anatomy (from `pipeline/`); `public/vo/vo.json` — narration.
 
 ### Narration
-Every Director cue and step lesson has a clip id (cue id / step id); lessons without a clip fall back to the
-browser's speech synthesis. To (re)render after changing lesson text:
+Every spoken line in both apps — Director cues, step lessons, condition-atlas and pharmacology walk-throughs, Mental Rep
+beats and audio episodes — is rendered ahead of time by one natural neural narrator: Kokoro-82M v1.0 (full-precision
+ONNX, Apache-2.0), voice and settings in `src/audio/narrator.ts`. Nothing is ever spoken by the browser or operating
+system; a line without a current clip shows its caption only.
 
+Clinical text is normalised for speech in `scripts/narrate.py` (acronyms spelled from explicit phonemes, PEEP/MAP/STEMI
+said as words, CO₂ → "C O two", units and symbols expanded). Audio: 24 kHz mono, loudness-normalised to −18 LUFS,
+MP3 48 kb/s (episodes 32 kb/s). Clips live at repo-root `vo/` (visual app) and `audio/narration/` (audio app);
+`public/vo/narration.json` and `public/audio/voice/manifest.json` record each clip's hash, so a changed line is
+re-rendered and a stale clip is never played.
+
+To render after changing any spoken text: edit or create `app/narration-request.txt` on the `natural-voice` branch —
+`.github/workflows/narration.yml` renders the changed lines on 20 runners and commits the clips. Locally:
 ```
-npx tsx scripts/vo-lines.ts                     # collect every narrated line → public/vo/lines.json
-pip install --break-system-packages kokoro-onnx soundfile
-# model files (Apache-2.0): kokoro-v1.0.int8.onnx + voices-v1.0.bin from github.com/thewh1teagle/kokoro-onnx releases
-python3 scripts/vo_render.py <model.onnx> <voices.bin> <cache_dir>   # renders only new or changed lines (hashes.json)
-npx tsx scripts/vo-pack.ts <cache_dir>          # packs clips into public/vo/vo.json
-npm run site
+npx tsx scripts/vo-lines.ts && npx tsx scripts/narration-jobs.ts
+pip install --break-system-packages kokoro-onnx soundfile   # model: kokoro-v1.0.onnx + voices-v1.0.bin (thewh1teagle/kokoro-onnx releases)
+python3 scripts/narrate.py --model kokoro-v1.0.onnx --voices voices-v1.0.bin --skip narration/done.json --out /tmp/narr
+python3 scripts/narration_collect.py /tmp/narr
 ```
-New clips use Kokoro-82M, voice `bf_emma`, encoded like the originals (MP3, 22.05 kHz mono, 24 kb/s).
-Abbreviations are expanded for speech in `vo_render.py` (`SAY`).
-- `pipeline/` rebuilds anatomy from the HuBMAP Visible Human GLBs, which are not committed
-  (`assets/source/`, ~90 MB; https://github.com/hubmapconsortium/ccf-3d-reference-object-library).
-- Repo-root assets the build does not own and fetches at runtime: `models/cell/…` (CC BY 4.0
-  generic cell), `models/molecular/*-backbone.glb` (CC0 PDB-derived), manifests in `models/*.json`.
