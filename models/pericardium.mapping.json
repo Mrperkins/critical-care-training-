@@ -1,0 +1,47 @@
+{
+ "units": "decimetres, body-centred",
+ "frame": "+X patient left, +Y up, +Z anterior",
+ "sac": {
+  "centre": [
+   0.186,
+   4.875,
+   0.335
+  ],
+  "areaDm2": 6.9233,
+  "effAreaDm2": 4.1338,
+  "enclosedMl": 687
+ },
+ "reflections": {
+  "aortaY": 5.528,
+  "pulmonaryTrunkTopY": 5.435,
+  "svcY": 5.508
+ },
+ "subxiphoid": {
+  "skinEntry": [
+   0,
+   3.984,
+   1.391
+  ],
+  "direction": [
+   0.352,
+   0.553,
+   -0.755
+  ],
+  "sacContact": [
+   0.229,
+   4.344,
+   0.9
+  ],
+  "depthDm": 0.651
+ },
+ "effusion": "sac displacement (dm) = (effusion mL / 1000) / effAreaDm2, applied along the normal × _EFF",
+ "attribution": {
+  "title": "3D Reference Organs: Visible Human Male (heart, coronary and great vessels)",
+  "creators": "HuBMAP / Human Reference Atlas consortium",
+  "data": "Visible Human Male, U.S. National Library of Medicine",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "sourceUrl": "https://github.com/hubmapconsortium/ccf-3d-reference-object-library",
+  "changes": "Pericardial sac derived from the epicardial surface: voxel union of chambers, coronary vessels and great-vessel roots to the reflections, offset ~3 mm, morphologically closed, iso-surfaced and simplified."
+ }
+}

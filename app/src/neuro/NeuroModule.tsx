@@ -59,7 +59,7 @@ export function NeuroModule() {
 
 const FOCUS: [string, string][] = [['brain.whole', 'Brain'], ['brain.cow', 'Circle of Willis'], ['brain.mca_l', 'L MCA'], ['brain.mca_r', 'R MCA'], ['brain.aca', 'ACA'], ['brain.pca', 'PCA'], ['brain.basilar', 'Basilar'], ['brain.ica_l', 'L ICA']];
 function NeuroOverlay() {
-  const target = useNeuroUI((s) => s.target); const glass = useNeuroUI((s) => s.glass); const cut = useNeuroUI((s) => s.cut); const slice = useNeuroUI((s) => s.slice); const set = useNeuroUI.getState().set;
+  const target = useNeuroUI((s) => s.target); const glass = useNeuroUI((s) => s.glass); const cut = useNeuroUI((s) => s.cut); const slice = useNeuroUI((s) => s.slice); const deep = useNeuroUI((s) => s.deep); const set = useNeuroUI.getState().set;
   const tier = useLabUI((s) => s.visualTier); const view3d = useNeuroUI((s) => s.view) === '3d';
   return (<>
     <div className="view-btns"><button className={view3d ? 'on' : ''} onClick={() => set({ view: '3d' })}>3D brain</button><button className={!view3d ? 'on' : ''} onClick={() => set({ view: 'imaging' })}>Real CT</button></div>
@@ -68,11 +68,12 @@ function NeuroOverlay() {
       <button className={`tgl${cut ? ' on' : ''}`} aria-pressed={cut} onClick={() => set({ cut: !cut })}>{cut ? 'Cut open' : 'Whole brain'}</button>
       {cut ? <MiniSelect label="Level" value={String(slice)} options={[['-0.45', 'Brainstem'], ['-0.15', 'Basal ganglia'], ['0.05', 'Ventricles'], ['0.3', 'Above ventricles']]} onChange={(v) => set({ slice: +v })} />
         : <button className={`tgl${glass ? ' on' : ''}`} onClick={() => set({ glass: !glass })}>{glass ? 'Glass brain' : 'Solid brain'}</button>}
+      {(cut || glass) && <button className={`tgl${deep ? ' on' : ''}`} aria-pressed={deep} onClick={() => set({ deep: !deep })}>{deep ? 'Deep structures' : 'Surface only'}</button>}
     </div>
     <div className="alv-focus">
       <MiniSelect label="View" value={target} options={FOCUS as [string, string][]} onChange={(v) => set({ target: v })} className="ch-focus" />
     </div>
-    <div className="legend"><span><i style={{ background: '#c81e2a' }} />Perfused</span><span><i style={{ background: '#3a2a3e' }} />No flow</span><span><i style={{ background: '#ed9e2e' }} />Penumbra</span><span><i style={{ background: '#c71f52' }} />Core</span><span><i style={{ background: '#4b0c12' }} />Clot / blood</span></div>
+    <div className="legend"><span><i style={{ background: '#c81e2a' }} />Perfused</span><span><i style={{ background: '#3a2a3e' }} />No flow</span><span><i style={{ background: '#ed9e2e' }} />Penumbra</span><span><i style={{ background: '#c71f52' }} />Core</span><span><i style={{ background: '#4b0c12' }} />Clot / blood</span>{deep && (glass || cut) && <><span><i style={{ background: '#5d9fdc' }} />CSF (ventricles)</span><span><i style={{ background: '#a07a94' }} />Basal ganglia</span><span><i style={{ background: '#9483a8' }} />Thalamus</span></>}</div>
   </>}
   </>);
 }

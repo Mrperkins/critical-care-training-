@@ -1,0 +1,106 @@
+// @vitest-environment node
+/**
+ * Skeleton, pericardium, deep brain and heart internals: facts about the built assets that a rebuild must not break
+ * (sides, frame, fit quality, physiologic timing) and how the Atlas uses them.
+ */
+import { describe, expect, it } from 'vitest';
+import fs from 'node:fs';
+import { NodeIO } from '@gltf-transform/core';
+import { ALL_EXTENSIONS } from '@gltf-transform/extensions';
+import { MeshoptDecoder } from 'meshoptimizer';
+import { atlasLayers } from '../src/atlas/PatientScene';
+import { DISEASE_BY_ID } from '../src/atlas/registry';
+import { effusionThickness, type PericardiumMapping } from '../src/asset/anatomy';
+import type { DiseaseState } from '../src/atlas/types';
+
+const json = (f: string) => JSON.parse(fs.readFileSync('public/models/' + f, 'utf8'));
+const body = json('body.mapping.json').centres as Record<string, number[]>;
+async function names(file: string) {
+  await MeshoptDecoder.ready;
+  const io = new NodeIO().registerExtensions(ALL_EXTENSIONS).registerDependencies({ 'meshopt.decoder': MeshoptDecoder });
+  return (await io.read('public/models/' + file)).getRoot().listNodes().filter((n) => n.getMesh()).map((n) => n.getName());
+}
+
+describe('skeleton', () => {
+  const m = json('skeleton.mapping.json');
+  it('has the whole axial skeleton, both shoulder girdles and the pelvis and legs', async () => {
+    const n = new Set(await names('skeleton.glb'));
+    for (const id of ['skull', 'mandible', 'C1', 'C7', 'T1', 'T12', 'L5', 'sacrum', 'manubrium', 'sternum_body', 'xiphoid', 'clavicle_L', 'scapula_R', 'hip_L', 'femur_R', 'tibia_L']) expect(n.has(id), id).toBe(true);
+    for (let i = 1; i <= 12; i++) { expect(n.has('rib_L' + i)).toBe(true); expect(n.has('rib_R' + i)).toBe(true); }
+  }, 30000);
+  it('puts the patient’s left bones at +X, like every organ in the body frame', () => {
+    expect(body.kidney_L[0]).toBeGreaterThan(0);
+    for (const id of ['rib_L5', 'clavicle_L', 'femur_L', 'scapula_L']) expect(m.centres[id][0], id).toBeGreaterThan(0);
+    for (const id of ['rib_R5', 'clavicle_R', 'femur_R', 'scapula_R']) expect(m.centres[id][0], id).toBeLessThan(0);
+  });
+  it('was fitted inside the skin and around the lungs (the fit report is measured, not assumed)', () => {
+    expect(m.fit.axialBoneVerticesOutsideSkin).toBeLessThan(0.01);
+    expect(m.fit.skullVerticesOutsideSkin).toBeLessThan(0.01);
+    expect(m.fit.ribVerticesInsideLung).toBeLessThan(0.08);
+    expect(m.fit.l5ToSacrumGapMm).toBeLessThan(5);
+  });
+  it('carries the share-alike notice for the BodyParts3D bones', () => {
+    expect(m.attribution.some((a: { license: string }) => a.license === 'CC BY-SA 2.1 JP')).toBe(true);
+    expect(m.license).toMatch(/CC BY-SA/);
+  });
+});
+
+describe('pericardium', () => {
+  const m = json('pericardium.mapping.json') as PericardiumMapping;
+  it('encloses the heart with an anatomically sized sac', () => {
+    expect(m.sac.enclosedMl).toBeGreaterThan(400); expect(m.sac.enclosedMl).toBeLessThan(1100);
+    const c = m.sac.centre; const h = body.heart; expect(Math.hypot(c[0] - h[0], c[1] - h[1], c[2] - h[2])).toBeLessThan(0.4);
+  });
+  it('turns an effusion volume into a plausible sac displacement', () => {
+    const t500 = effusionThickness(m, 500) * 100; // mm
+    expect(t500).toBeGreaterThan(5); expect(t500).toBeLessThan(25);
+    expect(effusionThickness(m, 0)).toBe(0);
+  });
+  it('measures a subxiphoid depth in the usual 4–9 cm range', () => {
+    expect(m.subxiphoid.depthDm).not.toBeNull(); expect(m.subxiphoid.depthDm! * 10).toBeGreaterThan(4); expect(m.subxiphoid.depthDm! * 10).toBeLessThan(9);
+  });
+});
+
+describe('deep brain', () => {
+  const m = json('neuro.mapping.json');
+  it('labels sides by position (the HuBMAP-placed Allen labels are mirrored)', () => {
+    for (const k of ['putamen', 'thalamus', 'caudate', 'lat_ventricle', 'internal_capsule']) { expect(m.centres[k + '_L'][0], k).toBeGreaterThan(0); expect(m.centres[k + '_R'][0], k).toBeLessThan(0); }
+  });
+  it('has adult-range volumes for the key structures', () => {
+    const v = m.volumesMl as Record<string, number>;
+    expect(v.putamen_L).toBeGreaterThan(3); expect(v.putamen_L).toBeLessThan(12);
+    expect(v.thalamus_L).toBeGreaterThan(5); expect(v.thalamus_L).toBeLessThan(16);
+    expect(v.lat_ventricle_L).toBeGreaterThan(5); expect(v.lat_ventricle_L).toBeLessThan(30);
+    expect(v.internal_capsule_L).toBeGreaterThan(3); expect(v.internal_capsule_L).toBeLessThan(15);
+  });
+  it('marks the internal capsule as reconstructed', () => { expect(m.derived.internal_capsule).toMatch(/Reconstructed/); });
+});
+
+describe('heart internals', () => {
+  const m = json('heart-internals.mapping.json');
+  it('places the SA node on the right atrium and the LV papillary muscles on the left', () => {
+    expect(m.parts.sa_node.centre[0]).toBeLessThan(0);
+    expect(m.parts.pap_lv_anterolateral.centre[0]).toBeGreaterThan(m.parts.pap_rv_anterior.centre[0]);
+  });
+  it('activates the ventricles with physiologic timing (PR ≈ 120–200 ms, QRS < 120 ms)', () => {
+    const a = m.activation; expect(a.hisStart).toBeGreaterThanOrEqual(100); expect(a.hisStart).toBeLessThanOrEqual(200);
+    const qrs = a.lastVentricularActivation - a.hisStart; expect(qrs).toBeGreaterThan(50); expect(qrs).toBeLessThan(120);
+  });
+});
+
+describe('atlas layers', () => {
+  const s = (p: Partial<DiseaseState>): DiseaseState => ({ obstruction: 0, collapse: 0, overdistension: 0, fluid: 0, bleeding: 0, edema: 0, inflammation: 0, ischemia: 0, pressure: 0, flowLoss: 0, volumeLoss: 0, pumpLoss: 0, shunt: 0, electrical: 0, metabolic: 0, endocrine: 0, ...p });
+  it('fills the real pericardium in tamponade, more with more fluid', () => {
+    const d = DISEASE_BY_ID.tamponade; expect(atlasLayers(d, s({ fluid: 0.9 })).pericardium!).toBeGreaterThan(atlasLayers(d, s({ fluid: 0.2 })).pericardium!);
+  });
+  it('animates conduction faster in tachycardia, slower with AV delay in bradycardia', () => {
+    expect(atlasLayers(DISEASE_BY_ID.tachydysrhythmia, s({ electrical: 1 })).conduction!.hr).toBeGreaterThan(140);
+    const b = atlasLayers(DISEASE_BY_ID.bradydysrhythmia, s({ electrical: 1 })).conduction!; expect(b.hr).toBeLessThan(45); expect(b.avDelay).toBeGreaterThan(100);
+  });
+  it('puts a hypertensive ICH in the left putamen next to the internal capsule', () => {
+    const b = atlasLayers(DISEASE_BY_ID.ich, s({ bleeding: 0.5 })).brain!; expect(b.ich).toBe('putamen_L'); expect(b.highlight).toContain('internal_capsule_L');
+  });
+  it('shows the right-sided decompression ribs in tension pneumothorax', () => {
+    expect(atlasLayers(DISEASE_BY_ID['tension-pneumothorax'], s({})).bones).toEqual(['rib_R2', 'rib_R3', 'rib_R4', 'rib_R5']);
+  });
+});

@@ -1,0 +1,182 @@
+{
+ "units": "decimetres, body-centred",
+ "frame": "+X patient left, +Y up, +Z anterior",
+ "parts": {
+  "pap_lv_anterolateral": {
+   "label": "Anterolateral papillary muscle (LV)",
+   "centre": [
+    0.455,
+    4.693,
+    0.42
+   ]
+  },
+  "pap_lv_posteromedial": {
+   "label": "Posteromedial papillary muscle (LV)",
+   "centre": [
+    0.455,
+    4.582,
+    0.419
+   ]
+  },
+  "pap_rv_anterior": {
+   "label": "Anterior papillary muscle (RV)",
+   "centre": [
+    0.189,
+    4.53,
+    0.771
+   ]
+  },
+  "pap_rv_posterior": {
+   "label": "Posterior papillary muscle (RV)",
+   "centre": [
+    0.125,
+    4.342,
+    0.587
+   ]
+  },
+  "pap_rv_septal": {
+   "label": "Septal papillary muscle (RV)",
+   "centre": [
+    0.244,
+    4.44,
+    0.546
+   ]
+  },
+  "chordae_mitral": {
+   "label": "Chordae tendineae (mitral)",
+   "centre": [
+    0.282,
+    4.708,
+    0.211
+   ],
+   "count": 36
+  },
+  "chordae_tricuspid": {
+   "label": "Chordae tendineae (tricuspid)",
+   "centre": [
+    0.052,
+    4.572,
+    0.549
+   ],
+   "count": 36
+  },
+  "sa_node": {
+   "label": "Sinoatrial (SA) node",
+   "centre": [
+    -0.242,
+    5.143,
+    0.382
+   ]
+  },
+  "av_node": {
+   "label": "Atrioventricular (AV) node",
+   "centre": [
+    0.076,
+    4.648,
+    0.232
+   ]
+  },
+  "his": {
+   "label": "Bundle of His",
+   "centre": [
+    0.153,
+    4.714,
+    0.306
+   ],
+   "t0": 120,
+   "t1": 132.6
+  },
+  "rbb": {
+   "label": "Right bundle branch (with moderator band)",
+   "centre": [
+    0.264,
+    4.591,
+    0.662
+   ],
+   "t0": 132.6,
+   "t1": 155.5
+  },
+  "lbb": {
+   "label": "Left bundle branch",
+   "centre": [
+    0.275,
+    4.75,
+    0.404
+   ],
+   "t0": 132.6,
+   "t1": 136.7
+  },
+  "lbb_anterior": {
+   "label": "Left anterior fascicle",
+   "centre": [
+    0.467,
+    4.725,
+    0.476
+   ],
+   "t0": 136.7,
+   "t1": 176.1
+  },
+  "lbb_posterior": {
+   "label": "Left posterior fascicle",
+   "centre": [
+    0.475,
+    4.66,
+    0.472
+   ],
+   "t0": 136.7,
+   "t1": 184.7
+  },
+  "lbb_septal": {
+   "label": "Left septal fascicle",
+   "centre": [
+    0.466,
+    4.651,
+    0.505
+   ],
+   "t0": 136.7,
+   "t1": 180.5
+  },
+  "purkinje_lv": {
+   "label": "Purkinje fibres (LV)",
+   "centre": [
+    0.478,
+    4.513,
+    0.368
+   ],
+   "tMax": 213.2
+  },
+  "purkinje_rv": {
+   "label": "Purkinje fibres (RV)",
+   "centre": [
+    0.133,
+    4.497,
+    0.644
+   ],
+   "tMax": 177.6
+  }
+ },
+ "activation": {
+  "attribute": "_ACT (ms after SA firing)",
+  "saToAv": 40,
+  "avNodalDelay": 80,
+  "hisStart": 120,
+  "velocitiesMmPerMs": {
+   "atrial": 1,
+   "node": 0.05,
+   "his": 2,
+   "bundle": 2,
+   "purkinje": 3
+  },
+  "lastVentricularActivation": 213.2
+ },
+ "schematic": "Papillary muscles and node sites are measured from HuBMAP. Chordal fan and conduction fibre routes follow the real endocardial surfaces, but the branching pattern is schematic.",
+ "attribution": {
+  "title": "3D Reference Organs: Visible Human Male (heart, papillary muscles, SA/AV node sites)",
+  "creators": "HuBMAP / Human Reference Atlas consortium",
+  "data": "Visible Human Male, U.S. National Library of Medicine",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "sourceUrl": "https://github.com/hubmapconsortium/ccf-3d-reference-object-library",
+  "changes": "Papillary muscles subdivided and smoothed; chordae and conduction system generated on the HuBMAP endocardial surfaces."
+ }
+}

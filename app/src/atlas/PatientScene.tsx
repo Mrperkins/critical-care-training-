@@ -13,6 +13,8 @@ import { StudioCanvas } from '../scene/Studio';
 import { HeartScene } from '../heart/HeartScene';
 import { loadHeartPreset, useHeartUI } from '../heart/heartStore';
 import type { DiseaseDefinition, DiseaseState } from './types';
+import { SkeletonLayer, PericardiumLayer, ConductionLayer, DeepBrainLayer } from './AtlasLayers';
+import { BRAINSTEM, RIBS } from '../asset/anatomy';
 import { affectedOrgans, bodySexFor, isPregnant, usesAdultReference, HEART_PRESET_FOR, FEMALE_ORGANS, MALE_ORGANS, ORGAN_COLOR, type OrganId } from './anatomy3d';
 
 function useReducedMotion() {
@@ -47,6 +49,7 @@ function organPose(id: OrganId, d: DiseaseDefinition, s: DiseaseState, body: Bod
   if (id.startsWith('lung') && affectedOrgans(d).includes(id) && (!unilateral || id === 'lung_R')) return { scale: 1 - 0.42 * s.collapse + 0.15 * s.overdistension };
   if (id === 'brain' && d.anatomy === 'brain') return { scale: 1 + 0.03 * s.edema };
   if (id === 'heart' && d.anatomy === 'heart' && ['pump', 'congestion'].includes(d.variant)) return { scale: 1 + 0.18 * (s.pumpLoss + s.fluid) / 2 };
+  if (id === 'heart' && d.variant === 'pericardial') return { scale: 1 - 0.07 * s.pressure }; // diastolic filling restricted by the effusion
   if (id === 'ovary_R' && d.variant === 'torsion') return { scale: 1 + 1.4 * s.edema + 0.6 * s.obstruction };
   if (id.startsWith('ovary') && d.variant === 'follicles') return { scale: 1.5 + 0.5 * s.endocrine };
   if (id === 'uterus' && (d.variant === 'postpartum' || d.variant === 'atony')) return { scale: 3.4 + 0.8 * s.pumpLoss }; // postpartum fundus near the umbilicus
@@ -58,7 +61,7 @@ function organPose(id: OrganId, d: DiseaseDefinition, s: DiseaseState, body: Bod
   return { scale: 1 };
 }
 
-function Organ({ body, id, active, state, disease }: { body: BodyAsset; id: OrganId; active: boolean; state: DiseaseState; disease: DiseaseDefinition }) {
+function Organ({ body, id, active, state, disease, xray = false }: { body: BodyAsset; id: OrganId; active: boolean; state: DiseaseState; disease: DiseaseDefinition; xray?: boolean }) {
   const mesh = useRef<THREE.Mesh<THREE.BufferGeometry, THREE.MeshStandardMaterial>>(null); const reduced = useReducedMotion();
   const centre = useMemo(() => boxOf(body, [id]).getCenter(new THREE.Vector3()), [body, id]);
   const geometry = useMemo(() => body.meshes[id].geometry.clone().translate(-centre.x, -centre.y, -centre.z), [body, id, centre]);
@@ -76,7 +79,7 @@ function Organ({ body, id, active, state, disease }: { body: BodyAsset; id: Orga
   useFrame((_, dt) => {
     const m = mesh.current; if (!m) return; const u = reduced ? 1 : 1 - Math.exp(-4 * Math.min(dt, 0.1));
     m.scale.lerp(target, u); m.material.color.lerp(color, u);
-    m.material.opacity = amnion ? (active ? 0.22 : 0.1) : active ? 1 : 0.1; m.material.depthWrite = active && !amnion;
+    m.material.opacity = amnion ? (active ? 0.22 : 0.1) : active ? (xray ? 0.22 : 1) : 0.1; m.material.depthWrite = active && !amnion && !xray;
   });
   return <mesh ref={mesh} geometry={geometry} material={material} position={position} rotation={[pose.rotX ?? 0, 0, 0]} dispose={null} />;
 }
@@ -92,7 +95,7 @@ const blob = (key: string, pos: THREE.Vector3, r: [number, number, number], colo
   <mesh key={key} position={pos} scale={r}><sphereGeometry args={[1, 22, 16]} /><meshStandardMaterial color={color} roughness={0.5} transparent={opacity < 1} opacity={opacity} depthWrite={opacity >= 1} /></mesh>;
 
 /** Blood, clot and fluid marks placed on the real organ surfaces. */
-function Pathology({ body, d, s }: { body: BodyAsset; d: DiseaseDefinition; s: DiseaseState }) {
+function Pathology({ body, d, s, layered = false }: { body: BodyAsset; d: DiseaseDefinition; s: DiseaseState; layered?: boolean }) {
   const c = (ids: string[]) => boxOf(body, ids).getCenter(new THREE.Vector3());
   const top = (ids: string[]) => { const b = boxOf(body, ids); return new THREE.Vector3((b.min.x + b.max.x) / 2, b.max.y, (b.min.z + b.max.z) / 2); };
   const out: JSX.Element[] = []; const bl = s.bleeding;
@@ -100,9 +103,9 @@ function Pathology({ body, d, s }: { body: BodyAsset; d: DiseaseDefinition; s: D
   if (d.anatomy === 'aorta' && ['aneurysm', 'rupture'].includes(d.variant)) { const a = boxOf(body, ['aorta']); out.push(blob('aaa', new THREE.Vector3(a.getCenter(new THREE.Vector3()).x, a.min.y + 0.55, a.getCenter(new THREE.Vector3()).z + 0.05), [0.2 + s.overdistension * 0.25, 0.42, 0.2 + s.overdistension * 0.25], '#b6595f')); }
   if (d.variant === 'rupture' && bl > 0.02) { const a = boxOf(body, ['aorta']); out.push(blob('rp', new THREE.Vector3(a.max.x + 0.2, a.min.y + 0.6, a.min.z), [0.3 * bl + 0.1, 0.35 * bl + 0.1, 0.25], '#8a1d2f', 0.85)); }
   if (d.variant === 'dissection') { const a = boxOf(body, ['aorta']); out.push(blob('fl', new THREE.Vector3(a.getCenter(new THREE.Vector3()).x + 0.06, a.max.y - 0.35, a.max.z - 0.05), [0.07, 0.35, 0.07], '#d8c3a5', 0.9)); }
-  if (d.variant === 'pericardial') out.push(blob('pc', c(['heart']), [0.62, 0.72, 0.6].map((v) => v + 0.15 * s.fluid) as [number, number, number], '#75a3c7', 0.18 + s.fluid * 0.25));
+  if (d.variant === 'pericardial' && !layered) out.push(blob('pc', c(['heart']), [0.62, 0.72, 0.6].map((v) => v + 0.15 * s.fluid) as [number, number, number], '#75a3c7', 0.18 + s.fluid * 0.25));
   if (['pleural-blood', 'trauma'].includes(d.variant) && bl > 0.02) { const l = boxOf(body, ['lung_R']); out.push(blob('hx', new THREE.Vector3(l.min.x + 0.25, l.min.y + 0.25, l.min.z + 0.3), [0.25, 0.12 + 0.3 * bl, 0.3], '#7d1f30', 0.85)); }
-  if (d.anatomy === 'brain' && ['ich', 'trauma'].includes(d.variant)) out.push(blob('ich', c(['brain']).add(new THREE.Vector3(0.22, 0.05, 0.1)), [0.08 + 0.12 * bl, 0.07 + 0.1 * bl, 0.09 + 0.1 * bl], '#6d1726'));
+  if (d.anatomy === 'brain' && (d.variant === 'trauma' || (d.variant === 'ich' && !layered))) out.push(blob('ich', c(['brain']).add(new THREE.Vector3(0.22, 0.05, 0.1)), [0.08 + 0.12 * bl, 0.07 + 0.1 * bl, 0.09 + 0.1 * bl], '#6d1726'));
   if (d.variant === 'sah') out.push(blob('sah', boxOf(body, ['brain']).getCenter(new THREE.Vector3()).setY(boxOf(body, ['brain']).min.y + 0.12), [0.32, 0.03 + 0.04 * bl, 0.25], '#7d1f30', 0.8));
   if (d.variant === 'core-penumbra' && s.ischemia > 0.05) out.push(blob('core', c(['brain']).add(new THREE.Vector3(0.3, 0.12, 0.05)), [0.1 + 0.18 * s.ischemia, 0.1 + 0.16 * s.ischemia, 0.12 + 0.15 * s.ischemia], '#4b2236', 0.85));
   if (d.variant === 'abdominal-blood' && bl > 0.02) { const l = boxOf(body, ['liver', 'spleen']); out.push(blob('hp', new THREE.Vector3((l.min.x + l.max.x) / 2, l.min.y - 0.25, l.max.z - 0.1), [0.55 * bl + 0.15, 0.12 + 0.2 * bl, 0.25], '#7d1f30', 0.7)); }
@@ -117,6 +120,27 @@ function Pathology({ body, d, s }: { body: BodyAsset; d: DiseaseDefinition; s: D
   return <group>{out}</group>;
 }
 
+/** Which added anatomy each condition uses (male body). Effusion and haematoma volumes are illustrative, from the state. */
+export function atlasLayers(d: DiseaseDefinition, s: DiseaseState) {
+  const out: { bones: string[]; xray: OrganId[]; pericardium?: number; conduction?: { hr: number; avDelay?: number; dropEvery?: number }; brain?: { highlight?: string[]; ventricleScale?: number; ich?: string; ichMl?: number; show?: 'all' | 'ventricles' } } = { bones: [], xray: [] };
+  if (d.variant === 'tension' || d.variant === 'pleural-air') out.bones = ['rib_R2', 'rib_R3', 'rib_R4', 'rib_R5']; // 2nd ICS MCL · 4th–5th ICS AAL
+  if (d.variant === 'trauma' && d.anatomy === 'pleura') out.bones = RIBS('R').slice(2, 8);
+  if (d.variant === 'pericardial') out.pericardium = 40 + 460 * s.fluid;
+  if (d.variant === 'tachy' || d.variant === 'brady') {
+    out.xray.push('heart');
+    out.conduction = d.variant === 'tachy' ? { hr: 80 + 90 * s.electrical } : { hr: 70 - 34 * s.electrical, avDelay: 160 * s.electrical, dropEvery: s.electrical > 0.7 ? 3 : 0 };
+  }
+  if (d.anatomy === 'brain') {
+    out.xray.push('brain');
+    const mass = Math.max(s.edema, s.pressure);
+    if (d.variant === 'ich') out.brain = { ich: 'putamen_L', ichMl: 5 + 55 * s.bleeding, highlight: ['internal_capsule_L'], ventricleScale: 1 - 0.25 * mass };
+    else if (d.variant === 'herniation') out.brain = { highlight: BRAINSTEM, ventricleScale: 1 - 0.4 * mass };
+    else if (d.variant === 'icp' || d.variant === 'edema') out.brain = { show: 'ventricles', ventricleScale: 1 - 0.4 * mass };
+    else out.brain = {};
+  }
+  return out;
+}
+
 function BodyScene({ disease, state, target }: { disease: DiseaseDefinition; state: DiseaseState; target: string }) {
   const sex = bodySexFor(disease);
   const [body, setBody] = useState<BodyAsset | null>(null); const [error, setError] = useState(false);
@@ -126,17 +150,22 @@ function BodyScene({ disease, state, target }: { disease: DiseaseDefinition; sta
   const organs = affectedOrgans(disease); const pregnant = isPregnant(disease);
   const list = (sex === 'female' ? FEMALE_ORGANS : MALE_ORGANS).filter((id) => body.meshes[id] && (!PREGNANCY_PARTS.includes(id) || pregnant));
   const focus = organs.filter((id) => body.meshes[id]).concat(pregnant && disease.anatomy === 'placenta' ? ['amnion'] : []);
-  const a = body.mapping.attribution;
+  const a = body.mapping.attribution; const male = sex === 'male'; const layers = atlasLayers(disease, state);
   return <>
     <StudioCanvas camera={{ position: [0, 1, 34], fov: 34 }} fog={false} label={`${disease.title}: 3D ${sex} reference anatomy with the affected organs highlighted`}>
       <Skin body={body} whole={target === 'body.whole'} />
-      {list.map((id) => <Organ key={id} body={body} id={id} active={organs.includes(id)} state={state} disease={disease} />)}
-      <Pathology body={body} d={disease} s={state} />
+      {list.map((id) => <Organ key={id} body={body} id={id} active={organs.includes(id)} state={state} disease={disease} xray={layers.xray.includes(id)} />)}
+      <Pathology body={body} d={disease} s={state} layered={male} />
+      {male && <SkeletonLayer highlight={layers.bones} ghost={target === 'body.whole' ? 0.32 : 0.14} />}
+      {male && layers.pericardium != null && <PericardiumLayer ml={layers.pericardium} blood={disease.variant === 'trauma'} />}
+      {male && layers.conduction && <ConductionLayer {...layers.conduction} />}
+      {male && layers.brain && <DeepBrainLayer {...layers.brain} />}
       <Camera body={body} focus={focus} whole={target === 'body.whole'} boost={Math.max(1, ...focus.map((id) => organPose(id as OrganId, disease, state, body).scale))} />
     </StudioCanvas>
     <details className="credit"><summary>Sources &amp; model notes</summary>{a.title} — {a.creators}; {a.data}. <a href={a.licenseUrl} target="_blank" rel="noreferrer">{a.license}</a>. {a.changes}
       {usesAdultReference(disease) && ' Children are shown on the adult reference body: a child has a proportionally larger head, a shorter neck and a narrower, more anterior airway.'}
-      {' '}Blood, clot, fluid and lesion marks are 3D overlays sized by the illustrative state, not measurements.</details>
+      {' '}Blood, clot, fluid and lesion marks are 3D overlays sized by the illustrative state, not measurements.
+      {male && <> Bones: BodyParts3D, © The Database Center for Life Science, <a href="https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en" target="_blank" rel="noreferrer">CC BY-SA 2.1 JP</a>, fitted onto the Visible Human Male (skull, spine, ribs, sternum, shoulder girdle, humeri); pelvis and legs from HuBMAP. Pericardium, deep brain and conduction system are built on the HuBMAP heart and Allen brain regions; the conduction fibre pattern is schematic, and the internal capsule is reconstructed from the surrounding white matter.</>}</details>
   </>;
 }
 

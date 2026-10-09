@@ -3,7 +3,7 @@
  * anatomy.ts, territory perfusion shading (core / penumbra) from perfusion.ts, haemorrhage
  * primitives and brain.* semantic camera targets. All state comes from useNeuroUI — this file only draws.
  */
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
 import { CameraControls, Html } from '@react-three/drei';
@@ -19,6 +19,7 @@ import { territoryStates, hemorrhageShape, effectiveHemorrhage } from './perfusi
 import { vesselPerfusion } from './vesselFlow';
 import { SliceCap, useSlicePlane } from './SliceCap';
 import { useThree } from '@react-three/fiber';
+import { loadNeuroDeep, VENTRICLES, DEEP_NUCLEI, BRAINSTEM, type Layer, type NeuroMapping } from '../asset/anatomy';
 
 /* ------------------------------------------------------------------ brain surface shader (mirrors anatomy.territoryAt) */
 const BRAIN_HEAD = /* glsl */ `
@@ -195,6 +196,40 @@ function Hemorrhage({ frame }: { frame: BrainFrame }) {
   return (<>{pieces.map((q, i) => <mesh key={i} geometry={blob} material={sahMat} position={toBody(frame, [q[0], q[1], q[2]])} scale={[q[3] * frame.h.x * k, q[4] * frame.h.y * k, q[5] * frame.h.z * k]} renderOrder={6} />)}</>);
 }
 
+/* ------------------------------------------------------------------ deep structures (neuro.glb, Allen regions in the same brain) */
+const DEEP_COLOR = (id: string) => (VENTRICLES.includes(id) ? '#5d9fdc' : /^(caudate|putamen)/.test(id) ? '#a07a94' : /^pallidus/.test(id) ? '#bd9ea8' : /^thalamus/.test(id) ? '#9483a8' : /^internal_capsule/.test(id) ? '#efe9dc' : '#b39a9a');
+const DEEP_LABEL: [string, string][] = [['lat_ventricle', 'Lateral ventricle'], ['thalamus', 'Thalamus'], ['putamen', 'Putamen'], ['internal_capsule', 'Internal capsule']];
+/** A haematoma pushes the midline away from itself (hemorrhageShape.shiftMm) and squeezes the ipsilateral lateral
+ *  ventricle; everything else is the atlas anatomy as measured. */
+function DeepStructures({ frame }: { frame: BrainFrame }) {
+  const [nd, setNd] = useState<Layer<NeuroMapping> | null>(null);
+  useEffect(() => { let off = false; loadNeuroDeep().then((x) => { if (!off) setNd(x); }).catch(() => undefined); return () => { off = true; }; }, []);
+  const on = useNeuroUI((s) => s.deep); const glass = useNeuroUI((s) => s.glass); const cut = useNeuroUI((s) => s.cut); const labels = useNeuroUI((s) => s.labels);
+  const st = useNeuroUI((s) => s.state); const sys = useNeuroUI((s) => s.sys); const h = effectiveHemorrhage(st, sys);
+  const { plane } = useSlicePlane(frame);
+  const ids = useMemo(() => (nd ? [...VENTRICLES, ...DEEP_NUCLEI, ...BRAINSTEM].filter((id) => nd.meshes[id]) : []), [nd]);
+  const mats = useMemo(() => Object.fromEntries(ids.map((id) => [id, new THREE.MeshStandardMaterial({ color: DEEP_COLOR(id), roughness: 0.45, transparent: true, opacity: 0.92, side: THREE.DoubleSide })])), [ids]);
+  useEffect(() => () => Object.values(mats).forEach((m) => m.dispose()), [mats]);
+  useEffect(() => { for (const m of Object.values(mats)) { m.clippingPlanes = cut ? [plane] : []; m.needsUpdate = true; } }, [mats, cut, plane]);
+  const refs = useRef<Record<string, THREE.Mesh | null>>({}); const centres = useMemo(() => Object.fromEntries(ids.map((id) => { const g = nd!.meshes[id].geometry; g.computeBoundingBox(); return [id, g.boundingBox!.getCenter(new THREE.Vector3())]; })), [ids, nd]);
+  const ich = h && h.kind === 'ich' ? h : null; const side = ich ? (ich.at[0] >= 0 ? 'L' : 'R') : null; const shift = ich ? hemorrhageShape(ich).shiftMm / 100 : 0;
+  useFrame((_, dtRaw) => {
+    const dt = frameDt(dtRaw);
+    for (const id of ids) {
+      const m = refs.current[id]; if (!m) continue; const c = centres[id];
+      const ipsi = side && id === 'lat_ventricle_' + side; const midline = /^(third_ventricle|aqueduct|lat_ventricle_)/.test(id) && !ipsi;
+      const s = approach(m.scale.x, ipsi ? Math.max(0.45, 1 - 0.035 * shift * 100) : 1, 3, dt);
+      const dx = approach(m.userData.dx ?? 0, side && (midline || ipsi) ? (side === 'L' ? -1 : 1) * shift * (ipsi ? 1 : 0.8) : 0, 3, dt); m.userData.dx = dx;
+      m.scale.setScalar(s); m.position.set(c.x * (1 - s) + dx, c.y * (1 - s), c.z * (1 - s));
+    }
+  });
+  if (!nd || !on || !(glass || cut)) return null;
+  return <group>
+    {ids.map((id) => <mesh key={id} ref={(el) => { refs.current[id] = el; }} geometry={nd.meshes[id].geometry} material={mats[id]} renderOrder={3} dispose={null} />)}
+    {labels && !cut && DEEP_LABEL.map(([k, text]) => { const id = k + '_' + (side ?? 'L'); const c = centres[id]; if (!c) return null; return <Html key={k} position={c} center zIndexRange={[20, 0]}><LabelChip className="tag3d tk" text={text} /></Html>; })}
+  </group>;
+}
+
 function TerritoryTags({ frame }: { frame: BrainFrame }) {
   const on = useNeuroUI((s) => s.labels); const state = useNeuroUI((s) => s.state); const sys = useNeuroUI((s) => s.sys);
   if (!on) return null; const ts = territoryStates(state, sys);
@@ -237,6 +272,7 @@ export function NeuroScene({ body }: { body: BodyAsset }) {
       <group>
         <Vessels frame={frame} tier={tier} brain={body.meshes.brain.geometry} />
         <Brain body={body} frame={frame} />
+        <DeepStructures frame={frame} />
         <Hemorrhage frame={frame} />
         <TerritoryTags frame={frame} />
       </group>

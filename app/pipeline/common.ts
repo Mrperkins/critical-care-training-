@@ -53,6 +53,14 @@ export function simplify(g: THREE.BufferGeometry, ratio: number, err = 0.01) {
   const r = new THREE.BufferGeometry(); r.setAttribute('position', new THREE.Float32BufferAttribute(np, 3)); r.setIndex(ni); r.computeVertexNormals(); return r;
 }
 
+/** Midpoint subdivision (each triangle → 4) without moving original vertices; follow with Taubin smoothing. */
+export function subdivide(g: THREE.BufferGeometry) {
+  const p = g.attributes.position; const ix = g.index!.array; const pos: number[] = Array.from(p.array as Float32Array); const mid = new Map<string, number>(); const out: number[] = [];
+  const m = (a: number, b: number) => { const k = a < b ? a + '_' + b : b + '_' + a; let v = mid.get(k); if (v === undefined) { v = pos.length / 3; pos.push((pos[a * 3] + pos[b * 3]) / 2, (pos[a * 3 + 1] + pos[b * 3 + 1]) / 2, (pos[a * 3 + 2] + pos[b * 3 + 2]) / 2); mid.set(k, v); } return v; };
+  for (let t = 0; t < ix.length; t += 3) { const a = ix[t], b = ix[t + 1], c = ix[t + 2]; const ab = m(a, b), bc = m(b, c), ca = m(c, a); out.push(a, ab, ca, ab, b, bc, ca, bc, c, ab, bc, ca); }
+  const r = new THREE.BufferGeometry(); r.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); r.setIndex(out); r.computeVertexNormals(); return r;
+}
+
 export const centroid = (g: THREE.BufferGeometry) => { const a = g.attributes.position; const c = new V3(); for (let i = 0; i < a.count; i++) c.add(new V3().fromBufferAttribute(a, i)); return c.divideScalar(a.count); };
 
 /** Flip triangle winding if normals point inward on average. */

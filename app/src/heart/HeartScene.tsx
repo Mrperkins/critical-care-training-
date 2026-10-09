@@ -21,6 +21,8 @@ import { saturationColor, budget, approach, frameDt, tubeAlong, type Tier } from
 import { registerAnchors } from '../scene/cameraTargets';
 import { useLabUI } from '../labs/labStore';
 import { loadLinesAsset, type LinesAsset } from '../asset/lines';
+import { loadHeartInternals, loadPericardium, CONDUCTION, VALVE_APPARATUS, type Layer, type HeartInternalsMapping, type PericardiumMapping } from '../asset/anatomy';
+import { conductionMaterial, branchOf } from '../scene/conduction';
 import { useHeartUI, type CutMode } from './heartStore';
 import { solveShunt, type ShuntState } from './shunt';
 import { CENTRE, SCALE, toScene, LM, SEPTUM_N, ATRIAL_N, holesFor, holeRadius, lesionShape, pinch, shift, thicken, OVERRIDE, overrideWeight, flowPaths, type Hole, type FlowPathId, type Way, type LesionShape } from './heartGeometry';
@@ -230,9 +232,35 @@ function Heart({ asset, s, tier }: { asset: LinesAsset; s: ShuntState; tier: Tie
       </group>}
       {ductGeo && <mesh geometry={ductGeo} material={ductMat} />}
       <instancedMesh key={NP} ref={inst} args={[new THREE.SphereGeometry(1, 8, 6), undefined, NP]} frustumCulled={false}><meshBasicMaterial toneMapped={false} clippingPlanes={planes} /></instancedMesh>
+      <Internals planes={planes} />
       <Labels s={s} shape={shape} cut={cut} />
     </group>
   );
+}
+
+/* ------------------------------------------------------------------ heart internals (heart-internals.glb, pericardium.glb; body frame) */
+/** Papillary muscles and chordae are always drawn (they are what the cut opens onto); the conduction system lights a
+ *  wavefront on the same 84/min clock as the beating chambers; the pericardium is a toggle (it hides the epicardium). */
+function Internals({ planes }: { planes: THREE.Plane[] }) {
+  const [hi, setHi] = useState<Layer<HeartInternalsMapping> | null>(null); const [pc, setPc] = useState<Layer<PericardiumMapping> | null>(null);
+  const showC = useHeartUI((s) => s.conduction); const showP = useHeartUI((s) => s.pericardium);
+  useEffect(() => { let off = false; loadHeartInternals().then((x) => { if (!off) setHi(x); }).catch(() => undefined); return () => { off = true; }; }, []);
+  useEffect(() => { if (!showP || pc) return; let off = false; loadPericardium().then((x) => { if (!off) setPc(x); }).catch(() => undefined); return () => { off = true; }; }, [showP, pc]);
+  const mats = useMemo(() => ({
+    pap: new THREE.MeshPhysicalMaterial({ color: '#8f2c24', roughness: 0.5, clearcoat: 0.35, clippingPlanes: planes, side: THREE.DoubleSide }),
+    chord: new THREE.MeshStandardMaterial({ color: '#f1e8d8', roughness: 0.35, clippingPlanes: planes }),
+    sac: new THREE.MeshPhysicalMaterial({ color: '#e8ddcc', roughness: 0.3, clearcoat: 0.4, transparent: true, opacity: 0.32, depthWrite: false, side: THREE.DoubleSide, clippingPlanes: planes }),
+    cond: [0, 1, 2].map((b) => { const c = conductionMaterial(b as 0 | 1 | 2); c.material.clippingPlanes = planes; return c; }),
+  }), [planes]);
+  useEffect(() => () => { mats.pap.dispose(); mats.chord.dispose(); mats.sac.dispose(); mats.cond.forEach((c) => c.material.dispose()); }, [mats]);
+  const t = useRef(0);
+  useFrame((_, dt) => { t.current += Math.min(0.05, dt); const ms = ((t.current + 0.19) % PERIOD) * 1000; /* electrical precedes mechanical: the SA node fires ~190 ms before systole */ for (const c of mats.cond) { c.uniforms.uT.value = ms; c.uniforms.uHisStart.value = hi?.mapping.activation.hisStart ?? 120; } });
+  if (!hi) return null;
+  return (<>
+    {VALVE_APPARATUS.filter((id) => hi.meshes[id]).map((id) => <mesh key={id} geometry={hi.meshes[id].geometry} material={/^chordae/.test(id) ? mats.chord : mats.pap} dispose={null} />)}
+    {showC && CONDUCTION.filter((id) => hi.meshes[id]).map((id) => <mesh key={id} geometry={hi.meshes[id].geometry} material={mats.cond[branchOf(id)].material} renderOrder={6} dispose={null} />)}
+    {showP && pc && <mesh geometry={pc.meshes.pericardium.geometry} material={mats.sac} renderOrder={7} dispose={null} />}
+  </>);
 }
 
 /* ------------------------------------------------------------------ labels (body frame, inside the heart group) */

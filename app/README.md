@@ -31,5 +31,12 @@ New clips use Kokoro-82M, voice `bf_emma`, encoded like the originals (MP3, 22.0
 Abbreviations are expanded for speech in `vo_render.py` (`SAY`).
 - `pipeline/` rebuilds anatomy from the HuBMAP Visible Human GLBs, which are not committed
   (`assets/source/`, ~90 MB; https://github.com/hubmapconsortium/ccf-3d-reference-object-library).
+- Added anatomy (same Visible Human Male body frame as body.glb; `npm run asset:<name>`):
+  `skeleton` (86 bones — skull, spine, ribs, sternum, shoulder girdles, humeri from **BodyParts3D, CC BY-SA 2.1 JP**,
+  fitted onto the VHM body; pelvis and legs from HuBMAP — so `skeleton.glb` as a whole is CC BY-SA; app code is not
+  affected), `pericardium` (sac grown from the real heart, per-vertex effusion freedom), `neuro` (Allen deep structures;
+  HuBMAP's Allen side labels are mirrored and are corrected by position), `heart-internals` (papillary muscles, chordae,
+  conduction system with activation times). BodyParts3D STLs: https://github.com/Kevin-Mattheus-Moerman/BodyParts3D
+  (`assets/source/bp3d/`). Each build prints a fit/sanity report; `tests/anatomy-layers.test.ts` locks the key facts.
 - Repo-root assets the build does not own and fetches at runtime: `models/cell/…` (CC BY 4.0
   generic cell), `models/molecular/*-backbone.glb` (CC0 PDB-derived), manifests in `models/*.json`.
