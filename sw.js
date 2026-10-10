@@ -2,11 +2,12 @@
  * App shell + 3D models are cached on install; narration, clips and images are cached the first time they are used
  * (or all at once from "Save for offline"). Media range requests are answered from the cached file.
  * The version string is replaced at build time; a new version replaces the old caches. */
-const VERSION = '62e91a1ef49b';
+const VERSION = 'f477d23997ce';
 const SHELL = `cc-shell-${VERSION}`, MEDIA = 'cc-media-v1';
 const CORE = ['./', 'index.html', 'audio/index.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'imaging/real/manifest.json',
   'models/body.glb.txt', 'models/body.mapping.json', 'models/body-f.glb.txt', 'models/body-f.mapping.json', 'models/eyes.glb.txt', 'models/eyes.mapping.json', 'models/resp.glb.txt', 'models/resp.mapping.json',
-  'models/micro.glb.txt', 'models/micro.mapping.json', 'models/lines.glb.txt', 'models/lines.mapping.json'];
+  'models/micro.glb.txt', 'models/micro.mapping.json', 'models/lines.glb.txt', 'models/lines.mapping.json',
+  'models/skeleton.glb.txt', 'models/skeleton.mapping.json', 'models/pericardium.glb.txt', 'models/pericardium.mapping.json', 'models/neuro.glb.txt', 'models/neuro.mapping.json', 'models/heart-internals.glb.txt', 'models/heart-internals.mapping.json', 'models/upper-airway.glb.txt', 'models/upper-airway.mapping.json', 'models/coronary-heart.glb.txt', 'models/coronary-heart.mapping.json', 'models/heart-hd.glb.txt', 'models/heart-hd.mapping.json', 'models/nerves.glb.txt', 'models/nerves.mapping.json', 'models/gut.glb.txt', 'models/gut.mapping.json', 'models/cerebral-arteries.glb.txt', 'models/cerebral-arteries.mapping.json', 'models/brain-volume.json'];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(SHELL).then((c) => Promise.all(CORE.map((u) => c.add(new Request(u, { cache: 'reload' })).catch(() => undefined)))).then(() => self.skipWaiting()));
