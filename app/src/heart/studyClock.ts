@@ -13,7 +13,7 @@ export const useStudyClock = create<StudyClock>((set, get) => ({
   advance: (realSeconds) => {
     const s = get();
     // When the study mode is off, retain the original full-speed animation.
-    const seconds = s.seconds + (s.enabled && !s.running ? 0 : Math.max(0, Math.min(0.05, realSeconds)) * (s.enabled ? s.speed : 1));
+    const seconds = s.seconds + (s.enabled && !s.running ? 0 : Math.max(0, Math.min(s.enabled ? 0.25 : 0.05, Number.isFinite(realSeconds) ? realSeconds : 0)) * (s.enabled ? s.speed : 1));
     if (seconds !== s.seconds) set({ seconds });
     return seconds;
   },
