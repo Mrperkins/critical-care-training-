@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { studyECGPath, studyPhase, STUDY_LEADS } from './studyECG';
+import { studyECGPath, studyPhase, STUDY_LEADS, ECG_EVENTS } from './studyECG';
 import type { LeadId } from '../infarct/data/types';
 import { wiggers } from './beat';
 import { studyCycleMs, useStudyClock } from './studyClock';
@@ -16,14 +16,19 @@ export function HeartECGStudy() {
   const [lead, setLead] = useState<LeadId>('II');
   useEffect(() => {
     if (!enabled) return;
-    let raf = 0;
-    const paint = () => { setSeconds(useStudyClock.getState().seconds); raf = requestAnimationFrame(paint); };
+    let raf = 0; let last = -Infinity;
+    const paint = (now: number) => {
+      if (now - last >= 32) { setSeconds(useStudyClock.getState().seconds); last = now; }
+      raf = requestAnimationFrame(paint);
+    };
     raf = requestAnimationFrame(paint);
     return () => cancelAnimationFrame(raf);
   }, [enabled]);
   const ms = studyCycleMs(seconds, bpm);
   const rr = 60000 / Math.max(20, bpm);
   const p = ms / rr;
+  const mechanics = wiggers(seconds, bpm);
+  const valveState = mechanics.slOpen > 0.1 ? 'Aortic and pulmonary valves open' : mechanics.avOpen > 0.1 ? 'Mitral and tricuspid valves open' : 'All four valves in transition or closed';
   const points = useMemo(() => studyECGPath(lead, bpm), [lead, bpm]);
   const allPaths = useMemo(() => STUDY_LEADS.map((id) => ({id, points: studyECGPath(id, bpm, 340, 50, 22, 180)})), [bpm]);
   const event = studyPhase(ms, bpm);
@@ -39,6 +44,7 @@ export function HeartECGStudy() {
       36 + 49 * w.v;
     return (i * 340 / 219).toFixed(2) + ',' + y.toFixed(2);
   }).join(' ');
+  const traceSet = useMemo(() => ({ aortic: wiggersTrace('aortic'), ventricular: wiggersTrace('ventricular'), volume: wiggersTrace('volume') }), [bpm]);
   const patch = useStudyClock.getState().set;
   const seek = (position: number) => {
     const s = useStudyClock.getState();
@@ -58,6 +64,15 @@ export function HeartECGStudy() {
         <select aria-label="Playback speed" value={speed} onChange={(e) => patch({ speed: Number(e.target.value) })}>{SPEEDS.map((x) => <option key={x} value={x}>{x}× speed</option>)}</select>
       </div>
       <div className="nd-row"><label htmlFor="study-hr">Physiological HR</label><input id="study-hr" type="range" min={50} max={140} step={5} value={rateOverride ?? bpm} onChange={(e) => patch({rateOverride: Number(e.target.value)})} style={{flex:1,minWidth:80}}/><strong>{bpm} bpm</strong><button className="tgl" onClick={() => patch({rateOverride:null})}>Preset rate</button></div>
+      <div className="nd-row" style={{flexWrap:'wrap',gap:8}}><label htmlFor="study-jump">Inspect event</label>
+        <select id="study-jump" defaultValue="" onChange={(e) => {
+          const entry = ECG_EVENTS.find((v) => v.id === e.target.value);
+          if (entry) seek(entry.at / rr);
+          e.currentTarget.value = '';
+        }}>
+          <option value="">Jump to…</option>{ECG_EVENTS.map((e) => <option key={e.id} value={e.id}>{e.name}</option>)}
+        </select>
+      </div>
       <div className="nd-row" style={{justifyContent:'space-between',gap:10}}>
         <label htmlFor="study-lead">ECG lead</label>
         <select id="study-lead" value={lead} onChange={(e) => setLead(e.target.value as LeadId)}>{STUDY_LEADS.map((id) => <option key={id} value={id}>{id}</option>)}</select>
@@ -69,13 +84,16 @@ export function HeartECGStudy() {
         {Array.from({length:18},(_,i)=><line key={'v'+i} x1={i*20} y1={0} x2={i*20} y2={110} stroke="#64748b" opacity={0.2}/>)}
         {Array.from({length:6},(_,i)=><line key={'h'+i} x1={0} y1={i*20} x2={340} y2={i*20} stroke="#64748b" opacity={0.2}/>)}
         <polyline points={points} fill="none" stroke="#16b8b5" strokeWidth="2" strokeLinejoin="round"/>
+        {ECG_EVENTS.filter((e) => e.id === 'p' || e.id === 'qrs' || e.id === 't').map((e) =>
+          <text key={e.id} x={Math.min(330, (e.at + e.end) / 2 / rr * 340)} y={12} fill="#cdbb94" fontSize={10} textAnchor="middle">{e.id.toUpperCase()}</text>
+        )}
         <line x1={p*340} y1={0} x2={p*340} y2={110} stroke="#f59e0b" strokeWidth="2"/>
       </svg>
       <details className="study-details"><summary>Compare electrical activity with mechanical cycle</summary>
         <svg viewBox="0 0 340 110" role="img" aria-label="Illustrative aortic pressure, ventricular pressure and chamber volume with synchronized cursor" style={{width:'100%',maxWidth:560}}>
-          <polyline points={wiggersTrace('aortic')} fill="none" stroke="#ef9c53" strokeWidth="2"/>
-          <polyline points={wiggersTrace('ventricular')} fill="none" stroke="#e15c76" strokeWidth="2"/>
-          <polyline points={wiggersTrace('volume')} fill="none" stroke="#70aeea" strokeWidth="2"/>
+          <polyline points={traceSet.aortic} fill="none" stroke="#ef9c53" strokeWidth="2"/>
+          <polyline points={traceSet.ventricular} fill="none" stroke="#e15c76" strokeWidth="2"/>
+          <polyline points={traceSet.volume} fill="none" stroke="#70aeea" strokeWidth="2"/>
           <line x1={p*340} x2={p*340} y1="0" y2="110" stroke="#f59e0b" strokeWidth="2"/>
         </svg>
         <p className="muted small">Orange: aortic pressure proxy; pink: ventricular pressure proxy; blue: relative chamber emptying. All three use the heart model's Wiggers timing, aligned to the QRS. These are not calibrated measurements.</p>
@@ -90,6 +108,7 @@ export function HeartECGStudy() {
       </details>
       <input aria-label="Scrub cardiac cycle" type="range" min={0} max={1000} value={Math.round(p*1000)} onChange={(e)=>seek(Number(e.target.value)/1000)} style={{width:'100%'}}/>
       <p style={{margin:'6px 0'}}><strong>{event.name}:</strong> {event.detail}</p>
+      <p className="muted small">Mechanical state: {valveState}. {mechanics.atr > 0.2 ? 'Atrial contraction is active.' : ''}</p>
       <p className="muted small">12-lead teaching waveform uses the existing Infarct Atlas vector-cardiographic projection model. It is not derived from distributed 3D myocardium or patient-specific anatomy and is not diagnostic. Playback speed does not alter the simulated rate. Node and muscle timing are approximate.</p>
     </>}
   </section>;
