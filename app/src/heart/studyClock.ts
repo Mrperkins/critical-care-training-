@@ -2,12 +2,12 @@ import { create } from 'zustand';
 
 /** Deterministic shared study clock. Speed changes presentation time, never the patient's heart rate. */
 interface StudyClock {
-  seconds: number; running: boolean; speed: number; enabled: boolean; heartRate: number;
-  set: (patch: Partial<Pick<StudyClock, 'seconds' | 'running' | 'speed' | 'enabled' | 'heartRate'>>) => void;
+  seconds: number; running: boolean; speed: number; enabled: boolean; heartRate: number; rateOverride: number | null;
+  set: (patch: Partial<Pick<StudyClock, 'seconds' | 'running' | 'speed' | 'enabled' | 'heartRate' | 'rateOverride'>>) => void;
   advance: (realSeconds: number) => number;
 }
 export const useStudyClock = create<StudyClock>((set, get) => ({
-  seconds: 0, running: true, speed: 1, enabled: false, heartRate: 84,
+  seconds: 0, running: true, speed: 1, enabled: false, heartRate: 84, rateOverride: null,
   set: (patch) => set(patch),
   advance: (realSeconds) => {
     const s = get();
