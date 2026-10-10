@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { studyECG, studyECGPath, studyPhase, STUDY_LEADS } from '../src/heart/studyECG';
+import { studyECG, studyECGPath, studyPhase, STUDY_LEADS, qtScale } from '../src/heart/studyECG';
 import { studyCycleMs } from '../src/heart/studyClock';
 import { wiggers } from '../src/heart/beat';
 
@@ -32,13 +32,16 @@ describe('synchronized electrophysiology teaching traces', () => {
     expect(path).not.toContain('Infinity');
   });
   it('advances phase labels in ECG order and copes with shortened diastole', () => {
-    expect(studyPhase(30, 84).id).toBe('sa');
+    expect(studyPhase(5, 84).id).toBe('sa');
+    expect(studyPhase(30, 84).id).toBe('p');
     expect(studyPhase(80, 84).id).toBe('p');
-    expect(studyPhase(145, 84).id).toBe('pr');
+    expect(studyPhase(115, 84).id).toBe('pr');
+    expect(studyPhase(145, 84).id).toBe('qrs');
     expect(studyPhase(195, 84).id).toBe('qrs');
     expect(studyPhase(275, 84).id).toBe('st');
     expect(studyPhase(375, 84).id).toBe('t');
-    expect(studyPhase(420, 140).id).toBe('t');
+    expect(studyPhase(420, 140).id).toBe('tp');
+    expect(qtScale(140)).toBeLessThan(qtScale(70));
   });
   it('the ECG QRS and mechanical model have the agreed 190-ms offset', () => {
     for (const bpm of [70, 84, 120, 140]) {
