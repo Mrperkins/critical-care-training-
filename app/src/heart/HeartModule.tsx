@@ -110,7 +110,7 @@ function HeartOverlay() {
   return (<>
     <div className="scene-tools">
       <div className="seg small" role="group" aria-label="Flow colour">{([['sat', 'O₂ saturation'], ['doppler', 'Flow direction']] as [FlowMode, string][]).map(([k, l]) => <button key={k} className={flow === k ? 'on' : ''} onClick={() => set({ mode: k })}>{l}</button>)}</div>
-      <MiniSelect label="Blood flow" value={flowDisplay} options={ [['volume','Blood volumes (X-ray)'],['both','X-ray volumes + tracers'],['particles','Cell tracers only']] as [typeof flowDisplay,string][] } onChange={(v) => set({ flowDisplay: v })} />
+
       <button className="tgl" onClick={() => set({ section: 'coronary' })}>Coronaries &amp; ECG →</button>
       <button className={`tgl${conduction ? ' on' : ''}`} aria-pressed={conduction} onClick={() => set({ conduction: !conduction })}>Conduction</button>
       <button className={`tgl${pericardium ? ' on' : ''}`} aria-pressed={pericardium} onClick={() => set({ pericardium: !pericardium })}>Pericardium</button>
@@ -130,6 +130,7 @@ function HeartOverlay() {
     </div>}
     <div className="alv-focus">
       <MiniSelect label="View" value={target} options={FOCUS as [string, string][]} onChange={(v) => set({ target: v })} className="ch-focus" />
+      <MiniSelect label="Blood flow" value={flowDisplay} options={ [['volume','Blood volume'],['both','Volume + tracers'],['particles','Tracers only']] as [typeof flowDisplay,string][] } onChange={(v) => set({ flowDisplay: v })} className="heart-bulk-flow-select" />
     </div>
     <div className="legend">{flow === 'sat'
       ? <><span><i style={{ background: SAT_PALETTE.teachArterial }} />Oxygenated</span><span><i style={{ background: SAT_PALETTE.teachVenous }} />Deoxygenated</span><span>▲ jet = shunt</span></>
