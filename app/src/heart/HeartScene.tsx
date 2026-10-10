@@ -141,6 +141,7 @@ function streams(s: ShuntState) {
 /* ------------------------------------------------------------------ the heart */
 function Heart({ asset, s, tier, hd, variant = 'primary' }: { asset: LinesAsset; s: ShuntState; tier: Tier; hd: Record<string, THREE.Mesh> | null; variant?: 'primary' | 'whole' | 'conduction' }) {
   const mode = useHeartUI((st) => st.mode); const flowDisplay = useHeartUI((st) => st.flowDisplay); const cutSel = useHeartUI((st) => st.cut); const target = useHeartUI((st) => st.target);
+  const atlasShowCoronaries = useHeartUI((st) => st.atlasShowCoronaries);
   const cut = variant === 'whole' ? 'closed' : variant === 'conduction' ? 'slice' : cutSel === 'auto' ? autoCut(target) : cutSel;
   const gl = useThree((st) => st.gl); const scene = useThree((st) => st.scene); useEffect(() => { gl.localClippingEnabled = true; }, [gl]);
   useEffect(() => {
@@ -157,14 +158,14 @@ function Heart({ asset, s, tier, hd, variant = 'primary' }: { asset: LinesAsset;
   const valves = useMemo(() => valveSpecs({ mitral: asset.meshes.mitral?.geometry, tricuspid: asset.meshes.tricuspid?.geometry, aortic_valve: asset.meshes.aortic_valve?.geometry, pulm_valve: asset.meshes.pulm_valve?.geometry }), [asset]);
   // full-resolution chambers with endocardial relief replace lines.glb's when loaded; the septum is then the LV/RV
   // shells' own septal walls (HuBMAP's separate septum slab is hidden: it would bulge through the LV endocardium)
-  const parts = useMemo(() => PARTS.filter((id) => asset.meshes[id] && !(hd && id === 'septum')).map((id) => {
+  const parts = useMemo(() => PARTS.filter((id) => asset.meshes[id] && !(hd && id === 'septum') && (atlasShowCoronaries || (id !== 'coronary_art' && id !== 'cardiac_veins'))).map((id) => {
     const geo = (hd?.[id] ?? asset.meshes[id]).geometry.clone(); const base = (geo.getAttribute('position').array as Float32Array).slice();
     if (!geo.getAttribute('normal')) geo.computeVertexNormals(); const nrm = (geo.getAttribute('normal').array as Float32Array).slice();
     const { m, U } = heartMaterial(id, planes);
     const radial = /^(lv|rv|septum|coronary_art|cardiac_veins)$/.test(id) ? 1 : 0; const atr = id === 'ra' || id === 'la';
     addBeat(m, shared, partUniforms({ radial, atr: atr ? 1 : 0, atrC: atr ? CHAMBER[id] : undefined, valve: valves[id] }), id);
     return { id, geo, base, nrm, m, U };
-  }), [asset, planes, shared, valves, hd]);
+  }), [asset, planes, shared, valves, hd, atlasShowCoronaries]);
   const byId = useMemo(() => Object.fromEntries(parts.map((p) => [p.id, p])) as Record<PartId, (typeof parts)[number]>, [parts]);
   useEffect(() => () => parts.forEach((p) => { p.geo.dispose(); p.m.dispose(); }), [parts]);
   useEffect(() => { (window as unknown as { __heart3d?: unknown }).__heart3d = { byId }; }, [byId]); // automation / tests
