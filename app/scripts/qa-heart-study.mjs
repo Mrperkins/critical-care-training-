@@ -32,8 +32,10 @@ try {
     const heartCanvas = page.locator('.scene-pane canvas').first();
     const strip = page.locator('section[aria-label="Cardiac live ECG strip"]');
     await expect(strip).toBeAttached();
-    await expect(strip.getByRole('img', {name:'ECG trace linked to the 3D beating heart'})).toBeAttached();
-    await expect(strip.getByText('LIVE ECG')).toBeAttached();
+    // On mobile the Lessons tab intentionally hides the Scene DOM from the accessibility tree.
+    // Verify DOM presence now; verify actual visibility after switching to Scene below.
+    await expect(strip.locator('svg.heart-strip-wave')).toBeAttached();
+    await expect(strip.locator('.heart-strip-info strong')).toContainText('LIVE ECG');
     if (spec.name === 'desktop') {
       await expect(heartCanvas).toBeAttached({ timeout: 30000 });
       await expect(heartCanvas).toBeVisible({ timeout: 30000 });
