@@ -25,6 +25,7 @@ import { loadHeartInternals, loadPericardium, loadHeartHD, loadNerves, NERVE_IDS
 import { conductionMaterial, branchOf } from '../scene/conduction';
 import { wiggers, beatUniforms, partUniforms, addBeat, valveSpecs, heartRateFor, type BeatUniforms } from './beat';
 import { useHeartUI, type CutMode } from './heartStore';
+import { useStudyClock } from './studyClock';
 import { solveShunt, type ShuntState } from './shunt';
 import { CENTRE, SCALE, toScene, LM, SEPTUM_N, ATRIAL_N, holesFor, holeRadius, lesionShape, pinch, shift, thicken, OVERRIDE, overrideWeight, flowPaths, type Hole, type FlowPathId, type Way, type LesionShape } from './heartGeometry';
 
@@ -220,7 +221,7 @@ function Heart({ asset, s, tier, hd }: { asset: LinesAsset; s: ShuntState; tier:
   const cur = useRef({ lv: 1, la: 1, ra: 1, rv: 1 }); const t = useRef(0); const hr = heartRateFor(s.input.qs);
   const tmp = useMemo(() => ({ o: new THREE.Object3D(), p: new THREE.Vector3(), d: new THREE.Vector3(), c: new THREE.Color(), q: new THREE.Vector3(), probe: LM.lvApex.clone().add(new THREE.Vector3(0.1, -0.1, 0.15)) }), []);
   useFrame((_, dtRaw) => {
-    const dt = frameDt(dtRaw); t.current += Math.min(0.05, dtRaw); const w = wiggers(t.current, hr); const c = { sys: w.slOpen, atr: w.atr }; const k = cur.current;
+    const dt = frameDt(dtRaw); const study = useStudyClock.getState(); if (study.heartRate !== hr) study.set({ heartRate: hr }); t.current = study.advance(dtRaw); const w = wiggers(t.current, hr); const c = { sys: w.slOpen, atr: w.atr }; const k = cur.current;
     const fz = (window as unknown as { __beat?: { v: number; atr: number; avOpen: number; slOpen: number } }).__beat; // automation: freeze a phase
     const b = fz ?? w; shared.uV.value = b.v; shared.uAtr.value = b.atr; shared.uAvOpen.value = b.avOpen; shared.uSlOpen.value = b.slOpen;
     k.lv = approach(k.lv, Math.min(1.25, 1 + 0.12 * (s.load.lv - 1)), 3, dt); k.la = approach(k.la, Math.min(1.25, 1 + 0.15 * (s.load.la - 1)), 3, dt);
