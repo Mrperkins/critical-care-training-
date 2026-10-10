@@ -79,8 +79,12 @@ export function HeartECGStudy() {
         <span className="muted small">{bpm} bpm · {Math.round(ms)} ms since SA</span>
       </div>
       <svg role="img" aria-label={`Interactive illustrative lead ${lead} electrocardiogram with synchronized cursor`} viewBox="0 0 340 110" style={{width:'100%',maxWidth:560,display:'block',touchAction:'none',cursor:'crosshair'}} onPointerDown={(e) => {
+        e.currentTarget.setPointerCapture(e.pointerId);
         const rect = e.currentTarget.getBoundingClientRect(); seek((e.clientX - rect.left) / rect.width);
-      }}>
+      }} onPointerMove={(e) => {
+        if (!e.currentTarget.hasPointerCapture(e.pointerId)) return;
+        const rect = e.currentTarget.getBoundingClientRect(); seek((e.clientX - rect.left) / rect.width);
+      }} onPointerUp={(e) => { if (e.currentTarget.hasPointerCapture(e.pointerId)) e.currentTarget.releasePointerCapture(e.pointerId); }}>
         {Array.from({length:18},(_,i)=><line key={'v'+i} x1={i*20} y1={0} x2={i*20} y2={110} stroke="#64748b" opacity={0.2}/>)}
         {Array.from({length:6},(_,i)=><line key={'h'+i} x1={0} y1={i*20} x2={340} y2={i*20} stroke="#64748b" opacity={0.2}/>)}
         <polyline points={points} fill="none" stroke="#16b8b5" strokeWidth="2" strokeLinejoin="round"/>
