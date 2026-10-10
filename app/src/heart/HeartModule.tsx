@@ -40,23 +40,36 @@ const LESION_FOCUS: Record<LesionKind, string> = { none: 'heart.four_chamber', v
 
 export function HeartModule() {
   const mode = useUI((s) => s.mode); const section = useHeartUI((s) => s.section);
-  // Mobile switches the entire scene to display:none while viewing Lessons.
-  // Remount only the heart canvas on return to Scene so a suspended WebGL surface
-  // cannot remain blank; its geometry loaders keep cached immutable assets.
-  const [sceneEpoch, setSceneEpoch] = useState(0);
+  // The simulation clock is owned by the module, not the Three.js canvas.
+  // ECG continues to progress in mobile Lessons even while the scene is hidden.
+  useEffect(() => {
+    let frame = 0;
+    let previous = performance.now();
+    const tick = (now: number) => {
+      useStudyClock.getState().advance(Math.max(0, (now - previous) / 1000));
+      previous = now;
+      frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
+  // Mobile's Lessons tab display:none's the entire scene. Never initialize a WebGL
+  // canvas inside that hidden subtree. Mount on Scene, unmount on Lessons.
+  const [renderScene, setRenderScene] = useState(() => {
+    if (typeof window === 'undefined') return true;
+    const mobile = window.matchMedia('(max-width: 1024px)').matches;
+    return !mobile || document.querySelector('.app-v2')?.getAttribute('data-mobile-pane') === 'scene';
+  });
   useEffect(() => {
     const root = document.querySelector<HTMLElement>('.app-v2[data-mobile-pane]');
-    if (!root || typeof MutationObserver === 'undefined') return;
-    let previous = root.getAttribute('data-mobile-pane');
-    const observer = new MutationObserver(() => {
-      const next = root.getAttribute('data-mobile-pane');
-      if (next === 'scene' && previous !== 'scene' && window.matchMedia('(max-width: 1024px)').matches) {
-        setSceneEpoch((value) => value + 1);
-      }
-      previous = next;
-    });
+    if (!root) { setRenderScene(true); return; }
+    const refresh = () => setRenderScene(!window.matchMedia('(max-width: 1024px)').matches || root.getAttribute('data-mobile-pane') === 'scene');
+    const observer = new MutationObserver(refresh);
     observer.observe(root, { attributes: true, attributeFilter: ['data-mobile-pane'] });
-    return () => observer.disconnect();
+    window.addEventListener('resize', refresh);
+    refresh();
+    return () => { observer.disconnect(); window.removeEventListener('resize', refresh); };
   }, []);
   useExploreMemory('heart', () => { const s = useHeartUI.getState(); return { preset: s.preset, input: { ...s.input }, target: s.target, cut: s.cut, mode: s.mode }; }, (m) => useHeartUI.getState().set(m));
   const dTarget = useDirector((s) => s.target);
@@ -66,7 +79,7 @@ export function HeartModule() {
   return (
     <main className="stage">
       <section className="scene-pane">
-        <SceneWrap><HeartScene key={sceneEpoch} /><HeartOverlay /></SceneWrap>
+        <SceneWrap>{renderScene && <HeartScene />}<HeartOverlay /></SceneWrap>
         <HeartECGSceneStrip />
       </section>
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
