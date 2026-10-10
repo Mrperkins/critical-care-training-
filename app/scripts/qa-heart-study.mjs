@@ -28,6 +28,7 @@ try {
     await page.goto('http://127.0.0.1:8879/?module=heart', { waitUntil: 'domcontentloaded', timeout: 30000 });
     const study = page.getByRole('region', { name: 'Synchronized cardiac electrical study' });
     await expect(study).toBeVisible({ timeout: 30000 });
+    await expect(page.locator('.scene-pane canvas').first()).toBeVisible({ timeout: 30000 });
     await page.screenshot({ path: path.join(output, 'heart-before-' + spec.name + '.png'), fullPage: true, animations: 'disabled' });
     await study.locator('input[type="checkbox"]').check();
     await expect(study.getByLabel('Scrub cardiac cycle')).toBeVisible();
