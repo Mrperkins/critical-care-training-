@@ -31,7 +31,7 @@ try {
     const heartCanvas = page.locator('.scene-pane canvas').first();
     await expect(heartCanvas).toBeAttached({ timeout: 30000 });
     if (spec.name === 'desktop') await expect(heartCanvas).toBeVisible({ timeout: 30000 });
-    await expect(page.getByRole('region', {name: 'Cardiac live ECG strip'})).toBeAttached();
+    await expect(page.locator('section[aria-label="Cardiac live ECG strip"]')).toBeAttached();
     await page.screenshot({ path: path.join(output, 'heart-before-' + spec.name + '.png'), fullPage: true, animations: 'disabled' });
     await study.locator('input[type="checkbox"]').check();
     await expect(study.getByLabel('Scrub cardiac cycle')).toBeVisible();
@@ -54,7 +54,7 @@ try {
       await sceneTab.click();
     }
     await expect(heartCanvas).toBeVisible({ timeout: 30000 });
-    await expect(page.getByRole('region', {name: 'Cardiac live ECG strip'})).toBeVisible();
+    await expect(page.locator('section[aria-label="Cardiac live ECG strip"]')).toBeVisible();
     await page.screenshot({ path: path.join(output, 'heart-3d-plus-ecg-' + spec.name + '.png'), fullPage: true, animations: 'disabled' });
     if (fatal.length) throw new Error(spec.name + ' uncaught errors: ' + fatal.join('; '));
     await context.close();
