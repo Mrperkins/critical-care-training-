@@ -71,7 +71,7 @@ export function VolumeFlow({ path, color, sample, width = 0.72, label, opacity =
     depthTest: false,
     clipping: !!clippingPlanes, clippingPlanes,
     vertexShader: `varying float vAlong; varying vec3 vNormal;
-      \#include <clipping_planes_pars_vertex>\n      void main() {vAlong=uv.x;vNormal=normalize(normalMatrix*normal);\n      vec3 transformed=position;\n      vec4 mvPosition=modelViewMatrix*vec4(transformed,1.0);\n      gl_Position=projectionMatrix*mvPosition;\n      #include <clipping_planes_vertex>}`,
+      \#include <clipping_planes_pars_vertex>\n      void main() {vAlong=uv.x;vNormal=normalize(normalMatrix*normal);\n      vec3 transformed=position;\n      vec4 mvPosition=modelViewMatrix*vec4(transformed,1.0);\n      gl_Position=projectionMatrix*mvPosition;\n      #include <clipping_planes_vertex>\n      }`,
     fragmentShader: `uniform vec3 uColor; uniform float uTravel,uActivity,uOpacity;
       varying float vAlong;varying vec3 vNormal;\n      #include <clipping_planes_pars_fragment>\n      void main() {\n        #include <clipping_planes_fragment>
         float u=fract(vAlong-uTravel+1.0);
