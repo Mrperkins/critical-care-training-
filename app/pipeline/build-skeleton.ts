@@ -207,6 +207,12 @@ for (const s of [0.9, 0.55, 0.35]) {
   log('  per structure median mm', Object.entries(by).map(([k, v]) => k + ':' + (v.sort((a, b) => a - b)[v.length >> 1] * 100).toFixed(0)).join(' '));
   log('non-rigid σ', s, 'kernels', K.c.length, 'median residual', (after[after.length >> 1] * 100).toFixed(1), 'mm, p90', (after[Math.floor(after.length * 0.9)] * 100).toFixed(1), 'mm');
 }
+/* the fit (BodyParts3D frame → VHM body frame) is saved so other BodyParts3D-derived assets (Z-Anatomy nerves) can reuse it */
+fs.writeFileSync(path.join(ROOT, 'pipeline/bp3d-fit.json'), JSON.stringify({
+  note: 'BodyParts3D 3.0 → Visible Human Male body frame. p_bp (decimetres; x=X/100, y=Z/100, z=-Y/100 of the STL mm) → A·p, then add the sum over levels of the Gaussian-weighted displacement field (see fieldAt in build-skeleton.ts).',
+  A: A.elements.map((x) => +x.toFixed(7)),
+  kernels: kernels.map((K) => ({ s: K.s, c: K.c.map((v) => v.toArray().map((x) => +x.toFixed(5))), d: K.d.map((v) => v.toArray().map((x) => +x.toFixed(5))), w: K.w })),
+}));
 const fit = (g: THREE.BufferGeometry) => {
   const p = g.attributes.position; const v = new V3();
   for (let i = 0; i < p.count; i++) { v.fromBufferAttribute(p, i).applyMatrix4(A); v.add(fieldAt(v)); p.setXYZ(i, v.x, v.y, v.z); }

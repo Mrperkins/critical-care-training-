@@ -26,7 +26,8 @@
     "audio:production": "node --import tsx scripts/audio-production-queue.ts && node --import tsx scripts/audio-render-plan.ts",
     "audio:audit": "node --import tsx scripts/audio-completion-audit.ts",
     "audio:render-plan": "node --import tsx scripts/audio-render-plan.ts",
-    "video:discover": "node --import tsx scripts/youtube-discovery.ts"
+    "video:discover": "node --import tsx scripts/youtube-discovery.ts",
+    "asset:nerves": "node --max-old-space-size=12000 --import tsx pipeline/build-nerves.ts"
   },
   "dependencies": {
     "@react-three/drei": "9.99.7",

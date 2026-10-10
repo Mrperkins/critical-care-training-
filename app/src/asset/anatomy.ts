@@ -60,6 +60,11 @@ export interface HeartHDMapping { parts: { id: string; triangles: number }[]; re
 declare global { interface Window { __HEARTHD_GLB__?: string; __HEARTHD_MAP__?: HeartHDMapping } }
 /** full-resolution chambers with sculpted endocardial relief (pipeline/build-heart-hd.ts); same ids as lines.glb (lv, rv, ra, la) */
 export const loadHeartHD = layer<HeartHDMapping>('heart-hd', () => window.__HEARTHD_GLB__, () => window.__HEARTHD_MAP__);
+export interface NervesMapping { centres: Record<string, number[]>; anchors: Record<string, number[]>; labels: Record<string, string>; schematic: string; attribution: Attribution[] }
+declare global { interface Window { __NERVES_GLB__?: string; __NERVES_MAP__?: NervesMapping } }
+/** autonomic + phrenic innervation of the heart (pipeline/build-nerves.ts): Z-Anatomy vagus/sympathetic meshes registered to this body + landmark-placed plexus and phrenic courses */
+export const loadNerves = layer<NervesMapping>('nerves', () => window.__NERVES_GLB__, () => window.__NERVES_MAP__);
+export const NERVE_IDS = ['vagus_R', 'vagus_L', 'sympathetic_trunk_R', 'sympathetic_trunk_L', 'sympathetic_ganglia_R', 'sympathetic_ganglia_L', 'sympathetic_nerves_R', 'sympathetic_nerves_L', 'cardiac_nerves', 'cardiac_plexus_deep', 'cardiac_plexus_superficial', 'cardiac_plexus_extensions', 'phrenic_R', 'phrenic_L'];
 export const loadUpperAirway = layer<UpperAirwayMapping>('upper-airway', () => window.__UPPERAIRWAY_GLB__, () => window.__UPPERAIRWAY_MAP__);
 export const LARYNX = ['thyroid_cartilage', 'cricoid_cartilage', 'arytenoid_R', 'arytenoid_L', 'corniculate_R', 'corniculate_L', 'epiglottis', 'vocal_fold_R', 'vocal_fold_L', 'vestibular_fold_R', 'vestibular_fold_L', 'cricothyroid_membrane'];
 export const UPPER_SOFT = ['pharynx', 'tongue', 'soft_palate'];

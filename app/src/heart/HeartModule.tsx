@@ -64,7 +64,7 @@ export function HeartModule() {
 }
 
 function HeartOverlay() {
-  const target = useHeartUI((s) => s.target); const flow = useHeartUI((s) => s.mode); const cut = useHeartUI((s) => s.cut); const conduction = useHeartUI((s) => s.conduction); const pericardium = useHeartUI((s) => s.pericardium); const set = useHeartUI.getState().set;
+  const target = useHeartUI((s) => s.target); const flow = useHeartUI((s) => s.mode); const cut = useHeartUI((s) => s.cut); const conduction = useHeartUI((s) => s.conduction); const pericardium = useHeartUI((s) => s.pericardium); const nerves = useHeartUI((s) => s.nerves); const set = useHeartUI.getState().set;
   const input = useHeartUI((s) => s.input); const s = useMemo(() => solveShunt(input), [input]); const tier = useLabUI((s) => s.visualTier);
   const pct = (x: number) => `${Math.round(x * 100)}%`; const hide = useHideFindings();
   return (<>
@@ -73,6 +73,7 @@ function HeartOverlay() {
       <button className="tgl" onClick={() => set({ section: 'coronary' })}>Coronaries &amp; ECG →</button>
       <button className={`tgl${conduction ? ' on' : ''}`} aria-pressed={conduction} onClick={() => set({ conduction: !conduction })}>Conduction</button>
       <button className={`tgl${pericardium ? ' on' : ''}`} aria-pressed={pericardium} onClick={() => set({ pericardium: !pericardium })}>Pericardium</button>
+      <button className={`tgl${nerves ? ' on' : ''}`} aria-pressed={nerves} onClick={() => set({ nerves: !nerves })}>Nerves</button>
       <MiniSelect label="Open" value={cut} options={CUTS.map(([k, l]) => [k, k === 'auto' ? `Auto · ${CUT_LABEL[autoCut(target)]}` : l]) as [CutMode, string][]} onChange={(v) => set({ cut: v, ...(CUT_VIEW[v] ? { target: CUT_VIEW[v] } : {}) })} />
     </div>
     {!hide && <div className="alv-hud">

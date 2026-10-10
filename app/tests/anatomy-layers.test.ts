@@ -170,3 +170,26 @@ describe('heart interior and conduction (measured landmarks)', () => {
     const hd = json('heart-hd.mapping.json'); const lv = hd.parts.find((p: { id: string }) => p.id === 'lv'); expect(lv.triangles).toBeGreaterThan(60000);
   }, 30000);
 });
+
+describe('cardiac innervation (nerves.glb)', () => {
+  const m = json('nerves.mapping.json'); const a = m.anchors;
+  it('ships every nerve the cardiac module draws', async () => {
+    const { NERVE_IDS } = await import('../src/asset/anatomy');
+    const n = await names('nerves.glb'); for (const id of NERVE_IDS) expect(n).toContain(id);
+  });
+  it('keeps right and left on the correct sides (+X = patient left)', () => {
+    expect(a.vagus_R[0]).toBeLessThan(0); expect(a.vagus_L[0]).toBeGreaterThan(0);
+    expect(a.phrenic_R[0]).toBeLessThan(0); expect(a.phrenic_L[0]).toBeGreaterThan(0);
+    expect(a.sympathetic_trunk_R[0]).toBeLessThan(0); expect(a.sympathetic_trunk_L[0]).toBeGreaterThan(0);
+  });
+  it('places the sympathetic trunks posterior (paravertebral) and the phrenics anterior to them', () => {
+    expect(a.sympathetic_trunk_R[2]).toBeLessThan(a.phrenic_R[2]); expect(a.sympathetic_trunk_L[2]).toBeLessThan(a.phrenic_L[2]);
+  });
+  it('puts the deep cardiac plexus above the heart, between the carina and the aortic arch', () => {
+    const h = json('heart-internals.mapping.json').parts.sa_node.centre;
+    expect(a.cardiac_plexus_deep[1]).toBeGreaterThan(h[1]);
+  });
+  it('labels landmark-built courses as schematic and carries the CC BY-SA attribution', () => {
+    expect(m.schematic).toMatch(/schematic/); expect(m.license).toMatch(/CC BY-SA/);
+  });
+});

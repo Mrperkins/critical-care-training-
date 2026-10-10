@@ -21,7 +21,7 @@ import { saturationColor, budget, approach, frameDt, tubeAlong, type Tier } from
 import { registerAnchors } from '../scene/cameraTargets';
 import { useLabUI } from '../labs/labStore';
 import { loadLinesAsset, type LinesAsset } from '../asset/lines';
-import { loadHeartInternals, loadPericardium, loadHeartHD, CONDUCTION, VALVE_APPARATUS, type Layer, type HeartInternalsMapping, type PericardiumMapping } from '../asset/anatomy';
+import { loadHeartInternals, loadPericardium, loadHeartHD, loadNerves, NERVE_IDS, CONDUCTION, VALVE_APPARATUS, type Layer, type HeartInternalsMapping, type PericardiumMapping, type NervesMapping } from '../asset/anatomy';
 import { conductionMaterial, branchOf } from '../scene/conduction';
 import { wiggers, beatUniforms, partUniforms, addBeat, valveSpecs, heartRateFor, type BeatUniforms } from './beat';
 import { useHeartUI, type CutMode } from './heartStore';
@@ -257,6 +257,7 @@ function Heart({ asset, s, tier, hd }: { asset: LinesAsset; s: ShuntState; tier:
       {ductGeo && <mesh geometry={ductGeo} material={ductMat} />}
       <instancedMesh key={NP} ref={inst} args={[new THREE.SphereGeometry(1, 8, 6), undefined, NP]} frustumCulled={false}><meshBasicMaterial toneMapped={false} clippingPlanes={planes} /></instancedMesh>
       <Internals planes={planes} shared={shared} hr={hr} clock={t} />
+      <Nerves shared={shared} planes={planes} />
       <Labels s={s} shape={shape} cut={cut} />
     </group>
   );
@@ -284,6 +285,29 @@ function Internals({ planes, shared, hr, clock }: { planes: THREE.Plane[]; share
     {VALVE_APPARATUS.filter((id) => hi.meshes[id]).map((id) => <mesh key={id} geometry={hi.meshes[id].geometry} material={/^chordae/.test(id) ? mats.chord : mats.pap} dispose={null} />)}
     {showC && CONDUCTION.filter((id) => hi.meshes[id]).map((id) => <mesh key={id} geometry={hi.meshes[id].geometry} material={mats.cond[branchOf(id)].material} renderOrder={6} dispose={null} />)}
     {showP && pc && <mesh geometry={pc.meshes.pericardium.geometry} material={mats.sac} renderOrder={7} dispose={null} />}
+  </>);
+}
+
+/* ------------------------------------------------------------------ cardiac innervation (nerves.glb; body frame) */
+/** Vagus (parasympathetic), sympathetic trunks + ganglia, the cardiac nerves converging on the deep and superficial
+ *  plexuses, their extensions to the SA/AV nodes and coronaries, and both phrenic nerves on the pericardium. Cut by the
+ *  same section planes as the heart (one consistent dissection); only the epicardial extensions move with the beat. */
+const NERVE_TAGS: [string, string][] = [['vagus_R', 'R vagus (X)'], ['vagus_L', 'L vagus (X)'], ['phrenic_R', 'R phrenic'], ['phrenic_L', 'L phrenic'], ['sympathetic_trunk_R', 'Sympathetic trunk'], ['cardiac_nerves', 'Cardiac nerves'], ['cardiac_plexus_deep', 'Deep cardiac plexus'], ['cardiac_plexus_superficial', 'Superficial plexus']];
+function Nerves({ shared, planes }: { shared: BeatUniforms; planes: THREE.Plane[] }) {
+  const on = useHeartUI((s) => s.nerves); const labels = useHeartUI((s) => s.labels);
+  const [nv, setNv] = useState<Layer<NervesMapping> | null>(null);
+  useEffect(() => { if (!on || nv) return; let off = false; loadNerves().then((x) => { if (!off) setNv(x); }).catch(() => undefined); return () => { off = true; }; }, [on, nv]);
+  const mats = useMemo(() => {
+    const m = (color: string) => new THREE.MeshStandardMaterial({ color, roughness: 0.45, emissive: color, emissiveIntensity: 0.12, clippingPlanes: planes });
+    const ext = m('#f2d45c'); addBeat(ext, shared, partUniforms({ radial: 1 }), 'nerveExt');
+    return { vagal: m('#f2d45c'), symp: m('#c9d36a'), ganglion: m('#b9a24e'), phrenic: m('#f6e7a2'), plexus: m('#f0b84a'), ext };
+  }, [shared, planes]);
+  useEffect(() => () => Object.values(mats).forEach((x) => x.dispose()), [mats]);
+  if (!on || !nv) return null;
+  const matOf = (id: string) => (/^vagus/.test(id) ? mats.vagal : /ganglia/.test(id) ? mats.ganglion : /^sympathetic/.test(id) ? mats.symp : /^phrenic/.test(id) ? mats.phrenic : id === 'cardiac_plexus_extensions' ? mats.ext : mats.plexus);
+  return (<>
+    {NERVE_IDS.filter((id) => nv.meshes[id]).map((id) => <mesh key={id} geometry={nv.meshes[id].geometry} material={matOf(id)} renderOrder={5} dispose={null} />)}
+    {labels && NERVE_TAGS.filter(([id]) => nv.mapping.anchors?.[id]).map(([id, t]) => <Html key={id} position={nv.mapping.anchors[id] as [number, number, number]} center zIndexRange={[20, 0]}><LabelChip className="tag3d tk nerve" text={t} info={nv.mapping.labels[id]} /></Html>)}
   </>);
 }
 
