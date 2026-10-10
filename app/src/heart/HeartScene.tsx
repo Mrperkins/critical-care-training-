@@ -143,6 +143,11 @@ function Heart({ asset, s, tier, hd }: { asset: LinesAsset; s: ShuntState; tier:
   const mode = useHeartUI((st) => st.mode); const flowDisplay = useHeartUI((st) => st.flowDisplay); const cutSel = useHeartUI((st) => st.cut); const target = useHeartUI((st) => st.target);
   const cut = cutSel === 'auto' ? autoCut(target) : cutSel;
   const gl = useThree((st) => st.gl); const scene = useThree((st) => st.scene); useEffect(() => { gl.localClippingEnabled = true; }, [gl]);
+  useEffect(() => {
+    // Browser visual QA can verify real 3D column meshes, not just React control presence.
+    (window as unknown as { __heartFlowScene?: THREE.Scene }).__heartFlowScene = scene;
+    return () => { delete (window as unknown as { __heartFlowScene?: THREE.Scene }).__heartFlowScene; };
+  }, [scene]);
   const planes = useMemo<THREE.Plane[]>(() => [], []);
   const trim = useMemo(() => new THREE.Plane(new THREE.Vector3(0, 1, 0), -toScene(new THREE.Vector3(0, 4.12, 0)).y), []); // hide the abdominal aorta / IVC below the heart
   useEffect(() => { const p = cutPlane(cut); planes.length = 0; planes.push(trim); if (p) planes.push(p); scene.traverse((o) => { const m = (o as THREE.Mesh).material as THREE.Material | undefined; if (m && 'clippingPlanes' in m && m.clippingPlanes === planes) m.needsUpdate = true; }); }, [cut, planes, trim, scene]);
