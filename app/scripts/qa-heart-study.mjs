@@ -29,6 +29,7 @@ try {
     const study = page.getByRole('region', { name: 'Synchronized cardiac electrical study' });
     await expect(study).toBeVisible({ timeout: 30000 });
     await expect(page.locator('.scene-pane canvas').first()).toBeVisible({ timeout: 30000 });
+    await expect(page.getByRole('region', {name: 'Cardiac live ECG strip'})).toBeAttached();
     await page.screenshot({ path: path.join(output, 'heart-before-' + spec.name + '.png'), fullPage: true, animations: 'disabled' });
     await study.locator('input[type="checkbox"]').check();
     await expect(study.getByLabel('Scrub cardiac cycle')).toBeVisible();
@@ -45,6 +46,13 @@ try {
     await expect(study.getByRole('img', { name: /lead V6 electrocardiogram/i })).toBeVisible();
     await study.scrollIntoViewIfNeeded();
     await page.screenshot({ path: path.join(output, 'heart-study-' + spec.name + '.png'), fullPage: true, animations: 'disabled' });
+    if (spec.name !== 'desktop') {
+      const sceneTab = page.getByRole('button', {name: 'Scene', exact: true}).first();
+      await expect(sceneTab).toBeVisible();
+      await sceneTab.click();
+    }
+    await expect(page.getByRole('region', {name: 'Cardiac live ECG strip'})).toBeVisible();
+    await page.screenshot({ path: path.join(output, 'heart-3d-plus-ecg-' + spec.name + '.png'), fullPage: true, animations: 'disabled' });
     if (fatal.length) throw new Error(spec.name + ' uncaught errors: ' + fatal.join('; '));
     await context.close();
   }
