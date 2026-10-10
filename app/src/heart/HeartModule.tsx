@@ -94,7 +94,7 @@ export function HeartModule() {
           <Fold group="heart" id="why" title="Why it happens"><WhyCard /></Fold>
           <RealHeartImaging />
         </>}
-        <details className="credit"><summary>Sources & model notes</summary>3D heart: HuBMAP 3D Reference Organs, Visible Human Male heart (CC BY 4.0) — an adult heart at true scale, cut open in the app; the defects are carved into its own septa and vessels (sizes drawn to scale; newborn defects drawn relative to a heart about 2.5× smaller). Flows, pressures and saturations come from a simplified circulation model (orifice flow across restrictive defects, conductance across atrial defects, parallel outlets in tetralogy, an isthmus resistance with collaterals and duct in coarctation) — a teaching model, not a patient calculator.</details>
+        <details className="credit"><summary>Sources & model notes</summary>3D heart: HuBMAP 3D Reference Organs, Visible Human Male heart (CC BY 4.0) — an adult heart at true scale, cut open in the app; the defects are carved into its own septa and vessels (sizes drawn to scale; newborn defects drawn relative to a heart about 2.5× smaller). Flows, pressures and saturations come from a simplified circulation model (orifice flow across restrictive defects, conductance across atrial defects, parallel outlets in tetralogy, an isthmus resistance with collaterals and duct in coarctation) — a teaching model, not a patient calculator. Volumetric moving blood is an enhanced X-ray-style overlay of the existing paths; it is not a directly segmented ventricular blood pool or a CFD simulation. mL/beat is estimated from the shunt solver outputs divided by the selected heart rate.</details>
       </aside>
     </main>
   );
@@ -110,7 +110,7 @@ function HeartOverlay() {
   return (<>
     <div className="scene-tools">
       <div className="seg small" role="group" aria-label="Flow colour">{([['sat', 'O₂ saturation'], ['doppler', 'Flow direction']] as [FlowMode, string][]).map(([k, l]) => <button key={k} className={flow === k ? 'on' : ''} onClick={() => set({ mode: k })}>{l}</button>)}</div>
-      <MiniSelect label="Blood flow" value={flowDisplay} options={ [['volume','Moving blood volumes'],['both','Volumes + cell tracers'],['particles','Cell tracers only']] as [typeof flowDisplay,string][] } onChange={(v) => set({ flowDisplay: v })} />
+      <MiniSelect label="Blood flow" value={flowDisplay} options={ [['volume','Blood volumes (X-ray)'],['both','X-ray volumes + tracers'],['particles','Cell tracers only']] as [typeof flowDisplay,string][] } onChange={(v) => set({ flowDisplay: v })} />
       <button className="tgl" onClick={() => set({ section: 'coronary' })}>Coronaries &amp; ECG →</button>
       <button className={`tgl${conduction ? ' on' : ''}`} aria-pressed={conduction} onClick={() => set({ conduction: !conduction })}>Conduction</button>
       <button className={`tgl${pericardium ? ' on' : ''}`} aria-pressed={pericardium} onClick={() => set({ pericardium: !pericardium })}>Pericardium</button>
