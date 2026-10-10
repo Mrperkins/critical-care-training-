@@ -1,0 +1,90 @@
+/**
+ * Added anatomy layers, all in the Visible Human Male body frame shared with body.glb and lines.glb
+ * (decimetres, centred on the VHM skin; +X patient left, +Y up, +Z anterior):
+ *
+ *  - skeleton.glb       pipeline/build-skeleton.ts        — 86 bones (BodyParts3D fitted onto VHM + HuBMAP pelvis/legs)
+ *  - pericardium.glb    pipeline/build-pericardium.ts     — sac grown from the real heart; `aEff` = effusion freedom 0–1
+ *  - neuro.glb          pipeline/build-neuro.ts           — ventricles, basal ganglia, thalamus, limbic, brainstem, cerebellum
+ *  - heart-internals.glb pipeline/build-heart-internals.ts — papillary muscles, chordae, conduction system; `aAct` = ms
+ *  - upper-airway.glb   pipeline/build-upper-airway.ts    — laryngeal cartilages, epiglottis, trachea (HuBMAP); folds,
+ *                       cricothyroid membrane, pharynx, tongue, soft palate (landmark-positioned, schematic)
+ *
+ * The female reference body (body-f.glb) has its own frame, so these layers are male-body only.
+ */
+import type * as THREE from 'three';
+import { loadMeshes } from './gltf';
+
+export interface Attribution { title: string; creators: string; license: string; licenseUrl: string; sourceUrl: string; changes: string; data?: string; notice?: string }
+export interface SkeletonMapping { centres: Record<string, [number, number, number]>; labels: Record<string, string>; attribution: Attribution[]; license: string }
+export interface PericardiumMapping {
+  sac: { centre: [number, number, number]; areaDm2: number; effAreaDm2: number; enclosedMl: number };
+  subxiphoid: { skinEntry: [number, number, number]; direction: [number, number, number]; sacContact: [number, number, number] | null; depthDm: number | null };
+  attribution: Attribution;
+}
+export interface NeuroMapping { centres: Record<string, [number, number, number]>; labels: Record<string, string>; volumesMl: Record<string, number>; derived: Record<string, string>; attribution: Attribution }
+export interface HeartInternalsMapping {
+  parts: Record<string, { label: string; centre: [number, number, number]; t0?: number; t1?: number; tMax?: number }>;
+  activation: { saToAv: number; avNodalDelay: number; hisStart: number; lastVentricularActivation: number };
+  schematic: string; attribution: Attribution;
+}
+export interface UpperAirwayMapping { centres: Record<string, [number, number, number]>; labels: Record<string, string>; landmarks: { cricothyroidMembrane: { centre: [number, number, number]; heightMm: number; skinDepthMm: number | null }; glottisLengthMm: number; anteriorCommissure: [number, number, number]; epiglottisTip: [number, number, number] }; schematic: string; attribution: Attribution }
+export interface Layer<M> { meshes: Record<string, THREE.Mesh>; mapping: M }
+
+declare global {
+  interface Window {
+    __SKELETON_GLB__?: string; __SKELETON_MAP__?: SkeletonMapping; __PERICARDIUM_GLB__?: string; __PERICARDIUM_MAP__?: PericardiumMapping;
+    __NEURO_GLB__?: string; __NEURO_MAP__?: NeuroMapping; __HEARTINT_GLB__?: string; __HEARTINT_MAP__?: HeartInternalsMapping;
+    __UPPERAIRWAY_GLB__?: string; __UPPERAIRWAY_MAP__?: UpperAirwayMapping;
+  }
+}
+
+function layer<M>(name: string, glb: () => string | undefined, map: () => M | undefined, attrs: string[] = []) {
+  let cache: Promise<Layer<M>> | null = null;
+  return () => {
+    if (cache) return cache;
+    cache = (async () => {
+      const mapping = map() ?? ((await (await fetch(`models/${name}.mapping.json`)).json()) as M);
+      const meshes = await loadMeshes(glb(), `models/${name}.glb`, attrs);
+      if (!Object.keys(meshes).length) throw new Error(`${name} asset is empty`);
+      return { meshes, mapping };
+    })();
+    cache.catch(() => { cache = null; });
+    return cache;
+  };
+}
+export const loadSkeleton = layer<SkeletonMapping>('skeleton', () => window.__SKELETON_GLB__, () => window.__SKELETON_MAP__);
+export const loadPericardium = layer<PericardiumMapping>('pericardium', () => window.__PERICARDIUM_GLB__, () => window.__PERICARDIUM_MAP__, ['aEff']);
+export const loadNeuroDeep = layer<NeuroMapping>('neuro', () => window.__NEURO_GLB__, () => window.__NEURO_MAP__);
+export const loadHeartInternals = layer<HeartInternalsMapping>('heart-internals', () => window.__HEARTINT_GLB__, () => window.__HEARTINT_MAP__, ['aAct']);
+export interface HeartHDMapping { parts: { id: string; triangles: number }[]; relief: string; attribution: Attribution }
+declare global { interface Window { __HEARTHD_GLB__?: string; __HEARTHD_MAP__?: HeartHDMapping } }
+/** full-resolution chambers with sculpted endocardial relief (pipeline/build-heart-hd.ts); same ids as lines.glb (lv, rv, ra, la) */
+export const loadHeartHD = layer<HeartHDMapping>('heart-hd', () => window.__HEARTHD_GLB__, () => window.__HEARTHD_MAP__, ['aCh']);
+export interface NervesMapping { centres: Record<string, number[]>; anchors: Record<string, number[]>; labels: Record<string, string>; schematic: string; attribution: Attribution[] }
+declare global { interface Window { __NERVES_GLB__?: string; __NERVES_MAP__?: NervesMapping } }
+/** autonomic + phrenic innervation of the heart (pipeline/build-nerves.ts): Z-Anatomy vagus/sympathetic meshes registered to this body + landmark-placed plexus and phrenic courses */
+export const loadNerves = layer<NervesMapping>('nerves', () => window.__NERVES_GLB__, () => window.__NERVES_MAP__);
+export const NERVE_IDS = ['vagus_R', 'vagus_L', 'sympathetic_trunk_R', 'sympathetic_trunk_L', 'sympathetic_ganglia_R', 'sympathetic_ganglia_L', 'sympathetic_nerves_R', 'sympathetic_nerves_L', 'cardiac_nerves', 'cardiac_plexus_deep', 'cardiac_plexus_superficial', 'cardiac_plexus_extensions', 'phrenic_R', 'phrenic_L'];
+export interface GutMapping { centres: Record<string, number[]>; labels: Record<string, string>; sources: Record<string, string>; attribution: Attribution[] }
+declare global { interface Window { __GUT_GLB__?: string; __GUT_MAP__?: GutMapping } }
+/** real gut + diaphragm (pipeline/build-gut.ts): HuBMAP bowel/colon/mesenteric vessels + BodyParts3D stomach and diaphragm */
+export const loadGut = layer<GutMapping>('gut', () => window.__GUT_GLB__, () => window.__GUT_MAP__);
+export interface CerebralMapping { vessels: Record<string, { pts: number[][]; r0: number; r1: number; lengthMm: number }>; note: string; attribution: Attribution }
+declare global { interface Window { __CEREBRAL_GLB__?: string; __CEREBRAL_MAP__?: CerebralMapping } }
+/** real cerebral arteries (pipeline/build-cerebral.ts, Z-Anatomy): one mesh per app vessel id, `aT` 0→1 along its measured centreline */
+export const loadCerebral = layer<CerebralMapping>('cerebral-arteries', () => window.__CEREBRAL_GLB__, () => window.__CEREBRAL_MAP__, ['aT']);
+export const loadUpperAirway = layer<UpperAirwayMapping>('upper-airway', () => window.__UPPERAIRWAY_GLB__, () => window.__UPPERAIRWAY_MAP__);
+export const LARYNX = ['thyroid_cartilage', 'cricoid_cartilage', 'arytenoid_R', 'arytenoid_L', 'corniculate_R', 'corniculate_L', 'epiglottis', 'vocal_fold_R', 'vocal_fold_L', 'vestibular_fold_R', 'vestibular_fold_L', 'cricothyroid_membrane'];
+export const UPPER_SOFT = ['pharynx', 'tongue', 'soft_palate'];
+
+/** Effusion volume (mL) → outward sac displacement (dm) along the normal at full `aEff`: the extra volume spread over ∫EFF·dA. */
+export const effusionThickness = (m: PericardiumMapping, ml: number) => Math.max(0, ml) / 1000 / m.sac.effAreaDm2;
+
+/** Bone groups used by lessons (ids in skeleton.glb). */
+export const RIBS = (side: 'L' | 'R') => Array.from({ length: 12 }, (_, i) => `rib_${side}${i + 1}`);
+export const SPINE = [...Array.from({ length: 7 }, (_, i) => `C${i + 1}`), ...Array.from({ length: 12 }, (_, i) => `T${i + 1}`), ...Array.from({ length: 5 }, (_, i) => `L${i + 1}`)];
+export const CONDUCTION = ['sa_node', 'av_node', 'his', 'rbb', 'lbb', 'lbb_anterior', 'lbb_posterior', 'lbb_septal', 'purkinje_lv', 'purkinje_rv'];
+export const VALVE_APPARATUS = ['pap_lv_anterolateral', 'pap_lv_posteromedial', 'pap_rv_anterior', 'pap_rv_posterior', 'pap_rv_septal', 'chordae_mitral', 'chordae_tricuspid'];
+export const VENTRICLES = ['lat_ventricle_L', 'lat_ventricle_R', 'third_ventricle', 'aqueduct', 'fourth_ventricle'];
+export const DEEP_NUCLEI = ['caudate_L', 'caudate_R', 'putamen_L', 'putamen_R', 'pallidus_L', 'pallidus_R', 'thalamus_L', 'thalamus_R', 'internal_capsule_L', 'internal_capsule_R'];
+export const BRAINSTEM = ['midbrain', 'pons', 'medulla'];

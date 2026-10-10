@@ -1,11 +1,11 @@
 /**
  * Reusable abdomen: HuBMAP solid organs from body.glb (liver, spleen, kidneys, pancreas, gallbladder,
- * colon, bladder, aorta, IVC) plus procedurally drawn stomach, small bowel, diaphragm and peritoneal
- * cavity, and pathology primitives driven by `AbdomenState`: free fluid pools (RUQ / LUQ / pelvis /
+ * bladder, aorta, IVC) and the real gut from gut.glb (pipeline/build-gut.ts: HuBMAP duodenum, jejunum, ileum, colon,
+ * appendix, rectum and mesenteric vessels; BodyParts3D stomach and diaphragm fitted to this body), and pathology primitives driven by `AbdomenState`: free fluid pools (RUQ / LUQ / pelvis /
  * gutters), organ lacerations, retroperitoneal haematoma, AAA (diameter, rupture), free air, bowel
  * distension / ischaemia, pancreatitis.
  */
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { mergeVertices } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { useFrame, useThree } from '@react-three/fiber';
@@ -13,10 +13,11 @@ import { CameraControls, Html } from '@react-three/drei';
 import type { BodyAsset } from '../asset/body';
 import { StudioCanvas, IS_PHONE } from '../scene/Studio';
 import { LabelChip } from '../scene/labels';
-import { tubeAlong, approach, frameDt } from '../scene/effects';
+import { approach, frameDt } from '../scene/effects';
 import { registerAnchors } from '../scene/cameraTargets';
 import { useAbdUI, currentAbdomen } from './abdomenStore';
 import { fluidDistribution, type AbdomenState } from './state';
+import { loadGut, type Layer, type GutMapping } from '../asset/anatomy';
 
 const V = (x: number, y: number, z: number) => new THREE.Vector3(x, y, z);
 const ORGANS: Record<string, { color: string; rough?: number; opacity?: number }> = {
@@ -65,27 +66,20 @@ function Abdomen({ body }: { body: BodyAsset }) {
   const skin = useMemo(() => new THREE.MeshPhysicalMaterial({ color: '#d6a88f', roughness: 0.6, transparent: true, opacity: 0.1, depthWrite: false, side: THREE.DoubleSide }), []);
   const bowelMat = useMemo(() => new THREE.MeshPhysicalMaterial({ color: '#e2aa9c', roughness: 0.42, clearcoat: 0.5, sheen: 0.5 }), []);
   const stomachMat = useMemo(() => new THREE.MeshPhysicalMaterial({ color: '#d4a08c', roughness: 0.45, clearcoat: 0.5 }), []);
-  const dia = useMemo(() => new THREE.MeshPhysicalMaterial({ color: '#c77a70', roughness: 0.5, transparent: true, opacity: 0.13, side: THREE.DoubleSide, depthWrite: false }), []);
-  const perit = useMemo(() => new THREE.MeshPhysicalMaterial({ color: '#f0d6cc', roughness: 0.3, transparent: true, opacity: 0.06, side: THREE.DoubleSide, depthWrite: false }), []);
-  const stomach = useMemo(() => tubeAlong([V(0.3, 4.15, 0.05), V(0.72, 4.05, 0.2), V(0.78, 3.7, 0.55), V(0.45, 3.35, 0.78), V(0.05, 3.3, 0.72), V(-0.22, 3.38, 0.5)], 0.3, 0.14, 18).geometry, []);
-  // small bowel: a folded loop filling the central abdomen
-  const bowelPts = useMemo(() => {
-    // serpentine packed inside the colon frame: horizontal passes joined by U-turns, width limited by an ellipse
-    const p: THREE.Vector3[] = []; const rows = 8, y0 = 2.75, y1 = 1.05, cy = (y0 + y1) / 2, ry = (y0 - y1) / 2 + 0.12;
-    for (let r = 0; r < rows; r++) {
-      const y = y0 - (r / (rows - 1)) * (y0 - y1); const w = 0.78 * Math.sqrt(Math.max(0.15, 1 - ((y - cy) / ry) ** 2)); const dir = r % 2 ? -1 : 1;
-      for (let i = 0; i <= 26; i++) { const u = i / 26; const x = dir * (-w + 2 * w * u); p.push(V(x + 0.05, y + 0.05 * Math.sin(u * 9 + r), 0.62 + 0.14 * Math.sin(u * 7 + r * 1.7))); }
-    }
-    return p;
-  }, []);
-  // obstruction dilates the loops (thicker tube, same course); rebuilt only when the state changes
-  const dil = Math.round(Math.min(1, st.distension + (st.obstruction === 'small' ? 0.3 : 0)) * 10) / 10;
-  const bowelGeo = useMemo(() => tubeAlong(bowelPts, 0.1 * (1 + 0.8 * dil), 0.1 * (1 + 0.8 * dil), 12, 24).geometry, [bowelPts, dil]);
-  useEffect(() => () => bowelGeo.dispose(), [bowelGeo]);
+  const dia = useMemo(() => new THREE.MeshPhysicalMaterial({ color: '#c77a70', roughness: 0.5, transparent: true, opacity: 0.16, side: THREE.DoubleSide, depthWrite: false }), []);
+  const mesArt = useMemo(() => new THREE.MeshPhysicalMaterial({ color: '#c0392b', roughness: 0.4, clearcoat: 0.4 }), []);
+  const mesVein = useMemo(() => new THREE.MeshPhysicalMaterial({ color: '#4b3a74', roughness: 0.4, clearcoat: 0.4 }), []);
+  const [gut, setGut] = useState<Layer<GutMapping> | null>(null);
+  useEffect(() => { let on = true; loadGut().then((g) => on && setGut(g)).catch(() => undefined); return () => { on = false; }; }, []);
+  // obstruction dilates the small-bowel loops in place: the wall is pushed out along its normal (same course, wider lumen;
+  // > 3 cm calibre at full distension)
+  const dil = Math.min(1, st.distension + (st.obstruction === 'small' ? 0.3 : 0));
+  const dilU = useMemo(() => ({ value: 0 }), []);
+  useMemo(() => { bowelMat.onBeforeCompile = (sh) => { sh.uniforms.uDil = dilU; sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nuniform float uDil;').replace('#include <begin_vertex>', '#include <begin_vertex>\ntransformed += normal * uDil;'); }; bowelMat.customProgramCacheKey = () => 'bowel-dilate'; }, [bowelMat, dilU]);
   // organs that stand between the camera and the space a view is about fade out of the way
   const target = useAbdUI((s) => s.target); const hide = HIDE[target] ?? []; const fade = useRef<Record<string, number>>({});
   useFrame((c, dtRaw) => {
-    const dt = frameDt(dtRaw);
+    const dt = frameDt(dtRaw); dilU.value = approach(dilU.value, 0.085 * dil, 3, dt);
     const all: Record<string, THREE.MeshPhysicalMaterial> = { ...mats, bowel: bowelMat, stomach: stomachMat };
     for (const k of FADEABLE) { const m = all[k]; if (!m) continue; const base = ORGANS[k]?.opacity ?? 1; const f = (fade.current[k] = approach(fade.current[k] ?? 1, hide.includes(k) ? 0.18 : 1, 4, dt));
       m.transparent = true; m.opacity = base * f; m.depthWrite = base * f > 0.6; }
@@ -96,11 +90,15 @@ function Abdomen({ body }: { body: BodyAsset }) {
   });
   return (<group>
     <mesh geometry={body.meshes.skin.geometry} material={skin} renderOrder={9} />
-    {Object.keys(ORGANS).filter((k) => body.meshes[k]).map((k) => <mesh key={k} geometry={body.meshes[k].geometry} material={mats[k]} renderOrder={k.startsWith('lung') ? 7 : 1} />)}
-    <mesh geometry={stomach} material={stomachMat} />
-    <mesh geometry={bowelGeo} material={bowelMat} />
-    <mesh material={dia} position={[0, 3.75, 0.1]} scale={[1.55, 0.85, 1.2]} renderOrder={6}><sphereGeometry args={[1, 40, 20, 0, Math.PI * 2, 0, Math.PI * 0.42]} /></mesh>
-    <mesh material={perit} position={[0, 2.3, 0.25]} scale={[1.45, 2.15, 1.05]} renderOrder={8}><sphereGeometry args={[1, 40, 28]} /></mesh>
+    {Object.keys(ORGANS).filter((k) => body.meshes[k] && k !== 'colon').map((k) => <mesh key={k} geometry={body.meshes[k].geometry} material={mats[k]} renderOrder={k.startsWith('lung') ? 7 : 1} />)}
+    {gut && <>
+      <mesh geometry={gut.meshes.stomach.geometry} material={stomachMat} />
+      {(['duodenum', 'jejunum', 'ileum'] as const).map((k) => <mesh key={k} geometry={gut.meshes[k].geometry} material={bowelMat} />)}
+      {(['colon', 'appendix', 'rectum'] as const).map((k) => <mesh key={k} geometry={gut.meshes[k].geometry} material={mats.colon} />)}
+      <mesh geometry={gut.meshes.mesenteric_art.geometry} material={mesArt} />
+      <mesh geometry={gut.meshes.mesenteric_vein.geometry} material={mesVein} />
+      <mesh geometry={gut.meshes.diaphragm.geometry} material={dia} renderOrder={6} />
+    </>}
     <Pathology st={st} />
     <Labels st={st} />
   </group>);
@@ -110,7 +108,7 @@ function Labels({ st }: { st: AbdomenState }) {
   const on = useAbdUI((s) => s.labels); if (!on) return null; const d = fluidDistribution(st);
   const tag = (p: THREE.Vector3, t: string, c = '', info?: string) => <Html key={info ?? t} position={p} center zIndexRange={[20, 0]}><LabelChip className={`tag3d tk ${c}`} text={t} info={info} important={c === 't-red' || !!info} /></Html>;
   return (<>
-    {tag(V(-0.55, 4.05, 0.9), 'Liver')}{tag(V(1.15, 3.95, -0.3), 'Spleen')}{tag(V(0.55, 4.25, 0.55), 'Stomach')}{tag(V(0.3, 3.2, 0.4), 'Pancreas')}
+    {tag(V(-0.55, 4.05, 0.9), 'Liver')}{tag(V(1.15, 3.95, -0.3), 'Spleen')}{tag(V(0.62, 3.8, 0.55), 'Stomach')}{tag(V(0.3, 3.2, 0.4), 'Pancreas')}
     {!IS_PHONE && tag(V(-0.85, 2.7, -0.4), 'R kidney')}{!IS_PHONE && tag(V(0.95, 2.75, -0.5), 'L kidney')}{tag(V(0.25, 1.6, -0.1), 'Aorta', 't-art')}{!IS_PHONE && tag(V(-0.4, 1.6, -0.1), 'IVC', 't-ven')}
     {tag(V(0.0, 1.35, 0.95), 'Small bowel')}{!IS_PHONE && tag(V(1.25, 1.1, 0.7), 'Colon')}{tag(V(0.0, 0.25, 0.6), 'Bladder')}{!IS_PHONE && tag(V(-1.25, 4.35, 0.2), 'Diaphragm')}
     {d.ruq > 45 && tag(ABD.ruq.clone().add(V(-0.45, 0.15, 0.6)), 'Morison’s pouch', 't-red')}{d.luq > 45 && tag(ABD.luq.clone().add(V(0.3, -0.35, 0.3)), 'Splenorenal', 't-red')}{d.pelvis > 36 && tag(ABD.pelvis.clone().add(V(0.5, -0.1, 0.4)), 'Pelvic fluid', 't-red')}

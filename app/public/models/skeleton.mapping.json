@@ -1,0 +1,557 @@
+{
+ "units": "decimetres, body-centred",
+ "frame": "+X patient left, +Y up, +Z anterior",
+ "centres": {
+  "skull": [
+   -0.003,
+   8.147,
+   0.092
+  ],
+  "mandible": [
+   -0.02,
+   7.288,
+   0.562
+  ],
+  "C1": [
+   -0.015,
+   7.311,
+   -0.205
+  ],
+  "C2": [
+   -0.015,
+   7.219,
+   -0.177
+  ],
+  "C3": [
+   -0.017,
+   6.99,
+   -0.191
+  ],
+  "C4": [
+   -0.019,
+   6.847,
+   -0.188
+  ],
+  "C5": [
+   -0.021,
+   6.694,
+   -0.239
+  ],
+  "C6": [
+   -0.015,
+   6.559,
+   -0.328
+  ],
+  "C7": [
+   -0.03,
+   6.439,
+   -0.431
+  ],
+  "T1": [
+   -0.035,
+   6.302,
+   -0.489
+  ],
+  "T2": [
+   -0.033,
+   6.157,
+   -0.553
+  ],
+  "T3": [
+   -0.036,
+   5.948,
+   -0.627
+  ],
+  "T4": [
+   -0.017,
+   5.747,
+   -0.712
+  ],
+  "T5": [
+   -0.036,
+   5.476,
+   -0.776
+  ],
+  "T6": [
+   -0.033,
+   5.146,
+   -0.796
+  ],
+  "T7": [
+   -0.023,
+   4.856,
+   -0.783
+  ],
+  "T8": [
+   -0.006,
+   4.554,
+   -0.787
+  ],
+  "T9": [
+   0,
+   4.271,
+   -0.758
+  ],
+  "T10": [
+   0.006,
+   3.957,
+   -0.72
+  ],
+  "T11": [
+   0.02,
+   3.654,
+   -0.657
+  ],
+  "T12": [
+   0.036,
+   3.325,
+   -0.566
+  ],
+  "L1": [
+   0.026,
+   2.95,
+   -0.457
+  ],
+  "L2": [
+   0.033,
+   2.646,
+   -0.367
+  ],
+  "L3": [
+   0.046,
+   2.32,
+   -0.32
+  ],
+  "L4": [
+   0.051,
+   2.009,
+   -0.311
+  ],
+  "L5": [
+   0.034,
+   1.659,
+   -0.348
+  ],
+  "rib_R1": [
+   -0.499,
+   6.049,
+   0.116
+  ],
+  "costal_R1": [
+   -0.447,
+   5.688,
+   0.523
+  ],
+  "rib_R2": [
+   -0.645,
+   5.785,
+   0.17
+  ],
+  "costal_R2": [
+   -0.329,
+   5.298,
+   0.808
+  ],
+  "rib_R3": [
+   -0.702,
+   5.532,
+   0.095
+  ],
+  "costal_R3": [
+   -0.379,
+   4.989,
+   0.907
+  ],
+  "rib_R4": [
+   -0.761,
+   5.265,
+   0.077
+  ],
+  "costal_R4": [
+   -0.479,
+   4.711,
+   1.01
+  ],
+  "rib_R5": [
+   -0.785,
+   4.952,
+   0.06
+  ],
+  "costal_R5": [
+   -0.567,
+   4.418,
+   1.101
+  ],
+  "rib_R6": [
+   -0.82,
+   4.678,
+   -0.022
+  ],
+  "costal_R6": [
+   -0.609,
+   4.168,
+   1.123
+  ],
+  "rib_R7": [
+   -0.835,
+   4.386,
+   -0.076
+  ],
+  "costal_R7": [
+   -0.665,
+   3.933,
+   1.084
+  ],
+  "rib_R8": [
+   -0.827,
+   4.057,
+   -0.176
+  ],
+  "rib_R9": [
+   -0.857,
+   3.746,
+   -0.331
+  ],
+  "rib_R10": [
+   -0.869,
+   3.425,
+   -0.388
+  ],
+  "rib_R11": [
+   -0.805,
+   3.16,
+   -0.492
+  ],
+  "rib_R12": [
+   -0.582,
+   2.964,
+   -0.621
+  ],
+  "rib_L1": [
+   0.461,
+   6.065,
+   0.121
+  ],
+  "costal_L1": [
+   0.417,
+   5.704,
+   0.533
+  ],
+  "rib_L2": [
+   0.619,
+   5.804,
+   0.181
+  ],
+  "costal_L2": [
+   0.311,
+   5.307,
+   0.826
+  ],
+  "rib_L3": [
+   0.678,
+   5.545,
+   0.122
+  ],
+  "costal_L3": [
+   0.362,
+   5.001,
+   0.935
+  ],
+  "rib_L4": [
+   0.742,
+   5.288,
+   0.113
+  ],
+  "costal_L4": [
+   0.483,
+   4.74,
+   1.05
+  ],
+  "rib_L5": [
+   0.78,
+   4.978,
+   0.092
+  ],
+  "costal_L5": [
+   0.587,
+   4.458,
+   1.156
+  ],
+  "rib_L6": [
+   0.831,
+   4.705,
+   0.002
+  ],
+  "costal_L6": [
+   0.623,
+   4.21,
+   1.164
+  ],
+  "rib_L7": [
+   0.849,
+   4.419,
+   -0.051
+  ],
+  "costal_L7": [
+   0.665,
+   3.959,
+   1.113
+  ],
+  "rib_L8": [
+   0.831,
+   4.072,
+   -0.14
+  ],
+  "rib_L9": [
+   0.89,
+   3.743,
+   -0.3
+  ],
+  "rib_L10": [
+   0.909,
+   3.42,
+   -0.38
+  ],
+  "rib_L11": [
+   0.878,
+   3.167,
+   -0.519
+  ],
+  "rib_L12": [
+   0.678,
+   2.973,
+   -0.652
+  ],
+  "manubrium": [
+   -0.014,
+   5.564,
+   0.695
+  ],
+  "sternum_body": [
+   -0.008,
+   4.784,
+   1.025
+  ],
+  "xiphoid": [
+   -0.013,
+   4.168,
+   1.149
+  ],
+  "clavicle_R": [
+   -0.938,
+   6.004,
+   0.073
+  ],
+  "scapula_R": [
+   -1.295,
+   5.382,
+   -0.579
+  ],
+  "humerus_R": [
+   -2.251,
+   4.433,
+   -0.136
+  ],
+  "clavicle_L": [
+   0.909,
+   6.022,
+   0.093
+  ],
+  "scapula_L": [
+   1.272,
+   5.395,
+   -0.565
+  ],
+  "humerus_L": [
+   2.254,
+   4.47,
+   -0.131
+  ],
+  "hip_R": [
+   -0.667,
+   0.743,
+   -0.171
+  ],
+  "hip_L": [
+   0.747,
+   0.746,
+   -0.243
+  ],
+  "hyoid": [
+   -0.032,
+   6.868,
+   0.41
+  ],
+  "sacrum": [
+   0.059,
+   0.984,
+   -0.593
+  ],
+  "coccyx": [
+   0.03,
+   0.21,
+   -1.006
+  ],
+  "femur_R": [
+   -1.204,
+   -1.851,
+   -0.126
+  ],
+  "femur_L": [
+   1.257,
+   -1.863,
+   -0.164
+  ],
+  "tibia_R": [
+   -1.599,
+   -6.226,
+   -0.435
+  ],
+  "tibia_L": [
+   1.651,
+   -6.238,
+   -0.472
+  ],
+  "fibula_R": [
+   -2.054,
+   -6.326,
+   -0.664
+  ],
+  "fibula_L": [
+   2.107,
+   -6.338,
+   -0.702
+  ],
+  "patella_R": [
+   -1.464,
+   -3.832,
+   0.419
+  ],
+  "patella_L": [
+   1.517,
+   -3.843,
+   0.381
+  ]
+ },
+ "labels": {
+  "skull": "Skull",
+  "mandible": "Mandible",
+  "C1": "C1 (atlas)",
+  "C2": "C2 (axis)",
+  "C3": "C3",
+  "C4": "C4",
+  "C5": "C5",
+  "C6": "C6",
+  "C7": "C7",
+  "T1": "T1",
+  "T2": "T2",
+  "T3": "T3",
+  "T4": "T4",
+  "T5": "T5",
+  "T6": "T6",
+  "T7": "T7",
+  "T8": "T8",
+  "T9": "T9",
+  "T10": "T10",
+  "T11": "T11",
+  "T12": "T12",
+  "L1": "L1",
+  "L2": "L2",
+  "L3": "L3",
+  "L4": "L4",
+  "L5": "L5",
+  "rib_R1": "Right rib 1",
+  "costal_R1": "Right costal cartilage 1",
+  "rib_R2": "Right rib 2",
+  "costal_R2": "Right costal cartilage 2",
+  "rib_R3": "Right rib 3",
+  "costal_R3": "Right costal cartilage 3",
+  "rib_R4": "Right rib 4",
+  "costal_R4": "Right costal cartilage 4",
+  "rib_R5": "Right rib 5",
+  "costal_R5": "Right costal cartilage 5",
+  "rib_R6": "Right rib 6",
+  "costal_R6": "Right costal cartilage 6",
+  "rib_R7": "Right rib 7",
+  "costal_R7": "Right costal cartilage 7",
+  "rib_R8": "Right rib 8",
+  "rib_R9": "Right rib 9",
+  "rib_R10": "Right rib 10",
+  "rib_R11": "Right rib 11",
+  "rib_R12": "Right rib 12",
+  "rib_L1": "Left rib 1",
+  "costal_L1": "Left costal cartilage 1",
+  "rib_L2": "Left rib 2",
+  "costal_L2": "Left costal cartilage 2",
+  "rib_L3": "Left rib 3",
+  "costal_L3": "Left costal cartilage 3",
+  "rib_L4": "Left rib 4",
+  "costal_L4": "Left costal cartilage 4",
+  "rib_L5": "Left rib 5",
+  "costal_L5": "Left costal cartilage 5",
+  "rib_L6": "Left rib 6",
+  "costal_L6": "Left costal cartilage 6",
+  "rib_L7": "Left rib 7",
+  "costal_L7": "Left costal cartilage 7",
+  "rib_L8": "Left rib 8",
+  "rib_L9": "Left rib 9",
+  "rib_L10": "Left rib 10",
+  "rib_L11": "Left rib 11",
+  "rib_L12": "Left rib 12",
+  "manubrium": "Manubrium",
+  "sternum_body": "Body of sternum",
+  "xiphoid": "Xiphoid process",
+  "clavicle_R": "Right clavicle",
+  "scapula_R": "Right scapula",
+  "humerus_R": "Right humerus",
+  "clavicle_L": "Left clavicle",
+  "scapula_L": "Left scapula",
+  "humerus_L": "Left humerus",
+  "hip_R": "Right hip bone",
+  "hip_L": "Left hip bone",
+  "hyoid": "Hyoid",
+  "sacrum": "Sacrum",
+  "coccyx": "Coccyx",
+  "femur_R": "Right femur",
+  "femur_L": "Left femur",
+  "tibia_R": "Right tibia",
+  "tibia_L": "Left tibia",
+  "fibula_R": "Right fibula",
+  "fibula_L": "Left fibula",
+  "patella_R": "Right patella",
+  "patella_L": "Left patella"
+ },
+ "fit": {
+  "ribVerticesInsideLung": 0.04882599906701913,
+  "axialBoneVerticesOutsideSkin": 0,
+  "skullVerticesOutsideSkin": 0,
+  "humerusVerticesOutsideSkin": 0,
+  "l5ToSacrumGapMm": 0,
+  "levels": {
+   "hyoid": "C4",
+   "thyroidCartilage": "C6",
+   "cricoid": "C7"
+  }
+ },
+ "attribution": [
+  {
+   "title": "BodyParts3D 3.0 (skull, spine C1–L5, ribs, costal cartilages, sternum, clavicles, scapulae, humeri)",
+   "creators": "Database Center for Life Science (DBCLS)",
+   "notice": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
+   "license": "CC BY-SA 2.1 JP",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en",
+   "sourceUrl": "https://doi.org/10.18908/lsdba.nbdc00837-000",
+   "changes": "Converted from STL; fitted onto the Visible Human Male body (affine + smooth non-rigid correction driven by shared organs and skin); simplified."
+  },
+  {
+   "title": "3D Reference Organs: Visible Human Male (hip bones, sacrum, coccyx, femora, tibiae, fibulae, patellae)",
+   "creators": "HuBMAP / Human Reference Atlas consortium",
+   "data": "Visible Human Male, U.S. National Library of Medicine",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "sourceUrl": "https://github.com/hubmapconsortium/ccf-3d-reference-object-library",
+   "changes": "Compact bone surfaces merged per bone; simplified."
+  }
+ ],
+ "license": "The skeleton.glb file as a whole is distributed under CC BY-SA 2.1 JP because it contains BodyParts3D-derived geometry."
+}

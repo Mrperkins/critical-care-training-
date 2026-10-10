@@ -1,0 +1,41 @@
+{
+ "units": "decimetres, body-centred",
+ "frame": "+X patient left, +Y up, +Z anterior",
+ "parts": [
+  {
+   "id": "lv",
+   "triangles": 120050
+  },
+  {
+   "id": "rv",
+   "triangles": 139950
+  },
+  {
+   "id": "ra",
+   "triangles": 48186
+  },
+  {
+   "id": "la",
+   "triangles": 33946
+  },
+  {
+   "id": "coronary_art",
+   "triangles": 44300
+  },
+  {
+   "id": "cardiac_veins",
+   "triangles": 34420
+  }
+ ],
+ "vessels": "coronary_art and cardiac_veins: the named coronary tree (LM, LAD, D1–2, septal S1–3, LCx, OM1–2, RCA, AM, PDA, PLB) laid half-sunk on this epicardium at adult calibres, and the cardiac veins along their companion arteries (great, coronary sinus, middle, small, posterior LV, left marginal, anterior cardiac). Courses follow the coronary model; calibres from adult angiographic norms.",
+ "relief": "Endocardial surface only. LV: fine longitudinal trabeculation, apical two-thirds (upper septum and LVOT smooth). RV: coarse trabeculation of inflow and apex (infundibulum smooth). RA: crista terminalis + pectinate muscles to the auricle. LA: auricle only. Placement measured, pattern schematic.",
+ "attribution": {
+  "title": "3D Reference Organs: Visible Human Male (heart chambers)",
+  "creators": "HuBMAP / Human Reference Atlas consortium",
+  "data": "Visible Human Male, U.S. National Library of Medicine",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "sourceUrl": "https://github.com/hubmapconsortium/ccf-3d-reference-object-library",
+  "changes": "Full source resolution (LV/septum subdivided twice, RV once); endocardial relief sculpted on the inner surface."
+ }
+}

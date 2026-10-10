@@ -1,0 +1,473 @@
+{
+ "units": "decimetres, body-centred",
+ "frame": "+X patient left, +Y up, +Z anterior",
+ "parts": {
+  "limbus_fossa_ovalis": {
+   "label": "Limbus of the fossa ovalis",
+   "role": "ridge",
+   "centre": [
+    -0.0698,
+    4.8353,
+    0.1488
+   ],
+   "schematic": true
+  },
+  "fossa_ovalis": {
+   "label": "Fossa ovalis (septum primum)",
+   "role": "fossa",
+   "centre": [
+    -0.048,
+    4.828,
+    0.1279
+   ],
+   "schematic": true
+  },
+  "valve_eustachian": {
+   "label": "Valve of the IVC (Eustachian valve)",
+   "role": "fold",
+   "centre": [
+    -0.1549,
+    4.4658,
+    0.1817
+   ],
+   "schematic": true
+  },
+  "valve_thebesian": {
+   "label": "Valve of the coronary sinus (Thebesian valve)",
+   "role": "fold",
+   "centre": [
+    -0.0071,
+    4.5611,
+    0.1867
+   ],
+   "schematic": true
+  },
+  "tendon_todaro": {
+   "label": "Tendon of Todaro",
+   "role": "tendon",
+   "centre": [
+    -0.0145,
+    4.6665,
+    0.227
+   ],
+   "schematic": true
+  },
+  "pap_lv_anterolateral": {
+   "label": "Anterolateral papillary muscle (LV)",
+   "role": "papillary",
+   "centre": [
+    0.4546,
+    4.6934,
+    0.4197
+   ]
+  },
+  "pap_lv_posteromedial": {
+   "label": "Posteromedial papillary muscle (LV)",
+   "role": "papillary",
+   "centre": [
+    0.4548,
+    4.5821,
+    0.419
+   ]
+  },
+  "pap_rv_anterior": {
+   "label": "Anterior papillary muscle (RV)",
+   "role": "papillary",
+   "centre": [
+    0.1886,
+    4.5304,
+    0.7706
+   ]
+  },
+  "pap_rv_posterior": {
+   "label": "Posterior papillary muscle (RV)",
+   "role": "papillary",
+   "centre": [
+    0.1251,
+    4.342,
+    0.5874
+   ]
+  },
+  "pap_rv_septal": {
+   "label": "Septal papillary muscle (RV)",
+   "role": "papillary",
+   "centre": [
+    0.2437,
+    4.4398,
+    0.5456
+   ]
+  },
+  "moderator_band": {
+   "label": "Septomarginal trabecula (moderator band)",
+   "role": "ridge",
+   "centre": [
+    0.284,
+    4.533,
+    0.7359
+   ],
+   "schematic": true
+  },
+  "supraventricular_crest": {
+   "label": "Supraventricular crest",
+   "role": "ridge",
+   "centre": [
+    0.0765,
+    4.8373,
+    0.4987
+   ],
+   "schematic": true
+  },
+  "chordae_mitral": {
+   "label": "Chordae tendineae (mitral)",
+   "role": "chordae",
+   "centre": [
+    0.3166,
+    4.6973,
+    0.2174
+   ]
+  },
+  "chordae_tricuspid": {
+   "label": "Chordae tendineae (tricuspid)",
+   "role": "chordae",
+   "centre": [
+    0.0543,
+    4.5684,
+    0.5295
+   ]
+  },
+  "sa_node": {
+   "label": "Sinoatrial (SA) node",
+   "role": "node",
+   "centre": [
+    -0.281,
+    5.0932,
+    0.3605
+   ],
+   "lengthMm": 14.6
+  },
+  "bachmann_bundle": {
+   "label": "Bachmann's bundle (interatrial)",
+   "role": "pathway",
+   "centre": [
+    0.0463,
+    5.0779,
+    0.2899
+   ],
+   "t1": 77.2
+  },
+  "internodal_anterior": {
+   "label": "Anterior internodal pathway",
+   "role": "pathway",
+   "centre": [
+    -0.0903,
+    4.8463,
+    0.2396
+   ],
+   "t1": 36.9
+  },
+  "internodal_middle": {
+   "label": "Middle internodal pathway (Wenckebach)",
+   "role": "pathway",
+   "centre": [
+    -0.091,
+    4.8966,
+    0.2139
+   ],
+   "t1": 50.7
+  },
+  "internodal_posterior": {
+   "label": "Posterior internodal pathway (Thorel)",
+   "role": "pathway",
+   "centre": [
+    -0.1772,
+    4.7084,
+    0.2802
+   ],
+   "t1": 93.8
+  },
+  "av_node": {
+   "label": "Atrioventricular (AV) node",
+   "role": "node",
+   "centre": [
+    0.046,
+    4.6916,
+    0.2621
+   ],
+   "t0": 37
+  },
+  "av_node_inferior_extension": {
+   "label": "Inferior nodal extension (slow pathway)",
+   "role": "node",
+   "centre": [
+    0.0451,
+    4.6476,
+    0.2476
+   ],
+   "t0": 37
+  },
+  "his": {
+   "label": "Bundle of His (penetrating + branching)",
+   "role": "conduction",
+   "centre": [
+    0.1516,
+    4.7865,
+    0.3213
+   ],
+   "t0": 117,
+   "t1": 129.7,
+   "lengthMm": 25.5
+  },
+  "lbb": {
+   "label": "Left bundle branch (fanning sheet)",
+   "role": "conduction",
+   "centre": [
+    0.4418,
+    4.6221,
+    0.5274
+   ],
+   "t0": 129.7,
+   "t1": 153.1
+  },
+  "lbb_anterior": {
+   "label": "Left anterior fascicle",
+   "role": "conduction",
+   "centre": [
+    0.5584,
+    4.5965,
+    0.6356
+   ],
+   "t1": 184.4
+  },
+  "lbb_posterior": {
+   "label": "Left posterior fascicle",
+   "role": "conduction",
+   "centre": [
+    0.5848,
+    4.5883,
+    0.6266
+   ],
+   "t1": 179.1
+  },
+  "lbb_septal": {
+   "label": "Left septal fascicle",
+   "role": "conduction",
+   "centre": [
+    0.5586,
+    4.5038,
+    0.6575
+   ],
+   "t1": 168.5
+  },
+  "rbb": {
+   "label": "Right bundle branch (through the moderator band)",
+   "role": "conduction",
+   "centre": [
+    0.2606,
+    4.6926,
+    0.6435
+   ],
+   "t0": 129.7,
+   "t1": 162.7
+  },
+  "purkinje_lv": {
+   "label": "Purkinje network (LV) incl. false tendons",
+   "role": "purkinje",
+   "centre": [
+    0.5555,
+    4.5629,
+    0.5678
+   ],
+   "tMax": 185.6
+  },
+  "purkinje_rv": {
+   "label": "Purkinje network (RV)",
+   "role": "purkinje",
+   "centre": [
+    0.1992,
+    4.6529,
+    0.6534
+   ],
+   "tMax": 167.7
+  }
+ },
+ "landmarks": {
+  "crista": [
+   [
+    -0.2214,
+    4.973,
+    0.2919
+   ],
+   [
+    -0.2229,
+    4.9719,
+    0.2925
+   ],
+   [
+    -0.225,
+    4.9707,
+    0.2932
+   ],
+   [
+    -0.2284,
+    4.9684,
+    0.2944
+   ],
+   [
+    -0.234,
+    4.9634,
+    0.2964
+   ],
+   [
+    -0.3471,
+    4.9088,
+    0.3598
+   ],
+   [
+    -0.3638,
+    4.861,
+    0.3792
+   ],
+   [
+    -0.3795,
+    4.8364,
+    0.3976
+   ],
+   [
+    -0.3638,
+    4.8619,
+    0.3887
+   ],
+   [
+    -0.3832,
+    4.8235,
+    0.413
+   ],
+   [
+    -0.3817,
+    4.7667,
+    0.4132
+   ],
+   [
+    -0.3975,
+    4.7015,
+    0.3918
+   ],
+   [
+    -0.378,
+    4.6585,
+    0.3554
+   ],
+   [
+    -0.3968,
+    4.7012,
+    0.3817
+   ],
+   [
+    -0.3979,
+    4.7044,
+    0.3743
+   ],
+   [
+    -0.35,
+    4.6418,
+    0.3138
+   ],
+   [
+    -0.2999,
+    4.5717,
+    0.2645
+   ],
+   [
+    -0.2442,
+    4.4745,
+    0.2308
+   ],
+   [
+    -0.1963,
+    4.4506,
+    0.2128
+   ],
+   [
+    -0.165,
+    4.4568,
+    0.2071
+   ],
+   [
+    -0.1434,
+    4.4684,
+    0.2053
+   ]
+  ],
+  "saBlock": [
+   -0.2262,
+   5.1357,
+   0.3773
+  ],
+  "avBlock": [
+   0.0974,
+   4.6708,
+   0.2564
+  ],
+  "svcOrifice": [
+   -0.2486,
+   5.1287,
+   0.2205
+  ],
+  "ivcOrifice": [
+   -0.1798,
+   4.4553,
+   0.1445
+  ],
+  "csOstium": [
+   0.0392,
+   4.5492,
+   0.1708
+  ],
+  "centralFibrousBody": [
+   0.0685,
+   4.8055,
+   0.2866
+  ],
+  "raAppendage": [
+   -0.0828,
+   5.102,
+   0.4755
+  ],
+  "laAppendage": [
+   0.3005,
+   5.1902,
+   0.2426
+  ],
+  "fossaOvalis": [
+   -0.0498,
+   4.8271,
+   0.1301
+  ],
+  "kochAvToCsMm": 16
+ },
+ "activation": {
+  "attribute": "_ACT (ms after SA firing)",
+  "saToAv": 37,
+  "avNodalDelay": 80,
+  "hisStart": 117,
+  "velocitiesMmPerMs": {
+   "atrial": 1,
+   "internodal": 1.4,
+   "node": 0.05,
+   "his": 2,
+   "bundle": 2,
+   "purkinje": 3
+  },
+  "lastVentricularActivation": 185.6
+ },
+ "schematic": "Measured on HuBMAP: chamber walls, valves, papillary muscles, SA/AV node sites (three groups averaged), orifices, appendages, fossa ovalis. Built on those walls and landmarks (true size and position, schematic pattern): trabeculae, pectinate muscles, crista terminalis, moderator band, supraventricular crest, limbus, Eustachian/Thebesian valves, tendon of Todaro, chordae, and the conduction fibre routes.",
+ "attribution": {
+  "title": "3D Reference Organs: Visible Human Male (heart, papillary muscles, SA/AV node tissue blocks, appendages)",
+  "creators": "HuBMAP / Human Reference Atlas consortium (tissue blocks: HuBMAP, SPARC, Pei et al.)",
+  "data": "Visible Human Male, U.S. National Library of Medicine",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "sourceUrl": "https://github.com/hubmapconsortium/ccf-3d-reference-object-library",
+  "changes": "Papillary muscles smoothed; interior architecture and conduction system generated on the HuBMAP endocardial/epicardial surfaces at measured landmarks."
+ }
+}

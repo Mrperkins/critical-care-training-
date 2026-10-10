@@ -1,0 +1,19 @@
+{
+ "note": "Delivery copies: geometry not simplified (triangle counts asserted equal); quantised + meshopt; ventilator textures WebP q90 at original resolution.",
+ "cell": {
+  "source": "models/cell/markdragan-human-cell/cell.glb",
+  "sourceSha256": "405cf19d250b80d502682c52c9eba27d640d365069367d8e6a3c705bd08cd5de",
+  "optimized": "models/cell/markdragan-human-cell/cell.opt.glb",
+  "triangles": 421546,
+  "sha256": "f934e8ce8bee02bbf8c3d5bdba5f35e473e211f8070a4e958f2d136feaadcd40",
+  "bytes": 3096184
+ },
+ "ventilator": {
+  "source": "app/public/models/medical-ventilator.src.glb",
+  "sourceSha256": "c5fe0ef33b3ab4647484994d16fe893d8247bd752d385fe6e1525658d564122d",
+  "optimized": "app/public/models/medical-ventilator.glb",
+  "triangles": 66944,
+  "sha256": "b43223a8901eb1f48298778b3517cdffb7a42dc9d9e048decbb9b0c6abaeff63",
+  "bytes": 1570688
+ }
+}

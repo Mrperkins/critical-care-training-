@@ -74,7 +74,7 @@ def main():
             if result.returncode:
                 raise AssertionError(result.stderr[-1200:])
     assert '__CCCameraTargets' in html, 'semantic camera registry missing from the bundle'
-    for ref in ('models/cell/markdragan-human-cell/cell.glb', 'models/molecular/'):
+    for ref in ('models/cell/markdragan-human-cell/cell.opt.glb', 'models/molecular/'):
         assert ref in html, f'loader for {ref} missing from the bundle'
     print('App syntax and malformed-replacement guard passed')
 

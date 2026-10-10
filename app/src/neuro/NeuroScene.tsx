@@ -1,9 +1,9 @@
 /**
- * Neuro foundation scene: the HuBMAP brain (body.glb) with its arterial supply drawn from
- * anatomy.ts, territory perfusion shading (core / penumbra) from perfusion.ts, haemorrhage
+ * Neuro foundation scene: the HuBMAP brain (body.glb) with its real arterial supply (cerebral-arteries.glb, Z-Anatomy,
+ * on the vessel tree of anatomy.ts — the schematic layout is only a fallback while it loads), territory perfusion shading (core / penumbra) from perfusion.ts, haemorrhage
  * primitives and brain.* semantic camera targets. All state comes from useNeuroUI — this file only draws.
  */
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
 import { CameraControls, Html } from '@react-three/drei';
@@ -19,6 +19,7 @@ import { territoryStates, hemorrhageShape, effectiveHemorrhage } from './perfusi
 import { vesselPerfusion } from './vesselFlow';
 import { SliceCap, useSlicePlane } from './SliceCap';
 import { useThree } from '@react-three/fiber';
+import { loadNeuroDeep, loadCerebral, VENTRICLES, DEEP_NUCLEI, BRAINSTEM, type Layer, type NeuroMapping, type CerebralMapping } from '../asset/anatomy';
 
 /* ------------------------------------------------------------------ brain surface shader (mirrors anatomy.territoryAt) */
 const BRAIN_HEAD = /* glsl */ `
@@ -92,8 +93,19 @@ function snapToCortex(vs: CerebralVessel[], frame: BrainFrame, brain: THREE.Buff
   return vs;
 }
 function Vessels({ frame, tier, brain }: { frame: BrainFrame; tier: Tier; brain: THREE.BufferGeometry }) {
-  const vs = useMemo(() => snapToCortex(buildCerebralVessels(frame), frame, brain), [frame, brain]);
-  const tubes = useMemo(() => vs.map((v) => ({ v, ...tubeAlong(v.pts, v.r0, v.r1, tier === 'low' ? 6 : 12, tier === 'low' ? 25 : 55) })), [vs, tier]);
+  const [real, setReal] = useState<Layer<CerebralMapping> | null>(null);
+  useEffect(() => { let on = true; loadCerebral().then((x) => on && setReal(x)).catch(() => undefined); return () => { on = false; }; }, []);
+  // the same tree (ids, parents, territories) on the real arteries: measured centrelines and calibres replace the layout
+  const vs = useMemo(() => {
+    const tree = buildCerebralVessels(frame); if (!real) return snapToCortex(tree, frame, brain);
+    for (const v of tree) { const m = real.mapping.vessels[v.id]; if (!m) continue; v.pts = m.pts.map((p) => new THREE.Vector3(p[0], p[1], p[2])); v.r0 = m.r0; v.r1 = m.r1; }
+    return tree;
+  }, [frame, brain, real]);
+  const tubes = useMemo(() => vs.map((v) => {
+    const mesh = real?.meshes[v.id];
+    if (mesh) { const curve = new THREE.CatmullRomCurve3(v.pts, false, 'centripetal'); return { v, geometry: mesh.geometry, curve, length: curve.getLength() }; }
+    return { v, ...tubeAlong(v.pts, v.r0, v.r1, tier === 'low' ? 6 : 12, tier === 'low' ? 25 : 55) };
+  }), [vs, tier, real]);
   const mats = useMemo(() => tubes.map(() => {
     const u = { uUp: { value: new THREE.Color() }, uDown: { value: new THREE.Color() }, uClot: { value: 2 } };
     const m = new THREE.MeshPhysicalMaterial({ roughness: 0.32, clearcoat: 0.6, clearcoatRoughness: 0.3, sheen: 0.3 });
@@ -133,7 +145,7 @@ function Vessels({ frame, tier, brain }: { frame: BrainFrame; tier: Tier; brain:
     im.instanceMatrix.needsUpdate = true;
   });
   return (<group>
-    {tubes.map((t, k) => <mesh key={t.v.id} geometry={t.geometry} material={mats[k].m} renderOrder={2} />)}
+    {tubes.map((t, k) => <mesh key={t.v.id} geometry={t.geometry} material={mats[k].m} renderOrder={2} dispose={null} />)}
     {tubes.map((t) => { const p = perf[t.v.id]; if (p.clotT == null) return null; const pt = t.curve.getPointAt(p.clotT); const tan = t.curve.getTangentAt(p.clotT); const q = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), tan); const r = (t.v.r0 + t.v.r1) / 2 * 1.08;
       return <mesh key={'clot' + t.v.id} geometry={clotGeo} material={clotMat} position={pt} quaternion={q} scale={[r, r, r]} renderOrder={3} />; })}
     {!cut && <instancedMesh key={NP} ref={inst} args={[new THREE.SphereGeometry(1, 6, 5), undefined, seeds.length]} frustumCulled={false} renderOrder={3}><meshBasicMaterial color="#ff6a6a" transparent opacity={0.85} depthWrite={false} toneMapped={false} /></instancedMesh>}
@@ -195,6 +207,40 @@ function Hemorrhage({ frame }: { frame: BrainFrame }) {
   return (<>{pieces.map((q, i) => <mesh key={i} geometry={blob} material={sahMat} position={toBody(frame, [q[0], q[1], q[2]])} scale={[q[3] * frame.h.x * k, q[4] * frame.h.y * k, q[5] * frame.h.z * k]} renderOrder={6} />)}</>);
 }
 
+/* ------------------------------------------------------------------ deep structures (neuro.glb, Allen regions in the same brain) */
+const DEEP_COLOR = (id: string) => (VENTRICLES.includes(id) ? '#5d9fdc' : /^(caudate|putamen)/.test(id) ? '#a07a94' : /^pallidus/.test(id) ? '#bd9ea8' : /^thalamus/.test(id) ? '#9483a8' : /^internal_capsule/.test(id) ? '#efe9dc' : '#b39a9a');
+const DEEP_LABEL: [string, string][] = [['lat_ventricle', 'Lateral ventricle'], ['thalamus', 'Thalamus'], ['putamen', 'Putamen'], ['internal_capsule', 'Internal capsule']];
+/** A haematoma pushes the midline away from itself (hemorrhageShape.shiftMm) and squeezes the ipsilateral lateral
+ *  ventricle; everything else is the atlas anatomy as measured. */
+function DeepStructures({ frame }: { frame: BrainFrame }) {
+  const [nd, setNd] = useState<Layer<NeuroMapping> | null>(null);
+  useEffect(() => { let off = false; loadNeuroDeep().then((x) => { if (!off) setNd(x); }).catch(() => undefined); return () => { off = true; }; }, []);
+  const on = useNeuroUI((s) => s.deep); const glass = useNeuroUI((s) => s.glass); const cut = useNeuroUI((s) => s.cut); const labels = useNeuroUI((s) => s.labels);
+  const st = useNeuroUI((s) => s.state); const sys = useNeuroUI((s) => s.sys); const h = effectiveHemorrhage(st, sys);
+  const { plane } = useSlicePlane(frame);
+  const ids = useMemo(() => (nd ? [...VENTRICLES, ...DEEP_NUCLEI, ...BRAINSTEM].filter((id) => nd.meshes[id]) : []), [nd]);
+  const mats = useMemo(() => Object.fromEntries(ids.map((id) => [id, new THREE.MeshStandardMaterial({ color: DEEP_COLOR(id), roughness: 0.45, transparent: true, opacity: 0.92, side: THREE.DoubleSide })])), [ids]);
+  useEffect(() => () => Object.values(mats).forEach((m) => m.dispose()), [mats]);
+  useEffect(() => { for (const m of Object.values(mats)) { m.clippingPlanes = cut ? [plane] : []; m.needsUpdate = true; } }, [mats, cut, plane]);
+  const refs = useRef<Record<string, THREE.Mesh | null>>({}); const centres = useMemo(() => Object.fromEntries(ids.map((id) => { const g = nd!.meshes[id].geometry; g.computeBoundingBox(); return [id, g.boundingBox!.getCenter(new THREE.Vector3())]; })), [ids, nd]);
+  const ich = h && h.kind === 'ich' ? h : null; const side = ich ? (ich.at[0] >= 0 ? 'L' : 'R') : null; const shift = ich ? hemorrhageShape(ich).shiftMm / 100 : 0;
+  useFrame((_, dtRaw) => {
+    const dt = frameDt(dtRaw);
+    for (const id of ids) {
+      const m = refs.current[id]; if (!m) continue; const c = centres[id];
+      const ipsi = side && id === 'lat_ventricle_' + side; const midline = /^(third_ventricle|aqueduct|lat_ventricle_)/.test(id) && !ipsi;
+      const s = approach(m.scale.x, ipsi ? Math.max(0.45, 1 - 0.035 * shift * 100) : 1, 3, dt);
+      const dx = approach(m.userData.dx ?? 0, side && (midline || ipsi) ? (side === 'L' ? -1 : 1) * shift * (ipsi ? 1 : 0.8) : 0, 3, dt); m.userData.dx = dx;
+      m.scale.setScalar(s); m.position.set(c.x * (1 - s) + dx, c.y * (1 - s), c.z * (1 - s));
+    }
+  });
+  if (!nd || !on || !(glass || cut)) return null;
+  return <group>
+    {ids.map((id) => <mesh key={id} ref={(el) => { refs.current[id] = el; }} geometry={nd.meshes[id].geometry} material={mats[id]} renderOrder={3} dispose={null} />)}
+    {labels && !cut && DEEP_LABEL.map(([k, text]) => { const id = k + '_' + (side ?? 'L'); const c = centres[id]; if (!c) return null; return <Html key={k} position={c} center zIndexRange={[20, 0]}><LabelChip className="tag3d tk" text={text} /></Html>; })}
+  </group>;
+}
+
 function TerritoryTags({ frame }: { frame: BrainFrame }) {
   const on = useNeuroUI((s) => s.labels); const state = useNeuroUI((s) => s.state); const sys = useNeuroUI((s) => s.sys);
   if (!on) return null; const ts = territoryStates(state, sys);
@@ -237,6 +283,7 @@ export function NeuroScene({ body }: { body: BodyAsset }) {
       <group>
         <Vessels frame={frame} tier={tier} brain={body.meshes.brain.geometry} />
         <Brain body={body} frame={frame} />
+        <DeepStructures frame={frame} />
         <Hemorrhage frame={frame} />
         <TerritoryTags frame={frame} />
       </group>

@@ -1,0 +1,206 @@
+{
+ "units": "decimetres, body-centred",
+ "frame": "+X patient left, +Y up, +Z anterior",
+ "centres": {
+  "thyroid_cartilage": [
+   -0.016,
+   6.596,
+   0.41
+  ],
+  "cricoid_cartilage": [
+   -0.016,
+   6.412,
+   0.374
+  ],
+  "arytenoid_R": [
+   -0.079,
+   6.578,
+   0.361
+  ],
+  "arytenoid_L": [
+   0.066,
+   6.575,
+   0.354
+  ],
+  "corniculate_R": [
+   -0.06,
+   6.666,
+   0.304
+  ],
+  "corniculate_L": [
+   0.033,
+   6.665,
+   0.296
+  ],
+  "epiglottis": [
+   -0.035,
+   6.826,
+   0.373
+  ],
+  "trachea": [
+   -0.032,
+   5.976,
+   0.206
+  ],
+  "tracheal_rings": [
+   -0.02,
+   5.889,
+   0.203
+  ],
+  "vocal_fold_R": [
+   -0.019,
+   6.519,
+   0.475
+  ],
+  "vestibular_fold_R": [
+   -0.03,
+   6.567,
+   0.472
+  ],
+  "vocal_fold_L": [
+   0.02,
+   6.519,
+   0.474
+  ],
+  "vestibular_fold_L": [
+   0.031,
+   6.567,
+   0.471
+  ],
+  "cricothyroid_membrane": [
+   0,
+   6.416,
+   0.492
+  ],
+  "pharynx": [
+   0,
+   6.919,
+   0.269
+  ],
+  "soft_palate": [
+   0,
+   7.2,
+   0.279
+  ],
+  "tongue": [
+   0,
+   7.171,
+   0.628
+  ]
+ },
+ "labels": {
+  "thyroid_cartilage": "Thyroid cartilage",
+  "cricoid_cartilage": "Cricoid cartilage",
+  "arytenoid_R": "Right arytenoid cartilage",
+  "arytenoid_L": "Left arytenoid cartilage",
+  "corniculate_R": "Right corniculate cartilage",
+  "corniculate_L": "Left corniculate cartilage",
+  "epiglottis": "Epiglottis",
+  "trachea": "Trachea",
+  "tracheal_rings": "Tracheal cartilages",
+  "vocal_fold_R": "Right vocal fold",
+  "vestibular_fold_R": "Right vestibular (false) fold",
+  "vocal_fold_L": "Left vocal fold",
+  "vestibular_fold_L": "Left vestibular (false) fold",
+  "cricothyroid_membrane": "Cricothyroid membrane",
+  "pharynx": "Pharynx",
+  "soft_palate": "Soft palate and uvula",
+  "tongue": "Tongue"
+ },
+ "landmarks": {
+  "anteriorCommissure": [
+   0,
+   6.526,
+   0.514
+  ],
+  "vocalProcessR": [
+   -0.026,
+   6.511,
+   0.436
+  ],
+  "vocalProcessL": [
+   0.028,
+   6.511,
+   0.434
+  ],
+  "glottisLengthMm": 8,
+  "glottisNote": "Measured from the HuBMAP cartilages: this larynx has forward-set arytenoids and a short membranous glottis (typical adult male 15–20 mm).",
+  "cricothyroidMembrane": {
+   "centre": [
+    0.001,
+    6.416,
+    0.516
+   ],
+   "thyroidLowerBorder": [
+    0.002,
+    6.465,
+    0.53
+   ],
+   "cricoidUpperBorder": [
+    -0.001,
+    6.366,
+    0.503
+   ],
+   "heightMm": 9.9,
+   "skinDepthMm": 6.2
+  },
+  "epiglottisTip": [
+   -0.065,
+   7.002,
+   0.303
+  ],
+  "hyoid": [
+   -0.032,
+   6.868,
+   0.41
+  ],
+  "palateY": 7.354,
+  "vertebralFaces": {
+   "C1": [
+    -0.028,
+    7.253,
+    0.108
+   ],
+   "C2": [
+    -0.002,
+    7.077,
+    0.194
+   ],
+   "C3": [
+    0.009,
+    6.95,
+    0.189
+   ],
+   "C4": [
+    0.014,
+    6.805,
+    0.182
+   ],
+   "C5": [
+    -0.009,
+    6.619,
+    0.154
+   ],
+   "C6": [
+    -0.017,
+    6.52,
+    0.135
+   ],
+   "C7": [
+    -0.01,
+    6.385,
+    0.075
+   ]
+  }
+ },
+ "schematic": "Cartilages, epiglottis and trachea are HuBMAP meshes. Vocal/vestibular folds, cricothyroid membrane, pharynx, tongue and soft palate are built from measured landmarks (cartilages, hyoid, fitted skull, mandible and cervical spine) and are schematic in shape.",
+ "attribution": {
+  "title": "3D Reference Organs: Visible Human Male (larynx, trachea, hyoid)",
+  "creators": "HuBMAP / Human Reference Atlas consortium",
+  "data": "Visible Human Male, U.S. National Library of Medicine",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "sourceUrl": "https://github.com/hubmapconsortium/ccf-3d-reference-object-library",
+  "changes": "Cartilages and trachea used as published (simplified); soft tissue generated from landmarks measured on them and on the fitted skeleton."
+ }
+}
