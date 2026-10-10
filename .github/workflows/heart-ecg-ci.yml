@@ -47,15 +47,6 @@ jobs:
         run: npm run build
       - name: Install browser for rendered QA
         run: npx playwright install chromium
-      - name: Render and test real cardiac interface on three viewports
-        run: node scripts/qa-heart-study.mjs
-      - name: Save visual QA screenshots
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: cardiac-study-visual-qa
-          path: app/qa-output/
-          if-no-files-found: warn
       - name: Inspect 3D organ flow on desktop and mobile
         run: node scripts/qa-organ-flow.mjs
       - name: Save organ flow screenshot evidence
@@ -64,4 +55,13 @@ jobs:
         with:
           name: organ-volume-flow-visual-qa
           path: app/qa-organ-flow/
+          if-no-files-found: warn
+      - name: Render and test real cardiac interface on three viewports
+        run: node scripts/qa-heart-study.mjs
+      - name: Save visual QA screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cardiac-study-visual-qa
+          path: app/qa-output/
           if-no-files-found: warn
