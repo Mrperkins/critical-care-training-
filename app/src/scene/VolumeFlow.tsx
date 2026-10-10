@@ -66,6 +66,9 @@ export function VolumeFlow({ path, color, sample, width = 0.72, label, opacity =
   useEffect(() => { uniforms.uColor.value.set(color); uniforms.uOpacity.value = opacity; }, [color, opacity, uniforms]);
   const material = useMemo(() => new THREE.ShaderMaterial({
     uniforms, side: THREE.DoubleSide, transparent: true, depthWrite: false,
+    // Deliberate educational X-ray overlay: bulk flow must remain readable through opaque tissue.
+    // This does not modify the anatomy, occlusion physics, or haemodynamic calculation.
+    depthTest: false,
     clipping: !!clippingPlanes, clippingPlanes,
     vertexShader: `varying float vAlong; varying vec3 vNormal;
       \#include <clipping_planes_pars_vertex>\n      void main() {vAlong=uv.x;vNormal=normalize(normalMatrix*normal);\n      vec3 transformed=position;\n      vec4 mvPosition=modelViewMatrix*vec4(transformed,1.0);\n      gl_Position=projectionMatrix*mvPosition;\n      #include <clipping_planes_vertex>}`,
@@ -75,7 +78,7 @@ export function VolumeFlow({ path, color, sample, width = 0.72, label, opacity =
         float envelope=smoothstep(0.01,0.075,u)*(1.0-smoothstep(0.31,0.44,u));
         float wake=smoothstep(0.0,0.06,u)*(1.0-smoothstep(0.49,0.8,u));
         float rim=0.70+0.30*abs(vNormal.z);
-        float alpha=(0.14+0.74*envelope+0.13*wake)*uActivity*uOpacity;
+        float alpha=(0.23+0.64*envelope+0.15*wake)*uActivity*uOpacity;
         if(alpha<0.012) discard;
         vec3 rgb=uColor*(0.74+0.65*envelope+0.12*wake)*rim;
         gl_FragColor=vec4(rgb,min(0.92,alpha));
