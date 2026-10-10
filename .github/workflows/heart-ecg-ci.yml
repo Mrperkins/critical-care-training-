@@ -35,3 +35,14 @@ jobs:
         run: npm test
       - name: Production bundle
         run: npm run build
+      - name: Install browser for rendered QA
+        run: npx playwright install --with-deps chromium
+      - name: Render and test real cardiac interface on three viewports
+        run: node scripts/qa-heart-study.mjs
+      - name: Save visual QA screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cardiac-study-visual-qa
+          path: app/qa-output/
+          if-no-files-found: warn
