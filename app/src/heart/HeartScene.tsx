@@ -238,7 +238,7 @@ function Heart({ asset, s, tier, hd }: { asset: LinesAsset; s: ShuntState; tier:
   const cur = useRef({ lv: 1, la: 1, ra: 1, rv: 1 }); const t = useRef(0); const studyRate = useStudyClock((st) => st.enabled && st.rateOverride != null ? st.rateOverride : null); const hr = studyRate ?? heartRateFor(s.input.qs);
   const tmp = useMemo(() => ({ o: new THREE.Object3D(), p: new THREE.Vector3(), d: new THREE.Vector3(), c: new THREE.Color(), q: new THREE.Vector3(), probe: LM.lvApex.clone().add(new THREE.Vector3(0.1, -0.1, 0.15)) }), []);
   useFrame((_, dtRaw) => {
-    const study = useStudyClock.getState(); const dt = frameDt(study.enabled ? (study.running ? dtRaw * study.speed : 0) : dtRaw); if (study.heartRate !== hr) study.set({ heartRate: hr }); t.current = study.seconds; // HeartModule owns the only simulation clock; never advance it twice. const w = wiggers(t.current, hr); const c = { sys: w.slOpen, atr: w.atr }; const k = cur.current;
+    const study = useStudyClock.getState(); const dt = frameDt(study.enabled ? (study.running ? dtRaw * study.speed : 0) : dtRaw); if (study.heartRate !== hr) study.set({ heartRate: hr }); t.current = study.seconds; const w = wiggers(t.current, hr); // Scene reads clock advanced by HeartModule only. const c = { sys: w.slOpen, atr: w.atr }; const k = cur.current;
     const fz = (window as unknown as { __beat?: { v: number; atr: number; avOpen: number; slOpen: number } }).__beat; // automation: freeze a phase
     const b = fz ?? w; shared.uV.value = b.v; shared.uAtr.value = b.atr; shared.uAvOpen.value = b.avOpen; shared.uSlOpen.value = b.slOpen;
     k.lv = approach(k.lv, Math.min(1.25, 1 + 0.12 * (s.load.lv - 1)), 3, dt); k.la = approach(k.la, Math.min(1.25, 1 + 0.15 * (s.load.la - 1)), 3, dt);
