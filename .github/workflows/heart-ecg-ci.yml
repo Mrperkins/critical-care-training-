@@ -46,7 +46,7 @@ jobs:
       - name: Production bundle
         run: npm run build
       - name: Install browser for rendered QA
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install chromium
       - name: Render and test real cardiac interface on three viewports
         run: node scripts/qa-heart-study.mjs
       - name: Save visual QA screenshots
