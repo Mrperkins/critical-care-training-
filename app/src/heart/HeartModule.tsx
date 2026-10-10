@@ -11,6 +11,7 @@ import { useUI } from '../app/store';
 import { Knob, Seg } from '../vent/VentPanel';
 import { HeartScene } from './HeartScene';
 import { HeartECGStudy } from './HeartECGStudy';
+import { HeartECGSceneStrip } from './HeartECGSceneStrip';
 import { useStudyClock } from './studyClock';
 import { useHeartUI, loadHeartPreset, setHeartInput, type FlowMode, type CutMode } from './heartStore';
 import { autoCut, CUT_LABEL } from './HeartScene';
@@ -48,6 +49,7 @@ export function HeartModule() {
     <main className="stage">
       <section className="scene-pane">
         <SceneWrap><HeartScene /><HeartOverlay /></SceneWrap>
+        <HeartECGSceneStrip />
       </section>
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         <HeartECGStudy />
