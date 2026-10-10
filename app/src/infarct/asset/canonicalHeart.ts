@@ -35,14 +35,20 @@ const TOLERANCE_DM = 0.12; // 12 mm spatial map tolerance, NOT anatomy-validatio
 function indexKey(x: number, y: number, z: number): string {
   return `${Math.floor(x/SAMPLE_GRID_DM)},${Math.floor(y/SAMPLE_GRID_DM)},${Math.floor(z/SAMPLE_GRID_DM)}`;
 }
-export function projectChamber(source: THREE.BufferGeometry, detailed: THREE.BufferGeometry, id: ChamberId): { geometry: THREE.BufferGeometry; stats: ProjectionStats } {
+export function projectChamber(source: THREE.BufferGeometry, detailed: THREE.BufferGeometry, id: ChamberId, sourceWorld = new THREE.Matrix4()): { geometry: THREE.BufferGeometry; stats: ProjectionStats } {
   const a = source.getAttribute('position');
   const b = detailed.getAttribute('position');
   if (!a || !b || a.count < 10 || b.count < 10) throw Error('Missing chamber vertices: ' + id);
   for (const key of ATTR) if (!source.getAttribute(key)) throw Error('Territory mapping missing ' + key + ' on ' + id);
+  // MI's meshopt GLB may store positions behind a de-quantisation node matrix;
+  // the canonical anatomy loader already bakes its transforms. Compare WORLD coordinates.
+  const srcCoords = new Float32Array(a.count * 3);
+  const scratch = new THREE.Vector3();
   const bins = new Map<string, number[]>();
   for (let i = 0; i < a.count; i++) {
-    const key = indexKey(a.getX(i),a.getY(i),a.getZ(i));
+    scratch.set(a.getX(i),a.getY(i),a.getZ(i)).applyMatrix4(sourceWorld);
+    srcCoords[3*i]=scratch.x;srcCoords[3*i+1]=scratch.y;srcCoords[3*i+2]=scratch.z;
+    const key = indexKey(scratch.x,scratch.y,scratch.z);
     const row = bins.get(key);
     if (row) row.push(i); else bins.set(key, [i]);
   }
@@ -63,7 +69,7 @@ export function projectChamber(source: THREE.BufferGeometry, detailed: THREE.Buf
         if(radius>1 && Math.max(Math.abs(dx),Math.abs(dy),Math.abs(dz))!==radius)continue;
         const cells=bins.get(`${cx+dx},${cy+dy},${cz+dz}`);if(!cells)continue;
         for(const j of cells){
-          const ex=a.getX(j)-px,ey=a.getY(j)-py,ez=a.getZ(j)-pz;const d=ex*ex+ey*ey+ez*ez;
+          const ex=srcCoords[3*j]-px,ey=srcCoords[3*j+1]-py,ez=srcCoords[3*j+2]-pz;const d=ex*ex+ey*ey+ez*ez;
           if(d<d2){d2=d;best=j;}
         }
       }
@@ -99,7 +105,7 @@ export async function loadCanonicalMIHeart(original: HeartAsset): Promise<Canoni
     for(const [legacy,canonical] of Object.entries(CANONICAL_CHAMBERS) as [ChamberId,string][]){
       const src=original.meshes[legacy],detail=layer.meshes[canonical];
       if(!src||!detail)throw Error('Missing corresponding Visible Human chamber: '+legacy);
-      const out=projectChamber(src.geometry,detail.geometry,legacy);
+      const out=projectChamber(src.geometry,detail.geometry,legacy,src.matrixWorld);
       stats.push(out.stats);
       const accepted=Number.isFinite(out.stats.p95Dm)&&out.stats.p95Dm<0.07&&out.stats.withinThreshold>0.94;
       if(!accepted)throw Error(`Unsafe anatomical correspondence ${legacy}: p95=${out.stats.p95Dm.toFixed(3)}dm, coverage=${out.stats.withinThreshold.toFixed(3)}`);
