@@ -59,7 +59,7 @@ try{
       await page.screenshot({path:path.join(out,'atlas-desktop-pericardial-surface.png'),fullPage:false,timeout:45000});
       // MI Locator must preserve functionality and identify the actual source.
       await panel.getByRole('button',{name:/Explore MI Locator/}).click();
-      await expect(page.getByRole('region',{name:'Coronaries and ECG'})).toBeVisible({timeout:35000});
+      await expect(page.locator('main[aria-label="Coronaries and ECG"]')).toBeVisible({timeout:35000});
       await page.locator('.mi-canonical-status').waitFor({state:'visible',timeout:110000});
       const status=await page.locator('.mi-canonical-status').innerText();
       console.log('MI canonical registration:',status);
