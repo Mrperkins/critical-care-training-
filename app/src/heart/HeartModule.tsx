@@ -10,6 +10,8 @@ import { useHideFindings } from '../challenge/caseStore';
 import { useUI } from '../app/store';
 import { Knob, Seg } from '../vent/VentPanel';
 import { HeartScene } from './HeartScene';
+import { HeartECGStudy } from './HeartECGStudy';
+import { useStudyClock } from './studyClock';
 import { useHeartUI, loadHeartPreset, setHeartInput, type FlowMode, type CutMode } from './heartStore';
 import { autoCut, CUT_LABEL } from './HeartScene';
 import { RealCase } from '../scene/imaging/RealCase';
@@ -50,6 +52,7 @@ export function HeartModule() {
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         {mode === 'challenge' ? <CaseChallenge module="heart" /> : mode === 'learn' ? <HeartLearn /> : <>
           <PresetCard />
+          <HeartECGStudy />
           <ControlsCard />
           <NeoSlot />
           <Fold group="heart" id="circ" title="Circulation" summary="PVR, SVR, patient size"><CirculationCard /></Fold>
@@ -64,6 +67,8 @@ export function HeartModule() {
 }
 
 function HeartOverlay() {
+  const studyEnabled = useStudyClock((s) => s.enabled);
+  useEffect(() => { if (studyEnabled && !useHeartUI.getState().conduction) useHeartUI.getState().set({ conduction: true }); }, [studyEnabled]);
   const target = useHeartUI((s) => s.target); const flow = useHeartUI((s) => s.mode); const cut = useHeartUI((s) => s.cut); const conduction = useHeartUI((s) => s.conduction); const pericardium = useHeartUI((s) => s.pericardium); const nerves = useHeartUI((s) => s.nerves); const set = useHeartUI.getState().set;
   const input = useHeartUI((s) => s.input); const s = useMemo(() => solveShunt(input), [input]); const tier = useLabUI((s) => s.visualTier);
   const pct = (x: number) => `${Math.round(x * 100)}%`; const hide = useHideFindings();
