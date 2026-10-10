@@ -245,3 +245,15 @@ describe('cerebral arteries (cerebral-arteries.glb)', () => {
     for (const id of ['m1', 'pcom', 'p2', 'm2s']) { expect(cx(id + '_R')).toBeLessThan(0); expect(cx(id + '_L')).toBeGreaterThan(0); }
   });
 });
+
+describe('brain label volume (slice cap)', () => {
+  it('inflates to its grid and carries ventricles, deep nuclei, white tracts and a folded cortical ribbon', async () => {
+    const zlib = await import('node:zlib');
+    const f = json('brain-volume.json'); const [nx, ny, nz] = f.dims;
+    const v = zlib.inflateSync(Buffer.from(f.data, 'base64')); expect(v.length).toBe(nx * ny * nz);
+    const count = new Map<number, number>(); let ribbon = 0;
+    for (const b of v) { if (b === 255) continue; count.set(b >> 4, (count.get(b >> 4) ?? 0) + 1); if ((b & 15) <= 5) ribbon++; }
+    for (const L of [1, 2, 3, 4, 5, 6, 10]) expect(count.get(L) ?? 0, 'label ' + L).toBeGreaterThan(500);
+    expect(ribbon / [...count.values()].reduce((a, b) => a + b, 0)).toBeGreaterThan(0.1);
+  });
+});

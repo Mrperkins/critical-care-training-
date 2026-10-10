@@ -62,6 +62,9 @@ for (let it = 0; it < 30; it++) {
   AFF = solveAffine(src, dst); if (it % 10 === 9) { res.sort((a, b) => a - b); log('cortex ICP', it + 1, 'median', (res[res.length >> 1] * 100).toFixed(2), 'mm'); }
 }
 for (const g of ART.values()) { g.applyMatrix4(AFF); g.computeVertexNormals(); }
+// the registered Z-Anatomy pial surface (gyri + sulci) is kept for the slice-cap volume (build-brain-volume.ts): it gives
+// the cortical ribbon its real folding, which this body's smooth brain hull cannot
+{ const zc2 = zCortex.clone().applyMatrix4(AFF); zc2.computeVertexNormals(); await writeGLB('assets/source/derived-z-cortex.glb', [{ id: 'z_cortex', role: 'cortex', geo: zc2 }], { default: { color: [0.6, 0.5, 0.5], rough: 0.5 } }); }
 
 /* ------------------------------------------------------------------ 2. centrelines */
 type Geo = THREE.BufferGeometry;
