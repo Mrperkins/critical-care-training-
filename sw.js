@@ -2,7 +2,7 @@
  * App shell + 3D models are cached on install; narration, clips and images are cached the first time they are used
  * (or all at once from "Save for offline"). Media range requests are answered from the cached file.
  * The version string is replaced at build time; a new version replaces the old caches. */
-const VERSION = 'f477d23997ce';
+const VERSION = '75a85cbd893d';
 const SHELL = `cc-shell-${VERSION}`, MEDIA = 'cc-media-v1';
 const CORE = ['./', 'index.html', 'audio/index.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'imaging/real/manifest.json',
   'models/body.glb.txt', 'models/body.mapping.json', 'models/body-f.glb.txt', 'models/body-f.mapping.json', 'models/eyes.glb.txt', 'models/eyes.mapping.json', 'models/resp.glb.txt', 'models/resp.mapping.json',
