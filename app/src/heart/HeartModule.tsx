@@ -10,6 +10,7 @@ import { useHideFindings } from '../challenge/caseStore';
 import { useUI } from '../app/store';
 import { Knob, Seg } from '../vent/VentPanel';
 import { HeartScene } from './HeartScene';
+import { heartRateFor } from './beat';
 import { HeartECGStudy } from './HeartECGStudy';
 import { HeartECGSceneStrip } from './HeartECGSceneStrip';
 import { useStudyClock } from './studyClock';
@@ -102,12 +103,13 @@ export function HeartModule() {
 function HeartOverlay() {
   const studyEnabled = useStudyClock((s) => s.enabled);
   useEffect(() => { if (studyEnabled && !useHeartUI.getState().conduction) useHeartUI.getState().set({ conduction: true }); }, [studyEnabled]);
-  const target = useHeartUI((s) => s.target); const flow = useHeartUI((s) => s.mode); const cut = useHeartUI((s) => s.cut); const conduction = useHeartUI((s) => s.conduction); const pericardium = useHeartUI((s) => s.pericardium); const nerves = useHeartUI((s) => s.nerves); const set = useHeartUI.getState().set;
+  const flowDisplay = useHeartUI((s) => s.flowDisplay); const target = useHeartUI((s) => s.target); const flow = useHeartUI((s) => s.mode); const cut = useHeartUI((s) => s.cut); const conduction = useHeartUI((s) => s.conduction); const pericardium = useHeartUI((s) => s.pericardium); const nerves = useHeartUI((s) => s.nerves); const set = useHeartUI.getState().set;
   const input = useHeartUI((s) => s.input); const s = useMemo(() => solveShunt(input), [input]); const tier = useLabUI((s) => s.visualTier);
   const pct = (x: number) => `${Math.round(x * 100)}%`; const hide = useHideFindings();
   return (<>
     <div className="scene-tools">
       <div className="seg small" role="group" aria-label="Flow colour">{([['sat', 'O₂ saturation'], ['doppler', 'Flow direction']] as [FlowMode, string][]).map(([k, l]) => <button key={k} className={flow === k ? 'on' : ''} onClick={() => set({ mode: k })}>{l}</button>)}</div>
+      <MiniSelect label="Blood flow" value={flowDisplay} options={ [['volume','Moving blood volumes'],['both','Volumes + cell tracers'],['particles','Cell tracers only']] } onChange={(v) => set({ flowDisplay: v })} />
       <button className="tgl" onClick={() => set({ section: 'coronary' })}>Coronaries &amp; ECG →</button>
       <button className={`tgl${conduction ? ' on' : ''}`} aria-pressed={conduction} onClick={() => set({ conduction: !conduction })}>Conduction</button>
       <button className={`tgl${pericardium ? ' on' : ''}`} aria-pressed={pericardium} onClick={() => set({ pericardium: !pericardium })}>Pericardium</button>
@@ -116,6 +118,7 @@ function HeartOverlay() {
     </div>
     {!hide && <div className="alv-hud">
       <div className="alv-row"><span>Shunt</span><b className={`dir dir-${s.direction === 'L→R' ? 'lr' : s.direction === 'R→L' ? 'rl' : s.direction === 'bidirectional' ? 'bi' : 'none'}`}>{s.direction === 'none' ? 'none' : s.direction}</b></div>
+      <div className="alv-row"><span>Systemic / pulmonary stroke output</span><b>{Math.round(s.qs * 1000 / heartRateFor(s.input.qs))} / {Math.round(s.qp * 1000 / heartRateFor(s.input.qs))} mL/beat</b></div>
       <div className="alv-row"><span>Qp : Qs</span><b>{s.qpqs.toFixed(1)} : 1</b></div>
       {s.gradient > 0 && !['asd', 'coarct', 'tof'].includes(s.input.lesion) && <div className="alv-row"><span>Jet velocity</span><b>{s.velocity.toFixed(1)} m/s</b></div>}
       {s.rvot && <div className="alv-row"><span>RV outflow gradient</span><b>{Math.round(s.rvot.gradient)} mmHg</b></div>}
