@@ -21,9 +21,10 @@ export const ECG_EVENTS = [
 export function studyECG(lead: LeadId, saMs: number, heartRate: number): number {
   const rr = 60000 / Math.max(20, heartRate);
   // Include adjacent beats so the trace stays continuous at each R–R boundary.
+  const phase = ((saMs % rr) + rr) % rr;
   let v = 0;
   for (const beat of [-1, 0, 1]) {
-    v += sample(lead, (saMs - beat * rr) / 1000 + ECG_SHIFT_SECONDS, null, 0);
+    v += sample(lead, (phase - beat * rr) / 1000 + ECG_SHIFT_SECONDS, null, 0);
   }
   return Number.isFinite(v) ? v : 0;
 }
