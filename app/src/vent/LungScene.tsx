@@ -3,7 +3,7 @@
  * frame — lung volume per side, open/collapsed fraction, overdistension, bronchospasm,
  * pleural collapse, airway flow — so the anatomy can never disagree with the waveforms.
  */
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { useFrame, useThree } from '@react-three/fiber';
 import { CameraControls, Html } from '@react-three/drei';
@@ -11,6 +11,9 @@ import type { RespAsset } from '../asset/resp';
 import { polylineAt } from '../asset/resp';
 import { StudioCanvas, GLSL_TRIPLANAR, tissueTexture, IS_PHONE, damp } from '../scene/Studio';
 import { VolumeFlow, type FlowPoint } from '../scene/VolumeFlow';
+import { loadHeartHD } from '../asset/anatomy';
+import { registerHeartContext } from '../asset/anatomyConsistency';
+import { useLabUI } from '../labs/labStore';
 import { LabelChip } from '../scene/labels';
 import { session } from './session';
 import { useUI } from '../app/store';
@@ -135,6 +138,17 @@ export function LungScene({ asset }: { asset: RespAsset }) {
 function Lungs({ asset }: { asset: RespAsset }) {
   const { meshes: M, mapping } = asset;
   const view = useUI((s) => s.ventView); const scId = useUI((s) => s.ventScenario); const flowDisplay = useUI((s) => s.ventFlowDisplay);
+  const tier = useLabUI((s) => s.visualTier);
+  const [highHeart, setHighHeart] = useState<Record<string, THREE.Mesh> | null>(null);
+  useEffect(() => {
+    if (tier === 'low') { setHighHeart(null); return; }
+    let cancelled = false;
+    loadHeartHD().then((layer) => { if (!cancelled) setHighHeart(layer.meshes); }).catch(() => {
+      if (!cancelled) setHighHeart(null); // explicit fallback, never transform incompatible geometry
+    });
+    return () => { cancelled = true; };
+  }, [tier]);
+  const heartRegistration = useMemo(() => M.heart && highHeart ? registerHeartContext(M.heart.geometry, highHeart) : null, [M, highHeart]);
   const mats = useMemo(() => ({
     lung: lungMaterial(false), ghost: lungMaterial(true), wall: airwayMaterial('wall'), cart: airwayMaterial('cart'), dia: diaphragmMaterial(),
     ett: new THREE.MeshPhysicalMaterial({ color: '#e6eef2', roughness: 0.12, clearcoat: 1, transparent: true, opacity: 0.5, depthWrite: false }),
@@ -226,7 +240,12 @@ function Lungs({ asset }: { asset: RespAsset }) {
       {has('larynx') && <mesh name="larynx" geometry={M.larynx.geometry} material={mats.larynx} />}
       <mesh name="diaphragm" geometry={M.diaphragm.geometry} material={mats.dia} />
       <group ref={heart} position={[0, 0, 0]}>
-        {has('heart') && <mesh name="heart" geometry={M.heart.geometry} material={mats.heart} />}
+        {highHeart && heartRegistration?.accepted ? <group name="canonical-high-detail-heart" position={heartRegistration.translation}>
+          {(['lv', 'rv', 'ra', 'la'] as const).filter((id) => highHeart[id]).map((id) =>
+            <mesh key={id} name={`heart-${id}`} geometry={highHeart[id].geometry} material={mats.heart} dispose={null} />)}
+          {(['coronary_art', 'cardiac_veins'] as const).filter((id) => highHeart[id]).map((id) =>
+            <mesh key={id} name={`heart-${id}`} geometry={highHeart[id].geometry} material={id === 'coronary_art' ? mats.heart : mats.vessel} dispose={null} />)}
+        </group> : has('heart') && <mesh name="heart-reference-low-detail" geometry={M.heart.geometry} material={mats.heart} />}
       </group>
       {has('great_vessels') && <mesh name="great_vessels" geometry={M.great_vessels.geometry} material={mats.vessel} />}
       <mesh name="ett" geometry={M.ett.geometry} material={mats.ett} renderOrder={4} />
