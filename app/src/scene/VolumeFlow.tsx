@@ -68,11 +68,9 @@ export function VolumeFlow({ path, color, sample, width = 0.72, label, opacity =
     uniforms, side: THREE.DoubleSide, transparent: true, depthWrite: false,
     clipping: !!clippingPlanes, clippingPlanes,
     vertexShader: `varying float vAlong; varying vec3 vNormal;
-      void main() {vAlong=uv.x;vNormal=normalize(normalMatrix*normal);
-      gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}`,
+      \#include <clipping_planes_pars_vertex>\n      void main() {vAlong=uv.x;vNormal=normalize(normalMatrix*normal);\n      vec3 transformed=position;\n      vec4 mvPosition=modelViewMatrix*vec4(transformed,1.0);\n      gl_Position=projectionMatrix*mvPosition;\n      #include <clipping_planes_vertex>}`,
     fragmentShader: `uniform vec3 uColor; uniform float uTravel,uActivity,uOpacity;
-      varying float vAlong;varying vec3 vNormal;
-      void main() {
+      varying float vAlong;varying vec3 vNormal;\n      #include <clipping_planes_pars_fragment>\n      void main() {\n        #include <clipping_planes_fragment>
         float u=fract(vAlong-uTravel+1.0);
         float envelope=smoothstep(0.01,0.075,u)*(1.0-smoothstep(0.31,0.44,u));
         float wake=smoothstep(0.0,0.06,u)*(1.0-smoothstep(0.49,0.8,u));
