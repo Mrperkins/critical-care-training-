@@ -18,7 +18,7 @@ export const clock = {
     if(linkedToHost) return this.time;
     const dt = Math.min(0.1, (now - last) / 1000); last = now; if (!paused) t += dt; return t;
   },
-  setPaused(p: boolean) { paused = p; if(linkedToHost) useStudyClock.getState().set({enabled:true,running:!p}); },
+  setPaused(p: boolean) { paused = p; if(linkedToHost) { const st=useStudyClock.getState(); if (!st.enabled || st.running === p) st.set({enabled:true,running:!p}); } },
   followHost(v: boolean) { linkedToHost=v; last=performance.now(); },
   get followingHost() { return linkedToHost; },
 };
