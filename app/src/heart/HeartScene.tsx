@@ -211,7 +211,7 @@ function Heart({ asset, s, tier, hd }: { asset: LinesAsset; s: ShuntState; tier:
   // particles
   const NP = budget(tier, IS_PHONE ? 500 : 900); const inst = useRef<THREE.InstancedMesh>(null);
   const paths = useMemo(() => Object.fromEntries(Object.entries(flowPaths(shape)).map(([k, ws]) => [k, mk(ws)])) as Record<FlowPathId, Path>, [shapeKey]); // eslint-disable-line react-hooks/exhaustive-deps
-  const pts = useMemo(() => Array.from({ length: NP }, () => ({ path: 'svc' as FlowPathId, u: Math.random(), speed: 1, off: new THREE.Vector3().randomDirection().multiplyScalar(Math.cbrt(Math.random())), jet: false, sat: 0.7, alive: false })), [NP]);
+  const pts = useMemo(() => Array.from({ length: NP }, () => ({ path: 'svc' as FlowPathId, u: Math.random(), seed: Math.random(), speed: 1, off: new THREE.Vector3().randomDirection().multiplyScalar(Math.cbrt(Math.random())), jet: false, sat: 0.7, alive: false })), [NP]);
   useEffect(() => {
     const st = streams(s); const tot = st.reduce((a, x) => a + x.flow, 0) || 1; let k = 0;
     for (const x of st) { const n = Math.round((NP * x.flow) / tot); for (let j = 0; j < n && k < NP; j++, k++) { const q = pts[k]; q.path = x.id; q.jet = x.jet; q.sat = x.sat; q.alive = x.flow > 0.02 * s.qs; q.speed = x.jet ? Math.min(1.6, 0.5 + 0.25 * s.velocity) : 0.3 + 0.06 * Math.random(); } }
@@ -241,7 +241,8 @@ function Heart({ asset, s, tier, hd }: { asset: LinesAsset; s: ShuntState; tier:
     pts.forEach((q, i) => {
       if (!q.alive) { tmp.o.scale.setScalar(0.00001); tmp.o.updateMatrix(); im.setMatrixAt(i, tmp.o.matrix); return; }
       const pth = paths[q.path]; const pulse = q.jet ? 0.3 + 1.4 * (q.path.startsWith('vsd') ? c.sys : 0.6 + 0.4 * c.sys) : 0.55 + 0.7 * c.sys;
-      q.u = (q.u + (dt * q.speed * pulse) / pth.len) % 1;
+      // In study mode particle position is derived from absolute time, so reverse seeking is deterministic.
+      q.u = study.enabled ? ((q.seed + t.current * q.speed * 0.65 / pth.len) % 1 + 1) % 1 : (q.u + (dt * q.speed * pulse) / pth.len) % 1;
       const r = at(pth, q.u, tmp.p, tmp.d); tmp.p.addScaledVector(q.off, r * 0.85);
       tmp.o.position.copy(tmp.p); tmp.o.scale.setScalar(q.jet ? 0.0068 : 0.0052); tmp.o.updateMatrix(); im.setMatrixAt(i, tmp.o.matrix);
       if (mode === 'doppler') {
