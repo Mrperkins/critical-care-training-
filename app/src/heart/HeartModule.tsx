@@ -127,6 +127,7 @@ function AtlasPanel() {
   const showP = useHeartUI((s) => s.pericardium);
   const opacity = useHeartUI((s) => s.atlasPericardialOpacity);
   const conduction = useHeartUI((s) => s.conduction);
+  const coronaries = useHeartUI((s) => s.atlasShowCoronaries);
   const set = useHeartUI.getState().set;
   return <section className="card heart-atlas-panel" aria-label="Unified 3D cardiac atlas">
     <div className="card-h"><h3>3D cardiac atlas</h3><span className="muted small">One anatomical source</span></div>
@@ -142,6 +143,7 @@ function AtlasPanel() {
       <label className="heart-atlas-toggle"><input type="checkbox" checked={showP} onChange={(e)=>set({pericardium:e.target.checked})}/>Pericardial sac (anatomy-derived outer surface)</label>
       {showP && <label className="heart-atlas-range">Sac transparency <input aria-label="Pericardial sac opacity" type="range" min={0.08} max={0.85} step={0.05} value={opacity} onChange={(e)=>set({atlasPericardialOpacity:Number(e.target.value)})}/></label>}
       <label className="heart-atlas-toggle"><input type="checkbox" checked={conduction} onChange={(e)=>set({conduction:e.target.checked})}/>Conduction network (schematic positions)</label>
+      <label className="heart-atlas-toggle"><input type="checkbox" checked={coronaries} onChange={(e)=>set({atlasShowCoronaries:e.target.checked})}/>Coronary arteries and cardiac veins</label>
       <p className="muted small">Myocardium: visible heart surfaces. Endocardial relief: view using Cutaway. The fibrous and parietal serous pericardial layers cannot be isolated independently with current validated source geometry; no invented nested shells are shown. Epicardium is the visceral serous pericardial covering, not an independent inflated heart mesh.</p>
     </details>
     <button className="heart-atlas-mi-link" onClick={()=>set({section:'coronary'})}>Explore MI Locator · coronaries, STEMI and all leads <span aria-hidden="true">→</span></button>
