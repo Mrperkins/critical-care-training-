@@ -20,10 +20,10 @@ export function LessonPlayer({ tl, onExit }: { tl: Timeline; onExit: () => void 
     if (!playing || !voiceOn) { narratedVoice.stop(); return; }
     if (k !== lastNarratedCue.current) {
       lastNarratedCue.current = k;
-      const id = cur.voice ?? cur.id;
+      const id = cur.id;
       if (id && narratedVoice.has(id)) narratedVoice.play(id); // silent captions when unavailable
     }
-  }, [k, playing, voiceOn, cur.id, cur.voice]);
+  }, [k, playing, voiceOn, cur.id]);
   return (
     <div className="info lesson">
       <button className="linkish" onClick={() => { narratedVoice.stop(); onExit(); }}>← Territory lessons</button>
