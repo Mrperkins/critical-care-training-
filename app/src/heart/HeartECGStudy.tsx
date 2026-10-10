@@ -8,6 +8,7 @@ export function HeartECGStudy() {
   const running = useStudyClock((s) => s.running);
   const speed = useStudyClock((s) => s.speed);
   const bpm = useStudyClock((s) => s.heartRate);
+  const rateOverride = useStudyClock((s) => s.rateOverride);
   const [seconds, setSeconds] = useState(0);
   useEffect(() => {
     if (!enabled) return;
@@ -23,7 +24,7 @@ export function HeartECGStudy() {
     const t = (i / 249) * rr;
     return `${i * 1.36},${55 - teachingLeadII(t, bpm) * 37}`;
   }).join(' ');
-  const event = [...STUDY_EVENTS].reverse().find((x) => x.offset <= ms) ?? STUDY_EVENTS[STUDY_EVENTS.length - 1];
+  const event = [...STUDY_EVENTS].reverse().find((x) => x.offset <= ms) ?? STUDY_EVENTS[0];
   const patch = useStudyClock.getState().set;
   const seek = (position: number) => {
     const s = useStudyClock.getState();
@@ -41,6 +42,7 @@ export function HeartECGStudy() {
         <button className="tgl" onClick={() => patch({ running: false, seconds: seconds + 0.01 })}>+10 ms</button>
         <select aria-label="Playback speed" value={speed} onChange={(e) => patch({ speed: Number(e.target.value) })}>{SPEEDS.map((x) => <option key={x} value={x}>{x}× speed</option>)}</select>
       </div>
+      <div className="nd-row"><label htmlFor="study-hr">Physiological HR</label><input id="study-hr" type="number" min={50} max={140} step={5} value={rateOverride ?? bpm} onChange={(e) => patch({rateOverride: Math.max(50, Math.min(140, Number(e.target.value) || 84))})} style={{maxWidth:85}}/><button className="tgl" onClick={() => patch({rateOverride:null})}>Preset rate</button></div>
       <div style={{fontSize:12,marginBottom:6}}>Lead II · illustrative morphology · {bpm} bpm · {Math.round(ms)} ms after SA activation</div>
       <svg role="img" aria-label="Interactive illustrative lead II electrocardiogram with synchronized cursor" viewBox="0 0 340 110" style={{width:'100%',maxWidth:560,display:'block',touchAction:'none',cursor:'crosshair'}} onPointerDown={(e) => {
         const rect = e.currentTarget.getBoundingClientRect(); seek((e.clientX - rect.left) / rect.width);
