@@ -51,7 +51,7 @@ export function NeuroModule() {
         <IcpIfMass />
         <Fold group="neuro" id="why" title="Why"><NeuroExplain /></Fold>
         </>}
-        {body && <details className="credit"><summary>Sources & model notes</summary>Brain: {body.mapping.attribution.creators}, {body.mapping.attribution.data} — CC BY 4.0. Cerebral arteries are drawn from standard neurovascular anatomy onto that brain (schematic; calibres ×1.6). Perfusion thresholds (CBF ≈ 50 normal, &lt;20 penumbra, &lt;10 core) and infarct timing are teaching approximations, not a prediction for any patient.</details>}
+        {body && <details className="credit"><summary>Sources & model notes</summary>Brain: {body.mapping.attribution.creators}, {body.mapping.attribution.data} — CC BY 4.0. Cerebral arteries: Z-Anatomy (BodyParts3D-derived), CC BY-SA 4.0 — registered onto that brain, true calibre, with centrelines measured from the meshes. Perfusion thresholds (CBF ≈ 50 normal, &lt;20 penumbra, &lt;10 core) and infarct timing are teaching approximations, not a prediction for any patient.</details>}
       </aside>
     </main>
   );

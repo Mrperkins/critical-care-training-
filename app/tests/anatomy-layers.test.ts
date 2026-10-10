@@ -223,3 +223,25 @@ describe('gut and diaphragm (gut.glb)', () => {
   });
   it('credits both sources', () => { expect(JSON.stringify(m.attribution)).toMatch(/BodyParts3D/); expect(JSON.stringify(m.attribution)).toMatch(/HuBMAP/); });
 });
+
+describe('cerebral arteries (cerebral-arteries.glb)', () => {
+  const m = json('cerebral-arteries.mapping.json'); const V = m.vessels;
+  it('covers every vessel of the app tree with a real mesh and a measured centreline', async () => {
+    const { buildCerebralVessels } = await import('../src/neuro/anatomy');
+    const n = await names('cerebral-arteries.glb');
+    for (const v of buildCerebralVessels()) { expect(n, v.id).toContain(v.id); expect(V[v.id]?.pts.length, v.id).toBeGreaterThan(1); }
+  });
+  it('has adult calibres (diameter, mm) in the right order: ICA > M1 > A1/P1 > PComm', () => {
+    const d = (id: string) => V[id].r0 * 200;
+    for (const S of ['R', 'L']) {
+      expect(d('ica_' + S)).toBeGreaterThan(4); expect(d('ica_' + S)).toBeLessThan(7.5);
+      expect(d('m1_' + S)).toBeGreaterThan(2.5); expect(d('m1_' + S)).toBeLessThan(d('ica_' + S));
+      expect(d('pcom_' + S)).toBeLessThan(d('m1_' + S));
+    }
+    expect(V.basilar.r0 * 200).toBeGreaterThan(2.5); expect(V.basilar.r0 * 200).toBeLessThan(4.5);
+  });
+  it('keeps sides: right-sided vessels at −X', () => {
+    const cx = (id: string) => V[id].pts.reduce((a: number, p: number[]) => a + p[0], 0) / V[id].pts.length;
+    for (const id of ['m1', 'pcom', 'p2', 'm2s']) { expect(cx(id + '_R')).toBeLessThan(0); expect(cx(id + '_L')).toBeGreaterThan(0); }
+  });
+});

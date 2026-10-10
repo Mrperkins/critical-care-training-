@@ -1,6 +1,6 @@
 /**
- * Neuro foundation scene: the HuBMAP brain (body.glb) with its arterial supply drawn from
- * anatomy.ts, territory perfusion shading (core / penumbra) from perfusion.ts, haemorrhage
+ * Neuro foundation scene: the HuBMAP brain (body.glb) with its real arterial supply (cerebral-arteries.glb, Z-Anatomy,
+ * on the vessel tree of anatomy.ts — the schematic layout is only a fallback while it loads), territory perfusion shading (core / penumbra) from perfusion.ts, haemorrhage
  * primitives and brain.* semantic camera targets. All state comes from useNeuroUI — this file only draws.
  */
 import { useEffect, useMemo, useRef, useState } from 'react';
@@ -19,7 +19,7 @@ import { territoryStates, hemorrhageShape, effectiveHemorrhage } from './perfusi
 import { vesselPerfusion } from './vesselFlow';
 import { SliceCap, useSlicePlane } from './SliceCap';
 import { useThree } from '@react-three/fiber';
-import { loadNeuroDeep, VENTRICLES, DEEP_NUCLEI, BRAINSTEM, type Layer, type NeuroMapping } from '../asset/anatomy';
+import { loadNeuroDeep, loadCerebral, VENTRICLES, DEEP_NUCLEI, BRAINSTEM, type Layer, type NeuroMapping, type CerebralMapping } from '../asset/anatomy';
 
 /* ------------------------------------------------------------------ brain surface shader (mirrors anatomy.territoryAt) */
 const BRAIN_HEAD = /* glsl */ `
@@ -93,8 +93,19 @@ function snapToCortex(vs: CerebralVessel[], frame: BrainFrame, brain: THREE.Buff
   return vs;
 }
 function Vessels({ frame, tier, brain }: { frame: BrainFrame; tier: Tier; brain: THREE.BufferGeometry }) {
-  const vs = useMemo(() => snapToCortex(buildCerebralVessels(frame), frame, brain), [frame, brain]);
-  const tubes = useMemo(() => vs.map((v) => ({ v, ...tubeAlong(v.pts, v.r0, v.r1, tier === 'low' ? 6 : 12, tier === 'low' ? 25 : 55) })), [vs, tier]);
+  const [real, setReal] = useState<Layer<CerebralMapping> | null>(null);
+  useEffect(() => { let on = true; loadCerebral().then((x) => on && setReal(x)).catch(() => undefined); return () => { on = false; }; }, []);
+  // the same tree (ids, parents, territories) on the real arteries: measured centrelines and calibres replace the layout
+  const vs = useMemo(() => {
+    const tree = buildCerebralVessels(frame); if (!real) return snapToCortex(tree, frame, brain);
+    for (const v of tree) { const m = real.mapping.vessels[v.id]; if (!m) continue; v.pts = m.pts.map((p) => new THREE.Vector3(p[0], p[1], p[2])); v.r0 = m.r0; v.r1 = m.r1; }
+    return tree;
+  }, [frame, brain, real]);
+  const tubes = useMemo(() => vs.map((v) => {
+    const mesh = real?.meshes[v.id];
+    if (mesh) { const curve = new THREE.CatmullRomCurve3(v.pts, false, 'centripetal'); return { v, geometry: mesh.geometry, curve, length: curve.getLength() }; }
+    return { v, ...tubeAlong(v.pts, v.r0, v.r1, tier === 'low' ? 6 : 12, tier === 'low' ? 25 : 55) };
+  }), [vs, tier, real]);
   const mats = useMemo(() => tubes.map(() => {
     const u = { uUp: { value: new THREE.Color() }, uDown: { value: new THREE.Color() }, uClot: { value: 2 } };
     const m = new THREE.MeshPhysicalMaterial({ roughness: 0.32, clearcoat: 0.6, clearcoatRoughness: 0.3, sheen: 0.3 });
@@ -134,7 +145,7 @@ function Vessels({ frame, tier, brain }: { frame: BrainFrame; tier: Tier; brain:
     im.instanceMatrix.needsUpdate = true;
   });
   return (<group>
-    {tubes.map((t, k) => <mesh key={t.v.id} geometry={t.geometry} material={mats[k].m} renderOrder={2} />)}
+    {tubes.map((t, k) => <mesh key={t.v.id} geometry={t.geometry} material={mats[k].m} renderOrder={2} dispose={null} />)}
     {tubes.map((t) => { const p = perf[t.v.id]; if (p.clotT == null) return null; const pt = t.curve.getPointAt(p.clotT); const tan = t.curve.getTangentAt(p.clotT); const q = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), tan); const r = (t.v.r0 + t.v.r1) / 2 * 1.08;
       return <mesh key={'clot' + t.v.id} geometry={clotGeo} material={clotMat} position={pt} quaternion={q} scale={[r, r, r]} renderOrder={3} />; })}
     {!cut && <instancedMesh key={NP} ref={inst} args={[new THREE.SphereGeometry(1, 6, 5), undefined, seeds.length]} frustumCulled={false} renderOrder={3}><meshBasicMaterial color="#ff6a6a" transparent opacity={0.85} depthWrite={false} toneMapped={false} /></instancedMesh>}

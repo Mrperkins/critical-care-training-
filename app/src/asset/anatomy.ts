@@ -69,6 +69,10 @@ export interface GutMapping { centres: Record<string, number[]>; labels: Record<
 declare global { interface Window { __GUT_GLB__?: string; __GUT_MAP__?: GutMapping } }
 /** real gut + diaphragm (pipeline/build-gut.ts): HuBMAP bowel/colon/mesenteric vessels + BodyParts3D stomach and diaphragm */
 export const loadGut = layer<GutMapping>('gut', () => window.__GUT_GLB__, () => window.__GUT_MAP__);
+export interface CerebralMapping { vessels: Record<string, { pts: number[][]; r0: number; r1: number; lengthMm: number }>; note: string; attribution: Attribution }
+declare global { interface Window { __CEREBRAL_GLB__?: string; __CEREBRAL_MAP__?: CerebralMapping } }
+/** real cerebral arteries (pipeline/build-cerebral.ts, Z-Anatomy): one mesh per app vessel id, `aT` 0→1 along its measured centreline */
+export const loadCerebral = layer<CerebralMapping>('cerebral-arteries', () => window.__CEREBRAL_GLB__, () => window.__CEREBRAL_MAP__, ['aT']);
 export const loadUpperAirway = layer<UpperAirwayMapping>('upper-airway', () => window.__UPPERAIRWAY_GLB__, () => window.__UPPERAIRWAY_MAP__);
 export const LARYNX = ['thyroid_cartilage', 'cricoid_cartilage', 'arytenoid_R', 'arytenoid_L', 'corniculate_R', 'corniculate_L', 'epiglottis', 'vocal_fold_R', 'vocal_fold_L', 'vestibular_fold_R', 'vestibular_fold_L', 'cricothyroid_membrane'];
 export const UPPER_SOFT = ['pharynx', 'tongue', 'soft_palate'];

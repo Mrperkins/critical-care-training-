@@ -28,7 +28,8 @@
     "audio:render-plan": "node --import tsx scripts/audio-render-plan.ts",
     "video:discover": "node --import tsx scripts/youtube-discovery.ts",
     "asset:nerves": "node --max-old-space-size=12000 --import tsx pipeline/build-nerves.ts",
-    "asset:gut": "node --max-old-space-size=12000 --import tsx pipeline/build-gut.ts"
+    "asset:gut": "node --max-old-space-size=12000 --import tsx pipeline/build-gut.ts",
+    "asset:cerebral": "node --max-old-space-size=14000 --import tsx pipeline/build-cerebral.ts"
   },
   "dependencies": {
     "@react-three/drei": "9.99.7",
