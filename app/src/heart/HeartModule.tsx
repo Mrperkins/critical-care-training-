@@ -41,6 +41,11 @@ const LESION_FOCUS: Record<LesionKind, string> = { none: 'heart.four_chamber', v
 
 export function HeartModule() {
   const mode = useUI((s) => s.mode); const section = useHeartUI((s) => s.section);
+  const physiologicalOutput = useHeartUI((s) => s.input.qs);
+  useEffect(() => {
+    const state = useStudyClock.getState();
+    if (!state.enabled || state.rateOverride === null) state.set({ heartRate: heartRateFor(physiologicalOutput) });
+  }, [physiologicalOutput]);
   // The simulation clock is owned by the module, not the Three.js canvas.
   // ECG continues to progress in mobile Lessons even while the scene is hidden.
   useEffect(() => {
@@ -79,7 +84,7 @@ export function HeartModule() {
   if (section === 'coronary') return <main className="stage mi-host" aria-label="Coronaries and ECG"><CoronaryApp mode={MI_MODE[mode] ?? 'explore'} onExit={() => useHeartUI.getState().set({ section: 'structure' })} /></main>;
   return (
     <main className="stage">
-      <section className="scene-pane">
+      <section className="scene-pane heart-scene-pane">
         <SceneWrap>{renderScene && <HeartScene />}<HeartOverlay /></SceneWrap>
         <HeartECGSceneStrip />
       </section>

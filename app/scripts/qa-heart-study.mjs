@@ -30,10 +30,21 @@ try {
     const study = page.getByRole('region', { name: 'Synchronized cardiac electrical study' });
     await expect(study).toBeVisible({ timeout: 30000 });
     const heartCanvas = page.locator('.scene-pane canvas').first();
+    const strip = page.locator('section[aria-label="Cardiac live ECG strip"]');
+    await expect(strip).toBeAttached();
+    // On mobile the Lessons tab intentionally hides the Scene DOM from the accessibility tree.
+    // Verify DOM presence now; verify actual visibility after switching to Scene below.
+    await expect(strip.locator('svg.heart-strip-wave')).toBeAttached();
+    await expect(strip.locator('.heart-strip-info strong')).toContainText('LIVE ECG');
     if (spec.name === 'desktop') {
       await expect(heartCanvas).toBeAttached({ timeout: 30000 });
       await expect(heartCanvas).toBeVisible({ timeout: 30000 });
-      await expect(page.locator('section[aria-label="Cardiac live ECG strip"]')).toBeAttached();
+      await expect(strip).toBeVisible();
+      const heartRect = await page.locator('.heart-scene-pane > .scene-wrap').boundingBox();
+      const stripRect = await strip.boundingBox();
+      if (!heartRect || !stripRect || stripRect.x < heartRect.x + heartRect.width - 3 || stripRect.y > heartRect.y + heartRect.height) {
+        throw new Error('ECG must be visible directly to the RIGHT of the 3D heart on desktop');
+      }
     } else {
       // Mobile intentionally unmounts the WebGL canvas on Lessons for GPU/memory safety.
       await expect(heartCanvas).toHaveCount(0);
@@ -60,7 +71,14 @@ try {
       await sceneTab.click();
     }
     await expect(heartCanvas).toBeVisible({ timeout: 30000 });
-    await expect(page.locator('section[aria-label="Cardiac live ECG strip"]')).toBeVisible();
+    await expect(strip).toBeVisible();
+    if (spec.name !== 'desktop') {
+      const heartRect = await page.locator('.heart-scene-pane > .scene-wrap').boundingBox();
+      const stripRect = await strip.boundingBox();
+      if (!heartRect || !stripRect || stripRect.y < heartRect.y + heartRect.height - 3) {
+        throw new Error('On touch screens ECG must be visible directly BELOW the heart');
+      }
+    }
     // Capture one stable frame after the mobile Scene tab has remounted its canvas.
     // Inspect actual saved pixels rather than probing a continuously animated WebGL element.
     await page.waitForTimeout(2200);

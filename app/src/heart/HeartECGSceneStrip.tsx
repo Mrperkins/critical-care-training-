@@ -14,7 +14,6 @@ export function HeartECGSceneStrip() {
   const bpm = useStudyClock((s) => s.heartRate);
   const [seconds, setSeconds] = useState(() => useStudyClock.getState().seconds);
   useEffect(() => {
-    if (!enabled) return;
     let raf = 0; let last = -Infinity;
     const repaint = (now: number) => {
       if (now - last > 32) { setSeconds(useStudyClock.getState().seconds); last = now; }
@@ -22,7 +21,7 @@ export function HeartECGSceneStrip() {
     };
     raf = requestAnimationFrame(repaint);
     return () => cancelAnimationFrame(raf);
-  }, [enabled]);
+  }, []);
   const points = useMemo(() => studyECGPath('II', bpm, 340, 39, 27, 220), [bpm]);
   const rr = 60000 / Math.max(20, bpm);
   const ms = studyCycleMs(seconds, bpm);
@@ -32,13 +31,14 @@ export function HeartECGSceneStrip() {
     const current = useStudyClock.getState();
     let beatStart = Math.floor((current.seconds * 1000 + 190) / rr) * rr - 190;
     if (beatStart < 0) beatStart += rr;
-    patch({ seconds: (beatStart + Math.max(0, Math.min(0.999, fraction)) * rr) / 1000, running: false });
+    patch({ enabled: true, seconds: (beatStart + Math.max(0, Math.min(0.999, fraction)) * rr) / 1000, running: false });
   };
   return <section className="heart-ecg-strip" aria-label="Cardiac live ECG strip">
-    {!enabled ? <button type="button" className="heart-strip-start" onClick={() => patch({enabled:true,running:true})}>Show synchronized ECG &amp; conduction</button> : <>
+    <>
       <div className="heart-strip-info">
-        <strong>Lead II <span>· teaching model</span></strong>
+        <strong>LIVE ECG <span>· Lead II · teaching model</span></strong>
         <small>{bpm} bpm · {phase.name}</small>
+        <button type="button" className="heart-strip-conduction" aria-pressed={enabled} onClick={() => patch({enabled: !enabled, running:true})}>{enabled ? 'Conduction study on' : 'Enable conduction study'}</button>
       </div>
       <svg className="heart-strip-wave" viewBox="0 0 340 80" role="img" aria-label="ECG trace linked to the 3D beating heart" onPointerDown={(e) => {
         const bounds = e.currentTarget.getBoundingClientRect();
@@ -49,11 +49,11 @@ export function HeartECGSceneStrip() {
         <line x1={340*ms/rr} x2={340*ms/rr} y1="0" y2="80" stroke="#f2b94e" strokeWidth="2"/>
       </svg>
       <div className="heart-strip-actions">
-        <button type="button" onClick={() => patch({running:!running})} aria-label={running?'Pause cardiac study':'Play cardiac study'}>{running ? 'Pause' : 'Play'}</button>
-        <select value={speed} aria-label="Cardiac study playback speed" onChange={(e)=>patch({speed:Number(e.target.value)})}>
+        <button type="button" onClick={() => patch({enabled:true,running:!running})} aria-label={running?'Pause cardiac study':'Play cardiac study'}>{running ? 'Pause' : 'Play'}</button>
+        <select value={speed} aria-label="Cardiac study playback speed" onChange={(e)=>patch({enabled:true,speed:Number(e.target.value)})}>
           {[0.05,0.1,0.25,0.5,1,2].map(x=><option value={x} key={x}>{x}×</option>)}
         </select>
       </div>
-    </>}
+    </>
   </section>;
 }
