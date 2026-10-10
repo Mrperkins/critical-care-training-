@@ -1,6 +1,0 @@
-[{"js":"__app.getState().set({territoryId:'inferior',seq:1,seqPlaying:false,scene:{highlightVessel:true,flow:true,occlusion:1,perfusionLoss:1,injury:1,ecgMorph:1,emphasizeAffected:true,emphasizeReciprocal:true,showExtraLeads:true,camera:'territory'}})","wait":7000},
- {"js":"__app.getState().set({territoryId:'highLateral'})","wait":7000},
- {"js":"__app.getState().set({territoryId:'extensiveAnterior'})","wait":7000},
- {"js":"__app.getState().set({territoryId:null,showLeads:true,leadId:'aVF',scene:{...__app.getState().scene,camera:'overview',injury:0,ecgMorph:0}})","wait":8000},
- {"js":"__app.getState().set({leadId:null})","wait":8000},
- {"js":"__app.getState().set({showLeads:false,territoryId:'inferior',scene:{...__app.getState().scene,camera:'vessel',injury:0.2,occlusion:1,perfusionLoss:1,highlightVessel:true,flow:true}})","wait":8000}]

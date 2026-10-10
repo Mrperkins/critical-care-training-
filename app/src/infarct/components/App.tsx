@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import '../infarct.css';
 import { loadHeartAsset, type HeartAsset } from '../asset/heartAsset';
 import { LessonPlayer } from '../lesson/Player';
 import { STEMI_CULPRIT } from '../lesson/stemi';
@@ -21,17 +22,20 @@ export function useIsPhone() {
   return m;
 }
 
-export function App() {
+/** The Infarct Atlas as the coronary & ECG view of the cardiac module. `mode` comes from the host (Explore / Learn /
+ *  Practice → explore / lesson / quiz); `onExit` returns to the structure-and-flow view. */
+export function App({ mode: hostMode, onExit }: { mode?: Mode; onExit?: () => void } = {}) {
   const [asset, setAsset] = useState<HeartAsset | null>(null);
   const [err, setErr] = useState<string | null>(null);
   useEffect(() => { loadHeartAsset().then(setAsset).catch((e) => { console.error(e); setErr(String(e?.message || e)); }); }, []);
   useSequencer();
+  useEffect(() => { if (hostMode && useApp.getState().mode !== hostMode) setMode(hostMode); }, [hostMode]);
   const focus = useApp((s) => s.focus);
   const mode = useApp((s) => s.mode);
   const phone = useIsPhone();
   return (
-    <div className={`app focus-${phone ? 'split' : focus}${phone ? ' phone' : ''}`}>
-      <TopBar />
+    <div className={`mi focus-${phone ? 'split' : focus}${phone ? ' phone' : ''}`}>
+      <TopBar embedded={!!hostMode} onExit={onExit} />
       <div className="stage">
         <section className="heart-pane" aria-label="3D heart">
           {asset ? <HeartScene asset={asset} /> : <div className="loading">{err ? `Could not load the heart model: ${err}` : 'Loading anatomical heart…'}</div>}
@@ -86,15 +90,16 @@ export function applyLessonStep(tid: string, i: number) {
 }
 
 /* ---------------------------------------------------------------- chrome */
-function TopBar() {
+function TopBar({ embedded = false, onExit }: { embedded?: boolean; onExit?: () => void }) {
   const phone = useIsPhone(); const [opts, setOpts] = useState(false);
   const mode = useApp((s) => s.mode); const dom = useApp((s) => s.dominance); const showLeads = useApp((s) => s.showLeads); const focus = useApp((s) => s.focus); const cut = useApp((s) => s.cutaway);
   return (
     <header className="topbar">
-      <div className="brand"><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M3 15h5l2.5-6 4 12 3-9 2 3H25" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg><div><div className="b1">Infarct Atlas</div><div className="b2">Coronary territory · ECG localisation</div></div>{phone && <button className={`tgl opts-btn ${opts ? 'on' : ''}`} aria-expanded={opts} onClick={() => setOpts(!opts)}>Options</button>}</div>
-      <nav className="modes" aria-label="Mode">
+      {embedded && onExit && <button className="tgl" onClick={onExit}>← Structure &amp; flow</button>}
+      <div className="brand"><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M3 15h5l2.5-6 4 12 3-9 2 3H25" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg><div><div className="b1">{embedded ? 'Coronaries & ECG' : 'Infarct Atlas'}</div><div className="b2">Coronary territory · ECG localisation</div></div>{phone && <button className={`tgl opts-btn ${opts ? 'on' : ''}`} aria-expanded={opts} onClick={() => setOpts(!opts)}>Options</button>}</div>
+      {!embedded && <nav className="modes" aria-label="Mode">
         {(['explore', 'lesson', 'quiz'] as Mode[]).map((m) => <button key={m} className={mode === m ? 'on' : ''} onClick={() => setMode(m)}>{m === 'explore' ? 'Explore' : m === 'lesson' ? 'Guided lesson' : 'Challenge'}</button>)}
-      </nav>
+      </nav>}
       {(!phone || opts) && <div className="tools">
         <div className="seg" role="group" aria-label="Coronary dominance">
           {(['right', 'left'] as const).map((d) => <button key={d} className={dom === d ? 'on' : ''} title={DOMINANCE_INFO[d].text} onClick={() => { useApp.getState().set({ dominance: d, culpritIndex: 0 }); const s = useApp.getState(); if (s.mode === 'lesson' && s.territoryId) applyLessonStep(s.territoryId, s.lessonStep); }}>{d === 'right' ? 'Right dominant' : 'Left dominant'}</button>)}

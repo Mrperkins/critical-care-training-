@@ -8,6 +8,8 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { useFrame, useThree } from '@react-three/fiber';
 import { vesselCentrelines } from '../heart/heartGeometry';
+import { loadHeartAsset, centerlineAt, type HeartAsset } from '../infarct/asset/heartAsset';
+import { TERRITORY } from '../infarct/data/territories';
 import { loadSkeleton, loadPericardium, loadNeuroDeep, loadHeartInternals, loadUpperAirway, effusionThickness, CONDUCTION, VENTRICLES, DEEP_NUCLEI, LARYNX, UPPER_SOFT, type Layer, type PericardiumMapping } from '../asset/anatomy';
 import { conductionMaterial, branchOf, cycleMs } from '../scene/conduction';
 
@@ -215,4 +217,26 @@ function mergeTubes(gs: THREE.BufferGeometry[]) {
   const pos: number[] = []; const idx: number[] = []; let off = 0;
   for (const g of gs) { const p = g.attributes.position; for (let i = 0; i < p.count; i++) pos.push(p.getX(i), p.getY(i), p.getZ(i)); const ix = g.index!.array; for (let i = 0; i < ix.length; i++) idx.push(ix[i] + off); off += p.count; g.dispose(); }
   const r = new THREE.BufferGeometry(); r.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); r.setIndex(idx); r.computeVertexNormals(); return r;
+}
+
+/* ------------------------------------------------------------------ STEMI on the coronary heart (merged Infarct Atlas) */
+/** The coronary heart sits exactly where the body's heart is (same body frame), so the Atlas shows the real coronary
+ *  tree, a thrombus at the territory's usual culprit site and the ischaemic territory, in the patient. */
+export function CoronaryLayer({ territory = 'anterior', ischemia }: { territory?: string; ischemia: number }) {
+  const [asset, setAsset] = useState<HeartAsset | null>(null);
+  useEffect(() => { let off = false; loadHeartAsset().then((a) => { if (!off) setAsset(a); }).catch(() => undefined); return () => { off = true; }; }, []);
+  const terr = useDisposable(() => new THREE.MeshStandardMaterial({ color: '#d0245e', emissive: new THREE.Color('#8a1240'), roughness: 0.5, transparent: true, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -4, polygonOffsetUnits: -4 }), []);
+  terr.opacity = 0.35 + 0.55 * ischemia; terr.emissiveIntensity = 0.25 + 0.5 * ischemia;
+  if (!asset) return null;
+  const t = TERRITORY[territory]; const cp = t?.commonCulpritVessels[0]; const line = cp ? asset.mapping.vessels[cp.vessel]?.centerline : undefined;
+  const clot = line && cp ? centerlineAt(line, cp.at) : null; const r = cp ? asset.mapping.vessels[cp.vessel].radius : 0.02;
+  const show = Object.entries(asset.meshes).filter(([id]) => !id.startsWith('territory_'));
+  const mask = asset.meshes['territory_' + territory];
+  return <group>
+    {/* the coronary asset keeps meshopt de-quantisation in each node's matrix: draw with it */}
+    {show.map(([id, m]) => <mesh key={id} geometry={m.geometry} material={m.material} matrixAutoUpdate={false} matrix={m.matrixWorld} renderOrder={2} dispose={null} />)}
+    {mask && <mesh geometry={mask.geometry} material={terr} matrixAutoUpdate={false} matrix={mask.matrixWorld} renderOrder={3} dispose={null} />}
+    {/* thrombus: fills and slightly bulges the culprit artery (lumen radius ~0.6 mm here, drawn ≥ 3 mm so it reads) */}
+    {clot && <mesh position={clot} scale={Math.max(r * 2.6, 0.03)} renderOrder={4}><sphereGeometry args={[1, 20, 14]} /><meshStandardMaterial color="#ffd25a" roughness={0.6} emissive="#b07a10" emissiveIntensity={0.6} /></mesh>}
+  </group>;
 }

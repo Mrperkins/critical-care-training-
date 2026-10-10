@@ -1633,3 +1633,7 @@ body{font:14px/1.5 var(--fb);background:var(--bezel)}
   .scene-wrap:has(.view-btns) .imaging{padding-top:98px}
   .scene-wrap:has(.view-btns) .scene-primary-tools{top:98px}
 }
+
+/* merged Infarct Atlas: the coronary view owns the whole cardiac stage (it has its own heart + ECG panes) */
+.stage.mi-host{display:block;padding:0;min-height:0;height:100%}
+.stage.mi-host > .mi{height:100%}

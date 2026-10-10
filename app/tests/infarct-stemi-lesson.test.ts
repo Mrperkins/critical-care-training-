@@ -1,10 +1,10 @@
 import { describe, it, expect } from 'vitest';
-import { STEMI_CULPRIT } from '../src/lesson/stemi';
-import { resolve, duration } from '../src/lesson/timeline';
-import { useApp } from '../src/engine/store';
-import { TERRITORY } from '../src/data/territories';
-import { primaryCulprit } from '../src/data/lessons';
-import { stDeviationMm, qDepthMm, sample } from '../src/ecg/ecgModel';
+import { STEMI_CULPRIT } from '../src/infarct/lesson/stemi';
+import { resolve, duration } from '../src/infarct/lesson/timeline';
+import { useApp } from '../src/infarct/engine/store';
+import { TERRITORY } from '../src/infarct/data/territories';
+import { primaryCulprit } from '../src/infarct/data/lessons';
+import { stDeviationMm, qDepthMm, sample } from '../src/infarct/ecg/ecgModel';
 
 const at = (id: string) => { const c = STEMI_CULPRIT.cues.find((x) => x.id === id)!; resolve(STEMI_CULPRIT, c.at + 0.1); return useApp.getState(); };
 describe('STEMI culprit lesson', () => {

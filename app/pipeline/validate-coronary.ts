@@ -1,6 +1,6 @@
 /**
- * Validates public/models/heart/heart.glb + heart.mapping.json after any asset swap.
- *   npm run validate:asset
+ * Validates public/models/coronary-heart.glb + coronary-heart.mapping.json after any rebuild.
+ *   npm run asset:coronary:validate
  * Checks: required named structures, baked attributes, coronary centerlines,
  * and that every territory mask faces the leads that are supposed to see it.
  */
@@ -9,14 +9,14 @@ import path from 'node:path';
 import { NodeIO } from '@gltf-transform/core';
 import { ALL_EXTENSIONS } from '@gltf-transform/extensions';
 import { MeshoptDecoder } from 'meshoptimizer';
-import { TERRITORIES } from '../src/data/territories';
-import { VESSELS } from '../src/data/vessels';
-import { averageView } from '../src/data/leads';
-import type { LeadId } from '../src/data/types';
+import { TERRITORIES } from '../src/infarct/data/territories';
+import { VESSELS } from '../src/infarct/data/vessels';
+import { averageView } from '../src/infarct/data/leads';
+import type { LeadId } from '../src/infarct/data/types';
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
-const GLB = path.join(ROOT, 'public/models/heart/heart.glb');
-const MAP = path.join(ROOT, 'public/models/heart/heart.mapping.json');
+const GLB = path.join(ROOT, 'public/models/coronary-heart.glb');
+const MAP = path.join(ROOT, 'public/models/coronary-heart.mapping.json');
 
 /** Lead groups each mask must face (dot of mean outward normal with the group's view ≥ 0.45). */
 export const MASK_FACING: Record<string, LeadId[]> = {

@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { TERRITORIES, TERRITORY } from '../src/data/territories';
-import { LEAD, ALL_LEADS, TWELVE } from '../src/data/leads';
-import { VESSEL, downstream, ischemicBeyond, parentOf, upstream } from '../src/data/vessels';
-import { stDeviationMm, rHeightMm, qDepthMm, sample, T_QRS } from '../src/ecg/ecgModel';
-import { buildLesson, primaryCulprit, QUIZ_CASES } from '../src/data/lessons';
-import type { LeadId } from '../src/data/types';
+import { TERRITORIES, TERRITORY } from '../src/infarct/data/territories';
+import { LEAD, ALL_LEADS, TWELVE } from '../src/infarct/data/leads';
+import { VESSEL, downstream, ischemicBeyond, parentOf, upstream } from '../src/infarct/data/vessels';
+import { stDeviationMm, rHeightMm, qDepthMm, sample, T_QRS } from '../src/infarct/ecg/ecgModel';
+import { buildLesson, primaryCulprit, QUIZ_CASES } from '../src/infarct/data/lessons';
+import type { LeadId } from '../src/infarct/data/types';
 
 const threshold = (l: LeadId) => (LEAD[l].group === 'posterior' ? 0.5 : 1);
 
@@ -120,7 +120,7 @@ describe('lessons and quiz are generated from data', () => {
 
 describe('processed heart asset', () => {
   it('has every named structure, and each territory mask faces its leads', async () => {
-    const { validateAsset } = await import('../scripts/validate-asset');
+    const { validateAsset } = await import('../pipeline/validate-coronary');
     const r = await validateAsset();
     expect(r.errors).toEqual([]);
   }, 60000);

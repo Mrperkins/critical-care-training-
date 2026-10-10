@@ -13,7 +13,7 @@ import { StudioCanvas } from '../scene/Studio';
 import { HeartScene } from '../heart/HeartScene';
 import { loadHeartPreset, useHeartUI } from '../heart/heartStore';
 import type { DiseaseDefinition, DiseaseState } from './types';
-import { SkeletonLayer, PericardiumLayer, ConductionLayer, DeepBrainLayer, UpperAirwayLayer, PulmonaryEmbolusLayer, DissectionLayer, AneurysmLayer, PleuralLayer } from './AtlasLayers';
+import { SkeletonLayer, PericardiumLayer, ConductionLayer, DeepBrainLayer, UpperAirwayLayer, PulmonaryEmbolusLayer, DissectionLayer, AneurysmLayer, PleuralLayer, CoronaryLayer } from './AtlasLayers';
 import { BRAINSTEM, RIBS } from '../asset/anatomy';
 import { affectedOrgans, bodySexFor, isPregnant, usesAdultReference, HEART_PRESET_FOR, FEMALE_ORGANS, MALE_ORGANS, ORGAN_COLOR, type OrganId } from './anatomy3d';
 
@@ -123,13 +123,14 @@ function Pathology({ body, d, s, layered = false }: { body: BodyAsset; d: Diseas
 
 /** Which added anatomy each condition uses (male body). Effusion and haematoma volumes are illustrative, from the state. */
 export function atlasLayers(d: DiseaseDefinition, s: DiseaseState) {
-  const out: { bones: string[]; xray: OrganId[]; pericardium?: number; conduction?: { hr: number; avDelay?: number; dropEvery?: number }; brain?: { highlight?: string[]; ventricleScale?: number; ich?: string; ichMl?: number; show?: 'all' | 'ventricles' }; airway?: { edema: number; site?: 'supraglottic' | 'subglottic' }; pe?: { extent: number }; dissection?: { compression: number; wallStress: number }; aneurysm?: { dilation: number; bleeding: number }; pleural?: { air: number; blood: number } } = { bones: [], xray: [] };
+  const out: { bones: string[]; xray: OrganId[]; pericardium?: number; conduction?: { hr: number; avDelay?: number; dropEvery?: number }; brain?: { highlight?: string[]; ventricleScale?: number; ich?: string; ichMl?: number; show?: 'all' | 'ventricles' }; airway?: { edema: number; site?: 'supraglottic' | 'subglottic' }; pe?: { extent: number }; dissection?: { compression: number; wallStress: number }; aneurysm?: { dilation: number; bleeding: number }; pleural?: { air: number; blood: number }; coronary?: { territory: string; ischemia: number } } = { bones: [], xray: [] };
   if (d.variant === 'tension' || d.variant === 'pleural-air') out.bones = ['rib_R2', 'rib_R3', 'rib_R4', 'rib_R5']; // 2nd ICS MCL · 4th–5th ICS AAL
   if (d.variant === 'trauma' && d.anatomy === 'pleura') out.bones = RIBS('R').slice(2, 8);
   if (d.variant === 'pericardial') out.pericardium = 40 + 460 * s.fluid;
   if (d.variant === 'upper') out.airway = { edema: Math.max(s.edema, s.obstruction), site: 'supraglottic' };
   if (d.variant === 'subglottic') out.airway = { edema: Math.max(s.edema, s.obstruction), site: 'subglottic' };
   if (d.variant === 'aspiration') out.airway = { edema: 0 };
+  if (d.variant === 'coronary') { out.coronary = { territory: 'anterior', ischemia: s.ischemia }; out.xray.push('heart'); } // the real coronary tree replaces the plain heart surface
   if (d.variant === 'clot') { out.pe = { extent: s.obstruction }; out.xray.push('lung_L', 'lung_R', 'heart'); } // the clot sits in the pulmonary arteries above and behind the heart
   if (d.variant === 'dissection') { out.dissection = { compression: s.obstruction, wallStress: s.pressure }; out.xray.push('aorta'); }
   if (d.anatomy === 'aorta' && (d.variant === 'aneurysm' || d.variant === 'rupture')) { out.aneurysm = { dilation: s.overdistension, bleeding: d.variant === 'rupture' ? s.bleeding : 0 }; out.xray.push('aorta'); }
@@ -166,11 +167,12 @@ function BodyScene({ disease, state, target }: { disease: DiseaseDefinition; sta
       <Skin body={body} whole={target === 'body.whole'} />
       {list.map((id) => <Organ key={id} body={body} id={id} active={organs.includes(id)} state={state} disease={disease} xray={layers.xray.includes(id)} />)}
       <Pathology body={body} d={disease} s={state} layered={male} />
-      {male && <SkeletonLayer highlight={layers.bones} ghost={target === 'body.whole' ? 0.32 : 0.14} />}
+      {male && <SkeletonLayer highlight={layers.bones} ghost={target === 'body.whole' ? 0.32 : layers.bones.length ? 0.14 : 0.06} />}
       {male && layers.pericardium != null && <PericardiumLayer ml={layers.pericardium} blood={disease.variant === 'trauma'} />}
       {male && layers.conduction && <ConductionLayer {...layers.conduction} />}
       {male && layers.brain && <DeepBrainLayer {...layers.brain} />}
       {male && layers.airway && <UpperAirwayLayer {...layers.airway} />}
+      {male && layers.coronary && <CoronaryLayer {...layers.coronary} />}
       {male && layers.pe && <PulmonaryEmbolusLayer {...layers.pe} />}
       {male && layers.dissection && <DissectionLayer {...layers.dissection} />}
       {male && layers.aneurysm && body.meshes.aorta && <AneurysmLayer aorta={body.meshes.aorta.geometry} kidneyY={boxOf(body, ['kidney_L', 'kidney_R']).getCenter(new THREE.Vector3()).y} {...layers.aneurysm} />}

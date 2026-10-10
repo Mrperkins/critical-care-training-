@@ -21,6 +21,8 @@ else {
   if (module && modules.includes(module)) patch.module = module;
   if (mode && modes.includes(mode)) patch.mode = mode;
   if (Object.keys(patch).length) useUI.getState().set(patch);
+  // deep link into the coronary & ECG view of the cardiac module (the former standalone Infarct Atlas redirects here)
+  if (qp.get('view') === 'coronary') import('./heart/heartStore').then((m) => m.useHeartUI.getState().set({ section: 'coronary' }));
 }
 // offline support (published site only: the service worker file sits next to index.html)
 if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost') && !(window as unknown as { __NO_SW__?: boolean }).__NO_SW__)

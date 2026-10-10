@@ -17,6 +17,7 @@
     "asset:heart-internals": "node --import tsx pipeline/build-heart-internals.ts",
     "asset:optimize": "node --import tsx pipeline/optimize-assets.ts",
     "asset:upper-airway": "node --import tsx pipeline/build-upper-airway.ts",
+    "asset:coronary": "node --import tsx pipeline/build-coronary.ts && node --import tsx pipeline/validate-coronary.ts",
     "audio:lines": "node --import tsx scripts/audio-voice-lines.ts",
     "audio:voice:validate": "python3 scripts/audio_voice_validate.py",
     "audio:review": "node --import tsx scripts/audio-review-packet.ts",

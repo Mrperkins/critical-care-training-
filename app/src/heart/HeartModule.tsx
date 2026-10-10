@@ -22,6 +22,9 @@ import { HEART_LESSONS } from '../director/lessons/heart';
 import { SAT_PALETTE } from '../scene/effects';
 import { useLabUI, type VisualTier } from '../labs/labStore';
 import { SceneWrap } from '../scene/labels';
+import { App as CoronaryApp } from '../infarct/components/App';
+import type { Mode as MiMode } from '../infarct/engine/store';
+const MI_MODE: Record<string, MiMode> = { explore: 'explore', learn: 'lesson', challenge: 'quiz' };
 
 const PRESETS: [HeartPresetId, string][] = [['normal', 'Normal'], ['vsdSmall', 'Small VSD'], ['vsdLarge', 'Large VSD'], ['vsdEisen', 'VSD · Eisenmenger'], ['asd', 'ASD'], ['pfo', 'PFO'], ['pfoValsalva', 'PFO · Valsalva'], ['pda', 'PDA'],
   ['tof', 'Tetralogy'], ['pinkTet', 'Tetralogy · "pink"'], ['tetSpell', 'Tet spell'], ['coarct', 'Coarctation'], ['coarctNeoDuct', 'Newborn coarctation · duct open'], ['coarctNeoClosed', 'Newborn coarctation · duct closing'], ['newborn', 'Newborn · closing duct'], ['pphn', 'Newborn · PPHN']];
@@ -31,11 +34,12 @@ const CUTS: [CutMode, string][] = [['auto', 'Auto'], ['slice', '4-chamber slice'
 const LESION_FOCUS: Record<LesionKind, string> = { none: 'heart.four_chamber', vsd: 'heart.vsd', asd: 'heart.asd', pfo: 'heart.pfo', pda: 'heart.pda', tof: 'heart.vsd', coarct: 'heart.coarct' };
 
 export function HeartModule() {
-  const mode = useUI((s) => s.mode);
+  const mode = useUI((s) => s.mode); const section = useHeartUI((s) => s.section);
   useExploreMemory('heart', () => { const s = useHeartUI.getState(); return { preset: s.preset, input: { ...s.input }, target: s.target, cut: s.cut, mode: s.mode }; }, (m) => useHeartUI.getState().set(m));
   const dTarget = useDirector((s) => s.target);
   useEffect(() => { if (dTarget?.startsWith('heart.')) useHeartUI.getState().set({ target: dTarget }); }, [dTarget]);
   useEffect(() => { (window as unknown as { __CCHeart: unknown }).__CCHeart = { store: useHeartUI, load: loadHeartPreset, set: setHeartInput, focus: (id: string) => useHeartUI.getState().set({ target: id }) }; }, []);
+  if (section === 'coronary') return <main className="stage mi-host" aria-label="Coronaries and ECG"><CoronaryApp mode={MI_MODE[mode] ?? 'explore'} onExit={() => useHeartUI.getState().set({ section: 'structure' })} /></main>;
   return (
     <main className="stage">
       <section className="scene-pane">
@@ -64,6 +68,7 @@ function HeartOverlay() {
   return (<>
     <div className="scene-tools">
       <div className="seg small" role="group" aria-label="Flow colour">{([['sat', 'O₂ saturation'], ['doppler', 'Flow direction']] as [FlowMode, string][]).map(([k, l]) => <button key={k} className={flow === k ? 'on' : ''} onClick={() => set({ mode: k })}>{l}</button>)}</div>
+      <button className="tgl" onClick={() => set({ section: 'coronary' })}>Coronaries &amp; ECG →</button>
       <button className={`tgl${conduction ? ' on' : ''}`} aria-pressed={conduction} onClick={() => set({ conduction: !conduction })}>Conduction</button>
       <button className={`tgl${pericardium ? ' on' : ''}`} aria-pressed={pericardium} onClick={() => set({ pericardium: !pericardium })}>Pericardium</button>
       <MiniSelect label="Open" value={cut} options={CUTS.map(([k, l]) => [k, k === 'auto' ? `Auto · ${CUT_LABEL[autoCut(target)]}` : l]) as [CutMode, string][]} onChange={(v) => set({ cut: v })} />

@@ -19,17 +19,17 @@ import { Document, NodeIO } from '@gltf-transform/core';
 import { ALL_EXTENSIONS, EXTMeshoptCompression } from '@gltf-transform/extensions';
 import { reorder, quantize } from '@gltf-transform/functions';
 import { MeshoptEncoder, MeshoptSimplifier } from 'meshoptimizer';
-import { TERRITORIES } from '../src/data/territories';
-import { VESSEL } from '../src/data/vessels';
-import type { LeadId, RegionId, VesselId } from '../src/data/types';
-import { averageView } from '../src/data/leads';
+import { TERRITORIES } from '../src/infarct/data/territories';
+import { VESSEL } from '../src/infarct/data/vessels';
+import type { LeadId, RegionId, VesselId } from '../src/infarct/data/types';
+import { averageView } from '../src/infarct/data/leads';
 
 (THREE.BufferGeometry.prototype as any).computeBoundsTree = computeBoundsTree;
 THREE.Mesh.prototype.raycast = acceleratedRaycast;
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
-const MAP = JSON.parse(fs.readFileSync(path.join(ROOT, 'assets/asset-map.json'), 'utf8'));
-const OUT_DIR = path.join(ROOT, 'public/models/heart');
+const MAP = JSON.parse(fs.readFileSync(path.join(ROOT, 'pipeline/coronary-map.json'), 'utf8'));
+const OUT_DIR = path.join(ROOT, 'public/models');
 const V3 = THREE.Vector3;
 const log = (...a: unknown[]) => console.log('[asset]', ...a);
 
@@ -89,8 +89,11 @@ function normalise(parts: Part[]) {
   const m = new THREE.Matrix4().makeScale(s, s, s).multiply(new THREE.Matrix4().makeTranslation(-c.x, -c.y, -c.z));
   parts.forEach((p) => { p.geo.applyMatrix4(m); p.geo.computeBoundingBox(); p.geo.computeBoundingSphere(); });
   log('centre (source units)', c.toArray().map((x) => x.toFixed(4)).join(', '), 'scale', s);
+  HEART_CENTRE.copy(c);
 }
 
+/** heart-bbox centre in source units (set by normalise); the output is moved into the shared body frame at the end */
+const HEART_CENTRE = new THREE.Vector3();
 const get = (parts: Part[], id: string) => { const p = parts.find((q) => q.id === id); if (!p) throw new Error('missing part ' + id); return p; };
 const centroid = (g: THREE.BufferGeometry) => { const a = g.attributes.position; const c = new V3(); for (let i = 0; i < a.count; i++) c.add(new V3().fromBufferAttribute(a, i)); return c.divideScalar(a.count); };
 
@@ -381,12 +384,26 @@ async function main() {
   masks.forEach((m) => m.geo.setAttribute('_ao', new THREE.BufferAttribute(new Float32Array(m.geo.attributes.position.count).fill(1), 1)));
   const finalParts = [...parts.filter((p) => p.role !== 'landmark' && p.role !== 'guide'), ...masks];
 
+  /* Shared body frame. Every step above runs heart-centred (exactly as the standalone Infarct Atlas did); the finished
+     geometry and every coordinate in the mapping are then translated into the Visible Human Male body frame used by
+     body.glb, lines.glb, skeleton.glb … (decimetres, centred on the VHM skin). The standalone VH_M_Heart sits exactly
+     where the united body places it (checked: chamber centroids agree to 0.1 mm), so this is a pure translation. */
+  const united = new NodeIO().registerExtensions(ALL_EXTENSIONS); const udoc = await united.read(path.join(ROOT, 'assets/source/VH_M_United.glb'));
+  const skinNode = udoc.getRoot().listNodes().find((n) => n.getName() === 'VH_M_skin')!; const sb = new THREE.Box3(); const sm = new THREE.Matrix4().fromArray(skinNode.getWorldMatrix());
+  const sp = skinNode.getMesh()!.listPrimitives()[0].getAttribute('POSITION')!; const tv = new V3(); for (let i = 0; i < sp.getCount(); i++) sb.expandByPoint(tv.fromArray(sp.getElement(i, [])).applyMatrix4(sm));
+  const OFFSET = HEART_CENTRE.clone().sub(sb.getCenter(new V3())).multiplyScalar(MAP.scale as number);
+  log('body-frame offset (dm)', OFFSET.toArray().map((x) => x.toFixed(4)).join(', '));
+  for (const p of finalParts) { p.geo.translate(OFFSET.x, OFFSET.y, OFFSET.z); p.geo.computeBoundingBox(); p.geo.computeBoundingSphere(); }
+  f.base = f.base.clone().add(OFFSET); f.apex = f.apex.clone().add(OFFSET); // fresh vectors: a point shared by two centrelines must move once
+  for (const k of Object.keys(lines) as VesselId[]) lines[k] = lines[k]!.map((q) => q.clone().add(OFFSET));
+
   await writeGLB(finalParts);
   const r3 = (v: THREE.Vector3) => v.toArray().map((x) => +x.toFixed(4));
   const mapping = {
     generatedAt: new Date().toISOString(),
     attribution: MAP.attribution,
-    units: 'heart-centred decimetres (source metres × 10)',
+    units: 'decimetres, body-centred (the shared Visible Human Male body frame of body.glb / lines.glb)',
+    bodyOffset: OFFSET.toArray().map((x) => +x.toFixed(5)),
     frame: '+X patient left, +Y superior, +Z anterior',
     lvAxis: { base: r3(f.base), apex: r3(f.apex), length: +f.len.toFixed(4) },
     regions: REGIONS,
@@ -395,8 +412,7 @@ async function main() {
     territories: Object.fromEntries(TERRITORIES.map((t) => [t.id, { mesh: `territory_${t.id}` }])),
     meshes: finalParts.map((p) => ({ id: p.id, role: p.role, vessel: p.vessel ?? null, vertices: p.geo.attributes.position.count })),
   };
-  fs.writeFileSync(path.join(OUT_DIR, 'heart.mapping.json'), JSON.stringify(mapping));
-  fs.writeFileSync(path.join(OUT_DIR, 'ATTRIBUTION.md'), attributionMd());
+  fs.writeFileSync(path.join(OUT_DIR, 'coronary-heart.mapping.json'), JSON.stringify(mapping));
   log('wrote', path.relative(ROOT, OUT_DIR));
 }
 
@@ -432,8 +448,8 @@ async function writeGLB(parts: Part[]) {
   doc.createExtension(EXTMeshoptCompression).setRequired(true).setEncoderOptions({ method: EXTMeshoptCompression.EncoderMethod.QUANTIZE });
   fs.mkdirSync(OUT_DIR, { recursive: true });
   const io = new NodeIO().registerExtensions(ALL_EXTENSIONS).registerDependencies({ 'meshopt.encoder': MeshoptEncoder });
-  await io.write(path.join(OUT_DIR, 'heart.glb'), doc);
-  log('heart.glb', (fs.statSync(path.join(OUT_DIR, 'heart.glb')).size / 1e6).toFixed(2), 'MB,', parts.length, 'meshes');
+  await io.write(path.join(OUT_DIR, 'coronary-heart.glb'), doc);
+  log('coronary-heart.glb', (fs.statSync(path.join(OUT_DIR, 'coronary-heart.glb')).size / 1e6).toFixed(2), 'MB,', parts.length, 'meshes');
 }
 
 function attributionMd() {

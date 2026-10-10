@@ -8,8 +8,9 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js';
 import type { Vec3, VesselId, RegionId } from '../data/types';
 
-export const HEART_ASSET_URL = 'models/heart/heart.glb';
-export const HEART_MAPPING_URL = 'models/heart/heart.mapping.json';
+/** The coronary heart lives in the shared body frame (app/pipeline/build-coronary.ts), next to body.glb / lines.glb. */
+export const HEART_ASSET_URL = 'models/coronary-heart.glb';
+export const HEART_MAPPING_URL = 'models/coronary-heart.mapping.json';
 
 export interface HeartMapping {
   attribution: { title: string; creators: string; data: string; license: string; licenseUrl: string; doi: string; sourceUrl: string; changes: string };
@@ -30,15 +31,19 @@ export interface HeartAsset {
   atriaCenter: THREE.Vector3;
 }
 
-declare global { interface Window { __HEART_GLB__?: string; __HEART_MAP__?: HeartMapping } }
+declare global { interface Window { __CORONARY_GLB__?: string; __CORONARY_MAP__?: HeartMapping; __B64_MODELS__?: boolean } }
 
 const b64ToBuf = (b64: string) => { const bin = atob(b64); const u = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i); return u.buffer; };
 
 const RENAME: Record<string, string> = { _rega: 'aRegA', _regb: 'aRegB', _ao: 'aAO', _fat: 'aFat', _s: 'aS', _ch: 'aCh', _w: 'aW' };
 
-export async function loadHeartAsset(): Promise<HeartAsset> {
-  const buf = window.__HEART_GLB__ ? b64ToBuf(window.__HEART_GLB__) : await (await fetch(HEART_ASSET_URL)).arrayBuffer();
-  const mapping: HeartMapping = window.__HEART_MAP__ ?? (await (await fetch(HEART_MAPPING_URL)).json());
+let cache: Promise<HeartAsset> | null = null;
+/** cached: the cardiac module and the Atlas share one load */
+export function loadHeartAsset(): Promise<HeartAsset> { if (!cache) { cache = loadOnce(); cache.catch(() => { cache = null; }); } return cache; }
+async function loadOnce(): Promise<HeartAsset> {
+  // published pages serve binary models as base64 text (.glb.txt), like every other model in the app
+  const buf = window.__CORONARY_GLB__ ? b64ToBuf(window.__CORONARY_GLB__) : window.__B64_MODELS__ ? b64ToBuf((await (await fetch(HEART_ASSET_URL + '.txt')).text()).trim()) : await (await fetch(HEART_ASSET_URL)).arrayBuffer();
+  const mapping: HeartMapping = window.__CORONARY_MAP__ ?? (await (await fetch(HEART_MAPPING_URL)).json());
   await MeshoptDecoder.ready;
   const loader = new GLTFLoader(); loader.setMeshoptDecoder(MeshoptDecoder);
   const gltf = await loader.parseAsync(buf, '');
