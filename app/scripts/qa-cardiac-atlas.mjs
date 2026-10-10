@@ -32,7 +32,7 @@ try{
       await expect(page.getByRole('img',{name:'Interactive intact 3D cardiac anatomy'})).toBeVisible({timeout:35000});
       if(await page.locator('.heart-scene-pane canvas').count()!==1)throw Error('Mobile split must mount exactly one 3D canvas');
       await page.screenshot({path:path.join(out,'atlas-mobile-whole.png'),fullPage:false,timeout:45000});
-      await page.getByRole('button',{name:'Lessons',exact:true}).first().click();
+      await page.getByRole('button',{name:/^(Lessons|Controls|Questions)$/}).first().click();
       await panel.getByRole('button',{name:'Conduction',exact:true}).click();
       await page.getByRole('button',{name:'Scene',exact:true}).first().click();
       await expect(page.getByRole('img',{name:'Interactive 3D cutaway heart and electrical conduction'})).toBeVisible({timeout:35000});
