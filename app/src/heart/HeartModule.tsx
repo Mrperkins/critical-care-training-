@@ -50,9 +50,9 @@ export function HeartModule() {
         <SceneWrap><HeartScene /><HeartOverlay /></SceneWrap>
       </section>
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
+        <HeartECGStudy />
         {mode === 'challenge' ? <CaseChallenge module="heart" /> : mode === 'learn' ? <HeartLearn /> : <>
           <PresetCard />
-          <HeartECGStudy />
           <ControlsCard />
           <NeoSlot />
           <Fold group="heart" id="circ" title="Circulation" summary="PVR, SVR, patient size"><CirculationCard /></Fold>
