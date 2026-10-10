@@ -59,7 +59,7 @@ export const loadHeartInternals = layer<HeartInternalsMapping>('heart-internals'
 export interface HeartHDMapping { parts: { id: string; triangles: number }[]; relief: string; attribution: Attribution }
 declare global { interface Window { __HEARTHD_GLB__?: string; __HEARTHD_MAP__?: HeartHDMapping } }
 /** full-resolution chambers with sculpted endocardial relief (pipeline/build-heart-hd.ts); same ids as lines.glb (lv, rv, ra, la) */
-export const loadHeartHD = layer<HeartHDMapping>('heart-hd', () => window.__HEARTHD_GLB__, () => window.__HEARTHD_MAP__);
+export const loadHeartHD = layer<HeartHDMapping>('heart-hd', () => window.__HEARTHD_GLB__, () => window.__HEARTHD_MAP__, ['aCh']);
 export interface NervesMapping { centres: Record<string, number[]>; anchors: Record<string, number[]>; labels: Record<string, string>; schematic: string; attribution: Attribution[] }
 declare global { interface Window { __NERVES_GLB__?: string; __NERVES_MAP__?: NervesMapping } }
 /** autonomic + phrenic innervation of the heart (pipeline/build-nerves.ts): Z-Anatomy vagus/sympathetic meshes registered to this body + landmark-placed plexus and phrenic courses */

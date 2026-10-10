@@ -193,3 +193,17 @@ describe('cardiac innervation (nerves.glb)', () => {
     expect(m.schematic).toMatch(/schematic/); expect(m.license).toMatch(/CC BY-SA/);
   });
 });
+
+describe('epicardial vessels (heart-hd.glb)', () => {
+  it('ships the coronary tree and cardiac veins at full resolution, tagged to their chambers', async () => {
+    await MeshoptDecoder.ready;
+    const io = new NodeIO().registerExtensions(ALL_EXTENSIONS).registerDependencies({ 'meshopt.decoder': MeshoptDecoder });
+    const doc = await io.read('public/models/heart-hd.glb');
+    for (const id of ['coronary_art', 'cardiac_veins']) {
+      const node = doc.getRoot().listNodes().find((n) => n.getName() === id); expect(node, id).toBeTruthy();
+      const prim = node!.getMesh()!.listPrimitives()[0]; expect(prim.getAttribute('_CH'), id + ' _CH').toBeTruthy();
+      expect(prim.getIndices()!.getCount() / 3).toBeGreaterThan(10000);
+    }
+    expect(json('heart-hd.mapping.json').vessels).toMatch(/LAD/);
+  });
+});

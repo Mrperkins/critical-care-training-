@@ -42,19 +42,25 @@ const BASE_COLOR: Record<PartId, string> = {
 };
 
 /* ------------------------------------------------------------------ material with holes, beat, endocardial tint and cut faces */
-interface HeartUniforms { [k: string]: THREE.IUniform; uC: { value: THREE.Vector3 }; uK: { value: number }; uHn: { value: number }; uHc: { value: THREE.Vector4[] }; uHa: { value: THREE.Vector4[] }; uHu: { value: THREE.Vector4[] }; uBlood: { value: THREE.Color }; uBloodMix: { value: number }; uCut: { value: THREE.Color } }
+interface HeartUniforms { [k: string]: THREE.IUniform; uC: { value: THREE.Vector3 }; uK: { value: number }; uK4: { value: THREE.Vector4 }; uCs: { value: THREE.Vector3[] }; uRvT: { value: number }; uHn: { value: number }; uHc: { value: THREE.Vector4[] }; uHa: { value: THREE.Vector4[] }; uHu: { value: THREE.Vector4[] }; uBlood: { value: THREE.Color }; uBloodMix: { value: number }; uCut: { value: THREE.Color } }
 function heartMaterial(id: PartId, planes: THREE.Plane[]) {
   const vessel = /aorta|arch|pulm_art|svc|ivc|pulm_veins/.test(id); const valve = /valve|tricuspid|mitral/.test(id);
   const m = new THREE.MeshPhysicalMaterial({ color: BASE_COLOR[id], roughness: valve ? 0.6 : vessel ? 0.38 : 0.5, clearcoat: valve ? 0 : 0.45, clearcoatRoughness: 0.4, sheen: 0.4, sheenColor: new THREE.Color('#ffb3a6'), side: THREE.DoubleSide, clippingPlanes: planes });
   const U: HeartUniforms = {
-    uC: { value: (CHAMBER[id] ?? CENTRE).clone() }, uK: { value: 1 }, uHn: { value: 0 },
+    uC: { value: (CHAMBER[id] ?? CENTRE).clone() }, uK: { value: 1 }, uK4: { value: new THREE.Vector4(1, 1, 1, 1) }, uCs: { value: [LM.lv, LM.rv, LM.la, LM.ra].map((v) => v.clone()) }, uRvT: { value: 0 }, uHn: { value: 0 },
     uHc: { value: [0, 1, 2].map(() => new THREE.Vector4()) }, uHa: { value: [0, 1, 2].map(() => new THREE.Vector4()) }, uHu: { value: [0, 1, 2].map(() => new THREE.Vector4()) },
     uBlood: { value: new THREE.Color('#7a2030') }, uBloodMix: { value: 0 }, uCut: { value: new THREE.Color('#6f1c16') },
   };
   m.onBeforeCompile = (sh) => {
     Object.assign(sh.uniforms, U);
-    sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nuniform vec3 uC; uniform float uK; varying vec3 vB; varying vec3 vNB;')
-      .replace('#include <begin_vertex>', '#include <begin_vertex>\nvB = position; vNB = normal; transformed = uC + (position - uC) * uK;');
+    // epicardial vessels ride on their chamber (aCh: 1 LV, 2 RV, 3 LA, 4 RA): same dilation, and pushed out with RV wall thickening
+    const epiVessel = id === 'coronary_art' || id === 'cardiac_veins';
+    sh.vertexShader = sh.vertexShader.replace('#include <common>', `#include <common>\nuniform vec3 uC; uniform float uK; uniform vec4 uK4; uniform vec3 uCs[4]; uniform float uRvT; varying vec3 vB; varying vec3 vNB;${epiVessel ? '\nattribute float aCh;' : ''}`)
+      .replace('#include <begin_vertex>', epiVessel
+        ? `#include <begin_vertex>\nvB = position; vNB = normal; int ch = int(aCh + 0.5); vec3 cc = uC; float kk = 1.0;
+if (ch == 1) { cc = uCs[0]; kk = uK4.x; } else if (ch == 2) { cc = uCs[1]; kk = uK4.y; transformed += normalize(position - uCs[1]) * uRvT; } else if (ch == 3) { cc = uCs[2]; kk = uK4.z; } else if (ch == 4) { cc = uCs[3]; kk = uK4.w; }
+transformed = cc + (transformed - cc) * kk;`
+        : '#include <begin_vertex>\nvB = position; vNB = normal; transformed = uC + (position - uC) * uK;');
     sh.fragmentShader = sh.fragmentShader.replace('#include <common>', `#include <common>
 uniform vec3 uC; uniform int uHn; uniform vec4 uHc[3]; uniform vec4 uHa[3]; uniform vec4 uHu[3]; uniform vec3 uBlood; uniform float uBloodMix; uniform vec3 uCut; varying vec3 vB; varying vec3 vNB;`)
       .replace('#include <clipping_planes_fragment>', `#include <clipping_planes_fragment>
@@ -67,7 +73,7 @@ float inner = step(dot(vNB, vB - uC), 0.0);
 diffuseColor.rgb = mix(diffuseColor.rgb, uBlood, inner * uBloodMix);
 if (!gl_FrontFacing) diffuseColor.rgb = uCut;`);
   };
-  m.customProgramCacheKey = () => 'heart-cutaway-v1';
+  m.customProgramCacheKey = () => (id === 'coronary_art' || id === 'cardiac_veins' ? 'heart-cutaway-v1-epivessel' : 'heart-cutaway-v1');
   return { m, U };
 }
 
@@ -222,7 +228,7 @@ function Heart({ asset, s, tier, hd }: { asset: LinesAsset; s: ShuntState; tier:
     const sat: Partial<Record<PartId, number>> = { ra: s.sat.ra, rv: s.sat.rv, la: s.sat.la, lv: s.sat.lv, aorta: s.sat.ao, arch_branches: s.sat.ao, pulm_art: s.sat.pa, svc: s.sat.sv, ivc: s.sat.sv, pulm_veins: 0.98 };
     for (const p of parts) {
       const K = p.id === 'lv' ? k.lv : p.id === 'rv' ? k.rv : p.id === 'la' ? k.la : p.id === 'ra' ? k.ra : 1; // chronic dilation only; the beat is the shared field
-      p.U.uK.value = K; const sv = sat[p.id];
+      p.U.uK.value = K; p.U.uK4.value.set(k.lv, k.rv, k.la, k.ra); p.U.uRvT.value = shape.rvWall; const sv = sat[p.id];
       if (sv != null) { if (CHAMBER[p.id]) { saturationColor(sv, p.U.uBlood.value, true); p.U.uBloodMix.value = 0.42; } else saturationColor(sv, p.m.color, true); }
     }
     if (ductGeo) saturationColor(s.lr >= s.rl ? s.sat.ao : s.sat.pa, ductMat.color, true);

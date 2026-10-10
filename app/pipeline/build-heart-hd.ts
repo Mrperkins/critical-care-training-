@@ -21,7 +21,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { MeshBVH } from 'three-mesh-bvh';
 import { mergeVertices } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
-import { ROOT, log, readGLB, writeGLB, subdivide, simplify, orientOutward, MeshoptSimplifier, type OutPart, V3 } from './common';
+import { ROOT, log, readGLB, writeGLB, subdivide, simplify, orientOutward, mergeGeos, MeshoptSimplifier, type OutPart, V3 } from './common';
 import { taubin, makeGrid, rasterUnion, blur, marchingCubes, idx } from './voxel';
 import { LM } from '../src/heart/heartGeometry';
 await MeshoptSimplifier.ready;
@@ -153,9 +153,65 @@ const parts: OutPart[] = [
   { id: 'ra', role: 'atrium', geo: sculpt('ra', get('right_cardiac_atrium'), 0, raRelief, 1) },
   { id: 'la', role: 'atrium', geo: sculpt('la', get('left_cardiac_atrium'), 0, laRelief, 1) },
 ];
-await writeGLB('public/models/heart-hd.glb', parts, { ventricle: { color: [0.55, 0.16, 0.13], rough: 0.5 }, atrium: { color: [0.6, 0.2, 0.18], rough: 0.5 }, default: { color: [0.55, 0.16, 0.13], rough: 0.5 } });
+/* ------------------------------------------------------------------ epicardial vessels at true calibre */
+// The named coronary tree (centrelines from the coronary model, pipeline/coronary-map.json) laid onto these epicardial
+// surfaces, half-sunk in the groove, at adult calibres (LM ≈ 4.5 mm, proximal LAD ≈ 3.6 mm, RCA ≈ 3.8 mm … tapering).
+// Cardiac veins follow their companion arteries as in Gray's: great cardiac vein with the LAD then the LCx, coronary
+// sinus in the posterior AV groove to its ostium, middle cardiac vein with the PDA, small cardiac vein with the distal
+// RCA, posterior LV vein, and anterior cardiac veins crossing the RV to the right atrium.
+const CMv = JSON.parse(fs.readFileSync(path.join(ROOT, 'public/models/coronary-heart.mapping.json'), 'utf8')).vessels as Record<string, { centerline: number[][] }>;
+const surf = mergeGeos(parts.map((p) => { const h = p.geo.clone(); for (const k of Object.keys(h.attributes)) if (k !== 'position') h.deleteAttribute(k); return h; }));
+const epiBvh = new MeshBVH(surf); surf.computeBoundingBox(); const HC = surf.boundingBox!.getCenter(new V3());
+/** first hit of a ray from outside toward the heart centre (the epicardium), or null if far from p (vessel off the heart) */
+const epiHit = (p: THREE.Vector3) => { const d = p.clone().sub(HC).normalize(); const h = epiBvh.raycastFirst(new THREE.Ray(HC.clone().addScaledVector(d, 3), d.clone().negate()), THREE.DoubleSide); return h && h.point.distanceTo(p) < 0.1 ? { p: h.point.clone(), n: d } : null; };
+function lay(ctrl: THREE.Vector3[], r: (t: number) => number, sink = 0.45, offset = 0, n = 0) {
+  const c = new THREE.CatmullRomCurve3(ctrl, false, 'centripetal'); const N = n || Math.max(12, Math.ceil(c.getLength() / 0.012)); let pts = c.getSpacedPoints(N);
+  for (let it = 0; it < 3; it++) pts = pts.map((p, i) => { const q = i === 0 || i === pts.length - 1 ? p : p.clone().add(pts[i - 1]).add(pts[i + 1]).multiplyScalar(1 / 3); const h = epiHit(q); return h ? h.p.addScaledVector(h.n, r(i / N) * (1 - 2 * sink)) : q; });
+  if (offset) pts = pts.map((p, i) => { const tng = pts[Math.min(i + 1, N)].clone().sub(pts[Math.max(i - 1, 0)]).normalize(); const nrm = p.clone().sub(HC).normalize(); const q = p.clone().addScaledVector(tng.cross(nrm).normalize(), offset); const h = epiHit(q); return h ? h.p.addScaledVector(h.n, r(i / N) * (1 - 2 * sink)) : q; });
+  return varTube(pts, r);
+}
+/** tube with a radius that varies along it (parallel-transport frames, closed rings, capped ends) */
+function varTube(pts: THREE.Vector3[], r: (t: number) => number, seg = 10) {
+  const c = new THREE.CatmullRomCurve3(pts, false, 'centripetal'); const N = Math.max(8, Math.ceil(c.getLength() / 0.004)); const F = c.computeFrenetFrames(N, false);
+  const pos: number[] = []; const idx: number[] = [];
+  for (let i = 0; i <= N; i++) { const t = i / N; const p = c.getPointAt(t); const rr = r(t); for (let j = 0; j < seg; j++) { const a = (j / seg) * Math.PI * 2; const v = F.normals[i].clone().multiplyScalar(Math.cos(a)).addScaledVector(F.binormals[i], Math.sin(a)); pos.push(p.x + v.x * rr, p.y + v.y * rr, p.z + v.z * rr); } }
+  for (let i = 0; i < N; i++) for (let j = 0; j < seg; j++) { const a = i * seg + j, b = i * seg + ((j + 1) % seg), c2 = a + seg, d = b + seg; idx.push(a, c2, b, b, c2, d); }
+  for (const [i, flip] of [[0, true], [N, false]] as const) { const p = c.getPointAt(i / N); const ci = pos.length / 3; pos.push(p.x, p.y, p.z); for (let j = 0; j < seg; j++) { const a = i * seg + j, b = i * seg + ((j + 1) % seg); if (flip) idx.push(ci, b, a); else idx.push(ci, a, b); } }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setIndex(idx);
+  // outward winding: the app paints back faces as cut myocardium
+  const A = new V3(), B = new V3(), Cc = new V3(); A.fromArray(pos, idx[0] * 3); B.fromArray(pos, idx[1] * 3); Cc.fromArray(pos, idx[2] * 3);
+  const fn = B.clone().sub(A).cross(Cc.clone().sub(A)); const out = A.clone().add(B).add(Cc).divideScalar(3).sub(c.getPointAt(0));
+  if (fn.dot(out) < 0) { for (let i = 0; i < idx.length; i += 3) [idx[i + 1], idx[i + 2]] = [idx[i + 2], idx[i + 1]]; g.setIndex(idx); }
+  g.computeVertexNormals(); return g;
+}
+const cl = (id: string, a = 0, b = 1) => { const L = CMv[id].centerline.map(v3); return L.slice(Math.round(a * (L.length - 1)), Math.round(b * (L.length - 1)) + 1); };
+const taper = (r0: number, r1: number) => (t: number) => r0 + (r1 - r0) * Math.pow(t, 0.8);
+const ART: [string, number, number][] = [['LM', 0.0225, 0.02], ['LAD', 0.018, 0.006], ['LCx', 0.016, 0.007], ['RCA', 0.019, 0.008], ['D1', 0.011, 0.004], ['D2', 0.009, 0.0035], ['OM1', 0.011, 0.0045], ['OM2', 0.009, 0.0035], ['PDA', 0.011, 0.0045], ['PLB', 0.009, 0.0035], ['AM', 0.009, 0.0035]];
+const arteries = ART.filter(([id]) => CMv[id]).map(([id, r0, r1]) => (id === 'LM' ? varTube(cl(id), taper(r0, r1)) : lay(cl(id), taper(r0, r1))));
+for (const id of ['S1', 'S2', 'S3']) if (CMv[id]) arteries.push(varTube(cl(id), taper(0.007, 0.003))); // septal perforators: intramyocardial, left in place
+const CS_O = v3(IM.landmarks.csOstium);
+const lcxEnd = cl('LCx').at(-1)!; const csPath = [lcxEnd, lcxEnd.clone().lerp(CS_O, 0.5), CS_O];
+const veins = [
+  lay([...cl('LAD', 0.12, 0.9).reverse(), ...cl('LCx', 0.08, 1)], (t) => 0.009 + 0.016 * t, 0.4, 0.035),            // great cardiac vein
+  lay(csPath, (t) => 0.03 + 0.012 * t, 0.35),                                                                         // coronary sinus
+  lay([...cl('PDA', 0, 1).reverse(), CS_O], (t) => 0.007 + 0.013 * t, 0.4, -0.03),                                    // middle cardiac vein
+  lay([...cl('RCA', 0.55, 1), CS_O], (t) => 0.006 + 0.006 * t, 0.4, 0.03),                                             // small cardiac vein
+  ...(CMv.PLB ? [lay([...cl('PLB').reverse(), lcxEnd.clone().lerp(CS_O, 0.25)], (t) => 0.006 + 0.008 * t, 0.4, 0.03)] : []), // posterior vein of the LV
+  ...(CMv.OM1 ? [lay([...cl('OM1').reverse(), cl('LCx', 0.45, 0.45)[0]], (t) => 0.005 + 0.006 * t, 0.4, 0.03)] : []),       // left marginal vein
+  ...(CMv.AM ? [0.25, 0.6].map((f) => { const a = cl('AM'); const st = a[Math.round(f * (a.length - 1))]; const rca = cl('RCA', 0.15 + f * 0.2, 0.15 + f * 0.2)[0]; return lay([st.clone().lerp(rca, 0.1), st.clone().lerp(rca, 0.6), rca, rca.clone().add(new V3(-0.02, 0.06, 0.01))], () => 0.005, 0.4, 0.02); }) : []), // anterior cardiac veins → RA
+];
+// `_ch` per vessel vertex: the chamber whose epicardium it lies on (1 LV, 2 RV, 3 LA, 4 RA, 0 off the heart), so the app
+// can carry the vessels with chronic chamber dilation and RV wall thickening instead of burying them
+const chB = (['lv', 'rv', 'la', 'ra'] as const).map((id) => new MeshBVH(parts.find((p) => p.id === id)!.geo)); const cq = { point: new V3(), distance: 0 } as any;
+const tagCh = (g: THREE.BufferGeometry) => { const P = g.attributes.position; const ch = new Float32Array(P.count); const q = new V3();
+  for (let i = 0; i < P.count; i++) { q.fromBufferAttribute(P, i); let best = 0, bd = 0.06; chB.forEach((bv, k) => { bv.closestPointToPoint(q, cq); if (cq.distance < bd) { bd = cq.distance; best = k + 1; } }); ch[i] = best; }
+  g.setAttribute('_ch', new THREE.BufferAttribute(ch, 1)); return g; };
+parts.push({ id: 'coronary_art', role: 'artery', geo: tagCh(mergeGeos(arteries)) }, { id: 'cardiac_veins', role: 'vein', geo: tagCh(mergeGeos(veins)) });
+log('vessels: arteries', (parts.at(-2)!.geo.index!.count / 3) | 0, 'tris, veins', (parts.at(-1)!.geo.index!.count / 3) | 0, 'tris');
+await writeGLB('public/models/heart-hd.glb', parts, { ventricle: { color: [0.55, 0.16, 0.13], rough: 0.5 }, atrium: { color: [0.6, 0.2, 0.18], rough: 0.5 }, artery: { color: [0.8, 0.2, 0.16], rough: 0.4 }, vein: { color: [0.25, 0.22, 0.5], rough: 0.4 }, default: { color: [0.55, 0.16, 0.13], rough: 0.5 } });
 fs.writeFileSync(path.join(ROOT, 'public/models/heart-hd.mapping.json'), JSON.stringify({
   units: 'decimetres, body-centred', frame: '+X patient left, +Y up, +Z anterior', parts: parts.map((p) => ({ id: p.id, triangles: p.geo.index!.count / 3 })),
+  vessels: 'coronary_art and cardiac_veins: the named coronary tree (LM, LAD, D1–2, septal S1–3, LCx, OM1–2, RCA, AM, PDA, PLB) laid half-sunk on this epicardium at adult calibres, and the cardiac veins along their companion arteries (great, coronary sinus, middle, small, posterior LV, left marginal, anterior cardiac). Courses follow the coronary model; calibres from adult angiographic norms.',
   relief: 'Endocardial surface only. LV: fine longitudinal trabeculation, apical two-thirds (upper septum and LVOT smooth). RV: coarse trabeculation of inflow and apex (infundibulum smooth). RA: crista terminalis + pectinate muscles to the auricle. LA: auricle only. Placement measured, pattern schematic.',
   attribution: { title: '3D Reference Organs: Visible Human Male (heart chambers)', creators: 'HuBMAP / Human Reference Atlas consortium', data: 'Visible Human Male, U.S. National Library of Medicine', license: 'CC BY 4.0', licenseUrl: 'https://creativecommons.org/licenses/by/4.0/', sourceUrl: 'https://github.com/hubmapconsortium/ccf-3d-reference-object-library', changes: 'Full source resolution (LV/septum subdivided twice, RV once); endocardial relief sculpted on the inner surface.' },
 }, null, 1));

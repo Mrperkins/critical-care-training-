@@ -5,7 +5,7 @@ import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.j
 
 export const b64ToBuf = (b64: string) => { const bin = atob(b64); const u = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i); return u.buffer; };
 /** glTF custom attributes arrive lower-cased with a leading underscore; give them shader-friendly names. */
-const RENAME: Record<string, string> = { _seg: 'aSeg', _dep: 'aDep', _base: 'aBase', _lobe: 'aLobe', _gen: 'aGen', _s: 'aS', _dome: 'aDome', _alv: 'aAlv', _kind: 'aKind', _eff: 'aEff', _act: 'aAct' };
+const RENAME: Record<string, string> = { _seg: 'aSeg', _dep: 'aDep', _base: 'aBase', _lobe: 'aLobe', _gen: 'aGen', _s: 'aS', _dome: 'aDome', _alv: 'aAlv', _kind: 'aKind', _eff: 'aEff', _act: 'aAct', _ch: 'aCh' };
 
 /** Meshopt-quantised glTF stores positions in a normalised box with the de-quantisation in the node matrix: bake it into float geometry. */
 function bakeWorld(m: THREE.Mesh) {
