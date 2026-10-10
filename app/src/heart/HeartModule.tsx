@@ -1,7 +1,7 @@
 import { useExploreMemory } from '../app/exploreMemory';
 /** Congenital heart module: shunt physiology on a live four-chamber heart. */
 import { MiniSelect } from '../scene/pane';
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { NEO_TRANSITION_LESSON } from '../director/lessons/populations';
 import { NeoCard } from '../populations/Cards';
 function NeoSlot() { const neo = useHeartUI((s) => (s.input.qs ?? 5) < 2); return neo ? <NeoCard /> : null; }
@@ -40,6 +40,24 @@ const LESION_FOCUS: Record<LesionKind, string> = { none: 'heart.four_chamber', v
 
 export function HeartModule() {
   const mode = useUI((s) => s.mode); const section = useHeartUI((s) => s.section);
+  // Mobile switches the entire scene to display:none while viewing Lessons.
+  // Remount only the heart canvas on return to Scene so a suspended WebGL surface
+  // cannot remain blank; its geometry loaders keep cached immutable assets.
+  const [sceneEpoch, setSceneEpoch] = useState(0);
+  useEffect(() => {
+    const root = document.querySelector<HTMLElement>('.app-v2[data-mobile-pane]');
+    if (!root || typeof MutationObserver === 'undefined') return;
+    let previous = root.getAttribute('data-mobile-pane');
+    const observer = new MutationObserver(() => {
+      const next = root.getAttribute('data-mobile-pane');
+      if (next === 'scene' && previous !== 'scene' && window.matchMedia('(max-width: 1024px)').matches) {
+        setSceneEpoch((value) => value + 1);
+      }
+      previous = next;
+    });
+    observer.observe(root, { attributes: true, attributeFilter: ['data-mobile-pane'] });
+    return () => observer.disconnect();
+  }, []);
   useExploreMemory('heart', () => { const s = useHeartUI.getState(); return { preset: s.preset, input: { ...s.input }, target: s.target, cut: s.cut, mode: s.mode }; }, (m) => useHeartUI.getState().set(m));
   const dTarget = useDirector((s) => s.target);
   useEffect(() => { if (dTarget?.startsWith('heart.')) useHeartUI.getState().set({ target: dTarget }); }, [dTarget]);
@@ -48,7 +66,7 @@ export function HeartModule() {
   return (
     <main className="stage">
       <section className="scene-pane">
-        <SceneWrap><HeartScene /><HeartOverlay /></SceneWrap>
+        <SceneWrap><HeartScene key={sceneEpoch} /><HeartOverlay /></SceneWrap>
         <HeartECGSceneStrip />
       </section>
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
