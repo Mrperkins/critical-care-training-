@@ -1,0 +1,219 @@
+{
+ "units": "decimetres, body-centred",
+ "frame": "+X patient left, +Y up, +Z anterior",
+ "centres": {
+  "lat_ventricle_L": [
+   0.197,
+   8.302,
+   0.039
+  ],
+  "lat_ventricle_R": [
+   -0.171,
+   8.312,
+   0.047
+  ],
+  "third_ventricle": [
+   0.009,
+   8.258,
+   0.058
+  ],
+  "aqueduct": [
+   -0.003,
+   8.132,
+   -0.108
+  ],
+  "fourth_ventricle": [
+   -0.012,
+   7.85,
+   -0.186
+  ],
+  "caudate_L": [
+   0.203,
+   8.35,
+   0.074
+  ],
+  "putamen_L": [
+   0.236,
+   8.34,
+   0.13
+  ],
+  "pallidus_L": [
+   0.185,
+   8.312,
+   0.099
+  ],
+  "thalamus_L": [
+   0.125,
+   8.317,
+   -0.034
+  ],
+  "hippocampus_L": [
+   0.225,
+   8.154,
+   -0.054
+  ],
+  "amygdala_L": [
+   0.226,
+   8.129,
+   0.132
+  ],
+  "caudate_R": [
+   -0.183,
+   8.362,
+   0.089
+  ],
+  "putamen_R": [
+   -0.213,
+   8.351,
+   0.148
+  ],
+  "pallidus_R": [
+   -0.158,
+   8.321,
+   0.113
+  ],
+  "thalamus_R": [
+   -0.113,
+   8.328,
+   -0.026
+  ],
+  "hippocampus_R": [
+   -0.222,
+   8.163,
+   -0.04
+  ],
+  "amygdala_R": [
+   -0.207,
+   8.141,
+   0.151
+  ],
+  "hypothalamus": [
+   0.011,
+   8.212,
+   0.138
+  ],
+  "fornix": [
+   0.001,
+   8.332,
+   -0.018
+  ],
+  "corpus_callosum": [
+   0.013,
+   8.435,
+   0.068
+  ],
+  "midbrain": [
+   0.006,
+   8.153,
+   -0.032
+  ],
+  "pons": [
+   -0.003,
+   7.953,
+   -0.013
+  ],
+  "medulla": [
+   -0.011,
+   7.71,
+   -0.058
+  ],
+  "cerebellum_L": [
+   0.251,
+   7.863,
+   -0.322
+  ],
+  "cerebellum_R": [
+   -0.283,
+   7.868,
+   -0.306
+  ],
+  "vermis": [
+   -0.015,
+   7.949,
+   -0.346
+  ],
+  "internal_capsule_L": [
+   0.201,
+   8.363,
+   0.104
+  ],
+  "internal_capsule_R": [
+   -0.182,
+   8.377,
+   0.121
+  ]
+ },
+ "labels": {
+  "lat_ventricle_L": "Left lateral ventricle",
+  "lat_ventricle_R": "Right lateral ventricle",
+  "third_ventricle": "Third ventricle",
+  "aqueduct": "Cerebral aqueduct",
+  "fourth_ventricle": "Fourth ventricle",
+  "caudate_L": "Left caudate nucleus",
+  "putamen_L": "Left putamen",
+  "pallidus_L": "Left globus pallidus",
+  "thalamus_L": "Left thalamus",
+  "hippocampus_L": "Left hippocampus",
+  "amygdala_L": "Left amygdala",
+  "caudate_R": "Right caudate nucleus",
+  "putamen_R": "Right putamen",
+  "pallidus_R": "Right globus pallidus",
+  "thalamus_R": "Right thalamus",
+  "hippocampus_R": "Right hippocampus",
+  "amygdala_R": "Right amygdala",
+  "hypothalamus": "Hypothalamus",
+  "fornix": "Fornix",
+  "corpus_callosum": "Corpus callosum",
+  "midbrain": "Midbrain",
+  "pons": "Pons",
+  "medulla": "Medulla oblongata",
+  "cerebellum_L": "Left cerebellar hemisphere",
+  "cerebellum_R": "Right cerebellar hemisphere",
+  "vermis": "Cerebellar vermis",
+  "internal_capsule_L": "Left internal capsule",
+  "internal_capsule_R": "Right internal capsule"
+ },
+ "volumesMl": {
+  "lat_ventricle_L": 17.6,
+  "lat_ventricle_R": 17.5,
+  "third_ventricle": 1.4,
+  "aqueduct": 0.2,
+  "fourth_ventricle": 3.2,
+  "caudate_L": 7.3,
+  "putamen_L": 7.6,
+  "pallidus_L": 1.9,
+  "thalamus_L": 11.5,
+  "hippocampus_L": 5.1,
+  "amygdala_L": 2.5,
+  "caudate_R": 7.3,
+  "putamen_R": 7.6,
+  "pallidus_R": 1.9,
+  "thalamus_R": 11.5,
+  "hippocampus_R": 5.1,
+  "amygdala_R": 2.5,
+  "hypothalamus": 3.2,
+  "fornix": 1.7,
+  "corpus_callosum": 26,
+  "midbrain": 12.3,
+  "pons": 18.5,
+  "medulla": 6.5,
+  "cerebellum_L": 76,
+  "cerebellum_R": 75.9,
+  "vermis": 15,
+  "internal_capsule_L": 7.2,
+  "internal_capsule_R": 7.1
+ },
+ "sides": "By position: _L ids are on the patient's left (+X). The HuBMAP-placed Allen labels are mirrored and were corrected.",
+ "derived": {
+  "internal_capsule": "Reconstructed: white matter of forebrain lying between the lentiform nucleus and the caudate/thalamus, within the lentiform height. Not an Allen label."
+ },
+ "attribution": {
+  "title": "3D Reference Organs: Visible Human Male — Allen Institute brain regions",
+  "creators": "HuBMAP / Human Reference Atlas consortium; brain regions: Allen Institute for Brain Science",
+  "data": "Visible Human Male, U.S. National Library of Medicine",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "sourceUrl": "https://github.com/hubmapconsortium/ccf-3d-reference-object-library",
+  "changes": "Sub-regions voxel-fused into one solid per structure; internal capsule derived from the forebrain white matter (see derived); simplified."
+ }
+}

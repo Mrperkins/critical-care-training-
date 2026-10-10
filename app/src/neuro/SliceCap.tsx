@@ -1,6 +1,8 @@
 /**
  * The brain cut open along an axial plane, with the cut face painted by the live pathology: grey/white matter,
- * deep nuclei and ventricles (schematic, placed in the brain's own frame), the ischaemic core and penumbra per
+ * deep nuclei, internal capsule, corpus callosum, hippocampus, brainstem, cerebellum and ventricles read from the real
+ * structures (brain-volume.json, voxelised from neuro.glb; the cortical ribbon from depth below this brain's surface —
+ * the old ellipsoids are only a fallback while it loads), the ischaemic core and penumbra per
  * territory, swelling and haemorrhagic transformation (from evolution.ts), the haematoma with its age-dependent
  * density, swirl while still bleeding, perihaematomal oedema, ventricular blood and enlargement, and the midline
  * pushed across. This is a model of the tissue, not a picture of a CT — the real CT for the stage is beside it.
@@ -8,7 +10,7 @@
  * Classic stencil capping: back faces of the clipped brain increment the stencil, front faces decrement, and the
  * cap plane draws only where the stencil is non-zero (inside the brain).
  */
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { Html } from '@react-three/drei';
 import * as THREE from 'three';
 import { useFrame, useThree } from '@react-three/fiber';
@@ -19,11 +21,49 @@ import { evolve } from './evolution';
 import { useNeuroUI } from './neuroStore';
 import { approach, frameDt } from '../scene/effects';
 
+/* ------------------------------------------------------------------ real anatomy for the cut face (brain-volume.json) */
+interface BrainVolumeFile { min: number[]; voxel: number; dims: [number, number, number]; data: string }
+declare global { interface Window { __BRAINVOL__?: BrainVolumeFile } }
+const EMPTY_VOL = (() => { const t = new THREE.Data3DTexture(new Uint8Array([255]), 1, 1, 1); t.format = THREE.RedFormat; t.needsUpdate = true; return t; })();
+let volP: Promise<{ tex: THREE.Data3DTexture; min: THREE.Vector3; size: THREE.Vector3; ventC: THREE.Vector3 }> | null = null;
+/** inflate the label volume into a 3D texture once (byte = label<<4 | pial distance; label 1 = CSF) */
+export function loadBrainVolume() {
+  return (volP ??= (async () => {
+    const f: BrainVolumeFile = window.__BRAINVOL__ ?? (await (await fetch('models/brain-volume.json')).json());
+    const [nx, ny, nz] = f.dims; const z = Uint8Array.from(atob(f.data), (c) => c.charCodeAt(0));
+    const data = new Uint8Array(await new Response(new Blob([z]).stream().pipeThrough(new DecompressionStream('deflate'))).arrayBuffer());
+    if (data.length !== nx * ny * nz) throw new Error('brain volume size mismatch');
+    const tex = new THREE.Data3DTexture(data, nx, ny, nz); tex.format = THREE.RedFormat; tex.type = THREE.UnsignedByteType; tex.minFilter = tex.magFilter = THREE.NearestFilter; tex.unpackAlignment = 1; tex.needsUpdate = true;
+    const min = new THREE.Vector3(...f.min); const size = new THREE.Vector3(nx, ny, nz).multiplyScalar(f.voxel);
+    // centre of the ventricular system (lateral + third), for hydrocephalic enlargement
+    const c = new THREE.Vector3(); let n = 0; for (let k = 0; k < nz; k++) for (let j = 0; j < ny; j++) for (let i = 0; i < nx; i++) { const v = data[i + nx * (j + ny * k)]; if (v !== 255 && v >> 4 === 1) { c.x += i; c.y += j; c.z += k; n++; } }
+    const ventC = n ? c.divideScalar(n).addScalar(0.5).multiplyScalar(f.voxel).add(min) : min.clone().addScaledVector(size, 0.5);
+    return { tex, min, size, ventC };
+  })());
+}
+
 const CAP_FRAG = /* glsl */ `
 uniform vec3 uC; uniform vec3 uH; uniform float uT;
 uniform float uCoreW[7]; uniform float uPenW[7]; uniform float uRegion[7]; uniform vec3 uCtr[7]; uniform float uRad[7];
 uniform float uSwell, uShift, uHt, uCtVis; uniform vec4 uHem; uniform float uPhe, uClot, uActive, uIvh, uHydro, uOcc;
+uniform highp sampler3D uVol; uniform vec3 uVolMin; uniform vec3 uVolSize; uniform vec3 uVolDims; uniform float uHasVol; uniform vec3 uVentC;
 varying vec3 vW;
+// trilinear blend of the 8 surrounding voxels' class indicators: smooth boundaries from a label volume
+// out: x = CSF, y = grey nuclei, z = white tracts (capsule, callosum), w = depth below the surface (0.5 mm units)
+// out2: x = pallidum, y = brainstem, z = cerebellum, w = inside the brain
+void volSample(vec3 p, out vec4 a, out vec4 b){
+  vec3 g = (p - uVolMin) / uVolSize * uVolDims - 0.5; vec3 f = fract(g); ivec3 i0 = ivec3(floor(g)); a = vec4(0.0); b = vec4(0.0);
+  for (int c = 0; c < 8; c++) {
+    ivec3 o = ivec3(c & 1, (c >> 1) & 1, (c >> 2) & 1); ivec3 ii = clamp(i0 + o, ivec3(0), ivec3(uVolDims) - 1);
+    vec3 wv = mix(1.0 - f, f, vec3(o)); float w = wv.x * wv.y * wv.z;
+    float v = floor(texelFetch(uVol, ii, 0).r * 255.0 + 0.5); if (v > 254.5) continue;
+    float lab = floor(v / 16.0 + 0.001); float dep = v - lab * 16.0;
+    a.x += w * step(abs(lab - 1.0), 0.5);
+    a.y += w * (step(abs(lab - 2.0), 0.5) + step(abs(lab - 3.0), 0.5) + step(abs(lab - 5.0), 0.5) + step(abs(lab - 9.0), 0.5) + step(abs(lab - 11.0), 0.5));
+    a.z += w * (step(abs(lab - 6.0), 0.5) + step(abs(lab - 10.0), 0.5)); a.w += w * dep;
+    b.x += w * step(abs(lab - 4.0), 0.5); b.y += w * step(abs(lab - 7.0), 0.5); b.z += w * step(abs(lab - 8.0), 0.5); b.w += w;
+  }
+}
 ${GLSL_NOISE}
 int territory(vec3 l){
   float ax = abs(l.x); int s = l.x < 0.0 ? 0 : 1;
@@ -39,16 +79,31 @@ void main(){
   float fall = exp(-pow(l.x * 1.7, 2.0)) * smoothstep(-0.7, -0.2, l.y);
   vec3 q = l + vec3(uShift * fall, 0.0, 0.0);
   float n = fbm(q * 9.0), n2 = fbm(q * 26.0 + 3.0);
-  // anatomy (schematic): cortex ribbon, white matter, deep nuclei, ventricles
-  float rr = length(q / vec3(0.97, 1.0, 0.98));
-  float cortex = smoothstep(0.74, 0.8, rr + 0.05 * (n - 0.5));
-  float nuclei = min(min(ell(vec3(abs(q.x), q.yz), vec3(0.23, -0.12, 0.1), vec3(0.11, 0.16, 0.2)), ell(vec3(abs(q.x), q.yz), vec3(0.09, -0.13, -0.12), vec3(0.08, 0.12, 0.11))), 9.0);
-  float vs = 1.0 + 0.9 * uHydro;
-  float vent = min(min(ell(vec3(abs(q.x), q.yz), vec3(0.085 * vs, 0.05, 0.0), vec3(0.055 * vs, 0.15, 0.34)), ell(vec3(abs(q.x), q.yz), vec3(0.1 * vs, -0.06, 0.2), vec3(0.06 * vs, 0.15, 0.13))), ell(q, vec3(0.0, -0.12, -0.04), vec3(0.02 * vs, 0.08, 0.12)));
   vec3 grey = vec3(0.6, 0.48, 0.46), white = vec3(0.88, 0.81, 0.75), csf = vec3(0.16, 0.2, 0.29);
-  vec3 col = mix(white, grey, max(cortex, 1.0 - smoothstep(0.9, 1.05, nuclei)));
-  col *= 0.9 + 0.14 * n2;
-  float inVent = 1.0 - smoothstep(0.92, 1.0, vent);
+  vec3 col; float cortex; float inVent; float vs = 1.0 + 0.9 * uHydro;
+  if (uHasVol > 0.5) {
+    // real anatomy: smooth class fields from the label volume + depth below the cortical surface
+    vec3 pos = q * uH + uC; vec4 A, B; volSample(pos, A, B);
+    cortex = B.w < 0.5 ? 1.0 : 1.0 - smoothstep(4.5, 6.5, A.w / max(B.w, 0.001) + 1.2 * (n - 0.5));   // within ~2.5–3 mm of the folded pial surface
+    col = mix(white, grey, cortex);
+    col = mix(col, grey * 0.97, smoothstep(0.4, 0.6, A.y));                    // caudate, putamen, thalamus, hippocampus, amygdala
+    col = mix(col, mix(grey, white, 0.45), smoothstep(0.4, 0.6, B.x));          // globus pallidus: paler (myelinated)
+    col = mix(col, white * 1.03, smoothstep(0.4, 0.6, A.z));                    // internal capsule, corpus callosum
+    col = mix(col, mix(white, grey, 0.35), smoothstep(0.4, 0.6, B.y));          // brainstem
+    col = mix(col, mix(grey, white, 0.2 + 0.3 * step(0.55, fbm(q * 30.0))), smoothstep(0.4, 0.6, B.z));  // cerebellum: folia
+    col *= 0.9 + 0.14 * n2;
+    // ventricles (enlarged about their centre in hydrocephalus)
+    vec4 Av, Bv; volSample(uVentC + (pos - uVentC) / vs, Av, Bv); inVent = smoothstep(0.4, 0.6, Av.x);
+  } else {
+    // fallback while the volume loads: schematic cortex ribbon, white matter, deep nuclei, ventricles
+    float rr = length(q / vec3(0.97, 1.0, 0.98));
+    cortex = smoothstep(0.74, 0.8, rr + 0.05 * (n - 0.5));
+    float nuclei = min(min(ell(vec3(abs(q.x), q.yz), vec3(0.23, -0.12, 0.1), vec3(0.11, 0.16, 0.2)), ell(vec3(abs(q.x), q.yz), vec3(0.09, -0.13, -0.12), vec3(0.08, 0.12, 0.11))), 9.0);
+    float vent = min(min(ell(vec3(abs(q.x), q.yz), vec3(0.085 * vs, 0.05, 0.0), vec3(0.055 * vs, 0.15, 0.34)), ell(vec3(abs(q.x), q.yz), vec3(0.1 * vs, -0.06, 0.2), vec3(0.06 * vs, 0.15, 0.13))), ell(q, vec3(0.0, -0.12, -0.04), vec3(0.02 * vs, 0.08, 0.12)));
+    col = mix(white, grey, max(cortex, 1.0 - smoothstep(0.9, 1.05, nuclei)));
+    col *= 0.9 + 0.14 * n2;
+    inVent = 1.0 - smoothstep(0.92, 1.0, vent);
+  }
   col = mix(col, mix(csf, vec3(0.7, 0.06, 0.08) * (0.6 + 0.4 * uClot), uIvh), inVent);
   // ischaemia: core (dead), penumbra (at risk, pulsing while the artery is shut), swelling rim, haemorrhagic transformation
   if (uOcc > 0.5) {
@@ -104,7 +159,9 @@ export function SliceCap({ frame, geo, plane, y }: { frame: BrainFrame; geo: THR
     uCtr: { value: TERRITORIES.map((t) => new THREE.Vector3(...TERRITORY_CORE[t])) }, uRad: { value: TERRITORIES.map((t) => TERRITORY_RADIUS[t]) },
     uSwell: { value: 0 }, uShift: { value: 0 }, uHt: { value: 0 }, uCtVis: { value: 0 }, uHem: { value: new THREE.Vector4(0, 0, 0, 0) }, uPhe: { value: 1 },
     uClot: { value: 1 }, uActive: { value: 0 }, uIvh: { value: 0 }, uHydro: { value: 0 }, uOcc: { value: 0 },
+    uVol: { value: EMPTY_VOL as THREE.Data3DTexture }, uVolMin: { value: new THREE.Vector3() }, uVolSize: { value: new THREE.Vector3(1, 1, 1) }, uVolDims: { value: new THREE.Vector3(1, 1, 1) }, uHasVol: { value: 0 }, uVentC: { value: frame.c.clone() },
   }), [frame]);
+  useEffect(() => { let on = true; loadBrainVolume().then((v) => { if (!on) return; U.uVol.value = v.tex; U.uVolMin.value.copy(v.min); U.uVolSize.value.copy(v.size); U.uVolDims.value.set(v.tex.image.width, v.tex.image.height, v.tex.image.depth); U.uVentC.value.copy(v.ventC); U.uHasVol.value = 1; }).catch(() => undefined); return () => { on = false; }; }, [U]);
   const cap = useMemo(() => new THREE.ShaderMaterial({ uniforms: U, side: THREE.DoubleSide,
     vertexShader: 'varying vec3 vW; void main(){ vec4 w = modelMatrix * vec4(position, 1.0); vW = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; }', fragmentShader: CAP_FRAG,
     stencilWrite: true, stencilRef: 0, stencilFunc: THREE.NotEqualStencilFunc, stencilFail: THREE.ReplaceStencilOp, stencilZFail: THREE.ReplaceStencilOp, stencilZPass: THREE.ReplaceStencilOp }), [U]);

@@ -1,7 +1,7 @@
 import { useExploreMemory } from '../app/exploreMemory';
 /** Congenital heart module: shunt physiology on a live four-chamber heart. */
 import { MiniSelect } from '../scene/pane';
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { NEO_TRANSITION_LESSON } from '../director/lessons/populations';
 import { NeoCard } from '../populations/Cards';
 function NeoSlot() { const neo = useHeartUI((s) => (s.input.qs ?? 5) < 2); return neo ? <NeoCard /> : null; }
@@ -10,6 +10,10 @@ import { useHideFindings } from '../challenge/caseStore';
 import { useUI } from '../app/store';
 import { Knob, Seg } from '../vent/VentPanel';
 import { HeartScene } from './HeartScene';
+import { heartRateFor } from './beat';
+import { HeartECGStudy } from './HeartECGStudy';
+import { HeartECGSceneStrip } from './HeartECGSceneStrip';
+import { useStudyClock } from './studyClock';
 import { useHeartUI, loadHeartPreset, setHeartInput, type FlowMode, type CutMode } from './heartStore';
 import { autoCut, CUT_LABEL } from './HeartScene';
 import { RealCase } from '../scene/imaging/RealCase';
@@ -22,26 +26,65 @@ import { HEART_LESSONS } from '../director/lessons/heart';
 import { SAT_PALETTE } from '../scene/effects';
 import { useLabUI, type VisualTier } from '../labs/labStore';
 import { SceneWrap } from '../scene/labels';
+import { App as CoronaryApp } from '../infarct/components/App';
+import type { Mode as MiMode } from '../infarct/engine/store';
+const MI_MODE: Record<string, MiMode> = { explore: 'explore', learn: 'lesson', challenge: 'quiz' };
 
 const PRESETS: [HeartPresetId, string][] = [['normal', 'Normal'], ['vsdSmall', 'Small VSD'], ['vsdLarge', 'Large VSD'], ['vsdEisen', 'VSD · Eisenmenger'], ['asd', 'ASD'], ['pfo', 'PFO'], ['pfoValsalva', 'PFO · Valsalva'], ['pda', 'PDA'],
   ['tof', 'Tetralogy'], ['pinkTet', 'Tetralogy · "pink"'], ['tetSpell', 'Tet spell'], ['coarct', 'Coarctation'], ['coarctNeoDuct', 'Newborn coarctation · duct open'], ['coarctNeoClosed', 'Newborn coarctation · duct closing'], ['newborn', 'Newborn · closing duct'], ['pphn', 'Newborn · PPHN']];
 const FOCUS: [string, string][] = [['heart.four_chamber', '4-chamber'], ['heart.vsd', 'VSD'], ['heart.asd', 'ASD / PFO'], ['heart.lv', 'LV'], ['heart.rv', 'RV'], ['heart.pulmonary_outflow', 'RV outflow'], ['heart.pda', 'Duct'], ['heart.coarct', 'Isthmus']];
-const CUTS: [CutMode, string][] = [['auto', 'Auto'], ['slice', '4-chamber slice'], ['rv', 'RV open'], ['ra', 'RA open'], ['lv', 'LV open'], ['closed', 'Closed']];
+const CUTS: [CutMode, string][] = [['auto', 'Auto'], ['slice', '4-chamber slice'], ['sax_base', 'Short axis · base'], ['sax_mid', 'Short axis · mid'], ['sax_apex', 'Short axis · apex'], ['lvot', 'Long axis · LVOT'], ['rvot', 'RV inflow–outflow'], ['rv', 'RV open'], ['ra', 'RA open'], ['lv', 'LV open'], ['closed', 'Closed']];
+/** a section plane brings its own camera (looking at the cut face) */
+const CUT_VIEW: Partial<Record<CutMode, string>> = { sax_base: 'heart.sax_base', sax_mid: 'heart.sax_mid', sax_apex: 'heart.sax_apex', lvot: 'heart.lvot', rvot: 'heart.rvot_section', slice: 'heart.four_chamber' };
 /** the best focus for a lesion, used when the lesion changes */
 const LESION_FOCUS: Record<LesionKind, string> = { none: 'heart.four_chamber', vsd: 'heart.vsd', asd: 'heart.asd', pfo: 'heart.pfo', pda: 'heart.pda', tof: 'heart.vsd', coarct: 'heart.coarct' };
 
 export function HeartModule() {
-  const mode = useUI((s) => s.mode);
+  const mode = useUI((s) => s.mode); const section = useHeartUI((s) => s.section);
+  // The simulation clock is owned by the module, not the Three.js canvas.
+  // ECG continues to progress in mobile Lessons even while the scene is hidden.
+  useEffect(() => {
+    let frame = 0;
+    let previous = performance.now();
+    const tick = (now: number) => {
+      useStudyClock.getState().advance(Math.max(0, (now - previous) / 1000));
+      previous = now;
+      frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
+  // Mobile's Lessons tab display:none's the entire scene. Never initialize a WebGL
+  // canvas inside that hidden subtree. Mount on Scene, unmount on Lessons.
+  const [renderScene, setRenderScene] = useState(() => {
+    if (typeof window === 'undefined') return true;
+    const mobile = window.matchMedia('(max-width: 1024px)').matches;
+    return !mobile || document.querySelector('.app-v2')?.getAttribute('data-mobile-pane') === 'scene';
+  });
+  useEffect(() => {
+    const root = document.querySelector<HTMLElement>('.app-v2[data-mobile-pane]');
+    if (!root) { setRenderScene(true); return; }
+    const refresh = () => setRenderScene(!window.matchMedia('(max-width: 1024px)').matches || root.getAttribute('data-mobile-pane') === 'scene');
+    const observer = new MutationObserver(refresh);
+    observer.observe(root, { attributes: true, attributeFilter: ['data-mobile-pane'] });
+    window.addEventListener('resize', refresh);
+    refresh();
+    return () => { observer.disconnect(); window.removeEventListener('resize', refresh); };
+  }, []);
   useExploreMemory('heart', () => { const s = useHeartUI.getState(); return { preset: s.preset, input: { ...s.input }, target: s.target, cut: s.cut, mode: s.mode }; }, (m) => useHeartUI.getState().set(m));
   const dTarget = useDirector((s) => s.target);
   useEffect(() => { if (dTarget?.startsWith('heart.')) useHeartUI.getState().set({ target: dTarget }); }, [dTarget]);
   useEffect(() => { (window as unknown as { __CCHeart: unknown }).__CCHeart = { store: useHeartUI, load: loadHeartPreset, set: setHeartInput, focus: (id: string) => useHeartUI.getState().set({ target: id }) }; }, []);
+  if (section === 'coronary') return <main className="stage mi-host" aria-label="Coronaries and ECG"><CoronaryApp mode={MI_MODE[mode] ?? 'explore'} onExit={() => useHeartUI.getState().set({ section: 'structure' })} /></main>;
   return (
     <main className="stage">
       <section className="scene-pane">
-        <SceneWrap><HeartScene /><HeartOverlay /></SceneWrap>
+        <SceneWrap>{renderScene && <HeartScene />}<HeartOverlay /></SceneWrap>
+        <HeartECGSceneStrip />
       </section>
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
+        <HeartECGStudy />
         {mode === 'challenge' ? <CaseChallenge module="heart" /> : mode === 'learn' ? <HeartLearn /> : <>
           <PresetCard />
           <ControlsCard />
@@ -51,23 +94,32 @@ export function HeartModule() {
           <Fold group="heart" id="why" title="Why it happens"><WhyCard /></Fold>
           <RealHeartImaging />
         </>}
-        <details className="credit"><summary>Sources & model notes</summary>3D heart: HuBMAP 3D Reference Organs, Visible Human Male heart (CC BY 4.0) — an adult heart at true scale, cut open in the app; the defects are carved into its own septa and vessels (sizes drawn to scale; newborn defects drawn relative to a heart about 2.5× smaller). Flows, pressures and saturations come from a simplified circulation model (orifice flow across restrictive defects, conductance across atrial defects, parallel outlets in tetralogy, an isthmus resistance with collaterals and duct in coarctation) — a teaching model, not a patient calculator.</details>
+        <details className="credit"><summary>Sources & model notes</summary>3D heart: HuBMAP 3D Reference Organs, Visible Human Male heart (CC BY 4.0) — an adult heart at true scale, cut open in the app; the defects are carved into its own septa and vessels (sizes drawn to scale; newborn defects drawn relative to a heart about 2.5× smaller). Flows, pressures and saturations come from a simplified circulation model (orifice flow across restrictive defects, conductance across atrial defects, parallel outlets in tetralogy, an isthmus resistance with collaterals and duct in coarctation) — a teaching model, not a patient calculator. Volumetric moving blood is an enhanced X-ray-style overlay of the existing paths; it is not a directly segmented ventricular blood pool or a CFD simulation. mL/beat is estimated from the shunt solver outputs divided by the selected heart rate.</details>
       </aside>
     </main>
   );
 }
 
 function HeartOverlay() {
-  const target = useHeartUI((s) => s.target); const flow = useHeartUI((s) => s.mode); const cut = useHeartUI((s) => s.cut); const set = useHeartUI.getState().set;
+  const studyEnabled = useStudyClock((s) => s.enabled);
+  useEffect(() => { if (studyEnabled && !useHeartUI.getState().conduction) useHeartUI.getState().set({ conduction: true }); }, [studyEnabled]);
+  const flowDisplay = useHeartUI((s) => s.flowDisplay); const target = useHeartUI((s) => s.target); const flow = useHeartUI((s) => s.mode); const cut = useHeartUI((s) => s.cut); const conduction = useHeartUI((s) => s.conduction); const pericardium = useHeartUI((s) => s.pericardium); const nerves = useHeartUI((s) => s.nerves); const set = useHeartUI.getState().set;
   const input = useHeartUI((s) => s.input); const s = useMemo(() => solveShunt(input), [input]); const tier = useLabUI((s) => s.visualTier);
+  const bpm = useStudyClock((st) => st.enabled && st.rateOverride != null ? st.rateOverride : heartRateFor(s.input.qs));
   const pct = (x: number) => `${Math.round(x * 100)}%`; const hide = useHideFindings();
   return (<>
     <div className="scene-tools">
       <div className="seg small" role="group" aria-label="Flow colour">{([['sat', 'O₂ saturation'], ['doppler', 'Flow direction']] as [FlowMode, string][]).map(([k, l]) => <button key={k} className={flow === k ? 'on' : ''} onClick={() => set({ mode: k })}>{l}</button>)}</div>
-      <MiniSelect label="Open" value={cut} options={CUTS.map(([k, l]) => [k, k === 'auto' ? `Auto · ${CUT_LABEL[autoCut(target)]}` : l]) as [CutMode, string][]} onChange={(v) => set({ cut: v })} />
+
+      <button className="tgl" onClick={() => set({ section: 'coronary' })}>Coronaries &amp; ECG →</button>
+      <button className={`tgl${conduction ? ' on' : ''}`} aria-pressed={conduction} onClick={() => set({ conduction: !conduction })}>Conduction</button>
+      <button className={`tgl${pericardium ? ' on' : ''}`} aria-pressed={pericardium} onClick={() => set({ pericardium: !pericardium })}>Pericardium</button>
+      <button className={`tgl${nerves ? ' on' : ''}`} aria-pressed={nerves} onClick={() => set({ nerves: !nerves })}>Nerves</button>
+      <MiniSelect label="Open" value={cut} options={CUTS.map(([k, l]) => [k, k === 'auto' ? `Auto · ${CUT_LABEL[autoCut(target)]}` : l]) as [CutMode, string][]} onChange={(v) => set({ cut: v, ...(CUT_VIEW[v] ? { target: CUT_VIEW[v] } : {}) })} />
     </div>
     {!hide && <div className="alv-hud">
       <div className="alv-row"><span>Shunt</span><b className={`dir dir-${s.direction === 'L→R' ? 'lr' : s.direction === 'R→L' ? 'rl' : s.direction === 'bidirectional' ? 'bi' : 'none'}`}>{s.direction === 'none' ? 'none' : s.direction}</b></div>
+      <div className="alv-row"><span>Systemic / pulmonary stroke output</span><b>{Math.round(s.qs * 1000 / bpm)} / {Math.round(s.qp * 1000 / bpm)} mL/beat</b></div>
       <div className="alv-row"><span>Qp : Qs</span><b>{s.qpqs.toFixed(1)} : 1</b></div>
       {s.gradient > 0 && !['asd', 'coarct', 'tof'].includes(s.input.lesion) && <div className="alv-row"><span>Jet velocity</span><b>{s.velocity.toFixed(1)} m/s</b></div>}
       {s.rvot && <div className="alv-row"><span>RV outflow gradient</span><b>{Math.round(s.rvot.gradient)} mmHg</b></div>}
@@ -78,6 +130,7 @@ function HeartOverlay() {
     </div>}
     <div className="alv-focus">
       <MiniSelect label="View" value={target} options={FOCUS as [string, string][]} onChange={(v) => set({ target: v })} className="ch-focus" />
+      <MiniSelect label="Blood flow" value={flowDisplay} options={ [['volume','Blood volume'],['both','Volume + tracers'],['particles','Tracers only']] as [typeof flowDisplay,string][] } onChange={(v) => set({ flowDisplay: v })} className="heart-bulk-flow-select" />
     </div>
     <div className="legend">{flow === 'sat'
       ? <><span><i style={{ background: SAT_PALETTE.teachArterial }} />Oxygenated</span><span><i style={{ background: SAT_PALETTE.teachVenous }} />Deoxygenated</span><span>▲ jet = shunt</span></>

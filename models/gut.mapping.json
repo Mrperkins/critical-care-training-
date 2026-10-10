@@ -1,0 +1,101 @@
+{
+ "units": "decimetres, body-centred",
+ "frame": "+X patient left, +Y up, +Z anterior",
+ "centres": {
+  "stomach": [
+   0.448,
+   3.633,
+   0.2
+  ],
+  "diaphragm": [
+   0.032,
+   3.389,
+   0.203
+  ],
+  "duodenum": [
+   0.045,
+   3.192,
+   0.441
+  ],
+  "jejunum": [
+   0.509,
+   2.792,
+   0.6
+  ],
+  "ileum": [
+   0.115,
+   1.678,
+   0.709
+  ],
+  "colon": [
+   0.135,
+   2.274,
+   0.598
+  ],
+  "appendix": [
+   -0.347,
+   1.26,
+   0.261
+  ],
+  "rectum": [
+   -0.018,
+   0.372,
+   -0.491
+  ],
+  "mesenteric_art": [
+   -0.028,
+   2.489,
+   0.313
+  ],
+  "mesenteric_vein": [
+   0.106,
+   2.361,
+   0.403
+  ]
+ },
+ "labels": {
+  "stomach": "Stomach",
+  "diaphragm": "Diaphragm",
+  "duodenum": "Duodenum",
+  "jejunum": "Jejunum",
+  "ileum": "Ileum",
+  "colon": "Colon",
+  "appendix": "Appendix",
+  "rectum": "Rectum",
+  "mesenteric_art": "Mesenteric arteries (SMA, IMA, ileocolic)",
+  "mesenteric_vein": "Mesenteric veins (SMV, IMV, ileocolic)"
+ },
+ "sources": {
+  "stomach": "bp3d",
+  "diaphragm": "bp3d",
+  "duodenum": "hubmap",
+  "jejunum": "hubmap",
+  "ileum": "hubmap",
+  "colon": "hubmap",
+  "appendix": "hubmap",
+  "rectum": "hubmap",
+  "mesenteric_art": "hubmap",
+  "mesenteric_vein": "hubmap"
+ },
+ "attribution": [
+  {
+   "title": "3D Reference Organs: Visible Human Male (small and large intestine, mesenteric vessels)",
+   "creators": "HuBMAP / Human Reference Atlas consortium",
+   "data": "Visible Human Male, U.S. National Library of Medicine",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "sourceUrl": "https://github.com/hubmapconsortium/ccf-3d-reference-object-library",
+   "changes": "Placed in the body frame; segments merged."
+  },
+  {
+   "title": "BodyParts3D 3.0 (stomach FMA7148, diaphragm FMA13295)",
+   "creators": "Database Center for Life Science (DBCLS)",
+   "notice": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan",
+   "license": "CC BY-SA 2.1 JP",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en",
+   "sourceUrl": "https://lifesciencedb.jp/bp3d/",
+   "changes": "Fitted to the Visible Human Male with the skeleton fit, seated on the liver/spleen contact surfaces (translation only), smoothed."
+  }
+ ],
+ "license": "gut.glb as a whole is distributed under CC BY-SA 2.1 JP (BodyParts3D-derived stomach and diaphragm); the HuBMAP parts are CC BY 4.0."
+}

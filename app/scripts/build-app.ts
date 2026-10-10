@@ -20,13 +20,20 @@ add('__EYES_GLB__', 'public/models/eyes.glb');
 add('__BODYF_GLB__', 'public/models/body-f.glb'); add('__BODYF_MAP__', 'public/models/body-f.mapping.json', true);
 add('__MICRO_GLB__', 'public/models/micro.glb'); add('__MICRO_MAP__', 'public/models/micro.mapping.json', true);
 add('__LINES_GLB__', 'public/models/lines.glb'); add('__LINES_MAP__', 'public/models/lines.mapping.json', true);
+add('__SKELETON_GLB__', 'public/models/skeleton.glb'); add('__SKELETON_MAP__', 'public/models/skeleton.mapping.json', true);
+add('__PERICARDIUM_GLB__', 'public/models/pericardium.glb'); add('__PERICARDIUM_MAP__', 'public/models/pericardium.mapping.json', true);
+add('__NEURO_GLB__', 'public/models/neuro.glb'); add('__NEURO_MAP__', 'public/models/neuro.mapping.json', true);
+add('__HEARTINT_GLB__', 'public/models/heart-internals.glb'); add('__HEARTINT_MAP__', 'public/models/heart-internals.mapping.json', true);
+add('__UPPERAIRWAY_GLB__', 'public/models/upper-airway.glb'); add('__UPPERAIRWAY_MAP__', 'public/models/upper-airway.mapping.json', true);
+add('__HEARTHD_GLB__', 'public/models/heart-hd.glb'); add('__HEARTHD_MAP__', 'public/models/heart-hd.mapping.json', true); add('__NERVES_GLB__', 'public/models/nerves.glb'); add('__NERVES_MAP__', 'public/models/nerves.mapping.json', true); add('__GUT_GLB__', 'public/models/gut.glb'); add('__GUT_MAP__', 'public/models/gut.mapping.json', true); add('__CEREBRAL_GLB__', 'public/models/cerebral-arteries.glb'); add('__CEREBRAL_MAP__', 'public/models/cerebral-arteries.mapping.json', true); add('__BRAINVOL__', 'public/models/brain-volume.json', true);
+add('__CORONARY_GLB__', 'public/models/coronary-heart.glb'); add('__CORONARY_MAP__', 'public/models/coronary-heart.mapping.json', true);
 const head = `<!doctype html>\n<html lang="en">\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n<title>Critical Care Physiology</title>\n<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#05090d"><link rel="apple-touch-icon" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">\n<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;500;600&family=Atkinson+Hyperlegible+Next:wght@400;500;600;700&display=swap" rel="stylesheet">\n<style>${css}</style>`;
 const html = `${head}\n<div id="root"></div>\n<script>${inline.join('\n')}</script>\n<script>${js.replace(/<\/script/g, '<\\/script')}</script>\n`;
 fs.writeFileSync(path.join(out, 'index.html'), html);
 fs.writeFileSync(path.join(out, 'dev.html'), `${head}<div id="root"></div><script src="bundle.js"></script>`);
 // publishable multi-file version: small page + separate model / narration files
 const pub = path.join(out, 'pub'); fs.rmSync(pub, { recursive: true, force: true }); fs.mkdirSync(path.join(pub, 'models'), { recursive: true }); fs.mkdirSync(path.join(pub, 'vo'), { recursive: true });
-for (const f of ['medical-ventilator.glb', 'medical-ventilator.provenance.json', 'bedside-airway.glb', 'bedside-airway.provenance.json', 'resp.glb', 'resp.mapping.json', 'micro.glb', 'micro.mapping.json', 'body.glb', 'body.mapping.json', 'body-f.glb', 'body-f.mapping.json', 'eyes.glb', 'eyes.mapping.json', 'lines.glb', 'lines.mapping.json']) { const p = path.join(ROOT, 'public/models', f); if (fs.existsSync(p)) { if (f.endsWith('.glb')) fs.writeFileSync(path.join(pub, 'models', f + '.txt'), fs.readFileSync(p).toString('base64')); else fs.copyFileSync(p, path.join(pub, 'models', f)); } }
+for (const f of ['medical-ventilator.glb', 'medical-ventilator.provenance.json', 'bedside-airway.glb', 'bedside-airway.provenance.json', 'resp.glb', 'resp.mapping.json', 'micro.glb', 'micro.mapping.json', 'body.glb', 'body.mapping.json', 'body-f.glb', 'body-f.mapping.json', 'eyes.glb', 'eyes.mapping.json', 'lines.glb', 'lines.mapping.json', 'skeleton.glb', 'skeleton.mapping.json', 'pericardium.glb', 'pericardium.mapping.json', 'neuro.glb', 'neuro.mapping.json', 'heart-internals.glb', 'heart-internals.mapping.json', 'upper-airway.glb', 'upper-airway.mapping.json', 'coronary-heart.glb', 'coronary-heart.mapping.json', 'heart-hd.glb', 'heart-hd.mapping.json', 'nerves.glb', 'nerves.mapping.json', 'gut.glb', 'gut.mapping.json', 'cerebral-arteries.glb', 'cerebral-arteries.mapping.json', 'brain-volume.json']) { const p = path.join(ROOT, 'public/models', f); if (fs.existsSync(p)) { if (f.endsWith('.glb')) fs.writeFileSync(path.join(pub, 'models', f + '.txt'), fs.readFileSync(p).toString('base64')); else fs.copyFileSync(p, path.join(pub, 'models', f)); } }
 // narration: clips live at repo-root vo/<id>.mp3 (scripts/narration_collect.py); only clips whose hash matches the current line play
 const narration = narrationJobs(ROOT); const want = new Map(narration.map((j) => [j.id, j.hash]));
 const voMetaP = path.join(ROOT, 'public/vo/narration.json'); const voMeta: Record<string, { hash: string }> = fs.existsSync(voMetaP) ? JSON.parse(fs.readFileSync(voMetaP, 'utf8')) : {};
@@ -45,6 +52,8 @@ const audioRes = await build({
 const audioJs = audioRes.outputFiles.find((f) => f.path.endsWith('.js'))!.text;
 const audioCss = audioRes.outputFiles.find((f) => f.path.endsWith('.css'))?.text ?? '';
 const audioDir = path.join(pub, 'audio'); fs.mkdirSync(audioDir, { recursive: true });
+// rendered 3D stills for the mental-rep visuals (real anatomy models, see pipeline/build-rep-stills.ts)
+if (fs.existsSync(path.join(ROOT, 'public/audio/visuals'))) fs.cpSync(path.join(ROOT, 'public/audio/visuals'), path.join(audioDir, 'visuals'), { recursive: true, force: true });
 const audioVoice = path.join(ROOT, 'public/audio/voice');
 const expectedRepHash = new Map<string, string>(MENTAL_REPS.flatMap((rep) => rep.beats.map((beat) => [
   `rep.${rep.id}.${beat.id}`,

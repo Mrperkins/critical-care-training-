@@ -1,0 +1,67 @@
+name: Cardiac ECG study regression gate
+concurrency:
+  group: cardiac-ecg-${{ github.ref }}
+  cancel-in-progress: true
+on:
+  push:
+    branches:
+      - feat/synchronized-heart-ecg-study
+      - feat/volumetric-flow-anatomy-consistency
+  pull_request:
+    paths:
+      - 'app/src/heart/**'
+      - 'app/src/scene/VolumeFlow.tsx'
+      - 'app/src/asset/anatomyConsistency.ts'
+      - 'app/src/vent/LungScene.tsx'
+      - 'app/src/app/App.tsx'
+      - 'app/src/app/store.ts'
+      - 'app/tests/volume-flow-regression.test.ts'
+      - 'app/src/infarct/ecg/**'
+      - 'app/src/infarct/data/**'
+      - 'app/tests/heart-study-*.test.ts'
+      - 'app/src/styles/app.css'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - name: Install exactly locked dependencies
+        run: npm ci
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Regression tests
+        run: npm test
+      - name: Production bundle
+        run: npm run build
+      - name: Install browser for rendered QA
+        run: npx playwright install chromium
+      - name: Inspect 3D organ flow on desktop and mobile
+        run: node scripts/qa-organ-flow.mjs
+      - name: Save organ flow screenshot evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: organ-volume-flow-visual-qa
+          path: app/qa-organ-flow/
+          if-no-files-found: warn
+      - name: Render and test real cardiac interface on three viewports
+        run: node scripts/qa-heart-study.mjs
+      - name: Save visual QA screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cardiac-study-visual-qa
+          path: app/qa-output/
+          if-no-files-found: warn
