@@ -1,13 +1,26 @@
 /** One shared cardiac clock drives both the ECG sweep and the 3D contraction. */
 import { RR, T_P, T_QRS, T_TEND } from '../ecg/ecgModel';
+import { useStudyClock } from '../../heart/studyClock';
 
 let t = 0;
 let last = performance.now();
 let paused = false;
+let linkedToHost = false;
+/** Use the same SA-relative cycle as the main 3D cardiac model in embedded MI Locator. */
+export function synchronizedMIClock(seconds: number, heartRate: number): number {
+  const cycleSeconds = 60 / Math.max(20,heartRate);
+  // Preserve absolute time and normalize the 190ms SA→mechanical offset.
+  return (seconds + 0.19) * (RR / cycleSeconds) - 0.19;
+}
 export const clock = {
-  get time() { return t; },
-  tick(now = performance.now()) { const dt = Math.min(0.1, (now - last) / 1000); last = now; if (!paused) t += dt; return t; },
-  setPaused(p: boolean) { paused = p; },
+  get time() { return linkedToHost ? synchronizedMIClock(useStudyClock.getState().seconds,useStudyClock.getState().heartRate) : t; },
+  tick(now = performance.now()) {
+    if(linkedToHost) return this.time;
+    const dt = Math.min(0.1, (now - last) / 1000); last = now; if (!paused) t += dt; return t;
+  },
+  setPaused(p: boolean) { paused = p; if(linkedToHost) useStudyClock.getState().set({enabled:true,running:!p}); },
+  followHost(v: boolean) { linkedToHost=v; last=performance.now(); },
+  get followingHost() { return linkedToHost; },
 };
 const ss = (a: number, b: number, x: number) => { const k = Math.min(1, Math.max(0, (x - a) / (b - a))); return k * k * (3 - 2 * k); };
 
