@@ -1673,3 +1673,13 @@ body{font:14px/1.5 var(--fb);background:var(--bezel)}
   .heart-strip-actions{flex-direction:column;gap:3px}
   .heart-strip-actions button,.heart-strip-actions select{min-height:42px;min-width:60px;padding:5px}
 }
+
+/* Keep the volumetric blood controls in the active, visible cardiac scene toolbar. */
+.alv-focus .heart-bulk-flow-select{margin-left:auto;max-width:48%;min-width:0}
+.alv-focus .heart-bulk-flow-select select{max-width:180px;text-overflow:ellipsis}
+@media(max-width:640px){
+  .alv-focus .heart-bulk-flow-select{max-width:47%;padding:3px 5px}
+  .alv-focus .heart-bulk-flow-select .ms-l{display:none}
+  .alv-focus .heart-bulk-flow-select select{max-width:100%;font-size:11px}
+  .alv-focus .ch-focus{min-width:0;max-width:51%}
+}
