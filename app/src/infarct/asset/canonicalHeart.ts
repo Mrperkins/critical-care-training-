@@ -74,7 +74,7 @@ export function projectChamber(source: THREE.BufferGeometry, detailed: THREE.Buf
     if(best<0)continue;
     for(const k of ATTR){
       const src=source.getAttribute(k), size=src.itemSize, out=projected[k];
-      for(let j=0;j<size;j++)out[i*size+j]=src.getComponent(best,j);
+      for(let j=0;j<size;j++)out[i*size+j]=j===0?src.getX(best):j===1?src.getY(best):j===2?src.getZ(best):src.getW(best);
     }
   }
   for(const k of ATTR)geo.setAttribute(k,new THREE.BufferAttribute(projected[k],source.getAttribute(k).itemSize));
