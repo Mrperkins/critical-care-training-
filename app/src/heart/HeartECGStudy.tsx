@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { studyECGPath, studyPhase, STUDY_LEADS, ECG_EVENTS } from './studyECG';
+import { studyECGPath, studyPhase, STUDY_LEADS, ECG_EVENTS, eventTime } from './studyECG';
 import type { LeadId } from '../infarct/data/types';
 import { wiggers } from './beat';
 import { studyCycleMs, useStudyClock } from './studyClock';
@@ -67,7 +67,7 @@ export function HeartECGStudy() {
       <div className="nd-row" style={{flexWrap:'wrap',gap:8}}><label htmlFor="study-jump">Inspect event</label>
         <select id="study-jump" defaultValue="" onChange={(e) => {
           const entry = ECG_EVENTS.find((v) => v.id === e.target.value);
-          if (entry) seek(entry.at / rr);
+          if (entry) seek(eventTime(entry.at, bpm) / rr);
           e.currentTarget.value = '';
         }}>
           <option value="">Jump to…</option>{ECG_EVENTS.map((e) => <option key={e.id} value={e.id}>{e.name}</option>)}
@@ -89,7 +89,7 @@ export function HeartECGStudy() {
         {Array.from({length:6},(_,i)=><line key={'h'+i} x1={0} y1={i*20} x2={340} y2={i*20} stroke="#64748b" opacity={0.2}/>)}
         <polyline points={points} fill="none" stroke="#16b8b5" strokeWidth="2" strokeLinejoin="round"/>
         {ECG_EVENTS.filter((e) => e.id === 'p' || e.id === 'qrs' || e.id === 't').map((e) =>
-          <text key={e.id} x={Math.min(330, (e.at + e.end) / 2 / rr * 340)} y={12} fill="#cdbb94" fontSize={10} textAnchor="middle">{e.id.toUpperCase()}</text>
+          <text key={e.id} x={Math.min(330, (eventTime(e.at, bpm) + eventTime(e.end, bpm)) / 2 / rr * 340)} y={12} fill="#cdbb94" fontSize={10} textAnchor="middle">{e.id.toUpperCase()}</text>
         )}
         <line x1={p*340} y1={0} x2={p*340} y2={110} stroke="#f59e0b" strokeWidth="2"/>
       </svg>
