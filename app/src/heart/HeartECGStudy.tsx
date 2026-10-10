@@ -25,11 +25,21 @@ export function HeartECGStudy() {
     return `${i * 1.36},${55 - teachingLeadII(t, bpm) * 37}`;
   }).join(' ');
   const event = [...STUDY_EVENTS].reverse().find((x) => x.offset <= ms) ?? STUDY_EVENTS[0];
+  // Schematic Wiggers relationships only. Timings share the cursor, not calibrated pressures.
   const wiggersTrace = (kind: 'aortic' | 'ventricular' | 'volume') => Array.from({length:250}, (_, i) => {
-    const t = (i / 249) * rr; const systole = Math.min(370, rr * 0.48); const eject = Math.max(0, Math.min(1, (t - 65) / Math.max(1, systole - 65)));
-    const q = Math.sin(Math.PI * eject) ** 2;
-    const v = kind === 'volume' ? 34 + 30 * eject : kind === 'ventricular' ? 82 - 57 * q : 80 - 36 * q;
-    return `${i * 1.36},${t > systole && kind !== 'volume' ? (kind === 'ventricular' ? 82 : 80) : v}`;
+    const t = (i / 249) * rr;
+    const sys = Math.min(0.37 * Math.sqrt(rr / (60000 / 70)) * 1000, rr * 0.55);
+    const ivc = 50, ivr = 70, atr0 = rr - Math.min(130, 0.16 * rr);
+    const clamp = (v: number) => Math.max(0, Math.min(1, v));
+    const smooth = (v: number) => { const k = clamp(v); return k * k * (3 - 2 * k); };
+    const eject = smooth((t - ivc) / Math.max(1, sys - ivc));
+    const fill = smooth((t - sys - ivr) / 140);
+    const isEject = t >= ivc && t <= sys;
+    const lv = t < ivc ? 12 + 100 * smooth(t / ivc) : isEject ? 112 - 25 * eject : 12 + 75 * (1 - smooth((t - sys) / ivr));
+    const ao = t < ivc ? 80 - 3 * t / ivc : isEject ? 78 + 42 * Math.sin(Math.PI * eject * 0.85) : 82 - 5 * smooth((t - sys) / Math.max(1, rr - sys));
+    const vol = t < ivc ? 120 : t < sys ? 120 - 65 * eject : t < sys + ivr ? 55 : 55 + 55 * fill + 10 * smooth((t - atr0) / Math.max(1, rr - atr0));
+    const y = kind === 'ventricular' ? 101 - lv * 0.73 : kind === 'aortic' ? 101 - ao * 0.73 : 101 - (vol - 35) * 0.8;
+    return `${i * 1.36},${y.toFixed(2)}`;
   }).join(' ');
   const patch = useStudyClock.getState().set;
   const seek = (position: number) => {
