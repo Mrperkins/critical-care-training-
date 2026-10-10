@@ -25,11 +25,18 @@ export function HeartECGStudy() {
     return `${i * 1.36},${55 - teachingLeadII(t, bpm) * 37}`;
   }).join(' ');
   const event = [...STUDY_EVENTS].reverse().find((x) => x.offset <= ms) ?? STUDY_EVENTS[0];
+  const wiggersTrace = (kind: 'aortic' | 'ventricular' | 'volume') => Array.from({length:250}, (_, i) => {
+    const t = (i / 249) * rr; const systole = Math.min(370, rr * 0.48); const eject = Math.max(0, Math.min(1, (t - 65) / Math.max(1, systole - 65)));
+    const q = Math.sin(Math.PI * eject) ** 2;
+    const v = kind === 'volume' ? 34 + 30 * eject : kind === 'ventricular' ? 82 - 57 * q : 80 - 36 * q;
+    return `${i * 1.36},${t > systole && kind !== 'volume' ? (kind === 'ventricular' ? 82 : 80) : v}`;
+  }).join(' ');
   const patch = useStudyClock.getState().set;
   const seek = (position: number) => {
     const s = useStudyClock.getState();
-    const beatStart = Math.floor((s.seconds * 1000 + 190) / rr) * rr - 190;
-    patch({ seconds: Math.max(0, (beatStart + Math.max(0, Math.min(1, position)) * rr) / 1000), running: false });
+    let beatStart = Math.floor((s.seconds * 1000 + 190) / rr) * rr - 190;
+    if (beatStart < 0) beatStart += rr;
+    patch({ seconds: (beatStart + Math.max(0, Math.min(0.9999, position)) * rr) / 1000, running: false });
   };
   return <section className="card" aria-label="Synchronized cardiac electrical study">
     <div className="card-h"><h3>Conduction · heartbeat · ECG</h3></div>
@@ -37,7 +44,7 @@ export function HeartECGStudy() {
     {enabled && <>
       <div className="nd-row" style={{gap:8, flexWrap:'wrap'}}>
         <button className="tgl" onClick={() => patch({ running: !running })}>{running ? 'Pause' : 'Play'}</button>
-        <button className="tgl" onClick={() => patch({ running: false, seconds: 0 })}>Reset</button>
+        <button className="tgl" onClick={() => patch({ running: false, seconds: Math.max(0, (rr - 190) / 1000) })}>Reset</button>
         <button className="tgl" onClick={() => patch({ running: false, seconds: Math.max(0, seconds - 0.01) })}>−10 ms</button>
         <button className="tgl" onClick={() => patch({ running: false, seconds: seconds + 0.01 })}>+10 ms</button>
         <select aria-label="Playback speed" value={speed} onChange={(e) => patch({ speed: Number(e.target.value) })}>{SPEEDS.map((x) => <option key={x} value={x}>{x}× speed</option>)}</select>
@@ -52,6 +59,15 @@ export function HeartECGStudy() {
         <polyline points={points} fill="none" stroke="#16b8b5" strokeWidth="2" strokeLinejoin="round"/>
         <line x1={p*340} y1={0} x2={p*340} y2={110} stroke="#f59e0b" strokeWidth="2"/>
       </svg>
+      <details><summary>Mechanical cycle comparison (illustrative)</summary>
+        <svg viewBox="0 0 340 110" role="img" aria-label="Illustrative aortic pressure, ventricular pressure and chamber volume with synchronized cursor" style={{width:'100%',maxWidth:560}}>
+          <polyline points={wiggersTrace('aortic')} fill="none" stroke="#ef9c53" strokeWidth="2"/>
+          <polyline points={wiggersTrace('ventricular')} fill="none" stroke="#e15c76" strokeWidth="2"/>
+          <polyline points={wiggersTrace('volume')} fill="none" stroke="#70aeea" strokeWidth="2"/>
+          <line x1={p*340} x2={p*340} y1="0" y2="110" stroke="#f59e0b" strokeWidth="2"/>
+        </svg>
+        <p className="muted small">Orange: aortic pressure; pink: ventricular pressure; blue: ventricular volume (schematic normalized traces, not clinical measurements).</p>
+      </details>
       <input aria-label="Scrub cardiac cycle" type="range" min={0} max={1000} value={Math.round(p*1000)} onChange={(e)=>seek(Number(e.target.value)/1000)} style={{width:'100%'}}/>
       <p style={{margin:'6px 0'}}><strong>{event.name}:</strong> {event.detail}</p>
       <p className="muted small">Educational lead-II waveform; not derived from patient-specific electrical dipoles. Playback speed does not alter the simulated rate. Node and muscle timing are approximate.</p>
