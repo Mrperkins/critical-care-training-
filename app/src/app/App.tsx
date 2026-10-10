@@ -205,7 +205,7 @@ function VentModule() {
 }
 
 function SceneOverlay() {
-  const view = useUI((s) => s.ventView); const pm = useUI((s) => s.showPmus); const loops = useUI((s) => s.showLoops);
+  const view = useUI((s) => s.ventView); const pm = useUI((s) => s.showPmus); const loops = useUI((s) => s.showLoops); const flowDisplay = useUI((s) => s.ventFlowDisplay);
   const [viewOpen, setViewOpen] = useState(false); const [moreOpen, setMoreOpen] = useState(false);
   const set = useUI.getState().set;
   const views = [['front', 'Front'], ['side', 'Side'], ['airway', 'Airways'], ['base', 'Bases'], ['alveolus', 'Alveoli'], ['xray', 'X-ray'], ['lus', 'Lung US']] as const;
@@ -227,6 +227,11 @@ function SceneOverlay() {
           {moreOpen && <div className="scene-popover more-menu">
             <button className={pm ? 'on' : ''} aria-pressed={pm} onClick={() => set({ showPmus: !pm })}><span>Patient effort</span><b>{pm ? 'On' : 'Off'}</b></button>
             <button className={loops ? 'on' : ''} aria-pressed={loops} onClick={() => set({ showLoops: !loops })}><span>Pressure-volume loops</span><b>{loops ? 'On' : 'Off'}</b></button>
+            <div role="group" aria-label="Airflow visualization"><span className="muted small">Airflow visualization</span>
+              {([['volume','Air volumes'],['both','Volumes + particles'],['particles','Particles only']] as const).map(([value,label])=>
+                <button key={value} aria-pressed={flowDisplay===value} className={flowDisplay===value?'on':''}
+                  onClick={()=>set({ventFlowDisplay:value})}><span>{label}</span>{flowDisplay===value&&<b aria-hidden="true">✓</b>}</button>)}
+            </div>
           </div>}
         </div>}
       </div>
