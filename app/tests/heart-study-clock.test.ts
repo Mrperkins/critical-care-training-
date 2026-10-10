@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it } from 'vitest';
 import { studyCycleMs, teachingLeadII, useStudyClock } from '../src/heart/studyClock';
 
 describe('linked cardiac study clock', () => {
-  beforeEach(() => useStudyClock.getState().set({ seconds: 0, running: true, speed: 1, enabled: true, heartRate: 84 }));
+  beforeEach(() => useStudyClock.getState().set({ seconds: 0, running: true, speed: 1, enabled: true, heartRate: 84, rateOverride: null }));
   it('preserves original full-speed behavior when study mode is disabled', () => {
     useStudyClock.getState().set({ enabled: false, running: false, speed: 0.1 });
     expect(useStudyClock.getState().advance(0.02)).toBeCloseTo(0.02);
@@ -18,6 +18,7 @@ describe('linked cardiac study clock', () => {
     expect(useStudyClock.getState().advance(0.02)).toBeCloseTo(0.04);
     expect(useStudyClock.getState().heartRate).toBe(84);
   });
+  it('keeps physiology rate override separate from visual playback', () => { useStudyClock.getState().set({ speed: 0.1, rateOverride: 120 }); expect(useStudyClock.getState().rateOverride).toBe(120); expect(useStudyClock.getState().speed).toBe(0.1); });
   it('wraps cycle time correctly, including at negative scrub times', () => {
     const rr = 60000 / 84;
     expect(studyCycleMs(0, 84)).toBeCloseTo(190);
