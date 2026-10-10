@@ -56,23 +56,19 @@ try {
     }
     await expect(heartCanvas).toBeVisible({ timeout: 30000 });
     await expect(page.locator('section[aria-label="Cardiac live ECG strip"]')).toBeVisible();
-    // A mounted/visible canvas can still be blank while assets stream in or while WebGL is
-    // suspended in the hidden mobile context pane. Require actual heart-coloured pixels.
-    let redPixels = 0;
-    await expect.poll(async () => {
-      const rect = await page.locator('.scene-pane .scene-wrap').boundingBox();
-      if (!rect || rect.width < 20 || rect.height < 20) return 0;
-      const png = await page.screenshot({ clip: { x: Math.max(0, rect.x), y: Math.max(0, rect.y), width: rect.width, height: rect.height }, timeout: 15000, animations: 'disabled' });
-      const { data, info } = await sharp(png).removeAlpha().raw().toBuffer({ resolveWithObject: true });
-      redPixels = 0;
-      for (let i = 0; i < data.length; i += info.channels * 4) {
-        const red = data[i], green = data[i + 1], blue = data[i + 2];
-        if (red > 90 && red > green * 1.28 && red > blue * 1.2) redPixels++;
-      }
-      return redPixels;
-    }, { timeout: 30000, intervals: [1200, 1800, 2400], message: spec.name + ' real rendered cardiac anatomy never appeared' }).toBeGreaterThan(300);
-    console.log(spec.name, 'verified heart pigment sample count:', redPixels);
-    await page.screenshot({ path: path.join(output, 'heart-3d-plus-ecg-' + spec.name + '.png'), fullPage: true, animations: 'disabled' });
+    // Capture one stable frame after the mobile Scene tab has remounted its canvas.
+    // Inspect actual saved pixels rather than probing a continuously animated WebGL element.
+    await page.waitForTimeout(2200);
+    const sceneScreenshot = path.join(output, 'heart-3d-plus-ecg-' + spec.name + '.png');
+    await page.screenshot({ path: sceneScreenshot, fullPage: true, animations: 'disabled', timeout: 20000 });
+    const { data, info } = await sharp(sceneScreenshot).removeAlpha().raw().toBuffer({ resolveWithObject: true });
+    let sampledRed = 0;
+    for (let i = 0; i < data.length; i += info.channels * 4) {
+      const red = data[i], green = data[i + 1], blue = data[i + 2];
+      if (red > 90 && red > green * 1.28 && red > blue * 1.2) sampledRed++;
+    }
+    console.log(spec.name, 'rendered heart-coloured pixel samples:', sampledRed);
+    if (sampledRed < 300) throw new Error(spec.name + ': 3D anatomy is blank in actual screenshot (only ' + sampledRed + ' red pixels)');
     if (fatal.length) throw new Error(spec.name + ' uncaught errors: ' + fatal.join('; '));
     await context.close();
   }
