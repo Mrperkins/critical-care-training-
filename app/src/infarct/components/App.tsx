@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import '../infarct.css';
 import { loadHeartAsset, type HeartAsset } from '../asset/heartAsset';
+import { loadCanonicalMIHeart } from '../asset/canonicalHeart';
 import { LessonPlayer } from '../lesson/Player';
 import { STEMI_CULPRIT } from '../lesson/stemi';
 import { useApp, sequenceScene, NORMAL_SCENE, SEQ_KEYS, type Mode } from '../engine/store';
@@ -27,7 +28,21 @@ export function useIsPhone() {
 export function App({ mode: hostMode, onExit }: { mode?: Mode; onExit?: () => void } = {}) {
   const [asset, setAsset] = useState<HeartAsset | null>(null);
   const [err, setErr] = useState<string | null>(null);
-  useEffect(() => { loadHeartAsset().then(setAsset).catch((e) => { console.error(e); setErr(String(e?.message || e)); }); }, []);
+  const [canonical, setCanonical] = useState<'loading' | 'registered' | 'fallback'>('loading');
+  const [canonicalWarning, setCanonicalWarning] = useState('');
+  useEffect(() => {
+    let cancelled = false;
+    loadHeartAsset().then(async (original) => {
+      if(cancelled)return;
+      setAsset(original); // no blank scene while validated canonical mesh is prepared
+      const registered=await loadCanonicalMIHeart(original).catch((e) => ({asset:original,accepted:false,reason:String(e)}));
+      if(cancelled)return;
+      if(registered.accepted) {setAsset(registered.asset);setCanonical('registered');}
+      else {setCanonical('fallback');setCanonicalWarning(registered.reason ?? 'Canonical registration rejected');}
+    }).catch((e) => { if(!cancelled){ console.error(e);setErr(String(e?.message || e)); } });
+    return()=>{cancelled=true;};
+  }, []);
+  useEffect(() => { clock.followHost(!!hostMode); return () => clock.followHost(false); },[hostMode]);
   useSequencer();
   useEffect(() => { if (hostMode && useApp.getState().mode !== hostMode) setMode(hostMode); }, [hostMode]);
   const focus = useApp((s) => s.focus);
@@ -41,6 +56,10 @@ export function App({ mode: hostMode, onExit }: { mode?: Mode; onExit?: () => vo
           {asset ? <HeartScene asset={asset} /> : <div className="loading">{err ? `Could not load the heart model: ${err}` : 'Loading anatomical heart…'}</div>}
           <HeartOverlay />
           <ViewButtons />
+          {canonical !== 'loading' && <div className="mi-canonical-status" role={canonical==='fallback'?'status':undefined}
+            title={canonical==='fallback'?canonicalWarning:'Canonical Visible Human Male heart-hd surface with reprojected educational coronary territories'}>
+            {canonical === 'registered' ? 'Shared high-detail 3D heart · teaching territory projection' : 'Original MI heart retained · anatomy registration failed'}
+          </div>}
         </section>
         <aside className="side-pane">
           <ECGPanel />
