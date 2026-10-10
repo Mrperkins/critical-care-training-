@@ -207,3 +207,19 @@ describe('epicardial vessels (heart-hd.glb)', () => {
     expect(json('heart-hd.mapping.json').vessels).toMatch(/LAD/);
   });
 });
+
+describe('gut and diaphragm (gut.glb)', () => {
+  const m = json('gut.mapping.json'); const c = m.centres; const body = json('body.mapping.json').centres;
+  it('ships real bowel, colon, stomach, diaphragm and mesenteric vessels', async () => {
+    const n = await names('gut.glb');
+    for (const id of ['stomach', 'duodenum', 'jejunum', 'ileum', 'colon', 'appendix', 'rectum', 'diaphragm', 'mesenteric_art', 'mesenteric_vein']) expect(n).toContain(id);
+  });
+  it('puts the stomach in the left upper quadrant, below the diaphragm and left of the liver', () => {
+    expect(c.stomach[0]).toBeGreaterThan(0); expect(c.stomach[0]).toBeGreaterThan(body.liver[0]);
+    expect(c.stomach[1]).toBeLessThan(4.4); expect(c.stomach[1]).toBeGreaterThan(c.jejunum[1]);
+  });
+  it('keeps the appendix in the right iliac fossa and the rectum in the pelvis, posterior', () => {
+    expect(c.appendix[0]).toBeLessThan(0); expect(c.rectum[1]).toBeLessThan(c.ileum[1]); expect(c.rectum[2]).toBeLessThan(c.ileum[2]);
+  });
+  it('credits both sources', () => { expect(JSON.stringify(m.attribution)).toMatch(/BodyParts3D/); expect(JSON.stringify(m.attribution)).toMatch(/HuBMAP/); });
+});
