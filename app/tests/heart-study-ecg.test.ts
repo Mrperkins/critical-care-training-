@@ -4,9 +4,9 @@ import { studyCycleMs } from '../src/heart/studyClock';
 import { wiggers } from '../src/heart/beat';
 
 describe('synchronized electrophysiology teaching traces', () => {
-  it('provides all standard twelve unique ECG lead IDs', () => {
+  it('provides twelve standard and five posterior/right unique ECG leads', () => {
     expect(STUDY_LEADS).toHaveLength(17);
-    expect(new Set(STUDY_LEADS).size).toBe(12);
+    expect(new Set(STUDY_LEADS).size).toBe(17);
     expect(STUDY_LEADS).toContain('II');
     expect(STUDY_LEADS).toContain('V6');
     expect(STUDY_LEADS).toContain('V7');
