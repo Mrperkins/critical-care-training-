@@ -65,7 +65,7 @@ try {
     // Inspect actual saved pixels rather than probing a continuously animated WebGL element.
     await page.waitForTimeout(2200);
     const sceneScreenshot = path.join(output, 'heart-3d-plus-ecg-' + spec.name + '.png');
-    await page.screenshot({ path: sceneScreenshot, fullPage: true, animations: 'disabled', timeout: 20000 });
+    await page.screenshot({ path: sceneScreenshot, fullPage: false, animations: 'allow', timeout: 60000 });
     const { data, info } = await sharp(sceneScreenshot).removeAlpha().raw().toBuffer({ resolveWithObject: true });
     let sampledRed = 0;
     for (let i = 0; i < data.length; i += info.channels * 4) {
