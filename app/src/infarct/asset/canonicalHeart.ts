@@ -99,13 +99,15 @@ export function projectChamber(source: THREE.BufferGeometry, detailed: THREE.Buf
  * Geometry registration must pass on every chamber to prevent partially mixed organs.
  */
 export async function loadCanonicalMIHeart(original: HeartAsset): Promise<CanonicalAtlasResult> {
+  // Snapshot GLTF node transforms before React moves these meshes under the MI camera group.
+  const sourceFrames=Object.fromEntries(Object.entries(original.meshes).map(([id,m])=>[id,m.matrixWorld.clone()]));
   const layer=await loadHeartHD();
   const replacements:Partial<Record<ChamberId,THREE.Mesh>>={};const stats:ProjectionStats[]=[];
   try {
     for(const [legacy,canonical] of Object.entries(CANONICAL_CHAMBERS) as [ChamberId,string][]){
       const src=original.meshes[legacy],detail=layer.meshes[canonical];
       if(!src||!detail)throw Error('Missing corresponding Visible Human chamber: '+legacy);
-      const out=projectChamber(src.geometry,detail.geometry,legacy,src.matrixWorld);
+      const out=projectChamber(src.geometry,detail.geometry,legacy,sourceFrames[legacy]);
       stats.push(out.stats);
       const accepted=Number.isFinite(out.stats.p95Dm)&&out.stats.p95Dm<0.07&&out.stats.withinThreshold>0.94;
       if(!accepted)throw Error(`Unsafe anatomical correspondence ${legacy}: p95=${out.stats.p95Dm.toFixed(3)}dm, coverage=${out.stats.withinThreshold.toFixed(3)}`);
