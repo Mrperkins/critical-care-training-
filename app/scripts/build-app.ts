@@ -49,6 +49,8 @@ const audioJs = audioRes.outputFiles.find((f) => f.path.endsWith('.js'))!.text;
 const audioCss = audioRes.outputFiles.find((f) => f.path.endsWith('.css'))?.text ?? '';
 const audioDir = path.join(pub, 'audio'); fs.mkdirSync(audioDir, { recursive: true });
 const audioVoice = path.join(ROOT, 'public/audio/voice');
+// rendered 3D stills for the mental-rep visuals (real anatomy models, see pipeline/build-rep-stills.ts)
+if (fs.existsSync(path.join(ROOT, 'public/audio/visuals'))) fs.cpSync(path.join(ROOT, 'public/audio/visuals'), path.join(audioDir, 'visuals'), { recursive: true, force: true });
 const expectedRepHash = new Map<string, string>(MENTAL_REPS.flatMap((rep) => rep.beats.map((beat) => [
   `rep.${rep.id}.${beat.id}`,
   createHash('sha256').update(beat.narration.replace(/\s+/g, ' ').trim()).digest('hex').slice(0, 16),

@@ -338,7 +338,7 @@ function RepPlayer({ rep, onBack, onReview, onFocus, onExample }: { rep: MentalR
         {!guided ? <button className="aa-primary" onClick={startGuided}>▶ Start guided rep</button> : <button className="aa-secondary" onClick={() => { audio.current?.pause(); setVoicePlaying(false); setGuided(false); }}>Exit guided mode</button>}</div>}
     </div>
     <div className="aa-repstage">
-      <div className={`aa-visual ${beat.danger ? 'danger' : ''}`}><RepVisual beat={beat} /><small className="aa-vphase">VISUAL CUE · {beat.phase.toUpperCase()}</small></div>
+      <div className={`aa-visual ${beat.danger ? 'danger' : ''}`}><RepVisual beat={beat} repId={rep.id} /><small className="aa-vphase">VISUAL CUE · {beat.phase.toUpperCase()}</small></div>
       <section><div className="aa-stepcount">BEAT {i + 1} OF {rep.beats.length}</div><h2>{beat.title}</h2><p className="aa-narration">{beat.narration}</p>
         {voiceSrc && <><audio ref={audio} src={voiceSrc} onEnded={ended} /><div className="aa-beatvoice"><button onClick={toggleVoice}>{voicePlaying ? '❚❚ Pause narration' : '▶ Play guided sequence'}</button>{handsFreeAvailable() && <button className={`aa-mic ${listening ? 'on' : ''}`} onClick={mic}>{listening ? 'Listening…' : '⌁ Hands-free'}</button>}<span>{durableBeat?.reviewed || beat.voice?.reviewed ? 'Reviewed narration' : durableBeat ? 'Durable natural voice · review pending' : 'Natural-voice prototype'}</span></div>{heard && <div className="aa-heard">Heard: “{heard}”</div>}<div className="aa-command-hint">Say: pause · repeat · next · go deeper · give me an example · quiz me</div></>}
         {beat.pauseSeconds && <div className="aa-pause">Pause · {beat.pauseSeconds} seconds</div>}

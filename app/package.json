@@ -30,7 +30,8 @@
     "asset:nerves": "node --max-old-space-size=12000 --import tsx pipeline/build-nerves.ts",
     "asset:gut": "node --max-old-space-size=12000 --import tsx pipeline/build-gut.ts",
     "asset:cerebral": "node --max-old-space-size=14000 --import tsx pipeline/build-cerebral.ts",
-    "asset:brain-volume": "node --max-old-space-size=12000 --import tsx pipeline/build-brain-volume.ts"
+    "asset:brain-volume": "node --max-old-space-size=12000 --import tsx pipeline/build-brain-volume.ts",
+    "asset:rep-stills": "node --max-old-space-size=12000 --import tsx pipeline/build-rep-stills.ts"
   },
   "dependencies": {
     "@react-three/drei": "9.99.7",
