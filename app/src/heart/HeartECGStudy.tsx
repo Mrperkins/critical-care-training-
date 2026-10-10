@@ -59,7 +59,7 @@ export function HeartECGStudy() {
         <button className="tgl" onClick={() => patch({ running: false, seconds: seconds + 0.01 })}>+10 ms</button>
         <select aria-label="Playback speed" value={speed} onChange={(e) => patch({ speed: Number(e.target.value) })}>{SPEEDS.map((x) => <option key={x} value={x}>{x}× speed</option>)}</select>
       </div>
-      <div className="nd-row"><label htmlFor="study-hr">Physiological HR</label><input id="study-hr" type="number" min={50} max={140} step={5} value={rateOverride ?? bpm} onChange={(e) => patch({rateOverride: Math.max(50, Math.min(140, Number(e.target.value) || 84))})} style={{maxWidth:85}}/><button className="tgl" onClick={() => patch({rateOverride:null})}>Preset rate</button></div>
+      <div className="nd-row"><label htmlFor="study-hr">Physiological HR</label><input id="study-hr" type="range" min={50} max={140} step={5} value={rateOverride ?? bpm} onChange={(e) => patch({rateOverride: Number(e.target.value)})} style={{flex:1,minWidth:80}}/><strong>{bpm} bpm</strong><button className="tgl" onClick={() => patch({rateOverride:null})}>Preset rate</button></div>
       <div style={{fontSize:12,marginBottom:6}}>Lead II · illustrative morphology · {bpm} bpm · {Math.round(ms)} ms after SA activation</div>
       <svg role="img" aria-label="Interactive illustrative lead II electrocardiogram with synchronized cursor" viewBox="0 0 340 110" style={{width:'100%',maxWidth:560,display:'block',touchAction:'none',cursor:'crosshair'}} onPointerDown={(e) => {
         const rect = e.currentTarget.getBoundingClientRect(); seek((e.clientX - rect.left) / rect.width);
