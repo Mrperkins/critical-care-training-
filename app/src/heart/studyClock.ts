@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { studyECG } from './studyECG';
 
 /** Deterministic shared study clock. Speed changes presentation time, never the patient's heart rate. */
 interface StudyClock {
@@ -30,16 +31,5 @@ export const STUDY_EVENTS = [
   { name: 'ST/ejection', offset: 280, detail: 'The ventricles are mostly depolarized and ejecting blood.' },
   { name: 'T wave', offset: 410, detail: 'Ventricular repolarization.' },
 ] as const;
-const gaussian = (t: number, center: number, width: number) => Math.exp(-0.5 * ((t - center) / width) ** 2);
-/** Single-lead schematic teaching signal, explicitly not a diagnostic forward electrophysiology model. */
-export function teachingLeadII(ms: number, bpm: number) {
-  const rr = 60000 / Math.max(20, bpm);
-  let y = 0;
-  for (const n of [-1, 0, 1]) {
-    const x = ms - n * rr;
-    y += 0.16 * gaussian(x, 60, 24) - 0.12 * gaussian(x, 177, 7) +
-      1.05 * gaussian(x, 194, 9) - 0.28 * gaussian(x, 214, 11) +
-      0.32 * gaussian(x, Math.min(410, rr * 0.72), 48);
-  }
-  return y;
-}
+/** Backwards-compatible Lead II utility; same waveform engine as the twelve-lead viewer. */
+export const teachingLeadII = (ms: number, bpm: number) => studyECG('II', ms, bpm);
