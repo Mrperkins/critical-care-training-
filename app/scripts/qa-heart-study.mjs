@@ -30,9 +30,14 @@ try {
     const study = page.getByRole('region', { name: 'Synchronized cardiac electrical study' });
     await expect(study).toBeVisible({ timeout: 30000 });
     const heartCanvas = page.locator('.scene-pane canvas').first();
-    await expect(heartCanvas).toBeAttached({ timeout: 30000 });
-    if (spec.name === 'desktop') await expect(heartCanvas).toBeVisible({ timeout: 30000 });
-    await expect(page.locator('section[aria-label="Cardiac live ECG strip"]')).toBeAttached();
+    if (spec.name === 'desktop') {
+      await expect(heartCanvas).toBeAttached({ timeout: 30000 });
+      await expect(heartCanvas).toBeVisible({ timeout: 30000 });
+      await expect(page.locator('section[aria-label="Cardiac live ECG strip"]')).toBeAttached();
+    } else {
+      // Mobile intentionally unmounts the WebGL canvas on Lessons for GPU/memory safety.
+      await expect(heartCanvas).toHaveCount(0);
+    }
     await page.screenshot({ path: path.join(output, 'heart-before-' + spec.name + '.png'), fullPage: true, animations: 'disabled' });
     await study.locator('input[type="checkbox"]').check();
     await expect(study.getByLabel('Scrub cardiac cycle')).toBeVisible();
