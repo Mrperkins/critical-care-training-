@@ -37,6 +37,19 @@ export async function readGLB(file: string, filter?: RegExp): Promise<Map<string
   return out;
 }
 
+/** Read a meshopt-compressed / quantised GLB written by writeGLB (positions already in the body frame). */
+export async function readGLBDecoded(file: string): Promise<Map<string, THREE.BufferGeometry>> {
+  const { MeshoptDecoder } = await import('meshoptimizer'); await MeshoptDecoder.ready;
+  const io = new NodeIO().registerExtensions(ALL_EXTENSIONS).registerDependencies({ 'meshopt.decoder': MeshoptDecoder });
+  const doc = await io.read(path.join(ROOT, file)); const out = new Map<string, THREE.BufferGeometry>();
+  for (const node of doc.getRoot().listNodes()) {
+    const mesh = node.getMesh(); if (!mesh) continue; const m = new THREE.Matrix4().fromArray(node.getWorldMatrix()); const pr = mesh.listPrimitives()[0];
+    const a = pr.getAttribute('POSITION')!; const pos = new Float32Array(a.getCount() * 3); const t: number[] = []; for (let i = 0; i < a.getCount(); i++) { a.getElement(i, t); pos.set(t, i * 3); }
+    const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(pos, 3)); g.setIndex(Array.from(pr.getIndices()!.getArray()!)); g.applyMatrix4(m); g.computeVertexNormals(); out.set(node.getName(), g);
+  }
+  return out;
+}
+
 export function mergeGeos(gs: THREE.BufferGeometry[]) {
   const pos: number[] = []; const idx: number[] = []; let off = 0;
   for (const g of gs) { const a = g.attributes.position; for (let i = 0; i < a.count; i++) pos.push(a.getX(i), a.getY(i), a.getZ(i)); const ix = g.index ? g.index.array : [...Array(a.count).keys()]; for (let i = 0; i < ix.length; i++) idx.push(ix[i] + off); off += a.count; }

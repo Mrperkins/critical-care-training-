@@ -29,7 +29,9 @@ const MI_MODE: Record<string, MiMode> = { explore: 'explore', learn: 'lesson', c
 const PRESETS: [HeartPresetId, string][] = [['normal', 'Normal'], ['vsdSmall', 'Small VSD'], ['vsdLarge', 'Large VSD'], ['vsdEisen', 'VSD · Eisenmenger'], ['asd', 'ASD'], ['pfo', 'PFO'], ['pfoValsalva', 'PFO · Valsalva'], ['pda', 'PDA'],
   ['tof', 'Tetralogy'], ['pinkTet', 'Tetralogy · "pink"'], ['tetSpell', 'Tet spell'], ['coarct', 'Coarctation'], ['coarctNeoDuct', 'Newborn coarctation · duct open'], ['coarctNeoClosed', 'Newborn coarctation · duct closing'], ['newborn', 'Newborn · closing duct'], ['pphn', 'Newborn · PPHN']];
 const FOCUS: [string, string][] = [['heart.four_chamber', '4-chamber'], ['heart.vsd', 'VSD'], ['heart.asd', 'ASD / PFO'], ['heart.lv', 'LV'], ['heart.rv', 'RV'], ['heart.pulmonary_outflow', 'RV outflow'], ['heart.pda', 'Duct'], ['heart.coarct', 'Isthmus']];
-const CUTS: [CutMode, string][] = [['auto', 'Auto'], ['slice', '4-chamber slice'], ['rv', 'RV open'], ['ra', 'RA open'], ['lv', 'LV open'], ['closed', 'Closed']];
+const CUTS: [CutMode, string][] = [['auto', 'Auto'], ['slice', '4-chamber slice'], ['sax_base', 'Short axis · base'], ['sax_mid', 'Short axis · mid'], ['sax_apex', 'Short axis · apex'], ['lvot', 'Long axis · LVOT'], ['rvot', 'RV inflow–outflow'], ['rv', 'RV open'], ['ra', 'RA open'], ['lv', 'LV open'], ['closed', 'Closed']];
+/** a section plane brings its own camera (looking at the cut face) */
+const CUT_VIEW: Partial<Record<CutMode, string>> = { sax_base: 'heart.sax_base', sax_mid: 'heart.sax_mid', sax_apex: 'heart.sax_apex', lvot: 'heart.lvot', rvot: 'heart.rvot_section', slice: 'heart.four_chamber' };
 /** the best focus for a lesion, used when the lesion changes */
 const LESION_FOCUS: Record<LesionKind, string> = { none: 'heart.four_chamber', vsd: 'heart.vsd', asd: 'heart.asd', pfo: 'heart.pfo', pda: 'heart.pda', tof: 'heart.vsd', coarct: 'heart.coarct' };
 
@@ -71,7 +73,7 @@ function HeartOverlay() {
       <button className="tgl" onClick={() => set({ section: 'coronary' })}>Coronaries &amp; ECG →</button>
       <button className={`tgl${conduction ? ' on' : ''}`} aria-pressed={conduction} onClick={() => set({ conduction: !conduction })}>Conduction</button>
       <button className={`tgl${pericardium ? ' on' : ''}`} aria-pressed={pericardium} onClick={() => set({ pericardium: !pericardium })}>Pericardium</button>
-      <MiniSelect label="Open" value={cut} options={CUTS.map(([k, l]) => [k, k === 'auto' ? `Auto · ${CUT_LABEL[autoCut(target)]}` : l]) as [CutMode, string][]} onChange={(v) => set({ cut: v })} />
+      <MiniSelect label="Open" value={cut} options={CUTS.map(([k, l]) => [k, k === 'auto' ? `Auto · ${CUT_LABEL[autoCut(target)]}` : l]) as [CutMode, string][]} onChange={(v) => set({ cut: v, ...(CUT_VIEW[v] ? { target: CUT_VIEW[v] } : {}) })} />
     </div>
     {!hide && <div className="alv-hud">
       <div className="alv-row"><span>Shunt</span><b className={`dir dir-${s.direction === 'L→R' ? 'lr' : s.direction === 'R→L' ? 'rl' : s.direction === 'bidirectional' ? 'bi' : 'none'}`}>{s.direction === 'none' ? 'none' : s.direction}</b></div>

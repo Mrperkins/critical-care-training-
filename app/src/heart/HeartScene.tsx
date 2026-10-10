@@ -21,7 +21,7 @@ import { saturationColor, budget, approach, frameDt, tubeAlong, type Tier } from
 import { registerAnchors } from '../scene/cameraTargets';
 import { useLabUI } from '../labs/labStore';
 import { loadLinesAsset, type LinesAsset } from '../asset/lines';
-import { loadHeartInternals, loadPericardium, CONDUCTION, VALVE_APPARATUS, type Layer, type HeartInternalsMapping, type PericardiumMapping } from '../asset/anatomy';
+import { loadHeartInternals, loadPericardium, loadHeartHD, CONDUCTION, VALVE_APPARATUS, type Layer, type HeartInternalsMapping, type PericardiumMapping } from '../asset/anatomy';
 import { conductionMaterial, branchOf } from '../scene/conduction';
 import { wiggers, beatUniforms, partUniforms, addBeat, valveSpecs, heartRateFor, type BeatUniforms } from './beat';
 import { useHeartUI, type CutMode } from './heartStore';
@@ -72,12 +72,20 @@ if (!gl_FrontFacing) diffuseColor.rgb = uCut;`);
 }
 
 /* ------------------------------------------------------------------ cut planes */
-const CUT_LABEL: Record<Exclude<CutMode, 'auto'>, string> = { rv: 'Right ventricle opened', ra: 'Right atrium opened', lv: 'Left ventricle opened', slice: 'Four-chamber slice', front: 'Front wall removed', closed: 'Closed' };
+const CUT_LABEL: Record<Exclude<CutMode, 'auto'>, string> = { rv: 'Right ventricle opened', ra: 'Right atrium opened', lv: 'Left ventricle opened', slice: 'Four-chamber slice', front: 'Front wall removed', closed: 'Closed', sax_base: 'Short axis · base (mitral level)', sax_mid: 'Short axis · mid (papillary level)', sax_apex: 'Short axis · apex', lvot: 'Long axis · LV outflow (3-chamber)', rvot: 'RV inflow–outflow' };
+/** standard section planes from the measured landmarks: the LV long axis (mitral centre → apex), the aortic valve, the RV inflow and outflow */
+const LAX = LM.lvApex.clone().sub(LM.mitral).normalize(); const H_LAX = LM.lvApex.clone().sub(LM.mitral).dot(LAX);
+const saxPoint = (f: number) => LM.mitral.clone().addScaledVector(LAX, f * H_LAX);
+const LVOT_N = LAX.clone().cross(LM.aorticValve.clone().sub(LM.mitral)).normalize();
+const RV_APEX = LM.rv.clone().add(LM.lvApex.clone().sub(LM.lv).multiplyScalar(0.9));
+const RVOT_N = LM.pulmValve.clone().sub(LM.tricuspid).cross(RV_APEX.clone().sub(LM.tricuspid)).normalize();
+export const SAX_LEVEL = { sax_base: 0.22, sax_mid: 0.5, sax_apex: 0.78 } as const;
 /** which cut shows each focus best */
 export function autoCut(target: string): Exclude<CutMode, 'auto'> {
   if (/vsd|septum|\.rv$|four/.test(target)) return /four/.test(target) ? 'slice' : 'rv';
   if (/asd|pfo/.test(target)) return 'ra';
   if (/\.lv$/.test(target)) return 'lv';
+  if (/sax_(base|mid|apex)|lvot|rvot_section/.test(target)) return target.replace('heart.', '').replace('_section', '') as Exclude<CutMode, 'auto'>;
   if (/outflow|rvot/.test(target)) return 'front';
   return 'closed';
 }
@@ -90,6 +98,12 @@ function cutPlane(mode: Exclude<CutMode, 'auto'>): THREE.Plane | null {
     case 'lv': return plane(SEPTUM_N.clone(), LM.septum.clone().addScaledVector(SEPTUM_N, -0.17));
     case 'slice': { const n4 = new THREE.Vector3(-0.069, -0.889, -0.453); return plane(n4, new THREE.Vector3(0.112, 4.669, 0.312)); }
     case 'front': return plane(new THREE.Vector3(0, 0, -1), new THREE.Vector3(0, 0, 0.47));
+    // short axis: everything apical to the level is removed; seen from the apex, as on echo / Gray's transverse sections
+    case 'sax_base': case 'sax_mid': case 'sax_apex': return plane(LAX.clone().negate(), saxPoint(SAX_LEVEL[mode]));
+    // long axis through the LV apex, mitral and aortic valves (parasternal long axis / 3-chamber); the near (right) half removed
+    case 'lvot': return plane(LVOT_N.clone(), LM.mitral.clone());
+    // RV inflow → outflow: plane through the tricuspid valve, RV apex and pulmonary valve; the front wall removed
+    case 'rvot': return plane(RVOT_N.clone().multiplyScalar(RVOT_N.z > 0 ? -1 : 1), LM.tricuspid.clone().lerp(LM.pulmValve, 0.5));
     default: return null;
   }
 }
@@ -117,7 +131,7 @@ function streams(s: ShuntState) {
 }
 
 /* ------------------------------------------------------------------ the heart */
-function Heart({ asset, s, tier }: { asset: LinesAsset; s: ShuntState; tier: Tier }) {
+function Heart({ asset, s, tier, hd }: { asset: LinesAsset; s: ShuntState; tier: Tier; hd: Record<string, THREE.Mesh> | null }) {
   const mode = useHeartUI((st) => st.mode); const cutSel = useHeartUI((st) => st.cut); const target = useHeartUI((st) => st.target);
   const cut = cutSel === 'auto' ? autoCut(target) : cutSel;
   const gl = useThree((st) => st.gl); const scene = useThree((st) => st.scene); useEffect(() => { gl.localClippingEnabled = true; }, [gl]);
@@ -128,14 +142,16 @@ function Heart({ asset, s, tier }: { asset: LinesAsset; s: ShuntState; tier: Tie
   // geometry: our own copies so lesions can reshape them; originals kept for recomputing
   const shared = useMemo(() => beatUniforms(), []);
   const valves = useMemo(() => valveSpecs({ mitral: asset.meshes.mitral?.geometry, tricuspid: asset.meshes.tricuspid?.geometry, aortic_valve: asset.meshes.aortic_valve?.geometry, pulm_valve: asset.meshes.pulm_valve?.geometry }), [asset]);
-  const parts = useMemo(() => PARTS.filter((id) => asset.meshes[id]).map((id) => {
-    const geo = asset.meshes[id].geometry.clone(); const base = (geo.getAttribute('position').array as Float32Array).slice();
+  // full-resolution chambers with endocardial relief replace lines.glb's when loaded; the septum is then the LV/RV
+  // shells' own septal walls (HuBMAP's separate septum slab is hidden: it would bulge through the LV endocardium)
+  const parts = useMemo(() => PARTS.filter((id) => asset.meshes[id] && !(hd && id === 'septum')).map((id) => {
+    const geo = (hd?.[id] ?? asset.meshes[id]).geometry.clone(); const base = (geo.getAttribute('position').array as Float32Array).slice();
     if (!geo.getAttribute('normal')) geo.computeVertexNormals(); const nrm = (geo.getAttribute('normal').array as Float32Array).slice();
     const { m, U } = heartMaterial(id, planes);
     const radial = /^(lv|rv|septum|coronary_art|cardiac_veins)$/.test(id) ? 1 : 0; const atr = id === 'ra' || id === 'la';
     addBeat(m, shared, partUniforms({ radial, atr: atr ? 1 : 0, atrC: atr ? CHAMBER[id] : undefined, valve: valves[id] }), id);
     return { id, geo, base, nrm, m, U };
-  }), [asset, planes, shared, valves]);
+  }), [asset, planes, shared, valves, hd]);
   const byId = useMemo(() => Object.fromEntries(parts.map((p) => [p.id, p])) as Record<PartId, (typeof parts)[number]>, [parts]);
   useEffect(() => () => parts.forEach((p) => { p.geo.dispose(); p.m.dispose(); }), [parts]);
   useEffect(() => { (window as unknown as { __heart3d?: unknown }).__heart3d = { byId }; }, [byId]); // automation / tests
@@ -277,6 +293,17 @@ function Labels({ s, shape, cut }: { s: ShuntState; shape: LesionShape; cut: Exc
   const tag = (p: THREE.Vector3, t: string, cls = '', info?: string) => <Html key={info ?? t} position={p} center zIndexRange={[20, 0]}><LabelChip className={`tag3d tk ${cls}`} text={t} info={info} important={!!info} /></Html>;
   const V = (x: number, y: number, z: number) => new THREE.Vector3(x, y, z);
   const closed = cut === 'closed';
+  // section views: label what lies in the cut face, placed on the plane (the 4-chamber label positions would be wrong)
+  const sec = cutPlane(cut); if (sec && /sax_|lvot|rvot/.test(cut)) {
+    const onPlane = (p: THREE.Vector3) => { const q = toScene(p); sec.projectPoint(q, q); return q.divideScalar(SCALE).add(CENTRE); };
+    const L: [THREE.Vector3, string][] = [[onPlane(LM.lv), 'LV'], [onPlane(LM.rv), 'RV']];
+    if (cut === 'sax_base') L.push([onPlane(LM.mitral), 'Mitral valve'], [onPlane(LM.tricuspid), 'Tricuspid valve']);
+    if (cut === 'sax_mid') L.push([onPlane(LM.lv.clone().add(V(0.12, 0, 0.04))), 'Papillary muscles'], [onPlane(LM.septum), 'Septum']);
+    if (cut === 'sax_apex') L.push([onPlane(LM.lvApex.clone().lerp(LM.lv, 0.4)), 'Trabeculae carneae']);
+    if (cut === 'lvot') L.push([onPlane(LM.aorticValve), 'Aortic valve'], [onPlane(LM.mitral), 'Mitral valve'], [onPlane(LM.la), 'LA'], [onPlane(LM.septum), 'Septum']);
+    if (cut === 'rvot') L.push([onPlane(LM.tricuspid), 'Tricuspid valve'], [onPlane(LM.pulmValve), 'Pulmonary valve'], [onPlane(LM.rvot), 'Infundibulum']);
+    return <>{L.map(([p, t]) => tag(p, t))}</>;
+  }
   return (<>
     {tag(V(-0.33, 4.62, 0.5), 'RA')}{tag(V(0.36, 4.98, 0.05), 'LA')}{tag(V(0.25, 4.38, 0.82), 'RV')}{tag(V(0.66, 4.55, 0.35), 'LV')}
     {!closed && tag(LM.septum.clone().addScaledVector(SEPTUM_N, 0.06).add(V(0, -0.12, 0)), 'Ventricular septum')}
@@ -305,6 +332,11 @@ export const HEART_VIEW: Record<string, () => [THREE.Vector3, THREE.Vector3]> = 
   'heart.pfo': () => look(ATRIAL_N.clone().negate().add(new THREE.Vector3(0, 0.25, 0.1)), LM.fossa, 4.8 * D),
   'heart.lv': () => look(SEPTUM_N.clone().negate().add(new THREE.Vector3(0, 0.2, 0)), LM.lv, 5.2 * D),
   'heart.rv': () => look(SEPTUM_N.clone().add(new THREE.Vector3(0, 0.15, 0.2)), LM.rv, 5.4 * D),
+  'heart.sax_base': () => look(LAX.clone(), saxPoint(SAX_LEVEL.sax_base), 6.4 * D),
+  'heart.sax_mid': () => look(LAX.clone(), saxPoint(SAX_LEVEL.sax_mid), 5.6 * D),
+  'heart.sax_apex': () => look(LAX.clone(), saxPoint(SAX_LEVEL.sax_apex), 4.8 * D),
+  'heart.lvot': () => look(LVOT_N.clone().negate(), LM.lv.clone().lerp(LM.aorticValve, 0.35), 6.6 * D),
+  'heart.rvot_section': () => look(RVOT_N.clone().multiplyScalar(RVOT_N.z > 0 ? 1 : -1), LM.rv.clone().lerp(LM.rvot, 0.4), 6.2 * D),
   'heart.pulmonary_outflow': () => look(new THREE.Vector3(-0.2, 0.35, 1), LM.rvot.clone().add(new THREE.Vector3(0, 0.05, 0)), 4.4 * D),
   'heart.pda': () => look(new THREE.Vector3(1, 0.45, -0.55), LM.pdaAorta.clone().lerp(LM.pdaPa, 0.5), 3.4 * D),
   'heart.coarct': () => look(new THREE.Vector3(1, 0.15, -0.25), LM.isthmus.clone().add(new THREE.Vector3(0, -0.05, 0)), 3.0 * D),
@@ -322,11 +354,13 @@ export function HeartScene() {
   const s = useMemo(() => solveShunt(input), [input]);
   const [asset, setAsset] = useState<LinesAsset | null>(null); const [err, setErr] = useState('');
   useEffect(() => { loadLinesAsset().then(setAsset).catch((e) => setErr(String(e?.message || e))); }, []);
+  const [hd, setHd] = useState<Record<string, THREE.Mesh> | null>(null);
+  useEffect(() => { if (tier === 'low') { setHd(null); return; } let off = false; loadHeartHD().then((l) => { if (!off) setHd(l.meshes); }).catch(() => undefined); return () => { off = true; }; }, [tier]);
   const [p] = HEART_VIEW['heart.four_chamber']();
   if (err) return <p className="img-note" role="alert">The 3D heart could not be loaded: {err}</p>;
   return (
     <StudioCanvas camera={{ position: [p.x, p.y, p.z], fov: 32 }} fog={false} label="Interactive 3D heart, cut open to show the defect">
-      {asset && <Heart asset={asset} s={s} tier={tier} />}
+      {asset && <Heart asset={asset} s={s} tier={tier} hd={hd} />}
       <Rig />
     </StudioCanvas>
   );

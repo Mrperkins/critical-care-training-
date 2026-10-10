@@ -56,6 +56,10 @@ export const loadSkeleton = layer<SkeletonMapping>('skeleton', () => window.__SK
 export const loadPericardium = layer<PericardiumMapping>('pericardium', () => window.__PERICARDIUM_GLB__, () => window.__PERICARDIUM_MAP__, ['aEff']);
 export const loadNeuroDeep = layer<NeuroMapping>('neuro', () => window.__NEURO_GLB__, () => window.__NEURO_MAP__);
 export const loadHeartInternals = layer<HeartInternalsMapping>('heart-internals', () => window.__HEARTINT_GLB__, () => window.__HEARTINT_MAP__, ['aAct']);
+export interface HeartHDMapping { parts: { id: string; triangles: number }[]; relief: string; attribution: Attribution }
+declare global { interface Window { __HEARTHD_GLB__?: string; __HEARTHD_MAP__?: HeartHDMapping } }
+/** full-resolution chambers with sculpted endocardial relief (pipeline/build-heart-hd.ts); same ids as lines.glb (lv, rv, ra, la) */
+export const loadHeartHD = layer<HeartHDMapping>('heart-hd', () => window.__HEARTHD_GLB__, () => window.__HEARTHD_MAP__);
 export const loadUpperAirway = layer<UpperAirwayMapping>('upper-airway', () => window.__UPPERAIRWAY_GLB__, () => window.__UPPERAIRWAY_MAP__);
 export const LARYNX = ['thyroid_cartilage', 'cricoid_cartilage', 'arytenoid_R', 'arytenoid_L', 'corniculate_R', 'corniculate_L', 'epiglottis', 'vocal_fold_R', 'vocal_fold_L', 'vestibular_fold_R', 'vestibular_fold_L', 'cricothyroid_membrane'];
 export const UPPER_SOFT = ['pharynx', 'tongue', 'soft_palate'];

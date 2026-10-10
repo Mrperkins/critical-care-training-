@@ -144,3 +144,29 @@ describe('upper airway', () => {
   });
   it('says which parts are schematic', () => { expect(m.schematic).toMatch(/schematic/); });
 });
+
+describe('heart interior and conduction (measured landmarks)', () => {
+  const m = json('heart-internals.mapping.json'); const lm = m.landmarks; const P = m.parts;
+  const d = (a: number[], b: number[]) => Math.hypot(a[0] - b[0], a[1] - b[1], a[2] - b[2]) * 100; // mm
+  it('places the SA node at the SVC–RA junction and the AV node at the apex of Koch’s triangle', () => {
+    expect(d(P.sa_node.centre, lm.svcOrifice)).toBeLessThan(25);
+    expect(lm.kochAvToCsMm).toBeGreaterThan(8); expect(lm.kochAvToCsMm).toBeLessThan(25); // Koch’s triangle ~ 15–20 mm
+    expect(P.av_node.centre[1]).toBeGreaterThan(lm.csOstium[1]); // the AV node lies above the coronary-sinus ostium
+    expect(d(P.av_node.centre, lm.centralFibrousBody)).toBeLessThan(20);
+  });
+  it('keeps the conduction system to true scale', () => {
+    expect(P.sa_node.lengthMm).toBeGreaterThan(8); expect(P.sa_node.lengthMm).toBeLessThan(25);
+    expect(P.his.lengthMm).toBeGreaterThan(10); expect(P.his.lengthMm).toBeLessThan(30);
+  });
+  it('runs the left bundle on the LV side and the right bundle on the RV side of the septum', () => {
+    expect(P.lbb.centre[0]).toBeGreaterThan(P.rbb.centre[0] - 0.02);
+    expect(P.purkinje_lv.centre[0]).toBeGreaterThan(P.purkinje_rv.centre[0]);
+  });
+  it('has the interior architecture as separate, labelled structures', () => {
+    for (const id of ['moderator_band', 'limbus_fossa_ovalis', 'fossa_ovalis', 'valve_eustachian', 'valve_thebesian', 'tendon_todaro', 'supraventricular_crest', 'bachmann_bundle', 'internodal_anterior', 'internodal_middle', 'internodal_posterior', 'av_node_inferior_extension']) expect(P[id], id).toBeDefined();
+  });
+  it('ships full-resolution chambers with sculpted relief and no separate septum slab', async () => {
+    const n = new Set(await names('heart-hd.glb')); for (const id of ['lv', 'rv', 'ra', 'la']) expect(n.has(id), id).toBe(true); expect(n.has('septum')).toBe(false);
+    const hd = json('heart-hd.mapping.json'); const lv = hd.parts.find((p: { id: string }) => p.id === 'lv'); expect(lv.triangles).toBeGreaterThan(60000);
+  }, 30000);
+});

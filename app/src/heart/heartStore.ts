@@ -3,7 +3,7 @@ import { HEART_PRESETS, type HeartPresetId, type ShuntInput } from './shunt';
 
 export type FlowMode = 'sat' | 'doppler';
 /** how the heart is opened: automatic for the focus, or a fixed cut */
-export type CutMode = 'auto' | 'rv' | 'ra' | 'lv' | 'slice' | 'front' | 'closed';
+export type CutMode = 'auto' | 'rv' | 'ra' | 'lv' | 'slice' | 'front' | 'closed' | 'sax_base' | 'sax_mid' | 'sax_apex' | 'lvot' | 'rvot';
 export interface HeartUI {
   preset: HeartPresetId | 'custom'; input: ShuntInput;
   /** colour flow by oxygen saturation, or Doppler-style by velocity toward/away from an apical probe */ mode: FlowMode;
