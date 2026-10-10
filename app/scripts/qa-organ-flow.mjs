@@ -15,6 +15,7 @@ try {
     const page=await context.newPage();
     const errors=[];
     page.on('pageerror',e=>errors.push(e.message));
+    page.on('console',msg => { if(msg.type()==='error' && /Shader Error|WebGLProgram|VALIDATE_STATUS/i.test(msg.text())) errors.push(msg.text()); });
     for(const module of ['heart','vent']){
       await page.goto('http://127.0.0.1:8887/?module='+module+'&mode=explore',{waitUntil:'domcontentloaded',timeout:30000});
       if(device.name==='phone'){
@@ -25,6 +26,12 @@ try {
       await expect(canvas).toBeVisible({timeout:30000});
       if(module==='heart'){
         await expect(page.getByLabel('Blood flow')).toBeAttached({timeout:30000});
+        await page.waitForFunction(() => !!window.__heartFlowScene?.getObjectByName('bulk-blood-svc'),null,{timeout:30000});
+        const active = await page.evaluate(() => {
+          const mesh=window.__heartFlowScene?.getObjectByName('bulk-blood-svc');
+          return !!mesh && mesh.material.depthTest===false && mesh.material.uniforms.uActivity.value>0;
+        });
+        if(!active) throw new Error('Cardiac bulk blood column is not visible or not driven by physiology');
         if(device.name==='desktop'){
           await page.getByLabel('Blood flow').selectOption('particles');
           await page.getByLabel('Blood flow').selectOption('both');
