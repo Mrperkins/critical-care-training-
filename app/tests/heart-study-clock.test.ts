@@ -7,6 +7,11 @@ describe('linked cardiac study clock', () => {
     useStudyClock.getState().set({ enabled: false, running: false, speed: 0.1 });
     expect(useStudyClock.getState().advance(0.02)).toBeCloseTo(0.02);
   });
+  it('keeps requested speed even on frames longer than 50 ms', () => {
+    useStudyClock.getState().set({ speed: 2 });
+    expect(useStudyClock.getState().advance(0.1)).toBeCloseTo(0.2);
+    expect(useStudyClock.getState().advance(Number.NaN)).toBeCloseTo(0.2);
+  });
   it('pauses and advances all visuals from one deterministic time', () => {
     useStudyClock.getState().set({ running: false });
     expect(useStudyClock.getState().advance(0.02)).toBe(0);
