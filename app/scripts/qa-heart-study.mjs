@@ -60,7 +60,9 @@ try {
     // suspended in the hidden mobile context pane. Require actual heart-coloured pixels.
     let redPixels = 0;
     await expect.poll(async () => {
-      const png = await page.locator('.scene-pane .scene-wrap').screenshot({ timeout: 20000, animations: 'disabled' });
+      const rect = await page.locator('.scene-pane .scene-wrap').boundingBox();
+      if (!rect || rect.width < 20 || rect.height < 20) return 0;
+      const png = await page.screenshot({ clip: { x: Math.max(0, rect.x), y: Math.max(0, rect.y), width: rect.width, height: rect.height }, timeout: 15000, animations: 'disabled' });
       const { data, info } = await sharp(png).removeAlpha().raw().toBuffer({ resolveWithObject: true });
       redPixels = 0;
       for (let i = 0; i < data.length; i += info.channels * 4) {
