@@ -59,7 +59,7 @@ try {
     await expect(study.getByRole('button', { name: 'Play' })).toBeVisible();
     await study.getByLabel('ECG lead').selectOption('V1');
     await expect(study.getByRole('img', { name: /lead V1 electrocardiogram/i })).toBeVisible();
-    await study.getByText('View all 12 synchronized leads').click();
+    await study.getByText('View all 17 synchronized leads (12 + posterior/right)').click();
     await expect(study.getByRole('button', { name: 'Select lead V6' })).toBeVisible();
     await study.getByRole('button', { name: 'Select lead V6' }).click();
     await expect(study.getByRole('img', { name: /lead V6 electrocardiogram/i })).toBeVisible();
