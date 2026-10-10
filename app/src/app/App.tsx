@@ -198,7 +198,7 @@ function VentModule() {
         </>}
         {mode === 'learn' && <VentLearn />}
         {mode === 'challenge' && <VentChallenge />}
-        {asset && <details className="credit"><summary>Sources & model notes</summary>Anatomy: {asset.mapping.attribution.creators}, {asset.mapping.attribution.data} — <a href={asset.mapping.attribution.licenseUrl} target="_blank" rel="noreferrer">{asset.mapping.attribution.license}</a>. {asset.mapping.attribution.changes} Lung motion is drawn 1.6× so tidal changes are visible.</details>}
+        {asset && <details className="credit"><summary>Sources & model notes</summary>Anatomy: {asset.mapping.attribution.creators}, {asset.mapping.attribution.data} — <a href={asset.mapping.attribution.licenseUrl} target="_blank" rel="noreferrer">{asset.mapping.attribution.license}</a>. {asset.mapping.attribution.changes} Lung motion is drawn 1.6× so tidal changes are visible. Moving air columns use an enhanced X-ray-style overlay to show inspiration and expiration; their thickness is qualitative and is not a computed tidal-volume occupancy map.</details>}
       </aside>
     </main>
   );
