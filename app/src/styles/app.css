@@ -1650,3 +1650,26 @@ body{font:14px/1.5 var(--fb);background:var(--bezel)}
 @media(min-width:1050px){.study-lead-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:640px){.study-lead{min-height:72px}.study-lead-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(prefers-reduced-motion:reduce){.study-lead,.study-details{scroll-behavior:auto}}
+
+/* Persistent ECG beside the anatomical heart, including the phone Scene tab. */
+.heart-ecg-strip{display:flex;align-items:center;gap:10px;flex:0 0 auto;min-height:96px;padding:10px 14px;border-top:1px solid rgba(34,201,191,.32);background:linear-gradient(90deg,#0b171a,#101b1e);min-width:0}
+.heart-strip-info{display:flex;flex-direction:column;gap:4px;flex:0 0 148px;min-width:0}
+.heart-strip-info strong{font:600 12px var(--fm);white-space:nowrap}
+.heart-strip-info strong span{font-size:10px;color:var(--mute);font-weight:400}
+.heart-strip-info small{font:11px/1.45 var(--fb);color:var(--dim)}
+.heart-strip-wave{height:78px;min-width:0;flex:1;width:100%;touch-action:none;cursor:crosshair}
+.heart-strip-actions{display:flex;flex:0 0 auto;gap:7px;align-items:center}
+.heart-strip-actions button,.heart-strip-actions select,.heart-strip-start{min-height:44px;border-radius:8px;border:1px solid var(--line2);background:#15282b;color:var(--ink);padding:8px}
+.heart-strip-actions button{min-width:58px}
+.heart-strip-actions select{font:600 12px var(--fm);width:68px}
+.heart-strip-start{margin:auto;color:var(--gold);font-weight:600}
+@media(max-width:640px){
+  .heart-ecg-strip{min-height:106px;gap:6px;padding:9px 8px}
+  .heart-strip-info{flex-basis:66px}
+  .heart-strip-info strong{font-size:11px}
+  .heart-strip-info strong span{display:none}
+  .heart-strip-info small{font-size:9px}
+  .heart-strip-wave{height:75px}
+  .heart-strip-actions{flex-direction:column;gap:3px}
+  .heart-strip-actions button,.heart-strip-actions select{min-height:42px;min-width:60px;padding:5px}
+}
