@@ -1,4 +1,7 @@
 name: Cardiac ECG study regression gate
+concurrency:
+  group: cardiac-ecg-${{ github.ref }}
+  cancel-in-progress: true
 on:
   push:
     branches:
