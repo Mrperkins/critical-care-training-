@@ -28,10 +28,13 @@ try {
     await page.goto('http://127.0.0.1:8879/?module=heart', { waitUntil: 'domcontentloaded', timeout: 30000 });
     const study = page.getByRole('region', { name: 'Synchronized cardiac electrical study' });
     await expect(study).toBeVisible({ timeout: 30000 });
+    await page.screenshot({ path: path.join(output, 'heart-before-' + spec.name + '.png'), fullPage: true, animations: 'disabled' });
     await study.locator('input[type="checkbox"]').check();
     await expect(study.getByLabel('Scrub cardiac cycle')).toBeVisible();
     await study.getByLabel('Playback speed').selectOption('0.25');
-    await study.getByLabel('Scrub cardiac cycle').fill('450');
+    const scrub = study.getByLabel('Scrub cardiac cycle');
+    await scrub.focus();
+    await scrub.press('ArrowRight');
     await expect(study.getByRole('button', { name: 'Play' })).toBeVisible();
     await study.getByLabel('ECG lead').selectOption('V1');
     await expect(study.getByRole('img', { name: /lead V1 electrocardiogram/i })).toBeVisible();
