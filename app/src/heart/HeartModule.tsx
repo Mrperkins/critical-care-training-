@@ -41,6 +41,10 @@ const LESION_FOCUS: Record<LesionKind, string> = { none: 'heart.four_chamber', v
 
 export function HeartModule() {
   const mode = useUI((s) => s.mode); const section = useHeartUI((s) => s.section);
+  const presentation = useHeartUI((s) => s.atlasPresentation);
+  const mobileFocus = useHeartUI((s) => s.atlasMobileFocus);
+  const [compact, setCompact] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 1024px)').matches);
+  useEffect(() => { const media = window.matchMedia('(max-width: 1024px)'); const update = () => setCompact(media.matches); media.addEventListener('change', update); return () => media.removeEventListener('change', update); }, []);
   const physiologicalOutput = useHeartUI((s) => s.input.qs);
   useEffect(() => {
     const state = useStudyClock.getState();
@@ -85,10 +89,21 @@ export function HeartModule() {
   return (
     <main className="stage">
       <section className="scene-pane heart-scene-pane">
-        <SceneWrap>{renderScene && <HeartScene />}<HeartOverlay /></SceneWrap>
+        <SceneWrap>
+          <div className={presentation === 'split' && !compact ? 'heart-atlas-views is-dual' : 'heart-atlas-views'}>
+            {renderScene && (presentation === 'split' && !compact ? <>
+              <section className="heart-atlas-viewport" aria-label="3D intact cardiac heart"><HeartScene variant="whole" /><span className="heart-atlas-viewport-title">Exterior · whole heart</span></section>
+              <section className="heart-atlas-viewport" aria-label="3D cardiac conduction and cutaway"><HeartScene variant="conduction" /><span className="heart-atlas-viewport-title">Cutaway · conduction</span></section>
+            </> : <div className="heart-atlas-viewport">
+              <HeartScene variant={presentation === 'whole' || presentation === 'split' && compact && mobileFocus === 'whole' ? 'whole' : presentation === 'split' ? 'conduction' : 'primary'} />
+            </div>)}
+          </div>
+          <HeartOverlay />
+        </SceneWrap>
         <HeartECGSceneStrip />
       </section>
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
+        <AtlasPanel />
         <HeartECGStudy />
         {mode === 'challenge' ? <CaseChallenge module="heart" /> : mode === 'learn' ? <HeartLearn /> : <>
           <PresetCard />
@@ -103,6 +118,34 @@ export function HeartModule() {
       </aside>
     </main>
   );
+}
+
+
+function AtlasPanel() {
+  const presentation = useHeartUI((s) => s.atlasPresentation);
+  const mobileFocus = useHeartUI((s) => s.atlasMobileFocus);
+  const showP = useHeartUI((s) => s.pericardium);
+  const opacity = useHeartUI((s) => s.atlasPericardialOpacity);
+  const conduction = useHeartUI((s) => s.conduction);
+  const set = useHeartUI.getState().set;
+  return <section className="card heart-atlas-panel" aria-label="Unified 3D cardiac atlas">
+    <div className="card-h"><h3>3D cardiac atlas</h3><span className="muted small">One anatomical source</span></div>
+    <div className="heart-atlas-modes" role="group" aria-label="Heart visualization">
+      {([['cutaway','Cutaway'],['whole','Whole heart'],['split','3D split view']] as const).map(([id,label]) =>
+        <button key={id} type="button" className={presentation===id?'on':''} aria-pressed={presentation===id} onClick={()=>set({atlasPresentation:id})}>{label}</button>)}
+    </div>
+    {presentation==='split' && <div className="heart-atlas-mobile-switch" role="group" aria-label="Mobile 3D view selection">
+      <button aria-pressed={mobileFocus==='whole'} onClick={()=>set({atlasMobileFocus:'whole'})}>Whole</button>
+      <button aria-pressed={mobileFocus==='conduction'} onClick={()=>set({atlasMobileFocus:'conduction'})}>Conduction</button>
+    </div>}
+    <details className="heart-atlas-layer-settings"><summary>Verified anatomy layers</summary>
+      <label className="heart-atlas-toggle"><input type="checkbox" checked={showP} onChange={(e)=>set({pericardium:e.target.checked})}/>Pericardial sac (anatomy-derived outer surface)</label>
+      {showP && <label className="heart-atlas-range">Sac transparency <input aria-label="Pericardial sac opacity" type="range" min={0.08} max={0.85} step={0.05} value={opacity} onChange={(e)=>set({atlasPericardialOpacity:Number(e.target.value)})}/></label>}
+      <label className="heart-atlas-toggle"><input type="checkbox" checked={conduction} onChange={(e)=>set({conduction:e.target.checked})}/>Conduction network (schematic positions)</label>
+      <p className="muted small">Myocardium: visible heart surfaces. Endocardial relief: view using Cutaway. The fibrous and parietal serous pericardial layers cannot be isolated independently with current validated source geometry; no invented nested shells are shown. Epicardium is the visceral serous pericardial covering, not an independent inflated heart mesh.</p>
+    </details>
+    <button className="heart-atlas-mi-link" onClick={()=>set({section:'coronary'})}>Explore MI Locator · coronaries, STEMI and all leads <span aria-hidden="true">→</span></button>
+  </section>;
 }
 
 function HeartOverlay() {
