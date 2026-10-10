@@ -3,6 +3,7 @@
  * not a concept render. Run after npm run build and playwright install chromium.
  */
 import { chromium, expect } from '@playwright/test';
+import sharp from 'sharp';
 import { spawn } from 'node:child_process';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -55,6 +56,20 @@ try {
     }
     await expect(heartCanvas).toBeVisible({ timeout: 30000 });
     await expect(page.locator('section[aria-label="Cardiac live ECG strip"]')).toBeVisible();
+    // A mounted/visible canvas can still be blank while assets stream in or while WebGL is
+    // suspended in the hidden mobile context pane. Require actual heart-coloured pixels.
+    let redPixels = 0;
+    await expect.poll(async () => {
+      const png = await page.locator('.scene-pane .scene-wrap').screenshot({ timeout: 20000, animations: 'disabled' });
+      const { data, info } = await sharp(png).removeAlpha().raw().toBuffer({ resolveWithObject: true });
+      redPixels = 0;
+      for (let i = 0; i < data.length; i += info.channels * 4) {
+        const red = data[i], green = data[i + 1], blue = data[i + 2];
+        if (red > 90 && red > green * 1.28 && red > blue * 1.2) redPixels++;
+      }
+      return redPixels;
+    }, { timeout: 30000, intervals: [1200, 1800, 2400], message: spec.name + ' real rendered cardiac anatomy never appeared' }).toBeGreaterThan(300);
+    console.log(spec.name, 'verified heart pigment sample count:', redPixels);
     await page.screenshot({ path: path.join(output, 'heart-3d-plus-ecg-' + spec.name + '.png'), fullPage: true, animations: 'disabled' });
     if (fatal.length) throw new Error(spec.name + ' uncaught errors: ' + fatal.join('; '));
     await context.close();
