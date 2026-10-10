@@ -16,6 +16,7 @@ import * as THREE from 'three';
 import { useFrame, useThree } from '@react-three/fiber';
 import { CameraControls, Html } from '@react-three/drei';
 import { StudioCanvas, IS_PHONE } from '../scene/Studio';
+import { VolumeFlow, type FlowPoint } from '../scene/VolumeFlow';
 import { LabelChip } from '../scene/labels';
 import { saturationColor, budget, approach, frameDt, tubeAlong, type Tier } from '../scene/effects';
 import { registerAnchors } from '../scene/cameraTargets';
@@ -139,7 +140,7 @@ function streams(s: ShuntState) {
 
 /* ------------------------------------------------------------------ the heart */
 function Heart({ asset, s, tier, hd }: { asset: LinesAsset; s: ShuntState; tier: Tier; hd: Record<string, THREE.Mesh> | null }) {
-  const mode = useHeartUI((st) => st.mode); const cutSel = useHeartUI((st) => st.cut); const target = useHeartUI((st) => st.target);
+  const mode = useHeartUI((st) => st.mode); const flowDisplay = useHeartUI((st) => st.flowDisplay); const cutSel = useHeartUI((st) => st.cut); const target = useHeartUI((st) => st.target);
   const cut = cutSel === 'auto' ? autoCut(target) : cutSel;
   const gl = useThree((st) => st.gl); const scene = useThree((st) => st.scene); useEffect(() => { gl.localClippingEnabled = true; }, [gl]);
   const planes = useMemo<THREE.Plane[]>(() => [], []);
@@ -218,6 +219,17 @@ function Heart({ asset, s, tier, hd }: { asset: LinesAsset; s: ShuntState; tier:
     for (; k < NP; k++) pts[k].alive = false;
   }, [s, pts, NP]);
 
+  // Shared measured centreline geometry: the volume columns travel through existing
+  // chamber/valve/vessel paths, never arbitrary screen-space arrows.
+  const volumeStreams = useMemo(() => {
+    const paths = flowPaths(shape);
+    const candidates = streams(s).filter((x) => x.flow > 0.015 * s.qs);
+    return candidates.map((x) => ({
+      ...x,
+      points: paths[x.id].map(({p,r}): FlowPoint => ({p: p.clone(), r})),
+      color: saturationColor(x.sat, new THREE.Color(), true).getStyle(),
+    }));
+  }, [s, shapeKey]);
   const cur = useRef({ lv: 1, la: 1, ra: 1, rv: 1 }); const t = useRef(0); const studyRate = useStudyClock((st) => st.enabled && st.rateOverride != null ? st.rateOverride : null); const hr = studyRate ?? heartRateFor(s.input.qs);
   const tmp = useMemo(() => ({ o: new THREE.Object3D(), p: new THREE.Vector3(), d: new THREE.Vector3(), c: new THREE.Color(), q: new THREE.Vector3(), probe: LM.lvApex.clone().add(new THREE.Vector3(0.1, -0.1, 0.15)) }), []);
   useFrame((_, dtRaw) => {
@@ -237,7 +249,7 @@ function Heart({ asset, s, tier, hd }: { asset: LinesAsset; s: ShuntState; tier:
     for (const p of parts) if (VESSEL.has(p.id)) { if (p.m.opacity !== see) { p.m.opacity = see; p.m.transparent = see < 1; p.m.depthWrite = see === 1; p.m.needsUpdate = true; } }
     if (ductMat.opacity !== see) { ductMat.opacity = see; ductMat.transparent = see < 1; ductMat.depthWrite = see === 1; ductMat.needsUpdate = true; }
     if (flap.current) flap.current.rotation.x = approach(flap.current.rotation.x, -Math.min(0.9, s.rl * 3) * (0.6 + 0.4 * c.atr), 6, dt);
-    const im = inst.current; if (!im) return;
+    const im = inst.current; if (!im || flowDisplay === 'volume') return;
     pts.forEach((q, i) => {
       if (!q.alive) { tmp.o.scale.setScalar(0.00001); tmp.o.updateMatrix(); im.setMatrixAt(i, tmp.o.matrix); return; }
       const pth = paths[q.path]; const pulse = q.jet ? 0.3 + 1.4 * (q.path.startsWith('vsd') ? c.sys : 0.6 + 0.4 * c.sys) : 0.55 + 0.7 * c.sys;
@@ -263,7 +275,19 @@ function Heart({ asset, s, tier, hd }: { asset: LinesAsset; s: ShuntState; tier:
         <group ref={flap}><mesh position={[0, -flapR * 0.9, 0]} material={flapMat}><circleGeometry args={[flapR, 28]} /></mesh></group>
       </group>}
       {ductGeo && <mesh geometry={ductGeo} material={ductMat} />}
-      <instancedMesh key={NP} ref={inst} args={[new THREE.SphereGeometry(1, 8, 6), undefined, NP]} frustumCulled={false}><meshBasicMaterial toneMapped={false} clippingPlanes={planes} /></instancedMesh>
+      {flowDisplay !== 'particles' && volumeStreams.map((stream) => <VolumeFlow
+        key={stream.id} label={`bulk-blood-${stream.id}`} path={stream.points} color={stream.color} clippingPlanes={planes}
+        width={stream.jet ? 0.55 : 0.76} opacity={0.88}
+        sample={() => {
+          const b = wiggers(t.current, hr);
+          // Arterial ejection accentuates systole; venous return remains continuous.
+          const ejection = stream.id.startsWith('pv') || stream.id.startsWith('vsd') || stream.id === 'tofRvAo' || stream.id.startsWith('pda');
+          const magnitude = Math.min(1, Math.abs(stream.flow) / Math.max(0.15, s.qs * 0.25));
+          return { time: t.current, speed: stream.jet ? 1.7 : 0.68 + magnitude * 0.38,
+            activity: magnitude * (ejection ? 0.22 + b.slOpen * 0.78 : 0.64 + b.atr * 0.2) };
+        }}
+      />)}
+      <instancedMesh key={NP} visible={flowDisplay !== 'volume'} ref={inst} args={[new THREE.SphereGeometry(0.0052, 8, 6), undefined, NP]} frustumCulled={false}><meshBasicMaterial toneMapped={false} clippingPlanes={planes} /></instancedMesh>
       <Internals planes={planes} shared={shared} hr={hr} clock={t} />
       <Nerves shared={shared} planes={planes} />
       <Labels s={s} shape={shape} cut={cut} />
