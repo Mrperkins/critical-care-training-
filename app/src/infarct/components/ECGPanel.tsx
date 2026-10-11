@@ -1,9 +1,12 @@
 import { useEffect, useRef } from 'react';
 import { useApp } from '../engine/store';
 import { clock } from '../engine/clock';
-import { sample, stDeviationMm, RR, HR } from '../ecg/ecgModel';
+import { sample, stDeviationMm, jPointMm, tWaveMm, RR, HR } from '../ecg/ecgModel';
+import type { ECGPattern } from '../data/types';
+import { asEquivalent } from '../data/focus';
 import { STANDARD_GRID, EXTRA_LEADS, LEAD } from '../data/leads';
 import { TERRITORY } from '../data/territories';
+import { FOCUS } from '../data/focus';
 import { QUIZ_CASES } from '../data/lessons';
 import type { LeadId } from '../data/types';
 import { selectLead } from './HeartScene';
@@ -40,6 +43,16 @@ export function ecgLayout(W: number, H: number, showExtra: boolean): ECGLayout {
   return { narrow, mm, rowH, rows, height: rows * rowH, cells, extraTop: (gr + 1) * rowH };
 }
 
+/**
+ * The measurement printed on a highlighted lead: ST at J+60 ms for STEMI patterns; the J point for de Winter (that is
+ * where it is defined); the T wave for Wellens (deepest point for type B, the terminal negative limb for type A).
+ */
+export function leadMetric(id: LeadId, p: ECGPattern, morph: number, rep: number): [string, number] {
+  if (p.jDep) return ['J', jPointMm(id, p, morph)];
+  if (p.tWave && p.tWave.shape !== 'tall') { const t = tWaveMm(id, p, morph); return ['T', Math.abs(t.min) > Math.abs(t.max) || p.tWave.shape === 'inverted' ? t.min : t.max]; }
+  return ['ST', stDeviationMm(id, p, morph, rep)];
+}
+
 /** Plain-language stage of the evolving ECG, shown under the paper. */
 export function ecgStage(morph: number, reperfusion: number, narrow = false) {
   if (reperfusion > 0.5 && morph > 0.5) return narrow ? 'Reperfused' : 'Reperfused: ST resolving, T inversion, Q waves remain';
@@ -71,7 +84,7 @@ export function ECGPanel() {
       const W = b.clientWidth, H = natural.current ? Infinity : b.clientHeight; if (W < 40 || H < 40) return;
       const quizCase = st.mode === 'quiz' ? QUIZ_CASES[st.quiz.caseIndex] : null;
       const tid = quizCase ? quizCase.territoryId : st.territoryId;
-      const T = tid ? TERRITORY[tid] : null;
+      const T = tid ? FOCUS[tid] ?? TERRITORY[tid] ?? null : null;
       const target = quizCase ? (st.quiz.revealed ? st.scene.ecgMorph : 0.82) : st.scene.ecgMorph;
       const k = 1 - Math.exp(-6 * dtf); // ~0.5 s to settle
       morph.current += (target - morph.current) * k;
@@ -117,9 +130,9 @@ export function ECGPanel() {
         const lab = Math.max(11, Math.min(15, mm * 3.2));
         ctx.font = font(700, lab); ctx.fillStyle = isA ? '#a3240f' : isR ? '#23498c' : '#3a3632'; ctx.fillText(LEAD[cell.id].label, cell.x + 6, cell.y + lab + 3);
         if ((isA || isR) && T && cell.secs < 5) {
-          const d = stDeviationMm(cell.id, T.ecgPattern, m, rep.current);
+          const [tag, d] = leadMetric(cell.id, T.ecgPattern, m, rep.current);
           ctx.font = font(500, Math.max(10, Math.min(13, mm * 2.7)));
-          const full = `ST ${d >= 0 ? '↑' : '↓'}${Math.abs(d).toFixed(1)} mm`, short = `${d >= 0 ? '↑' : '↓'}${Math.abs(d).toFixed(1)}`;
+          const full = `${tag} ${d >= 0 ? '↑' : '↓'}${Math.abs(d).toFixed(1)} mm`, short = `${d >= 0 ? '↑' : '↓'}${Math.abs(d).toFixed(1)}`;
           const lw = ctx.measureText(LEAD[cell.id].label + '  ').width + 10;
           const txt = cell.w - lw > ctx.measureText(full).width + 12 ? full : cell.w - lw > ctx.measureText(short).width + 8 ? short : '';
           if (txt) { ctx.textAlign = 'right'; ctx.fillText(txt, cell.x + cell.w - 6, cell.y + lab + 3); ctx.textAlign = 'left'; }
@@ -127,7 +140,7 @@ export function ECGPanel() {
         if (cell.secs < 5 && cell.x > 0) { ctx.strokeStyle = 'rgba(60,40,30,0.35)'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(cell.x + 0.5, cell.y + 4); ctx.lineTo(cell.x + 0.5, cell.y + cell.h - 4); ctx.stroke(); }
       }
       if (showExtra) { ctx.strokeStyle = 'rgba(60,40,30,0.45)'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(0, L.extraTop + 0.5); ctx.lineTo(W, L.extraTop + 0.5); ctx.stroke(); }
-      if (stageRef.current) { const lbl = T && !hideAnswers ? ecgStage(m, rep.current, L.narrow) : quizCase ? 'Unknown ECG — read it' : 'Normal ECG'; if (stageRef.current.textContent !== lbl) stageRef.current.textContent = lbl; }
+      if (stageRef.current) { const eq = asEquivalent(T); const lbl = T && !hideAnswers ? (eq && m > 0.35 ? `${eq.short} pattern` : ecgStage(m, rep.current, L.narrow)) : quizCase ? 'Unknown ECG — read it' : 'Normal ECG'; if (stageRef.current.textContent !== lbl) stageRef.current.textContent = lbl; }
     };
     raf = requestAnimationFrame(draw);
     return () => cancelAnimationFrame(raf);

@@ -63,6 +63,15 @@ function stShape(t: number) {
   return sstep(T_J - 0.03, T_J + 0.015, t) * (1 - sstep(T_TEND - 0.02, T_TEND + 0.05, t)) * (1 + 0.35 * tWave(t));
 }
 
+/** de Winter: depressed at the J point, rising steadily (upsloping) to the baseline before the T peak. */
+function jUpslope(t: number) { return sstep(T_J - 0.025, T_J + 0.004, t) * (1 - sstep(T_J + 0.004, T_TPEAK - 0.03, t)); }
+/** Tall, broad-based, symmetric T wave (de Winter; replaces the normal asymmetric shape's height). */
+function tTall(t: number) { return g(t, T_TPEAK - 0.005, 0.046); }
+/** Deep symmetric inversion (Wellens type B). Sized to cancel the normal T and invert it. */
+function tInverted(t: number) { return g(t, T_TPEAK, 0.044); }
+/** Wellens type A: an initial positive limb then a terminal negative limb. */
+function tBiphasic(t: number) { return 0.35 * g(t, T_TPEAK - 0.05, 0.026) - g(t, T_TPEAK + 0.03, 0.034); }
+
 /** ECG voltage (mV) for one lead at time t (s) within the beat. */
 /**
  * @param rep reperfusion 0–1: ST elevation resolves (most of it), hyperacute T waves go, Q waves from
@@ -95,6 +104,13 @@ export function sample(leadId: LeadId, t: number, pattern: ECGPattern | null, mo
       return w;
     };
     v += inj(pattern.injury, pattern.injuryMv);
+    // STEMI-equivalent morphologies: present once the ischaemia is established, no Q-wave evolution
+    const pres = sstep(0.15, 0.75, morph);
+    if (pattern.jDep) v -= pres * pattern.jDep.mv * localProj(pattern.jDep.dir, lead) * k * jUpslope(t);
+    if (pattern.tWave) {
+      const lp = localProj(pattern.tWave.dir, lead) * k * pres * pattern.tWave.mv;
+      v += lp * (pattern.tWave.shape === 'tall' ? tTall(t) : pattern.tWave.shape === 'inverted' ? -tInverted(t) : tBiphasic(t));
+    }
     if (pattern.injury2 && pattern.injury2Mv) {
       const lp = localProj(pattern.injury2, lead) * k;
       v += s.st * (1 - 0.85 * rep) * pattern.injury2Mv * lp * stShape(t) + s.hyper * (1 - rep) * pattern.hyperacuteMv * 0.6 * lp * tWave(t);
@@ -121,4 +137,15 @@ export function rHeightMm(leadId: LeadId, pattern: ECGPattern | null, morph = 1)
   let m = 0;
   for (let t = T_QRS; t < T_J; t += 0.001) m = Math.max(m, sample(leadId, t, pattern, morph));
   return m * 10;
+}
+
+/** J-point deviation in millimetres (de Winter is defined there, not at J+60). */
+export function jPointMm(leadId: LeadId, pattern: ECGPattern | null, morph = 1): number {
+  return (sample(leadId, T_J + 0.004, pattern, morph) - sample(leadId, T_J - 0.12, pattern, morph)) * 10;
+}
+/** Largest positive and negative T-wave deflections (mm, against the PR baseline). */
+export function tWaveMm(leadId: LeadId, pattern: ECGPattern | null, morph = 1): { max: number; min: number } {
+  const base = sample(leadId, T_J - 0.12, pattern, morph); let max = -Infinity, min = Infinity;
+  for (let t = T_J + 0.07; t < T_TEND + 0.04; t += 0.002) { const v = (sample(leadId, t, pattern, morph) - base) * 10; if (v > max) max = v; if (v < min) min = v; }
+  return { max, min };
 }

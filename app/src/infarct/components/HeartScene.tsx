@@ -6,11 +6,13 @@ import type { HeartAsset } from '../asset/heartAsset';
 import { centerlineAt } from '../asset/heartAsset';
 import { useApp } from '../engine/store';
 import { clock, mechanics, msSinceSA } from '../engine/clock';
-import { shared, tissueMaterial, coronaryMaterial, territoryMaterial, withBeat, type TissueKind } from '../engine/shaders';
+import { shared, CLIP, tissueMaterial, coronaryMaterial, territoryMaterial, sliceCapMaterial, withBeat, type TissueKind } from '../engine/shaders';
+import { sliceSection } from '../engine/slice';
 import { loadHeartInternals, CONDUCTION, type Layer, type HeartInternalsMapping } from '../../asset/anatomy';
 import { conductionMaterial, branchOf } from '../../scene/conduction';
 import { vesselTargets, regionVector, culpritFor, regionsOfVessel, REGION_ORDER, REGION_TO_TERRITORY } from '../engine/derive';
 import { TERRITORY, TERRITORIES } from '../data/territories';
+import { focusOf, transmuralOf, lesionOf, asEquivalent } from '../data/focus';
 import { VESSEL } from '../data/vessels';
 import { upstream, originOf } from '../data/vessels';
 import { LEAD, LEADS, TORSO_RADII } from '../data/leads';
@@ -20,8 +22,12 @@ const lerp = THREE.MathUtils.lerp;
 const PHONE = typeof window !== 'undefined' && window.matchMedia('(max-width: 640px)').matches;
 const damp = (cur: number, tgt: number, rate: number, dt: number) => lerp(cur, tgt, 1 - Math.exp(-rate * dt));
 
-/** `pick` (shared high-detail heart only): the light coronary-heart myocardium, used invisibly for territory picking. */
-export function HeartScene({ asset, pick }: { asset: HeartAsset; pick?: THREE.Mesh[] }) {
+/**
+ * `pick` (shared high-detail heart only): the light coronary-heart myocardium, used invisibly for territory picking.
+ * `sliceFrom`: closed ventricular shells (LV, RV) to cut for the short-axis slice; the light coronary-heart walls are
+ * closed with an inner and an outer surface (the high-detail chambers are open at the septum).
+ */
+export function HeartScene({ asset, pick, sliceFrom }: { asset: HeartAsset; pick?: THREE.Mesh[]; sliceFrom?: THREE.Mesh[] }) {
   return (
     <Canvas
       className="heart-canvas"
@@ -29,12 +35,14 @@ export function HeartScene({ asset, pick }: { asset: HeartAsset; pick?: THREE.Me
       gl={{ antialias: true, alpha: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1.05, powerPreference: 'high-performance' }}
       camera={{ fov: 30, near: 0.05, far: 60, position: [1.2, 0.6, 4.6] }}
       onPointerMissed={() => { const s = useApp.getState(); if (s.mode === 'explore') s.set({ vesselId: null }); }}
+      onCreated={({ gl }) => { gl.localClippingEnabled = true; }}
     >
       <Studio />
       <group position={asset.center.clone().negate()}>
         <HeartModel asset={asset} pick={pick} />
         <FlowFX asset={asset} />
         <Conduction />
+        <SliceCaps asset={asset} from={sliceFrom ?? ['myocardium_LV', 'myocardium_RV'].map((id) => asset.meshes[id]).filter(Boolean)} />
       </group>
       <LeadRig />
       <ContactShadows position={[0, -1.18, 0]} opacity={0.5} blur={2.8} far={2.6} scale={7} resolution={256} frames={1} color="#000000" />
@@ -116,7 +124,7 @@ function HeartModel({ asset, pick }: { asset: HeartAsset; pick?: THREE.Mesh[] })
     const st = useApp.getState();
     const t = clock.time; const mech = mechanics(t);
     shared.uTime.value = t; shared.uVent.value = mech.vent; shared.uAtr.value = mech.atria;
-    const T = st.territoryId ? TERRITORY[st.territoryId] : null;
+    const T = focusOf(st.territoryId);
     // territory weights: the MI territory, or the regions a selected vessel supplies
     let wTarget = regionVector(T);
     if (!T && st.vesselId) { const r = regionsOfVessel(st.vesselId, st.dominance); wTarget = REGION_ORDER.map((k) => r[k] ?? 0); }
@@ -124,6 +132,8 @@ function HeartModel({ asset, pick }: { asset: HeartAsset; pick?: THREE.Mesh[] })
     const w = terr.current.w;
     shared.uTerrA.value.set(w[0], w[1], w[2], w[3]); shared.uTerrB.value.set(w[4], w[5], w[6], w[7]);
     shared.uInjury.value = damp(shared.uInjury.value, T ? st.scene.injury : 0, 2.2, dt);
+    // subendocardial patterns show little on the outer surface; a transmural STEMI shows all of it
+    shared.uSurf.value = damp(shared.uSurf.value, 0.25 + 0.75 * THREE.MathUtils.smoothstep(transmuralOf(T), 0.3, 1), 2, dt);
     shared.uHypo.value = shared.uInjury.value;
     const lead = st.leadId ? LEAD[st.leadId] : null;
     if (lead) shared.uLeadDir.value.lerp(new THREE.Vector3(...lead.view), 1 - Math.exp(-5 * dt)).normalize();
@@ -214,11 +224,14 @@ function FlowFX({ asset }: { asset: HeartAsset }) {
   const N = 70;
   const inst = useRef<THREE.InstancedMesh>(null!);
   const clot = useRef<THREE.Mesh>(null!);
-  const state = useRef({ key: '', path: [] as THREE.Vector3[], cum: [] as number[], len: 0, stop: Infinity, parts: [] as { u: number; v: number; wait: number; off: THREE.Vector3 }[], clotPos: new THREE.Vector3(), clotR: 0.02, flow: 0, occ: 0 });
+  const state = useRef({ key: '', path: [] as THREE.Vector3[], cum: [] as number[], len: 0, stop: Infinity, parts: [] as { u: number; v: number; wait: number; off: THREE.Vector3 }[], clotPos: new THREE.Vector3(), clotR: 0.02, tangent: new THREE.Vector3(0, 1, 0), vesselR: 0.01, flow: 0, occ: 0, thr: 0 });
+  const plaque = useRef<THREE.Mesh>(null!);
+  const plaqueGeo = useMemo(() => { const g = new THREE.TorusGeometry(1, 0.55, 14, 28); const p = g.attributes.position; const v = new THREE.Vector3(); for (let i = 0; i < p.count; i++) { v.fromBufferAttribute(p, i); const k = 1 + 0.12 * Math.sin(v.x * 9) * Math.cos(v.y * 7); p.setXYZ(i, v.x * k, v.y * k, v.z * 1.6); } g.computeVertexNormals(); return g; }, []);
+  const plaqueMat = useMemo(() => new THREE.MeshPhysicalMaterial({ color: '#d9c08e', roughness: 0.55, clearcoat: 0.3, sheen: 0.6, sheenColor: new THREE.Color('#fff0c8'), clippingPlanes: CLIP }), []);
   const rbc = useMemo(() => { const g = new THREE.SphereGeometry(1, 12, 8); g.scale(1, 0.42, 1); return g; }, []);
-  const rbcMat = useMemo(() => new THREE.MeshPhysicalMaterial({ color: '#b3121c', roughness: 0.35, clearcoat: 0.6, emissive: '#5a0608', emissiveIntensity: 0.6 }), []);
+  const rbcMat = useMemo(() => new THREE.MeshPhysicalMaterial({ color: '#b3121c', roughness: 0.35, clearcoat: 0.6, emissive: '#5a0608', emissiveIntensity: 0.6, clippingPlanes: CLIP }), []);
   const clotGeo = useMemo(() => { const g = new THREE.IcosahedronGeometry(1, 4); const p = g.attributes.position; const v = new THREE.Vector3(); for (let i = 0; i < p.count; i++) { v.fromBufferAttribute(p, i); const n = 1 + 0.18 * Math.sin(v.x * 7.1) * Math.sin(v.y * 6.3 + 1) + 0.1 * Math.sin(v.z * 11.0); v.multiplyScalar(n); p.setXYZ(i, v.x, v.y * 0.8, v.z); } g.computeVertexNormals(); return g; }, []);
-  const clotMat = useMemo(() => new THREE.MeshPhysicalMaterial({ color: '#3d0a0e', roughness: 0.55, clearcoat: 0.5, sheen: 1, sheenColor: new THREE.Color('#d9a45a'), sheenRoughness: 0.4, emissive: '#2a0304' }), []);
+  const clotMat = useMemo(() => new THREE.MeshPhysicalMaterial({ color: '#3d0a0e', roughness: 0.55, clearcoat: 0.5, sheen: 1, sheenColor: new THREE.Color('#d9a45a'), sheenRoughness: 0.4, emissive: '#2a0304', clippingPlanes: CLIP }), []);
   const dummy = useMemo(() => new THREE.Object3D(), []);
   const base = useMemo(() => new THREE.Vector3(...asset.mapping.lvAxis.base), [asset]);
   const axis = useMemo(() => new THREE.Vector3(...asset.mapping.lvAxis.apex).sub(base).normalize(), [asset, base]);
@@ -226,7 +239,7 @@ function FlowFX({ asset }: { asset: HeartAsset }) {
 
   useFrame((_, dt) => {
     const st = useApp.getState(); const s = state.current;
-    const T = st.territoryId ? TERRITORY[st.territoryId] : null;
+    const T = focusOf(st.territoryId);
     const c = T ? culpritFor(T, st.dominance, st.culpritIndex) : null;
     const target: VesselId | null = c ? c.vessel : st.vesselId;
     const key = `${target}-${st.dominance}-${c?.at}`;
@@ -243,35 +256,83 @@ function FlowFX({ asset }: { asset: HeartAsset }) {
         s.path = pts; s.cum = [0]; for (let i = 1; i < pts.length; i++) s.cum.push(s.cum[i - 1] + pts[i].distanceTo(pts[i - 1])); s.len = s.cum[s.cum.length - 1];
         // occlusion point along the concatenated path
         s.stop = Infinity;
-        if (c) { const line = asset.mapping.vessels[c.vessel].centerline; const p = centerlineAt(line, c.at); let best = 0, bd = Infinity; pts.forEach((q, i) => { const d = q.distanceTo(p); if (d < bd) { bd = d; best = i; } }); s.stop = s.cum[best]; s.clotPos.copy(p); s.clotR = Math.max(0.018, (asset.mapping.vessels[c.vessel].radius || 0.02) * 2.2); }
+        if (c) { const line = asset.mapping.vessels[c.vessel].centerline; const p = centerlineAt(line, c.at); let best = 0, bd = Infinity; pts.forEach((q, i) => { const d = q.distanceTo(p); if (d < bd) { bd = d; best = i; } }); s.stop = s.cum[best]; s.clotPos.copy(p); s.vesselR = asset.mapping.vessels[c.vessel].radius || 0.01; s.clotR = Math.max(0.018, s.vesselR * 2.2); s.tangent.copy(centerlineAt(line, Math.min(1, c.at + 0.02))).sub(centerlineAt(line, Math.max(0, c.at - 0.02))).normalize(); }
       }
       s.parts = Array.from({ length: N }, () => ({ u: Math.random() * (s.len || 1), v: 0.7 + Math.random() * 0.6, wait: 0, off: new THREE.Vector3((Math.random() - 0.5), (Math.random() - 0.5), (Math.random() - 0.5)).multiplyScalar(0.012) }));
     }
     s.flow = damp(s.flow, target && st.scene.flow ? 1 : 0, 3, dt);
     s.occ = damp(s.occ, c ? st.scene.occlusion : 0, 2, dt);
-    const k = shared.uVent.value; const blocked = s.occ > 0.6;
+    // the culprit lesion: an occluding thrombus (classic STEMI), a plaque with thrombus nearly closing it (left main
+    // pattern), or a tight plaque that occluded and re-opened (Wellens: thrombus only while perfusion is lost)
+    const lesion = lesionOf(T);
+    const thrTarget = !c ? 0 : lesion === 'occlusion' ? st.scene.occlusion : lesion === 'near-occlusion' ? 0.7 * st.scene.occlusion : st.scene.perfusionLoss;
+    s.thr = damp(s.thr, thrTarget, 2, dt);
+    const k = shared.uVent.value;
+    const blocked = lesion === 'stenosis' ? st.scene.perfusionLoss > 0.6 : s.occ > 0.6;
+    const trickle = lesion === 'near-occlusion';
     const speed = 0.55 * (0.6 + 0.8 * Math.max(0, Math.sin(clock.time * Math.PI * 2 / 0.833)));
     const findPt = (u: number) => { let i = 1; while (i < s.cum.length - 1 && s.cum[i] < u) i++; const a = s.cum[i - 1], b = s.cum[i]; return s.path[i - 1].clone().lerp(s.path[i], (u - a) / Math.max(1e-6, b - a)); };
     let n = 0;
     if (s.len > 0 && s.flow > 0.02) {
       for (const p of s.parts) {
         if (p.wait > 0) { p.wait -= dt; if (p.wait <= 0) p.u = 0; }
-        else { p.u += speed * p.v * dt; const lim = blocked ? s.stop - 0.01 - (p.v - 0.7) * 0.06 : s.len; if (p.u >= lim) { p.u = lim; if (!blocked) { p.u = 0; } else if (p.wait <= 0 && Math.random() < dt * 0.6) p.wait = 0.4 + Math.random(); } }
+        else { const through = !blocked || (trickle && p.v > 1.12); p.u += speed * p.v * dt * (blocked && through ? 0.45 : 1); const lim = !through ? s.stop - 0.01 - (p.v - 0.7) * 0.06 : s.len; if (p.u >= lim) { p.u = lim; if (through) { p.u = 0; } else if (p.wait <= 0 && Math.random() < dt * 0.6) p.wait = 0.4 + Math.random(); } }
         const pos = beat(findPt(Math.max(0, p.u)).add(p.off), k);
         dummy.position.copy(pos); dummy.rotation.set(p.v * 9 + clock.time * p.v, p.v * 4, 0); dummy.scale.setScalar(0.011 * s.flow); dummy.updateMatrix();
         inst.current.setMatrixAt(n++, dummy.matrix);
       }
     }
     inst.current.count = n; inst.current.instanceMatrix.needsUpdate = true;
-    clot.current.visible = s.occ > 0.02 && !!c;
-    if (clot.current.visible) { clot.current.position.copy(beat(s.clotPos, k)); clot.current.scale.setScalar(s.clotR * (0.25 + 0.75 * s.occ)); clot.current.rotation.y += dt * 0.1; }
+    clot.current.visible = s.thr > 0.02 && !!c;
+    if (clot.current.visible) { clot.current.position.copy(beat(s.clotPos, k)); clot.current.scale.setScalar(s.clotR * (0.25 + 0.75 * s.thr) * (lesion === 'occlusion' ? 1 : 0.8)); clot.current.rotation.y += dt * 0.1; }
+    plaque.current.visible = !!c && lesion !== 'occlusion' && s.occ > 0.02;
+    if (plaque.current.visible) { plaque.current.position.copy(beat(s.clotPos, k)); plaque.current.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), s.tangent); plaque.current.scale.setScalar(s.vesselR * (1.1 + 0.9 * s.occ)); }
   });
   return (
     <>
       <instancedMesh ref={inst} args={[rbc, rbcMat, N]} frustumCulled={false} renderOrder={5} />
       <mesh ref={clot} geometry={clotGeo} material={clotMat} visible={false} renderOrder={6} />
+      <mesh ref={plaque} geometry={plaqueGeo} material={plaqueMat} visible={false} renderOrder={6} />
     </>
   );
+}
+
+/* ------------------------------------------------------------------ short-axis slice */
+/** mid-ventricular short-axis level, as a fraction of the LV base → apex length (papillary-muscle level) */
+export const SLICE_LEVEL = 0.5;
+/** the slice plane in the body frame: through the LV long axis at SLICE_LEVEL, normal pointing to the base (kept side) */
+export function slicePlaneBody(asset: HeartAsset) {
+  const base = new THREE.Vector3(...asset.mapping.lvAxis.base), apex = new THREE.Vector3(...asset.mapping.lvAxis.apex);
+  const axis = apex.clone().sub(base).normalize();
+  return { point: base.clone().addScaledVector(axis, asset.mapping.lvAxis.length * SLICE_LEVEL), normal: axis.clone().negate(), axis };
+}
+
+/**
+ * The cut face of the ventricles. The apical part of the heart is clipped away (every heart material shares CLIP) and
+ * the real cross-section of the LV and RV walls is capped and shaded from the endocardium outward, so the depth of the
+ * ischaemia — inner layer only, or the full thickness of the wall — can be seen as the MI evolves.
+ */
+function SliceCaps({ asset, from }: { asset: HeartAsset; from: THREE.Mesh[] }) {
+  const on = useApp((s) => s.slice);
+  const plane = useMemo(() => slicePlaneBody(asset), [asset]);
+  const caps = useMemo(() => from.map((m) => sliceSection(m.geometry, plane.point.clone().addScaledVector(plane.normal, 0.0004), plane.normal)).filter(Boolean) as THREE.BufferGeometry[], [from, plane]);
+  const mat = useMemo(() => sliceCapMaterial(), []);
+  const world = useMemo(() => new THREE.Plane(), []);
+  useEffect(() => () => { caps.forEach((g) => g.dispose()); }, [caps]);
+  useEffect(() => () => { mat.dispose(); CLIP.length = 0; }, [mat]);
+  const wave = useRef(0);
+  useFrame((_, dt) => {
+    const st = useApp.getState(); const T = focusOf(st.territoryId);
+    // the group is offset by −centre, and clipping planes live in world space
+    if (on) { world.setFromNormalAndCoplanarPoint(plane.normal, plane.point.clone().sub(asset.center)); if (CLIP[0] !== world) { CLIP.length = 0; CLIP.push(world); } }
+    else if (CLIP.length) CLIP.length = 0;
+    // ischaemia starts in the inner layer and spreads outward with time; how far it gets depends on the lesion
+    const target = T ? transmuralOf(T) * THREE.MathUtils.smoothstep(st.scene.injury, 0.02, 0.95) : 0;
+    wave.current = damp(wave.current, target, 1.6, dt);
+    mat.localUniforms.uWave.value = wave.current; mat.localUniforms.uCapInjury.value = shared.uInjury.value;
+  });
+  if (!on) return null;
+  return <group>{caps.map((g, i) => <mesh key={i} geometry={g} material={mat} renderOrder={1} />)}</group>;
 }
 
 /* ------------------------------------------------------------------ conduction system (heart-internals.glb, body frame) */
@@ -285,7 +346,7 @@ function Conduction() {
   const [hi, setHi] = useState<Layer<HeartInternalsMapping> | null>(null);
   useEffect(() => { if (!on || hi) return; let off = false; loadHeartInternals().then((x) => { if (!off) setHi(x); }).catch(() => undefined); return () => { off = true; }; }, [on, hi]);
   // drawn over the (see-through) walls so the pathway reads from any angle, like the flow overlays elsewhere in Cardiac
-  const mats = useMemo(() => [0, 1, 2].map((b) => { const c = conductionMaterial(b as 0 | 1 | 2, { base: '#e0b040', glow: '#ffd76a' }); c.material.depthTest = false; c.material.transparent = true; withBeat(c.material, 'mi-conduction-' + b); return c; }), []);
+  const mats = useMemo(() => [0, 1, 2].map((b) => { const c = conductionMaterial(b as 0 | 1 | 2, { base: '#e0b040', glow: '#ffd76a' }); c.material.clippingPlanes = CLIP; c.material.depthTest = false; c.material.transparent = true; withBeat(c.material, 'mi-conduction-' + b); return c; }), []);
   /** geometry copies carrying the beat channel: nodes and atrial pathways move with the atria, the rest with the ventricles */
   const parts = useMemo(() => {
     if (!hi) return [];
@@ -378,11 +439,17 @@ function CameraRig({ asset }: { asset: HeartAsset }) {
   useFrame((_, dt) => {
     const c = ref.current; if (!c) return;
     const st = useApp.getState();
-    const T = st.territoryId ? TERRITORY[st.territoryId] : null;
+    const T = focusOf(st.territoryId);
     const aspectBoost = (size.width < size.height ? Math.pow(size.height / size.width, 0.45) : 1) * (size.width < 640 ? 0.9 : 1);
     let key = 'overview'; let dir = new THREE.Vector3(0.28, 0.12, 1).normalize(); let dist = 4.7; let target = new THREE.Vector3(0, -0.05, 0);
     if (st.showLeads && !st.leadId) { key = 'leads'; dir = new THREE.Vector3(0.45, 0.3, 1).normalize(); dist = 9.5; }
-    if (st.leadId) { key = 'lead-' + st.leadId; dir = dirVec(LEAD[st.leadId].view); dist = st.showLeads ? 7.5 : 4.6; }
+    else if (st.slice && !st.leadId) {
+      // look at the cut face from the apex side, tilted a little so the wall ring reads as a solid ring
+      const sp = slicePlaneBody(asset); key = 'slice';
+      dir = sp.axis.clone().add(new THREE.Vector3(0, 0.1, 0.06)).normalize(); dist = 4.0; target = sp.point.clone().sub(asset.center).addScaledVector(sp.axis, -0.08);
+    }
+    if (key === 'slice') { /* keep the slice view */ }
+    else if (st.leadId) { key = 'lead-' + st.leadId; dir = dirVec(LEAD[st.leadId].view); dist = st.showLeads ? 7.5 : 4.6; }
     else if (T && st.scene.camera === 'territory') { key = 'terr-' + T.id; dir = dirVec(T.cameraPosition.dir); dist = T.cameraPosition.distance; }
     else if (T && st.scene.camera === 'vessel') {
       const cp = culpritFor(T, st.dominance, st.culpritIndex); const p = centerlineAt(asset.mapping.vessels[cp.vessel].centerline, cp.at).sub(asset.center);

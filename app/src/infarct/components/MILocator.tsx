@@ -12,7 +12,9 @@ import { loadHeartAsset, type HeartAsset } from '../asset/heartAsset';
 import { loadSharedHeart, type SharedHeart } from '../asset/sharedHeart';
 import { LessonPlayer } from '../lesson/Player';
 import { STEMI_CULPRIT } from '../lesson/stemi';
-import { useApp, sequenceScene, NORMAL_SCENE, SEQ_KEYS, type Mode } from '../engine/store';
+import { useApp, NORMAL_SCENE, type Mode } from '../engine/store';
+import { sceneFor, seqKeysFor, focusOf, asEquivalent } from '../data/focus';
+import { EQUIVALENTS, EQUIVALENT, type STEMIEquivalent } from '../data/patterns';
 import { clock } from '../engine/clock';
 import { HeartScene, selectTerritory, selectLead } from './HeartScene';
 import { ECGPanel } from './ECGPanel';
@@ -42,7 +44,7 @@ function useMIClock() {
       clock.setPaused(s.paused); clock.advance(dt);
       if ((s.mode === 'explore' || (s.mode === 'quiz' && s.quiz.revealed)) && s.territoryId && s.seqPlaying) {
         const seq = Math.min(1, s.seq + dt / SEQ_SECONDS);
-        s.set({ seq, seqPlaying: seq < 1, scene: sequenceScene(seq) });
+        s.set({ seq, seqPlaying: seq < 1, scene: sceneFor(s.territoryId, seq) });
       }
     };
     raf = requestAnimationFrame(loop);
@@ -54,7 +56,7 @@ function useMIClock() {
 export function setMode(mode: Mode) {
   const s = useApp.getState(); if (s.mode === mode) return;
   const base = { mode, vesselId: null, leadId: null, seq: 0, seqPlaying: false, scene: { ...NORMAL_SCENE }, lessonStep: 0 };
-  if (mode === 'lesson') { const tid = s.territoryId ?? 'inferior'; s.set({ ...base, territoryId: tid }); applyLessonStep(tid, 0); }
+  if (mode === 'lesson') { const tid = s.territoryId && TERRITORY[s.territoryId] ? s.territoryId : 'inferior'; s.set({ ...base, territoryId: tid }); applyLessonStep(tid, 0); }
   else if (mode === 'quiz') s.set({ ...base, territoryId: null, quiz: { caseIndex: s.quiz.caseIndex, answers: {}, revealed: false, qIndex: 0 } });
   else s.set({ ...base, territoryId: null });
 }
@@ -83,9 +85,11 @@ export function MILocator({ mode, header, mountScene = true }: { mode: Mode; hea
   }, []);
   /** on the shared heart, pointer picking uses the light myocardium (same shape, ~30× fewer triangles) */
   const pick = useMemo(() => heart?.shared ? PICK_IDS.map((id) => heart.original.meshes[id]).filter(Boolean) : undefined, [heart]);
+  /** the light walls are closed shells (inner + outer surface), so they give a true wall cross-section */
+  const sliceFrom = useMemo(() => heart ? ['myocardium_LV', 'myocardium_RV'].map((id) => heart.original.meshes[id]).filter(Boolean) : undefined, [heart]);
   useMIClock();
   useEffect(() => { setMode(mode); }, [mode]);
-  useEffect(() => { (window as unknown as { __mi: unknown }).__mi = { store: useApp, clock, shared: () => heart?.shared ?? null, stats: () => heart?.stats ?? [], transferMs: () => heart?.ms ?? null, territory: (id: string, seq = 1) => { selectTerritory(id); useApp.getState().set({ seq, seqPlaying: false, scene: sequenceScene(seq) }); } }; }, [heart]);
+  useEffect(() => { (window as unknown as { __mi: unknown }).__mi = { store: useApp, clock, shared: () => heart?.shared ?? null, stats: () => heart?.stats ?? [], transferMs: () => heart?.ms ?? null, territory: (id: string, seq = 1) => { selectFocus(id); useApp.getState().set({ seq, seqPlaying: false, scene: sceneFor(id, seq) }); } }; }, [heart]);
   const focus = useApp((s) => s.focus);
   return (
     <main className={`stage mi-stage mi-mode-${mode}`} aria-label="MI Locator">
@@ -94,7 +98,7 @@ export function MILocator({ mode, header, mountScene = true }: { mode: Mode; hea
         <div className={`mi-split focus-${focus}`}>
           <div className="mi-heart">
             <SceneWrap labels={false}>
-              {heart ? (mountScene ? <HeartScene asset={heart.asset} pick={pick} /> : null) : <div className="mi-loading">{err ? `Could not load the heart model: ${err}` : 'Loading the heart…'}</div>}
+              {heart ? (mountScene ? <HeartScene asset={heart.asset} pick={pick} sliceFrom={sliceFrom} /> : null) : <div className="mi-loading">{err ? `Could not load the heart model: ${err}` : 'Loading the heart…'}</div>}
               <HeartOverlay />
             </SceneWrap>
           </div>
@@ -121,13 +125,14 @@ const PICK_IDS = ['myocardium_LV', 'myocardium_septum', 'myocardium_RV'];
 /* ---------------------------------------------------------------- heart overlay */
 function HeartOverlay() {
   const hv = useApp((s) => s.hoverVessel); const ht = useApp((s) => s.hoverTerritory); const lead = useApp((s) => s.leadId); const showLeads = useApp((s) => s.showLeads);
-  const paused = useApp((s) => s.paused); const cond = useApp((s) => s.conduction); const mode = useApp((s) => s.mode); const idle = useApp((s) => !s.territoryId && !s.vesselId);
+  const paused = useApp((s) => s.paused); const cond = useApp((s) => s.conduction); const slice = useApp((s) => s.slice); const mode = useApp((s) => s.mode); const idle = useApp((s) => !s.territoryId && !s.vesselId);
   const txt = hv ? `${VESSEL[hv].name} — click to follow its flow` : ht ? `${TERRITORY[ht].name} wall — click to occlude its artery` : null;
   return (
     <div className="mi-overlay">
       {txt && <div className="mi-hover" role="status">{txt}</div>}
       {lead ? <div className="mi-lead-note"><b>{LEAD[lead].label}</b> looks at {LEAD[lead].faces}. You are looking from its positive electrode; the brighter surface faces it. <button type="button" className="linkish" onClick={() => selectLead(null)}>Back to overview</button></div>
         : showLeads ? <div className="mi-lead-note">Each line runs from the heart to a lead’s positive electrode. Click a lead to look through it.</div>
+        : slice ? <div className="mi-lead-note mi-slice-note"><b>Short-axis slice</b> through both ventricles, seen from the apex. Ischaemia starts in the inner layer (subendocardium) and spreads outward; a transmural infarct reaches the outer surface. <span className="mi-slice-key" aria-hidden="true"><i>inner</i><i>outer</i></span></div>
         : cond ? <div className="mi-lead-note">Conduction: SA node → atria (P wave) → AV node (PR pause) → His bundle and bundle branches → Purkinje fibres (QRS). Positions schematic.</div>
         : mode === 'explore' && !txt && idle ? <div className="mi-lead-note mi-hint">Click a wall, an artery or any ECG lead.</div> : null}
       <div className="mi-view-btns">
@@ -146,7 +151,7 @@ function OptionsSummary() {
 }
 /** In Practice the case sets the coronary dominance (choosing it would give the answer away). */
 function OptionsCard({ practice = false }: { practice?: boolean }) {
-  const dom = useApp((s) => s.dominance); const showLeads = useApp((s) => s.showLeads); const cut = useApp((s) => s.cutaway); const cond = useApp((s) => s.conduction); const focus = useApp((s) => s.focus);
+  const dom = useApp((s) => s.dominance); const showLeads = useApp((s) => s.showLeads); const cut = useApp((s) => s.cutaway); const cond = useApp((s) => s.conduction); const slice = useApp((s) => s.slice); const focus = useApp((s) => s.focus);
   const set = useApp.getState().set;
   return (
     <section className="card mi-card">
@@ -157,6 +162,7 @@ function OptionsCard({ practice = false }: { practice?: boolean }) {
         <button type="button" className={`tgl${showLeads ? ' on' : ''}`} aria-pressed={showLeads} onClick={() => set({ showLeads: !showLeads })}>Leads around the torso</button>
         <button type="button" className={`tgl${cut ? ' on' : ''}`} aria-pressed={cut} onClick={() => set({ cutaway: !cut })} title="Fade the right ventricle to show the septum">Septal cutaway</button>
         <button type="button" className={`tgl${cond ? ' on' : ''}`} aria-pressed={cond} onClick={() => set({ conduction: !cond })} title="See-through walls with the conduction system firing in time with the ECG">Conduction system</button>
+        <button type="button" className={`tgl${slice ? ' on' : ''}`} aria-pressed={slice} onClick={() => set({ slice: !slice })} title="Cut across both ventricles to see how deep into the wall the ischaemia reaches">Short-axis slice</button>
       </div>
       <div className="mi-opt"><span className="muted small">Pane size</span>
         <Seg small value={focus} options={[['heart', 'Heart'], ['split', 'Equal'], ['ecg', 'ECG']]} onChange={(f) => set({ focus: f })} /></div>
@@ -173,6 +179,7 @@ const REGION_NAME: Record<RegionId, string> = { septum: 'septum', anterior: 'ant
 
 function ExplorePanel() {
   const tid = useApp((s) => s.territoryId); const vid = useApp((s) => s.vesselId); const lead = useApp((s) => s.leadId); const dom = useApp((s) => s.dominance); const ci = useApp((s) => s.culpritIndex);
+  if (tid && EQUIVALENT[tid]) return <EquivalentPanel e={EQUIVALENT[tid]} />;
   if (tid) {
     const t = TERRITORY[tid]; const opts = t.commonCulpritVessels.filter((c) => !c.dominance || c.dominance === dom); const cur = culpritFor(t, dom, ci);
     return (
@@ -226,6 +233,30 @@ function ExplorePanel() {
         <li>Click any <b>ECG lead</b> (on the paper or below) to look at the heart from that lead.</li>
       </ol>
       <div className="mi-groups">{LEAD_GROUPS.map((g) => <div key={g.id} className="mi-grp"><span>{g.name}</span><LeadChips ids={g.leads} kind="n" /></div>)}</div>
+    </section>
+  );
+}
+
+/* ---------------------------------------------------------------- STEMI equivalent */
+function EquivalentPanel({ e }: { e: STEMIEquivalent }) {
+  const c = e.commonCulpritVessels[0];
+  const lesion = e.lesion === 'occlusion' ? 'Occluded' : e.lesion === 'near-occlusion' ? 'Nearly occluded' : 'Critical stenosis, re-opened';
+  const depth = e.transmural < 0.4 ? 'Inner layer (subendocardial)' : e.transmural < 0.7 ? 'Inner half of the wall' : 'Full thickness';
+  return (
+    <section className="card mi-card mi-info" aria-live="polite">
+      <div className="eyebrow">STEMI equivalent</div>
+      <h2 className="h2">{e.name}</h2>
+      <div className="eyebrow">Criteria</div>
+      <ul className="mi-criteria">{e.criteria.map((k) => <li key={k.text}><span>{k.text}</span>{k.leads.length > 0 && <LeadChips ids={k.leads} kind="n" />}</li>)}</ul>
+      <dl className="mi-facts">
+        <dt>Culprit</dt><dd>{VESSEL[c.vessel].name} · {lesion.toLowerCase()}</dd>
+        <dt>Ischaemia</dt><dd>{depth}</dd>
+        <dt>Action</dt><dd><b>{e.action}</b></dd>
+      </dl>
+      <p className="mi-explain">{e.explanation}</p>
+      <Fold group="mi-t" id="pearls" title="Clinical pearls"><ul className="mi-pearls">{e.clinicalPearls.map((p) => <li key={p}>{p}</li>)}</ul></Fold>
+      <p className="muted small">Turn on <b>Short-axis slice</b> in View options to see how deep into the wall the ischaemia reaches. ECG morphology is a teaching model.</p>
+      <button type="button" className="tgl" onClick={clearTerritory}>Back to a normal heart</button>
     </section>
   );
 }
@@ -337,16 +368,23 @@ function isRight(q: ReturnType<typeof buildQuestions>[number], a: unknown) {
 
 /* ---------------------------------------------------------------- territories + Normal → MI timeline (under the heart and ECG) */
 /** stages named under the track (the rest are ticks, named in the stage readout as the playhead passes them) */
-const KEY_LABELS = ['Normal', 'Occlusion', 'Injury', 'Facing leads'];
+const labelledKeys = (keys: { at: number; label: string }[]) => { const out = new Set<string>(); let last = -1; for (const k of keys) if (k.at - last >= 0.25 || last < 0) { out.add(k.label); last = k.at; } return out; };
+
+/** Select a territory or a STEMI equivalent. Equivalents open the short-axis slice: the depth of ischaemia is their point. */
+export function selectFocus(id: string) {
+  selectTerritory(id);
+  const e = EQUIVALENT[id]; if (e && e.transmural >= 0.25 && e.transmural < 0.7) useApp.getState().set({ slice: true });
+}
 /** compact chip names (full names in the tooltip and the side pane) */
 const CHIP: Record<string, string> = { extensiveAnterior: 'Ext. anterior' };
 function Timeline({ mode }: { mode: Mode }) {
   const tid = useApp((s) => s.territoryId); const seq = useApp((s) => s.seq); const playing = useApp((s) => s.seqPlaying); const qRevealed = useApp((s) => s.quiz.revealed);
   const i = useApp((s) => s.lessonStep); const dom = useApp((s) => s.dominance);
-  const lessonTid = tid ?? 'inferior';
+  const lessonTid = tid && TERRITORY[tid] ? tid : 'inferior';
   const steps = useMemo(() => buildLesson(TERRITORY[lessonTid], dom), [lessonTid, dom]);
-  const scrub = (v: number) => useApp.getState().set({ seq: v, seqPlaying: false, scene: sequenceScene(v) });
-  const stage = [...SEQ_KEYS].reverse().find((k) => seq >= k.at)?.label ?? 'Normal';
+  const scrub = (v: number) => useApp.getState().set({ seq: v, seqPlaying: false, scene: sceneFor(tid, v) });
+  const keys = seqKeysFor(tid); const labelled = labelledKeys(keys);
+  const stage = [...keys].reverse().find((k) => seq >= k.at)?.label ?? 'Normal';
   const showScrub = (mode === 'explore' || (mode === 'quiz' && qRevealed)) && !!tid;
   // keep the chosen territory in view when the chip row scrolls sideways (touch layouts)
   const row = useRef<HTMLDivElement>(null);
@@ -360,12 +398,18 @@ function Timeline({ mode }: { mode: Mode }) {
           {tid && mode === 'explore' && <button type="button" className="mi-clear" onClick={clearTerritory}>Clear</button>}
         </div>
       )}
+      {mode === 'explore' && (
+        <div className="mi-terr mi-equiv" role="group" aria-label="STEMI equivalents">
+          <span className="mi-tl-lbl">STEMI equivalents</span>
+          {EQUIVALENTS.map((e) => <button type="button" key={e.id} title={e.name} className={tid === e.id ? 'on' : ''} aria-pressed={tid === e.id} onClick={() => selectFocus(e.id)}>{e.short}</button>)}
+        </div>
+      )}
       {showScrub && (
         <div className="mi-scrub">
           <button type="button" className="tgl on" onClick={() => useApp.getState().set({ seqPlaying: !playing, seq: seq >= 1 ? 0 : seq })}>{playing ? 'Pause' : seq >= 1 ? 'Replay' : 'Play'}</button>
           <div className="mi-track">
             <input type="range" min={0} max={1} step={0.001} value={seq} onChange={(e) => scrub(+e.target.value)} aria-label="Normal to MI" aria-valuetext={stage} />
-            <div className="mi-keys" aria-hidden="true">{SEQ_KEYS.map((k) => <button type="button" tabIndex={-1} key={k.label} title={k.label} style={{ left: `${k.at * 100}%` }} className={`${seq >= k.at ? 'past' : ''}${KEY_LABELS.includes(k.label) ? '' : ' tick'}`} onClick={() => scrub(k.at + 0.02)}>{KEY_LABELS.includes(k.label) ? k.label : ''}</button>)}</div>
+            <div className="mi-keys" aria-hidden="true">{keys.map((k) => <button type="button" tabIndex={-1} key={k.label} title={k.label} style={{ left: `${k.at * 100}%` }} className={`${seq >= k.at ? 'past' : ''}${labelled.has(k.label) ? '' : ' tick'}`} onClick={() => scrub(k.at + 0.02)}>{labelled.has(k.label) ? k.label : ''}</button>)}</div>
           </div>
           <span className="mi-stage-lbl">{stage}</span>
         </div>

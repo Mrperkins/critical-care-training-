@@ -62,6 +62,17 @@ try {
     if (hp.red < 300) throw new Error(spec.name + ': the 3D heart is blank in the screenshot');
     if (ep.paper < ep.n * 0.3) throw new Error(spec.name + ': the ECG paper is not visible');
     if (spec.name === 'desktop') {
+      // STEMI equivalents: left main / aVR opens the short-axis slice; the ECG stage names the pattern
+      await page.evaluate(() => window.__mi.territory('leftMain', 1));
+      await expect(page.locator('.mi-ecg-stage')).toHaveText(/Left main/, { timeout: 20000 });
+      await expect(page.locator('aside.mi-side .h2').first()).toHaveText(/Left main/);
+      if (!(await page.evaluate(() => window.__mi.store.getState().slice))) throw new Error('left main pattern should open the short-axis slice');
+      await page.waitForTimeout(6000);
+      await page.screenshot({ path: path.join(output, 'mi-locator-leftmain-slice-desktop.png'), fullPage: false, timeout: 120000 });
+      await page.evaluate(() => { window.__mi.store.getState().set({ slice: false }); window.__mi.territory('wellensB', 1); });
+      await expect(page.locator('.mi-ecg-stage')).toHaveText(/Wellens B/, { timeout: 20000 });
+      await page.waitForTimeout(4000);
+      await page.screenshot({ path: path.join(output, 'mi-locator-wellens-desktop.png'), fullPage: false, timeout: 120000 });
       await page.evaluate(() => { window.__mi.store.getState().set({ conduction: true }); });
       await page.waitForTimeout(3000);
       await page.screenshot({ path: path.join(output, 'mi-locator-conduction-desktop.png'), fullPage: false, timeout: 120000 });
