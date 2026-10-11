@@ -10,6 +10,9 @@ import { diseaseLesson } from '../src/atlas/engine';
 import { MECHANISMS } from '../src/moa/registry';
 import { moaTimeline } from '../src/moa/moaTimeline';
 import { narrationJobs } from '../scripts/narration-common';
+import { STEMI_CULPRIT } from '../src/infarct/lesson/stemi';
+import { TERRITORIES } from '../src/infarct/data/territories';
+import { buildLesson, lessonVoiceId } from '../src/infarct/data/lessons';
 
 const lines: { id: string; t: string }[] = JSON.parse(fs.readFileSync('public/vo/lines.json', 'utf8'));
 const vo: Record<string, { hash: string }> = fs.existsSync('public/vo/narration.json') ? JSON.parse(fs.readFileSync('public/vo/narration.json', 'utf8')) : {};
@@ -17,7 +20,12 @@ const jobs = narrationJobs(); const want = new Map(jobs.map((j) => [j.id, j.hash
 const byId = new Map(lines.map((l) => [l.id, l.t]));
 const timelines = [...LESSON_HOSTS.flatMap((h) => h.timelines), ...DISEASES.map((d) => diseaseLesson(d, () => undefined)), ...MECHANISMS.map((m) => moaTimeline(m))];
 const cues = timelines.flatMap((tl) => tl.cues.filter((c) => c.say).map((c) => ({ id: c.voice ?? c.id, t: c.say! })));
-const steps = ([...VENT_LESSONS, ...ABG_LESSONS, ...LAB_LESSONS, ...LINES_LESSONS] as { steps: { id: string; say: string }[] }[]).flatMap((l) => l.steps.map((s) => ({ id: s.id, t: s.say })));
+const steps = [
+  ...([...VENT_LESSONS, ...ABG_LESSONS, ...LAB_LESSONS, ...LINES_LESSONS] as { steps: { id: string; say: string }[] }[]).flatMap((l) => l.steps.map((s) => ({ id: s.id, t: s.say }))),
+  // MI Locator: the narrated STEMI lesson and each territory lesson step (per dominance where the words differ)
+  ...STEMI_CULPRIT.cues.map((c) => ({ id: c.voice ?? c.id, t: c.say })),
+  ...TERRITORIES.flatMap((t) => (['right', 'left'] as const).flatMap((d) => buildLesson(t, d).map((st) => ({ id: lessonVoiceId(t, d, st.id), t: st.text })))),
+];
 
 describe('narration', () => {
   it('lines.json is in sync with every narrated cue and step (run scripts/vo-lines.ts after editing lesson text)', () => {

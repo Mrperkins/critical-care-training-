@@ -1,12 +1,14 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { Canvas, useFrame, useThree, type ThreeEvent } from '@react-three/fiber';
 import { CameraControls, ContactShadows, Environment, Html, Lightformer } from '@react-three/drei';
 import type { HeartAsset } from '../asset/heartAsset';
 import { centerlineAt } from '../asset/heartAsset';
 import { useApp } from '../engine/store';
-import { clock, mechanics } from '../engine/clock';
-import { shared, tissueMaterial, coronaryMaterial, territoryMaterial, type TissueKind } from '../engine/shaders';
+import { clock, mechanics, msSinceSA } from '../engine/clock';
+import { shared, tissueMaterial, coronaryMaterial, territoryMaterial, withBeat, type TissueKind } from '../engine/shaders';
+import { loadHeartInternals, CONDUCTION, type Layer, type HeartInternalsMapping } from '../../asset/anatomy';
+import { conductionMaterial, branchOf } from '../../scene/conduction';
 import { vesselTargets, regionVector, culpritFor, regionsOfVessel, REGION_ORDER, REGION_TO_TERRITORY } from '../engine/derive';
 import { TERRITORY, TERRITORIES } from '../data/territories';
 import { VESSEL } from '../data/vessels';
@@ -18,7 +20,8 @@ const lerp = THREE.MathUtils.lerp;
 const PHONE = typeof window !== 'undefined' && window.matchMedia('(max-width: 640px)').matches;
 const damp = (cur: number, tgt: number, rate: number, dt: number) => lerp(cur, tgt, 1 - Math.exp(-rate * dt));
 
-export function HeartScene({ asset }: { asset: HeartAsset }) {
+/** `pick` (shared high-detail heart only): the light coronary-heart myocardium, used invisibly for territory picking. */
+export function HeartScene({ asset, pick }: { asset: HeartAsset; pick?: THREE.Mesh[] }) {
   return (
     <Canvas
       className="heart-canvas"
@@ -29,8 +32,9 @@ export function HeartScene({ asset }: { asset: HeartAsset }) {
     >
       <Studio />
       <group position={asset.center.clone().negate()}>
-        <HeartModel asset={asset} />
+        <HeartModel asset={asset} pick={pick} />
         <FlowFX asset={asset} />
+        <Conduction />
       </group>
       <LeadRig />
       <ContactShadows position={[0, -1.18, 0]} opacity={0.5} blur={2.8} far={2.6} scale={7} resolution={256} frames={1} color="#000000" />
@@ -61,19 +65,21 @@ function Studio() {
 const ROLE_KIND: Record<string, TissueKind> = { myocardium: 'myocardium', atrium: 'atrium', greatArtery: 'greatArtery', greatVein: 'greatVein', cardiacVein: 'cardiacVein' };
 const FADEABLE = ['myocardium_RV', 'atrium_RA', 'vein_anterior_cardiac_vein', 'vein_small_cardiac_vein', 'coronary_AM'];
 
-function HeartModel({ asset }: { asset: HeartAsset }) {
+function HeartModel({ asset, pick }: { asset: HeartAsset; pick?: THREE.Mesh[] }) {
   const cor = useRef<Record<string, ReturnType<typeof coronaryMaterial>>>({});
   const masks = useRef<Record<string, ReturnType<typeof territoryMaterial>>>({});
   const fadeMats = useRef<THREE.Material[]>([]);
   const cur = useRef<Record<string, { occAt: number; perf: number; down: number; flow: number; state: number; maxS: number; dim: number }>>({});
   const terr = useRef({ w: new Array(8).fill(0), mask: {} as Record<string, number>, hover: {} as Record<string, number> });
 
+  const allMats = useRef<THREE.Material[]>([]);
+  /** shared heart: territories are drawn on the myocardium itself; the mask meshes belong to the light heart */
+  const inSurface = !!pick;
   const objects = useMemo(() => {
     const list: THREE.Object3D[] = [];
-    const m = asset.meshes;
-    const origins = { right: asset.mapping.origins, left: asset.mapping.originsLeft };
-    void origins;
+    const m = asset.meshes; allMats.current = []; fadeMats.current = [];
     for (const [id, mesh] of Object.entries(m)) {
+      if (inSurface && id.startsWith('territory_')) continue;
       const role = (mesh.userData.role as string) || '';
       if (role === 'coronary') {
         const mat = coronaryMaterial(); cor.current[mesh.userData.vessel] = mat; mesh.material = mat;
@@ -83,7 +89,7 @@ function HeartModel({ asset }: { asset: HeartAsset }) {
       } else if (ROLE_KIND[role]) {
         const fade = FADEABLE.includes(id);
         const mat = tissueMaterial(ROLE_KIND[role], { fadeable: fade }); mesh.material = mat; if (fade) fadeMats.current.push(mat);
-        mesh.renderOrder = fade ? 4 : 0;
+        mesh.renderOrder = fade ? 4 : 0; allMats.current.push(mat);
       }
       if (id === 'coronary_AM') { /* AM is also fadeable with the RV */ (mesh.material as THREE.Material).transparent = true; fadeMats.current.push(mesh.material as THREE.Material); }
       mesh.castShadow = false; mesh.receiveShadow = false;
@@ -95,7 +101,8 @@ function HeartModel({ asset }: { asset: HeartAsset }) {
     shared.uLen.value = asset.mapping.lvAxis.length;
     shared.uAtrC.value.copy(asset.atriaCenter);
     return list;
-  }, [asset]);
+  }, [asset, inSurface]);
+  const pickMats = useMemo(() => new THREE.MeshBasicMaterial({ colorWrite: false, depthWrite: false, transparent: true, opacity: 0 }), []);
 
   // pick tubes for thin coronaries
   const pickers = useMemo(() => Object.entries(asset.mapping.vessels).map(([id, v]) => {
@@ -107,7 +114,7 @@ function HeartModel({ asset }: { asset: HeartAsset }) {
 
   useFrame((_, dt) => {
     const st = useApp.getState();
-    const t = clock.tick(); const mech = mechanics(t);
+    const t = clock.time; const mech = mechanics(t);
     shared.uTime.value = t; shared.uVent.value = mech.vent; shared.uAtr.value = mech.atria;
     const T = st.territoryId ? TERRITORY[st.territoryId] : null;
     // territory weights: the MI territory, or the regions a selected vessel supplies
@@ -123,7 +130,16 @@ function HeartModel({ asset }: { asset: HeartAsset }) {
     shared.uLeadOn.value = damp(shared.uLeadOn.value, lead ? 1 : 0, 4, dt);
     const fadeOn = st.cutaway || (T?.cutaway && st.scene.highlightVessel) ? 1 : 0;
     shared.uFade.value = damp(shared.uFade.value, fadeOn, 2.5, dt);
-    fadeMats.current.forEach((m) => { m.depthWrite = shared.uFade.value < 0.05; (m as any).opacity = 1 - 0.82 * shared.uFade.value; });
+    shared.uXray.value = damp(shared.uXray.value, st.conduction ? 1 : 0, 3, dt);
+    const xray = shared.uXray.value > 0.02;
+    fadeMats.current.forEach((m) => { m.depthWrite = shared.uFade.value < 0.05 && !xray; (m as THREE.MeshPhysicalMaterial).opacity = 1 - 0.82 * shared.uFade.value; });
+    allMats.current.forEach((m) => { if (fadeMats.current.includes(m)) return; m.transparent = xray; m.depthWrite = !xray; });
+    // territory highlight on the surface (shared heart), and the territory under the pointer
+    const maskOn = T ? (st.scene.highlightVessel || st.mode !== 'quiz' ? 0.35 + 0.65 * st.scene.injury : 0) : st.vesselId ? 0.75 : 0;
+    shared.uMaskOn.value = damp(shared.uMaskOn.value, inSurface ? maskOn : 0, 3, dt);
+    const hov = st.hoverTerritory && st.hoverTerritory !== st.territoryId ? regionVector(TERRITORY[st.hoverTerritory]) : null;
+    if (hov) { shared.uHovA.value.set(hov[0], hov[1], hov[2], hov[3]); shared.uHovB.value.set(hov[4], hov[5], hov[6], hov[7]); }
+    shared.uHovOn.value = damp(shared.uHovOn.value, inSurface && hov ? 1 : 0, 6, dt);
 
     // vessels
     const targets = vesselTargets({ territoryId: st.territoryId, culpritIndex: st.culpritIndex, vesselId: st.vesselId, hoverVessel: st.hoverVessel, dominance: st.dominance, scene: st.scene, origins: { right: asset.mapping.origins, left: asset.mapping.originsLeft } });
@@ -134,8 +150,8 @@ function HeartModel({ asset }: { asset: HeartAsset }) {
       c.state = tg.state; c.maxS = damp(c.maxS, Math.min(tg.maxS, 1.2), 3, dt); c.dim = damp(c.dim, tg.dim, 3, dt);
       const u = mat.localUniforms; u.uOccAt.value = c.occAt; u.uPerf.value = c.perf; u.uDown.value = c.down; u.uFlow.value = c.flow; u.uState.value = c.state; u.uMaxS.value = c.maxS > 1.1 ? 2 : c.maxS; u.uDim.value = c.dim;
     }
-    // territory masks
-    for (const [tid, mat] of Object.entries(masks.current)) {
+    // territory masks (light heart only)
+    if (!inSurface) for (const [tid, mat] of Object.entries(masks.current)) {
       const on = st.territoryId === tid ? (st.scene.highlightVessel || st.mode !== 'quiz' ? 0.35 + 0.65 * st.scene.injury : 0) : 0;
       const hov = st.hoverTerritory === tid && st.territoryId !== tid ? 1 : 0;
       terr.current.mask[tid] = damp(terr.current.mask[tid] ?? 0, on, 3, dt);
@@ -156,13 +172,16 @@ function HeartModel({ asset }: { asset: HeartAsset }) {
     e.stopPropagation(); const tid = territoryAtHit(e); if (tid) selectTerritory(tid);
   };
 
+  const out = () => useApp.getState().set({ hoverTerritory: null });
   return (
     <group>
       {objects.map((o) => {
         const role = o.userData.role;
-        if (role === 'myocardium') return <primitive key={o.uuid} object={o} onPointerMove={onMyoMove} onPointerOut={() => useApp.getState().set({ hoverTerritory: null })} onClick={onMyoClick} />;
+        if (role === 'myocardium' && !inSurface) return <primitive key={o.uuid} object={o} onPointerMove={onMyoMove} onPointerOut={out} onClick={onMyoClick} />;
         return <primitive key={o.uuid} object={o} />;
       })}
+      {/* picking the high-detail surface would raycast ~260k triangles per pointer move; the light myocardium is the same shape */}
+      {inSurface && pick!.map((m) => <mesh key={m.uuid} geometry={m.geometry} material={pickMats} renderOrder={-1} onPointerMove={onMyoMove} onPointerOut={out} onClick={onMyoClick} />)}
       {pickers.map((p) => (
         <mesh key={p.id} geometry={p.g} material={pickMat}
           onPointerOver={(e) => { if (useApp.getState().mode !== 'explore') return; e.stopPropagation(); useApp.getState().set({ hoverVessel: p.id }); document.body.style.cursor = 'pointer'; }}
@@ -253,6 +272,35 @@ function FlowFX({ asset }: { asset: HeartAsset }) {
   );
 }
 
+/* ------------------------------------------------------------------ conduction system (heart-internals.glb, body frame) */
+/**
+ * SA node → atria → AV node → His → bundle branches → Purkinje, lit by a travelling wavefront on the same clock as the
+ * ECG sweep and the contraction (the P wave follows the SA discharge, the QRS follows His–Purkinje activation). The
+ * walls turn see-through while it is on. Pathway positions are schematic, timing from heart-internals' activation map.
+ */
+function Conduction() {
+  const on = useApp((s) => s.conduction);
+  const [hi, setHi] = useState<Layer<HeartInternalsMapping> | null>(null);
+  useEffect(() => { if (!on || hi) return; let off = false; loadHeartInternals().then((x) => { if (!off) setHi(x); }).catch(() => undefined); return () => { off = true; }; }, [on, hi]);
+  // drawn over the (see-through) walls so the pathway reads from any angle, like the flow overlays elsewhere in Cardiac
+  const mats = useMemo(() => [0, 1, 2].map((b) => { const c = conductionMaterial(b as 0 | 1 | 2, { base: '#e0b040', glow: '#ffd76a' }); c.material.depthTest = false; c.material.transparent = true; withBeat(c.material, 'mi-conduction-' + b); return c; }), []);
+  /** geometry copies carrying the beat channel: nodes and atrial pathways move with the atria, the rest with the ventricles */
+  const parts = useMemo(() => {
+    if (!hi) return [];
+    return CONDUCTION.filter((id) => hi.meshes[id]).map((id) => {
+      const g = hi.meshes[id].geometry.clone(); const n = g.getAttribute('position').count;
+      g.setAttribute('aCh', new THREE.BufferAttribute(new Float32Array(n).fill(id === 'sa_node' ? 2 : 1), 1));
+      g.setAttribute('aRegA', new THREE.BufferAttribute(new Float32Array(n * 4), 4)); g.setAttribute('aRegB', new THREE.BufferAttribute(new Float32Array(n * 4), 4));
+      return { id, g, mat: mats[branchOf(id)].material };
+    });
+  }, [hi, mats]);
+  useEffect(() => () => parts.forEach((p) => p.g.dispose()), [parts]);
+  useEffect(() => () => mats.forEach((c) => c.material.dispose()), [mats]);
+  useFrame(() => { const ms = msSinceSA(clock.time); for (const c of mats) { c.uniforms.uT.value = ms; c.uniforms.uHisStart.value = hi?.mapping.activation?.hisStart ?? 120; } });
+  if (!on || !hi) return null;
+  return <group>{parts.map((p) => <mesh key={p.id} geometry={p.g} material={p.mat} renderOrder={20} />)}</group>;
+}
+
 /* ------------------------------------------------------------------ "Show me what the leads see" */
 function LeadRig() {
   const show = useApp((s) => s.showLeads);
@@ -329,7 +377,7 @@ function CameraRig({ asset }: { asset: HeartAsset }) {
     const c = ref.current; if (!c) return;
     const st = useApp.getState();
     const T = st.territoryId ? TERRITORY[st.territoryId] : null;
-    const aspectBoost = (size.width < size.height ? Math.pow(size.height / size.width, 0.7) : 1) * (size.width < 640 ? 0.86 : 1);
+    const aspectBoost = (size.width < size.height ? Math.pow(size.height / size.width, 0.45) : 1) * (size.width < 640 ? 0.9 : 1);
     let key = 'overview'; let dir = new THREE.Vector3(0.28, 0.12, 1).normalize(); let dist = 4.7; let target = new THREE.Vector3(0, -0.05, 0);
     if (st.showLeads && !st.leadId) { key = 'leads'; dir = new THREE.Vector3(0.45, 0.3, 1).normalize(); dist = 9.5; }
     if (st.leadId) { key = 'lead-' + st.leadId; dir = dirVec(LEAD[st.leadId].view); dist = st.showLeads ? 7.5 : 4.6; }
@@ -341,7 +389,7 @@ function CameraRig({ asset }: { asset: HeartAsset }) {
       const line = asset.mapping.vessels[st.vesselId].centerline; const p = centerlineAt(line, 0.4).sub(asset.center);
       key = 'sel-' + st.vesselId; dir = p.clone().normalize().add(new THREE.Vector3(0, 0.15, 0.2)).normalize(); dist = 3.8; target = p.multiplyScalar(0.4);
     }
-    dist *= aspectBoost;
+    dist *= aspectBoost * 0.86; // frame the heart closer in the side-by-side pane
     if (key !== last.current.key) {
       last.current.key = key; last.current.t0 = clock.time;
       const pos = target.clone().add(dir.multiplyScalar(dist));

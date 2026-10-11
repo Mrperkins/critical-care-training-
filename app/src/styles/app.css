@@ -1634,9 +1634,6 @@ body{font:14px/1.5 var(--fb);background:var(--bezel)}
   .scene-wrap:has(.view-btns) .scene-primary-tools{top:98px}
 }
 
-/* merged Infarct Atlas: the coronary view owns the whole cardiac stage (it has its own heart + ECG panes) */
-.stage.mi-host{display:block;padding:0;min-height:0;height:100%}
-.stage.mi-host > .mi{height:100%}
 
 /* Synchronized cardiac ECG study: tap-friendly controls, no persistent pill wall. */
 .study-details{margin:10px 0;border-top:1px solid var(--line);padding-top:8px}
@@ -1706,4 +1703,167 @@ body{font:14px/1.5 var(--fb);background:var(--bezel)}
   .heart-scene-pane > .scene-wrap{width:100%}
   .heart-scene-pane > .heart-ecg-strip{width:100%;min-height:110px}
   .heart-scene-pane .heart-strip-conduction{font-size:10px;padding:4px 6px;min-height:32px}
+}
+
+/* ============================================================ Cardiac views + MI Locator
+   The Cardiac tab has two views (Heart & flow, MI Locator) switched from the top of the scene. MI Locator puts the
+   3D heart and the live 12-lead side by side, territories + the Normal → MI timeline beneath, the explanation in the
+   side pane; on touch layouts the heart sits above the ECG in the Scene tab. */
+.cardiac-views{display:flex;align-items:center;gap:4px;flex:0 0 auto;min-width:0;padding:7px 12px;border-bottom:1px solid var(--line);background:var(--pane)}
+.cardiac-views button{font:600 13px/1 var(--fb);color:var(--dim);background:none;border:1px solid transparent;border-radius:8px;padding:9px 13px;cursor:pointer;white-space:nowrap}
+.cardiac-views button:hover{color:var(--ink);background:rgba(255,255,255,.03)}
+.cardiac-views button.on{color:var(--ink);background:var(--accent-soft);border-color:rgba(108,196,182,.42)}
+.cardiac-views button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.cardiac-views-hint{margin-left:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+@media (min-width:1025px){
+  .stage > .heart-scene-pane{grid-template-rows:auto minmax(0,1fr)}
+  .heart-scene-pane > .cardiac-views{grid-column:1/-1}
+}
+
+.stage.mi-stage{grid-template-columns:minmax(0,1fr) clamp(320px,27%,400px)}
+.mi-scene-pane{display:flex;flex-direction:column;min-height:0;min-width:0}
+.mi-split{flex:1 1 auto;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.mi-split.focus-heart{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr)}
+.mi-split.focus-ecg{grid-template-columns:minmax(0,1fr) minmax(0,1.7fr)}
+.mi-heart{position:relative;min-width:0;min-height:0;display:flex;flex-direction:column}
+.mi-heart > .scene-wrap{flex:1;min-height:0}
+.mi-heart .heart-canvas{position:absolute!important;inset:0}
+.mi-loading{position:absolute;inset:0;display:grid;place-items:center;color:var(--dim);font:500 15px var(--fb)}
+.mi-overlay{position:absolute;inset:0;pointer-events:none;z-index:3}
+.mi-overlay button{pointer-events:auto}
+.mi-hover{position:absolute;left:12px;top:12px;max-width:calc(100% - 90px);background:var(--viz-glass-strong);border:1px solid var(--viz-edge);border-radius:999px;padding:6px 12px;font:500 12.5px var(--fb);color:var(--ink)}
+.mi-lead-note{position:absolute;left:12px;right:12px;bottom:58px;max-width:440px;background:var(--viz-glass-strong);border:1px solid rgba(124,196,212,.32);border-radius:10px;padding:9px 12px;font:13px/1.45 var(--fb);color:var(--dim);pointer-events:auto}
+.mi-lead-note b{color:var(--info)}
+.mi-lead-note.mi-hint{right:auto;color:var(--mute);border-color:var(--viz-edge);padding:6px 11px;font-size:12px}
+.mi-view-btns{position:absolute;left:12px;bottom:12px;display:flex;gap:6px}
+.mi-view-btns button{font:600 12px/1 var(--fb);color:var(--ink);background:var(--viz-glass);border:1px solid var(--viz-edge);border-radius:8px;padding:9px 11px;min-height:36px;cursor:pointer}
+.mi-view-btns button[aria-pressed=true]{border-color:var(--accent);color:var(--accent)}
+.mi-compass{position:absolute;right:14px;bottom:14px;font:500 11px var(--fb);color:var(--mute)}
+.mi-ecg{display:flex;flex-direction:column;min-width:0;min-height:0;border-left:1px solid var(--line);background:var(--pane)}
+.mi-ecg-paper{flex:1 1 auto;min-height:0;overflow-x:hidden;overflow-y:auto;background:#f7f1e8}
+.mi-ecg-paper canvas{display:block;cursor:pointer}
+.mi-ecg-foot{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:6px 10px;border-top:1px solid var(--line);font:12px var(--fb);color:var(--mute)}
+.mi-ecg-scale{font-family:var(--fm)}
+.mi-ecg-stage{color:var(--ink);font-weight:600;margin-right:auto}
+.mi-ecg-foot .tgl{min-height:32px;padding:5px 10px;font-size:12px}
+.mi-timeline{flex:0 0 auto;display:flex;flex-direction:column;gap:8px;padding:9px 12px 10px;border-top:1px solid var(--line);background:var(--pane);min-width:0}
+.mi-tl-note{margin:2px 0}
+.mi-terr{position:relative;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.mi-terr button{flex:0 0 auto;font:600 12px/1 var(--fb);color:var(--dim);background:var(--card);border:1px solid var(--line2);border-radius:999px;padding:7px 10px;min-height:34px;cursor:pointer;white-space:nowrap}
+.mi-terr button:hover{color:var(--ink);border-color:rgba(255,255,255,.28)}
+.mi-terr button.on{color:#fff;background:rgba(127,91,214,.28);border-color:#9b7fe6}
+.mi-terr .mi-clear{border-style:dashed}
+.mi-scrub{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center}
+.mi-scrub .tgl{min-width:78px}
+.mi-track{position:relative;padding-bottom:16px}
+.mi-track input{width:100%;accent-color:#9b7fe6}
+.mi-keys{position:absolute;left:0;right:0;top:20px;height:14px}
+.mi-keys button{position:absolute;transform:translateX(-50%);font:500 10.5px/1 var(--fb);color:var(--mute);background:none;border:0;padding:0;white-space:nowrap;cursor:pointer}
+.mi-keys button.past{color:var(--dim)}
+.mi-keys button:first-child{transform:none}
+.mi-keys button:last-child{transform:translateX(-100%)}
+.mi-keys button.tick{width:2px;height:7px;top:-2px;background:var(--line2);border-radius:1px}
+.mi-stage-lbl{font:600 12px var(--fb);color:var(--ink);min-width:96px;text-align:right}
+.mi-tl-lesson{display:none;align-items:center;gap:8px}
+.mi-tl-step{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.mi-tl-step span{font:500 11.5px var(--fb);color:var(--mute)}
+.mi-tl-step b{font:600 13.5px/1.25 var(--fb);color:var(--ink)}
+
+/* side pane */
+.mi-side .mi-card{padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.mi-side .h2{margin:0}
+.mi-explain{margin:0;color:var(--ink);font:14px/1.55 var(--fb)}
+.mi-facts{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 12px;margin:0;align-items:center}
+.mi-facts dt{font:600 12px var(--fb);color:var(--mute)}
+.mi-facts dd{margin:0}
+.mi-chips{display:inline-flex;flex-wrap:wrap;gap:5px}
+.mi-chip{font:700 12px/1 var(--fm);color:var(--ink);background:var(--pane2);border:1px solid var(--line2);border-radius:6px;padding:7px 8px;min-width:38px;min-height:32px;cursor:pointer}
+.mi-chip.k-a{background:rgba(214,72,52,.18);border-color:rgba(232,110,90,.55);color:#ffc9bd}
+.mi-chip.k-r{background:rgba(70,120,200,.18);border-color:rgba(110,150,230,.55);color:#c9dcff}
+.mi-chip.on,.mi-chip.picked{outline:2px solid var(--accent);outline-offset:1px}
+.mi-chip.wrongchip{background:rgba(224,100,90,.12);border-color:var(--bad);color:var(--bad)}
+.mi-chip:disabled{cursor:default}
+.mi-culprits{display:flex;flex-direction:column;gap:6px}
+.mi-culprit{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;background:var(--pane2);border:1px solid var(--line2);border-radius:10px;padding:9px 11px;color:var(--ink);cursor:pointer}
+.mi-culprit span{font:600 11px var(--fb);color:var(--mute)}
+.mi-culprit b{font:600 13.5px/1.3 var(--fb)}
+.mi-culprit small{font:12.5px/1.4 var(--fb);color:var(--dim)}
+.mi-culprit.on{border-color:#9b7fe6;background:rgba(127,91,214,.14)}
+.mi-pearls{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font:13.5px/1.5 var(--fb);color:var(--dim)}
+.mi-howto{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font:13.5px/1.5 var(--fb);color:var(--dim)}
+.mi-howto b{color:var(--ink)}
+.mi-groups{display:flex;flex-direction:column;gap:7px}
+.mi-grp{display:grid;grid-template-columns:96px minmax(0,1fr);align-items:center;gap:8px}
+.mi-grp>span{font:600 12px var(--fb);color:var(--mute)}
+.mi-opt{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.mi-opt select{background:var(--pane2);color:var(--ink);border:1px solid var(--line2);border-radius:8px;padding:8px 10px;font:600 13px var(--fb);min-height:40px;max-width:100%}
+.mi-toggles{display:flex;flex-wrap:wrap;gap:6px}
+.mi-nav{display:flex;gap:6px;flex-wrap:wrap}
+.mi-dots{display:flex;gap:6px;flex-wrap:wrap}
+.mi-dots button{width:12px;height:12px;border-radius:50%;border:1px solid var(--line2);background:transparent;padding:0;cursor:pointer}
+.mi-dots button.done{background:rgba(108,196,182,.45);border-color:transparent}
+.mi-dots button.on{background:var(--accent);border-color:var(--accent)}
+.mi-reveal{animation:mi-in .35s ease-out}
+@keyframes mi-in{from{transform:translateY(4px)}to{transform:none}}
+@media (prefers-reduced-motion:reduce){.mi-reveal{animation:none}}
+.mi-sig{width:100%;text-align:left}
+.mi-question{display:flex;flex-direction:column;gap:9px;border-top:1px solid var(--line);padding-top:10px}
+.mi-qtext{margin:0;font:600 14.5px/1.45 var(--fb);color:var(--ink)}
+.mi-opts{display:flex;flex-direction:column;gap:6px}
+.mi-optn{text-align:left;font:500 13.5px/1.35 var(--fb);color:var(--ink);background:var(--pane2);border:1px solid var(--line2);border-radius:9px;padding:10px 12px;cursor:pointer}
+.mi-optn.right{border-color:var(--ok);background:rgba(111,207,151,.12)}
+.mi-optn.wrong{border-color:var(--bad);background:rgba(224,100,90,.12)}
+.mi-optn:disabled{cursor:default}
+.mi-why{margin:0;font:13.5px/1.5 var(--fb);color:var(--dim)}
+.mi-why b{color:var(--ink)}
+.mi-leadpick{display:flex;flex-direction:column;gap:8px}
+/* the narrated STEMI lesson (LessonPlayer markup) */
+.mi-lesson .info.lesson{display:flex;flex-direction:column;gap:9px}
+.mi-lesson .info.lesson h2{font:600 19px/1.25 var(--fb);margin:0}
+.mi-lesson .info.lesson .explain{margin:0;font:14px/1.55 var(--fb)}
+.mi-lesson .step-count{font:500 12px var(--fb);color:var(--mute)}
+.mi-lesson .info.lesson .reveal{margin:0;padding:0;background:none;border-radius:0;animation:mi-in .35s ease-out}
+.mi-lesson .linkish,.mi-lead-note .linkish{background:none;border:0;padding:0;color:var(--accent);font:600 12.5px var(--fb);cursor:pointer;text-align:left}
+.mi-lesson .lesson-nav{display:flex;gap:6px;flex-wrap:wrap}
+.mi-lesson .lesson-nav button{font:600 12.5px var(--fb);color:var(--ink);background:var(--pane2);border:1px solid var(--line2);border-radius:8px;padding:8px 12px;min-height:38px;cursor:pointer}
+.mi-lesson .lesson-nav button.pri{background:var(--accent-soft);border-color:rgba(108,196,182,.5)}
+.mi-lesson .lesson-nav button:disabled{opacity:.45;cursor:default}
+.mi-lesson .lesson-scrub{width:100%;accent-color:var(--accent)}
+.mi-lesson .dots{display:flex;gap:6px;flex-wrap:wrap}
+.mi-lesson .dots button{width:12px;height:12px;border-radius:50%;border:1px solid var(--line2);background:transparent;padding:0;cursor:pointer}
+.mi-lesson .dots button.done{background:rgba(108,196,182,.45);border-color:transparent}
+.mi-lesson .dots button.on{background:var(--accent);border-color:var(--accent)}
+/* 3D lead tags (drei Html, outside the overlay) */
+.lead-tag{font:700 11px/1 var(--fm);color:#0b1114;background:#cfe3ea;border:0;border-radius:5px;padding:4px 6px;cursor:pointer;white-space:nowrap}
+.lead-tag.small{font-size:9.5px;padding:3px 4px;opacity:.85}
+.lead-tag.g-limb{background:#9fc3d4}.lead-tag.g-precordial{background:#e6d2b8}.lead-tag.g-posterior{background:#c9b2e8}.lead-tag.g-right{background:#e8b0a8}
+
+/* touch layouts: heart above the ECG in the Scene tab, the page scrolls */
+@media (max-width:1024px){
+  /* heart, then territories + timeline, then the ECG: controls stay next to the heart, the ECG directly beneath */
+  .mi-split,.mi-split.focus-heart,.mi-split.focus-ecg{display:contents}
+  .mi-scene-pane > .cardiac-views{order:0}
+  .mi-split > .mi-heart{order:1}
+  .mi-scene-pane > .mi-timeline{order:2;border-top:0;border-bottom:1px solid var(--line)}
+  .mi-split > .mi-ecg{order:3}
+  .stage>.mi-scene-pane .mi-heart{flex:0 0 auto;height:clamp(300px,46svh,560px)}
+  .stage>.mi-scene-pane .mi-heart > .scene-wrap{height:100%;min-height:0;flex:1}
+  .mi-ecg{border-left:0;border-top:1px solid var(--line)}
+  .mi-ecg-paper{flex:0 0 auto;overflow:visible}
+  .mi-tl-lesson{display:flex}
+  .mi-terr{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;padding-bottom:2px}
+  .mi-stage-lbl{min-width:0}
+  .mi-scrub{gap:10px}
+  .mi-scrub .mi-stage-lbl{font-size:11.5px;max-width:92px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mi-keys{display:none}
+  .mi-track{padding-bottom:0}
+  .cardiac-views{position:sticky;top:0;z-index:5}
+  .cardiac-views-hint{display:none}
+}
+@media (max-width:640px){
+  .stage>.mi-scene-pane .mi-heart{height:clamp(280px,44svh,420px)}
+  .mi-lead-note{bottom:56px;font-size:12.5px}
+  .mi-compass{display:none}
+  .mi-ecg-foot{gap:6px 10px}
+  .mi-ecg-scale{font-size:11px}
 }

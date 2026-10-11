@@ -21,6 +21,13 @@ export const shared = {
   uLeadDir: { value: new THREE.Vector3(0, 0, 1) },
   uLeadOn: { value: 0 },
   uFade: { value: 0 },        // cutaway fade for RV/RA
+  /** territory highlight drawn on the myocardium itself (the shared high-detail heart has no separate mask meshes) */
+  uMaskOn: { value: 0 },
+  uHovA: { value: new THREE.Vector4() },
+  uHovB: { value: new THREE.Vector4() },
+  uHovOn: { value: 0 },
+  /** 0..1 see-through walls, to show the conduction system inside */
+  uXray: { value: 0 },
 };
 
 const NOISE = /* glsl */ `
@@ -31,10 +38,11 @@ float vnoise(vec3 x){ vec3 i=floor(x), f=fract(x); f=f*f*(3.0-2.0*f);
 float fbm(vec3 p){ float a=0.5, s=0.0; for(int i=0;i<4;i++){ s+=a*vnoise(p); p*=2.03; a*=0.5; } return s; }
 `;
 
-const BEAT_VERT = /* glsl */ `
+export const BEAT_VERT = /* glsl */ `
 attribute vec4 aRegA; attribute vec4 aRegB; attribute float aCh;
-uniform float uVent, uAtr, uLen, uHypo; uniform vec3 uBase, uAxis, uAtrC; uniform vec4 uTerrA, uTerrB;
+uniform float uVent, uAtr, uLen, uHypo; uniform vec3 uBase, uAxis, uAtrC; uniform vec4 uTerrA, uTerrB, uHovA, uHovB;
 float terrW(){ return clamp(dot(aRegA,uTerrA)+dot(aRegB,uTerrB),0.0,1.0); }
+float hovW(){ return clamp(dot(aRegA,uHovA)+dot(aRegB,uHovB),0.0,1.0); }
 vec3 beat(vec3 p){
   if(aCh > 0.5 && aCh < 1.5){
     float k = uVent * (1.0 - 0.9 * terrW() * uHypo);
@@ -61,10 +69,11 @@ export function tissueMaterial(kind: TissueKind, opts: { fadeable?: boolean } = 
   m.onBeforeCompile = (sh) => {
     Object.assign(sh.uniforms, shared, local);
     sh.vertexShader = sh.vertexShader
-      .replace('#include <common>', `#include <common>\n${BEAT_VERT}\nattribute float aAO; attribute float aFat; varying float vAO; varying float vFat; varying float vW; varying vec3 vPos; varying vec3 vWN;`)
-      .replace('#include <begin_vertex>', `vec3 transformed = beat(position); vAO = aAO; vFat = aFat; vW = terrW(); vPos = position; vWN = normalize(mat3(modelMatrix) * normal);`);
+      .replace('#include <common>', `#include <common>\n${BEAT_VERT}\nattribute float aAO; attribute float aFat; varying float vAO; varying float vFat; varying float vW; varying float vHov; varying vec3 vPos; varying vec3 vWN;`)
+      .replace('#include <begin_vertex>', `vec3 transformed = beat(position); vAO = aAO; vFat = aFat; vW = terrW(); vHov = hovW(); vPos = position; vWN = normalize(mat3(modelMatrix) * normal);`);
     sh.fragmentShader = sh.fragmentShader
-      .replace('#include <common>', `#include <common>\n${NOISE}\nuniform float uKind, uInjury, uLeadOn, uTime, uFade, uFadeable; uniform vec3 uLeadDir; varying float vAO; varying float vFat; varying float vW; varying vec3 vPos; varying vec3 vWN;`)
+      .replace('#include <common>', `#include <common>\n${NOISE}\nuniform float uKind, uInjury, uLeadOn, uTime, uFade, uFadeable, uMaskOn, uHovOn, uXray; uniform vec3 uLeadDir; varying float vAO; varying float vFat; varying float vW; varying float vHov; varying vec3 vPos; varying vec3 vWN;
+        float mEdge = 0.0, hEdge = 0.0;`)
       .replace('#include <color_fragment>', `#include <color_fragment>
         float n1 = fbm(vPos*9.0), n2 = fbm(vPos*34.0), n3 = vnoise(vPos*120.0);
         vec3 col = diffuseColor.rgb;
@@ -82,21 +91,32 @@ export function tissueMaterial(kind: TissueKind, opts: { fadeable?: boolean } = 
           vec3 pale = vec3(0.50,0.36,0.36);
           vec3 inj = mix(dusky, pale, smoothstep(0.3, 0.8, mott) * smoothstep(0.5, 1.0, uInjury));
           col = mix(col, inj * (0.85 + 0.3*n2), w * (1.0 - 0.7*fat));
+          // territory highlight: violet veil with a crisp contour (steps back to the contour once injury shows)
+          vec3 violet = vec3(0.50, 0.36, 0.84);
+          float mw = smoothstep(0.08, 0.6, vW);
+          mEdge = smoothstep(0.1, 0.22, vW) * (1.0 - smoothstep(0.22, 0.36, vW)) * uMaskOn;
+          col = mix(col, violet, mw * 0.34 * (1.0 - 0.72*uInjury) * uMaskOn + mEdge * 0.6);
+          float hw = smoothstep(0.08, 0.6, vHov);
+          hEdge = smoothstep(0.1, 0.22, vHov) * (1.0 - smoothstep(0.22, 0.36, vHov)) * uHovOn;
+          col = mix(col, violet * 1.15, hw * 0.2 * uHovOn + hEdge * 0.5);
         } else {
           col *= (0.9 + 0.2*n1) * (0.95 + 0.1*n3);
         }
         diffuseColor.rgb = col * mix(0.38, 1.0, vAO);
-        if (uFadeable > 0.5) diffuseColor.a *= 1.0 - 0.82*uFade;`)
+        if (uFadeable > 0.5) diffuseColor.a *= 1.0 - 0.82*uFade;
+        diffuseColor.a *= 1.0 - (uKind < 1.5 ? 0.86 : 0.8) * uXray;`)
       .replace('#include <roughnessmap_fragment>', `#include <roughnessmap_fragment>\n roughnessFactor = clamp(roughnessFactor + (n2-0.5)*0.18 + fat*0.08, 0.2, 0.9);`)
       .replace('#include <emissivemap_fragment>', `#include <emissivemap_fragment>
         vec3 Vv = normalize(vViewPosition);
         float rim = pow(1.0 - abs(dot(normalize(vNormal), Vv)), 2.2);
         totalEmissiveRadiance += (uKind < 1.5 ? vec3(0.09,0.012,0.01) : vec3(0.05,0.02,0.02)) * rim * (1.0 - fat) * vAO;
         float face = smoothstep(0.72, 0.97, dot(normalize(vWN), uLeadDir));
-        totalEmissiveRadiance += vec3(0.42,0.66,0.74) * face * uLeadOn * 0.16 * (uKind < 1.5 ? 1.0 : 0.25);`);
+        totalEmissiveRadiance += vec3(0.42,0.66,0.74) * face * uLeadOn * 0.16 * (uKind < 1.5 ? 1.0 : 0.25);
+        totalEmissiveRadiance += vec3(0.55,0.42,0.95) * (mEdge * 0.22 + hEdge * 0.18);
+        totalEmissiveRadiance += vec3(0.16,0.05,0.05) * rim * uXray;`);
   };
   if (opts.fadeable) { m.transparent = true; }
-  m.customProgramCacheKey = () => `tissue-${kind}-${opts.fadeable ? 1 : 0}`;
+  m.customProgramCacheKey = () => `tissue-v2-${kind}-${opts.fadeable ? 1 : 0}`;
   return m;
 }
 
@@ -153,4 +173,16 @@ export function territoryMaterial() {
       }`,
   });
   return Object.assign(m, { localUniforms: local });
+}
+
+/** Adds the heart's beat (same deformation as the myocardium) to another material, e.g. the conduction system. */
+export function withBeat<M extends THREE.Material>(m: M, key: string): M {
+  const prev = m.onBeforeCompile.bind(m);
+  m.onBeforeCompile = (sh, r) => {
+    prev(sh, r);
+    Object.assign(sh.uniforms, shared);
+    sh.vertexShader = sh.vertexShader.replace('#include <common>', `#include <common>\n${BEAT_VERT}`).replace('#include <begin_vertex>', '#include <begin_vertex>\ntransformed = beat(transformed);');
+  };
+  m.customProgramCacheKey = () => 'beat-' + key;
+  return m;
 }

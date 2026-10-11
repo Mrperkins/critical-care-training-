@@ -8,7 +8,7 @@ export interface HeartUI {
   preset: HeartPresetId | 'custom'; input: ShuntInput;
   /** colour flow by oxygen saturation, or Doppler-style by velocity toward/away from an apical probe */ mode: FlowMode;
   /** Draw bulk flow, small tracers, or both (bulk volume default). */ flowDisplay: 'volume' | 'particles' | 'both';
-  /** which heart view: congenital structure & flow, or coronaries & ECG (the merged Infarct Atlas) */ section: 'structure' | 'coronary';
+  /** which heart view: congenital structure & flow, or the MI Locator (coronary territories + live 12-lead ECG) */ section: 'structure' | 'coronary';
   target: string; labels: boolean; cut: CutMode;
   /** added anatomy: conduction system (animated) and the pericardial sac; papillary muscles + chordae are always drawn */ conduction: boolean; pericardium: boolean; /** autonomic (vagal, sympathetic, plexus) and phrenic nerves */ nerves: boolean;
   set: (p: Partial<HeartUI>) => void;

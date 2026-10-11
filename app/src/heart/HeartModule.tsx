@@ -26,7 +26,7 @@ import { HEART_LESSONS } from '../director/lessons/heart';
 import { SAT_PALETTE } from '../scene/effects';
 import { useLabUI, type VisualTier } from '../labs/labStore';
 import { SceneWrap } from '../scene/labels';
-import { App as CoronaryApp } from '../infarct/components/App';
+import { MILocator } from '../infarct/components/MILocator';
 import type { Mode as MiMode } from '../infarct/engine/store';
 const MI_MODE: Record<string, MiMode> = { explore: 'explore', learn: 'lesson', challenge: 'quiz' };
 
@@ -81,10 +81,11 @@ export function HeartModule() {
   const dTarget = useDirector((s) => s.target);
   useEffect(() => { if (dTarget?.startsWith('heart.')) useHeartUI.getState().set({ target: dTarget }); }, [dTarget]);
   useEffect(() => { (window as unknown as { __CCHeart: unknown }).__CCHeart = { store: useHeartUI, load: loadHeartPreset, set: setHeartInput, focus: (id: string) => useHeartUI.getState().set({ target: id }) }; }, []);
-  if (section === 'coronary') return <main className="stage mi-host" aria-label="Coronaries and ECG"><CoronaryApp mode={MI_MODE[mode] ?? 'explore'} onExit={() => useHeartUI.getState().set({ section: 'structure' })} /></main>;
+  if (section === 'coronary') return <MILocator mode={MI_MODE[mode] ?? 'explore'} header={<CardiacViews />} mountScene={renderScene} />;
   return (
     <main className="stage">
       <section className="scene-pane heart-scene-pane">
+        <CardiacViews />
         <SceneWrap>{renderScene && <HeartScene />}<HeartOverlay /></SceneWrap>
         <HeartECGSceneStrip />
       </section>
@@ -105,6 +106,18 @@ export function HeartModule() {
   );
 }
 
+/** The two views of the Cardiac tab, always at the top of the scene: congenital structure & flow, and the MI Locator. */
+export function CardiacViews() {
+  const section = useHeartUI((s) => s.section); const set = useHeartUI.getState().set;
+  const views: [typeof section, string, string][] = [['structure', 'Heart & flow', 'Chambers, valves, shunts and blood flow'], ['coronary', 'MI Locator', 'Coronary territories with a live 12-lead ECG']];
+  return (
+    <nav className="cardiac-views" aria-label="Cardiac view">
+      {views.map(([id, label, hint]) => <button key={id} type="button" className={section === id ? 'on' : ''} aria-pressed={section === id} title={hint} onClick={() => { if (section !== id) set({ section: id }); }}>{label}</button>)}
+      <span className="cardiac-views-hint muted small">{views.find((v) => v[0] === section)?.[2]}</span>
+    </nav>
+  );
+}
+
 function HeartOverlay() {
   const studyEnabled = useStudyClock((s) => s.enabled);
   useEffect(() => { if (studyEnabled && !useHeartUI.getState().conduction) useHeartUI.getState().set({ conduction: true }); }, [studyEnabled]);
@@ -116,7 +129,6 @@ function HeartOverlay() {
     <div className="scene-tools">
       <div className="seg small" role="group" aria-label="Flow colour">{([['sat', 'O₂ saturation'], ['doppler', 'Flow direction']] as [FlowMode, string][]).map(([k, l]) => <button key={k} className={flow === k ? 'on' : ''} onClick={() => set({ mode: k })}>{l}</button>)}</div>
 
-      <button className="tgl" onClick={() => set({ section: 'coronary' })}>Coronaries &amp; ECG →</button>
       <button className={`tgl${conduction ? ' on' : ''}`} aria-pressed={conduction} onClick={() => set({ conduction: !conduction })}>Conduction</button>
       <button className={`tgl${pericardium ? ' on' : ''}`} aria-pressed={pericardium} onClick={() => set({ pericardium: !pericardium })}>Pericardium</button>
       <button className={`tgl${nerves ? ' on' : ''}`} aria-pressed={nerves} onClick={() => set({ nerves: !nerves })}>Nerves</button>

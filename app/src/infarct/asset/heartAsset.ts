@@ -37,6 +37,26 @@ const b64ToBuf = (b64: string) => { const bin = atob(b64); const u = new Uint8Ar
 
 const RENAME: Record<string, string> = { _rega: 'aRegA', _regb: 'aRegB', _ao: 'aAO', _fat: 'aFat', _s: 'aS', _ch: 'aCh', _w: 'aW' };
 
+/**
+ * The GLB stores quantised positions under a per-node de-quantisation matrix. Every shader here (beat, hypokinesis,
+ * lead facing) and the coronary centerlines work in the body frame, so bake that matrix into float positions and
+ * normals and leave each mesh with an identity transform. Without this the beat was computed in quantised space
+ * and sheared the heart instead of contracting it toward the LV long axis.
+ */
+export function bakeToBodyFrame(m: THREE.Mesh) {
+  const g = m.geometry; m.updateWorldMatrix(true, false);
+  for (const name of ['position', 'normal']) {
+    const a = g.getAttribute(name) as THREE.BufferAttribute | undefined; if (!a) continue;
+    const f = new Float32Array(a.count * 3);
+    for (let i = 0; i < a.count; i++) { f[i * 3] = a.getX(i); f[i * 3 + 1] = a.getY(i); f[i * 3 + 2] = a.getZ(i); }
+    g.setAttribute(name, new THREE.BufferAttribute(f, 3));
+  }
+  g.applyMatrix4(m.matrixWorld);
+  const n = g.getAttribute('normal') as THREE.BufferAttribute | undefined;
+  if (n) for (let i = 0; i < n.count; i++) { const x = n.getX(i), y = n.getY(i), z = n.getZ(i); const l = Math.hypot(x, y, z) || 1; n.setXYZ(i, x / l, y / l, z / l); }
+  m.position.set(0, 0, 0); m.quaternion.identity(); m.scale.set(1, 1, 1); m.updateMatrix(); m.matrixWorld.identity();
+}
+
 let cache: Promise<HeartAsset> | null = null;
 /** cached: the cardiac module and the Atlas share one load */
 export function loadHeartAsset(): Promise<HeartAsset> { if (!cache) { cache = loadOnce(); cache.catch(() => { cache = null; }); } return cache; }
@@ -49,9 +69,12 @@ async function loadOnce(): Promise<HeartAsset> {
   const gltf = await loader.parseAsync(buf, '');
   const meshes: Record<string, THREE.Mesh> = {};
   gltf.scene.updateMatrixWorld(true);
-  gltf.scene.traverse((o) => {
-    if (!(o as THREE.Mesh).isMesh) return;
-    const m = o as THREE.Mesh; const g = m.geometry;
+  const found: THREE.Mesh[] = [];
+  gltf.scene.traverse((o) => { if ((o as THREE.Mesh).isMesh) found.push(o as THREE.Mesh); });
+  for (const m of found) {
+    const g = m.geometry;
+    const id = m.name || (m.parent?.name ?? ''); const parentData = m.parent?.userData ?? {};
+    bakeToBodyFrame(m); m.removeFromParent(); // world coordinates now live in the geometry
     for (const [from, to] of Object.entries(RENAME)) { const a = g.getAttribute(from); if (a) { g.setAttribute(to, a); g.deleteAttribute(from); } }
     const n = g.getAttribute('position').count;
     if (!g.getAttribute('aAO')) g.setAttribute('aAO', new THREE.BufferAttribute(new Float32Array(n).fill(1), 1));
@@ -61,14 +84,14 @@ async function loadOnce(): Promise<HeartAsset> {
     if (!g.getAttribute('aRegB')) g.setAttribute('aRegB', new THREE.BufferAttribute(new Float32Array(n * 4), 4));
     if (!g.getAttribute('aS')) g.setAttribute('aS', new THREE.BufferAttribute(new Float32Array(n), 1));
     if (!g.getAttribute('aW')) g.setAttribute('aW', new THREE.BufferAttribute(new Float32Array(n), 1));
-    g.computeBoundingSphere();
-    m.userData = { ...(m.userData || {}), ...(m.parent?.userData ?? {}) };
-    meshes[m.name || (m.parent?.name ?? '')] = m;
-  });
+    g.computeBoundingSphere(); g.computeBoundingBox();
+    m.userData = { ...(m.userData || {}), ...parentData };
+    meshes[id] = m;
+  }
   const box = new THREE.Box3();
-  Object.entries(meshes).forEach(([id, m]) => { if (id.startsWith('myocardium') || id.startsWith('atrium')) box.expandByObject(m); });
+  Object.entries(meshes).forEach(([id, m]) => { if (id.startsWith('myocardium') || id.startsWith('atrium')) box.union(m.geometry.boundingBox!); });
   const center = box.getCenter(new THREE.Vector3()); const radius = box.getSize(new THREE.Vector3()).length() / 2;
-  const atria = new THREE.Box3(); ['atrium_LA', 'atrium_RA'].forEach((id) => meshes[id] && atria.expandByObject(meshes[id]));
+  const atria = new THREE.Box3(); ['atrium_LA', 'atrium_RA'].forEach((id) => meshes[id] && atria.union(meshes[id].geometry.boundingBox!));
   return { meshes, mapping, center, radius, atriaCenter: atria.getCenter(new THREE.Vector3()) };
 }
 

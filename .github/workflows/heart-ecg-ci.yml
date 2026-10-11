@@ -16,9 +16,10 @@ on:
       - 'app/src/app/App.tsx'
       - 'app/src/app/store.ts'
       - 'app/tests/volume-flow-regression.test.ts'
-      - 'app/src/infarct/ecg/**'
-      - 'app/src/infarct/data/**'
+      - 'app/src/infarct/**'
       - 'app/tests/heart-study-*.test.ts'
+      - 'app/tests/mi-*.test.*'
+      - 'app/scripts/qa-mi-locator.mjs'
       - 'app/src/styles/app.css'
   workflow_dispatch:
 permissions:
@@ -58,6 +59,8 @@ jobs:
           if-no-files-found: warn
       - name: Render and test real cardiac interface on three viewports
         run: node scripts/qa-heart-study.mjs
+      - name: Render and test the MI Locator (heart + 12-lead side by side) on three viewports
+        run: node scripts/qa-mi-locator.mjs
       - name: Save visual QA screenshots
         if: always()
         uses: actions/upload-artifact@v4

@@ -34,6 +34,15 @@ export function buildLesson(t: CoronaryTerritory, dominance: Dominance): LessonS
   return steps;
 }
 
+/**
+ * Narration clip id for a territory-lesson step (public/vo/<id>.mp3). Steps whose words do not depend on coronary
+ * dominance share one clip; the others get one clip per dominance.
+ */
+export function lessonVoiceId(t: CoronaryTerritory, dominance: Dominance, stepId: string) {
+  const say = (d: Dominance) => buildLesson(t, d).find((s) => s.id === stepId)?.text;
+  return say('right') === say('left') ? `mi-${t.id}-${stepId}` : `mi-${t.id}-${dominance}-${stepId}`;
+}
+
 export const QUIZ_CASES: QuizCase[] = [
   { id: 'q-inferior', title: 'Chest pain and bradycardia', vignette: '64-year-old man, crushing chest pain for 40 minutes. HR 52, BP 104/66.', territoryId: 'inferior', dominance: 'right' },
   { id: 'q-anterior', title: 'Pain at rest', vignette: '58-year-old woman, 30 minutes of central chest pressure radiating to the jaw.', territoryId: 'anterior', dominance: 'right' },

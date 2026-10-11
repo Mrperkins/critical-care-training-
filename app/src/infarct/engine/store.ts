@@ -37,6 +37,8 @@ interface State {
   showLeads: boolean;
   showExtra: boolean;
   cutaway: boolean;
+  /** see-through walls with the conduction system lit on the same clock as the ECG */
+  conduction: boolean;
   focus: Focus;
   paused: boolean;
   scene: SceneDirectives;
@@ -63,6 +65,7 @@ export const useApp = create<State>((set) => ({
   showLeads: false,
   showExtra: false,
   cutaway: false,
+  conduction: false,
   focus: 'split',
   paused: false,
   scene: { ...NORMAL_SCENE },
