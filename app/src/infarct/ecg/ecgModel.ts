@@ -72,33 +72,61 @@ function tInverted(t: number) { return g(t, T_TPEAK, 0.044); }
 /** Wellens type A: an initial positive limb then a terminal negative limb. */
 function tBiphasic(t: number) { return 0.35 * g(t, T_TPEAK - 0.05, 0.026) - g(t, T_TPEAK + 0.03, 0.034); }
 
-/** ECG voltage (mV) for one lead at time t (s) within the beat. */
+/** How the ventricles are activated: normally (narrow), with a right or left bundle branch block, or from an escape focus in the ventricle. */
+export type QrsKind = 'narrow' | 'rbbb' | 'lbbb' | 'ventricular';
+/** extra QRS duration (s): repolarisation (ST–T) starts this much later */
+export const QRS_EXTRA: Record<QrsKind, number> = { narrow: 0, rbbb: 0.045, lbbb: 0.06, ventricular: 0.075 };
+const RBBB_TERM = nrm([-0.78, 0.1, 0.62]);   // late, slow activation of the RV: R' in V1, slurred S in I and V6
+const LBBB_SEPT = nrm([0.7, -0.1, -0.7]);    // septum activated right → left
+const LBBB_MAIN = nrm([0.82, -0.22, -0.53]); // slow, notched LV activation toward the lateral wall
+const VENT_MAIN = nrm([0.25, 0.72, -0.65]);  // escape focus low in the ventricle: wide, superiorly directed
+
+/** P wave only (atrial depolarisation), t relative to the beat's timeline (P peak at T_P). */
+export function pPart(leadId: LeadId, t: number): number {
+  const lead = LEAD[leadId];
+  return 0.14 * proj(P_DIR, lead) * g(t, T_P, 0.022) * (lead.group === 'limb' ? 1 : 0.6);
+}
+
 /**
- * @param rep reperfusion 0–1: ST elevation resolves (most of it), hyperacute T waves go, Q waves from
- * necrosis that already happened remain, and the facing leads develop terminal T-wave inversion.
+ * QRS–ST–T only (ventricular activation and recovery), t relative to the beat's timeline (QRS onset at T_QRS).
+ * The MI pattern rides on repolarisation; with a wide QRS the ST–T is shifted later and the T wave is discordant.
  */
-export function sample(leadId: LeadId, t: number, pattern: ECGPattern | null, morph: number, rep = 0): number {
+export function ventricularPart(leadId: LeadId, t: number, pattern: ECGPattern | null, morph: number, rep = 0, kind: QrsKind = 'narrow'): number {
   const lead = LEAD[leadId];
   const k = lead.gain;
   const q0 = T_QRS;
+  const tr = t - QRS_EXTRA[kind]; // repolarisation clock
   let v = 0;
-  // P wave
-  v += 0.14 * proj(P_DIR, lead) * g(t, T_P, 0.022) * (lead.group === 'limb' ? 1 : 0.6);
-  // QRS loop
-  v += k * 0.22 * proj(Q_SEPT, lead) * g(t, q0 + 0.016, 0.0075);
-  v += k * 1.35 * proj(Q_MAIN, lead) * g(t, q0 + 0.045, 0.0115);
-  v += k * 0.38 * proj(Q_TERM, lead) * g(t, q0 + 0.071, 0.009);
-  // T loop
-  v += k * 0.3 * proj(T_DIR, lead) * tWave(t);
+  if (kind === 'narrow' || kind === 'rbbb') {
+    v += k * 0.22 * proj(Q_SEPT, lead) * g(t, q0 + 0.016, 0.0075);
+    v += k * 1.35 * proj(Q_MAIN, lead) * g(t, q0 + 0.045, 0.0115);
+  }
+  if (kind === 'narrow') {
+    v += k * 0.38 * proj(Q_TERM, lead) * g(t, q0 + 0.071, 0.009);
+    v += k * 0.3 * proj(T_DIR, lead) * tWave(t);
+  } else if (kind === 'rbbb') {
+    v += k * 0.72 * proj(RBBB_TERM, lead) * g(t, q0 + 0.1, 0.021);
+    v += k * 0.3 * proj(T_DIR, lead) * tWave(tr);
+    v -= k * 0.24 * localProj(RBBB_TERM, lead) * tWave(tr); // secondary T inversion in the right precordial leads
+  } else if (kind === 'lbbb') {
+    v += k * 0.26 * proj(LBBB_SEPT, lead) * g(t, q0 + 0.02, 0.012);
+    v += k * 1.25 * proj(LBBB_MAIN, lead) * (g(t, q0 + 0.055, 0.02) + 0.85 * g(t, q0 + 0.108, 0.02));
+    v -= k * 0.34 * proj(LBBB_MAIN, lead) * tWave(tr);                 // discordant T
+    v -= k * 0.1 * proj(LBBB_MAIN, lead) * stShape(tr);                 // discordant ST
+  } else {
+    v += k * 1.3 * proj(VENT_MAIN, lead) * (g(t, q0 + 0.06, 0.03) + 0.4 * g(t, q0 + 0.11, 0.022));
+    v -= k * 0.38 * proj(VENT_MAIN, lead) * tWave(tr);
+    v -= k * 0.1 * proj(VENT_MAIN, lead) * stShape(tr);
+  }
 
   if (pattern && morph > 0) {
     const s = stages(morph);
     const inj = (u: Vec3, mv: number) => {
       const lp = localProj(u, lead) * k;
       let w = 0;
-      w += s.st * (1 - 0.85 * rep) * mv * lp * stShape(t);
-      w += s.hyper * (1 - rep) * pattern.hyperacuteMv * lp * tWave(t) * 1.6;
-      w -= rep * s.st * 0.55 * mv * lp * tWave(t) * 1.3; // reperfusion T-wave inversion
+      w += s.st * (1 - 0.85 * rep) * mv * lp * stShape(tr);
+      w += s.hyper * (1 - rep) * pattern.hyperacuteMv * lp * tWave(tr) * 1.6;
+      w -= rep * s.st * 0.55 * mv * lp * tWave(tr) * 1.3; // reperfusion T-wave inversion
       // Necrosis: early forces toward the infarct are lost (Q waves), R height falls.
       w -= s.q * pattern.necrosisMv * lp * (g(t, q0 + 0.022, 0.011) * 1.4 + 0.55 * g(t, q0 + 0.045, 0.012));
       return w;
@@ -106,17 +134,26 @@ export function sample(leadId: LeadId, t: number, pattern: ECGPattern | null, mo
     v += inj(pattern.injury, pattern.injuryMv);
     // STEMI-equivalent morphologies: present once the ischaemia is established, no Q-wave evolution
     const pres = sstep(0.15, 0.75, morph);
-    if (pattern.jDep) v -= pres * pattern.jDep.mv * localProj(pattern.jDep.dir, lead) * k * jUpslope(t);
+    if (pattern.jDep) v -= pres * pattern.jDep.mv * localProj(pattern.jDep.dir, lead) * k * jUpslope(tr);
     if (pattern.tWave) {
       const lp = localProj(pattern.tWave.dir, lead) * k * pres * pattern.tWave.mv;
-      v += lp * (pattern.tWave.shape === 'tall' ? tTall(t) : pattern.tWave.shape === 'inverted' ? -tInverted(t) : tBiphasic(t));
+      v += lp * (pattern.tWave.shape === 'tall' ? tTall(tr) : pattern.tWave.shape === 'inverted' ? -tInverted(tr) : tBiphasic(tr));
     }
     if (pattern.injury2 && pattern.injury2Mv) {
       const lp = localProj(pattern.injury2, lead) * k;
-      v += s.st * (1 - 0.85 * rep) * pattern.injury2Mv * lp * stShape(t) + s.hyper * (1 - rep) * pattern.hyperacuteMv * 0.6 * lp * tWave(t);
+      v += s.st * (1 - 0.85 * rep) * pattern.injury2Mv * lp * stShape(tr) + s.hyper * (1 - rep) * pattern.hyperacuteMv * 0.6 * lp * tWave(tr);
     }
   }
   return v;
+}
+
+/**
+ * ECG voltage (mV) for one lead at time t (s) within a normal sinus beat.
+ * @param rep reperfusion 0–1: ST elevation resolves (most of it), hyperacute T waves go, Q waves from
+ * necrosis that already happened remain, and the facing leads develop terminal T-wave inversion.
+ */
+export function sample(leadId: LeadId, t: number, pattern: ECGPattern | null, morph: number, rep = 0, kind: QrsKind = 'narrow'): number {
+  return pPart(leadId, t) + ventricularPart(leadId, t, pattern, morph, rep, kind);
 }
 
 /** ST deviation in millimetres (10 mm/mV) at J+60 ms. */

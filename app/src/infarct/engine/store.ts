@@ -41,6 +41,8 @@ interface State {
   conduction: boolean;
   /** short-axis slice through the ventricles, showing how deep into the wall the ischaemia reaches */
   slice: boolean;
+  /** heart rhythm (conduction disturbance) drawn on the ECG, the heartbeat and the conduction-system impulse */
+  rhythm: import('./rhythm').RhythmId;
   focus: Focus;
   paused: boolean;
   scene: SceneDirectives;
@@ -69,6 +71,7 @@ export const useApp = create<State>((set) => ({
   cutaway: false,
   conduction: false,
   slice: false,
+  rhythm: 'sinus',
   focus: 'split',
   paused: false,
   scene: { ...NORMAL_SCENE },

@@ -5,7 +5,8 @@ import { CameraControls, ContactShadows, Environment, Html, Lightformer } from '
 import type { HeartAsset } from '../asset/heartAsset';
 import { centerlineAt } from '../asset/heartAsset';
 import { useApp } from '../engine/store';
-import { clock, mechanics, msSinceSA } from '../engine/clock';
+import { clock } from '../engine/clock';
+import { live } from '../engine/rhythm';
 import { shared, CLIP, tissueMaterial, coronaryMaterial, territoryMaterial, sliceCapMaterial, withBeat, type TissueKind } from '../engine/shaders';
 import { sliceSection } from '../engine/slice';
 import { loadHeartInternals, CONDUCTION, type Layer, type HeartInternalsMapping } from '../../asset/anatomy';
@@ -122,8 +123,8 @@ function HeartModel({ asset, pick }: { asset: HeartAsset; pick?: THREE.Mesh[] })
 
   useFrame((_, dt) => {
     const st = useApp.getState();
-    const t = clock.time; const mech = mechanics(t);
-    shared.uTime.value = t; shared.uVent.value = mech.vent; shared.uAtr.value = mech.atria;
+    const t = clock.time; const rs = live.state; // beat-by-beat: dropped beats do not contract
+    shared.uTime.value = t; shared.uVent.value = rs.vent; shared.uAtr.value = rs.atria;
     const T = focusOf(st.territoryId);
     // territory weights: the MI territory, or the regions a selected vessel supplies
     let wTarget = regionVector(T);
@@ -270,7 +271,7 @@ function FlowFX({ asset }: { asset: HeartAsset }) {
     const k = shared.uVent.value;
     const blocked = lesion === 'stenosis' ? st.scene.perfusionLoss > 0.6 : s.occ > 0.6;
     const trickle = lesion === 'near-occlusion';
-    const speed = 0.55 * (0.6 + 0.8 * Math.max(0, Math.sin(clock.time * Math.PI * 2 / 0.833)));
+    const speed = 0.55 * (0.5 + 0.9 * live.state.vent); // coronary flow pulses with each contraction
     const findPt = (u: number) => { let i = 1; while (i < s.cum.length - 1 && s.cum[i] < u) i++; const a = s.cum[i - 1], b = s.cum[i]; return s.path[i - 1].clone().lerp(s.path[i], (u - a) / Math.max(1e-6, b - a)); };
     let n = 0;
     if (s.len > 0 && s.flow > 0.02) {
@@ -335,33 +336,105 @@ function SliceCaps({ asset, from }: { asset: HeartAsset; from: THREE.Mesh[] }) {
   return <group>{caps.map((g, i) => <mesh key={i} geometry={g} material={mat} renderOrder={1} />)}</group>;
 }
 
-/* ------------------------------------------------------------------ conduction system (heart-internals.glb, body frame) */
+/* ------------------------------------------------------------------ conduction system and the electrical impulse */
 /**
- * SA node → atria → AV node → His → bundle branches → Purkinje, lit by a travelling wavefront on the same clock as the
- * ECG sweep and the contraction (the P wave follows the SA discharge, the QRS follows His–Purkinje activation). The
- * walls turn see-through while it is on. Pathway positions are schematic, timing from heart-internals' activation map.
+ * The impulse, beat by beat, from the rhythm schedule (engine/rhythm.ts) on the same clock as the ECG and the beat:
+ * the SA node fires and a front crosses the atria (P wave) with sparks along the internodal routes and Bachmann's
+ * bundle; the AV node conducts slowly and holds the impulse for the PR (amber), or blocks it (red) in AV block; then
+ * the His bundle, bundle branches and Purkinje fibres light (QRS) — the right or left bundle late in a bundle branch
+ * block, nothing above the ventricles for a ventricular escape — and a front sweeps the ventricular walls apex → base.
+ * Walls turn see-through while it is on. Pathway positions are schematic; timing follows heart-internals' map.
  */
+const ATRIAL_MS = 80;  // SA node → last atrial muscle
+const VENT_MS = [117, 200] as const; // ventricular depolarisation window on the ventricular clock
+type Group = 'sa' | 'av' | 'his' | 'right' | 'left';
+const GROUP: Record<string, Group> = { sa_node: 'sa', av_node: 'av', his: 'his', rbb: 'right', purkinje_rv: 'right', lbb: 'left', lbb_anterior: 'left', lbb_posterior: 'left', lbb_septal: 'left', purkinje_lv: 'left' };
+const BRANCH: Record<Group, 0 | 1 | 2> = { sa: 0, av: 0, his: 0, right: 1, left: 2 };
+
 function Conduction() {
   const on = useApp((s) => s.conduction);
   const [hi, setHi] = useState<Layer<HeartInternalsMapping> | null>(null);
   useEffect(() => { if (!on || hi) return; let off = false; loadHeartInternals().then((x) => { if (!off) setHi(x); }).catch(() => undefined); return () => { off = true; }; }, [on, hi]);
   // drawn over the (see-through) walls so the pathway reads from any angle, like the flow overlays elsewhere in Cardiac
-  const mats = useMemo(() => [0, 1, 2].map((b) => { const c = conductionMaterial(b as 0 | 1 | 2, { base: '#e0b040', glow: '#ffd76a' }); c.material.clippingPlanes = CLIP; c.material.depthTest = false; c.material.transparent = true; withBeat(c.material, 'mi-conduction-' + b); return c; }), []);
-  /** geometry copies carrying the beat channel: nodes and atrial pathways move with the atria, the rest with the ventricles */
+  const mats = useMemo(() => Object.fromEntries((['sa', 'av', 'his', 'right', 'left'] as Group[]).map((gname) => {
+    const c = conductionMaterial(BRANCH[gname], { base: '#e0b040', glow: '#ffd76a' }); c.material.clippingPlanes = CLIP; c.material.depthTest = false; c.material.transparent = true; withBeat(c.material, 'mi-conduction-' + gname); return [gname, c];
+  })) as Record<Group, ReturnType<typeof conductionMaterial>>, []);
   const parts = useMemo(() => {
     if (!hi) return [];
-    return CONDUCTION.filter((id) => hi.meshes[id]).map((id) => {
+    return [...CONDUCTION, 'av_node_inferior_extension'].filter((id) => hi.meshes[id] && (GROUP[id] || id === 'av_node_inferior_extension')).map((id) => {
       const g = hi.meshes[id].geometry.clone(); const n = g.getAttribute('position').count;
       g.setAttribute('aCh', new THREE.BufferAttribute(new Float32Array(n).fill(id === 'sa_node' ? 2 : 1), 1));
       g.setAttribute('aRegA', new THREE.BufferAttribute(new Float32Array(n * 4), 4)); g.setAttribute('aRegB', new THREE.BufferAttribute(new Float32Array(n * 4), 4));
-      return { id, g, mat: mats[branchOf(id)].material };
+      return { id, g, mat: mats[GROUP[id] ?? 'av'].material };
     });
   }, [hi, mats]);
+  // sparks: internodal routes SA → AV node (anterior, middle, posterior along the crista) and Bachmann's bundle to the LA
+  const routes = useMemo(() => {
+    if (!hi) return [];
+    const L = hi.mapping.landmarks as unknown as Record<string, number[] | number[][]>;
+    const v = (k: string) => new THREE.Vector3(...(L[k] as number[]));
+    const sa = v('saBlock'), av = v('avBlock'); const mid = sa.clone().lerp(av, 0.5);
+    const crista = (L.crista as number[][]).map((p) => new THREE.Vector3(...p));
+    const curve = (pts: THREE.Vector3[]) => new THREE.CatmullRomCurve3(pts);
+    return [
+      { c: curve([sa, mid.clone().add(new THREE.Vector3(0.05, 0.03, 0.12)), av]), ms: 37 },
+      { c: curve([sa, v('fossaOvalis').add(new THREE.Vector3(-0.02, 0.06, 0.06)), av]), ms: 37 },
+      { c: curve([sa, ...crista.filter((_, i) => i % 4 === 0), v('csOstium'), av]), ms: 37 },
+      { c: curve([sa, v('raAppendage').lerp(v('laAppendage'), 0.5).add(new THREE.Vector3(0, 0.05, -0.02)), v('laAppendage')]), ms: 70 },
+    ];
+  }, [hi]);
+  const sparkGeo = useMemo(() => new THREE.SphereGeometry(1, 12, 8), []);
+  const sparkMat = useMemo(() => new THREE.MeshBasicMaterial({ color: '#ffe48a', transparent: true, depthTest: false, blending: THREE.AdditiveBlending, clippingPlanes: CLIP }), []);
+  const sparks = useRef<THREE.InstancedMesh>(null!);
+  const blockMat = useMemo(() => new THREE.MeshBasicMaterial({ color: '#ff3b2f', transparent: true, depthTest: false, blending: THREE.AdditiveBlending }), []);
+  const holdMat = useMemo(() => new THREE.MeshBasicMaterial({ color: '#ffb52e', transparent: true, depthTest: false, blending: THREE.AdditiveBlending }), []);
+  const block = useRef<THREE.Mesh>(null!); const hold = useRef<THREE.Mesh>(null!);
+  const dummy = useMemo(() => new THREE.Object3D(), []);
   useEffect(() => () => parts.forEach((p) => p.g.dispose()), [parts]);
-  useEffect(() => () => mats.forEach((c) => c.material.dispose()), [mats]);
-  useFrame(() => { const ms = msSinceSA(clock.time); for (const c of mats) { c.uniforms.uT.value = ms; c.uniforms.uHisStart.value = hi?.mapping.activation?.hisStart ?? 120; } });
+  useEffect(() => () => { Object.values(mats).forEach((c) => c.material.dispose()); sparkMat.dispose(); blockMat.dispose(); holdMat.dispose(); }, [mats, sparkMat, blockMat, holdMat]);
+  useFrame((_, dt) => {
+    const rs = live.state; const his0 = hi?.mapping.activation?.hisStart ?? 117;
+    shared.uImpulse.value = damp(shared.uImpulse.value, on ? 1 : 0, 4, dt);
+    // atrial side runs on the SA clock, ventricular side on the QRS clock
+    const tA = rs.msSinceP < 0 ? -1000 : rs.msSinceP;
+    for (const k of ['sa', 'av'] as Group[]) { mats[k].uniforms.uT.value = tA; mats[k].uniforms.uHisStart.value = 1e6; }
+    const escapeV = rs.origin === 'ventricular';
+    mats.his.uniforms.uT.value = escapeV ? -1000 : rs.msVent;
+    for (const k of ['right', 'left'] as Group[]) {
+      const u = mats[k].uniforms; u.uT.value = rs.msVent; u.uHisStart.value = his0;
+      u.uRbbDelay.value = rs.kind === 'rbbb' ? 45 : escapeV ? 35 : 0; u.uLbbDelay.value = rs.kind === 'lbbb' ? 55 : escapeV ? 20 : 0;
+    }
+    // the walls: atrial front from the SA node, ventricular front apex → base
+    if (hi) shared.uSA.value.set(...(hi.mapping.landmarks as unknown as Record<string, number[]>).saBlock as [number, number, number]);
+    shared.uAtrWave.value = tA >= 0 && tA < ATRIAL_MS + 120 ? (tA / ATRIAL_MS) * 0.75 : -1;
+    const wide = rs.kind === 'narrow' ? 1 : 1.7;
+    const vw = (rs.msVent - VENT_MS[0]) / ((VENT_MS[1] - VENT_MS[0]) * wide);
+    shared.uVentWave.value = vw >= -0.05 && vw < 1.6 ? Math.max(0, vw) : -1;
+    // sparks along the atrial routes for the first ~80 ms after the SA node fires
+    let n = 0;
+    if (sparks.current) {
+      if (on && tA >= 0 && tA < 90) for (const r of routes) for (let j = 0; j < 3; j++) {
+        const f = (tA - j * 6) / r.ms; if (f < 0 || f > 1) continue;
+        dummy.position.copy(r.c.getPointAt(f)); dummy.scale.setScalar(0.009 * (1 - j * 0.25)); dummy.updateMatrix(); sparks.current.setMatrixAt(n++, dummy.matrix);
+      }
+      sparks.current.count = n; sparks.current.instanceMatrix.needsUpdate = true;
+    }
+    // the AV node holding (amber) or blocking (red) the impulse
+    if (hi && hold.current && block.current) {
+      const p = (hi.mapping.landmarks as unknown as Record<string, number[]>).avBlock as [number, number, number];
+      hold.current.position.set(...p); block.current.position.set(...p);
+      const pulse = 0.75 + 0.25 * Math.sin(clock.time * 30);
+      holdMat.opacity = on ? 0.55 * rs.avHold * pulse : 0; hold.current.scale.setScalar(0.022 + 0.006 * pulse);
+      blockMat.opacity = on ? 0.85 * rs.avBlocked : 0; block.current.scale.setScalar(0.03 * (1.4 - 0.4 * rs.avBlocked));
+    }
+  });
   if (!on || !hi) return null;
-  return <group>{parts.map((p) => <mesh key={p.id} geometry={p.g} material={p.mat} renderOrder={20} />)}</group>;
+  return <group>
+    {parts.map((p) => <mesh key={p.id} geometry={p.g} material={p.mat} renderOrder={20} />)}
+    <instancedMesh ref={sparks} args={[sparkGeo, sparkMat, 16]} frustumCulled={false} renderOrder={21} />
+    <mesh ref={hold} geometry={sparkGeo} material={holdMat} renderOrder={22} />
+    <mesh ref={block} geometry={sparkGeo} material={blockMat} renderOrder={22} />
+  </group>;
 }
 
 /* ------------------------------------------------------------------ "Show me what the leads see" */

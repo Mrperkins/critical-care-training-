@@ -25,6 +25,8 @@ export interface NeuroMapping { centres: Record<string, [number, number, number]
 export interface HeartInternalsMapping {
   parts: Record<string, { label: string; centre: [number, number, number]; t0?: number; t1?: number; tMax?: number }>;
   activation: { saToAv: number; avNodalDelay: number; hisStart: number; lastVentricularActivation: number };
+  /** conduction landmarks (body frame): saBlock, avBlock, crista (polyline), fossaOvalis, csOstium, raAppendage, laAppendage … */
+  landmarks?: Record<string, number[] | number[][] | number>;
   schematic: string; attribution: Attribution;
 }
 export interface UpperAirwayMapping { centres: Record<string, [number, number, number]>; labels: Record<string, string>; landmarks: { cricothyroidMembrane: { centre: [number, number, number]; heightMm: number; skinDepthMm: number | null }; glottisLengthMm: number; anteriorCommissure: [number, number, number]; epiglottisTip: [number, number, number] }; schematic: string; attribution: Attribution }
