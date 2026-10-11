@@ -1877,3 +1877,14 @@ body{font:14px/1.5 var(--fb);background:var(--bezel)}
 .mi-slice-key{display:flex;justify-content:space-between;margin-top:7px;height:16px;border-radius:4px;background:linear-gradient(90deg,#4d1830 0%,#4d1830 38%,#8c5bd6 42%,#80201a 48%,#80201a 100%);font:600 10.5px/16px var(--fb);color:#f2e6e6;padding:0 6px}
 .mi-slice-key i{font-style:normal}
 @media (max-width:1024px){.mi-equiv{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin}}
+
+/* MI Locator: rhythm and the electrical impulse */
+.mi-view-btns button.on{border-color:#ffd76a;color:#ffd76a}
+.mi-impulse b{color:#ffe7a0;display:block;font-size:13.5px}
+.mi-impulse.held b{color:#ffb52e}
+.mi-impulse.blocked b{color:#ff7a6e}
+.mi-impulse-key{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:6px;font:500 11.5px var(--fb);color:var(--mute);align-items:center}
+.mi-impulse-key i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px;vertical-align:-1px}
+.mi-impulse-key .k-front{background:#ffd76a}.mi-impulse-key .k-hold{background:#ffb52e}.mi-impulse-key .k-block{background:#ff3b2f}
+.mi-rh-linked{display:flex;flex-direction:column;gap:6px}
+.mi-rh-linked .mi-chip{font-family:var(--fb);font-weight:600}

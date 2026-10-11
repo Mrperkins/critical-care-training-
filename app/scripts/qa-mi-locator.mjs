@@ -73,6 +73,13 @@ try {
       await expect(page.locator('.mi-ecg-stage')).toHaveText(/Wellens B/, { timeout: 20000 });
       await page.waitForTimeout(4000);
       await page.screenshot({ path: path.join(output, 'mi-locator-wellens-desktop.png'), fullPage: false, timeout: 120000 });
+      // rhythm + impulse: Wenckebach on an inferior MI, paused on the dropped P — blocked at the AV node
+      await page.evaluate(() => { window.__mi.territory('inferior', 1); window.__mi.store.getState().set({ rhythm: 'wenckebach', conduction: true, slice: false, paused: true }); window.__mi.clock.seek(90 + 2.25 + 0.12); });
+      await expect(page.locator('.mi-impulse b')).toHaveText(/Blocked/, { timeout: 20000 });
+      await expect(page.locator('.mi-ecg-scale')).toContainText('Wenckebach');
+      await page.waitForTimeout(4000);
+      await page.screenshot({ path: path.join(output, 'mi-locator-wenckebach-impulse-desktop.png'), fullPage: false, timeout: 120000 });
+      await page.evaluate(() => { window.__mi.store.getState().set({ rhythm: 'sinus', paused: false }); });
       await page.evaluate(() => { window.__mi.store.getState().set({ conduction: true }); });
       await page.waitForTimeout(3000);
       await page.screenshot({ path: path.join(output, 'mi-locator-conduction-desktop.png'), fullPage: false, timeout: 120000 });

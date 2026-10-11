@@ -16,6 +16,9 @@ import { useApp, NORMAL_SCENE, type Mode } from '../engine/store';
 import { sceneFor, seqKeysFor, focusOf, asEquivalent } from '../data/focus';
 import { EQUIVALENTS, EQUIVALENT, type STEMIEquivalent } from '../data/patterns';
 import { clock } from '../engine/clock';
+import { RHYTHM, RHYTHMS, live, rhythmState, rhythmsFor, ventricularRate, atrialRate, type RhythmId } from '../engine/rhythm';
+/** heart-internals activation map: the impulse reaches the AV node 37 ms after the SA node fires */
+const SA_TO_AV_MS = 37;
 import { HeartScene, selectTerritory, selectLead } from './HeartScene';
 import { ECGPanel } from './ECGPanel';
 import { TERRITORIES, TERRITORY } from '../data/territories';
@@ -42,6 +45,7 @@ function useMIClock() {
       raf = requestAnimationFrame(loop); const dt = Math.min(0.1, (now - last) / 1000); last = now;
       const s = useApp.getState();
       clock.setPaused(s.paused); clock.advance(dt);
+      live.id = s.rhythm; live.state = rhythmState(RHYTHM[s.rhythm], clock.time, SA_TO_AV_MS);
       if ((s.mode === 'explore' || (s.mode === 'quiz' && s.quiz.revealed)) && s.territoryId && s.seqPlaying) {
         const seq = Math.min(1, s.seq + dt / SEQ_SECONDS);
         s.set({ seq, seqPlaying: seq < 1, scene: sceneFor(s.territoryId, seq) });
@@ -57,7 +61,7 @@ export function setMode(mode: Mode) {
   const s = useApp.getState(); if (s.mode === mode) return;
   const base = { mode, vesselId: null, leadId: null, seq: 0, seqPlaying: false, scene: { ...NORMAL_SCENE }, lessonStep: 0 };
   if (mode === 'lesson') { const tid = s.territoryId && TERRITORY[s.territoryId] ? s.territoryId : 'inferior'; s.set({ ...base, territoryId: tid }); applyLessonStep(tid, 0); }
-  else if (mode === 'quiz') s.set({ ...base, territoryId: null, quiz: { caseIndex: s.quiz.caseIndex, answers: {}, revealed: false, qIndex: 0 } });
+  else if (mode === 'quiz') s.set({ ...base, territoryId: null, rhythm: 'sinus', quiz: { caseIndex: s.quiz.caseIndex, answers: {}, revealed: false, qIndex: 0 } });
   else s.set({ ...base, territoryId: null });
 }
 
@@ -110,6 +114,7 @@ export function MILocator({ mode, header, mountScene = true }: { mode: Mode; hea
         {mode === 'explore' && <ExplorePanel />}
         {mode === 'lesson' && <LessonPanel />}
         {mode === 'quiz' && <QuizPanel />}
+        {mode !== 'quiz' && <Fold group="mi" id="rhythm" title="Rhythm & impulse" summary={<RhythmSummary />} defaultOpen><RhythmCard /></Fold>}
         <Fold group="mi" id="opts" title="View options" summary={<OptionsSummary />}><OptionsCard practice={mode === 'quiz'} /></Fold>
         <details className="credit"><summary>Sources &amp; model notes</summary>
           Heart: HuBMAP 3D Reference Organs, Visible Human Male heart (U.S. National Library of Medicine; CC BY 4.0) — the same full-resolution chambers as Heart &amp; flow, with coronary arteries, cardiac veins and coronary territories added for teaching.
@@ -133,9 +138,10 @@ function HeartOverlay() {
       {lead ? <div className="mi-lead-note"><b>{LEAD[lead].label}</b> looks at {LEAD[lead].faces}. You are looking from its positive electrode; the brighter surface faces it. <button type="button" className="linkish" onClick={() => selectLead(null)}>Back to overview</button></div>
         : showLeads ? <div className="mi-lead-note">Each line runs from the heart to a lead’s positive electrode. Click a lead to look through it.</div>
         : slice ? <div className="mi-lead-note mi-slice-note"><b>Short-axis slice</b> through both ventricles, seen from the apex. Ischaemia starts in the inner layer (subendocardium) and spreads outward; a transmural infarct reaches the outer surface. <span className="mi-slice-key" aria-hidden="true"><i>inner</i><i>outer</i></span></div>
-        : cond ? <div className="mi-lead-note">Conduction: SA node → atria (P wave) → AV node (PR pause) → His bundle and bundle branches → Purkinje fibres (QRS). Positions schematic.</div>
+        : cond ? <ImpulseNote />
         : mode === 'explore' && !txt && idle ? <div className="mi-lead-note mi-hint">Click a wall, an artery or any ECG lead.</div> : null}
       <div className="mi-view-btns">
+        <button type="button" aria-pressed={cond} className={cond ? 'on' : ''} onClick={() => useApp.getState().set({ conduction: !cond })} title="See the electrical impulse travel through the conduction system in step with the ECG">{cond ? 'Hide impulse' : 'Show impulse'}</button>
         <button type="button" onClick={() => useApp.getState().recenter()}>Reset view</button>
         <button type="button" aria-pressed={paused} onClick={() => useApp.getState().set({ paused: !paused })}>{paused ? 'Resume beat' : 'Pause beat'}</button>
       </div>
@@ -143,6 +149,43 @@ function HeartOverlay() {
     </div>
   );
 }
+
+/* ---------------------------------------------------------------- rhythm and the electrical impulse */
+/** live phase of the beat, read from the same rhythm state as the heart and the ECG */
+function ImpulseNote() {
+  const [phase, setPhase] = useState(live.state.phase);
+  useEffect(() => { let raf = 0, last = 0; const f = (now: number) => { raf = requestAnimationFrame(f); if (now - last > 90) { last = now; setPhase((p) => (p === live.state.phase ? p : live.state.phase)); } }; raf = requestAnimationFrame(f); return () => cancelAnimationFrame(raf); }, []);
+  const blocked = /Blocked/.test(phase); const held = /held|delayed/.test(phase);
+  return (
+    <div className={`mi-lead-note mi-impulse${blocked ? ' blocked' : held ? ' held' : ''}`} aria-live="off">
+      <b>{phase}</b>
+      <span className="mi-impulse-key"><i className="k-front" />impulse <i className="k-hold" />held in AV node <i className="k-block" />blocked</span>
+    </div>
+  );
+}
+function RhythmSummary() { const r = useApp((s) => s.rhythm); return <>{RHYTHM[r].short} · {ventricularRate(RHYTHM[r])}/min</>; }
+const RHYTHM_GROUPS: [string, RhythmId[]][] = [['Sinus', ['sinus', 'sinusBrady', 'sinusTach']], ['AV block', ['firstDegree', 'wenckebach', 'mobitz2', 'chbJunctional', 'chbVentricular']], ['Bundle branch block', ['rbbb', 'lbbb']]];
+export function chooseRhythm(id: RhythmId) { useApp.getState().set({ rhythm: id, ...(id !== 'sinus' ? { conduction: true } : {}) }); }
+function RhythmCard() {
+  const id = useApp((s) => s.rhythm); const tid = useApp((s) => s.territoryId); const cond = useApp((s) => s.conduction);
+  const r = RHYTHM[id]; const linked = rhythmsFor(tid); const focus = tid ? (TERRITORY[tid]?.name ?? EQUIVALENT[tid]?.short ?? tid) : null;
+  const dissociated = r.ventricular.some((v) => v.fromP == null);
+  return (
+    <section className="card mi-card">
+      <label className="mi-opt"><span className="muted small">Rhythm</span>
+        <select value={id} onChange={(e) => chooseRhythm(e.target.value as RhythmId)} aria-label="Heart rhythm">
+          {RHYTHM_GROUPS.map(([g, ids]) => <optgroup key={g} label={g}>{ids.map((x) => <option key={x} value={x}>{RHYTHM[x].name}</option>)}</optgroup>)}
+        </select></label>
+      {linked.length > 0 && <div className="mi-rh-linked"><span className="muted small">Seen with {focus} MI</span><span className="mi-chips">{linked.map((x) => <button type="button" key={x.id} className={`mi-chip${x.id === id ? ' on' : ''}`} aria-pressed={x.id === id} onClick={() => chooseRhythm(x.id)}>{x.short}</button>)}</span></div>}
+      <p className="mi-explain">{r.explanation}</p>
+      <p className="muted small"><b>{r.pearl}</b></p>
+      <p className="muted small">Ventricular rate {ventricularRate(r)}/min{dissociated ? ` · atrial rate ${atrialRate(r)}/min, unrelated (AV dissociation)` : ''}.</p>
+      <button type="button" className={`tgl${cond ? ' on' : ''}`} aria-pressed={cond} onClick={() => useApp.getState().set({ conduction: !cond })}>{cond ? 'Hide the impulse' : 'Show the impulse through the heart'}</button>
+      {id !== 'sinus' && <button type="button" className="tgl" onClick={() => chooseRhythm('sinus')}>Back to sinus rhythm</button>}
+    </section>
+  );
+}
+void RHYTHMS;
 
 /* ---------------------------------------------------------------- options */
 function OptionsSummary() {

@@ -30,6 +30,12 @@ export const shared = {
   uXray: { value: 0 },
   /** how much of the injury shows on the outer surface (subendocardial patterns: little; transmural STEMI: all) */
   uSurf: { value: 1 },
+  /** depolarisation drawn on the walls while the impulse view is on: atrial wavefront radius from the SA node (dm,
+   *  <0 none), ventricular wavefront position from apex (1) to base (0) (<0 none) */
+  uSA: { value: new THREE.Vector3() },
+  uAtrWave: { value: -1 },
+  uVentWave: { value: -1 },
+  uImpulse: { value: 0 },
 };
 
 /** The short-axis slice plane, shared by every heart material (empty = no slice). Three recompiles on count change. */
@@ -77,7 +83,7 @@ export function tissueMaterial(kind: TissueKind, opts: { fadeable?: boolean } = 
       .replace('#include <common>', `#include <common>\n${BEAT_VERT}\nattribute float aAO; attribute float aFat; varying float vAO; varying float vFat; varying float vW; varying float vHov; varying vec3 vPos; varying vec3 vWN;`)
       .replace('#include <begin_vertex>', `vec3 transformed = beat(position); vAO = aAO; vFat = aFat; vW = terrW(); vHov = hovW(); vPos = position; vWN = normalize(mat3(modelMatrix) * normal);`);
     sh.fragmentShader = sh.fragmentShader
-      .replace('#include <common>', `#include <common>\n${NOISE}\nuniform float uKind, uInjury, uLeadOn, uTime, uFade, uFadeable, uMaskOn, uHovOn, uXray, uSurf; uniform vec3 uLeadDir; varying float vAO; varying float vFat; varying float vW; varying float vHov; varying vec3 vPos; varying vec3 vWN;
+      .replace('#include <common>', `#include <common>\n${NOISE}\nuniform float uKind, uInjury, uLeadOn, uTime, uFade, uFadeable, uMaskOn, uHovOn, uXray, uSurf, uAtrWave, uVentWave, uImpulse; uniform vec3 uSA, uBase, uAxis; uniform float uLen; uniform vec3 uLeadDir; varying float vAO; varying float vFat; varying float vW; varying float vHov; varying vec3 vPos; varying vec3 vWN;
         float mEdge = 0.0, hEdge = 0.0;`)
       .replace('#include <color_fragment>', `#include <color_fragment>
         float n1 = fbm(vPos*9.0), n2 = fbm(vPos*34.0), n3 = vnoise(vPos*120.0);
@@ -118,7 +124,12 @@ export function tissueMaterial(kind: TissueKind, opts: { fadeable?: boolean } = 
         float face = smoothstep(0.72, 0.97, dot(normalize(vWN), uLeadDir));
         totalEmissiveRadiance += vec3(0.42,0.66,0.74) * face * uLeadOn * 0.16 * (uKind < 1.5 ? 1.0 : 0.25);
         totalEmissiveRadiance += vec3(0.55,0.42,0.95) * (mEdge * 0.22 + hEdge * 0.18);
-        totalEmissiveRadiance += vec3(0.16,0.05,0.05) * rim * uXray;`);
+        totalEmissiveRadiance += vec3(0.16,0.05,0.05) * rim * uXray;
+        // the impulse crossing the muscle: a bright depolarisation front with a fading wake
+        if (uImpulse > 0.01) {
+          if (uKind > 0.5 && uKind < 1.5 && uAtrWave >= 0.0) { float d = distance(vPos, uSA) - uAtrWave; totalEmissiveRadiance += vec3(1.0, 0.82, 0.35) * (exp(-d*d/0.0025) * 1.4 + (d < 0.0 ? 0.12 * exp(d / 0.25) : 0.0)) * uImpulse; }
+          if (uKind < 0.5 && uVentWave >= 0.0) { float h = 1.0 - clamp(dot(vPos - uBase, uAxis) / uLen, 0.0, 1.0); float d = h - uVentWave; totalEmissiveRadiance += vec3(1.0, 0.8, 0.32) * (exp(-d*d/0.004) * 1.2 + (d < 0.0 ? 0.1 * exp(d / 0.3) : 0.0)) * uImpulse; }
+        }`);
   };
   if (opts.fadeable) { m.transparent = true; }
   m.customProgramCacheKey = () => `tissue-v2-${kind}-${opts.fadeable ? 1 : 0}`;

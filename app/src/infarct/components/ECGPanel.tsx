@@ -3,6 +3,7 @@ import { useApp } from '../engine/store';
 import { clock } from '../engine/clock';
 import { sample, stDeviationMm, jPointMm, tWaveMm, RR, HR } from '../ecg/ecgModel';
 import type { ECGPattern } from '../data/types';
+import { RHYTHM, eventsBetween, voltageFrom, ventricularRate, type Events } from '../engine/rhythm';
 import { asEquivalent } from '../data/focus';
 import { STANDARD_GRID, EXTRA_LEADS, LEAD } from '../data/leads';
 import { TERRITORY } from '../data/territories';
@@ -69,7 +70,7 @@ export function ECGPanel() {
   const cells = useRef<ECGCell[]>([]);
   const morph = useRef(0); const rep = useRef(0);
   const extraOpen = useApp((s) => s.scene.showExtraLeads || s.showExtra);
-  const stageRef = useRef<HTMLSpanElement>(null!);
+  const stageRef = useRef<HTMLSpanElement>(null!); const rateRef = useRef<HTMLSpanElement>(null!);
   /** touch layouts stack the ECG under the heart: natural paper height (the page scrolls) instead of filling a box */
   const natural = useRef(false);
   useEffect(() => { const mq = window.matchMedia(NATURAL_QUERY); const f = () => { natural.current = mq.matches; }; f(); mq.addEventListener('change', f); return () => mq.removeEventListener('change', f); }, []);
@@ -105,7 +106,8 @@ export function ECGPanel() {
       for (let y = 0, i = 0; y < Hc; y += mm, i++) { ctx.strokeStyle = i % 5 ? 'rgba(221,141,122,0.16)' : 'rgba(205,104,86,0.34)'; ctx.beginPath(); ctx.moveTo(0, Math.round(y) + 0.5); ctx.lineTo(W, Math.round(y) + 0.5); ctx.stroke(); }
       cells.current = L.cells;
 
-      const now = clock.time;
+      const now = clock.time; const R = RHYTHM[st.rhythm] ?? RHYTHM.sinus; const evCache = new Map<string, Events>();
+      if (rateRef.current) { const lbl = R.id === 'sinus' ? `${ventricularRate(R)}/min` : `${ventricularRate(R)}/min · ${R.short}`; if (rateRef.current.textContent !== lbl) rateRef.current.textContent = lbl; }
       const font = (w: number, px: number, mono = true) => `${w} ${px}px ${mono ? '"Atkinson Hyperlegible Mono", ui-monospace, monospace' : '"Atkinson Hyperlegible Next", system-ui, sans-serif'}`;
       for (const cell of L.cells) {
         const isA = affected.has(cell.id), isR = recip.has(cell.id), sel = st.leadId === cell.id && cell.secs < 5;
@@ -118,11 +120,11 @@ export function ECGPanel() {
         ctx.lineWidth = isA || isR ? 1.9 : 1.25; ctx.lineJoin = 'round';
         ctx.save(); ctx.beginPath(); ctx.rect(cell.x, cell.y, cell.w, cell.h); ctx.clip();
         ctx.beginPath(); let pen = false;
+        const evKey = `${win}:${cell.secs}`; let ev = evCache.get(evKey); if (!ev) { ev = eventsBetween(R, win - cell.secs - 1, win + cell.secs + 0.3); evCache.set(evKey, ev); }
         for (let x = 0; x <= cell.w; x += 1) {
           if (Math.abs(x - cursor) < 10 && x > cursor) { pen = false; continue; }
           let t = win + x / pxPerS; if (t > now) t -= cell.secs;
-          const tb = ((t % RR) + RR) % RR;
-          const v = sample(cell.id, tb, T?.ecgPattern ?? null, m, rep.current);
+          const v = voltageFrom(ev, cell.id, t, T?.ecgPattern ?? null, m, rep.current);
           const y = base - v * pxPerMv;
           if (!pen) { ctx.moveTo(cell.x + x, y); pen = true; } else ctx.lineTo(cell.x + x, y);
         }
@@ -157,7 +159,7 @@ export function ECGPanel() {
         <canvas ref={cv} onClick={onClick} role="img" aria-label="Live 12-lead ECG, swept in time with the 3D heart. Click a lead to look at the heart from that lead." />
       </div>
       <footer className="mi-ecg-foot">
-        <span className="mi-ecg-scale">25 mm/s · 10 mm/mV · {HR}/min</span>
+        <span className="mi-ecg-scale">25 mm/s · 10 mm/mV · <span ref={rateRef}>{HR}/min</span></span>
         <span className="mi-ecg-stage" ref={stageRef} aria-live="polite">Normal ECG</span>
         <button type="button" className={`tgl${extraOpen ? ' on' : ''}`} aria-pressed={extraOpen} onClick={() => useApp.getState().set({ showExtra: !useApp.getState().showExtra })}>V7–V9 · V3R–V4R</button>
       </footer>
