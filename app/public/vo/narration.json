@@ -1867,6 +1867,366 @@
   "hash": "e7907c544f08e6bf",
   "seconds": 8.81
  },
+ "mi-anterior-ecg": {
+  "hash": "f3c3bffc53fd167c",
+  "seconds": 6.95
+ },
+ "mi-anterior-facing": {
+  "hash": "d2ddc58fc02a2b3f",
+  "seconds": 8.49
+ },
+ "mi-anterior-injury": {
+  "hash": "4e7952a972375fbe",
+  "seconds": 9.98
+ },
+ "mi-anterior-normal": {
+  "hash": "aa2e01302a1b4ce2",
+  "seconds": 5.31
+ },
+ "mi-anterior-occlusion": {
+  "hash": "b064d2e083f8fa78",
+  "seconds": 4.71
+ },
+ "mi-anterior-perfusion": {
+  "hash": "392fe145b11e80ca",
+  "seconds": 7.7
+ },
+ "mi-anterior-summary": {
+  "hash": "e650ad88167b6113",
+  "seconds": 18.77
+ },
+ "mi-anterior-vessel": {
+  "hash": "a7030efc418e55fa",
+  "seconds": 14.1
+ },
+ "mi-anteroseptal-ecg": {
+  "hash": "f3c3bffc53fd167c",
+  "seconds": 6.95
+ },
+ "mi-anteroseptal-facing": {
+  "hash": "4388c57f9a9e401e",
+  "seconds": 10.5
+ },
+ "mi-anteroseptal-injury": {
+  "hash": "e0d79c846b2543e0",
+  "seconds": 10.26
+ },
+ "mi-anteroseptal-normal": {
+  "hash": "aa2e01302a1b4ce2",
+  "seconds": 5.31
+ },
+ "mi-anteroseptal-occlusion": {
+  "hash": "2e6c43a1b77559e8",
+  "seconds": 8.51
+ },
+ "mi-anteroseptal-perfusion": {
+  "hash": "392fe145b11e80ca",
+  "seconds": 7.7
+ },
+ "mi-anteroseptal-summary": {
+  "hash": "af9a06885f9332d8",
+  "seconds": 15.0
+ },
+ "mi-anteroseptal-vessel": {
+  "hash": "a7030efc418e55fa",
+  "seconds": 14.1
+ },
+ "mi-extensiveAnterior-ecg": {
+  "hash": "f3c3bffc53fd167c",
+  "seconds": 6.95
+ },
+ "mi-extensiveAnterior-facing": {
+  "hash": "d4f84f2d08adb8b7",
+  "seconds": 14.12
+ },
+ "mi-extensiveAnterior-injury": {
+  "hash": "0970f5d0509eeef4",
+  "seconds": 10.75
+ },
+ "mi-extensiveAnterior-normal": {
+  "hash": "aa2e01302a1b4ce2",
+  "seconds": 5.31
+ },
+ "mi-extensiveAnterior-occlusion": {
+  "hash": "8ff215895edc5579",
+  "seconds": 6.49
+ },
+ "mi-extensiveAnterior-perfusion": {
+  "hash": "392fe145b11e80ca",
+  "seconds": 7.7
+ },
+ "mi-extensiveAnterior-reciprocal": {
+  "hash": "0a0194b1560fae2d",
+  "seconds": 10.35
+ },
+ "mi-extensiveAnterior-summary": {
+  "hash": "35262101597e7078",
+  "seconds": 21.65
+ },
+ "mi-extensiveAnterior-vessel": {
+  "hash": "a7030efc418e55fa",
+  "seconds": 14.1
+ },
+ "mi-highLateral-ecg": {
+  "hash": "f3c3bffc53fd167c",
+  "seconds": 6.95
+ },
+ "mi-highLateral-facing": {
+  "hash": "3642373a287889d4",
+  "seconds": 8.34
+ },
+ "mi-highLateral-injury": {
+  "hash": "189cb1a0ec204dad",
+  "seconds": 10.15
+ },
+ "mi-highLateral-normal": {
+  "hash": "aa2e01302a1b4ce2",
+  "seconds": 5.31
+ },
+ "mi-highLateral-occlusion": {
+  "hash": "838994300b384a00",
+  "seconds": 1.92
+ },
+ "mi-highLateral-perfusion": {
+  "hash": "392fe145b11e80ca",
+  "seconds": 7.7
+ },
+ "mi-highLateral-reciprocal": {
+  "hash": "0a0194b1560fae2d",
+  "seconds": 10.35
+ },
+ "mi-highLateral-summary": {
+  "hash": "3a1ce6ad44ee92d2",
+  "seconds": 15.57
+ },
+ "mi-highLateral-vessel": {
+  "hash": "3d3bbd93142a100e",
+  "seconds": 10.9
+ },
+ "mi-inferior-ecg": {
+  "hash": "f3c3bffc53fd167c",
+  "seconds": 6.95
+ },
+ "mi-inferior-facing": {
+  "hash": "042496f6445e5201",
+  "seconds": 9.19
+ },
+ "mi-inferior-injury": {
+  "hash": "a71cfb4ade50e6d1",
+  "seconds": 9.81
+ },
+ "mi-inferior-left-occlusion": {
+  "hash": "cd62250498538c92",
+  "seconds": 2.99
+ },
+ "mi-inferior-left-vessel": {
+  "hash": "6e77abe741ef5cfe",
+  "seconds": 11.8
+ },
+ "mi-inferior-normal": {
+  "hash": "aa2e01302a1b4ce2",
+  "seconds": 5.31
+ },
+ "mi-inferior-perfusion": {
+  "hash": "392fe145b11e80ca",
+  "seconds": 7.7
+ },
+ "mi-inferior-reciprocal": {
+  "hash": "322f2bd0afa8a9f6",
+  "seconds": 9.58
+ },
+ "mi-inferior-right-occlusion": {
+  "hash": "dff7d28c14afbd8e",
+  "seconds": 6.02
+ },
+ "mi-inferior-right-vessel": {
+  "hash": "8cbab38027eada92",
+  "seconds": 13.31
+ },
+ "mi-inferior-summary": {
+  "hash": "ede579602baf0012",
+  "seconds": 22.06
+ },
+ "mi-lateral-ecg": {
+  "hash": "f3c3bffc53fd167c",
+  "seconds": 6.95
+ },
+ "mi-lateral-facing": {
+  "hash": "ed268d852c36b592",
+  "seconds": 9.81
+ },
+ "mi-lateral-injury": {
+  "hash": "531bc8b2280ad316",
+  "seconds": 9.71
+ },
+ "mi-lateral-normal": {
+  "hash": "aa2e01302a1b4ce2",
+  "seconds": 5.31
+ },
+ "mi-lateral-occlusion": {
+  "hash": "110d270a8d9228b4",
+  "seconds": 3.63
+ },
+ "mi-lateral-perfusion": {
+  "hash": "392fe145b11e80ca",
+  "seconds": 7.7
+ },
+ "mi-lateral-reciprocal": {
+  "hash": "0a0194b1560fae2d",
+  "seconds": 10.35
+ },
+ "mi-lateral-summary": {
+  "hash": "25b353e4322f8846",
+  "seconds": 15.83
+ },
+ "mi-lateral-vessel": {
+  "hash": "6e77abe741ef5cfe",
+  "seconds": 11.8
+ },
+ "mi-posterior-ecg": {
+  "hash": "f3c3bffc53fd167c",
+  "seconds": 6.95
+ },
+ "mi-posterior-facing": {
+  "hash": "4a6c470d816f69e4",
+  "seconds": 9.49
+ },
+ "mi-posterior-injury": {
+  "hash": "b86188a91f035f18",
+  "seconds": 9.9
+ },
+ "mi-posterior-normal": {
+  "hash": "aa2e01302a1b4ce2",
+  "seconds": 5.31
+ },
+ "mi-posterior-occlusion": {
+  "hash": "9fe505f79f578fc6",
+  "seconds": 4.37
+ },
+ "mi-posterior-perfusion": {
+  "hash": "392fe145b11e80ca",
+  "seconds": 7.7
+ },
+ "mi-posterior-reciprocal": {
+  "hash": "cb0cf30d0594818b",
+  "seconds": 10.73
+ },
+ "mi-posterior-summary": {
+  "hash": "8fd3a57163fe3d72",
+  "seconds": 21.95
+ },
+ "mi-posterior-vessel": {
+  "hash": "6e77abe741ef5cfe",
+  "seconds": 11.8
+ },
+ "mi-rv-ecg": {
+  "hash": "f3c3bffc53fd167c",
+  "seconds": 6.95
+ },
+ "mi-rv-facing": {
+  "hash": "81e183d48afb3d67",
+  "seconds": 11.58
+ },
+ "mi-rv-injury": {
+  "hash": "267edf4331b2c727",
+  "seconds": 10.92
+ },
+ "mi-rv-normal": {
+  "hash": "aa2e01302a1b4ce2",
+  "seconds": 5.31
+ },
+ "mi-rv-occlusion": {
+  "hash": "5974eeec097b309d",
+  "seconds": 4.67
+ },
+ "mi-rv-perfusion": {
+  "hash": "392fe145b11e80ca",
+  "seconds": 7.7
+ },
+ "mi-rv-reciprocal": {
+  "hash": "322f2bd0afa8a9f6",
+  "seconds": 9.58
+ },
+ "mi-rv-summary": {
+  "hash": "e2c9c247f6c1899e",
+  "seconds": 21.48
+ },
+ "mi-rv-vessel": {
+  "hash": "8cbab38027eada92",
+  "seconds": 13.31
+ },
+ "mi-septal-ecg": {
+  "hash": "f3c3bffc53fd167c",
+  "seconds": 6.95
+ },
+ "mi-septal-facing": {
+  "hash": "4a34caa48a819e37",
+  "seconds": 8.06
+ },
+ "mi-septal-injury": {
+  "hash": "98bf5f848a44741c",
+  "seconds": 9.69
+ },
+ "mi-septal-normal": {
+  "hash": "aa2e01302a1b4ce2",
+  "seconds": 5.31
+ },
+ "mi-septal-occlusion": {
+  "hash": "c3f5659335d88a83",
+  "seconds": 3.8
+ },
+ "mi-septal-perfusion": {
+  "hash": "392fe145b11e80ca",
+  "seconds": 7.7
+ },
+ "mi-septal-summary": {
+  "hash": "cfb710bda636f939",
+  "seconds": 23.1
+ },
+ "mi-septal-vessel": {
+  "hash": "b3eeea2ed53b9400",
+  "seconds": 11.22
+ },
+ "mi-stemi-ant": {
+  "hash": "ed6280c3d662230a",
+  "seconds": 11.5
+ },
+ "mi-stemi-dom1": {
+  "hash": "5550cbac800bb2e0",
+  "seconds": 13.93
+ },
+ "mi-stemi-dom2": {
+  "hash": "30d50ba7e38ad366",
+  "seconds": 14.42
+ },
+ "mi-stemi-inf1": {
+  "hash": "2647091d13454e2c",
+  "seconds": 13.93
+ },
+ "mi-stemi-inf2": {
+  "hash": "fc66278ea80918a2",
+  "seconds": 11.43
+ },
+ "mi-stemi-n": {
+  "hash": "0712b5934fe3e518",
+  "seconds": 12.65
+ },
+ "mi-stemi-post": {
+  "hash": "d061dd2f1274cd2c",
+  "seconds": 14.76
+ },
+ "mi-stemi-rep": {
+  "hash": "e57def183d5e3f2e",
+  "seconds": 15.94
+ },
+ "mi-stemi-rv": {
+  "hash": "07d19eb65239fbaa",
+  "seconds": 13.08
+ },
+ "mi-stemi-sum": {
+  "hash": "057218ccf306cb40",
+  "seconds": 10.5
+ },
  "midazolam-0": {
   "hash": "a0dde54ed89af36d",
   "seconds": 3.86
