@@ -72,7 +72,7 @@ function HeartModel({ asset, pick }: { asset: HeartAsset; pick?: THREE.Mesh[] })
   const cur = useRef<Record<string, { occAt: number; perf: number; down: number; flow: number; state: number; maxS: number; dim: number }>>({});
   const terr = useRef({ w: new Array(8).fill(0), mask: {} as Record<string, number>, hover: {} as Record<string, number> });
 
-  const allMats = useRef<THREE.Material[]>([]);
+  const allMats = useRef<THREE.Material[]>([]); const xrayOn = useRef(false);
   /** shared heart: territories are drawn on the myocardium itself; the mask meshes belong to the light heart */
   const inSurface = !!pick;
   const objects = useMemo(() => {
@@ -132,8 +132,10 @@ function HeartModel({ asset, pick }: { asset: HeartAsset; pick?: THREE.Mesh[] })
     shared.uFade.value = damp(shared.uFade.value, fadeOn, 2.5, dt);
     shared.uXray.value = damp(shared.uXray.value, st.conduction ? 1 : 0, 3, dt);
     const xray = shared.uXray.value > 0.02;
-    fadeMats.current.forEach((m) => { m.depthWrite = shared.uFade.value < 0.05 && !xray; (m as THREE.MeshPhysicalMaterial).opacity = 1 - 0.82 * shared.uFade.value; });
-    allMats.current.forEach((m) => { if (fadeMats.current.includes(m)) return; m.transparent = xray; m.depthWrite = !xray; });
+    fadeMats.current.forEach((m) => { m.depthWrite = shared.uFade.value < 0.05; (m as THREE.MeshPhysicalMaterial).opacity = 1 - 0.82 * shared.uFade.value; });
+    // switching a compiled material between opaque and transparent needs a recompile (three defines OPAQUE); depth
+    // writes stay on so only the nearest wall shows through and inner surfaces never sort over outer ones
+    if (xray !== xrayOn.current) { xrayOn.current = xray; allMats.current.forEach((m) => { if (fadeMats.current.includes(m)) return; m.transparent = xray; m.needsUpdate = true; }); }
     // territory highlight on the surface (shared heart), and the territory under the pointer
     const maskOn = T ? (st.scene.highlightVessel || st.mode !== 'quiz' ? 0.35 + 0.65 * st.scene.injury : 0) : st.vesselId ? 0.75 : 0;
     shared.uMaskOn.value = damp(shared.uMaskOn.value, inSurface ? maskOn : 0, 3, dt);

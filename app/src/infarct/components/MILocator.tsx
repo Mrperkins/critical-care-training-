@@ -106,7 +106,7 @@ export function MILocator({ mode, header, mountScene = true }: { mode: Mode; hea
         {mode === 'explore' && <ExplorePanel />}
         {mode === 'lesson' && <LessonPanel />}
         {mode === 'quiz' && <QuizPanel />}
-        {mode !== 'quiz' && <Fold group="mi" id="opts" title="View options" summary={<OptionsSummary />}><OptionsCard /></Fold>}
+        <Fold group="mi" id="opts" title="View options" summary={<OptionsSummary />}><OptionsCard practice={mode === 'quiz'} /></Fold>
         <details className="credit"><summary>Sources &amp; model notes</summary>
           Heart: HuBMAP 3D Reference Organs, Visible Human Male heart (U.S. National Library of Medicine; CC BY 4.0) — the same full-resolution chambers as Heart &amp; flow, with coronary arteries, cardiac veins and coronary territories added for teaching.
           {heart && !heart.shared && ' (This device is showing the lighter coronary heart: the high-detail chambers did not load or register.)'}
@@ -141,17 +141,18 @@ function HeartOverlay() {
 
 /* ---------------------------------------------------------------- options */
 function OptionsSummary() {
-  const dom = useApp((s) => s.dominance); const cond = useApp((s) => s.conduction);
-  return <>{dom === 'right' ? 'Right dominant' : 'Left dominant'}{cond ? ' · conduction' : ''}</>;
+  const dom = useApp((s) => s.dominance); const cond = useApp((s) => s.conduction); const quiz = useApp((s) => s.mode === 'quiz');
+  return <>{quiz ? 'Leads, cutaway, pane size' : dom === 'right' ? 'Right dominant' : 'Left dominant'}{cond ? ' · conduction' : ''}</>;
 }
-function OptionsCard() {
+/** In Practice the case sets the coronary dominance (choosing it would give the answer away). */
+function OptionsCard({ practice = false }: { practice?: boolean }) {
   const dom = useApp((s) => s.dominance); const showLeads = useApp((s) => s.showLeads); const cut = useApp((s) => s.cutaway); const cond = useApp((s) => s.conduction); const focus = useApp((s) => s.focus);
   const set = useApp.getState().set;
   return (
     <section className="card mi-card">
-      <div className="mi-opt"><span className="muted small">Coronary dominance</span>
+      {!practice && <><div className="mi-opt"><span className="muted small">Coronary dominance</span>
         <Seg small value={dom} options={[['right', 'Right'], ['left', 'Left']]} onChange={(d) => { set({ dominance: d, culpritIndex: 0 }); const s = useApp.getState(); if (s.mode === 'lesson' && s.territoryId) applyLessonStep(s.territoryId, s.lessonStep); }} /></div>
-      <p className="muted small">{DOMINANCE_INFO[dom].text}</p>
+      <p className="muted small">{DOMINANCE_INFO[dom].text}</p></>}
       <div className="mi-toggles">
         <button type="button" className={`tgl${showLeads ? ' on' : ''}`} aria-pressed={showLeads} onClick={() => set({ showLeads: !showLeads })}>Leads around the torso</button>
         <button type="button" className={`tgl${cut ? ' on' : ''}`} aria-pressed={cut} onClick={() => set({ cutaway: !cut })} title="Fade the right ventricle to show the septum">Septal cutaway</button>
@@ -243,9 +244,11 @@ function TerritoryLesson({ onSignature }: { onSignature: () => void }) {
   // finished when its narration ends, or after 7.5 s without narration — autoplay then moves on
   const key = `${tid}:${dom}:${i}`; const [finished, setFinished] = useState<string | null>(null);
   useEffect(() => {
-    const id = lessonVoiceId(TERRITORY[tid], dom, steps[i].id); let h: ReturnType<typeof setTimeout> | undefined;
-    if (voiceOn && narrator.has(id)) narrator.play(id, () => setFinished(key)); else h = setTimeout(() => setFinished(key), 7500);
-    return () => { if (h) clearTimeout(h); narrator.stop(); };
+    const id = lessonVoiceId(TERRITORY[tid], dom, steps[i].id);
+    // fallback for blocked autoplay audio or a clip that fails to load: about the time the words take to say
+    const h = setTimeout(() => setFinished(key), Math.max(7500, (steps[i].text.length / 13 + 1.5) * 1000));
+    if (voiceOn && narrator.has(id)) narrator.play(id, () => setFinished(key));
+    return () => { clearTimeout(h); narrator.stop(); };
   }, [key, voiceOn]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (!auto || finished !== key) return;

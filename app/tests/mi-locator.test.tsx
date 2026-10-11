@@ -107,7 +107,7 @@ describe('MI Locator view', () => {
   it('dominance changes the culprit for an inferior MI', async () => {
     await act(async () => root.render(<MILocator mode="explore" />));
     await act(async () => btn('Inferior', container.querySelector('.mi-terr')!).click());
-    await act(async () => btn(/View options/).click());
+    const fold = btn(/View options/); if (fold.getAttribute('aria-expanded') !== 'true') await act(async () => fold.click());
     await act(async () => btn('Left', container.querySelector('.mi-card .seg')!).click());
     expect(container.querySelector('aside')!.textContent).toMatch(/Left circumflex artery/);
     await act(async () => btn('Right', container.querySelector('.mi-card .seg')!).click());
@@ -124,6 +124,9 @@ describe('MI Locator view', () => {
     expect(container.textContent).toMatch(/Case 1 of/);
     expect(useApp.getState().territoryId).toBeNull();
     expect(container.querySelector('.mi-terr')).toBeNull();
+    const fold = btn(/View options/); if (fold.getAttribute('aria-expanded') !== 'true') await act(async () => fold.click());
+    expect(container.textContent).toMatch(/Leads around the torso/); expect(container.textContent).toMatch(/Pane size/);
+    expect(container.textContent).not.toMatch(/Coronary dominance/); // the case sets it
   });
   it('the Cardiac view switch moves between Heart & flow and MI Locator', async () => {
     useHeartUI.getState().set({ section: 'structure' });
