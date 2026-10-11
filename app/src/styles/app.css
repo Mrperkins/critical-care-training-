@@ -1867,3 +1867,13 @@ body{font:14px/1.5 var(--fb);background:var(--bezel)}
   .mi-ecg-foot{gap:6px 10px}
   .mi-ecg-scale{font-size:11px}
 }
+
+/* MI Locator: STEMI equivalents and the short-axis slice */
+.mi-tl-lbl{font:600 12px var(--fb);color:var(--mute);margin-right:4px;white-space:nowrap}
+.mi-equiv button.on{background:rgba(214,160,70,.22);border-color:#d6a046;color:#fff}
+.mi-criteria{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;font:13.5px/1.45 var(--fb);color:var(--ink)}
+.mi-criteria li{display:flex;flex-direction:column;gap:5px}
+.mi-slice-note b{color:var(--ink)}
+.mi-slice-key{display:flex;justify-content:space-between;margin-top:7px;height:16px;border-radius:4px;background:linear-gradient(90deg,#4d1830 0%,#4d1830 38%,#8c5bd6 42%,#80201a 48%,#80201a 100%);font:600 10.5px/16px var(--fb);color:#f2e6e6;padding:0 6px}
+.mi-slice-key i{font-style:normal}
+@media (max-width:1024px){.mi-equiv{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin}}
