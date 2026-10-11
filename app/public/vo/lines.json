@@ -3478,5 +3478,365 @@
  {
   "id": "protamine-sum",
   "t": "A charge-based antidote: it neutralises unfractionated heparin completely and low-molecular-weight heparin only partly. Too much protamine is itself anticoagulant; fast injection causes hypotension."
+ },
+ {
+  "id": "mi-stemi-n",
+  "t": "Three arteries feed the heart: the left anterior descending down the front, the circumflex around the left side, and the right coronary around the right. Every wall is perfused and the ECG is normal."
+ },
+ {
+  "id": "mi-stemi-inf1",
+  "t": "Now a clot blocks the artery feeding the inferior wall. Blood stops beyond the clot, the wall turns dusky and stops contracting, and the ST segments rise in the leads that face it: two, three and aVF."
+ },
+ {
+  "id": "mi-stemi-inf2",
+  "t": "aVL looks at the heart from the opposite direction. It sees the same injury pointing away and records ST depression. Reciprocal change makes the diagnosis more certain."
+ },
+ {
+  "id": "mi-stemi-dom1",
+  "t": "In most people the right coronary is dominant: it supplies the inferior wall through the posterior descending artery, so the culprit is usually the right coronary. ST elevation greater in three than two points that way."
+ },
+ {
+  "id": "mi-stemi-dom2",
+  "t": "In about one person in ten the circumflex gives the posterior descending artery. The same inferior ECG can then come from a circumflex occlusion. The ECG shows the wall; the angiogram shows the vessel."
+ },
+ {
+  "id": "mi-stemi-post",
+  "t": "ST depression with tall R waves in V1 to V3 is not anterior ischaemia here: it is the back of the heart seen from the front. Posterior leads V7 to V9 show the ST elevation directly."
+ },
+ {
+  "id": "mi-stemi-rv",
+  "t": "A proximal right coronary occlusion can infarct the right ventricle too. Right-sided lead V4R shows ST elevation. These patients depend on preload: nitrates can drop the pressure sharply."
+ },
+ {
+  "id": "mi-stemi-ant",
+  "t": "An occluded left anterior descending artery lifts the ST segments across the chest leads. The more proximal the clot, the more leads involved and the larger the territory at risk."
+ },
+ {
+  "id": "mi-stemi-rep",
+  "t": "Primary PCI reopens the artery. Flow returns downstream. The ST segments fall back toward the baseline and the T waves invert. Muscle that had already died stays dead: Q waves remain and that part of the wall stays weak."
+ },
+ {
+  "id": "mi-stemi-sum",
+  "t": "The ECG localises the wall; the culprit vessel depends on each patient’s anatomy; and every minute to reperfusion decides how much of that wall survives."
+ },
+ {
+  "id": "mi-septal-normal",
+  "t": "Every region of myocardium is perfused and contracting. The ECG is normal."
+ },
+ {
+  "id": "mi-septal-vessel",
+  "t": "First septal perforator. Dives from the LAD into the upper interventricular septum. It is the common culprit vessel here, but coronary anatomy varies between patients."
+ },
+ {
+  "id": "mi-septal-occlusion",
+  "t": "Occlusion of a major septal perforator branch of the LAD."
+ },
+ {
+  "id": "mi-septal-perfusion",
+  "t": "Blood can no longer reach the myocardium beyond the occlusion. Branches that leave the artery before the blockage keep flowing."
+ },
+ {
+  "id": "mi-septal-injury",
+  "t": "The septal myocardium turns dusky and stops contracting normally. Injured cells leak current, creating an injury vector that points out through this wall."
+ },
+ {
+  "id": "mi-septal-ecg",
+  "t": "Hyperacute T waves come first. Within minutes the ST segments lift in the leads that face the injured wall."
+ },
+ {
+  "id": "mi-septal-facing",
+  "t": "The positive electrodes of V1 and V2 look at the septal wall, so the injury vector points toward them: ST elevation."
+ },
+ {
+  "id": "mi-septal-summary",
+  "t": "V1 and V2 sit either side of the sternum, right in front of the interventricular septum. When septal myocardium is injured, its current of injury points forward toward those two electrodes, so they record ST elevation. The septum is supplied mainly by septal perforators from the LAD, with the lower posterior septum supplied by the PDA."
+ },
+ {
+  "id": "mi-anterior-normal",
+  "t": "Every region of myocardium is perfused and contracting. The ECG is normal."
+ },
+ {
+  "id": "mi-anterior-vessel",
+  "t": "Left anterior descending artery. Runs down the anterior interventricular groove toward the apex, often wrapping around it. It is the common culprit vessel here, but coronary anatomy varies between patients."
+ },
+ {
+  "id": "mi-anterior-occlusion",
+  "t": "Mid LAD occlusion, beyond the first septal and first diagonal branches."
+ },
+ {
+  "id": "mi-anterior-perfusion",
+  "t": "Blood can no longer reach the myocardium beyond the occlusion. Branches that leave the artery before the blockage keep flowing."
+ },
+ {
+  "id": "mi-anterior-injury",
+  "t": "The anterior myocardium turns dusky and stops contracting normally. Injured cells leak current, creating an injury vector that points out through this wall."
+ },
+ {
+  "id": "mi-anterior-ecg",
+  "t": "Hyperacute T waves come first. Within minutes the ST segments lift in the leads that face the injured wall."
+ },
+ {
+  "id": "mi-anterior-facing",
+  "t": "The positive electrodes of V3 and V4 look at the anterior wall, so the injury vector points toward them: ST elevation."
+ },
+ {
+  "id": "mi-anterior-summary",
+  "t": "V3 and V4 face the anterior wall of the left ventricle. Injury of that wall pushes the ST vector forward and slightly left, straight at those electrodes. The anterior wall and apex are supplied by the LAD, which runs down the anterior interventricular groove."
+ },
+ {
+  "id": "mi-anteroseptal-normal",
+  "t": "Every region of myocardium is perfused and contracting. The ECG is normal."
+ },
+ {
+  "id": "mi-anteroseptal-vessel",
+  "t": "Left anterior descending artery. Runs down the anterior interventricular groove toward the apex, often wrapping around it. It is the common culprit vessel here, but coronary anatomy varies between patients."
+ },
+ {
+  "id": "mi-anteroseptal-occlusion",
+  "t": "Proximal LAD occlusion that takes in the septal perforators but spares the first diagonal, so I and aVL stay quiet."
+ },
+ {
+  "id": "mi-anteroseptal-perfusion",
+  "t": "Blood can no longer reach the myocardium beyond the occlusion. Branches that leave the artery before the blockage keep flowing."
+ },
+ {
+  "id": "mi-anteroseptal-injury",
+  "t": "The anteroseptal myocardium turns dusky and stops contracting normally. Injured cells leak current, creating an injury vector that points out through this wall."
+ },
+ {
+  "id": "mi-anteroseptal-ecg",
+  "t": "Hyperacute T waves come first. Within minutes the ST segments lift in the leads that face the injured wall."
+ },
+ {
+  "id": "mi-anteroseptal-facing",
+  "t": "The positive electrodes of V1, V2, V3 and V4 look at the anteroseptal wall, so the injury vector points toward them: ST elevation."
+ },
+ {
+  "id": "mi-anteroseptal-summary",
+  "t": "Septal and anterior myocardium both sit behind the V1–V4 electrodes. When both are injured, the combined ST vector points straight forward, so all four precordial leads from V1 to V4 elevate."
+ },
+ {
+  "id": "mi-extensiveAnterior-normal",
+  "t": "Every region of myocardium is perfused and contracting. The ECG is normal."
+ },
+ {
+  "id": "mi-extensiveAnterior-vessel",
+  "t": "Left anterior descending artery. Runs down the anterior interventricular groove toward the apex, often wrapping around it. It is the common culprit vessel here, but coronary anatomy varies between patients."
+ },
+ {
+  "id": "mi-extensiveAnterior-occlusion",
+  "t": "Proximal LAD occlusion, before the first septal perforator and the main diagonal: the “widow-maker”."
+ },
+ {
+  "id": "mi-extensiveAnterior-perfusion",
+  "t": "Blood can no longer reach the myocardium beyond the occlusion. Branches that leave the artery before the blockage keep flowing."
+ },
+ {
+  "id": "mi-extensiveAnterior-injury",
+  "t": "The extensive anterior myocardium turns dusky and stops contracting normally. Injured cells leak current, creating an injury vector that points out through this wall."
+ },
+ {
+  "id": "mi-extensiveAnterior-ecg",
+  "t": "Hyperacute T waves come first. Within minutes the ST segments lift in the leads that face the injured wall."
+ },
+ {
+  "id": "mi-extensiveAnterior-facing",
+  "t": "The positive electrodes of V1, V2, V3, V4, V5, V6, I and aVL look at the extensive anterior wall, so the injury vector points toward them: ST elevation."
+ },
+ {
+  "id": "mi-extensiveAnterior-reciprocal",
+  "t": "III and aVF look at the heart from the opposite side. They see the same injury vector pointing away, so they record ST depression: a mirror image."
+ },
+ {
+  "id": "mi-extensiveAnterior-summary",
+  "t": "A proximal LAD occlusion stops flow to the septum, the whole anterior wall, the apex and — through the diagonals — the anterolateral wall. The injury vector points forward, left and upward, so every precordial lead plus I and aVL elevate, and the inferior leads, which look from the opposite direction, show reciprocal depression."
+ },
+ {
+  "id": "mi-lateral-normal",
+  "t": "Every region of myocardium is perfused and contracting. The ECG is normal."
+ },
+ {
+  "id": "mi-lateral-vessel",
+  "t": "Left circumflex artery. Travels in the left atrioventricular groove around to the back of the heart. It is the common culprit vessel here, but coronary anatomy varies between patients."
+ },
+ {
+  "id": "mi-lateral-occlusion",
+  "t": "Circumflex occlusion before the obtuse marginal branches."
+ },
+ {
+  "id": "mi-lateral-perfusion",
+  "t": "Blood can no longer reach the myocardium beyond the occlusion. Branches that leave the artery before the blockage keep flowing."
+ },
+ {
+  "id": "mi-lateral-injury",
+  "t": "The lateral myocardium turns dusky and stops contracting normally. Injured cells leak current, creating an injury vector that points out through this wall."
+ },
+ {
+  "id": "mi-lateral-ecg",
+  "t": "Hyperacute T waves come first. Within minutes the ST segments lift in the leads that face the injured wall."
+ },
+ {
+  "id": "mi-lateral-facing",
+  "t": "The positive electrodes of I, aVL, V5 and V6 look at the lateral wall, so the injury vector points toward them: ST elevation."
+ },
+ {
+  "id": "mi-lateral-reciprocal",
+  "t": "III and aVF look at the heart from the opposite side. They see the same injury vector pointing away, so they record ST depression: a mirror image."
+ },
+ {
+  "id": "mi-lateral-summary",
+  "t": "I and aVL look at the heart from the patient’s left shoulder; V5 and V6 look from the left side of the chest. All four face the lateral wall of the left ventricle, which is supplied mostly by the circumflex and its obtuse marginal branches."
+ },
+ {
+  "id": "mi-highLateral-normal",
+  "t": "Every region of myocardium is perfused and contracting. The ECG is normal."
+ },
+ {
+  "id": "mi-highLateral-vessel",
+  "t": "First diagonal branch. Crosses the anterolateral wall of the left ventricle. It is the common culprit vessel here, but coronary anatomy varies between patients."
+ },
+ {
+  "id": "mi-highLateral-occlusion",
+  "t": "First diagonal branch occlusion."
+ },
+ {
+  "id": "mi-highLateral-perfusion",
+  "t": "Blood can no longer reach the myocardium beyond the occlusion. Branches that leave the artery before the blockage keep flowing."
+ },
+ {
+  "id": "mi-highLateral-injury",
+  "t": "The high lateral myocardium turns dusky and stops contracting normally. Injured cells leak current, creating an injury vector that points out through this wall."
+ },
+ {
+  "id": "mi-highLateral-ecg",
+  "t": "Hyperacute T waves come first. Within minutes the ST segments lift in the leads that face the injured wall."
+ },
+ {
+  "id": "mi-highLateral-facing",
+  "t": "The positive electrodes of I and aVL look at the high lateral wall, so the injury vector points toward them: ST elevation."
+ },
+ {
+  "id": "mi-highLateral-reciprocal",
+  "t": "III and aVF look at the heart from the opposite side. They see the same injury vector pointing away, so they record ST depression: a mirror image."
+ },
+ {
+  "id": "mi-highLateral-summary",
+  "t": "The basal lateral wall sits high and to the left. Only the leads that look down from the left shoulder — I and aVL — face it directly. Lead III looks from the opposite direction, so it shows the mirror image: reciprocal ST depression."
+ },
+ {
+  "id": "mi-inferior-normal",
+  "t": "Every region of myocardium is perfused and contracting. The ECG is normal."
+ },
+ {
+  "id": "mi-inferior-right-vessel",
+  "t": "Right coronary artery. Leaves the right aortic sinus and runs in the right atrioventricular groove to the crux. It is the common culprit vessel here, but coronary anatomy varies between patients."
+ },
+ {
+  "id": "mi-inferior-right-occlusion",
+  "t": "Mid-to-distal RCA occlusion in a right-dominant system (most inferior STEMIs)."
+ },
+ {
+  "id": "mi-inferior-perfusion",
+  "t": "Blood can no longer reach the myocardium beyond the occlusion. Branches that leave the artery before the blockage keep flowing."
+ },
+ {
+  "id": "mi-inferior-injury",
+  "t": "The inferior myocardium turns dusky and stops contracting normally. Injured cells leak current, creating an injury vector that points out through this wall."
+ },
+ {
+  "id": "mi-inferior-ecg",
+  "t": "Hyperacute T waves come first. Within minutes the ST segments lift in the leads that face the injured wall."
+ },
+ {
+  "id": "mi-inferior-facing",
+  "t": "The positive electrodes of II, III and aVF look at the inferior wall, so the injury vector points toward them: ST elevation."
+ },
+ {
+  "id": "mi-inferior-reciprocal",
+  "t": "I and aVL look at the heart from the opposite side. They see the same injury vector pointing away, so they record ST depression: a mirror image."
+ },
+ {
+  "id": "mi-inferior-summary",
+  "t": "The inferior wall rests on the diaphragm. Leads II, III and aVF all have their positive electrode on the left leg, so they look up at that wall from below. When it is injured, the ST vector points down toward them and they elevate. I and aVL look from above and to the left, the opposite direction, so they show reciprocal depression."
+ },
+ {
+  "id": "mi-inferior-left-vessel",
+  "t": "Left circumflex artery. Travels in the left atrioventricular groove around to the back of the heart. It is the common culprit vessel here, but coronary anatomy varies between patients."
+ },
+ {
+  "id": "mi-inferior-left-occlusion",
+  "t": "Circumflex occlusion in a left-dominant system."
+ },
+ {
+  "id": "mi-posterior-normal",
+  "t": "Every region of myocardium is perfused and contracting. The ECG is normal."
+ },
+ {
+  "id": "mi-posterior-vessel",
+  "t": "Left circumflex artery. Travels in the left atrioventricular groove around to the back of the heart. It is the common culprit vessel here, but coronary anatomy varies between patients."
+ },
+ {
+  "id": "mi-posterior-occlusion",
+  "t": "Distal circumflex occlusion, beyond the obtuse marginal branches."
+ },
+ {
+  "id": "mi-posterior-perfusion",
+  "t": "Blood can no longer reach the myocardium beyond the occlusion. Branches that leave the artery before the blockage keep flowing."
+ },
+ {
+  "id": "mi-posterior-injury",
+  "t": "The posterior myocardium turns dusky and stops contracting normally. Injured cells leak current, creating an injury vector that points out through this wall."
+ },
+ {
+  "id": "mi-posterior-ecg",
+  "t": "Hyperacute T waves come first. Within minutes the ST segments lift in the leads that face the injured wall."
+ },
+ {
+  "id": "mi-posterior-facing",
+  "t": "The positive electrodes of V7, V8 and V9 look at the posterior wall, so the injury vector points toward them: ST elevation."
+ },
+ {
+  "id": "mi-posterior-reciprocal",
+  "t": "V1, V2 and V3 look at the heart from the opposite side. They see the same injury vector pointing away, so they record ST depression: a mirror image."
+ },
+ {
+  "id": "mi-posterior-summary",
+  "t": "No standard lead faces the back of the heart. V1–V3 look at it from the front, through the heart, so a posterior injury appears upside down: ST depression instead of elevation, and tall R waves instead of Q waves. Posterior leads V7–V9 placed on the back face the injury directly and show the ST elevation."
+ },
+ {
+  "id": "mi-rv-normal",
+  "t": "Every region of myocardium is perfused and contracting. The ECG is normal."
+ },
+ {
+  "id": "mi-rv-vessel",
+  "t": "Right coronary artery. Leaves the right aortic sinus and runs in the right atrioventricular groove to the crux. It is the common culprit vessel here, but coronary anatomy varies between patients."
+ },
+ {
+  "id": "mi-rv-occlusion",
+  "t": "Proximal RCA occlusion, before the RV (acute marginal) branch."
+ },
+ {
+  "id": "mi-rv-perfusion",
+  "t": "Blood can no longer reach the myocardium beyond the occlusion. Branches that leave the artery before the blockage keep flowing."
+ },
+ {
+  "id": "mi-rv-injury",
+  "t": "The rv + inferior myocardium turns dusky and stops contracting normally. Injured cells leak current, creating an injury vector that points out through this wall."
+ },
+ {
+  "id": "mi-rv-ecg",
+  "t": "Hyperacute T waves come first. Within minutes the ST segments lift in the leads that face the injured wall."
+ },
+ {
+  "id": "mi-rv-facing",
+  "t": "The positive electrodes of II, III, aVF, V3R and V4R look at the rv + inferior wall, so the injury vector points toward them: ST elevation."
+ },
+ {
+  "id": "mi-rv-reciprocal",
+  "t": "I and aVL look at the heart from the opposite side. They see the same injury vector pointing away, so they record ST depression: a mirror image."
+ },
+ {
+  "id": "mi-rv-summary",
+  "t": "The right ventricle wraps around the front and right of the heart. Standard leads barely see it, so you move the chest electrodes to the mirror-image positions on the right chest. V4R faces the RV free wall directly: ST elevation of 1 mm or more there means RV infarction, almost always from a proximal RCA occlusion."
  }
 ]

@@ -233,9 +233,9 @@ export function CoronaryLayer({ territory = 'anterior', ischemia }: { territory?
   const show = Object.entries(asset.meshes).filter(([id]) => !id.startsWith('territory_'));
   const mask = asset.meshes['territory_' + territory];
   return <group>
-    {/* the coronary asset keeps meshopt de-quantisation in each node's matrix: draw with it */}
-    {show.map(([id, m]) => <mesh key={id} geometry={m.geometry} material={m.material} matrixAutoUpdate={false} matrix={m.matrixWorld} renderOrder={2} dispose={null} />)}
-    {mask && <mesh geometry={mask.geometry} material={terr} matrixAutoUpdate={false} matrix={mask.matrixWorld} renderOrder={3} dispose={null} />}
+    {/* the coronary asset is baked into the body frame on load (heartAsset.ts), so it draws without a node matrix */}
+    {show.map(([id, m]) => <mesh key={id} geometry={m.geometry} material={m.material} renderOrder={2} dispose={null} />)}
+    {mask && <mesh geometry={mask.geometry} material={terr} renderOrder={3} dispose={null} />}
     {/* thrombus: fills and slightly bulges the culprit artery (lumen radius ~0.6 mm here, drawn ≥ 3 mm so it reads) */}
     {clot && <mesh position={clot} scale={Math.max(r * 2.6, 0.03)} renderOrder={4}><sphereGeometry args={[1, 20, 14]} /><meshStandardMaterial color="#ffd25a" roughness={0.6} emissive="#b07a10" emissiveIntensity={0.6} /></mesh>}
   </group>;

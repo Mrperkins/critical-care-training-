@@ -49,7 +49,7 @@ export const TERRITORIES: CoronaryTerritory[] = [
     id: 'anteroseptal', name: 'Anteroseptal', short: 'Anteroseptal',
     affectedLeads: ['V1', 'V2', 'V3', 'V4'], reciprocalLeads: [], extraLeads: [],
     commonCulpritVessels: [
-      { vessel: 'LAD', at: 0.17, likelihood: 'common', note: 'LAD occlusion beyond the diagonal branch but before the septal perforators.' },
+      { vessel: 'LAD', at: 0.17, likelihood: 'common', note: 'Proximal LAD occlusion that takes in the septal perforators but spares the first diagonal, so I and aVL stay quiet.' },
     ],
     myocardialRegion: ['septum', 'anterior', 'apex'],
     cameraPosition: { dir: [0.05, 0.12, 1], distance: 4.2 },
