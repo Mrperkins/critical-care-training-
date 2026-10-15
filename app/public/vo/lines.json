@@ -413,7 +413,7 @@
  },
  {
   "id": "ards-5",
-  "t": "Now drop the tidal volume to six millilitres per kilogram and raise the PEEP to sixteen. Pressure at end-expiration holds the dependent alveoli open. Collapsed units re-inflate, the shunt falls, and the blood leaving them turns red."
+  "t": "In this example, a smaller tidal volume and higher PEEP improve aeration of recruitable units. PEEP sixteen is an illustrative setting, not a universal target. Reassess oxygenation, mechanics and circulation; edema and barrier injury persist."
  },
  {
   "id": "ards-6",
@@ -421,15 +421,15 @@
  },
  {
   "id": "ards-7",
-  "t": "The goal is in between: enough PEEP to keep the dependent lung open, small tidal volumes of about six millilitres per kilogram, a plateau below thirty and a driving pressure below fifteen. Watch the numbers as you choose."
+  "t": "Aim for protective ventilation using predicted body weight and limiting plateau pressure. Individualize PEEP to the response, balancing recruitment against overdistension and circulatory effects. Driving pressure adds context; no single setting fits every patient."
  },
  {
   "id": "ards-8",
-  "t": "On a portable film at a PEEP of five, both lungs are white with patchy opacities and air bronchograms, and the heart is a normal size. That is the pattern of ARDS, not of heart failure."
+  "t": "This simulated film shows bilateral opacities and a normal-sized heart. Imaging alone cannot distinguish ARDS from hydrostatic edema. Interpret it with the history, oxygenation and cardiac assessment."
  },
  {
   "id": "ards-9",
-  "t": "At a PEEP of sixteen the same lungs look clearer, because collapsed units have opened and now hold air. The film changes with the ventilator settings, not only with the disease."
+  "t": "This illustrative film becomes more aerated after a PEEP change. The response is variable, and improved aeration does not prove edema or barrier injury has resolved."
  },
  {
   "id": "ards-10",
@@ -437,7 +437,7 @@
  },
  {
   "id": "ards-11",
-  "t": "At sixteen there are fewer B-lines and the consolidation has gone: the same recruitment you saw at the alveoli, seen at the bedside in seconds."
+  "t": "This simulated ultrasound illustrates an aeration response. B-lines and consolidation need not disappear after PEEP, and ultrasound findings alone do not establish ARDS or prove recovery."
  },
  {
   "id": "cr-1",
@@ -469,7 +469,7 @@
  },
  {
   "id": "cr-8",
-  "t": "On ultrasound the asthmatic lung slides, with A-lines only: full of air, with no fluid. The ARDS lung showed B-lines everywhere. A stiff lung and a narrow airway look different at the bedside."
+  "t": "This example contrasts an A-line pattern with the interstitial and consolidative changes shown earlier. These appearances are not diagnostic of asthma or ARDS on their own; correlate with the clinical assessment."
  },
  {
   "id": "ptx-1",
@@ -609,7 +609,7 @@
  },
  {
   "id": "dka-7",
-  "t": "Keep the insulin infusion running until the anion gap closes, adding dextrose as glucose falls. The glucose normalises long before the acidosis does."
+  "t": "Glucose can normalize before ketoacidosis resolves. Continue insulin with dextrose as needed and reassess ketones, pH and bicarbonate. The anion gap alone is unreliable after saline-related hyperchloremic acidosis."
  },
  {
   "id": "og-1",
@@ -1416,20 +1416,32 @@
   "t": "For severe bronchospasm / air trapping, which decision best addresses the illustrated mechanism?"
  },
  {
-  "id": "auto-peep-see",
-  "t": "Auto-PEEP. Locate the affected alveoli within the patient. Intrinsic PEEP is trapped pressure, not the ventilator’s set PEEP."
+  "id": "auto-peep-mechanism-1",
+  "t": "Compare complete exhalation with the next breath arriving before the lungs finish emptying."
  },
  {
-  "id": "auto-peep-zoom",
-  "t": "Incomplete exhalation leaves alveolar pressure above applied PEEP; the patient must overcome that threshold to trigger."
+  "id": "auto-peep-mechanism-2",
+  "t": "Airway narrowing increases expiratory resistance. Asthma and COPD can produce this mechanism."
  },
  {
-  "id": "auto-peep-understand",
-  "t": "Follow the highlighted changes: dynamic hyperinflation, intrinsic PEEP, reduced venous return. Compare the baseline with the progressive state."
+  "id": "auto-peep-mechanism-3",
+  "t": "When exhalation time is insufficient, successive breaths increase end-expiratory volume."
  },
  {
-  "id": "auto-peep-apply",
-  "t": "For Auto-PEEP, which decision best addresses the illustrated mechanism?"
+  "id": "auto-peep-mechanism-4",
+  "t": "Trapped gas leaves alveolar pressure above applied PEEP at end expiration."
+ },
+ {
+  "id": "auto-peep-mechanism-5",
+  "t": "The patient may need to overcome trapped pressure before triggering an assisted breath."
+ },
+ {
+  "id": "auto-peep-mechanism-6",
+  "t": "High intrathoracic pressure can impede venous return and contribute to hemodynamic compromise."
+ },
+ {
+  "id": "auto-peep-mechanism-7",
+  "t": "Longer exhalation can reduce trapping while airway resistance remains. Reassess waveforms, pressures and circulation."
  },
  {
   "id": "pneumonia-see",
@@ -1448,36 +1460,60 @@
   "t": "For pneumonia, which decision best addresses the illustrated mechanism?"
  },
  {
-  "id": "ards-see",
-  "t": "ARDS. Locate the affected alveoli within the patient. Diffuse permeability injury differs from hydrostatic edema due to left-heart failure."
+  "id": "ards-mechanism-1",
+  "t": "Compare aerated lungs with the subsequent permeability injury. The visual sequence is illustrative."
  },
  {
-  "id": "ards-zoom",
-  "t": "Barrier injury allows protein-rich fluid into air spaces; unstable units collapse and the aerated lung becomes smaller."
+  "id": "ards-mechanism-2",
+  "t": "Inflammatory injury disrupts the alveolar-capillary barrier. Fluid crosses more readily."
  },
  {
-  "id": "ards-understand",
-  "t": "Follow the highlighted changes: permeability edema, unstable collapsed alveoli, intrapulmonary shunt, barrier injury. Compare the baseline with the progressive state."
+  "id": "ards-mechanism-3",
+  "t": "Protein-rich fluid enters air spaces. This differs from isolated hydrostatic pulmonary edema."
  },
  {
-  "id": "ards-apply",
-  "t": "For ARDS, which decision best addresses the illustrated mechanism?"
+  "id": "ards-mechanism-4",
+  "t": "Flooding and surfactant dysfunction promote unstable units and collapse, leaving less lung available for ventilation."
  },
  {
-  "id": "pulmonary-edema-see",
-  "t": "Cardiogenic pulmonary edema. Locate the affected alveoli within the patient. The initiating problem is hydrostatic pressure; recruitment support does not remove the cardiac cause."
+  "id": "ards-mechanism-5",
+  "t": "Perfusion through poorly aerated units contributes to hypoxemia."
  },
  {
-  "id": "pulmonary-edema-zoom",
-  "t": "Elevated pulmonary venous pressure drives fluid from capillaries into interstitium and alveoli."
+  "id": "ards-mechanism-6",
+  "t": "Some recruitable units reopen with appropriate PEEP. Barrier injury and edema remain in this comparison."
  },
  {
-  "id": "pulmonary-edema-understand",
-  "t": "Follow the highlighted changes: pulmonary venous pressure, alveolar flooding, poorly ventilated perfused units. Compare the baseline with the progressive state."
+  "id": "ards-mechanism-7",
+  "t": "Excess pressure can overdistend aerated regions and impair circulation. Reassess mechanics, oxygenation and hemodynamics."
  },
  {
-  "id": "pulmonary-edema-apply",
-  "t": "For cardiogenic pulmonary edema, which decision best addresses the illustrated mechanism?"
+  "id": "ards-mechanism-8",
+  "t": "Protective ventilation balances recruitment against injury. These fractions do not prescribe a PEEP setting or predict recovery."
+ },
+ {
+  "id": "pulmonary-edema-mechanism-1",
+  "t": "Locate the left heart and pulmonary circulation before following fluid into the lungs."
+ },
+ {
+  "id": "pulmonary-edema-mechanism-2",
+  "t": "Elevated left-sided filling pressure raises hydrostatic pressure in pulmonary capillaries."
+ },
+ {
+  "id": "pulmonary-edema-mechanism-3",
+  "t": "Fluid accumulates outside capillaries and may enter alveoli as hydrostatic forces overwhelm clearance."
+ },
+ {
+  "id": "pulmonary-edema-mechanism-4",
+  "t": "Flooded units receive blood but ventilate poorly. Oxygenation deteriorates as shunt increases."
+ },
+ {
+  "id": "pulmonary-edema-mechanism-5",
+  "t": "Positive pressure may improve aeration in an appropriate patient while the cardiac cause and excess fluid persist."
+ },
+ {
+  "id": "pulmonary-edema-mechanism-6",
+  "t": "This illustrative later state follows lower filling pressure and fluid clearance; the response and time course vary."
  },
  {
   "id": "atelectasis-see",
@@ -1544,20 +1580,28 @@
   "t": "For hemothorax, which decision best addresses the illustrated mechanism?"
  },
  {
-  "id": "pulmonary-embolism-see",
-  "t": "Pulmonary embolism. Locate the affected pulmonary vessels within the patient. Dead space and RV strain differ from the shunt mechanism of flooded alveoli."
+  "id": "pulmonary-embolism-mechanism-1",
+  "t": "Follow the route from right heart through lungs to left heart. Compare this baseline with obstruction."
  },
  {
-  "id": "pulmonary-embolism-zoom",
-  "t": "Pulmonary arterial obstruction creates ventilated but underperfused lung and increases right-ventricular afterload."
+  "id": "pulmonary-embolism-mechanism-2",
+  "t": "A clot narrows the pulmonary arterial pathway. Its location and burden vary between patients."
  },
  {
-  "id": "pulmonary-embolism-understand",
-  "t": "Follow the highlighted changes: pulmonary arterial clot, reduced regional perfusion, RV pressure load. Compare the baseline with the progressive state."
+  "id": "pulmonary-embolism-mechanism-3",
+  "t": "Ventilation can persist while regional perfusion falls: this is a dead-space mechanism, distinct from shunt."
  },
  {
-  "id": "pulmonary-embolism-apply",
-  "t": "For pulmonary embolism, which decision best addresses the illustrated mechanism?"
+  "id": "pulmonary-embolism-mechanism-4",
+  "t": "The right ventricle faces greater resistance and may dilate or fail in severe pulmonary embolism."
+ },
+ {
+  "id": "pulmonary-embolism-mechanism-5",
+  "t": "Severe RV dysfunction reduces blood reaching the left heart and can compromise systemic perfusion."
+ },
+ {
+  "id": "pulmonary-embolism-mechanism-6",
+  "t": "Supporting oxygenation alone does not remove the obstruction. Management depends on clinical severity and bleeding risk."
  },
  {
   "id": "upper-airway-obstruction-see",
@@ -1656,20 +1700,28 @@
   "t": "For right-ventricular failure, which decision best addresses the illustrated mechanism?"
  },
  {
-  "id": "tamponade-see",
-  "t": "Cardiac tamponade. Locate the affected heart within the patient. Hemodynamic impact depends on pressure and accumulation rate, not fluid volume alone."
+  "id": "tamponade-mechanism-1",
+  "t": "Locate the pericardial sac surrounding the heart."
  },
  {
-  "id": "tamponade-zoom",
-  "t": "Pericardial pressure restricts diastolic filling, reducing stroke volume despite compensatory tachycardia."
+  "id": "tamponade-mechanism-2",
+  "t": "Pericardial fluid accumulates. The rate of accumulation and pericardial compliance affect tolerance."
  },
  {
-  "id": "tamponade-understand",
-  "t": "Follow the highlighted changes: pericardial fluid, external filling constraint, reduced stroke volume. Compare the baseline with the progressive state."
+  "id": "tamponade-mechanism-3",
+  "t": "Rising pericardial pressure impedes cardiac filling; effusion volume alone does not establish tamponade."
  },
  {
-  "id": "tamponade-apply",
-  "t": "For cardiac tamponade, which decision best addresses the illustrated mechanism?"
+  "id": "tamponade-mechanism-4",
+  "t": "Low-pressure chambers are vulnerable. Reduced diastolic filling limits the volume available for ejection."
+ },
+ {
+  "id": "tamponade-mechanism-5",
+  "t": "Severe filling restriction reduces cardiac output even without primary loss of myocardial contractility."
+ },
+ {
+  "id": "tamponade-mechanism-6",
+  "t": "Relieving pericardial pressure can restore filling. This simplified comparison does not simulate the drainage procedure."
  },
  {
   "id": "tachydysrhythmia-see",
@@ -1928,36 +1980,52 @@
   "t": "For hemorrhagic shock, which decision best addresses the illustrated mechanism?"
  },
  {
-  "id": "septic-shock-see",
-  "t": "Distributive / septic shock. Locate the affected circulation within the patient. Warm skin or a high cardiac output does not establish adequate cellular oxygen use."
+  "id": "septic-shock-mechanism-1",
+  "t": "Locate the circulation and organs that depend on sustained perfusion."
  },
  {
-  "id": "septic-shock-zoom",
-  "t": "Vasodilation, endothelial leak and disordered microcirculatory flow reduce effective perfusion; cardiac dysfunction may coexist."
+  "id": "septic-shock-mechanism-2",
+  "t": "The host response to infection can cause vasodilation and disturb blood-flow distribution."
  },
  {
-  "id": "septic-shock-understand",
-  "t": "Follow the highlighted changes: endothelial activation, capillary leak, maldistributed flow. Compare the baseline with the progressive state."
+  "id": "septic-shock-mechanism-3",
+  "t": "Capillary leak and venous pooling can reduce effective circulating volume even when total body fluid increases."
  },
  {
-  "id": "septic-shock-apply",
-  "t": "For distributive / septic shock, which decision best addresses the illustrated mechanism?"
+  "id": "septic-shock-mechanism-4",
+  "t": "Impaired perfusion threatens organ function. Blood pressure alone does not describe all microcirculatory changes."
  },
  {
-  "id": "anaphylaxis-see",
-  "t": "Anaphylactic shock. Locate the affected circulation within the patient. Skin findings can be absent; airway and circulatory consequences can coexist."
+  "id": "septic-shock-mechanism-5",
+  "t": "Fluid and vasopressor support can improve circulation, but response varies and fluid accumulation can cause harm."
  },
  {
-  "id": "anaphylaxis-zoom",
-  "t": "Mediator release combines vasodilation and capillary leak with possible bronchospasm and upper-airway swelling."
+  "id": "septic-shock-mechanism-6",
+  "t": "Follow perfusion and fluid tolerance while treating the infection. This comparison leaves inflammatory injury visible."
  },
  {
-  "id": "anaphylaxis-understand",
-  "t": "Follow the highlighted changes: airway / tissue swelling, bronchospasm, effective intravascular loss, distributive collapse. Compare the baseline with the progressive state."
+  "id": "anaphylaxis-mechanism-1",
+  "t": "Anaphylaxis can rapidly affect airway, breathing and circulation; the order and combination vary."
  },
  {
-  "id": "anaphylaxis-apply",
-  "t": "For anaphylactic shock, which decision best addresses the illustrated mechanism?"
+  "id": "anaphylaxis-mechanism-2",
+  "t": "Mediator release can dilate vessels and increase permeability, reducing effective circulating volume."
+ },
+ {
+  "id": "anaphylaxis-mechanism-3",
+  "t": "Upper-airway edema can threaten airflow. Skin findings may be absent."
+ },
+ {
+  "id": "anaphylaxis-mechanism-4",
+  "t": "Lower-airway narrowing adds resistance and may coexist with upper-airway obstruction."
+ },
+ {
+  "id": "anaphylaxis-mechanism-5",
+  "t": "Vasodilation and leak reduce venous return and organ perfusion."
+ },
+ {
+  "id": "anaphylaxis-mechanism-6",
+  "t": "After first-line treatment, reassess airway, breathing and circulation. Improvement may be incomplete and symptoms can recur."
  },
  {
   "id": "obstructive-shock-see",

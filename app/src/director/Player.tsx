@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { voice } from '../app/voice';
 /** Transport + captions for the Lesson Director. */
 import { LESSON_DRUGS } from '../moa/meta';
 import { MECH } from '../moa/registry';
@@ -21,6 +23,8 @@ export function DirectorPlayer({ onExit }: { onExit?: () => void }) {
       <progress className="lesson-progress" value={Math.max(0, t)} max={D || 1} aria-label="Lesson progress" />
       <h2 className="h2">{cur?.title ?? tl.title}</h2>
       <p className="say" aria-live="polite">{cur?.say ?? tl.blurb}</p>
+      {cur?.say && !voice.has(cur.voice ?? cur.id) && <p className="muted small">Text-only chapter · follow the caption and animation.</p>}
+      {cur?.checkpoint && <Prediction key={cur.id} checkpoint={cur.checkpoint} />}
       <div className="dir-track">
         <input type="range" min={0} max={D} step={0.05} value={t} aria-label="Lesson time" onChange={(e) => director.seek(+e.target.value)} />
         <div className="dir-ticks" aria-hidden="true">{S.map((c, i) => <button key={c.id} tabIndex={-1} className={i === k ? 'on' : i < k ? 'past' : ''} style={{ left: `${(c.at / D) * 100}%` }} onClick={() => director.seek(c.at, playing)} title={c.title ?? ''} />)}</div>
@@ -42,4 +46,12 @@ export function DirectorPlayer({ onExit }: { onExit?: () => void }) {
 function BookmarkBtn({ id, t, title }: { id: string; t: number; title: string }) {
   const on = useProgress((s) => s.bookmarks.some((b) => b.lessonId === id && Math.abs(b.t - t) < 2));
   return <button className={`act${on ? ' done' : ''}`} aria-label={on ? 'Remove bookmark' : 'Bookmark this moment'} aria-pressed={on} onClick={() => useProgress.getState().toggleBookmark({ lessonId: id, t, title })} title="Bookmark this moment">{on ? '★' : '☆'}</button>;
+}
+
+export function Prediction({ checkpoint }: { checkpoint: {prompt:string;answer:string} }) {
+  const [revealed, setRevealed] = useState(false);
+  return <section className="prediction"><h3>Pause & predict</h3><p>{checkpoint.prompt}</p>
+    <button className="act" aria-expanded={revealed} onClick={() => { director.pause(); setRevealed(!revealed); }}>{revealed ? 'Hide explanation' : 'Reveal explanation'}</button>
+    {revealed && <p role="status">{checkpoint.answer}</p>}
+  </section>;
 }

@@ -1,14 +1,15 @@
+import { DiseaseBrowser } from '../atlas/DiseaseBrowser';
 /** Curriculum: every lesson, step lesson and procedure by domain, certification and NAEMT course, with progress, bookmarks and weak topics. */
 import { useMemo, useState } from 'react';
 import { CATALOG, CERTS, DOMAINS, NAEMT, CONCEPTS, type Cert, type Domain, type Entry, type Kind, type Naemt } from './catalog';
-import { useProgress, weakTopics, domainProgress, missingPrereqs } from './progress';
+import { useProgress, weakTopics, domainProgress, missingPrereqs, recommendedLesson } from './progress';
 import { titleOf } from './titles';
 import { openLesson, openDrug, openChallenge } from '../app/navigate';
 import { MECH } from '../moa/registry';
 import { OfflineCard } from '../app/Offline';
 import { useUI } from '../app/store';
 
-const KIND: Record<Kind, string> = { director: 'Signature', step: 'Step lesson', workflow: 'Procedure' };
+const KIND: Record<Kind, string> = { director: 'Explainer', step: 'Step lesson', workflow: 'Procedure' };
 const MOD: Record<Entry['module'], string> = { vent: 'Ventilator', abg: 'Blood gas', labs: 'Labs', lines: 'Lines', neuro: 'Brain', heart: 'Heart', abdomen: 'Abdomen', pediatrics: 'Pediatrics', womens: 'Women’s Health / OB' };
 const mmss = (t: number) => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, '0')}`;
 
@@ -23,7 +24,7 @@ export function CurriculumModule() {
   const doms = useMemo(() => domainProgress(p.completed, filter).filter((d) => !domain || d.domain === domain), [p.completed, domain, cert, naemt, kind, hideDone]); // eslint-disable-line react-hooks/exhaustive-deps
   const weak = useMemo(() => weakTopics(p.attempts), [p.attempts]);
   const total = CATALOG.length, done = CATALOG.filter((e) => p.completed[e.id]).length;
-  const nextLesson = CATALOG.find((e) => !p.completed[e.id]) ?? CATALOG[0];
+  const nextLesson = recommendedLesson(p.completed) ?? CATALOG.find(e=>e.id==='eom')!;
   const resume = p.recent.find(b => CATALOG.some(e => e.id === b.lessonId) && !p.completed[b.lessonId]);
   const launchExplore = () => useUI.getState().set({ module: 'vent', mode: 'explore', atlasDisease: null });
   const launchPractice = () => {
@@ -34,7 +35,7 @@ export function CurriculumModule() {
     <main id="controls" tabIndex={-1} className="stage curriculum-stage">
       <div className="cur-page cur-home">
         <section className="home-head">
-          <h2>Pick up where you left off</h2>
+          <h2>{resume ? 'Pick up where you left off' : done ? 'Keep learning' : 'Start learning critical care'}</h2>
           <div className="home-progress" aria-label={`${done} of ${total} lessons completed`}>
             <span>{done === 0 ? `${total} lessons and procedures` : `${done} of ${total} done`}</span>
             <div className="cur-bar"><i style={{ width: `${(100 * done) / total}%` }} /></div>
@@ -61,6 +62,12 @@ export function CurriculumModule() {
             <em>Start a case</em>
           </button>
         </section>
+        <section className="home-paths" aria-label="Foundational learning paths"><h3>Choose a starting point</h3><div>
+          <button onClick={() => openLesson('eom')}>Ventilation basics →</button>
+          <button onClick={() => useUI.getState().set({module:'lines',mode:'learn',atlasDisease:'septic-shock'})}>Shock &amp; perfusion →</button>
+          <button onClick={() => useUI.getState().set({module:'heart',mode:'learn',atlasDisease:'tamponade'})}>Cardiac emergencies →</button>
+        </div></section>
+        <DiseaseBrowser />
         {p.recent.length > 0 && <section className="home-recent" aria-labelledby="home-recent-title">
           <h3 id="home-recent-title">Recently viewed</h3>
           {p.recent.filter(b => CATALOG.some(e => e.id === b.lessonId)).slice(0, 3).map(b => <button key={b.lessonId} onClick={() => openLesson(b.lessonId, b.t)}><span>{titleOf(b.lessonId)}</span><small>{p.completed[b.lessonId] ? 'Completed' : `Resume ${mmss(b.t)}`}</small></button>)}
@@ -105,10 +112,10 @@ export function CurriculumModule() {
           </section>
         ))}
         </details>
-        <div className="cur-cols">
+        <details className="lesson-group" open={weak.length>0 || p.bookmarks.length>0}><summary>Practice feedback &amp; bookmarks</summary><div className="cur-cols">
           <section className="card">
             <div className="card-h"><h3>Weak topics</h3><span className="muted small">from your challenge answers</span></div>
-            {weak.length === 0 ? <p className="muted small">{Object.keys(p.attempts).length ? 'Nothing flagged — your latest answers were right.' : 'Answer some Challenge cases and missed concepts will appear here with the lesson that fixes them.'}</p>
+            {weak.length === 0 ? <p className="muted small">{Object.keys(p.attempts).length ? 'Nothing flagged — your latest answers were right.' : 'Answer some Practice cases and missed concepts will appear here with the lesson that fixes them.'}</p>
               : <ul className="cur-weak">{weak.map((w) => <li key={w.concept}>
                 <b>{w.name}</b> <span className="muted small">missed {w.missed} of {w.tried}</span>
                 <div className="chips">{CONCEPTS[w.concept].remediate.map((r) => 'lesson' in r
@@ -122,7 +129,7 @@ export function CurriculumModule() {
             {p.bookmarks.length === 0 ? <p className="muted small">None yet.</p>
               : <ul className="cur-bm">{p.bookmarks.map((b, i) => <li key={`${b.lessonId}-${b.t}`}><button className="linkish" onClick={() => openLesson(b.lessonId, b.t)}>{b.title} <span className="muted small">at {mmss(b.t)}</span></button><button className="linkish" aria-label="Remove bookmark" onClick={() => p.removeBookmark(i)}>✕</button></li>)}</ul>}
           </section>
-        </div>
+        </div></details>
 
         <details className="offline-disclosure"><summary>Offline access</summary><OfflineCard /></details>
         <p className="muted small" style={{ padding: '0 4px 20px' }}>Teaching tool, not a certification prep course or a protocol. <button className="linkish" onClick={() => { if (confirm('Clear your progress, bookmarks and challenge answers in this browser?')) p.reset(); }}>Reset progress</button></p>

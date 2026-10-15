@@ -107,12 +107,12 @@ describe('phone navigation interactions', () => {
     useProgress.getState().reset();
     await act(async () => root.render(<App />));
     await click('Women’s Health / OB', container.querySelector('dialog')!);
-    await click('Start 4-step lesson');
+    await click('Start 4-chapter explainer');
     expect(container.textContent).toContain('Step 1 of 4'); expect(container.querySelector('progress[aria-label="Lesson progress"]')).toBeTruthy();
     await click('Next step'); expect(container.textContent).toContain('Step 2 of 4');
     const bookmark = container.querySelector<HTMLButtonElement>('button[title="Bookmark this moment"]')!;
     await act(async () => bookmark.click()); expect(useProgress.getState().bookmarks[0].lessonId).toMatch(/^atlas-/);
-    await click('← All lessons'); expect(container.textContent).toContain('Start 4-step lesson');
+    await click('← All lessons'); expect(container.textContent).toContain('Start 4-chapter explainer');
     await act(async () => director.unload());
   });
   it.each([['Pediatrics','pediatrics'], ['Women’s Health / OB','womens']] as const)('%s has actual Learn, Explore and Practice content', async (label,module) => {
@@ -120,7 +120,7 @@ describe('phone navigation interactions', () => {
     await click(label,container.querySelector('dialog')!);
     expect(useUI.getState().module).toBe(module);
     expect(container.querySelectorAll('.atlas-condition-select option').length).toBeGreaterThan(10);
-    expect(container.textContent).toContain('Start 4-step lesson');
+    expect(container.textContent).toContain('Start 4-chapter explainer');
     await click('Explore'); expect(useUI.getState().module).toBe(module); expect(container.querySelector('.atlas-range input')).toBeTruthy();
     await click('Practice'); expect(useUI.getState().module).toBe(module); expect(container.querySelectorAll('.atlas-decisions button')).toHaveLength(3);
     expect(container.querySelector('[aria-label="Practice type"]')).toBeNull();

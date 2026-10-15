@@ -219,21 +219,29 @@
   "hash": "efaeb3519fa2a5a8",
   "seconds": 13.21
  },
- "anaphylaxis-apply": {
-  "hash": "a20d0a1dd1ede21b",
-  "seconds": 4.89
+ "anaphylaxis-mechanism-1": {
+  "hash": "d04676b072393517",
+  "seconds": 6.4
  },
- "anaphylaxis-see": {
-  "hash": "7d23b95618daab52",
-  "seconds": 10.62
+ "anaphylaxis-mechanism-2": {
+  "hash": "6e1504762fe474bc",
+  "seconds": 6.55
  },
- "anaphylaxis-understand": {
-  "hash": "659993f7f80800f8",
-  "seconds": 11.52
+ "anaphylaxis-mechanism-3": {
+  "hash": "e8432b46a6591fd4",
+  "seconds": 4.33
  },
- "anaphylaxis-zoom": {
-  "hash": "304fe0d8b4056664",
-  "seconds": 7.15
+ "anaphylaxis-mechanism-4": {
+  "hash": "3f5d37cdd28e9970",
+  "seconds": 5.33
+ },
+ "anaphylaxis-mechanism-5": {
+  "hash": "bac89cccc72fab4b",
+  "seconds": 4.29
+ },
+ "anaphylaxis-mechanism-6": {
+  "hash": "04259e18a40c58ce",
+  "seconds": 8.26
  },
  "aortic-dissection-apply": {
   "hash": "126bbee5bc9e36c3",
@@ -292,8 +300,8 @@
   "seconds": 9.88
  },
  "ards-11": {
-  "hash": "e740ec242293b71c",
-  "seconds": 9.22
+  "hash": "700a8b79d564e26d",
+  "seconds": 14.25
  },
  "ards-2": {
   "hash": "2045596fe715b571",
@@ -308,40 +316,56 @@
   "seconds": 10.41
  },
  "ards-5": {
-  "hash": "8efa064067ebecf2",
-  "seconds": 15.38
+  "hash": "65dfc56829f8db43",
+  "seconds": 17.17
  },
  "ards-6": {
   "hash": "0de6f3524bd80a87",
   "seconds": 11.11
  },
  "ards-7": {
-  "hash": "6118a7f3b4f6747e",
-  "seconds": 14.44
+  "hash": "c532945d751b283b",
+  "seconds": 17.73
  },
  "ards-8": {
-  "hash": "c2aff9372accafa0",
-  "seconds": 12.57
+  "hash": "e6b20ac005b56361",
+  "seconds": 15.21
  },
  "ards-9": {
-  "hash": "f8084ced8a245da0",
-  "seconds": 10.97
+  "hash": "c4afb2fa4043f8fd",
+  "seconds": 11.26
  },
- "ards-apply": {
-  "hash": "fd1ac3b80080df97",
-  "seconds": 4.69
+ "ards-mechanism-1": {
+  "hash": "20b3edc36f0568b0",
+  "seconds": 6.21
  },
- "ards-see": {
-  "hash": "b8c98f3050afeee5",
-  "seconds": 10.24
+ "ards-mechanism-2": {
+  "hash": "1fa7cdf8b312ca8c",
+  "seconds": 5.95
  },
- "ards-understand": {
-  "hash": "ef9df0a1588c1986",
-  "seconds": 11.24
+ "ards-mechanism-3": {
+  "hash": "1d1465c4fb07f423",
+  "seconds": 6.7
  },
- "ards-zoom": {
-  "hash": "62bc4ee5a1714d68",
-  "seconds": 8.15
+ "ards-mechanism-4": {
+  "hash": "371b87b31c1ee9d2",
+  "seconds": 7.4
+ },
+ "ards-mechanism-5": {
+  "hash": "922e1d25a6c3466a",
+  "seconds": 4.14
+ },
+ "ards-mechanism-6": {
+  "hash": "1bdac923140cce7a",
+  "seconds": 6.63
+ },
+ "ards-mechanism-7": {
+  "hash": "1c752fbdcb06ab24",
+  "seconds": 8.85
+ },
+ "ards-mechanism-8": {
+  "hash": "1a47def74a935fa3",
+  "seconds": 8.7
  },
  "aspiration-apply": {
   "hash": "7351e9084e95cc7f",
@@ -403,21 +427,33 @@
   "hash": "127efb139447dc29",
   "seconds": 18.82
  },
- "auto-peep-apply": {
-  "hash": "c7ab6f300bb29c0a",
-  "seconds": 4.33
+ "auto-peep-mechanism-1": {
+  "hash": "8b899537b5c994b5",
+  "seconds": 5.4
  },
- "auto-peep-see": {
-  "hash": "9e1d08029cb35c09",
-  "seconds": 8.06
+ "auto-peep-mechanism-2": {
+  "hash": "f47b9442476e6230",
+  "seconds": 6.83
  },
- "auto-peep-understand": {
-  "hash": "fa261c5beb9defb1",
-  "seconds": 9.58
+ "auto-peep-mechanism-3": {
+  "hash": "0b10ea29a903ae62",
+  "seconds": 6.02
  },
- "auto-peep-zoom": {
-  "hash": "9071f2ae9e6347fd",
-  "seconds": 7.51
+ "auto-peep-mechanism-4": {
+  "hash": "4ae703e20ad46646",
+  "seconds": 4.78
+ },
+ "auto-peep-mechanism-5": {
+  "hash": "0f7ba124d5d4e6cb",
+  "seconds": 4.65
+ },
+ "auto-peep-mechanism-6": {
+  "hash": "45494db5d3aa6983",
+  "seconds": 6.44
+ },
+ "auto-peep-mechanism-7": {
+  "hash": "46471ed1f5c7ddf3",
+  "seconds": 7.85
  },
  "bradydysrhythmia-apply": {
   "hash": "0e91d2e02c7ac2c6",
@@ -692,8 +728,8 @@
   "seconds": 13.8
  },
  "cr-8": {
-  "hash": "9938d897278fac3b",
-  "seconds": 13.21
+  "hash": "1ae59b6928123089",
+  "seconds": 15.17
  },
  "croup-apply": {
   "hash": "b01699b9eb826f6e",
@@ -804,8 +840,8 @@
   "seconds": 15.74
  },
  "dka-7": {
-  "hash": "60bdb816dda276ef",
-  "seconds": 10.56
+  "hash": "415c44bc8d0b7810",
+  "seconds": 16.55
  },
  "dka-apply": {
   "hash": "96b4a82c3941bee7",
@@ -3095,37 +3131,53 @@
   "hash": "cbcece74161047df",
   "seconds": 21.97
  },
- "pulmonary-edema-apply": {
-  "hash": "543ee93b74672ccd",
-  "seconds": 5.82
+ "pulmonary-edema-mechanism-1": {
+  "hash": "31a476d673b31047",
+  "seconds": 5.44
  },
- "pulmonary-edema-see": {
-  "hash": "42db59ba18de6479",
-  "seconds": 12.39
+ "pulmonary-edema-mechanism-2": {
+  "hash": "11bb3ff9c6a39c40",
+  "seconds": 6.06
  },
- "pulmonary-edema-understand": {
-  "hash": "7600fe14d8454c08",
-  "seconds": 10.35
+ "pulmonary-edema-mechanism-3": {
+  "hash": "bff86f9a6faab51c",
+  "seconds": 6.93
  },
- "pulmonary-edema-zoom": {
-  "hash": "f94282eb60d9dc6f",
-  "seconds": 6.34
+ "pulmonary-edema-mechanism-4": {
+  "hash": "f0ddd52b6006eb2a",
+  "seconds": 6.4
  },
- "pulmonary-embolism-apply": {
-  "hash": "3ce1645c0755135d",
-  "seconds": 5.4
+ "pulmonary-edema-mechanism-5": {
+  "hash": "b58b4a50c3b3b943",
+  "seconds": 7.13
  },
- "pulmonary-embolism-see": {
-  "hash": "9ec9a9a6f22f8a8d",
-  "seconds": 10.97
+ "pulmonary-edema-mechanism-6": {
+  "hash": "2b182122bc663fcf",
+  "seconds": 6.78
  },
- "pulmonary-embolism-understand": {
-  "hash": "413eceb8a322318b",
-  "seconds": 10.15
+ "pulmonary-embolism-mechanism-1": {
+  "hash": "d44d581e7b2d2e9b",
+  "seconds": 5.76
  },
- "pulmonary-embolism-zoom": {
-  "hash": "e37605001570ede2",
-  "seconds": 7.66
+ "pulmonary-embolism-mechanism-2": {
+  "hash": "00b360e57a8e4c46",
+  "seconds": 6.25
+ },
+ "pulmonary-embolism-mechanism-3": {
+  "hash": "28c673bd2f6f48e3",
+  "seconds": 7.02
+ },
+ "pulmonary-embolism-mechanism-4": {
+  "hash": "35941d9dbb644d25",
+  "seconds": 6.66
+ },
+ "pulmonary-embolism-mechanism-5": {
+  "hash": "afd90fd2e7364ff0",
+  "seconds": 6.66
+ },
+ "pulmonary-embolism-mechanism-6": {
+  "hash": "1d3cb85782dc5e78",
+  "seconds": 8.15
  },
  "rc1": {
   "hash": "a091ca48b855d669",
@@ -3307,21 +3359,29 @@
   "hash": "ebabeadb74181cec",
   "seconds": 10.35
  },
- "septic-shock-apply": {
-  "hash": "e76d8fb8f8bb36c0",
-  "seconds": 5.61
+ "septic-shock-mechanism-1": {
+  "hash": "474d39c745052eca",
+  "seconds": 4.31
  },
- "septic-shock-see": {
-  "hash": "d8a966ab7fadba07",
-  "seconds": 12.12
+ "septic-shock-mechanism-2": {
+  "hash": "6ba6b78c5e21d2a6",
+  "seconds": 6.04
  },
- "septic-shock-understand": {
-  "hash": "2c12ab7afa364fca",
-  "seconds": 9.51
+ "septic-shock-mechanism-3": {
+  "hash": "73b87a35449444e5",
+  "seconds": 7.34
  },
- "septic-shock-zoom": {
-  "hash": "6e3ec946b6863b86",
-  "seconds": 9.58
+ "septic-shock-mechanism-4": {
+  "hash": "cb2ccde75666d7ed",
+  "seconds": 7.83
+ },
+ "septic-shock-mechanism-5": {
+  "hash": "2f9082de20dc3cfe",
+  "seconds": 7.66
+ },
+ "septic-shock-mechanism-6": {
+  "hash": "849d848e01dce2bc",
+  "seconds": 7.85
  },
  "sh-0": {
   "hash": "b7ba92502db4bbf6",
@@ -3511,21 +3571,29 @@
   "hash": "65c613f1607bc10f",
   "seconds": 8.94
  },
- "tamponade-apply": {
-  "hash": "0405860f02a2b5cb",
-  "seconds": 4.95
+ "tamponade-mechanism-1": {
+  "hash": "885bca0344d3e256",
+  "seconds": 2.84
  },
- "tamponade-see": {
-  "hash": "7d02d2bfea006e12",
-  "seconds": 10.39
+ "tamponade-mechanism-2": {
+  "hash": "d83d59c55417131a",
+  "seconds": 6.93
  },
- "tamponade-understand": {
-  "hash": "112cb3b4c58fd6a6",
-  "seconds": 9.81
+ "tamponade-mechanism-3": {
+  "hash": "6158553ca0941870",
+  "seconds": 7.04
  },
- "tamponade-zoom": {
-  "hash": "286364cd8b5c5f55",
-  "seconds": 7.38
+ "tamponade-mechanism-4": {
+  "hash": "fe2e1be4cd834d1b",
+  "seconds": 7.04
+ },
+ "tamponade-mechanism-5": {
+  "hash": "be8614d108a9b1b9",
+  "seconds": 7.36
+ },
+ "tamponade-mechanism-6": {
+  "hash": "9d9f0f09b88c2ae0",
+  "seconds": 7.85
  },
  "tbi-apply": {
   "hash": "055cee60df2a33ef",

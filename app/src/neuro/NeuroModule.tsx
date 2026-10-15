@@ -1,3 +1,4 @@
+import { DiseaseBrowser } from '../atlas/DiseaseBrowser';
 import { useExploreMemory } from '../app/exploreMemory';
 import { MiniSelect, Picker, Fold } from '../scene/pane';
 import { useEffect, useState } from 'react';
@@ -145,7 +146,7 @@ function NeuroLearn() {
   useEffect(() => () => { if (NEURO_LESSONS.some((l) => l.id === useDirector.getState().tl?.id)) director.unload(); }, []);
   if (active) return <div className="chal-run"><DirectorPlayer onExit={() => undefined} />{tl!.id === ICP_LESSON.id ? <IcpCard /> : <><NeuroExamCard /><TissueCard /></>}</div>;
   return (
-    <div className="chal-list">
+    <div className="chal-list"><DiseaseBrowser domain="neuro" />
       <section className="card"><div className="eyebrow">Guided learning</div><h2 className="h2">Narrated lessons on the live brain</h2><p className="muted">Each lesson is a timeline: scrub it, pause it, or jump between steps — the brain is rebuilt exactly for that moment.</p></section>
       {NEURO_LESSONS.map((l) => <button key={l.id} className="chal-item" onClick={() => director.load(l, true)}><span className={`lvl lvl-${l.level}`}>{l.level}</span><span className="ci-t">{l.title}<small className="ci-b">{l.blurb}</small></span><span className="ci-k">{l.cues.length} steps</span></button>)}
     </div>
