@@ -1,3 +1,4 @@
+import { EXPLAINERS } from './explainers';
 import type { DiseaseDefinition, DiseaseState, Decision } from './types';
 import { stepTimeline, type Timeline } from '../director/timeline';
 import { lowerKeepAcronyms } from './registry';
@@ -17,7 +18,23 @@ export function applyDecision(state: DiseaseState, decision: Decision): DiseaseS
 }
 export function stageIndex(severity: number) { return severity < 0.34 ? 0 : severity < 0.7 ? 1 : 2; }
 /** Same Lesson Director transport and semantic cameras as the existing organ lessons. */
-export function diseaseLesson(d: DiseaseDefinition, set: (severity: number, target: string) => void): Timeline {
+export function diseaseLesson(d: DiseaseDefinition, set: (severity: number, target: string, frame?: DiseaseState) => void): Timeline {
+  const explainer = EXPLAINERS[d.id];
+  if (explainer) {
+    const frames = explainer.chapters.map(c => ({ ...HEALTHY, ...c.state }));
+    const targets = explainer.chapters.map(c => c.focus === 'patient' ? 'body.whole' : c.focus === 'heart' ? 'heart.four_chamber' : c.focus === 'airway' ? 'lung.airway' : d.target);
+    const setFrame = (i:number, u:number) => {
+      const before = frames[Math.max(0, i - 1)], after = frames[i];
+      const frame = { ...HEALTHY }; const blend = Math.min(1, Math.max(0, u) / .4);
+      for (const key of Object.keys(frame) as (keyof DiseaseState)[]) frame[key] = before[key] + (after[key] - before[key]) * blend;
+      set(Math.max(...Object.values(frame)), targets[i], frame);
+    };
+    const tl = stepTimeline(`atlas-${d.id}`, d.title, explainer.chapters.map((c, i) => ({
+      id: `${d.id}-mechanism-${i + 1}`, title:c.title, say:c.say, target:targets[i], checkpoint:c.checkpoint,
+      apply: () => setFrame(i, 0), tween: u => setFrame(i, u),
+    })), () => setFrame(0, 0));
+    return { ...tl, module:d.domain, blurb:explainer.outcome };
+  }
   const tl = stepTimeline(`atlas-${d.id}`, d.title, [
     { id: `${d.id}-see`, title: 'See · the patient', target: 'body.whole', say: `${d.title}. Locate the affected ${d.anatomy.replaceAll('-', ' ')} within the patient. ${d.distinction}`, apply: () => set(0.15, 'body.whole') },
     { id: `${d.id}-zoom`, title: 'Zoom · the affected anatomy', target: d.target, say: d.mechanism, apply: () => set(0.4, d.target) },

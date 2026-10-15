@@ -1,10 +1,14 @@
+import { useDirector } from '../director/director';
+import { MechanismHeart } from './MechanismHeart';
+import { MechanismCirculation } from './MechanismCirculation';
+import { EXPLAINERS } from './explainers';
 /**
  * Atlas anatomy in 3D: the HuBMAP Visible Human Male or Female reference body (CC BY 4.0) with the organs that
  * carry the condition highlighted and the rest ghosted. Maternal conditions show the library's term placenta,
  * amnion and cord in place; pediatric congenital-heart conditions open the real 3D congenital heart instead.
  * Pathology marks (blood, clot, oedema) are 3D overlays sized by the illustrative state, not measurements.
  */
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { CameraControls } from '@react-three/drei';
 import { useFrame, useThree } from '@react-three/fiber';
@@ -78,7 +82,7 @@ function Organ({ body, id, active, state, disease, xray = false }: { body: BodyA
   }, [id, active, amnion, state.ischemia, state.fluid, state.inflammation]);
   useEffect(() => () => { geometry.dispose(); material.dispose(); }, [geometry, material]);
   useFrame((_, dt) => {
-    const m = mesh.current; if (!m) return; const u = reduced ? 1 : 1 - Math.exp(-4 * Math.min(dt, 0.1));
+    const m = mesh.current; if (!m) return; const u = reduced || useDirector.getState().tl?.id.startsWith('atlas-') ? 1 : 1 - Math.exp(-4 * Math.min(dt, 0.1));
     m.scale.lerp(target, u); m.material.color.lerp(color, u);
     m.material.opacity = amnion ? (active ? 0.22 : 0.1) : active ? (xray ? 0.22 : 1) : 0.1; m.material.depthWrite = active && !amnion && !xray;
   });
@@ -123,15 +127,15 @@ function Pathology({ body, d, s, layered = false }: { body: BodyAsset; d: Diseas
 
 /** Which added anatomy each condition uses (male body). Effusion and haematoma volumes are illustrative, from the state. */
 export function atlasLayers(d: DiseaseDefinition, s: DiseaseState) {
-  const out: { bones: string[]; xray: OrganId[]; pericardium?: number; conduction?: { hr: number; avDelay?: number; dropEvery?: number }; brain?: { highlight?: string[]; ventricleScale?: number; ich?: string; ichMl?: number; show?: 'all' | 'ventricles' }; airway?: { edema: number; site?: 'supraglottic' | 'subglottic' }; pe?: { extent: number }; dissection?: { compression: number; wallStress: number }; aneurysm?: { dilation: number; bleeding: number }; pleural?: { air: number; blood: number }; coronary?: { territory: string; ischemia: number } } = { bones: [], xray: [] };
+  const out: { bones: string[]; xray: OrganId[]; pericardium?: number; conduction?: { hr: number; avDelay?: number; dropEvery?: number }; brain?: { highlight?: string[]; ventricleScale?: number; ich?: string; ichMl?: number; show?: 'all' | 'ventricles' }; airway?: { edema: number; site?: 'supraglottic' | 'subglottic' }; pe?: { extent: number; flowLoss:number }; dissection?: { compression: number; wallStress: number }; aneurysm?: { dilation: number; bleeding: number }; pleural?: { air: number; blood: number }; coronary?: { territory: string; ischemia: number } } = { bones: [], xray: [] };
   if (d.variant === 'tension' || d.variant === 'pleural-air') out.bones = ['rib_R2', 'rib_R3', 'rib_R4', 'rib_R5']; // 2nd ICS MCL · 4th–5th ICS AAL
   if (d.variant === 'trauma' && d.anatomy === 'pleura') out.bones = RIBS('R').slice(2, 8);
   if (d.variant === 'pericardial') out.pericardium = 40 + 460 * s.fluid;
-  if (d.variant === 'upper') out.airway = { edema: Math.max(s.edema, s.obstruction), site: 'supraglottic' };
+  if (d.variant === 'upper' || d.variant === 'anaphylaxis') out.airway = { edema: Math.max(s.edema, s.obstruction), site: 'supraglottic' };
   if (d.variant === 'subglottic') out.airway = { edema: Math.max(s.edema, s.obstruction), site: 'subglottic' };
   if (d.variant === 'aspiration') out.airway = { edema: 0 };
   if (d.variant === 'coronary') { out.coronary = { territory: 'anterior', ischemia: s.ischemia }; out.xray.push('heart'); } // the real coronary tree replaces the plain heart surface
-  if (d.variant === 'clot') { out.pe = { extent: s.obstruction }; out.xray.push('lung_L', 'lung_R', 'heart'); } // the clot sits in the pulmonary arteries above and behind the heart
+  if (d.variant === 'clot') { out.pe = { extent: s.obstruction, flowLoss:s.flowLoss }; out.xray.push('lung_L', 'lung_R', 'heart'); } // the clot sits in the pulmonary arteries above and behind the heart
   if (d.variant === 'dissection') { out.dissection = { compression: s.obstruction, wallStress: s.pressure }; out.xray.push('aorta'); }
   if (d.anatomy === 'aorta' && (d.variant === 'aneurysm' || d.variant === 'rupture')) { out.aneurysm = { dilation: s.overdistension, bleeding: d.variant === 'rupture' ? s.bleeding : 0 }; out.xray.push('aorta'); }
   if (d.variant === 'pleural-air' || d.variant === 'tension') out.pleural = { air: s.collapse, blood: 0 };
@@ -153,19 +157,25 @@ export function atlasLayers(d: DiseaseDefinition, s: DiseaseState) {
 }
 
 function BodyScene({ disease, state, target }: { disease: DiseaseDefinition; state: DiseaseState; target: string }) {
+  const [heartReady,setHeartReady] = useState(false);
+  const ready = useCallback(()=>setHeartReady(true),[]);
+  const mechanism = !!EXPLAINERS[disease.id];
+  const detailedHeart = mechanism && ['pulmonary-embolism','pulmonary-edema','tamponade','septic-shock','anaphylaxis','auto-peep'].includes(disease.id);
   const sex = bodySexFor(disease);
   const [body, setBody] = useState<BodyAsset | null>(null); const [error, setError] = useState(false);
-  useEffect(() => { let cancelled = false; setBody(null); loadBodyAsset(sex).then((a) => { if (!cancelled) setBody(a); }).catch(() => { if (!cancelled) setError(true); }); return () => { cancelled = true; }; }, [sex]);
+  useEffect(() => { let cancelled = false; setBody(null); setError(false); loadBodyAsset(sex).then((a) => { if (!cancelled) setBody(a); }).catch(() => { if (!cancelled) setError(true); }); return () => { cancelled = true; }; }, [sex]);
   if (error) return <p role="alert">The 3D anatomy could not load. The condition’s findings are listed below.</p>;
   if (!body) return <p className="loading">Loading 3D anatomy…</p>;
   const organs = affectedOrgans(disease); const pregnant = isPregnant(disease);
   const list = (sex === 'female' ? FEMALE_ORGANS : MALE_ORGANS).filter((id) => body.meshes[id] && (!PREGNANCY_PARTS.includes(id) || pregnant));
-  const focus = organs.filter((id) => body.meshes[id]).concat(pregnant && disease.anatomy === 'placenta' ? ['amnion'] : []);
+  const focus = (target.startsWith('heart.') ? ['heart'] : target === 'lung.airway' ? ['airway'] : organs).filter((id) => body.meshes[id]).concat(pregnant && disease.anatomy === 'placenta' ? ['amnion'] : []);
   const a = body.mapping.attribution; const male = sex === 'male'; const layers = atlasLayers(disease, state);
   return <>
     <StudioCanvas camera={{ position: [0, 1, 34], fov: 34 }} fog={false} label={`${disease.title}: 3D ${sex} reference anatomy with the affected organs highlighted`}>
       <Skin body={body} whole={target === 'body.whole'} />
-      {list.map((id) => <Organ key={id} body={body} id={id} active={organs.includes(id)} state={state} disease={disease} xray={layers.xray.includes(id)} />)}
+      {list.map((id) => <Organ key={id} body={body} id={id} active={organs.includes(id)} state={state} disease={disease} xray={layers.xray.includes(id) || (detailedHeart && heartReady && id==='heart')} />)}
+      {male && detailedHeart && <MechanismHeart diseaseId={disease.id} state={state} onReady={ready} />}
+      {male && mechanism && <MechanismCirculation state={state} />}
       <Pathology body={body} d={disease} s={state} layered={male} />
       {male && <SkeletonLayer highlight={layers.bones} ghost={target === 'body.whole' ? 0.32 : layers.bones.length ? 0.14 : 0.06} />}
       {male && layers.pericardium != null && <PericardiumLayer ml={layers.pericardium} blood={disease.variant === 'trauma'} />}
@@ -181,7 +191,7 @@ function BodyScene({ disease, state, target }: { disease: DiseaseDefinition; sta
     </StudioCanvas>
     <details className="credit"><summary>Sources &amp; model notes</summary>{a.title} — {a.creators}; {a.data}. <a href={a.licenseUrl} target="_blank" rel="noreferrer">{a.license}</a>. {a.changes}
       {usesAdultReference(disease) && ' Children are shown on the adult reference body: a child has a proportionally larger head, a shorter neck and a narrower, more anterior airway.'}
-      {' '}Blood, clot, fluid and lesion marks are 3D overlays sized by the illustrative state, not measurements.
+      {' '}Chamber size and moving flow are exaggerated qualitative comparisons, not measured volumes, cardiac output or a computational fluid model. Blood, clot, fluid and lesion marks are 3D overlays sized by the illustrative state, not measurements.
       {male && <> Bones: BodyParts3D, © The Database Center for Life Science, <a href="https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en" target="_blank" rel="noreferrer">CC BY-SA 2.1 JP</a>, fitted onto the Visible Human Male (skull, spine, ribs, sternum, shoulder girdle, humeri); pelvis and legs from HuBMAP. Pericardium, deep brain and conduction system are built on the HuBMAP heart and Allen brain regions; the conduction fibre pattern is schematic, and the internal capsule is reconstructed from the surrounding white matter.</>}</details>
   </>;
 }

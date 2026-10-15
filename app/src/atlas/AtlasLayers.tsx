@@ -1,3 +1,5 @@
+import { VolumeFlow } from '../scene/VolumeFlow';
+import { useDirector } from '../director/director';
 /**
  * Added anatomy in the Atlas body view (male reference body only — the layers share the VHM body frame):
  * the skeleton, the real pericardium with an effusion of a given volume, the animated conduction system, and the deep
@@ -48,7 +50,7 @@ export function PericardiumLayer({ ml, blood = false }: { ml: number; blood?: bo
   const fluid = useMemo(() => new THREE.MeshStandardMaterial({ color: blood ? '#7d1f30' : '#7fb0d4', roughness: 0.2, transparent: true, opacity: 0.3, depthWrite: false, side: THREE.BackSide }), [blood]);
   useEffect(() => () => { sac.dispose(); fluid.dispose(); }, [sac, fluid]);
   const target = pc ? effusionThickness(pc.mapping as PericardiumMapping, ml) : 0;
-  useFrame((_, dt) => { u.uThick.value += (target - u.uThick.value) * (1 - Math.exp(-3 * Math.min(dt, 0.1))); fluid.opacity = Math.min(0.45, 0.08 + u.uThick.value * 4); });
+  useFrame((_, dt) => { u.uThick.value += (target - u.uThick.value) * ((useDirector.getState().tl?.id.startsWith('atlas-') || window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 1 : 1 - Math.exp(-3 * Math.min(dt, 0.1)))); fluid.opacity = Math.min(0.45, 0.08 + u.uThick.value * 4); });
   if (!pc) return null;
   const g = pc.meshes.pericardium.geometry;
   // the fluid is the same displaced surface drawn from inside: it reads as a layer between sac and heart
@@ -89,7 +91,7 @@ export function DeepBrainLayer({ highlight = [], ventricleScale = 1, ich, ichMl 
   useEffect(() => () => Object.values(mats).forEach((m) => m.dispose()), [mats]);
   const hot = new Set(highlight);
   const vRefs = useRef<Record<string, THREE.Mesh | null>>({});
-  useFrame((_, dt) => { const k = 1 - Math.exp(-3 * Math.min(dt, 0.1)); for (const [id, m] of Object.entries(vRefs.current)) { if (!m) continue; const s = m.scale.x + (ventricleScale - m.scale.x) * k; m.scale.setScalar(s); m.userData.c && m.position.copy((m.userData.c as THREE.Vector3).clone().multiplyScalar(1 - s)); void id; } });
+  useFrame((_, dt) => { const k = (useDirector.getState().tl?.id.startsWith('atlas-') || window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 1 : 1 - Math.exp(-3 * Math.min(dt, 0.1))); for (const [id, m] of Object.entries(vRefs.current)) { if (!m) continue; const s = m.scale.x + (ventricleScale - m.scale.x) * k; m.scale.setScalar(s); m.userData.c && m.position.copy((m.userData.c as THREE.Vector3).clone().multiplyScalar(1 - s)); void id; } });
   if (!nd) return null;
   // haematoma volume → radius (sphere-equivalent; mL = 4/3 π r³ with r in cm)
   const r = ichMl > 0 ? Math.cbrt((3 * ichMl) / (4 * Math.PI)) / 10 : 0; const ichC = ich && nd.meshes[ich] ? centreOf(nd.meshes[ich]) : null;
@@ -116,7 +118,7 @@ export function UpperAirwayLayer({ edema = 0, site }: { edema?: number; site?: '
   useEffect(() => () => { soft.dispose(); swollen.dispose(); }, [soft, swollen]);
   const refs = useRef<Record<string, THREE.Mesh | null>>({});
   const grow: Record<string, number> = site === 'supraglottic' ? { epiglottis: 1 + 0.7 * edema, vestibular_fold_R: 1 + 0.6 * edema, vestibular_fold_L: 1 + 0.6 * edema, tongue: 1 + 0.22 * edema } : {};
-  useFrame((_, dt) => { const k = 1 - Math.exp(-3 * Math.min(dt, 0.1)); for (const [id, m] of Object.entries(refs.current)) { if (!m) continue; const target = grow[id] ?? 1; const s = m.scale.x + (target - m.scale.x) * k; m.scale.setScalar(s); const c = m.userData.c as THREE.Vector3 | undefined; if (c) m.position.copy(c).multiplyScalar(1 - s); } });
+  useFrame((_, dt) => { const k = (useDirector.getState().tl?.id.startsWith('atlas-') || window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 1 : 1 - Math.exp(-3 * Math.min(dt, 0.1))); for (const [id, m] of Object.entries(refs.current)) { if (!m) continue; const target = grow[id] ?? 1; const s = m.scale.x + (target - m.scale.x) * k; m.scale.setScalar(s); const c = m.userData.c as THREE.Vector3 | undefined; if (c) m.position.copy(c).multiplyScalar(1 - s); } });
   if (!ua) return null;
   const cric = ua.meshes.cricoid_cartilage ? centreOf(ua.meshes.cricoid_cartilage) : null;
   const ring = site === 'subglottic' && cric ? { r: 0.055, tube: 0.01 + 0.035 * edema } : null; // lumen ≈ 1.1 cm → inner radius 5.5 − tube; the swelling runs ~1 cm down the subglottis
@@ -149,7 +151,7 @@ function useDisposable<T extends { dispose: () => void }>(make: () => T, deps: u
 
 /** Pulmonary embolism: a saddle clot astride the bifurcation of the real pulmonary trunk, extending down both
  *  pulmonary arteries with `extent` (0–1), inside a see-through arterial tree. */
-export function PulmonaryEmbolusLayer({ extent }: { extent: number }) {
+export function PulmonaryEmbolusLayer({ extent, flowLoss = extent }: { extent: number; flowLoss?:number }) {
   const v = useMemo(() => vesselCentrelines(), []);
   const tree = useDisposable(() => { const gs = [lumenTube(v.trunk, 1), lumenTube([v.trunk[v.trunk.length - 1], ...v.rpa], 1), lumenTube([v.trunk[v.trunk.length - 1], ...v.lpa], 1)]; return mergeTubes(gs); }, [v]);
   const clot = useDisposable(() => {
@@ -158,7 +160,9 @@ export function PulmonaryEmbolusLayer({ extent }: { extent: number }) {
   }, [v, Math.round(extent * 20)]);
   return <group>
     <mesh geometry={tree} renderOrder={4}><meshStandardMaterial color="#6a6fb8" roughness={0.4} transparent opacity={0.28} depthWrite={false} side={THREE.DoubleSide} /></mesh>
-    <mesh geometry={clot} renderOrder={5}><meshStandardMaterial color="#9e1f33" roughness={0.6} emissive="#7a1020" emissiveIntensity={0.55} /></mesh>
+    <VolumeFlow path={v.rpa} color="#79c4e4" label="Illustrative right pulmonary perfusion" sample={()=>({time:window.matchMedia('(prefers-reduced-motion: reduce)').matches?0:useDirector.getState().t,activity:1-flowLoss*.85,speed:1-flowLoss*.7})} />
+    <VolumeFlow path={v.lpa} color="#79c4e4" label="Illustrative left pulmonary perfusion" sample={()=>({time:window.matchMedia('(prefers-reduced-motion: reduce)').matches?0:useDirector.getState().t,activity:1-flowLoss*.85,speed:1-flowLoss*.7})} />
+    <mesh visible={extent>.02} geometry={clot} renderOrder={5}><meshStandardMaterial color="#9e1f33" roughness={0.6} emissive="#7a1020" emissiveIntensity={0.55} /></mesh>
   </group>;
 }
 

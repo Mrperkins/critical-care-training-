@@ -10,6 +10,7 @@ export interface Cue {
   /** length of the cue's tween / hold window, seconds (0 = instant) */ dur?: number;
   /** narration shown as caption and spoken (pre-rendered clip id in `voice`, else speech synthesis) */ say?: string;
   voice?: string;
+  checkpoint?: { prompt: string; answer: string };
   title?: string;
   /** semantic camera target (see scene/cameraTargets.ts) */ target?: string;
   /** set the world into this cue's state (idempotent) */ apply?: () => void;
@@ -62,7 +63,7 @@ export function advance(tl: Timeline, t0: number, t1: number) {
 export const sayDuration = (text: string) => Math.max(3.5, text.trim().split(/\s+/).length / 2.5 + 1.2);
 
 /** Build a step-by-step timeline from narrated steps (each step lasts as long as it takes to say). */
-export function stepTimeline(id: string, title: string, items: { id: string; title?: string; say: string; voice?: string; target?: string; apply?: () => void; tween?: (u: number) => void; dur?: number }[], setup?: () => void): Timeline {
+export function stepTimeline(id: string, title: string, items: { id: string; title?: string; say: string; voice?: string; checkpoint?: Cue['checkpoint']; target?: string; apply?: () => void; tween?: (u: number) => void; dur?: number }[], setup?: () => void): Timeline {
   let t = 0; const cues: Cue[] = [];
   for (const it of items) { const d = it.dur ?? sayDuration(it.say); cues.push({ ...it, at: t, dur: d, hold: true }); t += d + 0.6; }
   return { id, title, cues, setup, absolute: true };

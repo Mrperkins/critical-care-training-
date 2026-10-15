@@ -28,6 +28,7 @@ try {
     page.on('pageerror', (e) => fatal.push(e.message));
     await page.goto('http://127.0.0.1:8879/?module=heart', { waitUntil: 'domcontentloaded', timeout: 30000 });
     const study = page.getByRole('region', { name: 'Synchronized cardiac electrical study' });
+    await page.getByText('Conduction study settings', { exact: true }).click();
     await expect(study).toBeVisible({ timeout: 30000 });
     const heartCanvas = page.locator('.scene-pane canvas').first();
     const strip = page.locator('section[aria-label="Cardiac live ECG strip"]');
@@ -42,8 +43,8 @@ try {
       await expect(strip).toBeVisible();
       const heartRect = await page.locator('.heart-scene-pane > .scene-wrap').boundingBox();
       const stripRect = await strip.boundingBox();
-      if (!heartRect || !stripRect || stripRect.x < heartRect.x + heartRect.width - 3 || stripRect.y > heartRect.y + heartRect.height) {
-        throw new Error('ECG must be visible directly to the RIGHT of the 3D heart on desktop');
+      if (!heartRect || !stripRect || stripRect.y < heartRect.y + heartRect.height - 3 || Math.abs(stripRect.width - heartRect.width) > 4) {
+        throw new Error('ECG must span the full width below the 3D heart on desktop');
       }
     } else {
       // Mobile intentionally unmounts the WebGL canvas on Lessons for GPU/memory safety.

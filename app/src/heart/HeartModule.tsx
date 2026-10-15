@@ -1,3 +1,4 @@
+import { DiseaseBrowser } from '../atlas/DiseaseBrowser';
 import { useExploreMemory } from '../app/exploreMemory';
 /** Congenital heart module: shunt physiology on a live four-chamber heart. */
 import { MiniSelect } from '../scene/pane';
@@ -90,7 +91,7 @@ export function HeartModule() {
         <HeartECGSceneStrip />
       </section>
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
-        <HeartECGStudy />
+        <details className="lesson-group"><summary>Conduction study settings</summary><HeartECGStudy /></details>
         {mode === 'challenge' ? <CaseChallenge module="heart" /> : mode === 'learn' ? <HeartLearn /> : <>
           <PresetCard />
           <ControlsCard />
@@ -251,9 +252,9 @@ function HeartLearn() {
   useEffect(() => () => { if (HEART_LEARN.some((l) => l.id === useDirector.getState().tl?.id)) director.unload(); }, []);
   if (active) return <div className="chal-run"><DirectorPlayer onExit={() => undefined} />{tl.id === NEO_TRANSITION_LESSON.id && <NeoCard />}<HemoCard /></div>;
   return (
-    <div className="chal-list">
+    <div className="chal-list"><DiseaseBrowser domain="heart" />
       <section className="card"><div className="eyebrow">Guided learning</div><h2 className="h2">Congenital heart on a live circulation</h2><p className="muted">Narrated lessons that change the defect and the resistances while the heart, the flow and the numbers respond.</p></section>
-      {HEART_LEARN.map((l) => <button key={l.id} className="chal-item" onClick={() => director.load(l, true)}><span className={`lvl lvl-${l.level}`}>{l.level}</span><span className="ci-t">{l.title}<small className="ci-b">{l.blurb}</small></span><span className="ci-k">{l.cues.length} steps</span></button>)}
+      <details className="lesson-group"><summary>Congenital &amp; circulation lessons</summary>{HEART_LEARN.map((l) => <button key={l.id} className="chal-item" onClick={() => director.load(l, true)}><span className={`lvl lvl-${l.level}`}>{l.level}</span><span className="ci-t">{l.title}<small className="ci-b">{l.blurb}</small></span><span className="ci-k">{l.cues.length} steps</span></button>)}</details>
     </div>
   );
 }

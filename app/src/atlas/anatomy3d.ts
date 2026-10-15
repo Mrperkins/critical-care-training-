@@ -44,7 +44,7 @@ export function affectedOrgans(d: DiseaseDefinition): OrganId[] {
       if (d.variant === 'abdominal-blood') return ['liver', 'spleen', 'aorta', 'vena_cava'];
       if (d.variant === 'pelvic-blood' || d.variant === 'maternal-blood') return ['aorta', 'vena_cava', 'bladder', ...(d.population === 'maternal' ? ['uterus' as const] : [])];
       if (d.variant === 'obstructive') return ['heart', 'lung_L', 'lung_R', 'vena_cava'];
-      if (d.variant === 'anaphylaxis') return ['airway', 'heart', 'aorta'];
+      if (d.variant === 'anaphylaxis') return ['airway', 'heart', 'aorta', 'lung_L', 'lung_R'];
       if (d.variant === 'maternal') return ['heart', 'aorta', 'vena_cava', 'kidney_L', 'kidney_R', 'uterus'];
       return ['heart', 'aorta', 'vena_cava', 'kidney_L', 'kidney_R'];
   }

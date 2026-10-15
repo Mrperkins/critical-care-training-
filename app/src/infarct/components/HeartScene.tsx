@@ -1,3 +1,4 @@
+import { supportsWebGL, SceneBoundary, SceneUnavailable } from '../../scene/SceneBoundary';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { Canvas, useFrame, useThree, type ThreeEvent } from '@react-three/fiber';
@@ -29,8 +30,12 @@ const damp = (cur: number, tgt: number, rate: number, dt: number) => lerp(cur, t
  * closed with an inner and an outer surface (the high-detail chambers are open at the septum).
  */
 export function HeartScene({ asset, pick, sliceFrom }: { asset: HeartAsset; pick?: THREE.Mesh[]; sliceFrom?: THREE.Mesh[] }) {
+  const [attempt, retry] = useState(0);
+  const capable = useMemo(() => supportsWebGL(), [attempt]);
+  const onRetry = () => retry(n => n + 1);
+  if (!capable) return <SceneUnavailable label="MI anatomy renderer unavailable" onRetry={onRetry} />;
   return (
-    <Canvas
+    <SceneBoundary key={attempt} label="MI anatomy renderer unavailable" onRetry={onRetry}><Canvas
       className="heart-canvas"
       dpr={typeof window !== 'undefined' && window.matchMedia('(max-width: 640px)').matches ? [1, 1.5] : [1, 1.75]}
       gl={{ antialias: true, alpha: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1.05, powerPreference: 'high-performance' }}
@@ -48,7 +53,7 @@ export function HeartScene({ asset, pick, sliceFrom }: { asset: HeartAsset; pick
       <LeadRig />
       <ContactShadows position={[0, -1.18, 0]} opacity={0.5} blur={2.8} far={2.6} scale={7} resolution={256} frames={1} color="#000000" />
       <CameraRig asset={asset} />
-    </Canvas>
+    </Canvas></SceneBoundary>
   );
 }
 

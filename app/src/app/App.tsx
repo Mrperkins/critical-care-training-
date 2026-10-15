@@ -143,7 +143,7 @@ export function App() {
 
         <div id="workspace" tabIndex={-1} className="workspace">
           {inDomain && !(module === 'vent' && mode === 'sim' && !showingAtlas) && <nav className="mobile-workspace-tabs" aria-label="Workspace view">
-            <button aria-pressed={mobilePane === 'scene'} onClick={() => setMobilePane('scene')}>Scene</button>
+            <button aria-pressed={mobilePane === 'scene'} data-scene-button onClick={() => setMobilePane('scene')}>Scene</button>
             <button data-context-button aria-pressed={mobilePane === 'context'} onClick={() => setMobilePane('context')}>{experience === 'learn' ? 'Lessons' : mode === 'challenge' ? 'Questions' : 'Controls'}</button>
             <span className="mobile-tools">{tools}</span>
           </nav>}

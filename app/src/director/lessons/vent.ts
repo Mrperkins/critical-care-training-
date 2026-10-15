@@ -35,19 +35,19 @@ export const ARDS_SIGNATURE: Timeline = {
     { id: 'ards-4', at: 32, dur: 10, hold: true, target: 'lung.membrane', title: 'A thicker barrier, less surfactant', apply: () => { scene('ards', { peep: 5 }); focusVentTarget('lung.membrane'); },
       say: 'Across the membrane, the interstitium is swollen and the lining fluid is thick. Surfactant is broken into islands, so alveoli collapse at the end of every breath.' },
     { id: 'ards-5', at: 43, dur: 11, hold: true, target: 'lung.recruited', title: 'Raise the PEEP: recruitment', apply: () => { scene('ards', { peep: 16, vt: 0.42 }); focusVentTarget('lung.recruited'); },
-      say: 'Now drop the tidal volume to six millilitres per kilogram and raise the PEEP to sixteen. Pressure at end-expiration holds the dependent alveoli open. Collapsed units re-inflate, the shunt falls, and the blood leaving them turns red.' },
+      say: 'In this example, a smaller tidal volume and higher PEEP improve aeration of recruitable units. PEEP sixteen is an illustrative setting, not a universal target. Reassess oxygenation, mechanics and circulation; edema and barrier injury persist.' },
     { id: 'ards-6', at: 55, dur: 10, hold: true, target: 'lung.alveolus', title: 'Too much: overdistension', apply: () => { scene('ards', { peep: 24, vt: 0.42 }); focusVentTarget('lung.alveolus'); },
       say: 'Push PEEP to twenty-four and the least dependent alveoli are overstretched. Their walls thin, they compress the capillaries around them, and the plateau pressure climbs past thirty.' },
     { id: 'ards-7', at: 66, dur: 10, hold: true, target: 'lung.whole', title: 'The target', apply: () => { scene('ards', { peep: 14, vt: 0.42 }); focusVentTarget('lung.whole'); },
-      say: 'The goal is in between: enough PEEP to keep the dependent lung open, small tidal volumes of about six millilitres per kilogram, a plateau below thirty and a driving pressure below fifteen. Watch the numbers as you choose.' },
+      say: 'Aim for protective ventilation using predicted body weight and limiting plateau pressure. Individualize PEEP to the response, balancing recruitment against overdistension and circulatory effects. Driving pressure adds context; no single setting fits every patient.' },
     { id: 'ards-8', at: 77, dur: 12, hold: true, title: 'The film at PEEP five', apply: () => scene('ards', { peep: 5, vt: 0.42 }, { view: 'xray' }),
-      say: 'On a portable film at a PEEP of five, both lungs are white with patchy opacities and air bronchograms, and the heart is a normal size. That is the pattern of ARDS, not of heart failure.' },
+      say: 'This simulated film shows bilateral opacities and a normal-sized heart. Imaging alone cannot distinguish ARDS from hydrostatic edema. Interpret it with the history, oxygenation and cardiac assessment.' },
     { id: 'ards-9', at: 90, dur: 12, hold: true, title: 'The film after recruitment', apply: () => scene('ards', { peep: 16, vt: 0.42 }, { view: 'xray' }),
-      say: 'At a PEEP of sixteen the same lungs look clearer, because collapsed units have opened and now hold air. The film changes with the ventilator settings, not only with the disease.' },
+      say: 'This illustrative film becomes more aerated after a PEEP change. The response is variable, and improved aeration does not prove edema or barrier injury has resolved.' },
     { id: 'ards-10', at: 103, dur: 12, hold: true, title: 'The probe at PEEP five', apply: () => { scene('ards', { peep: 5, vt: 0.42 }, { view: 'lus' }); useLusUI.getState().set('R-lat'); },
       say: 'With a probe on the side of the chest at a PEEP of five, the B-lines merge into a white lung, and the dependent lung under the probe is consolidated and airless.' },
     { id: 'ards-11', at: 116, dur: 12, hold: true, title: 'The probe after recruitment', apply: () => { scene('ards', { peep: 16, vt: 0.42 }, { view: 'lus' }); useLusUI.getState().set('R-lat'); },
-      say: 'At sixteen there are fewer B-lines and the consolidation has gone: the same recruitment you saw at the alveoli, seen at the bedside in seconds.' },
+      say: 'This simulated ultrasound illustrates an aeration response. B-lines and consolidation need not disappear after PEEP, and ultrasound findings alone do not establish ARDS or prove recovery.' },
   ],
 };
 
@@ -71,7 +71,7 @@ export const COMPLIANCE_VS_RESISTANCE: Timeline = {
     { id: 'cr-7', at: 74, dur: 12, hold: true, title: 'Two films, two problems', apply: () => scene('asthma', {}, { view: 'xray' }),
       say: 'The films tell the same story. The asthmatic lungs are hyperinflated: dark, over-expanded, with low flat diaphragms and a narrow heart, because trapped air cannot get out. The ARDS film was white.' },
     { id: 'cr-8', at: 87, dur: 12, hold: true, title: 'The ultrasound difference', apply: () => { scene('asthma', {}, { view: 'lus' }); useLusUI.getState().set('R-ant'); },
-      say: 'On ultrasound the asthmatic lung slides, with A-lines only: full of air, with no fluid. The ARDS lung showed B-lines everywhere. A stiff lung and a narrow airway look different at the bedside.' },
+      say: 'This example contrasts an A-line pattern with the interstitial and consolidative changes shown earlier. These appearances are not diagnostic of asthma or ARDS on their own; correlate with the clinical assessment.' },
   ],
 };
 

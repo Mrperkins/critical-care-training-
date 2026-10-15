@@ -1,3 +1,4 @@
+import { EXPLAINERS } from '../src/atlas/explainers';
 import { describe, expect, it } from 'vitest';
 import { DISEASES, conditionsFor, PEDIATRIC_CONDITIONS, WOMENS_CONDITIONS } from '../src/atlas/registry';
 import { applyDecision, diseaseLesson, diseaseState, HEALTHY } from '../src/atlas/engine';
@@ -57,10 +58,10 @@ describe('clinical disease registry', () => {
   });
   it.each(DISEASES)('$id lesson is deterministic, seekable and uses only semantic camera targets', d => {
     let state={severity:0,target:''}; const lesson=diseaseLesson(d,(severity,target) => { state={severity,target}; });
-    expect(lesson.cues).toHaveLength(4);
+    expect(lesson.cues).toHaveLength(EXPLAINERS[d.id]?.chapters.length ?? 4);
     for(const cue of lesson.cues) expect(CAMERA_TARGETS[cue.target as keyof typeof CAMERA_TARGETS]).toBeDefined();
     resolve(lesson,duration(lesson)); const final={...state}; resolve(lesson,0); expect(state.target).toBe('body.whole');
-    resolve(lesson,duration(lesson)); expect(state).toEqual(final); expect(targetAt(lesson,duration(lesson))).toBe(d.target);
+    resolve(lesson,duration(lesson)); expect(state).toEqual(final); expect(targetAt(lesson,duration(lesson))).toBe(lesson.cues.at(-1)?.target);
   });
   it('bounds hostile slider values and does not mutate a prior patient state', () => {
     const d=DISEASES[0]; expect(diseaseState(d,NaN)).toEqual(HEALTHY); expect(diseaseState(d,-10)).toEqual(HEALTHY);
