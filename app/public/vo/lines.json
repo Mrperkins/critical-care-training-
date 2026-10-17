@@ -9246,5 +9246,729 @@
  {
   "id": "fpc.fpc-neonatal.case.0",
   "t": "A 5-day-old is brought in pale, grey and breathing fast. HR 190, capillary refill 5 s, femoral pulses absent, right-arm BP 72/40, leg BP unmeasurable. Pre-ductal SpO₂ 95 %, post-ductal 82 %. pH 7.08, lactate 9."
+ },
+ {
+  "id": "fpc.fpc-gas-laws.atmos.0",
+  "t": "Air is about 21 % oxygen, 78 % nitrogen and 1 % other gases, and these percentages stay constant at the altitudes aircraft fly. What changes is pressure: at sea level, barometric pressure is 760 mmHg (1 atmosphere, 101.3 kPa, 29.92 inHg). It falls roughly by half at 18 000 feet (about 380 mmHg) and to about a quarter at 34 000 feet. Pressure falls fastest near the ground — the greatest proportional change in volume occurs in the first few thousand feet."
+ },
+ {
+  "id": "fpc.fpc-gas-laws.atmos.1",
+  "t": "Physiological zones: the physiological (efficient) zone from sea level to about 10 000–12 000 feet, where the body compensates in healthy people (but sick patients may not); the physiologically deficient zone from about 12 000 to 50 000 feet, where supplemental oxygen is needed; and the space-equivalent zone above that, where a pressure suit is required."
+ },
+ {
+  "id": "fpc.fpc-gas-laws.atmos.2",
+  "t": "Temperature falls about 2 °C per 1000 feet (the standard lapse rate) in the troposphere; humidity falls with altitude too, drying the airways and mucous membranes."
+ },
+ {
+  "id": "fpc.fpc-gas-laws.laws.0",
+  "t": "Boyle's law: at constant temperature, the volume of a gas is inversely proportional to its pressure (P₁V₁ = P₂V₂). As an aircraft climbs, trapped gas expands. At 8000 feet (565 mmHg), a gas volume increases by about a third compared with sea level; at 18 000 feet it doubles. Clinical effects: pneumothorax, ETT and catheter cuffs, air splints, gastric and bowel gas, middle ear and sinuses, IV bags and drip chambers, pneumocephalus and air in the eye after surgery."
+ },
+ {
+  "id": "fpc.fpc-gas-laws.laws.1",
+  "t": "Dalton's law: the total pressure of a gas mixture equals the sum of the partial pressures of its components. The partial pressure of oxygen is 21 % of barometric pressure: 160 mmHg at sea level, but only about 110 mmHg at 10 000 feet. This is the basis of altitude hypoxia. Henry's law: the amount of gas dissolved in a liquid is proportional to the partial pressure of that gas above the liquid — when pressure falls quickly, dissolved nitrogen comes out of solution as bubbles (decompression sickness), like opening a carbonated drink."
+ },
+ {
+  "id": "fpc.fpc-gas-laws.laws.2",
+  "t": "Charles' law: at constant pressure, volume is proportional to absolute temperature — cold air contracts. Gay-Lussac's law: at constant volume, pressure is proportional to absolute temperature — oxygen cylinder pressure falls in cold conditions and rises in heat. Graham's law: gases diffuse from high to low partial pressure, at rates inversely proportional to the square root of their molecular weight — the basis of gas exchange in the lungs and tissues. Fick's law relates diffusion to surface area, thickness and pressure gradient."
+ },
+ {
+  "id": "fpc.fpc-gas-laws.clinical.0",
+  "t": "Pneumothorax: a small pneumothorax at sea level expands at altitude and can become a tension pneumothorax; decompress or drain before flight, or fly at a lower cabin altitude. Chest drains with one-way valves vent the expanding air. Bowel obstruction or ileus: gas expands and causes pain, vomiting and diaphragmatic splinting; place a nasogastric tube on free drainage."
+ },
+ {
+  "id": "fpc.fpc-gas-laws.clinical.1",
+  "t": "Equipment: ETT and tracheostomy cuffs rise in pressure — check with a manometer and adjust on climb and descent, or fill with saline. Air splints and pneumatic anti-shock garments tighten on ascent and loosen on descent. IV drip rates change as air in the bag and drip chamber expands; use infusion pumps and vented bags. Pressure bags expand. Gas-filled spaces after eye surgery (intraocular gas bubbles) can raise intraocular pressure dangerously — flying is contraindicated until absorbed."
+ },
+ {
+  "id": "fpc.fpc-gas-laws.clinical.2",
+  "t": "Middle ear and sinuses: gas escapes easily on ascent but must re-enter on descent — a blocked Eustachian tube (colds, sedation, infants) causes ear pain and barotrauma on descent. Encourage swallowing, chewing or yawning; give infants a bottle or dummy during descent; decongestants help."
+ },
+ {
+  "id": "fpc.fpc-gas-laws.case.0",
+  "t": "A 40-year-old with rib fractures has a small (1.5 cm) apical pneumothorax on CT, no drain. SpO₂ 95 % on 2 L. Transfer by unpressurised helicopter at 3000 ft, or by fixed-wing with a cabin altitude of 8000 ft."
+ },
+ {
+  "id": "fpc.fpc-gas-laws.equipment.0",
+  "t": "Before every flight with a cabin altitude above a few thousand feet, run through the gas-filled items: ETT and tracheostomy cuffs (measure pressure, or fill with saline), urinary catheter balloons (usually water-filled, but check), air splints and vacuum mattresses (soften on climb, firm on descent), MAST or pelvic devices, chest drains (one-way valves venting, not clamped), nasogastric tubes on free drainage for bowel distension, and IV bags (vented or in pumps; avoid glass bottles)."
+ },
+ {
+  "id": "fpc.fpc-gas-laws.equipment.1",
+  "t": "Patients with recent laparoscopic surgery, colonoscopy or abdominal trauma may have free intraperitoneal gas that expands; pneumocephalus after skull fractures or neurosurgery can raise ICP; and intraocular gas after retinal surgery is an absolute contraindication to flight until absorbed."
+ },
+ {
+  "id": "fpc.fpc-gas-laws.equipment.2",
+  "t": "Ventilators may deliver different volumes at altitude depending on their design; check exhaled tidal volumes after climbing and adjust. Oxygen flowmeters calibrated at sea level may read inaccurately at altitude."
+ },
+ {
+  "id": "fpc.fpc-hypoxias.types.0",
+  "t": "Hypoxic (hypoxaemic) hypoxia: inadequate oxygen reaches the blood. In flight, the main cause is reduced partial pressure of oxygen at altitude; in patients, also hypoventilation, ventilation–perfusion mismatch (pneumonia, ARDS), shunt and diffusion impairment. It is the type most influenced by altitude and corrected by supplemental oxygen or lower cabin altitude."
+ },
+ {
+  "id": "fpc.fpc-hypoxias.types.1",
+  "t": "Hypaemic (anaemic) hypoxia: the blood cannot carry enough oxygen despite adequate partial pressure — anaemia, haemorrhage, carbon monoxide (binds haemoglobin), methaemoglobinaemia (nitrites, local anaesthetics, dapsone). Pulse oximetry may be falsely reassuring in CO poisoning. Smokers carry some carboxyhaemoglobin, effectively raising their \"physiological altitude\"."
+ },
+ {
+  "id": "fpc.fpc-hypoxias.types.2",
+  "t": "Stagnant (circulatory) hypoxia: blood carries oxygen but does not flow adequately to tissues — shock, heart failure, cardiac arrest, local vasoconstriction (cold), tourniquets, prolonged sitting, and G-forces pooling blood. Histotoxic hypoxia: cells cannot use oxygen despite adequate delivery — cyanide, carbon monoxide (at the mitochondrial level), and alcohol and some drugs that impair cellular metabolism."
+ },
+ {
+  "id": "fpc.fpc-hypoxias.signs.0",
+  "t": "Hypoxia is insidious: the person affected often feels well, even euphoric, while judgement deteriorates. Symptoms vary between individuals but are consistent for each person — which is why altitude chamber training helps crew learn their own \"hypoxia signature\". Early: air hunger, light-headedness, headache, tingling, visual changes (reduced night vision occurs as low as 5000 feet), euphoria or anxiety, fatigue, and poor judgement and coordination. Late: cyanosis, confusion, loss of consciousness, seizures and death."
+ },
+ {
+  "id": "fpc.fpc-hypoxias.signs.1",
+  "t": "Signs in patients: tachypnoea, tachycardia (then bradycardia in severe or paediatric hypoxia), agitation or confusion, cyanosis (unreliable — needs about 5 g/dL of deoxygenated haemoglobin, so anaemic patients may never appear cyanotic), and falling SpO₂. Night vision is the first function to deteriorate, so pilots use supplemental oxygen at lower altitudes at night."
+ },
+ {
+  "id": "fpc.fpc-hypoxias.signs.2",
+  "t": "Factors that reduce hypoxia tolerance: altitude, rate of ascent, duration of exposure, physical activity, temperature extremes, fatigue, smoking, alcohol and drugs, anaemia, and lung or heart disease."
+ },
+ {
+  "id": "fpc.fpc-hypoxias.calc.0",
+  "t": "The alveolar gas equation estimates the alveolar oxygen partial pressure: PAO₂ = FiO₂ × (PB − 47) − PaCO₂ ÷ 0.8, where 47 mmHg is the water vapour pressure at body temperature and 0.8 is the respiratory quotient. At sea level on room air: 0.21 × (760 − 47) − 40 ÷ 0.8 = 150 − 50 = 100 mmHg."
+ },
+ {
+  "id": "fpc.fpc-hypoxias.calc.1",
+  "t": "At 8000 feet (PB about 565 mmHg) on room air: 0.21 × (565 − 47) − 40 ÷ 0.8 ≈ 109 − 50 ≈ 59 mmHg (healthy people hyperventilate, lowering PaCO₂ and raising PAO₂ to about 65–70). A patient whose PaO₂ is already 60 at sea level will fall to dangerous levels."
+ },
+ {
+  "id": "fpc.fpc-hypoxias.calc.2",
+  "t": "To keep the same inspired oxygen partial pressure at altitude, adjust FiO₂: FiO₂ (altitude) = FiO₂ (ground) × PB (ground) ÷ PB (altitude). A patient on 40 % at sea level needs 0.40 × 760 ÷ 565 ≈ 54 % at 8000 feet. For a ventilated patient on 100 % with marginal oxygenation, the only options are more PEEP or a lower cabin altitude."
+ },
+ {
+  "id": "fpc.fpc-hypoxias.case.0",
+  "t": "A 70-year-old with a GI bleed (Hb 6.8) and COPD is on 2 L oxygen with SpO₂ 92 % before an unpressurised flight over hills at 6000 ft. He smokes heavily."
+ },
+ {
+  "id": "fpc.fpc-hypoxias.oxycurve.0",
+  "t": "The sigmoid shape of the oxyhaemoglobin dissociation curve protects healthy people: on the flat upper part, PaO₂ can fall from 100 to about 60 mmHg with saturation still around 90 %. Below about 60 mmHg the curve steepens, and small further falls in PaO₂ cause large drops in saturation and oxygen content. Patients already on the steep part at sea level are most at risk when they fly."
+ },
+ {
+  "id": "fpc.fpc-hypoxias.oxycurve.1",
+  "t": "Shifts of the curve change oxygen loading and unloading: a right shift (acidosis, hypercapnia, fever, raised 2,3-DPG) releases oxygen to tissues more easily; a left shift (alkalosis, hypothermia, carbon monoxide, fetal haemoglobin, stored blood with low 2,3-DPG) holds oxygen more tightly. Hyperventilation at altitude causes a respiratory alkalosis that shifts the curve left."
+ },
+ {
+  "id": "fpc.fpc-hypoxias.oxycurve.2",
+  "t": "Pulse oximeters measure saturation, not content or delivery. Oxygen delivery depends on haemoglobin, saturation and cardiac output; a patient with anaemia or low output may be hypoxic at the tissues despite a reassuring SpO₂."
+ },
+ {
+  "id": "fpc.fpc-flight-stressors.list.0",
+  "t": "Hypoxia and barometric pressure changes are covered by the gas laws (Dalton and Boyle). Thermal changes: temperature falls about 2 °C per 1000 feet, cabins can be cold or hot, and patients lose heat during loading and in rotor wash. Hypothermia increases oxygen demand (shivering), worsens coagulation and is dangerous for neonates and trauma patients; hyperthermia increases metabolic demand."
+ },
+ {
+  "id": "fpc.fpc-flight-stressors.list.1",
+  "t": "Decreased humidity: air at altitude is dry and medical oxygen is completely dry. Mucous membranes dry out, secretions thicken (blocking tubes), and insensible fluid losses increase. Use humidification (heat and moisture exchangers), suction and adequate fluids, and lubricate the eyes of sedated patients."
+ },
+ {
+  "id": "fpc.fpc-flight-stressors.list.2",
+  "t": "Noise: helicopter cabins often exceed 90–100 dB, causing hearing damage, fatigue, communication errors, and making auscultation and alarms useless; protect hearing for crew and patients, use visual monitoring and pre-flight assessment. Vibration (especially in helicopters at certain frequencies) causes fatigue, discomfort, motion artefact on monitors, dislodgement of devices and increased pain from fractures; secure the patient and pad well."
+ },
+ {
+  "id": "fpc.fpc-flight-stressors.more.0",
+  "t": "Fatigue is the cumulative effect of all the stressors plus shift work and circadian disruption; it degrades performance and judgement. Gravitational forces: acceleration and deceleration during take-off and landing shift blood and fluids. In fixed-wing aircraft, a patient positioned head-forward experiences blood shifting toward the feet on take-off (reduced cerebral perfusion) and toward the head on landing (raised ICP) — head-aft or careful positioning may be chosen for head injury or cardiac patients, according to programme practice."
+ },
+ {
+  "id": "fpc.fpc-flight-stressors.more.1",
+  "t": "Third spacing: low cabin pressure, stress and shock-related capillary leak can promote fluid shifts into tissues, contributing to oedema and intravascular depletion over long flights. Spatial disorientation results from conflicting vestibular, visual and proprioceptive cues — most dangerous for pilots in poor visibility (leading to IIMC accidents) but also causing motion sickness in crew and patients."
+ },
+ {
+  "id": "fpc.fpc-flight-stressors.more.2",
+  "t": "Flicker vertigo: light flickering through rotor blades or propellers at about 4–20 Hz can cause nausea, disorientation and, in susceptible people, seizures; shade the patient's eyes. Fuel vapours and exhaust fumes cause nausea and headache and are an ignition hazard. Motion sickness affects patients and crew; antiemetics and a stable visual horizon help."
+ },
+ {
+  "id": "fpc.fpc-flight-stressors.patient.0",
+  "t": "Before every transport, run through the stressors for the specific patient: which will matter most? A neonate: thermal stress, noise and vibration. A head-injured patient: hypoxia, gravitational forces, vibration and noise (agitation raises ICP). A burns patient: thermal stress and humidity (fluid losses). A patient with COPD: hypoxia and humidity. A patient with a pneumothorax or bowel obstruction: barometric changes."
+ },
+ {
+  "id": "fpc.fpc-flight-stressors.patient.1",
+  "t": "Crew are affected too: hypoxia (unpressurised flight at altitude), dehydration, noise-induced hearing loss, back injuries from lifting in confined spaces, fatigue and motion sickness. Personal protective equipment, hydration, rest and ergonomic training reduce the cumulative effect."
+ },
+ {
+  "id": "fpc.fpc-flight-stressors.case.0",
+  "t": "A ventilated patient with a severe TBI and an ICP monitor is transferred by fixed-wing over 2 hours. The cabin is cold, noisy and dry. ICP rises during take-off and again during descent."
+ },
+ {
+  "id": "fpc.fpc-flight-stressors.crew.0",
+  "t": "Crew are exposed to every stressor on every flight, shift after shift. Hearing protection (helmets with good seals, earplugs underneath) prevents cumulative noise-induced hearing loss. Hydration matters: dry cabin air and long shifts lead to dehydration, which worsens fatigue, headache and G-tolerance."
+ },
+ {
+  "id": "fpc.fpc-flight-stressors.crew.1",
+  "t": "Back injuries are common from lifting and working bent over in confined cabins. Use lifting aids, plan patient moves with enough people, and keep fit. Whole-body vibration contributes to back pain over a career."
+ },
+ {
+  "id": "fpc.fpc-flight-stressors.crew.2",
+  "t": "Motion sickness affects crew, especially when working head-down in turbulence; looking at the horizon, ventilation and avoiding heavy meals help. Some crew use non-sedating antiemetic strategies; sedating antihistamines are inappropriate for crew on duty."
+ },
+ {
+  "id": "fpc.fpc-altitude-injuries.baro.0",
+  "t": "Barotitis media (ear block) occurs when the Eustachian tube cannot equalise middle ear pressure, usually on descent: pain, muffled hearing, a red or retracted tympanic membrane, and rarely rupture. Risk factors: upper respiratory infection, allergies, sedation, sleep and infancy. Prevention: swallow, yawn, chew, Valsalva (gently), decongestants; slow descent; wake sedated patients or have infants feed during descent."
+ },
+ {
+  "id": "fpc.fpc-altitude-injuries.baro.1",
+  "t": "Barosinusitis — pain over the frontal or maxillary sinuses — follows blocked sinus ostia, again usually on descent. Barodontalgia is tooth pain from gas trapped under fillings or in abscesses, usually on ascent. Gastrointestinal gas expands on ascent, causing distension, pain and diaphragmatic splinting; avoid gas-producing foods before flight and decompress obstructed bowel with a nasogastric tube."
+ },
+ {
+  "id": "fpc.fpc-altitude-injuries.baro.2",
+  "t": "Pulmonary barotrauma (pneumothorax, pneumomediastinum) can occur with rapid decompression, breath-holding during ascent or positive pressure ventilation; in diving it causes arterial gas embolism."
+ },
+ {
+  "id": "fpc.fpc-altitude-injuries.dcs.0",
+  "t": "Decompression sickness (DCS) follows a fall in ambient pressure that allows dissolved nitrogen to form bubbles in tissues and blood (Henry's law) — after scuba diving, rapid ascent to altitude, or cabin depressurisation above about 18 000–25 000 feet. Type I (mild): joint pain (\"the bends\", usually large joints like the shoulder and elbow), skin itching or mottling (cutis marmorata), and lymphatic swelling. Type II (serious): neurological symptoms (paraesthesia, weakness, paralysis, confusion, visual disturbance), \"the chokes\" (cough, chest pain, breathlessness from pulmonary bubbles) and shock."
+ },
+ {
+  "id": "fpc.fpc-altitude-injuries.dcs.1",
+  "t": "Arterial gas embolism (AGE) results from pulmonary barotrauma — typically a diver ascending while breath-holding — releasing air into the pulmonary veins and systemic arteries. It presents within minutes of surfacing with stroke-like symptoms, loss of consciousness, seizures or cardiac arrest."
+ },
+ {
+  "id": "fpc.fpc-altitude-injuries.dcs.2",
+  "t": "Treatment of both: 100 % oxygen by non-rebreather or ventilator (accelerates nitrogen washout and shrinks bubbles), lie the patient flat (supine; head-down positioning is no longer recommended), IV isotonic fluids (avoid glucose-containing fluids), and transfer for hyperbaric oxygen recompression. Transport at the lowest possible altitude: helicopters fly as low as safely possible (typically below 1000 feet above the departure point), and fixed-wing aircraft should maintain a cabin altitude at or near sea level (pressurised to 1 atmosphere) — further pressure reduction enlarges bubbles."
+ },
+ {
+  "id": "fpc.fpc-altitude-injuries.hai.0",
+  "t": "Acute mountain sickness (AMS) develops 6–12 hours after ascent above about 2500 metres (8000 feet): headache plus nausea, fatigue, dizziness or poor sleep. Treat by stopping ascent, rest, analgesics and antiemetics, acetazolamide; descend if symptoms worsen. High-altitude cerebral oedema (HACE) is the severe end: ataxia (a sensitive early sign — test heel-to-toe walking), confusion, drowsiness and coma. Treatment: immediate descent, oxygen, dexamethasone (8 mg, then 4 mg every 6 hours) and portable hyperbaric bags if descent is impossible."
+ },
+ {
+  "id": "fpc.fpc-altitude-injuries.hai.1",
+  "t": "High-altitude pulmonary oedema (HAPE) is non-cardiogenic pulmonary oedema from exaggerated hypoxic pulmonary vasoconstriction: breathlessness at rest, cough (initially dry, then pink frothy sputum), reduced exercise tolerance, crackles, cyanosis and tachycardia. It is the leading cause of death from altitude illness. Treatment: descent, oxygen (often rapidly effective), nifedipine (pulmonary vasodilator), keeping warm and minimising exertion."
+ },
+ {
+  "id": "fpc.fpc-altitude-injuries.hai.2",
+  "t": "For air medical crews, rescues from high terrain involve these patients; the aircraft itself, by descending, is part of the treatment. Crew operating at altitude are also at risk if they ascend rapidly from sea level."
+ },
+ {
+  "id": "fpc.fpc-altitude-injuries.case.0",
+  "t": "A 32-year-old diver surfaced from a 30-metre dive 40 minutes ago after a rapid ascent. He now has numbness and weakness in both legs, pain in his shoulder and difficulty passing urine. The nearest hyperbaric chamber is 150 km away, over a mountain pass at 4500 feet."
+ },
+ {
+  "id": "fpc.fpc-altitude-injuries.fly.0",
+  "t": "Flying soon after diving can trigger decompression sickness even after a dive that was safe at sea level, because the further pressure reduction allows bubbles to form. Common recommendations are to wait at least 12 hours after a single no-decompression dive and at least 18 hours after multiple dives or multiple days of diving; longer after dives requiring decompression stops. This applies to patients and crew alike."
+ },
+ {
+  "id": "fpc.fpc-altitude-injuries.fly.1",
+  "t": "Patients transported after a diving accident should have their dive profile (depths, times, ascent rate, gas used) recorded and sent with them. Diving medicine advice lines can help with destination and treatment decisions."
+ },
+ {
+  "id": "fpc.fpc-altitude-injuries.fly.2",
+  "t": "Crew working in mountain operations should acclimatise where possible, recognise AMS in themselves, and avoid strenuous exertion soon after rapid ascent to high landing sites."
+ },
+ {
+  "id": "fpc.fpc-tuc.define.0",
+  "t": "Time of useful consciousness (also called effective performance time) is the period after an interruption of oxygen supply, or exposure to a low-oxygen environment, during which a person can still perform useful, purposeful tasks — such as putting on an oxygen mask or taking corrective action. It is not the time to unconsciousness: judgement and coordination fail well before the person passes out, often without their being aware of it."
+ },
+ {
+  "id": "fpc.fpc-tuc.define.1",
+  "t": "TUC falls dramatically with altitude. Typical values for a person at rest: 20–30 minutes at 18 000 feet, 3–5 minutes at 25 000 feet, 1–2 minutes at 30 000 feet, 30–60 seconds at 35 000 feet, and 9–15 seconds at 40 000 feet and above. Rapid decompression can reduce TUC by up to half, because of the sudden pressure drop and the reversal of the oxygen gradient in the lungs (oxygen can leave the blood into the alveoli)."
+ },
+ {
+  "id": "fpc.fpc-tuc.define.2",
+  "t": "Individual variation is large: fitness, acclimatisation, smoking, illness, fatigue, alcohol and the level of physical activity all change TUC. Activity shortens it — moving around the cabin or performing patient care uses oxygen faster."
+ },
+ {
+  "id": "fpc.fpc-tuc.stages.0",
+  "t": "Indifferent stage (sea level to about 10 000 feet): night vision decreases; few other effects in healthy people. Compensatory stage (about 10 000–15 000 feet): heart rate, respiratory rate and blood pressure rise to compensate; drowsiness, poor judgement and impaired coordination begin, especially with prolonged exposure."
+ },
+ {
+  "id": "fpc.fpc-tuc.stages.1",
+  "t": "Disturbance stage (about 15 000–20 000 feet): compensation is inadequate — impaired judgement, memory, coordination, vision (tunnel vision, reduced colour perception) and dexterity; euphoria or belligerence; cyanosis. People may not recognise that they are impaired. Critical stage (above about 20 000 feet): rapid deterioration to confusion, loss of consciousness and death within minutes without oxygen."
+ },
+ {
+  "id": "fpc.fpc-tuc.stages.2",
+  "t": "These altitudes refer to healthy individuals. Patients with lung or heart disease, anaemia or shock reach the disturbance and critical stages at much lower altitudes — a reason that even modest cabin altitudes can harm sick patients."
+ },
+ {
+  "id": "fpc.fpc-tuc.actions.0",
+  "t": "The first and most important action is to don your own oxygen mask immediately — within the TUC — before helping anyone else. Then secure oxygen for the patient (increase to 100 %, check the ventilator and circuit), stay seated and restrained, and let the pilot carry out an emergency descent to a safe altitude (usually 10 000 feet or below)."
+ },
+ {
+  "id": "fpc.fpc-tuc.actions.1",
+  "t": "Do not move around the cabin during the period of greatest hypoxia — activity shortens TUC. Communicate briefly using the intercom. Once at a safe altitude, reassess the patient: gas expansion effects (pneumothorax, ETT cuff, drains, IV lines), and treat any decompression sickness symptoms in crew or patient."
+ },
+ {
+  "id": "fpc.fpc-tuc.actions.2",
+  "t": "Training in an altitude chamber or with reduced-oxygen breathing devices lets crew experience their own hypoxia symptoms safely, so they recognise them early in real events."
+ },
+ {
+  "id": "fpc.fpc-tuc.case.0",
+  "t": "A fixed-wing aircraft at 28 000 feet (cabin altitude 7000 feet) suffers a rapid decompression. Two crew members are with a ventilated patient on FiO₂ 0.6. One crew member was standing to adjust a pump."
+ },
+ {
+  "id": "fpc.fpc-tuc.equipment.0",
+  "t": "Pressurised aircraft carry emergency oxygen for crew (quick-donning masks for pilots, masks or portable cylinders for medical crew) and passengers. Know where your mask is, how to put it on with one hand, and how to switch the patient's oxygen source if the main supply is affected."
+ },
+ {
+  "id": "fpc.fpc-tuc.equipment.1",
+  "t": "The patient's supply is usually separate from the emergency system: ventilated patients continue on the transport ventilator, but its oxygen source and FiO₂ need checking immediately after a decompression. Non-ventilated patients receive oxygen by non-rebreather mask."
+ },
+ {
+  "id": "fpc.fpc-tuc.equipment.2",
+  "t": "Practise the decompression drill during training, including donning masks while seated and restrained and communicating via the intercom with masks on."
+ },
+ {
+  "id": "fpc.fpc-cabins.how.0",
+  "t": "Pressurised aircraft pump compressed air (bled from the engines) into a sealed cabin and control its escape through an outflow valve, maintaining a cabin pressure higher than the outside pressure. The cabin altitude is the altitude whose pressure matches the cabin pressure. Most pressurised air medical jets and turboprops maintain a cabin altitude of about 6000–8000 feet at cruise."
+ },
+ {
+  "id": "fpc.fpc-cabins.how.1",
+  "t": "The airframe can tolerate a maximum differential pressure (the difference between cabin and outside pressure), typically about 6–9 psi depending on the aircraft. The higher the aircraft flies, the higher the cabin altitude must be to stay within that limit. To keep the cabin at sea level, the aircraft must fly lower — often around 20 000–25 000 feet instead of 35 000 feet or more — which burns more fuel, may increase flight time and exposes the aircraft to more weather and turbulence."
+ },
+ {
+  "id": "fpc.fpc-cabins.how.2",
+  "t": "Pressurisation also controls temperature and provides ventilation, but the air is very dry. Failure (decompression) can be rapid or slow, and crew must be ready to use emergency oxygen and descend (see the time of useful consciousness lesson)."
+ },
+ {
+  "id": "fpc.fpc-cabins.compare.0",
+  "t": "Most air medical helicopters are unpressurised and fly at low altitudes — typically 500–3000 feet above the ground — so cabin altitude equals aircraft altitude. In flat terrain this has little physiological effect, but in mountainous regions helicopters may have to cross passes at 8000–12 000 feet or more, exposing patients to significant hypoxia and gas expansion without the option of pressurisation."
+ },
+ {
+  "id": "fpc.fpc-cabins.compare.1",
+  "t": "Unpressurised fixed-wing aircraft (some smaller turboprops and pistons) are limited to lower altitudes for occupants without supplemental oxygen: US regulations require pilots to use oxygen above 12 500 feet cabin altitude for more than 30 minutes and at all times above 14 000 feet, and occupants must be provided oxygen above 15 000 feet. Patients need supplemental oxygen at much lower altitudes."
+ },
+ {
+  "id": "fpc.fpc-cabins.compare.2",
+  "t": "Pressurised fixed-wing transport allows long distances above weather, with a controllable cabin altitude. The trade-off is cost, the need for ground ambulance legs at each end, and the risk of rapid decompression at high altitude."
+ },
+ {
+  "id": "fpc.fpc-cabins.choose.0",
+  "t": "Patients sensitive to altitude: those with severe hypoxaemia (ARDS, severe pneumonia, pulmonary hypertension), undrained pneumothorax or pneumocephalus, decompression sickness or arterial gas embolism, bowel obstruction, recent eye surgery with intraocular gas, severe anaemia, and sickle cell crises. For these patients, plan the route and cabin altitude before departure."
+ },
+ {
+  "id": "fpc.fpc-cabins.choose.1",
+  "t": "Options: request a lower cabin altitude (including \"sea-level cabin\") in pressurised aircraft, accepting a lower cruising altitude and possibly a fuel stop; choose a helicopter route that avoids high terrain; or choose ground transport. Discuss with the pilot early: the pilot can tell you the trade-offs in time, fuel, weather and turbulence."
+ },
+ {
+  "id": "fpc.fpc-cabins.choose.2",
+  "t": "Calculate the effect of the planned cabin altitude on oxygen requirements (FiO₂ × PB ratio) and gas volumes, ensure enough oxygen is carried, and decompress gas-filled spaces beforehand where possible."
+ },
+ {
+  "id": "fpc.fpc-cabins.case.0",
+  "t": "A patient with severe ARDS is on FiO₂ 1.0, PEEP 14, SpO₂ 90 %, PaO₂ 62. A 600 km transfer to an ECMO centre is requested. Options: a pressurised jet (standard cabin altitude 8000 ft) or a long ground transfer."
+ },
+ {
+  "id": "fpc.fpc-cabins.decision.0",
+  "t": "The best vehicle depends on distance, weather, patient needs and time-critical treatment at the destination. Helicopters suit scene responses and shorter interfacility transfers; fixed-wing aircraft suit longer distances; ground critical care transport suits short distances, poor flying weather or patients who would not benefit from speed."
+ },
+ {
+  "id": "fpc.fpc-cabins.decision.1",
+  "t": "Altitude-sensitive patients add a further dimension: a helicopter route through mountains may expose them to more altitude than a pressurised fixed-wing with a sea-level cabin, despite the latter's higher cruising altitude. Ground transport may be best when neither aircraft can keep the patient safe."
+ },
+ {
+  "id": "fpc.fpc-cabins.decision.2",
+  "t": "Make the decision with the pilot, the receiving team and medical control, and document the reasoning — particularly when choosing a slower option for safety."
+ },
+ {
+  "id": "fpc.fpc-accreditation.terms.0",
+  "t": "Regulation sets legal minimum requirements (for example, FAA rules for aircraft operations, state EMS rules for medical care). Licensure is a government permission for an individual or organisation to practise (a paramedic or nursing licence, a state air ambulance licence). Certification recognises an individual's knowledge and skills beyond licensure — the FP-C (Certified Flight Paramedic) and CFRN (Certified Flight Registered Nurse) credentials, for example. Accreditation is voluntary peer review of an organisation against standards that usually exceed regulatory minimums."
+ },
+ {
+  "id": "fpc.fpc-accreditation.terms.1",
+  "t": "Accreditation exists because regulation focuses on minimums and on aviation; it does not fully address medical quality, crew training, patient safety culture or the integration of aviation and medical systems. Many insurers, hospitals and state agencies prefer or require accredited services."
+ },
+ {
+  "id": "fpc.fpc-accreditation.terms.2",
+  "t": "Certification of individual clinicians (such as the IBSC's FP-C and CCP-C) validates knowledge; accreditation of the service validates the systems around that clinician."
+ },
+ {
+  "id": "fpc.fpc-accreditation.bodies.0",
+  "t": "CAMTS (Commission on Accreditation of Medical Transport Systems) is the best-known accreditor for air and ground critical care transport in North America. Its standards address management and leadership, medical direction, clinical care and staffing, training and continuing education, quality management, safety management (including SMS, risk assessment, fatigue management and post-accident incident plans), communications, aviation operations, vehicle and aircraft configuration, and infection control. Programmes undergo site visits and periodic re-accreditation."
+ },
+ {
+  "id": "fpc.fpc-accreditation.bodies.1",
+  "t": "NAAMTA (National Accreditation Alliance of Medical Transport Applications) offers an alternative accreditation model built on international standards. Ground EMS agencies may be accredited by CAAS (Commission on Accreditation of Ambulance Services), and hospital-based programmes also fall under hospital accreditation (such as The Joint Commission) for their clinical services. Internationally, EURAMI and other bodies accredit air medical services."
+ },
+ {
+  "id": "fpc.fpc-accreditation.bodies.2",
+  "t": "Typical standards include: a qualified medical director with involvement in protocols and quality review; minimum crew qualifications and certifications; initial and annual training (airway, high-risk procedures, neonatal and paediatric, aviation safety); case review and quality metrics; safety committee and reporting systems; and communications specialist training."
+ },
+ {
+  "id": "fpc.fpc-accreditation.practice.0",
+  "t": "Accreditation standards show up in everyday work: documented training records and skills competency, case reviews for high-risk procedures (intubations, surgical airways, blood transfusion), equipment checks and preventive maintenance logs, fatigue policies and rest facilities, post-accident incident plans that are practised, communications protocols with flight following, and safety briefings."
+ },
+ {
+  "id": "fpc.fpc-accreditation.practice.1",
+  "t": "Quality management under accreditation involves defining indicators (for example, first-pass intubation success, time to departure, adherence to protocols), collecting and reviewing data, identifying trends, implementing changes and re-measuring (the plan–do–study–act cycle). Benchmarking against other programmes, such as through the GAMUT quality metrics, helps identify where a programme stands."
+ },
+ {
+  "id": "fpc.fpc-accreditation.practice.2",
+  "t": "For individual clinicians, accreditation means continuing education, competency validation (often including simulation), adherence to protocols and participation in case review and safety reporting."
+ },
+ {
+  "id": "fpc.fpc-accreditation.case.0",
+  "t": "Your programme has a CAMTS site visit in three months. The safety committee notes that the post-accident incident plan has not been exercised for two years, and training records for neonatal resuscitation are incomplete for several crew."
+ },
+ {
+  "id": "fpc.fpc-accreditation.international.0",
+  "t": "Certifications relevant to transport clinicians include the FP-C (Certified Flight Paramedic) and CCP-C (Certified Critical Care Paramedic) from the IBSC, and the CFRN, CTRN and CPEN credentials for nurses from the BCEN. Certification requires passing an exam and periodic recertification through continuing education or re-examination."
+ },
+ {
+  "id": "fpc.fpc-accreditation.international.1",
+  "t": "Other relevant standards include aviation safety programmes (such as operator SMS and flight data monitoring), infection prevention standards, and specific clinical programme standards (for example, for neonatal and paediatric transport teams)."
+ },
+ {
+  "id": "fpc.fpc-accreditation.international.2",
+  "t": "Accreditation and certification complement each other: an accredited programme provides the training, protocols and safety systems in which certified clinicians practise."
+ },
+ {
+  "id": "fpc.fpc-research.designs.0",
+  "t": "Observational studies observe without assigning interventions. Case reports and case series describe individual patients — useful for rare events and generating hypotheses. Cross-sectional studies measure exposure and outcome at one point in time (prevalence). Case–control studies start with outcomes (cases with a disease and controls without) and look back for exposures — efficient for rare diseases; they produce odds ratios. Cohort studies follow groups with and without an exposure forward (prospective) or through records (retrospective) to compare outcomes — they produce relative risks and can show temporal sequence."
+ },
+ {
+  "id": "fpc.fpc-research.designs.1",
+  "t": "Experimental studies assign interventions. The randomised controlled trial (RCT) allocates participants randomly to intervention or control, balancing known and unknown confounders; blinding (single, double) reduces bias. Analysis by intention-to-treat (analysing participants in the groups they were assigned to) preserves randomisation. Pragmatic trials test interventions in real-world conditions; cluster trials randomise groups (for example, EMS agencies)."
+ },
+ {
+  "id": "fpc.fpc-research.designs.2",
+  "t": "Systematic reviews search comprehensively for all studies on a question using a predefined method; meta-analyses statistically combine results. Quality depends on the included studies (\"garbage in, garbage out\") and heterogeneity between them. Qualitative research explores experiences, perceptions and meanings through interviews and focus groups."
+ },
+ {
+  "id": "fpc.fpc-research.stats.0",
+  "t": "The null hypothesis states that there is no difference between groups. A p-value is the probability of observing results at least as extreme as those found if the null hypothesis were true; p < 0.05 is conventionally called statistically significant. A type I error (alpha) is a false positive — finding a difference that does not exist; a type II error (beta) is a false negative — missing a real difference, often because of small sample size. Power (1 − beta, usually 80 % or more) is the ability to detect a real effect."
+ },
+ {
+  "id": "fpc.fpc-research.stats.1",
+  "t": "Confidence intervals give a range in which the true value probably lies (a 95 % CI); if the interval for a difference includes zero (or a ratio includes 1), the result is not statistically significant. Narrow intervals mean more precision. Statistical significance is not the same as clinical significance — a tiny but statistically significant effect may not matter to patients."
+ },
+ {
+  "id": "fpc.fpc-research.stats.2",
+  "t": "Measures of effect: absolute risk reduction (ARR) = control event rate − treatment event rate; relative risk reduction (RRR) = ARR ÷ control event rate; number needed to treat (NNT) = 1 ÷ ARR. Diagnostic tests: sensitivity = true positives ÷ all with disease (a highly sensitive test, when negative, rules out — \"SnNout\"); specificity = true negatives ÷ all without disease (a highly specific test, when positive, rules in — \"SpPin\"); positive and negative predictive values depend on prevalence."
+ },
+ {
+  "id": "fpc.fpc-research.bias.0",
+  "t": "Bias is systematic error. Selection bias: the study population differs systematically from the target population. Information (measurement) bias: outcomes or exposures are measured inaccurately or differently between groups (recall bias in case–control studies). Observer bias: knowledge of group assignment affects assessment (reduced by blinding). Publication bias: positive studies are more likely to be published. Confounding: a third variable associated with both exposure and outcome distorts the apparent relationship (for example, sicker patients both get helicopter transport and die more often)."
+ },
+ {
+  "id": "fpc.fpc-research.bias.1",
+  "t": "Levels of evidence rank designs from systematic reviews of RCTs (highest) through individual RCTs, cohort and case–control studies, case series and expert opinion (lowest). Grading systems such as GRADE also consider consistency, precision, directness and risk of bias."
+ },
+ {
+  "id": "fpc.fpc-research.bias.2",
+  "t": "Research ethics: respect for persons (informed consent, protection of vulnerable groups), beneficence (maximise benefit, minimise harm) and justice (fair distribution of burdens and benefits) — the principles of the Belmont Report. Institutional review boards (IRBs) or ethics committees approve research involving humans. Emergency research may use exception from informed consent (EFIC) under strict conditions, with community consultation and public disclosure, because unconscious patients cannot consent."
+ },
+ {
+  "id": "fpc.fpc-research.case.0",
+  "t": "A retrospective registry study finds that trauma patients transported by helicopter have higher mortality than those transported by ground. A colleague concludes that helicopters are harmful."
+ },
+ {
+  "id": "fpc.fpc-research.reading.0",
+  "t": "Start with the abstract to see the question, design and main result, then go to the methods: who was studied (inclusion and exclusion criteria), how they were allocated, what was compared, what the primary outcome was, and how long follow-up lasted. Check the baseline characteristics table to see if groups were similar."
+ },
+ {
+  "id": "fpc.fpc-research.reading.1",
+  "t": "In the results, focus on the primary outcome with its confidence interval and absolute effect; secondary outcomes and subgroup analyses are hypothesis-generating unless pre-specified and adequately powered. Check how many participants were lost to follow-up."
+ },
+ {
+  "id": "fpc.fpc-research.reading.2",
+  "t": "In the discussion, look for limitations the authors acknowledge and those they do not. Finally, ask whether the findings apply to your patients and setting."
+ },
+ {
+  "id": "fpc.fpc-privacy.hipaa.0",
+  "t": "In the United States, the Health Insurance Portability and Accountability Act (HIPAA) Privacy Rule protects individually identifiable health information — protected health information (PHI) — held or transmitted by covered entities (healthcare providers that bill electronically, health plans and clearinghouses) and their business associates. PHI includes names, addresses, dates (other than year), phone numbers, record numbers, photographs and any other identifier linked to health information."
+ },
+ {
+  "id": "fpc.fpc-privacy.hipaa.1",
+  "t": "The Security Rule requires administrative, physical and technical safeguards for electronic PHI: access controls, passwords, encryption, audit trails, secure devices and workstations. Lost or stolen unencrypted tablets and phones are a common cause of breaches."
+ },
+ {
+  "id": "fpc.fpc-privacy.hipaa.2",
+  "t": "Patients have rights: access to their records, requesting amendments, an accounting of disclosures, requesting restrictions and confidential communications, and receiving a notice of privacy practices. Other countries have equivalent laws (for example, GDPR in Europe), and professional duties of confidentiality apply everywhere."
+ },
+ {
+  "id": "fpc.fpc-privacy.disclose.0",
+  "t": "PHI may be used and disclosed without patient authorisation for treatment (sharing with the receiving hospital and other providers), payment and healthcare operations (quality review, training, accreditation). Handover reports, radio reports to receiving facilities and consultation with medical control are all treatment disclosures."
+ },
+ {
+  "id": "fpc.fpc-privacy.disclose.1",
+  "t": "Other permitted disclosures without authorisation include those required by law (mandatory reporting of suspected child or elder abuse, certain injuries such as gunshot wounds in many states, communicable diseases), public health activities, law enforcement in specific circumstances, to avert a serious and imminent threat to health or safety, and to coroners and organ procurement organisations."
+ },
+ {
+  "id": "fpc.fpc-privacy.disclose.2",
+  "t": "The minimum necessary standard requires limiting the information used or disclosed to what is needed for the purpose — except for treatment, where providers may share what they judge necessary. Families and friends involved in care may be told relevant information if the patient agrees or does not object, or if the patient is incapacitated and the provider judges it to be in the patient's interest."
+ },
+ {
+  "id": "fpc.fpc-privacy.risks.0",
+  "t": "Radio and scanner traffic can be heard by the public and media. Avoid patient names and identifying details on open channels; use encrypted channels or phone for sensitive information. Similarly, avoid discussing patients in public spaces — hospital lifts, cafeterias, airports."
+ },
+ {
+  "id": "fpc.fpc-privacy.risks.1",
+  "t": "Photographs and video of patients, scenes and injuries are PHI if they could identify a patient. Take images only for clinical purposes, with consent where possible, on approved devices, and store them securely according to policy. Never post patient images or details on social media — even \"anonymised\" stories can identify patients through time, place and circumstance. Many clinicians have been disciplined or dismissed for social media posts."
+ },
+ {
+  "id": "fpc.fpc-privacy.risks.2",
+  "t": "A breach is an unauthorised use or disclosure of PHI. Report suspected breaches promptly to the privacy officer; organisations must assess risk and notify affected individuals (and, for large breaches, regulators and the media) within defined timelines. Penalties can be civil and criminal."
+ },
+ {
+  "id": "fpc.fpc-privacy.case.0",
+  "t": "After a dramatic rooftop landing and resuscitation, a crew member records a short video of the helicopter landing with the patient being unloaded and posts it to social media, captioned \"Saved a life tonight!\" The patient's face is not visible, but the hospital, time and vehicle crash are recognisable."
+ },
+ {
+  "id": "fpc.fpc-privacy.practice.0",
+  "t": "Patient care reports should be completed on secure devices and transmitted through approved systems; avoid personal email, messaging apps or unsecured cloud storage. Log out of shared devices and lock screens. Paper documents should be secured and destroyed appropriately."
+ },
+ {
+  "id": "fpc.fpc-privacy.practice.1",
+  "t": "At handover, share what the receiving team needs; avoid discussing details in public areas such as hallways or waiting rooms where family members of other patients can hear. When families ask for information by phone, verify identity and follow programme policy."
+ },
+ {
+  "id": "fpc.fpc-privacy.practice.2",
+  "t": "Students, observers and ride-alongs must be briefed on confidentiality and sign agreements before participating."
+ },
+ {
+  "id": "fpc.fpc-just-culture.define.0",
+  "t": "A just culture balances learning and accountability. A punitive culture blames individuals for errors, which drives errors underground — people stop reporting, and the system never learns. A blame-free culture ignores individual accountability, which fails to address reckless behaviour. Just culture recognises that competent professionals make mistakes and that systems shape behaviour, but holds people accountable for their choices — particularly conscious disregard of substantial risk."
+ },
+ {
+  "id": "fpc.fpc-just-culture.define.1",
+  "t": "The model, associated with David Marx and James Reason, focuses on the behaviour and the quality of choices rather than the outcome. Two people who make the same choice should be treated the same way, whether or not harm resulted — the \"outcome bias\" (judging a decision by its result) is avoided."
+ },
+ {
+  "id": "fpc.fpc-just-culture.define.2",
+  "t": "Just culture supports safety management: people report errors and near-misses because they trust the response will be fair, enabling the organisation to find and fix system weaknesses."
+ },
+ {
+  "id": "fpc.fpc-just-culture.behaviours.0",
+  "t": "Human error is an inadvertent action — a slip, lapse or mistake — doing something other than what was intended (for example, picking up the wrong vial that looks similar). The response is to console the individual and examine the system: look-alike packaging, interruptions, workload, fatigue, design. Punishing human error does not prevent it."
+ },
+ {
+  "id": "fpc.fpc-just-culture.behaviours.1",
+  "t": "At-risk behaviour is a choice where the risk is not recognised or is mistakenly believed to be justified — often a drift from rules because shortcuts have become normal and nothing bad has happened (for example, skipping a double-check because \"we always do it this way\" or because the system makes it cumbersome). The response is coaching: help the person see the risk, remove incentives for the shortcut and fix system barriers that make the safe way harder."
+ },
+ {
+  "id": "fpc.fpc-just-culture.behaviours.2",
+  "t": "Reckless behaviour is a conscious disregard of a substantial and unjustifiable risk (for example, flying impaired, deliberately falsifying records, or knowingly bypassing a critical safety step without reason). The response is remedial or disciplinary action. Reckless behaviour is rare; most events involve human error or at-risk behaviour within flawed systems."
+ },
+ {
+  "id": "fpc.fpc-just-culture.apply.0",
+  "t": "When an event occurs: focus first on the patient and safety, then gather facts without assuming blame. Ask what happened, what the person intended, what choices were made and why, what the system made easy or hard, and whether others would have done the same in the same situation (the substitution test). Look for repeated patterns — the same error by multiple people points to a system problem."
+ },
+ {
+  "id": "fpc.fpc-just-culture.apply.1",
+  "t": "Design systems that make the right thing easy and the wrong thing hard: standardised equipment and drug concentrations, checklists, forcing functions (devices that prevent errors), adequate staffing and rest, and clear protocols. Train leaders in just culture so that responses are consistent."
+ },
+ {
+  "id": "fpc.fpc-just-culture.apply.2",
+  "t": "Accountability in just culture runs both ways: individuals are accountable for their choices and for reporting; organisations are accountable for system design, resources and fair responses."
+ },
+ {
+  "id": "fpc.fpc-just-culture.case.0",
+  "t": "Three crew members give the wrong drug in three separate events: (A) a tired medic picks up a look-alike vial during a chaotic resuscitation; (B) a nurse routinely skips the second-person check \"because we're short-staffed and it takes too long\"; (C) a crew member, warned twice, knowingly gives a drug outside protocol and falsifies the record to hide it."
+ },
+ {
+  "id": "fpc.fpc-just-culture.leaders.0",
+  "t": "Leaders set the tone. When an error is reported, the first response — curiosity or blame — teaches everyone whether reporting is safe. Leaders should thank reporters, focus on understanding what happened and why, and share what was learned."
+ },
+ {
+  "id": "fpc.fpc-just-culture.leaders.1",
+  "t": "Consistency matters: similar behaviours should receive similar responses regardless of outcome, seniority or popularity. Decision tools (just culture algorithms) help managers apply the framework consistently and fairly."
+ },
+ {
+  "id": "fpc.fpc-just-culture.leaders.2",
+  "t": "Just culture also applies to aviation and medical interfaces: a pilot's weather decision, a dispatcher's error or a crew member's concern should all be met with the same fair, learning-focused approach."
+ },
+ {
+  "id": "fpc.fpc-ebm.define.0",
+  "t": "Evidence-based medicine (EBM) is the integration of the best available research evidence with clinical expertise and patient values and circumstances. It is not \"cookbook medicine\": evidence informs decisions but does not replace judgement or the patient's preferences. In transport, it also includes the realities of the environment — limited space, equipment and time."
+ },
+ {
+  "id": "fpc.fpc-ebm.define.1",
+  "t": "The five steps: Ask a focused clinical question; Acquire the best evidence; Appraise it for validity, importance and applicability; Apply it, integrating expertise and patient values; and Assess (audit) the outcome. A PICO question structures the first step: Population, Intervention, Comparison, Outcome (sometimes with T for time). For example: \"In adult trauma patients with haemorrhagic shock (P), does prehospital plasma (I) compared with crystalloid (C) reduce 30-day mortality (O)?\""
+ },
+ {
+  "id": "fpc.fpc-ebm.define.2",
+  "t": "Sources: pre-appraised resources (clinical practice guidelines from reputable bodies, systematic reviews such as Cochrane, evidence summaries) are the most efficient; primary studies are searched in databases such as PubMed. Guidelines should be judged on their methods, conflicts of interest and currency."
+ },
+ {
+  "id": "fpc.fpc-ebm.appraise.0",
+  "t": "Appraisal asks three questions: Is it valid (appropriate design, randomisation, blinding, follow-up, intention-to-treat, minimal bias)? Are the results important (effect size, confidence intervals, absolute versus relative effects, NNT)? Do they apply to my patients and setting (similar populations, feasible in transport, acceptable to patients)?"
+ },
+ {
+  "id": "fpc.fpc-ebm.appraise.1",
+  "t": "Transport research has particular challenges: small numbers, heterogeneous patients, difficulty blinding, consent in emergencies, and confounding by indication (sicker patients get more aggressive transport). Much practice rests on extrapolation from emergency department or ICU studies, observational data and expert consensus. When evidence is weak, protocols should say so and be revisited as new evidence appears."
+ },
+ {
+  "id": "fpc.fpc-ebm.appraise.2",
+  "t": "Implementation: change protocols through a structured process, train staff, measure adherence and outcomes, and feed results back — audit closes the loop. Resistance to change is normal; involving front-line clinicians and explaining the evidence improves uptake."
+ },
+ {
+  "id": "fpc.fpc-ebm.limits.0",
+  "t": "Be wary of practices adopted on the basis of plausible physiology without outcome evidence — history includes many reversals (routine high-flow oxygen in myocardial infarction, high-dose steroids in spinal cord injury and TBI, aggressive crystalloid resuscitation in trauma, and routine hyperventilation in head injury). Conversely, absence of evidence is not evidence of absence: some interventions are effective but unstudied."
+ },
+ {
+  "id": "fpc.fpc-ebm.limits.1",
+  "t": "Recognise cognitive biases in applying evidence: confirmation bias (seeking evidence that supports existing beliefs), anchoring, the bandwagon effect and authority bias. Conflicts of interest, industry funding and publication bias can distort the evidence base."
+ },
+ {
+  "id": "fpc.fpc-ebm.limits.2",
+  "t": "A culture of inquiry — journal clubs, case reviews, participation in research and quality improvement — keeps a transport programme's practice current."
+ },
+ {
+  "id": "fpc.fpc-ebm.case.0",
+  "t": "Your programme's medical director asks whether to start carrying thawed plasma on the helicopter. The programme serves rural areas with transport times of 30–60 minutes."
+ },
+ {
+  "id": "fpc.fpc-ebm.protocols.0",
+  "t": "Transport protocols translate evidence into practice for a specific system. A good protocol states its evidence base and the strength of that evidence, defines inclusion and exclusion criteria, gives clear doses and steps, includes decision points and when to contact medical control, and specifies how adherence and outcomes will be measured."
+ },
+ {
+  "id": "fpc.fpc-ebm.protocols.1",
+  "t": "Protocols should be reviewed on a regular cycle (often every 1–2 years) and whenever important new evidence appears. Front-line clinicians should be involved in drafting and testing them."
+ },
+ {
+  "id": "fpc.fpc-ebm.protocols.2",
+  "t": "Deviation from protocol is sometimes appropriate when patient circumstances differ; it should be justified, documented, and reviewed — which may reveal where a protocol needs updating."
+ },
+ {
+  "id": "fpc.fpc-ethics.principles.0",
+  "t": "The four principles: autonomy (respecting a capable person's right to make decisions about their own care), beneficence (acting in the patient's best interest), non-maleficence (avoiding harm) and justice (fair allocation of resources and treatment). They often conflict — for example, a capable patient refusing a beneficial transfer."
+ },
+ {
+  "id": "fpc.fpc-ethics.principles.1",
+  "t": "Informed consent requires that the patient has decision-making capacity, receives adequate information (nature of the proposed care, risks, benefits and alternatives, including no treatment), understands it and decides voluntarily. Implied consent applies in emergencies when a patient cannot consent and delay would cause harm. Capacity is decision-specific: the patient must be able to understand the information, appreciate how it applies to them, reason about options and communicate a choice. Hypoxia, hypoglycaemia, intoxication, head injury and shock can impair capacity — treat reversible causes and reassess."
+ },
+ {
+  "id": "fpc.fpc-ethics.principles.2",
+  "t": "Minors generally require parental consent except in emergencies, for emancipated minors and for specific conditions defined by law. A capable adult may refuse care, even if the refusal seems unwise; document capacity, the information given, the risks explained (including death), attempts to persuade, alternatives offered and the patient's signature or witness."
+ },
+ {
+  "id": "fpc.fpc-ethics.eol.0",
+  "t": "Advance directives (living wills and healthcare powers of attorney) record a person's wishes and appoint a surrogate decision-maker for when they cannot decide. Do-not-resuscitate (DNR or DNAR) orders state that CPR will not be attempted in cardiac or respiratory arrest; they do not mean \"do not treat\" — patients with DNR orders still receive oxygen, analgesia, fluids, antibiotics and transport as appropriate."
+ },
+ {
+  "id": "fpc.fpc-ethics.eol.1",
+  "t": "POLST (Physician/Portable Orders for Life-Sustaining Treatment) forms are actionable medical orders for seriously ill patients that travel with the patient across settings. They specify CPR status and the level of medical intervention (full treatment, selective treatment or comfort-focused treatment) and preferences about artificial nutrition. Transport crews should look for these documents, verify them according to local law and protocol, and follow them. When the document is unclear or its validity is questioned, contact medical control; in a true emergency with genuine uncertainty, it is usually safest to resuscitate while clarifying."
+ },
+ {
+  "id": "fpc.fpc-ethics.eol.2",
+  "t": "During interfacility transport, confirm code status with the sending team and the family before departure and document it. If a patient with comfort-focused orders deteriorates in flight, the focus is symptom relief (dyspnoea, pain, agitation) and dignity; diversion may not be appropriate if it does not serve the patient's goals."
+ },
+ {
+  "id": "fpc.fpc-ethics.other.0",
+  "t": "Medical futility refers to interventions that cannot achieve the patient's goals or physiological effect. Decisions to withhold or withdraw such treatment should involve the treating team, ethics consultation where available and clear communication with the family; withholding and withdrawing are ethically equivalent. In transport, the question \"will this transfer benefit the patient?\" is legitimate — a high-risk flight for a patient with no prospect of benefit raises justice and non-maleficence concerns."
+ },
+ {
+  "id": "fpc.fpc-ethics.other.1",
+  "t": "Resource allocation (justice): air medical resources are limited; triage protocols allocate aircraft to patients most likely to benefit. In mass casualty incidents, triage shifts from the individual to the greatest good for the greatest number."
+ },
+ {
+  "id": "fpc.fpc-ethics.other.2",
+  "t": "Organ and tissue donation: patients with devastating brain injury may become organ donors. Transport crews support this by maintaining physiological support (oxygenation, blood pressure, temperature) during transfer and by notifying the organ procurement organisation according to policy. Conversations about donation are led by trained requesters, not by transport crew."
+ },
+ {
+  "id": "fpc.fpc-ethics.case.0",
+  "t": "You are transferring an 88-year-old with a hip fracture and advanced dementia from a nursing home. Her POLST form (signed by her physician) indicates DNR and \"selective treatment\" — hospital transfer acceptable, no intubation. In flight she develops respiratory distress and SpO₂ 82 %."
+ },
+ {
+  "id": "fpc.fpc-ethics.conflict.0",
+  "t": "Conflicts arise between family members, between family and clinicians, and between sending and receiving teams — for example, a family requesting transfer for treatment the receiving team considers futile, or a family insisting on full treatment despite a POLST form limiting it. Involve medical control, focus on the patient's known wishes and best interests, and seek ethics consultation when time permits."
+ },
+ {
+  "id": "fpc.fpc-ethics.conflict.1",
+  "t": "Communication skills matter: listen first, acknowledge emotions, give clear information in plain language, avoid jargon, and check understanding. Phrases such as \"What do you know about your father's wishes?\" and \"We will make sure he is comfortable\" help."
+ },
+ {
+  "id": "fpc.fpc-ethics.conflict.2",
+  "t": "Document discussions carefully: who was present, what was said, what was decided and why."
+ },
+ {
+  "id": "fpc.fpc-gamut.what.0",
+  "t": "GAMUT (Ground and Air Medical qUality in Transport) is a quality improvement collaborative for critical care transport programmes, originating from a consensus process among transport medicine experts (initially published around 2014–2015). It developed a set of standardised, transport-specific quality metrics and a database through which participating programmes submit data and compare their performance with others — benchmarking."
+ },
+ {
+  "id": "fpc.fpc-gamut.what.1",
+  "t": "Before GAMUT, programmes measured quality in different ways, making comparisons difficult. Shared definitions allow programmes to see where they stand, identify gaps and learn from high performers. Participation is voluntary and data are de-identified for benchmarking."
+ },
+ {
+  "id": "fpc.fpc-gamut.what.2",
+  "t": "Metrics are designed to be measurable, relevant to patient outcomes or safety, and actionable — a programme can change practice to improve them."
+ },
+ {
+  "id": "fpc.fpc-gamut.metrics.0",
+  "t": "Airway metrics are among the most widely reported: first-attempt intubation success (with and without hypoxia or hypotension — \"first-attempt success without adverse events\"), use of waveform capnography to confirm intubation, peri-intubation hypoxia, and DASH-1A (definitive airway sans hypoxia/hypotension on first attempt). Other clinical metrics include: ventilated patients with an EtCO₂ documented, use of a checklist for RSI, appropriate management of specific conditions (such as STEMI time-to-PCI facilitation, pain assessment and reassessment, and neonatal temperature on arrival), and medication errors."
+ },
+ {
+  "id": "fpc.fpc-gamut.metrics.1",
+  "t": "Operational and safety metrics include response or launch times (time from request to departure), scene and bedside times, verbal acknowledgement of safety briefings, adverse events in transport, and unplanned dislodgement of tubes and lines. Pediatric and neonatal metrics include hypothermia on arrival and appropriate weight-based dosing."
+ },
+ {
+  "id": "fpc.fpc-gamut.metrics.2",
+  "t": "Each metric has a precise definition — numerator, denominator, inclusion and exclusion criteria — so that programmes measure the same thing. Accurate, complete documentation is therefore essential: if it is not documented, it cannot be measured."
+ },
+ {
+  "id": "fpc.fpc-gamut.improve.0",
+  "t": "Collect data accurately (often from electronic patient care records), review it regularly, compare with benchmarks, and look for trends rather than single events. When a metric lags — for example, peri-intubation hypoxia is higher than peers — investigate causes (preoxygenation practices, apnoeic oxygenation, patient selection, training) and test changes using plan–do–study–act cycles. Re-measure to confirm improvement and sustain it."
+ },
+ {
+  "id": "fpc.fpc-gamut.improve.1",
+  "t": "Metrics can have unintended consequences: focusing on launch times could encourage unsafe haste; focusing on first-pass success could discourage necessary intubations in difficult cases. Balance measures (such as safety events) should accompany performance measures."
+ },
+ {
+  "id": "fpc.fpc-gamut.improve.2",
+  "t": "Engage front-line clinicians: share results transparently, celebrate improvements, and use case reviews to connect numbers to real patients. Quality improvement is a team activity, not a punitive audit — just culture principles apply."
+ },
+ {
+  "id": "fpc.fpc-gamut.case.0",
+  "t": "Your programme's benchmarking shows first-attempt intubation success of 88 % (similar to peers), but peri-intubation hypoxia (SpO₂ < 90 %) in 18 % of intubations — worse than the benchmark median."
+ },
+ {
+  "id": "fpc.fpc-gamut.own.0",
+  "t": "A programme's quality system combines external metrics (such as GAMUT), internal priorities (for example, a recent problem with medication errors) and accreditation requirements. A small number of well-chosen metrics, reviewed regularly, is more useful than many metrics collected and ignored."
+ },
+ {
+  "id": "fpc.fpc-gamut.own.1",
+  "t": "Data sources include electronic patient care records, dispatch systems, safety reports and case reviews. Dashboards that show trends over time help teams see progress."
+ },
+ {
+  "id": "fpc.fpc-gamut.own.2",
+  "t": "Clinicians contribute by documenting accurately, participating in case reviews, suggesting improvements and joining quality committees. Every crew member is part of the quality system."
+ },
+ {
+  "id": "fpc.fpc-caregiver-wellbeing.conditions.0",
+  "t": "Transport clinicians are exposed repeatedly to death, severe injury, children in crisis, and the stress of high-stakes decisions in demanding environments, often with disrupted sleep. Burnout is a work-related syndrome of emotional exhaustion, depersonalisation (cynicism, detachment from patients) and a reduced sense of accomplishment. Compassion fatigue (secondary traumatic stress) is the emotional cost of caring for people who are suffering."
+ },
+ {
+  "id": "fpc.fpc-caregiver-wellbeing.conditions.1",
+  "t": "Post-traumatic stress disorder (PTSD) can follow a single critical incident or cumulative exposure. Symptoms include intrusive memories, nightmares and flashbacks; avoidance of reminders; negative changes in mood and thinking; and hyperarousal (irritability, poor sleep, hypervigilance), lasting more than a month and impairing function. Rates of PTSD, depression, anxiety and substance misuse are higher in emergency services than in the general population."
+ },
+ {
+  "id": "fpc.fpc-caregiver-wellbeing.conditions.2",
+  "t": "Moral injury is distress from actions, or failures to act, that violate one's moral beliefs — for example, being unable to provide care a patient needed because of resource limits, or witnessing decisions perceived as wrong. It may present with guilt, shame, anger and loss of trust."
+ },
+ {
+  "id": "fpc.fpc-caregiver-wellbeing.risk.0",
+  "t": "Studies suggest that emergency medical services personnel, nurses and physicians have elevated rates of suicidal thoughts and, in several studies, suicide compared with the general population. Contributing factors include cumulative trauma, shift work and sleep deprivation, access to lethal means (including medications), workplace stress, stigma around seeking help and fear of career consequences."
+ },
+ {
+  "id": "fpc.fpc-caregiver-wellbeing.risk.1",
+  "t": "Warning signs in a colleague: talking about wanting to die, feeling hopeless or being a burden; withdrawal from colleagues, family and activities; increased alcohol or drug use; changes in sleep, mood or performance; reckless behaviour; giving away possessions; and sudden calm after a period of distress. Situational risk factors include relationship breakdown, financial problems, legal or disciplinary issues, and a recent critical incident."
+ },
+ {
+  "id": "fpc.fpc-caregiver-wellbeing.risk.2",
+  "t": "If you are worried about a colleague: ask directly and privately — \"Are you thinking about suicide?\" Asking does not plant the idea; it opens the door to help. Listen without judgement, keep them safe (do not leave someone at immediate risk alone, and help reduce access to means), and connect them to help — the 988 Suicide & Crisis Lifeline in the United States (call or text 988), an employee assistance programme, peer support or emergency services if danger is imminent."
+ },
+ {
+  "id": "fpc.fpc-caregiver-wellbeing.support.0",
+  "t": "Individual: protect sleep, exercise, maintain relationships and interests outside work, limit alcohol, use reflective practices, and seek professional help early — talking therapies such as trauma-focused cognitive behavioural therapy and EMDR are effective for PTSD. Recognising your own warning signs is a professional skill, just like recognising a patient's deterioration."
+ },
+ {
+  "id": "fpc.fpc-caregiver-wellbeing.support.1",
+  "t": "Peer support: trained peer supporters offer confidential, informal support after difficult calls and can connect colleagues to professional help. Structured approaches after critical incidents vary; current evidence does not support mandatory single-session psychological debriefing for everyone, but voluntary, supportive conversations, practical help and monitoring for persistent symptoms (psychological first aid and watchful waiting) are recommended."
+ },
+ {
+  "id": "fpc.fpc-caregiver-wellbeing.support.2",
+  "t": "Organisational: leadership that talks openly about mental health, fatigue management and reasonable workloads, confidential access to mental health care without career penalty, employee assistance programmes, chaplaincy, critical incident support, and just culture. Removing stigma — through example and policy — is one of the most effective interventions."
+ },
+ {
+  "id": "fpc.fpc-caregiver-wellbeing.case.0",
+  "t": "After an unsuccessful resuscitation of a toddler, a flight paramedic colleague seems fine at first. Over the next weeks she stops coming to crew meals, snaps at partners, says she is \"not sleeping\", and mentions that \"maybe everyone would be better off without me\"."
+ },
+ {
+  "id": "fpc.fpc-caregiver-wellbeing.family.0",
+  "t": "The effects of the work reach home. Families may notice irritability, withdrawal or sleep problems before the clinician does. Programmes that include families in wellbeing education and resources strengthen support networks."
+ },
+ {
+  "id": "fpc.fpc-caregiver-wellbeing.family.1",
+  "t": "Career transitions — leaving flight work because of injury, age, burnout or organisational change — can bring a loss of identity and purpose. Planning ahead, maintaining interests outside work and staying connected with colleagues help."
+ },
+ {
+  "id": "fpc.fpc-caregiver-wellbeing.family.2",
+  "t": "Long careers in transport medicine are possible and rewarding when individuals and organisations treat wellbeing as part of safety: a rested, supported clinician makes better decisions for patients."
  }
 ]
