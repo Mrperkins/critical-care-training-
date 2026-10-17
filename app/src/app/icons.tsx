@@ -14,6 +14,8 @@ const P: Partial<Record<Module, string>> = {
   pediatrics: 'M12 8.5a2.8 2.8 0 1 0 0-5.6 2.8 2.8 0 0 0 0 5.6zM8.6 21l.9-6.2h5l.9 6.2M9.5 14.8 6.4 11.6M14.5 14.8l3.1-3.2M9.5 14.8v-2.3a2.5 2.5 0 0 1 5 0v2.3',
   womens: 'M12 13.5a4.8 4.8 0 1 0 0-9.6 4.8 4.8 0 0 0 0 9.6zM12 13.5V21M8.8 17.5h6.4',
   videos: 'M4 6.5h16v11H4zM10.3 9.6v4.8l4.1-2.4z',
+  // rotor disc over a cross: flight medicine
+  fpc: 'M3 6.5h18M12 6.5v3M9.5 12.5h5M12 10v5M7 9.5h10l-1.6 9H8.6z',
 };
 
 export function DomainIcon({ module }: { module: Module }) {

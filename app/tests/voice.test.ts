@@ -13,6 +13,8 @@ import { narrationJobs } from '../scripts/narration-common';
 import { STEMI_CULPRIT } from '../src/infarct/lesson/stemi';
 import { TERRITORIES } from '../src/infarct/data/territories';
 import { buildLesson, lessonVoiceId } from '../src/infarct/data/lessons';
+import { FPC_LESSONS } from '../src/fpc/index';
+import { clipId } from '../src/fpc/types';
 
 const lines: { id: string; t: string }[] = JSON.parse(fs.readFileSync('public/vo/lines.json', 'utf8'));
 const vo: Record<string, { hash: string }> = fs.existsSync('public/vo/narration.json') ? JSON.parse(fs.readFileSync('public/vo/narration.json', 'utf8')) : {};
@@ -25,6 +27,8 @@ const steps = [
   // MI Locator: the narrated STEMI lesson and each territory lesson step (per dominance where the words differ)
   ...STEMI_CULPRIT.cues.map((c) => ({ id: c.voice ?? c.id, t: c.say })),
   ...TERRITORIES.flatMap((t) => (['right', 'left'] as const).flatMap((d) => buildLesson(t, d).map((st) => ({ id: lessonVoiceId(t, d, st.id), t: st.text })))),
+  // FP-C exam prep: each teaching paragraph
+  ...FPC_LESSONS.flatMap((l) => l.sections.flatMap((sec) => sec.body.map((p, n) => ({ id: clipId(l.id, sec.id, n), t: p })))),
 ];
 
 describe('narration', () => {

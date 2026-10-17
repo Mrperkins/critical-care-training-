@@ -3906,5 +3906,813 @@
  {
   "id": "mi-rv-summary",
   "t": "The right ventricle wraps around the front and right of the heart. Standard leads barely see it, so you move the chest electrodes to the mirror-image positions on the right chest. V4R faces the RV free wall directly: ST elevation of 1 mm or more there means RV infarction, almost always from a proximal RCA occlusion."
+ },
+ {
+  "id": "fpc.fpc-airway-assessment.four.0",
+  "t": "A \"difficult airway\" is not one thing. Four separate tasks can be hard, and a patient can be easy for one and impossible for another. Difficult laryngoscopy means you cannot see the glottis. Difficult bag-mask ventilation means you cannot move air with a mask. A difficult supraglottic airway means a rescue device will not seat or seal. A difficult cricothyrotomy means you cannot find or reach the cricothyroid membrane."
+ },
+ {
+  "id": "fpc.fpc-airway-assessment.four.1",
+  "t": "Assess all four, because the plan depends on which ones are threatened. A bearded, edentulous patient with a normal neck may be a poor mask but an easy laryngoscopy. A patient with a radiation-scarred neck may be an easy mask and an easy view but an impossible surgical airway. The most dangerous patient is the one in whom several fail together: the plan has no safe exit."
+ },
+ {
+  "id": "fpc.fpc-airway-assessment.four.2",
+  "t": "In transport medicine, add a fifth: the environment. Poor lighting, a patient on the ground or in a wreck, limited access to the head, vibration, noise that defeats auscultation, and a small team all make every task harder. Many programmes prefer to secure an airway before loading rather than in an aircraft cabin where positioning and access are compromised."
+ },
+ {
+  "id": "fpc.fpc-airway-assessment.lemon.0",
+  "t": "Look externally first: facial trauma, a short thick neck, a small mandible, large incisors, or the overall gestalt that this will be hard. Gestalt from experienced operators is a useful predictor and should not be dismissed."
+ },
+ {
+  "id": "fpc.fpc-airway-assessment.lemon.1",
+  "t": "The 3-3-2 rule estimates whether the mouth, mandible and larynx line up. Three of the patient's fingerbreadths of mouth opening allow the blade and tube in. Three fingerbreadths from the chin to the hyoid suggest enough mandibular space to displace the tongue into. Two fingerbreadths from the hyoid to the thyroid notch suggest the larynx is not sitting too high."
+ },
+ {
+  "id": "fpc.fpc-airway-assessment.lemon.2",
+  "t": "Mallampati grading needs a cooperative, sitting patient, so in emergency and transport practice it is often unobtainable. Obstruction — blood, vomit, angioedema, epiglottitis, an expanding haematoma, a foreign body — and obesity both reduce the view and the time available. Neck mobility matters when you need to extend for direct laryngoscopy; a patient in spinal motion restriction has lost it."
+ },
+ {
+  "id": "fpc.fpc-airway-assessment.lemon.3",
+  "t": "Video laryngoscopy changes the weight of several predictors. A hyperangulated blade sees around a curve that a direct blade cannot, so mouth opening and blood in the airway become the dominant limits rather than mandibular space. Blood and secretions on the camera can turn a good video view into no view at all, which is why suction must be ready before the blade goes in."
+ },
+ {
+  "id": "fpc.fpc-airway-assessment.physiological.0",
+  "t": "Most peri-intubation deaths in critically ill patients are not caused by failure to place the tube. They are caused by hypoxaemia, hypotension and cardiac arrest around induction. The physiologically difficult airway is the patient in whom the act of intubation — apnoea, induction drugs and positive pressure — is itself dangerous."
+ },
+ {
+  "id": "fpc.fpc-airway-assessment.physiological.1",
+  "t": "Hypoxaemia: a patient who starts desaturated, or who has a small or shunted functional residual capacity, will desaturate within seconds of apnoea. Optimise pre-oxygenation, consider non-invasive ventilation to pre-oxygenate, and plan to ventilate gently during the apnoeic period if saturation falls."
+ },
+ {
+  "id": "fpc.fpc-airway-assessment.physiological.2",
+  "t": "Hypotension: induction agents blunt sympathetic tone, and positive pressure reduces venous return. A patient with a shock index above about 0.9, a low systolic pressure, or a high vasopressor requirement may arrest at induction. Resuscitate first where possible: volume or blood for the hypovolaemic, a push-dose or infusion vasopressor ready, and a reduced induction dose of a haemodynamically gentler agent."
+ },
+ {
+  "id": "fpc.fpc-airway-assessment.physiological.3",
+  "t": "Severe metabolic acidosis: a patient compensating with a minute ventilation of 20 litres or more depends on that ventilation to hold the pH. A period of apnoea and then \"normal\" ventilator settings can drop the pH sharply and precipitate arrest. Match their pre-intubation minute ventilation on the ventilator and keep apnoea as short as possible."
+ },
+ {
+  "id": "fpc.fpc-airway-assessment.physiological.4",
+  "t": "Right-ventricular failure: pulmonary hypertension, massive pulmonary embolism and RV infarction leave a ventricle that tolerates neither hypotension nor the rise in afterload from hypoxia, hypercapnia and high intrathoracic pressure. These patients can collapse at induction; avoid hypotension and hypoxia, and use modest tidal volumes and PEEP."
+ },
+ {
+  "id": "fpc.fpc-airway-assessment.plan.0",
+  "t": "An airway assessment is only useful if it changes what you do. Before induction, state aloud the plan: who intubates, with which device, what the first-attempt backup is (a bougie, a different blade), the rescue oxygenation device (supraglottic airway size chosen and opened), and the point at which the team moves to a surgical airway."
+ },
+ {
+  "id": "fpc.fpc-airway-assessment.plan.1",
+  "t": "Use a checklist. Challenge-response checklists before rapid sequence intubation reduce omissions — suction on, pre-oxygenation adequate, drugs drawn and labelled, monitoring with waveform capnography ready, the backup devices in reach, the patient positioned. Checklists are especially valuable in transport, where teams may be small and environments unfamiliar."
+ },
+ {
+  "id": "fpc.fpc-airway-assessment.plan.2",
+  "t": "If the predicted difficulty is high and the patient is maintaining oxygenation, consider whether the airway needs to be secured now, by you, in this environment. Options include an awake approach with topical anaesthesia and light sedation, delaying until a better setting, or transporting with the patient's own airway and a clear plan for deterioration."
+ },
+ {
+  "id": "fpc.fpc-airway-assessment.aspiration.0",
+  "t": "Every emergency patient is treated as having a full stomach. Risk is higher with bowel obstruction, upper GI bleeding, recent food or alcohol, pregnancy, obesity, diabetic gastroparesis, and bag-mask ventilation with high pressures that inflate the stomach."
+ },
+ {
+  "id": "fpc.fpc-airway-assessment.aspiration.1",
+  "t": "Reduce it: head-up positioning, gentle mask ventilation (low pressures, low rates) only when needed, decompression of an obviously distended stomach with a gastric tube before induction in high-risk patients, and large-bore suction running and in hand. Cricoid pressure is no longer routine in many guidelines because evidence of benefit is weak and it can worsen the view; if used, release it when it impairs laryngoscopy or ventilation."
+ },
+ {
+  "id": "fpc.fpc-airway-assessment.case.0",
+  "t": "You land at a rural crash. A 58-year-old man is pinned in a vehicle on its side, GCS 9, snoring respirations, SpO₂ 90 % on a non-rebreather, BP 102/64, HR 112. He has a thick neck, a beard, blood in the mouth, and fire crews estimate 20 minutes to extricate."
+ },
+ {
+  "id": "fpc.fpc-airway-assessment.case.1",
+  "t": "The assessment drives the plan. Anatomically, he predicts difficult mask ventilation (beard, obesity, blood) and difficult laryngoscopy (blood, limited access, spinal precautions). Physiologically, he is borderline hypoxaemic and his shock index is above 1. The environment — a vehicle on its side — makes intubation in place a poor choice."
+ },
+ {
+  "id": "fpc.fpc-airway-anatomy.upper.0",
+  "t": "Air passes the nose or mouth, the pharynx (naso-, oro- and laryngopharynx), then the larynx. The epiglottis sits at the base of the tongue; the space between them is the vallecula, where a curved Macintosh blade tip sits to lift the epiglottis indirectly through the hyoepiglottic ligament. A straight Miller blade lifts the epiglottis directly."
+ },
+ {
+  "id": "fpc.fpc-airway-anatomy.upper.1",
+  "t": "The glottic opening is bounded by the vocal cords. Posteriorly lie the arytenoid cartilages and the interarytenoid notch — the landmark most often seen in a poor view, and the reason a bougie aimed just anterior to the arytenoids usually finds the trachea. The piriform recesses sit on either side of the larynx; a tube or bougie that slides into one meets resistance and does not produce tracheal clicks."
+ },
+ {
+  "id": "fpc.fpc-airway-anatomy.upper.2",
+  "t": "The thyroid cartilage forms the laryngeal prominence. Below it, the cricothyroid membrane spans the gap to the cricoid cartilage — the only complete ring of cartilage in the airway. The membrane is about 1 cm high and 2–3 cm wide in adults, avascular in its midline, and the site of an emergency surgical airway. The cricothyroid arteries run across its upper part, which is why the incision is made through the lower half."
+ },
+ {
+  "id": "fpc.fpc-airway-anatomy.peds.0",
+  "t": "Infants and young children have a proportionally larger occiput that flexes the neck when supine — place a towel under the shoulders, not the head. The tongue is large relative to the mouth, the larynx sits higher (around C3–C4 in infants versus C5–C6 in adults) and more anterior, and the epiglottis is floppy and omega-shaped, which is why a straight blade lifting it directly is often preferred in infants."
+ },
+ {
+  "id": "fpc.fpc-airway-anatomy.peds.1",
+  "t": "The narrowest functional point in young children has traditionally been taught as the cricoid ring; imaging suggests the glottis is narrowest in some, but the cricoid remains the narrowest complete, non-expandable ring. A tube that passes the cords but is tight at the cricoid can cause mucosal injury and post-extubation stridor. Cuffed tubes are now standard in most children, sized smaller, with cuff pressures monitored."
+ },
+ {
+  "id": "fpc.fpc-airway-anatomy.peds.2",
+  "t": "Small radius magnifies resistance. Resistance to laminar flow rises with the fourth power of the radius, so one millimetre of oedema in a 4 mm airway raises resistance about sixteen-fold. Children have less oxygen reserve per kilogram and roughly double the oxygen consumption, so they desaturate fast, and bradycardia from hypoxia is a pre-arrest sign."
+ },
+ {
+  "id": "fpc.fpc-airway-anatomy.stores.0",
+  "t": "During apnoea the patient lives on the oxygen already in the body. The largest modifiable store is the functional residual capacity (FRC) — the gas left in the lungs at the end of a normal breath, about 2–2.5 litres in an adult. Breathing air, that gas is about 21 % oxygen; after thorough pre-oxygenation it can approach 90 %, multiplying the reserve several-fold."
+ },
+ {
+  "id": "fpc.fpc-airway-anatomy.stores.1",
+  "t": "FRC falls when supine, with obesity, in pregnancy, with abdominal distension and with lung disease such as pneumonia or ARDS. Oxygen consumption rises with sepsis, fever, pregnancy and in children. Each change shortens the time to desaturation. A healthy, well pre-oxygenated adult may remain above 90 % for several minutes; a critically ill or obese patient may desaturate within a minute."
+ },
+ {
+  "id": "fpc.fpc-airway-anatomy.stores.2",
+  "t": "Shunt — blood passing unventilated alveoli — limits how much pre-oxygenation can achieve, because those alveoli never fill with oxygen. Patients with large shunts may not reach an end-tidal oxygen above 85–90 % with a mask alone; positive pressure (NIV or PEEP) to recruit lung improves pre-oxygenation in these patients."
+ },
+ {
+  "id": "fpc.fpc-airway-anatomy.stores.3",
+  "t": "The oxyhaemoglobin dissociation curve explains the shape of desaturation. While alveolar oxygen is high, saturation sits on the flat upper part of the curve and barely changes. Once arterial PO₂ falls to about 60 mmHg, the curve is steep and saturation falls quickly. Pulse oximeters also lag behind central desaturation, particularly with poor peripheral perfusion."
+ },
+ {
+  "id": "fpc.fpc-airway-anatomy.deadspace.0",
+  "t": "Anatomical dead space — the conducting airways that do not take part in gas exchange — is about 2 mL/kg (around 150 mL in an adult). Alveolar dead space adds ventilated but unperfused alveoli (pulmonary embolism, low cardiac output, overdistension). Equipment adds more: a filter, a catheter mount and a long elbow can add significant dead space, which matters in children and when ventilating small tidal volumes."
+ },
+ {
+  "id": "fpc.fpc-airway-anatomy.deadspace.1",
+  "t": "The airway is protected by reflexes. Laryngeal stimulation can produce laryngospasm, coughing, bradycardia (vagal, especially in children) and a sympathetic surge with hypertension and tachycardia. That surge is undesirable in raised intracranial pressure, aortic dissection and ischaemic heart disease, and is blunted by adequate depth of anaesthesia and analgesia."
+ },
+ {
+  "id": "fpc.fpc-airway-anatomy.deadspace.2",
+  "t": "Below the cords the trachea runs about 10–12 cm to the carina at roughly the level of the angle of Louis (T4–T5). The right main bronchus is shorter, wider and more vertical, so a tube advanced too far usually enters it. In an adult, a tube depth of roughly three times the tube size at the teeth, or about 21–23 cm at the incisors, places the tip mid-trachea; confirm with capnography, bilateral breath sounds and imaging."
+ },
+ {
+  "id": "fpc.fpc-airway-anatomy.case.0",
+  "t": "A 14-month-old with three days of cough now has inspiratory stridor at rest, intercostal recession and SpO₂ 93 % on blow-by oxygen. Weight about 10 kg. The referring hospital has given nebulised adrenaline with partial improvement."
+ },
+ {
+  "id": "fpc.fpc-airway-anatomy.case.1",
+  "t": "The anatomy explains the danger: a subglottic airway of a few millimetres, a cricoid ring that cannot expand, and resistance rising with the fourth power of the radius. Agitation converts laminar to turbulent flow and worsens the obstruction. Oxygen consumption per kilogram is roughly double an adult's, so if the airway closes, desaturation is fast."
+ },
+ {
+  "id": "fpc.fpc-airway-pharm.sequence.0",
+  "t": "Rapid sequence intubation gives an induction agent and a neuromuscular blocker in quick succession to a pre-oxygenated patient, then intubates without bag-mask ventilation unless saturation falls. The aim is the best intubating conditions in the shortest time while protecting against aspiration and physiological collapse."
+ },
+ {
+  "id": "fpc.fpc-airway-pharm.sequence.1",
+  "t": "Doses below are typical adult intravenous teaching values; programmes publish their own protocols and those govern practice. In shock, induction doses are commonly reduced — often by half — while paralytic doses are kept full or increased, because a slower circulation delays the onset of the blocker and an under-dosed paralytic produces poor conditions."
+ },
+ {
+  "id": "fpc.fpc-airway-pharm.induction.0",
+  "t": "Ketamine is an NMDA antagonist producing dissociative anaesthesia with analgesia. It releases catecholamines, so blood pressure and heart rate are usually maintained or rise, and it preserves airway reflexes and respiratory drive at sub-anaesthetic doses and causes bronchodilation. In a catecholamine-depleted patient its direct myocardial depressant effect can appear, so profound shock still calls for a reduced dose. Older concerns that it raises intracranial pressure are not supported by modern evidence when ventilation is controlled."
+ },
+ {
+  "id": "fpc.fpc-airway-pharm.induction.1",
+  "t": "Etomidate is an imidazole with minimal cardiovascular effects. It causes transient adrenal suppression by inhibiting 11-β-hydroxylase after a single dose; whether this changes outcomes in sepsis remains debated. It provides no analgesia and can cause myoclonus."
+ },
+ {
+  "id": "fpc.fpc-airway-pharm.induction.2",
+  "t": "Propofol is a GABA-A agonist with rapid onset and offset. It causes vasodilation and myocardial depression, so hypotension is common, especially in hypovolaemia; it is a poor choice in shock. It has antiemetic and anticonvulsant properties and suits haemodynamically stable patients and status epilepticus."
+ },
+ {
+  "id": "fpc.fpc-airway-pharm.induction.3",
+  "t": "Midazolam is slower in onset at induction doses, causes dose-dependent hypotension, and is less reliable as a sole RSI induction agent; it is used more for sedation and seizures."
+ },
+ {
+  "id": "fpc.fpc-airway-pharm.nmb.0",
+  "t": "Succinylcholine (1.5 mg/kg IV) is a depolarising blocker: it binds acetylcholine receptors, causes fasciculations, then a block lasting about 6–10 minutes. Onset is about 45–60 seconds. It raises serum potassium by around 0.5 mmol/L in normal patients, and much more where receptors have up-regulated or spread across the muscle membrane."
+ },
+ {
+  "id": "fpc.fpc-airway-pharm.nmb.1",
+  "t": "Contraindications include known or suspected hyperkalaemia, a personal or family history of malignant hyperthermia, neuromuscular disease (muscular dystrophies, myopathies), and conditions with receptor up-regulation such as burns, crush injury, prolonged immobilisation, stroke or spinal cord injury older than about 24–72 hours. Repeat doses can cause bradycardia, especially in children."
+ },
+ {
+  "id": "fpc.fpc-airway-pharm.nmb.2",
+  "t": "Rocuronium (1–1.2 mg/kg IV, some protocols higher in shock) is a non-depolarising aminosteroid. At these doses onset approaches that of succinylcholine, and the block lasts 45–70 minutes or longer. It has no hyperkalaemia risk and few contraindications, which is why many transport programmes use it first-line. Its long duration means a failed airway cannot be rescued by waiting for spontaneous breathing to return — but that rarely happens in time with succinylcholine either, before dangerous desaturation."
+ },
+ {
+  "id": "fpc.fpc-airway-pharm.nmb.3",
+  "t": "Sugammadex encapsulates rocuronium (and vecuronium). A dose of 16 mg/kg reverses a deep block within about three minutes. It does not reverse succinylcholine or the induction agent, and reversal does not fix an obstructed airway: in a \"can't intubate, can't oxygenate\" situation the priority remains oxygenation and a surgical airway."
+ },
+ {
+  "id": "fpc.fpc-airway-pharm.post.0",
+  "t": "Paralysis is not sedation. After a long-acting paralytic, a patient can be fully aware, in pain and unable to move. Awareness during paralysis is a recognised harm of emergency airway management, and it is associated with later psychological injury. Start analgesia and sedation promptly after confirming the tube, before the induction agent wears off — etomidate and propofol last only minutes."
+ },
+ {
+  "id": "fpc.fpc-airway-pharm.post.1",
+  "t": "Use an analgesia-first approach: an opioid such as fentanyl (typically 1 mcg/kg boluses or an infusion, adjusted to effect) to treat the pain of the tube, injuries and procedures, then add a sedative — propofol in the haemodynamically stable, ketamine or midazolam when blood pressure is tenuous. Tachycardia and hypertension under paralysis may signal awareness or pain; treat them as such before attributing them to anything else."
+ },
+ {
+  "id": "fpc.fpc-airway-pharm.post.2",
+  "t": "Reassess often. Transport adds stimuli — noise, vibration, movement, cold — and drugs given on the ground may wear off in the air. Document sedation scores before paralysis is redosed, and avoid redosing a paralytic without ensuring sedation."
+ },
+ {
+  "id": "fpc.fpc-airway-pharm.adjuncts.0",
+  "t": "Push-dose vasopressors (for example phenylephrine in small boluses, or dilute epinephrine) treat post-induction hypotension while infusions are prepared. Have them drawn and labelled before induction in any patient with borderline blood pressure."
+ },
+ {
+  "id": "fpc.fpc-airway-pharm.adjuncts.1",
+  "t": "In bronchospasm, ketamine is favoured for its bronchodilation. In status epilepticus, propofol or a benzodiazepine adds anticonvulsant effect — remember that paralysis hides seizures, so continuous EEG is unavailable in the field and a long-acting paralytic should be paired with adequate anticonvulsant therapy. In suspected raised ICP, the goal is to avoid both hypotension and the sympathetic surge of laryngoscopy: adequate depth, an opioid, and a blood-pressure-neutral agent."
+ },
+ {
+  "id": "fpc.fpc-airway-pharm.adjuncts.2",
+  "t": "Delayed sequence intubation gives ketamine to an agitated, hypoxaemic patient who will not tolerate pre-oxygenation, then pre-oxygenates with NIV or a mask before paralysis. It is a deliberate procedural sedation to allow pre-oxygenation, not RSI with a delay."
+ },
+ {
+  "id": "fpc.fpc-airway-pharm.case.0",
+  "t": "The same flight team sees three patients in a week. Choosing drugs for each one shows how physiology, not habit, decides the plan."
+ },
+ {
+  "id": "fpc.fpc-passive-oxygenation.why.0",
+  "t": "Pre-oxygenation replaces nitrogen in the functional residual capacity with oxygen. The goal is an end-tidal oxygen fraction near 90 % when it can be measured, or at least three minutes of tidal breathing — or eight vital-capacity breaths — on a high-FiO₂ source with a good seal."
+ },
+ {
+  "id": "fpc.fpc-passive-oxygenation.why.1",
+  "t": "A standard non-rebreather mask at 15 L/min delivers far less than 100 % because room air is entrained around the mask and through the valves when the patient's inspiratory flow exceeds the oxygen flow. Turning the flowmeter to \"flush\" (often 40–60 L/min) reduces entrainment and markedly increases the delivered FiO₂."
+ },
+ {
+  "id": "fpc.fpc-passive-oxygenation.why.2",
+  "t": "A bag-valve-mask with a tight seal and a PEEP valve can deliver close to 100 %, but only if the patient's effort opens the valve — or if the operator gently assists. Without a tight seal it performs worse than a non-rebreather. Nasal cannula at high flow under a mask adds oxygen to the reservoir in the nasopharynx."
+ },
+ {
+  "id": "fpc.fpc-passive-oxygenation.shunt.0",
+  "t": "Patients with pneumonia, pulmonary oedema or ARDS have alveoli that are flooded or collapsed. Oxygen delivered to the mouth cannot reach them, so saturation may stay in the 80s even at FiO₂ 1.0. These patients need positive end-expiratory pressure to recruit lung: CPAP or BiPAP for pre-oxygenation, or a BVM with a PEEP valve set to 5–15 cmH₂O."
+ },
+ {
+  "id": "fpc.fpc-passive-oxygenation.shunt.1",
+  "t": "NIV pre-oxygenation is particularly helpful in obesity and in patients who are already hypoxaemic. It requires a cooperative patient and a protected airway reflex; agitation may require delayed sequence intubation with ketamine."
+ },
+ {
+  "id": "fpc.fpc-passive-oxygenation.apnoeic.0",
+  "t": "Once the patient is apnoeic, oxygen continues to be taken up from the alveoli at roughly 250 mL/min in an adult, while CO₂ is returned at about 200 mL/min, much of it buffered in blood. The resulting net gas movement into the alveoli draws gas from the pharynx into the lungs. If the pharynx is filled with oxygen — nasal cannula at 15 L/min or high-flow nasal oxygen — that bulk flow is oxygen, extending the time before desaturation."
+ },
+ {
+  "id": "fpc.fpc-passive-oxygenation.apnoeic.1",
+  "t": "Apnoeic oxygenation works only with a patent airway: a jaw thrust or the laryngoscope blade keeps the pharynx open. It does not remove CO₂ effectively; PaCO₂ rises by roughly 3 mmHg a minute of apnoea, which matters in patients with acidosis or raised intracranial pressure."
+ },
+ {
+  "id": "fpc.fpc-passive-oxygenation.apnoeic.2",
+  "t": "Leave the nasal cannula on throughout the attempt, under the pre-oxygenation mask. It is cheap, quick and does not interfere with laryngoscopy."
+ },
+ {
+  "id": "fpc.fpc-passive-oxygenation.stop.0",
+  "t": "Agree a stop point before the blade goes in: a saturation (commonly 93 % or a fall of a set amount from baseline) or a time. When reached, the operator withdraws, the team ventilates with a BVM and an oropharyngeal airway (or places a supraglottic airway), re-oxygenates and reconsiders the plan."
+ },
+ {
+  "id": "fpc.fpc-passive-oxygenation.stop.1",
+  "t": "Gentle mask ventilation during the apnoeic period — low pressures, low rates, a PEEP valve — is reasonable in patients at high risk of desaturation; it reduces severe hypoxaemia without a clear increase in aspiration when done carefully."
+ },
+ {
+  "id": "fpc.fpc-passive-oxygenation.case.0",
+  "t": "A 38-week pregnant woman with eclampsia has a further seizure and remains obtunded after magnesium; she is vomiting and must be intubated before transport. SpO₂ 95 % on a non-rebreather."
+ },
+ {
+  "id": "fpc.fpc-passive-oxygenation.case.1",
+  "t": "Pregnancy compresses the tank and speeds the drain: FRC falls by about a fifth as the uterus pushes up the diaphragm, oxygen consumption rises, and safe apnoea time is shorter than in a non-pregnant adult. Airway oedema and breast tissue make laryngoscopy harder, and aspiration risk is high."
+ },
+ {
+  "id": "fpc.fpc-failed-airway.define.0",
+  "t": "A failed airway exists when an experienced operator cannot intubate after a limited number of best attempts, or when oxygenation cannot be maintained at any point. The distinction that matters is whether the patient can be oxygenated by another means."
+ },
+ {
+  "id": "fpc.fpc-failed-airway.define.1",
+  "t": "\"Can't intubate, can oxygenate\" is a failed intubation but not yet an emergency of minutes: the team has time to re-oxygenate, change technique or operator, place a supraglottic airway, wake the patient if appropriate, or consider a planned surgical airway."
+ },
+ {
+  "id": "fpc.fpc-failed-airway.define.2",
+  "t": "\"Can't intubate, can't oxygenate\" (CICO) is the end of the line. Failed intubation plus failure of a supraglottic airway plus failure of optimised face-mask ventilation, with falling saturation, demands immediate front-of-neck access. Hesitation here — not the incision — is what kills patients."
+ },
+ {
+  "id": "fpc.fpc-failed-airway.plans.0",
+  "t": "Plan A is tracheal intubation, maximising first-pass success: a video laryngoscope where available, a bougie or stylet, full neuromuscular blockade, optimal positioning and external laryngeal manipulation. Change something between attempts — device, blade, position, operator — otherwise a second attempt is likely to fail in the same way."
+ },
+ {
+  "id": "fpc.fpc-failed-airway.plans.1",
+  "t": "Plan B is rescue oxygenation through a second-generation supraglottic airway (one with a gastric drainage channel). If it works, stop and think: wake the patient, intubate through the device with a fibreoptic scope if skilled, transport with the supraglottic airway, or proceed to a planned surgical airway."
+ },
+ {
+  "id": "fpc.fpc-failed-airway.plans.2",
+  "t": "Plan C is face-mask ventilation with two hands, an oropharyngeal and nasopharyngeal airway, and full paralysis — paralysis improves mask ventilation by abolishing laryngospasm and chest wall rigidity. If oxygenation is restored, the options are the same as after a successful Plan B."
+ },
+ {
+  "id": "fpc.fpc-failed-airway.plans.3",
+  "t": "Plan D is front-of-neck access when Plans A, B and C have failed and saturation is falling. Declare it aloud: \"This is a can't intubate, can't oxygenate situation. I am doing a cricothyrotomy.\" Continue attempts at oxygenation from above while the neck is opened."
+ },
+ {
+  "id": "fpc.fpc-failed-airway.human.0",
+  "t": "Experienced operators fail airways most often not for lack of skill but because of task fixation — repeated attempts with the same approach while the patient desaturates. Time distortion is real: an operator focused on the screen loses track of seconds and saturation."
+ },
+ {
+  "id": "fpc.fpc-failed-airway.human.1",
+  "t": "Assign roles before induction: an airway operator, an assistant, someone watching the monitor who will call out saturation and time, and someone responsible for the drug plan. Give that observer explicit permission to call a stop. Use shared language, such as the Vortex approach, where any best attempt at one of the three upper-airway lifelines (tube, supraglottic airway, face mask) that fails moves the team toward the next, and failure of all three moves the team to the neck."
+ },
+ {
+  "id": "fpc.fpc-failed-airway.human.2",
+  "t": "Debrief every failed or difficult airway. Record the grade of view, what worked and what did not, and tell the patient and receiving team so the next operator is warned."
+ },
+ {
+  "id": "fpc.fpc-failed-airway.tricks.0",
+  "t": "Bougie: with a grade 2b or 3 view, pass the bougie with the angled tip anterior, feel for tracheal rings (clicks) and hold-up at the small bronchi around 30–40 cm; then railroad the tube, rotating it 90° counter-clockwise to avoid catching on the arytenoids."
+ },
+ {
+  "id": "fpc.fpc-failed-airway.tricks.1",
+  "t": "External laryngeal manipulation: the operator moves the thyroid cartilage with the right hand to bring the cords into view, then an assistant holds it there. This is different from cricoid pressure."
+ },
+ {
+  "id": "fpc.fpc-failed-airway.tricks.2",
+  "t": "Suction-assisted laryngoscopy and airway decontamination (SALAD): lead with a rigid suction catheter, park it in the upper oesophagus to the left of the blade, and clear the view continuously in massive vomit or blood."
+ },
+ {
+  "id": "fpc.fpc-failed-airway.tricks.3",
+  "t": "Changing device: a hyperangulated video blade for an anterior larynx, a direct blade for heavy contamination that blinds the camera, a smaller tube for oedema."
+ },
+ {
+  "id": "fpc.fpc-failed-airway.case.0",
+  "t": "A 44-year-old with anaphylaxis after a bee sting has stridor, a swollen tongue and SpO₂ 88 % despite IM adrenaline twice and an adrenaline infusion. The receiving hospital is 45 minutes away."
+ },
+ {
+  "id": "fpc.fpc-failed-airway.case.1",
+  "t": "This is a predicted difficult airway that may fail quickly: oedema distorts anatomy, mask ventilation may be impossible, and SGAs may not seal over a swollen larynx. The plan must assume failure is likely."
+ },
+ {
+  "id": "fpc.fpc-surgical-airway.indication.0",
+  "t": "The main indication is CICO. Others are massive facial trauma or upper airway obstruction that makes oral intubation impossible, when oxygenation cannot otherwise be secured."
+ },
+ {
+  "id": "fpc.fpc-surgical-airway.indication.1",
+  "t": "Relative contraindications include laryngeal fracture or transection, a large neck mass or haematoma over the membrane, and young age. In children under roughly 10–12 years the cricothyroid membrane is tiny and the larynx is soft and mobile; most guidelines prefer needle cricothyrotomy, or a surgical tracheostomy by a surgeon, in this age group. In CICO there is no absolute contraindication in an adult: an imperfect surgical airway beats a dead patient."
+ },
+ {
+  "id": "fpc.fpc-surgical-airway.sbt.0",
+  "t": "This technique is favoured by many guidelines because it needs little equipment — a wide (number 10) scalpel blade, a bougie and a 6.0 mm cuffed tube — and works in the same way every time."
+ },
+ {
+  "id": "fpc.fpc-surgical-airway.sbt.1",
+  "t": "If the membrane is palpable: stabilise the larynx with the non-dominant hand, make a transverse stab incision through skin and membrane, rotate the blade 90° so the sharp edge faces caudally, pull the blade toward you to open the hole, slide the bougie along the blade into the trachea, then pass the tube over the bougie and inflate the cuff."
+ },
+ {
+  "id": "fpc.fpc-surgical-airway.sbt.2",
+  "t": "If the membrane is impalpable (obesity, swelling): make an 8–10 cm vertical midline incision, use blunt finger dissection to find the larynx, then proceed with the transverse membrane incision as above. The vertical skin incision avoids lateral vessels and allows extension."
+ },
+ {
+  "id": "fpc.fpc-surgical-airway.needle.0",
+  "t": "A large-bore cannula (12–14 gauge) passed through the membrane at about 45° caudally, aspirating air as it enters the trachea, can deliver oxygen. It is the preferred emergency technique in young children."
+ },
+ {
+  "id": "fpc.fpc-surgical-airway.needle.1",
+  "t": "Ventilation through a narrow cannula requires a high-pressure source: jet ventilation or a commercial device, with inspiration of about one second and expiration of about four. Exhalation must occur through the upper airway; if the upper airway is completely obstructed, gas cannot escape, pressure rises and barotrauma follows. CO₂ clearance is poor, so needle cricothyrotomy is a short bridge to a definitive airway."
+ },
+ {
+  "id": "fpc.fpc-surgical-airway.needle.2",
+  "t": "Kinking, dislodgement and subcutaneous emphysema are common. A standard BVM attached to a 3.0 mm tube adapter on a cannula cannot generate enough flow to ventilate an adult."
+ },
+ {
+  "id": "fpc.fpc-surgical-airway.complications.0",
+  "t": "Immediate complications: bleeding (usually venous, controlled by pressure and the tube itself), false passage into the pretracheal tissues (no capnography trace — remove and re-site), posterior tracheal wall or oesophageal injury, and subcutaneous emphysema. Late complications include subglottic stenosis and voice change."
+ },
+ {
+  "id": "fpc.fpc-surgical-airway.complications.1",
+  "t": "Secure the tube carefully: in the neck it is short and easily displaced. Note the depth, avoid advancing so far that the tube enters a main bronchus, and reconfirm capnography after every patient movement."
+ },
+ {
+  "id": "fpc.fpc-surgical-airway.case.0",
+  "t": "A motorcyclist without a helmet has severe midface and mandibular fractures. Blood pours from the mouth, the face is unstable, and SpO₂ is 80 % despite suction and positioning. Mask ventilation is impossible and the oropharynx is unrecognisable."
+ },
+ {
+  "id": "fpc.fpc-surgical-airway.case.1",
+  "t": "Oral intubation and SGA placement are likely to fail; front-of-neck access may be the primary airway rather than a rescue. Sitting the patient forward may help drainage while preparing, if the spine assessment allows."
+ },
+ {
+  "id": "fpc.fpc-mech-vent.modes.0",
+  "t": "In volume control (VC), you set the tidal volume, rate, flow (or inspiratory time), PEEP and FiO₂. The ventilator guarantees the volume; airway pressure is the result and rises when compliance falls or resistance rises. Watch the peak and plateau pressures."
+ },
+ {
+  "id": "fpc.fpc-mech-vent.modes.1",
+  "t": "In pressure control (PC), you set the inspiratory pressure above PEEP, inspiratory time, rate, PEEP and FiO₂. Pressure is capped; tidal volume is the result and falls when the lungs stiffen or the airways narrow. Watch the exhaled tidal volume and minute ventilation."
+ },
+ {
+  "id": "fpc.fpc-mech-vent.modes.2",
+  "t": "Assist-control (AC) delivers a full mandatory breath, volume- or pressure-targeted, every time the patient triggers, plus backup breaths at the set rate. SIMV delivers set mandatory breaths synchronised with patient effort and allows spontaneous breaths between them, usually with pressure support. Pressure support (PS) alone requires the patient to trigger every breath and is not appropriate for a paralysed or apnoeic patient."
+ },
+ {
+  "id": "fpc.fpc-mech-vent.initial.0",
+  "t": "Base tidal volume on predicted body weight (PBW), not actual weight — the lungs are the size of the person's height. PBW is 50 + 0.91 × (height in cm − 152.4) kg for men and 45.5 + 0.91 × (height − 152.4) for women. A starting tidal volume of 6–8 mL/kg PBW is lung-protective for most patients; use 6 mL/kg in ARDS."
+ },
+ {
+  "id": "fpc.fpc-mech-vent.initial.1",
+  "t": "A typical adult start: AC/VC, VT 6–8 mL/kg PBW, rate 16–20, PEEP 5–8 cmH₂O, FiO₂ 1.0 then titrated to SpO₂ 92–96 %, inspiratory time about 1 second or an I:E ratio of 1:2. Then adjust: match the patient's pre-intubation minute ventilation if they were compensating for an acidosis; lengthen expiration in obstruction."
+ },
+ {
+  "id": "fpc.fpc-mech-vent.initial.2",
+  "t": "Check an arterial or venous gas and end-tidal CO₂ trends after settings change. EtCO₂ normally runs a few mmHg below PaCO₂; the gap widens with dead space (low cardiac output, pulmonary embolism, COPD, overdistension)."
+ },
+ {
+  "id": "fpc.fpc-mech-vent.pressures.0",
+  "t": "Peak inspiratory pressure (PIP) is the pressure needed to push the tidal volume through the airways and stretch the lungs and chest wall. Plateau pressure (Pplat), measured with an inspiratory hold of about 0.5 seconds when flow is zero, reflects only the elastic component. Keep the plateau at or below 30 cmH₂O."
+ },
+ {
+  "id": "fpc.fpc-mech-vent.pressures.1",
+  "t": "Driving pressure is plateau minus PEEP. It expresses how hard the tidal volume stretches the available lung; lower driving pressures (below about 15 cmH₂O) are associated with better outcomes in ARDS. Static compliance is tidal volume divided by driving pressure."
+ },
+ {
+  "id": "fpc.fpc-mech-vent.pressures.2",
+  "t": "High peak with a normal plateau (a large peak–plateau gap) is a resistance problem: kinked or bitten tube, secretions, bronchospasm, small tube. High peak with a high plateau is a compliance problem: pneumothorax, mainstem intubation, pulmonary oedema, ARDS, abdominal distension, chest wall rigidity, auto-PEEP."
+ },
+ {
+  "id": "fpc.fpc-mech-vent.dope.0",
+  "t": "If a ventilated patient suddenly desaturates or becomes hypotensive, disconnect from the ventilator and ventilate by hand with a BVM on 100 % oxygen. This separates machine problems from patient problems and immediately relieves breath stacking. Then work through DOPE."
+ },
+ {
+  "id": "fpc.fpc-mech-vent.disease.0",
+  "t": "ARDS: VT 6 mL/kg PBW (4–8), plateau ≤ 30, PEEP set by an oxygenation table or response (often 10–16 or higher), accept PaCO₂ elevation if pH > 7.20–7.25, and consider prone positioning and neuromuscular blockade in severe disease at the receiving centre."
+ },
+ {
+  "id": "fpc.fpc-mech-vent.disease.1",
+  "t": "Asthma and COPD: the danger is air trapping. Use a low rate (8–12), a normal tidal volume, a short inspiratory time with a high flow, and an I:E ratio of 1:4 or longer so expiratory flow returns to zero before the next breath. Accept hypercapnia. Measure auto-PEEP with an expiratory hold; if the blood pressure falls, disconnect and allow the chest to empty."
+ },
+ {
+  "id": "fpc.fpc-mech-vent.disease.2",
+  "t": "Severe metabolic acidosis (DKA, salicylates, sepsis): set a high minute ventilation that matches the patient's own pre-intubation effort — often a rate of 28–35 with an adequate volume — and check a gas early. Over-ventilating a salicylate patient is protective; under-ventilating can cause arrest."
+ },
+ {
+  "id": "fpc.fpc-mech-vent.disease.3",
+  "t": "Raised ICP: aim for normocapnia (PaCO₂ 35–40 mmHg, using EtCO₂ trends) and normal oxygenation. Brief hyperventilation to PaCO₂ about 30–35 is a temporising measure only for signs of herniation; prolonged hyperventilation causes cerebral vasoconstriction and ischaemia."
+ },
+ {
+  "id": "fpc.fpc-mech-vent.altitude.0",
+  "t": "Altitude reduces the partial pressure of oxygen; in unpressurised aircraft or at high cabin altitudes, expect to raise FiO₂ to maintain the same saturation. Gas in the endotracheal tube cuff expands with altitude (Boyle's law) — monitor cuff pressure and adjust, or fill the cuff with saline on long or high flights if your protocol allows."
+ },
+ {
+  "id": "fpc.fpc-mech-vent.altitude.1",
+  "t": "Transport ventilators differ: some compensate for altitude in delivered volume, some do not; know your device. Secure the tube and circuit before moving, carry a BVM with PEEP valve, and calculate oxygen requirement for the flight with a reserve."
+ },
+ {
+  "id": "fpc.fpc-mech-vent.case.0",
+  "t": "A 40-year-old woman, 165 cm, with influenza pneumonia is on VC: VT 550, RR 18, PEEP 8, FiO₂ 0.8. SpO₂ 89 %, peak 38, plateau 33. ABG pH 7.31, PaCO₂ 52, PaO₂ 58. You are transferring her to an ECMO centre."
+ },
+ {
+  "id": "fpc.fpc-mech-vent.case.1",
+  "t": "Her PBW is 45.5 + 0.91 × (165 − 152.4) ≈ 57 kg. A VT of 550 is about 9.6 mL/kg PBW, and the plateau of 33 exceeds the target. P/F ratio is 58/0.8 ≈ 73: severe ARDS."
+ },
+ {
+  "id": "fpc.fpc-alt-airway.adjuncts.0",
+  "t": "An oropharyngeal airway (OPA) lifts the tongue off the posterior pharynx. Size from the incisors (or corner of the mouth) to the angle of the jaw. It is tolerated only by patients without a gag reflex; in a patient with a gag it causes vomiting and laryngospasm."
+ },
+ {
+  "id": "fpc.fpc-alt-airway.adjuncts.1",
+  "t": "A nasopharyngeal airway (NPA) is tolerated by patients with an intact gag. Size from the nostril to the tragus, lubricate, and insert along the floor of the nose with the bevel toward the septum. Basilar skull fracture is a traditional contraindication, though the risk is very small with careful technique when the airway is otherwise lost. Use two NPAs plus an OPA with two-handed mask ventilation in difficult cases."
+ },
+ {
+  "id": "fpc.fpc-alt-airway.sga.0",
+  "t": "Supraglottic airways (SGAs) sit above the glottis and seal around the laryngeal inlet. First-generation devices (classic laryngeal mask airway) have a single lumen. Second-generation devices (such as the i-gel or LMA Supreme) add a gastric drainage channel, a bite block and a higher seal pressure, making them better rescue devices and allowing gastric decompression."
+ },
+ {
+  "id": "fpc.fpc-alt-airway.sga.1",
+  "t": "Retroglottic devices such as the King LT sit with the distal tip in the oesophagus and balloons above and below the larynx. They are quick to place blind but can cause tongue swelling with prolonged use and are sometimes difficult to exchange."
+ },
+ {
+  "id": "fpc.fpc-alt-airway.sga.2",
+  "t": "Sizing is by weight (or height for some devices) — check the device. Insert with the head in a neutral or sniffing position, the device lubricated on its back, along the hard palate until resistance. Confirm with capnography, chest rise and absence of a large leak."
+ },
+ {
+  "id": "fpc.fpc-alt-airway.sga.3",
+  "t": "SGAs do not protect fully against aspiration, can leak at high airway pressures (poor lungs, obesity, bronchospasm), and fail with obstruction at or below the larynx. They are an excellent bridge and a reasonable transport airway when intubation is not possible."
+ },
+ {
+  "id": "fpc.fpc-alt-airway.laryngoscopes.0",
+  "t": "Direct laryngoscopy aligns the oral, pharyngeal and laryngeal axes to see the cords directly. It is quick, robust in heavy contamination and works when the camera fails, but needs neck extension and mandibular space."
+ },
+ {
+  "id": "fpc.fpc-alt-airway.laryngoscopes.1",
+  "t": "Standard-geometry video laryngoscopes (Macintosh-shaped blades with a camera) allow both direct and indirect views and work with a standard stylet or bougie. Hyperangulated blades see around the tongue with minimal neck movement, which helps in spinal precautions and anterior larynges, but the tube must follow a steep curve: a rigid angled stylet shaped to the blade is needed, and seeing the cords does not guarantee delivering the tube."
+ },
+ {
+  "id": "fpc.fpc-alt-airway.laryngoscopes.2",
+  "t": "Video laryngoscopy improves first-pass success in many emergency settings and lets the team see the view. Fogging, blood and secretions on the lens and screen glare in sunlight are its main field limitations."
+ },
+ {
+  "id": "fpc.fpc-alt-airway.bougie.0",
+  "t": "A bougie (tracheal tube introducer) has an angled tip that can be steered anterior to the arytenoids in a limited view. Tracheal placement is suggested by clicks against tracheal rings and hold-up at the small airways; oesophageal placement passes without resistance. First-pass success with a bougie on every attempt was higher than with a stylet in some emergency trials."
+ },
+ {
+  "id": "fpc.fpc-alt-airway.bougie.1",
+  "t": "To convert an SGA to an endotracheal tube, intubating SGAs and fibreoptic or airway-exchange-catheter techniques exist; they are skills best practised before needed. In transport, a functioning SGA is often safer to keep than to exchange in a moving aircraft."
+ },
+ {
+  "id": "fpc.fpc-alt-airway.case.0",
+  "t": "An adult in out-of-hospital cardiac arrest with ongoing CPR. Ground crews have placed a King LT; there is a capnography trace of 18 mmHg and good chest rise. You are asked to intubate before flight."
+ },
+ {
+  "id": "fpc.fpc-alt-airway.case.1",
+  "t": "A working supraglottic airway with capnographic confirmation is acceptable airway management during CPR; interrupting compressions for laryngoscopy has a cost. Exchange becomes reasonable when compressions can continue during the attempt, or after ROSC, and only if there is a clear benefit (leak at higher pressures, need for protection, long transport)."
+ },
+ {
+  "id": "fpc.fpc-peri-arrest.scope.0",
+  "t": "In critically ill adults, cardiac arrest occurs in a few percent of emergency intubations, far more often than in the operating room. Severe hypoxaemia and cardiovascular collapse (a systolic pressure below about 65 mmHg or a new vasopressor requirement) are each common. Most arrests happen within minutes of induction and many are pulseless electrical activity or bradycardia."
+ },
+ {
+  "id": "fpc.fpc-peri-arrest.scope.1",
+  "t": "Four mechanisms combine. Hypoxaemia from apnoea in a patient with poor reserve. Hypotension from loss of sympathetic tone with induction and reduced venous return from positive pressure. Worsening acidosis when a compensating patient becomes apnoeic and is then under-ventilated. And right-ventricular failure when hypoxia, hypercapnia and positive pressure raise pulmonary vascular resistance in a ventricle already at its limit."
+ },
+ {
+  "id": "fpc.fpc-peri-arrest.bundle.0",
+  "t": "Hypoxaemia: optimise pre-oxygenation with NIV or a PEEP valve, use apnoeic oxygenation, ventilate gently during apnoea if needed, and aim for first-pass success."
+ },
+ {
+  "id": "fpc.fpc-peri-arrest.bundle.1",
+  "t": "Hypotension: treat volume depletion with fluid or blood, start or increase a vasopressor infusion before induction (many teams target a systolic pressure above about 90–100 or MAP above 65 before proceeding), have push-dose vasopressors ready, and reduce the induction dose. Avoid propofol in shock."
+ },
+ {
+  "id": "fpc.fpc-peri-arrest.bundle.2",
+  "t": "Acidosis: minimise apnoea time; immediately after intubation set a minute ventilation matching the pre-intubation effort. Some clinicians consider bicarbonate in extreme acidaemia as a bridge, though evidence is limited."
+ },
+ {
+  "id": "fpc.fpc-peri-arrest.bundle.3",
+  "t": "RV failure: avoid hypotension and hypoxia; consider an inhaled pulmonary vasodilator if available; use modest PEEP and tidal volumes; consider awake or delayed approaches and the smallest possible induction dose."
+ },
+ {
+  "id": "fpc.fpc-peri-arrest.after.0",
+  "t": "Check pressure every one to three minutes after induction. If it falls: give a push-dose vasopressor, increase the infusion, reduce PEEP and tidal volume temporarily if positive pressure is limiting venous return, rule out tension pneumothorax and auto-PEEP by disconnecting briefly, and treat bleeding."
+ },
+ {
+  "id": "fpc.fpc-peri-arrest.after.1",
+  "t": "If the patient arrests, start high-quality CPR and follow ACLS, and look for reversible causes particular to this setting: hypoxia (tube position, DOPE), hypovolaemia, tension pneumothorax, acidosis, hyperkalaemia (succinylcholine in a susceptible patient), and auto-PEEP. Disconnecting the ventilator for 30–60 seconds treats breath stacking."
+ },
+ {
+  "id": "fpc.fpc-peri-arrest.case.0",
+  "t": "A 55-year-old after hip surgery with sudden dyspnoea: SpO₂ 84 % on a non-rebreather, BP 86/52, HR 128, distended neck veins, RV dilation on bedside ultrasound. He is tiring and the team considers intubation before transfer to a centre for catheter-directed therapy."
+ },
+ {
+  "id": "fpc.fpc-peri-arrest.case.1",
+  "t": "This patient is at extreme risk of arrest at induction: a failing, pressure-loaded right ventricle that depends on sympathetic tone and preload, combined with hypoxaemia. Positive pressure raises RV afterload and reduces venous return."
+ },
+ {
+  "id": "fpc.fpc-trach.neck.0",
+  "t": "A tracheostomy is an opening into the trachea; the upper airway is still connected to the lungs. These patients can, in principle, be oxygenated from the mouth and nose, or intubated orally, once the stoma is covered."
+ },
+ {
+  "id": "fpc.fpc-trach.neck.1",
+  "t": "A laryngectomy removes the larynx and brings the trachea out as an end stoma; there is no connection between the mouth and the lungs. Oxygen must go to the stoma. Oral intubation is impossible. Bedside signs, wristbands and the patient's own information should make clear which type you are dealing with."
+ },
+ {
+  "id": "fpc.fpc-trach.blocked.0",
+  "t": "Call for help, apply oxygen to both the face and the stoma, and assess patency. Remove any speaking valve or cap, remove the inner cannula if present (many blockages are in the inner tube), and pass a suction catheter. If the catheter passes easily, the tube is likely patent: continue assessment and ventilate."
+ },
+ {
+  "id": "fpc.fpc-trach.blocked.1",
+  "t": "If the catheter will not pass, deflate the cuff and reassess. If the patient is still not breathing adequately, remove the tracheostomy tube. Then oxygenate: for a tracheostomy, by standard upper-airway methods with the stoma covered, or via the stoma with a paediatric face mask or a laryngeal mask applied to the stoma; for a laryngectomy, via the stoma only."
+ },
+ {
+  "id": "fpc.fpc-trach.blocked.2",
+  "t": "Secondary steps: oral intubation (tracheostomy patients only) or intubation of the stoma with a smaller tracheostomy or endotracheal tube, ideally over a bougie or with a fibreoptic scope. A new or fresh tracheostomy (less than about 7 days) has an immature tract that may close or allow a false passage, so recannulation is riskier."
+ },
+ {
+  "id": "fpc.fpc-trach.special.0",
+  "t": "Angioedema: from ACE inhibitors (bradykinin-mediated, does not respond reliably to adrenaline or antihistamines), hereditary angioedema, or anaphylaxis (histamine-mediated, responds to IM adrenaline). Look for voice change, stridor, drooling and tongue or floor-of-mouth swelling. An awake fibreoptic nasal approach by an expert, with a surgical airway prepared, is often preferred when swelling is progressing."
+ },
+ {
+  "id": "fpc.fpc-trach.special.1",
+  "t": "Inhalation injury: soot in the airway, facial burns, singed nasal hair, hoarseness or stridor after fire in an enclosed space. Swelling progresses over hours, worsened by resuscitation fluids. Early intubation with a large tube (7.5–8.0 or more for bronchoscopy) before transport is often indicated when signs of airway involvement exist."
+ },
+ {
+  "id": "fpc.fpc-trach.special.2",
+  "t": "Penetrating neck trauma: an expanding haematoma can distort and compress the airway. Avoid blind techniques that may enter a false passage; consider an awake approach or early surgical airway with a surgeon present. Airway injury with air bubbling from the wound may be intubated directly through the wound in extremis."
+ },
+ {
+  "id": "fpc.fpc-trach.special.3",
+  "t": "Obesity: rapid desaturation, difficult mask ventilation and difficult surgical airway. Ramp, head up, pre-oxygenate with PEEP, use apnoeic oxygenation and video laryngoscopy, and mark the membrane by ultrasound if possible."
+ },
+ {
+  "id": "fpc.fpc-trach.case.0",
+  "t": "A 6-year-old with a tracheostomy on home ventilation becomes acutely distressed during transfer: SpO₂ 82 %, no chest rise with the ventilator, high-pressure alarms. Parents say the tube was changed yesterday and the stoma is mature."
+ },
+ {
+  "id": "fpc.fpc-trach.case.1",
+  "t": "The airway is probably blocked or displaced. Parents are a resource — they often know the tube size, how to change it, and the child's baseline."
+ },
+ {
+  "id": "fpc.fpc-tube-confirm.standard.0",
+  "t": "A sustained, rectangular capnography waveform over several breaths confirms that the tube delivers gas to and from perfused lungs. Professional guidelines treat continuous waveform capnography as mandatory for confirmation and monitoring of every intubated patient, including during transport. \"No trace = wrong place\" until proven otherwise."
+ },
+ {
+  "id": "fpc.fpc-tube-confirm.standard.1",
+  "t": "An oesophageal tube may briefly show CO₂ if the stomach contains exhaled gas from mask ventilation or carbonated drinks, but the trace decays to zero within a few breaths. A tube above the cords can show a trace but will leak and dislodge."
+ },
+ {
+  "id": "fpc.fpc-tube-confirm.standard.2",
+  "t": "In cardiac arrest, CO₂ delivery to the lungs falls with low flow, but high-quality CPR usually produces a measurable, if low, waveform. A flat trace during CPR should prompt reassessment of tube position (visualise with the laryngoscope) rather than acceptance."
+ },
+ {
+  "id": "fpc.fpc-tube-confirm.other.0",
+  "t": "Visualising the tube pass through the cords is strong evidence at the time but does not protect against later displacement. Breath sounds are unreliable in noisy aircraft and may be transmitted from the stomach. Chest rise, misting of the tube and colorimetric CO₂ detectors support placement but are less reliable than waveforms. Ultrasound can show tracheal versus oesophageal placement and bilateral lung sliding. A chest X-ray shows depth, not tracheal versus oesophageal placement."
+ },
+ {
+  "id": "fpc.fpc-tube-confirm.other.1",
+  "t": "Oesophageal detector devices (bulb or syringe) are unreliable in obesity, pregnancy and with copious secretions. Pulse oximetry falls late after oesophageal intubation, particularly after good pre-oxygenation — saturation can remain high for minutes with the tube in the oesophagus."
+ },
+ {
+  "id": "fpc.fpc-tube-confirm.depth.0",
+  "t": "In adults, a depth of about 21 cm at the incisors in women and 23 cm in men is typical; in children over about two years, three times the tube size or (age ÷ 2) + 12 cm at the lips. Confirm bilateral air entry and, when available, imaging or ultrasound. Document the depth and recheck it after every move."
+ },
+ {
+  "id": "fpc.fpc-tube-confirm.depth.1",
+  "t": "Neck flexion moves the tube tip toward the carina; extension moves it toward the cords. In small children a few centimetres of movement can extubate or cause mainstem intubation."
+ },
+ {
+  "id": "fpc.fpc-tube-confirm.depth.2",
+  "t": "Cuff pressure should be about 20–30 cmH₂O, measured with a manometer. Over-inflation causes tracheal mucosal ischaemia; under-inflation allows aspiration and leak. At altitude in unpressurised cabins, air in the cuff expands; check and adjust."
+ },
+ {
+  "id": "fpc.fpc-tube-confirm.monitor.0",
+  "t": "Keep capnography connected from intubation to handover. A sudden loss of the waveform means displacement, disconnection or obstruction until proven otherwise; a sudden fall to a low value suggests cardiac arrest or massive embolism; a gradual rise suggests hypoventilation or rising metabolism; a \"shark-fin\" upstroke suggests bronchospasm or obstruction."
+ },
+ {
+  "id": "fpc.fpc-tube-confirm.monitor.1",
+  "t": "Before every move — onto the stretcher, into the aircraft, at the receiving facility — recheck depth and waveform. Many unplanned extubations occur during these transfers."
+ },
+ {
+  "id": "fpc.fpc-tube-confirm.peds.0",
+  "t": "For children over about two years, the uncuffed tube size is roughly (age ÷ 4) + 4 mm and the cuffed size (age ÷ 4) + 3.5 mm; have a half size above and below ready. Length-based tapes give tube size and drug doses in one step and reduce calculation errors under stress. Depth at the lips is about three times the internal diameter."
+ },
+ {
+  "id": "fpc.fpc-tube-confirm.peds.1",
+  "t": "Small movements matter: in an infant the trachea may be only 4–5 cm long, so flexion or extension of the head can move the tip from mid-trachea into a main bronchus or out through the cords. Keep the head in a neutral position, tape securely across the upper lip, and recheck depth and capnography after every move and before take-off."
+ },
+ {
+  "id": "fpc.fpc-tube-confirm.peds.2",
+  "t": "In neonates, the tip-to-lip depth is approximately weight in kilograms + 6 cm. A chest X-ray on arrival confirms the tip sits between the clavicles and the carina."
+ },
+ {
+  "id": "fpc.fpc-tube-confirm.case.0",
+  "t": "An intubated patient is moved from the ICU bed to your stretcher, then into the aircraft. On reconnection the waveform is absent and the SpO₂ is still 98 %."
+ },
+ {
+  "id": "fpc.fpc-tube-confirm.case.1",
+  "t": "High saturation reassures nobody: a well pre-oxygenated patient can keep a high SpO₂ for minutes after displacement. Loss of the waveform after a move is a displaced or disconnected tube until proven otherwise."
+ },
+ {
+  "id": "fpc.fpc-suction.equipment.0",
+  "t": "Rigid (Yankauer or large-bore) catheters clear the oropharynx of blood, vomit and particulate matter. Large-bore rigid catheters clear thick material far faster than standard Yankauers. Soft (French) catheters pass through endotracheal and tracheostomy tubes or the nose."
+ },
+ {
+  "id": "fpc.fpc-suction.equipment.1",
+  "t": "Typical suction pressures are 80–120 mmHg for endotracheal suction in adults (lower in children and neonates, often 60–100 mmHg and 60–80 mmHg respectively); oropharyngeal clearance of heavy contamination may use higher settings. Follow your device and protocol."
+ },
+ {
+  "id": "fpc.fpc-suction.equipment.2",
+  "t": "Size an endotracheal suction catheter so it occludes no more than about half the internal diameter of the tube; a quick rule is catheter size in French ≈ 2 × the tube size in mm (for example, a 14 Fr catheter for a 7.0 tube). Too large a catheter can evacuate the lungs and cause atelectasis."
+ },
+ {
+  "id": "fpc.fpc-suction.technique.0",
+  "t": "Pre-oxygenate with FiO₂ 1.0 for 30–60 seconds. Insert the catheter without suction to the carina or until resistance, withdraw 1 cm, then apply suction while withdrawing with a rotating motion. Limit each pass to about 10–15 seconds in adults (shorter in children). Allow re-oxygenation between passes."
+ },
+ {
+  "id": "fpc.fpc-suction.technique.1",
+  "t": "Closed in-line suction systems allow suctioning without disconnecting the ventilator, preserving PEEP and reducing aerosol exposure — preferable in ARDS, high PEEP, and infectious disease. Routine saline instillation is not recommended: it can worsen oxygenation and spread contamination."
+ },
+ {
+  "id": "fpc.fpc-suction.technique.2",
+  "t": "Watch for hypoxaemia, bradycardia (vagal stimulation), arrhythmias, raised intracranial pressure, mucosal trauma and bleeding, and bronchospasm."
+ },
+ {
+  "id": "fpc.fpc-suction.contaminated.0",
+  "t": "Massive regurgitation or haemorrhage defeats laryngoscopy and fills the lungs. Position head-up if possible, use a large-bore rigid suction catheter, and lead with it during laryngoscopy (suction-assisted laryngoscopy and airway decontamination, SALAD). After clearing the oropharynx, park the catheter in the upper oesophagus to the left of the blade to control ongoing regurgitation."
+ },
+ {
+  "id": "fpc.fpc-suction.contaminated.1",
+  "t": "After intubation, suction through the tube before ventilating if aspirated material is present; bronchoscopy at the receiving centre may be needed for particulate aspiration."
+ },
+ {
+  "id": "fpc.fpc-suction.checks.0",
+  "t": "Check suction at the start of every shift and before every airway: power or battery, canister seated and empty, tubing connected, a rigid catheter and soft catheters of the right sizes, and the vacuum reading with the tubing occluded. Portable units lose strength as batteries drain; a manual hand-powered suction is a useful backup."
+ },
+ {
+  "id": "fpc.fpc-suction.checks.1",
+  "t": "Complications are mostly preventable. Hypoxaemia is limited by pre-oxygenation and short passes. Mucosal trauma and bleeding are limited by appropriate pressures, not jabbing the catheter, and stopping 1 cm short of the carina. Atelectasis is limited by catheter size no more than half the tube lumen and by closed systems that preserve PEEP. Infection risk is reduced by sterile technique for endotracheal suction."
+ },
+ {
+  "id": "fpc.fpc-suction.checks.2",
+  "t": "Document what you removed — volume, colour, blood or particulate matter — because it informs the receiving team about aspiration, pneumonia or haemorrhage."
+ },
+ {
+  "id": "fpc.fpc-suction.special.0",
+  "t": "Neonates and infants: use lower pressures and smaller catheters, limit each pass to about 5–10 seconds, suction the mouth before the nose (nasal stimulation can trigger a gasp and aspiration of oral contents), and watch for bradycardia. In the newly born, routine deep suction is not recommended; suction only if the airway is obstructed."
+ },
+ {
+  "id": "fpc.fpc-suction.special.1",
+  "t": "Raised intracranial pressure: suctioning causes coughing and surges in ICP. Ensure adequate sedation and analgesia, pre-oxygenate, keep passes short, and avoid repeated passes."
+ },
+ {
+  "id": "fpc.fpc-suction.special.2",
+  "t": "Tracheostomy patients: measure the catheter against the tube length or use pre-measured suction to avoid trauma to the carina. Inner cannulas can be removed and cleaned when secretions are thick."
+ },
+ {
+  "id": "fpc.fpc-suction.special.3",
+  "t": "Infectious disease: closed in-line systems reduce aerosol exposure; wear appropriate PPE for open suction."
+ },
+ {
+  "id": "fpc.fpc-suction.case.0",
+  "t": "An intubated pneumonia patient on a 90-minute flight develops rising peak pressures, a shark-fin capnogram and falling SpO₂. Plateau pressure is unchanged."
+ },
+ {
+  "id": "fpc.fpc-suction.case.1",
+  "t": "A rising peak with an unchanged plateau is a resistance problem; the most likely cause in this patient is secretions in the tube. Dry oxygen and long transport thicken secretions; heat and moisture exchangers help."
+ },
+ {
+  "id": "fpc.fpc-capnography.phases.0",
+  "t": "Phase I is the inspiratory baseline, near zero, as dead-space gas without CO₂ leaves first. Phase II is the expiratory upstroke as alveolar gas mixes with dead space. Phase III is the alveolar plateau, ending in the end-tidal value (normally 35–45 mmHg). Phase 0 (sometimes called phase IV) is the inspiratory downstroke as fresh gas enters."
+ },
+ {
+  "id": "fpc.fpc-capnography.phases.1",
+  "t": "EtCO₂ is usually 2–5 mmHg below PaCO₂ in healthy lungs. The gap widens with dead space: low cardiac output, pulmonary embolism, COPD, overdistension, and hypovolaemia. In those patients EtCO₂ underestimates PaCO₂, so trend EtCO₂ against a blood gas."
+ },
+ {
+  "id": "fpc.fpc-capnography.arrest.0",
+  "t": "During CPR, EtCO₂ reflects pulmonary blood flow generated by compressions. A value persistently below about 10 mmHg suggests poor-quality compressions — change compressors, check depth and rate — or a very poor prognosis when it persists after prolonged resuscitation despite good CPR (interpreted alongside other factors, never alone)."
+ },
+ {
+  "id": "fpc.fpc-capnography.arrest.1",
+  "t": "A sudden rise in EtCO₂ (often to 35–45 mmHg or more) during compressions is an early sign of return of spontaneous circulation, often before a pulse is palpable. Bicarbonate administration also transiently raises EtCO₂, which must be distinguished from ROSC."
+ },
+ {
+  "id": "fpc.fpc-capnography.uses.0",
+  "t": "Sedation and opioids: nasal-oral capnography detects hypoventilation and apnoea before oxygen saturation falls, particularly when supplemental oxygen keeps SpO₂ high."
+ },
+ {
+  "id": "fpc.fpc-capnography.uses.1",
+  "t": "Brain injury: target normocapnia (PaCO₂ 35–40). Establish the PaCO₂–EtCO₂ gap with a blood gas, then ventilate to the EtCO₂ that corresponds; hyperventilate only briefly for signs of herniation."
+ },
+ {
+  "id": "fpc.fpc-capnography.uses.2",
+  "t": "Metabolic acidosis: in a spontaneously breathing patient a very low EtCO₂ reflects respiratory compensation (for example, in DKA); after intubation, preserving that low CO₂ is essential."
+ },
+ {
+  "id": "fpc.fpc-capnography.uses.3",
+  "t": "Shock: falling EtCO₂ at constant ventilation suggests falling cardiac output."
+ },
+ {
+  "id": "fpc.fpc-capnography.physiology.0",
+  "t": "End-tidal CO₂ depends on three things: production by metabolism, delivery to the lungs by the circulation, and elimination by ventilation. A change in the number always means one of those three has changed — or the equipment has."
+ },
+ {
+  "id": "fpc.fpc-capnography.physiology.1",
+  "t": "Production rises with fever, shivering, seizures, sepsis, malignant hyperthermia, and when bicarbonate is given (it is converted to CO₂). Production falls with hypothermia and deep sedation."
+ },
+ {
+  "id": "fpc.fpc-capnography.physiology.2",
+  "t": "Delivery depends on cardiac output and pulmonary blood flow. A sudden fall at constant ventilation means falling output, a pulmonary embolism or cardiac arrest; a sudden rise during CPR suggests ROSC."
+ },
+ {
+  "id": "fpc.fpc-capnography.physiology.3",
+  "t": "Elimination depends on alveolar ventilation: rate × (tidal volume − dead space). Hypoventilation raises EtCO₂; hyperventilation lowers it. Increased dead space lowers EtCO₂ relative to PaCO₂ even though the arterial value may be rising."
+ },
+ {
+  "id": "fpc.fpc-capnography.case.0",
+  "t": "You transport an intubated septic patient. Over the flight, the capnogram tells a story — if you read it."
+ },
+ {
+  "id": "fpc.fpc-nippv.physiology.0",
+  "t": "CPAP applies one continuous pressure throughout the breath. It recruits collapsed alveoli and increases FRC, reducing shunt and improving oxygenation; in cardiogenic pulmonary oedema it reduces preload and LV afterload by raising intrathoracic pressure; it splints open the upper airway in obstructive sleep apnoea; and it offsets auto-PEEP, reducing the work of triggering in COPD."
+ },
+ {
+  "id": "fpc.fpc-nippv.physiology.1",
+  "t": "BiPAP (bilevel) adds a higher inspiratory pressure (IPAP) above the expiratory pressure (EPAP, equivalent to PEEP). The difference, the pressure support, augments tidal volume and so improves ventilation and CO₂ clearance — the key indication being hypercapnic COPD exacerbation."
+ },
+ {
+  "id": "fpc.fpc-nippv.select.0",
+  "t": "Strong evidence supports NIV in acute hypercapnic COPD exacerbation (pH roughly 7.25–7.35) and cardiogenic pulmonary oedema. It is also used for pre-oxygenation, in immunocompromised patients with respiratory failure, and in selected asthma and pneumonia patients with close monitoring."
+ },
+ {
+  "id": "fpc.fpc-nippv.select.1",
+  "t": "Contraindications: respiratory or cardiac arrest, inability to protect the airway or clear secretions, severely depressed consciousness (except hypercapnic narcosis expected to improve quickly), vomiting or upper GI bleeding, facial trauma or burns preventing a seal, recent upper airway or oesophageal surgery, untreated pneumothorax, and haemodynamic instability (positive pressure lowers venous return)."
+ },
+ {
+  "id": "fpc.fpc-nippv.monitor.0",
+  "t": "Reassess within 30–60 minutes and continuously in transport: respiratory rate, work of breathing, SpO₂, EtCO₂ trend, mental status, leak, synchrony and blood pressure. Expected improvement: falling respiratory rate and heart rate, better comfort, improving pH and CO₂."
+ },
+ {
+  "id": "fpc.fpc-nippv.monitor.1",
+  "t": "Failure signs: worsening mental status, inability to tolerate the mask, rising CO₂ or falling pH, persistent tachypnoea, haemodynamic instability, vomiting. Delayed intubation after failed NIV is associated with worse outcomes; in transport, where intubating mid-flight is difficult, the threshold to intubate before departure should be lower if improvement is not clear."
+ },
+ {
+  "id": "fpc.fpc-nippv.monitor.2",
+  "t": "Altitude: mask leak and gastric distension may increase; some transport devices compensate for altitude. Communication is harder under a mask; agree hand signals."
+ },
+ {
+  "id": "fpc.fpc-nippv.hfno.0",
+  "t": "Heated, humidified high-flow nasal oxygen (often 30–60 L/min) delivers a reliable FiO₂, washes CO₂ from the anatomical dead space, produces a small positive pressure, and is comfortable. It is useful in hypoxaemic respiratory failure, for pre-oxygenation and for apnoeic oxygenation. It is oxygen-hungry, which matters for transport oxygen calculations."
+ },
+ {
+  "id": "fpc.fpc-nippv.interface.0",
+  "t": "The interface decides whether NIV works. Oronasal (full-face) masks suit acute respiratory failure because breathless patients breathe through the mouth. Nasal masks suit calmer patients and allow speech. Total-face masks and helmets spread pressure over a larger area and help when pressure sores or claustrophobia limit other masks."
+ },
+ {
+  "id": "fpc.fpc-nippv.interface.1",
+  "t": "Fit the mask so it seals without excessive strap tension: one or two fingers should slide under the straps. Small leaks are tolerated by ventilators designed for NIV; large leaks cause asynchrony, failure to trigger or cycle, and dry eyes. Re-fit rather than tighten."
+ },
+ {
+  "id": "fpc.fpc-nippv.interface.2",
+  "t": "Watch the patient breathe with the machine. Triggering delays, double triggering or breaths that end before the patient finishes inhaling increase work of breathing. Adjust the trigger sensitivity and rise time, coach the patient, and consider low-dose anxiolysis — while never sedating a patient so deeply that airway protection is lost."
+ },
+ {
+  "id": "fpc.fpc-nippv.interface.3",
+  "t": "Gastric distension, eye irritation, nasal bridge pressure injury and aspiration are the common complications; a gastric tube may be needed on long transports."
+ },
+ {
+  "id": "fpc.fpc-nippv.case.0",
+  "t": "A 72-year-old with hypertension is sitting bolt upright, frothy sputum, SpO₂ 82 % on a non-rebreather, BP 210/120, HR 118, crackles to the apices. She is alert and frightened."
+ },
+ {
+  "id": "fpc.fpc-nippv.case.1",
+  "t": "Sympathetic crashing acute pulmonary oedema: high afterload drives fluid into the lungs. CPAP or BiPAP lowers preload and afterload and recruits flooded alveoli, while high-dose nitrates lower afterload. Intubation can often be avoided."
  }
 ]
