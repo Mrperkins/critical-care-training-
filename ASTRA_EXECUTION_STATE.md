@@ -131,3 +131,4 @@ User (Oct 16): full lessons too short; base all lessons on Kyle Faudree's study 
 - Narration: every FP-C paragraph is a vo line (`fpc.<lesson>.<section>.<n>`, added in vo-lines.ts and voice.test.ts).
 - Next domains in order: IV Medical (14), VI Cardiac (14), VII Trauma/Burn (13), V Neuro (12), I Safety (9), IX Peds (9), VIII OB/Neo (8), II Flight physiology (7), X Professional (7).
 - Domain IV (Medical emergencies; 15 subtopics) complete (`feat/fpc-medical`): `fpc/lessons/medical1–5.ts` + `medicalCases.ts` (transport cases and extra sections). All lessons 15–16 min full, 15 questions each.
+- Domain VI (Cardiac; 17 subtopics) complete (`feat/fpc-cardiac`): `fpc/lessons/cardiac1–6.ts` + `cardiacCases.ts`. Questions are written fresh; any that echoed the handbook's sample questions were reworded.
