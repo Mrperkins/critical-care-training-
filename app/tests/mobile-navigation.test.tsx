@@ -108,11 +108,14 @@ describe('phone navigation interactions', () => {
     await act(async () => root.render(<App />));
     await click('Women’s Health / OB', container.querySelector('dialog')!);
     await click('Start 4-chapter explainer');
-    expect(container.textContent).toContain('Step 1 of 4'); expect(container.querySelector('progress[aria-label="Lesson progress"]')).toBeTruthy();
-    await click('Next step'); expect(container.textContent).toContain('Step 2 of 4');
-    const bookmark = container.querySelector<HTMLButtonElement>('button[title="Bookmark this moment"]')!;
+    // every lesson opens on the choice between the full course and the TL;DR
+    expect(container.textContent).toContain('Full course'); expect(container.textContent).toContain('TL;DR');
+    await act(async () => container.querySelector<HTMLButtonElement>('.track-option:not(.tldr)')!.click());
+    expect(container.textContent).toContain('Scene 1 of 4'); expect(container.querySelector('input[aria-label="Lesson time"]')).toBeTruthy();
+    await act(async () => container.querySelector<HTMLButtonElement>('button[aria-label="Next scene"]')!.click()); expect(container.textContent).toContain('Scene 2 of 4');
+    const bookmark = container.querySelector<HTMLButtonElement>('button[aria-label="Bookmark this moment"]')!;
     await act(async () => bookmark.click()); expect(useProgress.getState().bookmarks[0].lessonId).toMatch(/^atlas-/);
-    await click('← All lessons'); expect(container.textContent).toContain('Start 4-chapter explainer');
+    await click('All lessons'); expect(container.textContent).toContain('Start 4-chapter explainer');
     await act(async () => director.unload());
   });
   it.each([['Pediatrics','pediatrics'], ['Women’s Health / OB','womens']] as const)('%s has actual Learn, Explore and Practice content', async (label,module) => {

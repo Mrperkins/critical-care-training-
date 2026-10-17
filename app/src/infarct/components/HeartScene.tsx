@@ -1,4 +1,5 @@
 import { supportsWebGL, SceneBoundary, SceneUnavailable } from '../../scene/SceneBoundary';
+import { useCameraGate } from '../../scene/cameraPolicy';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { Canvas, useFrame, useThree, type ThreeEvent } from '@react-three/fiber';
@@ -503,7 +504,7 @@ export function selectLead(id: LeadId | null) {
 function dirVec(d: Vec3) { return new THREE.Vector3(...d).normalize(); }
 
 function CameraRig({ asset }: { asset: HeartAsset }) {
-  const ref = useRef<CameraControls>(null!);
+  const ref = useRef<CameraControls>(null!); useCameraGate(ref);
   const { size } = useThree();
   const last = useRef({ key: '', t0: 0, idle: 0 });
   const nonce = useApp((s) => s.cameraNonce);

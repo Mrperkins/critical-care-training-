@@ -6,6 +6,7 @@
  * alarms, ABG and ventilator console. No SVG/2D patient substitute.
  */
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCameraGate } from '../scene/cameraPolicy';
 import * as THREE from 'three';
 import { useFrame, useThree } from '@react-three/fiber';
 import { CameraControls } from '@react-three/drei';
@@ -195,7 +196,7 @@ function Tubing({ disconnected, child, onToggle }: { disconnected: boolean; chil
 
 function Camera({ view, revision, child }: { view: View; revision: number; child: boolean }) {
   const { size } = useThree();
-  const controls = useRef<CameraControls>(null);
+  const controls = useRef<CameraControls>(null); useCameraGate(controls);
   useEffect(() => {
     const c = controls.current;
     if (!c) return;

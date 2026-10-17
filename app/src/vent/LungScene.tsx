@@ -4,6 +4,7 @@
  * pleural collapse, airway flow — so the anatomy can never disagree with the waveforms.
  */
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCameraGate } from '../scene/cameraPolicy';
 import * as THREE from 'three';
 import { useFrame, useThree } from '@react-three/fiber';
 import { CameraControls, Html } from '@react-three/drei';
@@ -292,7 +293,7 @@ const VIEWS: Record<string, { dir: [number, number, number]; tgt: [number, numbe
 };
 function Rig() {
   const three = useThree(); (window as unknown as Record<string, unknown>).__three = three;
-  const ref = useRef<CameraControls>(null); const view = useUI((s) => s.ventView);
+  const ref = useRef<CameraControls>(null); const view = useUI((s) => s.ventView); useCameraGate(ref);
   const aspect = three.size.width / Math.max(1, three.size.height);
   useEffect(() => {
     if (!(aspect > 0.05) || !isFinite(aspect)) return;

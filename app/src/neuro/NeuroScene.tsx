@@ -4,6 +4,7 @@
  * primitives and brain.* semantic camera targets. All state comes from useNeuroUI — this file only draws.
  */
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCameraGate } from '../scene/cameraPolicy';
 import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
 import { CameraControls, Html } from '@react-three/drei';
@@ -268,7 +269,7 @@ const VIEW: Record<string, (f: BrainFrame) => [THREE.Vector3, THREE.Vector3]> = 
   'brain.ica_r': () => [ANCH.ica_r.clone().add(new THREE.Vector3(-2.6, 0.2, 2.4)), ANCH.ica_r.clone().add(new THREE.Vector3(0, 0.4, 0))],
 };
 function Rig({ frame }: { frame: BrainFrame }) {
-  const cc = useRef<CameraControls>(null); const target = useNeuroUI((s) => s.target); const first = useRef(true);
+  const cc = useRef<CameraControls>(null); const target = useNeuroUI((s) => s.target); const first = useRef(true); useCameraGate(cc);
   const cut = useNeuroUI((s) => s.cut); const slice = useNeuroUI((s) => s.slice);
   useEffect(() => { const f = VIEW[cut && target === 'brain.whole' ? 'brain.slice' : target] ?? VIEW['brain.whole']; const [p, l] = f(frame); cc.current?.setLookAt(p.x, p.y, p.z, l.x, l.y, l.z, !first.current); first.current = false; }, [target, frame, cut, slice]);
   return <CameraControls ref={cc} makeDefault minDistance={0.8} maxDistance={14} smoothTime={0.6} />;

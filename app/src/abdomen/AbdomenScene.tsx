@@ -6,6 +6,7 @@
  * distension / ischaemia, pancreatitis.
  */
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCameraGate } from '../scene/cameraPolicy';
 import * as THREE from 'three';
 import { mergeVertices } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { useFrame, useThree } from '@react-three/fiber';
@@ -133,7 +134,7 @@ const VIEW: Record<string, { tgt: THREE.Vector3; dir: THREE.Vector3; size: [numb
   'abdomen.diaphragm': { tgt: ABD.diaphragm, dir: V(0.1, 0.1, 1), size: [3.2, 1.6] },
 };
 function Rig() {
-  const cc = useRef<CameraControls>(null); const target = useAbdUI((s) => s.target); const first = useRef(true);
+  const cc = useRef<CameraControls>(null); const target = useAbdUI((s) => s.target); const first = useRef(true); useCameraGate(cc);
   const cam = useThree((s) => s.camera) as THREE.PerspectiveCamera; const aspect = useThree((s) => s.size.width / Math.max(1, s.size.height));
   useEffect(() => {
     const v = VIEW[target] ?? VIEW['abdomen.whole']; const t = Math.tan(THREE.MathUtils.degToRad(cam.fov / 2));

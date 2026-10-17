@@ -41,9 +41,9 @@ describe('disease learning interactions',()=>{
   });
   it('reveals the active prediction, pauses playback, and clears it when switching disease',async()=>{
     useUI.getState().set({atlasDisease:'ards'});
-    await act(async()=>root.render(<AtlasModule domain="vent"/>));await click('Start 8-chapter explainer');
+    await act(async()=>root.render(<AtlasModule domain="vent"/>));await click('Start 8-chapter explainer');await act(async () => node.querySelector<HTMLButtonElement>('.track-option:not(.tldr)')!.click());
     const cue=useDirector.getState().tl!.cues.find(c=>c.checkpoint)!;
-    await act(async()=>director.seek(cue.at,true));await click('Reveal explanation');expect(useDirector.getState().playing).toBe(false);expect(node.textContent).toContain(cue.checkpoint!.answer);
+    await act(async()=>director.seek(cue.at,true));await click('Show the answer');expect(useDirector.getState().playing).toBe(false);expect(node.textContent).toContain(cue.checkpoint!.answer);
     await act(async()=>useUI.getState().set({atlasDisease:'pulmonary-embolism'}));expect(useDirector.getState().tl).toBeNull();expect(node.textContent).not.toContain(cue.checkpoint!.answer);
   });
   it('adopts a reopened atlas timeline without resetting its bookmarked frame',async()=>{

@@ -1,4 +1,5 @@
 import { useDirector } from '../director/director';
+import { useCameraGate } from '../scene/cameraPolicy';
 import { MechanismHeart } from './MechanismHeart';
 import { MechanismCirculation } from './MechanismCirculation';
 import { EXPLAINERS } from './explainers';
@@ -36,7 +37,7 @@ function boxOf(body: BodyAsset, ids: string[]) {
 }
 
 function Camera({ body, focus, whole, boost = 1 }: { body: BodyAsset; focus: string[]; whole: boolean; boost?: number }) {
-  const controls = useRef<CameraControls>(null); const reduced = useReducedMotion();
+  const controls = useRef<CameraControls>(null); const reduced = useReducedMotion(); useCameraGate(controls);
   const aspect = useThree((s) => s.size.width / Math.max(1, s.size.height));
   useEffect(() => {
     const box = whole ? boxOf(body, ['skin']) : boxOf(body, focus);

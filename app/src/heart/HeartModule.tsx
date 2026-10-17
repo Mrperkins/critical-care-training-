@@ -1,4 +1,5 @@
 import { DiseaseBrowser } from '../atlas/DiseaseBrowser';
+import { LessonLength } from '../app/LessonShell';
 import { useExploreMemory } from '../app/exploreMemory';
 /** Congenital heart module: shunt physiology on a live four-chamber heart. */
 import { MiniSelect } from '../scene/pane';
@@ -253,8 +254,8 @@ function HeartLearn() {
   if (active) return <div className="chal-run"><DirectorPlayer onExit={() => undefined} />{tl.id === NEO_TRANSITION_LESSON.id && <NeoCard />}<HemoCard /></div>;
   return (
     <div className="chal-list"><DiseaseBrowser domain="heart" />
-      <section className="card"><div className="eyebrow">Guided learning</div><h2 className="h2">Congenital heart on a live circulation</h2><p className="muted">Narrated lessons that change the defect and the resistances while the heart, the flow and the numbers respond.</p></section>
-      <details className="lesson-group"><summary>Congenital &amp; circulation lessons</summary>{HEART_LEARN.map((l) => <button key={l.id} className="chal-item" onClick={() => director.load(l, true)}><span className={`lvl lvl-${l.level}`}>{l.level}</span><span className="ci-t">{l.title}<small className="ci-b">{l.blurb}</small></span><span className="ci-k">{l.cues.length} steps</span></button>)}</details>
+      <header className="learn-intro"><h2>Congenital heart on a live circulation</h2><p>Narrated lessons that change the defect and the resistances while the heart, the flow and the numbers respond. Every lesson comes as a full course or a short TL;DR.</p></header>
+      <details className="lesson-group"><summary>Congenital &amp; circulation lessons</summary>{HEART_LEARN.map((l) => <button key={l.id} className="chal-item" onClick={() => director.load(l, true)}><span className={`lvl lvl-${l.level}`}>{l.level}</span><span className="ci-t">{l.title}<small className="ci-b">{l.blurb}</small></span><span className="ci-k"><LessonLength tl={l} /></span></button>)}</details>
     </div>
   );
 }
