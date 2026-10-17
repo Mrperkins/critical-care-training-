@@ -42,7 +42,7 @@ export function IabpCard() {
         <Knob label="Deflation vs next systole" value={Math.round(timing.deflate * 1000)} min={-300} max={100} step={10} unit=" ms" onChange={(v) => set({ timing: { ...timing, deflate: v / 1000 } })} hint="Just before the next upstroke (≈ −40 ms)" />
         <div className="ln-flush"><div><span>Aug peak</span><b>{Math.round(f.augPeak)}</b></div><div><span>BAEDP / PAEDP</span><b className={f.baedp < f.paedp ? 'ok' : 'bad'}>{Math.round(f.baedp)} / {Math.round(f.paedp)}</b></div><div><span>Assisted / unassisted sys</span><b className={f.assistedSys < f.unassistedSys ? 'ok' : 'bad'}>{Math.round(f.assistedSys)} / {Math.round(f.unassistedSys)}</b></div><div><span>Timing</span><b className={cls === 'ideal' ? 'ok' : 'bad'}>{IABP_PRESETS[cls].name}</b></div></div>
         <p className={`explain ${cls === 'ideal' ? 'ok' : 'bad'}`}><b>{IABP_PRESETS[cls].name}.</b> {IABP_PRESETS[cls].sign} <i>{IABP_PRESETS[cls].risk}</i></p>
-        <button className="linkish" onClick={nextQuiz}>Quiz me: mystery trace →</button>
+        <button className="linkish" onClick={nextQuiz}>Quiz me: mystery trace</button>
       </>)}
       <p className="muted small" style={{ marginTop: 6 }}>Teaching waveform built on this patient’s aortic beat; timing values are illustrative. Real consoles time from the ECG or the pressure trace automatically.</p>
     </section>

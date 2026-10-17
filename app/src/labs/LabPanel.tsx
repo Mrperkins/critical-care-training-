@@ -32,7 +32,7 @@ export function LabCard() {
         <input type="range" min={l.range[0]} max={l.range[1]} step={l.step} value={v} aria-label={l.name} onChange={(e) => { bench.set(id, +e.target.value); bump(); }} />
         <div className="ls-band" aria-hidden="true"><span style={{ left: `${((l.normal[0] - l.range[0]) / (l.range[1] - l.range[0])) * 100}%`, width: `${((l.normal[1] - l.normal[0]) / (l.range[1] - l.range[0])) * 100}%` }} /><i style={{ left: `${((v - l.range[0]) / (l.range[1] - l.range[0])) * 100}%` }} /></div>
         <div className="actions"><button className="act" onClick={() => { bench.set(id, l.normal[0] - (l.normal[1] - l.normal[0]) * 0.8 - l.step); bump(); }}>Make it low</button><button className="act" onClick={() => { bench.set(id, (l.normal[0] + l.normal[1]) / 2); bump(); }}>Normal</button><button className="act" onClick={() => { bench.set(id, l.normal[1] + (l.normal[1] - l.normal[0]) * 1.2 + l.step); bump(); }}>Make it high</button>
-          <button className={`act${useLabUI.getState().view === 'cell' ? ' primary' : ''}`} onClick={() => useLabUI.getState().set({ view: useLabUI.getState().view === 'cell' ? 'body' : 'cell' })}>{useLabUI.getState().view === 'cell' ? '← Back to the body' : 'Zoom into the cells →'}</button></div>
+          <button className={`act${useLabUI.getState().view === 'cell' ? ' primary' : ''}`} onClick={() => useLabUI.getState().set({ view: useLabUI.getState().view === 'cell' ? 'body' : 'cell' })}>{useLabUI.getState().view === 'cell' ? '← Back to the body' : 'Zoom into the cells'}</button></div>
       </div>
       <Fold group="labcard" id="about" title="About this lab" summary="causes of high and low, bedside">
       <dl className="chain">

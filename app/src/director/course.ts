@@ -10,7 +10,7 @@
  * dropping cues would break lessons whose state accumulates cue by cue, each kept scene rebuilds the
  * world exactly as the full lesson has it at that moment (`resolve`), which keeps seeking exact.
  */
-import { cueEnd, resolve, sorted, steps, duration, type Cue, type Timeline } from './timeline';
+import { cueEnd, resolve, sorted, steps, duration, sayDuration, type Cue, type Timeline } from './timeline';
 
 export type Track = 'full' | 'tldr';
 export interface SelfCheck { q: string; options: string[]; answer: number; why: string }
@@ -71,12 +71,17 @@ export function courseTimeline(tl: Timeline, track: Track, meta: CourseMeta | nu
   return { ...tl, cues, absolute: true, setup: () => resolve(tl, picked[0].at) };
 }
 
-/** minutes, rounded up, as the learner will experience it (narration paces the clock) */
-export const minutes = (tl: Timeline) => Math.max(1, Math.round(duration(tl) / 60));
+/** minutes as the learner will experience them: narrated scenes hold until the narrator finishes, so a scene lasts
+ * at least as long as its line takes to say */
+export function minutes(tl: Timeline) {
+  const extra = steps(tl).reduce((s, c) => s + (c.say && c.hold !== false ? Math.max(0, sayDuration(c.say) - (c.dur ?? 0)) : 0), 0);
+  return Math.max(1, Math.round((duration(tl) + extra) / 60));
+}
 export function trackSummary(tl: Timeline, meta: CourseMeta | null) {
   const full = courseTimeline(tl, 'full', meta); const tldr = courseTimeline(tl, 'tldr', meta);
   return {
-    full: { min: minutes(full), scenes: steps(full).length, checkpoints: steps(full).filter((c) => c.checkpoint).length, quiz: meta?.selfCheck?.length ?? 0 },
+    // the full course also has things to do: checkpoints (~20 s), the recap (~30 s), each self-check question (~30 s)
+    full: { min: Math.max(1, Math.round(minutes(full) + (steps(full).filter((c) => c.checkpoint).length * 20 + (meta ? 30 : 0) + (meta?.selfCheck?.length ?? 0) * 30) / 60)), scenes: steps(full).length, checkpoints: steps(full).filter((c) => c.checkpoint).length, quiz: meta?.selfCheck?.length ?? 0 },
     tldr: { min: minutes(tldr), scenes: steps(tldr).length, points: meta?.keyPoints.length ?? 0 },
   };
 }

@@ -11,7 +11,7 @@ import { IabpCard } from '../procedures/IabpCard';
 import { useUI as useUIPulse } from '../app/store';
 import { loadLinesAsset, type LinesAsset } from '../asset/lines';
 import { useUI } from '../app/store';
-import { useIsPhone } from '../app/App';
+import { useIsPhone } from '../app/useIsPhone';
 import { LinesScene } from './LinesScene';
 import { Monitor } from './Monitor';
 import { useLinesUI, type LinesView } from './linesStore';

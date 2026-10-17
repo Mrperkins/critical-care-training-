@@ -60,12 +60,12 @@ export function CaseRun({ c, onExit, onNext }: { c: SceneCase; onExit: () => voi
         <h3>{q.q}</h3>
         <div className="opts" role="group" aria-label="Answers">{order.map((k) => <button key={k} disabled={pick != null} className={`opt${pick != null && k === q.answer ? ' right' : ''}${pick === k && k !== q.answer ? ' wrong' : ''}`} onClick={() => choose(k)}>{q.options[k]}</button>)}</div>
         {pick != null && <div className="reveal" aria-live="polite"><b>{pick === q.answer ? 'Right.' : `Best: ${q.options[q.answer]}.`}</b> {q.explain}</div>}
-        {pick != null && !done && <div className="actions" style={{ marginTop: 10 }}><button className="act primary" onClick={() => setQi(qi + 1)}>Next question →</button></div>}
+        {pick != null && !done && <div className="actions" style={{ marginTop: 10 }}><button className="act primary" onClick={() => setQi(qi + 1)}>Next question</button></div>}
         {done && <>
           <div className="case-score"><b>{right} of {c.questions.length}</b> right. {right === c.questions.length ? 'The written findings are now shown beside the image.' : 'The written findings are now shown — compare them with what you read.'}</div>
           <Remediate id={c.id} ok={right === c.questions.length} />
           {c.card && (() => { const Card = CARD[c.card]; return <div style={{ marginTop: 10 }}><Card /></div>; })()}
-          <div className="actions" style={{ marginTop: 10 }}>{onNext && <button className="act primary" onClick={onNext}>Next case →</button>}<button className="act" onClick={onExit}>All cases</button></div>
+          <div className="actions" style={{ marginTop: 10 }}>{onNext && <button className="act primary" onClick={onNext}>Next case</button>}<button className="act" onClick={onExit}>All cases</button></div>
         </>}
       </section>
     </div>

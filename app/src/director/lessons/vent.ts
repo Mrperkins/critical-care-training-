@@ -6,7 +6,7 @@
 import type { Timeline } from '../timeline';
 import { session } from '../../vent/session';
 import { useUI } from '../../app/store';
-import { focusVentTarget } from '../../vent/AlveolusScene';
+import { focusVentTarget } from '../../vent/focus';
 import type { VentSettings } from '../../physiology/mechanics';
 import { useLusUI } from '../../vent/LusScene';
 

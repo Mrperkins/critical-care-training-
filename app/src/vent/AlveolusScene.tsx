@@ -460,8 +460,5 @@ export function AlveolusHud() {
 }
 
 /** Semantic focus used by buttons, lessons and the Lesson Director: 'lung.whole' returns to the lungs. */
-export function focusVentTarget(id: string) {
-  const set = useUI.getState().set;
-  if (id === 'lung.whole') set({ ventView: 'front', ventTarget: 'lung.whole' });
-  else set({ ventView: 'alveolus', ventTarget: id });
-}
+import { focusVentTarget } from './focus';
+export { focusVentTarget };
