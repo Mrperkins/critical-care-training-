@@ -73,7 +73,7 @@ export function CurriculumModule() {
                     <button className="linkish cur-t" aria-expanded={open === key} onClick={() => setOpen(open === key ? null : key)}>{titleOf(e.id)}</button>
                     <span className={`lvl lvl-${e.kind === 'director' ? 'sig' : e.kind === 'workflow' ? 'proc' : e.difficulty}`}>{KIND[e.kind]}</span>
                     <span className="muted small">{MOD[e.module]} · {e.difficulty}</span>
-                    <button className="chip" onClick={() => openLesson(e.id)}>Open →</button>
+                    <button className="chip" onClick={() => openLesson(e.id)}>Open</button>
                   </div>
                   {open === key && <div className="cur-detail">
                     <p className="small"><b>Objectives</b></p><ul>{e.objectives.map((o) => <li key={o}>{o}</li>)}</ul>
@@ -94,8 +94,8 @@ export function CurriculumModule() {
               : <ul className="cur-weak">{weak.map((w) => <li key={w.concept}>
                 <b>{w.name}</b> <span className="muted small">missed {w.missed} of {w.tried}</span>
                 <div className="chips">{CONCEPTS[w.concept].remediate.map((r) => 'lesson' in r
-                  ? <button key={r.lesson} className="chip" onClick={() => openLesson(r.lesson)}>Learn: {titleOf(r.lesson)} →</button>
-                  : <button key={r.drug} className="chip" onClick={() => openDrug(r.drug)}>Drug: {MECH[r.drug]?.drug ?? r.drug} →</button>)}
+                  ? <button key={r.lesson} className="chip" onClick={() => openLesson(r.lesson)}>Learn: {titleOf(r.lesson)}</button>
+                  : <button key={r.drug} className="chip" onClick={() => openDrug(r.drug)}>Drug: {MECH[r.drug]?.drug ?? r.drug}</button>)}
                   <button className="chip" onClick={() => openChallenge(w.challenges[0])}>Retry: {titleOf(w.challenges[0])}</button></div>
               </li>)}</ul>}
           </section>

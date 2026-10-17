@@ -40,6 +40,4 @@ import { bench } from './labs/bench';
 import { useLabUI } from './labs/labStore';
 (window as unknown as Record<string, unknown>).__bench = bench;
 (window as unknown as Record<string, unknown>).__labui = useLabUI;
-import { live } from './labs/cell/live';
-import { CLIP } from './labs/cell/CellScene';
-(window as unknown as Record<string, unknown>).__cell = { live, CLIP };
+// window.__cell (cell scene QA hook) is set by labs/cell/CellScene.tsx when the Labs module loads

@@ -40,7 +40,14 @@ const voMetaP = path.join(ROOT, 'public/vo/narration.json'); const voMeta: Recor
 let voIds = Object.entries(voMeta).filter(([id, m]) => want.get(id) === m.hash).map(([id]) => id);
 const voJson = path.join(ROOT, 'public/vo/vo.json'); // previous clip store, used until the natural narrator has covered every line
 if (!voIds.length && fs.existsSync(voJson)) { const vo: Record<string, string> = JSON.parse(fs.readFileSync(voJson, 'utf8')); voIds = Object.keys(vo); for (const [id, b64] of Object.entries(vo)) fs.writeFileSync(path.join(pub, 'vo', id + '.mp3'), Buffer.from(b64, 'base64')); }
-fs.writeFileSync(path.join(pub, 'index.html'), `${head}\n<div id="root"></div>\n<script>window.__VO_IDS__=${JSON.stringify(voIds)};window.__B64_MODELS__=true;</script>\n<script>${js.replace(/<\/script/g, '<\\/script')}</script>\n`);
+// the published page is code-split: Home loads the shell; each module (and three.js) loads when first opened
+const split = await build({ entryPoints: { app: path.join(ROOT, 'src/main.tsx') }, bundle: true, minify: true, format: 'esm', splitting: true, target: ['es2020'], write: false, outdir: path.join(pub, 'js'), entryNames: '[name]-[hash]', chunkNames: 'c-[hash]', loader: { '.css': 'css' }, define: { 'process.env.NODE_ENV': '"production"' }, jsx: 'automatic', legalComments: 'none', logLevel: 'warning' });
+fs.mkdirSync(path.join(pub, 'js'), { recursive: true });
+const chunks: string[] = []; let entry = '';
+for (const o of split.outputFiles) { if (!o.path.endsWith('.js')) continue; fs.writeFileSync(o.path, o.text); const rel = 'js/' + path.basename(o.path); chunks.push(rel); if (path.basename(o.path).startsWith('app-')) entry = rel; }
+const entrySize = split.outputFiles.find((o) => o.path.endsWith(path.basename(entry)))!.text.length;
+fs.writeFileSync(path.join(pub, 'index.html'), `${head}\n<div id="root"></div>\n<script>window.__VO_IDS__=${JSON.stringify(voIds)};window.__B64_MODELS__=true;</script>\n<script type="module" src="${entry}"></script>\n`);
+console.log('split', chunks.length, 'chunks · entry', (entrySize / 1e6).toFixed(2), 'MB');
 
 // Standalone Critical Care Audio / Mental Reps learner surface.
 // It intentionally does not load the heavy Three.js anatomy bundle; it links back to the physiology app.
@@ -83,12 +90,12 @@ const audioHead = `<!doctype html>
 <meta name="theme-color" content="#070a0d">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;500;600&family=Atkinson+Hyperlegible+Next:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;500;600&family=Atkinson+Hyperlegible+Next:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>${audioCss}</style>`;
 fs.writeFileSync(path.join(audioDir, 'index.html'), `${audioHead}<div id="root"></div><script>window.__CC_AUDIO_ASSETS__=${JSON.stringify(audioVoiceAssets)};</script><script>${audioJs.replace(/<\/script/g, '<\\/script')}</script>\n`);
 
 // offline support: service worker (versioned by the bundle hash), web manifest, icons
 const ver = (await import('node:crypto')).createHash('sha256').update(js).update(css).digest('hex').slice(0, 12);
-fs.writeFileSync(path.join(pub, 'sw.js'), fs.readFileSync(path.join(ROOT, 'site/sw.js'), 'utf8').replaceAll('__VERSION__', ver));
+fs.writeFileSync(path.join(pub, 'sw.js'), fs.readFileSync(path.join(ROOT, 'site/sw.js'), 'utf8').replaceAll('__VERSION__', ver).replace("'__CHUNKS__'", chunks.map((c) => JSON.stringify(c)).join(', ')));
 for (const f of ['manifest.webmanifest', 'icon-192.png', 'icon-512.png']) fs.copyFileSync(path.join(ROOT, 'site', f), path.join(pub, f));
 console.log('bundle', (js.length / 1e6).toFixed(2), 'MB · index.html', (html.length / 1e6).toFixed(2), 'MB');

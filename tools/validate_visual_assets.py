@@ -73,9 +73,21 @@ def main():
             result = subprocess.run(['node', '--check', str(path)], capture_output=True, text=True)
             if result.returncode:
                 raise AssertionError(result.stderr[-1200:])
-    assert '__CCCameraTargets' in html, 'semantic camera registry missing from the bundle'
+    # the published page is code-split: module chunks live in js/ and are ES modules
+    bundle = html
+    for chunk in sorted((ROOT / 'js').glob('*.js')) if (ROOT / 'js').is_dir() else []:
+        text = chunk.read_text()
+        assert 'var sw=var sw=' not in text, f'Duplicate declaration regression in {chunk.name}'
+        bundle += text
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / (chunk.stem + '.mjs')
+            path.write_text(text)
+            result = subprocess.run(['node', '--check', str(path)], capture_output=True, text=True)
+            if result.returncode:
+                raise AssertionError(chunk.name + ': ' + result.stderr[-1200:])
+    assert '__CCCameraTargets' in bundle, 'semantic camera registry missing from the bundle'
     for ref in ('models/cell/markdragan-human-cell/cell.opt.glb', 'models/molecular/'):
-        assert ref in html, f'loader for {ref} missing from the bundle'
+        assert ref in bundle, f'loader for {ref} missing from the bundle'
     print('App syntax and malformed-replacement guard passed')
 
 

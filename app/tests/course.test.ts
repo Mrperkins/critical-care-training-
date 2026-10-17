@@ -50,3 +50,15 @@ describe('courses', () => {
     tldr.cues[0].apply!(); expect(world).toEqual([1, 2, 3]);
   });
 });
+
+describe('full-course checkpoints', () => {
+  it('every core lesson has at least one pause-and-predict prompt on a real scene', async () => {
+    const { CHECKPOINTS } = await import('../src/director/courses/checkpoints');
+    for (const tl of core) {
+      const full = courseTimeline(tl, 'full', courseFor(tl));
+      expect(steps(full).filter((c) => c.checkpoint).length, tl.id).toBeGreaterThanOrEqual(1);
+    }
+    const ids = new Map(core.map((tl) => [tl.id, new Set(steps(tl).map((c) => c.id))]));
+    for (const [id, cps] of Object.entries(CHECKPOINTS)) { expect(ids.has(id), id).toBe(true); for (const k of Object.keys(cps)) expect(ids.get(id)!.has(k), `${id}/${k}`).toBe(true); }
+  });
+});

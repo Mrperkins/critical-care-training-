@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { Canvas } from '@react-three/fiber';
-import { Environment, Lightformer } from '@react-three/drei';
+import { Environment, Lightformer, PerformanceMonitor } from '@react-three/drei';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { SceneBoundary, SceneUnavailable, supportsWebGL } from './SceneBoundary';
 
@@ -47,6 +47,9 @@ export function StudioCanvas({ children, camera, className = 'scene-canvas', fog
     mq.addEventListener('change', resized); document.addEventListener('visibilitychange', changed);
     return () => { mq.removeEventListener('change', resized); document.removeEventListener('visibilitychange', changed); };
   }, []);
+  // adaptive resolution: drop toward 1× when the GPU cannot hold the frame rate, climb back when it can
+  const maxDpr = small ? 1.25 : 1.75; const [dpr, setDpr] = useState(maxDpr);
+  useEffect(() => setDpr(maxDpr), [maxDpr]);
   const retry = () => { setAvailable(supportsWebGL()); setGeneration((v) => v + 1); };
   if (!available) return <SceneUnavailable label={label} onRetry={retry} />;
   return (
@@ -55,10 +58,11 @@ export function StudioCanvas({ children, camera, className = 'scene-canvas', fog
       role="img" aria-label={label}
       frameloop={onScreen && visible ? 'always' : 'never'}
       className={className}
-      dpr={small ? [1, 1.25] : [1, 1.75]}
+      dpr={dpr}
       gl={{ antialias: true, alpha: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 0.93, powerPreference: 'high-performance', preserveDrawingBuffer: false }}
       camera={{ fov: camera.fov ?? 30, near: 0.05, far: 80, position: camera.position }}
     >
+      <PerformanceMonitor onDecline={() => setDpr(1)} onIncline={() => setDpr(maxDpr)} flipflops={4} onFallback={() => setDpr(1)} />
       <color attach="background" args={['#05090d']} />
       {fog && <fog attach="fog" args={['#05090d', 24, 52]} />}
       <StudioLights />

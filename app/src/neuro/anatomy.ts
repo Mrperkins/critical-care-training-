@@ -21,17 +21,10 @@ export const toBody = (f: BrainFrame, l: THREE.Vector3 | [number, number, number
 };
 export const toLocal = (f: BrainFrame, p: THREE.Vector3, out = new THREE.Vector3()) => out.copy(p).sub(f.c).divide(f.h);
 
-export type Side = 'R' | 'L' | 'M';
-export type TerritoryId = 'MCA_R' | 'MCA_L' | 'ACA_R' | 'ACA_L' | 'PCA_R' | 'PCA_L' | 'VB';
-export const TERRITORIES: TerritoryId[] = ['MCA_R', 'MCA_L', 'ACA_R', 'ACA_L', 'PCA_R', 'PCA_L', 'VB'];
-/** approximate adult territory volumes, mL (teaching values) */
-export const TERRITORY_ML: Record<TerritoryId, number> = { MCA_R: 280, MCA_L: 280, ACA_R: 90, ACA_L: 90, PCA_R: 80, PCA_L: 80, VB: 150 };
-export const TERRITORY_NAME: Record<TerritoryId, string> = { MCA_R: 'Right MCA', MCA_L: 'Left MCA', ACA_R: 'Right ACA', ACA_L: 'Left ACA', PCA_R: 'Right PCA', PCA_L: 'Left PCA', VB: 'Brainstem / cerebellum' };
-/** deepest (least collateralised) point of each territory in local coordinates — tissue far from it is fed first by collaterals */
-export const TERRITORY_CORE: Record<TerritoryId, [number, number, number]> = {
-  MCA_R: [-0.5, -0.3, 0.05], MCA_L: [0.5, -0.3, 0.05], ACA_R: [-0.1, 0.15, 0.45], ACA_L: [0.1, 0.15, 0.45],
-  PCA_R: [-0.25, -0.35, -0.72], PCA_L: [0.25, -0.35, -0.72], VB: [0, -0.8, -0.45],
-};
+export type { Side, TerritoryId } from './territories';
+export { TERRITORIES, TERRITORY_ML, TERRITORY_NAME, TERRITORY_CORE } from './territories';
+import type { Side, TerritoryId } from './territories';
+import { TERRITORY_CORE } from './territories';
 
 /** Which arterial territory a point (local coordinates) belongs to — mirrored in the scene shader. */
 export function territoryAt(l: THREE.Vector3): TerritoryId {

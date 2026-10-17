@@ -7,7 +7,8 @@ describe('offline support', () => {
     expect(sw.match(/__VERSION__/g)?.length).toBe(1);
     const core = JSON.parse(sw.match(/const CORE = (\[[^\]]+\])/s)![1].replace(/'/g, '"'));
     const build = fs.readFileSync('scripts/build-app.ts', 'utf8');
-    for (const f of core.filter((x: string) => x !== './' && !x.startsWith('models/resp'))) {
+    expect(build, 'code-split chunks are listed at build time').toMatch(/__CHUNKS__/);
+    for (const f of core.filter((x: string) => x !== './' && x !== '__CHUNKS__' && !x.startsWith('models/resp'))) {
       if (f === 'audio/index.html') expect(build, 'generated audio shell').toMatch(/path\.join\(audioDir, 'index\.html'\)/);
       else expect(fs.existsSync(`../${f}`) || fs.existsSync(`site/${f}`), f).toBe(true);
     }

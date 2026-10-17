@@ -79,7 +79,7 @@ function GasChallenge() {
         </div>}
         {a3 != null && <Remediate id={`abg-${caseData.p.id}`} ok={a3 === caseData.act.answer && a1 === caseData.primary} />}
       </section>}
-      {a3 != null && <button className="act primary" onClick={next}>Next case →</button>}
+      {a3 != null && <button className="act primary" onClick={next}>Next case</button>}
       <SampleCards />
       <AcidBaseMap />
     </div>

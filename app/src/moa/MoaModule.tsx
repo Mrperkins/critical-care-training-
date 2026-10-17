@@ -219,5 +219,5 @@ function TimeCard({ id }: { id: string }) {
 
 function LessonsCard({ id }: { id: string }) {
   const ls = lessonsForDrug(id).map((l) => lessonById(l)).filter(Boolean) as NonNullable<ReturnType<typeof lessonById>>[]; if (!ls.length) return null;
-  return <section className="card"><div className="card-h"><h3>Used in lessons</h3></div><div className="chips">{ls.map((l) => <button key={l.tl.id} className="chip" onClick={() => openLesson(l.tl.id)}>{l.tl.title} →</button>)}</div></section>;
+  return <section className="card"><div className="card-h"><h3>Used in lessons</h3></div><div className="chips">{ls.map((l) => <button key={l.tl.id} className="chip" onClick={() => openLesson(l.tl.id)}>{l.tl.title}</button>)}</div></section>;
 }
