@@ -14,6 +14,13 @@ import { TOX, BLOOD, GI } from './lessons/medical3';
 import { LABS, ADV_ASSESS, TREATMENT } from './lessons/medical4';
 import { LINES_FPC, RADIOLOGY, RESP_SYS } from './lessons/medical5';
 import { MEDICAL_EXTRAS } from './lessons/medicalCases';
+import { TWELVE_LEAD, CARDIAC_ANATOMY, ELECTROPHYS } from './lessons/cardiac1';
+import { ACS, CARDIOGENIC, HEART_FAILURE } from './lessons/cardiac2';
+import { MCS, CARDIAC_INFECT, ARRHYTHMIAS } from './lessons/cardiac3';
+import { HTN_CRISIS, HEMO_INSTAB, CHRONIC_CARDIAC } from './lessons/cardiac4';
+import { VASCULAR, CARDIAC_DX, CARDIAC_LABS } from './lessons/cardiac5';
+import { CARDIAC_PHARM, CARDIAC_MONITOR } from './lessons/cardiac6';
+import { CARDIAC_EXTRAS } from './lessons/cardiacCases';
 
 /** a lesson plus its transport case(s) and extra questions (the case closes the teaching, before the questions) */
 const withExtras = (l: FpcLesson, x: Record<string, { sections: FpcLesson['sections']; questions: FpcLesson['questions'] }>) => (x[l.id] ? { ...l, sections: [...l.sections, ...x[l.id].sections], questions: [...l.questions, ...x[l.id].questions] } : l);
@@ -23,6 +30,7 @@ export const FPC_LESSONS: FpcLesson[] = [
   ALT_AIRWAY, PERI_ARREST, TRACH, TUBE_CONFIRM, SUCTION, CAPNOGRAPHY, NIPPV,
 ].map((l) => withExtras(l, AIRWAY_EXTRAS)).concat([
   ...[ENDOCRINE, ADRENAL, RENAL, METABOLIC, SEPSIS, INFECTIOUS, TOX, BLOOD, GI, LABS, ADV_ASSESS, TREATMENT, LINES_FPC, RADIOLOGY, RESP_SYS].map((l) => withExtras(l, MEDICAL_EXTRAS)),
+  ...[TWELVE_LEAD, CARDIAC_ANATOMY, MCS, ACS, CARDIOGENIC, HEART_FAILURE, CARDIAC_INFECT, ARRHYTHMIAS, HTN_CRISIS, HEMO_INSTAB, CHRONIC_CARDIAC, VASCULAR, ELECTROPHYS, CARDIAC_DX, CARDIAC_LABS, CARDIAC_PHARM, CARDIAC_MONITOR].map((l) => withExtras(l, CARDIAC_EXTRAS)),
 ]);
 export const FPC_BY_ID: Record<string, FpcLesson> = Object.fromEntries(FPC_LESSONS.map((l) => [l.id, l]));
 export const lessonsFor = (d: DomainId) => FPC_LESSONS.filter((l) => l.domain === d);

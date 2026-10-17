@@ -5390,5 +5390,725 @@
  {
   "id": "fpc.fpc-resp-sys.co2.2",
   "t": "Ventilation controls PaCO₂ within minutes: halving alveolar ventilation roughly doubles PaCO₂. That is why EtCO₂ responds quickly to rate changes on the ventilator, while bicarbonate adjustment by the kidneys takes days."
+ },
+ {
+  "id": "fpc.fpc-12-lead.system.0",
+  "t": "Read every ECG the same way so nothing is missed. Rate: 300 divided by the number of large boxes between R waves, or count complexes in 10 seconds and multiply by six. Rhythm: regular or irregular, P before every QRS, QRS after every P. Axis: normal if leads I and aVF are both positive; left axis deviation if I is positive and aVF negative (with lead II negative); right axis deviation if I is negative and aVF positive."
+ },
+ {
+  "id": "fpc.fpc-12-lead.system.1",
+  "t": "Intervals: PR 120–200 ms; QRS under 120 ms; QTc under about 450 ms in men and 460–470 in women (above 500 is high risk for torsades). Then morphology: P waves, Q waves, QRS width and pattern (bundle branch blocks), R-wave progression, and finally the ST segments and T waves."
+ },
+ {
+  "id": "fpc.fpc-12-lead.stemi.0",
+  "t": "STEMI criteria (in the absence of LVH or LBBB): new ST elevation at the J point in two contiguous leads of at least 1 mm, except in V2–V3 where the thresholds are 2 mm in men 40 or older, 2.5 mm in men under 40, and 1.5 mm in women. Reciprocal ST depression in the opposite territory increases specificity."
+ },
+ {
+  "id": "fpc.fpc-12-lead.stemi.1",
+  "t": "Inferior STEMI (II, III, aVF) is usually the right coronary artery (or circumflex in left-dominant systems); obtain right-sided leads (V4R) to look for right-ventricular infarction, which makes the patient preload-dependent — avoid nitrates and give fluid for hypotension. ST elevation in III greater than II and reciprocal depression in I and aVL favour the RCA. Anterior STEMI (V1–V4) is the LAD; lateral (I, aVL, V5–V6) the circumflex or diagonal. Posterior infarction shows ST depression with tall R waves in V1–V3; confirm with posterior leads V7–V9 (ST elevation ≥ 0.5 mm)."
+ },
+ {
+  "id": "fpc.fpc-12-lead.equivalents.0",
+  "t": "Some occlusions do not meet classic criteria. Widespread ST depression with ST elevation in aVR suggests left main or multivessel ischaemia. De Winter T waves — upsloping ST depression with tall, symmetric T waves in the precordial leads — indicate proximal LAD occlusion. Wellens pattern (deep symmetric or biphasic T waves in V2–V3 in a pain-free patient) warns of critical proximal LAD stenosis. In LBBB or a paced rhythm, the Sgarbossa criteria (concordant ST elevation ≥ 1 mm, concordant ST depression in V1–V3, or excessively discordant elevation) identify acute occlusion."
+ },
+ {
+  "id": "fpc.fpc-12-lead.equivalents.1",
+  "t": "Mimics include early repolarisation (young patients, notched J points, stable), pericarditis (diffuse concave ST elevation with PR depression, PR elevation in aVR), left ventricular hypertrophy, left bundle branch block, left ventricular aneurysm (persistent ST elevation with Q waves after an old MI), Brugada pattern and hyperkalaemia. Takotsubo cardiomyopathy can mimic anterior STEMI and is diagnosed after angiography."
+ },
+ {
+  "id": "fpc.fpc-12-lead.highrisk.0",
+  "t": "Wolff–Parkinson–White: short PR, delta wave and wide QRS. Atrial fibrillation with WPW produces an irregular, very fast, wide-complex tachycardia with changing QRS shapes; AV nodal blockers (adenosine, beta-blockers, calcium-channel blockers, digoxin) can accelerate conduction down the accessory pathway into ventricular fibrillation. Treat unstable patients with synchronised cardioversion, stable ones with procainamide per protocol."
+ },
+ {
+  "id": "fpc.fpc-12-lead.highrisk.1",
+  "t": "Brugada pattern (coved ST elevation of at least 2 mm in V1–V2 with T-wave inversion) predisposes to sudden death, especially with fever; treat fever and avoid sodium-channel blockers. Long QT (congenital or drug-induced) predisposes to torsades. Hyperkalaemia progresses from peaked T waves to wide QRS and sine waves. Bifascicular block with syncope may herald complete heart block."
+ },
+ {
+  "id": "fpc.fpc-12-lead.case.0",
+  "t": "A 61-year-old with chest pain: ST elevation 3 mm in III, 2 mm in II and aVF, ST depression in I and aVL. BP 84/52, HR 54, lungs clear. Referring team gave nitroglycerin and BP fell."
+ },
+ {
+  "id": "fpc.fpc-cardiac-anatomy.coronaries.0",
+  "t": "The left main coronary artery divides into the left anterior descending (LAD), which supplies the anterior wall, the anterior two-thirds of the septum and the apex, and the circumflex (LCx), which supplies the lateral and, in some, posterior walls. The right coronary artery (RCA) supplies the right ventricle, the inferior wall in most people, and the SA node in about 60 % and the AV node in about 80–90 %."
+ },
+ {
+  "id": "fpc.fpc-cardiac-anatomy.coronaries.1",
+  "t": "Dominance is defined by which artery gives the posterior descending artery: the RCA in about 70–85 % (right-dominant), the circumflex in about 5–10 % (left-dominant), and both in the rest (co-dominant). Coronary flow to the left ventricle occurs mainly in diastole, when the muscle relaxes; tachycardia shortens diastole and reduces perfusion — one reason heart rate control matters in ischaemia."
+ },
+ {
+  "id": "fpc.fpc-cardiac-anatomy.chambers.0",
+  "t": "Deoxygenated blood returns to the right atrium, passes the tricuspid valve into the right ventricle and the pulmonary valve into the pulmonary artery. Oxygenated blood returns to the left atrium, passes the mitral valve into the left ventricle and the aortic valve into the aorta. The left ventricle generates systemic pressures (about 120/10 mmHg); the right, pulmonary pressures (about 25/5)."
+ },
+ {
+  "id": "fpc.fpc-cardiac-anatomy.chambers.1",
+  "t": "In systole the ventricles contract, the AV valves close (S1), pressure rises until the semilunar valves open, and blood is ejected. In diastole the semilunar valves close (S2), the ventricles relax, the AV valves open and the ventricles fill — passively at first, then with atrial contraction (the \"atrial kick\", up to 20–30 % of filling, lost in atrial fibrillation)."
+ },
+ {
+  "id": "fpc.fpc-cardiac-anatomy.chambers.2",
+  "t": "Stroke volume depends on preload (filling, the stretch on the fibres — Frank–Starling), afterload (the resistance the ventricle ejects against) and contractility. Cardiac output equals stroke volume times heart rate; mean arterial pressure equals cardiac output times systemic vascular resistance (plus CVP)."
+ },
+ {
+  "id": "fpc.fpc-cardiac-anatomy.valves.0",
+  "t": "Aortic stenosis: fixed outflow obstruction, so the patient depends on preload and on afterload to perfuse the coronaries; vasodilators and tachycardia are poorly tolerated. Avoid hypotension. Mitral stenosis: filling depends on time, so tachycardia and atrial fibrillation cause pulmonary congestion. Acute mitral regurgitation (papillary muscle rupture after MI) causes sudden pulmonary oedema and shock; afterload reduction and urgent surgery help. Acute aortic regurgitation (dissection, endocarditis) causes shock with a wide pulse pressure; tachycardia shortens regurgitation time."
+ },
+ {
+  "id": "fpc.fpc-cardiac-anatomy.conduction.0",
+  "t": "The sinoatrial node, high in the right atrium, sets the rate (60–100). The impulse crosses the atria to the atrioventricular node, which delays conduction (the PR interval) to allow ventricular filling. It then passes the bundle of His, divides into the right and left bundle branches (the left into anterior and posterior fascicles), and spreads through the Purkinje fibres."
+ },
+ {
+  "id": "fpc.fpc-cardiac-anatomy.conduction.1",
+  "t": "Intrinsic escape rates fall the lower the pacemaker: AV junction 40–60, ventricles 20–40. Block above or at the AV node (often RCA, inferior MI) tends to produce narrow escape rhythms that respond to atropine; block below the node (often LAD, anterior MI) produces wide escape rhythms that are unreliable and need pacing."
+ },
+ {
+  "id": "fpc.fpc-cardiac-anatomy.case.0",
+  "t": "Five days after an inferior-posterior MI, a 70-year-old develops sudden severe dyspnoea, SpO₂ 82 %, BP 78/50, and a new loud holosystolic murmur at the apex."
+ },
+ {
+  "id": "fpc.fpc-mcs.iabp.0",
+  "t": "A balloon in the descending thoracic aorta, its tip just below the left subclavian artery and above the renal arteries, inflates in diastole (at the dicrotic notch) to augment diastolic pressure and coronary perfusion, and deflates just before systole to reduce afterload. Cardiac output rises modestly (often around 0.5 L/min). It is triggered from the ECG or arterial waveform; pacing spikes or arrhythmias can disrupt timing."
+ },
+ {
+  "id": "fpc.fpc-mcs.iabp.1",
+  "t": "Timing errors: early inflation (before the notch) shortens ejection; late inflation loses augmentation; early deflation loses afterload reduction; late deflation (balloon still inflated as the ventricle ejects) increases afterload and is the most dangerous. Complications include limb ischaemia (check distal pulses), balloon rupture (blood in the helium line — stop the pump and clamp per protocol), malposition (left arm or renal ischaemia), thrombocytopenia and bleeding."
+ },
+ {
+  "id": "fpc.fpc-mcs.iabp.2",
+  "t": "In transport, secure the catheter, confirm position on imaging before departure, carry the console's battery and helium supply, and know how to switch triggers. Do not leave a balloon stationary for more than a short period (thrombus risk); hand-inflate per manufacturer guidance if the console fails."
+ },
+ {
+  "id": "fpc.fpc-mcs.impella.0",
+  "t": "An Impella is a microaxial pump placed across the aortic valve, drawing blood from the left ventricle and ejecting it into the ascending aorta, directly unloading the LV. Support ranges from about 2.5 to 5.5 L/min depending on device. A right-sided version supports the RV."
+ },
+ {
+  "id": "fpc.fpc-mcs.impella.1",
+  "t": "Monitor position (via console placement signals and, when available, echo), purge pressure and flow, haemolysis (dark urine, rising LDH), limb perfusion and bleeding at the access site. Suction alarms mean the pump inlet is pulling against the ventricle wall — usually hypovolaemia, RV failure or malposition; reduce the support level and treat the cause."
+ },
+ {
+  "id": "fpc.fpc-mcs.ecmo.0",
+  "t": "Veno-venous (VV) ECMO drains venous blood, oxygenates it and returns it to the venous side: it supports gas exchange only and relies on the patient's own heart. Veno-arterial (VA) ECMO returns oxygenated blood to the arterial system, supporting both heart and lungs. Peripheral femoral VA-ECMO pumps blood retrogradely up the aorta, which raises LV afterload; a non-ejecting LV may distend and need venting, and differential hypoxaemia (\"north–south syndrome\") can occur when the native heart ejects poorly oxygenated blood to the upper body — check right-hand SpO₂ or right radial gases."
+ },
+ {
+  "id": "fpc.fpc-mcs.ecmo.1",
+  "t": "Transporting ECMO patients requires a specialist team: secure cannulas (dislodgement is catastrophic), clamps at the bedside, gas supply and battery for the console, anticoagulation monitoring, and a plan for circuit emergencies. Low flow with \"chattering\" lines suggests hypovolaemia or kinked cannulas."
+ },
+ {
+  "id": "fpc.fpc-mcs.vad.0",
+  "t": "Modern LVADs are continuous-flow pumps from the LV apex to the aorta, powered through a driveline by external batteries and a controller. Many patients have no palpable pulse and a narrow or absent pulse pressure; measure MAP with a Doppler (the first Korotkoff sound approximates MAP) or an arterial line, targeting roughly 70–90 mmHg. Pulse oximetry may not read."
+ },
+ {
+  "id": "fpc.fpc-mcs.vad.1",
+  "t": "Assessment: check perfusion (mentation, skin, capillary refill), listen for the pump hum over the chest, read the controller (flow, power, speed, alarms), check batteries and connections. Common problems: driveline infection, GI bleeding (acquired von Willebrand deficiency plus anticoagulation), pump thrombosis (rising power, haemolysis), arrhythmias (often tolerated), RV failure and stroke."
+ },
+ {
+  "id": "fpc.fpc-mcs.vad.2",
+  "t": "Cardiac arrest: if the patient is unresponsive with poor perfusion and the pump is not running or not working, many protocols allow chest compressions; check with the VAD centre where possible but do not delay resuscitation in a truly unperfused patient. Always bring the patient's spare controller and batteries, and contact the implanting centre."
+ },
+ {
+  "id": "fpc.fpc-acs.patho.0",
+  "t": "Most ACS begins when an atherosclerotic plaque ruptures or erodes, exposing thrombogenic material. Platelets adhere and aggregate, the coagulation cascade forms fibrin, and the resulting thrombus partially or completely occludes the artery. Complete, persistent occlusion produces transmural ischaemia and ST elevation (STEMI); partial or intermittent occlusion produces subendocardial ischaemia (NSTEMI if troponin rises, unstable angina if it does not)."
+ },
+ {
+  "id": "fpc.fpc-acs.patho.1",
+  "t": "Myocardium dies from the endocardium outward over hours — \"time is muscle\". Reperfusion within the first few hours salvages the most myocardium and reduces mortality and heart failure."
+ },
+ {
+  "id": "fpc.fpc-acs.reperfusion.0",
+  "t": "Primary PCI is preferred for STEMI when it can be delivered promptly: first medical contact to device within 90 minutes, or within 120 minutes when transfer from a non-PCI hospital is required. If PCI cannot be achieved within 120 minutes of first medical contact, fibrinolysis is given (goal: within 30 minutes of arrival, \"door-to-needle\") unless contraindicated, followed by transfer to a PCI centre — immediately for rescue PCI if reperfusion fails, or within 2–24 hours for a routine invasive strategy."
+ },
+ {
+  "id": "fpc.fpc-acs.reperfusion.1",
+  "t": "Signs of successful fibrinolysis: ST-segment resolution of 50 % or more at 60–90 minutes, relief of pain and reperfusion arrhythmias such as accelerated idioventricular rhythm. Failed reperfusion or cardiogenic shock needs urgent transfer for PCI regardless of time."
+ },
+ {
+  "id": "fpc.fpc-acs.reperfusion.2",
+  "t": "High-risk NSTEMI (refractory pain, haemodynamic instability, arrhythmia, heart failure) needs angiography within hours; others within 24–72 hours."
+ },
+ {
+  "id": "fpc.fpc-acs.drugs.0",
+  "t": "Aspirin (162–325 mg chewed) for all ACS unless allergic. A P2Y12 inhibitor (ticagrelor, prasugrel or clopidogrel) per the PCI centre's protocol. Anticoagulation (unfractionated heparin, enoxaparin or bivalirudin) per strategy."
+ },
+ {
+  "id": "fpc.fpc-acs.drugs.1",
+  "t": "Nitroglycerin relieves ischaemic pain but is avoided with hypotension, suspected right-ventricular infarction, and recent phosphodiesterase-5 inhibitor use (sildenafil within 24 hours, tadalafil within 48). Oxygen is given only for SpO₂ below 90 % — routine oxygen in normoxic patients has no benefit. Opioids relieve pain but may delay oral P2Y12 absorption; use the lowest effective dose. Beta-blockers are avoided in the acute phase if there are signs of heart failure, low output or risk of shock."
+ },
+ {
+  "id": "fpc.fpc-acs.complications.0",
+  "t": "Arrhythmias: ventricular fibrillation is most common early; have pads on. Bradycardia and AV block with inferior MI (usually nodal, atropine-responsive); Mobitz II and complete block with anterior MI (infranodal, needs pacing). Pump failure and cardiogenic shock with large infarcts. Mechanical complications — papillary muscle rupture (acute MR), ventricular septal rupture (new harsh murmur, shock), and free wall rupture (tamponade, PEA) — typically occur days 2–7 but may occur earlier, and need emergency surgery."
+ },
+ {
+  "id": "fpc.fpc-acs.special.0",
+  "t": "Women, the elderly and diabetics more often present atypically — dyspnoea, fatigue, nausea, epigastric pain — which delays diagnosis. Cocaine-associated chest pain is treated with benzodiazepines, aspirin and nitrates; beta-blockers are traditionally avoided acutely. Spontaneous coronary artery dissection affects younger women, often peripartum. MI with non-obstructive coronary arteries (MINOCA) and Takotsubo cardiomyopathy can mimic STEMI."
+ },
+ {
+  "id": "fpc.fpc-acs.case.0",
+  "t": "A 66-year-old with ongoing chest pain despite nitrates and heparin. The ECG shows 2 mm ST depression in V4–V6 that comes and goes, troponin is rising, and runs of non-sustained VT appear on the monitor. BP 108/66."
+ },
+ {
+  "id": "fpc.fpc-acs.case.1",
+  "t": "This is very-high-risk NSTEMI: refractory ischaemic pain with electrical instability. Guidelines recommend immediate invasive strategy (angiography within about two hours), the same urgency as STEMI."
+ },
+ {
+  "id": "fpc.fpc-cardiogenic.define.0",
+  "t": "Cardiogenic shock is hypoperfusion from primary cardiac failure: systolic BP below about 90 mmHg (or vasopressors needed to hold it), with signs of hypoperfusion — cold extremities, oliguria, altered mentation, rising lactate — and evidence of high filling pressures (pulmonary oedema, raised JVP). Acute MI is the leading cause; others include decompensated chronic heart failure, myocarditis, valve catastrophes and arrhythmias."
+ },
+ {
+  "id": "fpc.fpc-cardiogenic.define.1",
+  "t": "Bedside profiles combine congestion (wet or dry) and perfusion (warm or cold). \"Cold and wet\" is the classic cardiogenic shock: low cardiac index, high wedge pressure, high SVR. RV-predominant shock has a high CVP with clear lungs. The SCAI stages run from A (at risk) through B (beginning: hypotension or tachycardia without hypoperfusion), C (classic: hypoperfusion needing intervention), D (deteriorating despite treatment) to E (extremis: arrest or refractory collapse)."
+ },
+ {
+  "id": "fpc.fpc-cardiogenic.treat.0",
+  "t": "Norepinephrine is the usual first agent to restore perfusion pressure (MAP around 65) with less arrhythmia than dopamine. Add an inotrope — dobutamine, or milrinone if beta-blocked or with pulmonary hypertension — for persistent low output once pressure is adequate. Epinephrine is an alternative but raises lactate and myocardial oxygen demand."
+ },
+ {
+  "id": "fpc.fpc-cardiogenic.treat.1",
+  "t": "Avoid large fluid boluses unless there is clear hypovolaemia or RV infarction (where cautious volume helps). Treat the cause: reperfusion for MI (emergency PCI improves survival in MI-related shock), rhythm control for arrhythmia, surgery for mechanical lesions. Correct acidosis, hypoxaemia and electrolytes."
+ },
+ {
+  "id": "fpc.fpc-cardiogenic.mcs.0",
+  "t": "When drugs fail, devices bridge to recovery, transplant or decision: intra-aortic balloon pumps (afterload reduction and coronary perfusion; modest output support), Impella devices (axial-flow pumps across the aortic valve that unload the LV), and VA-ECMO (full cardiopulmonary support but raises LV afterload — the LV may need venting). Transporting patients on these devices is covered in the mechanical support lesson; early recognition and transfer to a centre that can place them is the transport team's main contribution."
+ },
+ {
+  "id": "fpc.fpc-cardiogenic.airway.0",
+  "t": "Intubating a patient in cardiogenic shock risks arrest: induction agents drop sympathetic tone, and positive pressure reduces venous return. Yet positive pressure helps the failing LV by reducing afterload and pulmonary oedema. Use NIV first when possible; if intubation is necessary, start or increase vasopressors before induction, use a reduced dose of a haemodynamically stable agent, and apply PEEP thoughtfully. For RV failure, avoid high intrathoracic pressures, hypoxia and hypercapnia, which raise pulmonary vascular resistance."
+ },
+ {
+  "id": "fpc.fpc-cardiogenic.causes.0",
+  "t": "Not all cardiogenic shock is MI. Consider fulminant myocarditis (young, viral prodrome), stress (Takotsubo) cardiomyopathy, peripartum cardiomyopathy (late pregnancy to months after delivery), drug toxicity (beta-blockers, calcium-channel blockers, sodium-channel blockers), acute valve failure (papillary muscle rupture, endocarditis, prosthetic valve thrombosis), tachy- or bradyarrhythmias, and end-stage chronic heart failure. Each has specific treatments — antidotes, rhythm control, surgery — that matter as much as vasopressors."
+ },
+ {
+  "id": "fpc.fpc-cardiogenic.causes.1",
+  "t": "Ask about recent viral illness, pregnancy, medications and overdoses, and look for murmurs and rhythm problems in every patient."
+ },
+ {
+  "id": "fpc.fpc-cardiogenic.monitor.0",
+  "t": "In cardiogenic shock, the blood pressure alone is a poor guide. Watch perfusion: mentation, skin temperature and mottling, capillary refill, urine output and lactate clearance. Rising lactate despite a \"normal\" MAP means the output is still inadequate."
+ },
+ {
+  "id": "fpc.fpc-cardiogenic.monitor.1",
+  "t": "Invasive monitoring helps: an arterial line for beat-to-beat pressure on vasoactive drugs, central venous saturation (ScvO₂ under about 60 % suggests inadequate delivery), and, at the receiving centre, a PA catheter to measure cardiac index, wedge pressure and cardiac power output. Point-of-care echo shows LV and RV function, valve lesions and effusion."
+ },
+ {
+  "id": "fpc.fpc-cardiogenic.monitor.2",
+  "t": "Escalation triggers — rising vasopressor and inotrope doses, worsening lactate, new arrhythmias, falling urine output — should prompt early discussion with a centre offering mechanical circulatory support, ideally before the patient reaches SCAI stage D or E."
+ },
+ {
+  "id": "fpc.fpc-heart-failure.types.0",
+  "t": "Heart failure with reduced ejection fraction (HFrEF, EF ≤ 40 %) is a failure of contraction; with preserved ejection fraction (HFpEF) the ventricle is stiff and fills poorly at normal pressures. Acute decompensation is triggered by ischaemia, arrhythmia (especially new AF), uncontrolled hypertension, infection, non-adherence to medicines or salt and fluid restriction, renal failure, and drugs (NSAIDs, some calcium-channel blockers)."
+ },
+ {
+  "id": "fpc.fpc-heart-failure.types.1",
+  "t": "Most decompensated patients are \"warm and wet\": congested but perfused. Treat congestion (diuretics, vasodilators). \"Cold and wet\" patients are in cardiogenic shock. \"Cold and dry\" patients are underfilled and low output."
+ },
+ {
+  "id": "fpc.fpc-heart-failure.scape.0",
+  "t": "A sudden surge of afterload with fluid redistribution into the lungs produces extreme dyspnoea, frothy sputum, hypertension, tachycardia and hypoxaemia. Total body water may not be increased; the problem is afterload and redistribution."
+ },
+ {
+  "id": "fpc.fpc-heart-failure.scape.1",
+  "t": "Treatment is immediate CPAP or BiPAP plus high-dose nitroglycerin — for example sublingual 0.4–0.8 mg repeated every few minutes, or IV boluses and an infusion starting high (often 100 mcg/min or more) and titrating down as the blood pressure falls. Diuretics are secondary and slower. Many of these patients avoid intubation if treated aggressively and early."
+ },
+ {
+  "id": "fpc.fpc-heart-failure.diuretics.0",
+  "t": "In volume-overloaded patients, IV loop diuretics (furosemide, often at least the patient's daily oral dose given IV, or 40 mg in diuretic-naive adults) relieve congestion over hours. Monitor potassium and renal function. Morphine is no longer routine — it may increase intubation and adverse outcomes. Inotropes are reserved for low-output states with hypoperfusion."
+ },
+ {
+  "id": "fpc.fpc-heart-failure.rv.0",
+  "t": "The right ventricle is thin-walled and tolerates volume better than pressure. Acute RV failure (massive PE, RV infarction, decompensated pulmonary hypertension) produces raised JVP, hepatomegaly, peripheral oedema and hypotension with clear lungs. Over-filling dilates the RV, shifts the septum and compresses the LV."
+ },
+ {
+  "id": "fpc.fpc-heart-failure.rv.1",
+  "t": "Principles: maintain systemic pressure (norepinephrine, vasopressin, which does not raise PVR), optimise RV preload carefully, reduce RV afterload (oxygen, avoid hypercapnia and acidosis, inhaled pulmonary vasodilators where available), and support contractility (dobutamine or milrinone). Intubation and positive pressure are high-risk."
+ },
+ {
+  "id": "fpc.fpc-heart-failure.case.0",
+  "t": "A 70-year-old with known HFrEF (EF 25 %), new AF at 148, BP 96/60, crackles, SpO₂ 90 % on 4 L."
+ },
+ {
+  "id": "fpc.fpc-heart-failure.oxygen.0",
+  "t": "Sit patients with pulmonary oedema upright with legs dependent to reduce venous return. Titrate oxygen to SpO₂ 94–98 % (88–92 % in known CO₂ retainers); NIV is the most effective oxygenation tool in cardiogenic oedema and reduces intubation. Avoid laying these patients flat for transfer until they are stabilised — orthopnoea can precipitate arrest on a stretcher."
+ },
+ {
+  "id": "fpc.fpc-heart-failure.case2.0",
+  "t": "A 64-year-old on haemodialysis missed a session; now orthopnoeic, SpO₂ 84 %, BP 196/104, crackles throughout, K⁺ 6.1 with peaked T waves."
+ },
+ {
+  "id": "fpc.fpc-heart-failure.case2.1",
+  "t": "Two emergencies coexist: volume overload with pulmonary oedema that diuretics cannot treat (anuria), and hyperkalaemia."
+ },
+ {
+  "id": "fpc.fpc-heart-failure.chronic.0",
+  "t": "Patients may take ACE inhibitors, angiotensin receptor–neprilysin inhibitors, beta-blockers, mineralocorticoid antagonists (spironolactone) and SGLT2 inhibitors. In acute decompensation with hypotension or shock, hold vasodilating and negative inotropic drugs temporarily; in hypertensive decompensation, they are usually continued. Spironolactone and ACE inhibitors raise potassium; SGLT2 inhibitors can cause euglycaemic ketoacidosis in acute illness."
+ },
+ {
+  "id": "fpc.fpc-cardiac-infect.pericarditis.0",
+  "t": "Acute pericarditis causes sharp, pleuritic chest pain that improves sitting forward, a pericardial friction rub, and diffuse concave ST elevation with PR depression (PR elevation in aVR). Causes include viral infection, post-MI (early, and Dressler syndrome weeks later), uraemia, autoimmune disease, malignancy and post-cardiac surgery. Treatment is NSAIDs and colchicine for most; steroids are second-line."
+ },
+ {
+  "id": "fpc.fpc-cardiac-infect.pericarditis.1",
+  "t": "Distinguish from STEMI: pericarditis has diffuse elevation not confined to a territory, no reciprocal depression (except in aVR and V1), PR depression, and no Q waves. When in doubt, bedside echo and serial ECGs help; myopericarditis raises troponin."
+ },
+ {
+  "id": "fpc.fpc-cardiac-infect.tamponade.0",
+  "t": "Fluid in the pericardium raises pressure until the chambers cannot fill. Speed matters more than volume: 100–200 mL accumulating rapidly (trauma, rupture after MI, aortic dissection, post-procedural) can cause tamponade, while slow effusions may reach litres. Beck's triad — hypotension, distended neck veins and muffled heart sounds — is classic but often incomplete. Look for tachycardia, a narrow pulse pressure, pulsus paradoxus (systolic fall > 10 mmHg on inspiration) and electrical alternans."
+ },
+ {
+  "id": "fpc.fpc-cardiac-infect.tamponade.1",
+  "t": "Ultrasound shows the effusion with right atrial systolic collapse and right ventricular diastolic collapse, and a plethoric IVC. Temporising measures: fluid bolus to raise filling pressure, avoid positive-pressure ventilation if possible (it worsens filling), and vasopressors. Definitive treatment is drainage — pericardiocentesis (ideally ultrasound-guided) or surgical drainage, which is preferred in trauma and aortic dissection."
+ },
+ {
+  "id": "fpc.fpc-cardiac-infect.myo.0",
+  "t": "Myocarditis (viral, toxic, autoimmune, vaccine-associated, giant cell) ranges from chest pain with raised troponin to fulminant cardiogenic shock and arrhythmias in young, previously healthy patients. Fulminant cases may need inotropes and mechanical support; transport early to a centre with ECMO capability."
+ },
+ {
+  "id": "fpc.fpc-cardiac-infect.myo.1",
+  "t": "Infective endocarditis presents with fever, a new or changed murmur, and embolic or immunological phenomena (splinter haemorrhages, Janeway lesions, Osler nodes, Roth spots, stroke, renal and splenic infarcts). Risk factors include injection drug use (often right-sided, tricuspid, with septic pulmonary emboli), prosthetic valves and structural heart disease. Complications include acute valve regurgitation with heart failure, abscess with heart block (new PR prolongation), and septic emboli to the brain. Blood cultures before antibiotics when feasible; urgent surgery for heart failure or uncontrolled infection."
+ },
+ {
+  "id": "fpc.fpc-cardiac-infect.valves.0",
+  "t": "Acute aortic regurgitation (endocarditis, dissection, trauma) causes sudden pulmonary oedema and shock; the LV cannot dilate quickly. Avoid bradycardia (longer diastole means more regurgitation); vasodilators and inotropes bridge to surgery; an IABP is contraindicated because diastolic inflation worsens regurgitation. Acute mitral regurgitation (papillary muscle rupture, chordal rupture, endocarditis) causes flash pulmonary oedema; afterload reduction and an IABP help."
+ },
+ {
+  "id": "fpc.fpc-cardiac-infect.valves.1",
+  "t": "Prosthetic valve thrombosis or failure presents with sudden heart failure, embolism and muffled prosthetic clicks; anticoagulation history matters."
+ },
+ {
+  "id": "fpc.fpc-cardiac-infect.case.0",
+  "t": "A 24-year-old stabbed in the left parasternal region: HR 132, BP 70/52, distended neck veins, SpO₂ 95 %, equal breath sounds. One litre of fluid given with transient improvement."
+ },
+ {
+  "id": "fpc.fpc-cardiac-infect.pericardiocentesis.0",
+  "t": "Ultrasound guidance is preferred: choose the approach where the effusion is largest and closest to the skin (subxiphoid, parasternal or apical), avoiding the internal mammary artery near the sternum. The classic blind subxiphoid approach aims a long needle from just left of the xiphoid toward the left shoulder at about 30–45° to the skin, aspirating as it advances."
+ },
+ {
+  "id": "fpc.fpc-cardiac-infect.pericardiocentesis.1",
+  "t": "Removing even 50–100 mL can dramatically improve haemodynamics in acute tamponade. Complications include ventricular puncture, coronary laceration, arrhythmia, pneumothorax and liver injury. In trauma, blood may clot and not aspirate; surgical drainage remains definitive. Leave a catheter in place if the effusion may reaccumulate."
+ },
+ {
+  "id": "fpc.fpc-arrhythmias.stable.0",
+  "t": "Signs of instability attributable to the rhythm — hypotension, acutely altered mental status, signs of shock, ischaemic chest pain or acute heart failure — call for electrical therapy: synchronised cardioversion for tachycardias with a pulse, pacing for bradycardias. Stable patients allow time to identify the rhythm and use drugs. Treat the patient, not the monitor: a heart rate of 150 with a fever is usually sinus tachycardia and needs the cause treated."
+ },
+ {
+  "id": "fpc.fpc-arrhythmias.brady.0",
+  "t": "First-degree block: PR > 200 ms, every P conducted — usually benign. Second-degree Mobitz I (Wenckebach): progressively lengthening PR then a dropped beat, usually at the AV node, often vagal or inferior MI, usually benign. Mobitz II: constant PR with sudden dropped beats, usually infranodal with a wide QRS, high risk of complete block — prepare to pace. Third-degree (complete) block: P waves and QRS complexes unrelated; escape rhythm narrow (junctional, 40–60) or wide (ventricular, 20–40)."
+ },
+ {
+  "id": "fpc.fpc-arrhythmias.brady.1",
+  "t": "For symptomatic bradycardia: atropine 1 mg IV every 3–5 minutes (maximum 3 mg); if ineffective, transcutaneous pacing or an infusion of epinephrine (2–10 mcg/min) or dopamine (5–20 mcg/kg/min). Atropine is unlikely to work in infranodal block or after heart transplant. Look for causes: hyperkalaemia, beta-blocker or calcium-channel blocker toxicity, digoxin, hypothermia, hypoxia, raised intracranial pressure, and inferior MI."
+ },
+ {
+  "id": "fpc.fpc-arrhythmias.narrow.0",
+  "t": "Regular narrow-complex tachycardia (often AVNRT or AVRT) in a stable patient: vagal manoeuvres (a modified Valsalva — strain then lie flat with legs raised — is most effective), then adenosine 6 mg rapid IV push with a flush, then 12 mg. Adenosine briefly blocks the AV node; it terminates re-entry through the node and unmasks flutter waves or atrial tachycardia. Warn the patient of a brief, unpleasant sensation. If unsuccessful, a calcium-channel blocker or beta-blocker; unstable patients get synchronised cardioversion."
+ },
+ {
+  "id": "fpc.fpc-arrhythmias.narrow.1",
+  "t": "Atrial fibrillation (irregularly irregular, no P waves) and flutter (sawtooth waves, often 2:1 at about 150): control rate with diltiazem or a beta-blocker in stable patients with preserved function; use amiodarone or digoxin cautiously in heart failure; cardiovert if unstable. Anticoagulation decisions follow at the destination (AF lasting more than 48 hours carries embolic risk with cardioversion). AF with WPW must not receive AV nodal blockers."
+ },
+ {
+  "id": "fpc.fpc-arrhythmias.wide.0",
+  "t": "Assume a regular wide-complex tachycardia is ventricular tachycardia, especially with structural heart disease or prior MI — misdiagnosis of VT as SVT with aberrancy and treatment with calcium-channel blockers can be fatal. Clues for VT: AV dissociation, capture or fusion beats, very wide QRS, concordance across the precordial leads, and extreme axis."
+ },
+ {
+  "id": "fpc.fpc-arrhythmias.wide.1",
+  "t": "Stable monomorphic VT: amiodarone 150 mg over 10 minutes or procainamide (avoid in long QT and heart failure), or elective synchronised cardioversion with sedation. Unstable VT with a pulse: synchronised cardioversion. Pulseless VT or VF: defibrillation and ACLS. Polymorphic VT with a long QT (torsades de pointes): magnesium 2 g IV, correct potassium, consider overdrive pacing or isoproterenol, and defibrillate if pulseless."
+ },
+ {
+  "id": "fpc.fpc-arrhythmias.case.0",
+  "t": "A 45-year-old with a regular narrow-complex tachycardia at 150 that does not respond to vagal manoeuvres. After adenosine 6 mg, the rate briefly slows and sawtooth waves appear at 300 per minute before the rate returns to 150."
+ },
+ {
+  "id": "fpc.fpc-arrhythmias.afib.0",
+  "t": "Many transport patients have AF. Ask: is it the cause of their problem or a consequence of something else (sepsis, hypovolaemia, PE, thyrotoxicosis, alcohol)? Treating the cause often slows the rate more safely than drugs. Rapid AF in septic shock may respond to fluid and vasopressors rather than rate-control agents, which can drop pressure."
+ },
+ {
+  "id": "fpc.fpc-arrhythmias.afib.1",
+  "t": "Cardioversion of AF present for more than 48 hours (or unknown duration) without anticoagulation carries a risk of stroke from left atrial thrombus; for stable patients, rate control and anticoagulation are preferred, with cardioversion reserved for instability. Anticoagulated patients have bleeding considerations in trauma."
+ },
+ {
+  "id": "fpc.fpc-htn-crisis.define.0",
+  "t": "Severe hypertension (often above 180/120) becomes a hypertensive emergency when it causes acute end-organ injury: hypertensive encephalopathy, stroke (ischaemic or haemorrhagic), acute coronary syndrome, acute pulmonary oedema, aortic dissection, acute kidney injury, pre-eclampsia or eclampsia, or retinal haemorrhage and papilloedema. Without organ injury, the pressure is lowered gradually over hours to days with oral agents."
+ },
+ {
+  "id": "fpc.fpc-htn-crisis.define.1",
+  "t": "Chronic hypertension shifts cerebral autoregulation to higher pressures; dropping the pressure too fast causes cerebral, coronary or renal ischaemia. The general rule for most emergencies is to lower MAP by no more than about 20–25 % in the first hour, then toward 160/100 over the next 2–6 hours, then to normal over 24–48 hours."
+ },
+ {
+  "id": "fpc.fpc-htn-crisis.targets.0",
+  "t": "Aortic dissection: rapid control — heart rate around 60 and systolic below about 120 within 20 minutes or so — with a beta-blocker first (esmolol or labetalol), then a vasodilator if needed. Pre-eclampsia/eclampsia with severe range pressures (≥ 160 systolic or ≥ 110 diastolic): treat within 30–60 minutes with IV labetalol or hydralazine or oral nifedipine, plus magnesium for seizure prophylaxis. Acute ischaemic stroke: lower only if above 185/110 before thrombolysis (and keep below 180/105 afterwards), or above 220/120 if no reperfusion therapy. Intracerebral haemorrhage: smooth lowering of systolic to about 140 is commonly targeted. Sympathetic crashing pulmonary oedema: high-dose nitrates and NIV."
+ },
+ {
+  "id": "fpc.fpc-htn-crisis.drugs.0",
+  "t": "Use short-acting, titratable IV drugs on a pump with an arterial line when possible. Nicardipine and clevidipine (calcium-channel blockers) are arterial vasodilators with little effect on heart rate or contractility; clevidipine is ultra-short-acting and lipid-based. Labetalol combines alpha- and beta-blockade; avoid in bradycardia, heart block, decompensated heart failure and asthma. Esmolol is a short-acting beta-1 blocker. Nitroglycerin is mainly a venodilator — ideal for pulmonary oedema and ACS. Nitroprusside is potent but risks cyanide toxicity and rebound and is used less often."
+ },
+ {
+  "id": "fpc.fpc-htn-crisis.drugs.1",
+  "t": "Avoid immediate-release sublingual nifedipine (unpredictable, precipitous drops, except oral nifedipine in pregnancy protocols) and avoid pure vasodilators without beta-blockade in dissection. In cocaine or amphetamine toxicity, benzodiazepines come first."
+ },
+ {
+  "id": "fpc.fpc-htn-crisis.case.0",
+  "t": "A 52-year-old with untreated hypertension: BP 238/142, headache, vomiting, confusion, papilloedema; CT shows no haemorrhage."
+ },
+ {
+  "id": "fpc.fpc-htn-crisis.monitoring.0",
+  "t": "Titratable infusions need frequent pressure measurement: every 5 minutes with a cuff during titration, or continuous arterial monitoring. Overshoot causes stroke, MI and renal injury in patients with shifted autoregulation. Reassess neurological status regularly; document the time course of blood pressure and doses so the receiving team can continue the planned reduction."
+ },
+ {
+  "id": "fpc.fpc-htn-crisis.specific.0",
+  "t": "Sympathomimetic toxicity (cocaine, amphetamines): benzodiazepines first; phentolamine or nicardipine if needed; avoid isolated beta-blockade. Autonomic dysreflexia in spinal cord injury at or above T6: sit the patient up, loosen tight clothing, and look for the trigger — most often a distended bladder (catheterise or flush a blocked catheter) or faecal impaction — before giving antihypertensives. Pheochromocytoma: alpha-blockade first."
+ },
+ {
+  "id": "fpc.fpc-htn-crisis.specific.1",
+  "t": "Post-thrombolysis or post-thrombectomy stroke patients have specific targets set by the neurology team; keep within them. Patients with left ventricular assist devices need Doppler MAP monitoring; hypertension increases stroke and pump complications."
+ },
+ {
+  "id": "fpc.fpc-hemo-instab.framework.0",
+  "t": "Blood pressure is the product of cardiac output and systemic vascular resistance; cardiac output is heart rate times stroke volume; stroke volume depends on preload, contractility and afterload. Every hypotensive patient has a problem in one or more of these: rate (too slow, too fast), preload (the tank), contractility (the pump), afterload or vascular tone (the pipes), or obstruction to flow."
+ },
+ {
+  "id": "fpc.fpc-hemo-instab.framework.1",
+  "t": "Bedside clues: cold, clammy and narrow pulse pressure suggest low output (hypovolaemic, cardiogenic, obstructive); warm, bounding and wide pulse pressure with low diastolic pressure suggest low SVR (distributive). Neck veins and ultrasound separate empty from full. Rhythm strips identify rate problems quickly."
+ },
+ {
+  "id": "fpc.fpc-hemo-instab.fluid.0",
+  "t": "Only about half of haemodynamically unstable patients increase stroke volume with fluid. A patient is fluid-responsive if stroke volume (or a surrogate such as pulse pressure or velocity–time integral on echo) rises by about 10–15 % after a fluid challenge or a passive leg raise. The passive leg raise is a reversible \"self-bolus\" of about 300 mL; measure the response within about a minute."
+ },
+ {
+  "id": "fpc.fpc-hemo-instab.fluid.1",
+  "t": "Pulse-pressure variation above about 12–13 % predicts responsiveness only in sedated patients on controlled ventilation with tidal volumes of at least 8 mL/kg, regular rhythm and a closed chest. Static measures such as CVP alone predict poorly. Fluid tolerance matters as much: worsening oxygenation, B-lines and a plethoric IVC say stop."
+ },
+ {
+  "id": "fpc.fpc-hemo-instab.interventions.0",
+  "t": "Hypovolaemia from bleeding: stop the bleeding and give blood products. Dehydration: crystalloid in boluses with reassessment. Distributive shock: fluid until no longer responsive, then norepinephrine (and vasopressin, steroids in sepsis; adrenaline in anaphylaxis). Cardiogenic shock: inotropes with vasopressor support and treatment of the cause. Obstructive shock: relieve the obstruction — decompress, drain, thrombolyse. Rate problems: pace or treat the arrhythmia."
+ },
+ {
+  "id": "fpc.fpc-hemo-instab.interventions.1",
+  "t": "Reassess after every intervention using perfusion markers, not just pressure. Over-resuscitation — fluid overload, excessive vasopressor doses — has its own harms: pulmonary oedema, bowel and limb ischaemia, arrhythmias."
+ },
+ {
+  "id": "fpc.fpc-hemo-instab.case.0",
+  "t": "Fifteen minutes into a flight, a septic patient on norepinephrine 0.12 mcg/kg/min drops from MAP 70 to MAP 54. HR 118, SpO₂ 95 %, EtCO₂ falls from 34 to 26."
+ },
+ {
+  "id": "fpc.fpc-hemo-instab.vasopressor-choice.0",
+  "t": "Low SVR with adequate output: norepinephrine (and vasopressin). Low output with adequate SVR: an inotrope (dobutamine, milrinone, or epinephrine). Both low: norepinephrine plus an inotrope, or epinephrine alone. Bradycardia driving low output: chronotropy (epinephrine, dopamine, isoproterenol) or pacing. Avoid pure alpha-agonists (phenylephrine) when cardiac output is already low except as a brief bridge."
+ },
+ {
+  "id": "fpc.fpc-hemo-instab.oxygen.0",
+  "t": "Shock is ultimately a failure of oxygen delivery relative to demand. Delivery (DO₂) is cardiac output times arterial oxygen content; content depends mostly on haemoglobin and saturation. A patient can be hypoperfused with a normal blood pressure if output or haemoglobin is low, and normotensive patients with rising lactate deserve the same attention as hypotensive ones."
+ },
+ {
+  "id": "fpc.fpc-hemo-instab.oxygen.1",
+  "t": "Reduce demand where possible: treat fever, pain, agitation and shivering; sedate and ventilate the patient whose work of breathing consumes a large share of their output. Raise delivery by restoring volume, haemoglobin (transfuse when bleeding or severely anaemic), oxygenation and output."
+ },
+ {
+  "id": "fpc.fpc-hemo-instab.case2.0",
+  "t": "A post-operative patient: BP 112/64, HR 108, lactate rising from 2.4 to 4.6 over two hours, cool hands, urine 10 mL/h, haemoglobin falling from 11 to 8.2."
+ },
+ {
+  "id": "fpc.fpc-chronic-cardiac.cm.0",
+  "t": "Hypertrophic cardiomyopathy (HCM) is a genetic disorder with a thick, stiff ventricle and, in many, dynamic left ventricular outflow obstruction from systolic anterior motion of the mitral valve. It causes exertional syncope and sudden death in the young. Obstruction worsens with low preload, low afterload and high contractility or heart rate: avoid dehydration, vasodilators (nitrates) and inotropes; give fluids, use phenylephrine for hypotension, and beta-blockers to slow the heart. Atrial fibrillation is poorly tolerated."
+ },
+ {
+  "id": "fpc.fpc-chronic-cardiac.cm.1",
+  "t": "Dilated cardiomyopathy causes systolic heart failure, arrhythmias and thromboembolism; manage as HFrEF. Restrictive cardiomyopathy (amyloidosis and others) has stiff ventricles, small stroke volumes and dependence on preload and heart rate — hypotension follows aggressive diuresis or vasodilation."
+ },
+ {
+  "id": "fpc.fpc-chronic-cardiac.ph.0",
+  "t": "In pulmonary arterial hypertension the right ventricle works against high resistance and may be at the edge of failure. Decompensation follows infection, arrhythmia, missed medications, pregnancy and anaesthesia. Avoid hypoxia, hypercapnia, acidosis and hypothermia (all raise pulmonary vascular resistance), maintain systemic pressure (norepinephrine, vasopressin), avoid excessive fluid, and support the RV with dobutamine or milrinone."
+ },
+ {
+  "id": "fpc.fpc-chronic-cardiac.ph.1",
+  "t": "Never interrupt continuous pulmonary vasodilator infusions (epoprostenol, treprostinil) — rebound pulmonary hypertension can be fatal within minutes. These run through dedicated lines and pumps; bring backup supplies and do not flush or use the line for anything else. Intubation is extremely high-risk."
+ },
+ {
+  "id": "fpc.fpc-chronic-cardiac.chd.0",
+  "t": "Adults with repaired or palliated congenital heart disease are increasingly common. Fontan patients (single-ventricle circulation, passive venous flow to the lungs) depend on low intrathoracic pressure and adequate preload; positive pressure and dehydration drop output. Eisenmenger patients have reversed shunts and fixed pulmonary hypertension; avoid systemic vasodilation (it increases right-to-left shunting) and air in IV lines (paradoxical embolism). Use air filters on IV lines in any patient with a right-to-left shunt. Contact the specialist centre early."
+ },
+ {
+  "id": "fpc.fpc-chronic-cardiac.transplant.0",
+  "t": "The transplanted heart is denervated: resting heart rate is higher (often 90–110), it responds to exercise and stress slowly via circulating catecholamines, and drugs acting through the vagus (atropine) have no effect. Use direct-acting agents for bradycardia (epinephrine, isoproterenol) or pacing. Adenosine has an exaggerated effect; use a reduced dose or avoid. Ischaemia may be painless. Patients are immunosuppressed: infection risk is high, and rejection can present as heart failure or arrhythmia."
+ },
+ {
+  "id": "fpc.fpc-chronic-cardiac.case.0",
+  "t": "A 24-year-old with known HCM collapses at a tournament; now alert but BP 82/50, HR 128, systolic murmur louder on standing. The referring team is about to give nitroglycerin for chest pain."
+ },
+ {
+  "id": "fpc.fpc-chronic-cardiac.pregnancy.0",
+  "t": "Pregnancy raises blood volume and cardiac output by 30–50 %, which unmasks valve disease, cardiomyopathy and pulmonary hypertension — the last carries a very high maternal mortality. Mitral stenosis decompensates with the rising heart rate and volume of pregnancy; peripartum cardiomyopathy appears in late pregnancy or the months after delivery. Transport pregnant cardiac patients to centres with both cardiac and obstetric expertise, with left uterine displacement after 20 weeks."
+ },
+ {
+  "id": "fpc.fpc-chronic-cardiac.pacemaker.0",
+  "t": "Many patients with chronic heart disease have pacemakers, ICDs, cardiac resynchronisation devices or LVADs. Identify the device (card, chest X-ray, interrogation at the destination), place defibrillation pads away from the generator, and know that magnets change pacemaker and ICD behaviour differently. Bring the patient's device card and contact the managing centre for complex devices."
+ },
+ {
+  "id": "fpc.fpc-chronic-cardiac.valve.0",
+  "t": "Mechanical valves need lifelong anticoagulation with warfarin (direct oral anticoagulants are contraindicated); bioprosthetic valves usually do not. In bleeding, reversal decisions balance the bleed against valve thrombosis risk — involve cardiology, but do not withhold reversal in life-threatening haemorrhage. A muffled mechanical click, new murmur, heart failure or embolism suggests valve thrombosis or dysfunction."
+ },
+ {
+  "id": "fpc.fpc-chronic-cardiac.valve.1",
+  "t": "Patients with prosthetic valves are at higher risk of endocarditis; fever in these patients warrants blood cultures before antibiotics where feasible."
+ },
+ {
+  "id": "fpc.fpc-vascular.dissection.0",
+  "t": "A tear in the intima lets blood split the aortic wall, creating a true and a false lumen. Classic features are sudden, severe, tearing or ripping chest or back pain at maximal intensity from onset, a pulse or blood pressure difference between the arms (more than 20 mmHg), a new diastolic murmur of aortic regurgitation, and neurological deficits. Risk factors: hypertension, connective tissue disease (Marfan, Ehlers–Danlos), bicuspid aortic valve, cocaine, pregnancy and recent aortic procedures."
+ },
+ {
+  "id": "fpc.fpc-vascular.dissection.1",
+  "t": "Stanford type A involves the ascending aorta and is a surgical emergency (complications: tamponade, acute aortic regurgitation, coronary occlusion, stroke). Type B involves only the descending aorta and is usually managed medically unless complicated by malperfusion, rupture or refractory pain."
+ },
+ {
+  "id": "fpc.fpc-vascular.dissection.2",
+  "t": "Impulse control comes first: lower heart rate to about 60 with a short-acting beta-blocker (esmolol or labetalol), then lower systolic pressure below about 120 with a vasodilator (nicardipine, clevidipine) as tolerated by perfusion. A vasodilator alone causes reflex tachycardia and more shear. Analgesia reduces sympathetic drive. Avoid anticoagulants and fibrinolytics — a dissection can mimic STEMI (especially inferior STEMI from RCA involvement)."
+ },
+ {
+  "id": "fpc.fpc-vascular.aaa.0",
+  "t": "An AAA is a permanent dilation of the abdominal aorta to 3 cm or more; rupture risk rises with diameter (above 5.5 cm usually warrants repair). Rupture presents with abdominal, back or flank pain, a pulsatile mass (often hard to feel), hypotension and syncope — commonly misdiagnosed as renal colic in older patients. Most ruptures are retroperitoneal and temporarily contained; free intraperitoneal rupture is usually fatal."
+ },
+ {
+  "id": "fpc.fpc-vascular.aaa.1",
+  "t": "Bedside ultrasound showing an aorta over 3 cm in a hypotensive older patient with pain is strongly suggestive. Use permissive hypotension — target a systolic around 70–90 mmHg or the lowest pressure that maintains mentation — to avoid disrupting the contained haematoma, give blood products rather than crystalloid, and transport immediately to a vascular centre capable of open or endovascular repair."
+ },
+ {
+  "id": "fpc.fpc-vascular.limb.0",
+  "t": "Sudden loss of limb perfusion from embolism (often atrial fibrillation) or thrombosis presents with the \"six Ps\": pain, pallor, pulselessness, paraesthesia, paralysis and poikilothermia (cold). Sensory loss and paralysis indicate threatened limb viability; revascularisation within about 6 hours preserves the most tissue."
+ },
+ {
+  "id": "fpc.fpc-vascular.limb.1",
+  "t": "Start anticoagulation with unfractionated heparin per protocol (unless contraindicated), keep the limb dependent and protected, give analgesia, and transfer to a vascular centre. After reperfusion, watch for compartment syndrome and reperfusion hyperkalaemia and myoglobinuria."
+ },
+ {
+  "id": "fpc.fpc-vascular.case.0",
+  "t": "A 72-year-old male smoker with sudden left flank pain and a syncopal episode: BP 88/52, HR 104 (on a beta-blocker), pale. Bedside ultrasound shows a 6.4 cm infrarenal aorta."
+ },
+ {
+  "id": "fpc.fpc-vascular.imaging.0",
+  "t": "CT angiography diagnoses dissection and AAA rupture; bedside ultrasound identifies AAA, pericardial effusion and sometimes an intimal flap in the aortic root. Chest X-ray may show a widened mediastinum but is normal in many dissections. Choose destinations with cardiothoracic or vascular surgery and endovascular capability; avoid stopping at hospitals that cannot provide definitive care when the patient is stable enough for direct transfer."
+ },
+ {
+  "id": "fpc.fpc-vascular.pe.0",
+  "t": "Massive (high-risk) PE presents with shock or hypotension; submassive (intermediate-risk) PE has RV strain on echo or raised troponin without hypotension. Management of massive PE includes systemic thrombolysis unless contraindicated, or catheter-directed therapy or surgical embolectomy; transport to a centre with these options."
+ },
+ {
+  "id": "fpc.fpc-vascular.pe.1",
+  "t": "Supportive care focuses on the right ventricle: oxygen, cautious fluids (avoid overloading the RV), norepinephrine for hypotension, and avoidance of intubation where possible. If intubation is unavoidable, prepare for collapse."
+ },
+ {
+  "id": "fpc.fpc-electrophys.ap.0",
+  "t": "The ventricular myocyte rests near −90 mV, set by potassium. Phase 0 is rapid depolarisation through fast sodium channels (the QRS); phase 1 early repolarisation; phase 2 the plateau, held by calcium influx (the ST segment); phase 3 repolarisation by potassium efflux (the T wave); phase 4 rest."
+ },
+ {
+  "id": "fpc.fpc-electrophys.ap.1",
+  "t": "Pacemaker cells in the SA and AV nodes have no true resting potential: phase 4 drifts upward (the \"funny\" current), and phase 0 depends on calcium channels, which is why calcium-channel blockers and beta-blockers slow the nodes. Sympathetic stimulation steepens phase 4 (faster rate); vagal stimulation flattens it."
+ },
+ {
+  "id": "fpc.fpc-electrophys.pacing.0",
+  "t": "Indicated for symptomatic bradycardia unresponsive to atropine (or when atropine is unlikely to work, as in infranodal block or heart transplant patients), and as a bridge to transvenous pacing. Place pads anterior–posterior or anterior–lateral; set a rate (often 60–80) and increase the current from the minimum until electrical capture (a wide QRS with a broad T after each pacing spike) occurs, then add a small margin."
+ },
+ {
+  "id": "fpc.fpc-electrophys.pacing.1",
+  "t": "Confirm mechanical capture with a palpable pulse (femoral is less confused by muscle twitching), a pulse oximetry waveform matching the paced rate, or an arterial line. Electrical artefact can mimic capture. Transcutaneous pacing is painful: give analgesia and sedation. Large body habitus, effusions and hyperinflated lungs raise thresholds."
+ },
+ {
+  "id": "fpc.fpc-electrophys.pacing.2",
+  "t": "Transvenous pacing (via internal jugular or femoral) is more reliable and comfortable; in transport, check the wire's position, connections, threshold and pacing box battery, and secure everything carefully."
+ },
+ {
+  "id": "fpc.fpc-electrophys.devices.0",
+  "t": "Pacemaker codes describe chamber paced, chamber sensed, and response (for example DDD: dual chamber paced and sensed, triggered and inhibited). Failure to pace (no spike when expected), failure to capture (spike without a following complex) and failure to sense (spikes at inappropriate times) are the main malfunctions; causes include lead displacement, battery depletion, electrolyte disturbance and ischaemia."
+ },
+ {
+  "id": "fpc.fpc-electrophys.devices.1",
+  "t": "A magnet placed over a pacemaker usually switches it to asynchronous pacing at a fixed rate; over an ICD it usually suspends shock delivery without changing pacing — useful for inappropriate shocks, but the patient then needs external monitoring and defibrillation capability. Defibrillation pads should sit at least a few centimetres away from the device generator."
+ },
+ {
+  "id": "fpc.fpc-electrophys.energy.0",
+  "t": "Ventricular fibrillation and pulseless VT need unsynchronised defibrillation at the maximum or manufacturer-recommended biphasic energy (often 120–200 J, escalating). Unstable tachyarrhythmias with a pulse need synchronised cardioversion: synchronisation avoids delivering the shock on the T wave. Typical starting energies: narrow regular (SVT, flutter) 50–100 J, irregular narrow (AF) 120–200 J, monomorphic VT with a pulse 100 J, all biphasic and escalating per protocol. Polymorphic VT is treated as VF (unsynchronised)."
+ },
+ {
+  "id": "fpc.fpc-electrophys.energy.1",
+  "t": "In aircraft, defibrillation is safe when the crew is clear of the patient and the stretcher; follow programme procedures and inform the pilot before shocking if required."
+ },
+ {
+  "id": "fpc.fpc-electrophys.case.0",
+  "t": "A 77-year-old with complete heart block, HR 32, BP 72/40, confused. Atropine 1 mg had no effect. Transfer for a permanent pacemaker."
+ },
+ {
+  "id": "fpc.fpc-electrophys.lifevest.0",
+  "t": "Some patients wear a wearable cardioverter-defibrillator vest that detects VT or VF and shocks automatically after audible alarms; the patient can press response buttons to abort a shock if conscious. If the patient arrests, the vest may shock; stand clear when it alarms. For CPR or external defibrillation, remove the vest's electrode belt per manufacturer instructions."
+ },
+ {
+  "id": "fpc.fpc-electrophys.lifevest.1",
+  "t": "Implantable loop recorders record rhythms but do not pace or shock; they are irrelevant to resuscitation but useful for diagnosis later."
+ },
+ {
+  "id": "fpc.fpc-cardiac-dx.views.0",
+  "t": "Subxiphoid (subcostal): probe under the xiphoid aiming toward the left shoulder; the best view for pericardial effusion and the one used during CPR. Parasternal long axis: left of the sternum at the third or fourth intercostal space, marker toward the right shoulder; shows the LV, mitral and aortic valves, and helps distinguish pericardial from pleural fluid (pericardial fluid tracks anterior to the descending aorta). Parasternal short axis: rotate 90° for a cross-section of the LV (\"doughnut\") and RV — good for septal shape. Apical four-chamber: at the point of maximal impulse; compares RV and LV size."
+ },
+ {
+  "id": "fpc.fpc-cardiac-dx.views.1",
+  "t": "Add the IVC (subcostal long axis) for filling assessment, and lung views for B-lines, effusions and pneumothorax."
+ },
+ {
+  "id": "fpc.fpc-cardiac-dx.findings.0",
+  "t": "Pericardial effusion appears as an anechoic (black) stripe around the heart. Tamponade adds right atrial systolic collapse and right ventricular diastolic collapse with a plethoric IVC. LV function is graded visually — hyperdynamic, normal, reduced or severely reduced — by wall thickening and endocardial movement; mitral valve leaflet movement close to the septum (E-point septal separation under about 7 mm) suggests normal function."
+ },
+ {
+  "id": "fpc.fpc-cardiac-dx.findings.1",
+  "t": "Acute RV strain (massive PE): an RV as large as or larger than the LV in the apical view, septal flattening (\"D sign\") in the short axis, and sometimes McConnell sign (RV free-wall hypokinesis with apical sparing). A small, collapsing IVC suggests low filling pressure in a spontaneously breathing patient; a plethoric IVC suggests high right-sided pressure — but neither is decisive alone."
+ },
+ {
+  "id": "fpc.fpc-cardiac-dx.arrest.0",
+  "t": "Use the subxiphoid view during the rhythm check and limit it to 10 seconds or less — prolonged scanning increases pauses in compressions. Record a clip and review it while compressions resume. Look for cardiac motion (organised activity suggests \"pseudo-PEA\" with very low output, which may respond to vasopressors), tamponade, a dilated RV, and gross hypovolaemia. Absent cardiac activity after prolonged resuscitation supports decisions to stop, alongside other factors."
+ },
+ {
+  "id": "fpc.fpc-cardiac-dx.limits.0",
+  "t": "Focused ultrasound answers yes/no questions; it does not replace comprehensive echocardiography. Body habitus, ventilation, lung disease, wounds and movement in flight limit images. Integrate with the ECG (for example, regional wall motion abnormality supporting ischaemia), labs (troponin, BNP, lactate) and the clinical picture. Document who scanned, when, and the views obtained."
+ },
+ {
+  "id": "fpc.fpc-cardiac-dx.ecg-integration.0",
+  "t": "A regional wall motion abnormality matching ECG changes supports acute ischaemia; a globally poor LV suggests cardiomyopathy or myocarditis; a dilated RV with ST changes in V1–V3 and inferior leads suggests PE or RV infarction. Low-voltage QRS with electrical alternans suggests a large effusion. Combining modalities increases confidence before invasive or irreversible decisions."
+ },
+ {
+  "id": "fpc.fpc-cardiac-dx.lung.0",
+  "t": "Three or more B-lines in two or more zones bilaterally suggest interstitial oedema (cardiogenic pulmonary oedema, or ARDS if patchy with pleural line abnormalities). An A-line pattern with lung sliding suggests dry lungs — useful when deciding whether fluid can be given. Pleural effusions appear as anechoic spaces above the diaphragm."
+ },
+ {
+  "id": "fpc.fpc-cardiac-dx.lung.1",
+  "t": "Combining lung and cardiac views (for example, poor LV function plus diffuse B-lines) strongly supports acute heart failure in a dyspnoeic patient, and the absence of B-lines makes cardiogenic oedema unlikely."
+ },
+ {
+  "id": "fpc.fpc-cardiac-dx.case.0",
+  "t": "A 78-year-old with COPD and heart failure presents short of breath: wheeze, crackles, BP 168/92."
+ },
+ {
+  "id": "fpc.fpc-cardiac-labs.troponin.0",
+  "t": "Cardiac troponin I or T is released when myocytes are injured. High-sensitivity assays detect very small amounts within 1–3 hours of injury. Myocardial injury is a troponin value above the 99th percentile upper reference limit; acute injury shows a rise and/or fall on serial testing. Myocardial infarction requires acute injury plus clinical evidence of ischaemia (symptoms, ECG changes, imaging)."
+ },
+ {
+  "id": "fpc.fpc-cardiac-labs.troponin.1",
+  "t": "Type 1 MI is plaque rupture with thrombosis. Type 2 MI is supply–demand mismatch: tachyarrhythmia, hypotension, anaemia, hypoxaemia, severe hypertension. Non-ischaemic injury raises troponin too: myocarditis, PE, sepsis, heart failure, renal failure (often chronically elevated), stroke, cardiac contusion and defibrillation. STEMI is diagnosed on the ECG; never wait for troponin to activate reperfusion."
+ },
+ {
+  "id": "fpc.fpc-cardiac-labs.bnp.0",
+  "t": "BNP and NT-proBNP rise with ventricular wall stress. Low values make acute heart failure unlikely in a dyspnoeic patient; high values support it but also occur with renal failure, PE, sepsis, AF and older age. Obesity lowers levels."
+ },
+ {
+  "id": "fpc.fpc-cardiac-labs.bnp.1",
+  "t": "D-dimer is a fibrin degradation product: sensitive but non-specific. A normal D-dimer in a patient with low or intermediate pre-test probability helps exclude PE and DVT; it is raised in dissection, sepsis, malignancy, pregnancy, surgery and trauma, so a high value proves little. Lactate rises with hypoperfusion and in cardiogenic shock tracks severity and response to treatment."
+ },
+ {
+  "id": "fpc.fpc-cardiac-labs.electrolytes.0",
+  "t": "Potassium: hyperkalaemia causes peaked T waves, PR prolongation, QRS widening, sine waves and arrest; hypokalaemia causes U waves, ST depression, QT/QU prolongation and ventricular ectopy, and increases digoxin toxicity. Magnesium: low levels predispose to torsades and refractory hypokalaemia; replete magnesium before or with potassium. Calcium: hypocalcaemia prolongs the QT; hypercalcaemia shortens it."
+ },
+ {
+  "id": "fpc.fpc-cardiac-labs.electrolytes.1",
+  "t": "Targets in high-risk cardiac patients (post-MI, arrhythmias): potassium above about 4.0 and magnesium above about 2.0 mg/dL are commonly used."
+ },
+ {
+  "id": "fpc.fpc-cardiac-labs.digoxin.0",
+  "t": "Digoxin toxicity causes nausea, vomiting, visual changes (yellow-green tinge), confusion and almost any arrhythmia — classically bidirectional VT, atrial tachycardia with block, and bradycardia — with hyperkalaemia in acute overdose. The \"digoxin effect\" (scooped ST depression) is not toxicity. Risk rises with renal failure, hypokalaemia and drug interactions (amiodarone). Treat significant toxicity with digoxin-specific antibody fragments; calcium for hyperkalaemia in digoxin toxicity is now considered acceptable by many, but the antidote is the priority."
+ },
+ {
+  "id": "fpc.fpc-cardiac-labs.case.0",
+  "t": "A 35-year-old with fever, cough and new atrial fibrillation at 160: troponin elevated and rising; ECG shows no ST elevation; BP 98/60."
+ },
+ {
+  "id": "fpc.fpc-cardiac-labs.timing.0",
+  "t": "High-sensitivity troponin pathways use a baseline and a repeat at 1–3 hours; a single normal value very early after symptom onset does not exclude MI. Lactate is repeated after resuscitation to confirm clearance. Potassium and magnesium are rechecked after replacement and after insulin or diuretics. In transport, record the time of each result so the receiving team can interpret trends."
+ },
+ {
+  "id": "fpc.fpc-cardiac-labs.other.0",
+  "t": "Thyroid function: thyrotoxicosis causes AF and high-output failure; hypothyroidism causes bradycardia and effusions. Haemoglobin: anaemia worsens ischaemia and can cause type 2 MI. Coagulation: baseline INR and aPTT before anticoagulation and fibrinolysis. Renal function: guides contrast exposure, drug dosing (enoxaparin, digoxin) and potassium risk."
+ },
+ {
+  "id": "fpc.fpc-cardiac-labs.other.1",
+  "t": "Point-of-care tests (troponin, INR, lactate, electrolytes) increasingly travel with transport teams; know their limits and confirm critical values at the receiving facility."
+ },
+ {
+  "id": "fpc.fpc-cardiac-pharm.antiarrhythmics.0",
+  "t": "Adenosine: 6 mg rapid IV push with a saline flush, then 12 mg; terminates AV-nodal re-entry and unmasks atrial flutter or tachycardia. Reduce the dose (often to 3 mg) with central line administration, heart transplant recipients, or dipyridamole and carbamazepine; theophylline and caffeine blunt its effect. Avoid in irregular wide-complex tachycardia."
+ },
+ {
+  "id": "fpc.fpc-cardiac-pharm.antiarrhythmics.1",
+  "t": "Amiodarone: 300 mg IV push in VF/pulseless VT (then 150 mg); 150 mg over 10 minutes for stable VT, followed by an infusion. It causes hypotension and bradycardia, prolongs the QT, and has many interactions. Lidocaine (1–1.5 mg/kg) is an alternative in arrest. Procainamide (20–50 mg/min to a maximum of 17 mg/kg, or until the QRS widens by 50 % or hypotension) is useful for stable VT and AF with WPW, but avoid in long QT and heart failure."
+ },
+ {
+  "id": "fpc.fpc-cardiac-pharm.antiarrhythmics.2",
+  "t": "Rate control: diltiazem (0.25 mg/kg IV over 2 minutes) or metoprolol (2.5–5 mg IV) for AF or flutter with preserved function; avoid both in decompensated heart failure and WPW. Digoxin is slower and used in heart failure. Magnesium treats torsades."
+ },
+ {
+  "id": "fpc.fpc-cardiac-pharm.antithrombotics.0",
+  "t": "Aspirin irreversibly inhibits cyclooxygenase in platelets. P2Y12 inhibitors (clopidogrel, ticagrelor, prasugrel) block ADP-mediated activation; prasugrel is avoided in prior stroke or TIA. Glycoprotein IIb/IIIa inhibitors are used selectively in the cath lab."
+ },
+ {
+  "id": "fpc.fpc-cardiac-pharm.antithrombotics.1",
+  "t": "Unfractionated heparin (weight-based bolus and infusion, monitored by aPTT or anti-Xa; reversible with protamine) suits patients who may need procedures or have renal failure. Enoxaparin is given subcutaneously or IV, renally cleared and partially reversed by protamine. Bivalirudin is a direct thrombin inhibitor used during PCI."
+ },
+ {
+  "id": "fpc.fpc-cardiac-pharm.antithrombotics.2",
+  "t": "Fibrinolytics (alteplase, reteplase, tenecteplase) convert plasminogen to plasmin to dissolve fibrin. Tenecteplase is given as a single weight-based bolus — convenient in transport. Monitor for bleeding, especially intracranial (sudden headache, neurological change, vomiting): stop anticoagulants, and give cryoprecipitate and an antifibrinolytic per protocol."
+ },
+ {
+  "id": "fpc.fpc-cardiac-pharm.vasodilators.0",
+  "t": "Nitroglycerin reduces preload (and afterload at high doses) and relieves ischaemic pain; avoid with hypotension, RV infarction, recent PDE-5 inhibitors and severe aortic stenosis. Morphine is reserved for pain refractory to nitrates. Beta-blockers reduce myocardial oxygen demand but are avoided early when heart failure, low output or high shock risk exist. ACE inhibitors and statins are started in hospital."
+ },
+ {
+  "id": "fpc.fpc-cardiac-pharm.vasodilators.1",
+  "t": "Inotropes and vasopressors are covered in the treatment modalities and cardiogenic shock lessons; remember the principle — vasopressors for low SVR, inotropes for low contractility, both when both fail."
+ },
+ {
+  "id": "fpc.fpc-cardiac-pharm.case.0",
+  "t": "A remote clinic with no PCI access within 120 minutes. Anterior STEMI, onset 70 minutes ago, 78 kg, no contraindications. Tenecteplase has been given. Twenty minutes into the flight, the patient develops accelerated idioventricular rhythm at 85 with BP 118/70 and decreasing chest pain."
+ },
+ {
+  "id": "fpc.fpc-cardiac-pharm.interactions.0",
+  "t": "QT-prolonging combinations (amiodarone, sotalol, macrolides, fluoroquinolones, antipsychotics, ondansetron, methadone) raise torsades risk — especially with hypokalaemia or hypomagnesaemia. Beta-blockers plus non-dihydropyridine calcium-channel blockers can cause profound bradycardia and heart block. Nitrates with PDE-5 inhibitors cause severe hypotension. Amiodarone raises digoxin and warfarin levels."
+ },
+ {
+  "id": "fpc.fpc-cardiac-pharm.interactions.1",
+  "t": "In transport, review the medication list for these before giving additional drugs."
+ },
+ {
+  "id": "fpc.fpc-cardiac-monitor.ecg.0",
+  "t": "Three- or five-lead monitoring detects rhythm; a 12-lead is needed for ischaemia. Limb electrodes go on the limbs or torso near the shoulders and hips (torso placement changes some voltages); precordial leads: V1 4th intercostal space right sternal border, V2 4th left, V4 5th intercostal space mid-clavicular, V3 between V2 and V4, V5 anterior axillary line level with V4, V6 mid-axillary line level with V4. Right-sided V4R mirrors V4 on the right; posterior V7–V9 continue from V6 around to the back at the same level."
+ },
+ {
+  "id": "fpc.fpc-cardiac-monitor.ecg.1",
+  "t": "Artefact from vibration, shivering, movement and electrical interference mimics arrhythmias. Check the patient (pulse, perfusion) before treating a monitor rhythm. Good skin preparation, fresh electrodes and securing leads reduce artefact; monitor filters reduce noise but distort ST segments — use diagnostic mode for 12-leads."
+ },
+ {
+  "id": "fpc.fpc-cardiac-monitor.bp.0",
+  "t": "Oscillometric non-invasive BP measures MAP most accurately and derives systolic and diastolic values. It fails with vibration, arrhythmias, severe hypotension, shivering and wrong cuff size: a cuff too small reads falsely high, too large falsely low (the bladder should encircle about 80 % of the arm, width about 40 % of the circumference). Frequent cycling causes discomfort and skin injury."
+ },
+ {
+  "id": "fpc.fpc-cardiac-monitor.bp.1",
+  "t": "Arterial lines give beat-to-beat pressure and are preferred for unstable patients, vasoactive infusions and long transports where cuffs struggle. They must be levelled to the phlebostatic axis, zeroed, and checked with a fast-flush test. Compare with a cuff periodically; trust the MAP when systolic values differ."
+ },
+ {
+  "id": "fpc.fpc-cardiac-monitor.spo2.0",
+  "t": "Pulse oximetry compares red and infrared absorption to estimate oxygen saturation. It fails with poor perfusion, cold extremities, motion, nail polish, ambient light and dyshaemoglobins: carbon monoxide reads falsely normal, and methaemoglobinaemia drives readings toward about 85 %. Accuracy falls below about 80 %, and studies show overestimation in patients with darker skin pigmentation — corroborate with blood gases in critical decisions. The plethysmographic waveform tells you whether the signal is real."
+ },
+ {
+  "id": "fpc.fpc-cardiac-monitor.spo2.1",
+  "t": "Capnography is covered in detail in the airway domain; in cardiac care, EtCO₂ reflects pulmonary blood flow, so it tracks CPR quality, signals ROSC, and falls with low cardiac output."
+ },
+ {
+  "id": "fpc.fpc-cardiac-monitor.advanced.0",
+  "t": "Cardiac output monitors (pulse-contour analysis from an arterial line, thermodilution with a PA catheter, Doppler-based devices) estimate stroke volume and output and support fluid-responsiveness testing. Central venous oxygen saturation (normal about 65–75 %) reflects the balance between delivery and consumption. Near-infrared spectroscopy estimates regional tissue oxygenation, mostly in paediatric and cardiac surgical patients."
+ },
+ {
+  "id": "fpc.fpc-cardiac-monitor.advanced.1",
+  "t": "Every monitor needs power: check batteries, carry spares, and know the aircraft's power supply. Alarm limits should be set appropriately for each patient to avoid alarm fatigue while catching real deterioration."
+ },
+ {
+  "id": "fpc.fpc-cardiac-monitor.case.0",
+  "t": "A septic patient on norepinephrine: cuff BP 74/40 at the wrist, arterial line 102/58 (MAP 72), SpO₂ reading 84 % with a flat, irregular waveform while the patient is pink and alert."
+ },
+ {
+  "id": "fpc.fpc-cardiac-monitor.alarms.0",
+  "t": "Noise in aircraft makes audible alarms hard to hear; use visual alerts and position monitors in line of sight. Set patient-specific limits: too wide and you miss deterioration, too narrow and alarm fatigue sets in. Silence alarms only after assessing the patient, and re-enable them."
+ },
+ {
+  "id": "fpc.fpc-cardiac-monitor.alarms.1",
+  "t": "Monitors, pumps and ventilators may interfere with each other or with aircraft systems; use approved equipment, secure cables and know the power supply arrangements. Document monitor trends at regular intervals as part of the transport record."
  }
 ]
