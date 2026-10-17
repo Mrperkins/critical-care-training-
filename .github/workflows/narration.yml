@@ -4,7 +4,7 @@
 name: Render narration
 on:
   push:
-    branches: [natural-voice]
+    branches: [natural-voice, feat/fpc-peds]
     paths: ['app/narration-request.txt']
   workflow_dispatch:
 permissions:
