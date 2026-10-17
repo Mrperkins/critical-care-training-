@@ -48,6 +48,11 @@ import { OB_MONITOR, DELIVERY_COMPLICATIONS, MULTIPLE_BIRTH } from './lessons/ob
 import { PREECLAMPSIA, PROM, MATERNAL } from './lessons/obneo3';
 import { NEONATAL } from './lessons/obneo4';
 import { OBNEO_EXTRAS } from './lessons/obneoCases';
+import { GAS_LAWS, HYPOXIAS, FLIGHT_STRESSORS } from './lessons/flight1';
+import { ALTITUDE_INJURIES, TUC, CABINS } from './lessons/flight2';
+import { ACCREDITATION, RESEARCH, PRIVACY, JUST_CULTURE } from './lessons/prof1';
+import { EBM, ETHICS, GAMUT, CAREGIVER_WELLBEING } from './lessons/prof2';
+import { FINAL_EXTRAS } from './lessons/finalCases';
 
 /** a lesson plus its transport case(s) and extra questions (the case closes the teaching, before the questions) */
 const withExtras = (l: FpcLesson, x: Record<string, { sections: FpcLesson['sections']; questions: FpcLesson['questions'] }>) => (x[l.id] ? { ...l, sections: [...l.sections, ...x[l.id].sections], questions: [...l.questions, ...x[l.id].questions] } : l);
@@ -63,6 +68,7 @@ export const FPC_LESSONS: FpcLesson[] = [
   ...[AIRCRAFT_OPS, AERODYNAMICS, AIRCRAFT_PERFORMANCE, AIR_EMERGENCIES, LZ_OPS, OBSTACLES, SURVIVAL, WEATHER, REFUELLING, WELLNESS, HAZARD_REPORTING, RADIO_COMMS, RESTRAINTS, PREFLIGHT, PAX_BRIEFING, RISK_ASSESSMENT, NVG, GPS_NAV].map((l) => withExtras(l, SAFETY_EXTRAS)),
   ...[PEDS_DX, PEDS_LABS, PEDS_PHARM, PEDS_MONITOR, PEDS_AIRWAY_DISEASE, NAT, PEDS_FLUIDS, PEDS_DKA, SPECIAL_NEEDS, HIGH_TECH, PEDS_INFECTIOUS, PEDS_VENT].map((l) => withExtras(l, PEDS_EXTRAS)),
   ...[OB_DX, OB_LABS, OB_PHARM, OB_MONITOR, DELIVERY_COMPLICATIONS, MULTIPLE_BIRTH, PREECLAMPSIA, PROM, MATERNAL, NEONATAL].map((l) => withExtras(l, OBNEO_EXTRAS)),
+  ...[GAS_LAWS, HYPOXIAS, FLIGHT_STRESSORS, ALTITUDE_INJURIES, TUC, CABINS, ACCREDITATION, RESEARCH, PRIVACY, JUST_CULTURE, EBM, ETHICS, GAMUT, CAREGIVER_WELLBEING].map((l) => withExtras(l, FINAL_EXTRAS)),
 ]);
 export const FPC_BY_ID: Record<string, FpcLesson> = Object.fromEntries(FPC_LESSONS.map((l) => [l.id, l]));
 export const lessonsFor = (d: DomainId) => FPC_LESSONS.filter((l) => l.domain === d);
