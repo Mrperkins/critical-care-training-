@@ -8726,5 +8726,525 @@
  {
   "id": "fpc.fpc-peds-vent.niv.2",
   "t": "For transport, decide before departure whether NIV is likely to succeed for the duration of the flight. A child who is failing or borderline is safer intubated on the ground than in a confined, noisy cabin."
+ },
+ {
+  "id": "fpc.fpc-ob-dx.assess.0",
+  "t": "Gestational age guides almost every decision: viability (about 22–24 weeks), steroid and magnesium benefit, the receiving unit and the neonatal team needed. Use dates from an early ultrasound where available. Fundal height in centimetres approximates gestational weeks between about 20 and 36 weeks; at 20 weeks the fundus is at the umbilicus, and at 12 weeks it rises just above the pubic symphysis."
+ },
+ {
+  "id": "fpc.fpc-ob-dx.assess.1",
+  "t": "History: gravidity and parity (G3P2 = three pregnancies, two births beyond 20 weeks), prior caesarean (uterine rupture risk), complications in this pregnancy (pre-eclampsia, placenta praevia, diabetes, multiple pregnancy), rupture of membranes (time and colour of fluid — meconium staining), bleeding, contractions (frequency, duration, strength), fetal movements and prenatal care."
+ },
+ {
+  "id": "fpc.fpc-ob-dx.assess.2",
+  "t": "Physiological changes alter assessment: heart rate rises by 10–20 beats/min, blood pressure falls in the second trimester, blood volume increases by about 40–50 % (so significant blood loss may be hidden), there is a dilutional anaemia, a respiratory alkalosis (PaCO₂ about 30 mmHg), and from about 20 weeks the uterus compresses the vena cava when supine — tilt left or manually displace the uterus."
+ },
+ {
+  "id": "fpc.fpc-ob-dx.toco.0",
+  "t": "An external tocodynamometer, a pressure transducer strapped over the fundus, records the frequency and duration of contractions; it does not measure their strength (an intrauterine pressure catheter does). Contraction frequency is measured from the start of one contraction to the start of the next. Normal active labour has 3–5 contractions per 10 minutes."
+ },
+ {
+  "id": "fpc.fpc-ob-dx.toco.1",
+  "t": "Tachysystole is more than 5 contractions in 10 minutes, averaged over 30 minutes, and can reduce placental blood flow and cause fetal distress — particularly with oxytocin. A hypertonic or tetanic contraction (lasting longer than 2 minutes, or with no relaxation between contractions) is an emergency that may signal abruption or uterine rupture; stop oxytocin and consider a tocolytic per protocol."
+ },
+ {
+  "id": "fpc.fpc-ob-dx.toco.2",
+  "t": "Imminent delivery: regular strong contractions every 2–3 minutes, an urge to push, rectal pressure, crowning or visible presenting part. Transport during active second-stage labour risks delivery in a cramped aircraft; it is often safer to deliver at the referring facility with neonatal support than mid-flight."
+ },
+ {
+  "id": "fpc.fpc-ob-dx.fhr.0",
+  "t": "Normal fetal heart rate is 110–160 beats/min. Variability (fluctuations of 6–25 beats/min) indicates an intact fetal nervous system and adequate oxygenation; reduced or absent variability may reflect hypoxia, sleep, prematurity or maternal drugs (opioids, magnesium). Accelerations (rises of 15 beats/min for 15 seconds at term) are reassuring."
+ },
+ {
+  "id": "fpc.fpc-ob-dx.fhr.1",
+  "t": "Decelerations: early decelerations mirror contractions (head compression) and are benign; variable decelerations are abrupt and vary in shape and timing (cord compression) and are concerning if deep, prolonged or recurrent; late decelerations begin after the contraction peak and return after it ends (uteroplacental insufficiency) and are concerning, especially with reduced variability. Prolonged bradycardia below 110 for more than 10 minutes is an emergency."
+ },
+ {
+  "id": "fpc.fpc-ob-dx.fhr.2",
+  "t": "The three-tier NICHD system classifies tracings: Category I (normal — reassuring), Category II (indeterminate — needs evaluation and intrauterine resuscitation), and Category III (abnormal — absent variability with recurrent late or variable decelerations or bradycardia, or a sinusoidal pattern — needing urgent delivery). Intrauterine resuscitation: left lateral position, IV fluid bolus, oxygen if the mother is hypoxic, stop oxytocin, treat hypotension, and consider a tocolytic."
+ },
+ {
+  "id": "fpc.fpc-ob-dx.case.0",
+  "t": "A 31-week G2P1 with preterm contractions is referred to a tertiary centre 45 minutes away by air. Contractions every 4 minutes, lasting 50 seconds; cervix 4 cm. FHR 145 with moderate variability and occasional early decelerations. She has received the first dose of betamethasone."
+ },
+ {
+  "id": "fpc.fpc-ob-dx.trauma.0",
+  "t": "Trauma is a leading non-obstetric cause of maternal death. Resuscitating the mother is the best way to resuscitate the fetus: oxygen, left uterine displacement after 20 weeks, early blood, and avoiding hypotension. Maternal compensation can hide blood loss of 1–1.5 L, and the fetus may be the first to show maternal shock through an abnormal heart rate."
+ },
+ {
+  "id": "fpc.fpc-ob-dx.trauma.1",
+  "t": "Even minor trauma can cause placental abruption, often hours later. Pregnant trauma patients beyond about 20–24 weeks are monitored with continuous cardiotocography for at least 4–6 hours at a facility able to manage obstetric complications. Rh-negative mothers receive anti-D, and a Kleihauer–Betke test quantifies fetal-maternal haemorrhage."
+ },
+ {
+  "id": "fpc.fpc-ob-dx.trauma.2",
+  "t": "Pelvic binders, imaging and drugs are used as needed — necessary radiation should not be withheld. Seat belts should sit below the abdomen across the pelvis; abdominal bruising from a lap belt is a warning sign of uterine and placental injury."
+ },
+ {
+  "id": "fpc.fpc-ob-labs.normal.0",
+  "t": "Plasma volume rises more than red cell mass, so haemoglobin falls (a level above about 10.5–11 g/dL is acceptable). White cells rise (up to about 15 × 10⁹/L, higher in labour). Platelets fall slightly (gestational thrombocytopenia, rarely below 70–80 × 10⁹/L). Pregnancy is hypercoagulable: fibrinogen rises to about 4–6 g/L at term, so a \"normal\" non-pregnant fibrinogen of 2 g/L is low in late pregnancy and predicts severe postpartum haemorrhage."
+ },
+ {
+  "id": "fpc.fpc-ob-labs.normal.1",
+  "t": "Renal blood flow and glomerular filtration rise by about 50 %, so creatinine falls (normal about 35–70 µmol/L, 0.4–0.8 mg/dL); a creatinine of 90 µmol/L (1.0 mg/dL), normal outside pregnancy, may indicate renal impairment. Blood gases show a compensated respiratory alkalosis (PaCO₂ about 28–32 mmHg, bicarbonate about 18–21 mmol/L), so a \"normal\" PaCO₂ of 40 in a pregnant woman with asthma suggests respiratory failure."
+ },
+ {
+  "id": "fpc.fpc-ob-labs.normal.2",
+  "t": "Alkaline phosphatase rises (placental origin); liver transaminases do not. Glucose tolerance worsens in later pregnancy; gestational diabetes is common."
+ },
+ {
+  "id": "fpc.fpc-ob-labs.disease.0",
+  "t": "Pre-eclampsia: proteinuria (protein:creatinine ratio ≥ 0.3 mg/mg, or ≥ 300 mg in 24 hours) or, in its absence, evidence of end-organ involvement — platelets below 100 × 10⁹/L, creatinine above 97 µmol/L (1.1 mg/dL) or doubling, transaminases twice normal, pulmonary oedema or neurological symptoms. HELLP syndrome: haemolysis (raised LDH above about 600 U/L, schistocytes, falling haemoglobin, raised bilirubin), elevated liver enzymes (AST/ALT twice normal) and low platelets (below 100 × 10⁹/L)."
+ },
+ {
+  "id": "fpc.fpc-ob-labs.disease.1",
+  "t": "Obstetric haemorrhage and DIC: falling haemoglobin lags behind blood loss; fibrinogen below 2 g/L is a key trigger for fibrinogen replacement (cryoprecipitate or concentrate), and viscoelastic testing guides therapy where available. Placental abruption, amniotic fluid embolism, sepsis, retained dead fetus and severe pre-eclampsia can all cause DIC."
+ },
+ {
+  "id": "fpc.fpc-ob-labs.disease.2",
+  "t": "Magnesium therapy is monitored clinically (reflexes, respiratory rate, urine output) and with levels: therapeutic about 2–3.5 mmol/L (4–7 mEq/L); loss of reflexes about 5 mmol/L; respiratory depression about 6–7 mmol/L; cardiac arrest above about 12 mmol/L."
+ },
+ {
+  "id": "fpc.fpc-ob-labs.rh.0",
+  "t": "Rh-negative mothers exposed to Rh-positive fetal blood (trauma, bleeding, abruption, delivery) can form anti-D antibodies that harm future pregnancies. Anti-D immunoglobulin is given within 72 hours of a potential sensitising event. The Kleihauer–Betke test quantifies fetal cells in maternal blood to guide the anti-D dose; in trauma it also identifies feto-maternal haemorrhage."
+ },
+ {
+  "id": "fpc.fpc-ob-labs.rh.1",
+  "t": "Neonatal values: glucose (treated below about 2.6 mmol/L, 47 mg/dL, in many protocols); umbilical cord gases (an arterial pH below 7.0 or base deficit worse than −12 suggests significant intrapartum hypoxia and may qualify for therapeutic hypothermia); haemoglobin is high at birth (14–20 g/dL); and bilirubin rises over the first days (jaundice in the first 24 hours is pathological)."
+ },
+ {
+  "id": "fpc.fpc-ob-labs.rh.2",
+  "t": "Neonatal sepsis screening includes blood cultures, white cell count and CRP, with risk factors such as prolonged rupture of membranes, maternal fever and group B streptococcus colonisation."
+ },
+ {
+  "id": "fpc.fpc-ob-labs.case.0",
+  "t": "A 34-week primigravida with epigastric and right upper quadrant pain, BP 158/104, headache. Labs: Hb 9.8, platelets 62, AST 310, ALT 280, LDH 890, creatinine 92 µmol/L, fibrinogen 2.6 g/L."
+ },
+ {
+  "id": "fpc.fpc-ob-labs.sepsis.0",
+  "t": "Maternal sepsis is a leading cause of maternal death. Normal pregnancy changes (raised heart rate, lower blood pressure, raised white cell count) blur the usual criteria, so obstetric-specific early warning scores are used. Lactate is not raised by normal pregnancy, although it rises in labour; a lactate above 2 mmol/L in a pregnant patient with suspected infection is concerning."
+ },
+ {
+  "id": "fpc.fpc-ob-labs.sepsis.1",
+  "t": "Common sources: chorioamnionitis, endometritis after delivery, pyelonephritis, wound infection and pneumonia. Group A streptococcus causes rapidly progressive, severe sepsis. Treat with early broad-spectrum antibiotics (within an hour), fluids and source control, and monitor the fetus."
+ },
+ {
+  "id": "fpc.fpc-ob-labs.sepsis.2",
+  "t": "Acute fatty liver of pregnancy (third trimester; nausea, vomiting, jaundice, hypoglycaemia, coagulopathy, raised ammonia) overlaps with HELLP but has more marked hypoglycaemia, liver failure and coagulopathy. It requires delivery and intensive care."
+ },
+ {
+  "id": "fpc.fpc-ob-pharm.mag.0",
+  "t": "Magnesium sulfate prevents and treats eclamptic seizures and provides fetal neuroprotection before 32 weeks. Loading dose 4–6 g IV over 15–20 minutes, then 1–2 g/hour. Monitor deep tendon reflexes, respiratory rate (above 12), urine output (above about 25–30 mL/hour) and, where available, levels. Reduce the infusion in renal impairment. Toxicity: loss of reflexes, respiratory depression, cardiac arrest — stop the infusion and give calcium gluconate 1 g (10 mL of 10 %) IV over 3–10 minutes."
+ },
+ {
+  "id": "fpc.fpc-ob-pharm.mag.1",
+  "t": "Severe hypertension (systolic ≥ 160 or diastolic ≥ 110 sustained for 15 minutes) is an emergency treated within 30–60 minutes to prevent stroke. First-line: IV labetalol (20 mg, then 40, then 80 mg every 10 minutes; avoid in asthma and heart failure), IV hydralazine (5–10 mg every 20 minutes), or oral immediate-release nifedipine (10–20 mg, repeated). Target about 140–150/90–100 — avoid precipitous drops that compromise placental flow."
+ },
+ {
+  "id": "fpc.fpc-ob-pharm.mag.2",
+  "t": "ACE inhibitors and angiotensin receptor blockers are contraindicated in pregnancy. Nitroprusside is a last resort because of fetal cyanide toxicity."
+ },
+ {
+  "id": "fpc.fpc-ob-pharm.labour.0",
+  "t": "Tocolytics delay preterm labour for up to 48 hours to allow antenatal steroids and transfer: nifedipine (a common first choice; watch for hypotension), indomethacin (before 32 weeks; avoid longer than 48 hours because of ductal constriction and oligohydramnios), and terbutaline 0.25 mg subcutaneously for short-term use (for example tachysystole) — it causes maternal tachycardia and is not used for prolonged tocolysis. Magnesium is not an effective tocolytic but is given for neuroprotection."
+ },
+ {
+  "id": "fpc.fpc-ob-pharm.labour.1",
+  "t": "Antenatal corticosteroids (betamethasone 12 mg IM, two doses 24 hours apart, or dexamethasone 6 mg IM every 12 hours for four doses) between about 24 and 34 weeks reduce neonatal death, respiratory distress syndrome and intraventricular haemorrhage. Benefit begins within hours, so the first dose should not be delayed for transfer."
+ },
+ {
+  "id": "fpc.fpc-ob-pharm.labour.2",
+  "t": "Uterotonics for postpartum haemorrhage: oxytocin (10 units IM or IV infusion — avoid rapid IV bolus, which causes hypotension), methylergonovine (0.2 mg IM; contraindicated in hypertension and pre-eclampsia), carboprost (15-methyl PGF2α 250 mcg IM every 15–90 minutes; contraindicated in asthma), and misoprostol (600–1000 mcg orally, sublingually or rectally). Tranexamic acid 1 g IV within 3 hours of birth (repeat once after 30 minutes if bleeding continues) reduced death from bleeding in the WOMAN trial."
+ },
+ {
+  "id": "fpc.fpc-ob-pharm.neo.0",
+  "t": "Ventilation is the most important intervention in neonatal resuscitation; drugs are rarely needed. Epinephrine for a heart rate below 60 despite 30 seconds of effective ventilation and 60 seconds of coordinated compressions: 0.02 mg/kg IV/IO (0.2 mL/kg of 0.1 mg/mL; range 0.01–0.03 mg/kg), repeated every 3–5 minutes; endotracheal 0.1 mg/kg while access is obtained. Volume: 10 mL/kg of normal saline or O-negative blood for suspected hypovolaemia (pale, poor perfusion, history of blood loss)."
+ },
+ {
+  "id": "fpc.fpc-ob-pharm.neo.1",
+  "t": "Glucose: 10 % dextrose 2 mL/kg (0.2 g/kg) for hypoglycaemia, followed by an infusion of about 4–6 mg/kg/min (60–80 mL/kg/day of 10 % dextrose). Surfactant is given via the endotracheal tube for preterm respiratory distress syndrome. Prostaglandin E1 (alprostadil) 0.01–0.05 mcg/kg/min keeps the ductus arteriosus open in duct-dependent congenital heart disease; it causes apnoea (prepare to ventilate), fever and hypotension."
+ },
+ {
+  "id": "fpc.fpc-ob-pharm.neo.2",
+  "t": "Antibiotics for suspected neonatal sepsis: ampicillin plus gentamicin (or cefotaxime/ceftazidime per protocol). Naloxone is not recommended in the delivery room for respiratory depression; support ventilation instead. Vitamin K 1 mg IM is given after birth."
+ },
+ {
+  "id": "fpc.fpc-ob-pharm.case.0",
+  "t": "A 36-week patient with severe pre-eclampsia is on magnesium 2 g/h. One hour into a ground-to-air transfer: reflexes absent, respiratory rate 9, SpO₂ 91 %, urine output 10 mL over the past hour."
+ },
+ {
+  "id": "fpc.fpc-ob-pharm.safety.0",
+  "t": "Most emergency drugs can be used in pregnancy when needed — the mother's health comes first. Drugs to avoid or use cautiously: ACE inhibitors and ARBs (fetal renal toxicity), warfarin (teratogenic in the first trimester), NSAIDs after about 20 weeks (oligohydramnios, ductal constriction), tetracyclines, and valproate (neural tube defects). Opioids, paracetamol, most antibiotics (penicillins, cephalosporins), heparins, labetalol, nifedipine and standard resuscitation drugs are used routinely."
+ },
+ {
+  "id": "fpc.fpc-ob-pharm.safety.1",
+  "t": "RSI in pregnancy: anticipate a difficult airway (oedema, large breasts, aspiration risk, rapid desaturation from reduced functional residual capacity and higher oxygen consumption). Preoxygenate well with head-up positioning, use a smaller tube, and use standard induction doses; succinylcholine and rocuronium are appropriate. Magnesium potentiates non-depolarising neuromuscular blockers."
+ },
+ {
+  "id": "fpc.fpc-ob-pharm.safety.2",
+  "t": "Most drugs given to a breastfeeding mother are compatible with breastfeeding; for specific questions, consult the LactMed database."
+ },
+ {
+  "id": "fpc.fpc-ob-monitor.maternal.0",
+  "t": "Monitor the mother as any critical patient: ECG, blood pressure (cuff sized for the arm; in pre-eclampsia, frequent measurements or an arterial line), SpO₂, respiratory rate, temperature, urine output with a catheter, and capnography if sedated or intubated. Position in left lateral tilt to avoid aortocaval compression, which otherwise reduces cardiac output and placental perfusion."
+ },
+ {
+  "id": "fpc.fpc-ob-monitor.maternal.1",
+  "t": "Continuous electronic fetal monitoring in flight is limited by noise, vibration, space and the movement of the transducers; many programmes use intermittent auscultation with a handheld Doppler (fetal heart rate before departure, at intervals during transport and on arrival) and a tocodynamometer or manual palpation for contractions. Some transport monitors record both. Document the FHR baseline and any decelerations, and palpate contractions directly when in doubt."
+ },
+ {
+  "id": "fpc.fpc-ob-monitor.maternal.2",
+  "t": "Point-of-care ultrasound confirms fetal cardiac activity, presentation (cephalic or breech), placental location (praevia) and free fluid. It is useful before departure to anticipate breech delivery or confirm fetal demise."
+ },
+ {
+  "id": "fpc.fpc-ob-monitor.isolette.0",
+  "t": "A transport incubator (isolette) provides a thermally controlled, enclosed environment with a neonatal ventilator, oxygen and air supplies, suction, monitoring (ECG, SpO₂, temperature, non-invasive BP, often capnography), infusion pumps and battery power. It is mounted on a specialised stretcher and secured to the aircraft; together it is heavy and must be included in weight and balance."
+ },
+ {
+  "id": "fpc.fpc-ob-monitor.isolette.1",
+  "t": "Before each transport: pre-warm the incubator (to about 34–37 °C depending on the infant's size and gestation), check battery charge and aircraft power compatibility, gas supplies (and calculate duration), ventilator function, alarms, suction and the neonatal airway and resuscitation kit. Access ports allow care without opening the incubator, which loses heat quickly."
+ },
+ {
+  "id": "fpc.fpc-ob-monitor.isolette.2",
+  "t": "Servo-control mode adjusts heater output to the baby's skin temperature probe; air mode controls the air temperature. Secure the infant with internal straps or a nest, and keep lines and tubes visible and secured so they do not kink during loading."
+ },
+ {
+  "id": "fpc.fpc-ob-monitor.neo.0",
+  "t": "Pre-ductal saturation (right hand) reflects blood reaching the brain; post-ductal (either foot) reflects blood past the ductus arteriosus. A difference of more than about 3 % (post lower than pre) suggests right-to-left shunting across the ductus — persistent pulmonary hypertension of the newborn or duct-dependent systemic circulation (for example coarctation or hypoplastic left heart)."
+ },
+ {
+  "id": "fpc.fpc-ob-monitor.neo.1",
+  "t": "Target pre-ductal SpO₂ in the first minutes of life rises gradually (about 60–65 % at 1 minute to 85–95 % by 10 minutes); afterwards most neonates are kept at about 90–95 %, with lower targets in some cyanotic congenital heart disease per cardiology advice. Avoid hyperoxia in preterm infants (retinopathy, lung injury)."
+ },
+ {
+  "id": "fpc.fpc-ob-monitor.neo.2",
+  "t": "Temperature: aim for an axillary temperature of 36.5–37.5 °C; check every 15–30 minutes in transport. Capnography (mainstream sensors are bulky; low-dead-space adaptors exist) confirms tube placement and helps titrate ventilation. Blood glucose is checked on departure and regularly in transport. Transcutaneous CO₂ monitoring is available in some services."
+ },
+ {
+  "id": "fpc.fpc-ob-monitor.case.0",
+  "t": "A term newborn with meconium aspiration is intubated. Right hand SpO₂ 92 %, foot 78 % on FiO₂ 1.0. BP 50/28 (mean 35). The infant becomes agitated with handling and saturations drop further."
+ },
+ {
+  "id": "fpc.fpc-ob-monitor.altitude.0",
+  "t": "At altitude, the partial pressure of oxygen falls. The fetus is relatively protected by fetal haemoglobin (which binds oxygen more tightly) and a left-shifted dissociation curve, but maternal hypoxia reduces fetal oxygen delivery. Give supplemental oxygen to keep maternal SpO₂ at or above about 95 % and consider requesting a lower cabin altitude in fixed-wing transport for compromised pregnancies."
+ },
+ {
+  "id": "fpc.fpc-ob-monitor.altitude.1",
+  "t": "Motion sickness and vomiting are common; antiemetics such as ondansetron or metoclopramide are used. Vibration and noise make auscultation impossible — rely on monitors with visual displays and Doppler devices. Restrain the pregnant patient with the lap belt below the abdomen and maintain left tilt with a wedge."
+ },
+ {
+  "id": "fpc.fpc-ob-monitor.altitude.2",
+  "t": "Plan for delivery in the aircraft even when it is unlikely: a delivery kit, neonatal resuscitation equipment, warming and a plan for who does what. In-flight delivery is rare but chaotic without preparation."
+ },
+ {
+  "id": "fpc.fpc-delivery-complications.cord.0",
+  "t": "Cord prolapse — the cord descending through the cervix ahead of the presenting part after the membranes rupture — compresses the cord and cuts off fetal blood flow. Risk factors: malpresentation (breech, transverse), prematurity, polyhydramnios, multiple pregnancy and a high presenting part at rupture. Suspect it with sudden fetal bradycardia or variable decelerations after rupture, or when the cord is seen or felt."
+ },
+ {
+  "id": "fpc.fpc-delivery-complications.cord.1",
+  "t": "Management aims to relieve pressure on the cord until caesarean delivery: call ahead, elevate the presenting part off the cord with a gloved hand in the vagina (and keep it there throughout transport), place the mother in knee–chest or steep Trendelenburg with left tilt, or fill the bladder with 500–750 mL of saline via a catheter to lift the presenting part. Minimise handling of the cord (to avoid vasospasm); cover an exposed cord with warm, moist dressings. Tocolysis (terbutaline) may reduce contractions."
+ },
+ {
+  "id": "fpc.fpc-delivery-complications.cord.2",
+  "t": "If delivery is imminent and vaginal birth can be achieved quickly, deliver; otherwise, rapid transport to a unit able to perform immediate caesarean section."
+ },
+ {
+  "id": "fpc.fpc-delivery-complications.bleeding.0",
+  "t": "Placental abruption is premature separation of a normally sited placenta: painful bleeding (although bleeding may be concealed), a tender, firm or \"woody\" uterus, frequent or tetanic contractions, fetal distress and maternal shock out of proportion to visible blood loss. Risk factors: hypertension and pre-eclampsia, trauma, cocaine, smoking and previous abruption. It causes DIC — check fibrinogen and give products early. Ultrasound often misses abruption; diagnosis is clinical."
+ },
+ {
+  "id": "fpc.fpc-delivery-complications.bleeding.1",
+  "t": "Placenta praevia is a placenta covering or near the cervix: painless, bright red bleeding, a soft non-tender uterus, often in the third trimester. Never perform a digital vaginal examination when praevia is possible — it can provoke massive haemorrhage. Resuscitate with blood, give Rh immune globulin if Rh-negative, and transfer to a centre able to perform caesarean section."
+ },
+ {
+  "id": "fpc.fpc-delivery-complications.bleeding.2",
+  "t": "Uterine rupture — most often in women with a previous caesarean scar during labour — presents with sudden abdominal pain, loss of fetal station, abnormal fetal heart rate (often bradycardia), cessation of contractions and maternal shock. It requires immediate laparotomy."
+ },
+ {
+  "id": "fpc.fpc-delivery-complications.delivery.0",
+  "t": "Shoulder dystocia: the head delivers but retracts against the perineum (\"turtle sign\") and the shoulders do not follow with gentle traction. Call for help, avoid fundal pressure and excessive traction, and use the McRoberts manoeuvre (hyperflex the mother's hips onto her abdomen) with suprapubic pressure; then internal rotational manoeuvres, delivery of the posterior arm, or moving the mother to all fours. HELPERR is a memory aid."
+ },
+ {
+  "id": "fpc.fpc-delivery-complications.delivery.1",
+  "t": "Breech delivery: allow the baby to deliver spontaneously to the umbilicus (\"hands off the breech\"), support the body, and deliver the head with flexion (the Mauriceau manoeuvre: fingers on the maxilla, flex the head, suprapubic pressure). Do not pull. A head that does not deliver within a few minutes is an emergency."
+ },
+ {
+  "id": "fpc.fpc-delivery-complications.delivery.2",
+  "t": "Postpartum haemorrhage (blood loss of 1000 mL or more, or any bleeding with signs of hypovolaemia) is a leading cause of maternal death. Causes — the four Ts: Tone (uterine atony, about 70 %), Trauma (lacerations, inversion, rupture), Tissue (retained placenta or products) and Thrombin (coagulopathy). Treat with fundal massage, uterotonics (oxytocin first), bimanual compression, TXA within 3 hours, blood products (with early fibrinogen) and rapid transfer for definitive control (balloon tamponade, embolisation, surgery)."
+ },
+ {
+  "id": "fpc.fpc-delivery-complications.case.0",
+  "t": "A 33-week patient in transport has a sudden gush of fluid. The fetal heart rate falls from 145 to 80 and stays there. On inspection, a loop of cord is visible at the introitus. Landing is 20 minutes away."
+ },
+ {
+  "id": "fpc.fpc-delivery-complications.newborn.0",
+  "t": "Complicated deliveries often produce compromised newborns. After cord prolapse, abruption, shoulder dystocia or prolonged breech delivery, expect a baby who needs resuscitation: prepare warming, suction, a bag-mask with appropriately sized masks, pulse oximetry and a person dedicated to the newborn."
+ },
+ {
+  "id": "fpc.fpc-delivery-complications.newborn.1",
+  "t": "Shoulder dystocia can cause brachial plexus injury (Erb palsy) and clavicle or humerus fractures in the baby, and perineal trauma and PPH in the mother. Breech delivery risks head entrapment and hypoxia. Abruption can cause fetal anaemia and hypovolaemic shock in the newborn — 10 mL/kg of O-negative blood may be needed."
+ },
+ {
+  "id": "fpc.fpc-delivery-complications.newborn.2",
+  "t": "Document times precisely: time of the head delivering, time of the body, onset of resuscitation and Apgar scores at 1 and 5 minutes. These records matter for the receiving neonatal team and for therapeutic hypothermia decisions."
+ },
+ {
+  "id": "fpc.fpc-multiple-birth.types.0",
+  "t": "Dizygotic (fraternal) twins come from two eggs and always have two placentas and two amniotic sacs (dichorionic diamniotic). Monozygotic (identical) twins come from one egg that splits: depending on timing, they may be dichorionic diamniotic, monochorionic diamniotic (one shared placenta, two sacs — most common for identical twins) or monochorionic monoamniotic (one placenta, one sac — highest risk, including cord entanglement)."
+ },
+ {
+  "id": "fpc.fpc-multiple-birth.types.1",
+  "t": "Monochorionic twins share placental circulation, which can be unbalanced: twin-to-twin transfusion syndrome (TTTS) — one twin becomes the donor (anaemic, growth-restricted, oligohydramnios) and the other the recipient (polycythaemic, fluid-overloaded, polyhydramnios, heart failure). Multiple pregnancy increases risks of preterm labour (more than half of twins are born before 37 weeks), pre-eclampsia, gestational diabetes, anaemia, placenta praevia, malpresentation, cord prolapse and postpartum haemorrhage."
+ },
+ {
+  "id": "fpc.fpc-multiple-birth.types.2",
+  "t": "Triplets and higher-order multiples carry greater risks still; nearly all are born preterm and many need neonatal intensive care."
+ },
+ {
+  "id": "fpc.fpc-multiple-birth.transport.0",
+  "t": "A woman in preterm labour with a multiple pregnancy is usually transferred before delivery to a centre with enough NICU capacity for all the babies — in utero transfer is safer than transferring several sick preterm neonates afterwards. Confirm that the receiving unit has cots for every baby. Give antenatal steroids, magnesium for neuroprotection (< 32 weeks) and tocolysis per protocol."
+ },
+ {
+  "id": "fpc.fpc-multiple-birth.transport.1",
+  "t": "If delivery is imminent, it is safer to deliver at the referring hospital with neonatal teams present than in an aircraft. A transport team may be requested to retrieve multiple neonates afterwards; each critically ill neonate typically needs its own team and incubator, which may mean several teams or sequential transfers."
+ },
+ {
+  "id": "fpc.fpc-multiple-birth.transport.2",
+  "t": "Prepare for each baby separately: resuscitation equipment, warming, staff and identification. Label babies and cords (Twin A, Twin B) and record the time of each birth."
+ },
+ {
+  "id": "fpc.fpc-multiple-birth.delivery.0",
+  "t": "The first twin is delivered as a singleton (the presenting twin is usually cephalic). After the first birth, clamp and cut the cord (labelled), and check the lie and heart rate of the second twin. Contractions often pause; the second twin may change position, and its cord may prolapse. The interval between births is ideally short (often within 30 minutes), as the risk of hypoxia for the second twin rises with time and placental separation."
+ },
+ {
+  "id": "fpc.fpc-multiple-birth.delivery.1",
+  "t": "If the second twin is cephalic or breech and descending, allow delivery with maternal effort; a transverse second twin needs obstetric manoeuvres (external or internal version) or caesarean section — another reason to deliver at a hospital where possible."
+ },
+ {
+  "id": "fpc.fpc-multiple-birth.delivery.2",
+  "t": "After delivery, the over-distended uterus contracts poorly: postpartum haemorrhage is more common. Give oxytocin after the last baby is delivered (not before — it could trap the second twin), massage the fundus, and be ready for the PPH bundle."
+ },
+ {
+  "id": "fpc.fpc-multiple-birth.case.0",
+  "t": "A 29-week monochorionic diamniotic twin pregnancy in preterm labour at a rural hospital: cervix 5 cm, contractions every 3 minutes, both fetal hearts reassuring. The nearest NICU with two available cots is 60 minutes by air."
+ },
+ {
+  "id": "fpc.fpc-multiple-birth.neonates.0",
+  "t": "Twins and triplets are often preterm and small, and each needs its own warming, resuscitation equipment and staff. Before delivery, set up separate resuscitation stations and assign teams. Monochorionic twins with TTTS may be born with opposite problems: the donor anaemic and hypovolaemic (may need blood), the recipient polycythaemic with heart failure (may need partial exchange and inotropes)."
+ },
+ {
+  "id": "fpc.fpc-multiple-birth.neonates.1",
+  "t": "Identification is critical: label each baby and their samples clearly and consistently, record birth order and times, and ensure that the receiving unit receives correct information for each infant."
+ },
+ {
+  "id": "fpc.fpc-multiple-birth.neonates.2",
+  "t": "When transport resources are limited, prioritise the sickest infant for immediate transfer and arrange additional teams for the others; communicate clearly with parents about where each baby is going."
+ },
+ {
+  "id": "fpc.fpc-preeclampsia.dx.0",
+  "t": "Pre-eclampsia is new hypertension (systolic ≥ 140 or diastolic ≥ 90 on two occasions at least 4 hours apart) after 20 weeks of gestation with proteinuria or, in its absence, evidence of end-organ dysfunction. It can also present for the first time postpartum, up to about 6 weeks after delivery. The cause is abnormal placentation leading to widespread endothelial dysfunction and vasospasm."
+ },
+ {
+  "id": "fpc.fpc-preeclampsia.dx.1",
+  "t": "Severe features: systolic ≥ 160 or diastolic ≥ 110; platelets below 100 × 10⁹/L; liver transaminases twice normal or severe right upper quadrant/epigastric pain; creatinine above 97 µmol/L (1.1 mg/dL) or doubling; pulmonary oedema; and new headache unresponsive to medication or visual disturbances. Hyperreflexia and clonus suggest cerebral irritability."
+ },
+ {
+  "id": "fpc.fpc-preeclampsia.dx.2",
+  "t": "Risk factors: first pregnancy, previous pre-eclampsia, chronic hypertension, diabetes, renal disease, autoimmune disease, multiple pregnancy, obesity, age over 35 and IVF pregnancy. Definitive treatment is delivery of the placenta; until then, the aims are to prevent stroke, seizures and organ damage while planning timing and place of delivery."
+ },
+ {
+  "id": "fpc.fpc-preeclampsia.treat.0",
+  "t": "Severe hypertension (≥ 160/110 sustained for 15 minutes) must be treated within 30–60 minutes: stroke is the leading cause of death in pre-eclampsia. IV labetalol (20, 40, then 80 mg every 10 minutes, up to 300 mg), IV hydralazine (5–10 mg every 20 minutes) or oral immediate-release nifedipine (10–20 mg) are first line. Aim for 140–150/90–100; overly rapid falls can compromise placental perfusion — monitor the fetal heart."
+ },
+ {
+  "id": "fpc.fpc-preeclampsia.treat.1",
+  "t": "Magnesium sulfate prevents eclampsia in pre-eclampsia with severe features (and treats eclamptic seizures): 4–6 g IV over 15–20 minutes, then 1–2 g/hour, continued for 24 hours after delivery or the last seizure. Monitor reflexes, respiratory rate and urine output; reduce the dose in oliguria or renal impairment. Calcium gluconate 1 g IV reverses toxicity."
+ },
+ {
+  "id": "fpc.fpc-preeclampsia.treat.2",
+  "t": "Fluids: pre-eclamptic women are at risk of pulmonary oedema from capillary leak, low oncotic pressure and diastolic dysfunction. Restrict total fluids (often about 80 mL/hour) and avoid large boluses unless haemorrhaging. Place a urinary catheter and record hourly output."
+ },
+ {
+  "id": "fpc.fpc-preeclampsia.eclampsia.0",
+  "t": "Eclampsia is a generalised seizure in a woman with pre-eclampsia (although up to a fifth of eclamptic seizures occur before hypertension or proteinuria are recognised, and some occur postpartum). Warning signs: severe headache, visual disturbance, epigastric pain and hyperreflexia."
+ },
+ {
+  "id": "fpc.fpc-preeclampsia.eclampsia.1",
+  "t": "During a seizure: protect from injury, place in left lateral position, maintain the airway, give oxygen and suction. Most eclamptic seizures are brief and self-limiting. Give magnesium 4–6 g IV over 15–20 minutes (or 5 g IM into each buttock if no IV access); for recurrent seizures, give a further 2 g IV. Benzodiazepines are second-line if magnesium fails. Treat severe hypertension."
+ },
+ {
+  "id": "fpc.fpc-preeclampsia.eclampsia.2",
+  "t": "After the seizure, assess the fetus — bradycardia during and after a seizure usually recovers within minutes as maternal oxygenation improves; do not rush to delivery until the mother is stabilised. Consider other causes of seizures (intracranial haemorrhage, posterior reversible encephalopathy syndrome, cerebral venous thrombosis, hypoglycaemia) if the seizure is atypical or recurrent. Persistent neurological deficit or reduced consciousness needs imaging."
+ },
+ {
+  "id": "fpc.fpc-preeclampsia.case.0",
+  "t": "During transfer of a 35-week patient with severe pre-eclampsia (BP 172/112, on magnesium 1 g/h after a 4 g load), she complains of worsening headache and then has a generalised seizure lasting 90 seconds. Fetal heart rate falls to 90."
+ },
+ {
+  "id": "fpc.fpc-preeclampsia.pres.0",
+  "t": "Posterior reversible encephalopathy syndrome (PRES) causes headache, visual disturbance, altered consciousness and seizures from vasogenic oedema in the posterior brain, associated with severe hypertension and endothelial dysfunction. It usually resolves with blood pressure control and delivery. Intracerebral haemorrhage — the most feared complication of severe hypertension in pregnancy — presents with sudden headache, focal signs or coma and needs urgent imaging and neurosurgical input."
+ },
+ {
+  "id": "fpc.fpc-preeclampsia.pres.1",
+  "t": "Cerebral venous sinus thrombosis is more common in pregnancy and the postpartum period (hypercoagulability, dehydration) and presents with headache, seizures and focal deficits. Stroke, hypoglycaemia, epilepsy and drug toxicity are other causes of seizures in pregnancy."
+ },
+ {
+  "id": "fpc.fpc-preeclampsia.pres.2",
+  "t": "A seizure that is atypical (focal, prolonged, recurrent despite magnesium) or followed by persistent deficits needs imaging. Transport to a centre with neuroimaging, neurosurgery, obstetrics and intensive care."
+ },
+ {
+  "id": "fpc.fpc-prom.define.0",
+  "t": "Prelabour rupture of membranes (PROM) is rupture before the onset of labour at any gestation; at term it affects about 8 % of pregnancies, and most women labour within 24 hours. Preterm prelabour rupture of membranes (PPROM) is rupture before 37 weeks and before labour; it complicates about 3 % of pregnancies and causes about a third of preterm births. Prolonged rupture is more than 18–24 hours."
+ },
+ {
+  "id": "fpc.fpc-prom.define.1",
+  "t": "Diagnosis: history of a gush or continuous leak of fluid; sterile speculum examination showing pooling of fluid in the posterior vagina or leaking from the cervix with coughing; and tests such as nitrazine paper (alkaline amniotic fluid turns it blue — false positives with blood, semen and infection) or ferning on microscopy, or commercial protein tests. Avoid digital cervical examination in PPROM unless the woman is in active labour, because it increases infection risk and shortens latency."
+ },
+ {
+  "id": "fpc.fpc-prom.define.2",
+  "t": "Ultrasound may show reduced amniotic fluid (oligohydramnios). Note the colour of the fluid: meconium staining or blood-stained fluid alters management."
+ },
+ {
+  "id": "fpc.fpc-prom.risks.0",
+  "t": "Infection: chorioamnionitis (intra-amniotic infection) presents with maternal fever, maternal and fetal tachycardia, uterine tenderness and foul-smelling fluid, and threatens both mother (sepsis) and baby (neonatal sepsis, cerebral palsy). It requires broad-spectrum antibiotics and usually delivery."
+ },
+ {
+  "id": "fpc.fpc-prom.risks.1",
+  "t": "Cord prolapse is more likely, especially with malpresentation or a high presenting part. Placental abruption is also more common. Preterm birth follows in most cases of PPROM — about half deliver within a week — with the complications of prematurity. Very early PPROM (before about 24 weeks) risks pulmonary hypoplasia and limb deformities from prolonged oligohydramnios."
+ },
+ {
+  "id": "fpc.fpc-prom.risks.2",
+  "t": "Signs of fetal compromise — variable decelerations from cord compression, bradycardia — need urgent assessment for cord prolapse and delivery."
+ },
+ {
+  "id": "fpc.fpc-prom.manage.0",
+  "t": "At term, most women are offered induction of labour (or expectant management for a limited time); group B streptococcus prophylaxis is given if indicated. In PPROM without infection or fetal compromise, expectant management until about 34 weeks reduces prematurity complications: antibiotics to prolong latency (commonly ampicillin and erythromycin or azithromycin for 7 days — avoid amoxicillin-clavulanate, associated with necrotising enterocolitis), antenatal corticosteroids (24–34 weeks), magnesium for neuroprotection before 32 weeks if delivery is imminent, and GBS prophylaxis in labour. Tocolysis in PPROM is controversial and not routinely recommended."
+ },
+ {
+  "id": "fpc.fpc-prom.manage.1",
+  "t": "Transport: women with PPROM are usually transferred to a centre with an appropriate NICU before delivery. Before departure, check for labour, cord prolapse, infection and fetal wellbeing. In flight, monitor maternal temperature, heart rate, contractions and fetal heart, and carry delivery and neonatal resuscitation equipment."
+ },
+ {
+  "id": "fpc.fpc-prom.manage.2",
+  "t": "If chorioamnionitis is present, delivery is indicated regardless of gestation; antibiotics should be started before transfer, and the receiving neonatal team informed."
+ },
+ {
+  "id": "fpc.fpc-prom.case.0",
+  "t": "A 30-week patient with leaking fluid for 14 hours; speculum exam confirms pooling. Temperature 37.2 °C, HR 92, uterus non-tender, mild irregular tightenings. FHR 140 with moderate variability. The referring hospital has no NICU."
+ },
+ {
+  "id": "fpc.fpc-prom.gbs.0",
+  "t": "Group B streptococcus (GBS) colonises the genital tract of about a fifth to a quarter of pregnant women and is a leading cause of early-onset neonatal sepsis, pneumonia and meningitis. Intrapartum antibiotic prophylaxis (penicillin or ampicillin; cefazolin or clindamycin/vancomycin with penicillin allergy per protocol) is given to colonised women, those with unknown status and risk factors (preterm labour, prolonged rupture over 18 hours, intrapartum fever), and women with previous GBS-affected babies."
+ },
+ {
+  "id": "fpc.fpc-prom.gbs.1",
+  "t": "Neonates born after PROM or PPROM, maternal fever or chorioamnionitis are assessed for early-onset sepsis using risk calculators or clinical observation; symptomatic babies receive blood cultures and antibiotics (ampicillin and gentamicin)."
+ },
+ {
+  "id": "fpc.fpc-prom.gbs.2",
+  "t": "Communicate maternal risk factors to the receiving neonatal team: duration of rupture, maternal temperature, GBS status and antibiotic timing."
+ },
+ {
+  "id": "fpc.fpc-maternal.htn.0",
+  "t": "Gestational (pregnancy-induced) hypertension is new hypertension after 20 weeks without proteinuria or end-organ features; it can progress to pre-eclampsia, so it is monitored closely and severe-range pressures are treated in the same way. Chronic hypertension predates pregnancy or appears before 20 weeks; pre-eclampsia can be superimposed on it."
+ },
+ {
+  "id": "fpc.fpc-maternal.htn.1",
+  "t": "HELLP syndrome (haemolysis, elevated liver enzymes, low platelets) is a severe variant of pre-eclampsia, sometimes without marked hypertension or proteinuria. Symptoms include right upper quadrant or epigastric pain, nausea, vomiting and malaise — often mistaken for gastritis or gallbladder disease. Complications: DIC, placental abruption, acute kidney injury, pulmonary oedema, and subcapsular liver haematoma or rupture (sudden severe pain, shock — a surgical emergency)."
+ },
+ {
+  "id": "fpc.fpc-maternal.htn.2",
+  "t": "Management: magnesium for seizure prophylaxis, blood pressure control, correction of coagulopathy (platelets before caesarean if below about 50 × 10⁹/L, fibrinogen replacement), and delivery — usually expedited after maternal stabilisation, at a centre with obstetric, intensive care and neonatal capability. Avoid IM injections when platelets are very low."
+ },
+ {
+  "id": "fpc.fpc-maternal.tetanic.0",
+  "t": "A hypertonic contraction lasts more than 2 minutes, or the uterus fails to relax between contractions (raised resting tone); tetanic contractions are sustained, without relaxation. Causes: oxytocin or prostaglandin excess, placental abruption and, rarely, uterine rupture. They reduce placental blood flow and quickly cause fetal bradycardia."
+ },
+ {
+  "id": "fpc.fpc-maternal.tetanic.1",
+  "t": "Management: stop oxytocin, place the mother in left lateral position, give an IV fluid bolus (if not pre-eclamptic with pulmonary oedema risk), oxygen if hypoxic, and give a tocolytic such as terbutaline 0.25 mg subcutaneously (or nitroglycerin per protocol). Evaluate for abruption (pain, bleeding, tender uterus) and rupture (previous scar, loss of station). If fetal compromise persists, expedite delivery."
+ },
+ {
+  "id": "fpc.fpc-maternal.tetanic.2",
+  "t": "In transport, recognise the pattern on the tocodynamometer or by palpation: a uterus that stays hard between \"contractions\" is not normal labour."
+ },
+ {
+  "id": "fpc.fpc-maternal.post.0",
+  "t": "Retained placenta (not delivered within 30–60 minutes of birth) and retained products of conception cause postpartum haemorrhage and infection. Do not pull hard on the cord (risk of uterine inversion or cord avulsion). Give uterotonics, manage haemorrhage, and transfer for manual removal under anaesthesia. Retained products after miscarriage or delivery can cause sepsis (fever, offensive discharge, tender uterus) — antibiotics and evacuation."
+ },
+ {
+  "id": "fpc.fpc-maternal.post.1",
+  "t": "Uterine inversion — the fundus turning inside out, often after excessive cord traction — causes sudden haemorrhage and shock (sometimes disproportionate, from vagal response). Attempt immediate manual replacement (push the fundus back up through the cervix with the palm) before the cervix contracts; stop uterotonics until it is replaced, then give them. Do not remove an attached placenta before replacement."
+ },
+ {
+  "id": "fpc.fpc-maternal.post.2",
+  "t": "Amniotic fluid embolism: sudden collapse during labour or shortly after delivery, with hypoxia, hypotension, cardiac arrest and DIC. Treatment is supportive: high-quality CPR, airway and oxygenation, vasopressors and inotropes, massive transfusion with early fibrinogen. Maternal cardiac arrest: call for help, CPR with manual left uterine displacement (from about 20 weeks), early airway management, IV access above the diaphragm, standard ACLS drugs and doses, and resuscitative hysterotomy (perimortem caesarean) within about 4–5 minutes of arrest if no ROSC — mainly to improve maternal resuscitation."
+ },
+ {
+  "id": "fpc.fpc-maternal.case.0",
+  "t": "A 32-week patient presents with epigastric pain and vomiting. BP 146/94. Labs: platelets 48, AST 420, LDH 1100. During transfer, she suddenly develops severe right upper quadrant pain, becomes pale, and BP falls to 78/40."
+ },
+ {
+  "id": "fpc.fpc-maternal.cardiac.0",
+  "t": "Cardiovascular disease is a leading cause of maternal death in high-income countries. Peripartum cardiomyopathy presents in late pregnancy or the months after delivery with heart failure (breathlessness, orthopnoea, oedema) and reduced ejection fraction. Pre-existing congenital or valvular disease (especially mitral stenosis and pulmonary hypertension) can decompensate with the haemodynamic load of pregnancy and delivery."
+ },
+ {
+  "id": "fpc.fpc-maternal.cardiac.1",
+  "t": "Venous thromboembolism is several times more common in pregnancy and the postpartum period. Pulmonary embolism presents with breathlessness, chest pain, tachycardia and hypoxia; massive PE causes shock and arrest. Anticoagulation uses low-molecular-weight heparin; thrombolysis is considered for life-threatening PE despite pregnancy."
+ },
+ {
+  "id": "fpc.fpc-maternal.cardiac.2",
+  "t": "Aortic dissection is also more common in pregnancy, especially in Marfan syndrome. Chest pain in a pregnant patient therefore deserves the same — or greater — diagnostic urgency as in any other adult."
+ },
+ {
+  "id": "fpc.fpc-neonatal.resus.0",
+  "t": "Most newborns need only warming, drying and stimulation. At birth, ask: term gestation? good tone? breathing or crying? If not, provide warmth, position the airway (neutral \"sniffing\"), clear secretions if needed, dry and stimulate. If the baby is apnoeic or gasping, or the heart rate is below 100, start positive pressure ventilation within the first minute (\"the golden minute\") at about 40–60 breaths/min, with SpO₂ monitoring on the right hand."
+ },
+ {
+  "id": "fpc.fpc-neonatal.resus.1",
+  "t": "Ventilation is the key intervention. If the heart rate does not rise, use the MR SOPA corrective steps: Mask adjustment, Reposition the airway, Suction, Open the mouth, Pressure increase, Alternative airway (supraglottic device or intubation). If the heart rate stays below 60 after 30 seconds of effective ventilation, start chest compressions at a 3:1 ratio with ventilation (90 compressions and 30 breaths per minute), increase oxygen to 100 %, and give epinephrine 0.02 mg/kg IV/IO if the heart rate remains below 60."
+ },
+ {
+  "id": "fpc.fpc-neonatal.resus.2",
+  "t": "Begin ventilation with 21 % oxygen for term infants and 21–30 % for preterm infants, titrating to pre-ductal saturation targets. Delayed cord clamping (at least 30–60 seconds) benefits vigorous term and preterm babies. Preterm infants below 32 weeks are placed in a polyethylene bag or wrap without drying, under a radiant warmer."
+ },
+ {
+  "id": "fpc.fpc-neonatal.thermal.0",
+  "t": "Neonates lose heat by evaporation (wet skin), conduction (cold surfaces), convection (drafts) and radiation (cold walls and windows). Hypothermia increases oxygen consumption, causes hypoglycaemia, acidosis and pulmonary hypertension, and raises mortality in preterm infants. Keep axillary temperature at 36.5–37.5 °C: dry, wrap, hat, warmed incubator, warm room or cabin, chemical mattress for transport, and plastic wrap for preterm infants. Avoid hyperthermia, except where therapeutic hypothermia has been started for hypoxic-ischaemic encephalopathy (HIE) in consultation with the cooling centre."
+ },
+ {
+  "id": "fpc.fpc-neonatal.thermal.1",
+  "t": "Fluids: start at about 60–80 mL/kg/day of 10 % dextrose on day 1 (higher in extreme prematurity because of insensible losses), increasing over the first week. Add sodium and potassium after the first day or two once urine output is established. Boluses for hypovolaemia: 10 mL/kg normal saline (or O-negative blood after blood loss)."
+ },
+ {
+  "id": "fpc.fpc-neonatal.thermal.2",
+  "t": "Glucose: neonates at risk (preterm, small or large for gestational age, infants of diabetic mothers, sick or cold infants) are screened. Treat symptomatic hypoglycaemia or levels below protocol thresholds with 10 % dextrose 2 mL/kg, then an infusion at a glucose infusion rate of about 4–6 mg/kg/min. Check glucose every 30–60 minutes until stable."
+ },
+ {
+  "id": "fpc.fpc-neonatal.rds.0",
+  "t": "Signs of neonatal respiratory distress: tachypnoea (over 60/min), grunting (exhaling against a closed glottis to maintain lung volume), nasal flaring, retractions and cyanosis. Causes: respiratory distress syndrome (surfactant deficiency in preterm infants), transient tachypnoea of the newborn (retained lung fluid, especially after caesarean), meconium aspiration, pneumonia/sepsis, pneumothorax, congenital heart disease and congenital diaphragmatic hernia."
+ },
+ {
+  "id": "fpc.fpc-neonatal.rds.1",
+  "t": "RDS: the lungs are stiff and collapse at end-expiration; the chest film shows a ground-glass appearance with air bronchograms and low lung volumes. Treat with CPAP early (5–8 cmH₂O) and surfactant via an endotracheal tube or a thin catheter (LISA) for infants needing increasing oxygen (commonly FiO₂ above 0.30–0.40 on CPAP). After surfactant, compliance improves quickly — reduce pressures and tidal volumes promptly to avoid pneumothorax and over-ventilation."
+ },
+ {
+  "id": "fpc.fpc-neonatal.rds.2",
+  "t": "Ventilation targets in preterm infants: tidal volumes about 4–6 mL/kg, PEEP 5–7 cmH₂O, SpO₂ about 90–95 %, PCO₂ about 45–55 mmHg (permissive hypercapnia). Pneumothorax presents with sudden deterioration, asymmetric chest and transillumination of the affected side; needle aspiration may be lifesaving."
+ },
+ {
+  "id": "fpc.fpc-neonatal.cardiac.0",
+  "t": "Duct-dependent congenital heart disease presents as the ductus arteriosus closes in the first days to weeks of life. Duct-dependent pulmonary circulation (for example pulmonary atresia, critical pulmonary stenosis, tricuspid atresia) causes profound cyanosis that does not improve with oxygen. Duct-dependent systemic circulation (hypoplastic left heart, critical coarctation, interrupted aortic arch, critical aortic stenosis) causes shock, poor perfusion, weak or absent femoral pulses and metabolic acidosis — often mistaken for sepsis."
+ },
+ {
+  "id": "fpc.fpc-neonatal.cardiac.1",
+  "t": "Start prostaglandin E1 (alprostadil 0.01–0.05 mcg/kg/min, higher if the duct is closing) to reopen the ductus; expect apnoea, fever and hypotension, and be ready to ventilate. In duct-dependent systemic circulation, avoid high oxygen, which lowers pulmonary vascular resistance and steals systemic flow — target saturations of about 75–85 %. A hyperoxia test (pre-ductal SpO₂ fails to rise above about 90 % in 100 % oxygen) supports a cyanotic cardiac lesion. Give antibiotics as sepsis is often co-existent or indistinguishable."
+ },
+ {
+  "id": "fpc.fpc-neonatal.cardiac.2",
+  "t": "Surgical emergencies (see table): bilious vomiting in a newborn is malrotation with volvulus until proven otherwise — a surgical emergency. Congenital diaphragmatic hernia needs early intubation without bag-mask ventilation (which inflates the bowel in the chest), a gastric tube on suction and gentle ventilation. Abdominal wall defects lose heat and fluid rapidly."
+ },
+ {
+  "id": "fpc.fpc-neonatal.case.0",
+  "t": "A 5-day-old is brought in pale, grey and breathing fast. HR 190, capillary refill 5 s, femoral pulses absent, right-arm BP 72/40, leg BP unmeasurable. Pre-ductal SpO₂ 95 %, post-ductal 82 %. pH 7.08, lactate 9."
  }
 ]

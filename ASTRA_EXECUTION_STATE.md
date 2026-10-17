@@ -135,4 +135,5 @@ User (Oct 16): full lessons too short; base all lessons on Kyle Faudree's study 
 - Domain VII (Trauma and burns; 10 subtopics) complete (`feat/fpc-trauma`): `fpc/lessons/trauma1–4.ts` + `traumaCases.ts`. All lessons 15–17 min full, 15 questions each. 
 - Domain V (Neurological; 12 subtopics) complete (`feat/fpc-neuro`): `fpc/lessons/neuro1–4.ts` + `neuroCases.ts`. All lessons 15–16 min full. StatPearls sources across FP-C link to a Bookshelf search (article IDs unverifiable from the sandbox). 
 - Domain I (Safety and transport; 18 subtopics) complete (`feat/fpc-safety`): `fpc/lessons/safety1–6.ts` + `safetyCases.ts`. All lessons 15–16 min. Regulatory specifics written cautiously (FAA Part 135/HAA rule, 14 CFR cites link to eCFR). 
-- Domain IX (Pediatric; 12 subtopics) complete (`feat/fpc-peds`): `fpc/lessons/peds1–4.ts` + `pedsCases.ts`. All lessons 15–16 min. NAT lesson kept at recognition/reporting level. Next by weight: VIII OB/neo, II Flight physiology, X Professional.
+- Domain IX (Pediatric; 12 subtopics) complete (`feat/fpc-peds`): `fpc/lessons/peds1–4.ts` + `pedsCases.ts`. All lessons 15–16 min. NAT lesson kept at recognition/reporting level. 
+- Domain VIII (Maternal, fetal and neonatal; 10 subtopics) complete (`feat/fpc-obneo`): `fpc/lessons/obneo1–4.ts` + `obneoCases.ts`. All lessons 15–17 min. Next: II Flight physiology, X Professional.
