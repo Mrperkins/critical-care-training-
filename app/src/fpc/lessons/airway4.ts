@@ -175,7 +175,7 @@ export const ALT_AIRWAY: FpcLesson = {
     { q: 'A patient with a strong gag reflex needs an airway adjunct while awaiting RSI. Best choice:', options: ['OPA', 'NPA', 'SGA', 'None'], answer: 1, why: 'NPAs are tolerated with an intact gag.' },
   ],
   sources: [
-    { title: 'StatPearls: Laryngeal mask airway', url: 'https://www.ncbi.nlm.nih.gov/books/NBK482184/' },
+    { title: 'StatPearls: Laryngeal mask airway', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Laryngeal+mask+airway+StatPearls' },
     { title: 'Driver BE et al. Bougie vs stylet for first-attempt success (BEAM). JAMA (2018)', url: 'https://jamanetwork.com/journals/jama/fullarticle/2686035' },
   ],
 };

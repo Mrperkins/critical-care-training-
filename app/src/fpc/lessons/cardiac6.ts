@@ -83,7 +83,7 @@ export const CARDIAC_PHARM: FpcLesson = {
   ],
   sources: [
     { title: 'AHA guidelines for CPR and ECC: adult ALS drug therapy', url: 'https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines' },
-    { title: 'StatPearls: Adenosine', url: 'https://www.ncbi.nlm.nih.gov/books/NBK519049/' },
+    { title: 'StatPearls: Adenosine', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Adenosine+StatPearls' },
   ],
 };
 

@@ -184,7 +184,7 @@ export const AIRWAY_ANATOMY: FpcLesson = {
     { q: 'Saturation begins to fall quickly when arterial PO₂ reaches about:', options: ['200 mmHg', '100 mmHg', '60 mmHg', '20 mmHg'], answer: 2, why: 'Below about 60 mmHg the dissociation curve is steep.' },
   ],
   sources: [
-    { title: 'StatPearls: Anatomy, head and neck, larynx', url: 'https://www.ncbi.nlm.nih.gov/books/NBK538202/' },
-    { title: 'StatPearls: Pediatric airway management', url: 'https://www.ncbi.nlm.nih.gov/books/NBK562223/' },
+    { title: 'StatPearls: Anatomy, head and neck, larynx', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Anatomy%2C+head+and+neck%2C+larynx+StatPearls' },
+    { title: 'StatPearls: Pediatric airway management', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Pediatric+airway+management+StatPearls' },
   ],
 };

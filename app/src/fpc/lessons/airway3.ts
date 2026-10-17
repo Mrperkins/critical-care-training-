@@ -149,6 +149,6 @@ export const SURGICAL_AIRWAY: FpcLesson = {
   ],
   sources: [
     { title: 'Difficult Airway Society: front-of-neck access (2015 guidelines)', url: 'https://das.uk.com/guidelines/das_intubation_guidelines' },
-    { title: 'StatPearls: Cricothyrotomy', url: 'https://www.ncbi.nlm.nih.gov/books/NBK537350/' },
+    { title: 'StatPearls: Cricothyrotomy', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Cricothyrotomy+StatPearls' },
   ],
 };

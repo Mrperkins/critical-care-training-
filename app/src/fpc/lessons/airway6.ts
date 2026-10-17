@@ -141,7 +141,7 @@ export const CAPNOGRAPHY: FpcLesson = {
     { q: 'In a ventilated TBI patient with a known 6 mmHg gap, to achieve PaCO₂ 38 target EtCO₂ of about:', options: ['26', '32', '38', '44'], answer: 1, why: '38 − 6 = 32 mmHg.' },
   ],
   sources: [
-    { title: 'StatPearls: Capnography', url: 'https://www.ncbi.nlm.nih.gov/books/NBK539754/' },
+    { title: 'StatPearls: Capnography', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Capnography+StatPearls' },
     { title: 'AHA guidelines for CPR and ECC: physiological monitoring during CPR', url: 'https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines' },
   ],
 };
@@ -219,6 +219,6 @@ export const NIPPV: FpcLesson = {
   ],
   sources: [
     { title: 'ERS/ATS guidelines: noninvasive ventilation for acute respiratory failure (2017)', url: 'https://erj.ersjournals.com/content/50/2/1602426' },
-    { title: 'StatPearls: Noninvasive positive pressure ventilation', url: 'https://www.ncbi.nlm.nih.gov/books/NBK578188/' },
+    { title: 'StatPearls: Noninvasive positive pressure ventilation', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Noninvasive+positive+pressure+ventilation+StatPearls' },
   ],
 };

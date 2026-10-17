@@ -78,7 +78,7 @@ export const VASCULAR: FpcLesson = {
   ],
   sources: [
     { title: '2022 ACC/AHA guideline for diagnosis and management of aortic disease', url: 'https://www.ahajournals.org/doi/10.1161/CIR.0000000000001106' },
-    { title: 'StatPearls: Aortic dissection', url: 'https://www.ncbi.nlm.nih.gov/books/NBK441963/' },
+    { title: 'StatPearls: Aortic dissection', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Aortic+dissection+StatPearls' },
   ],
 };
 
@@ -156,7 +156,7 @@ export const CARDIAC_DX: FpcLesson = {
     { q: 'Hyperdynamic heart with small IVC and fever suggests:', options: ['Cardiogenic shock', 'Distributive shock with hypovolaemia', 'Tamponade', 'PE'], answer: 1, why: 'Sepsis pattern.' },
   ],
   sources: [
-    { title: 'StatPearls: Focused cardiac ultrasound', url: 'https://www.ncbi.nlm.nih.gov/books/NBK560859/' },
+    { title: 'StatPearls: Focused cardiac ultrasound', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Focused+cardiac+ultrasound+StatPearls' },
     { title: 'Huis in \'t Veld MA et al. Ultrasound use during CPR and pause duration. Resuscitation (2017)', url: 'https://pubmed.ncbi.nlm.nih.gov/28859811/' },
   ],
 };
@@ -246,6 +246,6 @@ export const CARDIAC_LABS: FpcLesson = {
   ],
   sources: [
     { title: 'Fourth Universal Definition of Myocardial Infarction (2018)', url: 'https://www.ahajournals.org/doi/10.1161/CIR.0000000000000617' },
-    { title: 'StatPearls: Digoxin toxicity', url: 'https://www.ncbi.nlm.nih.gov/books/NBK470568/' },
+    { title: 'StatPearls: Digoxin toxicity', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Digoxin+toxicity+StatPearls' },
   ],
 };

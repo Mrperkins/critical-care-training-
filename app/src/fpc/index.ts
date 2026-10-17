@@ -21,6 +21,11 @@ import { HTN_CRISIS, HEMO_INSTAB, CHRONIC_CARDIAC } from './lessons/cardiac4';
 import { VASCULAR, CARDIAC_DX, CARDIAC_LABS } from './lessons/cardiac5';
 import { CARDIAC_PHARM, CARDIAC_MONITOR } from './lessons/cardiac6';
 import { CARDIAC_EXTRAS } from './lessons/cardiacCases';
+import { TRAUMA_DX, TRAUMA_LABS, TRAUMA_PHARM } from './lessons/trauma1';
+import { TRAUMA_MONITOR, SURGICAL_INTERVENTIONS, TRAUMA_BLOOD } from './lessons/trauma2';
+import { LETHAL_TRIAD, BURN_FLUIDS } from './lessons/trauma3';
+import { BURNS, TOXIC_INHALATION } from './lessons/trauma4';
+import { TRAUMA_EXTRAS } from './lessons/traumaCases';
 
 /** a lesson plus its transport case(s) and extra questions (the case closes the teaching, before the questions) */
 const withExtras = (l: FpcLesson, x: Record<string, { sections: FpcLesson['sections']; questions: FpcLesson['questions'] }>) => (x[l.id] ? { ...l, sections: [...l.sections, ...x[l.id].sections], questions: [...l.questions, ...x[l.id].questions] } : l);
@@ -31,6 +36,7 @@ export const FPC_LESSONS: FpcLesson[] = [
 ].map((l) => withExtras(l, AIRWAY_EXTRAS)).concat([
   ...[ENDOCRINE, ADRENAL, RENAL, METABOLIC, SEPSIS, INFECTIOUS, TOX, BLOOD, GI, LABS, ADV_ASSESS, TREATMENT, LINES_FPC, RADIOLOGY, RESP_SYS].map((l) => withExtras(l, MEDICAL_EXTRAS)),
   ...[TWELVE_LEAD, CARDIAC_ANATOMY, MCS, ACS, CARDIOGENIC, HEART_FAILURE, CARDIAC_INFECT, ARRHYTHMIAS, HTN_CRISIS, HEMO_INSTAB, CHRONIC_CARDIAC, VASCULAR, ELECTROPHYS, CARDIAC_DX, CARDIAC_LABS, CARDIAC_PHARM, CARDIAC_MONITOR].map((l) => withExtras(l, CARDIAC_EXTRAS)),
+  ...[TRAUMA_DX, TRAUMA_LABS, TRAUMA_PHARM, TRAUMA_MONITOR, SURGICAL_INTERVENTIONS, TRAUMA_BLOOD, LETHAL_TRIAD, BURN_FLUIDS, BURNS, TOXIC_INHALATION].map((l) => withExtras(l, TRAUMA_EXTRAS)),
 ]);
 export const FPC_BY_ID: Record<string, FpcLesson> = Object.fromEntries(FPC_LESSONS.map((l) => [l.id, l]));
 export const lessonsFor = (d: DomainId) => FPC_LESSONS.filter((l) => l.domain === d);

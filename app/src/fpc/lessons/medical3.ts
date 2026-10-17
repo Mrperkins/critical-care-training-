@@ -92,9 +92,9 @@ export const TOX: FpcLesson = {
     { q: 'Naloxone should be titrated to:', options: ['Full wakefulness', 'Adequate breathing', 'Pupil size', 'Heart rate'], answer: 1, why: 'Avoid precipitating violent withdrawal.' },
   ],
   sources: [
-    { title: 'StatPearls: Toxidromes', url: 'https://www.ncbi.nlm.nih.gov/books/NBK534807/' },
-    { title: 'StatPearls: Salicylate toxicity', url: 'https://www.ncbi.nlm.nih.gov/books/NBK499879/' },
-    { title: 'StatPearls: Carbon monoxide toxicity', url: 'https://www.ncbi.nlm.nih.gov/books/NBK430740/' },
+    { title: 'StatPearls: Toxidromes', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Toxidromes+StatPearls' },
+    { title: 'StatPearls: Salicylate toxicity', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Salicylate+toxicity+StatPearls' },
+    { title: 'StatPearls: Carbon monoxide toxicity', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Carbon+monoxide+toxicity+StatPearls' },
   ],
 };
 
@@ -180,7 +180,7 @@ export const BLOOD: FpcLesson = {
   sources: [
     { title: 'CRASH-2 trial: tranexamic acid in bleeding trauma patients. Lancet (2010)', url: 'https://pubmed.ncbi.nlm.nih.gov/20554319/' },
     { title: 'Holcomb JB et al. PROPPR: 1:1:1 vs 1:1:2 transfusion. JAMA (2015)', url: 'https://jamanetwork.com/journals/jama/fullarticle/2107789' },
-    { title: 'StatPearls: Transfusion reactions', url: 'https://www.ncbi.nlm.nih.gov/books/NBK482202/' },
+    { title: 'StatPearls: Transfusion reactions', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Transfusion+reactions+StatPearls' },
   ],
 };
 
@@ -261,8 +261,8 @@ export const GI: FpcLesson = {
     { q: 'Acute liver failure particularly risks:', options: ['Hyperglycaemia', 'Cerebral oedema and hypoglycaemia', 'Hypercoagulability only', 'Bradycardia'], answer: 1, why: 'Loss of hepatic function.' },
   ],
   sources: [
-    { title: 'StatPearls: Upper gastrointestinal bleeding', url: 'https://www.ncbi.nlm.nih.gov/books/NBK470300/' },
+    { title: 'StatPearls: Upper gastrointestinal bleeding', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Upper+gastrointestinal+bleeding+StatPearls' },
     { title: 'Villanueva C et al. Transfusion strategies for acute upper GI bleeding. NEJM (2013)', url: 'https://www.nejm.org/doi/full/10.1056/NEJMoa1211801' },
-    { title: 'StatPearls: Acute pancreatitis', url: 'https://www.ncbi.nlm.nih.gov/books/NBK482468/' },
+    { title: 'StatPearls: Acute pancreatitis', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Acute+pancreatitis+StatPearls' },
   ],
 };

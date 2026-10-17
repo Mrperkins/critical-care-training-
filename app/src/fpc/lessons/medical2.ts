@@ -80,8 +80,8 @@ export const METABOLIC: FpcLesson = {
   ],
   sources: [
     { title: 'European clinical practice guideline on hyponatraemia (2014)', url: 'https://academic.oup.com/ndt/article/29/suppl_2/i1/1907948' },
-    { title: 'StatPearls: Hypocalcemia', url: 'https://www.ncbi.nlm.nih.gov/books/NBK430912/' },
-    { title: 'StatPearls: Heat stroke', url: 'https://www.ncbi.nlm.nih.gov/books/NBK537135/' },
+    { title: 'StatPearls: Hypocalcemia', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Hypocalcemia+StatPearls' },
+    { title: 'StatPearls: Heat stroke', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Heat+stroke+StatPearls' },
   ],
 };
 
