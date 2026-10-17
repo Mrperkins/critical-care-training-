@@ -2827,6 +2827,58 @@
   "hash": "0e41ef7a65d11a43",
   "seconds": 28.07
  },
+ "fpc.fpc-high-tech.case.0": {
+  "hash": "324d95c9ce00aa3a",
+  "seconds": 17.51
+ },
+ "fpc.fpc-high-tech.devices.0": {
+  "hash": "8891f9de226e6f8c",
+  "seconds": 36.07
+ },
+ "fpc.fpc-high-tech.devices.1": {
+  "hash": "93d885736fb0eac0",
+  "seconds": 21.38
+ },
+ "fpc.fpc-high-tech.devices.2": {
+  "hash": "5009da323a3192f4",
+  "seconds": 26.22
+ },
+ "fpc.fpc-high-tech.other.0": {
+  "hash": "3e8a882529628a5b",
+  "seconds": 28.48
+ },
+ "fpc.fpc-high-tech.other.1": {
+  "hash": "037931e423c09e1d",
+  "seconds": 21.59
+ },
+ "fpc.fpc-high-tech.other.2": {
+  "hash": "dad989149ee9e4b1",
+  "seconds": 7.77
+ },
+ "fpc.fpc-high-tech.trach.0": {
+  "hash": "843dae5204af705e",
+  "seconds": 25.79
+ },
+ "fpc.fpc-high-tech.trach.1": {
+  "hash": "5a148b0c58ca7ec8",
+  "seconds": 33.79
+ },
+ "fpc.fpc-high-tech.trach.2": {
+  "hash": "a7bf4b55e0f49471",
+  "seconds": 22.74
+ },
+ "fpc.fpc-high-tech.vent.0": {
+  "hash": "35fc767de44cef96",
+  "seconds": 19.71
+ },
+ "fpc.fpc-high-tech.vent.1": {
+  "hash": "a56a3230a383e25a",
+  "seconds": 33.06
+ },
+ "fpc.fpc-high-tech.vent.2": {
+  "hash": "407f6214061e71e8",
+  "seconds": 22.85
+ },
  "fpc.fpc-htn-crisis.case.0": {
   "hash": "68e59448446ebd19",
   "seconds": 12.31
@@ -3302,6 +3354,58 @@
  "fpc.fpc-metabolic.temp.1": {
   "hash": "22ceed12f8c1cdab",
   "seconds": 33.74
+ },
+ "fpc.fpc-nat.aht.0": {
+  "hash": "41224fc1aeabb5bf",
+  "seconds": 25.34
+ },
+ "fpc.fpc-nat.aht.1": {
+  "hash": "e138e9751b209ff0",
+  "seconds": 27.2
+ },
+ "fpc.fpc-nat.aht.2": {
+  "hash": "09ce9b3b2c61caa1",
+  "seconds": 9.41
+ },
+ "fpc.fpc-nat.case.0": {
+  "hash": "3178a866bf6fe947",
+  "seconds": 21.01
+ },
+ "fpc.fpc-nat.other.0": {
+  "hash": "9207ae0d6e8c51a7",
+  "seconds": 25.37
+ },
+ "fpc.fpc-nat.other.1": {
+  "hash": "f6e2d4455475dda2",
+  "seconds": 15.87
+ },
+ "fpc.fpc-nat.other.2": {
+  "hash": "8aad1013dbede3d7",
+  "seconds": 12.33
+ },
+ "fpc.fpc-nat.recognise.0": {
+  "hash": "c2e1f3369555f676",
+  "seconds": 23.81
+ },
+ "fpc.fpc-nat.recognise.1": {
+  "hash": "32aef4dd53dd7e37",
+  "seconds": 39.91
+ },
+ "fpc.fpc-nat.recognise.2": {
+  "hash": "08ab2bdd503eef47",
+  "seconds": 19.61
+ },
+ "fpc.fpc-nat.report.0": {
+  "hash": "1a44d5f47ecdc1d4",
+  "seconds": 18.5
+ },
+ "fpc.fpc-nat.report.1": {
+  "hash": "642e599c7e5cba7f",
+  "seconds": 24.41
+ },
+ "fpc.fpc-nat.report.2": {
+  "hash": "30f13092b77c307c",
+  "seconds": 21.78
  },
  "fpc.fpc-neuro-assess.case.0": {
   "hash": "ce09053a4fa9b69d",
@@ -3806,6 +3910,474 @@
  "fpc.fpc-pax-briefing.family.2": {
   "hash": "3323be89fd4cf1fd",
   "seconds": 15.85
+ },
+ "fpc.fpc-peds-airway-disease.anaphylaxis.0": {
+  "hash": "7cdd9cdb9a44b760",
+  "seconds": 37.2
+ },
+ "fpc.fpc-peds-airway-disease.anaphylaxis.1": {
+  "hash": "d96c2daa3f459cd4",
+  "seconds": 14.98
+ },
+ "fpc.fpc-peds-airway-disease.anaphylaxis.2": {
+  "hash": "67121e9a3ee75117",
+  "seconds": 14.85
+ },
+ "fpc.fpc-peds-airway-disease.case.0": {
+  "hash": "321d1f2892553138",
+  "seconds": 23.15
+ },
+ "fpc.fpc-peds-airway-disease.lower.0": {
+  "hash": "3ab3cf614e15e5fd",
+  "seconds": 40.8
+ },
+ "fpc.fpc-peds-airway-disease.lower.1": {
+  "hash": "34338a713b53d717",
+  "seconds": 44.28
+ },
+ "fpc.fpc-peds-airway-disease.lower.2": {
+  "hash": "63f3f25f3478e4ef",
+  "seconds": 17.86
+ },
+ "fpc.fpc-peds-airway-disease.transport.0": {
+  "hash": "840a9276ef214436",
+  "seconds": 23.36
+ },
+ "fpc.fpc-peds-airway-disease.transport.1": {
+  "hash": "bb28bb3aba5ecf66",
+  "seconds": 17.07
+ },
+ "fpc.fpc-peds-airway-disease.transport.2": {
+  "hash": "ed11721af7c2bff0",
+  "seconds": 9.58
+ },
+ "fpc.fpc-peds-airway-disease.upper.0": {
+  "hash": "44b43d2ee4e1a988",
+  "seconds": 49.53
+ },
+ "fpc.fpc-peds-airway-disease.upper.1": {
+  "hash": "d4bfe9148431aa6b",
+  "seconds": 34.72
+ },
+ "fpc.fpc-peds-airway-disease.upper.2": {
+  "hash": "d68fbd92311a84dd",
+  "seconds": 20.59
+ },
+ "fpc.fpc-peds-dka.case.0": {
+  "hash": "0509703fdc05ed2b",
+  "seconds": 24.6
+ },
+ "fpc.fpc-peds-dka.dx.0": {
+  "hash": "914d6552777fb920",
+  "seconds": 43.0
+ },
+ "fpc.fpc-peds-dka.dx.1": {
+  "hash": "1eb96c96fd011fbd",
+  "seconds": 19.56
+ },
+ "fpc.fpc-peds-dka.dx.2": {
+  "hash": "386ac49353aa844f",
+  "seconds": 16.75
+ },
+ "fpc.fpc-peds-dka.manage.0": {
+  "hash": "ecc40d0e1fb36a1a",
+  "seconds": 42.08
+ },
+ "fpc.fpc-peds-dka.manage.1": {
+  "hash": "7ef5f1e4827e7fc9",
+  "seconds": 35.0
+ },
+ "fpc.fpc-peds-dka.manage.2": {
+  "hash": "533a7d53d7b62630",
+  "seconds": 28.8
+ },
+ "fpc.fpc-peds-dka.oedema.0": {
+  "hash": "f478908f45462bcc",
+  "seconds": 35.66
+ },
+ "fpc.fpc-peds-dka.oedema.1": {
+  "hash": "203adfdd7bf5cac5",
+  "seconds": 31.99
+ },
+ "fpc.fpc-peds-dka.oedema.2": {
+  "hash": "c4130e346f950dcc",
+  "seconds": 35.96
+ },
+ "fpc.fpc-peds-dka.transport.0": {
+  "hash": "c6e0b1cbfa2612b3",
+  "seconds": 24.28
+ },
+ "fpc.fpc-peds-dka.transport.1": {
+  "hash": "989e29d9776d5c8e",
+  "seconds": 16.19
+ },
+ "fpc.fpc-peds-dka.transport.2": {
+  "hash": "fc836c190ee84aec",
+  "seconds": 17.71
+ },
+ "fpc.fpc-peds-dx.case.0": {
+  "hash": "d284de88b8d0a10f",
+  "seconds": 19.61
+ },
+ "fpc.fpc-peds-dx.family.0": {
+  "hash": "e7d563048d5aaeca",
+  "seconds": 17.64
+ },
+ "fpc.fpc-peds-dx.family.1": {
+  "hash": "cd8d914c3592334c",
+  "seconds": 20.48
+ },
+ "fpc.fpc-peds-dx.family.2": {
+  "hash": "4cf68c71f8e7b811",
+  "seconds": 17.17
+ },
+ "fpc.fpc-peds-dx.imaging.0": {
+  "hash": "f0ff0b996fe25973",
+  "seconds": 35.73
+ },
+ "fpc.fpc-peds-dx.imaging.1": {
+  "hash": "bf00bec16f2de743",
+  "seconds": 26.84
+ },
+ "fpc.fpc-peds-dx.imaging.2": {
+  "hash": "c82079c41a280c33",
+  "seconds": 19.43
+ },
+ "fpc.fpc-peds-dx.pat.0": {
+  "hash": "e61760e1e99e0320",
+  "seconds": 30.5
+ },
+ "fpc.fpc-peds-dx.pat.1": {
+  "hash": "526f193e3ba6da7a",
+  "seconds": 31.93
+ },
+ "fpc.fpc-peds-dx.pat.2": {
+  "hash": "3a411966206b6504",
+  "seconds": 14.27
+ },
+ "fpc.fpc-peds-dx.shock.0": {
+  "hash": "bd5e29d4a7082a76",
+  "seconds": 37.18
+ },
+ "fpc.fpc-peds-dx.shock.1": {
+  "hash": "6d59671216ba978d",
+  "seconds": 21.7
+ },
+ "fpc.fpc-peds-dx.shock.2": {
+  "hash": "b07a90166fe67f2b",
+  "seconds": 16.94
+ },
+ "fpc.fpc-peds-fluids.access.0": {
+  "hash": "782b422b3c7fe571",
+  "seconds": 21.46
+ },
+ "fpc.fpc-peds-fluids.access.1": {
+  "hash": "9c9ddb23a85f0ded",
+  "seconds": 22.29
+ },
+ "fpc.fpc-peds-fluids.access.2": {
+  "hash": "be54b01a09fb2000",
+  "seconds": 11.11
+ },
+ "fpc.fpc-peds-fluids.bolus.0": {
+  "hash": "13a997dba66ad2e6",
+  "seconds": 56.95
+ },
+ "fpc.fpc-peds-fluids.bolus.1": {
+  "hash": "4756dbf9241abd65",
+  "seconds": 39.38
+ },
+ "fpc.fpc-peds-fluids.bolus.2": {
+  "hash": "45f9ba7885f650db",
+  "seconds": 25.9
+ },
+ "fpc.fpc-peds-fluids.case.0": {
+  "hash": "c508e4b323bb1c55",
+  "seconds": 19.93
+ },
+ "fpc.fpc-peds-fluids.dehydration.0": {
+  "hash": "478159e979895560",
+  "seconds": 34.72
+ },
+ "fpc.fpc-peds-fluids.dehydration.1": {
+  "hash": "c5010a10cbe76f83",
+  "seconds": 23.89
+ },
+ "fpc.fpc-peds-fluids.dehydration.2": {
+  "hash": "ae017f7ed6e57ad2",
+  "seconds": 7.85
+ },
+ "fpc.fpc-peds-fluids.lytes.0": {
+  "hash": "8481b1db1e3f8bb9",
+  "seconds": 32.34
+ },
+ "fpc.fpc-peds-fluids.lytes.1": {
+  "hash": "52c7b6d659844b21",
+  "seconds": 27.29
+ },
+ "fpc.fpc-peds-fluids.lytes.2": {
+  "hash": "efe970a02b96c0dc",
+  "seconds": 19.95
+ },
+ "fpc.fpc-peds-infectious.case.0": {
+  "hash": "db1c108b3d268947",
+  "seconds": 16.04
+ },
+ "fpc.fpc-peds-infectious.febrile.0": {
+  "hash": "3131ebe6eea03ca6",
+  "seconds": 34.4
+ },
+ "fpc.fpc-peds-infectious.febrile.1": {
+  "hash": "14e1df076bb046f6",
+  "seconds": 15.89
+ },
+ "fpc.fpc-peds-infectious.febrile.2": {
+  "hash": "90d9a72c24a116af",
+  "seconds": 10.56
+ },
+ "fpc.fpc-peds-infectious.meningitis.0": {
+  "hash": "52a5be502e94d3e3",
+  "seconds": 28.22
+ },
+ "fpc.fpc-peds-infectious.meningitis.1": {
+  "hash": "2c4e81289db66eb6",
+  "seconds": 43.22
+ },
+ "fpc.fpc-peds-infectious.meningitis.2": {
+  "hash": "2b071e7179cf46e2",
+  "seconds": 22.14
+ },
+ "fpc.fpc-peds-infectious.reemergent.0": {
+  "hash": "1e432503d45ad41e",
+  "seconds": 32.78
+ },
+ "fpc.fpc-peds-infectious.reemergent.1": {
+  "hash": "5c29aed44c0d971d",
+  "seconds": 36.52
+ },
+ "fpc.fpc-peds-infectious.reemergent.2": {
+  "hash": "8a07f5a44e96446f",
+  "seconds": 19.71
+ },
+ "fpc.fpc-peds-infectious.sepsis.0": {
+  "hash": "b7ad80712d772c2a",
+  "seconds": 41.4
+ },
+ "fpc.fpc-peds-infectious.sepsis.1": {
+  "hash": "8279b05101c4f37d",
+  "seconds": 38.91
+ },
+ "fpc.fpc-peds-infectious.sepsis.2": {
+  "hash": "92fd921d2e9b1eda",
+  "seconds": 14.81
+ },
+ "fpc.fpc-peds-labs.case.0": {
+  "hash": "9dafc6edcb7e5022",
+  "seconds": 17.28
+ },
+ "fpc.fpc-peds-labs.chem.0": {
+  "hash": "2698833a3cbc4e80",
+  "seconds": 58.25
+ },
+ "fpc.fpc-peds-labs.chem.1": {
+  "hash": "a483c07fd6fadfb3",
+  "seconds": 40.7
+ },
+ "fpc.fpc-peds-labs.chem.2": {
+  "hash": "81feff7e3e9f829f",
+  "seconds": 21.01
+ },
+ "fpc.fpc-peds-labs.gas.0": {
+  "hash": "44146796d76a560f",
+  "seconds": 21.91
+ },
+ "fpc.fpc-peds-labs.gas.1": {
+  "hash": "f55c500f1384e85a",
+  "seconds": 24.11
+ },
+ "fpc.fpc-peds-labs.gas.2": {
+  "hash": "319ab6fe6e6d4599",
+  "seconds": 27.03
+ },
+ "fpc.fpc-peds-labs.heme.0": {
+  "hash": "c3f412fabc6a3cb0",
+  "seconds": 24.68
+ },
+ "fpc.fpc-peds-labs.heme.1": {
+  "hash": "49d3f0f37e1ba975",
+  "seconds": 25.56
+ },
+ "fpc.fpc-peds-labs.heme.2": {
+  "hash": "3a278c0a586f8548",
+  "seconds": 11.07
+ },
+ "fpc.fpc-peds-labs.sampling.0": {
+  "hash": "cb4da2e9b451a12c",
+  "seconds": 25.0
+ },
+ "fpc.fpc-peds-labs.sampling.1": {
+  "hash": "92004a66cc6bd566",
+  "seconds": 14.74
+ },
+ "fpc.fpc-peds-labs.sampling.2": {
+  "hash": "519fbd1918ae6496",
+  "seconds": 13.12
+ },
+ "fpc.fpc-peds-monitor.alarms.0": {
+  "hash": "e7df2bca2b0e5fa9",
+  "seconds": 18.56
+ },
+ "fpc.fpc-peds-monitor.alarms.1": {
+  "hash": "441d844d4da3ae88",
+  "seconds": 17.19
+ },
+ "fpc.fpc-peds-monitor.alarms.2": {
+  "hash": "39d7424bd5087878",
+  "seconds": 14.93
+ },
+ "fpc.fpc-peds-monitor.capno.0": {
+  "hash": "e4d09be74b5cf2f1",
+  "seconds": 22.89
+ },
+ "fpc.fpc-peds-monitor.capno.1": {
+  "hash": "4106c10ac1b66000",
+  "seconds": 24.85
+ },
+ "fpc.fpc-peds-monitor.capno.2": {
+  "hash": "f84bfdf9de14a100",
+  "seconds": 13.44
+ },
+ "fpc.fpc-peds-monitor.case.0": {
+  "hash": "2a9ad4d13c8d9cf9",
+  "seconds": 21.21
+ },
+ "fpc.fpc-peds-monitor.equipment.0": {
+  "hash": "931fcd4d90171f3d",
+  "seconds": 23.15
+ },
+ "fpc.fpc-peds-monitor.equipment.1": {
+  "hash": "411d2990ac6464eb",
+  "seconds": 21.89
+ },
+ "fpc.fpc-peds-monitor.equipment.2": {
+  "hash": "9e835ab7c368f11f",
+  "seconds": 24.49
+ },
+ "fpc.fpc-peds-monitor.temp.0": {
+  "hash": "59dccbb5ffceccc7",
+  "seconds": 23.77
+ },
+ "fpc.fpc-peds-monitor.temp.1": {
+  "hash": "fd542cf24f6ac807",
+  "seconds": 21.38
+ },
+ "fpc.fpc-peds-monitor.temp.2": {
+  "hash": "66ea07268b770ec2",
+  "seconds": 12.39
+ },
+ "fpc.fpc-peds-pharm.analgesia.0": {
+  "hash": "f4ef3c9edd7ebf50",
+  "seconds": 44.43
+ },
+ "fpc.fpc-peds-pharm.analgesia.1": {
+  "hash": "d831450d8c338b2b",
+  "seconds": 38.69
+ },
+ "fpc.fpc-peds-pharm.analgesia.2": {
+  "hash": "4a472af05e1fb423",
+  "seconds": 16.55
+ },
+ "fpc.fpc-peds-pharm.case.0": {
+  "hash": "e6f0d11abbe95955",
+  "seconds": 16.38
+ },
+ "fpc.fpc-peds-pharm.resus.0": {
+  "hash": "0cdcfcb894b10912",
+  "seconds": 62.79
+ },
+ "fpc.fpc-peds-pharm.resus.1": {
+  "hash": "4b06abf4f36c37bd",
+  "seconds": 33.7
+ },
+ "fpc.fpc-peds-pharm.resus.2": {
+  "hash": "56e75bb111eb0a9c",
+  "seconds": 22.06
+ },
+ "fpc.fpc-peds-pharm.routes.0": {
+  "hash": "96faeb9fa5eb190b",
+  "seconds": 26.77
+ },
+ "fpc.fpc-peds-pharm.routes.1": {
+  "hash": "e4bc07d243b6f8e7",
+  "seconds": 18.92
+ },
+ "fpc.fpc-peds-pharm.routes.2": {
+  "hash": "71866865e3dccb47",
+  "seconds": 9.32
+ },
+ "fpc.fpc-peds-pharm.safety.0": {
+  "hash": "b3aecdd37b519107",
+  "seconds": 36.47
+ },
+ "fpc.fpc-peds-pharm.safety.1": {
+  "hash": "506dfd081708f068",
+  "seconds": 13.35
+ },
+ "fpc.fpc-peds-pharm.safety.2": {
+  "hash": "d432da0042d1b371",
+  "seconds": 22.89
+ },
+ "fpc.fpc-peds-vent.anatomy.0": {
+  "hash": "510cdfa69e214e02",
+  "seconds": 37.8
+ },
+ "fpc.fpc-peds-vent.anatomy.1": {
+  "hash": "b16d3d448a713a95",
+  "seconds": 37.9
+ },
+ "fpc.fpc-peds-vent.anatomy.2": {
+  "hash": "d6ddaebb07b510fe",
+  "seconds": 17.92
+ },
+ "fpc.fpc-peds-vent.case.0": {
+  "hash": "dabbd9e5c1e99fe9",
+  "seconds": 16.66
+ },
+ "fpc.fpc-peds-vent.niv.0": {
+  "hash": "1a4aed532128830a",
+  "seconds": 25.56
+ },
+ "fpc.fpc-peds-vent.niv.1": {
+  "hash": "d46e7fa74c9cf1cf",
+  "seconds": 20.46
+ },
+ "fpc.fpc-peds-vent.niv.2": {
+  "hash": "145a7723ca0f3a5b",
+  "seconds": 14.08
+ },
+ "fpc.fpc-peds-vent.rsi.0": {
+  "hash": "c19a6049ade4b69a",
+  "seconds": 23.34
+ },
+ "fpc.fpc-peds-vent.rsi.1": {
+  "hash": "7e5321bb61396de3",
+  "seconds": 35.98
+ },
+ "fpc.fpc-peds-vent.rsi.2": {
+  "hash": "4f3ad1a75494a48f",
+  "seconds": 18.71
+ },
+ "fpc.fpc-peds-vent.vent.0": {
+  "hash": "e90c29ba981a7c9c",
+  "seconds": 47.63
+ },
+ "fpc.fpc-peds-vent.vent.1": {
+  "hash": "475b5861b9ff58e8",
+  "seconds": 17.56
+ },
+ "fpc.fpc-peds-vent.vent.2": {
+  "hash": "36f18de7f072e1ec",
+  "seconds": 23.15
  },
  "fpc.fpc-peri-arrest.after.0": {
   "hash": "16bc2504bd0e7e37",
@@ -4394,6 +4966,58 @@
  "fpc.fpc-sepsis.transport.2": {
   "hash": "b9a79b6668b6990c",
   "seconds": 13.57
+ },
+ "fpc.fpc-special-needs.approach.0": {
+  "hash": "0337d141d7d25a86",
+  "seconds": 25.17
+ },
+ "fpc.fpc-special-needs.approach.1": {
+  "hash": "0c4af0183934caca",
+  "seconds": 24.02
+ },
+ "fpc.fpc-special-needs.approach.2": {
+  "hash": "5d244c3bd94d95e8",
+  "seconds": 32.08
+ },
+ "fpc.fpc-special-needs.case.0": {
+  "hash": "b15440969c52c776",
+  "seconds": 14.72
+ },
+ "fpc.fpc-special-needs.conditions.0": {
+  "hash": "3d55e48b0552afe2",
+  "seconds": 22.66
+ },
+ "fpc.fpc-special-needs.conditions.1": {
+  "hash": "fe25c0bc330e00d5",
+  "seconds": 23.3
+ },
+ "fpc.fpc-special-needs.conditions.2": {
+  "hash": "5f8a3c726f620246",
+  "seconds": 17.17
+ },
+ "fpc.fpc-special-needs.heme.0": {
+  "hash": "4513120e493e12b3",
+  "seconds": 44.2
+ },
+ "fpc.fpc-special-needs.heme.1": {
+  "hash": "1752c9cdb1e01fcb",
+  "seconds": 41.0
+ },
+ "fpc.fpc-special-needs.heme.2": {
+  "hash": "6cbeb14a904b3f66",
+  "seconds": 14.95
+ },
+ "fpc.fpc-special-needs.transition.0": {
+  "hash": "87b4fe724b10916c",
+  "seconds": 18.69
+ },
+ "fpc.fpc-special-needs.transition.1": {
+  "hash": "229878abad46ae7e",
+  "seconds": 18.75
+ },
+ "fpc.fpc-special-needs.transition.2": {
+  "hash": "acba24be8755495e",
+  "seconds": 15.83
  },
  "fpc.fpc-stroke-lvo.case.0": {
   "hash": "f41a67919da5c427",
