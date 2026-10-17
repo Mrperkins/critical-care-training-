@@ -70,8 +70,8 @@ export const BURNS: FpcLesson = {
   ],
   sources: [
     { title: 'American Burn Association: Burn centre referral criteria', url: 'https://ameriburn.org/resources/burnreferral/' },
-    { title: 'StatPearls: Electrical injuries', url: 'https://www.ncbi.nlm.nih.gov/books/NBK448087/' },
-    { title: 'StatPearls: Chemical burns', url: 'https://www.ncbi.nlm.nih.gov/books/NBK499888/' },
+    { title: 'StatPearls: Electrical injuries', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Electrical+injuries+StatPearls' },
+    { title: 'StatPearls: Chemical burns', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Chemical+burns+StatPearls' },
   ],
 };
 
@@ -154,8 +154,8 @@ export const TOXIC_INHALATION: FpcLesson = {
     { q: 'A hyperbaric oxygen consideration in CO poisoning:', options: ['Mild headache only', 'Loss of consciousness, neurological deficits, pregnancy', 'Any smoker', 'COHb 3 %'], answer: 1, why: 'Weigh against transport risk.' },
   ],
   sources: [
-    { title: 'StatPearls: Carbon monoxide toxicity', url: 'https://www.ncbi.nlm.nih.gov/books/NBK430740/' },
-    { title: 'StatPearls: Cyanide toxicity', url: 'https://www.ncbi.nlm.nih.gov/books/NBK507796/' },
-    { title: 'StatPearls: Inhalation injury', url: 'https://www.ncbi.nlm.nih.gov/books/NBK513261/' },
+    { title: 'StatPearls: Carbon monoxide toxicity', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Carbon+monoxide+toxicity+StatPearls' },
+    { title: 'StatPearls: Cyanide toxicity', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Cyanide+toxicity+StatPearls' },
+    { title: 'StatPearls: Inhalation injury', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Inhalation+injury+StatPearls' },
   ],
 };

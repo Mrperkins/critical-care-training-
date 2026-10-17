@@ -177,8 +177,8 @@ export const CARDIAC_ANATOMY: FpcLesson = {
     { q: 'Bifascicular block in anterior MI before transport warrants:', options: ['Nothing', 'Pacing pads applied', 'Adenosine', 'Digoxin'], answer: 1, why: 'Risk of complete block.' },
   ],
   sources: [
-    { title: 'StatPearls: Anatomy, thorax, heart coronary arteries', url: 'https://www.ncbi.nlm.nih.gov/books/NBK534790/' },
-    { title: 'StatPearls: Physiology, cardiac cycle', url: 'https://www.ncbi.nlm.nih.gov/books/NBK459327/' },
+    { title: 'StatPearls: Anatomy, thorax, heart coronary arteries', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Anatomy%2C+thorax%2C+heart+coronary+arteries+StatPearls' },
+    { title: 'StatPearls: Physiology, cardiac cycle', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Physiology%2C+cardiac+cycle+StatPearls' },
   ],
 };
 
@@ -266,6 +266,6 @@ export const ELECTROPHYS: FpcLesson = {
   ],
   sources: [
     { title: 'AHA guidelines for CPR and ECC: adult advanced life support', url: 'https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines' },
-    { title: 'StatPearls: Transcutaneous pacing', url: 'https://www.ncbi.nlm.nih.gov/books/NBK482452/' },
+    { title: 'StatPearls: Transcutaneous pacing', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Transcutaneous+pacing+StatPearls' },
   ],
 };

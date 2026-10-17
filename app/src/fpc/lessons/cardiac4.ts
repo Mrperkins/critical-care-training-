@@ -161,7 +161,7 @@ export const HEMO_INSTAB: FpcLesson = {
   ],
   sources: [
     { title: 'Monnet X, Teboul JL. Passive leg raising: five rules. Crit Care (2015)', url: 'https://ccforum.biomedcentral.com/articles/10.1186/s13054-014-0708-5' },
-    { title: 'StatPearls: Shock', url: 'https://www.ncbi.nlm.nih.gov/books/NBK531492/' },
+    { title: 'StatPearls: Shock', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Shock+StatPearls' },
   ],
 };
 
@@ -244,6 +244,6 @@ export const CHRONIC_CARDIAC: FpcLesson = {
   ],
   sources: [
     { title: '2024 AHA/ACC guideline for hypertrophic cardiomyopathy', url: 'https://www.ahajournals.org/doi/10.1161/CIR.0000000000001250' },
-    { title: 'StatPearls: Pulmonary hypertension', url: 'https://www.ncbi.nlm.nih.gov/books/NBK482251/' },
+    { title: 'StatPearls: Pulmonary hypertension', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Pulmonary+hypertension+StatPearls' },
   ],
 };

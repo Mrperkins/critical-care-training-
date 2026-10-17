@@ -96,9 +96,9 @@ export const AIRWAY_PHARM: FpcLesson = {
     { q: 'Repeat succinylcholine doses in children may cause:', options: ['Tachycardia', 'Bradycardia', 'Hypertension', 'Hypokalaemia'], answer: 1, why: 'Muscarinic stimulation causes bradycardia.' },
   ],
   sources: [
-    { title: 'StatPearls: Rapid sequence intubation', url: 'https://www.ncbi.nlm.nih.gov/books/NBK557589/' },
-    { title: 'StatPearls: Succinylcholine', url: 'https://www.ncbi.nlm.nih.gov/books/NBK548741/' },
-    { title: 'StatPearls: Sugammadex', url: 'https://www.ncbi.nlm.nih.gov/books/NBK570587/' },
+    { title: 'StatPearls: Rapid sequence intubation', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Rapid+sequence+intubation+StatPearls' },
+    { title: 'StatPearls: Succinylcholine', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Succinylcholine+StatPearls' },
+    { title: 'StatPearls: Sugammadex', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Sugammadex+StatPearls' },
   ],
 };
 

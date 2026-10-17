@@ -84,8 +84,8 @@ export const LINES_FPC: FpcLesson = {
     { q: 'Humeral IO compared with tibial IO:', options: ['Slower flow', 'Higher flow and faster central delivery', 'Contraindicated', 'Same'], answer: 1, why: 'Closer to the central circulation.' },
   ],
   sources: [
-    { title: 'StatPearls: Arterial line placement', url: 'https://www.ncbi.nlm.nih.gov/books/NBK499989/' },
-    { title: 'StatPearls: Pulmonary artery catheter', url: 'https://www.ncbi.nlm.nih.gov/books/NBK482170/' },
+    { title: 'StatPearls: Arterial line placement', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Arterial+line+placement+StatPearls' },
+    { title: 'StatPearls: Pulmonary artery catheter', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Pulmonary+artery+catheter+StatPearls' },
   ],
 };
 
@@ -164,7 +164,7 @@ export const RADIOLOGY: FpcLesson = {
     { q: 'Widened mediastinum after high-speed deceleration raises concern for:', options: ['Pneumonia', 'Aortic injury', 'Rib fracture only', 'Normal finding'], answer: 1, why: 'Blunt aortic injury.' },
   ],
   sources: [
-    { title: 'StatPearls: Chest radiograph interpretation', url: 'https://www.ncbi.nlm.nih.gov/books/NBK551515/' },
+    { title: 'StatPearls: Chest radiograph interpretation', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Chest+radiograph+interpretation+StatPearls' },
     { title: 'Radiopaedia: Endotracheal tube position', url: 'https://radiopaedia.org/articles/endotracheal-tube' },
   ],
 };
@@ -248,8 +248,8 @@ export const RESP_SYS: FpcLesson = {
     { q: 'Mnemonic for right shift factors:', options: ['LEMON', 'CADET (face right)', 'DOPE', 'SLUDGE'], answer: 1, why: 'CO₂, Acid, 2,3-DPG, Exercise, Temperature.' },
   ],
   sources: [
-    { title: 'StatPearls: Physiology, oxygen transport', url: 'https://www.ncbi.nlm.nih.gov/books/NBK538336/' },
-    { title: 'StatPearls: Physiology, Krebs cycle', url: 'https://www.ncbi.nlm.nih.gov/books/NBK556032/' },
-    { title: 'StatPearls: Ventilation-perfusion mismatch', url: 'https://www.ncbi.nlm.nih.gov/books/NBK526021/' },
+    { title: 'StatPearls: Physiology, oxygen transport', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Physiology%2C+oxygen+transport+StatPearls' },
+    { title: 'StatPearls: Physiology, Krebs cycle', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Physiology%2C+Krebs+cycle+StatPearls' },
+    { title: 'StatPearls: Ventilation-perfusion mismatch', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Ventilation-perfusion+mismatch+StatPearls' },
   ],
 };

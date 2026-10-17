@@ -69,8 +69,8 @@ export const TRAUMA_MONITOR: FpcLesson = {
     { q: 'Urine output target in resuscitation (adult, non-burn):', options: ['0.1 mL/kg/h', '≥ 0.5 mL/kg/h', '5 mL/kg/h', 'None'], answer: 1, why: 'Marker of end-organ perfusion.' },
   ],
   sources: [
-    { title: 'StatPearls: Permissive hypotension', url: 'https://www.ncbi.nlm.nih.gov/books/NBK558915/' },
-    { title: 'StatPearls: Shock index', url: 'https://www.ncbi.nlm.nih.gov/books/NBK570563/' },
+    { title: 'StatPearls: Permissive hypotension', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Permissive+hypotension+StatPearls' },
+    { title: 'StatPearls: Shock index', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Shock+index+StatPearls' },
   ],
 };
 
@@ -148,9 +148,9 @@ export const SURGICAL_INTERVENTIONS: FpcLesson = {
     { q: 'Minimum needle length for adult decompression (commonly cited):', options: ['2.5 cm', '≥ 8 cm', '1 cm', '20 cm'], answer: 1, why: 'Shorter needles often fail.' },
   ],
   sources: [
-    { title: 'StatPearls: Tension pneumothorax', url: 'https://www.ncbi.nlm.nih.gov/books/NBK559090/' },
-    { title: 'StatPearls: Escharotomy', url: 'https://www.ncbi.nlm.nih.gov/books/NBK482120/' },
-    { title: 'StatPearls: Damage control resuscitation', url: 'https://www.ncbi.nlm.nih.gov/books/NBK470366/' },
+    { title: 'StatPearls: Tension pneumothorax', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Tension+pneumothorax+StatPearls' },
+    { title: 'StatPearls: Escharotomy', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Escharotomy+StatPearls' },
+    { title: 'StatPearls: Damage control resuscitation', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Damage+control+resuscitation+StatPearls' },
   ],
 };
 
@@ -223,6 +223,6 @@ export const TRAUMA_BLOOD: FpcLesson = {
   sources: [
     { title: 'PROPPR trial. JAMA (2015)', url: 'https://pubmed.ncbi.nlm.nih.gov/25647203/' },
     { title: 'PAMPer trial. NEJM (2018)', url: 'https://pubmed.ncbi.nlm.nih.gov/30044935/' },
-    { title: 'StatPearls: Massive transfusion', url: 'https://www.ncbi.nlm.nih.gov/books/NBK499929/' },
+    { title: 'StatPearls: Massive transfusion', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Massive+transfusion+StatPearls' },
   ],
 };

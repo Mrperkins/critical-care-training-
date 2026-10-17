@@ -133,7 +133,7 @@ export const TRACH: FpcLesson = {
   ],
   sources: [
     { title: 'National Tracheostomy Safety Project: emergency algorithms', url: 'https://www.tracheostomy.org.uk/healthcare-staff/emergency-care' },
-    { title: 'StatPearls: Angioedema', url: 'https://www.ncbi.nlm.nih.gov/books/NBK538489/' },
+    { title: 'StatPearls: Angioedema', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Angioedema+StatPearls' },
   ],
 };
 

@@ -74,9 +74,9 @@ export const MCS: FpcLesson = {
     { q: 'IABP may cause which complication in the leg?', options: ['DVT only', 'Limb ischaemia', 'Hyperaemia', 'None'], answer: 1, why: 'Femoral catheter obstruction.' },
   ],
   sources: [
-    { title: 'StatPearls: Intra-aortic balloon pump', url: 'https://www.ncbi.nlm.nih.gov/books/NBK542233/' },
+    { title: 'StatPearls: Intra-aortic balloon pump', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Intra-aortic+balloon+pump+StatPearls' },
     { title: 'ELSO guidelines', url: 'https://www.elso.org/ecmo-resources/elso-ecmo-guidelines.aspx' },
-    { title: 'StatPearls: Left ventricular assist device', url: 'https://www.ncbi.nlm.nih.gov/books/NBK546694/' },
+    { title: 'StatPearls: Left ventricular assist device', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Left+ventricular+assist+device+StatPearls' },
   ],
 };
 
@@ -162,8 +162,8 @@ export const CARDIAC_INFECT: FpcLesson = {
   ],
   sources: [
     { title: '2025 ESC guidelines for myocarditis and pericarditis', url: 'https://www.escardio.org/Guidelines/Clinical-Practice-Guidelines' },
-    { title: 'StatPearls: Cardiac tamponade', url: 'https://www.ncbi.nlm.nih.gov/books/NBK431090/' },
-    { title: 'StatPearls: Infective endocarditis', url: 'https://www.ncbi.nlm.nih.gov/books/NBK557641/' },
+    { title: 'StatPearls: Cardiac tamponade', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Cardiac+tamponade+StatPearls' },
+    { title: 'StatPearls: Infective endocarditis', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Infective+endocarditis+StatPearls' },
   ],
 };
 

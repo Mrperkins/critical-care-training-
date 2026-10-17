@@ -81,7 +81,7 @@ export const TRAUMA_DX: FpcLesson = {
   ],
   sources: [
     { title: 'ACS Committee on Trauma: National guideline for the field triage of injured patients (2021)', url: 'https://www.facs.org/quality-programs/trauma/systems/field-triage-guidelines/' },
-    { title: 'StatPearls: FAST exam', url: 'https://www.ncbi.nlm.nih.gov/books/NBK470479/' },
+    { title: 'StatPearls: FAST exam', url: 'https://www.ncbi.nlm.nih.gov/books/?term=FAST+exam+StatPearls' },
   ],
 };
 
@@ -163,7 +163,7 @@ export const TRAUMA_LABS: FpcLesson = {
   ],
   sources: [
     { title: 'European guideline on management of major bleeding and coagulopathy following trauma (6th ed., 2023)', url: 'https://ccforum.biomedcentral.com/articles/10.1186/s13054-023-04327-7' },
-    { title: 'StatPearls: Trauma-induced coagulopathy', url: 'https://www.ncbi.nlm.nih.gov/books/NBK580536/' },
+    { title: 'StatPearls: Trauma-induced coagulopathy', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Trauma-induced+coagulopathy+StatPearls' },
   ],
 };
 

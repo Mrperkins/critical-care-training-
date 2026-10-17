@@ -91,8 +91,8 @@ export const ENDOCRINE: FpcLesson = {
   ],
   sources: [
     { title: 'ADA consensus report: hyperglycaemic crises in adults with diabetes (2024)', url: 'https://diabetesjournals.org/care/article/47/8/1257/156808' },
-    { title: 'StatPearls: Thyroid storm', url: 'https://www.ncbi.nlm.nih.gov/books/NBK448095/' },
-    { title: 'StatPearls: Myxedema coma', url: 'https://www.ncbi.nlm.nih.gov/books/NBK545193/' },
+    { title: 'StatPearls: Thyroid storm', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Thyroid+storm+StatPearls' },
+    { title: 'StatPearls: Myxedema coma', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Myxedema+coma+StatPearls' },
   ],
 };
 
@@ -261,7 +261,7 @@ export const RENAL: FpcLesson = {
   ],
   sources: [
     { title: 'KDIGO clinical practice guideline for acute kidney injury', url: 'https://kdigo.org/guidelines/acute-kidney-injury/' },
-    { title: 'StatPearls: Hyperkalemia', url: 'https://www.ncbi.nlm.nih.gov/books/NBK470284/' },
-    { title: 'StatPearls: Rhabdomyolysis', url: 'https://www.ncbi.nlm.nih.gov/books/NBK448168/' },
+    { title: 'StatPearls: Hyperkalemia', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Hyperkalemia+StatPearls' },
+    { title: 'StatPearls: Rhabdomyolysis', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Rhabdomyolysis+StatPearls' },
   ],
 };

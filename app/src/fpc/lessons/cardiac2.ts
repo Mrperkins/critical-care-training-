@@ -83,7 +83,7 @@ export const ACS: FpcLesson = {
   ],
   sources: [
     { title: '2025 ACC/AHA guideline for the management of acute coronary syndromes', url: 'https://www.ahajournals.org/doi/10.1161/CIR.0000000000001309' },
-    { title: 'StatPearls: ST-elevation myocardial infarction', url: 'https://www.ncbi.nlm.nih.gov/books/NBK532281/' },
+    { title: 'StatPearls: ST-elevation myocardial infarction', url: 'https://www.ncbi.nlm.nih.gov/books/?term=ST-elevation+myocardial+infarction+StatPearls' },
   ],
 };
 
@@ -251,6 +251,6 @@ export const HEART_FAILURE: FpcLesson = {
   ],
   sources: [
     { title: '2022 AHA/ACC/HFSA guideline for the management of heart failure', url: 'https://www.ahajournals.org/doi/10.1161/CIR.0000000000001063' },
-    { title: 'StatPearls: Acute pulmonary edema', url: 'https://www.ncbi.nlm.nih.gov/books/NBK557611/' },
+    { title: 'StatPearls: Acute pulmonary edema', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Acute+pulmonary+edema+StatPearls' },
   ],
 };

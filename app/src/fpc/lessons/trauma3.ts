@@ -80,8 +80,8 @@ export const LETHAL_TRIAD: FpcLesson = {
     { q: 'pH at which clotting factor activity falls substantially:', options: ['7.45', '7.2', '7.6', '7.35'], answer: 1, why: 'Acidosis threshold.' },
   ],
   sources: [
-    { title: 'StatPearls: Trauma lethal triad', url: 'https://www.ncbi.nlm.nih.gov/books/NBK556127/' },
-    { title: 'Ditzel RM et al. A review of transfusion- and trauma-induced hypocalcemia. J Trauma Acute Care Surg (2020)', url: 'https://pubmed.ncbi.nlm.nih.gov/31688829/' },
+    { title: 'StatPearls: Trauma lethal triad', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Trauma+lethal+triad+StatPearls' },
+    { title: 'Ditzel RM et al. A review of transfusion- and trauma-induced hypocalcemia. J Trauma Acute Care Surg (2020)', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=Ditzel+transfusion+trauma-induced+hypocalcemia+2020' },
   ],
 };
 
@@ -157,6 +157,6 @@ export const BURN_FLUIDS: FpcLesson = {
   ],
   sources: [
     { title: 'American Burn Association: Guidelines for burn patient referral and Advanced Burn Life Support', url: 'https://ameriburn.org/resources/burnreferral/' },
-    { title: 'StatPearls: Burn resuscitation and early management', url: 'https://www.ncbi.nlm.nih.gov/books/NBK430795/' },
+    { title: 'StatPearls: Burn resuscitation and early management', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Burn+resuscitation+and+early+management+StatPearls' },
   ],
 };

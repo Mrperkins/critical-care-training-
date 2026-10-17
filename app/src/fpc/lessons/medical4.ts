@@ -97,7 +97,7 @@ export const LABS: FpcLesson = {
     { q: 'Leukopenia in sepsis indicates:', options: ['Good prognosis', 'Severe illness and worse prognosis', 'Viral infection only', 'Lab error'], answer: 1, why: 'Bone marrow overwhelmed.' },
   ],
   sources: [
-    { title: 'StatPearls: Laboratory evaluation (reference ranges)', url: 'https://www.ncbi.nlm.nih.gov/books/NBK545176/' },
+    { title: 'StatPearls: Laboratory evaluation (reference ranges)', url: 'https://www.ncbi.nlm.nih.gov/books/?term=Laboratory+evaluation+%28reference+ranges%29+StatPearls' },
     { title: 'Fourth Universal Definition of Myocardial Infarction (2018)', url: 'https://www.ahajournals.org/doi/10.1161/CIR.0000000000000617' },
   ],
 };
@@ -179,7 +179,7 @@ export const ADV_ASSESS: FpcLesson = {
     { q: 'The RUSH "tank" assessment includes:', options: ['LV function', 'IVC, FAST, pleural fluid', 'Aorta only', 'DVT only'], answer: 1, why: 'Volume status and fluid collections.' },
   ],
   sources: [
-    { title: 'StatPearls: RUSH exam', url: 'https://www.ncbi.nlm.nih.gov/books/NBK519034/' },
+    { title: 'StatPearls: RUSH exam', url: 'https://www.ncbi.nlm.nih.gov/books/?term=RUSH+exam+StatPearls' },
     { title: 'Hernández G et al. ANDROMEDA-SHOCK: capillary refill-targeted resuscitation. JAMA (2019)', url: 'https://jamanetwork.com/journals/jama/fullarticle/2724361' },
   ],
 };
