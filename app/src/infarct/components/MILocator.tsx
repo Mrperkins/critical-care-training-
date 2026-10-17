@@ -8,6 +8,7 @@
  * conduction wavefront; it is advanced here, once per frame, so the ECG runs whether or not the canvas is mounted.
  */
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { useCameraPolicy } from '../../scene/cameraPolicy';
 import { loadHeartAsset, type HeartAsset } from '../asset/heartAsset';
 import { loadSharedHeart, type SharedHeart } from '../asset/sharedHeart';
 import { LessonPlayer } from '../lesson/Player';
@@ -78,6 +79,8 @@ const clearTerritory = () => useApp.getState().set({ territoryId: null, vesselId
 export function MILocator({ mode, header, mountScene = true }: { mode: Mode; header?: ReactNode; mountScene?: boolean }) {
   const [heart, setHeart] = useState<(SharedHeart & { original: HeartAsset }) | null>(null);
   const [err, setErr] = useState<string | null>(null);
+  // the narrated MI lesson owns the model, not the camera (see scene/cameraPolicy)
+  useEffect(() => { useCameraPolicy.getState().own('mi-lesson', mode === 'lesson'); return () => useCameraPolicy.getState().own('mi-lesson', false); }, [mode]);
   useEffect(() => {
     let off = false;
     loadHeartAsset().then(async (original) => {

@@ -7,6 +7,7 @@
  * mixed-venous and end-capillary saturations. There is no second respiratory model here.
  */
 import { MiniSelect } from '../scene/pane';
+import { useCameraGate } from '../scene/cameraPolicy';
 import { useEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
@@ -407,7 +408,7 @@ const CAM: Record<string, (a: Record<string, THREE.Vector3>) => [THREE.Vector3, 
   'lung.recruited': (a) => [a.recruited.clone().add(new THREE.Vector3(0.45, 0.8, IS_PHONE ? 4.2 : 3.2)), a.recruited.clone()],
 };
 function Rig() {
-  const cc = useRef<CameraControls>(null); const target = useUI((s) => s.ventTarget); const first = useRef(true);
+  const cc = useRef<CameraControls>(null); const target = useUI((s) => s.ventTarget); const first = useRef(true); useCameraGate(cc);
   useEffect(() => {
     let raf = 0; const go = () => {
       const f = CAM[target] ?? CAM['lung.alveolus']; const a = alvLive.anchors;

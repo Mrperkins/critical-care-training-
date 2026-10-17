@@ -9,6 +9,7 @@ import { WorkflowRunner } from '../workflows/WorkflowRunner';
 import type { Workflow } from '../workflows/workflow';
 import { usePendingOpen } from './navigate';
 import { useProgress } from '../curriculum/progress';
+import { courseFor, trackSummary } from '../director/course';
 
 export interface ShellLesson { id: string; title: string; level: string; blurb: string; steps: { id: string; title: string; say: string }[] }
 
@@ -45,13 +46,13 @@ export function LessonShell<L extends ShellLesson>({ lessons, apply, intro, chil
   if (!lesson) return (
     <div className="chal-list">
       {tabs}
-      <section className="card"><div className="eyebrow">Guided learning</div><h2 className="h2">Narrated lessons on the live model</h2><p className="muted">{intro}</p></section>
+      <header className="learn-intro"><h2>Lessons</h2><p>{intro} Every lesson comes as a full course or a short TL;DR.</p></header>
       <label className="lesson-search">Find a lesson or disease<input type="search" placeholder="Search topics…" value={query} onChange={e=>setQuery(e.target.value)} /></label>
       {['vent','heart','neuro','lines','abdomen','labs','pediatrics','womens'].includes(domain) && <DiseaseBrowser domain={domain as AtlasDomain} query={query} />}
       {(timelines?.filter(match).length ?? 0) > 0 && <details className="lesson-group" key={`guided-${!!query}`} open={!!query}><summary>Guided organ explainers <span>{timelines!.filter(match).length}</span></summary>
       {timelines?.filter(match).map((l) => (
         <button key={l.id} className="chal-item sig" onClick={() => setSig(l)}>
-          <span className="lvl lvl-sig">Explainer</span><span className="ci-t">{l.title}<small className="ci-b">{l.blurb}</small></span><span className="ci-k">{l.cues.filter((c) => c.say).length} scenes</span>
+          <span className="lvl lvl-sig">Explainer</span><span className="ci-t">{l.title}<small className="ci-b">{l.blurb}</small></span><span className="ci-k"><LessonLength tl={l} /></span>
         </button>
       ))}
       </details>}
@@ -65,7 +66,7 @@ export function LessonShell<L extends ShellLesson>({ lessons, apply, intro, chil
       {lessons.filter(match).length > 0 && <details className="lesson-group" key={`fundamentals-${!!query}`} open={!!query}><summary>Fundamentals <span>{lessons.filter(match).length}</span></summary>
       {lessons.filter(match).map((l) => (
         <button key={l.id} className="chal-item" onClick={() => setLesson(l)}>
-          <span className={`lvl lvl-${l.level}`}>{l.level}</span><span className="ci-t">{l.title}<small className="ci-b">{l.blurb}</small></span><span className="ci-k">{l.steps.length} steps</span>
+          <span className={`lvl lvl-${l.level}`}>{l.level}</span><span className="ci-t">{l.title}<small className="ci-b">{l.blurb}</small></span><span className="ci-k"><LessonLength tl={stepTimeline(l.id, l.title, l.steps.map((st) => ({ id: st.id, title: st.title, say: st.say })))} /></span>
         </button>
       ))}
       </details>}
@@ -78,4 +79,10 @@ export function LessonShell<L extends ShellLesson>({ lessons, apply, intro, chil
       {reference && <details className="card nm-details"><summary>Normal values</summary>{reference()}</details>}
     </div>
   );
+}
+
+/** "12 min · TL;DR 4" without the middle dot: full length, then the short track */
+export function LessonLength({ tl }: { tl: Timeline }) {
+  const s = useMemo(() => trackSummary(tl, courseFor(tl)), [tl]);
+  return <>{s.full.min} min<small className="ci-tldr">TL;DR {s.tldr.min} min</small></>;
 }

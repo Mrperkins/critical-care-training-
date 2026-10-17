@@ -6,6 +6,7 @@
  * streams bicarbonate back at the rate renal compensation is actually happening.
  */
 import { useEffect, useMemo, useRef } from 'react';
+import { useCameraGate } from '../scene/cameraPolicy';
 import * as THREE from 'three';
 import { useFrame, useThree } from '@react-three/fiber';
 import { CameraControls, Html } from '@react-three/drei';
@@ -378,7 +379,7 @@ export const STATIONS: Record<Station, { tgt: [number, number, number]; dir: [nu
   kidney: { tgt: [KIDNEY_POS.x, 0, 0], dir: [0.1, 0.1, 1], size: [5, 7.6] },
 };
 function Rig({ micro }: { micro: MicroAsset }) {
-  const three = useThree(); (window as unknown as Record<string, unknown>).__three = three; const ref = useRef<CameraControls>(null); const st = useAbgUI((s) => s.station);
+  const three = useThree(); (window as unknown as Record<string, unknown>).__three = three; const ref = useRef<CameraControls>(null); const st = useAbgUI((s) => s.station); useCameraGate(ref);
   useMemo(() => { const p = micro.mapping.paths[CAP_PATH]; const q = p.pts[Math.floor(p.pts.length / 2)]; const a = micro.mapping.alveoli[p.alv].c; STATIONS.capillary.tgt = q; STATIONS.capillary.dir = [q[0] - a[0], q[1] - a[1] + 0.3, q[2] - a[2]]; }, [micro]);
   const aspect = three.size.width / Math.max(1, three.size.height);
   useEffect(() => {

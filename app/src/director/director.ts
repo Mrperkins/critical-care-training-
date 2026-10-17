@@ -4,15 +4,22 @@
  */
 import { create } from 'zustand';
 import { voice } from '../app/voice';
+import { useCameraPolicy } from '../scene/cameraPolicy';
 import { advance, cueEnd, currentStep, duration, resolve, steps, type Cue, type Timeline } from './timeline';
+import { courseFor, courseTimeline, type CourseMeta, type Track } from './course';
+import './courses';
 
 export interface DirectorState {
   tl: Timeline | null; t: number; playing: boolean; rate: number; muted: boolean;
   /** waiting at a cue end for narration to finish */ holding: boolean; speaking: boolean;
-  /** the camera target the lesson wants (scenes read this) */ target: string | null;
+  /** the camera target the lesson wants (scenes read this; the camera only follows it on request, see scene/cameraPolicy) */ target: string | null;
+  /** the lesson as authored, its course content, and the track being played (null = the learner is still choosing) */
+  source: Timeline | null; course: CourseMeta | null; track: Track | null;
   set: (p: Partial<DirectorState>) => void;
 }
-export const useDirector = create<DirectorState>((set) => ({ tl: null, t: 0, playing: false, rate: 1, muted: false, holding: false, speaking: false, target: null, set: (p) => set(p) }));
+export const useDirector = create<DirectorState>((set) => ({ tl: null, t: 0, playing: false, rate: 1, muted: false, holding: false, speaking: false, target: null, source: null, course: null, track: null, set: (p) => set(p) }));
+// a loaded lesson owns the model; the camera stays with the learner unless they follow the lesson camera
+useDirector.subscribe((s, p) => { if (!!s.tl !== !!p.tl || s.tl?.id !== p.tl?.id) { const pol = useCameraPolicy.getState(); pol.own('director', false); if (s.tl) pol.own('director', true); } });
 
 /* ------------------------------------------------------------------ narration: pre-rendered natural voice → captions only (never browser speech) */
 let narrationToken = 0;
@@ -27,7 +34,7 @@ function narrate(c: Cue) {
 }
 
 /* ------------------------------------------------------------------ clock */
-let raf = 0, last = 0, holdFor = 0; const MAX_HOLD = 20;
+let raf = 0, last = 0, holdFor = 0; const MAX_HOLD = 20; let nextTrack: Track | null = null;
 function loop(now: number) {
   raf = requestAnimationFrame(loop);
   const st = useDirector.getState(); const tl = st.tl; if (!tl || !st.playing) return;
@@ -48,9 +55,28 @@ function loop(now: number) {
 function ensureLoop() { if (!raf) { last = performance.now(); raf = requestAnimationFrame(loop); } }
 
 export const director = {
-  load(tl: Timeline, autoplay = false) { stopNarration(); const st = useDirector.getState(); st.set({ tl, t: 0, holding: false, playing: false, target: null }); this.seek(0, autoplay); if (autoplay) this.play(); },
-  unload() { stopNarration(); useDirector.getState().set({ tl: null, t: 0, playing: false, holding: false, target: null }); },
-  play() { const st = useDirector.getState(); if (!st.tl) return; if (st.t >= duration(st.tl) - 1e-6) this.seek(0, true); last = performance.now(); st.set({ playing: true }); ensureLoop(); },
+  /**
+   * Load a lesson. Lessons with a course open on the choice between the full course and the TL;DR
+   * (the scene is set to the opening state meanwhile); pass `track` to skip the choice (resume, deep link).
+   */
+  load(tl: Timeline, autoplay = false, opts: { track?: Track } = {}) {
+    const course = courseFor(tl); const preferred = nextTrack; nextTrack = null;
+    const track = opts.track ?? (course ? preferred : 'full'); if (preferred && !opts.track) autoplay = true;
+    useDirector.getState().set({ source: tl, course, track });
+    this.run(courseTimeline(tl, track ?? 'full', course), !!track && autoplay);
+  },
+  /** the next lesson that loads skips the choice and plays this track (a "TL;DR" button outside the player) */
+  prefer(track: Track | null) { nextTrack = track; },
+  /** play the chosen track from the start (or switch track mid-lesson, landing on the same scene when it exists in both) */
+  choose(track: Track) {
+    const st = useDirector.getState(); if (!st.source) return;
+    const here = st.tl && st.track ? currentStep(st.tl, st.t)?.id : null;
+    st.set({ track }); const tl = courseTimeline(st.source, track, st.course); this.run(tl, true);
+    const at = here ? tl.cues.find((c) => c.id === here)?.at : undefined; if (at != null && at > 0) this.seek(at, true);
+  },
+  run(tl: Timeline, autoplay: boolean) { stopNarration(); const st = useDirector.getState(); st.set({ tl, t: 0, holding: false, playing: false, target: null }); this.seek(0, autoplay); if (autoplay) this.play(); },
+  unload() { stopNarration(); useDirector.getState().set({ tl: null, t: 0, playing: false, holding: false, target: null, source: null, course: null, track: null }); },
+  play() { const st = useDirector.getState(); if (!st.tl) return; if (!st.track) { this.choose('full'); return; } if (st.t >= duration(st.tl) - 1e-6) this.seek(0, true); last = performance.now(); st.set({ playing: true }); ensureLoop(); },
   pause() { stopNarration(); useDirector.getState().set({ playing: false, holding: false }); },
   toggle() { useDirector.getState().playing ? this.pause() : this.play(); },
   /** jump to t: the world is rebuilt deterministically; narration restarts only when landing on a step start */

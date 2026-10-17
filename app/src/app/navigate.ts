@@ -27,7 +27,7 @@ export function openLesson(lessonId: string, t = 0) {
     usePendingOpen.getState().set({ kind: e.kind, id: lessonId }); useUI.getState().set({ module: e.module, mode: 'learn', atlasDisease:null }); return;
   }
   useUI.getState().set({ module: hit.module, mode: 'learn', atlasDisease:lessonId.startsWith('atlas-') ? lessonId.slice(6) : null });
-  setTimeout(() => { director.load(hit.tl, false); director.seek(t, false); }, 0);
+  setTimeout(() => { director.load(hit.tl, false, t > 0 ? { track: 'full' } : {}); director.seek(t, false); }, 0);
 }
 
 /** Open a challenge in its module; the module's challenge view starts that exact case when it can (pending store). */

@@ -104,7 +104,7 @@ export function App() {
       <button className={mode === 'sim' ? 'on' : ''} aria-pressed={mode === 'sim'} onClick={() => useUI.getState().set({ mode: 'sim' })}>Simulator</button>
     </div>}
   </>;
-  const domainItems = DOMAINS.map((d) => <button key={d.module} className={module === d.module ? 'on' : ''} onClick={() => chooseDomain(d.module)} aria-current={module === d.module ? 'page' : undefined}>
+  const domainItems = DOMAINS.map((d) => <button key={d.module} data-ch={d.module} className={module === d.module ? 'on' : ''} onClick={() => chooseDomain(d.module)} aria-current={module === d.module ? 'page' : undefined}>
     <DomainIcon module={d.module} /><span className="domain-label">{d.label}</span>
   </button>);
   return (

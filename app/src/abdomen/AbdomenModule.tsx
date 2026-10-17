@@ -1,4 +1,5 @@
 import { DiseaseBrowser } from '../atlas/DiseaseBrowser';
+import { LessonLength } from '../app/LessonShell';
 import { useExploreMemory } from '../app/exploreMemory';
 /** Abdomen module: trauma / vascular / surgical abdomen on the shared body, driven by one pure state. */
 import { MiniSelect, Picker, Fold } from '../scene/pane';
@@ -121,8 +122,8 @@ function AbdLearn() {
   if (active) return <div className="chal-run"><DirectorPlayer onExit={() => undefined} />{tl!.id === DISSECTION_LESSON.id ? <><ImpulseCard /><FindingsCard /></> : ['abd-mesenteric', 'abd-obstruction'].includes(tl!.id) ? <FindingsCard /> : <><FastCard /><ShockCard /><FindingsCard /></>}</div>;
   return (
     <div className="chal-list"><DiseaseBrowser domain="abdomen" />
-      <section className="card"><div className="eyebrow">Guided learning</div><h2 className="h2">The abdomen as a source of shock</h2><p className="muted">Narrated lessons that move one abdominal state through time while the anatomy, the ultrasound windows and the haemorrhage estimate respond.</p></section>
-      {ABDOMEN_LESSONS.map((l) => <button key={l.id} className="chal-item" onClick={() => director.load(l, true)}><span className={`lvl lvl-${l.level}`}>{l.level}</span><span className="ci-t">{l.title}<small className="ci-b">{l.blurb}</small></span><span className="ci-k">{l.cues.length} steps</span></button>)}
+      <header className="learn-intro"><h2>The abdomen as a source of shock</h2><p>Narrated lessons that move one abdominal state through time while the anatomy, the ultrasound windows and the haemorrhage estimate respond. Every lesson comes as a full course or a short TL;DR.</p></header>
+      {ABDOMEN_LESSONS.map((l) => <button key={l.id} className="chal-item" onClick={() => director.load(l, true)}><span className={`lvl lvl-${l.level}`}>{l.level}</span><span className="ci-t">{l.title}<small className="ci-b">{l.blurb}</small></span><span className="ci-k"><LessonLength tl={l} /></span></button>)}
     </div>
   );
 }

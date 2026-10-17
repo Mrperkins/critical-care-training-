@@ -12,6 +12,7 @@
  * every particle stream come from `solveShunt` (shunt.ts).
  */
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCameraGate } from '../scene/cameraPolicy';
 import * as THREE from 'three';
 import { useFrame, useThree } from '@react-three/fiber';
 import { CameraControls, Html } from '@react-three/drei';
@@ -405,7 +406,7 @@ export const HEART_VIEW: Record<string, () => [THREE.Vector3, THREE.Vector3]> = 
 };
 registerAnchors('heart', () => ({ four_chamber: W(new THREE.Vector3(0.2, 4.66, 0.38)), septum: W(LM.septum), vsd: W(LM.vsdPerimembranous), asd: W(LM.fossa), pfo: W(LM.fossa), lv: W(LM.lv), rv: W(LM.rv), outflow: W(LM.rvot), pda: W(LM.pdaAorta.clone().lerp(LM.pdaPa, 0.5)), coarct: W(LM.isthmus) }));
 function Rig() {
-  const cc = useRef<CameraControls>(null); const target = useHeartUI((s) => s.target); const first = useRef(true);
+  const cc = useRef<CameraControls>(null); const target = useHeartUI((s) => s.target); const first = useRef(true); useCameraGate(cc);
   useEffect(() => { const [p, l] = (HEART_VIEW[target] ?? HEART_VIEW['heart.four_chamber'])(); cc.current?.setLookAt(p.x, p.y, p.z, l.x, l.y, l.z, !first.current); first.current = false; }, [target]);
   return <CameraControls ref={cc} makeDefault minDistance={1} maxDistance={16} smoothTime={0.55} />;
 }
