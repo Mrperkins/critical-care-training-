@@ -6590,5 +6590,601 @@
  {
   "id": "fpc.fpc-toxic-inhalation.vent.2",
   "t": "Nebulised heparin and N-acetylcysteine are used in some burn centres to reduce cast formation, but evidence is mixed and they are a receiving-centre decision. In transport, the priorities are a secure large tube, suction, bronchodilators and careful pressure monitoring."
+ },
+ {
+  "id": "fpc.fpc-neuro-assess.gcs.0",
+  "t": "The GCS scores eye opening (1–4), verbal response (1–5) and motor response (1–6), from 3 to 15. Report the components, not just the total: \"E2 V2 M5 = 9\" tells the receiving team far more than \"GCS 9\", and the motor score carries the most prognostic weight. A GCS of 8 or less is the conventional definition of coma and severe brain injury."
+ },
+ {
+  "id": "fpc.fpc-neuro-assess.gcs.1",
+  "t": "Score the best response, using a central stimulus (trapezius squeeze or supraorbital pressure) for motor and a peripheral stimulus (fingernail pressure) for eye opening. Localising means the hand moves above the clavicle toward a central stimulus. Abnormal flexion (decorticate, M3) and extension (decerebrate, M2) indicate severe injury; extension is worse. If a limb is injured or the patient is intubated, record \"T\" for verbal (for example E3 VT M6) rather than guessing."
+ },
+ {
+  "id": "fpc.fpc-neuro-assess.gcs.2",
+  "t": "Sedatives, paralytics, alcohol, hypoglycaemia, hypoxia, hypotension and post-ictal states all lower the GCS. Record the best GCS before you give drugs — once a patient is intubated and paralysed, the pre-intubation examination is the last neurological examination anyone will have for hours. A fall of 2 or more points, or of 1 point in the motor score, is significant deterioration."
+ },
+ {
+  "id": "fpc.fpc-neuro-assess.pupils.0",
+  "t": "Check size, symmetry and reactivity. A unilateral fixed, dilated pupil in a patient with a reduced GCS suggests compression of the oculomotor nerve by uncal (transtentorial) herniation, usually on the side of the mass. Bilateral fixed, dilated pupils suggest severe herniation or global hypoxic injury — but also occur with atropine, sympathomimetics and severe hypothermia. Pinpoint pupils suggest opioids or a pontine lesion."
+ },
+ {
+  "id": "fpc.fpc-neuro-assess.pupils.1",
+  "t": "Lateralising signs — weakness on one side, asymmetric motor response, a unilateral dilated pupil — point to a focal lesion such as a haematoma that may need surgery. The Cushing response (hypertension with a widening pulse pressure, bradycardia and irregular breathing) is a late sign of raised intracranial pressure and impending herniation."
+ },
+ {
+  "id": "fpc.fpc-neuro-assess.pupils.2",
+  "t": "Herniation is an emergency treated in transport: elevate the head 30°, ensure oxygenation and normal blood pressure, give hyperosmolar therapy (hypertonic saline or mannitol), and use brief hyperventilation to an EtCO₂ of about 30–35 mmHg as a bridge to surgery. Expedite transfer to a neurosurgical centre."
+ },
+ {
+  "id": "fpc.fpc-neuro-assess.stroke.0",
+  "t": "The NIH Stroke Scale (NIHSS) scores consciousness, gaze, visual fields, facial palsy, limb strength, ataxia, sensation, language, dysarthria and neglect, from 0 to 42. A score of 6 or more raises the probability of a large-vessel occlusion. Prehospital scales are shorter: the Cincinnati and BE-FAST screens identify stroke, while LVO scales — RACE, LAMS, VAN, FAST-ED — estimate the likelihood of a large-vessel occlusion to guide transport to a thrombectomy-capable centre."
+ },
+ {
+  "id": "fpc.fpc-neuro-assess.stroke.1",
+  "t": "Document the last known well time — the last time the patient was seen at their normal baseline, not the time they were found. For a patient who woke with symptoms, last known well is when they went to sleep. Obtain a glucose: hypoglycaemia mimics stroke. Record anticoagulant use and get a contact number for a family member who can confirm history and consent."
+ },
+ {
+  "id": "fpc.fpc-neuro-assess.stroke.2",
+  "t": "Repeat the examination at fixed intervals and after any change, and hand over a comparable baseline: the same scale, the same components, the time of each exam and the drugs given in between."
+ },
+ {
+  "id": "fpc.fpc-neuro-assess.case.0",
+  "t": "A 52-year-old fell from a ladder. At the scene: E3 V4 M6 (13). On arrival at the rural hospital: E2 V2 M5 (9), right pupil 6 mm and sluggish, left 3 mm, BP 172/84, HR 58. CT shows a right temporal biconvex haematoma."
+ },
+ {
+  "id": "fpc.fpc-neuro-assess.handover.0",
+  "t": "A neurological examination is only useful if someone else can repeat it and compare. Use the same scale, the same stimulus and the same words each time, and record the time. \"E3 V4 M6, pupils 3 mm equal and brisk, moves all four limbs, left arm drift\" is a baseline; \"GCS 13, neuro intact\" is not."
+ },
+ {
+  "id": "fpc.fpc-neuro-assess.handover.1",
+  "t": "Record what may have changed the examination: drugs given and when, hypoglycaemia corrected, a seizure, hypotension or hypoxia. An exam taken 10 minutes after midazolam is not comparable with one taken before it. If the patient is paralysed, say so and give the time of the last dose — pupils are the only neurological sign you have left."
+ },
+ {
+  "id": "fpc.fpc-neuro-assess.handover.2",
+  "t": "Hand over in a fixed order: mechanism or onset time, the best pre-drug exam, the trend since then, interventions, and what you are worried about. The receiving neurosurgeon decides on theatre partly from your trend — a patient who was E4 V5 M6 at the scene and is now E2 V2 M5 has a very different story from one who has been E2 V2 M5 throughout."
+ },
+ {
+  "id": "fpc.fpc-seizures.define.0",
+  "t": "Status epilepticus is a seizure lasting 5 minutes or more, or two or more seizures without full recovery between them. The 5-minute threshold reflects the point at which seizures are unlikely to stop on their own; by 30 minutes, neuronal injury begins. GABA-A receptors are internalised as seizures continue, which is why benzodiazepines lose effect over time — early, adequate dosing matters most."
+ },
+ {
+  "id": "fpc.fpc-seizures.define.1",
+  "t": "Convulsive status causes hypoxia, aspiration, hyperthermia, lactic acidosis, rhabdomyolysis and injury. Non-convulsive status — ongoing electrical seizure without visible convulsions — presents as unexplained coma or confusion, subtle twitching or eye deviation. It is common after convulsive status and is invisible in a paralysed patient."
+ },
+ {
+  "id": "fpc.fpc-seizures.define.2",
+  "t": "Not every event is a seizure: syncope with brief jerking, psychogenic non-epileptic events, rigors and posturing from raised ICP can look similar. Treat a prolonged convulsion as a seizure when in doubt."
+ },
+ {
+  "id": "fpc.fpc-seizures.treat.0",
+  "t": "Stabilise (0–5 minutes): airway positioning, oxygen, suction, glucose check, IV or IO access, monitoring. Give thiamine before glucose in malnourished or alcohol-dependent patients."
+ },
+ {
+  "id": "fpc.fpc-seizures.treat.1",
+  "t": "First line (5–20 minutes): a benzodiazepine at full dose — IV lorazepam 0.1 mg/kg (up to 4 mg, repeat once), IM midazolam 10 mg for adults over 40 kg (5 mg for 13–40 kg), or IV diazepam. IM midazolam was at least as effective as IV lorazepam in the prehospital RAMPART trial, because it avoids delays for IV access. Under-dosing is the commonest error."
+ },
+ {
+  "id": "fpc.fpc-seizures.treat.2",
+  "t": "Second line (20–40 minutes): levetiracetam 60 mg/kg (max 4500 mg), fosphenytoin 20 mg PE/kg, or valproate 40 mg/kg — these were equally effective in the ESETT trial. Third line (refractory status): intubation and an anaesthetic infusion — midazolam, propofol or ketamine — ideally with EEG monitoring at the receiving centre."
+ },
+ {
+  "id": "fpc.fpc-seizures.causes.0",
+  "t": "Correct what is correctable: hypoglycaemia (dextrose), hyponatraemia (3 % saline 100–150 mL bolus for seizures from severe hyponatraemia), hypocalcaemia and hypomagnesaemia, hypoxia, and eclampsia (magnesium sulfate 4–6 g IV, not benzodiazepines alone, in a pregnant or recently delivered patient beyond 20 weeks)."
+ },
+ {
+  "id": "fpc.fpc-seizures.causes.1",
+  "t": "Toxicological causes include withdrawal from alcohol or benzodiazepines, tricyclic antidepressants (give sodium bicarbonate for wide QRS), isoniazid (pyridoxine), sympathomimetics, and bupropion. Structural causes — trauma, stroke, haemorrhage, tumour, infection (meningitis, encephalitis) — need imaging and specific treatment; a first seizure with a focal onset, fever, headache or head injury needs a CT."
+ },
+ {
+  "id": "fpc.fpc-seizures.causes.2",
+  "t": "Non-adherence to anti-epileptic drugs is the most common cause of status in people with known epilepsy. Bring the medication list and levels if drawn."
+ },
+ {
+  "id": "fpc.fpc-seizures.transport.0",
+  "t": "Flicker vertigo — light flashing through rotor blades at 4–20 Hz — can provoke seizures in susceptible patients; shade the patient's eyes. Hypoxia at altitude lowers the seizure threshold, so maintain oxygenation. Secure the patient and equipment; a seizing patient can dislodge lines and tubes in a confined cabin."
+ },
+ {
+  "id": "fpc.fpc-seizures.transport.1",
+  "t": "If you paralyse a patient, you remove the only sign of seizure activity. Use long-acting sedation (and an anti-epileptic loading dose) in any patient intubated for status, and watch for unexplained tachycardia, hypertension and pupillary changes that may be the only clue to ongoing seizures. Avoid repeated paralytic doses when they are not needed."
+ },
+ {
+  "id": "fpc.fpc-seizures.special.0",
+  "t": "Children: buccal or intranasal midazolam (0.3 mg/kg, maximum 10 mg) or IM midazolam is first line when there is no IV access; febrile seizures are common between 6 months and 5 years and usually brief, but a febrile seizure lasting more than 5 minutes is treated as status. Hypoglycaemia and hyponatraemia are more common causes in infants."
+ },
+ {
+  "id": "fpc.fpc-seizures.special.1",
+  "t": "Pregnancy: any seizure in the second half of pregnancy or up to six weeks post-partum is eclampsia until proven otherwise — give magnesium sulfate 4–6 g IV over 15–20 minutes, then 1–2 g/h, and control blood pressure. Benzodiazepines are used only if seizures continue despite magnesium. Place the patient in left lateral tilt and monitor the fetus where possible."
+ },
+ {
+  "id": "fpc.fpc-seizures.special.2",
+  "t": "Older adults and alcohol users: withdrawal seizures occur 6–48 hours after the last drink and respond to benzodiazepines; give thiamine. In older adults a first seizure is often due to stroke, a subdural haematoma or a tumour, so imaging is needed. Patients with a VP shunt who seize may have shunt failure."
+ },
+ {
+  "id": "fpc.fpc-ams.approach.0",
+  "t": "Altered mental status is a symptom, not a diagnosis. Start with what kills quickly: airway, breathing (hypoxia, hypercapnia), circulation (shock), and the bedside glucose. Hypoglycaemia is the most important single cause to exclude and is treated within minutes. Give naloxone for suspected opioid toxicity with respiratory depression, titrated to breathing rather than full awakening."
+ },
+ {
+  "id": "fpc.fpc-ams.approach.1",
+  "t": "A useful framework is AEIOU-TIPS: Alcohol and other toxins; Endocrine, Electrolytes, Encephalopathy (hepatic, uraemic, hypertensive); Insulin (hypo/hyperglycaemia); Oxygen (hypoxia, CO) and Opioids; Uraemia; Trauma, Temperature; Infection (sepsis, meningitis, encephalitis); Psychiatric (a diagnosis of exclusion), Poisons; Seizure (post-ictal, non-convulsive status), Stroke, Shock and Space-occupying lesions."
+ },
+ {
+  "id": "fpc.fpc-ams.approach.2",
+  "t": "Focal neurological signs, a unilateral dilated pupil, sudden onset, severe headache, or a history of trauma suggest a structural cause needing CT. Symmetric findings, a gradual onset and abnormal vital signs or labs suggest metabolic or toxic causes."
+ },
+ {
+  "id": "fpc.fpc-ams.delirium.0",
+  "t": "Delirium is an acute, fluctuating disturbance of attention and awareness caused by an underlying illness — infection, drugs, hypoxia, urinary retention, pain, metabolic derangement. It can be hyperactive (agitated) or hypoactive (quiet and withdrawn, easily missed). Dementia is chronic and progressive; patients with dementia are at much higher risk of delirium. Ask a carer about the patient's baseline: \"Is this normal for them?\""
+ },
+ {
+  "id": "fpc.fpc-ams.delirium.1",
+  "t": "Severely agitated patients — from stimulants, psychosis, withdrawal or hyperactive delirium — risk hyperthermia, acidosis, rhabdomyolysis and sudden cardiac arrest, particularly during struggle and physical restraint in the prone position. Treat as a medical emergency: rapid chemical sedation (ketamine 4–5 mg/kg IM or 1–2 mg/kg IV, or midazolam, or droperidol/olanzapine per protocol), then cooling, fluids and monitoring. Avoid prone restraint."
+ },
+ {
+  "id": "fpc.fpc-ams.delirium.2",
+  "t": "In the aircraft, an agitated patient is a flight safety threat. If the patient cannot be reliably calmed and secured, sedation and sometimes intubation before departure are safer than an in-flight struggle."
+ },
+ {
+  "id": "fpc.fpc-ams.airway.0",
+  "t": "A low GCS alone does not mandate intubation — a patient with hypoglycaemia or opioid toxicity who responds to treatment does not need a tube — but loss of airway reflexes, inability to protect against aspiration, hypoventilation, hypoxia, an expected deteriorating course, or the need for transport without the ability to intervene are all reasons to intubate."
+ },
+ {
+  "id": "fpc.fpc-ams.airway.1",
+  "t": "Before intubation, document a full neurological examination, and correct glucose and hypoxia first. Choose drugs that preserve blood pressure. After intubation, hand over the pre-intubation GCS and pupils, and the times and doses of all drugs, so that the receiving team can interpret their own examination."
+ },
+ {
+  "id": "fpc.fpc-ams.case.0",
+  "t": "A 78-year-old man is brought in \"confused for two days\". Temperature 38.6 °C, HR 112, BP 98/60, SpO₂ 93 %, glucose 7.2. He is drowsy, picks at the sheets and cannot keep attention on a conversation. No focal signs. His daughter says he was managing alone a week ago."
+ },
+ {
+  "id": "fpc.fpc-ams.tox.0",
+  "t": "Many altered patients are poisoned, and a quick toxidrome check narrows the cause. Opioid: pinpoint pupils, slow breathing, coma — naloxone. Sympathomimetic (cocaine, amphetamines): agitation, tachycardia, hypertension, hyperthermia, dilated pupils, sweating — benzodiazepines and cooling. Anticholinergic (antihistamines, tricyclics, some plants): agitation and delirium, dilated pupils, hot dry flushed skin, urinary retention, absent bowel sounds."
+ },
+ {
+  "id": "fpc.fpc-ams.tox.1",
+  "t": "Cholinergic (organophosphates, nerve agents): salivation, lacrimation, urination, diarrhoea, bronchorrhoea, bradycardia and small pupils — atropine and pralidoxime. Sedative-hypnotic (benzodiazepines, alcohol, GHB): depressed consciousness with relatively normal vital signs. Serotonin syndrome: clonus (especially inducible ankle clonus), hyperreflexia, agitation and hyperthermia after serotonergic drugs. Neuroleptic malignant syndrome: rigidity, hyperthermia and altered consciousness developing over days after antipsychotics."
+ },
+ {
+  "id": "fpc.fpc-ams.tox.2",
+  "t": "Carbon monoxide causes headache, confusion and collapse with a normal pulse oximetry reading; ask whether others in the household are unwell. Always consider co-ingestants and trauma — an intoxicated patient who fell may also have a subdural haematoma."
+ },
+ {
+  "id": "fpc.fpc-stroke-lvo.reperfusion.0",
+  "t": "In a large-vessel occlusion, about two million neurons die every minute. Intravenous thrombolysis — alteplase 0.9 mg/kg (maximum 90 mg; 10 % as a bolus, the rest over 60 minutes) or tenecteplase as a single bolus (0.25 mg/kg, maximum 25 mg, in many current guidelines) — is given within 4.5 hours of last known well in eligible patients. Imaging-selected patients may be treated later in some centres."
+ },
+ {
+  "id": "fpc.fpc-stroke-lvo.reperfusion.1",
+  "t": "Mechanical thrombectomy removes the clot from the internal carotid, M1 or proximal M2, or basilar artery. It is standard up to 6 hours, and up to 24 hours from last known well in patients selected by perfusion imaging (DAWN and DEFUSE-3), with growing evidence for large-core strokes. Thrombectomy has one of the largest treatment effects in medicine — roughly one in three treated patients has a better functional outcome."
+ },
+ {
+  "id": "fpc.fpc-stroke-lvo.reperfusion.2",
+  "t": "Key thrombolysis contraindications: intracranial haemorrhage on CT, recent major surgery or head trauma, active internal bleeding, known intracranial neoplasm or AVM, platelets below 100 × 10⁹/L, INR above 1.7, therapeutic anticoagulation with a DOAC within 48 hours (unless levels are normal), glucose below 2.8 mmol/L (50 mg/dL) and uncontrolled blood pressure above 185/110 mmHg despite treatment."
+ },
+ {
+  "id": "fpc.fpc-stroke-lvo.supportive.0",
+  "t": "Blood pressure: in patients not receiving reperfusion, permissive hypertension up to 220/120 is tolerated to preserve flow to the penumbra. Before thrombolysis, lower to below 185/110; after, maintain below 180/105 for 24 hours. Use labetalol (10–20 mg IV) or a nicardipine or clevidipine infusion; avoid abrupt drops. Treat hypotension aggressively."
+ },
+ {
+  "id": "fpc.fpc-stroke-lvo.supportive.1",
+  "t": "Oxygen only to keep SpO₂ above 94 %; hyperoxia gives no benefit. Keep glucose between about 7.8 and 10 mmol/L (140–180 mg/dL); both hypo- and hyperglycaemia worsen outcome. Treat fever. Keep the head of the bed flat or at 30° according to protocol and airway protection. Nil by mouth until swallowing is screened."
+ },
+ {
+  "id": "fpc.fpc-stroke-lvo.supportive.2",
+  "t": "Large hemispheric (malignant MCA) infarcts swell over 2–5 days and can herniate; young patients may need decompressive craniectomy. Basilar artery occlusion presents with fluctuating consciousness, vertigo, diplopia and quadriparesis and is easily missed; it carries a very high mortality untreated."
+ },
+ {
+  "id": "fpc.fpc-stroke-lvo.transport.0",
+  "t": "Patients with suspected LVO near a primary centre may receive thrombolysis there and then transfer for thrombectomy (\"drip and ship\"); bypassing to a comprehensive centre (\"mothership\") can speed thrombectomy at the cost of delayed lysis. Regional protocols set the threshold using LVO scale scores and transport times. Either way, door-in-door-out times at the referring hospital should be minimised, and the flight crew should not delay departure to finish an infusion that can run in the aircraft."
+ },
+ {
+  "id": "fpc.fpc-stroke-lvo.transport.1",
+  "t": "During and after thrombolysis, check neurological status and blood pressure every 15 minutes for the first two hours. Sudden headache, vomiting, rising blood pressure or neurological deterioration suggests symptomatic intracranial haemorrhage (about 2–7 %): stop the infusion, support the airway and pressure, and notify the receiving team — cryoprecipitate and tranexamic acid are used for reversal. Orolingual angio-oedema occurs in about 1–5 %, more often with ACE inhibitors: stop the drug, give antihistamines and steroids, and prepare for a difficult airway."
+ },
+ {
+  "id": "fpc.fpc-stroke-lvo.case.0",
+  "t": "A 69-year-old with sudden left hemiplegia, right gaze deviation and neglect; last known well 70 minutes ago. RACE score 7. CT shows no haemorrhage; CTA shows a right M1 occlusion. BP 196/104. Alteplase has been started at the referring hospital; the thrombectomy centre is 35 minutes away by air."
+ },
+ {
+  "id": "fpc.fpc-stroke-lvo.mimics.0",
+  "t": "Up to a quarter of suspected strokes are mimics: hypoglycaemia, seizures with post-ictal (Todd's) paresis, migraine with aura, functional neurological disorder, sepsis unmasking an old stroke, hypertensive encephalopathy, and space-occupying lesions. Thrombolysis given to a mimic carries little risk, so a mimic is excluded when the history clearly points to one (glucose, witnessed seizure), but treatment of a true stroke should not wait for certainty."
+ },
+ {
+  "id": "fpc.fpc-stroke-lvo.mimics.1",
+  "t": "Chameleons are strokes that look like something else: posterior circulation strokes presenting as vertigo and vomiting (\"labyrinthitis\"), isolated aphasia mistaken for confusion, and strokes in younger patients dismissed as intoxication. HINTS testing (head impulse, nystagmus, test of skew) and gait assessment help distinguish central from peripheral vertigo; an inability to walk is a red flag."
+ },
+ {
+  "id": "fpc.fpc-stroke-lvo.mimics.2",
+  "t": "Cervical artery dissection causes stroke in younger patients after neck trauma or manipulation, with neck pain, headache and a Horner syndrome. Treatment follows standard stroke pathways, with anticoagulation or antiplatelets decided later by the stroke team."
+ },
+ {
+  "id": "fpc.fpc-neuroprotection.cpp.0",
+  "t": "The primary injury happens at the moment of insult; everything afterwards is about preventing secondary injury from hypoxia, hypotension, hypercapnia or hypocapnia, hyperthermia, hypo- or hyperglycaemia, seizures and raised intracranial pressure. A single episode of hypotension or hypoxia measurably worsens outcome."
+ },
+ {
+  "id": "fpc.fpc-neuroprotection.cpp.1",
+  "t": "Cerebral perfusion pressure (CPP) = mean arterial pressure − intracranial pressure. With a normal ICP of 5–15 mmHg, a MAP of 80 gives a CPP of around 65–75. When ICP rises to 30, the same MAP gives a CPP of 50 — too low. Targets: ICP below 22 mmHg and CPP 60–70 mmHg in TBI. Without an ICP monitor, assume ICP is raised in severe brain injury and keep the MAP at least 80 mmHg."
+ },
+ {
+  "id": "fpc.fpc-neuroprotection.cpp.2",
+  "t": "The Monro–Kellie doctrine explains why: the skull is a fixed box containing brain, blood and CSF. As a mass expands, CSF and venous blood are displaced to compensate; when compensation is exhausted, small increases in volume cause large rises in pressure. That is why patients can deteriorate abruptly after a period of apparent stability."
+ },
+ {
+  "id": "fpc.fpc-neuroprotection.bundle.0",
+  "t": "Position: head of the bed at 30°, head midline, and cervical collars loosened or replaced with blocks if they compress the jugular veins. Avoid tight ETT ties around the neck. Reverse Trendelenburg maintains spinal alignment when the spine is not cleared."
+ },
+ {
+  "id": "fpc.fpc-neuroprotection.bundle.1",
+  "t": "Oxygen and CO₂: SpO₂ ≥ 94 % (PaO₂ 80–120 mmHg); normocapnia with PaCO₂ 35–45 mmHg (EtCO₂ about 35–40, checked against a gas). Prophylactic hyperventilation causes cerebral vasoconstriction and ischaemia; reserve brief hyperventilation (PaCO₂ 30–35) for signs of herniation as a bridge to definitive treatment."
+ },
+ {
+  "id": "fpc.fpc-neuroprotection.bundle.2",
+  "t": "Osmotherapy for raised ICP: 3 % saline 250 mL (or 23.4 % 30 mL via central line) or mannitol 0.5–1 g/kg. Hypertonic saline also expands volume and is preferred in hypotensive patients; mannitol is an osmotic diuretic that can cause hypotension and requires a urinary catheter. Normothermia (treat fever), glucose 6–10 mmol/L, adequate sedation and analgesia (pain and coughing raise ICP), and seizure prophylaxis in severe TBI complete the bundle."
+ },
+ {
+  "id": "fpc.fpc-neuroprotection.evd.0",
+  "t": "An EVD is a catheter in the lateral ventricle that both measures ICP and drains CSF. The drainage chamber is set at a height above a zero reference — usually the tragus of the ear (approximating the foramen of Monro) — and CSF drains when ICP exceeds that height (for example, 10–15 cmH₂O)."
+ },
+ {
+  "id": "fpc.fpc-neuroprotection.evd.1",
+  "t": "Movement and position changes alter the relationship between the head and the drain, so clamp the EVD for transfers, loading and take-off and landing per local policy, and re-level and re-open it once the patient is settled. Over-drainage can cause ventricular collapse and subdural haemorrhage; under-drainage allows ICP to rise. Never leave it clamped for long without monitoring ICP, and agree a plan for opening it if ICP rises."
+ },
+ {
+  "id": "fpc.fpc-neuroprotection.evd.2",
+  "t": "Check the dressing and connections, watch for CSF colour changes (fresh blood suggests rebleeding), and record the volume drained. Accidental dislodgement is an emergency: clamp the catheter, cover the site with a sterile dressing and notify neurosurgery."
+ },
+ {
+  "id": "fpc.fpc-neuroprotection.case.0",
+  "t": "A 28-year-old with severe TBI, intubated, with an ICP monitor. In flight, ICP rises from 16 to 28 mmHg; MAP 78; EtCO₂ 42; temperature 38.4 °C; he is coughing on the tube."
+ },
+ {
+  "id": "fpc.fpc-neuroprotection.transport.0",
+  "t": "Every movement and change in the aircraft can raise ICP: loading and unloading, turbulence, noise, vibration, suctioning and changes in attitude. Deepen sedation and analgesia before moving the patient, pre-oxygenate before suctioning, and keep suction passes brief. A cabin that is too warm or a patient who is shivering raises metabolic demand."
+ },
+ {
+  "id": "fpc.fpc-neuroprotection.transport.1",
+  "t": "Rotor-wing take-off attitude is usually nose-down, and fixed-wing take-off is nose-up, which shifts the head relative to the heart. Position the patient head-forward in fixed-wing aircraft where possible so that acceleration on take-off does not pool blood in the head; in rotor-wing, the effect is smaller. Maintain 30° head elevation throughout."
+ },
+ {
+  "id": "fpc.fpc-neuroprotection.transport.2",
+  "t": "Altitude reduces the partial pressure of oxygen: increase FiO₂ to keep SpO₂ ≥ 94 %. Air-filled spaces expand on ascent — pneumocephalus after skull fractures or surgery can enlarge and raise ICP, so request a lower cabin altitude (for example a cabin pressure equivalent to sea level) for patients with intracranial air."
+ },
+ {
+  "id": "fpc.fpc-brain-bleed.ich.0",
+  "t": "Spontaneous ICH is bleeding into the brain tissue, most often from hypertension (deep structures — basal ganglia, thalamus, pons, cerebellum) or amyloid angiopathy (lobar bleeds in older patients). It presents like a stroke but more often with headache, vomiting, a reduced level of consciousness and severe hypertension, and it can only be distinguished from ischaemic stroke by imaging."
+ },
+ {
+  "id": "fpc.fpc-brain-bleed.ich.1",
+  "t": "Haematomas expand in a third of patients in the first hours, and expansion predicts death and disability. Prevention focuses on blood pressure and coagulation. Current guidance favours lowering systolic pressure to about 140 mmHg (avoiding drops below about 130 and avoiding large, abrupt falls) in patients presenting with SBP 150–220, using labetalol, nicardipine or clevidipine."
+ },
+ {
+  "id": "fpc.fpc-brain-bleed.ich.2",
+  "t": "Reverse anticoagulants immediately: warfarin with 4-factor PCC and IV vitamin K; dabigatran with idarucizumab; factor Xa inhibitors with andexanet alfa or PCC per protocol; heparin with protamine. Platelet transfusion for antiplatelet users is not recommended unless they need surgery. Cerebellar haemorrhages over 3 cm or causing brainstem compression or hydrocephalus need urgent neurosurgery."
+ },
+ {
+  "id": "fpc.fpc-brain-bleed.sah.0",
+  "t": "Non-traumatic SAH is usually from a ruptured aneurysm. The classic presentation is a sudden, severe \"thunderclap\" headache reaching maximal intensity within a minute, often with vomiting, neck stiffness, photophobia, collapse or seizure. A smaller \"sentinel\" bleed may precede a major rupture. CT within 6 hours of onset is highly sensitive; later, lumbar puncture or CTA is needed."
+ },
+ {
+  "id": "fpc.fpc-brain-bleed.sah.1",
+  "t": "Severity is graded by Hunt and Hess (I, mild headache, to V, deep coma) or the WFNS scale based on GCS. Grade correlates with outcome. The early danger is rebleeding — highest in the first 24 hours and frequently fatal — until the aneurysm is secured by coiling or clipping. Control systolic pressure below about 160 mmHg (many centres use below 140), treat pain and nausea, and give antifibrinolytics only per neurosurgical direction."
+ },
+ {
+  "id": "fpc.fpc-brain-bleed.sah.2",
+  "t": "Hydrocephalus occurs early from blood blocking CSF flow: a falling GCS needs an urgent CT and often an EVD. Delayed cerebral ischaemia from vasospasm occurs at days 3–14; nimodipine 60 mg orally (or by tube) every 4 hours is given to all patients to improve outcome, avoiding hypotension. Hyponatraemia (from cerebral salt wasting or SIADH) is common — do not fluid restrict in SAH."
+ },
+ {
+  "id": "fpc.fpc-brain-bleed.transport.0",
+  "t": "Haemorrhage patients deteriorate in transport from expansion, rebleeding, hydrocephalus or seizures. Secure the airway before departure if the GCS is falling, airway reflexes are poor, or the patient is vomiting with a reduced conscious level. Use a smooth induction that blunts the hypertensive response to laryngoscopy — a sudden surge can rerupture an aneurysm."
+ },
+ {
+  "id": "fpc.fpc-brain-bleed.transport.1",
+  "t": "Run an arterial line where possible, with an infusion to hold the target pressure steady; repeated labetalol boluses cause swings. Keep the patient calm, pain-free and nauseated-free; straining and coughing raise ICP and blood pressure. Neurological checks every 15 minutes; any decline is reported immediately and prompts the herniation measures from the neuroprotection lesson."
+ },
+ {
+  "id": "fpc.fpc-brain-bleed.case.0",
+  "t": "A 47-year-old collapsed at the gym after a sudden severe headache. GCS 13 (E3 V4 M6), neck stiffness, BP 192/108, HR 64. CT shows diffuse subarachnoid blood in the basal cisterns and mildly enlarged ventricles. She takes no anticoagulants."
+ },
+ {
+  "id": "fpc.fpc-brain-bleed.prog.0",
+  "t": "The ICH score estimates 30-day mortality from GCS (3–4 = 2 points, 5–12 = 1), haematoma volume ≥ 30 mL (1), intraventricular blood (1), infratentorial location (1) and age ≥ 80 (1). Mortality rises from near zero at 0 points to near 100 % at 5–6. Early do-not-resuscitate orders, however, can become self-fulfilling; guidelines advise aggressive full care for at least the first 24 hours in most patients."
+ },
+ {
+  "id": "fpc.fpc-brain-bleed.prog.1",
+  "t": "Haematoma volume can be estimated from CT with the ABC/2 method: multiply the largest diameter (A), the perpendicular diameter (B) and the number of slices with blood times the slice thickness (C), then divide by 2. Volumes over 30 mL carry a poor prognosis; over 60 mL with a GCS of 8 or less is usually fatal."
+ },
+ {
+  "id": "fpc.fpc-brain-bleed.prog.2",
+  "t": "Transport is often to the place where these discussions will happen. Ensure that family members know where the patient is going and have contact details, and that any advance directive travels with the patient."
+ },
+ {
+  "id": "fpc.fpc-tbi.classify.0",
+  "t": "TBI severity by GCS after resuscitation: mild 13–15, moderate 9–12, severe 3–8. Mild TBI makes up most cases, but older and anticoagulated patients with \"mild\" injuries can harbour significant bleeds. Penetrating injuries and skull fractures — especially depressed or basal fractures (raccoon eyes, Battle's sign, CSF otorrhoea or rhinorrhoea, haemotympanum) — raise the risk."
+ },
+ {
+  "id": "fpc.fpc-tbi.classify.1",
+  "t": "Epidural haematoma: arterial bleeding (classically the middle meningeal artery) between the skull and dura, often with a temporal fracture. Up to a third have a lucid interval — a brief recovery after the injury followed by rapid deterioration as the clot expands. It appears biconvex (lens-shaped) on CT and does not cross suture lines. Prompt evacuation gives excellent outcomes."
+ },
+ {
+  "id": "fpc.fpc-tbi.classify.2",
+  "t": "Subdural haematoma: venous bleeding from bridging veins between the dura and arachnoid, crescent-shaped on CT, crossing sutures. Acute subdurals follow high-energy injury and carry high mortality from the associated brain injury; chronic subdurals occur in older adults and alcohol users after minor trauma. Diffuse axonal injury from rotational forces causes coma out of proportion to CT findings. Contusions often \"blossom\" — enlarge — over the first 24–72 hours."
+ },
+ {
+  "id": "fpc.fpc-tbi.targets.0",
+  "t": "The EPIC study showed that implementing prehospital TBI guidelines — preventing hypoxia, hyperventilation and hypotension — improved survival in severe TBI. A single systolic below 90 mmHg roughly doubles mortality, and a single SpO₂ below 90 % does similar harm. Brain Trauma Foundation guidelines recommend SBP ≥ 100 mmHg for patients aged 50–69 and ≥ 110 mmHg for ages 15–49 and over 70."
+ },
+ {
+  "id": "fpc.fpc-tbi.targets.1",
+  "t": "Ventilate to normocapnia: EtCO₂ 35–40 mmHg, confirmed against an arterial gas where possible. Hyperventilation after intubation is common and harmful; use a ventilator or a rate-guided bag with capnography, not enthusiasm. Brief hyperventilation is reserved for signs of herniation."
+ },
+ {
+  "id": "fpc.fpc-tbi.targets.2",
+  "t": "Transport to a centre with neurosurgery. Give TXA within 3 hours to patients with mild to moderate TBI per local protocol (CRASH-3 showed benefit in that group when given early). Treat seizures; check glucose; keep the head up and midline."
+ },
+ {
+  "id": "fpc.fpc-tbi.rsi.0",
+  "t": "Indications include GCS ≤ 8, inability to protect the airway, hypoxia or hypoventilation despite simple measures, combativeness that prevents safe care or transport, and a deteriorating GCS with a long transport. Document the pre-intubation GCS (with components) and pupils first."
+ },
+ {
+  "id": "fpc.fpc-tbi.rsi.1",
+  "t": "Preoxygenate thoroughly and use apnoeic oxygenation: a desaturation during intubation is a secondary injury. Choose haemodynamically stable induction (ketamine or etomidate; ketamine does not raise ICP meaningfully in ventilated patients and supports pressure). Rocuronium or succinylcholine are acceptable early. Push-dose vasopressor ready; consider fentanyl to blunt the pressor response if pressure allows."
+ },
+ {
+  "id": "fpc.fpc-tbi.rsi.2",
+  "t": "After intubation: confirm with waveform capnography, set EtCO₂ 35–40, head up 30°, sedate adequately, and loosen any tie or collar compressing the neck veins. Recheck pupils."
+ },
+ {
+  "id": "fpc.fpc-tbi.case.0",
+  "t": "A 19-year-old was struck on the side of the head by a cricket ball, briefly knocked out, then walked off talking. Ninety minutes later he complains of a worsening headache, vomits twice and becomes drowsy (GCS 12 → 10). Left pupil 5 mm, sluggish."
+ },
+ {
+  "id": "fpc.fpc-tbi.mild.0",
+  "t": "Most head injuries are mild (GCS 13–15). The Canadian CT Head Rule identifies patients who need CT: GCS below 15 at 2 hours, suspected open or depressed fracture, signs of basal skull fracture, two or more episodes of vomiting, age 65 or over, amnesia for 30 minutes or more before impact, or a dangerous mechanism. Anticoagulated patients need imaging after any head injury with symptoms, and many guidelines recommend imaging regardless."
+ },
+ {
+  "id": "fpc.fpc-tbi.mild.1",
+  "t": "Concussion causes headache, dizziness, nausea, confusion, amnesia and emotional changes with a normal CT. Symptoms usually settle within days to weeks. Second impact syndrome — catastrophic brain swelling after a second injury before the first has resolved — is rare but drives return-to-play rules in young athletes."
+ },
+ {
+  "id": "fpc.fpc-tbi.mild.2",
+  "t": "For transport crews, the main risk is underestimating a \"talk and deteriorate\" patient: older adults, anticoagulated patients and those with epidural haematomas can talk at the scene and decline in flight. Repeat the GCS every 15 minutes in flight."
+ },
+ {
+  "id": "fpc.fpc-sci.smr.0",
+  "t": "The emphasis has moved from rigid immobilisation on a long board to spinal motion restriction: a cervical collar where indicated, and keeping the spine aligned using a scoop stretcher, vacuum mattress or the stretcher itself. Long boards cause pressure injury, pain and restricted breathing and are best used only for extrication. Validated criteria (NEXUS, Canadian C-spine rule) identify low-risk patients who do not need restriction."
+ },
+ {
+  "id": "fpc.fpc-sci.smr.1",
+  "t": "Penetrating injuries to the neck or torso without neurological deficit do not benefit from collars, which can hide bleeding and airway problems and delay care. In TBI, collars can raise ICP by compressing the jugular veins — keep them correctly sized or use blocks and tape instead."
+ },
+ {
+  "id": "fpc.fpc-sci.smr.2",
+  "t": "Older patients with ankylosing spondylitis or kyphosis should be immobilised in their usual position — forcing them flat can cause fractures and cord injury."
+ },
+ {
+  "id": "fpc.fpc-sci.syndromes.0",
+  "t": "Key levels: C3–C5 innervate the diaphragm (\"C3, 4, 5 keeps the diaphragm alive\"); injuries at or above C5 often need ventilation. C5 is elbow flexion, C6 wrist extension, C7 elbow extension, C8 finger flexion, T1 finger abduction; T4 is the nipple line and T10 the umbilicus. A complete injury has no motor or sensory function below the level, including sacral sparing; incomplete injuries have some preserved function and a better prognosis."
+ },
+ {
+  "id": "fpc.fpc-sci.syndromes.1",
+  "t": "Central cord syndrome — weakness greater in the arms than legs — follows hyperextension in older patients with spondylosis. Anterior cord syndrome loses motor function and pain/temperature with preserved proprioception and vibration; prognosis is poor. Brown-Séquard (hemisection, often penetrating) causes ipsilateral motor and proprioceptive loss with contralateral pain and temperature loss. Cauda equina compression causes saddle anaesthesia, urinary retention and leg weakness."
+ },
+ {
+  "id": "fpc.fpc-sci.manage.0",
+  "t": "Neurogenic shock is a diagnosis of exclusion in trauma: hypotension in a trauma patient is haemorrhage until proven otherwise, even with a cord injury. Once bleeding is excluded or controlled, give fluids and a vasopressor with alpha and beta effect (norepinephrine) to maintain a MAP of 85–90 mmHg for the first several days — commonly recommended to protect cord perfusion. Treat symptomatic bradycardia with atropine or pacing; suctioning and laryngoscopy can trigger severe bradycardia."
+ },
+ {
+  "id": "fpc.fpc-sci.manage.1",
+  "t": "Cervical and high thoracic injuries cause respiratory failure through loss of intercostal and, at C3–C5, diaphragmatic function. Fatigue is progressive over hours to days as the cord swells. Watch vital capacity, paradoxical breathing and rising CO₂, and intubate early before a long flight rather than in the aircraft. Use manual in-line stabilisation and video laryngoscopy; succinylcholine is safe in the first 24–72 hours."
+ },
+ {
+  "id": "fpc.fpc-sci.manage.2",
+  "t": "Patients with chronic injuries above T6 are at risk of autonomic dysreflexia — severe hypertension, headache, flushing above the injury and bradycardia triggered by a noxious stimulus below it (a blocked catheter, constipation, pressure, tight clothing). Sit the patient up, remove the trigger and treat pressure if it persists. Steroids are no longer recommended routinely for acute cord injury."
+ },
+ {
+  "id": "fpc.fpc-sci.case.0",
+  "t": "A 24-year-old dived into a shallow pool. He cannot move his legs or fingers, but can bend his elbows. Breathing is abdominal. BP 82/46, HR 52, skin warm and dry. No other obvious injuries; eFAST negative."
+ },
+ {
+  "id": "fpc.fpc-sci.exam.0",
+  "t": "In a conscious patient, check motor function in key muscle groups (shoulder shrug and elbow flexion C5, wrist extension C6, elbow extension C7, finger flexion C8, finger abduction T1, hip flexion L2, knee extension L3, ankle dorsiflexion L4, great toe extension L5, plantar flexion S1) and light touch and pinprick from the neck down to find a sensory level. Record the lowest normal level on each side."
+ },
+ {
+  "id": "fpc.fpc-sci.exam.1",
+  "t": "Look for priapism, diaphragmatic (abdominal) breathing, and loss of anal tone or perianal sensation — sacral sparing (preserved perianal sensation or voluntary anal contraction) means the injury is incomplete and carries a better prognosis. In unconscious patients, flaccid areflexia, priapism and neurogenic shock suggest cord injury."
+ },
+ {
+  "id": "fpc.fpc-sci.exam.2",
+  "t": "Repeat the examination after every move: an ascending level means swelling or haematoma and threatens breathing. Pad pressure areas — insensate skin breaks down within hours on a hard surface — and keep the patient warm, because they cannot shiver or vasoconstrict below the injury."
+ },
+ {
+  "id": "fpc.fpc-neuro-dx.system.0",
+  "t": "Use a mnemonic such as \"Blood Can Be Very Bad\": Blood (extra-axial — epidural, subdural, subarachnoid — and intra-axial), Cisterns (are the basal cisterns open or effaced?), Brain (grey–white differentiation, symmetry, oedema, masses), Ventricles (size, midline shift, blood), Bone (fractures on bone windows; air in the sinuses or around the brain)."
+ },
+ {
+  "id": "fpc.fpc-neuro-dx.system.1",
+  "t": "Acute blood is bright (hyperdense, about 50–70 Hounsfield units); subacute blood fades to grey over 1–3 weeks and can become isodense with brain — a subacute subdural is easy to miss; chronic blood is dark (hypodense). Mixed density in a subdural suggests acute bleeding into a chronic collection. Patients who are severely anaemic may have acute blood that looks less bright."
+ },
+ {
+  "id": "fpc.fpc-neuro-dx.system.2",
+  "t": "Mass effect: midline shift (measured at the septum pellucidum; over 5 mm is significant), effaced sulci, compressed or absent basal cisterns, and compression of the ventricle on the side of the lesion with dilation of the opposite one. Effaced basal cisterns indicate impending or established herniation."
+ },
+ {
+  "id": "fpc.fpc-neuro-dx.stroke.0",
+  "t": "CT is often normal in the first hours of ischaemic stroke; its main job is to exclude haemorrhage before thrombolysis. Early signs include a hyperdense artery (clot in the MCA — the \"hyperdense MCA sign\"), loss of the insular ribbon, obscuration of the lentiform nucleus and subtle loss of grey–white differentiation. The ASPECTS score (0–10) quantifies early ischaemic change in the MCA territory; a low score means a large core."
+ },
+ {
+  "id": "fpc.fpc-neuro-dx.stroke.1",
+  "t": "Hydrocephalus: enlarged ventricles with rounded frontal horns and dilated temporal horns; in obstructive hydrocephalus the fourth ventricle may be normal while the lateral and third ventricles balloon. Periventricular low density indicates CSF under pressure seeping into the brain. Pneumocephalus (air) indicates a skull base or open fracture."
+ },
+ {
+  "id": "fpc.fpc-neuro-dx.stroke.2",
+  "t": "Diffuse cerebral oedema — loss of grey–white differentiation throughout, effaced sulci and cisterns — follows hypoxic injury, and the \"reversal sign\" (cerebellum and brainstem brighter than the cerebrum) suggests severe global injury."
+ },
+ {
+  "id": "fpc.fpc-neuro-dx.beyond.0",
+  "t": "CT angiography (CTA) shows vessel occlusions (LVO), aneurysms, dissections and a \"spot sign\" — contrast extravasation within an ICH that predicts expansion. CT perfusion maps the ischaemic core (tissue already infarcted) against the penumbra (at-risk but salvageable tissue); a mismatch selects patients for late thrombectomy. MRI with diffusion-weighted imaging is the most sensitive test for ischaemia but rarely available or practical in the acute transport window."
+ },
+ {
+  "id": "fpc.fpc-neuro-dx.beyond.1",
+  "t": "Lumbar puncture detects SAH when CT is negative beyond 6 hours (xanthochromia appears after about 12 hours) and diagnoses meningitis; it is contraindicated with signs of raised ICP or mass effect. Do not delay antibiotics in suspected meningitis for imaging or LP."
+ },
+ {
+  "id": "fpc.fpc-neuro-dx.beyond.2",
+  "t": "For transport, the images matter as much as the report: ensure the receiving centre can see the CT (image transfer systems) before departure, and don't repeat or wait for imaging that will not change destination. A non-contrast CT that excludes haemorrhage and a CTA showing an LVO are usually enough to launch a thrombectomy transfer."
+ },
+ {
+  "id": "fpc.fpc-neuro-dx.case.0",
+  "t": "You are shown three CTs during referral calls: (1) a crescent of mixed bright and grey density over the right hemisphere with 8 mm midline shift in an 81-year-old on warfarin; (2) a bright dot in the left MCA with subtle loss of the insular ribbon in a patient 90 minutes from onset; (3) blood filling the basal cisterns and Sylvian fissures with enlarged temporal horns."
+ },
+ {
+  "id": "fpc.fpc-neuro-dx.pitfalls.0",
+  "t": "Satisfaction of search is the commonest error: finding one obvious bleed and missing a second — a contrecoup contusion opposite the impact, a small subdural over the other hemisphere, or a fracture on bone windows. Look at every window (brain, subdural, bone) and every slice."
+ },
+ {
+  "id": "fpc.fpc-neuro-dx.pitfalls.1",
+  "t": "Bilateral isodense subdurals produce no midline shift and can make the brain look \"young\" — look for effaced sulci and inward-displaced grey–white junctions. Calcification in the pineal gland, choroid plexus and falx is normal and bright but should not be mistaken for blood; it is often symmetrical and very bright (bone density). Beam-hardening artefact in the posterior fossa can mimic or hide haemorrhage there."
+ },
+ {
+  "id": "fpc.fpc-neuro-dx.pitfalls.2",
+  "t": "Clinical correlation matters more than any single finding: a near-normal CT with a GCS of 5 suggests diffuse axonal injury, hypoxic injury, a drug effect, non-convulsive status or an early stroke, and a repeat CT a few hours later often looks very different."
+ },
+ {
+  "id": "fpc.fpc-neuro-labs.sodium.0",
+  "t": "Sodium governs water movement across the blood–brain barrier: low sodium draws water into the brain and worsens oedema; high sodium draws it out. In brain injury, the aim is normal to high-normal sodium (often 140–150 mmol/L when treating raised ICP). Hyponatraemia below about 125 mmol/L, or a rapid fall, can cause seizures and herniation."
+ },
+ {
+  "id": "fpc.fpc-neuro-labs.sodium.1",
+  "t": "SIADH: inappropriate ADH causes water retention — euvolaemic hyponatraemia with concentrated urine (urine osmolality > 100 mOsm/kg) and urine sodium > 30 mmol/L. Treated with fluid restriction (except in SAH). Cerebral salt wasting: the kidneys lose sodium and water — hypovolaemic hyponatraemia with high urine sodium and high urine output. Treated with isotonic or hypertonic saline and fludrocortisone; fluid restriction is harmful. Distinguishing them relies on volume status, which is difficult at the bedside."
+ },
+ {
+  "id": "fpc.fpc-neuro-labs.sodium.2",
+  "t": "Central diabetes insipidus — loss of ADH from pituitary or hypothalamic injury, common after severe TBI and brain death — causes large volumes of dilute urine (> 3 L/day or > 200–250 mL/h, urine specific gravity < 1.005, urine osmolality < 300) and rising sodium. Treat with desmopressin and replace losses with hypotonic fluid; monitor sodium every 2–4 hours."
+ },
+ {
+  "id": "fpc.fpc-neuro-labs.osmo.0",
+  "t": "Serum osmolality ≈ 2 × Na⁺ + glucose + urea (all in mmol/L), normally 275–295 mOsm/kg. During mannitol therapy, measure the osmolar gap (measured minus calculated osmolality); a gap above about 20 suggests mannitol accumulation and risk of kidney injury, and many centres hold mannitol when serum osmolality exceeds about 320. Hypertonic saline is usually stopped or reviewed when sodium exceeds about 155–160."
+ },
+ {
+  "id": "fpc.fpc-neuro-labs.osmo.1",
+  "t": "Correct chronic hyponatraemia slowly: no more than 8–10 mmol/L in 24 hours, to avoid osmotic demyelination syndrome (quadriparesis, dysarthria, \"locked-in\"). Acute symptomatic hyponatraemia with seizures or reduced consciousness is the exception — give 3 % saline 100–150 mL over 10–20 minutes, repeated up to two or three times, to raise sodium by 4–6 mmol/L, which is enough to stop seizures. Then slow down."
+ },
+ {
+  "id": "fpc.fpc-neuro-labs.glucose.0",
+  "t": "Both hypo- and hyperglycaemia damage the injured brain. Hypoglycaemia mimics stroke and causes seizures; a glucose below 2.8 mmol/L (50 mg/dL) excludes thrombolysis until corrected and reassessed. Hyperglycaemia worsens infarct size, haemorrhagic transformation and outcomes in TBI. Aim for about 7.8–10 mmol/L (140–180 mg/dL) in stroke and 6–10 mmol/L in brain injury, avoiding tight control that risks hypoglycaemia."
+ },
+ {
+  "id": "fpc.fpc-neuro-labs.glucose.1",
+  "t": "Coagulation before thrombolysis: platelets ≥ 100 × 10⁹/L, INR ≤ 1.7, normal aPTT if on heparin, no DOAC within 48 hours unless specific levels are normal. Thrombolysis need not wait for results in patients with no history suggesting abnormality — the glucose is the only test required before starting."
+ },
+ {
+  "id": "fpc.fpc-neuro-labs.glucose.2",
+  "t": "Before neurosurgery or EVD placement: INR usually < 1.4 and platelets > 100 × 10⁹/L. TBI itself causes coagulopathy through release of brain tissue factor, so check coagulation in all severe head injuries; coagulopathy predicts haematoma expansion and death."
+ },
+ {
+  "id": "fpc.fpc-neuro-labs.case.0",
+  "t": "Day 5 after aneurysmal SAH. Sodium has fallen from 139 to 127 mmol/L over 24 hours. Urine output 250 mL/h; urine sodium 96 mmol/L; she looks dry, HR 108. The referring team asks whether to restrict fluids before transfer."
+ },
+ {
+  "id": "fpc.fpc-neuro-labs.other.0",
+  "t": "Ammonia is raised in hepatic encephalopathy and in some metabolic disorders; very high levels cause cerebral oedema in acute liver failure. Calcium and magnesium abnormalities cause seizures, tetany and arrhythmia. Thyroid function tests detect myxoedema coma (hypothermia, bradycardia, hyponatraemia, coma) and thyroid storm (agitation, fever, tachycardia)."
+ },
+ {
+  "id": "fpc.fpc-neuro-labs.other.1",
+  "t": "Blood gases show hypercapnia as a cause of drowsiness in COPD or hypoventilation, and the severe metabolic acidosis of toxic alcohols, salicylates and cyanide. An anion gap and osmolar gap together suggest methanol or ethylene glycol poisoning, which causes visual disturbance, coma and seizures and needs fomepizole and dialysis."
+ },
+ {
+  "id": "fpc.fpc-neuro-labs.other.2",
+  "t": "Anti-epileptic drug levels (phenytoin, valproate, carbamazepine) help when a patient with known epilepsy presents with seizures or toxicity; phenytoin toxicity causes nystagmus, ataxia and confusion. Toxicology screens rarely change acute management but paracetamol and salicylate levels should be checked in any unexplained altered patient with possible ingestion."
+ },
+ {
+  "id": "fpc.fpc-neuro-pharm.osmotic.0",
+  "t": "Hypertonic saline (3 % 250 mL over 15–20 minutes, or 23.4 % 30 mL via central line) draws water from brain tissue across an intact blood–brain barrier and expands intravascular volume; it is preferred in hypotensive patients. Peripheral 3 % saline is acceptable in emergencies. Mannitol (0.5–1 g/kg of 20 %) works within 15–30 minutes, also improves blood rheology, and causes an osmotic diuresis — replace urine losses to avoid hypotension; it crystallises when cold, so use an inline filter."
+ },
+ {
+  "id": "fpc.fpc-neuro-pharm.osmotic.1",
+  "t": "Labetalol (10–20 mg IV over 1–2 minutes, repeated or as an infusion) is a combined alpha and beta blocker — avoid in bradycardia, heart block or bronchospasm. Nicardipine (5 mg/h, increased by 2.5 mg/h every 5–15 minutes to 15 mg/h) is a titratable calcium channel blocker that does not slow the heart. Clevidipine (1–2 mg/h, doubled every 90 seconds initially) has an ultra-short half-life and comes in a lipid emulsion. Avoid nitroprusside and nitroglycerin in raised ICP — they dilate cerebral vessels."
+ },
+ {
+  "id": "fpc.fpc-neuro-pharm.sedation.0",
+  "t": "Propofol reduces cerebral metabolic rate and ICP, is short acting (allowing neurological checks) and has anticonvulsant effects, but causes hypotension — which may reduce CPP. Midazolam is anticonvulsant and haemodynamically gentler but accumulates. Ketamine supports blood pressure and does not raise ICP meaningfully in ventilated patients. Fentanyl provides analgesia and blunts the response to suctioning. Dexmedetomidine allows rousable sedation but can cause bradycardia and hypotension."
+ },
+ {
+  "id": "fpc.fpc-neuro-pharm.sedation.1",
+  "t": "Anti-epileptic drugs: levetiracetam (seizure prophylaxis in severe TBI for 7 days, or loading 60 mg/kg for status) has few interactions and no haemodynamic effects; phenytoin/fosphenytoin (20 mg PE/kg) requires cardiac monitoring because of hypotension and arrhythmia, particularly with rapid phenytoin; valproate is avoided in liver disease and pregnancy. Benzodiazepines remain first line for active seizures."
+ },
+ {
+  "id": "fpc.fpc-neuro-pharm.reversal.0",
+  "t": "Thrombolytics convert plasminogen to plasmin, which breaks down fibrin. Alteplase requires an infusion; tenecteplase is more fibrin-specific and given as a single bolus, which simplifies transfer. After either, avoid antiplatelets and anticoagulants for 24 hours and avoid arterial punctures at non-compressible sites. For symptomatic haemorrhage after lysis: stop the infusion, give cryoprecipitate (10 units) and consider tranexamic acid 1 g."
+ },
+ {
+  "id": "fpc.fpc-neuro-pharm.reversal.1",
+  "t": "Anticoagulant reversal in intracranial haemorrhage: warfarin — 4-factor PCC (25–50 units/kg by INR and weight) plus vitamin K 10 mg IV; dabigatran — idarucizumab 5 g IV; apixaban and rivaroxaban — andexanet alfa or PCC 50 units/kg per protocol; unfractionated heparin — protamine 1 mg per 100 units given in the past 2–3 hours (maximum 50 mg); enoxaparin — protamine partially reverses it."
+ },
+ {
+  "id": "fpc.fpc-neuro-pharm.case.0",
+  "t": "A 61-year-old with an acute left thalamic ICH: GCS 13, BP 214/118, HR 48 (sinus bradycardia), history of asthma. The receiving team wants SBP about 140."
+ },
+ {
+  "id": "fpc.fpc-neuro-pharm.paralysis.0",
+  "t": "Neuromuscular blockade lowers ICP by preventing coughing, straining and ventilator dyssynchrony, and is used for refractory raised ICP and for safe transport of agitated intubated patients. It removes the ability to examine the patient and hides seizures, so give it only with adequate sedation, document the time of each dose, and check pupils regularly."
+ },
+ {
+  "id": "fpc.fpc-neuro-pharm.paralysis.1",
+  "t": "Shivering during temperature control raises metabolic rate and ICP. Treat with skin counter-warming, magnesium, buspirone, meperidine, dexmedetomidine, opioids or, if needed, paralysis. Avoid hyperthermia in all brain injuries — fever increases cerebral metabolic demand and worsens outcome."
+ },
+ {
+  "id": "fpc.fpc-neuro-pharm.paralysis.2",
+  "t": "Steroids reduce vasogenic oedema around brain tumours and abscesses (dexamethasone 10 mg IV, then 4 mg every 6 hours) and are given before or with the first dose of antibiotics in suspected bacterial meningitis. They are harmful in TBI (the CRASH trial showed increased mortality) and are not recommended routinely in acute spinal cord injury."
+ },
+ {
+  "id": "fpc.fpc-icp-monitor.devices.0",
+  "t": "An external ventricular drain (EVD) in the lateral ventricle is the reference standard: it measures global ICP accurately and drains CSF to treat raised pressure. It can be re-zeroed, but it carries infection (ventriculitis) and haemorrhage risk, and it reads ICP accurately only when clamped (closed to drainage) — many units read ICP intermittently by clamping briefly."
+ },
+ {
+  "id": "fpc.fpc-icp-monitor.devices.1",
+  "t": "An intraparenchymal fibre-optic or strain-gauge monitor (\"bolt\") sits in brain tissue. It is easier to place, has lower infection risk and reads continuously, but it cannot drain CSF and cannot be re-zeroed after insertion, so readings drift over days. It is zeroed to atmosphere before insertion only. Its monitor box and cable must travel with the patient."
+ },
+ {
+  "id": "fpc.fpc-icp-monitor.devices.2",
+  "t": "Indications in TBI include a GCS 3–8 with an abnormal CT, or a normal CT with two of: age over 40, motor posturing, or SBP below 90. Monitoring also guides care in poor-grade SAH, large ICH with hydrocephalus, and acute liver failure with encephalopathy."
+ },
+ {
+  "id": "fpc.fpc-icp-monitor.waveform.0",
+  "t": "The ICP waveform has three peaks within each cardiac cycle: P1 (percussion wave, from arterial pulsation), P2 (tidal wave, reflecting brain compliance) and P3 (dicrotic wave, aortic valve closure). Normally P1 > P2 > P3. When P2 rises above P1, compliance is poor — the brain has exhausted its compensatory reserve, and small volume changes will cause large rises in pressure. This often precedes a sustained rise in ICP."
+ },
+ {
+  "id": "fpc.fpc-icp-monitor.waveform.1",
+  "t": "Lundberg A waves (plateau waves) are sustained rises to 50–100 mmHg lasting 5–20 minutes, indicating critically reduced compliance and impending herniation; they demand immediate treatment. B waves are rhythmic oscillations every 0.5–2 minutes, associated with changing breathing patterns and reduced compliance. C waves are small and of little significance."
+ },
+ {
+  "id": "fpc.fpc-icp-monitor.waveform.2",
+  "t": "A dampened, flat waveform suggests a blocked catheter, air in the line (EVD), a closed stopcock, or ventricular collapse from over-drainage — not necessarily a low ICP."
+ },
+ {
+  "id": "fpc.fpc-icp-monitor.trouble.0",
+  "t": "Before departure: confirm the type of monitor, the current ICP and CPP targets, EVD drainage level and plan (clamped or open, and at what pressure to drain), the transport monitor's compatibility with the device, spare cables, and a written plan from the neurosurgical team for rising ICP."
+ },
+ {
+  "id": "fpc.fpc-icp-monitor.trouble.1",
+  "t": "In flight: re-level the EVD to the tragus after every position change; watch the waveform, not just the number; respond to sustained ICP above threshold with the neuroprotective bundle before assuming the monitor is wrong. Vibration and motion create artefact — look for a persistent change across several minutes. Altitude has no direct effect on a sealed parenchymal monitor reading, but pneumocephalus (air in the skull) expands on ascent and can raise ICP; consider a lower cabin altitude."
+ },
+ {
+  "id": "fpc.fpc-icp-monitor.trouble.2",
+  "t": "Other neuro monitoring the receiving team may use: brain tissue oxygen (PbtO₂, target > 20 mmHg), jugular venous oxygen saturation (SjvO₂ 55–75 %), continuous EEG for non-convulsive seizures, and transcranial Doppler for vasospasm. Pupillometry gives an objective pupillary reactivity score (the Neurological Pupil index) and can detect deterioration earlier than a penlight."
+ },
+ {
+  "id": "fpc.fpc-icp-monitor.case.0",
+  "t": "A patient with severe TBI and a parenchymal ICP monitor reads ICP 18 mmHg, but over 20 minutes the P2 peak has risen above P1. Then the ICP climbs to 48 and stays there for 8 minutes. MAP 84."
+ },
+ {
+  "id": "fpc.fpc-icp-monitor.noninvasive.0",
+  "t": "Most transported patients do not have an ICP monitor, so raised pressure is inferred. Clinical signs — falling GCS, pupillary changes, Cushing response, posturing — are late. Imaging signs include effaced sulci and cisterns, midline shift and compressed ventricles."
+ },
+ {
+  "id": "fpc.fpc-icp-monitor.noninvasive.1",
+  "t": "Ultrasound of the optic nerve sheath diameter, measured 3 mm behind the globe, correlates with ICP: a diameter above about 5–6 mm in adults suggests raised pressure. It is quick, repeatable and possible in the aircraft, but operator dependent, and it is a trend and triage tool rather than a number to titrate therapy against."
+ },
+ {
+  "id": "fpc.fpc-icp-monitor.noninvasive.2",
+  "t": "Transcranial Doppler pulsatility index and automated pupillometry offer further non-invasive clues. Without a monitor, apply the neuroprotective targets (MAP at least 80, normocapnia, head up, normal sodium and temperature) on the assumption that ICP is raised in severe brain injury."
  }
 ]
