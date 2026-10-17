@@ -77,7 +77,7 @@ export const TOX: FpcLesson = {
   questions: [
     { q: 'Dry, flushed skin, dilated pupils, tachycardia and delirium suggest:', options: ['Cholinergic', 'Anticholinergic', 'Opioid', 'Sedative'], answer: 1, why: 'Classic anticholinergic toxidrome.' },
     { q: 'Treatment end-point for atropine in organophosphate poisoning:', options: ['Heart rate 60', 'Drying of bronchial secretions', 'Pupil dilation', 'Fixed dose of 1 mg'], answer: 1, why: 'Titrate to dry secretions and clear breathing.' },
-    { q: 'An unresponsive patient with seizures and a wintergreen odour on her breath most likely has:', options: ['Acetaminophen poisoning', 'Methyl salicylate poisoning', 'DKA', 'Hypermethioninaemia'], answer: 1, why: 'Oil of wintergreen is methyl salicylate.' },
+    { q: 'A toddler drank a liniment and now has vomiting, tachypnoea and tinnitus-like distress. The most concerning ingredient is:', options: ['Menthol', 'Methyl salicylate', 'Camphor-free lanolin', 'Glycerin'], answer: 1, why: 'Methyl salicylate (oil of wintergreen) is highly concentrated salicylate — small volumes are dangerous.' },
     { q: 'After intubating a salicylate-poisoned patient, ventilation should be:', options: ['Low rate', 'High minute ventilation', 'Permissive hypercapnia', 'PS only'], answer: 1, why: 'Acidosis drives salicylate into the brain.' },
     { q: 'A tricyclic overdose with QRS 150 ms is treated first with:', options: ['Amiodarone', 'Sodium bicarbonate', 'Procainamide', 'Phenytoin'], answer: 1, why: 'Sodium loading and alkalinisation.' },
     { q: 'Hyperglycaemia with bradycardia and hypotension suggests poisoning with:', options: ['Beta-blocker', 'Calcium-channel blocker', 'Opioid', 'Organophosphate'], answer: 1, why: 'CCBs impair insulin release.' },

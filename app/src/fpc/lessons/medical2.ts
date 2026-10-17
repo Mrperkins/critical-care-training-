@@ -150,7 +150,7 @@ export const SEPSIS: FpcLesson = {
   pitfalls: ['Delaying antibiotics for transport.', 'Fluid "to a number" without reassessing responsiveness.'],
   live: [{ id: 'lines-shock-states', label: 'Shock states at the bedside' }, { id: 'lines-oxygen-delivery', label: 'Oxygen delivery' }, { id: 'moa-norepinephrine', label: 'Norepinephrine: mechanism of action' }],
   questions: [
-    { q: 'Septic shock requires vasopressors for MAP ≥ 65 and lactate above:', options: ['1 mmol/L', '2 mmol/L', '4 mmol/L', '8 mmol/L'], answer: 1, why: 'Sepsis-3 definition (as in the IBSC sample question).' },
+    { q: 'Septic shock requires vasopressors for MAP ≥ 65 and lactate above:', options: ['1 mmol/L', '2 mmol/L', '4 mmol/L', '8 mmol/L'], answer: 1, why: 'Sepsis-3 definition of septic shock.' },
     { q: 'Initial crystalloid volume for sepsis-induced hypotension:', options: ['10 mL/kg', '30 mL/kg', '60 mL/kg', '100 mL/kg'], answer: 1, why: 'Then guided by reassessment.' },
     { q: 'First-line vasopressor in septic shock:', options: ['Dopamine', 'Norepinephrine', 'Phenylephrine', 'Dobutamine'], answer: 1, why: 'Lower arrhythmia risk than dopamine.' },
     { q: 'Usual second vasopressor added:', options: ['Vasopressin', 'Milrinone', 'Isoproterenol', 'Nitroglycerin'], answer: 0, why: 'Reduces norepinephrine requirement.' },
