@@ -2,9 +2,9 @@
  * App shell + 3D models are cached on install; narration, clips and images are cached the first time they are used
  * (or all at once from "Save for offline"). Media range requests are answered from the cached file.
  * The version string is replaced at build time; a new version replaces the old caches. */
-const VERSION = '31cf2a163994';
+const VERSION = '99da7fc3e017';
 const SHELL = `cc-shell-${VERSION}`, MEDIA = 'cc-media-v1';
-const CORE = ['./', 'index.html', 'audio/index.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'imaging/real/manifest.json',
+const CORE = ['./', 'index.html', "js/c-LJYBDUPX.js", "js/c-3UDQ7C7W.js", "js/c-4XXMSAFX.js", "js/c-TM5CSKV6.js", "js/c-Y5GZ5MSM.js", "js/c-7HWMMXEO.js", "js/c-DGS7HXCJ.js", "js/c-IFLE2R4K.js", "js/c-EOAWTVAC.js", "js/c-6X6LP7GW.js", "js/c-62EKK5H4.js", "js/app-JJF4MWL2.js", "js/c-KLRY2D3E.js", "js/c-6MRK4IZX.js", "js/c-LARDXPXI.js", "js/c-7TXOJQON.js", "js/c-NBVNAU67.js", "js/c-YG32LYYM.js", "js/c-AMENS4JW.js", "js/c-R6R4K3UV.js", "js/c-4GS7IXFI.js", "js/c-2K2SJM23.js", "js/c-DOIO2COK.js", "js/c-5MMAJ7ZB.js", "js/c-N4G6N42C.js", "js/c-BJHKWSK7.js", "js/c-6PJNOIKZ.js", "js/c-S62MBABG.js", "js/c-SEPLQYNT.js", "js/c-XO6SJHZL.js", "js/c-MZORFNPC.js", "js/c-RANC4VUM.js", "js/c-Z7IQHFI3.js", "js/c-GOLB3OHF.js", "js/c-PBDDHZSX.js", "js/c-K4Q4DOAN.js", "js/c-CQV6V42T.js", "js/c-72PWCF6Z.js", "js/c-QH5WJ5BZ.js", "js/c-SLLGTBDT.js", "js/c-E4XCE3W4.js", "js/c-RIYN2753.js", "js/c-GLOPYFSS.js", "js/c-4TIYSYRS.js", "js/c-QPIU5F2X.js", "js/c-GCNXBE3O.js", "js/c-WQ2PHO7R.js", "js/c-LV7NOCMP.js", 'audio/index.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'imaging/real/manifest.json',
   'models/body.glb.txt', 'models/body.mapping.json', 'models/body-f.glb.txt', 'models/body-f.mapping.json', 'models/eyes.glb.txt', 'models/eyes.mapping.json', 'models/resp.glb.txt', 'models/resp.mapping.json',
   'models/micro.glb.txt', 'models/micro.mapping.json', 'models/lines.glb.txt', 'models/lines.mapping.json',
   'models/skeleton.glb.txt', 'models/skeleton.mapping.json', 'models/pericardium.glb.txt', 'models/pericardium.mapping.json', 'models/neuro.glb.txt', 'models/neuro.mapping.json', 'models/heart-internals.glb.txt', 'models/heart-internals.mapping.json', 'models/upper-airway.glb.txt', 'models/upper-airway.mapping.json', 'models/coronary-heart.glb.txt', 'models/coronary-heart.mapping.json', 'models/heart-hd.glb.txt', 'models/heart-hd.mapping.json', 'models/nerves.glb.txt', 'models/nerves.mapping.json', 'models/gut.glb.txt', 'models/gut.mapping.json', 'models/cerebral-arteries.glb.txt', 'models/cerebral-arteries.mapping.json', 'models/brain-volume.json'];
@@ -16,7 +16,7 @@ self.addEventListener('activate', (e) => {
   e.waitUntil(caches.keys().then((ks) => Promise.all(ks.filter((k) => k.startsWith('cc-shell-') && k !== SHELL).map((k) => caches.delete(k)))).then(() => self.clients.claim()));
 });
 
-const isMedia = (u) => /\/(vo|imaging|models)\//.test(u.pathname) || /\.(mp4|webm|mp3|jpg|png|glb|txt)$/.test(u.pathname);
+const isMedia = (u) => /\/(vo|imaging|models|js)\//.test(u.pathname) || /\.(mp4|webm|mp3|jpg|png|glb|txt)$/.test(u.pathname);
 async function fromCache(req) { return (await caches.match(req, { ignoreSearch: true })) || null; }
 
 /** A Range request answered from a full cached copy (video/audio seeking). */

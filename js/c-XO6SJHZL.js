@@ -1,0 +1,1 @@
+import{a as i}from"./c-GCNXBE3O.js";import{c as a}from"./c-LV7NOCMP.js";var e=a(i(),1);function d(){let n="(max-width: 760px)",[s,c]=(0,e.useState)(()=>typeof window<"u"&&window.matchMedia(n).matches);return(0,e.useEffect)(()=>{let t=window.matchMedia(n),o=()=>c(t.matches);return t.addEventListener("change",o),()=>t.removeEventListener("change",o)},[]),s}export{d as a};
