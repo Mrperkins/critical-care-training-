@@ -12,6 +12,7 @@ import { timelineFor } from '../director/lessonTimeline';
 import { courseFor, trackSummary } from '../director/course';
 import { director } from '../director/director';
 import { DomainIcon } from '../app/icons';
+import { TOTAL_ITEMS as FPC_ITEMS } from '../fpc/blueprint';
 import { conditionsFor } from '../atlas/registry';
 import type { AtlasDomain } from '../atlas/types';
 
@@ -148,6 +149,7 @@ const SYSTEMS: { module: Module; label: string; scope: string; atlas?: AtlasDoma
   { module: 'moa', label: 'Pharmacology', scope: 'Vasopressors, sedation, reversal agents' },
   { module: 'pediatrics', label: 'Pediatrics', scope: 'The child’s airway, shock and apnoea', atlas: 'pediatrics' },
   { module: 'womens', label: 'Women’s Health / OB', scope: 'The pregnant circulation, haemorrhage, gases', atlas: 'womens' },
+  { module: 'fpc', label: 'FP-C exam prep', scope: 'The IBSC blueprint as a course: 10 domains, exam-style questions' },
 ];
 /** Every system at a glance: what it covers and how much there is. */
 function SystemsIndex() {
@@ -157,8 +159,8 @@ function SystemsIndex() {
       <h3 id="systems-title">Systems</h3>
       <ul>{SYSTEMS.map((s) => {
         const n = counts[s.module] ?? 0; const c = s.atlas ? conditionsFor(s.atlas).length : 0;
-        const meta = [n ? `${n} lesson${n === 1 ? '' : 's'}` : '', c ? `${c} conditions` : ''].filter(Boolean).join(', ');
-        return <li key={s.module} data-ch={s.module}><button onClick={() => useUI.getState().set({ module: s.module, mode: s.module === 'moa' ? 'explore' : 'learn', atlasDisease: null })}>
+                const meta = [n ? `${n} lesson${n === 1 ? '' : 's'}` : '', c ? `${c} conditions` : '', s.module === 'fpc' ? `10 domains, ${FPC_ITEMS} exam items` : ''].filter(Boolean).join(', ');
+        return <li key={s.module} data-ch={s.module}><button onClick={() => useUI.getState().set({ module: s.module, mode: s.module === 'moa' || s.module === 'fpc' ? 'explore' : 'learn', atlasDisease: null })}>
           <DomainIcon module={s.module} /><span className="sys-name">{s.label}</span><span className="sys-scope">{s.scope}</span><span className="sys-meta">{meta}</span>
         </button></li>;
       })}</ul>

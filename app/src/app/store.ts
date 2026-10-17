@@ -1,7 +1,7 @@
 import type { DiseaseState } from '../atlas/types';
 import { create } from 'zustand';
 
-export type Module = 'vent' | 'abg' | 'labs' | 'lines' | 'neuro' | 'moa' | 'heart' | 'abdomen' | 'pediatrics' | 'womens' | 'curriculum' | 'videos';
+export type Module = 'vent' | 'abg' | 'labs' | 'lines' | 'neuro' | 'moa' | 'heart' | 'abdomen' | 'pediatrics' | 'womens' | 'curriculum' | 'videos' | 'fpc';
 export type Mode = 'explore' | 'learn' | 'challenge' | 'sim';
 export type VentView = 'front' | 'side' | 'airway' | 'base' | 'alveolus' | 'xray' | 'lus';
 

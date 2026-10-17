@@ -13,6 +13,7 @@ const MoaModule = lazy(() => import('../moa/MoaModule').then((m) => ({ default: 
 const HeartModule = lazy(() => import('../heart/HeartModule').then((m) => ({ default: m.HeartModule })));
 const AbdomenModule = lazy(() => import('../abdomen/AbdomenModule').then((m) => ({ default: m.AbdomenModule })));
 const AtlasModule = lazy(() => import('../atlas/AtlasModule').then((m) => ({ default: m.AtlasModule })));
+const FpcModule = lazy(() => import('../fpc/FpcModule'));
 const VideoLibrary = lazy(() => import('../videos/VideoLibrary').then((m) => ({ default: m.VideoLibrary })));
 /** shown for the moment a module's code is loading */
 function ModuleLoading() { return <div className="module-loading" role="status"><span>Loading</span></div>; }
@@ -57,6 +58,7 @@ const DOMAINS: { module: Module; label: string; eyebrow: string }[] = [
   { module: 'moa', label: 'Pharmacology', eyebrow: 'Mechanism to whole patient' },
   { module: 'pediatrics', label: 'Pediatrics', eyebrow: 'Children & neonatal physiology' },
   { module: 'womens', label: 'Women’s Health / OB', eyebrow: 'Gynecology, pregnancy & maternal care' },
+  { module: 'fpc', label: 'FP-C exam prep', eyebrow: 'IBSC Certified Flight Paramedic' },
 ];
 const ATLAS_DOMAINS: Partial<Record<Module, AtlasDomain>> = { vent: 'vent', heart: 'heart', neuro: 'neuro', lines: 'lines', abdomen: 'abdomen', labs: 'labs', pediatrics: 'pediatrics', womens: 'womens' };
 export function App() {
@@ -85,7 +87,7 @@ export function App() {
     const close = (e: PointerEvent) => { if (resources.current && !resources.current.contains(e.target as Node)) resources.current.removeAttribute('open'); };
     document.addEventListener('pointerdown', close); return () => document.removeEventListener('pointerdown', close);
   }, []);
-  const inDomain = module !== 'curriculum' && module !== 'videos';
+  const inDomain = module !== 'curriculum' && module !== 'videos' && module !== 'fpc';
   const tools = <>
     {atlasDomain && !showingAtlas && <AtlasEntry domain={atlasDomain} onOpen={() => useUI.getState().set({atlasDisease:conditionsFor(atlasDomain)[0].id})} />}
     {experience === 'practice' && inDomain && !showingAtlas && <div className="practice-switch" role="group" aria-label="Practice type">
@@ -106,9 +108,9 @@ export function App() {
         </button>
         <div className="topbar-context">
           <h2 className="domain-title"><DomainIcon module={domain.module} /><span>{domain.label}</span></h2>
-          <nav className="experience-nav" aria-label="Learning mode">
+          {module !== 'fpc' && <nav className="experience-nav" aria-label="Learning mode">
             {EXPERIENCES.map((item) => <button key={item.key} className={inDomain && experience === item.key ? 'on' : ''} aria-pressed={inDomain && experience === item.key} onClick={() => chooseExperience(item.key)}>{item.label}</button>)}
-          </nav>
+          </nav>}
           <div className="topbar-tools">{tools}</div>
         </div>
         <details className="resources-menu" ref={resources} onKeyDown={(e) => { if (e.key === 'Escape') { resources.current?.removeAttribute('open'); resources.current?.querySelector('summary')?.focus(); } }}>
@@ -148,7 +150,8 @@ export function App() {
             {module === 'abdomen' && <AbdomenModule />}
           </>}
           {module === 'curriculum' && <CurriculumModule />}
-          {module === 'videos' && <VideoLibrary />}</Suspense>
+          {module === 'videos' && <VideoLibrary />}
+          {module === 'fpc' && <FpcModule />}</Suspense>
         </div>
       </div>
     </div>
