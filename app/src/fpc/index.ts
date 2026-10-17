@@ -38,6 +38,11 @@ import { WELLNESS, HAZARD_REPORTING, RADIO_COMMS } from './lessons/safety4';
 import { RESTRAINTS, PREFLIGHT, PAX_BRIEFING } from './lessons/safety5';
 import { RISK_ASSESSMENT, NVG, GPS_NAV } from './lessons/safety6';
 import { SAFETY_EXTRAS } from './lessons/safetyCases';
+import { PEDS_DX, PEDS_LABS, PEDS_PHARM } from './lessons/peds1';
+import { PEDS_MONITOR, PEDS_AIRWAY_DISEASE, NAT } from './lessons/peds2';
+import { PEDS_FLUIDS, PEDS_DKA, SPECIAL_NEEDS } from './lessons/peds3';
+import { HIGH_TECH, PEDS_INFECTIOUS, PEDS_VENT } from './lessons/peds4';
+import { PEDS_EXTRAS } from './lessons/pedsCases';
 
 /** a lesson plus its transport case(s) and extra questions (the case closes the teaching, before the questions) */
 const withExtras = (l: FpcLesson, x: Record<string, { sections: FpcLesson['sections']; questions: FpcLesson['questions'] }>) => (x[l.id] ? { ...l, sections: [...l.sections, ...x[l.id].sections], questions: [...l.questions, ...x[l.id].questions] } : l);
@@ -51,6 +56,7 @@ export const FPC_LESSONS: FpcLesson[] = [
   ...[TRAUMA_DX, TRAUMA_LABS, TRAUMA_PHARM, TRAUMA_MONITOR, SURGICAL_INTERVENTIONS, TRAUMA_BLOOD, LETHAL_TRIAD, BURN_FLUIDS, BURNS, TOXIC_INHALATION].map((l) => withExtras(l, TRAUMA_EXTRAS)),
   ...[NEURO_ASSESS, SEIZURES, AMS, STROKE_LVO, NEUROPROTECTION, BRAIN_BLEED, TBI, SCI, NEURO_DX, NEURO_LABS, NEURO_PHARM, ICP_MONITOR].map((l) => withExtras(l, NEURO_EXTRAS)),
   ...[AIRCRAFT_OPS, AERODYNAMICS, AIRCRAFT_PERFORMANCE, AIR_EMERGENCIES, LZ_OPS, OBSTACLES, SURVIVAL, WEATHER, REFUELLING, WELLNESS, HAZARD_REPORTING, RADIO_COMMS, RESTRAINTS, PREFLIGHT, PAX_BRIEFING, RISK_ASSESSMENT, NVG, GPS_NAV].map((l) => withExtras(l, SAFETY_EXTRAS)),
+  ...[PEDS_DX, PEDS_LABS, PEDS_PHARM, PEDS_MONITOR, PEDS_AIRWAY_DISEASE, NAT, PEDS_FLUIDS, PEDS_DKA, SPECIAL_NEEDS, HIGH_TECH, PEDS_INFECTIOUS, PEDS_VENT].map((l) => withExtras(l, PEDS_EXTRAS)),
 ]);
 export const FPC_BY_ID: Record<string, FpcLesson> = Object.fromEntries(FPC_LESSONS.map((l) => [l.id, l]));
 export const lessonsFor = (d: DomainId) => FPC_LESSONS.filter((l) => l.domain === d);

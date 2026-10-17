@@ -8102,5 +8102,629 @@
  {
   "id": "fpc.fpc-gps-nav.charts.2",
   "t": "Medical crew should be able to locate the aircraft on a chart, identify obstacles near an LZ, and help the pilot cross-check landmarks. In an emergency or if the pilot is busy, giving a position relative to a charted landmark (\"five miles north of the lake, over the highway\") can be invaluable."
+ },
+ {
+  "id": "fpc.fpc-peds-dx.pat.0",
+  "t": "The Paediatric Assessment Triangle (PAT) is a 30-second, hands-off look from the doorway at three components: appearance (tone, interactiveness, consolability, look or gaze, speech or cry — \"TICLS\"), work of breathing (abnormal sounds, retractions, nasal flaring, head bobbing, positioning such as tripoding or sniffing), and circulation to the skin (pallor, mottling, cyanosis). Appearance reflects brain perfusion and oxygenation and is the most important single element."
+ },
+ {
+  "id": "fpc.fpc-peds-dx.pat.1",
+  "t": "The pattern of abnormal components suggests the physiological problem: abnormal work of breathing alone suggests respiratory distress; abnormal work of breathing plus abnormal appearance suggests respiratory failure; abnormal circulation alone suggests compensated shock; abnormal circulation plus appearance suggests decompensated shock; abnormal appearance alone suggests a primary brain problem, metabolic or toxic cause. All three abnormal suggests cardiopulmonary failure."
+ },
+ {
+  "id": "fpc.fpc-peds-dx.pat.2",
+  "t": "After the PAT, perform the primary assessment (ABCDE with hands-on vital signs), then secondary assessment and history (SAMPLE), including birth history and immunisations for young children."
+ },
+ {
+  "id": "fpc.fpc-peds-dx.shock.0",
+  "t": "Children compensate for shock by increasing heart rate and systemic vascular resistance; blood pressure is maintained until about 25–30 % of circulating volume is lost, and hypotension is a late, pre-arrest sign. Early signs: tachycardia, prolonged capillary refill (more than 2 seconds), cool extremities, weak peripheral pulses compared with central pulses, decreased urine output and altered mental status. The hypotension threshold for ages 1–10 years is a systolic below 70 + (2 × age in years)."
+ },
+ {
+  "id": "fpc.fpc-peds-dx.shock.1",
+  "t": "Respiratory failure in children often follows a period of distress with increasing work of breathing; fatigue leads to a falling respiratory rate, decreasing effort, altered consciousness and bradycardia — ominous signs that precede arrest. In infants, bradycardia is usually a response to hypoxia. Treat hypoxia first."
+ },
+ {
+  "id": "fpc.fpc-peds-dx.shock.2",
+  "t": "Weight estimation: use a length-based tape (such as the Broselow) or parent-reported weight; formulas (for example (age + 4) × 2 kg for ages 1–10) are less accurate. Accurate weight is the foundation of drug and fluid dosing."
+ },
+ {
+  "id": "fpc.fpc-peds-dx.imaging.0",
+  "t": "Children's chest films look different: the thymus can widen the upper mediastinum in infants (the \"sail sign\"), the heart appears relatively large, and films are often taken supine and rotated. Look for hyperinflation and peribronchial thickening (bronchiolitis, asthma), focal consolidation (pneumonia), pneumothorax, foreign body (asymmetric inflation — the obstructed side may be hyperinflated on expiratory films), and ETT position (the tip should sit midway between the thoracic inlet and the carina, about T2–T3)."
+ },
+ {
+  "id": "fpc.fpc-peds-dx.imaging.1",
+  "t": "Ultrasound avoids radiation and is useful for FAST in trauma (though less sensitive in children because solid organ injuries often occur without free fluid), lung ultrasound, cardiac function and effusion, and vascular access. Neck soft tissue films show the \"steeple sign\" in croup and the \"thumb sign\" in epiglottitis, but a child with suspected epiglottitis should not be sent for X-ray — secure the airway in a controlled setting."
+ },
+ {
+  "id": "fpc.fpc-peds-dx.imaging.2",
+  "t": "Capillary blood gases are commonly used in children and reflect pH and PCO₂ reasonably well if perfusion is good; they do not reflect oxygenation. Glucose must be checked in every sick child: infants have small glycogen stores and become hypoglycaemic quickly when ill."
+ },
+ {
+  "id": "fpc.fpc-peds-dx.case.0",
+  "t": "A 4-month-old with 2 days of vomiting and diarrhoea is \"sleepy\". From the doorway: limp, not tracking faces, mottled skin, breathing fast but without retractions. HR 196, capillary refill 4 seconds, BP 74/40, glucose 2.4 mmol/L."
+ },
+ {
+  "id": "fpc.fpc-peds-dx.family.0",
+  "t": "Parents notice subtle changes before monitors do: \"She's not herself\", \"He stopped feeding\", \"She's too quiet\". Take these concerns seriously — parental concern is an independent predictor of serious illness in children. Ask what the child is usually like and what has changed."
+ },
+ {
+  "id": "fpc.fpc-peds-dx.family.1",
+  "t": "Assess young children on a parent's lap where possible, start with the least invasive observations (breathing, colour, behaviour from a distance), and save distressing procedures for last. A calm child gives a more accurate respiratory rate, heart rate and work of breathing; a screaming child's findings are hard to interpret."
+ },
+ {
+  "id": "fpc.fpc-peds-dx.family.2",
+  "t": "Explain to the family what you are doing and why, in plain language. Ask about the child's past medical history, birth history in infants, immunisations, medications, allergies and recent illness. These details shape both diagnosis and destination."
+ },
+ {
+  "id": "fpc.fpc-peds-labs.heme.0",
+  "t": "Haemoglobin is high at birth (about 14–20 g/dL) because of fetal haemoglobin, falls to a physiological nadir of about 9–11 g/dL at 2–3 months as fetal cells are replaced, then rises gradually to adult values by adolescence. A haemoglobin of 10 g/dL may be normal at 2 months but abnormal at 2 years."
+ },
+ {
+  "id": "fpc.fpc-peds-labs.heme.1",
+  "t": "White cell counts are higher in infants and young children, with a lymphocyte predominance from about 1 month to 4–6 years. Neutropenia (an absolute neutrophil count below 1.0 × 10⁹/L, severe below 0.5) in a febrile child — often during chemotherapy — is an emergency requiring antibiotics within an hour. Platelet counts are similar to adults."
+ },
+ {
+  "id": "fpc.fpc-peds-labs.heme.2",
+  "t": "Coagulation tests are mildly prolonged in neonates because of immature liver synthesis; vitamin K is given at birth to prevent haemorrhagic disease of the newborn."
+ },
+ {
+  "id": "fpc.fpc-peds-labs.chem.0",
+  "t": "Hypoglycaemia: in children, a glucose below about 3.0–3.3 mmol/L (54–60 mg/dL) is treated; in neonates, thresholds vary by age in hours, but levels below about 2.6 mmol/L (47 mg/dL) are commonly treated. Treat with 10 % dextrose 2–5 mL/kg IV or IO (0.2–0.5 g/kg). Avoid concentrated dextrose (25–50 %) in small children and neonates because of vein damage and rebound. In neonates, 10 % dextrose 2 mL/kg followed by an infusion is typical. Look for causes: sepsis, inborn errors of metabolism, adrenal insufficiency, toxins (alcohol, beta-blockers, sulfonylureas), and hyperinsulinism."
+ },
+ {
+  "id": "fpc.fpc-peds-labs.chem.1",
+  "t": "Sodium: hyponatraemia in children can be caused by hypotonic fluids, gastroenteritis, SIADH (meningitis, pneumonia, bronchiolitis) and water intoxication (dilute formula). Seizures from acute hyponatraemia need 3 % saline 2–5 mL/kg (up to 100–150 mL). Hypernatraemic dehydration (often from inadequate feeding in breastfed infants or excessive losses) must be corrected slowly — no faster than about 0.5 mmol/L per hour (10–12 mmol/L per day) — to avoid cerebral oedema."
+ },
+ {
+  "id": "fpc.fpc-peds-labs.chem.2",
+  "t": "Potassium: haemolysed capillary samples often give falsely high potassium; repeat on a free-flowing sample before treating if the ECG is normal. Hyperkalaemia occurs with renal failure, congenital adrenal hyperplasia (with hyponatraemia and hypoglycaemia in a newborn) and tumour lysis syndrome."
+ },
+ {
+  "id": "fpc.fpc-peds-labs.gas.0",
+  "t": "Blood gas norms are similar to adults beyond the neonatal period. Children with chronic lung disease (bronchopulmonary dysplasia) may have chronically raised PCO₂ with metabolic compensation; know their baseline. A normal or rising PCO₂ in a child with asthma who is breathing fast is a warning sign of fatigue."
+ },
+ {
+  "id": "fpc.fpc-peds-labs.gas.1",
+  "t": "Inflammatory markers (CRP, procalcitonin) help risk-stratify febrile infants: elevated procalcitonin raises the likelihood of serious bacterial infection. Febrile infants under 28 days need full sepsis evaluation and antibiotics regardless of appearance. Lactate above 2 mmol/L supports sepsis or hypoperfusion."
+ },
+ {
+  "id": "fpc.fpc-peds-labs.gas.2",
+  "t": "Neonatal jaundice: unconjugated (indirect) bilirubin rises in the first days of life; levels above age-in-hours thresholds need phototherapy, and very high levels risk kernicterus (bilirubin encephalopathy). Jaundice in the first 24 hours is always pathological (haemolysis), and conjugated hyperbilirubinaemia (pale stools, dark urine) suggests biliary atresia or liver disease."
+ },
+ {
+  "id": "fpc.fpc-peds-labs.case.0",
+  "t": "A 10-day-old boy is lethargic and vomiting, with poor feeding. Glucose 2.0 mmol/L, sodium 124, potassium 7.1, HR 190, capillary refill 4 seconds. The genitalia appear normal."
+ },
+ {
+  "id": "fpc.fpc-peds-labs.sampling.0",
+  "t": "Blood volume in children is small — about 80–90 mL/kg in infants — so repeated sampling can cause iatrogenic anaemia in neonates. Prioritise the tests that change management, and use point-of-care devices that need small volumes. Capillary samples (heel in infants, finger in children) give glucose, gas and some electrolytes, but squeezing causes haemolysis."
+ },
+ {
+  "id": "fpc.fpc-peds-labs.sampling.1",
+  "t": "IO access provides samples for blood gas, glucose, electrolytes, haemoglobin and cross-match, although values (particularly potassium and some cell counts) may differ slightly from venous values. Label the sample source."
+ },
+ {
+  "id": "fpc.fpc-peds-labs.sampling.2",
+  "t": "Interpret results against the child's age and the time of sampling relative to treatments: a glucose after a dextrose bolus or a potassium after salbutamol nebulisers will not reflect the baseline."
+ },
+ {
+  "id": "fpc.fpc-peds-pharm.safety.0",
+  "t": "Almost every paediatric drug is weight-based, and errors are common: ten-fold errors (a misplaced decimal point), using pounds instead of kilograms, confusion between mg and mL, and wrong concentrations. Use a length-based tape or cognitive aid with pre-calculated doses, state the dose and volume aloud, have a second person check high-risk drugs (closed-loop: \"Epinephrine 0.15 mg — that's 1.5 mL of 0.1 mg/mL\"), and never exceed adult maximum doses."
+ },
+ {
+  "id": "fpc.fpc-peds-pharm.safety.1",
+  "t": "Draw up only what you need in an appropriately sized syringe, label every syringe, and flush small volumes carefully — dead space in IV lines can hold a significant fraction of a small child's dose."
+ },
+ {
+  "id": "fpc.fpc-peds-pharm.safety.2",
+  "t": "Pharmacokinetics differ: neonates and infants have more total body water (larger volume of distribution for water-soluble drugs), less fat, lower protein binding, immature hepatic enzymes (slower clearance of many drugs) and immature renal function. Toddlers often metabolise drugs faster than adults. Use age-appropriate references."
+ },
+ {
+  "id": "fpc.fpc-peds-pharm.resus.0",
+  "t": "Cardiac arrest: epinephrine 0.01 mg/kg IV/IO (0.1 mL/kg of 0.1 mg/mL), maximum 1 mg, every 3–5 minutes. Amiodarone 5 mg/kg (max 300 mg) or lidocaine 1 mg/kg for shock-refractory VF/pulseless VT. Defibrillation 2 J/kg, then 4 J/kg, up to 10 J/kg or the adult dose. Synchronised cardioversion 0.5–1 J/kg, then 2 J/kg. Adenosine 0.1 mg/kg (max 6 mg), then 0.2 mg/kg (max 12 mg), for SVT. Atropine 0.02 mg/kg (no minimum dose in current guidance; max 0.5 mg) for vagal bradycardia."
+ },
+ {
+  "id": "fpc.fpc-peds-pharm.resus.1",
+  "t": "RSI: ketamine 1–2 mg/kg IV or etomidate 0.3 mg/kg; rocuronium 1 mg/kg (higher in shock) or succinylcholine 2 mg/kg in infants (1–1.5 mg/kg in older children). Infants are prone to bradycardia during laryngoscopy, mostly from hypoxia; have atropine ready. Avoid succinylcholine in undiagnosed myopathies (risk of hyperkalaemic arrest)."
+ },
+ {
+  "id": "fpc.fpc-peds-pharm.resus.2",
+  "t": "Vasoactive drugs: epinephrine (0.05–1 mcg/kg/min) or norepinephrine for fluid-refractory septic shock — cold shock often responds to epinephrine, warm shock to norepinephrine. Dopamine is no longer first line. Peripheral or IO infusions are acceptable initially in children."
+ },
+ {
+  "id": "fpc.fpc-peds-pharm.analgesia.0",
+  "t": "Children are often under-treated for pain. Intranasal fentanyl (1.5 mcg/kg via an atomiser, max 100 mcg) works within minutes without IV access. Ketamine (0.1–0.3 mg/kg IV for analgesia; 1–1.5 mg/kg IV or 4 mg/kg IM for procedural sedation) preserves airway reflexes and breathing. Paracetamol (15 mg/kg) and ibuprofen (10 mg/kg) are effective for mild to moderate pain. Use age-appropriate pain scales (FLACC for preverbal children, faces scales for young children)."
+ },
+ {
+  "id": "fpc.fpc-peds-pharm.analgesia.1",
+  "t": "Seizures: benzodiazepine first line — midazolam 0.2 mg/kg IM or intranasal (max 10 mg), 0.3 mg/kg buccal, or 0.1 mg/kg IV; lorazepam 0.1 mg/kg IV. Second line: levetiracetam 60 mg/kg (max 4500 mg), fosphenytoin 20 mg PE/kg, or valproate 40 mg/kg. Respiratory depression is more likely after repeated benzodiazepine doses."
+ },
+ {
+  "id": "fpc.fpc-peds-pharm.analgesia.2",
+  "t": "Common transport infusions such as sedation after intubation use morphine or fentanyl with midazolam, or dexmedetomidine; propofol infusions are avoided for long-term sedation in children because of propofol infusion syndrome."
+ },
+ {
+  "id": "fpc.fpc-peds-pharm.case.0",
+  "t": "A 3-year-old (length-based tape: 14 kg) in pulseless VT after a drowning. The team prepares epinephrine 1 mg/10 mL (0.1 mg/mL), amiodarone and defibrillation."
+ },
+ {
+  "id": "fpc.fpc-peds-pharm.routes.0",
+  "t": "Many drugs can be given without an IV. Intranasal (via an atomiser, up to about 1 mL per nostril): fentanyl, midazolam, ketamine, naloxone and dexmedetomidine. Intramuscular: epinephrine for anaphylaxis (anterolateral thigh), midazolam for seizures, ketamine for sedation, naloxone, ceftriaxone. Buccal midazolam for seizures. Rectal diazepam or paracetamol where other routes are unavailable."
+ },
+ {
+  "id": "fpc.fpc-peds-pharm.routes.1",
+  "t": "Intraosseous access delivers any IV drug or fluid with similar onset and dose; the proximal tibia is the usual site in children, with the distal femur and humerus as alternatives. Flush with saline after each drug; IO infusion may need a pressure bag or syringe push."
+ },
+ {
+  "id": "fpc.fpc-peds-pharm.routes.2",
+  "t": "Endotracheal drug administration is no longer recommended when IV or IO access is possible, because absorption is unpredictable."
+ },
+ {
+  "id": "fpc.fpc-peds-monitor.equipment.0",
+  "t": "Blood pressure cuffs should cover about 80–100 % of the arm circumference with a bladder width of about 40 % of the circumference; a cuff too small over-reads and too large under-reads. Non-invasive BP is particularly unreliable in small, moving, vasoconstricted children; trends, capillary refill and mental status add essential information."
+ },
+ {
+  "id": "fpc.fpc-peds-monitor.equipment.1",
+  "t": "Pulse oximetry probes designed for the child's size (wraps for infants, placed on a foot or palm) reduce motion artefact. Look at the waveform: a poor plethysmograph means the number may be wrong. Pre-ductal (right hand) and post-ductal (foot) saturations differ in some congenital heart disease and pulmonary hypertension of the newborn."
+ },
+ {
+  "id": "fpc.fpc-peds-monitor.equipment.2",
+  "t": "Waveform capnography is the standard for confirming and monitoring tracheal tube position in children of all sizes; use paediatric or neonatal adaptors with low dead space. Small tidal volumes and high respiratory rates can make sidestream readings lower than true values. ECG electrodes sized for children, placed away from the area where defibrillation pads may be needed."
+ },
+ {
+  "id": "fpc.fpc-peds-monitor.alarms.0",
+  "t": "Set alarm limits by age rather than leaving adult defaults: a heart rate of 60 is normal for an adolescent but an emergency in an infant; a respiratory rate of 40 is normal for a newborn but abnormal in a teenager. Programmes often use age-banded alarm presets."
+ },
+ {
+  "id": "fpc.fpc-peds-monitor.alarms.1",
+  "t": "In flight, vibration and noise make it impossible to hear alarms and difficult to examine the child. Position monitors where they can be seen, use visual alarms, and reassess the child directly — chest movement, skin colour and mental status — at regular intervals."
+ },
+ {
+  "id": "fpc.fpc-peds-monitor.alarms.2",
+  "t": "Trends matter more than single values. A slowly rising heart rate, increasing respiratory rate or widening gap between core and peripheral temperature over a flight are early signs of deterioration that a single reading may miss."
+ },
+ {
+  "id": "fpc.fpc-peds-monitor.temp.0",
+  "t": "Infants and small children lose heat quickly: a large surface area relative to body mass, little subcutaneous fat, a large head, and (in neonates) reliance on non-shivering thermogenesis from brown fat, which consumes oxygen and glucose. Cold stress increases oxygen consumption, causes hypoglycaemia and acidosis and worsens outcomes."
+ },
+ {
+  "id": "fpc.fpc-peds-monitor.temp.1",
+  "t": "Prevent heat loss: keep the child covered (including the head), warm the cabin, use warming mattresses or chemical warmers (with a barrier), warm IV fluids and minimise exposure during assessment. Monitor temperature continuously in critically ill infants (skin or rectal probe) and at least at departure and arrival in all children."
+ },
+ {
+  "id": "fpc.fpc-peds-monitor.temp.2",
+  "t": "Avoid overheating as well: hyperthermia increases metabolic demand and may worsen brain injury. Febrile children should not be bundled excessively; antipyretics treat discomfort."
+ },
+ {
+  "id": "fpc.fpc-peds-monitor.case.0",
+  "t": "A 2-year-old with pneumonia is on high-flow nasal cannula. Thirty minutes into the flight, the monitor shows SpO₂ 94 %, HR 165 (up from 140), RR 52 (up from 40). The pleth trace is poor. Nobody heard an alarm because the limits were left at adult defaults."
+ },
+ {
+  "id": "fpc.fpc-peds-monitor.capno.0",
+  "t": "Nasal-oral capnography cannulas measure end-tidal CO₂ in spontaneously breathing children. They detect hypoventilation during sedation well before desaturation, show the respiratory rate accurately, and give an early warning of obstruction (a shark-fin waveform in bronchospasm, loss of waveform in apnoea or obstruction)."
+ },
+ {
+  "id": "fpc.fpc-peds-monitor.capno.1",
+  "t": "In DKA, a low EtCO₂ reflects the degree of respiratory compensation for metabolic acidosis; a rising EtCO₂ in an exhausted child with asthma or bronchiolitis suggests fatigue. In cardiac arrest, EtCO₂ reflects the quality of chest compressions and a sudden rise suggests return of spontaneous circulation."
+ },
+ {
+  "id": "fpc.fpc-peds-monitor.capno.2",
+  "t": "Low-flow sidestream sampling suits small children; mainstream sensors add dead space and weight to small tubes. Combine capnography with direct observation — no monitor replaces looking at the child."
+ },
+ {
+  "id": "fpc.fpc-peds-airway-disease.upper.0",
+  "t": "Stridor indicates upper airway narrowing. Croup (laryngotracheobronchitis), usually viral (parainfluenza), affects children from about 6 months to 3 years with a barking cough, hoarse voice and inspiratory stridor, often worse at night. Severity is graded by stridor at rest, retractions, air entry, cyanosis and consciousness (the Westley score). Treat all severities with dexamethasone 0.15–0.6 mg/kg orally or IV (max 10–16 mg); moderate to severe croup with nebulised epinephrine (0.5 mL/kg of 1 mg/mL, max 5 mL), which works within minutes but wears off in 2 hours — observe for rebound. Keep the child calm, with a parent, in a position of comfort."
+ },
+ {
+  "id": "fpc.fpc-peds-airway-disease.upper.1",
+  "t": "Epiglottitis — now rare because of Hib vaccination but still seen in unvaccinated children and adults — presents with sudden high fever, toxic appearance, drooling, dysphagia, muffled voice, tripod positioning and soft stridor. Do not lie the child down, examine the throat or cause distress. The airway is secured in a controlled setting by the most experienced operator, with surgical airway backup. Bacterial tracheitis follows a viral illness with high fever, toxic appearance and thick secretions; many need intubation."
+ },
+ {
+  "id": "fpc.fpc-peds-airway-disease.upper.2",
+  "t": "Foreign body aspiration peaks in toddlers: sudden choking, then cough, stridor or wheeze, sometimes unilateral reduced breath sounds. Complete obstruction requires back blows and chest thrusts (infants) or abdominal thrusts (children), then direct laryngoscopy and Magill forceps if unsuccessful."
+ },
+ {
+  "id": "fpc.fpc-peds-airway-disease.lower.0",
+  "t": "Bronchiolitis, most often caused by RSV, affects infants under 2 years: coryza, then cough, tachypnoea, retractions, crackles and wheeze, peaking around days 3–5. Treatment is supportive — nasal suction, oxygen to keep SpO₂ ≥ 90–92 %, hydration (nasogastric or IV), and high-flow nasal cannula (about 1–2 L/kg/min) or CPAP for increasing work of breathing. Bronchodilators, steroids and antibiotics do not help routinely. Apnoea is a risk in young infants (under 2 months) and premature babies. Watch for fatigue, apnoea and rising CO₂."
+ },
+ {
+  "id": "fpc.fpc-peds-airway-disease.lower.1",
+  "t": "Acute severe asthma: cannot complete sentences, accessory muscle use, SpO₂ below 92 %, peak flow below 50 % predicted; life-threatening features include silent chest, cyanosis, exhaustion, confusion and normal or rising PCO₂. Treat with oxygen, repeated or continuous salbutamol (albuterol), ipratropium in the first hour, systemic steroids (prednisolone 1–2 mg/kg or dexamethasone 0.3–0.6 mg/kg), IV magnesium 40–50 mg/kg (max 2 g) over 20 minutes, and IV salbutamol or epinephrine for refractory cases."
+ },
+ {
+  "id": "fpc.fpc-peds-airway-disease.lower.2",
+  "t": "Intubation in asthma is high-risk: use ketamine, a large tube, low respiratory rate, short inspiratory time and long expiratory time, accept permissive hypercapnia, and disconnect and compress the chest if the patient becomes hypotensive from air trapping."
+ },
+ {
+  "id": "fpc.fpc-peds-airway-disease.transport.0",
+  "t": "Distressed children are often best kept calm with a parent rather than separated for procedures. Decide before departure whether the child's trajectory allows transport on current support: rising oxygen needs, worsening work of breathing, apnoeas, a rising PCO₂ or exhaustion suggest escalation (NIV or intubation) before flight."
+ },
+ {
+  "id": "fpc.fpc-peds-airway-disease.transport.1",
+  "t": "High-flow and CPAP devices must be compatible with the aircraft; calculate oxygen consumption (high-flow uses a lot). Altitude lowers the inspired oxygen partial pressure, so expect oxygen needs to rise in unpressurised aircraft."
+ },
+ {
+  "id": "fpc.fpc-peds-airway-disease.transport.2",
+  "t": "Croup treated with nebulised epinephrine may rebound within 2 hours; ensure dexamethasone has been given and have more epinephrine available."
+ },
+ {
+  "id": "fpc.fpc-peds-airway-disease.case.0",
+  "t": "A 6-week-old, born at 34 weeks, with RSV bronchiolitis on high-flow nasal cannula at 2 L/kg/min and FiO₂ 0.5. SpO₂ 91 %, RR 70 with marked retractions. In the past hour, two apnoeas with bradycardia needed stimulation. Capillary PCO₂ 68."
+ },
+ {
+  "id": "fpc.fpc-peds-airway-disease.anaphylaxis.0",
+  "t": "Anaphylaxis can cause upper airway swelling (stridor, hoarseness), bronchospasm (wheeze), hypotension and gastrointestinal symptoms after an allergen — food is the commonest trigger in children. Give IM epinephrine 0.01 mg/kg of 1 mg/mL (maximum 0.5 mg) into the anterolateral thigh immediately and repeat every 5 minutes as needed. Add fluids for hypotension and nebulised salbutamol for wheeze; antihistamines and steroids are adjuncts, not first-line treatment."
+ },
+ {
+  "id": "fpc.fpc-peds-airway-disease.anaphylaxis.1",
+  "t": "Refractory anaphylaxis needs an epinephrine infusion. Airway swelling may make intubation difficult — prepare for a surgical or needle airway. Biphasic reactions can occur hours later, so children are observed after treatment."
+ },
+ {
+  "id": "fpc.fpc-peds-airway-disease.anaphylaxis.2",
+  "t": "Hereditary angio-oedema causes swelling without urticaria and does not respond to epinephrine; it needs C1 esterase inhibitor or bradykinin-pathway drugs. Families usually know the diagnosis and carry treatment."
+ },
+ {
+  "id": "fpc.fpc-nat.recognise.0",
+  "t": "Non-accidental trauma is a leading cause of injury death in infants. Clinicians recognise it through mismatches: a history that does not explain the injury, a history that changes or differs between caregivers, a mechanism inconsistent with the child's developmental stage (for example, a non-mobile infant who \"rolled off\"), or an unexplained delay in seeking care."
+ },
+ {
+  "id": "fpc.fpc-nat.recognise.1",
+  "t": "Injury patterns that raise concern include any bruise in a non-mobile infant (\"those who don't cruise rarely bruise\"), bruises on the torso, ears, neck, buttocks or genitals (the \"TEN-4\" rule — torso, ears and neck in a child under 4, or any bruise in an infant under 4 months — is a validated screening tool), patterned bruises or burns resembling an object, immersion burns with clear lines and sparing of flexed areas, multiple injuries at different stages of healing, and certain fractures (posterior rib fractures, metaphyseal \"corner\" fractures, and fractures in non-ambulatory infants)."
+ },
+ {
+  "id": "fpc.fpc-nat.recognise.2",
+  "t": "None of these is proof. Medical conditions (bleeding disorders, osteogenesis imperfecta, congenital dermal melanocytosis that resembles bruising) can mimic abuse. The transport clinician's role is to recognise concern, treat, document and report — not to investigate or confront."
+ },
+ {
+  "id": "fpc.fpc-nat.aht.0",
+  "t": "Abusive head trauma (previously \"shaken baby syndrome\") typically affects infants under 1 year and causes subdural haemorrhage, retinal haemorrhages and brain injury, sometimes with rib or metaphyseal fractures and few external signs. Presentations range from vomiting, irritability and poor feeding (often mistaken for a viral illness) to seizures, apnoea, a bulging fontanelle and coma."
+ },
+ {
+  "id": "fpc.fpc-nat.aht.1",
+  "t": "Management follows the principles of paediatric TBI: airway and ventilation (normocapnia), avoid hypoxia and hypotension, treat seizures, head up 30° and midline, hypertonic saline for signs of raised ICP, and transport to a paediatric trauma centre with neurosurgery. Check glucose. A full skeletal survey, ophthalmology examination and other investigations occur at the receiving centre."
+ },
+ {
+  "id": "fpc.fpc-nat.aht.2",
+  "t": "Any infant with an unexplained apnoea, seizure or altered consciousness should have abusive head trauma considered, particularly if the history is vague."
+ },
+ {
+  "id": "fpc.fpc-nat.report.0",
+  "t": "Document objectively and precisely: what you saw (size, colour, location and shape of injuries), what you were told, by whom, and in their own words in quotation marks. Avoid judgements (\"abused child\") and speculation. Body diagrams help. Record times and who was present."
+ },
+ {
+  "id": "fpc.fpc-nat.report.1",
+  "t": "Healthcare providers are mandated reporters: reasonable suspicion of abuse must be reported to child protective services or law enforcement according to local law — proof is not required, and good-faith reports are legally protected. Inform the receiving team so that the hospital's child protection team is involved. Siblings and other children in the home may also be at risk."
+ },
+ {
+  "id": "fpc.fpc-nat.report.2",
+  "t": "Remain professional and non-confrontational with caregivers. Accusations can escalate conflict and compromise the child's safety or the investigation. Explain what you are doing for the child; decisions about whether a caregiver accompanies the child follow normal safety criteria and any instructions from law enforcement."
+ },
+ {
+  "id": "fpc.fpc-nat.case.0",
+  "t": "A 3-month-old is referred with \"vomiting and a seizure, probably viral\". The parent says the baby rolled off a sofa yesterday. On examination: bulging fontanelle, GCS 9, a small bruise behind the left ear and another on the chest. CT shows bilateral subdural collections of different densities."
+ },
+ {
+  "id": "fpc.fpc-nat.other.0",
+  "t": "Non-accidental injury is not limited to bruises and head trauma. Abdominal injuries (duodenal haematoma, pancreatic and liver injury) can present with vomiting and abdominal pain without external bruising. Burns, poisoning with medicines or drugs, neglect (malnutrition, untreated illness) and fabricated or induced illness (where a caregiver causes or invents symptoms) are other forms."
+ },
+ {
+  "id": "fpc.fpc-nat.other.1",
+  "t": "Older children may disclose abuse to a clinician. Listen calmly, do not ask leading questions, reassure them that they were right to tell, and do not promise to keep it secret — explain that you must tell people who can help. Record their words exactly."
+ },
+ {
+  "id": "fpc.fpc-nat.other.2",
+  "t": "Caring for abused children is distressing. Debrief with your team, use peer support or employee assistance programmes, and recognise that strong emotions are normal responses to these cases."
+ },
+ {
+  "id": "fpc.fpc-peds-fluids.dehydration.0",
+  "t": "Dehydration is graded by clinical signs: mild (3–5 %) with few signs; moderate (6–9 %) with dry mucous membranes, reduced tears, sunken eyes or fontanelle, reduced urine output, tachycardia and slightly prolonged capillary refill; severe (10 % or more) with lethargy, cool mottled skin, capillary refill over 3 seconds, deep (acidotic) breathing, weak pulses and eventually hypotension. Prolonged capillary refill, abnormal skin turgor and abnormal respiratory pattern are the most useful individual signs."
+ },
+ {
+  "id": "fpc.fpc-peds-fluids.dehydration.1",
+  "t": "The best measure is weight loss from a recent known weight: each 1 % of body weight lost equals about 10 mL/kg of fluid deficit. Most children with mild to moderate dehydration from gastroenteritis can be rehydrated orally or by nasogastric tube; IV fluids are for severe dehydration, shock, persistent vomiting or altered consciousness."
+ },
+ {
+  "id": "fpc.fpc-peds-fluids.dehydration.2",
+  "t": "Check glucose and electrolytes in children needing IV fluids, particularly infants and those with altered mental status."
+ },
+ {
+  "id": "fpc.fpc-peds-fluids.bolus.0",
+  "t": "Shock: give 10–20 mL/kg isotonic crystalloid (balanced solution or 0.9 % saline) over 5–20 minutes and reassess after each bolus — heart rate, capillary refill, mental status, blood pressure, liver edge and lung sounds. Stop and consider inotropes if signs of fluid overload appear (hepatomegaly, crackles, rising work of breathing). Use smaller boluses (5–10 mL/kg) in cardiac disease, DKA and severe malnutrition. Up to 40–60 mL/kg may be needed in the first hour of septic shock where intensive care is available; in resource-limited settings without ICU, large boluses have caused harm (FEAST trial). Haemorrhagic shock needs blood (10–20 mL/kg) after an initial crystalloid bolus or sooner."
+ },
+ {
+  "id": "fpc.fpc-peds-fluids.bolus.1",
+  "t": "Maintenance fluids (Holliday–Segar, the 4-2-1 rule): 4 mL/kg/hour for the first 10 kg, plus 2 mL/kg/hour for the next 10 kg, plus 1 mL/kg/hour for each kg above 20 kg. A 25 kg child needs 40 + 20 + 5 = 65 mL/hour. Many acutely ill children (those with pneumonia, bronchiolitis, meningitis, post-operative) have raised ADH and should receive about two-thirds of this to avoid fluid overload and hyponatraemia."
+ },
+ {
+  "id": "fpc.fpc-peds-fluids.bolus.2",
+  "t": "Use isotonic maintenance fluids (for example 0.9 % saline or a balanced solution with 5 % dextrose): hypotonic fluids (such as 0.18 % saline) have caused fatal hyponatraemic encephalopathy in children, and the AAP recommends isotonic fluids with appropriate potassium chloride and dextrose for most children aged 28 days to 18 years."
+ },
+ {
+  "id": "fpc.fpc-peds-fluids.lytes.0",
+  "t": "Hyponatraemic dehydration (sodium below 135) results from replacing losses with water or hypotonic fluids. Symptoms appear with rapid falls or levels below about 125: headache, vomiting, lethargy, seizures. Seizures need 3 % saline 2–5 mL/kg. Otherwise correct with isotonic fluid and monitor sodium every 2–4 hours, aiming for a rise of no more than 8–10 mmol/L per day."
+ },
+ {
+  "id": "fpc.fpc-peds-fluids.lytes.1",
+  "t": "Hypernatraemic dehydration (sodium above 145–150) occurs with excessive water loss or inadequate intake (breastfeeding problems in neonates, diarrhoea with concentrated feeds). The child may look less dehydrated than they are, with doughy skin and irritability. Correct slowly over 48 hours (no more than about 0.5 mmol/L per hour) to avoid cerebral oedema and seizures."
+ },
+ {
+  "id": "fpc.fpc-peds-fluids.lytes.2",
+  "t": "Hypokalaemia from vomiting and diarrhoea causes weakness and arrhythmias; potassium is added to maintenance fluids once urine output is confirmed. Hypocalcaemia in infants (from vitamin D deficiency or hypoparathyroidism) presents with seizures, tetany or stridor (laryngospasm)."
+ },
+ {
+  "id": "fpc.fpc-peds-fluids.case.0",
+  "t": "An 18-month-old (11 kg) with 3 days of diarrhoea and vomiting: lethargic, mottled, capillary refill 4 s, HR 180, RR 40 deep, BP 80/50, sunken fontanelle. Glucose 3.4, sodium 131, bicarbonate 12."
+ },
+ {
+  "id": "fpc.fpc-peds-fluids.access.0",
+  "t": "Peripheral access is difficult in shocked, dehydrated or small children. Limit peripheral attempts in critical situations: if access fails within about 90 seconds or two attempts in a child in shock or arrest, place an intraosseous needle. Ultrasound-guided peripheral access improves success in difficult cases."
+ },
+ {
+  "id": "fpc.fpc-peds-fluids.access.1",
+  "t": "IO sites: proximal tibia (1–2 cm below the tibial tuberosity on the flat medial surface), distal femur, and proximal humerus in older children. Complications include extravasation (compartment syndrome), dislodgement and, rarely, osteomyelitis. Secure the needle carefully for transport and check the limb regularly."
+ },
+ {
+  "id": "fpc.fpc-peds-fluids.access.2",
+  "t": "Measure fluid volumes precisely in small children: use burettes or syringe pumps rather than free-flowing bags, which can deliver large volumes unnoticed during a flight."
+ },
+ {
+  "id": "fpc.fpc-peds-dka.dx.0",
+  "t": "DKA is defined by hyperglycaemia (glucose above 11 mmol/L, 200 mg/dL), venous pH below 7.3 or bicarbonate below 15 (18 in some guidelines), and ketonaemia or ketonuria. Severity: mild (pH < 7.3 or bicarbonate < 15), moderate (pH < 7.2 or bicarbonate < 10), severe (pH < 7.1 or bicarbonate < 5). About a third of children present with DKA at diagnosis of type 1 diabetes, often after symptoms (polyuria, polydipsia, weight loss) were missed."
+ },
+ {
+  "id": "fpc.fpc-peds-dka.dx.1",
+  "t": "Signs: dehydration (often overestimated clinically), vomiting, abdominal pain (mimicking appendicitis), deep sighing (Kussmaul) breathing, a ketotic smell and altered consciousness. Young children, those with new diabetes and severe DKA are at the greatest risk of complications."
+ },
+ {
+  "id": "fpc.fpc-peds-dka.dx.2",
+  "t": "Measure glucose, blood gas, electrolytes (calculate corrected sodium), urea and creatinine, ketones and, where possible, calcium, phosphate and magnesium. Weigh the child. An ECG or monitor helps detect potassium abnormalities."
+ },
+ {
+  "id": "fpc.fpc-peds-dka.manage.0",
+  "t": "Fluids: if in shock, give 10–20 mL/kg isotonic crystalloid; otherwise a 10 mL/kg bolus over 30–60 minutes is common. Then replace the deficit (typically estimated at 5–10 %) plus maintenance evenly over 24–48 hours with isotonic fluid. The PECARN FLUID trial (2018) found that neither the rate of rehydration nor the sodium content of fluids within the studied range changed the rate of clinically apparent brain injury — shifting focus from fluid restriction to careful, evenly paced rehydration."
+ },
+ {
+  "id": "fpc.fpc-peds-dka.manage.1",
+  "t": "Insulin: start an infusion of 0.05–0.1 units/kg/hour 1–2 hours after fluids have begun; no bolus. Aim for glucose to fall by about 3–5 mmol/L per hour; add dextrose (5–10 %) when glucose falls below about 14–17 mmol/L (250–300 mg/dL) and continue insulin until acidosis resolves. Do not stop insulin to correct falling glucose — add more dextrose instead."
+ },
+ {
+  "id": "fpc.fpc-peds-dka.manage.2",
+  "t": "Potassium: total body potassium is depleted even when serum levels are normal or high; insulin drives potassium into cells. Add potassium (typically 40 mmol/L) once the serum level is known and urine output is present, unless above 5.5. Hypokalaemia below 3.5 should be corrected before insulin. Bicarbonate is not given except for life-threatening hyperkalaemia; it increases the risk of cerebral oedema."
+ },
+ {
+  "id": "fpc.fpc-peds-dka.oedema.0",
+  "t": "Cerebral oedema occurs in about 0.5–1 % of paediatric DKA, usually 4–12 hours after treatment starts, and carries high mortality and morbidity. Risk factors: young age, new-onset diabetes, severe acidosis, low PCO₂, high urea, a failure of measured sodium to rise as glucose falls, and bicarbonate treatment. Warning signs: headache, vomiting, irritability or reduced consciousness, inappropriate slowing of heart rate, rising blood pressure, incontinence and abnormal posturing."
+ },
+ {
+  "id": "fpc.fpc-peds-dka.oedema.1",
+  "t": "Treat immediately, without waiting for a CT: mannitol 0.5–1 g/kg over 10–15 minutes or 3 % saline 2.5–5 mL/kg, reduce the fluid rate, elevate the head, and support the airway (avoiding hyperventilation except for signs of herniation). Intubation is high-risk in severe acidosis because patients rely on hyperventilation to compensate — match their minute ventilation after intubation."
+ },
+ {
+  "id": "fpc.fpc-peds-dka.oedema.2",
+  "t": "Inborn errors of metabolism usually present in neonates or infants after feeding begins or during illness: poor feeding, vomiting, lethargy, seizures, unusual odour, hypoglycaemia, metabolic acidosis with a high anion gap, or hyperammonaemia (with respiratory alkalosis). Stop protein feeds, give 10 % dextrose at 1.5 times maintenance to stop catabolism, treat hypoglycaemia, and transfer to a centre with metabolic specialists. Many families carry an emergency letter for known conditions."
+ },
+ {
+  "id": "fpc.fpc-peds-dka.case.0",
+  "t": "A 7-year-old (22 kg) with new diabetes: glucose 32 mmol/L, pH 6.98, bicarbonate 4, PCO₂ 14, sodium 132, potassium 5.1. Three hours after fluids and insulin began, he complains of headache, becomes irritable, and his heart rate falls from 128 to 76 while BP rises."
+ },
+ {
+  "id": "fpc.fpc-peds-dka.transport.0",
+  "t": "Before departure, document the start time of fluids and insulin, the volumes given, and the latest glucose, gas and electrolytes. Use separate infusion pumps for insulin, maintenance fluids with potassium, and dextrose so that each can be adjusted independently (the \"two-bag system\" uses two bags with different dextrose concentrations to adjust glucose without changing the total rate)."
+ },
+ {
+  "id": "fpc.fpc-peds-dka.transport.1",
+  "t": "Check capillary glucose hourly in flight and neurological status at least hourly. A falling glucose below target means adding dextrose, not stopping insulin. Hypokalaemia and hypoglycaemia are the commonest complications of treatment."
+ },
+ {
+  "id": "fpc.fpc-peds-dka.transport.2",
+  "t": "Children with DKA and a reduced level of consciousness need a gastric tube for vomiting and aspiration risk. Intubation is avoided where possible because of the risks described; if needed, the most experienced operator performs it with careful ventilation targets."
+ },
+ {
+  "id": "fpc.fpc-special-needs.approach.0",
+  "t": "Children with special healthcare needs have chronic physical, developmental, behavioural or emotional conditions requiring more care than usual. They are over-represented among transports. The most valuable resource is the caregiver, who knows the child's baseline — usual vital signs, oxygen requirement, neurological status, communication and what \"unwell\" looks like for them. Ask: \"What is different from normal today?\""
+ },
+ {
+  "id": "fpc.fpc-special-needs.approach.1",
+  "t": "Emergency information forms (and portable care plans) summarise diagnoses, medications, allergies, devices, baseline examination and specific emergency instructions. Ask for them early. Children with complex conditions may have unusual drug requirements, contraindications (for example, succinylcholine in muscular dystrophies) or known difficult airways."
+ },
+ {
+  "id": "fpc.fpc-special-needs.approach.2",
+  "t": "Children with autism spectrum disorder may be very sensitive to noise, light and touch, and an aircraft is a sensory assault. Explain simply, use the child's preferred communication method, allow comfort objects, minimise unnecessary touch and noise (ear defenders help), and let a caregiver stay close. Agitation may be distress rather than defiance. Children with developmental delay may not localise or report pain; use behavioural pain tools and the caregiver's interpretation."
+ },
+ {
+  "id": "fpc.fpc-special-needs.conditions.0",
+  "t": "Cerebral palsy: spasticity, scoliosis and contractures make positioning, IV access and airway management harder; many have seizures, gastrostomy tubes, aspiration risk and chronic lung disease. Baclofen pump failure or abrupt withdrawal causes rebound spasticity, fever and potentially life-threatening autonomic instability."
+ },
+ {
+  "id": "fpc.fpc-special-needs.conditions.1",
+  "t": "Children with neuromuscular disorders (muscular dystrophy, spinal muscular atrophy) have weak respiratory muscles and cough, may use home non-invasive ventilation, and deteriorate quickly with respiratory infections. Avoid succinylcholine (risk of hyperkalaemic arrest) and volatile agents. Ventilator-dependent children are covered in the high-tech lesson."
+ },
+ {
+  "id": "fpc.fpc-special-needs.conditions.2",
+  "t": "Down syndrome: congenital heart disease, airway obstruction (large tongue, small midface, subglottic stenosis — use a smaller ETT), atlanto-axial instability (avoid neck extension), hypothyroidism and an increased risk of leukaemia."
+ },
+ {
+  "id": "fpc.fpc-special-needs.heme.0",
+  "t": "Sickle cell disease: vaso-occlusive pain crises (early opioid analgesia, fluids, oxygen if hypoxic), acute chest syndrome (new infiltrate with fever, chest pain or hypoxia — oxygen, antibiotics, incentive spirometry, transfusion), splenic sequestration (rapidly enlarging spleen with falling haemoglobin and shock in young children — careful transfusion), stroke (urgent exchange transfusion), aplastic crisis (parvovirus) and sepsis (functional asplenia — fever over 38.5 °C needs urgent antibiotics). Altitude and dehydration can precipitate sickling; maintain oxygenation and hydration in flight."
+ },
+ {
+  "id": "fpc.fpc-special-needs.heme.1",
+  "t": "Oncology patients: febrile neutropenia (antibiotics within 1 hour), tumour lysis syndrome (hyperkalaemia, hyperphosphataemia, hypocalcaemia, hyperuricaemia, renal failure — fluids, avoid potassium, treat hyperkalaemia), superior mediastinal mass (anterior mediastinal tumours can cause complete airway or cardiovascular collapse with sedation or supine positioning — keep the child upright and avoid sedation and paralysis where possible), hyperleucocytosis, and spinal cord compression. Central lines (ports, tunnelled catheters) are the preferred access but carry infection risk; use strict asepsis."
+ },
+ {
+  "id": "fpc.fpc-special-needs.heme.2",
+  "t": "Haemophilia: treat bleeds early with the child's factor concentrate (families often carry it and know the dose); head injuries, neck swelling and iliopsoas bleeds are emergencies. Avoid IM injections and NSAIDs."
+ },
+ {
+  "id": "fpc.fpc-special-needs.case.0",
+  "t": "A 9-year-old with autism and a femur fracture is screaming and hitting out when touched. His mother says he is non-verbal, hates loud noise and bright light, and calms with his tablet and weighted blanket. The flight is 40 minutes."
+ },
+ {
+  "id": "fpc.fpc-special-needs.transition.0",
+  "t": "Children with medical complexity often have multiple specialists, devices and medications, and frequent hospital admissions. Advance care plans may specify limits on interventions or preferred hospitals; check for them and respect them, while confirming the current wishes of the family."
+ },
+ {
+  "id": "fpc.fpc-special-needs.transition.1",
+  "t": "Many of these children have unusual \"normal\" values — chronic hypoxaemia in cyanotic heart disease, compensated respiratory acidosis in neuromuscular disease, low muscle tone, or baseline tachycardia. Treat the child relative to their own baseline, not textbook norms."
+ },
+ {
+  "id": "fpc.fpc-special-needs.transition.2",
+  "t": "Transport may be needed to the child's usual specialist centre rather than the nearest hospital, because their records, team and equipment are there. Discuss destination with the family and receiving teams before departure when the child's condition allows."
+ },
+ {
+  "id": "fpc.fpc-high-tech.trach.0",
+  "t": "Children's tracheostomy tubes are small (often 3.0–5.0 mm internal diameter), frequently uncuffed, and easily blocked by secretions. The commonest emergencies are obstruction and accidental decannulation. Caregivers are usually skilled and carry an emergency kit with a spare tube of the same size and one size smaller, suction catheters, ties and a syringe."
+ },
+ {
+  "id": "fpc.fpc-high-tech.trach.1",
+  "t": "For a child in distress with a tracheostomy: give oxygen to the face and the stoma, suction the tube (to the pre-measured depth, often written on the kit), and if suction will not pass or the child does not improve, change the tube immediately — a blocked tube is the most likely cause. If the same size will not go in, insert the smaller tube. If no tube can be placed, cover the stoma and ventilate by bag-mask over the mouth and nose (if the upper airway is patent), or apply a small mask or neonatal mask to the stoma."
+ },
+ {
+  "id": "fpc.fpc-high-tech.trach.2",
+  "t": "Children with a tracheostomy because of upper airway obstruction (for example, subglottic stenosis) may be impossible to intubate or ventilate from above — know why the tracheostomy was placed. A fresh tracheostomy (under about 1 week old) has an immature tract that can close or create a false passage; stay sutures may be present to help reopen it."
+ },
+ {
+  "id": "fpc.fpc-high-tech.vent.0",
+  "t": "Home ventilators deliver pressure- or volume-controlled breaths via a tracheostomy or a mask (non-invasive). They are compact, have internal batteries and are often more reliable than people expect, but their circuits, humidifiers and power supply can fail. Caregivers know the usual settings and alarms."
+ },
+ {
+  "id": "fpc.fpc-high-tech.vent.1",
+  "t": "When a ventilated child deteriorates, disconnect from the ventilator and hand-ventilate with a bag and oxygen, then work through DOPE: Displacement of the tube, Obstruction (secretions, kinked tube — suction and change if needed), Pneumothorax (absent breath sounds, rising pressures, hypotension), Equipment failure (ventilator, circuit, oxygen, power). If hand-ventilation improves the child, the problem was probably the equipment. Add \"S\" for stacked breaths (auto-PEEP) in asthma or obstructive disease."
+ },
+ {
+  "id": "fpc.fpc-high-tech.vent.2",
+  "t": "For transport, the home ventilator can often be used if it is approved for the aircraft, its batteries are sufficient for twice the transport time, and the crew understands it — or the child is transferred to the transport ventilator with equivalent settings. Bring the caregiver's emergency bag, spare tubes, suction and the humidification device (heat and moisture exchanger)."
+ },
+ {
+  "id": "fpc.fpc-high-tech.devices.0",
+  "t": "Ventriculoperitoneal (VP) shunts drain CSF from the brain to the abdomen. Shunt malfunction (blockage, disconnection, infection) causes raised ICP: headache, vomiting, lethargy, irritability, a bulging fontanelle and increasing head size in infants, sunsetting eyes, and eventually bradycardia, hypertension and coma. Infection presents with fever, abdominal pain and redness along the shunt. Treat as raised ICP, image, and transfer to neurosurgery; the shunt may need emergency tapping by neurosurgery."
+ },
+ {
+  "id": "fpc.fpc-high-tech.devices.1",
+  "t": "Gastrostomy tubes (G-tubes and button devices) can dislodge; the tract can begin to close within hours, so a replacement or a Foley catheter of similar size can be placed to keep it open if the tract is mature (usually older than 6–8 weeks). A new tract should not be re-instrumented — refer back to the surgical team."
+ },
+ {
+  "id": "fpc.fpc-high-tech.devices.2",
+  "t": "Long-term central lines (tunnelled catheters, implanted ports) are used for chemotherapy, parenteral nutrition and long-term antibiotics. Fever in a child with a central line is presumed line infection until proven otherwise — take blood cultures and give antibiotics within 1 hour. Other emergencies: line occlusion, line fracture (clamp proximal to the break) and air embolism (clamp, left side down, oxygen)."
+ },
+ {
+  "id": "fpc.fpc-high-tech.case.0",
+  "t": "A 3-year-old with a 4.0 uncuffed tracheostomy (for subglottic stenosis) on a home ventilator becomes agitated; SpO₂ falls to 78 %, HR 180, little chest movement. The ventilator alarms \"high pressure\"."
+ },
+ {
+  "id": "fpc.fpc-high-tech.other.0",
+  "t": "Implanted cardiac devices (pacemakers and defibrillators) occur in children with congenital heart disease. Magnet placement disables defibrillator shocks and sets pacemakers to a fixed rate; do this only when indicated. Children with single-ventricle physiology (after Norwood, Glenn or Fontan operations) have specific oxygen saturation targets and are sensitive to changes in pulmonary vascular resistance — seek cardiology advice."
+ },
+ {
+  "id": "fpc.fpc-high-tech.other.1",
+  "t": "Insulin pumps and continuous glucose monitors are common in children with diabetes; in DKA or severe illness the pump is usually stopped and IV insulin started. Vagal nerve stimulators for epilepsy can be activated with a magnet to abort seizures. Cochlear implants need the external processor protected."
+ },
+ {
+  "id": "fpc.fpc-high-tech.other.2",
+  "t": "Families are usually the experts on these devices. Bring device information cards, chargers and supplies with the child."
+ },
+ {
+  "id": "fpc.fpc-peds-infectious.sepsis.0",
+  "t": "Sepsis in children is suggested by fever or hypothermia with tachycardia, tachypnoea, altered mental status, poor perfusion (prolonged capillary refill, mottling, cool peripheries or flash refill and bounding pulses in warm shock), and reduced urine output. Hypotension is late. Infants, children with chronic illness, immunosuppression or central lines are at highest risk. The 2024 Phoenix Sepsis Criteria define sepsis in children as suspected infection with life-threatening organ dysfunction across respiratory, cardiovascular, coagulation and neurological systems."
+ },
+ {
+  "id": "fpc.fpc-peds-infectious.sepsis.1",
+  "t": "The Surviving Sepsis Campaign paediatric guidelines recommend: antibiotics within 1 hour for septic shock (and within 3 hours for sepsis without shock), blood cultures if they do not delay antibiotics, 10–20 mL/kg fluid boluses (up to 40–60 mL/kg in the first hour where intensive care is available) with reassessment after each, balanced crystalloids, and early vasoactive drugs — epinephrine or norepinephrine — for fluid-refractory shock, which can be started peripherally. Hydrocortisone is considered for catecholamine-refractory shock."
+ },
+ {
+  "id": "fpc.fpc-peds-infectious.sepsis.2",
+  "t": "Check glucose and calcium and correct them. Lactate is useful for risk stratification. Intubation in septic shock can precipitate cardiovascular collapse; resuscitate first, use ketamine, and have adrenaline ready."
+ },
+ {
+  "id": "fpc.fpc-peds-infectious.meningitis.0",
+  "t": "Bacterial meningitis in children presents with fever, headache, neck stiffness, photophobia, vomiting and altered consciousness; infants show non-specific signs — irritability, poor feeding, lethargy, a bulging fontanelle, hypothermia or seizures — and often no neck stiffness. Common organisms vary by age: group B streptococcus, E. coli and Listeria in neonates; Streptococcus pneumoniae and Neisseria meningitidis in older children."
+ },
+ {
+  "id": "fpc.fpc-peds-infectious.meningitis.1",
+  "t": "Meningococcal septicaemia can progress within hours: a non-blanching petechial or purpuric rash (the \"glass test\"), with shock, coagulopathy and multi-organ failure. Give antibiotics immediately — a third-generation cephalosporin such as ceftriaxone (80–100 mg/kg) — without waiting for lumbar puncture or imaging; add ampicillin for Listeria coverage in neonates and vancomycin where resistant pneumococcus is common. Dexamethasone given with or before the first antibiotic dose reduces hearing loss in Haemophilus influenzae type b meningitis and is used in many centres for bacterial meningitis beyond infancy."
+ },
+ {
+  "id": "fpc.fpc-peds-infectious.meningitis.2",
+  "t": "Transport crews should use droplet precautions (surgical mask) for suspected meningococcal disease until 24 hours of effective antibiotics. Close contacts — including crew who performed unprotected airway procedures — may need chemoprophylaxis (ciprofloxacin, rifampicin or ceftriaxone) per public health advice."
+ },
+ {
+  "id": "fpc.fpc-peds-infectious.reemergent.0",
+  "t": "Falling vaccination rates have brought back diseases many clinicians have never seen. Measles is extremely contagious (airborne; it lingers in the air for up to 2 hours): prodrome of fever, cough, coryza and conjunctivitis, Koplik spots in the mouth, then a maculopapular rash spreading from the face downward. Complications include pneumonia, encephalitis and death, especially in infants and the malnourished. Use airborne precautions (N95 or equivalent) and ensure crew immunity."
+ },
+ {
+  "id": "fpc.fpc-peds-infectious.reemergent.1",
+  "t": "Pertussis (whooping cough) is most dangerous in young infants, who may present with apnoea, cyanosis and bradycardia rather than the classic whoop; extreme leucocytosis and pulmonary hypertension predict death. Treat with macrolide antibiotics, support ventilation and use droplet precautions. Varicella can cause severe skin infection (group A streptococcus), pneumonia and encephalitis; it is airborne and contact transmitted. Diphtheria, polio and tetanus remain rare but are seen in under-vaccinated populations and travellers."
+ },
+ {
+  "id": "fpc.fpc-peds-infectious.reemergent.2",
+  "t": "Other considerations: tuberculosis (airborne), multisystem inflammatory syndrome in children (MIS-C) after COVID-19 (fever, shock, cardiac dysfunction, rash), and travel-related infections such as malaria in febrile children returning from endemic areas."
+ },
+ {
+  "id": "fpc.fpc-peds-infectious.case.0",
+  "t": "A 14-month-old with fever for 8 hours, now lethargic with cold peripheries, capillary refill 5 seconds, HR 190, BP 72/38, and spreading purple spots on the legs that do not fade under pressure."
+ },
+ {
+  "id": "fpc.fpc-peds-infectious.febrile.0",
+  "t": "Infants under 3 months with fever (38 °C or higher) have a significant risk of serious bacterial infection: urinary tract infection most commonly, then bacteraemia and meningitis. Their signs are subtle, and appearance is less reliable than in older children. Febrile infants under 28 days need full evaluation (blood, urine and CSF cultures) and empirical antibiotics; those aged 29–60 days are risk-stratified with inflammatory markers per guidelines."
+ },
+ {
+  "id": "fpc.fpc-peds-infectious.febrile.1",
+  "t": "Neonatal herpes simplex virus infection presents with fever or hypothermia, seizures, vesicles or sepsis-like illness in the first weeks of life and needs acyclovir. Hypothermia is as concerning as fever in neonates."
+ },
+ {
+  "id": "fpc.fpc-peds-infectious.febrile.2",
+  "t": "For transport, these infants need glucose monitoring, temperature control, cultures drawn before antibiotics if possible without delay, and early antibiotics."
+ },
+ {
+  "id": "fpc.fpc-peds-vent.anatomy.0",
+  "t": "Infants and young children have a large occiput (which flexes the neck when supine — place a towel under the shoulders), a large tongue, a higher and more anterior larynx (C2–C3 in infants versus C4–C6 in adults), a floppy, omega-shaped epiglottis, and a narrow airway in which small amounts of oedema cause large increases in resistance (resistance rises with the fourth power of the radius decrease). Infants are preferential nose breathers. They have a smaller functional residual capacity and higher oxygen consumption, so they desaturate quickly during apnoea."
+ },
+ {
+  "id": "fpc.fpc-peds-vent.anatomy.1",
+  "t": "A straight (Miller) blade lifting the epiglottis directly is often used in infants; a curved (Macintosh) blade in older children; video laryngoscopes with paediatric blades are increasingly standard. Cuffed tubes are now preferred for most children beyond the newborn period, with cuff pressure monitored and kept below 20–25 cmH₂O: they reduce tube changes and leaks without increasing complications. Size: cuffed (age ÷ 4) + 3.5 mm; uncuffed (age ÷ 4) + 4 mm; depth at the lip about 3 × the tube size."
+ },
+ {
+  "id": "fpc.fpc-peds-vent.anatomy.2",
+  "t": "Supraglottic airways (i-gel, LMA) come in weight-based sizes and are excellent rescue devices. Needle cricothyroidotomy is the surgical rescue for children under about 8–10 years, whose cricothyroid membrane is too small for a surgical cricothyrotomy."
+ },
+ {
+  "id": "fpc.fpc-peds-vent.rsi.0",
+  "t": "Prepare everything sized in advance (length-based tape), position (shoulder roll in infants, ear-to-sternal notch alignment in older children), and preoxygenate with high-flow oxygen; apnoeic oxygenation via nasal cannula prolongs safe apnoea time. Resuscitate shock before induction with fluids and have epinephrine ready (push-dose or infusion)."
+ },
+ {
+  "id": "fpc.fpc-peds-vent.rsi.1",
+  "t": "Drugs: ketamine 1–2 mg/kg IV (haemodynamically stable choice), or etomidate 0.3 mg/kg; rocuronium 1–1.2 mg/kg or succinylcholine (2 mg/kg in infants). Atropine 0.02 mg/kg is not routine but is used for infants with bradycardia or when succinylcholine is repeated. Bradycardia during laryngoscopy in an infant usually means hypoxia — stop, oxygenate, then retry."
+ },
+ {
+  "id": "fpc.fpc-peds-vent.rsi.2",
+  "t": "Limit attempts, call for help early, use a supraglottic airway as rescue, and confirm placement with waveform capnography. Secure the tube well — small movements in a short trachea cause displacement or endobronchial intubation. Note the depth at the lip and recheck after every move."
+ },
+ {
+  "id": "fpc.fpc-peds-vent.vent.0",
+  "t": "Lung-protective ventilation: tidal volume 5–8 mL/kg of ideal body weight (lower, 3–6 mL/kg, in paediatric ARDS with poor compliance), plateau pressure below 28–30 cmH₂O, PEEP 5 cmH₂O or higher as oxygenation requires, and the lowest FiO₂ that maintains SpO₂ around 92–97 % (88–92 % in severe ARDS). Respiratory rates by age: infants about 25–40, toddlers 20–30, school-age 15–25, adolescents 12–20. Adjust to EtCO₂ and blood gases; permissive hypercapnia is accepted in ARDS and asthma."
+ },
+ {
+  "id": "fpc.fpc-peds-vent.vent.1",
+  "t": "Pressure-control modes are commonly used in small children because they compensate for tube leaks; volume-control with a set tidal volume is also used, especially with cuffed tubes. Monitor delivered tidal volumes — circuit compliance and leaks affect small breaths more."
+ },
+ {
+  "id": "fpc.fpc-peds-vent.vent.2",
+  "t": "Troubleshooting follows DOPE(S): displacement (check depth, capnography), obstruction (secretions — small tubes block easily; suction), pneumothorax, equipment failure, and stacked breaths. In flight, re-check tube depth after loading, monitor cuff pressure on ascent (gas expansion), and keep a bag-valve device with a PEEP valve and appropriately sized mask at hand."
+ },
+ {
+  "id": "fpc.fpc-peds-vent.case.0",
+  "t": "An intubated 18-month-old (cuffed 4.0 tube at 12 cm) with pneumonia desaturates to 80 % immediately after being loaded into the aircraft. Breath sounds are reduced on the left. EtCO₂ waveform present."
+ },
+ {
+  "id": "fpc.fpc-peds-vent.niv.0",
+  "t": "High-flow nasal cannula and CPAP or bilevel NIV can avoid intubation in many children with bronchiolitis, pneumonia and asthma. Signs of success within 1–2 hours include falling heart and respiratory rates and reduced work of breathing; failure signs include rising oxygen needs, worsening work of breathing, apnoeas, rising CO₂ and decreasing consciousness."
+ },
+ {
+  "id": "fpc.fpc-peds-vent.niv.1",
+  "t": "Interfaces must fit — nasal prongs, nasal masks, full-face masks and helmets come in paediatric sizes. Gastric distension from NIV can splint the diaphragm; a gastric tube helps. Agitated children may need light sedation (dexmedetomidine or low-dose ketamine) to tolerate NIV."
+ },
+ {
+  "id": "fpc.fpc-peds-vent.niv.2",
+  "t": "For transport, decide before departure whether NIV is likely to succeed for the duration of the flight. A child who is failing or borderline is safer intubated on the ground than in a confined, noisy cabin."
  }
 ]
