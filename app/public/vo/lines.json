@@ -4714,5 +4714,681 @@
  {
   "id": "fpc.fpc-nippv.case.1",
   "t": "Sympathetic crashing acute pulmonary oedema: high afterload drives fluid into the lungs. CPAP or BiPAP lowers preload and afterload and recruits flooded alveoli, while high-dose nitrates lower afterload. Intubation can often be avoided."
+ },
+ {
+  "id": "fpc.fpc-endocrine.dka.0",
+  "t": "Diabetic ketoacidosis (DKA) is insulin deficiency with counter-regulatory hormone excess: glucose usually above 250 mg/dL (14 mmol/L), a high anion-gap metabolic acidosis (pH < 7.30, bicarbonate < 18), and ketones. Kussmaul breathing compensates for the acidosis. Osmotic diuresis causes profound dehydration — often 5–8 litres in adults — and total-body potassium depletion even when the plasma potassium reads high."
+ },
+ {
+  "id": "fpc.fpc-endocrine.dka.1",
+  "t": "The hyperosmolar hyperglycaemic state (HHS) is seen more in older type 2 diabetics: glucose often above 600 mg/dL (33 mmol/L), serum osmolality above 320 mOsm/kg, little or no ketosis or acidosis, and greater dehydration (often 8–10 litres). Altered consciousness tracks osmolality. Mortality is higher than DKA, partly from age, comorbidity and thrombosis."
+ },
+ {
+  "id": "fpc.fpc-endocrine.dka.2",
+  "t": "Order of treatment for both: fluids first (isotonic crystalloid to restore circulation), then potassium (check before insulin; replace if low — many protocols withhold insulin until K⁺ is at least 3.3 mmol/L), then insulin as a fixed-rate infusion. Add dextrose as glucose falls so insulin can continue until ketones clear. Bicarbonate is reserved for extreme acidaemia per protocol. In HHS, lower glucose and sodium more slowly to avoid cerebral oedema."
+ },
+ {
+  "id": "fpc.fpc-endocrine.transport.0",
+  "t": "Intubation is dangerous: the patient is compensating for a severe metabolic acidosis with a very high minute ventilation. Apnoea and then \"normal\" ventilator settings can drop the pH precipitously and cause arrest. Avoid intubation unless the airway is truly threatened; if needed, keep apnoea short and set a minute ventilation that matches the patient's own."
+ },
+ {
+  "id": "fpc.fpc-endocrine.transport.1",
+  "t": "Potassium falls as insulin and fluids act; hypokalaemia causes arrhythmias. Monitor the ECG continuously and recheck potassium on long transports. In children, rapid fluid shifts risk cerebral oedema — watch for headache, falling GCS, bradycardia and hypertension, and treat with hyperosmolar therapy."
+ },
+ {
+  "id": "fpc.fpc-endocrine.hypo.0",
+  "t": "Hypoglycaemia (glucose below about 70 mg/dL, with symptoms; severe when the patient needs assistance) causes sweating, tremor and tachycardia from adrenergic response, then confusion, seizures and coma from neuroglycopenia. Beta-blockers mask the adrenergic warning signs. Sulfonylurea overdose causes prolonged, recurrent hypoglycaemia; octreotide reduces insulin release in that setting."
+ },
+ {
+  "id": "fpc.fpc-endocrine.hypo.1",
+  "t": "Treat with IV dextrose (for example D10 in titrated boluses, or D50 in adults per protocol), or IM glucagon if no access (less effective in depleted glycogen stores — alcoholics, starvation). Recheck glucose frequently and follow with food or a dextrose infusion."
+ },
+ {
+  "id": "fpc.fpc-endocrine.thyroid.0",
+  "t": "Thyroid storm is life-threatening thyrotoxicosis: fever, tachycardia (often atrial fibrillation), agitation or delirium, vomiting, diarrhoea and high-output heart failure, often precipitated by infection, surgery, trauma or stopping antithyroid drugs. Treat in sequence: a beta-blocker (propranolol is classic; esmolol when titration is needed) for adrenergic effects, a thionamide (propylthiouracil or methimazole) to block synthesis, iodine at least an hour after the thionamide to block release, corticosteroids, cooling and supportive care. Avoid aspirin for fever (it displaces thyroid hormone from binding proteins)."
+ },
+ {
+  "id": "fpc.fpc-endocrine.thyroid.1",
+  "t": "Myxoedema coma is decompensated hypothyroidism: hypothermia, bradycardia, hypoventilation with hypercapnia, hyponatraemia, hypoglycaemia and depressed consciousness, often in an older woman in winter. Treat with IV levothyroxine (often with liothyronine per specialist advice), stress-dose hydrocortisone until adrenal insufficiency is excluded, passive rewarming, ventilatory support and careful correction of sodium. These patients are very sensitive to sedatives."
+ },
+ {
+  "id": "fpc.fpc-endocrine.case.0",
+  "t": "A 16-year-old with type 1 diabetes, vomiting for a day: GCS 13, RR 36 deep, HR 130, BP 98/60, glucose 540 mg/dL, pH 7.04, HCO₃⁻ 5, K⁺ 5.6, Na⁺ 131. A 90-minute flight to a paediatric ICU."
+ },
+ {
+  "id": "fpc.fpc-adrenal.physiology.0",
+  "t": "The adrenal cortex makes cortisol (glucocorticoid), aldosterone (mineralocorticoid) and androgens. Cortisol supports blood pressure by sensitising vessels to catecholamines, raises glucose and modulates inflammation; aldosterone retains sodium and excretes potassium. The adrenal medulla secretes epinephrine and norepinephrine."
+ },
+ {
+  "id": "fpc.fpc-adrenal.physiology.1",
+  "t": "Primary adrenal insufficiency (Addison's disease: autoimmune, infection, haemorrhage) loses both cortisol and aldosterone, so hyponatraemia, hyperkalaemia and hyperpigmentation are typical. Secondary insufficiency (pituitary disease, or suppression by long-term steroid therapy — the commonest cause) loses cortisol but aldosterone is largely preserved, so potassium is usually normal."
+ },
+ {
+  "id": "fpc.fpc-adrenal.crisis.0",
+  "t": "Adrenal crisis is shock that responds poorly to fluids and vasopressors, often with abdominal pain, vomiting, confusion, fever, hypoglycaemia, hyponatraemia and hyperkalaemia. It is precipitated by infection, trauma, surgery, vomiting that prevents oral steroids, or abrupt withdrawal of chronic steroid therapy. Waterhouse–Friderichsen syndrome is bilateral adrenal haemorrhage in meningococcal sepsis."
+ },
+ {
+  "id": "fpc.fpc-adrenal.crisis.1",
+  "t": "Treat immediately: hydrocortisone 100 mg IV or IM in adults (about 50–100 mg/m², often 2 mg/kg up to 100 mg in children per local protocol), isotonic fluids with dextrose if hypoglycaemic, and treatment of the precipitant. Do not delay hydrocortisone for a cortisol level. At doses of 100 mg and above, hydrocortisone provides enough mineralocorticoid effect that fludrocortisone is not needed acutely."
+ },
+ {
+  "id": "fpc.fpc-adrenal.crisis.2",
+  "t": "Patients on long-term steroids (for example prednisone 5 mg or more daily for more than a few weeks) may not mount a stress response. Many carry an emergency card and an injection kit; ask about it, and give stress-dose hydrocortisone in serious illness or injury."
+ },
+ {
+  "id": "fpc.fpc-adrenal.sepsis.0",
+  "t": "In septic shock needing ongoing or escalating vasopressor therapy, guidelines suggest IV hydrocortisone (commonly 200 mg/day in divided doses or infusion). Trials show faster shock reversal; mortality benefit is inconsistent. Etomidate's transient adrenal suppression after a single induction dose is debated; many clinicians simply ensure hydrocortisone is considered in refractory shock regardless of induction agent."
+ },
+ {
+  "id": "fpc.fpc-adrenal.pheo.0",
+  "t": "A catecholamine-secreting tumour can cause paroxysmal hypertension, headache, sweating and palpitations, and crises with severe hypertension, arrhythmias, cardiomyopathy and pulmonary oedema — sometimes triggered by anaesthesia, trauma, steroids or certain drugs (metoclopramide, some antidepressants)."
+ },
+ {
+  "id": "fpc.fpc-adrenal.pheo.1",
+  "t": "Treat with alpha-blockade or vasodilators first (phentolamine, nicardipine, nitroprusside per protocol). Never give a beta-blocker alone: blocking beta-2 mediated vasodilation leaves alpha vasoconstriction unopposed and blood pressure can rise further. Beta-blockers are added only after adequate alpha-blockade, to control tachycardia."
+ },
+ {
+  "id": "fpc.fpc-adrenal.case.0",
+  "t": "A 62-year-old with rheumatoid arthritis on long-term prednisone, two days after bowel surgery, vomiting for 24 hours: BP 76/40 despite 3 L of fluid and norepinephrine 0.3 mcg/kg/min, HR 118, glucose 58 mg/dL, Na⁺ 129, K⁺ 4.6."
+ },
+ {
+  "id": "fpc.fpc-adrenal.stress.0",
+  "t": "Anyone taking the equivalent of prednisone 5 mg a day or more for longer than about three to four weeks in the past year may have a suppressed hypothalamic–pituitary–adrenal axis. So may patients using high-dose inhaled or topical steroids, those with known Addison's disease or pituitary disease, and those recently given etomidate repeatedly. In serious illness, trauma, or before surgery they need stress-dose steroids."
+ },
+ {
+  "id": "fpc.fpc-adrenal.stress.1",
+  "t": "Practical doses in transport: hydrocortisone 100 mg IV or IM for crisis or serious illness, followed in hospital by 200 mg per day (by infusion or divided doses). Children receive weight- or body-surface-based doses per protocol. Many patients carry an emergency card and a hydrocortisone injection kit; use the patient's own supply if needed and record the time given."
+ },
+ {
+  "id": "fpc.fpc-adrenal.stress.2",
+  "t": "Clues that a shocked patient may have adrenal insufficiency: poor response to fluids and vasopressors, hypoglycaemia, hyponatraemia, hyperkalaemia (primary), eosinophilia, vomiting and abdominal pain, a history of steroid use, or hyperpigmentation. When in doubt in refractory shock, hydrocortisone is low-risk and potentially life-saving."
+ },
+ {
+  "id": "fpc.fpc-renal.aki.0",
+  "t": "AKI is a rapid rise in creatinine or fall in urine output (for example, creatinine rising by 0.3 mg/dL within 48 hours, or urine below 0.5 mL/kg/h for 6 hours). Classify by cause. Pre-renal: reduced perfusion from hypovolaemia, shock, heart failure or renal artery disease; the kidney itself is initially normal and recovers with perfusion. Intrinsic: acute tubular necrosis from prolonged ischaemia or toxins (contrast, aminoglycosides, myoglobin), glomerulonephritis, interstitial nephritis. Post-renal: obstruction of both outflows (or one in a single kidney) — prostate, stones, tumours, a blocked catheter."
+ },
+ {
+  "id": "fpc.fpc-renal.aki.1",
+  "t": "In transport, the reversible causes are what you can act on: restore perfusion pressure, stop nephrotoxins, and relieve obstruction (a urinary catheter, or flushing a blocked one). Track urine output hourly in critically ill patients."
+ },
+ {
+  "id": "fpc.fpc-renal.hyperk.0",
+  "t": "Potassium above about 6.5 mmol/L, or any hyperkalaemia with ECG changes, is an emergency. The ECG progresses roughly from peaked T waves, to PR prolongation and flattened P waves, to QRS widening, to a sine wave and then ventricular fibrillation or asystole — but the sequence is unreliable and arrest can occur without warning."
+ },
+ {
+  "id": "fpc.fpc-renal.hyperk.1",
+  "t": "Stabilise the membrane with IV calcium (calcium gluconate 3 g or calcium chloride 1 g in adults, typically, repeated if ECG changes persist); it acts within minutes, lasts 30–60 minutes and does not lower potassium. Shift potassium into cells with insulin plus dextrose (for example 10 units regular insulin with 25 g dextrose) and nebulised salbutamol; bicarbonate helps mainly in concurrent acidosis. Remove potassium with dialysis (definitive in renal failure), potassium binders, or loop diuretics if the kidneys work. Recheck glucose after insulin."
+ },
+ {
+  "id": "fpc.fpc-renal.rhabdo.0",
+  "t": "Muscle breakdown from crush, prolonged immobilisation, exertion, seizures, hyperthermia or drugs releases myoglobin, potassium, phosphate and creatine kinase. Myoglobin causes tubular injury, especially in hypovolaemia and acidosis. Dark urine with a dipstick positive for blood but few red cells suggests myoglobinuria."
+ },
+ {
+  "id": "fpc.fpc-renal.rhabdo.1",
+  "t": "Treat with early, aggressive isotonic fluids to maintain a high urine output (often targeted around 200–300 mL/h in adults per protocol), correct hyperkalaemia, and in crush injury start fluids before release where possible to blunt reperfusion hyperkalaemia and acidosis. Avoid succinylcholine."
+ },
+ {
+  "id": "fpc.fpc-renal.dialysis.0",
+  "t": "Ask when the last dialysis was. Missed dialysis brings hyperkalaemia, fluid overload with pulmonary oedema, metabolic acidosis and uraemic complications (pericarditis, encephalopathy, bleeding from platelet dysfunction)."
+ },
+ {
+  "id": "fpc.fpc-renal.dialysis.1",
+  "t": "Protect the access: avoid blood pressure cuffs, IVs and venepuncture on an arm with a fistula or graft. A palpable thrill and audible bruit indicate patency. Bleeding from a fistula can be torrential; apply firm direct pressure. Central dialysis catheters should not be used for routine access except in an emergency by protocol, as they are often locked with concentrated heparin or citrate that must be aspirated first."
+ },
+ {
+  "id": "fpc.fpc-renal.dialysis.2",
+  "t": "Drug choice: avoid succinylcholine if potassium is unknown or high; use rocuronium. Many drugs accumulate (morphine metabolites, some antibiotics); fentanyl is preferred to morphine. Fluid overload is better treated with nitrates and NIV than with fluid restriction alone; diuretics may be ineffective in anuric patients."
+ },
+ {
+  "id": "fpc.fpc-renal.case.0",
+  "t": "A construction worker trapped under a collapsed wall for five hours. Legs swollen and tense, HR 118, BP 104/66. Extrication is imminent."
+ },
+ {
+  "id": "fpc.fpc-metabolic.sodium.0",
+  "t": "Plasma sodium sets cell volume, and the brain has no room to swell. Severe symptomatic hyponatraemia — seizures, coma, vomiting with confusion — is treated with hypertonic saline boluses (commonly 3 % saline, 100–150 mL over 10–20 minutes, repeated up to two or three times) aiming to raise sodium by 4–6 mmol/L, which is usually enough to stop symptoms."
+ },
+ {
+  "id": "fpc.fpc-metabolic.sodium.1",
+  "t": "Chronic hyponatraemia (present more than 48 hours, or of unknown duration) must not be corrected too fast: limit the rise to about 8–10 mmol/L in 24 hours (lower in high-risk patients such as alcoholics, the malnourished and those with hypokalaemia) to avoid osmotic demyelination, which appears days later with dysarthria, dysphagia and quadriparesis."
+ },
+ {
+  "id": "fpc.fpc-metabolic.sodium.2",
+  "t": "Hypernatraemia reflects water deficit — elderly or disabled patients without access to water, diabetes insipidus, osmotic diuresis. Correct gradually with hypotonic fluids, lowering sodium by no more than about 10–12 mmol/L per day in chronic cases, to avoid cerebral oedema."
+ },
+ {
+  "id": "fpc.fpc-metabolic.calcium.0",
+  "t": "Hypocalcaemia causes perioral and digital paraesthesia, tetany, Chvostek and Trousseau signs, seizures, QT prolongation and hypotension. Causes include massive transfusion (citrate binds calcium), pancreatitis, hypoparathyroidism and hypomagnesaemia. Treat symptomatic patients with IV calcium (gluconate peripherally; chloride contains about three times the elemental calcium and is irritating, so is preferred centrally). In major haemorrhage, give calcium early and often."
+ },
+ {
+  "id": "fpc.fpc-metabolic.calcium.1",
+  "t": "Hypercalcaemia (\"stones, bones, groans and psychiatric overtones\") causes dehydration, confusion, short QT and arrhythmias, usually from malignancy or hyperparathyroidism. Treat with isotonic fluids first; bisphosphonates and calcitonin follow in hospital."
+ },
+ {
+  "id": "fpc.fpc-metabolic.calcium.2",
+  "t": "Magnesium below normal predisposes to torsades de pointes, refractory hypokalaemia and hypocalcaemia. Magnesium sulfate 2 g IV is given for torsades, severe asthma and eclampsia. Hypermagnesaemia (often iatrogenic in pre-eclampsia treatment or renal failure) causes loss of deep tendon reflexes, then respiratory depression and heart block; calcium is the antidote."
+ },
+ {
+  "id": "fpc.fpc-metabolic.acidbase.0",
+  "t": "One: is the pH acidaemic (< 7.35) or alkalaemic (> 7.45)? Two: which value explains it — PaCO₂ (respiratory) or HCO₃⁻ (metabolic)? Three: is compensation appropriate? For metabolic acidosis, expected PaCO₂ = 1.5 × HCO₃⁻ + 8 (± 2), Winter's formula; acute respiratory acidosis raises HCO₃⁻ about 1 per 10 mmHg CO₂, chronic about 4. Four: for metabolic acidosis calculate the anion gap, Na⁺ − (Cl⁻ + HCO₃⁻), normal about 8–12. Five: in a high-gap acidosis, compare the change in gap with the change in bicarbonate to uncover a hidden second metabolic disorder."
+ },
+ {
+  "id": "fpc.fpc-metabolic.acidbase.1",
+  "t": "High anion-gap causes include lactate, ketones (diabetic, alcoholic, starvation), renal failure, and toxins (methanol, ethylene glycol, salicylates, iron, isoniazid). Normal-gap (hyperchloraemic) acidosis follows diarrhoea, large volumes of saline and renal tubular acidosis."
+ },
+ {
+  "id": "fpc.fpc-metabolic.temp.0",
+  "t": "Heat stroke is a core temperature above about 40 °C with central nervous system dysfunction. It kills by multi-organ failure; the treatment is rapid cooling — cold-water immersion is fastest for exertional heat stroke, or evaporative cooling with mist and fans plus ice packs. Antipyretics do not work. Stop cooling around 38.5–39 °C to avoid overshoot."
+ },
+ {
+  "id": "fpc.fpc-metabolic.temp.1",
+  "t": "Hypothermia is graded by core temperature (mild 32–35 °C, moderate 28–32 °C, severe below 28 °C) and by clinical signs. Handle severely hypothermic patients gently and horizontally to avoid triggering ventricular fibrillation; the cold heart may resist defibrillation and drugs until rewarmed. Rewarm actively; \"not dead until warm and dead\" applies, and ECMO centres can rewarm patients in arrest."
+ },
+ {
+  "id": "fpc.fpc-sepsis.define.0",
+  "t": "Sepsis is life-threatening organ dysfunction caused by a dysregulated host response to infection (Sepsis-3). Organ dysfunction is identified by a rise in the SOFA score of two or more points. qSOFA — respiratory rate ≥ 22, altered mentation, systolic BP ≤ 100 — flags patients at higher risk of death but is not recommended as a single screening tool."
+ },
+ {
+  "id": "fpc.fpc-sepsis.define.1",
+  "t": "Septic shock is sepsis with persistent hypotension needing vasopressors to keep MAP ≥ 65 mmHg and a serum lactate above 2 mmol/L despite adequate volume resuscitation. Mortality is substantially higher than sepsis alone."
+ },
+ {
+  "id": "fpc.fpc-sepsis.bundle.0",
+  "t": "Measure lactate (and remeasure if above 2). Take blood cultures before antibiotics when this causes no meaningful delay. Give broad-spectrum antibiotics as soon as possible — within one hour for probable septic shock; delays raise mortality. Give 30 mL/kg of crystalloid for hypotension or lactate ≥ 4, guided by reassessment of perfusion and fluid responsiveness rather than as a fixed target. Start a vasopressor if MAP remains below 65 during or after fluids."
+ },
+ {
+  "id": "fpc.fpc-sepsis.bundle.1",
+  "t": "Balanced crystalloids (lactated Ringer's or Plasma-Lyte) are suggested over saline for large volumes. Albumin may be considered when large volumes of crystalloid are needed. Starch solutions are avoided."
+ },
+ {
+  "id": "fpc.fpc-sepsis.targets.0",
+  "t": "Aim for MAP ≥ 65 mmHg initially, adjusted for chronic hypertension. Track perfusion, not just pressure: mental status, capillary refill, skin mottling, urine output (≥ 0.5 mL/kg/h) and lactate clearance. Capillary refill time is a validated, simple target."
+ },
+ {
+  "id": "fpc.fpc-sepsis.targets.1",
+  "t": "Before giving more fluid, ask whether the patient is fluid-responsive (passive leg raise with a change in stroke volume or pulse pressure, pulse-pressure variation in a ventilated patient) and whether lungs and oxygenation will tolerate it. Over-resuscitation causes pulmonary oedema, abdominal compartment syndrome and worse outcomes."
+ },
+ {
+  "id": "fpc.fpc-sepsis.targets.2",
+  "t": "Hydrocortisone (commonly 200 mg/day) is suggested when vasopressor needs are ongoing. Source control — draining an abscess, removing an infected line, relieving obstructed infected urine — must happen as soon as practical; transport to a centre that can do it is part of treatment."
+ },
+ {
+  "id": "fpc.fpc-sepsis.transport.0",
+  "t": "Transport is not a pause in sepsis care. Make sure the first antibiotic dose has been given and note the time; if the flight is long and a second dose falls due, carry it. Keep fluids and vasopressors on pumps, and bring enough of each for the flight plus a reserve."
+ },
+ {
+  "id": "fpc.fpc-sepsis.transport.1",
+  "t": "Reassess perfusion at regular intervals: MAP, heart rate, mental status, capillary refill and, where measured, urine output and lactate. Escalate norepinephrine and add vasopressin per protocol if MAP falls; consider hydrocortisone for escalating requirements."
+ },
+ {
+  "id": "fpc.fpc-sepsis.transport.2",
+  "t": "Hand over the timeline clearly: when sepsis was recognised, cultures taken, antibiotics given, the fluid volume received, the vasopressor course, and the suspected source with any source-control plan."
+ },
+ {
+  "id": "fpc.fpc-sepsis.special.0",
+  "t": "Older adults may present with confusion, falls or hypothermia rather than fever. Immunocompromised patients — chemotherapy, transplant, high-dose steroids — may have few signs; neutropenic fever is treated as an emergency with immediate broad-spectrum antibiotics. Pregnant women have physiologically higher heart rates and lower blood pressures, which can mask early sepsis; obstetric sources (endometritis, chorioamnionitis) are common."
+ },
+ {
+  "id": "fpc.fpc-sepsis.special.1",
+  "t": "Children compensate with tachycardia and vasoconstriction; hypotension appears late. Paediatric fluid boluses are 10–20 mL/kg with reassessment after each, and epinephrine or norepinephrine is chosen by clinical phenotype (cold versus warm shock). Neonates may show apnoea, poor feeding or temperature instability."
+ },
+ {
+  "id": "fpc.fpc-sepsis.special.2",
+  "t": "Asplenic patients are at risk of overwhelming post-splenectomy infection with encapsulated organisms; they deteriorate rapidly and need immediate antibiotics."
+ },
+ {
+  "id": "fpc.fpc-infectious.precautions.0",
+  "t": "Standard precautions apply to every patient: hand hygiene, gloves for body fluids, eye protection when splashes are likely, safe sharps handling. Contact precautions (gown and gloves) add protection against organisms spread by touch, such as MRSA and Clostridioides difficile (soap and water for hands — alcohol does not kill spores). Droplet precautions (surgical mask within close range) cover influenza, pertussis and meningococcus. Airborne precautions (fit-tested N95 or equivalent respirator) cover tuberculosis, measles and varicella, and aerosol-generating procedures in respiratory viral illness."
+ },
+ {
+  "id": "fpc.fpc-infectious.precautions.1",
+  "t": "Aircraft cabins are small and air circulation varies by airframe. Put a mask on the patient when possible, use HEPA filters on ventilator and BVM circuits, minimise aerosol-generating procedures in flight (secure the airway before departure, use closed suction), and clean the aircraft per protocol afterwards. Some programmes decline or modify transport of high-consequence infections without special containment."
+ },
+ {
+  "id": "fpc.fpc-infectious.meningitis.0",
+  "t": "Bacterial meningitis presents with fever, headache, neck stiffness and altered mental status, though all four are present in a minority. A petechial or purpuric rash suggests meningococcal disease, which can progress to septic shock and purpura fulminans within hours. Infants may show only irritability, poor feeding, a bulging fontanelle or hypothermia."
+ },
+ {
+  "id": "fpc.fpc-infectious.meningitis.1",
+  "t": "Give antibiotics without delay — do not wait for lumbar puncture or imaging when transport or testing will delay treatment. Dexamethasone given with or just before the first antibiotic dose reduces neurological sequelae in some forms (notably pneumococcal). Use droplet precautions until 24 hours of effective therapy; close contacts of meningococcal disease, including crew exposed to respiratory secretions without protection (such as during intubation), need prophylaxis."
+ },
+ {
+  "id": "fpc.fpc-infectious.soft.0",
+  "t": "Necrotising soft-tissue infection causes pain out of proportion to the findings, rapidly spreading erythema, tense oedema, crepitus, bullae and systemic toxicity. It is a surgical emergency: antibiotics, resuscitation and urgent debridement. Transport to a surgical centre should not wait for imaging."
+ },
+ {
+  "id": "fpc.fpc-infectious.soft.1",
+  "t": "Toxic shock syndrome (staphylococcal or streptococcal) produces fever, diffuse erythroderma, hypotension and multi-organ involvement; look for retained tampons, wounds or surgical sites. Treat as septic shock, remove the source, and add an antibiotic that suppresses toxin production per protocol."
+ },
+ {
+  "id": "fpc.fpc-infectious.exposure.0",
+  "t": "For a needlestick or mucosal splash: wash with soap and water (irrigate mucosa), report immediately, and arrange evaluation of the source and the exposed worker. HIV post-exposure prophylaxis is most effective started within hours, ideally within 2 hours and no later than 72 hours. Hepatitis B vaccination status determines further management; there is no prophylaxis for hepatitis C, but follow-up testing is needed."
+ },
+ {
+  "id": "fpc.fpc-infectious.exposure.1",
+  "t": "Programmes should have a clear post-exposure process available 24 hours a day, including for exposures far from base."
+ },
+ {
+  "id": "fpc.fpc-infectious.case.0",
+  "t": "A 19-year-old student: fever, headache, confusion, BP 84/46, a non-blanching purpuric rash spreading on the legs."
+ },
+ {
+  "id": "fpc.fpc-infectious.decon.0",
+  "t": "After a transport, clean all surfaces the patient or crew touched with a hospital-grade disinfectant, respecting the product's contact time. For C. difficile and other spore-forming organisms, use a sporicidal (bleach-based) product. Single-use items go to clinical waste; reusable equipment (laryngoscope handles, monitor cables, stretcher mattresses) follows the manufacturer's decontamination process."
+ },
+ {
+  "id": "fpc.fpc-infectious.decon.1",
+  "t": "For airborne pathogens, the aircraft's air exchange rate determines how long to leave doors open or ventilation running before the next patient; follow programme policy. Crew should remove PPE in a defined order to avoid self-contamination — usually gloves first, then gown, then eye protection, then respirator, with hand hygiene between steps."
+ },
+ {
+  "id": "fpc.fpc-infectious.decon.2",
+  "t": "Document exposures and decontamination steps. A clear process protects the next patient and the crew."
+ },
+ {
+  "id": "fpc.fpc-tox.toxidromes.0",
+  "t": "A toxidrome is a pattern of signs that points to a class of poison. Look at heart rate, blood pressure, temperature, respiratory rate, pupils, skin (dry or sweaty), bowel sounds and mental status. Mixed ingestions blur the picture, so treat the patient in front of you."
+ },
+ {
+  "id": "fpc.fpc-tox.toxidromes.1",
+  "t": "Sympathomimetic (cocaine, amphetamines): agitation, tachycardia, hypertension, hyperthermia, dilated pupils, sweating. Treat with benzodiazepines, cooling and avoidance of physical restraint struggles. Anticholinergic (diphenhydramine, tricyclics, jimson weed): \"hot as a hare, dry as a bone, red as a beet, blind as a bat, mad as a hatter\" — tachycardia, hyperthermia, dry flushed skin, dilated pupils, urinary retention, delirium; physostigmine has a role in pure anticholinergic delirium under expert guidance."
+ },
+ {
+  "id": "fpc.fpc-tox.toxidromes.2",
+  "t": "Cholinergic (organophosphates, nerve agents): SLUDGE/DUMBELS — salivation, lacrimation, urination, defecation, GI upset, emesis, plus bronchorrhoea and bronchospasm (\"the killer Bs\") and bradycardia, with miosis. Treat with large, repeated doses of atropine titrated to drying of secretions, and pralidoxime for organophosphates; decontaminate and protect the crew. Opioid: miosis, respiratory depression and coma; naloxone titrated to breathing, not wakefulness. Sedative-hypnotic: depressed consciousness with relatively normal vital signs; support the airway and breathing."
+ },
+ {
+  "id": "fpc.fpc-tox.killers.0",
+  "t": "Salicylates: tinnitus, vomiting, hyperthermia, tachypnoea, a mixed respiratory alkalosis and high-gap metabolic acidosis, and altered mental status. The patient survives by hyperventilating; if intubated, the minute ventilation must stay high or the pH falls, salicylate enters the brain and the patient may arrest. Alkalinise with sodium bicarbonate, give dextrose for neuroglycopenia, and arrange haemodialysis for severe toxicity. Methyl salicylate (oil of wintergreen) is highly concentrated and has a distinctive smell."
+ },
+ {
+  "id": "fpc.fpc-tox.killers.1",
+  "t": "Tricyclic antidepressants: anticholinergic signs, seizures, hypotension and sodium-channel blockade with a wide QRS (> 100 ms) and a tall terminal R in aVR. Treat QRS widening, hypotension or arrhythmia with sodium bicarbonate boluses (1–2 mEq/kg, repeated) to a pH of about 7.45–7.55; avoid type IA and IC antiarrhythmics."
+ },
+ {
+  "id": "fpc.fpc-tox.killers.2",
+  "t": "Calcium-channel and beta-blockers: bradycardia and hypotension, with hyperglycaemia typical of calcium-channel blockers. Treat with fluids, calcium, glucagon (beta-blockers), vasopressors, and high-dose insulin euglycaemia therapy (insulin around 1 unit/kg bolus then infusion with dextrose and potassium monitoring) per toxicology advice; lipid emulsion for refractory lipophilic drug toxicity."
+ },
+ {
+  "id": "fpc.fpc-tox.killers.3",
+  "t": "Acetaminophen: few early symptoms, then liver injury at 24–72 hours. N-acetylcysteine is most effective within 8 hours of ingestion; never withhold it while waiting for levels if presentation is late or the dose is unknown."
+ },
+ {
+  "id": "fpc.fpc-tox.killers.4",
+  "t": "Toxic alcohols (methanol, ethylene glycol): inebriation, then a high anion-gap acidosis with a raised osmolar gap; methanol causes visual loss, ethylene glycol renal failure. Fomepizole blocks alcohol dehydrogenase; dialysis removes the parent compound and toxic metabolites."
+ },
+ {
+  "id": "fpc.fpc-tox.gases.0",
+  "t": "Carbon monoxide binds haemoglobin about 200–250 times more avidly than oxygen and shifts the dissociation curve left, so tissues receive less oxygen. Headache, nausea, confusion and syncope are common; standard pulse oximetry reads falsely normal because it cannot distinguish carboxyhaemoglobin. Give 100 % oxygen (the half-life of COHb falls from about 4–6 hours on air to about 60–90 minutes on 100 %); hyperbaric oxygen is considered for severe cases, pregnancy, loss of consciousness or neurological deficits."
+ },
+ {
+  "id": "fpc.fpc-tox.gases.1",
+  "t": "Cyanide blocks cytochrome oxidase, halting aerobic metabolism: sudden collapse, seizures, severe lactic acidosis and a high venous oxygen saturation. House fires (burning plastics) cause combined CO and cyanide poisoning; consider cyanide in smoke-inhalation victims with altered consciousness, hypotension or lactate above about 8 mmol/L. Hydroxocobalamin binds cyanide to form cyanocobalamin and turns skin and urine red, interfering with some lab tests."
+ },
+ {
+  "id": "fpc.fpc-tox.principles.0",
+  "t": "Airway, breathing and circulation first; check glucose in every altered patient. Decontaminate before transport when the poison is on the skin or clothing (organophosphates, chemicals) to protect the crew and aircraft. Activated charcoal is considered only when the airway is protected and within about an hour of a significant ingestion of an adsorbable toxin; it does not bind iron, lithium, alcohols or metals."
+ },
+ {
+  "id": "fpc.fpc-tox.principles.1",
+  "t": "Seizures from poisoning are treated with benzodiazepines first; phenytoin is ineffective and harmful in some (tricyclics). Contact a poison centre early; transport time is a good time to call."
+ },
+ {
+  "id": "fpc.fpc-blood.products.0",
+  "t": "Packed red blood cells (PRBCs) restore oxygen-carrying capacity; one unit raises haemoglobin by about 1 g/dL in an adult. Plasma (fresh frozen or liquid/thawed) replaces clotting factors. Platelets (one apheresis unit raises the count by roughly 30,000–50,000/µL) treat thrombocytopenia or dysfunction. Cryoprecipitate is concentrated fibrinogen, factor VIII, von Willebrand factor and factor XIII. Low-titre O whole blood provides all components in one bag and is increasingly carried by prehospital services."
+ },
+ {
+  "id": "fpc.fpc-blood.products.1",
+  "t": "Universal donors: O-negative red cells (O-positive acceptable for most males and for women beyond childbearing age when stocks require); AB plasma is the universal plasma donor (low-titre A plasma is used by some programmes). Women of childbearing potential receive O-negative red cells when the type is unknown to avoid Rh sensitisation."
+ },
+ {
+  "id": "fpc.fpc-blood.mtp.0",
+  "t": "Massive transfusion is commonly defined as 10 or more units of red cells in 24 hours, or a rapid rate such as 3–4 units in an hour. Damage-control resuscitation gives products in a balanced ratio approximating whole blood — about 1:1:1 plasma, platelets and red cells — limits crystalloid, permits low blood pressure until haemorrhage control (except in head injury), and treats coagulopathy early with tranexamic acid (within 3 hours of injury) and fibrinogen replacement guided by testing."
+ },
+ {
+  "id": "fpc.fpc-blood.mtp.1",
+  "t": "Hazards rise with volume: hypocalcaemia (citrate binds calcium — give calcium early), hypothermia (warm every product; cold blood worsens coagulopathy), hyperkalaemia (stored cells leak potassium), acidosis, dilutional coagulopathy, and transfusion-associated circulatory overload."
+ },
+ {
+  "id": "fpc.fpc-blood.reactions.0",
+  "t": "Watch closely during the first 15 minutes of each unit and throughout. If a reaction is suspected: stop the transfusion, keep the line open with saline, check the patient's identity against the unit, treat the symptoms, and report and return the bag per protocol."
+ },
+ {
+  "id": "fpc.fpc-blood.reactions.1",
+  "t": "Acute haemolytic reaction (ABO incompatibility, usually clerical error): fever, chills, back or flank pain, hypotension, haemoglobinuria and DIC — can be fatal; stop, fluids, support. Febrile non-haemolytic: fever and chills without other signs; antipyretics after excluding haemolysis. Allergic: urticaria and itching; antihistamines; anaphylaxis (wheeze, hypotension) needs adrenaline. TRALI: acute hypoxaemia and bilateral infiltrates within 6 hours, often with hypotension and fever; supportive ventilation. TACO: hypertension, pulmonary oedema and volume overload; slow or stop, diuretics, NIV. Sepsis from contaminated product: high fever and shock, especially with platelets."
+ },
+ {
+  "id": "fpc.fpc-blood.case.0",
+  "t": "A 28-year-old motorcyclist with a pelvic fracture and femur fracture: HR 140, BP 74/40, cool and pale. You carry 2 units of low-titre O whole blood and 2 units of plasma."
+ },
+ {
+  "id": "fpc.fpc-blood.equipment.0",
+  "t": "Blood is stored in validated coolers that hold 1–6 °C for a defined time; record the temperature and time out of storage, and return unused units per protocol. Inspect each unit for leaks, clots or discolouration, and check the label and expiry. Two-person verification of patient identity is the main defence against ABO-incompatible transfusion, even in emergencies."
+ },
+ {
+  "id": "fpc.fpc-blood.equipment.1",
+  "t": "Use a filtered blood administration set, a fluid warmer for rapid transfusion, and a pressure infuser for haemorrhage. Do not run blood with dextrose or lactated Ringer's in the same line unless the protocol permits — calcium in LR can clot citrated blood, and dextrose can haemolyse cells. Normal saline is compatible."
+ },
+ {
+  "id": "fpc.fpc-blood.equipment.2",
+  "t": "Document unit numbers, start and stop times, volumes and any reaction. Blood products are traceable to donors; good records protect patients."
+ },
+ {
+  "id": "fpc.fpc-gi.bleeding.0",
+  "t": "Upper GI bleeding (above the ligament of Treitz) presents with haematemesis, coffee-ground vomit or melaena; common causes are peptic ulcer, varices, Mallory–Weiss tears and oesophagitis. Brisk upper bleeding can also cause haematochezia. Lower GI bleeding usually presents with fresh blood per rectum (diverticulosis, angiodysplasia, colitis)."
+ },
+ {
+  "id": "fpc.fpc-gi.bleeding.1",
+  "t": "Resuscitate with blood products guided by haemodynamics and a restrictive transfusion threshold (around Hb 7 g/dL) in stable patients without cardiac disease; massive bleeding needs balanced products. Reverse anticoagulants as indicated. A proton-pump inhibitor is commonly started for suspected upper bleeding. Large-bore access, suction and a plan for the airway are essential: blood in the airway turns intubation into a contaminated, high-risk procedure."
+ },
+ {
+  "id": "fpc.fpc-gi.varices.0",
+  "t": "Patients with cirrhosis and portal hypertension bleed from oesophageal or gastric varices. Treatment adds octreotide (splanchnic vasoconstrictor) and prophylactic antibiotics (they reduce infection and rebleeding and improve survival) to resuscitation, with endoscopic banding as definitive therapy. Avoid over-transfusion, which raises portal pressure. In uncontrolled bleeding, a balloon tamponade device (Sengstaken–Blakemore or Minnesota tube) is a bridge, placed only after intubation."
+ },
+ {
+  "id": "fpc.fpc-gi.varices.1",
+  "t": "Cirrhotic patients have a complex coagulopathy (both bleeding and clotting tendencies), thrombocytopenia, encephalopathy (lactulose; look for precipitants such as bleeding and infection), ascites with possible spontaneous bacterial peritonitis, hepatorenal syndrome and relative hypotension. Acute liver failure (for example from acetaminophen) adds cerebral oedema and hypoglycaemia."
+ },
+ {
+  "id": "fpc.fpc-gi.abdomen.0",
+  "t": "Acute pancreatitis (gallstones and alcohol are commonest) causes epigastric pain radiating to the back, vomiting and raised lipase. Severe disease brings systemic inflammation, third-spacing, hypocalcaemia, ARDS and shock. Give goal-directed fluids — avoid both under- and over-resuscitation — analgesia, and organ support."
+ },
+ {
+  "id": "fpc.fpc-gi.abdomen.1",
+  "t": "Bowel obstruction causes colicky pain, distension, vomiting and absolute constipation; decompress with a gastric tube, replace fluids and electrolytes, and watch for strangulation (constant pain, fever, peritonism, lactate). Perforation causes sudden severe pain, peritonitis and free air; treat with resuscitation, antibiotics and surgery."
+ },
+ {
+  "id": "fpc.fpc-gi.abdomen.2",
+  "t": "Acute mesenteric ischaemia — often an embolus in a patient with atrial fibrillation — causes pain out of proportion to a soft abdomen. Lactate may be normal early. It needs urgent CT angiography and revascularisation; delay costs bowel."
+ },
+ {
+  "id": "fpc.fpc-gi.transport.0",
+  "t": "Gas expands at altitude (Boyle's law): an obstructed or distended bowel enlarges, increasing pain, vomiting and splinting of the diaphragm. Decompress with a gastric tube before flight in obstruction or ileus, and vent it during flight. Consider lower cabin altitude when possible."
+ },
+ {
+  "id": "fpc.fpc-gi.transport.1",
+  "t": "For a patient vomiting blood with a decreased level of consciousness, the airway decision is about aspiration risk and the transport environment: intubation on the ground with SALAD technique and resuscitation first is usually safer than an airway crisis in flight."
+ },
+ {
+  "id": "fpc.fpc-gi.scores.0",
+  "t": "The Glasgow–Blatchford score uses BUN, haemoglobin, systolic pressure, pulse, melaena, syncope, liver disease and heart failure to estimate the need for intervention in upper GI bleeding; a score of zero or one identifies very low-risk patients, while high scores indicate need for urgent endoscopy and possibly transfusion. You will not usually calculate it in flight, but its components are the same red flags you assess."
+ },
+ {
+  "id": "fpc.fpc-gi.scores.1",
+  "t": "Destination matters: active haemorrhage needs a centre with immediate endoscopy, interventional radiology and surgery. Variceal bleeding may need TIPS (transjugular intrahepatic portosystemic shunt) capability. Pre-alert early so the receiving team can prepare blood and procedures."
+ },
+ {
+  "id": "fpc.fpc-gi.case.0",
+  "t": "An 81-year-old on apixaban for atrial fibrillation, three episodes of melaena, light-headed: HR 108 (on a beta-blocker), BP 96/58, Hb 7.9, BUN 58, creatinine 1.1."
+ },
+ {
+  "id": "fpc.fpc-labs.ranges.0",
+  "t": "Reference ranges vary slightly between laboratories, but exam questions and bedside decisions rest on a core set. Learn the units your system uses; US labs report glucose in mg/dL and many others in mmol/L (divide mg/dL by 18)."
+ },
+ {
+  "id": "fpc.fpc-labs.cbc.0",
+  "t": "Haemoglobin is a concentration. In acute haemorrhage it stays near normal until fluid shifts in or crystalloid is given, so a normal first haemoglobin does not exclude major bleeding. Conversely, dilution after crystalloid can lower it without further bleeding."
+ },
+ {
+  "id": "fpc.fpc-labs.cbc.1",
+  "t": "White cell counts rise with infection, stress, steroids and epinephrine. A low count in sepsis is ominous. Thrombocytopenia has many causes: consumption (DIC, massive bleeding), sequestration (splenomegaly), destruction (immune, heparin-induced thrombocytopenia) and dilution."
+ },
+ {
+  "id": "fpc.fpc-labs.cbc.2",
+  "t": "PT/INR tests the extrinsic and common pathways (factor VII and vitamin K–dependent factors: warfarin, liver disease); aPTT tests the intrinsic and common pathways (heparin, haemophilia). DIC prolongs both, lowers platelets and fibrinogen and raises D-dimer. Viscoelastic tests (TEG, ROTEM) guide targeted product replacement in haemorrhage where available."
+ },
+ {
+  "id": "fpc.fpc-labs.chem.0",
+  "t": "Creatinine reflects filtration but rises late; a normal value does not mean normal function in an elderly, small or malnourished patient. A BUN-to-creatinine ratio above about 20 suggests pre-renal states or blood digested from an upper GI bleed."
+ },
+ {
+  "id": "fpc.fpc-labs.chem.1",
+  "t": "Troponin rises within hours of myocardial injury; high-sensitivity assays detect smaller injuries earlier, and serial values distinguish acute injury (a rise and/or fall) from chronic elevation (renal failure, heart failure). Troponin elevation is not the same as myocardial infarction: sepsis, pulmonary embolism, myocarditis and tachyarrhythmia also cause it. BNP rises with ventricular stretch and supports a diagnosis of heart failure; it is higher with renal failure and lower in obesity."
+ },
+ {
+  "id": "fpc.fpc-labs.chem.2",
+  "t": "Liver tests: AST and ALT rise with hepatocellular injury (ischaemic \"shock liver\" and acetaminophen produce very high values); bilirubin and alkaline phosphatase rise with obstruction. Ammonia rises in liver failure but does not correlate tightly with encephalopathy severity."
+ },
+ {
+  "id": "fpc.fpc-labs.story.0",
+  "t": "Ask what process could produce all the abnormalities at once. A low bicarbonate, high anion gap, high glucose and high potassium tell the story of DKA. Low platelets, low fibrinogen and prolonged clotting times after major trauma tell the story of consumptive coagulopathy. Low sodium with seizures in a marathon runner tells the story of exercise-associated hyponatraemia."
+ },
+ {
+  "id": "fpc.fpc-labs.gas.0",
+  "t": "Arterial samples judge oxygenation and acid–base; venous samples are adequate for pH, bicarbonate, lactate and electrolytes in most stable patients (venous pH about 0.03 lower, PCO₂ about 5 mmHg higher). Venous PO₂ does not measure lung oxygenation."
+ },
+ {
+  "id": "fpc.fpc-labs.gas.1",
+  "t": "Calculate the P/F ratio (PaO₂ ÷ FiO₂) to grade hypoxaemia: below 300 indicates impaired oxygenation, and in ARDS, 200–300 is mild, 100–200 moderate and below 100 severe. Calculate the A–a gradient (PAO₂ − PaO₂; normal roughly age/4 + 4 on room air) to separate hypoventilation (normal gradient) from lung disease (widened gradient)."
+ },
+ {
+  "id": "fpc.fpc-labs.gas.2",
+  "t": "Base excess (normal −2 to +2) summarises the metabolic component; a large negative base deficit in trauma reflects shock and predicts transfusion needs. Point-of-care analysers give results in minutes and are increasingly carried by transport teams."
+ },
+ {
+  "id": "fpc.fpc-adv-assess.primary.0",
+  "t": "Begin with what threatens life in the next few minutes: airway patency and protection, breathing and oxygenation, circulation and haemorrhage, disability (GCS, pupils, glucose), and exposure (temperature, rashes, wounds, lines). In medical patients, catastrophic haemorrhage is less common but GI and obstetric bleeding are not."
+ },
+ {
+  "id": "fpc.fpc-adv-assess.primary.1",
+  "t": "At an inter-facility transfer, take a structured handover from the sending team (for example SBAR or a programme-specific format), then assess the patient yourself before leaving. Reconcile infusions, ventilator settings, lines and drains against what you were told. Many transport adverse events trace to unreconciled information."
+ },
+ {
+  "id": "fpc.fpc-adv-assess.perfusion.0",
+  "t": "Blood pressure is a late and imperfect marker. Assess end-organ perfusion: mental status, capillary refill (more than about 3 seconds is abnormal in adults), skin temperature and mottling, urine output, and lactate trends. A shock index (heart rate ÷ systolic BP) above about 0.9–1.0 suggests significant shock even with a \"normal\" pressure."
+ },
+ {
+  "id": "fpc.fpc-adv-assess.perfusion.1",
+  "t": "Classify shock to choose treatment: hypovolaemic (low filling, low output), cardiogenic (high filling, low output), obstructive (tamponade, tension pneumothorax, PE: high filling, low output, obstructed), distributive (low SVR: sepsis, anaphylaxis, neurogenic). Mixed states are common."
+ },
+ {
+  "id": "fpc.fpc-adv-assess.pocus.0",
+  "t": "Focused ultrasound answers specific questions quickly. RUSH-style protocols look at the pump (pericardial effusion, gross LV function, RV dilation), the tank (IVC size and collapsibility, FAST for free fluid, pleural effusions) and the pipes (aortic aneurysm, DVT). Lung ultrasound identifies pneumothorax (absent sliding, lung point), interstitial syndrome (B-lines) and consolidation."
+ },
+ {
+  "id": "fpc.fpc-adv-assess.pocus.1",
+  "t": "Ultrasound findings support decisions; they do not replace clinical judgement. IVC size is unreliable in ventilated patients and those with raised intra-abdominal pressure. In flight, vibration and limited space make scanning harder; scan before departure when possible."
+ },
+ {
+  "id": "fpc.fpc-adv-assess.secondary.0",
+  "t": "A focused history (SAMPLE or OPQRST for pain) and a head-to-toe examination follow stabilisation. In medical transports, the medication list is a diagnostic tool: anticoagulants, beta-blockers masking tachycardia, steroids (adrenal suppression), insulin and sulfonylureas, recent antibiotics."
+ },
+ {
+  "id": "fpc.fpc-adv-assess.secondary.1",
+  "t": "Reassess after every intervention and at regular intervals in flight. Trends — a rising heart rate, falling EtCO₂, widening pulse pressure — often warn before absolute values cross thresholds."
+ },
+ {
+  "id": "fpc.fpc-adv-assess.case.0",
+  "t": "A 59-year-old found confused at home: BP 80/50, HR 124, RR 28, SpO₂ 92 %, warm extremities, temperature 38.9 °C, lactate 4.8. A 25-minute flight."
+ },
+ {
+  "id": "fpc.fpc-adv-assess.neuro.0",
+  "t": "In altered patients, document the GCS by component (eye, verbal, motor), pupil size and reactivity, and lateralising signs. A falling motor score is the most important trend. Check glucose early in every altered patient."
+ },
+ {
+  "id": "fpc.fpc-adv-assess.neuro.1",
+  "t": "The abdomen in critical illness: distension, peritonism, a pulsatile mass, flank bruising (retroperitoneal haemorrhage) and bladder size. A distended abdomen with rising airway pressures and falling urine output suggests abdominal compartment syndrome; bladder pressure above about 20 mmHg with new organ dysfunction confirms it."
+ },
+ {
+  "id": "fpc.fpc-treatment.vaso.0",
+  "t": "Match the drug to the problem. Low SVR (distributive shock): norepinephrine first (α-1 with some β-1), vasopressin as a second agent. Poor contractility (cardiogenic shock): an inotrope — dobutamine (β-1 with some β-2 vasodilation) or milrinone (a phosphodiesterase-3 inhibitor; vasodilating, renally cleared) — usually with norepinephrine to support pressure. Bradycardia with hypotension: epinephrine or dopamine infusions, or pacing."
+ },
+ {
+  "id": "fpc.fpc-treatment.vaso.1",
+  "t": "Epinephrine combines inotropy and vasoconstriction; it raises lactate and heart rate. Phenylephrine is pure α-1 and useful as a push-dose agent for transient post-induction hypotension, but it can lower cardiac output in a weak heart. Dopamine causes more arrhythmias than norepinephrine and is no longer first-line in septic shock."
+ },
+ {
+  "id": "fpc.fpc-treatment.calc.0",
+  "t": "For weight-based drips: mL/h = dose (mcg/kg/min) × weight (kg) × 60 ÷ concentration (mcg/mL). For example, norepinephrine 4 mg in 250 mL is 16 mcg/mL; 0.1 mcg/kg/min for 80 kg = 0.1 × 80 × 60 ÷ 16 = 30 mL/h."
+ },
+ {
+  "id": "fpc.fpc-treatment.calc.1",
+  "t": "Non-weight-based: mL/h = dose per hour ÷ concentration. Use smart pumps with drug libraries where available, double-check high-alert infusions with a second clinician, and label every line at the patient end. Before transport, change bags that will run out during the trip and calculate the volume needed plus a reserve."
+ },
+ {
+  "id": "fpc.fpc-treatment.anticoag.0",
+  "t": "Warfarin: four-factor prothrombin complex concentrate (PCC) plus IV vitamin K for life-threatening bleeding; plasma if PCC is unavailable. Heparin: protamine (about 1 mg per 100 units given in the last few hours; partial effect for low-molecular-weight heparin). Dabigatran: idarucizumab. Factor Xa inhibitors (apixaban, rivaroxaban): andexanet alfa where available, or PCC per protocol."
+ },
+ {
+  "id": "fpc.fpc-treatment.anticoag.1",
+  "t": "Thrombolytics (alteplase, tenecteplase) cause bleeding that may need cryoprecipitate and antifibrinolytics. Antiplatelet drugs are not reversed by PCC; platelet transfusion has a limited and selective role. In intracranial haemorrhage, reversal is time-critical."
+ },
+ {
+  "id": "fpc.fpc-treatment.transport.0",
+  "t": "Consolidate infusions onto transport pumps before leaving, and verify each against the order. Avoid stopping vasopressors during transfers — a brief interruption can drop pressure. Run critical drips through dedicated lines; do not bolus through a line carrying a vasopressor. Peripheral vasopressors in a good, proximal vein are acceptable short-term with site checks; extravasation of norepinephrine is treated with phentolamine infiltration per protocol."
+ },
+ {
+  "id": "fpc.fpc-treatment.transport.1",
+  "t": "Altitude can affect drip chambers and pressure bags; pumps eliminate most gravity-based errors. Battery life and oxygen supply should exceed the planned transport time with a margin."
+ },
+ {
+  "id": "fpc.fpc-treatment.push.0",
+  "t": "Push-dose vasopressors bridge brief hypotension — post-induction, during sedation, or while an infusion is prepared. Phenylephrine is commonly prepared at 100 mcg/mL and given in 50–200 mcg boluses; dilute epinephrine is prepared at 10 mcg/mL (for example 1 mL of 0.1 mg/mL epinephrine added to 9 mL of saline) and given in 5–20 mcg boluses. Preparation errors are a recognised hazard: use standard recipes, label syringes clearly, and double-check."
+ },
+ {
+  "id": "fpc.fpc-treatment.push.1",
+  "t": "Push-dose pressors are a bridge, not a treatment plan. If repeated boluses are needed, start an infusion and treat the cause — volume, haemorrhage, sepsis, or the induction agent."
+ },
+ {
+  "id": "fpc.fpc-treatment.sedation.0",
+  "t": "Ventilated patients need analgesia first, then sedation titrated to a target such as a Richmond Agitation–Sedation Scale (RASS) of −1 to −2 for most, deeper (−4 to −5) when paralysed or for raised ICP. Common infusions: fentanyl 25–200 mcg/h, propofol 5–50 mcg/kg/min (watch blood pressure and triglycerides on prolonged use), midazolam 1–10 mg/h (accumulates in renal and hepatic failure), ketamine 0.5–2 mg/kg/h (haemodynamically supportive), and dexmedetomidine 0.2–1.5 mcg/kg/h (bradycardia and hypotension; little respiratory depression)."
+ },
+ {
+  "id": "fpc.fpc-treatment.sedation.1",
+  "t": "Paralysed patients must be deeply sedated; check that sedation infusions are running before any redose of a paralytic. In flight, stimuli are greater and patients may need more; reassess at regular intervals and before landing and transfer."
+ },
+ {
+  "id": "fpc.fpc-lines.access.0",
+  "t": "Two large-bore peripheral IVs serve most resuscitations; flow depends on catheter radius and length (Poiseuille), so a short 14–16 gauge peripheral line outflows a long, narrow central lumen. Intraosseous (IO) access is fast and reliable when veins fail — proximal humerus, proximal or distal tibia, and the sternum in some devices. Humeral IO gives higher flow and faster central delivery than tibial. Flush, give lidocaine for pain in awake patients per protocol, and use a pressure bag for flow."
+ },
+ {
+  "id": "fpc.fpc-lines.access.1",
+  "t": "Central venous catheters (internal jugular, subclavian, femoral) allow vasopressors, multiple infusions, CVP monitoring and central venous saturation. Ultrasound guidance reduces complications. Subclavian lines carry the highest pneumothorax risk; femoral lines the highest infection risk; the internal jugular sits in between and is accessible with ultrasound."
+ },
+ {
+  "id": "fpc.fpc-lines.art.0",
+  "t": "An arterial line gives beat-to-beat pressure and arterial sampling — valuable on vasopressors, in labile patients and where non-invasive cuffs fail in vibration. The radial artery is preferred; femoral and brachial are alternatives. Complications include thrombosis, distal ischaemia, infection, haematoma and accidental drug injection."
+ },
+ {
+  "id": "fpc.fpc-lines.art.1",
+  "t": "Level the transducer to the phlebostatic axis (4th intercostal space, mid-axillary line) and zero it to atmosphere. A transducer below the heart reads falsely high; above reads falsely low — roughly 7.4 mmHg per 10 cm. Re-level after every position change, and remember aircraft cabin pressure changes do not affect a properly zeroed system once rezeroed at altitude per protocol."
+ },
+ {
+  "id": "fpc.fpc-lines.art.2",
+  "t": "Perform a square-wave (fast-flush) test: one to two oscillations then return to the waveform indicates optimal damping. Many oscillations mean underdamping (systolic overestimated); a slow return with no oscillation means overdamping (bubble, clot, kink, soft pressure bag; systolic underestimated). The mean arterial pressure is least affected by damping."
+ },
+ {
+  "id": "fpc.fpc-lines.pa.0",
+  "t": "CVP approximates right atrial pressure (normal about 2–8 mmHg). Read it at end-expiration. A high CVP occurs with RV failure, tamponade, tension pneumothorax, pulmonary hypertension, volume overload and high PEEP; a low CVP suggests hypovolaemia. CVP alone predicts fluid responsiveness poorly; trends and context matter."
+ },
+ {
+  "id": "fpc.fpc-lines.pa.1",
+  "t": "Pulmonary artery catheters measure right-sided pressures, PA pressure (normal about 15–30 systolic / 4–12 diastolic), pulmonary artery occlusion (\"wedge\") pressure approximating left atrial pressure (about 6–12), cardiac output and mixed venous saturation (SvO₂ about 65–75 %). A wedge above about 18 with low cardiac index points to cardiogenic shock; low wedge with low output points to hypovolaemia; low SVR with high output points to distributive shock."
+ },
+ {
+  "id": "fpc.fpc-lines.pa.2",
+  "t": "In transport, a PA catheter must never be left in the wedge position (balloon inflated) — it risks pulmonary infarction and rupture. Watch the waveform: a damped, wedged trace when the balloon is deflated means the catheter has migrated distally; pull it back per protocol. Secure catheters carefully; migration is common with movement."
+ },
+ {
+  "id": "fpc.fpc-lines.complications.0",
+  "t": "Air embolism: air entering a central line (especially with the patient upright or during disconnection) causes sudden hypoxia, hypotension and arrest. Clamp the line, place the patient left lateral and head down (Durant's manoeuvre), give 100 % oxygen, and aspirate from the catheter if possible."
+ },
+ {
+  "id": "fpc.fpc-lines.complications.1",
+  "t": "Dislodgement and bleeding: secure lines and tubing before moves; a dislodged arterial line can bleed briskly. Infection: maintain aseptic handling. Pneumothorax after a recent subclavian or IJ insertion may declare itself at altitude as trapped air expands."
+ },
+ {
+  "id": "fpc.fpc-radiology.system.0",
+  "t": "Confirm the patient, date and projection (AP films magnify the heart and are standard in ICU and transport; PA films are standard in clinics). Check rotation (spinous processes centred between clavicle heads) and inspiration (about 9–10 posterior ribs visible)."
+ },
+ {
+  "id": "fpc.fpc-radiology.system.1",
+  "t": "Then a fixed sequence, so nothing is skipped: tubes and lines; airway (trachea midline?); breathing (lung fields, pleural spaces, costophrenic angles, apices for pneumothorax); cardiac silhouette and mediastinum; diaphragm (free air beneath?); everything else (bones, soft tissues, surgical emphysema)."
+ },
+ {
+  "id": "fpc.fpc-radiology.findings.0",
+  "t": "Pneumothorax: a visceral pleural line with no lung markings beyond it; on a supine film, look for a deep sulcus sign (a deep, lucent costophrenic angle). Tension pneumothorax is a clinical diagnosis, but a film may show mediastinal shift away and a flattened hemidiaphragm. Any pneumothorax will expand at altitude (Boyle's law); drain before flight per programme policy."
+ },
+ {
+  "id": "fpc.fpc-radiology.findings.1",
+  "t": "Haemothorax and effusion: blunting of the costophrenic angle on an upright film; on a supine film, a diffuse haziness of one hemithorax. Pulmonary oedema: bilateral perihilar (\"bat-wing\") opacities, cardiomegaly, Kerley B lines and upper-lobe diversion in cardiogenic oedema; ARDS tends to be more peripheral with a normal heart size. Consolidation: a lobar opacity with air bronchograms."
+ },
+ {
+  "id": "fpc.fpc-radiology.findings.2",
+  "t": "Widened mediastinum (above about 8 cm on a PA film, though AP films magnify) with blunt deceleration raises concern for aortic injury. Free air under the diaphragm on an upright film indicates a perforated viscus. Gastric distension on a film before flight warrants a gastric tube."
+ },
+ {
+  "id": "fpc.fpc-radiology.ct.0",
+  "t": "On CT, density is measured in Hounsfield units: air is about −1000, fat about −100, water 0, acute blood about 40–80 (bright on non-contrast CT), bone +1000. Fresh intracranial blood is bright; acute ischaemic stroke may look normal early. An epidural haematoma is biconvex (lens-shaped) and does not cross sutures; a subdural is crescentic and crosses sutures but not the midline falx."
+ },
+ {
+  "id": "fpc.fpc-radiology.ct.1",
+  "t": "Ask the referring team for the formal report and send images with the patient. Your job is to recognise findings that change care en route — expanding blood, pneumothorax, free air, tube position — not to provide a formal read."
+ },
+ {
+  "id": "fpc.fpc-radiology.case.0",
+  "t": "An intubated pneumonia patient's pre-transfer film shows: ETT tip 1 cm above the carina, a 15 % right apical pneumothorax after a recent IJ line, and a gastric tube coiled in the oesophagus."
+ },
+ {
+  "id": "fpc.fpc-radiology.case2.0",
+  "t": "Two patients are ready for transfer. Patient A, after a fall: supine film with a deep, lucent left costophrenic angle and subcutaneous emphysema. Patient B, with sepsis: bilateral peripheral opacities, normal heart size, ETT tip at the level of the clavicles, central line tip in the right atrium deep."
+ },
+ {
+  "id": "fpc.fpc-radiology.ultrasound.0",
+  "t": "Bedside ultrasound images increasingly travel with the patient. Recognise the key findings: a pericardial effusion as a black stripe around the heart (with right ventricular diastolic collapse in tamponade); free fluid in Morison's pouch on a FAST; absent lung sliding and a barcode M-mode in pneumothorax; B-lines in interstitial oedema; and an abdominal aorta wider than 3 cm."
+ },
+ {
+  "id": "fpc.fpc-radiology.ultrasound.1",
+  "t": "Ultrasound is operator-dependent; record who performed it and when, and repeat if the patient changes. A negative FAST does not rule out haemorrhage, particularly retroperitoneal."
+ },
+ {
+  "id": "fpc.fpc-resp-sys.cell.0",
+  "t": "Glycolysis in the cytoplasm turns glucose into pyruvate and a small amount of ATP (two per glucose) without oxygen. With oxygen, pyruvate enters the mitochondria, feeds the Krebs (citric acid) cycle, and the electron transport chain uses oxygen as the final electron acceptor to produce most of the cell's ATP (roughly 30–36 per glucose) and CO₂ and water."
+ },
+ {
+  "id": "fpc.fpc-resp-sys.cell.1",
+  "t": "Without enough oxygen — or when mitochondria are poisoned (cyanide) — pyruvate is converted to lactate to keep glycolysis running. Lactate rises; ATP falls. This is why hypoperfusion causes lactic acidosis, and why restoring oxygen delivery, not just blood pressure, is the goal of resuscitation."
+ },
+ {
+  "id": "fpc.fpc-resp-sys.curve.0",
+  "t": "Haemoglobin binding is cooperative, giving a sigmoid curve. On the flat upper part, a large fall in PaO₂ barely changes saturation (90 % saturation at about 60 mmHg). On the steep part, small falls in PaO₂ release large amounts of oxygen — good for tissues, but meaning saturation can fall quickly once PaO₂ drops below about 60."
+ },
+ {
+  "id": "fpc.fpc-resp-sys.curve.1",
+  "t": "A right shift (lower affinity, more oxygen released to tissues) occurs with acidosis, raised CO₂, fever and increased 2,3-DPG — the Bohr effect helps active tissues. A left shift (higher affinity, less release) occurs with alkalosis, low CO₂, hypothermia, low 2,3-DPG (stored blood), carbon monoxide and fetal haemoglobin."
+ },
+ {
+  "id": "fpc.fpc-resp-sys.curve.2",
+  "t": "Oxygen content is mostly bound to haemoglobin: CaO₂ ≈ (1.34 × Hb × SaO₂) + (0.003 × PaO₂). Delivery is content × cardiac output. Raising PaO₂ above full saturation adds little oxygen, except in hyperbaric therapy."
+ },
+ {
+  "id": "fpc.fpc-resp-sys.vq.0",
+  "t": "Ideal gas exchange matches ventilation (V) to perfusion (Q). Low V/Q units (pneumonia, atelectasis) and shunt (V/Q = 0: flooded or collapsed alveoli, intracardiac shunt) cause hypoxaemia. V/Q mismatch improves with oxygen; true shunt barely does and needs recruitment."
+ },
+ {
+  "id": "fpc.fpc-resp-sys.vq.1",
+  "t": "Dead space (V/Q = ∞: pulmonary embolism, low cardiac output, overdistension) wastes ventilation and raises the PaCO₂–EtCO₂ gap. Hypoxic pulmonary vasoconstriction diverts blood away from poorly ventilated regions; vasodilators can worsen V/Q matching by abolishing it."
+ },
+ {
+  "id": "fpc.fpc-resp-sys.vq.2",
+  "t": "The alveolar gas equation (PAO₂ = FiO₂ × (Pb − 47) − PaCO₂/0.8) explains why altitude (lower barometric pressure, Pb) and hypoventilation (higher PaCO₂) lower alveolar oxygen even with normal lungs."
+ },
+ {
+  "id": "fpc.fpc-resp-sys.itp.0",
+  "t": "Spontaneous inspiration lowers intrathoracic pressure, drawing venous blood into the chest and augmenting right-heart filling. Positive-pressure ventilation does the opposite: it raises intrathoracic pressure, reducing venous return and right-ventricular preload while lowering left-ventricular afterload. Hypovolaemic patients therefore become hypotensive after intubation, while patients with LV failure may improve on positive pressure."
+ },
+ {
+  "id": "fpc.fpc-resp-sys.itp.1",
+  "t": "High PEEP, auto-PEEP and tension pneumothorax all raise intrathoracic pressure and can cause obstructive shock. In tamponade, spontaneous inspiration fills the RV, shifts the septum and reduces LV output — pulsus paradoxus. Pulse-pressure variation on controlled ventilation reflects preload responsiveness."
+ },
+ {
+  "id": "fpc.fpc-resp-sys.co2.0",
+  "t": "CO₂ travels in three forms: about 70 % as bicarbonate (formed in red cells by carbonic anhydrase), about 20–23 % bound to haemoglobin as carbamino compounds, and 7–10 % dissolved. Deoxygenated haemoglobin carries more CO₂ (the Haldane effect), which helps load CO₂ in the tissues and unload it in the lungs."
+ },
+ {
+  "id": "fpc.fpc-resp-sys.co2.1",
+  "t": "Giving high-flow oxygen to some patients with chronic CO₂ retention can raise PaCO₂ through the Haldane effect, worsened V/Q matching (loss of hypoxic pulmonary vasoconstriction) and, to a lesser degree, reduced drive. Target SpO₂ 88–92 % in known retainers while treating the cause."
+ },
+ {
+  "id": "fpc.fpc-resp-sys.co2.2",
+  "t": "Ventilation controls PaCO₂ within minutes: halving alveolar ventilation roughly doubles PaCO₂. That is why EtCO₂ responds quickly to rate changes on the ventilator, while bicarbonate adjustment by the kidneys takes days."
  }
 ]
