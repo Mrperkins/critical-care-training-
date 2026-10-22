@@ -16,7 +16,7 @@ self.addEventListener('activate', (e) => {
   e.waitUntil(caches.keys().then((ks) => Promise.all(ks.filter((k) => k.startsWith('cc-shell-') && k !== SHELL).map((k) => caches.delete(k)))).then(() => self.clients.claim()));
 });
 
-const isMedia = (u) => /\/(vo|imaging|models|js)\//.test(u.pathname) || /\.(mp4|webm|mp3|jpg|png|glb|txt)$/.test(u.pathname);
+const isMedia = (u) => /\/(vo|imaging|models|js|conferences)\//.test(u.pathname) || /\.(mp4|webm|mp3|jpg|png|webp|glb|txt)$/.test(u.pathname);
 async function fromCache(req) { return (await caches.match(req, { ignoreSearch: true })) || null; }
 
 /** A Range request answered from a full cached copy (video/audio seeking). */

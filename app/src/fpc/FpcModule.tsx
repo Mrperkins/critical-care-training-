@@ -11,6 +11,7 @@ import { clipId, lessonMinutes, type FpcLesson, type Question, type Section } fr
 import { voice } from '../app/voice';
 import { openLesson, openDrug } from '../app/navigate';
 import { useProgress } from '../curriculum/progress';
+import { CasePrimer } from '../cases/CasePrimer';
 
 /* ------------------------------------------------------------------ state: where you are and your best scores */
 const SCORE_KEY = 'cc.fpc.scores.v1';
@@ -93,6 +94,7 @@ function Choice({ l }: { l: FpcLesson }) {
       <p className="fpc-kicker">FP-C {l.ref}</p>
       <h2 id="fpc-choice-title" className="course-title">{l.title}</h2>
       <p className="course-blurb">{l.summary}</p>
+      <CasePrimer lessonId={l.id} />
       <div className="track-options" role="group" aria-label="Choose how to take this lesson">
         <button className="track-option" onClick={() => go('full')}>
           <span className="track-name">Full course</span>
@@ -129,6 +131,7 @@ function Reader({ l, track }: { l: FpcLesson; track: 'full' | 'tldr' }) {
         <h2 id="fpc-title">{l.title}</h2>
         <p className="fpc-dek">{l.summary}</p>
       </header>
+      <CasePrimer lessonId={l.id} />
       {track === 'tldr' && <KeyPoints l={l} title="What matters most" />}
       {track === 'full' && <section className="fpc-objectives"><h3>By the end you can</h3><ul>{l.objectives.map((o) => <li key={o}>{o}</li>)}</ul></section>}
       <nav className="fpc-toc" aria-label="Sections"><ol>{sections.map((s) => <li key={s.id}><a href={`#s-${l.id}-${s.id}`} onClick={(e) => { e.preventDefault(); document.getElementById(`s-${l.id}-${s.id}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }}>{s.title}</a></li>)}</ol></nav>

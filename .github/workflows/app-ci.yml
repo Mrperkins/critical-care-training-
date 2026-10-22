@@ -47,7 +47,8 @@ jobs:
       fail-fast: false
       matrix:
         browser: [chromium, firefox, webkit]
-    runs-on: ubuntu-latest
+    # Playwright 1.56.1 has browser builds and dependencies for Ubuntu 24.04.
+    runs-on: ubuntu-24.04
     defaults:
       run:
         working-directory: app

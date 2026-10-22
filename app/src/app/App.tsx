@@ -14,6 +14,7 @@ const HeartModule = lazy(() => import('../heart/HeartModule').then((m) => ({ def
 const AbdomenModule = lazy(() => import('../abdomen/AbdomenModule').then((m) => ({ default: m.AbdomenModule })));
 const AtlasModule = lazy(() => import('../atlas/AtlasModule').then((m) => ({ default: m.AtlasModule })));
 const FpcModule = lazy(() => import('../fpc/FpcModule'));
+const CasesModule = lazy(() => import('../cases/CasesModule'));
 const VideoLibrary = lazy(() => import('../videos/VideoLibrary').then((m) => ({ default: m.VideoLibrary })));
 /** shown for the moment a module's code is loading */
 function ModuleLoading() { return <div className="module-loading" role="status"><span>Loading</span></div>; }
@@ -59,6 +60,7 @@ const DOMAINS: { module: Module; label: string; eyebrow: string }[] = [
   { module: 'pediatrics', label: 'Pediatrics', eyebrow: 'Children & neonatal physiology' },
   { module: 'womens', label: 'Women’s Health / OB', eyebrow: 'Gynecology, pregnancy & maternal care' },
   { module: 'fpc', label: 'FP-C exam prep', eyebrow: 'IBSC Certified Flight Paramedic' },
+  { module: 'cases', label: 'Case conference', eyebrow: 'Synthetic cases · Slides & audio' },
 ];
 const ATLAS_DOMAINS: Partial<Record<Module, AtlasDomain>> = { vent: 'vent', heart: 'heart', neuro: 'neuro', lines: 'lines', abdomen: 'abdomen', labs: 'labs', pediatrics: 'pediatrics', womens: 'womens' };
 export function App() {
@@ -87,7 +89,7 @@ export function App() {
     const close = (e: PointerEvent) => { if (resources.current && !resources.current.contains(e.target as Node)) resources.current.removeAttribute('open'); };
     document.addEventListener('pointerdown', close); return () => document.removeEventListener('pointerdown', close);
   }, []);
-  const inDomain = module !== 'curriculum' && module !== 'videos' && module !== 'fpc';
+  const inDomain = module !== 'curriculum' && module !== 'videos' && module !== 'fpc' && module !== 'cases';
   const tools = <>
     {atlasDomain && !showingAtlas && <AtlasEntry domain={atlasDomain} onOpen={() => useUI.getState().set({atlasDisease:conditionsFor(atlasDomain)[0].id})} />}
     {experience === 'practice' && inDomain && !showingAtlas && <div className="practice-switch" role="group" aria-label="Practice type">
@@ -108,7 +110,7 @@ export function App() {
         </button>
         <div className="topbar-context">
           <h2 className="domain-title"><DomainIcon module={domain.module} /><span>{domain.label}</span></h2>
-          {module !== 'fpc' && <nav className="experience-nav" aria-label="Learning mode">
+          {module !== 'fpc' && module !== 'cases' && <nav className="experience-nav" aria-label="Learning mode">
             {EXPERIENCES.map((item) => <button key={item.key} className={inDomain && experience === item.key ? 'on' : ''} aria-pressed={inDomain && experience === item.key} onClick={() => chooseExperience(item.key)}>{item.label}</button>)}
           </nav>}
           <div className="topbar-tools">{tools}</div>
@@ -117,6 +119,7 @@ export function App() {
           <summary aria-label="Learning resources"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 4.5h4v15H5zM10.5 4.5h4v15h-4zM16 5.2l3.6-.9 3 14.5-3.6.9z" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" transform="translate(-1.5 0)" /></svg><span className="resource-label">Library</span></summary>
           <nav aria-label="Learning resources">
             <button onClick={() => chooseDomain('videos')}>Videos &amp; Skills</button>
+            <button onClick={() => chooseDomain('cases')}>Case conference · Slides &amp; audio</button>
             <a href="audio/">Audio &amp; Mental Reps</a>
             <button onClick={() => chooseDomain('curriculum')}>Progress &amp; bookmarks</button>
           </nav>
@@ -152,6 +155,7 @@ export function App() {
           {module === 'curriculum' && <CurriculumModule />}
           {module === 'videos' && <VideoLibrary />}
           {module === 'fpc' && <FpcModule />}</Suspense>
+          {module === 'cases' && <Suspense fallback={<ModuleLoading />}><CasesModule /></Suspense>}
         </div>
       </div>
     </div>

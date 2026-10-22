@@ -47,9 +47,11 @@ export function StudioCanvas({ children, camera, className = 'scene-canvas', fog
     mq.addEventListener('change', resized); document.addEventListener('visibilitychange', changed);
     return () => { mq.removeEventListener('change', resized); document.removeEventListener('visibilitychange', changed); };
   }, []);
-  // adaptive resolution: drop toward 1× when the GPU cannot hold the frame rate, climb back when it can
-  const maxDpr = small ? 1.25 : 1.75; const [dpr, setDpr] = useState(maxDpr);
-  useEffect(() => setDpr(maxDpr), [maxDpr]);
+  // Start at 1× so initial anatomy and shader compilation stay responsive on slow GPUs.
+  // Earn higher resolution through measured performance, without exceeding native display density.
+  const maxDpr = Math.min(small ? 1.25 : 1.75, Math.max(1, window.devicePixelRatio || 1));
+  const [dpr, setDpr] = useState(1);
+  useEffect(() => setDpr(1), [maxDpr]);
   const retry = () => { setAvailable(supportsWebGL()); setGeneration((v) => v + 1); };
   if (!available) return <SceneUnavailable label={label} onRetry={retry} />;
   return (

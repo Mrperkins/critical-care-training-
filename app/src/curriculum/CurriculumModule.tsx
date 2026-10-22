@@ -43,6 +43,7 @@ export function CurriculumModule() {
       <div className="cur-page cur-home">
         <HomeHero lessonId={resume?.lessonId ?? nextLesson.id} resumeAt={resume?.t} done={done} total={total} onExplore={launchExplore} onPractice={launchPractice} practiceLabel={weak[0] ? `revisit ${weak[0].name.toLowerCase()}` : 'run a clinical case'} />
         <SystemsIndex />
+        <section className="home-case-entry"><div><span className="eyebrow">Clinical case conferences</span><h3>Watch the case. Or take it with you.</h3><p>Synthetic patients, vital signs, labs and clinical reasoning — narrated from handoff to synopsis.</p></div><button className="act" onClick={()=>useUI.getState().set({module:'cases',atlasDisease:null})}>Browse case conferences ↗</button></section>
         <DiseaseBrowser />
         {p.recent.length > 0 && <section className="home-recent" aria-labelledby="home-recent-title">
           <h3 id="home-recent-title">Recently viewed</h3>
