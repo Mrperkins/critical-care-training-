@@ -22,12 +22,28 @@ if (mode === '--plan') {
   fs.writeFileSync(path.join(dir,'jobs.json'),JSON.stringify({narrator:NARRATOR,jobs},null,1));
   console.log(`${CONFERENCES.length} conferences, ${jobs.length} slides, ${jobs.reduce((n,j)=>n+j.text.length,0)} spoken characters`);
 } else {
+  // Collection may run after another source commit. Never bind old clips to a newer script.
+  const plan=JSON.parse(fs.readFileSync(path.join(dir,'jobs.json'),'utf8'));
+  if(JSON.stringify(plan.narrator)!==JSON.stringify(NARRATOR))throw new Error('Narrator changed since the render plan');
+  const planned=new Map<string,string>(plan.jobs.map((j:{id:string;hash:string})=>[j.id,j.hash]));
+  for(const c of CONFERENCES)for(const s of c.slides){
+    if(planned.get(clip(c.id,s.id))!==jobHash(s.narration))throw new Error(`Script changed since render plan: ${c.id}/${s.id}`);
+  }
   fs.mkdirSync(path.join(destination,'audio'),{recursive:true});
   fs.mkdirSync(path.join(destination,'transcripts'),{recursive:true});
+  const padded=path.join(path.resolve(dir),'padded');
+  fs.mkdirSync(padded,{recursive:true});
   const assets: Record<string,ConferenceAudio> = {};
   for (const c of CONFERENCES) {
     let t=0;
-    const files = c.slides.map(s=>path.join(path.resolve(dir),'render','vo',`${clip(c.id,s.id)}.mp3`));
+    const files = c.slides.map(s=>{
+      const input=path.join(path.resolve(dir),'render','vo',`${clip(c.id,s.id)}.mp3`);
+      if(!s.pauseAfterSeconds)return input;
+      if(!Number.isFinite(s.pauseAfterSeconds)||s.pauseAfterSeconds<0||s.pauseAfterSeconds>15)throw new Error(`Invalid reflection pause: ${c.id}/${s.id}`);
+      const output=path.join(padded,`${clip(c.id,s.id)}.mp3`);
+      execFileSync('ffmpeg',['-hide_banner','-loglevel','error','-y','-i',input,'-af',`apad=pad_dur=${s.pauseAfterSeconds}`,'-c:a','libmp3lame','-b:a','128k',output]);
+      return output;
+    });
     const chapters=c.slides.map((s,i)=>{
       if(!fs.existsSync(files[i])) throw new Error(`Missing clip ${files[i]}`);
       const seconds=Number(execFileSync('ffprobe',['-v','error','-show_entries','format=duration','-of','default=noprint_wrappers=1:nokey=1',files[i]],{encoding:'utf8'}));

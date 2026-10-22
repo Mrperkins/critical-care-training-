@@ -25,3 +25,11 @@
 @media(prefers-reduced-motion:reduce){.conference-player *{scroll-behavior:auto}}
 
 .m-cases .workspace{grid-template-rows:minmax(0,1fr)}
+.conference-evidence{list-style:none;padding:0;margin:0;display:grid;gap:0;max-width:760px}
+.conference-evidence li{font-size:clamp(16px,1.7vw,22px);line-height:1.5;padding:13px 0 13px 23px;border-bottom:1px solid #ffffff10;position:relative}
+.conference-evidence li::before{content:'';width:5px;height:5px;background:var(--gold);position:absolute;left:0;top:26px;border-radius:50%}
+.conference-focus{margin-top:24px;border-left:2px solid var(--gold);padding:12px 17px;background:#c5a36c0c}
+.conference-focus span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold)}
+.conference-slide .conference-focus p{font-size:17px;line-height:1.5;margin:8px 0 0}
+.conference-slide .conference-reflection,.conference-reflection{font-size:11px!important;color:var(--dim)!important;line-height:1.6!important;margin-top:22px}
+@media(max-width:650px){.conference-evidence li{font-size:16px;padding:11px 0 11px 19px}.conference-evidence li::before{top:21px}.conference-slide .conference-focus p{font-size:15px}}

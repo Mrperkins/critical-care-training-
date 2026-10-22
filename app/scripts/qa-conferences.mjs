@@ -36,7 +36,9 @@ try{
     await page.screenshot({path:path.join(dir,`${name}-case.png`)});
     await page.getByRole('button',{name:'Next slide →',exact:true}).click();await page.getByRole('button',{name:'Next slide →',exact:true}).click();
     await page.screenshot({path:path.join(dir,`${name}-vitals.png`)});
-    assert.equal(await page.locator('.conference-slide h3').textContent(),'Vital signs');
+    assert.equal(await page.locator('.conference-slide .eyebrow').textContent(),'03 / First observations');
+    assert(await page.locator('.conference-data dd').count()>0);
+    assert.equal(await page.locator('.conference-focus').count(),1);
     const a=page.locator('audio');
     await a.waitFor({state:'visible'});
     const audioExists=true;

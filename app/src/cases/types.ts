@@ -21,8 +21,19 @@ export interface CaseTopic {
 export interface ConferenceSlide {
   id: string; title: string; label: string; narration: string;
   paragraphs?: string[]; data?: CaseDatum[]; bullets?: string[];
+  focus?: { label: string; text: string };
+  /** Authored reflection time in the continuous recording; never waits for a response. */
+  pauseAfterSeconds?: number;
   kind: 'scene' | 'vitals' | 'labs' | 'diagnostics' | 'question' | 'reasoning' | 'course' | 'synopsis';
 }
+export type ConferenceBeatId = 'presentation' | 'assessment' | 'vitals' | 'labs' | 'diagnostics' | 'decision' | 'reasoning' | 'reassessment' | 'synopsis';
+/** Screen evidence and speaker commentary are separately authored editorial tracks. */
+export interface ConferenceBeat {
+  title: string; points: string[]; commentary: string;
+  focus?: ConferenceSlide['focus'];
+}
+export type ConferenceScript = Record<ConferenceBeatId, ConferenceBeat>;
+export const beat = (title: string, points: string[], commentary: string, focus?: ConferenceSlide['focus']): ConferenceBeat => ({ title, points, commentary, focus });
 export interface ConferenceCase extends CasePresentation {
   topicId: string; topic: string; population: CasePopulation;
   diseaseIds: string[]; lessonIds: string[]; exams: ExamTrack[];

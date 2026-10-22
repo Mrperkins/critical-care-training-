@@ -27,7 +27,7 @@ it('seeks to measured chapter times and advances slides from audio progress',asy
   await mount();const a=container.querySelector('audio')!;
   await act(async()=>button('Next slide →').click());expect(a.currentTime).toBe(10);
   await act(async()=>{a.currentTime=35;a.dispatchEvent(new Event('timeupdate'));});
-  expect(container.querySelector('.conference-slide h3')?.textContent).toBe('Laboratory findings');
+  expect(container.querySelector('.conference-slide h3')?.textContent).toBe(c.slides[3].title);
   expect(chapterAt(asset,asset.seconds)).toBe(c.slides.length-1);
 });
 it('rejects stale narration while preserving the full visual case and transcript',async()=>{

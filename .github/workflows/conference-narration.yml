@@ -65,6 +65,8 @@ jobs:
         with: { pattern: 'conference-render-*', path: '${{ runner.temp }}/conference/render', merge-multiple: true }
       - run: node --import tsx scripts/conference-assets.ts --collect "${{ runner.temp }}/conference"
         working-directory: app
+      - run: node --import tsx scripts/conference-audit.ts
+        working-directory: app
       - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
