@@ -1,6 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import { App } from './app/App';
 import './styles/app.css';
+import './cases/cases.css';
 import { useUI, type Module, type Mode } from './app/store';
 import { openLesson } from './app/navigate';
 import { session } from './vent/session';
@@ -14,13 +15,15 @@ const qp = new URLSearchParams(location.search);
 const linkedLesson = qp.get('lesson');
 if (linkedLesson) setTimeout(() => openLesson(linkedLesson), 0);
 else {
-  const modules: Module[] = ['vent','abg','labs','lines','neuro','moa','heart','abdomen','pediatrics','womens','curriculum','videos'];
+  const modules: Module[] = ['vent','abg','labs','lines','neuro','moa','heart','abdomen','pediatrics','womens','curriculum','videos','fpc','cases'];
   const modes: Mode[] = ['explore','learn','challenge','sim'];
   const module = qp.get('module') as Module | null, mode = qp.get('mode') as Mode | null;
   const patch: Partial<ReturnType<typeof useUI.getState>> = {};
   if (module && modules.includes(module)) patch.module = module;
   if (mode && modes.includes(mode)) patch.mode = mode;
   if (Object.keys(patch).length) useUI.getState().set(patch);
+  const conference = qp.get('case');
+  if (conference) import('./cases/state').then(m=>m.openConference(conference));
   // deep link into the MI Locator view of the cardiac module (?view=mi; the former Infarct Atlas page sends ?view=coronary)
   const view = qp.get('view');
   if (view === 'coronary' || view === 'mi') {
