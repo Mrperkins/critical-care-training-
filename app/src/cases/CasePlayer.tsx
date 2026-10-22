@@ -1,7 +1,8 @@
 import {lazy,Suspense,useEffect,useRef,useState} from 'react';
-import {conferenceAudioKey} from './audioKey';
+import {conferenceAudioKey,conferenceAssetPaths} from './audioKey';
 import type {ConferenceAudio,ConferenceCase} from './types';
 const ClinicalMedia=lazy(()=>import('../atlas/ClinicalMedia'));
+const ConferenceMedia=lazy(()=>import('./ConferenceMedia'));
 const mmss=(t:number)=>`${Math.floor(t/60)}:${String(Math.floor(t%60)).padStart(2,'0')}`;
 const key=(c:ConferenceCase)=>`cc.conference.${c.id}.${conferenceAudioKey(c)}`;
 // Native media clocks round a requested seek; sub-millisecond error must not select the previous slide.
@@ -18,7 +19,7 @@ export function CasePlayer({c,onBack,onContinue,onNext}:{c:ConferenceCase;onBack
   const slide=c.slides[index];
   useEffect(()=>{
     let alive=true;
-    fetch('conferences/manifest.json').then(r=>{if(!r.ok)throw new Error('Narration is unavailable.');return r.json();}).then(m=>{
+    fetch('conferences/manifest.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('Narration is unavailable.');return r.json();}).then(m=>{
       const a=m.assets?.[c.id] as ConferenceAudio|undefined;
       if(!a||a.transcriptHash!==conferenceAudioKey(c)||a.chapters.length!==c.slides.length)throw new Error('Current narration is not available for this draft.');
       if(alive){setAsset(a);setError('');}
@@ -53,16 +54,16 @@ export function CasePlayer({c,onBack,onContinue,onNext}:{c:ConferenceCase;onBack
   const seeked=()=>{if(audio.current?.seeking)return;seekingTo.current=null;update();};
   return <article className={`conference-player${listening?' listening':''}`} aria-labelledby="conference-title">
     <div className="conference-top"><button className="course-back" onClick={onBack}>← Case library</button><div className="conference-mode" role="group" aria-label="Presentation mode"><button aria-pressed={!listening} onClick={()=>setListening(false)}>Watch slides</button><button aria-pressed={listening} onClick={()=>setListening(true)}>Listen</button></div></div>
-    <header className="conference-heading"><p className="eyebrow">{c.population} · Synthetic case conference</p><h2 id="conference-title">{c.title}</h2><p>{c.variant}</p><small className="conference-review">Clinical review pending · Fictional patient</small></header>
+    <header className="conference-heading"><p className="eyebrow">{c.population} · Synthetic case conference</p><h2 id="conference-title">{c.title}</h2><p>{c.variant}</p><p className="conference-diagnosis"><b>Diagnosis:</b> {c.diagnosis}</p><small className="conference-review">Clinical review pending · Fictional patient</small></header>
     {listening?<section className="conference-listening" aria-label="Audio listening view"><span className="conference-headphones" aria-hidden="true">◉</span><p className="eyebrow">Audio case conference</p><h3>{playing?'Now playing':'Ready when you are'}</h3><p>All clinical findings and reasoning are narrated. Set up playback while parked; no responses or screen interaction are required.</p><p className="conference-current">Chapter {index+1} of {c.slides.length} · {slide.title}</p></section>:<>
       <div className={`conference-slide kind-${slide.kind}`}>
         <div className="conference-slide-text"><p className="eyebrow">{slide.label}</p><h3>{slide.title}</h3>
           {slide.paragraphs?.map(p=><p key={p}>{p}</p>)}
-          {slide.data&&<dl className={`conference-data ${slide.kind==='vitals'?'vital-grid':'lab-grid'}`}>{slide.data.map(d=><div key={d.label}><dt>{d.label}</dt><dd>{d.value}<small>{d.unit}</small></dd></div>)}</dl>}
+          {slide.data&&<dl className={`conference-data ${slide.kind==='vitals'?'vital-grid':'lab-grid'}`}>{slide.data.map(d=><div key={d.label}><dt>{d.label}</dt><dd>{d.value}<small>{d.unit}</small></dd>{d.teaching&&<details className="conference-finding"><summary>Reference &amp; interpretation</summary><p>{d.teaching.reference.text}</p><p>{d.teaching.interpretation}</p><p><b>Common associations:</b> {d.teaching.associations}</p><a href={d.teaching.reference.source.url} target="_blank" rel="noreferrer">Reference source</a></details>}</div>)}</dl>}
           {slide.bullets&&<ul className="conference-evidence">{slide.bullets.map(p=><li key={p}>{p}</li>)}</ul>}
           {slide.focus&&<aside className="conference-focus"><span>{slide.focus.label}</span><p>{slide.focus.text}</p></aside>}
           {slide.pauseAfterSeconds&&<p className="conference-reflection">Brief reflection pause · Narration continues automatically</p>}
-          {slide.kind==='diagnostics'&&c.referenceDisease&&<div><button className="act" aria-expanded={reference} onClick={()=>setReference(!reference)}>{reference?'Hide':'Open'} real comparison image</button>{reference&&<Suspense fallback={<p>Loading reference…</p>}><ClinicalMedia diseaseId={c.referenceDisease}/></Suspense>}</div>}
+          {slide.comparisonIds?<Suspense fallback={<p>Loading reference…</p>}><ConferenceMedia ids={slide.comparisonIds}/></Suspense>:slide.kind==='diagnostics'&&c.referenceDisease&&<div><button className="act" aria-expanded={reference} onClick={()=>setReference(!reference)}>{reference?'Hide':'Open'} real comparison image</button>{reference&&<Suspense fallback={<p>Loading reference…</p>}><ClinicalMedia diseaseId={c.referenceDisease}/></Suspense>}</div>}
         </div>
         {index===0&&<figure className="conference-scene"><img src={sceneImage(c.population)} alt={`Illustrative ${c.population.toLowerCase()} care setting, AI generated; not the fictional case patient`} onError={e=>e.currentTarget.style.display='none'}/><figcaption>AI-generated setting · Not the case patient</figcaption></figure>}
       </div>
@@ -73,7 +74,7 @@ export function CasePlayer({c,onBack,onContinue,onNext}:{c:ConferenceCase;onBack
       {asset&&<audio ref={audio} controls preload="metadata" src={`conferences/${asset.file}`} onLoadedMetadata={()=>{const a=audio.current;if(!a)return;const requested=pendingSlide.current;const resume=readPosition(c);const target=requested!==null?asset.chapters[requested].start:resume>0&&resume<a.duration-2?resume:0;pendingSlide.current=null;seekingTo.current=target>0?target:null;if(target>0)a.currentTime=target;setT(target);setIndex(requested??chapterAt(asset,target));a.playbackRate=rate;}} onTimeUpdate={update} onSeeked={seeked} onPlay={()=>changePlayback(true)} onPause={()=>changePlayback(false)} onEnded={()=>{setCompleted(true);setIndex(c.slides.length-1);try{localStorage.removeItem(key(c));}catch{}}} onError={()=>setError('The audio file could not be loaded. Retry or use the full transcript.')} />}
       {!asset&&!error&&<p role="status">Loading narration…</p>}
       {error&&<p className="conference-error" role="status">{error} <button className="act" onClick={()=>{setError('');setRetry(v=>v+1);audio.current?.load();}}>Retry audio</button></p>}
-      {asset&&<p className="conference-downloads"><a href={`conferences/${asset.file}`} download={`${c.id}.mp3`}>Download audio</a><a href={`conferences/transcripts/${c.id}.txt`} download>Download transcript</a><span>One continuous file · {mmss(asset.seconds)}</span></p>}
+      {asset&&<p className="conference-downloads"><a href={`conferences/${asset.file}`} download={`${c.id}.mp3`}>Download audio</a><a href={`conferences/${conferenceAssetPaths(c).transcript}`} download={`${c.id}.txt`}>Download transcript</a><span>One continuous file · {mmss(asset.seconds)}</span></p>}
     </section>
     <details className="conference-chapters"><summary>Chapters &amp; full transcript</summary><nav aria-label="Conference chapters">{c.slides.map((s,i)=><button key={s.id} aria-current={i===index?'step':undefined} onClick={()=>seekSlide(i)}><span>{asset?mmss(asset.chapters[i].start):String(i+1).padStart(2,'0')}</span>{s.title}</button>)}</nav>{c.slides.map(s=><section key={s.id}><h4>{s.title}</h4><p>{s.narration}</p>{s.pauseAfterSeconds&&<p className="conference-reflection">{s.pauseAfterSeconds}-second reflection pause; playback continues automatically.</p>}</section>)}</details>
     {(completed||index===c.slides.length-1)&&<div className="conference-complete"><p>{completed?'Playback complete.':'Case synopsis.'} Continue into the physiology or compare a different presentation.</p><button className="act primary" onClick={onContinue}>Continue to the lesson</button>{onNext&&<button className="act" onClick={onNext}>Next presentation</button>}</div>}

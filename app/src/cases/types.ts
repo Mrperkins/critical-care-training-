@@ -1,7 +1,19 @@
 /** Authored synthetic conferences. Clinical fields are supplied by an author, never inferred from a diagnosis. */
 export type CasePopulation = 'Adult' | 'Pediatric' | 'Neonatal' | 'Obstetric';
 export type ExamTrack = 'FP-C' | 'CCP-C' | 'CCRN Adult' | 'CCRN Pediatric' | 'CCRN Neonatal';
-export interface CaseDatum { label: string; value: string; unit?: string; spoken: string }
+export interface FindingTeaching {
+  reference: { text: string; source: { title: string; url: string } };
+  interpretation: string;
+  /** Common associations, explicitly distinguished from this patient's documented findings. */
+  associations: string;
+}
+export interface CaseDatum { label: string; value: string; unit?: string; spoken: string; teaching?: FindingTeaching }
+export interface ClinicalReview {
+  diagnosis: string; handoff: string; course: string;
+  sources?: { title: string; url: string }[];
+  findings: Record<string, FindingTeaching>;
+  imaging?: { ids: string[]; narration: string };
+}
 export interface CasePresentation {
   id: string; title: string; variant: string;
   patient: string; story: string; exam: string;
@@ -22,6 +34,7 @@ export interface ConferenceSlide {
   id: string; title: string; label: string; narration: string;
   paragraphs?: string[]; data?: CaseDatum[]; bullets?: string[];
   focus?: { label: string; text: string };
+  comparisonIds?: string[];
   /** Authored reflection time in the continuous recording; never waits for a response. */
   pauseAfterSeconds?: number;
   kind: 'scene' | 'vitals' | 'labs' | 'diagnostics' | 'question' | 'reasoning' | 'course' | 'synopsis';
@@ -35,6 +48,7 @@ export interface ConferenceBeat {
 export type ConferenceScript = Record<ConferenceBeatId, ConferenceBeat>;
 export const beat = (title: string, points: string[], commentary: string, focus?: ConferenceSlide['focus']): ConferenceBeat => ({ title, points, commentary, focus });
 export interface ConferenceCase extends CasePresentation {
+  diagnosis: string;
   topicId: string; topic: string; population: CasePopulation;
   diseaseIds: string[]; lessonIds: string[]; exams: ExamTrack[];
   sources: CaseTopic['sources']; referenceDisease?: string;

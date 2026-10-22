@@ -6,7 +6,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { CONFERENCES } from '../src/cases/catalog';
-import { conferenceAudioKey } from '../src/cases/audioKey';
+import { conferenceAudioKey, conferenceAssetPaths } from '../src/cases/audioKey';
 import { transcriptFor } from '../src/cases/buildConference';
 import { NARRATOR } from '../src/audio/narrator';
 import { jobHash } from './narration-common';
@@ -52,12 +52,18 @@ if (mode === '--plan') {
     });
     const list=path.join(dir,`${c.id}.concat`);
     fs.writeFileSync(list,files.map(f=>`file '${f.replaceAll("'", "'\\''")}'`).join('\n'));
-    const file=`audio/${c.id}.mp3`;
+    const paths=conferenceAssetPaths(c), file=paths.audio;
     execFileSync('ffmpeg',['-hide_banner','-loglevel','error','-y','-f','concat','-safe','0','-i',list,'-c','copy',path.join(destination,file)]);
     const seconds=Number(execFileSync('ffprobe',['-v','error','-show_entries','format=duration','-of','default=noprint_wrappers=1:nokey=1',path.join(destination,file)],{encoding:'utf8'}));
     assets[c.id]={file,seconds,chapters,transcriptHash:conferenceAudioKey(c)};
-    fs.writeFileSync(path.join(destination,'transcripts',`${c.id}.txt`),transcriptFor(c)+'\n');
+    fs.writeFileSync(path.join(destination,paths.transcript),transcriptFor(c)+'\n');
   }
   fs.writeFileSync(path.join(destination,'manifest.json'),JSON.stringify({version:1,narrator:NARRATOR,assets},null,1));
+  // These two folders are generated output. Retain exactly the newly assembled revision.
+  const current = new Set(CONFERENCES.flatMap(c=>Object.values(conferenceAssetPaths(c))));
+  for(const folder of ['audio','transcripts'])for(const name of fs.readdirSync(path.join(destination,folder))){
+    const relative=`${folder}/${name}`;
+    if(/\.(mp3|txt)$/.test(name)&&!current.has(relative))fs.unlinkSync(path.join(destination,relative));
+  }
   console.log(`Assembled ${Object.keys(assets).length} continuous conferences, ${Math.round(Object.values(assets).reduce((n,a)=>n+a.seconds,0)/60)} minutes`);
 }

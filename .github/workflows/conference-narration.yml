@@ -1,7 +1,7 @@
 name: Render case conferences
 on:
   push:
-    branches: [feat/narrated-case-conferences]
+    branches: [feat/narrated-case-conferences, feat/clinical-case-reviews]
     paths: ['app/conference-request.txt', '.github/workflows/conference-narration.yml']
   workflow_dispatch:
 permissions:
