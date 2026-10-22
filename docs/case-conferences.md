@@ -4,7 +4,7 @@ The Case conference module introduces a fictional patient before disease teachin
 
 ## Current scope
 
-There are 32 draft conferences across 16 topics: 10 pediatric cases, 10 obstetric cases, 4 neonatal cases and 8 adult cases. Each topic has two clinically distinct presentation variants. Pediatric DKA, for example, contrasts a new diagnosis with suspected cerebral injury during treatment. Postpartum hemorrhage contrasts atony with persistent bleeding after the uterus becomes firm.
+There are 32 draft conferences across 16 topics: 10 pediatric cases, 10 obstetric cases, 4 neonatal cases and 8 adult cases. All 32 continuous MP3 files and transcripts are included, totaling approximately 99 minutes. Each topic has two clinically distinct presentation variants. Pediatric DKA, for example, contrasts a new diagnosis with suspected cerebral injury during treatment. Postpartum hemorrhage contrasts atony with persistent bleeding after the uterus becomes firm.
 
 Case entries appear before the course-length choice and before the FP-C lesson text, and before atlas explainers. Home, the clinical-domain menu and the resources menu open the case library. Topics without cases explicitly say they are in preparation. Learners can continue to the source disease or lesson after the synopsis. Deep links use `?module=cases&case=eclampsia-postpartum`.
 
@@ -43,6 +43,8 @@ node scripts/qa-conferences.mjs
 ```
 
 Use Kokoro-82M v1.0 ONNX and voices from the existing narration workflow. Dependencies are `kokoro-onnx`, `soundfile`, `numpy`, ffmpeg and ffprobe. Model weights are temporary production dependencies and are not committed. Run final collection only after all render processes have exited. Decode validation is required before publishing; a successful render process alone is insufficient.
+
+The dedicated `conference-narration.yml` workflow renders and assembles the collection on the review branch, saving the resulting media directly into git. Run `node --import tsx scripts/conference-audit.ts` to verify complete decode, current text bindings, transcripts and chapter timing. See [conference-validation.md](conference-validation.md) for completed verification and remaining review.
 
 The build copies `app/public/conferences/` into the publishable output. The existing post-merge source-sync workflow owns root Pages artifacts. New case assets are not published by this review branch until the change is merged and deployed.
 

@@ -38,7 +38,8 @@ try{
     await page.screenshot({path:path.join(dir,`${name}-vitals.png`)});
     assert.equal(await page.locator('.conference-slide h3').textContent(),'Vital signs');
     const a=page.locator('audio');
-    const audioExists=await a.count()>0;
+    await a.waitFor({state:'visible'});
+    const audioExists=true;
     if(audioExists){
       await a.evaluate(a=>{a.dataset.original='yes';});
       await page.getByRole('button',{name:'Listen',exact:true}).click();
@@ -58,6 +59,6 @@ try{
     results.push({viewport:name,width,height,audio:audioExists?'Playback and mode preservation verified':'Not yet assembled',horizontalOverflow:overflow,errors});
     await page.close();
   }
-  const linked=await browser.newPage();await linked.addInitScript(()=>window.__NO_SW__=true);await linked.goto(`${url}/?module=cases&case=eclampsia-postpartum`);await linked.locator('#conference-title').filter({hasText:'A seizure five days after delivery'}).waitFor();await linked.getByRole('button',{name:'Next slide →',exact:true}).click();await linked.close();
+  const linked=await browser.newPage();await linked.addInitScript(()=>window.__NO_SW__=true);await linked.goto(`${url}/?module=cases&case=eclampsia-postpartum`);await linked.locator('#conference-title').filter({hasText:'A seizure five days after delivery'}).waitFor();await linked.getByRole('button',{name:'Next slide →',exact:true}).click();await linked.getByText('Chapters & full transcript',{exact:true}).click();await linked.locator('nav[aria-label="Conference chapters"] button').last().click();await linked.getByRole('button',{name:'Continue to the lesson',exact:true}).click();await linked.locator('#fpc-title').waitFor();assert(await linked.locator('.case-primer').count()>0);await linked.close();
   fs.writeFileSync(path.join(dir,'results.json'),JSON.stringify(results,null,2));console.log(JSON.stringify(results,null,2));
 }finally{await browser.close();await new Promise(resolve=>server.close(resolve));}
