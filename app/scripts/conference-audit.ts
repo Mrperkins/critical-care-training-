@@ -4,7 +4,7 @@ import path from 'node:path';
 import {execFileSync,spawnSync} from 'node:child_process';
 import assert from 'node:assert/strict';
 import {CONFERENCES} from '../src/cases/catalog';
-import {conferenceAudioKey} from '../src/cases/audioKey';
+import {conferenceAudioKey,conferenceAssetPaths} from '../src/cases/audioKey';
 import {transcriptFor} from '../src/cases/buildConference';
 import type {ConferenceAudio} from '../src/cases/types';
 const root=path.resolve('public/conferences');
@@ -12,6 +12,7 @@ const manifest=JSON.parse(fs.readFileSync(path.join(root,'manifest.json'),'utf8'
 let total=0;
 for(const c of CONFERENCES){
   const a=manifest.assets[c.id];assert(a,`Missing audio ${c.id}`);assert.equal(a.transcriptHash,conferenceAudioKey(c),`Stale audio ${c.id}`);
+  assert.equal(a.file,conferenceAssetPaths(c).audio,`Unversioned audio path ${c.id}`);
   assert.deepEqual(a.chapters.map(ch=>ch.id),c.slides.map(s=>s.id),`Chapter mismatch ${c.id}`);
   let previous=0;for(const ch of a.chapters){assert(Math.abs(ch.start-previous)<.01,`Chapter gap ${c.id}/${ch.id}`);assert(ch.end>ch.start);previous=ch.end;}
   const file=path.join(root,a.file);assert(fs.statSync(file).size>1000,`Empty media ${c.id}`);
@@ -28,6 +29,6 @@ for(const c of CONFERENCES){
     const peak=match[1]==='-inf'?-Infinity:Number(match[1]);
     assert(peak<=-70,`Reflection pause contains audio ${c.id}: ${peak} dB`);
   }
-  assert.equal(fs.readFileSync(path.join(root,'transcripts',`${c.id}.txt`),'utf8'),transcriptFor(c)+'\n',`Transcript mismatch ${c.id}`);total+=seconds;
+  assert.equal(fs.readFileSync(path.join(root,conferenceAssetPaths(c).transcript),'utf8'),transcriptFor(c)+'\n',`Transcript mismatch ${c.id}`);total+=seconds;
 }
 console.log(`${CONFERENCES.length} complete, current, decodable conference files; ${Math.round(total/60)} minutes; ${CONFERENCES.reduce((n,c)=>n+c.slides.length,0)} measured chapters.`);

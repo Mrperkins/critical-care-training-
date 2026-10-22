@@ -21,6 +21,7 @@ export const SOURCES = {
   bnp: source('University of Florida · BNP assay and reference values', 'https://pathlabs.ufl.edu/tests/test-directory-b/b-type-natriuretic-peptide/'),
   ef: source('AHA · Ejection fraction', 'https://www.heart.org/en/health-topics/heart-failure/diagnosing-heart-failure/ejection-fraction-heart-failure-measurement'),
   adult: source('MedlinePlus · Vital signs', 'https://medlineplus.gov/ency/article/002341.htm'),
+  temperature: source('HealthLink BC · Temperature, fever and measurement context', 'https://www.healthlinkbc.ca/healthwise/fever'),
   oxygen: source('MedlinePlus · Pulse oximetry', 'https://medlineplus.gov/lab-tests/pulse-oximetry/'),
 };
 const ref = (text: string, s: keyof typeof SOURCES): Reference => ({text,source:SOURCES[s]});
@@ -31,7 +32,7 @@ export const R = {
   bpAdult: ref('An adult pressure is commonly around 90 over 60 to below 120 over 80 at rest. A systolic pressure below 90 is concerning in an acutely ill patient; perfusion and baseline matter.', 'adult'),
   bpOb: ref('In pregnancy, a pressure below 140 over 90 is below the hypertension threshold. Severe hypertension is a systolic pressure of at least 160 or a diastolic pressure of at least 110; either component qualifies.', 'ob'),
   sat: ref('At sea level, oxygen saturation is usually 95 to 100 percent in a person without a special oxygen target. Verify signal quality and the oxygen support in use.', 'oxygen'),
-  temp: ref('Temperature depends on site and time of day; about 36.5 to 37.5 degrees Celsius is a useful reference. A temperature of 38 or more is fever, and below 36 is concerning in an ill patient.', 'adult'),
+  temp: ref('Temperature depends on site and time of day; about 36.5 to 37.5 degrees Celsius is a useful reference. A temperature of 38 or more is fever, and below 36 is concerning in an ill patient.', 'temperature'),
   apH: ref('The usual arterial pH reference is 7.35 to 7.45; lower is acidemia and higher is alkalemia.', 'arterial'),
   npH: ref('For the first month of life, this laboratory lists arterial pH from 7.32 to 7.42. Ventilation goals in a preterm infant are individualized.', 'arterial'),
   vpH: ref('This pediatric peripheral venous pH reference is 7.30 to 7.40. Venous and arterial samples must be identified separately.', 'venous'),

@@ -1,5 +1,5 @@
 import {lazy,Suspense,useEffect,useRef,useState} from 'react';
-import {conferenceAudioKey} from './audioKey';
+import {conferenceAudioKey,conferenceAssetPaths} from './audioKey';
 import type {ConferenceAudio,ConferenceCase} from './types';
 const ClinicalMedia=lazy(()=>import('../atlas/ClinicalMedia'));
 const ConferenceMedia=lazy(()=>import('./ConferenceMedia'));
@@ -74,7 +74,7 @@ export function CasePlayer({c,onBack,onContinue,onNext}:{c:ConferenceCase;onBack
       {asset&&<audio ref={audio} controls preload="metadata" src={`conferences/${asset.file}`} onLoadedMetadata={()=>{const a=audio.current;if(!a)return;const requested=pendingSlide.current;const resume=readPosition(c);const target=requested!==null?asset.chapters[requested].start:resume>0&&resume<a.duration-2?resume:0;pendingSlide.current=null;seekingTo.current=target>0?target:null;if(target>0)a.currentTime=target;setT(target);setIndex(requested??chapterAt(asset,target));a.playbackRate=rate;}} onTimeUpdate={update} onSeeked={seeked} onPlay={()=>changePlayback(true)} onPause={()=>changePlayback(false)} onEnded={()=>{setCompleted(true);setIndex(c.slides.length-1);try{localStorage.removeItem(key(c));}catch{}}} onError={()=>setError('The audio file could not be loaded. Retry or use the full transcript.')} />}
       {!asset&&!error&&<p role="status">Loading narration…</p>}
       {error&&<p className="conference-error" role="status">{error} <button className="act" onClick={()=>{setError('');setRetry(v=>v+1);audio.current?.load();}}>Retry audio</button></p>}
-      {asset&&<p className="conference-downloads"><a href={`conferences/${asset.file}`} download={`${c.id}.mp3`}>Download audio</a><a href={`conferences/transcripts/${c.id}.txt`} download>Download transcript</a><span>One continuous file · {mmss(asset.seconds)}</span></p>}
+      {asset&&<p className="conference-downloads"><a href={`conferences/${asset.file}`} download={`${c.id}.mp3`}>Download audio</a><a href={`conferences/${conferenceAssetPaths(c).transcript}`} download={`${c.id}.txt`}>Download transcript</a><span>One continuous file · {mmss(asset.seconds)}</span></p>}
     </section>
     <details className="conference-chapters"><summary>Chapters &amp; full transcript</summary><nav aria-label="Conference chapters">{c.slides.map((s,i)=><button key={s.id} aria-current={i===index?'step':undefined} onClick={()=>seekSlide(i)}><span>{asset?mmss(asset.chapters[i].start):String(i+1).padStart(2,'0')}</span>{s.title}</button>)}</nav>{c.slides.map(s=><section key={s.id}><h4>{s.title}</h4><p>{s.narration}</p>{s.pauseAfterSeconds&&<p className="conference-reflection">{s.pauseAfterSeconds}-second reflection pause; playback continues automatically.</p>}</section>)}</details>
     {(completed||index===c.slides.length-1)&&<div className="conference-complete"><p>{completed?'Playback complete.':'Case synopsis.'} Continue into the physiology or compare a different presentation.</p><button className="act primary" onClick={onContinue}>Continue to the lesson</button>{onNext&&<button className="act" onClick={onNext}>Next presentation</button>}</div>}

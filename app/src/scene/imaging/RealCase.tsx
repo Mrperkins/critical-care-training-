@@ -75,7 +75,7 @@ export function RealCaseCard({ it, teachingMode = false }: { it: RealItem; teach
         {answered && <>
           <p className="small">{it.caption}</p>
           <p className="small"><b>Look for:</b> {it.look.join(' · ')}</p>
-          {it.teach && <ul className="rc-teach">{it.teach.map((t) => <li key={t}>{t}</li>)}</ul>}
+          {!teachingMode && it.teach && <ul className="rc-teach">{it.teach.map((t) => <li key={t}>{t}</li>)}</ul>}
           {isVideo && (it.marks ?? []).length > 0 && <p className="muted small">Overlays are drawn on one frame — the clip holds there while they are shown; the anatomy moves once it plays.</p>}
         </>}
       </div>
