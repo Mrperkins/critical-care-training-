@@ -1,0 +1,24 @@
+{
+  "created": "2026-10-22",
+  "generator": "Built-in image_gen",
+  "purpose": "General care-setting illustrations, not the synthetic case patients or diagnostic evidence.",
+  "images": [
+    {
+      "file": "pediatric.webp",
+      "prompt": "Respectful medical documentary still depicting a fictional pediatric care setting with patient and clinician in navy scrubs. Wide landscape composition, natural hospital light, subdued blue and warm neutral palette. No invasive procedure, graphic injury, readable monitor values, text, logos or diagnostic scans."
+    },
+    {
+      "file": "obstetric.webp",
+      "prompt": "Respectful medical documentary still depicting a fictional obstetric care setting with patient and clinician in navy scrubs. Wide landscape composition, natural hospital light, subdued blue and warm neutral palette. No invasive procedure, graphic injury, readable monitor values, text, logos or diagnostic scans."
+    },
+    {
+      "file": "neonatal.webp",
+      "prompt": "Respectful medical documentary still depicting a fictional neonatal care setting with patient and clinician in navy scrubs. Wide landscape composition, natural hospital light, subdued blue and warm neutral palette. No invasive procedure, graphic injury, readable monitor values, text, logos or diagnostic scans."
+    },
+    {
+      "file": "adult.webp",
+      "prompt": "Respectful medical documentary still depicting a fictional adult care setting with patient and clinician in navy scrubs. Wide landscape composition, natural hospital light, subdued blue and warm neutral palette. No invasive procedure, graphic injury, readable monitor values, text, logos or diagnostic scans."
+    }
+  ],
+  "processing": "Resized to fit 1440 x 900, WebP quality 86. Prompts are summarized."
+}
