@@ -19,7 +19,7 @@ export function CasePlayer({c,onBack,onContinue,onNext}:{c:ConferenceCase;onBack
   const slide=c.slides[index];
   useEffect(()=>{
     let alive=true;
-    fetch('conferences/manifest.json').then(r=>{if(!r.ok)throw new Error('Narration is unavailable.');return r.json();}).then(m=>{
+    fetch('conferences/manifest.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('Narration is unavailable.');return r.json();}).then(m=>{
       const a=m.assets?.[c.id] as ConferenceAudio|undefined;
       if(!a||a.transcriptHash!==conferenceAudioKey(c)||a.chapters.length!==c.slides.length)throw new Error('Current narration is not available for this draft.');
       if(alive){setAsset(a);setError('');}

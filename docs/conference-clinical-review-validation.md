@@ -13,11 +13,15 @@ This revision follows the user's listening review of the pediatric silent-chest 
 
 ## Verification
 
-The existing 1,476 tests were preserved. Four new content checks cover the complete diagnosis/handoff/course and finding-interpretation contracts, important pediatric/neonatal exceptions and licensed real-media availability. Two new behavior checks ensure conference images and annotations are visible without a quiz while the atlas retains its original quiz gate.
+The existing 1,476 tests were preserved. Four new content checks cover the complete diagnosis/handoff/course and finding-interpretation contracts, important pediatric/neonatal exceptions and licensed real-media availability. Three new behavior checks ensure conference images and annotations are visible without a quiz, the atlas retains its quiz gate, and the player revalidates its manifest and links the current transcript. A pathname regression check prevents revised media from colliding in older offline caches. A release check binds all shipped recordings, transcripts and chapters to the current authored content.
 
-The final full local run passed 1,482 tests across 80 files. Typecheck and the production build also passed. Desktop and 390/360-pixel browser checks exercised diagnosis display, reference expansion, automatic real-image loading and attribution without horizontal overflow. Original article XML captions and CC BY 4.0 licenses were rechecked for both neck films.
+The final full local run passed 1,485 tests across 82 files. Typecheck and the production build also passed. Desktop and 390/360-pixel browser checks exercised diagnosis display, reference expansion, automatic real-image loading and attribution without horizontal overflow. Original article XML captions and CC BY 4.0 licenses were rechecked for both neck films.
 
-The continuous recordings are regenerated from the revised narration. Assembly must check every planned text hash, decode every complete MP3, validate chapter timing, match the transcript and confirm the reflection silence before release. Final CI and browser results are recorded below after media assembly.
+Narration workflow 39742299594 assembled and audited 32 current continuous recordings, approximately 285 minutes, with 288 measured chapters. Every planned text hash, full MP3 decode, chapter timeline, transcript and reflection silence passed. The same audit passed locally after fetching the generated media. Approximate written-word delivery rates were 122–136 words per minute, with no duration outliers. The silent-chest recording is approximately 11 minutes 48 seconds.
+
+The production browser check passed at 1440, 390 and 360 pixels for playback and mode continuity. Its complete phone sweep passed all 32 cases and 288 slides with no horizontal overflow or runtime errors. Media and transcript filenames include the content fingerprint because the existing offline worker retains media across app-shell upgrades and ignores search strings. Published conference output is mirrored to remove obsolete generated files.
+
+All source tests, typecheck and build passed locally. The intermediate hosted revision 1fefd4f passed validation, Chromium, Firefox and Audio Mastery, while WebKit timed out taking a failure screenshot in the unchanged bedside QA script. No test, timeout or acceptance criterion was weakened. The final revision must pass the full hosted gate before merging.
 
 ## Limits
 
