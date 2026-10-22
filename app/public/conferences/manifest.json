@@ -1,0 +1,1678 @@
+{
+ "version": 1,
+ "narrator": {
+  "engine": "Kokoro-82M v1.0 (ONNX)",
+  "license": "Apache-2.0",
+  "source": "https://huggingface.co/hexgrad/Kokoro-82M",
+  "voice": "af_heart",
+  "speed": 0.95,
+  "version": 1,
+  "label": "Natural neural narrator (Kokoro, voice “Heart”)"
+ },
+ "assets": {
+  "asthma-speaking-in-words": {
+   "file": "audio/asthma-speaking-in-words.mp3",
+   "seconds": 219.506667,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 27.541333
+    },
+    {
+     "id": "assessment",
+     "start": 27.541333,
+     "end": 41.216
+    },
+    {
+     "id": "vitals",
+     "start": 41.216,
+     "end": 64.042667
+    },
+    {
+     "id": "labs",
+     "start": 64.042667,
+     "end": 83.904
+    },
+    {
+     "id": "diagnostics",
+     "start": 83.904,
+     "end": 111.488
+    },
+    {
+     "id": "decision",
+     "start": 111.488,
+     "end": 124.544
+    },
+    {
+     "id": "reasoning",
+     "start": 124.544,
+     "end": 167.93
+    },
+    {
+     "id": "reassessment",
+     "start": 167.93,
+     "end": 193.14600000000002
+    },
+    {
+     "id": "synopsis",
+     "start": 193.14600000000002,
+     "end": 219.044667
+    }
+   ],
+   "transcriptHash": "2891e1f2"
+  },
+  "asthma-silent-chest": {
+   "file": "audio/asthma-silent-chest.mp3",
+   "seconds": 214.813333,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 25.301333
+    },
+    {
+     "id": "assessment",
+     "start": 25.301333,
+     "end": 39.914666
+    },
+    {
+     "id": "vitals",
+     "start": 39.914666,
+     "end": 62.570665999999996
+    },
+    {
+     "id": "labs",
+     "start": 62.570665999999996,
+     "end": 82.30399899999999
+    },
+    {
+     "id": "diagnostics",
+     "start": 82.30399899999999,
+     "end": 107.58399899999999
+    },
+    {
+     "id": "decision",
+     "start": 107.58399899999999,
+     "end": 122.32533199999999
+    },
+    {
+     "id": "reasoning",
+     "start": 122.32533199999999,
+     "end": 162.27666499999998
+    },
+    {
+     "id": "reassessment",
+     "start": 162.27666499999998,
+     "end": 187.55666499999998
+    },
+    {
+     "id": "synopsis",
+     "start": 187.55666499999998,
+     "end": 214.329998
+    }
+   ],
+   "transcriptHash": "4577e7b4"
+  },
+  "dka-first-diagnosis": {
+   "file": "audio/dka-first-diagnosis.mp3",
+   "seconds": 202.496,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 24.661333
+    },
+    {
+     "id": "assessment",
+     "start": 24.661333,
+     "end": 39.018665999999996
+    },
+    {
+     "id": "vitals",
+     "start": 39.018665999999996,
+     "end": 59.17866599999999
+    },
+    {
+     "id": "labs",
+     "start": 59.17866599999999,
+     "end": 82.005333
+    },
+    {
+     "id": "diagnostics",
+     "start": 82.005333,
+     "end": 97.216
+    },
+    {
+     "id": "decision",
+     "start": 97.216,
+     "end": 111.125333
+    },
+    {
+     "id": "reasoning",
+     "start": 111.125333,
+     "end": 150.671333
+    },
+    {
+     "id": "reassessment",
+     "start": 150.671333,
+     "end": 175.588666
+    },
+    {
+     "id": "synopsis",
+     "start": 175.588666,
+     "end": 202.02066599999998
+    }
+   ],
+   "transcriptHash": "c36a79dc"
+  },
+  "dka-new-headache": {
+   "file": "audio/dka-new-headache.mp3",
+   "seconds": 207.725333,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 33.402
+    },
+    {
+     "id": "assessment",
+     "start": 33.402,
+     "end": 45.754000000000005
+    },
+    {
+     "id": "vitals",
+     "start": 45.754000000000005,
+     "end": 66.74600000000001
+    },
+    {
+     "id": "labs",
+     "start": 66.74600000000001,
+     "end": 86.60733300000001
+    },
+    {
+     "id": "diagnostics",
+     "start": 86.60733300000001,
+     "end": 101.54066600000002
+    },
+    {
+     "id": "decision",
+     "start": 101.54066600000002,
+     "end": 113.50866600000002
+    },
+    {
+     "id": "reasoning",
+     "start": 113.50866600000002,
+     "end": 158.47333300000003
+    },
+    {
+     "id": "reassessment",
+     "start": 158.47333300000003,
+     "end": 181.96133300000002
+    },
+    {
+     "id": "synopsis",
+     "start": 181.96133300000002,
+     "end": 207.26266600000002
+    }
+   ],
+   "transcriptHash": "f0a00dce"
+  },
+  "sepsis-normal-pressure": {
+   "file": "audio/sepsis-normal-pressure.mp3",
+   "seconds": 186.584,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 24.448
+    },
+    {
+     "id": "assessment",
+     "start": 24.448,
+     "end": 36.928
+    },
+    {
+     "id": "vitals",
+     "start": 36.928,
+     "end": 59.626667
+    },
+    {
+     "id": "labs",
+     "start": 59.626667,
+     "end": 76.074667
+    },
+    {
+     "id": "diagnostics",
+     "start": 76.074667,
+     "end": 91.285334
+    },
+    {
+     "id": "decision",
+     "start": 91.285334,
+     "end": 100.757334
+    },
+    {
+     "id": "reasoning",
+     "start": 100.757334,
+     "end": 139.599334
+    },
+    {
+     "id": "reassessment",
+     "start": 139.599334,
+     "end": 163.343334
+    },
+    {
+     "id": "synopsis",
+     "start": 163.343334,
+     "end": 186.127334
+    }
+   ],
+   "transcriptHash": "7c5e32df"
+  },
+  "sepsis-fluid-intolerance": {
+   "file": "audio/sepsis-fluid-intolerance.mp3",
+   "seconds": 185.189333,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 25.856
+    },
+    {
+     "id": "assessment",
+     "start": 25.856,
+     "end": 37.120000000000005
+    },
+    {
+     "id": "vitals",
+     "start": 37.120000000000005,
+     "end": 57.34400000000001
+    },
+    {
+     "id": "labs",
+     "start": 57.34400000000001,
+     "end": 73.45066700000001
+    },
+    {
+     "id": "diagnostics",
+     "start": 73.45066700000001,
+     "end": 88.27733400000001
+    },
+    {
+     "id": "decision",
+     "start": 88.27733400000001,
+     "end": 101.14133400000001
+    },
+    {
+     "id": "reasoning",
+     "start": 101.14133400000001,
+     "end": 139.06600100000003
+    },
+    {
+     "id": "reassessment",
+     "start": 139.06600100000003,
+     "end": 161.146001
+    },
+    {
+     "id": "synopsis",
+     "start": 161.146001,
+     "end": 184.719334
+    }
+   ],
+   "transcriptHash": "2719d259"
+  },
+  "bronchiolitis-feeding": {
+   "file": "audio/bronchiolitis-feeding.mp3",
+   "seconds": 166.645333,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 20.629333
+    },
+    {
+     "id": "assessment",
+     "start": 20.629333,
+     "end": 31.189332999999998
+    },
+    {
+     "id": "vitals",
+     "start": 31.189332999999998,
+     "end": 52.437332999999995
+    },
+    {
+     "id": "labs",
+     "start": 52.437332999999995,
+     "end": 68.821333
+    },
+    {
+     "id": "diagnostics",
+     "start": 68.821333,
+     "end": 83.605333
+    },
+    {
+     "id": "decision",
+     "start": 83.605333,
+     "end": 93.333333
+    },
+    {
+     "id": "reasoning",
+     "start": 93.333333,
+     "end": 123.648
+    },
+    {
+     "id": "reassessment",
+     "start": 123.648,
+     "end": 144.40533299999998
+    },
+    {
+     "id": "synopsis",
+     "start": 144.40533299999998,
+     "end": 166.18666599999997
+    }
+   ],
+   "transcriptHash": "af216498"
+  },
+  "bronchiolitis-apnea": {
+   "file": "audio/bronchiolitis-apnea.mp3",
+   "seconds": 175.16,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 22.570667
+    },
+    {
+     "id": "assessment",
+     "start": 22.570667,
+     "end": 35.114667
+    },
+    {
+     "id": "vitals",
+     "start": 35.114667,
+     "end": 53.802667
+    },
+    {
+     "id": "labs",
+     "start": 53.802667,
+     "end": 72.298667
+    },
+    {
+     "id": "diagnostics",
+     "start": 72.298667,
+     "end": 87.722667
+    },
+    {
+     "id": "decision",
+     "start": 87.722667,
+     "end": 97.301334
+    },
+    {
+     "id": "reasoning",
+     "start": 97.301334,
+     "end": 131.599334
+    },
+    {
+     "id": "reassessment",
+     "start": 131.599334,
+     "end": 151.503334
+    },
+    {
+     "id": "synopsis",
+     "start": 151.503334,
+     "end": 174.671334
+    }
+   ],
+   "transcriptHash": "db1e826a"
+  },
+  "croup-at-rest": {
+   "file": "audio/croup-at-rest.mp3",
+   "seconds": 163.050667,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 19.136
+    },
+    {
+     "id": "assessment",
+     "start": 19.136,
+     "end": 30.890667
+    },
+    {
+     "id": "vitals",
+     "start": 30.890667,
+     "end": 51.178667000000004
+    },
+    {
+     "id": "labs",
+     "start": 51.178667000000004,
+     "end": 63.040000000000006
+    },
+    {
+     "id": "diagnostics",
+     "start": 63.040000000000006,
+     "end": 84.373333
+    },
+    {
+     "id": "decision",
+     "start": 84.373333,
+     "end": 95.210666
+    },
+    {
+     "id": "reasoning",
+     "start": 95.210666,
+     "end": 124.010666
+    },
+    {
+     "id": "reassessment",
+     "start": 124.010666,
+     "end": 142.570666
+    },
+    {
+     "id": "synopsis",
+     "start": 142.570666,
+     "end": 162.581333
+    }
+   ],
+   "transcriptHash": "cafaeea8"
+  },
+  "croup-exhaustion": {
+   "file": "audio/croup-exhaustion.mp3",
+   "seconds": 168.170667,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 21.610667
+    },
+    {
+     "id": "assessment",
+     "start": 21.610667,
+     "end": 34.048
+    },
+    {
+     "id": "vitals",
+     "start": 34.048,
+     "end": 53.162667
+    },
+    {
+     "id": "labs",
+     "start": 53.162667,
+     "end": 64.832
+    },
+    {
+     "id": "diagnostics",
+     "start": 64.832,
+     "end": 86.27199999999999
+    },
+    {
+     "id": "decision",
+     "start": 86.27199999999999,
+     "end": 97.15199999999999
+    },
+    {
+     "id": "reasoning",
+     "start": 97.15199999999999,
+     "end": 126.69866699999999
+    },
+    {
+     "id": "reassessment",
+     "start": 126.69866699999999,
+     "end": 146.75199999999998
+    },
+    {
+     "id": "synopsis",
+     "start": 146.75199999999998,
+     "end": 167.65866699999998
+    }
+   ],
+   "transcriptHash": "95f3e298"
+  },
+  "preeclampsia-visual-symptoms": {
+   "file": "audio/preeclampsia-visual-symptoms.mp3",
+   "seconds": 195.448,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 24.682667
+    },
+    {
+     "id": "assessment",
+     "start": 24.682667,
+     "end": 36.821334
+    },
+    {
+     "id": "vitals",
+     "start": 36.821334,
+     "end": 61.610667
+    },
+    {
+     "id": "labs",
+     "start": 61.610667,
+     "end": 78.27199999999999
+    },
+    {
+     "id": "diagnostics",
+     "start": 78.27199999999999,
+     "end": 93.077333
+    },
+    {
+     "id": "decision",
+     "start": 93.077333,
+     "end": 107.370666
+    },
+    {
+     "id": "reasoning",
+     "start": 107.370666,
+     "end": 147.129999
+    },
+    {
+     "id": "reassessment",
+     "start": 147.129999,
+     "end": 169.017999
+    },
+    {
+     "id": "synopsis",
+     "start": 169.017999,
+     "end": 195.001999
+    }
+   ],
+   "transcriptHash": "6afcb9c7"
+  },
+  "eclampsia-postpartum": {
+   "file": "audio/eclampsia-postpartum.mp3",
+   "seconds": 188.429333,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 25.472
+    },
+    {
+     "id": "assessment",
+     "start": 25.472,
+     "end": 41.472
+    },
+    {
+     "id": "vitals",
+     "start": 41.472,
+     "end": 61.73866700000001
+    },
+    {
+     "id": "labs",
+     "start": 61.73866700000001,
+     "end": 79.808
+    },
+    {
+     "id": "diagnostics",
+     "start": 79.808,
+     "end": 96.021333
+    },
+    {
+     "id": "decision",
+     "start": 96.021333,
+     "end": 105.834666
+    },
+    {
+     "id": "reasoning",
+     "start": 105.834666,
+     "end": 141.988666
+    },
+    {
+     "id": "reassessment",
+     "start": 141.988666,
+     "end": 162.852666
+    },
+    {
+     "id": "synopsis",
+     "start": 162.852666,
+     "end": 187.961999
+    }
+   ],
+   "transcriptHash": "49f4e9c8"
+  },
+  "hellp-epigastric-pain": {
+   "file": "audio/hellp-epigastric-pain.mp3",
+   "seconds": 185.690667,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 21.717333
+    },
+    {
+     "id": "assessment",
+     "start": 21.717333,
+     "end": 35.712
+    },
+    {
+     "id": "vitals",
+     "start": 35.712,
+     "end": 55.616
+    },
+    {
+     "id": "labs",
+     "start": 55.616,
+     "end": 75.328
+    },
+    {
+     "id": "diagnostics",
+     "start": 75.328,
+     "end": 92.714667
+    },
+    {
+     "id": "decision",
+     "start": 92.714667,
+     "end": 104.362667
+    },
+    {
+     "id": "reasoning",
+     "start": 104.362667,
+     "end": 141.647334
+    },
+    {
+     "id": "reassessment",
+     "start": 141.647334,
+     "end": 161.231334
+    },
+    {
+     "id": "synopsis",
+     "start": 161.231334,
+     "end": 185.210001
+    }
+   ],
+   "transcriptHash": "eb378cba"
+  },
+  "hellp-without-severe-bp": {
+   "file": "audio/hellp-without-severe-bp.mp3",
+   "seconds": 172.341333,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 24.469333
+    },
+    {
+     "id": "assessment",
+     "start": 24.469333,
+     "end": 34.944
+    },
+    {
+     "id": "vitals",
+     "start": 34.944,
+     "end": 50.88
+    },
+    {
+     "id": "labs",
+     "start": 50.88,
+     "end": 71.530667
+    },
+    {
+     "id": "diagnostics",
+     "start": 71.530667,
+     "end": 84.33066699999999
+    },
+    {
+     "id": "decision",
+     "start": 84.33066699999999,
+     "end": 97.450667
+    },
+    {
+     "id": "reasoning",
+     "start": 97.450667,
+     "end": 131.194
+    },
+    {
+     "id": "reassessment",
+     "start": 131.194,
+     "end": 150.159333
+    },
+    {
+     "id": "synopsis",
+     "start": 150.159333,
+     "end": 171.876666
+    }
+   ],
+   "transcriptHash": "edf53c9b"
+  },
+  "pph-boggy-uterus": {
+   "file": "audio/pph-boggy-uterus.mp3",
+   "seconds": 181.130667,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 23.125333
+    },
+    {
+     "id": "assessment",
+     "start": 23.125333,
+     "end": 36.736000000000004
+    },
+    {
+     "id": "vitals",
+     "start": 36.736000000000004,
+     "end": 55.210667
+    },
+    {
+     "id": "labs",
+     "start": 55.210667,
+     "end": 75.882667
+    },
+    {
+     "id": "diagnostics",
+     "start": 75.882667,
+     "end": 88.96
+    },
+    {
+     "id": "decision",
+     "start": 88.96,
+     "end": 99.648
+    },
+    {
+     "id": "reasoning",
+     "start": 99.648,
+     "end": 138.49
+    },
+    {
+     "id": "reassessment",
+     "start": 138.49,
+     "end": 159.54600000000002
+    },
+    {
+     "id": "synopsis",
+     "start": 159.54600000000002,
+     "end": 180.64466700000003
+    }
+   ],
+   "transcriptHash": "ef16636d"
+  },
+  "pph-firm-uterus": {
+   "file": "audio/pph-firm-uterus.mp3",
+   "seconds": 172.549333,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 23.424
+    },
+    {
+     "id": "assessment",
+     "start": 23.424,
+     "end": 34.069333
+    },
+    {
+     "id": "vitals",
+     "start": 34.069333,
+     "end": 50.666666
+    },
+    {
+     "id": "labs",
+     "start": 50.666666,
+     "end": 68.202666
+    },
+    {
+     "id": "diagnostics",
+     "start": 68.202666,
+     "end": 81.706666
+    },
+    {
+     "id": "decision",
+     "start": 81.706666,
+     "end": 92.117333
+    },
+    {
+     "id": "reasoning",
+     "start": 92.117333,
+     "end": 127.439333
+    },
+    {
+     "id": "reassessment",
+     "start": 127.439333,
+     "end": 148.794
+    },
+    {
+     "id": "synopsis",
+     "start": 148.794,
+     "end": 172.111333
+    }
+   ],
+   "transcriptHash": "df21be9b"
+  },
+  "abruption-concealed": {
+   "file": "audio/abruption-concealed.mp3",
+   "seconds": 167.36,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 20.693333
+    },
+    {
+     "id": "assessment",
+     "start": 20.693333,
+     "end": 28.970666
+    },
+    {
+     "id": "vitals",
+     "start": 28.970666,
+     "end": 46.698666
+    },
+    {
+     "id": "labs",
+     "start": 46.698666,
+     "end": 64.789333
+    },
+    {
+     "id": "diagnostics",
+     "start": 64.789333,
+     "end": 78.058666
+    },
+    {
+     "id": "decision",
+     "start": 78.058666,
+     "end": 87.893333
+    },
+    {
+     "id": "reasoning",
+     "start": 87.893333,
+     "end": 123.02333300000001
+    },
+    {
+     "id": "reassessment",
+     "start": 123.02333300000001,
+     "end": 144.911333
+    },
+    {
+     "id": "synopsis",
+     "start": 144.911333,
+     "end": 166.927333
+    }
+   ],
+   "transcriptHash": "68412be1"
+  },
+  "abruption-trauma": {
+   "file": "audio/abruption-trauma.mp3",
+   "seconds": 173.712,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 21.717333
+    },
+    {
+     "id": "assessment",
+     "start": 21.717333,
+     "end": 30.357333
+    },
+    {
+     "id": "vitals",
+     "start": 30.357333,
+     "end": 51.263999999999996
+    },
+    {
+     "id": "labs",
+     "start": 51.263999999999996,
+     "end": 69.12
+    },
+    {
+     "id": "diagnostics",
+     "start": 69.12,
+     "end": 87.338667
+    },
+    {
+     "id": "decision",
+     "start": 87.338667,
+     "end": 98.88
+    },
+    {
+     "id": "reasoning",
+     "start": 98.88,
+     "end": 128.341333
+    },
+    {
+     "id": "reassessment",
+     "start": 128.341333,
+     "end": 150.976
+    },
+    {
+     "id": "synopsis",
+     "start": 150.976,
+     "end": 173.248
+    }
+   ],
+   "transcriptHash": "e587d8b7"
+  },
+  "ppcm-cannot-lie-flat": {
+   "file": "audio/ppcm-cannot-lie-flat.mp3",
+   "seconds": 192.72,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 21.269333
+    },
+    {
+     "id": "assessment",
+     "start": 21.269333,
+     "end": 29.418666
+    },
+    {
+     "id": "vitals",
+     "start": 29.418666,
+     "end": 48.917333
+    },
+    {
+     "id": "labs",
+     "start": 48.917333,
+     "end": 64.128
+    },
+    {
+     "id": "diagnostics",
+     "start": 64.128,
+     "end": 96.911333
+    },
+    {
+     "id": "decision",
+     "start": 96.911333,
+     "end": 109.263333
+    },
+    {
+     "id": "reasoning",
+     "start": 109.263333,
+     "end": 146.1
+    },
+    {
+     "id": "reassessment",
+     "start": 146.1,
+     "end": 166.729333
+    },
+    {
+     "id": "synopsis",
+     "start": 166.729333,
+     "end": 192.265333
+    }
+   ],
+   "transcriptHash": "29e8943b"
+  },
+  "ppcm-shock": {
+   "file": "audio/ppcm-shock.mp3",
+   "seconds": 192.96,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 21.013333
+    },
+    {
+     "id": "assessment",
+     "start": 21.013333,
+     "end": 32.64
+    },
+    {
+     "id": "vitals",
+     "start": 32.64,
+     "end": 52.544
+    },
+    {
+     "id": "labs",
+     "start": 52.544,
+     "end": 66.282667
+    },
+    {
+     "id": "diagnostics",
+     "start": 66.282667,
+     "end": 93.952
+    },
+    {
+     "id": "decision",
+     "start": 93.952,
+     "end": 106.453333
+    },
+    {
+     "id": "reasoning",
+     "start": 106.453333,
+     "end": 145.764666
+    },
+    {
+     "id": "reassessment",
+     "start": 145.764666,
+     "end": 167.161999
+    },
+    {
+     "id": "synopsis",
+     "start": 167.161999,
+     "end": 192.505999
+    }
+   ],
+   "transcriptHash": "be3100d8"
+  },
+  "duct-systemic-shock": {
+   "file": "audio/duct-systemic-shock.mp3",
+   "seconds": 193.645333,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 21.568
+    },
+    {
+     "id": "assessment",
+     "start": 21.568,
+     "end": 36.096000000000004
+    },
+    {
+     "id": "vitals",
+     "start": 36.096000000000004,
+     "end": 60.800000000000004
+    },
+    {
+     "id": "labs",
+     "start": 60.800000000000004,
+     "end": 76.672
+    },
+    {
+     "id": "diagnostics",
+     "start": 76.672,
+     "end": 96.34133299999999
+    },
+    {
+     "id": "decision",
+     "start": 96.34133299999999,
+     "end": 106.858666
+    },
+    {
+     "id": "reasoning",
+     "start": 106.858666,
+     "end": 147.065999
+    },
+    {
+     "id": "reassessment",
+     "start": 147.065999,
+     "end": 169.828666
+    },
+    {
+     "id": "synopsis",
+     "start": 169.828666,
+     "end": 193.145999
+    }
+   ],
+   "transcriptHash": "0a7030b3"
+  },
+  "duct-cyanotic-newborn": {
+   "file": "audio/duct-cyanotic-newborn.mp3",
+   "seconds": 185.797333,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 19.328
+    },
+    {
+     "id": "assessment",
+     "start": 19.328,
+     "end": 34.432
+    },
+    {
+     "id": "vitals",
+     "start": 34.432,
+     "end": 57.984
+    },
+    {
+     "id": "labs",
+     "start": 57.984,
+     "end": 77.034667
+    },
+    {
+     "id": "diagnostics",
+     "start": 77.034667,
+     "end": 90.709334
+    },
+    {
+     "id": "decision",
+     "start": 90.709334,
+     "end": 101.354667
+    },
+    {
+     "id": "reasoning",
+     "start": 101.354667,
+     "end": 139.962
+    },
+    {
+     "id": "reassessment",
+     "start": 139.962,
+     "end": 160.079333
+    },
+    {
+     "id": "synopsis",
+     "start": 160.079333,
+     "end": 185.316666
+    }
+   ],
+   "transcriptHash": "4544530a"
+  },
+  "rds-grunting-newborn": {
+   "file": "audio/rds-grunting-newborn.mp3",
+   "seconds": 196.013333,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 23.36
+    },
+    {
+     "id": "assessment",
+     "start": 23.36,
+     "end": 33.834666999999996
+    },
+    {
+     "id": "vitals",
+     "start": 33.834666999999996,
+     "end": 56.021333999999996
+    },
+    {
+     "id": "labs",
+     "start": 56.021333999999996,
+     "end": 73.47200099999999
+    },
+    {
+     "id": "diagnostics",
+     "start": 73.47200099999999,
+     "end": 100.778668
+    },
+    {
+     "id": "decision",
+     "start": 100.778668,
+     "end": 110.037335
+    },
+    {
+     "id": "reasoning",
+     "start": 110.037335,
+     "end": 148.815335
+    },
+    {
+     "id": "reassessment",
+     "start": 148.815335,
+     "end": 170.810002
+    },
+    {
+     "id": "synopsis",
+     "start": 170.810002,
+     "end": 195.535335
+    }
+   ],
+   "transcriptHash": "36c0fdb5"
+  },
+  "rds-sudden-desaturation": {
+   "file": "audio/rds-sudden-desaturation.mp3",
+   "seconds": 191.325333,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 25.258667
+    },
+    {
+     "id": "assessment",
+     "start": 25.258667,
+     "end": 35.584
+    },
+    {
+     "id": "vitals",
+     "start": 35.584,
+     "end": 53.525333
+    },
+    {
+     "id": "labs",
+     "start": 53.525333,
+     "end": 70.08
+    },
+    {
+     "id": "diagnostics",
+     "start": 70.08,
+     "end": 96.149333
+    },
+    {
+     "id": "decision",
+     "start": 96.149333,
+     "end": 108.117333
+    },
+    {
+     "id": "reasoning",
+     "start": 108.117333,
+     "end": 142.735333
+    },
+    {
+     "id": "reassessment",
+     "start": 142.735333,
+     "end": 166.628666
+    },
+    {
+     "id": "synopsis",
+     "start": 166.628666,
+     "end": 190.84199900000002
+    }
+   ],
+   "transcriptHash": "b3f28174"
+  },
+  "ards-after-pneumonia": {
+   "file": "audio/ards-after-pneumonia.mp3",
+   "seconds": 210.829333,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 23.978667
+    },
+    {
+     "id": "assessment",
+     "start": 23.978667,
+     "end": 37.909334
+    },
+    {
+     "id": "vitals",
+     "start": 37.909334,
+     "end": 62.464000999999996
+    },
+    {
+     "id": "labs",
+     "start": 62.464000999999996,
+     "end": 85.930668
+    },
+    {
+     "id": "diagnostics",
+     "start": 85.930668,
+     "end": 113.493335
+    },
+    {
+     "id": "decision",
+     "start": 113.493335,
+     "end": 123.946668
+    },
+    {
+     "id": "reasoning",
+     "start": 123.946668,
+     "end": 164.367335
+    },
+    {
+     "id": "reassessment",
+     "start": 164.367335,
+     "end": 185.487335
+    },
+    {
+     "id": "synopsis",
+     "start": 185.487335,
+     "end": 210.340668
+    }
+   ],
+   "transcriptHash": "75ac5a71"
+  },
+  "ards-peep-hypotension": {
+   "file": "audio/ards-peep-hypotension.mp3",
+   "seconds": 195.464,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 24.448
+    },
+    {
+     "id": "assessment",
+     "start": 24.448,
+     "end": 39.168
+    },
+    {
+     "id": "vitals",
+     "start": 39.168,
+     "end": 63.616
+    },
+    {
+     "id": "labs",
+     "start": 63.616,
+     "end": 80.832
+    },
+    {
+     "id": "diagnostics",
+     "start": 80.832,
+     "end": 104.66133299999998
+    },
+    {
+     "id": "decision",
+     "start": 104.66133299999998,
+     "end": 116.20266599999998
+    },
+    {
+     "id": "reasoning",
+     "start": 116.20266599999998,
+     "end": 151.48199899999997
+    },
+    {
+     "id": "reassessment",
+     "start": 151.48199899999997,
+     "end": 171.66333199999997
+    },
+    {
+     "id": "synopsis",
+     "start": 171.66333199999997,
+     "end": 195.02333199999998
+    }
+   ],
+   "transcriptHash": "44524916"
+  },
+  "mi-inferior-rv": {
+   "file": "audio/mi-inferior-rv.mp3",
+   "seconds": 188.141333,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 24.96
+    },
+    {
+     "id": "assessment",
+     "start": 24.96,
+     "end": 36.821333
+    },
+    {
+     "id": "vitals",
+     "start": 36.821333,
+     "end": 52.949333
+    },
+    {
+     "id": "labs",
+     "start": 52.949333,
+     "end": 71.701333
+    },
+    {
+     "id": "diagnostics",
+     "start": 71.701333,
+     "end": 92.629333
+    },
+    {
+     "id": "decision",
+     "start": 92.629333,
+     "end": 106.13333300000001
+    },
+    {
+     "id": "reasoning",
+     "start": 106.13333300000001,
+     "end": 141.54066600000002
+    },
+    {
+     "id": "reassessment",
+     "start": 141.54066600000002,
+     "end": 162.575333
+    },
+    {
+     "id": "synopsis",
+     "start": 162.575333,
+     "end": 187.684666
+    }
+   ],
+   "transcriptHash": "c9c28ae9"
+  },
+  "mi-anterior-shock": {
+   "file": "audio/mi-anterior-shock.mp3",
+   "seconds": 181.781333,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 22.72
+    },
+    {
+     "id": "assessment",
+     "start": 22.72,
+     "end": 33.92
+    },
+    {
+     "id": "vitals",
+     "start": 33.92,
+     "end": 52.736000000000004
+    },
+    {
+     "id": "labs",
+     "start": 52.736000000000004,
+     "end": 70.933333
+    },
+    {
+     "id": "diagnostics",
+     "start": 70.933333,
+     "end": 88.44800000000001
+    },
+    {
+     "id": "decision",
+     "start": 88.44800000000001,
+     "end": 99.66933300000001
+    },
+    {
+     "id": "reasoning",
+     "start": 99.66933300000001,
+     "end": 134.01000000000002
+    },
+    {
+     "id": "reassessment",
+     "start": 134.01000000000002,
+     "end": 155.45000000000002
+    },
+    {
+     "id": "synopsis",
+     "start": 155.45000000000002,
+     "end": 181.327333
+    }
+   ],
+   "transcriptHash": "135eaceb"
+  },
+  "sepsis-older-hypothermic": {
+   "file": "audio/sepsis-older-hypothermic.mp3",
+   "seconds": 173.736,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 23.936
+    },
+    {
+     "id": "assessment",
+     "start": 23.936,
+     "end": 33.322666999999996
+    },
+    {
+     "id": "vitals",
+     "start": 33.322666999999996,
+     "end": 52.629334
+    },
+    {
+     "id": "labs",
+     "start": 52.629334,
+     "end": 73.85600099999999
+    },
+    {
+     "id": "diagnostics",
+     "start": 73.85600099999999,
+     "end": 87.95733399999999
+    },
+    {
+     "id": "decision",
+     "start": 87.95733399999999,
+     "end": 98.43200099999999
+    },
+    {
+     "id": "reasoning",
+     "start": 98.43200099999999,
+     "end": 131.57800099999997
+    },
+    {
+     "id": "reassessment",
+     "start": 131.57800099999997,
+     "end": 150.39400099999997
+    },
+    {
+     "id": "synopsis",
+     "start": 150.39400099999997,
+     "end": 173.24200099999996
+    }
+   ],
+   "transcriptHash": "4ac96001"
+  },
+  "sepsis-persistent-shock": {
+   "file": "audio/sepsis-persistent-shock.mp3",
+   "seconds": 177.989333,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 25.322667
+    },
+    {
+     "id": "assessment",
+     "start": 25.322667,
+     "end": 37.248
+    },
+    {
+     "id": "vitals",
+     "start": 37.248,
+     "end": 53.632
+    },
+    {
+     "id": "labs",
+     "start": 53.632,
+     "end": 72.213333
+    },
+    {
+     "id": "diagnostics",
+     "start": 72.213333,
+     "end": 89.08800000000001
+    },
+    {
+     "id": "decision",
+     "start": 89.08800000000001,
+     "end": 99.77600000000001
+    },
+    {
+     "id": "reasoning",
+     "start": 99.77600000000001,
+     "end": 134.202
+    },
+    {
+     "id": "reassessment",
+     "start": 134.202,
+     "end": 154.49
+    },
+    {
+     "id": "synopsis",
+     "start": 154.49,
+     "end": 177.487333
+    }
+   ],
+   "transcriptHash": "e76d3061"
+  },
+  "pe-preserved-pressure": {
+   "file": "audio/pe-preserved-pressure.mp3",
+   "seconds": 169.061333,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 19.626667
+    },
+    {
+     "id": "assessment",
+     "start": 19.626667,
+     "end": 29.930667
+    },
+    {
+     "id": "vitals",
+     "start": 29.930667,
+     "end": 49.024
+    },
+    {
+     "id": "labs",
+     "start": 49.024,
+     "end": 63.274667
+    },
+    {
+     "id": "diagnostics",
+     "start": 63.274667,
+     "end": 80.405334
+    },
+    {
+     "id": "decision",
+     "start": 80.405334,
+     "end": 90.474667
+    },
+    {
+     "id": "reasoning",
+     "start": 90.474667,
+     "end": 126.671334
+    },
+    {
+     "id": "reassessment",
+     "start": 126.671334,
+     "end": 146.362001
+    },
+    {
+     "id": "synopsis",
+     "start": 146.362001,
+     "end": 168.591334
+    }
+   ],
+   "transcriptHash": "1fcae711"
+  },
+  "pe-circulatory-collapse": {
+   "file": "audio/pe-circulatory-collapse.mp3",
+   "seconds": 178.997333,
+   "chapters": [
+    {
+     "id": "presentation",
+     "start": 0,
+     "end": 20.117333
+    },
+    {
+     "id": "assessment",
+     "start": 20.117333,
+     "end": 32.021333
+    },
+    {
+     "id": "vitals",
+     "start": 32.021333,
+     "end": 51.882666
+    },
+    {
+     "id": "labs",
+     "start": 51.882666,
+     "end": 64.639999
+    },
+    {
+     "id": "diagnostics",
+     "start": 64.639999,
+     "end": 83.434666
+    },
+    {
+     "id": "decision",
+     "start": 83.434666,
+     "end": 95.27466600000001
+    },
+    {
+     "id": "reasoning",
+     "start": 95.27466600000001,
+     "end": 134.22333300000003
+    },
+    {
+     "id": "reassessment",
+     "start": 134.22333300000003,
+     "end": 153.03933300000003
+    },
+    {
+     "id": "synopsis",
+     "start": 153.03933300000003,
+     "end": 178.53266600000003
+    }
+   ],
+   "transcriptHash": "ef3ef567"
+  }
+ }
+}

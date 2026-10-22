@@ -1,0 +1,26 @@
+Sudden desaturation in the transport incubator
+Case conference. Sudden desaturation in the transport incubator. This is a fictional teaching case, with clinical review pending. A 29-week newborn, weight 1.2 kilograms, is intubated for respiratory distress. During movement into the transport incubator, saturation abruptly falls and the ventilator alarms. The infant had been stable on the same settings immediately before movement.
+
+What do you notice?
+At the bedside. Chest movement is now reduced, the capnography trace disappears and the heart rate falls. The team checks the infant, tube and circuit together.
+
+Vital signs
+The initial vital signs are as follows. Heart rate has fallen to 88 per minute. Oxygen saturation is 68 percent. No exhaled carbon dioxide waveform is currently detected. These are observations at this point in the case, rather than treatment targets.
+
+Laboratory findings
+Laboratory findings. Glucose before the event was 79 milligrams per deciliter. No new blood gas is available; immediate ventilation takes priority over sampling. Interpret these results alongside the examination and the timing of sampling.
+
+Diagnostic findings
+Diagnostic findings. Abrupt deterioration during movement raises concern for displacement, obstruction, equipment failure or pneumothorax. Absence of a capnography signal requires assessment in context, including circulation and small tidal volumes. In visual mode, an optional real reference image can be opened. It belongs to a different patient and is not the scan from this fictional case.
+
+What would you prioritize?
+Think it through. Should you first increase ventilator settings, or establish whether ventilation is reaching the infant? Consider your answer while the case continues. No screen interaction is needed.
+
+Clinical reasoning & priorities
+Conference discussion. A sudden change needs a structured patient-to-device assessment. Previously appropriate settings cannot compensate for a displaced tube or disconnected circuit. Priorities. 1. Establish effective ventilation immediately using the neonatal rescue approach. 2. Check tube position and patency, circuit connections and oxygen delivery; assess for pneumothorax if indicated. 3. Escalate airway management with neonatal expertise and reconfirm ventilation after every movement.
+
+Reassessment & handoff
+Reassessment and handoff. The team identifies a displaced tube and restores effective ventilation with the neonatal airway plan. Heart rate rises and a consistent carbon dioxide waveform returns. Tube position and securement are rechecked before transport resumes. This is an authored fictional course; improvement is not guaranteed in a real patient.
+
+Preterm respiratory distress: A superimposed airway equipment problem
+Case synopsis. Preterm respiratory distress. A superimposed airway equipment problem. The acute event was a ventilation failure superimposed on RDS. Immediate patient and equipment assessment mattered more than a reflex increase in ventilator settings. This concludes the case conference. Continue to the disease lesson for the underlying physiology and further study.

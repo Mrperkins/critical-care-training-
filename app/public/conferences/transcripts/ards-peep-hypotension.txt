@@ -1,0 +1,26 @@
+Better saturation, worse blood pressure
+Case conference. Better saturation, worse blood pressure. This is a fictional teaching case, with clinical review pending. A 62-year-old patient with ARDS is being prepared for an intensive care transfer. Following an increase in PEEP from 10 to 16, saturation rises but blood pressure falls. The change occurs immediately, before any new medication is given.
+
+What do you notice?
+At the bedside. The patient has cooler extremities and weaker pulses. Breath sounds remain bilateral. The team examines the tube, circuit, lungs and circulation rather than attributing every change to ARDS.
+
+Vital signs
+The initial vital signs are as follows. Saturation has improved from 89 to 95 percent. Blood pressure has fallen from 112 over 68 to 76 over 44. Heart rate is 128 per minute. Current positive end-expiratory pressure is 16 centimeters of water. These are observations at this point in the case, rather than treatment targets.
+
+Laboratory findings
+Laboratory findings. Arterial oxygen tension is 76 on an inspired oxygen fraction of 0.70. Lactate is 3.8 millimoles per liter. Interpret these results alongside the examination and the timing of sampling.
+
+Diagnostic findings
+Diagnostic findings. Bedside assessment considers reduced venous return, right-ventricular effects, overdistension, pneumothorax and other causes. An oxygenation response alone cannot establish net benefit. In visual mode, an optional real reference image can be opened. It belongs to a different patient and is not the scan from this fictional case.
+
+What would you prioritize?
+Think it through. Is a higher saturation an adequate endpoint if tissue perfusion is deteriorating? Consider your answer while the case continues. No screen interaction is needed.
+
+Clinical reasoning & priorities
+Conference discussion. PEEP can improve recruitment while impairing circulation in a susceptible patient. The treatment response must include perfusion, pressure and gas exchange rather than saturation alone. Priorities. 1. Reassess the recent ventilator change and restore an individually tolerated strategy with the critical care team. 2. Evaluate alternative immediate causes of hypotension and verify pressure measurements. 3. Trend both gas exchange and perfusion when making subsequent adjustments.
+
+Reassessment & handoff
+Reassessment and handoff. The team revises the support plan and repeats perfusion and gas-exchange assessment. The final handoff records the PEEP change and its opposing oxygenation and blood-pressure effects. This is an authored fictional course; improvement is not guaranteed in a real patient.
+
+ARDS: Hemodynamic cost during PEEP adjustment
+Case synopsis. ARDS. Hemodynamic cost during PEEP adjustment. An intervention improved one measurement while worsening another. ARDS ventilator decisions required attention to the circulation as well as oxygenation. This concludes the case conference. Continue to the disease lesson for the underlying physiology and further study.

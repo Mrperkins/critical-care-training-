@@ -1,0 +1,26 @@
+Oxygenation worsens after pneumonia
+Case conference. Oxygenation worsens after pneumonia. This is a fictional teaching case, with clinical review pending. A 54-year-old patient is intubated on the second day of severe pneumonia. Bilateral opacities and escalating oxygen requirements develop within 48 hours. The referring team requests transfer for advanced respiratory support.
+
+What do you notice?
+At the bedside. The patient is sedated and mechanically ventilated. Breath sounds are bilateral. There is no evidence that isolated cardiac failure or fluid overload fully explains the respiratory picture.
+
+Vital signs
+The initial vital signs are as follows. Heart rate is 116 per minute. Blood pressure is 108 over 64 on current support. Saturation is 89 percent. Inspired oxygen fraction is 0.80. Positive end-expiratory pressure is 10 centimeters of water. These are observations at this point in the case, rather than treatment targets.
+
+Laboratory findings
+Laboratory findings. Arterial pH is 7.31. Arterial carbon dioxide is 48 millimeters of mercury. Arterial oxygen tension is 58 millimeters of mercury. The oxygen tension divided by inspired oxygen fraction is about 73. Interpret these results alongside the examination and the timing of sampling.
+
+Diagnostic findings
+Diagnostic findings. The timing, bilateral opacities and severe oxygenation impairment on positive pressure support a severe ARDS phenotype after exclusion of a primarily hydrostatic explanation. The optional radiograph is a comparator from another patient. In visual mode, an optional real reference image can be opened. It belongs to a different patient and is not the scan from this fictional case.
+
+What would you prioritize?
+Think it through. Should you solve this hypoxemia simply by increasing tidal volume? Consider your answer while the case continues. No screen interaction is needed.
+
+Clinical reasoning & priorities
+Conference discussion. Gas exchange must be supported while limiting ventilator-induced injury. Predicted body weight, plateau pressure, synchrony and response to PEEP matter; the patient’s actual weight does not define a lung-protective tidal volume. Priorities. 1. Confirm measured height, predicted-body-weight ventilation and pressure assessment under the ARDS protocol. 2. Reassess PEEP tolerance, hemodynamics and reversible causes of deterioration. 3. Coordinate severe-ARDS strategies, including proning or specialist referral when indicated and operationally feasible.
+
+Reassessment & handoff
+Reassessment and handoff. After review of ventilation and support, gas exchange is reassessed with a repeat blood gas and pressure measurements. The team does not assume that a higher saturation means the injured lung has recovered. This is an authored fictional course; improvement is not guaranteed in a real patient.
+
+ARDS: Severe hypoxemia on invasive ventilation
+Case synopsis. ARDS. Severe hypoxemia on invasive ventilation. Severe ARDS required oxygenation support balanced against lung injury. A lung-protective strategy and repeated physiological assessment guided transfer planning. This concludes the case conference. Continue to the disease lesson for the underlying physiology and further study.
