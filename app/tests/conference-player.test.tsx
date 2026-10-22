@@ -25,10 +25,36 @@ it('keeps the same continuous media element when switching from slides to listen
 });
 it('seeks to measured chapter times and advances slides from audio progress',async()=>{
   await mount();const a=container.querySelector('audio')!;
+  Object.defineProperty(a,'readyState',{configurable:true,value:1});
   await act(async()=>button('Next slide →').click());expect(a.currentTime).toBe(10);
+  await act(async()=>a.dispatchEvent(new Event('seeked')));
   await act(async()=>{a.currentTime=35;a.dispatchEvent(new Event('timeupdate'));});
   expect(container.querySelector('.conference-slide h3')?.textContent).toBe(c.slides[3].title);
   expect(chapterAt(asset,asset.seconds)).toBe(c.slides.length-1);
+  expect(chapterAt(asset,asset.seconds-.0005)).toBe(c.slides.length-1);
+  expect(chapterAt(asset,20-1e-8)).toBe(2);
+  expect(chapterAt(asset,19.9)).toBe(1);
+});
+it('accepts a native-control seek that supersedes a slide seek',async()=>{
+  await mount();const a=container.querySelector('audio')!;
+  Object.defineProperty(a,'readyState',{configurable:true,value:1});
+  await act(async()=>button('Next slide →').click());
+  await act(async()=>{a.currentTime=40;a.dispatchEvent(new Event('seeked'));});
+  expect(container.querySelector('.conference-slide h3')?.textContent).toBe(c.slides[4].title);
+});
+it('preserves rapid manual navigation through late metadata and stale seek events',async()=>{
+  await mount();const a=container.querySelector('audio')!;
+  await act(async()=>button('Next slide →').click());
+  await act(async()=>button('Next slide →').click());
+  await act(async()=>a.dispatchEvent(new Event('timeupdate')));
+  expect(container.querySelector('.conference-slide h3')?.textContent).toBe(c.slides[2].title);
+  Object.defineProperty(a,'readyState',{configurable:true,value:1});
+  await act(async()=>a.dispatchEvent(new Event('loadedmetadata')));
+  expect(a.currentTime).toBe(20);
+  await act(async()=>{a.currentTime=0;a.dispatchEvent(new Event('timeupdate'));});
+  expect(container.querySelector('.conference-slide h3')?.textContent).toBe(c.slides[2].title);
+  await act(async()=>{a.currentTime=20;a.dispatchEvent(new Event('seeked'));});
+  expect(container.querySelector('.conference-slide h3')?.textContent).toBe(c.slides[2].title);
 });
 it('rejects stale narration while preserving the full visual case and transcript',async()=>{
   vi.stubGlobal('fetch',vi.fn(async()=>({ok:true,json:async()=>({assets:{[c.id]:{...asset,transcriptHash:'stale'}}})})));

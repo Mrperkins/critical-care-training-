@@ -6,7 +6,7 @@ Validation record for October 22, 2026 on the narrated case conference review br
 
 - 32 synthetic cases across 16 topics; 288 slides and measured audio chapters.
 - 10 pediatric, 10 obstetric, 4 neonatal and 8 adult cases.
-- All 32 cases now have distinct screen outlines and speaker commentary, with a recorded reflection pause after the decision beat. Revised audio is being regenerated; the original 99-minute recordings are not valid for the revised scripts.
+- All 32 cases have distinct screen outlines and speaker commentary, with a recorded reflection pause after the decision beat. The 32 continuous MP3 files total 132.7 minutes and include 32 current transcripts; they replace the original recordings.
 - Four AI-generated care-setting illustrations, explicitly separate from fictional patient data and clinical reference imaging.
 - Case introductions before FP-C lesson content and atlas explainers, with a visible inventory of missing coverage.
 
@@ -14,15 +14,19 @@ Validation record for October 22, 2026 on the narrated case conference review br
 
 | Check | Result |
 |---|---|
-| Full application unit/regression suite | 1,474 checks pass: 1,473 in the complete run, followed by the asset-dependent offline check after restoring checkout media |
-| Revised conference content and player checks | 10 tests passed, including audio-only story preservation and separate editorial tracks |
+| Full application unit/regression suite | 1,476 tests passed across 78 files in the final complete run |
+| Revised conference content and player checks | 12 tests passed, including audio-only story preservation, separate editorial tracks, late metadata, native seek overrides and media-clock rounding |
 | TypeScript | Passed for the editorial revision |
 | Production build | Passed, 57 split chunks; existing full model assets included |
 | Revised mobile slide sweep | All 32 cases and 288 slides checked at 390 × 844; no clipping, horizontal overflow or browser errors |
-| Revised media and synchronized playback | Pending the revised narration workflow and production browser pass |
-| Repository narration workflow | Revision run 39731420819 in progress; original successful run 39726338153 is superseded |
+| Revised media | All 32 files fully decoded; current narration bindings, exact transcripts, 288 measured chapters and actual recorded reflection silence verified |
+| Desktop, 1440 × 1000 | Playback, seeking, mode continuity, filters, coverage and navigation passed |
+| Phone, 390 × 844 | Same playback checks passed; all 288 slides also passed the complete navigation sweep |
+| Small phone, 360 × 800 | Same playback checks passed; no horizontal overflow or browser errors |
+| Direct case link and return to lesson | Passed; lesson case introduction remains available |
+| Repository narration workflow | Revision run 39731420819 succeeded; media committed at `33cdc4e` |
 
-The original recording passed desktop and two phone-width playback checks before the editorial revision. Those results do not establish that the new recording is complete. The revised build rejects the old audio binding until replacement media is assembled.
+The revised production build passed Chromium playback at all three viewports. A complete mobile sweep covered all 32 cases and 288 slides without clipping or browser errors. The player queues manual navigation while metadata loads and tolerates sub-millisecond media-clock rounding, so native seek events cannot silently step back to the preceding chapter. Native-control seeks can supersede a slide seek.
 
 GitHub's application validation job passes on revision commit `4593895`. Browser jobs for Chromium, Firefox and WebKit failed at their Playwright browser-install step; local Chromium is available for the production checks recorded here.
 

@@ -67,7 +67,11 @@ try{
   for(const [id,asset] of Object.entries(manifest.assets)){
     await sweep.goto(`${url}/?module=cases&case=${id}`);await sweep.locator('.conference-slide').waitFor();
     for(let i=0;i<asset.chapters.length;i++){
-      assert((await sweep.locator('.conference-slide .eyebrow').textContent()).startsWith(String(i+1).padStart(2,'0')),`${id}/${i}: wrong beat`);
+      const label=await sweep.locator('.conference-slide .eyebrow').textContent();
+      if(!label.startsWith(String(i+1).padStart(2,'0'))){
+        const media=await sweep.locator('audio').evaluate(a=>({time:a.currentTime,seeking:a.seeking,ready:a.readyState,duration:a.duration}));
+        throw new Error(`${id}/${i}: wrong beat ${label}; target ${asset.chapters[i].start}; media ${JSON.stringify(media)}`);
+      }
       const clipped=await sweep.evaluate(()=>{const s=document.querySelector('.conference-slide-text');return document.documentElement.scrollWidth>innerWidth+1||s.scrollWidth>s.clientWidth+1;});
       assert.equal(clipped,false,`${id}/${i}: clipping`);slides++;
       if(['asthma-silent-chest','eclampsia-postpartum','rds-sudden-desaturation','mi-inferior-rv'].includes(id)&&[0,2,5,6,8].includes(i))await sweep.locator('.conference-slide').screenshot({path:path.join(dir,`revised-${id}-${i+1}.png`)});

@@ -4,12 +4,14 @@ import type {ConferenceAudio,ConferenceCase} from './types';
 const ClinicalMedia=lazy(()=>import('../atlas/ClinicalMedia'));
 const mmss=(t:number)=>`${Math.floor(t/60)}:${String(Math.floor(t%60)).padStart(2,'0')}`;
 const key=(c:ConferenceCase)=>`cc.conference.${c.id}.${conferenceAudioKey(c)}`;
-export const chapterAt=(asset:ConferenceAudio,t:number)=>{const i=asset.chapters.findIndex(ch=>t>=ch.start&&t<ch.end);return i>=0?i:t>=asset.seconds?asset.chapters.length-1:0;};
+// Native media clocks round a requested seek; sub-millisecond error must not select the previous slide.
+export const chapterAt=(asset:ConferenceAudio,t:number)=>{const p=t+.001;const i=asset.chapters.findIndex(ch=>p>=ch.start&&p<ch.end);return i>=0?i:p>=asset.seconds?asset.chapters.length-1:0;};
 export const sceneImage=(population:string)=>`conferences/images/${population.toLowerCase()}.webp`;
 function readPosition(c:ConferenceCase){try{return Math.max(0,Number(localStorage.getItem(key(c)))||0);}catch{return 0;}}
 
 export function CasePlayer({c,onBack,onContinue,onNext}:{c:ConferenceCase;onBack:()=>void;onContinue:()=>void;onNext?:()=>void}){
   const audio=useRef<HTMLAudioElement>(null),saved=useRef(0);
+  const pendingSlide=useRef<number|null>(null),seekingTo=useRef<number|null>(null);
   const [asset,setAsset]=useState<ConferenceAudio|null>(null),[error,setError]=useState('');
   const [t,setT]=useState(0),[index,setIndex]=useState(0),[listening,setListening]=useState(false),[playing,setPlaying]=useState(false),[rate,setRate]=useState(1);
   const [reference,setReference]=useState(false),[completed,setCompleted]=useState(false),[retry,setRetry]=useState(0);
@@ -35,16 +37,20 @@ export function CasePlayer({c,onBack,onContinue,onNext}:{c:ConferenceCase;onBack
   },[asset,c.id]);
   const seekSlide=(n:number)=>{
     if(n<0||n>=c.slides.length)return;
-    setIndex(n);setReference(false);
-    if(asset&&audio.current){audio.current.currentTime=asset.chapters[n].start;setT(asset.chapters[n].start);}
+    setIndex(n);setReference(false);pendingSlide.current=n;
+    if(asset&&audio.current&&audio.current.readyState>=1){const target=asset.chapters[n].start;pendingSlide.current=null;seekingTo.current=target;audio.current.currentTime=target;setT(target);}
   };
   const update=()=>{
     const a=audio.current;if(!a||!asset)return;
+    // Metadata and seek events can arrive after a newer manual slide request.
+    if(pendingSlide.current!==null)return;
+    if(seekingTo.current!==null){if(a.seeking||Math.abs(a.currentTime-seekingTo.current)>.15)return;seekingTo.current=null;}
     setT(a.currentTime);setIndex(chapterAt(asset,a.currentTime));
     if(Math.abs(a.currentTime-saved.current)>3){saved.current=a.currentTime;try{localStorage.setItem(key(c),String(a.currentTime));}catch{}}
     if('mediaSession' in navigator&&Number.isFinite(a.duration))try{navigator.mediaSession.setPositionState({duration:a.duration,playbackRate:a.playbackRate,position:Math.min(a.duration,a.currentTime)});}catch{}
   };
   const changePlayback=(isPlaying:boolean)=>{setPlaying(isPlaying);if('mediaSession' in navigator)navigator.mediaSession.playbackState=isPlaying?'playing':'paused';};
+  const seeked=()=>{if(audio.current?.seeking)return;seekingTo.current=null;update();};
   return <article className={`conference-player${listening?' listening':''}`} aria-labelledby="conference-title">
     <div className="conference-top"><button className="course-back" onClick={onBack}>← Case library</button><div className="conference-mode" role="group" aria-label="Presentation mode"><button aria-pressed={!listening} onClick={()=>setListening(false)}>Watch slides</button><button aria-pressed={listening} onClick={()=>setListening(true)}>Listen</button></div></div>
     <header className="conference-heading"><p className="eyebrow">{c.population} · Synthetic case conference</p><h2 id="conference-title">{c.title}</h2><p>{c.variant}</p><small className="conference-review">Clinical review pending · Fictional patient</small></header>
@@ -64,7 +70,7 @@ export function CasePlayer({c,onBack,onContinue,onNext}:{c:ConferenceCase;onBack
     </>}
     <section className="conference-audio" aria-label="Case narration">
       <div><b>{playing?'Playing':'Narration'}</b><span>{mmss(t)}{asset?` / ${mmss(asset.seconds)}`:''}</span><label>Speed<select aria-label="Narration speed" value={rate} onChange={e=>{const v=Number(e.target.value);setRate(v);if(audio.current)audio.current.playbackRate=v;}}>{[0.75,1,1.25,1.5,1.75,2].map(v=><option value={v} key={v}>{v}×</option>)}</select></label></div>
-      {asset&&<audio ref={audio} controls preload="metadata" src={`conferences/${asset.file}`} onLoadedMetadata={()=>{const a=audio.current;if(!a)return;const resume=readPosition(c);if(resume>0&&resume<a.duration-2){a.currentTime=resume;setT(resume);setIndex(chapterAt(asset,resume));}a.playbackRate=rate;}} onTimeUpdate={update} onSeeked={update} onPlay={()=>changePlayback(true)} onPause={()=>changePlayback(false)} onEnded={()=>{setCompleted(true);setIndex(c.slides.length-1);try{localStorage.removeItem(key(c));}catch{}}} onError={()=>setError('The audio file could not be loaded. Retry or use the full transcript.')} />}
+      {asset&&<audio ref={audio} controls preload="metadata" src={`conferences/${asset.file}`} onLoadedMetadata={()=>{const a=audio.current;if(!a)return;const requested=pendingSlide.current;const resume=readPosition(c);const target=requested!==null?asset.chapters[requested].start:resume>0&&resume<a.duration-2?resume:0;pendingSlide.current=null;seekingTo.current=target>0?target:null;if(target>0)a.currentTime=target;setT(target);setIndex(requested??chapterAt(asset,target));a.playbackRate=rate;}} onTimeUpdate={update} onSeeked={seeked} onPlay={()=>changePlayback(true)} onPause={()=>changePlayback(false)} onEnded={()=>{setCompleted(true);setIndex(c.slides.length-1);try{localStorage.removeItem(key(c));}catch{}}} onError={()=>setError('The audio file could not be loaded. Retry or use the full transcript.')} />}
       {!asset&&!error&&<p role="status">Loading narration…</p>}
       {error&&<p className="conference-error" role="status">{error} <button className="act" onClick={()=>{setError('');setRetry(v=>v+1);audio.current?.load();}}>Retry audio</button></p>}
       {asset&&<p className="conference-downloads"><a href={`conferences/${asset.file}`} download={`${c.id}.mp3`}>Download audio</a><a href={`conferences/transcripts/${c.id}.txt`} download>Download transcript</a><span>One continuous file · {mmss(asset.seconds)}</span></p>}

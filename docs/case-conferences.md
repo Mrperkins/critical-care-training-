@@ -4,7 +4,7 @@ The Case conference module introduces a fictional patient before disease teachin
 
 ## Current scope
 
-There are 32 draft conferences across 16 topics: 10 pediatric cases, 10 obstetric cases, 4 neonatal cases and 8 adult cases. Each topic has two clinically distinct presentation variants. Pediatric DKA, for example, compares a new diagnosis with suspected cerebral injury during treatment. Postpartum hemorrhage compares atony with persistent bleeding after the uterus becomes firm. Continuous audio and downloadable transcripts are bound to the current speaker script; after editorial changes, all files must be regenerated and audited before release.
+There are 32 draft conferences across 16 topics: 10 pediatric cases, 10 obstetric cases, 4 neonatal cases and 8 adult cases. The current recordings total 132.7 minutes. Each topic has two clinically distinct presentation variants. Pediatric DKA, for example, compares a new diagnosis with suspected cerebral injury during treatment. Postpartum hemorrhage compares atony with persistent bleeding after the uterus becomes firm. Continuous audio and downloadable transcripts are bound to the current speaker script; after editorial changes, all files must be regenerated and audited before release.
 
 The October 22 editorial revision separates concise slide evidence from a fuller conference-style speaker track for every case. Slides present the short history, examination clues, data and decision; the narrator supplies the story, diagnostic uncertainty and interpretation. Four seconds of recorded silence follow the decision chapter before the discussion continues automatically. See [conference-editorial-standard.md](conference-editorial-standard.md) for the format and reference.
 
