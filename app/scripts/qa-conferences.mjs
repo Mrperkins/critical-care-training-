@@ -61,6 +61,20 @@ try{
     results.push({viewport:name,width,height,audio:audioExists?'Playback and mode preservation verified':'Not yet assembled',horizontalOverflow:overflow,errors});
     await page.close();
   }
+  const manifest=JSON.parse(fs.readFileSync(path.join(pub,'conferences/manifest.json'),'utf8'));
+  const sweep=await browser.newPage({viewport:{width:390,height:844},reducedMotion:'reduce'});const sweepErrors=[];let slides=0;
+  sweep.on('pageerror',e=>sweepErrors.push(e.message));await sweep.addInitScript(()=>window.__NO_SW__=true);
+  for(const [id,asset] of Object.entries(manifest.assets)){
+    await sweep.goto(`${url}/?module=cases&case=${id}`);await sweep.locator('.conference-slide').waitFor();
+    for(let i=0;i<asset.chapters.length;i++){
+      assert((await sweep.locator('.conference-slide .eyebrow').textContent()).startsWith(String(i+1).padStart(2,'0')),`${id}/${i}: wrong beat`);
+      const clipped=await sweep.evaluate(()=>{const s=document.querySelector('.conference-slide-text');return document.documentElement.scrollWidth>innerWidth+1||s.scrollWidth>s.clientWidth+1;});
+      assert.equal(clipped,false,`${id}/${i}: clipping`);slides++;
+      if(['asthma-silent-chest','eclampsia-postpartum','rds-sudden-desaturation','mi-inferior-rv'].includes(id)&&[0,2,5,6,8].includes(i))await sweep.locator('.conference-slide').screenshot({path:path.join(dir,`revised-${id}-${i+1}.png`)});
+      if(i<asset.chapters.length-1)await sweep.getByRole('button',{name:'Next slide →',exact:true}).click();
+    }
+  }
+  assert.equal(sweepErrors.length,0,JSON.stringify(sweepErrors));results.push({viewport:'mobile-all-conferences',cases:Object.keys(manifest.assets).length,slides,horizontalOverflow:false,errors:sweepErrors});await sweep.close();
   const linked=await browser.newPage();await linked.addInitScript(()=>window.__NO_SW__=true);await linked.goto(`${url}/?module=cases&case=eclampsia-postpartum`);await linked.locator('#conference-title').filter({hasText:'A seizure five days after delivery'}).waitFor();await linked.getByRole('button',{name:'Next slide →',exact:true}).click();await linked.getByText('Chapters & full transcript',{exact:true}).click();await linked.locator('nav[aria-label="Conference chapters"] button').last().click();await linked.getByRole('button',{name:'Continue to the lesson',exact:true}).click();await linked.locator('#fpc-title').waitFor();assert(await linked.locator('.case-primer').count()>0);await linked.close();
   fs.writeFileSync(path.join(dir,'results.json'),JSON.stringify(results,null,2));console.log(JSON.stringify(results,null,2));
 }finally{await browser.close();await new Promise(resolve=>server.close(resolve));}
