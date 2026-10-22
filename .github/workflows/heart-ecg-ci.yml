@@ -26,7 +26,8 @@ permissions:
   contents: read
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    # Keep the locked Playwright browser suite on its supported runner image.
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     defaults:
       run:
