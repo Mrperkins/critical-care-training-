@@ -1,0 +1,1 @@
+Render all 32 synthetic case conferences and save continuous audio, measured chapters, and transcripts on this branch. 2026-10-22.
