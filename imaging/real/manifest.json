@@ -4788,7 +4788,19 @@
     "answer": 0,
     "explain": "This is croup; corticosteroids reduce airway oedema and nebulised adrenaline gives rapid relief for moderate to severe stridor."
    },
-   "marks": [],
+   "marks": [
+    {
+     "shape": "ellipse",
+     "layer": "pathology",
+     "x": 0.475,
+     "y": 0.7,
+     "rx": 0.065,
+     "ry": 0.13,
+     "lx": 0.58,
+     "ly": 0.47,
+     "label": "Steeple sign"
+    }
+   ],
    "file": "peds-croup-steeple-2019.jpg",
    "original": "source/peds-croup-steeple-2019-source.jpg",
    "license": "CC BY 4.0",
@@ -4852,7 +4864,19 @@
     "answer": 2,
     "explain": "Suspected epiglottitis needs a controlled airway in theatre; agitation or lying flat can cause complete obstruction."
    },
-   "marks": [],
+   "marks": [
+    {
+     "shape": "ellipse",
+     "layer": "pathology",
+     "x": 0.642,
+     "y": 0.646,
+     "rx": 0.06,
+     "ry": 0.085,
+     "lx": 0.55,
+     "ly": 0.48,
+     "label": "Thumb sign"
+    }
+   ],
    "file": "peds-epiglottitis-thumb-2026.jpg",
    "license": "CC BY 4.0",
    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",

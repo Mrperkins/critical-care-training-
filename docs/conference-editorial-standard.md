@@ -22,7 +22,9 @@ The requested format is a clinical conference told through concise slides and an
 
 ## Example: a quieter child with asthma
 
-The observation slide shows the respiratory rate falling from 42 to 18 with shallow effort, alongside the current pressure and saturation. The bedside slide shows minimal air entry and reduced interaction. The lecturer explains why these changes can be mistaken for improvement during transfer preparation and how the accompanying loss of airflow and alertness changes the interpretation. The decision then moves to ventilation planning, expiratory time and hemodynamic tolerance. Reassessment continues after the airway intervention.
+The explicit diagnosis is life-threatening status asthmaticus with acute hypercapnic and hypoxemic respiratory failure. The conference introduces the child, mother's account, EMS findings, preceding treatment and the moment deterioration occurs. The observation slide shows the respiratory rate falling from 42 to 18 with shallow effort, alongside the current pressure and saturation. Eighteen lies within the cited observation range for a twelve-year-old, yet falling effort with drowsiness and poor air movement indicates exhaustion. Do not mislabel an in-range number as bradypnea or call it recovery without assessing effective ventilation.
+
+The arterial gas is taught value by value: reference interval, acidemia, hypercapnia and hypoxemia, their mechanisms and their common associated signs. The airway decision follows the actual bedside decline. The subsequent synthetic course reports the interventions, repeat gas, pressure and oxygen response, extubation and final diagnosis. A repeat value that is improving but still abnormal must be described as such.
 
 This information is staged across the case rather than placed on one dense slide. A listener receives the vital values, the bedside change, the reasoning and the response without needing to look at a tracing or tap an answer.
 
@@ -32,9 +34,21 @@ Pediatric and neonatal cases preserve age, measured weight and relevant gestatio
 
 Actual diagnostic reference images retain attribution and identify the separate patient. AI-generated scene illustrations are setting images, not diagnostic evidence. Where a new case needs an exact ECG, monitor trace, laboratory panel or trend, author it from the validated synthetic measurements or use an appropriate attributed reference; a generated photograph cannot establish a precise medical finding. Further case-specific diagnostic visuals and clinical review remain part of expanding the library.
 
+Real radiographs, CT, ultrasound, fractures and congenital malformations must come from appropriately licensed clinical sources, never fabricated raster diagnostic images. The original film is preserved; annotation overlays identify the finding without altering the underlying study. Conference images appear during the diagnostic discussion without a quiz gate. Describe orientation, the expected anatomy, the abnormality, its meaning and its limitations aloud. Croup uses a real frontal steeple-sign film. The severe-croup differential compares that with a real lateral thumb-sign film while stating that the synthetic case ultimately has croup. Neither film is an instruction to move an unstable child to radiology.
+
+## Every finding needs interpretation
+
+Every authored vital sign, laboratory result or deliberately deferred test has a `FindingTeaching` record. The recording places it directly after the value: a sourced age, specimen and context-appropriate reference; the named abnormality or explicit statement that it is in range; its meaning in this patient; and commonly associated clinical signs. Possible associations are not additional examination findings. Do not imply that a normal initial potassium excludes DKA potassium depletion, that preserved pressure excludes shock, or that an adult lactate limit applies to a three-day-old newborn.
+
+Distinguish healthy resting ranges, broad acceptable observations for unwell children, diagnostic thresholds and resuscitation targets. State when a nearby pediatric age band is being used. Identify arterial versus peripheral venous gas and the oxygen support. A treatment setting such as PEEP has no universal normal interval; explain its role and tolerance instead. A qualitative or deferred result must not acquire invented numeric values.
+
+`clinicalReviews/` contains the case-specific diagnosis, EMS/referral context, interpretation and subsequent course for all 32 current cases. Shared references supply sourceable comparison facts; patient-specific interpretations and outcomes are authored, not generated from numerical cutoffs. This remains an initial case bank, not comprehensive exam coverage or clinical sign-off.
+
 ## Acceptance before release
 
 - Every case has a separately authored screen outline and commentary for all nine beats.
+- Every case names a disease process early, gives a concrete patient timeline and closes with the established diagnosis and a plausible outcome, including any remaining uncertainty.
+- Every observation has its sourced reference, interpretation and common associations immediately narrated after the value. No missing interpretation can silently fall back to generic theory.
 - Audio contains the complete clinical history, all data values and the reasoning, with no reliance on screen interaction.
 - A decision pause is baked into the continuous MP3 and represented in measured chapter timing and the transcript.
 - Changes to text, pause timing or narrator invalidate the recording and its saved resume position.

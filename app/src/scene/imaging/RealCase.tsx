@@ -27,8 +27,8 @@ function Overlay({ marks }: { marks: RealMark[] }) {
   );
 }
 
-export function RealCaseCard({ it }: { it: RealItem }) {
-  const [pick, setPick] = useState<number | null>(null); const [layers, setLayers] = useState({ landmark: false, pathology: false });
+export function RealCaseCard({ it, teachingMode = false }: { it: RealItem; teachingMode?: boolean }) {
+  const [pick, setPick] = useState<number | null>(null); const [layers, setLayers] = useState({ landmark: teachingMode, pathology: teachingMode });
   const [info, setInfo] = useState(false); const [playing, setPlaying] = useState(!REDUCE); const vid = useRef<HTMLVideoElement>(null);
   useEffect(() => { const v = vid.current; if (!v) return; if (playing) v.play().catch(() => setPlaying(false)); else v.pause(); }, [playing]);
   const toggle = (l: RealMark['layer']) => {
@@ -36,7 +36,7 @@ export function RealCaseCard({ it }: { it: RealItem }) {
     // overlays are drawn on the poster frame: hold the clip there while any are shown
     if (vid.current && (next.landmark || next.pathology)) { setPlaying(false); vid.current.currentTime = it.posterAt ?? 0; }
   };
-  const isVideo = it.file.endsWith('.mp4'); const q = it.quiz; const answered = pick != null || !q;
+  const isVideo = it.file.endsWith('.mp4'); const q = teachingMode ? undefined : it.quiz; const answered = pick != null || !q;
   const marks = (it.marks ?? []).filter((m) => layers[m.layer]); const has = (l: RealMark['layer']) => (it.marks ?? []).some((m) => m.layer === l);
   const cc0 = it.license === 'CC0';
   return (
