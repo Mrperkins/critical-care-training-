@@ -1,0 +1,1 @@
+import{d as o}from"./c-WYY4M5KF.js";import{a as n}from"./c-4TIYSYRS.js";import{c as t}from"./c-LV7NOCMP.js";var i=t(n(),1);function r({domain:a,onOpen:s}){let e=o(a).length;return(0,i.jsxs)("button",{className:"atlas-entry",onClick:s,title:"Open the condition atlas for this domain",children:[e," conditions"]})}export{r as a};

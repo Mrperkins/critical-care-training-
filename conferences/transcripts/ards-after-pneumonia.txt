@@ -1,0 +1,27 @@
+Pneumonia progresses despite invasive support
+Case conference. Oxygenation worsens after pneumonia. This is a fictional teaching case, with clinical review pending. A 54-year-old patient is intubated on the second day of severe pneumonia. Bilateral opacities and escalating oxygen requirements develop within 48 hours. The referring team requests transfer for advanced respiratory support. We enter the case after intubation, when the presence of a ventilator can create a false sense that the respiratory problem has been solved. The rising oxygen requirement tells us the physiology is still evolving.
+
+Define the respiratory syndrome in context
+The patient is sedated and mechanically ventilated. Breath sounds are bilateral. There is no evidence that isolated cardiac failure or fluid overload fully explains the respiratory picture. The examination helps us check immediate alternatives and the broader cause of the opacities. A label of ARDS needs the clinical context; bilateral imaging findings alone are not the whole diagnosis.
+
+Significant support, persistent hypoxemia
+Heart rate is 116 per minute. Blood pressure is 108 over 64 on current support. Saturation is 89 percent. Inspired oxygen fraction is 0.80. Positive end-expiratory pressure is 10 centimeters of water. Read the saturation alongside the amount of oxygen and pressure being delivered. A number has a different meaning when it takes substantial support to achieve it.
+
+Relate arterial oxygen to inspired oxygen
+Arterial pH is 7.31. Arterial carbon dioxide is 48 millimeters of mercury. Arterial oxygen tension is 58 millimeters of mercury. The oxygen tension divided by inspired oxygen fraction is about 73. The oxygenation ratio helps express how impaired gas exchange is on the current support. It describes severity; it does not choose a safe tidal volume or replace a pressure assessment.
+
+A severe ARDS phenotype
+The timing, bilateral opacities and severe oxygenation impairment on positive pressure support a severe ARDS phenotype after exclusion of a primarily hydrostatic explanation. The optional radiograph is a comparator from another patient. An optional comparison image in the visual presentation comes from a different patient; it is not this fictional patient’s study. The pattern supports a severe lung injury syndrome after the competing explanation is assessed. We now have to support gas exchange without adding avoidable injury through the way we ventilate.
+
+Should tidal volume be the first answer?
+Should you solve this hypoxemia simply by increasing tidal volume? Imagine the saturation rises after a larger breath. What else would you need to know before calling that a good treatment response? Think about pressure, injury and circulation.
+[4-second reflection pause; playback continues automatically.]
+
+Oxygenation and lung protection belong together
+Gas exchange must be supported while limiting ventilator-induced injury. Predicted body weight, plateau pressure, synchrony and response to PEEP matter; the patient’s actual weight does not define a lung-protective tidal volume. Confirm measured height, predicted-body-weight ventilation and pressure assessment under the ARDS protocol. Reassess PEEP tolerance, hemodynamics and reversible causes of deterioration. Coordinate severe-ARDS strategies, including proning or specialist referral when indicated and operationally feasible. The ventilator plan is a balance of physiological goals. The team needs to know not only the settings but the height, pressure measurements, response and operational limits behind them.
+
+Measure the response to the revised plan
+After review of ventilation and support, gas exchange is reassessed with a repeat blood gas and pressure measurements. The team does not assume that a higher saturation means the injured lung has recovered. A better saturation is useful evidence, but it does not tell us the injured lung has recovered. Continued pressure and perfusion assessment helps us judge the overall response.
+
+Severe ARDS: support exchange while limiting injury
+Case synopsis. Severe ARDS required oxygenation support balanced against lung injury. A lung-protective strategy and repeated physiological assessment guided transfer planning. The case begins with an oxygen problem and expands into a ventilation strategy. Carry that balance into the physiology lesson rather than treating saturation as the sole endpoint. Continue to the disease lesson for the underlying physiology and further study.

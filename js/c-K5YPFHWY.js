@@ -1,0 +1,1 @@
+import{a as n}from"./c-WONBENEI.js";import{a as l}from"./c-ZYIGBBBU.js";var t=l(s=>({selected:null,lesson:null,disease:null,set:e=>s(e)}));function o(s,e={}){t.getState().set({selected:s,lesson:e.lesson??null,disease:e.disease??null}),n.getState().set({module:"cases",atlasDisease:null})}export{t as a,o as b};

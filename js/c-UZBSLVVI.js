@@ -1,0 +1,1 @@
+import{e as i}from"./c-7VD62GWT.js";var e=null;function m(){return e||(e=(async()=>{let s=window.__LINES_MAP__??await(await fetch("models/lines.mapping.json")).json(),n=await i(window.__LINES_GLB__,"models/lines.glb");for(let r of["ra","rv","svc","aorta","tricuspid"])if(!n[r])throw new Error("Lines asset missing "+r);return{meshes:n,mapping:s}})(),e)}export{m as a};
