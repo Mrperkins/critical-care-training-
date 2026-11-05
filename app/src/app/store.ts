@@ -1,7 +1,7 @@
 import type { DiseaseState } from '../atlas/types';
 import { create } from 'zustand';
 
-export type Module = 'vent' | 'abg' | 'labs' | 'lines' | 'neuro' | 'moa' | 'heart' | 'abdomen' | 'pediatrics' | 'womens' | 'curriculum' | 'videos' | 'fpc' | 'cases';
+export type Module = 'vent' | 'abg' | 'labs' | 'lines' | 'neuro' | 'moa' | 'heart' | 'abdomen' | 'pediatrics' | 'womens' | 'curriculum' | 'videos' | 'fpc' | 'cases' | 'library';
 export type Mode = 'explore' | 'learn' | 'challenge' | 'sim';
 export type VentView = 'front' | 'side' | 'airway' | 'base' | 'alveolus' | 'xray' | 'lus';
 
@@ -16,7 +16,7 @@ export interface UIState {
   set: (p: Partial<UIState>) => void;
 }
 export const useUI = create<UIState>((set) => ({
-  module: 'curriculum', mode: 'learn',
+  module: 'library', mode: 'learn',
   atlasFrame: null, atlasDisease: null, atlasSeverity: .5, atlasTarget: 'body.whole',
   ventScenario: 'normal', ventView: 'front', ventFlowDisplay: 'volume', ventTarget: 'lung.whole', labels: true, showPmus: false, showLoops: true,
   pulse: 0,

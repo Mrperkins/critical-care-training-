@@ -27,6 +27,10 @@ import { lines } from '../lines/session';
 import type { AtlasDomain } from '../atlas/types';
 import { conditionsFor, DISEASE_BY_ID } from '../atlas/registry';
 import { DomainIcon } from './icons';
+import { Library } from '../library/Library';
+import { StepRail } from '../library/StepRail';
+import { useLibrary } from '../library/libraryStore';
+import { openLibrary } from '../library/launch';
 
 import { useIsPhone } from './useIsPhone';
 export { useIsPhone };
@@ -48,7 +52,7 @@ function useEngine() {
 }
 
 const DOMAINS: { module: Module; label: string; eyebrow: string }[] = [
-  { module: 'curriculum', label: 'Home', eyebrow: 'Your learning home' },
+  { module: 'library', label: 'Browse', eyebrow: 'Modules, paths and cases' },
   { module: 'vent', label: 'Respiratory', eyebrow: 'Ventilation & gas exchange' },
   { module: 'abg', label: 'Blood gas', eyebrow: 'Acid–base & oxygenation' },
   { module: 'labs', label: 'Labs', eyebrow: 'Cellular & metabolic physiology' },
@@ -69,7 +73,10 @@ export function App() {
   const experience = experienceFor(mode);
   const domain = module === 'videos'
     ? { module: 'videos' as Module, label: 'Videos', eyebrow: 'Curated clinical media' }
+    : module === 'curriculum' ? { module: 'curriculum' as Module, label: 'Progress & bookmarks', eyebrow: 'Your progress' }
     : DOMAINS.find((d) => d.module === module) ?? DOMAINS[0];
+  const playing = useLibrary((s) => s.playing);
+  const libView = useLibrary((s) => s.view);
   const [mobilePane, setMobilePane] = useState<'scene' | 'context'>('context');
   const atlasDisease = useUI(s=>s.atlasDisease);
   const atlasDomain = ATLAS_DOMAINS[module];
@@ -78,6 +85,8 @@ export function App() {
   const menuTrigger = useRef<HTMLButtonElement>(null);
   const resources = useRef<HTMLDetailsElement>(null);
   const chooseDomain = (next: Module) => {
+    useLibrary.getState().setPlaying(null);
+    if (next === 'library') { openLibrary({ page: 'home' }); menu.current?.close(); resources.current?.removeAttribute('open'); return; }
     useUI.getState().set({ module: next, atlasDisease: null }); setMobilePane('context');
     menu.current?.close(); resources.current?.removeAttribute('open');
   };
@@ -89,7 +98,9 @@ export function App() {
     const close = (e: PointerEvent) => { if (resources.current && !resources.current.contains(e.target as Node)) resources.current.removeAttribute('open'); };
     document.addEventListener('pointerdown', close); return () => document.removeEventListener('pointerdown', close);
   }, []);
-  const inDomain = module !== 'curriculum' && module !== 'videos' && module !== 'fpc' && module !== 'cases';
+  const inDomain = module !== 'curriculum' && module !== 'videos' && module !== 'fpc' && module !== 'cases' && module !== 'library';
+  const inPlayer = inDomain && !!playing;
+  const navOn = (k: 'home' | 'paths' | 'cases') => module === 'library' && (k === 'home' ? libView.page === 'home' || libView.page === 'module' || (libView.page === 'shelf' && libView.filter !== 'case') : k === 'paths' ? libView.page === 'paths' || libView.page === 'path' : libView.page === 'shelf' && libView.filter === 'case');
   const tools = <>
     {atlasDomain && !showingAtlas && <AtlasEntry domain={atlasDomain} onOpen={() => useUI.getState().set({atlasDisease:conditionsFor(atlasDomain)[0].id})} />}
     {experience === 'practice' && inDomain && !showingAtlas && <div className="practice-switch" role="group" aria-label="Practice type">
@@ -101,24 +112,31 @@ export function App() {
     <DomainIcon module={d.module} /><span className="domain-label">{d.label}</span>
   </button>);
   return (
-    <div className={`app app-v2 m-${module}${phone ? ' phone' : ''}`} data-mobile-pane={mobilePane} data-equipment={module === 'vent' && mode === 'sim' && !showingAtlas ? true : undefined}>
+    <div className={`app app-v2 app-b m-${module}${phone ? ' phone' : ''}${inPlayer ? ' playing' : ''}${inDomain ? ' in-domain' : ''}`} data-mobile-pane={mobilePane} data-equipment={module === 'vent' && mode === 'sim' && !showingAtlas ? true : undefined}>
       <a className="skip-link" href="#workspace" onClick={(e) => { e.preventDefault(); const el = document.getElementById('workspace'); el?.focus(); el?.scrollIntoView({ block: 'start' }); }}>Skip to learning workspace</a>
       <header className="topbar topbar-v2">
-        <button ref={menuTrigger} className="domain-menu-button" aria-label="Open clinical domains" aria-haspopup="dialog" onClick={() => menu.current?.showModal()}><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg></button>
-        <button className="brand brand-home" onClick={() => useUI.getState().set({ module: 'curriculum' })} aria-label="Go to learning home">
+        <button ref={menuTrigger} className="domain-menu-button" aria-label="Open body systems" aria-haspopup="dialog" onClick={() => menu.current?.showModal()}><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg></button>
+        <button className="brand brand-home" onClick={() => { useLibrary.getState().setPlaying(null); openLibrary({ page: 'home' }); }} aria-label="Go to browse">
           <Mark /><h1 className="b1">Critical Care</h1>
         </button>
-        <div className="topbar-context">
+        <nav className="lib-nav" aria-label="Primary">
+          <button className={navOn('home') ? 'on' : ''} aria-current={navOn('home') ? 'page' : undefined} onClick={() => openLibrary({ page: 'home' })}>Browse</button>
+          <button className={navOn('paths') ? 'on' : ''} aria-current={navOn('paths') ? 'page' : undefined} onClick={() => openLibrary({ page: 'paths' })}>Learning paths</button>
+          <button className={navOn('cases') ? 'on' : ''} aria-current={navOn('cases') ? 'page' : undefined} onClick={() => openLibrary({ page: 'shelf', id: 'all', filter: 'case' })}>Cases</button>
+          <a href="audio/">Audio</a>
+        </nav>
+        {inDomain && <div className="topbar-context">
           <h2 className="domain-title"><DomainIcon module={domain.module} /><span>{domain.label}</span></h2>
-          {module !== 'fpc' && module !== 'cases' && <nav className="experience-nav" aria-label="Learning mode">
+          {!inPlayer && <nav className="experience-nav" aria-label="Learning mode">
             {EXPERIENCES.map((item) => <button key={item.key} className={inDomain && experience === item.key ? 'on' : ''} aria-pressed={inDomain && experience === item.key} onClick={() => chooseExperience(item.key)}>{item.label}</button>)}
           </nav>}
           <div className="topbar-tools">{tools}</div>
-        </div>
+        </div>}
         <details className="resources-menu" ref={resources} onKeyDown={(e) => { if (e.key === 'Escape') { resources.current?.removeAttribute('open'); resources.current?.querySelector('summary')?.focus(); } }}>
           <summary aria-label="Learning resources"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 4.5h4v15H5zM10.5 4.5h4v15h-4zM16 5.2l3.6-.9 3 14.5-3.6.9z" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" transform="translate(-1.5 0)" /></svg><span className="resource-label">Library</span></summary>
           <nav aria-label="Learning resources">
             <button onClick={() => chooseDomain('videos')}>Videos &amp; Skills</button>
+            <button onClick={() => chooseDomain('fpc')}>FP-C exam prep</button>
             <button onClick={() => chooseDomain('cases')}>Case conference · Slides &amp; audio</button>
             <a href="audio/">Audio &amp; Mental Reps</a>
             <button onClick={() => chooseDomain('curriculum')}>Progress &amp; bookmarks</button>
@@ -127,14 +145,10 @@ export function App() {
       </header>
 
       <dialog ref={menu} className="domain-dialog" aria-labelledby="domain-dialog-title" onClose={() => menuTrigger.current?.focus()} onClick={(e) => { if (e.target === e.currentTarget) menu.current?.close(); }}>
-        <div className="domain-dialog-header"><h2 id="domain-dialog-title">Clinical domains</h2><button aria-label="Close clinical domains" onClick={() => menu.current?.close()}>×</button></div>
-        <nav className="domain-drawer-list" aria-label="Choose a clinical domain">{domainItems}</nav>
+        <div className="domain-dialog-header"><h2 id="domain-dialog-title">Body systems</h2><button aria-label="Close body systems" onClick={() => menu.current?.close()}>×</button></div>
+        <nav className="domain-drawer-list" aria-label="Choose a body system">{domainItems}</nav>
       </dialog>
       <div className="product-shell">
-        <aside className="domain-rail" aria-label="Clinical domains">
-          {domainItems}
-        </aside>
-
         <div id="workspace" tabIndex={-1} className="workspace">
           {inDomain && !(module === 'vent' && mode === 'sim' && !showingAtlas) && <nav className="mobile-workspace-tabs" aria-label="Workspace view">
             <button aria-pressed={mobilePane === 'scene'} data-scene-button onClick={() => setMobilePane('scene')}>Scene</button>
@@ -152,11 +166,13 @@ export function App() {
             {module === 'heart' && <HeartModule />}
             {module === 'abdomen' && <AbdomenModule />}
           </>}
+          {module === 'library' && <Library />}
           {module === 'curriculum' && <CurriculumModule />}
           {module === 'videos' && <VideoLibrary />}
           {module === 'fpc' && <FpcModule />}</Suspense>
           {module === 'cases' && <Suspense fallback={<ModuleLoading />}><CasesModule /></Suspense>}
         </div>
+        {inPlayer && <StepRail />}
       </div>
     </div>
   );

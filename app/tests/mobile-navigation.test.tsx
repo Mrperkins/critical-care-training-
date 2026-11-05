@@ -6,6 +6,7 @@ import { App } from '../src/app/App';
 import { useUI } from '../src/app/store';
 import { AtlasModule } from '../src/atlas/AtlasModule';
 import { DISEASES } from '../src/atlas/registry';
+import { useLibrary } from '../src/library/libraryStore';
 
 // Keep navigation real. Isolate model loading and continuously animated scene renderers.
 vi.mock('../src/asset/resp', () => ({ loadRespAsset: () => new Promise(() => {}) }));
@@ -39,7 +40,7 @@ beforeEach(() => {
   Object.defineProperty(window, 'matchMedia', { configurable: true, value: vi.fn(() => ({ matches: true, addEventListener: vi.fn(), removeEventListener: vi.fn() })) });
   HTMLDialogElement.prototype.showModal = function () { this.open = true; };
   HTMLDialogElement.prototype.close = function () { this.open = false; this.dispatchEvent(new Event('close')); };
-  useUI.getState().set({ module: 'curriculum', mode: 'learn', atlasDisease: null });
+  useUI.getState().set({ module: 'library', mode: 'learn', atlasDisease: null }); useLibrary.getState().resetLibrary();
   container = document.createElement('div'); document.body.append(container); root = createRoot(container);
 });
 afterEach(async () => { await act(async () => root.unmount()); container.remove(); vi.unstubAllGlobals(); });
@@ -59,27 +60,29 @@ describe('phone navigation interactions', () => {
       expect(useUI.getState().atlasTarget).toBe(disease.target);
     }
   });
-  it('Learn on Home enters lessons instead of leaving Home unchanged', async () => {
+  it('Start module on Browse plays its first step in the clinical workspace with the step rail', async () => {
     await act(async () => root.render(<App />)); await settle();
-    await click('Learn');
-    expect(useUI.getState().module).toBe('vent');
+    expect(container.querySelector('#library-main')).toBeTruthy();
+    await click('Start module');
+    expect(useUI.getState().module).toBe('vent'); expect(useUI.getState().mode).toBe('learn');
     expect(container.textContent).toContain('Respiratory lessons');
+    expect(container.querySelector('.step-rail')).toBeTruthy();
     expect(container.querySelector('.app')?.getAttribute('data-mobile-pane')).toBe('context');
     await click('Scene');
     expect(container.querySelector('.app')?.getAttribute('data-mobile-pane')).toBe('scene');
-    await click('Learn');
+    await click('Lessons');
     expect(container.querySelector('.app')?.getAttribute('data-mobile-pane')).toBe('context');
   });
   it.each([320, 360, 390, 430, 768])('Learn interaction state enters the lesson pane at %ipx (DOM only)', async (width) => {
     Object.defineProperty(window, 'innerWidth', { configurable: true, value: width });
     Object.defineProperty(window, 'matchMedia', { configurable: true, value: vi.fn((query: string) => ({ matches: width <= +(query.match(/max-width:\s*(\d+)/)?.[1] ?? 0), addEventListener: vi.fn(), removeEventListener: vi.fn() })) });
-    await act(async () => root.render(<App />)); await settle(); await click('Learn');
+    await act(async () => root.render(<App />)); await settle(); await click('Respiratory', container.querySelector('dialog')!);
     expect(useUI.getState().module).toBe('vent'); expect(useUI.getState().mode).toBe('learn');
     expect(container.querySelector('.app')?.getAttribute('data-mobile-pane')).toBe('context');
     expect(container.textContent).toContain('Respiratory lessons');
   });
   it('Explore and Practice transition into their clinical experiences', async () => {
-    await act(async () => root.render(<App />)); await settle();
+    await act(async () => root.render(<App />)); await settle(); await click('Respiratory', container.querySelector('dialog')!);
     await click('Explore'); expect(useUI.getState().mode).toBe('explore');
     expect(container.querySelector('.app')?.getAttribute('data-mobile-pane')).toBe('scene');
     await click('Practice'); expect(container.textContent).toContain('Respiratory cases');
@@ -87,20 +90,21 @@ describe('phone navigation interactions', () => {
   });
   it('drawer chooses a domain, closes and restores focus to its trigger', async () => {
     await act(async () => root.render(<App />)); await settle();
-    await click('Open clinical domains');
+    await click('Open body systems');
     const drawer = container.querySelector('dialog')!;
     expect(drawer.open).toBe(true);
     await click('Blood gas', drawer);
     expect(drawer.open).toBe(false); expect(useUI.getState().module).toBe('abg');
-    expect(document.activeElement).toBe(button('Open clinical domains'));
+    expect(document.activeElement).toBe(button('Open body systems'));
     await click('Practice'); expect(useUI.getState().module).toBe('abg'); expect(useUI.getState().mode).toBe('challenge');
   });
-  it('resources remain reachable and Learn returns from Videos into clinical lessons', async () => {
+  it('resources remain reachable and a body system returns from Videos into clinical lessons', async () => {
     await act(async () => root.render(<App />)); await settle();
     const resources = container.querySelector<HTMLDetailsElement>('.resources-menu')!;
     await act(async () => resources.querySelector('summary')!.click()); expect(resources.open).toBe(true);
     await click('Videos & Skills', resources); expect(container.textContent).toContain('Videos and Skills'); expect(resources.open).toBe(false);
-    await click('Learn'); expect(container.textContent).toContain('Respiratory lessons');
+    await click('Respiratory', container.querySelector('dialog')!); expect(container.textContent).toContain('Respiratory lessons');
+    await click('Go to browse'); expect(useUI.getState().module).toBe('library'); expect(container.querySelector('#library-main')).toBeTruthy();
   });
   it.each([320,360,390,430,768])('atlas lesson transport, bookmark and return work in the %ipx interaction state', async width => {
     const { director } = await import('../src/director/director');

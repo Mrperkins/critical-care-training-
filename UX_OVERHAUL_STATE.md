@@ -110,3 +110,25 @@ Still present before this branch:
 - Do not mark unreviewed audio as clinically reviewed.
 - Preserve real-media attribution and licenses.
 - Preserve accessibility, keyboard navigation and reduced-motion support.
+
+## Library layout (Option B) — branch `ux-library-layout`
+Updated: 2026-11-05
+
+Direction chosen by the owner: a streaming-library layout (shelves → modules → steps), replacing the
+global Learn / Explore / Practice modes as the front door. Engines, lessons and cases are unchanged.
+
+- `app/src/library/modules.ts`: 26 modules on 8 shelves and 4 learning paths. Every step points at an
+  existing catalog lesson / workflow, challenge id or simulator (module + mode); `tests/library.test.tsx`
+  fails if a reference goes stale.
+- Browse (`module: 'library'`) is the new default landing: featured module, Continue learning / Start here,
+  one shelf per body system with View all, learning-path posters, and tiles for Audio, FP-C, Videos and
+  Case conference.
+- Module page → Start/Continue plays steps in the real workspace with a step rail on the right (a
+  collapsible bar on phones). Next marks a step passed; finishing returns to the module page.
+- The permanent domain rail is gone; body systems live in the menu. Learn / Explore / Practice still
+  appear inside a body system when not playing a module.
+- Progress for modules = catalog completions + passed challenges + steps moved past in the player
+  (`ccp.library.v1` in browser storage, optional).
+
+Next slices: per-module thumbnail art; restyle challenge views into the Patient → Assess → Decide →
+Intervene → Debrief shell; search.

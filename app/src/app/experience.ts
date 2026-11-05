@@ -9,10 +9,10 @@ export function experienceFor(mode: Mode): Experience {
 }
 /** Global modes always enter a clinical workspace, including from Home or Resources. */
 export function experienceDestination(module: Module, mode: Mode, next: Experience): { module: Module; mode: Mode } {
-  const resource = module === 'curriculum' || module === 'videos';
+  const resource = module === 'curriculum' || module === 'videos' || module === 'library';
   return { module: resource ? 'vent' : module, mode: next === 'practice' ? (!resource && mode === 'sim' ? 'sim' : 'challenge') : next };
 }
 export function selectExperience(next: Experience) {
   const state = useUI.getState();
-  state.set({ ...experienceDestination(state.module, state.mode, next), ...(state.module === 'curriculum' || state.module === 'videos' ? { atlasDisease: null } : {}) });
+  state.set({ ...experienceDestination(state.module, state.mode, next), ...(state.module === 'curriculum' || state.module === 'videos' || state.module === 'library' ? { atlasDisease: null } : {}) });
 }
