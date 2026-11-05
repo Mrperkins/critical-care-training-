@@ -6,7 +6,8 @@ import { CATALOG_BY_ID, CHALLENGE_CONCEPTS } from '../src/curriculum/catalog';
 import { TITLES } from '../src/curriculum/titles';
 import { useProgress } from '../src/curriculum/progress';
 import { useUI } from '../src/app/store';
-import { MODULES, PATHS, SHELVES, MODULE_BY_ID, moduleProgress, stepKey } from '../src/library/modules';
+import { FPC_DOMAIN_OF, MODULES, PATHS, SHELVES, MODULE_BY_ID, moduleProgress, stepKey } from '../src/library/modules';
+import { BLUEPRINT } from '../src/fpc/blueprint';
 import { useLibrary } from '../src/library/libraryStore';
 import { exitPlayer, nextStep, playModule, playStep, previousStep } from '../src/library/launch';
 import { Library, casesOn } from '../src/library/Library';
@@ -35,6 +36,12 @@ describe('library content points at real lessons, cases and simulators', () => {
   it('learning paths only list real modules, and the FP-C plan covers every module', () => {
     for (const p of PATHS) for (const id of p.modules) expect(MODULE_BY_ID[id], `${p.id} → ${id}`).toBeTruthy();
     expect(new Set(PATHS.find((p) => p.id === 'fpc')!.modules)).toEqual(new Set(MODULES.map((m) => m.id)));
+  });
+  it('every module sits in an FP-C blueprint domain, and the FP-C plan runs in blueprint order', () => {
+    const ids = new Set(BLUEPRINT.map((d) => d.id));
+    for (const m of MODULES) expect(ids.has(FPC_DOMAIN_OF[m.id]), m.id).toBe(true);
+    const order = PATHS.find((p) => p.id === 'fpc')!.modules.map((id) => BLUEPRINT.findIndex((d) => d.id === FPC_DOMAIN_OF[id]));
+    expect(order).toEqual([...order].sort((a, b) => a - b));
   });
   it('every challenge in the app is reachable from the Cases shelf', () => {
     expect(new Set(casesOn('all'))).toEqual(new Set([...Object.keys(CHALLENGE_CONCEPTS)]));
@@ -123,7 +130,10 @@ describe('library pages render', () => {
     await act(async () => root.render(<Library />));
     await act(async () => useLibrary.getState().go({ page: 'path', id: 'fpc' }));
     expect(container.querySelectorAll('.lib-steps li')).toHaveLength(MODULES.length);
-    await act(async () => buttonByText('Neuro')!.click());
-    expect(container.querySelectorAll('.lib-steps li')).toHaveLength(MODULES.filter((m) => m.shelf === 'neuro').length);
+    await act(async () => buttonByText('V · Neurological')!.click());
+    expect(container.querySelectorAll('.lib-steps li')).toHaveLength(MODULES.filter((m) => FPC_DOMAIN_OF[m.id] === 'neuro').length);
+    // a blueprint domain with no module yet points to FP-C exam prep
+    await act(async () => buttonByText('I · Safety and transport')!.click());
+    expect(container.textContent).toContain('Open FP-C exam prep');
   });
 });

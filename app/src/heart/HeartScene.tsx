@@ -252,7 +252,7 @@ function Heart({ asset, s, tier, hd }: { asset: LinesAsset; s: ShuntState; tier:
       if (sv != null) { if (CHAMBER[p.id]) { saturationColor(sv, p.U.uBlood.value, true); p.U.uBloodMix.value = 0.42; } else saturationColor(sv, p.m.color, true); }
     }
     if (ductGeo) saturationColor(s.lr >= s.rl ? s.sat.ao : s.sat.pa, ductMat.color, true);
-    const see = cut === 'closed' ? 0.5 : 1; // closed: vessels see-through so the flow inside stays visible
+    const see = 1; // the closed heart is shown whole and opaque; a cut opens it to show the flow inside
     for (const p of parts) if (VESSEL.has(p.id)) { if (p.m.opacity !== see) { p.m.opacity = see; p.m.transparent = see < 1; p.m.depthWrite = see === 1; p.m.needsUpdate = true; } }
     if (ductMat.opacity !== see) { ductMat.opacity = see; ductMat.transparent = see < 1; ductMat.depthWrite = see === 1; ductMat.needsUpdate = true; }
     if (flap.current) flap.current.rotation.x = approach(flap.current.rotation.x, -Math.min(0.9, s.rl * 3) * (0.6 + 0.4 * c.atr), 6, dt);
@@ -282,7 +282,8 @@ function Heart({ asset, s, tier, hd }: { asset: LinesAsset; s: ShuntState; tier:
         <group ref={flap}><mesh position={[0, -flapR * 0.9, 0]} material={flapMat}><circleGeometry args={[flapR, 28]} /></mesh></group>
       </group>}
       {ductGeo && <mesh geometry={ductGeo} material={ductMat} />}
-      {flowDisplay !== 'particles' && volumeStreams.map((stream) => <VolumeFlow
+      {/* the closed heart is the whole organ from outside; the blood inside shows once a section opens it */}
+      {cut !== 'closed' && flowDisplay !== 'particles' && volumeStreams.map((stream) => <VolumeFlow
         key={stream.id} label={`bulk-blood-${stream.id}`} path={stream.points} color={stream.color} clippingPlanes={planes}
         width={stream.jet ? 0.55 : 0.76} opacity={0.88}
         sample={() => {
@@ -294,7 +295,7 @@ function Heart({ asset, s, tier, hd }: { asset: LinesAsset; s: ShuntState; tier:
             activity: magnitude * (ejection ? 0.22 + b.slOpen * 0.78 : 0.64 + b.atr * 0.2) };
         }}
       />)}
-      <instancedMesh key={NP} visible={flowDisplay !== 'volume'} ref={inst} args={[new THREE.SphereGeometry(0.0052, 8, 6), undefined, NP]} frustumCulled={false}><meshBasicMaterial toneMapped={false} clippingPlanes={planes} /></instancedMesh>
+      <instancedMesh key={NP} visible={cut !== 'closed' && flowDisplay !== 'volume'} ref={inst} args={[new THREE.SphereGeometry(0.0052, 8, 6), undefined, NP]} frustumCulled={false}><meshBasicMaterial toneMapped={false} clippingPlanes={planes} /></instancedMesh>
       <Internals planes={planes} shared={shared} hr={hr} clock={t} />
       <Nerves shared={shared} planes={planes} />
       <Labels s={s} shape={shape} cut={cut} />
@@ -388,6 +389,8 @@ const W = (p: THREE.Vector3) => toScene(p);
 const look = (from: THREE.Vector3, at: THREE.Vector3, dist: number): [THREE.Vector3, THREE.Vector3] => { const a = W(at); return [a.clone().addScaledVector(from.clone().normalize(), dist), a]; };
 const D = IS_PHONE ? 1.3 : 1;
 export const HEART_VIEW: Record<string, () => [THREE.Vector3, THREE.Vector3]> = {
+  /** the whole, closed heart from the front, great vessels included */
+  'heart.whole_heart': () => look(new THREE.Vector3(0.12, 0.22, 1), new THREE.Vector3(0.18, 5.12, 0.38), 14.5 * D),
   'heart.four_chamber': () => look(new THREE.Vector3(0.069, 0.889, 0.453).add(new THREE.Vector3(0, 0, 0.35)), new THREE.Vector3(0.2, 4.66, 0.38), 8.6 * D),
   'heart.septum': () => look(SEPTUM_N.clone().add(new THREE.Vector3(0, 0.25, 0)), LM.septum, 4.8 * D),
   'heart.vsd': () => look(SEPTUM_N.clone().add(new THREE.Vector3(0.1, 0.25, 0.25)), LM.vsdPerimembranous, 5.6 * D),
@@ -407,7 +410,7 @@ export const HEART_VIEW: Record<string, () => [THREE.Vector3, THREE.Vector3]> = 
 registerAnchors('heart', () => ({ four_chamber: W(new THREE.Vector3(0.2, 4.66, 0.38)), septum: W(LM.septum), vsd: W(LM.vsdPerimembranous), asd: W(LM.fossa), pfo: W(LM.fossa), lv: W(LM.lv), rv: W(LM.rv), outflow: W(LM.rvot), pda: W(LM.pdaAorta.clone().lerp(LM.pdaPa, 0.5)), coarct: W(LM.isthmus) }));
 function Rig() {
   const cc = useRef<CameraControls>(null); const target = useHeartUI((s) => s.target); const first = useRef(true); useCameraGate(cc);
-  useEffect(() => { const [p, l] = (HEART_VIEW[target] ?? HEART_VIEW['heart.four_chamber'])(); cc.current?.setLookAt(p.x, p.y, p.z, l.x, l.y, l.z, !first.current); first.current = false; }, [target]);
+  useEffect(() => { const [p, l] = (HEART_VIEW[target] ?? HEART_VIEW['heart.whole_heart'])(); cc.current?.setLookAt(p.x, p.y, p.z, l.x, l.y, l.z, !first.current); first.current = false; }, [target]);
   return <CameraControls ref={cc} makeDefault minDistance={1} maxDistance={16} smoothTime={0.55} />;
 }
 
@@ -419,10 +422,10 @@ export function HeartScene() {
   useEffect(() => { loadLinesAsset().then(setAsset).catch((e) => setErr(String(e?.message || e))); }, []);
   const [hd, setHd] = useState<Record<string, THREE.Mesh> | null>(null);
   useEffect(() => { if (tier === 'low') { setHd(null); return; } let off = false; loadHeartHD().then((l) => { if (!off) setHd(l.meshes); }).catch(() => undefined); return () => { off = true; }; }, [tier]);
-  const [p] = HEART_VIEW['heart.four_chamber']();
+  const [p] = HEART_VIEW['heart.whole_heart']();
   if (err) return <p className="img-note" role="alert">The 3D heart could not be loaded: {err}</p>;
   return (
-    <StudioCanvas camera={{ position: [p.x, p.y, p.z], fov: 32 }} fog={false} label="Interactive 3D heart, cut open to show the defect">
+    <StudioCanvas camera={{ position: [p.x, p.y, p.z], fov: 32 }} fog={false} label="Interactive 3D heart: whole, or cut along a chosen section">
       {asset && <Heart asset={asset} s={s} tier={tier} hd={hd} />}
       <Rig />
     </StudioCanvas>

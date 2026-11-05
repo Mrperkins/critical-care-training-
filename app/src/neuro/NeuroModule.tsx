@@ -73,7 +73,8 @@ function NeuroOverlay() {
       {(cut || glass) && <button className={`tgl${deep ? ' on' : ''}`} aria-pressed={deep} onClick={() => set({ deep: !deep })}>{deep ? 'Deep structures' : 'Surface only'}</button>}
     </div>
     <div className="alv-focus">
-      <MiniSelect label="View" value={target} options={FOCUS as [string, string][]} onChange={(v) => set({ target: v })} className="ch-focus" />
+      <MiniSelect label="Section" value={cut ? String(slice) : 'whole'} options={[['whole', 'Whole brain'], ['-0.45', 'Axial · brainstem'], ['-0.15', 'Axial · basal ganglia'], ['0.05', 'Axial · ventricles'], ['0.3', 'Axial · above ventricles']]} onChange={(v) => set(v === 'whole' ? { cut: false } : { cut: true, slice: +v })} className="ch-section" />
+      <MiniSelect label="Focus" value={target} options={FOCUS as [string, string][]} onChange={(v) => set({ target: v })} className="ch-focus" />
     </div>
     <div className="legend"><span><i style={{ background: '#c81e2a' }} />Perfused</span><span><i style={{ background: '#3a2a3e' }} />No flow</span><span><i style={{ background: '#ed9e2e' }} />Penumbra</span><span><i style={{ background: '#c71f52' }} />Core</span><span><i style={{ background: '#4b0c12' }} />Clot / blood</span>{deep && (glass || cut) && <><span><i style={{ background: '#5d9fdc' }} />CSF (ventricles)</span><span><i style={{ background: '#a07a94' }} />Basal ganglia</span><span><i style={{ background: '#9483a8' }} />Thalamus</span></>}</div>
   </>}

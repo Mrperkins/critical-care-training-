@@ -7,9 +7,10 @@ import { useUI, type Module } from '../app/store';
 import { useProgress } from '../curriculum/progress';
 import { CHALLENGE_CONCEPTS, challengeModule } from '../curriculum/catalog';
 import { titleOf } from '../curriculum/titles';
-import { KIND_LABEL, MODULES, MODULE_BY_ID, PATHS, PATH_BY_ID, SHELVES, SHELF_BY_ID, minutesOf, moduleProgress, modulesOn, stepDone, type LibraryModule, type ShelfId, type Step } from './modules';
+import { BLUEPRINT, TOTAL_ITEMS } from '../fpc/blueprint';
+import { FPC_DOMAIN_OF, KIND_LABEL, MODULES, MODULE_BY_ID, PATHS, PATH_BY_ID, SHELVES, SHELF_BY_ID, minutesOf, moduleProgress, modulesOn, stepDone, type LibraryModule, type ShelfId, type Step } from './modules';
 import { useLibrary } from './libraryStore';
-import { openLibrary, playModule, playStep } from './launch';
+import { openLibrary, playModule, playStep, runCase } from './launch';
 
 /* ---------------------------------------------------------------- shared bits */
 function useModuleProgress() {
@@ -213,7 +214,7 @@ function ShelfPage({ id, initial }: { id: ShelfId | 'all'; initial?: Filter }) {
         {(filter === 'all' || filter === 'simulator') && sims.map((s) => <SimCard key={s} shelf={s} />)}
         {(filter === 'all' || filter === 'case') && cases.map((c) => {
           const passedCase = attempts[c]?.some((a) => a.ok);
-          return <button key={c} className="lib-case" onClick={() => { useLibrary.getState().setPlaying(null); void import('../app/navigate').then((n) => n.openChallenge(c)); }}>
+          return <button key={c} className="lib-case" onClick={() => runCase(c)}>
             <b className="k-case">Case{passedCase ? ' · passed' : ''}</b><span>{titleOf(c)}</span>
           </button>;
         })}
@@ -233,16 +234,25 @@ function PathsPage() {
   );
 }
 
+interface PathSection { key: string; title: string; note?: string; modules: LibraryModule[] }
+/** The FP-C plan groups by blueprint domain (with exam weight); other paths group by body system. */
+function pathSections(id: string, mods: LibraryModule[]): PathSection[] {
+  if (id === 'fpc') return BLUEPRINT.map((d) => ({ key: d.id, title: `${d.num} · ${d.title}`, note: `${d.items} of ${TOTAL_ITEMS} exam items`, modules: mods.filter((m) => FPC_DOMAIN_OF[m.id] === d.id) }));
+  return SHELVES.map((s) => ({ key: s.id, title: s.title, modules: mods.filter((m) => m.shelf === s.id) })).filter((s) => s.modules.length);
+}
+
 function PathPage({ id }: { id: string }) {
   const p = PATH_BY_ID[id]; const progressOf = useModuleProgress();
-  const [section, setSection] = useState<ShelfId | null>(null);
+  const [section, setSection] = useState<string | null>(null);
   if (!p) return <p className="lib-empty">That learning path no longer exists.</p>;
   const mods = p.modules.map((m) => MODULE_BY_ID[m]).filter(Boolean);
   const isDone = (m: LibraryModule) => { const x = progressOf(m.id); return x.total > 0 && x.done === x.total; };
   const done = mods.filter(isDone).length;
   const next = mods.find((m) => !isDone(m));
-  const sections = SHELVES.filter((s) => mods.some((m) => m.shelf === s.id));
-  const shown = section ? mods.filter((m) => m.shelf === section) : mods;
+  const sections = pathSections(id, mods);
+  const cur = sections.find((s) => s.key === section) ?? null;
+  const shown = cur ? cur.modules : mods;
+  const sectionOf = (m: LibraryModule) => sections.find((s) => s.modules.includes(m))?.title ?? SHELF_BY_ID[m.shelf].title;
   return (
     <>
       <section className="lib-hero" style={{ background: p.tone }}>
@@ -260,26 +270,34 @@ function PathPage({ id }: { id: string }) {
       </section>
       <div className="lib-columns">
         {sections.length > 1 && <aside className="lib-col-side first" aria-label="Sections">
-          <h2>By section</h2>
-          <button className={`lib-section${section === null ? ' on' : ''}`} aria-pressed={section === null} onClick={() => setSection(null)}><span>All sections</span></button>
+          <h2>{id === 'fpc' ? 'By exam domain' : 'By section'}</h2>
+          <button className={`lib-section${section === null ? ' on' : ''}`} aria-pressed={section === null} onClick={() => setSection(null)}><span>All {id === 'fpc' ? 'domains' : 'sections'}</span></button>
           {sections.map((s) => {
-            const ms = mods.filter((m) => m.shelf === s.id); const d = ms.filter(isDone).length;
-            return <button key={s.id} className={`lib-section${section === s.id ? ' on' : ''}`} aria-pressed={section === s.id} onClick={() => setSection(s.id)}>
-              <span>{s.title}<small>{d}/{ms.length}</small></span><Bar value={pct(d, ms.length)} label={`${s.title} progress`} />
+            const d = s.modules.filter(isDone).length;
+            return <button key={s.key} className={`lib-section${section === s.key ? ' on' : ''}${s.modules.length ? '' : ' empty'}`} aria-pressed={section === s.key} onClick={() => setSection(s.key)}>
+              <span>{s.title}<small>{s.modules.length ? `${d}/${s.modules.length}` : '—'}</small></span>
+              {s.note && <small className="lib-section-note">{s.note}</small>}
+              {s.modules.length > 0 && <Bar value={pct(d, s.modules.length)} label={`${s.title} progress`} />}
             </button>;
           })}
         </aside>}
         <section className="lib-col-main" aria-label="Modules in order">
+          {cur && <h2>{cur.title}</h2>}
+          {cur && !cur.modules.length && <div className="lib-panel">
+            <p className="lib-lede">No module covers this domain yet. FP-C exam prep has its lessons and practice questions.</p>
+            <button className="lib-btn primary" onClick={() => openFree('fpc')}>Open FP-C exam prep</button>
+          </div>}
           <ol className="lib-steps">
             {shown.map((m) => {
               const x = progressOf(m.id); const n = mods.indexOf(m) + 1; const complete = isDone(m);
               return <li key={m.id}><button className={`lib-step${complete ? ' done' : ''}${next?.id === m.id ? ' now' : ''}`} onClick={() => openLibrary({ page: 'module', id: m.id })}>
                 <span className="lib-step-n" aria-hidden="true">{complete ? '✓' : n}</span>
-                <span className="lib-step-body"><b className="k-module">{SHELF_BY_ID[m.shelf].title}</b><span>{m.title}</span></span>
+                <span className="lib-step-body"><b className="k-module">{sectionOf(m)}</b><span>{m.title}</span></span>
                 <span className="lib-step-time">{x.done}/{x.total} steps</span>
               </button></li>;
             })}
           </ol>
+          {id === 'fpc' && !cur && <p className="lib-count">Domains with no module yet ({sections.filter((s) => !s.modules.length).map((s) => s.title.split(' · ')[1]).join(', ')}) are covered in <button className="lib-link inline" onClick={() => openFree('fpc')}>FP-C exam prep</button>.</p>}
         </section>
       </div>
     </>

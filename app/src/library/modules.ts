@@ -4,6 +4,7 @@
  * existing lesson, workflow, challenge or simulator, so no engine changes are needed to play a module.
  */
 import type { Module, Mode } from '../app/store';
+import { BLUEPRINT, type DomainId } from '../fpc/blueprint';
 
 export type StepKind = 'lesson' | 'procedure' | 'case' | 'simulator';
 export type Step =
@@ -127,7 +128,7 @@ export const MODULES: LibraryModule[] = [
 ];
 
 export const PATHS: LearningPath[] = [
-  { id: 'fpc', title: 'FP-C Study Plan', blurb: 'Every module, in order, grouped by body system.', tone: '#1c3557', modules: MODULES.map((m) => m.id) },
+  { id: 'fpc', title: 'FP-C Study Plan', blurb: 'Every module, grouped by the ten domains of the IBSC FP-C content outline.', tone: '#1c3557', modules: [] },
   { id: 'vent-mastery', title: 'Vent Mastery', blurb: 'From the first equation to troubleshooting in flight.', tone: '#5a3a14', modules: ['vent-foundations', 'gas-basics', 'vent-pressure', 'vent-ards', 'vent-waveforms', 'vent-desat', 'vent-ptx'] },
   { id: 'shock', title: 'Shock & Resuscitation', blurb: 'Pressure, flow, pressors and blood.', tone: '#4a2330', modules: ['lines-artline', 'lines-shock', 'lines-bleed', 'gas-bleeding', 'abd-fast'] },
   { id: 'peds-ob', title: 'Small Patients & Pregnancy', blurb: 'Weight-based thinking and two patients at once.', tone: '#1e4a43', modules: ['peds-sick-child', 'peds-newborn', 'ob-pregnancy'] },
@@ -157,3 +158,18 @@ export function moduleProgress(moduleId: string, completed: Record<string, strin
   const done = flags.filter(Boolean).length; const next = Math.max(0, flags.findIndex((f) => !f));
   return { done, total: m.steps.length, next: done === m.steps.length ? 0 : next };
 }
+
+/**
+ * Each module's home in the IBSC FP-C content outline (see fpc/blueprint.ts). The FP-C Study Plan is
+ * grouped and ordered by these domains; domains no module covers yet point to FP-C exam prep instead.
+ */
+export const FPC_DOMAIN_OF: Record<string, DomainId> = {
+  'vent-foundations': 'airway', 'vent-pressure': 'airway', 'vent-ards': 'airway', 'vent-waveforms': 'airway', 'vent-desat': 'airway', 'vent-ptx': 'trauma',
+  'gas-basics': 'medical', 'gas-dka': 'medical', 'gas-lytes': 'medical', 'gas-bleeding': 'medical', 'pharm-moa': 'medical', 'abd-gut': 'medical',
+  'lines-artline': 'cardiac', 'lines-cvp': 'cardiac', 'lines-shock': 'cardiac', 'lines-devices': 'cardiac', 'cardiac-mi': 'cardiac', 'cardiac-congenital': 'cardiac', 'abd-aorta': 'cardiac',
+  'lines-bleed': 'trauma', 'abd-fast': 'trauma',
+  'neuro-stroke': 'neuro', 'neuro-icp': 'neuro',
+  'peds-sick-child': 'peds', 'peds-newborn': 'obneo', 'ob-pregnancy': 'obneo',
+};
+// the FP-C plan runs in blueprint order (I → X), modules in library order within each domain
+PATHS[0].modules = BLUEPRINT.flatMap((d) => MODULES.filter((m) => FPC_DOMAIN_OF[m.id] === d.id).map((m) => m.id));

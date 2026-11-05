@@ -45,3 +45,13 @@ import { useLabUI } from './labs/labStore';
 (window as unknown as Record<string, unknown>).__bench = bench;
 (window as unknown as Record<string, unknown>).__labui = useLabUI;
 // window.__cell (cell scene QA hook) is set by labs/cell/CellScene.tsx when the Labs module loads
+// library QA hook: open a module step or a case directly from automated checks
+import { useLibrary } from './library/libraryStore';
+import { playStep, runCase } from './library/launch';
+(window as unknown as Record<string, unknown>).__library = { useLibrary, playStep, runCase };
+(window as unknown as Record<string, unknown>).__qa = {
+  heart: () => import('./heart/heartStore').then((m) => m.useHeartUI),
+  neuro: () => import('./neuro/neuroStore').then((m) => m.useNeuroUI),
+  abd: () => import('./abdomen/abdomenStore').then((m) => m.useAbdUI),
+  lines: () => import('./lines/linesStore').then((m) => m.useLinesUI),
+};

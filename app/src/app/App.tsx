@@ -29,8 +29,10 @@ import { conditionsFor, DISEASE_BY_ID } from '../atlas/registry';
 import { DomainIcon } from './icons';
 import { Library } from '../library/Library';
 import { StepRail } from '../library/StepRail';
+import { SearchButton } from '../library/Search';
 import { useLibrary } from '../library/libraryStore';
 import { openLibrary } from '../library/launch';
+import { endCase, isSceneCase, useCaseRun } from '../library/caseRun';
 
 import { useIsPhone } from './useIsPhone';
 export { useIsPhone };
@@ -75,7 +77,8 @@ export function App() {
     ? { module: 'videos' as Module, label: 'Videos', eyebrow: 'Curated clinical media' }
     : module === 'curriculum' ? { module: 'curriculum' as Module, label: 'Progress & bookmarks', eyebrow: 'Your progress' }
     : DOMAINS.find((d) => d.module === module) ?? DOMAINS[0];
-  const playing = useLibrary((s) => s.playing);
+  const playing = useLibrary((s) => s.playing); const solo = useLibrary((s) => s.solo);
+  const runningCase = useCaseRun((s) => s.id);
   const libView = useLibrary((s) => s.view);
   const [mobilePane, setMobilePane] = useState<'scene' | 'context'>('context');
   const atlasDisease = useUI(s=>s.atlasDisease);
@@ -85,7 +88,7 @@ export function App() {
   const menuTrigger = useRef<HTMLButtonElement>(null);
   const resources = useRef<HTMLDetailsElement>(null);
   const chooseDomain = (next: Module) => {
-    useLibrary.getState().setPlaying(null);
+    useLibrary.getState().setPlaying(null); useLibrary.getState().setSolo(null); endCase();
     if (next === 'library') { openLibrary({ page: 'home' }); menu.current?.close(); resources.current?.removeAttribute('open'); return; }
     useUI.getState().set({ module: next, atlasDisease: null }); setMobilePane('context');
     menu.current?.close(); resources.current?.removeAttribute('open');
@@ -99,7 +102,8 @@ export function App() {
     document.addEventListener('pointerdown', close); return () => document.removeEventListener('pointerdown', close);
   }, []);
   const inDomain = module !== 'curriculum' && module !== 'videos' && module !== 'fpc' && module !== 'cases' && module !== 'library';
-  const inPlayer = inDomain && !!playing;
+  const inPlayer = inDomain && (!!playing || !!solo);
+  const sceneCase = inPlayer && !!runningCase && isSceneCase(runningCase);
   const navOn = (k: 'home' | 'paths' | 'cases') => module === 'library' && (k === 'home' ? libView.page === 'home' || libView.page === 'module' || (libView.page === 'shelf' && libView.filter !== 'case') : k === 'paths' ? libView.page === 'paths' || libView.page === 'path' : libView.page === 'shelf' && libView.filter === 'case');
   const tools = <>
     {atlasDomain && !showingAtlas && <AtlasEntry domain={atlasDomain} onOpen={() => useUI.getState().set({atlasDisease:conditionsFor(atlasDomain)[0].id})} />}
@@ -112,7 +116,7 @@ export function App() {
     <DomainIcon module={d.module} /><span className="domain-label">{d.label}</span>
   </button>);
   return (
-    <div className={`app app-v2 app-b m-${module}${phone ? ' phone' : ''}${inPlayer ? ' playing' : ''}${inDomain ? ' in-domain' : ''}`} data-mobile-pane={mobilePane} data-equipment={module === 'vent' && mode === 'sim' && !showingAtlas ? true : undefined}>
+    <div className={`app app-v2 app-b m-${module}${phone ? ' phone' : ''}${inPlayer ? ' playing' : ''}${inDomain ? ' in-domain' : ''}${sceneCase ? ' case-run' : ''}`} data-mobile-pane={sceneCase ? 'scene' : mobilePane} data-equipment={module === 'vent' && mode === 'sim' && !showingAtlas ? true : undefined}>
       <a className="skip-link" href="#workspace" onClick={(e) => { e.preventDefault(); const el = document.getElementById('workspace'); el?.focus(); el?.scrollIntoView({ block: 'start' }); }}>Skip to learning workspace</a>
       <header className="topbar topbar-v2">
         <button ref={menuTrigger} className="domain-menu-button" aria-label="Open body systems" aria-haspopup="dialog" onClick={() => menu.current?.showModal()}><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg></button>
@@ -132,6 +136,8 @@ export function App() {
           </nav>}
           <div className="topbar-tools">{tools}</div>
         </div>}
+        <div className="topbar-end">
+        <SearchButton />
         <details className="resources-menu" ref={resources} onKeyDown={(e) => { if (e.key === 'Escape') { resources.current?.removeAttribute('open'); resources.current?.querySelector('summary')?.focus(); } }}>
           <summary aria-label="Learning resources"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 4.5h4v15H5zM10.5 4.5h4v15h-4zM16 5.2l3.6-.9 3 14.5-3.6.9z" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" transform="translate(-1.5 0)" /></svg><span className="resource-label">Library</span></summary>
           <nav aria-label="Learning resources">
@@ -142,6 +148,7 @@ export function App() {
             <button onClick={() => chooseDomain('curriculum')}>Progress &amp; bookmarks</button>
           </nav>
         </details>
+        </div>
       </header>
 
       <dialog ref={menu} className="domain-dialog" aria-labelledby="domain-dialog-title" onClose={() => menuTrigger.current?.focus()} onClick={(e) => { if (e.target === e.currentTarget) menu.current?.close(); }}>
@@ -150,7 +157,7 @@ export function App() {
       </dialog>
       <div className="product-shell">
         <div id="workspace" tabIndex={-1} className="workspace">
-          {inDomain && !(module === 'vent' && mode === 'sim' && !showingAtlas) && <nav className="mobile-workspace-tabs" aria-label="Workspace view">
+          {inDomain && !sceneCase && !(module === 'vent' && mode === 'sim' && !showingAtlas) && <nav className="mobile-workspace-tabs" aria-label="Workspace view">
             <button aria-pressed={mobilePane === 'scene'} data-scene-button onClick={() => setMobilePane('scene')}>Scene</button>
             <button data-context-button aria-pressed={mobilePane === 'context'} onClick={() => setMobilePane('context')}>{experience === 'learn' ? 'Lessons' : mode === 'challenge' ? 'Questions' : 'Controls'}</button>
             <span className="mobile-tools">{tools}</span>

@@ -34,8 +34,10 @@ const MI_MODE: Record<string, MiMode> = { explore: 'explore', learn: 'lesson', c
 
 const PRESETS: [HeartPresetId, string][] = [['normal', 'Normal'], ['vsdSmall', 'Small VSD'], ['vsdLarge', 'Large VSD'], ['vsdEisen', 'VSD · Eisenmenger'], ['asd', 'ASD'], ['pfo', 'PFO'], ['pfoValsalva', 'PFO · Valsalva'], ['pda', 'PDA'],
   ['tof', 'Tetralogy'], ['pinkTet', 'Tetralogy · "pink"'], ['tetSpell', 'Tet spell'], ['coarct', 'Coarctation'], ['coarctNeoDuct', 'Newborn coarctation · duct open'], ['coarctNeoClosed', 'Newborn coarctation · duct closing'], ['newborn', 'Newborn · closing duct'], ['pphn', 'Newborn · PPHN']];
-const FOCUS: [string, string][] = [['heart.four_chamber', '4-chamber'], ['heart.vsd', 'VSD'], ['heart.asd', 'ASD / PFO'], ['heart.lv', 'LV'], ['heart.rv', 'RV'], ['heart.pulmonary_outflow', 'RV outflow'], ['heart.pda', 'Duct'], ['heart.coarct', 'Isthmus']];
+const FOCUS: [string, string][] = [['heart.whole_heart', 'Whole heart'], ['heart.four_chamber', '4-chamber'], ['heart.vsd', 'VSD'], ['heart.asd', 'ASD / PFO'], ['heart.lv', 'LV'], ['heart.rv', 'RV'], ['heart.pulmonary_outflow', 'RV outflow'], ['heart.pda', 'Duct'], ['heart.coarct', 'Isthmus']];
 const CUTS: [CutMode, string][] = [['auto', 'Auto'], ['slice', '4-chamber slice'], ['sax_base', 'Short axis · base'], ['sax_mid', 'Short axis · mid'], ['sax_apex', 'Short axis · apex'], ['lvot', 'Long axis · LVOT'], ['rvot', 'RV inflow–outflow'], ['rv', 'RV open'], ['ra', 'RA open'], ['lv', 'LV open'], ['closed', 'Closed']];
+/** the cross-sections offered beside the scene: the whole heart first, then each standard cut */
+const SECTIONS: [CutMode, string][] = [['closed', 'Whole heart'], ['slice', '4-chamber'], ['sax_base', 'Short axis · base'], ['sax_mid', 'Short axis · mid'], ['sax_apex', 'Short axis · apex'], ['lvot', 'Long axis · LVOT'], ['rvot', 'RV inflow–outflow'], ['rv', 'RV opened'], ['ra', 'RA opened'], ['lv', 'LV opened'], ['front', 'Front wall removed']];
 /** a section plane brings its own camera (looking at the cut face) */
 const CUT_VIEW: Partial<Record<CutMode, string>> = { sax_base: 'heart.sax_base', sax_mid: 'heart.sax_mid', sax_apex: 'heart.sax_apex', lvot: 'heart.lvot', rvot: 'heart.rvot_section', slice: 'heart.four_chamber' };
 /** the best focus for a lesion, used when the lesion changes */
@@ -148,12 +150,13 @@ function HeartOverlay() {
       <div className="alv-row"><span>SpO₂ (pre / post)</span><b>{pct(s.sat.ao)}{s.input.lesion === 'pda' || s.input.lesion === 'coarct' ? ` / ${pct(s.sat.aoPost)}` : ''}</b></div>
     </div>}
     <div className="alv-focus">
-      <MiniSelect label="View" value={target} options={FOCUS as [string, string][]} onChange={(v) => set({ target: v })} className="ch-focus" />
+      <MiniSelect label="Section" value={cut === 'auto' ? autoCut(target) : cut} options={SECTIONS} onChange={(v) => set({ cut: v, target: v === 'closed' ? 'heart.whole_heart' : CUT_VIEW[v] ?? (target === 'heart.whole_heart' ? 'heart.four_chamber' : target) })} className="ch-section" />
+      <MiniSelect label="Focus" value={target} options={FOCUS as [string, string][]} onChange={(v) => set({ target: v, ...(v === 'heart.whole_heart' ? { cut: 'closed' as CutMode } : cut === 'closed' ? { cut: 'auto' as CutMode } : {}) })} className="ch-focus" />
       <MiniSelect label="Blood flow" value={flowDisplay} options={ [['volume','Blood volume'],['both','Volume + tracers'],['particles','Tracers only']] as [typeof flowDisplay,string][] } onChange={(v) => set({ flowDisplay: v })} className="heart-bulk-flow-select" />
     </div>
-    <div className="legend">{flow === 'sat'
+    {cut === 'closed' ? <div className="legend"><span>Whole heart. Choose a Section to open it and see the blood flow inside.</span></div> : <div className="legend">{flow === 'sat'
       ? <><span><i style={{ background: SAT_PALETTE.teachArterial }} />Oxygenated</span><span><i style={{ background: SAT_PALETTE.teachVenous }} />Deoxygenated</span><span>▲ jet = shunt</span></>
-      : <><span><i style={{ background: '#e0322b' }} />Toward apical probe</span><span><i style={{ background: '#2f6be0' }} />Away</span><span><i style={{ background: 'linear-gradient(90deg,#e8c224,#4fd04a)' }} />Aliasing (fast jet)</span></>}</div>
+      : <><span><i style={{ background: '#e0322b' }} />Toward apical probe</span><span><i style={{ background: '#2f6be0' }} />Away</span><span><i style={{ background: 'linear-gradient(90deg,#e8c224,#4fd04a)' }} />Aliasing (fast jet)</span></>}</div>}
   </>);
 }
 

@@ -24,8 +24,11 @@ interface LibraryState extends Saved {
   view: LibraryPage;
   /** the module being played and the index of its current step; null when browsing or working freely */
   playing: { moduleId: string; step: number } | null;
+  /** a case opened on its own (from Cases or search), outside any module */
+  solo: string | null;
   go: (view: LibraryPage) => void;
   setPlaying: (p: LibraryState['playing']) => void;
+  setSolo: (id: string | null) => void;
   pass: (key: string) => void;
   touch: (moduleId: string) => void;
   toggleList: (moduleId: string) => void;
@@ -34,12 +37,13 @@ interface LibraryState extends Saved {
 export const useLibrary = create<LibraryState>((set, get) => {
   const commit = (p: Partial<Saved>) => { set(p); const s = get(); save({ passed: s.passed, lastPlayed: s.lastPlayed, myList: s.myList }); };
   return {
-    ...load(), view: { page: 'home' }, playing: null,
+    ...load(), view: { page: 'home' }, playing: null, solo: null,
     go: (view) => set({ view }),
-    setPlaying: (playing) => set({ playing }),
+    setPlaying: (playing) => set(playing ? { playing, solo: null } : { playing }),
+    setSolo: (solo) => set(solo ? { solo, playing: null } : { solo }),
     pass: (key) => { if (!get().passed[key]) commit({ passed: { ...get().passed, [key]: new Date().toISOString() } }); },
     touch: (moduleId) => commit({ lastPlayed: { ...get().lastPlayed, [moduleId]: new Date().toISOString() } }),
     toggleList: (id) => commit({ myList: get().myList.includes(id) ? get().myList.filter((x) => x !== id) : [id, ...get().myList] }),
-    resetLibrary: () => { set({ playing: null, view: { page: 'home' } }); commit(EMPTY()); },
+    resetLibrary: () => { set({ playing: null, solo: null, view: { page: 'home' } }); commit(EMPTY()); },
   };
 });
