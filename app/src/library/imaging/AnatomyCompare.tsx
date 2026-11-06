@@ -37,7 +37,7 @@ export function AnatomyCompare({it,lesson}:{it:RealItem;lesson:ImagingLesson}){
   return <div className="img-correlation" aria-label="Real clinical image alongside interactive 3D anatomy">
     <MediaPane key={it.id} it={it}/>
     <Suspense fallback={<section className="img-correlation-panel" role="status">Loading the app's 3D anatomy…</section>}>
-      <AnatomyCorrelation key={lesson.id} lesson={lesson} modality={modality}/>
+      <AnatomyCorrelation key={`${lesson.id}:${it.id}`} lesson={lesson} modality={modality} study={it}/>
     </Suspense>
   </div>;
 }
