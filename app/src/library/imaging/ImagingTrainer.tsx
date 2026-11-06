@@ -118,7 +118,7 @@ export function ImagingTrainer({ initialModality, moduleId, initialId }: {
             {current ? <>
               <div className="img-current-top">
                 <div><p className="lib-kicker">{MODALITY_LABEL[modalityOf(current)!]} · Study {currentIndex + 1} of {filtered.length}</p>
-                  <h2>{answered ? current.title : 'What do you see?'}</h2></div>
+                  <h2>What do you see?</h2></div>
                 <span className={`img-status${answered ? ' reviewed' : ''}`}>{answered ? 'Reviewed' : 'Not yet answered'}</span>
               </div>
               {isRemoteStudy(current) && <p className="img-online-note">This openly licensed MRI is hosted by Wikimedia Commons and requires an internet connection. <a href={current.provenance?.pageUrl} target="_blank" rel="noreferrer">Source</a></p>}
