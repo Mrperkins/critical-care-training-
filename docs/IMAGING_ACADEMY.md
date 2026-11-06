@@ -6,7 +6,7 @@
 
 The previous 107-image trainer used unstructured "what do you see?" quizzes. The new **Imaging Academy** makes courses the primary navigation destination. Independent drills remain available as a separate review tool.
 
-## Curriculum (10 courses, 37 teaching chapters)
+## Curriculum (10 courses, 38 teaching chapters)
 
 1. Chest X-ray: systematic interpretation — technique, quality, full sweep, urgent patterns and ICU devices.
 2. Head CT — axial orientation, hemorrhage spaces, ischemic changes and mass effect.
@@ -39,7 +39,7 @@ Right: an interactive **original app 3D model**—the neural cortical model with
 
 The repository already contains **16 video files with ultrasound findings**, including A-lines, B-lines, white lung, normal/absent sliding, lung point, RUQ FAST, IVC and IJ compression, pleural effusion, pericardial tamponade and consolidation. These are from the vetted \`imaging/real/manifest.json\`. Most have a still poster and many have MP4 + WebM alternatives. No third-party LITFL videos were copied.
 
-Aortic ultrasound currently uses vetted stills; we did not find/ingest a comparably licensed aorta cine clip into the original manifest in this pass. The physics/video teaching continues to link only rights-cleared media.
+Routine bedside aortic scanning continues to use vetted grayscale stills. An **additional contrast-enhanced AAA mural-thrombus research cine** is included as an *advanced CEUS* chapter, independently licensed CC BY 4.0 from Łukasiewicz et al., Scientific Reports (2016). It is externally streamed (online only), and is never misrepresented as routine ultrasound or as a validated rupture-risk test.
 
 ## Evidence / editorial sources (links, not embedded copied material)
 
@@ -51,6 +51,14 @@ Aortic ultrasound currently uses vetted stills; we did not find/ingest a compara
 - [ACR Appropriateness Criteria](https://www.acr.org/clinical-resources/clinical-tools-and-reference/appropriateness-criteria).
 
 These sources informed ordering and fact-checking. The written lessons are original, with short takeaways rather than copied source passages. Links are reviewed as external resources; each imaging file retains its individual license in the manifest.
+
+## Release media and anatomy hardening
+
+- Seven MRI reference originals are pinned in `app/clinical-archive.json` to Wikimedia Commons SHA-1 and exact size; `app/scripts/prepare-clinical-archive.mjs` verifies downloaded bytes before site build. The published `imaging/curated/` mirror supports offline packs. If the build cannot obtain or verify the source, it fails rather than silently substituting a different image. The original Commons URL remains an online fallback.
+- The spinal MRI chapter now uses genuine BodyParts3D 3D lumbar vertebrae with level selection, licensed CC BY-SA 2.1 Japan and credited in the UI. The epidural space/cauda equina have **not** been inaccurately invented in 3D.
+- The advanced CEUS moving reference is licensed separately and is online only. The other 16 ultrasound clips and posters are already local.
+- Dedicated `scripts/imaging-browser-qa.cjs` checks the real eFAST MP4 + still, actual 3D panel, knowledge checkpoint and mobile layout on Chromium, Firefox and WebKit. It runs in the CI browser matrix.
+- Site-sync includes `imaging/curated/` so the MRI mirror reaches GitHub Pages after approved merge.
 
 ## Quality gates before merging
 
