@@ -20,6 +20,7 @@ import type { RealItem } from '../../scene/imaging/RealExamples';
 const NeuroScene = lazy(() => import('../../neuro/NeuroScene').then(m => ({ default: m.NeuroScene })));
 const AbdomenScene = lazy(() => import('../../abdomen/AbdomenScene').then(m => ({ default: m.AbdomenScene })));
 const AtlasPatientScene = lazy(() => import('../../atlas/PatientScene'));
+const SpineReference = lazy(() => import('./SpineReference').then(m=>({default:m.SpineReference})));
 
 function useBody(): { body: BodyAsset | null; error: boolean } {
   const [body, setBody] = useState<BodyAsset | null>(null);
@@ -109,8 +110,8 @@ export function AnatomyCorrelation({lesson,modality,study}:{lesson:ImagingLesson
   const abdominal = !brain && !spineMri && !cardiacUs && (modality==='ct' || kind==='fast' || kind==='aorta-us' || kind==='ivc' || ['abdominal-hemorrhage','aaa','rupturing-aaa','aortic-dissection'].includes(lesson.anatomy));
   return <div className="imc-reference-3d">
     <div className="imc-media-topline"><span>Reference anatomy · actual app 3D model</span><span>Illustrative; different patient</span></div>
-    {brain?<BrainReference key={lesson.id} plane={lesson.plane}/>:abdominal?<AbdomenReference key={study?.id??lesson.id} lesson={lesson} modality={modality} study={study}/>:<AtlasReference key={lesson.id} lesson={lesson} modality={modality}/>}
-    {spineMri && <p className="imc-model-note">Spinal epidural abscess: the available atlas can only show gross reference body anatomy. A dedicated spinal canal 3D segmentation is not present, so no disease-level 3D match is claimed.</p>}
+    {spineMri?<SpineReference/>:brain?<BrainReference key={lesson.id} plane={lesson.plane}/>:abdominal?<AbdomenReference key={study?.id??lesson.id} lesson={lesson} modality={modality} study={study}/>:<AtlasReference key={lesson.id} lesson={lesson} modality={modality}/>}
+    {spineMri && <p className="imc-model-note">Spinal MRI: the selected lumbar vertebrae come from the app's BodyParts3D skeleton. No reconstructed canal, collection, or patient-specific MRI registration is claimed.</p>}
     <p className="imc-compare-disclaimer">No pixel-level registration or patient-specific 3D reconstruction is claimed. Compare organ position, orientation and structural relationships only. The probe plane is not tracked or synchronized to the source video.</p>
   </div>;
 }
