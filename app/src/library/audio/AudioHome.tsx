@@ -10,7 +10,7 @@ import { EXPERT_TRACKS } from '../../audio/tracks';
 import { useAudioProgress } from '../../audio/progress';
 import { ContentFormatIcon } from '../ContentFormatIcon';
 import type { AudioEpisode, AudioFormat, MentalRep } from '../../audio/types';
-import { AUDIO_HERO, Banner, HeroImage, Row as Shelf, TRACK_ART } from '../Shelf';
+import { AUDIO_HERO, Banner, HeroImage, Row as Shelf, TRACK_ART, AccentTitle, coverStyle } from '../Shelf';
 import { audioAppHref, audioAssets, episodeSeconds, episodeSources, playEpisode, usePlayer } from './player';
 
 const FORMAT_LABEL: Record<AudioFormat, string> = { 'daily-dose': 'Daily dose', rounds: 'Rounds', 'deep-dive': 'Deep dive', 'audio-case': 'Audio case', 'icu-literacy': 'ICU literacy', 'mental-rep': 'Mental Rep' };
@@ -34,8 +34,9 @@ function EpisodeCard({ e, tone, voiced, left, secs }: { e: AudioEpisode; tone: s
   const open = async () => { if (!(await playEpisode({ id: e.id, title: e.title, kind: 'episode', minutes: e.minutes, concepts: e.concepts }))) location.href = audioAppHref(`episode=${encodeURIComponent(e.id)}`); };
   return (
     <button className={`aud-card${cur ? ' on' : ''}`} onClick={open} aria-label={`${playing ? 'Pause' : 'Play'} ${e.title}`}>
-      <span className="aud-art" style={{ background: tone }}>
+      <span className="aud-art cover" style={{ background: tone, ...coverStyle('#c4bdf0', tone) }}>
         <Wave seed={e.id} />
+        <span className="lib-edge" aria-hidden="true" />
         <span className="aud-play" aria-hidden="true">{playing ? <svg viewBox="0 0 24 24" width="16" height="16"><path d="M7 5h3v14H7zM14 5h3v14h-3z" fill="currentColor" /></svg> : <PlayIcon />}</span>
         <span className="aud-dur">{done ? 'Done ✓' : left != null ? `${Math.max(1, Math.round(left / 60))} min left` : `${mins} min`}</span>
         <span className="lib-art-text">
@@ -51,8 +52,9 @@ function RepCard({ r }: { r: MentalRep }) {
   const done = useAudioProgress((s) => !!s.repCompleted[r.id]);
   return (
     <a className="aud-card" href={audioAppHref(`rep=${encodeURIComponent(r.id)}`)}>
-      <span className="aud-art" style={{ background: TONE.rep }}>
+      <span className="aud-art cover" style={{ background: TONE.rep, ...coverStyle('#c4bdf0', TONE.rep) }}>
         <Wave seed={r.id} />
+        <span className="lib-edge" aria-hidden="true" />
         <span className="aud-play" aria-hidden="true"><PlayIcon /></span>
         <span className="aud-dur">{done ? 'Done ✓' : `${r.minutes} min`}</span>
         <span className="lib-art-text">
@@ -94,10 +96,11 @@ export default function AudioHome() {
 
       {going.length > 0 && <Row title="Continue listening">{going.map((e) => <EpisodeCard key={e.id} e={e} tone={TONE[e.format] ?? TONE.quick} voiced={voiced(e.id)} left={lengthOf(e) - (position[e.id] ?? 0)} />)}</Row>}
       <Row title="Listening tracks" posters href={audioAppHref('page=tracks')}>
-        {EXPERT_TRACKS.map((t) => <a key={t.id} className="lib-poster aud-poster" style={{ background: TONE.track }} href={audioAppHref('page=tracks')}>
+        {EXPERT_TRACKS.map((t) => <a key={t.id} className="lib-poster aud-poster cover" style={{ background: TONE.track, ...coverStyle('#c4bdf0', TONE.track) }} href={audioAppHref('page=tracks')}>
+          <span className="lib-edge" aria-hidden="true" />
           {TRACK_ART[t.id] && <img className="lib-poster-img" src={`thumbs/${TRACK_ART[t.id]}.jpg`} alt="" loading="lazy" decoding="async" onError={(ev) => { ev.currentTarget.style.display = 'none'; }} />}
           <span className="lib-poster-k">{t.episodes.length} session{t.episodes.length === 1 ? '' : 's'}</span>
-          <span className="lib-poster-copy"><span className="lib-display sm">{t.title}</span><span className="lib-poster-sub">{t.promise}</span></span>
+          <span className="lib-poster-copy"><span className="lib-display sm"><AccentTitle text={t.title} /></span><span className="lib-poster-sub">{t.promise}</span></span>
         </a>)}
       </Row>
       <Row title="Mental Reps · voice-guided procedures" href={audioAppHref('page=reps')}>{MENTAL_REPS.map((r) => <RepCard key={r.id} r={r} />)}</Row>

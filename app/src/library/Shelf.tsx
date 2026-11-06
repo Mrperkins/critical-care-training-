@@ -3,7 +3,7 @@
  * buttons at its edges (mouse affordance only; keyboard and touch scroll the shelf directly).
  * Also the hero photo used at the top of home, module, path and audio pages.
  */
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 
 const Chevron = ({ d }: { d: string }) => <svg viewBox="0 0 24 24" width="22" height="22"><path d={d} fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg>;
 
@@ -51,6 +51,7 @@ export function Banner({ img, title, sub, onClick, href }: { img: string; title:
  * no clean backdrop, so those pages keep their colour); paths, audio and the banners borrow one. */
 export const PATH_HERO: Record<string, string> = { fpc: 'vent-foundations', 'vent-mastery': 'vent-ards', shock: 'peds-newborn', 'peds-ob': 'ob-pregnancy' };
 export const AUDIO_HERO = 'cardiac-mi';
+export const PATH_ACCENT: Record<string, string> = { fpc: '#7db4ff', 'vent-mastery': '#ffb86b', shock: '#ff6b7a', 'peds-ob': '#5ee0c6' };
 /** Listening-track posters borrow the module still that shows the same body system (none where nothing fits). */
 export const TRACK_ART: Record<string, string> = {
   foundations: 'gas-basics', respiratory: 'vent-foundations', hemodynamics: 'lines-shock', cardiac: 'cardiac-mi', neuro: 'neuro-stroke',
@@ -58,3 +59,16 @@ export const TRACK_ART: Record<string, string> = {
   procedures: 'lines-devices', 'gi-hepatic': 'abd-gut', endocrine: 'gas-lytes', 'trauma-burns': 'abd-fast', obstetric: 'ob-pregnancy', 'peds-neonatal': 'peds-newborn',
   multisystem: 'lines-bleed',
 };
+
+/** Cover style for tiles: each body system's accent colour and short label (the colour edge and kicker). */
+export const SHELF_ACCENT: Record<string, { c: string; label: string }> = {
+  resp: { c: '#7db4ff', label: 'Resp & vent' }, gas: { c: '#5ee0c6', label: 'Gas & labs' }, hemo: { c: '#ffb86b', label: 'Hemo & lines' },
+  cardiac: { c: '#ff6b7a', label: 'Cardiac' }, neuro: { c: '#b7a6ff', label: 'Neuro' }, abdomen: { c: '#ffd166', label: 'Abdomen & trauma' },
+  special: { c: '#7dd3fc', label: 'Peds & OB' }, pharm: { c: '#e0a6ff', label: 'Pharmacology' },
+};
+export const coverStyle = (accent: string, tone: string) => ({ '--acc': accent, '--tone': tone } as CSSProperties);
+/** A title with its last word in the accent colour ("The pressure <em>problem</em>"). */
+export function AccentTitle({ text }: { text: string }) {
+  const i = text.trim().lastIndexOf(' ');
+  return i < 0 ? <>{text}</> : <>{text.slice(0, i)} <em>{text.slice(i + 1)}</em></>;
+}

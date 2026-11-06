@@ -506,3 +506,32 @@ html:has(.app-b),body:has(.app-b){overflow:hidden}
 /* a sideways shelf must never widen the page: on Android tablets a wider page makes Chrome zoom the whole app out */
 .library{min-width:0;max-width:100vw}
 .lib-row,.lib-shelf,.lib-scroller{min-width:0;max-width:100%}
+
+/* ---- cover tiles (A+C): the full scene still, a body-system colour panel from the left, a colour edge,
+   a kicker on top and a big caps title with its last word in the accent colour */
+.lib-art.cover{padding:12px 14px 12px 18px}
+.lib-art.cover::after,.lib-art.cover:has(.lib-thumb)::after{background:
+  linear-gradient(90deg,color-mix(in srgb,var(--tone) 94%,transparent) 0%,color-mix(in srgb,var(--tone) 72%,transparent) 30%,transparent 62%),
+  linear-gradient(180deg,rgba(0,0,0,.25) 0%,transparent 28%,transparent 50%,rgba(0,0,0,.7) 100%)}
+.lib-art.sim.cover::after{content:"";position:absolute;inset:0}
+.lib-edge{position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--acc);z-index:2}
+.lib-art-kicker{position:absolute;top:11px;left:18px;right:48px;z-index:2;font:700 10.5px/1.2 var(--lib-font);letter-spacing:.13em;text-transform:uppercase;color:var(--acc);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 1px 6px #000c}
+.lib-art.cover .lib-art-title{font:700 clamp(16px,1.45vw,23px)/.98 var(--lib-font);text-transform:uppercase;letter-spacing:-.01em;max-width:100%;-webkit-line-clamp:3;overflow-wrap:anywhere}
+.lib-art.cover .lib-art-title em,.lib-art.sim.cover .lib-art-title em{font-style:normal;color:var(--acc);display:block}
+.lib-art.cover .lib-chip{top:30px;left:18px}
+.lib-art.cover .lib-study-marker{left:auto;right:48px;top:9px}
+.lib-art.cover:has(.lib-study-marker) .lib-chip{top:30px}
+.aud-art.cover{padding:12px 14px 12px 18px}
+.aud-art.cover .aud-play{left:16px}
+@media (max-width:760px){
+  .lib-art.cover,.aud-art.cover{padding:10px 10px 10px 14px}
+  .lib-art-kicker{left:14px;top:9px;font-size:9.5px}
+  .lib-art.cover .lib-art-title{font-size:15px}
+  .lib-art.cover .lib-chip{left:14px;top:26px}
+}
+.lib-poster.cover{padding:16px 16px 16px 20px}
+.lib-poster.cover .lib-display.sm{text-transform:uppercase;line-height:.95;letter-spacing:-.015em}
+.lib-poster.cover .lib-display.sm em{font-style:normal;color:var(--acc);display:block}
+.lib-poster.cover .lib-poster-k{color:var(--acc)}
+.lib-poster>.lib-edge{position:absolute;z-index:2}
+.lib-poster.cover .lib-display.sm{font-size:clamp(22px,2vw,32px)}

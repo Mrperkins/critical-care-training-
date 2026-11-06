@@ -14,7 +14,7 @@ import { ContentFormatIcon } from './ContentFormatIcon';
 import { CourseImaging } from './imaging/CourseImaging';
 import { CLINICAL_THUMBS } from './clinicalThumbs';
 import { openLibrary, playModule, playStep, runCase } from './launch';
-import { Banner, HeroImage, PATH_HERO, Row } from './Shelf';
+import { AccentTitle, Banner, HeroImage, PATH_ACCENT, PATH_HERO, Row, SHELF_ACCENT, coverStyle } from './Shelf';
 
 /* ---------------------------------------------------------------- shared bits */
 function useModuleProgress() {
@@ -51,13 +51,15 @@ function ModuleCard({ m }: { m: LibraryModule }) {
   return (
     <div className="lib-tile-wrap">
       <button className="lib-card" onClick={() => openLibrary({ page: 'module', id: m.id })}>
-        <span className={`lib-art thumb-${m.id}`} style={{ background: SHELF_BY_ID[m.shelf].tone }}>
+        <span className={`lib-art cover thumb-${m.id}`} style={{ background: SHELF_BY_ID[m.shelf].tone, ...coverStyle(SHELF_ACCENT[m.shelf].c, SHELF_BY_ID[m.shelf].tone) }}>
           <Thumb id={m.id} shelf={m.shelf} />
+          <span className="lib-edge" aria-hidden="true" />
+          <span className="lib-art-kicker">{SHELF_ACCENT[m.shelf].label}</span>
           {prog.done > 0 && prog.done < prog.total && <span className="lib-chip">In progress</span>}
           {prog.done === prog.total && prog.total > 0 && <span className="lib-chip done">Done</span>}
           {m.isNew && prog.done === 0 && <span className="lib-chip new">New</span>}
           <span className="lib-art-text">
-            <span className="lib-art-title">{m.art}</span>
+            <span className="lib-art-title"><AccentTitle text={m.art} /></span>
             <span className="lib-art-meta"><ContentFormatIcon kind="visual" size={13} /><span className="sr-only">Visual learning · </span><span className="lib-meta-kind">Module · </span>{m.steps.length} steps · {minutesOf(m)} min</span>
           </span>
           {prog.done > 0 && <Bar value={p} label={`${m.title} progress`} />}
@@ -131,8 +133,10 @@ function SimCard({ shelf }: { shelf: ShelfId }) {
   return (
     <div className="lib-tile-wrap">
       <button className="lib-card" onClick={() => openFree(s.module, 'explore')}>
-        <span className="lib-art sim" style={{ background: s.tone }}><Motif shelf={shelf} />
-          <span className="lib-art-text"><span className="lib-art-title">Open the simulator</span><span className="lib-art-meta k-simulator">Simulator · free play, nothing graded</span></span>
+        <span className="lib-art sim cover" style={{ background: s.tone, ...coverStyle(SHELF_ACCENT[shelf].c, s.tone) }}><Motif shelf={shelf} />
+          <span className="lib-edge" aria-hidden="true" />
+          <span className="lib-art-kicker">{SHELF_ACCENT[shelf].label}</span>
+          <span className="lib-art-text"><span className="lib-art-title">Open the <em>simulator</em></span><span className="lib-art-meta k-simulator">Simulator · free play, nothing graded</span></span>
         </span>
       </button>
     </div>
@@ -143,10 +147,11 @@ function PathPoster({ id }: { id: string }) {
   const p = PATH_BY_ID[id]; const progressOf = useModuleProgress();
   const done = p.modules.filter((m) => { const x = progressOf(m); return x.total > 0 && x.done === x.total; }).length;
   return (
-    <button className="lib-poster" style={{ background: p.tone }} onClick={() => openLibrary({ page: 'path', id })}>
+    <button className="lib-poster cover" style={{ background: p.tone, ...coverStyle(PATH_ACCENT[id] ?? '#7db4ff', p.tone) }} onClick={() => openLibrary({ page: 'path', id })}>
+      <span className="lib-edge" aria-hidden="true" />
       {PATH_HERO[id] && <img className="lib-poster-img" src={`thumbs/${PATH_HERO[id]}.jpg`} alt="" loading="lazy" decoding="async" onError={(e) => { e.currentTarget.style.display = 'none'; }} />}
       <span className="lib-poster-k">{p.modules.length} modules{done ? ` · ${done} done` : ''}</span>
-      <span className="lib-poster-copy"><span className="lib-display sm">{p.title}</span><span className="lib-poster-sub">{p.blurb}</span></span>
+      <span className="lib-poster-copy"><span className="lib-display sm"><AccentTitle text={p.title} /></span><span className="lib-poster-sub">{p.blurb}</span></span>
     </button>
   );
 }
