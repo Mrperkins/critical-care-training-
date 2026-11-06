@@ -89,7 +89,7 @@ export function ImagingTrainer({ initialModality, moduleId, initialId }: {
         <div className="img-progress" role="status" aria-live="polite">
           <span><b>{completed.length}</b> / {relevant.length} reviewed</span>
           <span>{correct} correct on latest attempts</span>
-          <span>{items.filter((i) => modalityOf(i) === 'mri').length} MRI studies require an internet connection</span>
+          <span>{items.filter((i) => modalityOf(i) === 'mri').length} MRI originals are mirrored for offline packs; external videos need internet</span>
         </div>
         <div className="lib-filters" role="group" aria-label="Filter studies by imaging modality">
           {MODES.map((m) => <button key={m} className={modality === m ? 'on' : ''} aria-pressed={modality === m} onClick={() => { setModality(m); setChosen(null); setShowAll(false); }}>
@@ -121,7 +121,7 @@ export function ImagingTrainer({ initialModality, moduleId, initialId }: {
                   <h2>What do you see?</h2></div>
                 <span className={`img-status${answered ? ' reviewed' : ''}`}>{answered ? 'Reviewed' : 'Not yet answered'}</span>
               </div>
-              {isRemoteStudy(current) && <p className="img-online-note">This openly licensed MRI is hosted by Wikimedia Commons and requires an internet connection. <a href={current.provenance?.pageUrl} target="_blank" rel="noreferrer">Source</a></p>}
+              {isRemoteStudy(current) && <p className="img-online-note">This licensed reference has a Wikimedia Commons original. Published MRI images use a verified local mirror when available; external videos require internet. <a href={current.provenance?.pageUrl} target="_blank" rel="noreferrer">Source</a></p>}
               <RealCaseCard key={current.id} it={current} practice onComplete={(result) => onComplete(current, result)} />
               <div className="img-trainer-actions">
                 <button className="lib-btn" disabled={currentIndex <= 0} onClick={() => goto(currentIndex - 1)}>Previous study</button>
