@@ -30,7 +30,7 @@ const ref = {
   head: {title:'LITFL — CT head interpretation',url:'https://litfl.com/ct-head-interpretation/'},
   ct: {title:'LITFL — Radiology and CT library',url:'https://litfl.com/radiology/'},
   appropriateness: {title:'ACR — Appropriateness Criteria',url:'https://www.acr.org/clinical-resources/clinical-tools-and-reference/appropriateness-criteria'},
-  stroke: {title:'ACR — Acute ischemic stroke initial imaging',url:'https://gravitas.acr.org/ACPortal/GetDataForOneScenario?senarioId=7352'},
+  stroke: {title:'ACR — Acute ischemic stroke initial imaging',url:'https://www.acr.org/clinical-resources/clinical-tools-and-reference/appropriateness-criteria'},
   physics: {title:'LITFL — POCUS physics',url:'https://litfl.com/pocus-physics-101/'},
   artifacts: {title:'LITFL — Ultrasound artefacts',url:'https://litfl.com/ultrasound-library/basics/'},
   lung: {title:'LITFL — Lung ultrasound technique',url:'https://litfl.com/lung-ultrasound-technique-overview/'},
@@ -110,7 +110,7 @@ export const IMAGING_COURSES:ImagingCourse[]=[
  ['Inspect ventricular symmetry, midline position, sulci, cisterns and the posterior fossa. Identify hydrocephalus, mass effect and obstructed CSF pathways.',
  'A cerebellar hemorrhage can compromise the brainstem or fourth ventricle, making delay particularly consequential.'],
  ['Trace the falx and septum for displacement.','Inspect fourth ventricle and basal cistern patency.','Communicate suspected obstructive hydrocephalus or herniation urgently.'],
- ['Do not quantify midline shift or hematoma volume from an uncali­brated thumbnail.'],
+ ['Do not quantify midline shift or hematoma volume from an uncalibrated thumbnail.'],
  ['ich-cerebellar-yadav','ich-thalamic-hydro-yadav','stroke-malignant-edema-2023'],'tbi',
  {q:'Effaced basal cisterns together with midline displacement are concerning for?',choices:['Raised intracranial pressure and mass effect','Normal pressure physiology','A normal pediatric head CT'],answer:0,why:'Loss of CSF spaces and midline displacement support mass effect and possible elevated intracranial pressure.'},undefined,'axial')
  ],[ref.head,ref.ct,ref.stroke]),
