@@ -44,3 +44,11 @@ Clinical photos and other non-imaging media are deliberately excluded. Original 
 
 ## Next clinical-content expansions
 Add further studies from Europe PMC open-access collections, Wikimedia Commons, and appropriately cleared institutional archives *only after* checking each individual image's rights, patient privacy, findings, and source traceability. Do not wholesale import clinical images from Radiopaedia or other platforms with incompatible restrictions.
+
+## Large-scale image sources identified for later ingestion
+
+- [The Cancer Imaging Archive — public collections](https://www.cancerimagingarchive.net/browse-data/): extensive CT/MRI/ultrasound/radiography datasets, usually DICOM. **Permissions are per collection and sometimes per subset; head/face-related images can require controlled access.** A dataset image is not yet a vetted teaching case.
+- [Cancer Moonshot Biobank colorectal collection](https://www.cancerimagingarchive.net/collection/cmb-crc/): includes a large CC BY 4.0 radiology-image subset, alongside *separately restricted* head imaging. Do not import restricted studies.
+- [Wikimedia Commons](https://commons.wikimedia.org/) and [Europe PMC](https://europepmc.org/): good sources for condition-identified figures with traceable author/license details, subject to per-image review.
+
+A future DICOM ingest workflow should de-identify metadata, prevent facial reconstruction disclosure, extract only clinically relevant key frames, independently validate diagnosis and laterality, record license evidence and source, and associate every image with a reviewed interpretation. Large image counts alone are not a substitute for verified educational quality.
