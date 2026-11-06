@@ -25,7 +25,6 @@ function saveProgress(data: Progress) {
 }
 const MODES: Mode[] = ['all', 'xray', 'ct', 'mri', 'ultrasound'];
 const labelOf = (m: Mode) => m === 'all' ? 'All studies' : MODALITY_LABEL[m];
-const photoOf = (it: RealItem) => isRemoteStudy(it) ? it.file : `imaging/real/${it.poster || it.file}`;
 
 export function ImagingTrainer({ initialModality, moduleId, initialId }: {
   initialModality?: ImagingModality; moduleId?: string; initialId?: string;
