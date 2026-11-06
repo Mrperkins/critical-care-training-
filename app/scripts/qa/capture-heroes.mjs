@@ -3,6 +3,7 @@
 // then  python3 scripts/qa/heroes-to-jpg.py /tmp/heroes public/heroes
 // Same scene recipes as capture-thumbs.mjs; side panes are hidden so the scene fills a wide 1920×1080 stage.
 import { chromium } from '@playwright/test';
+import fs from 'node:fs';
 const out = process.argv[2]; const only = process.argv[3] ? process.argv[3].split(',') : null;
 const M = (m, extra = '') => `__ui.getState().set({module:'${m}',mode:'explore',atlasDisease:null});${extra}`;
 const click = (t) => `[...document.querySelectorAll('.workspace button')].find(b=>b.textContent.trim().startsWith(${JSON.stringify(t)}))?.click();`;
@@ -26,6 +27,8 @@ const HIDE = `.side-pane,.step-rail,.lib-player{display:none!important}.stage{gr
 const b = await chromium.launch({ args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
 for (const [id, js] of Object.entries(R)) {
   if (only && !only.includes(id)) continue;
+  if (fs.existsSync(`${out}/${id}.png`)) continue; // resume: keep earlier captures
+  try {
   const p = await b.newPage({ viewport: { width: 1920, height: 1080 } });
   await p.addInitScript(() => { window.__NO_SW__ = true; });
   await p.goto('http://localhost:4173/'); await p.waitForSelector('#library-main');
@@ -34,6 +37,7 @@ for (const [id, js] of Object.entries(R)) {
   // For waveforms, capture the real pressure/flow/volume canvas rather than the lung model.
   const el = (await p.$('.atlas-visual-3d')) || (await p.$('.workspace .scene-wrap')) || (await p.$('.workspace canvas')) || (await p.$('.workspace .scene-pane'));
   if (!el) { console.log('no scene', id); await p.close(); continue; }
-  const bb = await el.boundingBox(); await p.screenshot({ path: `${out}/${id}.png`, clip: { x: bb.x, y: bb.y, width: Math.min(bb.width, 1920 - bb.x), height: Math.min(bb.height, 1080 - bb.y) } }); await p.close(); console.log('ok', id);
+  const bb = await el.boundingBox(); await p.screenshot({ timeout: 120000, path: `${out}/${id}.png`, clip: { x: bb.x, y: bb.y, width: Math.min(bb.width, 1920 - bb.x), height: Math.min(bb.height, 1080 - bb.y) } }); await p.close(); console.log('ok', id);
+  } catch (err) { console.log('failed', id, String(err).split('\n')[0]); }
 }
 await b.close();
