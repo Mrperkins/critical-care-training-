@@ -38,6 +38,7 @@ const ref = {
   fast: {title:'LITFL — POCUS made easy: eFAST',url:'https://litfl.com/pocus-made-easy-efast/'},
   aium: {title:'AIUM — eFAST practice parameter',url:'https://www.aium.org/resources/practice-parameters/efast'},
   aorta: {title:'LITFL — POCUS made easy: AAA',url:'https://litfl.com/pocus-made-easy-aaa/'},
+  aortaACEP: {title:'ACEP Sonoguide — abdominal aorta with normal transverse and longitudinal cine examples (external teaching resource)',url:'https://www.acep.org/sonoguide/basic/aorta'},
   access: {title:'LITFL — ultrasound-guided vascular access',url:'https://litfl.com/ultrasound-guided-vascular-access/'},
   echo: {title:'LITFL — focused basic echocardiography',url:'https://litfl.com/pocus-made-easy-basic-echo/'},
   imaging: {title:'LITFL — Ultrasound library',url:'https://litfl.com/ultrasound-library/'},
@@ -311,7 +312,7 @@ export const IMAGING_COURSES:ImagingCourse[]=[
  ['A specialized CEUS finding cannot substitute for standard diameter measurement or determine rupture risk alone.'],
  ['aorta-ceus-thrombus-2016','aaa-us-thrombus-haggstrom'],'aaa',
  {q:'Which conclusion follows from the research contrast-enhanced AAA ultrasound?',choices:['CEUS may visualize mural thrombus channels but is not a validated rupture-risk test','The study definitively proves aortic rupture','Contrast-enhanced images replace standard B-mode diameter screening'],answer:0,why:'The cited preliminary study demonstrated CEUS enhancement in some mural thrombi; the relationship to rupture risk remains uncertain.'},'Specialist contrast-enhanced examination · not routine bedside POCUS','longitudinal')
- ],[ref.aorta,ref.aium,{title:'Łukasiewicz et al. · CEUS in AAA mural thrombus (2016)',url:'https://www.nature.com/articles/srep34152'}]),
+ ],[ref.aorta,ref.aortaACEP,ref.aium,{title:'Łukasiewicz et al. · CEUS in AAA mural thrombus (2016)',url:'https://www.nature.com/articles/srep34152'}]),
 
  C('pocus-vascular','Vascular ultrasound: anatomy and needle visualization','ultrasound','Intermediate',
  'Connect anatomy, compression tests and real moving needle/vein clips to safer procedural decision making.',
