@@ -4,6 +4,7 @@
  */
 import { loadReal, type RealItem } from '../../scene/imaging/RealExamples';
 import { MRI_STUDIES } from './mriCatalog';
+import clinicalArchive from '../../../clinical-archive.json';
 
 export type ImagingModality = 'xray' | 'ct' | 'mri' | 'ultrasound';
 export const MODALITY_LABEL: Record<ImagingModality, string> = {
@@ -20,9 +21,12 @@ export function modalityOf(it: RealItem): ImagingModality | null {
   if (type === 'ultrasound' || US.has(it.kind)) return 'ultrasound';
   return null; // clinical photographs and miscellaneous procedures are not radiology studies
 }
+/** Published site mirrors SHA-1 pinned Commons originals; raw Commons URLs remain the fallback. */
+const MIRRORED_MRI = new Map(clinicalArchive.map((i) => [i.url, `imaging/curated/${i.name}`]));
 export const sourceFor = (file: string) =>
-  /^https:\/\/upload\.wikimedia\.org\/wikipedia\/commons\//.test(file)
-    ? file : `imaging/real/${file}`;
+  MIRRORED_MRI.get(file) ??
+  (/^https:\/\/upload\.wikimedia\.org\/wikipedia\/commons\//.test(file) ? file : `imaging/real/${file}`);
+export const needsMirrorFallback = (file: string) => MIRRORED_MRI.has(file);
 export const isRemoteStudy = (it: RealItem) => /^https:\/\//.test(it.file);
 
 let studiesPromise: Promise<RealItem[]> | null = null;
