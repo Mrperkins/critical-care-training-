@@ -19,7 +19,7 @@ for f in sorted(glob.glob(os.path.join(src, '*.png'))):
     crop = im.crop((l, t, r, b))
     s = min(H * 0.98 / crop.height, W * 0.62 / crop.width); crop = crop.resize((max(1, int(crop.width * s)), max(1, int(crop.height * s))), Image.LANCZOS)
     canvas = Image.new('RGB', (W, H), tuple(int(x) for x in bg))
-    mask = Image.new('L', crop.size, 0); f_ = max(12, int(min(crop.size) * 0.08))
+    mask = Image.new('L', crop.size, 0); f_ = max(16, int(min(crop.size) * 0.14))
     mask.paste(255, (f_, f_, crop.width - f_, crop.height - f_)); mask = mask.filter(ImageFilter.GaussianBlur(f_ / 2))
     x = int(W * 0.66 - crop.width / 2); x = min(x, W - crop.width); y = int((H - crop.height) / 2)
     canvas.paste(crop, (x, y), mask)
