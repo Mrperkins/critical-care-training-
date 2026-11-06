@@ -11,6 +11,12 @@ for (const dir of ['models', 'vo']) for (const f of fs.readdirSync(path.join(PUB
 fs.rmSync(path.join(SITE, 'js'), { recursive: true, force: true }); fs.cpSync(path.join(PUB, 'js'), path.join(SITE, 'js'), { recursive: true });
 if (fs.existsSync(path.join(PUB, 'thumbs'))) { fs.rmSync(path.join(SITE, 'thumbs'), { recursive: true, force: true }); fs.cpSync(path.join(PUB, 'thumbs'), path.join(SITE, 'thumbs'), { recursive: true }); }
 if (fs.existsSync(path.join(PUB, 'heroes'))) { fs.rmSync(path.join(SITE, 'heroes'), { recursive: true, force: true }); fs.cpSync(path.join(PUB, 'heroes'), path.join(SITE, 'heroes'), { recursive: true }); }
+if (fs.existsSync(path.join(PUB, 'imaging/curated/manifest.json'))) {
+  const dest=path.join(SITE,'imaging/curated');
+  fs.rmSync(dest,{recursive:true,force:true});
+  fs.mkdirSync(path.dirname(dest),{recursive:true});
+  fs.cpSync(path.join(PUB,'imaging/curated'),dest,{recursive:true});
+}
 if (fs.existsSync(path.join(PUB, 'audio'))) fs.cpSync(path.join(PUB, 'audio'), path.join(SITE, 'audio'), { recursive: true, force: true });
 if (fs.existsSync(path.join(PUB, 'conferences'))) {
   fs.rmSync(path.join(SITE, 'conferences'), { recursive: true, force: true });
