@@ -29,6 +29,7 @@ let studiesPromise: Promise<RealItem[]> | null = null;
 export function loadImagingStudies(): Promise<RealItem[]> {
   return (studiesPromise ??= loadReal().then((items) => {
     const eligible = items.filter((i) => modalityOf(i) !== null);
+    if (eligible.length === 0) throw new Error('Local clinical imaging manifest unavailable');
     const all = [...eligible, ...MRI_STUDIES];
     if (new Set(all.map((i) => i.id)).size !== all.length) throw new Error('Duplicate imaging study identifiers');
     return all;
