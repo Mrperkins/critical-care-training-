@@ -84,7 +84,7 @@ try {
       await page.waitForTimeout(3000);
       await page.screenshot({ path: path.join(output, 'mi-locator-conduction-desktop.png'), fullPage: false, timeout: 120000 });
       await page.getByRole('button', { name: 'Heart & flow' }).click({ noWaitAfter: true, timeout: 60000 });
-      await expect(page.locator('section[aria-label="Cardiac live ECG strip"]')).toBeAttached({ timeout: 90000 });
+      await expect(page.locator('section[aria-label="Cardiac monitor ECG"]')).toBeAttached({ timeout: 90000 });
     }
     if (fatal.length) throw new Error(spec.name + ' uncaught errors: ' + fatal.join('; '));
     await context.close();

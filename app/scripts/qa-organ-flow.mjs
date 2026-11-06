@@ -22,7 +22,7 @@ try {
         const scene=page.getByRole('button',{name:'Scene',exact:true}).first();
         if(await scene.count()) await scene.click();
       }
-      const canvas=page.locator('.scene-pane canvas').first();
+      const canvas=page.locator('.scene-pane .scene-wrap canvas').first();
       await expect(canvas).toBeVisible({timeout:30000});
       if(module==='heart'){
         await expect(page.getByLabel('Blood flow')).toBeAttached({timeout:30000});
