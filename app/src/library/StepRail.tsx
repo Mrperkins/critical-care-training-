@@ -53,7 +53,7 @@ export function StepRail() {
         </ol>}
       <div className="step-rail-foot">
         <p className="step-rail-now"><b className={`k-${cur.kind}`}>{KIND_LABEL[cur.kind]}</b> {stepTitle(cur)}</p>
-        {COURSE_STUDIES[m.id]?.length > 0 && <button className="lib-link step-rail-imaging" onClick={() => openLibrary({ page: 'imaging', moduleId: m.id })}>Practice real clinical images for this course</button>}
+        {COURSE_STUDIES[m.id]?.length > 0 && <button className="lib-link step-rail-imaging" onClick={() => openLibrary({ page: 'imaging', moduleId: m.id })}>Learn imaging: anatomy, technique and real studies</button>}
         <div className="step-rail-nav">
           <button className="lib-btn" disabled={playing.step === 0} onClick={previousStep}>Back</button>
           <button className={`lib-btn${onCase ? '' : ' primary'}`} onClick={nextStep}>{onCase ? (last ? 'Skip and finish' : 'Skip case') : last ? 'Finish module' : 'Next step'}</button>
