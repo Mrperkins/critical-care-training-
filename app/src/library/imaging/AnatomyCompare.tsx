@@ -2,13 +2,16 @@
 import { Suspense, useState } from 'react';
 import type {RealItem} from '../../scene/imaging/RealExamples';
 import type {ImagingLesson} from './courseCurriculum';
-import {modalityOf, sourceFor} from './catalog';
+import {modalityOf, sourceFor, needsMirrorFallback} from './catalog';
 import {AnatomyCorrelation} from './AnatomyCorrelation';
 
 function MediaPane({it}:{it:RealItem}) {
   const movie=it.file.endsWith('.mp4');
   const [still,setStill]=useState(false);
   const [failed,setFailed]=useState(false);
+  const [original,setOriginal]=useState(false);
+  const fileSrc=(file:string)=>original && needsMirrorFallback(file) ? file : sourceFor(file);
+  const mediaError=()=>{if(!original && needsMirrorFallback(it.file))setOriginal(true);else setFailed(true);};
   const [playing,setPlaying]=useState(false);
   const poster=it.poster||(!movie?it.file:null);
   return <section className="img-correlation-panel" aria-label="Real clinical imaging">
@@ -20,11 +23,11 @@ function MediaPane({it}:{it:RealItem}) {
     </div>
     <div className="img-correlation-frame">
       {failed?<p role="status">This original study could not load. <a href={it.provenance?.pageUrl??it.licenseUrl} target="_blank" rel="noreferrer">View source</a></p>
-        :movie&&!still?<video key={it.id} poster={poster?sourceFor(poster):undefined} controls muted playsInline loop preload="metadata"
-          onError={()=>setFailed(true)} onPlay={()=>setPlaying(true)} onPause={()=>setPlaying(false)} aria-label={'Real ultrasound: '+it.title}>
-          {it.webm&&<source src={sourceFor(it.webm)} type="video/webm"/>}
-          <source src={sourceFor(it.file)} type="video/mp4"/>
-          </video>:poster?<img src={sourceFor(poster)} alt={it.title} onError={()=>setFailed(true)} loading="lazy"/>:<p>No still provided for this clip.</p>}
+        :movie&&!still?<video key={it.id} poster={poster?fileSrc(poster):undefined} controls muted playsInline loop preload="metadata"
+          onError={mediaError} onPlay={()=>setPlaying(true)} onPause={()=>setPlaying(false)} aria-label={'Real ultrasound: '+it.title}>
+          {it.webm&&<source src={fileSrc(it.webm)} type="video/webm"/>}
+          <source src={fileSrc(it.file)} type="video/mp4"/>
+          </video>:poster?<img src={fileSrc(poster)} alt={it.title} onError={mediaError} loading="lazy"/>:<p>No still provided for this clip.</p>}
     </div>
     <p className="img-correlation-caption"><b>{it.title}.</b> {it.caption}</p>
     {movie&&!still&&<p className="img-correlation-hint">{playing?'Pause, replay or scrub to examine motion.':'Play the clip and inspect the entire sequence; still frames cannot show sliding or collapse reliably.'}</p>}
