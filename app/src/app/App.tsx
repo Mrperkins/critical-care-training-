@@ -30,6 +30,8 @@ import { DomainIcon } from './icons';
 import { Library } from '../library/Library';
 import { StepRail } from '../library/StepRail';
 import { SearchButton } from '../library/Search';
+import { PlayerBar } from '../library/audio/PlayerBar';
+import { usePlayer } from '../library/audio/player';
 import { useLibrary } from '../library/libraryStore';
 import { openLibrary } from '../library/launch';
 import { endCase, isSceneCase, useCaseRun } from '../library/caseRun';
@@ -78,7 +80,7 @@ export function App() {
     : module === 'curriculum' ? { module: 'curriculum' as Module, label: 'Progress & bookmarks', eyebrow: 'Your progress' }
     : DOMAINS.find((d) => d.module === module) ?? DOMAINS[0];
   const playing = useLibrary((s) => s.playing); const solo = useLibrary((s) => s.solo);
-  const runningCase = useCaseRun((s) => s.id);
+  const runningCase = useCaseRun((s) => s.id); const hasPlayer = usePlayer((s) => !!s.item);
   const libView = useLibrary((s) => s.view);
   const [mobilePane, setMobilePane] = useState<'scene' | 'context'>('context');
   const atlasDisease = useUI(s=>s.atlasDisease);
@@ -116,7 +118,7 @@ export function App() {
     <DomainIcon module={d.module} /><span className="domain-label">{d.label}</span>
   </button>);
   return (
-    <div className={`app app-v2 app-b m-${module}${phone ? ' phone' : ''}${inPlayer ? ' playing' : ''}${inDomain ? ' in-domain' : ''}${sceneCase ? ' case-run' : ''}`} data-mobile-pane={sceneCase ? 'scene' : mobilePane} data-equipment={module === 'vent' && mode === 'sim' && !showingAtlas ? true : undefined}>
+    <div className={`app app-v2 app-b m-${module}${phone ? ' phone' : ''}${inPlayer ? ' playing' : ''}${inDomain ? ' in-domain' : ''}${sceneCase ? ' case-run' : ''}${hasPlayer ? ' has-player' : ''}`} data-mobile-pane={sceneCase ? 'scene' : mobilePane} data-equipment={module === 'vent' && mode === 'sim' && !showingAtlas ? true : undefined}>
       <a className="skip-link" href="#workspace" onClick={(e) => { e.preventDefault(); const el = document.getElementById('workspace'); el?.focus(); el?.scrollIntoView({ block: 'start' }); }}>Skip to learning workspace</a>
       <header className="topbar topbar-v2">
         <button ref={menuTrigger} className="domain-menu-button" aria-label="Open body systems" aria-haspopup="dialog" onClick={() => menu.current?.showModal()}><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg></button>
@@ -127,7 +129,6 @@ export function App() {
           <button className={navOn('home') ? 'on' : ''} aria-current={navOn('home') ? 'page' : undefined} onClick={() => openLibrary({ page: 'home' })}>Browse</button>
           <button className={navOn('paths') ? 'on' : ''} aria-current={navOn('paths') ? 'page' : undefined} onClick={() => openLibrary({ page: 'paths' })}>Learning paths</button>
           <button className={navOn('cases') ? 'on' : ''} aria-current={navOn('cases') ? 'page' : undefined} onClick={() => openLibrary({ page: 'shelf', id: 'all', filter: 'case' })}>Cases</button>
-          <a href="audio/">Audio</a>
         </nav>
         {inDomain && <div className="topbar-context">
           <h2 className="domain-title"><DomainIcon module={domain.module} /><span>{domain.label}</span></h2>
@@ -144,7 +145,8 @@ export function App() {
             <button onClick={() => chooseDomain('videos')}>Videos &amp; Skills</button>
             <button onClick={() => chooseDomain('fpc')}>FP-C exam prep</button>
             <button onClick={() => chooseDomain('cases')}>Case conference · Slides &amp; audio</button>
-            <a href="audio/">Audio &amp; Mental Reps</a>
+            <button onClick={() => { useLibrary.getState().setMode('audio'); openLibrary({ page: 'home' }); resources.current?.removeAttribute('open'); }}>Audio &amp; Mental Reps</button>
+            <a href="audio/">Open the audio app</a>
             <button onClick={() => chooseDomain('curriculum')}>Progress &amp; bookmarks</button>
           </nav>
         </details>
@@ -181,6 +183,7 @@ export function App() {
         </div>
         {inPlayer && <StepRail />}
       </div>
+      <PlayerBar />
     </div>
   );
 }

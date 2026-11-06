@@ -5,10 +5,18 @@ import { HIT_LABEL, search, type Hit } from './searchIndex';
 import { useLibrary } from './libraryStore';
 import { openLibrary, runCase } from './launch';
 import { endCase } from './caseRun';
+import { loadAudioIndex } from './searchIndex';
+import { audioAppHref, playEpisode } from './audio/player';
 
 function openHit(h: Hit) {
   if (h.kind === 'module') { openLibrary({ page: 'module', id: h.id }); return; }
   if (h.kind === 'case') { runCase(h.id); return; }
+  if (h.kind === 'audio') {
+    const [k, id] = h.id.split(':');
+    if (k === 'rep') { location.href = audioAppHref(`rep=${encodeURIComponent(id)}`); return; }
+    void playEpisode({ id, title: h.title, kind: 'episode', minutes: 0, concepts: [] }).then((ok) => { if (!ok) location.href = audioAppHref(`episode=${encodeURIComponent(id)}`); });
+    return;
+  }
   endCase(); useLibrary.getState().setPlaying(null); useLibrary.getState().setSolo(null);
   if (h.kind === 'drug') openDrug(h.id); else openLesson(h.id);
 }
@@ -16,10 +24,11 @@ function openHit(h: Hit) {
 export function SearchButton() {
   const dlg = useRef<HTMLDialogElement>(null); const trigger = useRef<HTMLButtonElement>(null); const input = useRef<HTMLInputElement>(null);
   const [q, setQ] = useState('');
-  const groups = useMemo(() => search(q), [q]);
+  const [audioReady, setAudioReady] = useState(0);
+  const groups = useMemo(() => search(q), [q, audioReady]); // eslint-disable-line react-hooks/exhaustive-deps
   const flat = groups.flatMap((g) => g.hits); const [active, setActive] = useState(0);
   useEffect(() => setActive(0), [q]);
-  const open = () => { dlg.current?.showModal(); setTimeout(() => input.current?.focus(), 0); };
+  const open = () => { dlg.current?.showModal(); setTimeout(() => input.current?.focus(), 0); void loadAudioIndex().then(() => setAudioReady((n) => n + 1)); };
   const close = () => dlg.current?.close();
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {

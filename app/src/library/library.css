@@ -303,3 +303,48 @@ html:has(.app-b),body:has(.app-b){overflow:hidden}
 .case-monitor .txt{grid-column:span 1}
 .case-monitor .txt dd{font:600 14.5px/1.4 var(--fb)}
 @media (max-width:1024px){ .app-b.in-domain .lib-nav{display:none} }
+
+/* ---- Lessons / Audio switch */
+.lib-mode{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;padding:14px 32px;border-bottom:1px solid var(--lib-line)}
+.lib-mode-seg{display:inline-flex;background:#1a1f2a;border-radius:999px;padding:4px;gap:2px}
+.lib-mode-seg button{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 18px;border:0;border-radius:999px;background:transparent;color:var(--lib-mute);font:600 15px var(--fb)}
+.lib-mode-seg button.on{background:var(--lib-ink);color:#0b0d12}
+.lib-mode-hint{font-size:14px;color:var(--lib-mute)}
+@media (max-width:760px){.lib-mode{padding:12px 16px}.lib-mode-hint{display:none}.lib-mode-seg{width:100%}.lib-mode-seg button{flex:1;justify-content:center}}
+
+/* ---- audio cards */
+.k-audio{color:#c4bdf0}
+.aud-card{flex:0 0 240px;display:flex;flex-direction:column;gap:8px;border:0;background:none;padding:0;color:var(--lib-ink);text-align:left;text-decoration:none}
+.aud-art{position:relative;height:136px;border-radius:10px;border:1px solid var(--lib-line);overflow:hidden;display:flex;align-items:center;justify-content:center;transition:border-color .15s}
+.aud-card:hover .aud-art,.aud-card:focus-visible .aud-art,.aud-card.on .aud-art{border-color:var(--lib-mute)}
+.aud-card.on .aud-art{box-shadow:inset 0 0 0 2px #c4bdf0}
+.aud-wave{position:absolute;left:14px;right:14px;top:22%;bottom:22%;display:flex;align-items:center;gap:3px;opacity:.32}
+.aud-wave i{flex:1;background:#c4bdf0;border-radius:2px}
+.aud-play{position:relative;width:46px;height:46px;border-radius:50%;background:var(--lib-ink);color:#0b0d12;display:flex;align-items:center;justify-content:center}
+.aud-dur{position:absolute;right:8px;bottom:8px;font:600 12.5px var(--fb);background:rgba(8,10,14,.82);border-radius:6px;padding:2px 7px;color:var(--lib-dim)}
+.aud-card .lib-card-title{font:600 15px/1.35 var(--fb)}
+.aud-hero-art{position:relative}
+.aud-hero-art .aud-wave{opacity:.55;top:18%;bottom:18%}
+.aud-poster{text-decoration:none}
+@media (max-width:760px){.aud-card{flex-basis:200px}.aud-art{height:116px}}
+
+/* ---- player bar (stays across Lessons and Audio) */
+.app-b.has-player{grid-template-rows:auto minmax(0,1fr) auto!important}
+.lib-player{display:flex;align-items:center;gap:10px;padding:8px 16px calc(8px + env(safe-area-inset-bottom));background:#111520;border-top:1px solid var(--lib-line2);color:var(--lib-ink);min-width:0}
+.lib-player-play{flex:none;width:44px;height:44px;border-radius:50%;border:0;background:var(--lib-ink);color:#0b0d12;display:flex;align-items:center;justify-content:center}
+.lib-player-skip,.lib-player-close{flex:none;min-width:44px;min-height:44px;border:0;border-radius:8px;background:transparent;color:var(--lib-dim);font:600 13px var(--fb)}
+.lib-player-skip:hover,.lib-player-close:hover{background:#1a1f2a;color:var(--lib-ink)}
+.lib-player-close{font-size:22px}
+.lib-player-body{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.lib-player-title{display:flex;align-items:baseline;gap:10px;min-width:0}
+.lib-player-title b{font:600 14.5px var(--fb);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lib-player-title small{flex:none;font-size:12.5px;color:var(--lib-mute)}.lib-player-title .err{color:#ff9aa6}
+.lib-player-scrub input{width:100%;accent-color:#c4bdf0;height:20px;margin:0}
+.lib-player-time{flex:none;font:500 13px var(--fm);color:var(--lib-mute)}
+.lib-player-open{flex:none;min-height:44px;display:inline-flex;align-items:center;padding:0 12px;border-radius:8px;border:1px solid var(--lib-line2);color:var(--lib-ink);font:600 13px var(--fb);text-decoration:none}
+@media (max-width:760px){.lib-player{gap:4px;padding:6px 8px calc(6px + env(safe-area-inset-bottom))}.lib-player-time,.lib-player-open{display:none}.lib-player-skip{min-width:40px}}
+.lib-link{white-space:nowrap;flex:none}
+.aud-card .lib-card-meta{white-space:nowrap;overflow:hidden}
+.aud-card .lib-card-meta>span{overflow:hidden;text-overflow:ellipsis;min-width:0}
+.aud-card .lib-card-meta>b{flex:none}
+@media (max-width:760px){.lib-row-h h2{font-size:20px}}

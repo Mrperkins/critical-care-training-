@@ -69,21 +69,23 @@ const expectedRepHash = new Map<string, string>(MENTAL_REPS.flatMap((rep) => rep
   `rep.${rep.id}.${beat.id}`,
   createHash('sha256').update(beat.narration.replace(/\s+/g, ' ').trim()).digest('hex').slice(0, 16),
 ] as const)));
-let audioVoiceAssets: Record<string, { file: string; reviewed: boolean; transcriptHash?: string }> = {};
+let audioVoiceAssets: Record<string, { file: string; reviewed: boolean; transcriptHash?: string; seconds?: number }> = {};
 if (fs.existsSync(audioVoice)) {
   fs.cpSync(audioVoice, path.join(audioDir, 'voice'), { recursive: true, force: true });
   const voiceManifest = path.join(audioVoice, 'manifest.json');
   if (fs.existsSync(voiceManifest)) {
-    const parsed = JSON.parse(fs.readFileSync(voiceManifest, 'utf8')) as { assets?: { id: string; file: string; transcriptHash?: string; narrationHash?: string; reviewed?: boolean }[] };
+    const parsed = JSON.parse(fs.readFileSync(voiceManifest, 'utf8')) as { assets?: { id: string; file: string; transcriptHash?: string; narrationHash?: string; reviewed?: boolean; durationSeconds?: number }[] };
     audioVoiceAssets = Object.fromEntries((parsed.assets ?? []).filter((a) => {
       if (a.narrationHash) return want.get(a.id) === a.narrationHash; // natural narrator: current only if its line is unchanged
       if (!a.id.startsWith('rep.')) return true;
       const expected = expectedRepHash.get(a.id);
       return !!expected && a.transcriptHash === expected;
-    }).map((a) => [a.id, { file: a.file, reviewed: a.reviewed === true, transcriptHash: a.transcriptHash }]));
+    }).map((a) => [a.id, { file: a.file, reviewed: a.reviewed === true, transcriptHash: a.transcriptHash, ...(a.durationSeconds ? { seconds: Math.round(a.durationSeconds) } : {}) }]));
   }
 }
 fs.copyFileSync(path.join(ROOT, 'site', 'audio-manifest.webmanifest'), path.join(audioDir, 'manifest.webmanifest'));
+// the visual app's Audio mode reads the same natural-voice asset map (paths relative to audio/)
+fs.writeFileSync(path.join(audioDir, 'assets.json'), JSON.stringify(audioVoiceAssets));
 const audioHead = `<!doctype html>
 <html lang="en">
 <meta charset="utf-8">

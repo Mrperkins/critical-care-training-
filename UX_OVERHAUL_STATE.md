@@ -150,3 +150,15 @@ Intervene → Debrief shell; search.
   `heart.whole_heart` camera) with a visible Section control; lungs gain a coronal Section (front / middle /
   back, `ventCut`); the brain's axial levels are a visible Section control. Scene number overlays (`.alv-hud`)
   fold behind a "Numbers" toolbar button so the model is unobstructed.
+
+### Library layout — slice 3: Lessons / Audio (2026-11-05)
+- Browse has a Lessons / Audio switch (remembered, `mode` in `ccp.library.v1`). Audio is its own home page
+  (`library/audio/AudioHome.tsx`, code-split): featured session, Continue listening, Mental Reps, Audio cases,
+  Quick listens (≤ 20 recorded minutes), Deep dives, Listening tracks. The top-bar Audio link is gone; the
+  Library menu keeps "Audio & Mental Reps" and a link to the full audio app.
+- One player bar for the whole app (`library/audio/player.ts`, `PlayerBar.tsx`): plays the same natural-voice
+  files as the audio app from `audio/assets.json` (written by build-app, now with recorded lengths), keeps
+  playing across Lessons, Audio and the clinical workspaces, and saves position/completion to the audio app's
+  progress store. Mental Reps (narration plus a visual cue per beat) open in the audio app, which now accepts
+  `?episode=`, `?rep=` and `?page=` deep links.
+- Search covers audio sessions and Mental Reps (loaded when the search box opens).

@@ -14,9 +14,11 @@ export type LibraryPage =
   | { page: 'paths' }
   | { page: 'path'; id: string };
 
-interface Saved { passed: Record<string, string>; lastPlayed: Record<string, string>; myList: string[] }
+/** browse mode: guided visual lessons, or the audio library (remembered between visits) */
+export type BrowseMode = 'lessons' | 'audio';
+interface Saved { passed: Record<string, string>; lastPlayed: Record<string, string>; myList: string[]; mode: BrowseMode }
 const KEY = 'ccp.library.v1';
-const EMPTY = (): Saved => ({ passed: {}, lastPlayed: {}, myList: [] });
+const EMPTY = (): Saved => ({ passed: {}, lastPlayed: {}, myList: [], mode: 'lessons' });
 function load(): Saved { try { const s = globalThis.localStorage?.getItem(KEY); if (s) return { ...EMPTY(), ...JSON.parse(s) }; } catch { /* storage unavailable */ } return EMPTY(); }
 function save(d: Saved) { try { globalThis.localStorage?.setItem(KEY, JSON.stringify(d)); } catch { /* storage unavailable or full */ } }
 
@@ -32,10 +34,11 @@ interface LibraryState extends Saved {
   pass: (key: string) => void;
   touch: (moduleId: string) => void;
   toggleList: (moduleId: string) => void;
+  setMode: (mode: BrowseMode) => void;
   resetLibrary: () => void;
 }
 export const useLibrary = create<LibraryState>((set, get) => {
-  const commit = (p: Partial<Saved>) => { set(p); const s = get(); save({ passed: s.passed, lastPlayed: s.lastPlayed, myList: s.myList }); };
+  const commit = (p: Partial<Saved>) => { set(p); const s = get(); save({ passed: s.passed, lastPlayed: s.lastPlayed, myList: s.myList, mode: s.mode }); };
   return {
     ...load(), view: { page: 'home' }, playing: null, solo: null,
     go: (view) => set({ view }),
@@ -44,6 +47,7 @@ export const useLibrary = create<LibraryState>((set, get) => {
     pass: (key) => { if (!get().passed[key]) commit({ passed: { ...get().passed, [key]: new Date().toISOString() } }); },
     touch: (moduleId) => commit({ lastPlayed: { ...get().lastPlayed, [moduleId]: new Date().toISOString() } }),
     toggleList: (id) => commit({ myList: get().myList.includes(id) ? get().myList.filter((x) => x !== id) : [id, ...get().myList] }),
+    setMode: (mode) => commit({ mode }),
     resetLibrary: () => { set({ playing: null, solo: null, view: { page: 'home' } }); commit(EMPTY()); },
   };
 });

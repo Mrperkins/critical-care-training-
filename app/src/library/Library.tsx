@@ -2,7 +2,7 @@
  * The library: browse shelves of modules (Home), read a module before starting it, see everything on one
  * shelf, and follow a learning path. Playing a step hands off to the clinical workspace (see launch.ts).
  */
-import { useState, type ReactNode } from 'react';
+import { lazy, Suspense, useState, type ReactNode } from 'react';
 import { useUI, type Module } from '../app/store';
 import { useProgress } from '../curriculum/progress';
 import { CHALLENGE_CONCEPTS, challengeModule } from '../curriculum/catalog';
@@ -309,11 +309,29 @@ function PathPage({ id }: { id: string }) {
   );
 }
 
+const AudioHome = lazy(() => import('./audio/AudioHome'));
+
+/** Lessons / Audio switch at the top of Browse: two separate home pages, the choice remembered */
+function ModeToggle() {
+  const mode = useLibrary((s) => s.mode);
+  return (
+    <div className="lib-mode">
+      <div className="lib-mode-seg" role="group" aria-label="Browse mode">
+        <button aria-pressed={mode === 'lessons'} className={mode === 'lessons' ? 'on' : ''} onClick={() => useLibrary.getState().setMode('lessons')}>
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2" fill="none" stroke="currentColor" strokeWidth="2" /><path d="M8 21h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>Lessons</button>
+        <button aria-pressed={mode === 'audio'} className={mode === 'audio' ? 'on' : ''} onClick={() => useLibrary.getState().setMode('audio')}>
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 15v-3a8 8 0 0 1 16 0v3" fill="none" stroke="currentColor" strokeWidth="2" /><rect x="3" y="14" width="4" height="6" rx="1.5" fill="none" stroke="currentColor" strokeWidth="2" /><rect x="17" y="14" width="4" height="6" rx="1.5" fill="none" stroke="currentColor" strokeWidth="2" /></svg>Audio</button>
+      </div>
+      <span className="lib-mode-hint">{mode === 'audio' ? 'Expert sessions and voice-guided Mental Reps' : 'Guided visual lessons, simulators and cases'}</span>
+    </div>
+  );
+}
+
 export function Library() {
-  const view = useLibrary((s) => s.view);
+  const view = useLibrary((s) => s.view); const mode = useLibrary((s) => s.mode);
   return (
     <main id="library-main" className="library" tabIndex={-1} aria-label="Library">
-      {view.page === 'home' && <Home />}
+      {view.page === 'home' && <><ModeToggle />{mode === 'audio' ? <Suspense fallback={<div className="module-loading" role="status"><span>Loading</span></div>}><AudioHome /></Suspense> : <Home />}</>}
       {view.page === 'module' && <ModulePage id={view.id} />}
       {view.page === 'shelf' && <ShelfPage key={`${view.id}-${view.filter ?? ''}`} id={view.id} initial={view.filter} />}
       {view.page === 'paths' && <PathsPage />}
