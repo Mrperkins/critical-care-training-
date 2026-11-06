@@ -30,7 +30,7 @@ function MediaPane({it}:{it:RealItem}) {
   const hasStill = !!it.poster && movie;
   const [still,setStill] = useState(false);
   const [failure,setFailure] = useState(false);
-  const [playing,setPlaying] = useState(true);
+  const [playing,setPlaying] = useState(false);
   return <section className="img-correlation-panel" aria-label="Real clinical imaging">
     <div className="img-correlation-top"><b>Real patient · {viewOf(it)}</b>
       {hasStill && <div className="img-view-switch" role="group" aria-label="Ultrasound clip or still">
@@ -65,12 +65,12 @@ function AnatomyPane({it,lesson}:{it:RealItem;lesson?:ImagingLesson}) {
       </div>
     </div>
     <div className="img-model-frame">
-      {active?<Suspense fallback={<p className="loading">Loading app's 3D anatomy model…</p>}>
-          <PatientScene key={disease.id} disease={disease} state={diseaseState(disease,0.1)} target={view==='whole'?'body.whole':disease.target}/>
-        </Suspense>:
+      {active?<div className="img-model-inner"><Suspense fallback={<p className="loading">Loading app's 3D anatomy model…</p>}>
+          <PatientScene key={disease.id} disease={disease} state={diseaseState(disease,0)} target={view==='whole'?'body.whole':disease.target}/>
+        </Suspense></div>:
         <div className="img-model-placeholder">3D model paused to save graphics resources.</div>}
     </div>
-    <div className="img-correlation-legend"><span>Region: <b>{disease.title}</b></span><span>Reference plane: <b>{plane}</b></span></div>
+    <div className="img-correlation-legend"><span>Anatomical topic: <b>{disease.title}</b></span><span>Reference plane: <b>{plane}</b></span></div>
     {lesson?.probe && <p className="img-correlation-hint"><b>Probe/approach:</b> {lesson.probe}</p>}
     <p className="img-correlation-disclaimer">Spatial reference only: this is a rotatable anatomy model, not a voxel-based reconstruction of this patient's scan, not a tracked probe, and not a slice-synchronized representation. Organ sizes and pathology in the model are illustrative. Use the clinical image for actual findings.</p>
     <button className="lib-link" onClick={()=>setActive(x=>!x)}>{active?'Pause 3D rendering':'Resume 3D anatomy'}</button>
