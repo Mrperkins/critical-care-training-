@@ -390,7 +390,7 @@ const look = (from: THREE.Vector3, at: THREE.Vector3, dist: number): [THREE.Vect
 const D = IS_PHONE ? 1.3 : 1;
 export const HEART_VIEW: Record<string, () => [THREE.Vector3, THREE.Vector3]> = {
   /** the whole, closed heart from the front, great vessels included */
-  'heart.whole_heart': () => look(new THREE.Vector3(0.12, 0.22, 1), new THREE.Vector3(0.18, 5.12, 0.38), 14.5 * D),
+  'heart.whole_heart': () => look(new THREE.Vector3(0.12, 0.22, 1), new THREE.Vector3(0.18, 5.12, 0.38), IS_PHONE ? 15.5 : 14.5),
   'heart.four_chamber': () => look(new THREE.Vector3(0.069, 0.889, 0.453).add(new THREE.Vector3(0, 0, 0.35)), new THREE.Vector3(0.2, 4.66, 0.38), 8.6 * D),
   'heart.septum': () => look(SEPTUM_N.clone().add(new THREE.Vector3(0, 0.25, 0)), LM.septum, 4.8 * D),
   'heart.vsd': () => look(SEPTUM_N.clone().add(new THREE.Vector3(0.1, 0.25, 0.25)), LM.vsdPerimembranous, 5.6 * D),

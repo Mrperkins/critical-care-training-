@@ -76,13 +76,13 @@ describe('phone navigation interactions', () => {
   it.each([320, 360, 390, 430, 768])('Learn interaction state enters the lesson pane at %ipx (DOM only)', async (width) => {
     Object.defineProperty(window, 'innerWidth', { configurable: true, value: width });
     Object.defineProperty(window, 'matchMedia', { configurable: true, value: vi.fn((query: string) => ({ matches: width <= +(query.match(/max-width:\s*(\d+)/)?.[1] ?? 0), addEventListener: vi.fn(), removeEventListener: vi.fn() })) });
-    await act(async () => root.render(<App />)); await settle(); await click('Respiratory', container.querySelector('dialog.domain-dialog')!);
+    await act(async () => root.render(<App />)); await settle(); await click('Respiratory', container.querySelector<HTMLDialogElement>('dialog.domain-dialog')!);
     expect(useUI.getState().module).toBe('vent'); expect(useUI.getState().mode).toBe('learn');
     expect(container.querySelector('.app')?.getAttribute('data-mobile-pane')).toBe('context');
     expect(container.textContent).toContain('Respiratory lessons');
   });
   it('Explore and Practice transition into their clinical experiences', async () => {
-    await act(async () => root.render(<App />)); await settle(); await click('Respiratory', container.querySelector('dialog.domain-dialog')!);
+    await act(async () => root.render(<App />)); await settle(); await click('Respiratory', container.querySelector<HTMLDialogElement>('dialog.domain-dialog')!);
     await click('Explore'); expect(useUI.getState().mode).toBe('explore');
     expect(container.querySelector('.app')?.getAttribute('data-mobile-pane')).toBe('scene');
     await click('Practice'); expect(container.textContent).toContain('Respiratory cases');
@@ -91,7 +91,7 @@ describe('phone navigation interactions', () => {
   it('drawer chooses a domain, closes and restores focus to its trigger', async () => {
     await act(async () => root.render(<App />)); await settle();
     await click('Open body systems');
-    const drawer = container.querySelector('dialog.domain-dialog')!;
+    const drawer = container.querySelector<HTMLDialogElement>('dialog.domain-dialog')!;
     expect(drawer.open).toBe(true);
     await click('Blood gas', drawer);
     expect(drawer.open).toBe(false); expect(useUI.getState().module).toBe('abg');
@@ -103,7 +103,7 @@ describe('phone navigation interactions', () => {
     const resources = container.querySelector<HTMLDetailsElement>('.resources-menu')!;
     await act(async () => resources.querySelector('summary')!.click()); expect(resources.open).toBe(true);
     await click('Videos & Skills', resources); expect(container.textContent).toContain('Videos and Skills'); expect(resources.open).toBe(false);
-    await click('Respiratory', container.querySelector('dialog.domain-dialog')!); expect(container.textContent).toContain('Respiratory lessons');
+    await click('Respiratory', container.querySelector<HTMLDialogElement>('dialog.domain-dialog')!); expect(container.textContent).toContain('Respiratory lessons');
     await click('Go to browse'); expect(useUI.getState().module).toBe('library'); expect(container.querySelector('#library-main')).toBeTruthy();
   });
   it.each([320,360,390,430,768])('atlas lesson transport, bookmark and return work in the %ipx interaction state', async width => {
@@ -112,7 +112,7 @@ describe('phone navigation interactions', () => {
     Object.defineProperty(window, 'innerWidth', { configurable: true, value: width });
     useProgress.getState().reset();
     await act(async () => root.render(<App />)); await settle();
-    await click('Women’s Health / OB', container.querySelector('dialog.domain-dialog')!);
+    await click('Women’s Health / OB', container.querySelector<HTMLDialogElement>('dialog.domain-dialog')!);
     await click('Start 4-chapter explainer');
     // every lesson opens on the choice between the full course and the TL;DR
     expect(container.textContent).toContain('Full course'); expect(container.textContent).toContain('TL;DR');
@@ -126,7 +126,7 @@ describe('phone navigation interactions', () => {
   });
   it.each([['Pediatrics','pediatrics'], ['Women’s Health / OB','womens']] as const)('%s has actual Learn, Explore and Practice content', async (label,module) => {
     await act(async () => root.render(<App />)); await settle();
-    await click(label,container.querySelector('dialog.domain-dialog')!);
+    await click(label,container.querySelector<HTMLDialogElement>('dialog.domain-dialog')!);
     expect(useUI.getState().module).toBe(module);
     expect(container.querySelectorAll('.atlas-condition-select option').length).toBeGreaterThan(10);
     expect(container.textContent).toContain('Start 4-chapter explainer');

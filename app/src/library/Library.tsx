@@ -25,6 +25,11 @@ function Motif({ shelf }: { shelf: ShelfId }) {
   const s = SHELF_BY_ID[shelf];
   return <svg className="lib-motif" viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true"><path d={s.motif} fill="none" stroke={s.line} strokeWidth="2.5" /></svg>;
 }
+/** A still of the module's own scene (captured from the app); falls back to the shelf colour and line motif. */
+function Thumb({ id, shelf }: { id: string; shelf: ShelfId }) {
+  const [ok, setOk] = useState(true);
+  return ok ? <img className="lib-thumb" src={`thumbs/${id}.jpg`} alt="" loading="lazy" decoding="async" onError={() => setOk(false)} /> : <Motif shelf={shelf} />;
+}
 function Bar({ value, label }: { value: number; label: string }) {
   return <span className="lib-bar" role="progressbar" aria-valuenow={value} aria-valuemin={0} aria-valuemax={100} aria-label={label}><span style={{ width: `${value}%` }} /></span>;
 }
@@ -34,7 +39,7 @@ function ModuleCard({ m, wide }: { m: LibraryModule; wide?: boolean }) {
   return (
     <button className={`lib-card${wide ? ' wide' : ''}`} onClick={() => openLibrary({ page: 'module', id: m.id })}>
       <span className="lib-art" style={{ background: SHELF_BY_ID[m.shelf].tone }}>
-        <Motif shelf={m.shelf} />
+        <Thumb id={m.id} shelf={m.shelf} />
         {prog.done > 0 && prog.done < prog.total && <span className="lib-chip">In progress</span>}
         {prog.done === prog.total && prog.total > 0 && <span className="lib-chip done">Done</span>}
         {m.isNew && prog.done === 0 && <span className="lib-chip new">New</span>}
@@ -85,7 +90,7 @@ function Home() {
             <button className="lib-btn" onClick={() => openLibrary({ page: 'module', id: featured.id })}>What’s inside</button>
           </div>
         </div>
-        <div className="lib-hero-art" aria-hidden="true"><Motif shelf={featured.shelf} /><Motif shelf={featured.shelf} /></div>
+        <div className="lib-hero-art" aria-hidden="true"><Thumb id={featured.id} shelf={featured.shelf} /></div>
       </section>
 
       {going.length > 0

@@ -36,7 +36,7 @@ export function SearchButton() {
         <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" strokeWidth="2" /><path d="m20 20-3.5-3.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
         <span className="lib-search-label">Search</span><kbd>/</kbd>
       </button>
-      <dialog ref={dlg} className="lib-search" aria-label="Search" onClose={() => trigger.current?.focus()} onClick={(e) => { if (e.target === e.currentTarget) close(); }}>
+      <dialog ref={dlg} className="lib-search" aria-label="Search" onClose={() => trigger.current?.focus()} onCancel={(e) => { e.preventDefault(); close(); }} onClick={(e) => { if (e.target === e.currentTarget) close(); }}>
         <div className="lib-search-box">
           <label className="lib-search-field">
             <span className="sr-only">Search topics, cases, conditions and drugs</span>
@@ -45,7 +45,8 @@ export function SearchButton() {
               role="combobox" aria-expanded={flat.length > 0} aria-controls="lib-search-results" aria-activedescendant={flat[active] ? `sr-${active}` : undefined}
               onChange={(e) => setQ(e.target.value)}
               onKeyDown={(e) => {
-                if (e.key === 'ArrowDown') { e.preventDefault(); setActive((a) => Math.min(flat.length - 1, a + 1)); }
+                if (e.key === 'Escape') { e.preventDefault(); close(); }
+                else if (e.key === 'ArrowDown') { e.preventDefault(); setActive((a) => Math.min(flat.length - 1, a + 1)); }
                 else if (e.key === 'ArrowUp') { e.preventDefault(); setActive((a) => Math.max(0, a - 1)); }
                 else if (e.key === 'Enter' && flat[active]) { e.preventDefault(); choose(flat[active]); }
               }} />

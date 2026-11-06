@@ -520,7 +520,7 @@ function CameraRig({ asset }: { asset: HeartAsset }) {
     const st = useApp.getState();
     const T = focusOf(st.territoryId);
     const aspectBoost = (size.width < size.height ? Math.pow(size.height / size.width, 0.45) : 1) * (size.width < 640 ? 0.9 : 1);
-    let key = 'overview'; let dir = new THREE.Vector3(0.28, 0.12, 1).normalize(); let dist = 4.7; let target = new THREE.Vector3(0, -0.05, 0);
+    let key = 'overview'; let dir = new THREE.Vector3(0.28, 0.12, 1).normalize(); let dist = 5.6; let target = new THREE.Vector3(0, 0.08, 0); // whole heart incl. the arch, with margin
     if (st.showLeads && !st.leadId) { key = 'leads'; dir = new THREE.Vector3(0.45, 0.3, 1).normalize(); dist = 9.5; }
     else if (st.slice && !st.leadId) {
       // look at the cut face from the apex side, tilted a little so the wall ring reads as a solid ring

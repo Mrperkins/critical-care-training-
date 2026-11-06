@@ -132,3 +132,21 @@ global Learn / Explore / Practice modes as the front door. Engines, lessons and 
 
 Next slices: per-module thumbnail art; restyle challenge views into the Patient → Assess → Decide →
 Intervene → Debrief shell; search.
+
+### Library layout — slice 2 (2026-11-05)
+- Case shell (`library/caseRun.ts`, `library/CaseRunner.tsx`): Patient → Assess → Decide → Debrief beside the
+  live scene. Scene cases run end to end in the shell (the module's own side panel is hidden while it runs);
+  engine cases (vent-, abg-, lab-, lines-) keep their own panel and get the shell's debrief once the attempt is
+  recorded. Debrief: score, each decision with time and explanation, concepts tested with review links, attempt
+  history, Next step / Run again.
+- Search (`library/Search.tsx`, `library/searchIndex.ts`): header button and "/" shortcut across modules,
+  lessons, procedures, cases, conditions and drugs.
+- FP-C Study Plan is grouped and ordered by the ten IBSC content-outline domains (`FPC_DOMAIN_OF` in
+  `library/modules.ts`, outline in `fpc/blueprint.ts` — June 2023 handbook; IBSC now lists a 2026 handbook,
+  re-check the domain list and item counts against it). Domains with no module point to FP-C exam prep.
+- Card art: real stills from the app's own scenes in `app/public/thumbs/` (copied to the site by build-app and
+  copy-site). Recapture with `scripts/qa/capture-thumbs.mjs` + `scripts/qa/thumbs-to-jpg.py`.
+- Whole organs by default, sections on request: the heart opens whole and opaque (`cut: 'closed'`,
+  `heart.whole_heart` camera) with a visible Section control; lungs gain a coronal Section (front / middle /
+  back, `ventCut`); the brain's axial levels are a visible Section control. Scene number overlays (`.alv-hud`)
+  fold behind a "Numbers" toolbar button so the model is unobstructed.

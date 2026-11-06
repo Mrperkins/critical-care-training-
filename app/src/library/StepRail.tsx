@@ -54,7 +54,7 @@ export function StepRail() {
         <p className="step-rail-now"><b className={`k-${cur.kind}`}>{KIND_LABEL[cur.kind]}</b> {stepTitle(cur)}</p>
         <div className="step-rail-nav">
           <button className="lib-btn" disabled={playing.step === 0} onClick={previousStep}>Back</button>
-          <button className="lib-btn primary" onClick={nextStep}>{last ? 'Finish module' : onCase ? 'Skip case' : 'Next step'}</button>
+          <button className={`lib-btn${onCase ? '' : ' primary'}`} onClick={nextStep}>{onCase ? (last ? 'Skip and finish' : 'Skip case') : last ? 'Finish module' : 'Next step'}</button>
         </div>
       </div>
     </aside>

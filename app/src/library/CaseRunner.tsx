@@ -33,7 +33,9 @@ function Facts({ c }: { c: SceneCase }) {
   const pulse = useCaseRun((s) => s.stage); // re-read the live facts when the stage changes
   const facts = useMemo(() => { try { return c.facts(); } catch { return []; } }, [c, pulse]);
   if (!facts.length) return null;
-  return <dl className="case-monitor">{facts.map(([k, v], i) => <div key={i}><dt>{k}</dt><dd>{v}</dd></div>)}</dl>;
+  // numbers read like a monitor (mono); written findings read like text
+  const isNum = (v: string) => /^[\d\s.,/%:≈~<>+−–-]+[a-zA-Z₂%/ ·]{0,10}$/.test(v);
+  return <dl className="case-monitor">{facts.map(([k, v], i) => <div key={i} className={isNum(v) ? 'num' : 'txt'}><dt>{k}</dt><dd>{v}</dd></div>)}</dl>;
 }
 
 /** Concepts the case tests, each with the lesson or drug that teaches it. */

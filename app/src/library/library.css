@@ -283,3 +283,23 @@ html:has(.app-b),body:has(.app-b){overflow:hidden}
 /* ---- scenes: keep the model unobstructed. Bedside numbers fold into the scene toolbar ("Numbers"). */
 .scene-wrap:not(.hud-open) .alv-hud{display:none}
 .st-hud.on{color:var(--ink)}
+/* phones: the scene's two toolbars and the bottom selects must not cover each other or the model */
+@media (max-width:760px){
+  .scene-wrap:has(.scene-primary-tools) .scene-primary-tools{top:58px!important}
+  .scene-primary-tools .scene-menu-trigger small{display:none}
+  .alv-focus{flex-wrap:wrap;row-gap:6px}
+  .alv-focus .ch-section,.alv-focus .ch-focus{flex:1 1 46%;min-width:0}
+  .alv-focus .heart-bulk-flow-select{flex:1 1 100%;max-width:none!important;margin-left:0}
+}
+/* card art: a real still of the module's scene under a scrim for the title */
+.lib-thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.lib-art:has(.lib-thumb)::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,10,14,0) 35%,rgba(8,10,14,.86) 100%)}
+.lib-art>.lib-art-title,.lib-art>.lib-chip,.lib-art>.lib-bar{z-index:1}
+.lib-hero-art:has(.lib-thumb){position:relative;padding:0}
+@media (max-width:1024px){
+  .app-b:not(.in-domain) .topbar-v2{display:flex!important;flex-wrap:wrap!important;align-items:center}
+  .app-b .lib-nav{order:9;flex:1 1 100%;margin:0 -4px}
+}
+.case-monitor .txt{grid-column:span 1}
+.case-monitor .txt dd{font:600 14.5px/1.4 var(--fb)}
+@media (max-width:1024px){ .app-b.in-domain .lib-nav{display:none} }
