@@ -53,7 +53,8 @@ describe('Evidence-informed imaging courses',()=>{
   const video=[...ids].map(id=>media.get(id)).filter((it):it is RealItem=>!!it && it.file.endsWith('.mp4'));
   expect(video.length).toBeGreaterThanOrEqual(9);
   for(const item of video){
-   expect(item.poster,item.id).toBeTruthy();
+   if (!item.file.startsWith('https://')) expect(item.poster,item.id).toBeTruthy();
+   else expect(item.provenance?.pageUrl,item.id).toMatch(/^https:\/\/commons\.wikimedia\.org\/wiki\/File:/);
    if(!item.file.startsWith('https://'))expect(fs.existsSync('../imaging/real/'+item.file),item.id).toBe(true);
    if(item.poster&&!item.poster.startsWith('https://'))expect(fs.existsSync('../imaging/real/'+item.poster),item.id).toBe(true);
    expect(manifest.accepted).toContain(item.license);
