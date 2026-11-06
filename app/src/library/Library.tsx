@@ -11,6 +11,7 @@ import { BLUEPRINT, TOTAL_ITEMS } from '../fpc/blueprint';
 import { FPC_DOMAIN_OF, KIND_LABEL, MODULES, MODULE_BY_ID, PATHS, PATH_BY_ID, SHELVES, SHELF_BY_ID, minutesOf, moduleProgress, modulesOn, stepDone, type LibraryModule, type ShelfId, type Step } from './modules';
 import { useLibrary } from './libraryStore';
 import { ContentFormatIcon } from './ContentFormatIcon';
+import { CourseImaging } from './imaging/CourseImaging';
 import { CLINICAL_THUMBS } from './clinicalThumbs';
 import { openLibrary, playModule, playStep, runCase } from './launch';
 
@@ -120,6 +121,7 @@ function Home() {
 
       <section className="lib-tiles" aria-label="More ways to study">
         <a className="lib-tile" href="audio/"><span><b>Expert audio &amp; Mental Reps</b><small>Listen on the drive in</small></span><ContentFormatIcon kind="audio" size={26} /></a>
+        <button className="lib-tile" onClick={() => openLibrary({ page: 'imaging' })}><span><b>Imaging trainer</b><small>Real X-rays, CT, MRI &amp; ultrasound · interpret each study</small></span><ContentFormatIcon kind="visual" size={26} /></button>
         <button className="lib-tile" onClick={() => openFree('fpc')}><span><b>FP-C exam prep</b><small>Blueprint and practice questions</small></span><Play /></button>
         <button className="lib-tile" onClick={() => openFree('videos')}><span><b>Videos &amp; skills</b><small>Equipment, pumps and procedures</small></span><ContentFormatIcon kind="visual" size={26} /></button>
         <button className="lib-tile" onClick={() => openFree('cases')}><span><b>Case conference</b><small>Slides and audio</small></span><Play /></button>
@@ -197,6 +199,7 @@ function ModulePage({ id }: { id: string }) {
           {paths.length > 0 && <div className="lib-panel"><h2>Part of</h2>{paths.map((p) => <button key={p.id} className="lib-link" onClick={() => openLibrary({ page: 'path', id: p.id })}>{p.title} · module {p.modules.indexOf(id) + 1} of {p.modules.length}</button>)}</div>}
         </aside>
       </div>
+      <CourseImaging moduleId={id} />
     </>
   );
 }
@@ -326,6 +329,7 @@ function PathPage({ id }: { id: string }) {
 }
 
 const AudioHome = lazy(() => import('./audio/AudioHome'));
+const ImagingTrainer = lazy(() => import('./imaging/ImagingTrainer').then((m) => ({ default: m.ImagingTrainer })));
 
 /** Lessons / Audio switch at the top of Browse: two separate home pages, the choice remembered */
 function ModeToggle() {
@@ -352,6 +356,9 @@ export function Library() {
       {view.page === 'shelf' && <ShelfPage key={`${view.id}-${view.filter ?? ''}`} id={view.id} initial={view.filter} />}
       {view.page === 'paths' && <PathsPage />}
       {view.page === 'path' && <PathPage id={view.id} />}
+      {view.page === 'imaging' && <Suspense fallback={<div className="module-loading" role="status">Loading imaging trainer…</div>}>
+        <ImagingTrainer key={`${view.moduleId ?? 'all'}:${view.modality ?? 'all'}:${view.id ?? 'start'}`} moduleId={view.moduleId} initialModality={view.modality} initialId={view.id} />
+      </Suspense>
     </main>
   );
 }
