@@ -334,7 +334,7 @@ function ModeToggle() {
     <div className="lib-mode">
       <div className="lib-mode-seg" role="group" aria-label="Browse mode">
         <button aria-pressed={mode === 'lessons'} className={mode === 'lessons' ? 'on' : ''} onClick={() => useLibrary.getState().setMode('lessons')}>
-          <ContentFormatIcon kind="visual" />Visual</button>
+          <ContentFormatIcon kind="visual" />Lessons</button>
         <button aria-pressed={mode === 'audio'} className={mode === 'audio' ? 'on' : ''} onClick={() => useLibrary.getState().setMode('audio')}>
           <ContentFormatIcon kind="audio" />Audio</button>
       </div>
