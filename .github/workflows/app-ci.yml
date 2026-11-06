@@ -42,7 +42,7 @@ jobs:
           path: app/dist/pub
           retention-days: 7
   bedside-browser-qa:
-    timeout-minutes: 15
+    timeout-minutes: 20
     strategy:
       fail-fast: false
       matrix:
@@ -68,7 +68,10 @@ jobs:
           QA_HEADED: 1
         run: |
           python3 -m http.server 8765 --directory dist > /tmp/bedside-preview.log 2>&1 &
+          mkdir -p dist/imaging
+          ln -s ../../../imaging/real dist/imaging/real
           xvfb-run --auto-servernum node scripts/vent-browser-qa.cjs
+          xvfb-run --auto-servernum node scripts/imaging-browser-qa.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
