@@ -498,3 +498,8 @@ html:has(.app-b),body:has(.app-b){overflow:hidden}
 .img-model-inner .scene-canvas,.img-model-inner canvas{display:block;width:100%!important;height:100%!important}
 .img-model-inner>.credit{position:absolute;z-index:3;bottom:5px;left:5px;right:5px;max-height:28%;overflow:auto;background:rgba(4,10,17,.88);border-radius:5px;padding:4px 7px;font-size:10px;line-height:1.35;color:#b8c4cf}
 .img-model-inner .scene-unavailable{height:100%;display:flex;flex-direction:column;justify-content:center}
+
+.img-spatial-key{background:#121e2c;border:1px solid #28394b;border-radius:8px;padding:10px 13px}
+.img-spatial-key>b{font:600 12px/1.4 var(--fb);color:#b8d8e9}
+.img-spatial-key ol{margin:7px 0 0;padding-left:19px;font:500 12px/1.55 var(--fb);color:var(--lib-dim)}
+.img-spatial-key li{padding:2px 0}
