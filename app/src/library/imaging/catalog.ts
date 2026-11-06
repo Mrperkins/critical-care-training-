@@ -48,7 +48,7 @@ export const COURSE_STUDIES: Readonly<Record<string, readonly string[]>> = {
   'lines-cvp': ['ivc-2026-video-s1','ivc-collapse-gillman','tamponade-ginghina'],
   'lines-shock': ['ivc-collapse-gillman','fast-ruq-positive','tamponade-ginghina','cxr-chf-haggstrom'],
   'lines-bleed': ['fast-ruq-positive','ct-splenic-laceration-hemoperitoneum-2025'],
-  'lines-devices': ['ij-2026-video-s2','ij-needle-inplane-2025','ij-thrombus-compression-cureus-2025'],
+  'lines-devices': ['ijv-2026-video-s2','ij-needle-inplane-2025','ij-thrombus-compression-cureus-2025'],
   'neuro-stroke': ['stroke-hmcas-2025','stroke-cta-m1-2025','stroke-ctp-mismatch-2025','mri-dwi-adc-stroke'],
   'neuro-icp': ['ich-thalamic-hydro-yadav','ich-ivh-commons','ich-cerebellar-yadav','mri-t2star-microbleed','mri-normal-t1-anatomy'],
   'abd-fast': ['fast-ruq-positive','fast-luq-positive-scandj-2023','fast-pelvis-positive-vats','fast-pelvis-negative-pocus-2021','ct-splenic-laceration-hemoperitoneum-2025'],
