@@ -10,6 +10,8 @@ import { titleOf } from '../curriculum/titles';
 import { BLUEPRINT, TOTAL_ITEMS } from '../fpc/blueprint';
 import { FPC_DOMAIN_OF, KIND_LABEL, MODULES, MODULE_BY_ID, PATHS, PATH_BY_ID, SHELVES, SHELF_BY_ID, minutesOf, moduleProgress, modulesOn, stepDone, type LibraryModule, type ShelfId, type Step } from './modules';
 import { useLibrary } from './libraryStore';
+import { ContentFormatIcon } from './ContentFormatIcon';
+import { CLINICAL_THUMBS } from './clinicalThumbs';
 import { openLibrary, playModule, playStep, runCase } from './launch';
 
 /* ---------------------------------------------------------------- shared bits */
@@ -25,10 +27,16 @@ function Motif({ shelf }: { shelf: ShelfId }) {
   const s = SHELF_BY_ID[shelf];
   return <svg className="lib-motif" viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true"><path d={s.motif} fill="none" stroke={s.line} strokeWidth="2.5" /></svg>;
 }
-/** A still of the module's own scene (captured from the app); falls back to the shelf colour and line motif. */
+/** Own 3D screenshots by default; seven pre-cleared real studies for disease/imaging modules.
+ * If clinical art fails to load, fall back to the module's native scene screenshot.
+ */
 function Thumb({ id, shelf }: { id: string; shelf: ShelfId }) {
-  const [ok, setOk] = useState(true);
-  return ok ? <img className="lib-thumb" src={`thumbs/${id}.jpg`} alt="" loading="lazy" decoding="async" onError={() => setOk(false)} /> : <Motif shelf={shelf} />;
+  const [failed, setFailed] = useState(0);
+  const real = CLINICAL_THUMBS[id];
+  const src = real && failed === 0 ? `imaging/real/${real.file}` : `thumbs/${id}.jpg`;
+  return failed > (real ? 1 : 0)
+    ? <Motif shelf={shelf} />
+    : <img className={`lib-thumb${real && failed === 0 ? ' lib-thumb-clinical' : ''}`} src={src} alt="" loading="lazy" decoding="async" onError={() => setFailed((n) => n + 1)} />;
 }
 function Bar({ value, label }: { value: number; label: string }) {
   return <span className="lib-bar" role="progressbar" aria-valuenow={value} aria-valuemin={0} aria-valuemax={100} aria-label={label}><span style={{ width: `${value}%` }} /></span>;
@@ -38,15 +46,16 @@ function ModuleCard({ m, wide }: { m: LibraryModule; wide?: boolean }) {
   const prog = useModuleProgress()(m.id); const p = pct(prog.done, prog.total);
   return (
     <button className={`lib-card${wide ? ' wide' : ''}`} onClick={() => openLibrary({ page: 'module', id: m.id })}>
-      <span className="lib-art" style={{ background: SHELF_BY_ID[m.shelf].tone }}>
+      <span className={`lib-art thumb-${m.id}`} style={{ background: SHELF_BY_ID[m.shelf].tone }}>
         <Thumb id={m.id} shelf={m.shelf} />
+        {CLINICAL_THUMBS[m.id] && <span className="lib-study-marker">Real clinical image</span>}
         {prog.done > 0 && prog.done < prog.total && <span className="lib-chip">In progress</span>}
         {prog.done === prog.total && prog.total > 0 && <span className="lib-chip done">Done</span>}
         {m.isNew && prog.done === 0 && <span className="lib-chip new">New</span>}
         <span className="lib-art-title">{m.art}</span>
         {prog.done > 0 && <Bar value={p} label={`${m.title} progress`} />}
       </span>
-      <span className="lib-card-meta"><b className="k-module">Module</b><span>{m.steps.length} steps · {minutesOf(m)} min</span></span>
+      <span className="lib-card-meta"><span className="lib-format-mark" title="Visual learning"><ContentFormatIcon kind="visual" size={16} /><span className="sr-only">Visual learning</span></span><b className="k-module">Module</b><span>{m.steps.length} steps · {minutesOf(m)} min</span></span>
       {wide && <span className="lib-card-title">{m.title}</span>}
     </button>
   );
@@ -110,9 +119,9 @@ function Home() {
       </Row>
 
       <section className="lib-tiles" aria-label="More ways to study">
-        <a className="lib-tile" href="audio/"><span><b>Expert audio &amp; Mental Reps</b><small>Listen on the drive in</small></span><Play /></a>
+        <a className="lib-tile" href="audio/"><span><b>Expert audio &amp; Mental Reps</b><small>Listen on the drive in</small></span><ContentFormatIcon kind="audio" size={26} /></a>
         <button className="lib-tile" onClick={() => openFree('fpc')}><span><b>FP-C exam prep</b><small>Blueprint and practice questions</small></span><Play /></button>
-        <button className="lib-tile" onClick={() => openFree('videos')}><span><b>Videos &amp; skills</b><small>Equipment, pumps and procedures</small></span><Play /></button>
+        <button className="lib-tile" onClick={() => openFree('videos')}><span><b>Videos &amp; skills</b><small>Equipment, pumps and procedures</small></span><ContentFormatIcon kind="visual" size={26} /></button>
         <button className="lib-tile" onClick={() => openFree('cases')}><span><b>Case conference</b><small>Slides and audio</small></span><Play /></button>
       </section>
     </>
@@ -178,6 +187,13 @@ function ModulePage({ id }: { id: string }) {
         </section>
         <aside className="lib-col-side">
           <div className="lib-panel"><h2>You’ll be able to</h2><ul>{m.outcomes.map((o) => <li key={o}>{o}</li>)}</ul></div>
+          {CLINICAL_THUMBS[id] && <div className="lib-panel lib-reference-credit">
+            <h2>Thumbnail: real clinical reference</h2>
+            <p>Different patient, illustrative only — not the simulated patient.</p>
+            <p>{CLINICAL_THUMBS[id].title} · {CLINICAL_THUMBS[id].credit}</p>
+            <a href={CLINICAL_THUMBS[id].sourceUrl} target="_blank" rel="noreferrer">Original source</a>
+            <a href={CLINICAL_THUMBS[id].licenseUrl} target="_blank" rel="noreferrer">{CLINICAL_THUMBS[id].license} license</a>
+          </div>}
           {paths.length > 0 && <div className="lib-panel"><h2>Part of</h2>{paths.map((p) => <button key={p.id} className="lib-link" onClick={() => openLibrary({ page: 'path', id: p.id })}>{p.title} · module {p.modules.indexOf(id) + 1} of {p.modules.length}</button>)}</div>}
         </aside>
       </div>
@@ -318,9 +334,9 @@ function ModeToggle() {
     <div className="lib-mode">
       <div className="lib-mode-seg" role="group" aria-label="Browse mode">
         <button aria-pressed={mode === 'lessons'} className={mode === 'lessons' ? 'on' : ''} onClick={() => useLibrary.getState().setMode('lessons')}>
-          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2" fill="none" stroke="currentColor" strokeWidth="2" /><path d="M8 21h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>Lessons</button>
+          <ContentFormatIcon kind="visual" />Visual</button>
         <button aria-pressed={mode === 'audio'} className={mode === 'audio' ? 'on' : ''} onClick={() => useLibrary.getState().setMode('audio')}>
-          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 15v-3a8 8 0 0 1 16 0v3" fill="none" stroke="currentColor" strokeWidth="2" /><rect x="3" y="14" width="4" height="6" rx="1.5" fill="none" stroke="currentColor" strokeWidth="2" /><rect x="17" y="14" width="4" height="6" rx="1.5" fill="none" stroke="currentColor" strokeWidth="2" /></svg>Audio</button>
+          <ContentFormatIcon kind="audio" />Audio</button>
       </div>
       <span className="lib-mode-hint">{mode === 'audio' ? 'Expert sessions and voice-guided Mental Reps' : 'Guided visual lessons, simulators and cases'}</span>
     </div>
