@@ -1,12 +1,14 @@
 /** Respiratory module: the lungs, waveforms and side pane (Learn / Explore / Practice), or the bedside workbench in Simulator. */
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useExploreMemory } from '../app/exploreMemory';
 import { Fold } from '../scene/pane';
 import { useUI } from '../app/store';
 import { useIsPhone } from '../app/useIsPhone';
 import { session } from './session';
 import { loadRespAsset, type RespAsset } from '../asset/resp';
-import { LungScene } from './LungScene';
+import { LungScene, makeNormalLungs } from './LungScene';
+import { COMPARE_MEDIA } from '../scene/compareMedia';
+import { VENT_SCENARIO } from '../scenarios/vent';
 import { CxrScene } from './CxrScene';
 import { LusScene } from './LusScene';
 import { AlveolusScene, AlveolusHud, focusVentTarget } from './AlveolusScene';
@@ -50,11 +52,12 @@ export default function VentModule() {
   const showLoops = useUI((s) => s.showLoops); const phone = useIsPhone(); const alv = useUI((s) => s.ventView === 'alveolus'); const xray = useUI((s) => s.ventView === 'xray'); const lus = useUI((s) => s.ventView === 'lus');
   useExploreMemory('vent', () => ({ id: useUI.getState().ventScenario, dyss: session.dyss, s: structuredClone(session.m.s), view: useUI.getState().ventView }),
     (m) => { loadVentScenario(m.id, m.dyss); session.set(m.s); useUI.getState().set({ ventView: m.view, pulse: useUI.getState().pulse + 1 }); });
+  const scId = useUI((s) => s.ventScenario); const normalLungs = useMemo(makeNormalLungs, []);
   if(mode==='sim') return <VentWorkbench />;
   return (
     <main className="stage">
       <section className="scene-pane">
-        <SceneWrap className={alv ? 'alv-wrap' : ''}>
+        <SceneWrap className={alv ? 'alv-wrap' : ''} compare={{ twin: !lus && !xray && !alv && asset ? <LungScene asset={asset} /> : undefined, state: { 'vent.engine': normalLungs, 'vent.scenario': 'normal' }, finding: VENT_SCENARIO[scId]?.name ?? 'Current lungs', normalLabel: 'Healthy lungs, same ventilator settings', healthy: scId === 'normal', prefer: scId, media: COMPARE_MEDIA.vent }}>
           {lus ? <LusScene /> : xray ? <CxrScene /> : alv ? <AlveolusScene /> : asset ? <LungScene asset={asset} /> : <div className="loading">{err ? `Could not load the lung model: ${err}` : 'Loading lungs…'}</div>}
           <SceneOverlay />
           <LessonChips />

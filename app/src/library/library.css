@@ -767,3 +767,73 @@ html:has(.app-b),body:has(.app-b){overflow:hidden}
 }
 .app-b.tools-on .hud-top,.app-b.tools-on .hud-patient{opacity:0;pointer-events:none}
 .hud-top,.hud-patient{transition:opacity .2s}
+/* short screens (landscape phones): keep the question inside the scene, drop the chips while it shows */
+.hud-bottom{max-height:calc(100% - 24px);overflow:auto}
+@media (max-height:560px) and (min-width:761px){
+  .hud.has-q .hud-chips,.hud.has-q .hud-banner{display:none}
+  .hud-bottom{bottom:6px;gap:6px;max-height:calc(100% - 52px)}
+  .hud-q{padding:10px 12px}.hud-q h2{font-size:15px;margin-bottom:8px}
+  .hud-tiles.n3,.hud-tiles.n4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hud-tile{min-height:42px;padding:6px 8px;font-size:13.5px}
+  .hud-explain{font-size:13px;margin-top:8px}.hud-continue{margin-top:8px}
+  .hud-card{padding:10px 12px}.hud-card p{font-size:13.5px}.hud-items{display:none}
+  .hud-top{top:6px}.hud-patient{top:46px}
+  .hud-toast{top:46px;left:auto;right:12px;transform:none;max-width:40%}
+}
+
+/* ---- Compare with normal (scene/CompareShell) */
+.scene-wrap.cmp-model{margin-left:50%!important;width:auto!important;max-width:50%;border-left:2px solid #1d232c}
+.cmp-twin{position:absolute;z-index:1;overflow:hidden;background:#05090d}
+.cmp-twin .scene-canvas,.cmp-twin>div:first-child{position:absolute!important;inset:0}
+.cmp-tag{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:8;display:flex;flex-direction:column;align-items:center;gap:2px;pointer-events:none;text-align:center;max-width:90%}
+.cmp-tag b{font:800 clamp(18px,2.4vw,30px)/1 var(--lib-font,system-ui);letter-spacing:.06em;text-shadow:0 2px 14px #000}
+.cmp-tag span{font:500 12.5px var(--lib-font,system-ui);color:#cfd5de;background:rgba(5,7,10,.7);border-radius:6px;padding:2px 8px}
+.cmp-tag.normal b{color:#9be15d}.cmp-tag.abnormal b{color:#ff7a45}
+.app-b.game .cmp-tag.abnormal{bottom:auto;top:96px}
+.app-b.game .cmp-bar{top:150px}
+.cmp-bar{position:absolute;top:60px;right:10px;z-index:40;display:flex;gap:6px;align-items:center}
+
+.cmp-seg{display:flex;border:1px solid #2a2f39;border-radius:999px;background:rgba(9,11,15,.9);padding:2px}
+.cmp-seg button{white-space:nowrap;border:0;background:none;color:#cfd5de;border-radius:999px;padding:6px 12px;font:600 12.5px var(--lib-font,system-ui);min-height:32px}
+.cmp-seg button[aria-pressed=true]{background:#eef1f5;color:#0b0d12}
+.cmp-s{display:none}
+@media (max-width:760px){.cmp-s{display:inline}}
+.cmp-x{width:34px;height:34px;border-radius:50%;border:1px solid #2a2f39;background:rgba(9,11,15,.9);color:#fff;font-size:14px}
+.cmp-media{position:absolute;inset:0;z-index:30;background:#05070a;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:minmax(0,1fr) auto;gap:2px}
+.cmp-fig{margin:0;position:relative;display:flex;align-items:center;justify-content:center;min-height:0;overflow:hidden;background:#000}
+.cmp-fig img,.cmp-fig video{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.cmp-fig figcaption{position:absolute;left:0;right:0;bottom:10px;display:flex;flex-direction:column;align-items:center;gap:3px;pointer-events:none;text-align:center;padding:0 8px}
+.cmp-fig figcaption b{font:800 clamp(18px,2.4vw,30px)/1 var(--lib-font,system-ui);letter-spacing:.06em;text-shadow:0 2px 14px #000}
+.cmp-fig.normal figcaption b{color:#9be15d}.cmp-fig.abnormal figcaption b{color:#ff7a45}
+.cmp-fig figcaption span{font:500 12.5px var(--lib-font,system-ui);color:#dfe4ea;background:rgba(0,0,0,.65);border-radius:6px;padding:2px 8px}
+.cmp-media-bar{grid-column:1/-1;display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:8px 10px;background:#0b0e13;border-top:1px solid #1d232c}
+.cmp-media-bar select,.cmp-media-bar button{min-height:34px;border-radius:8px;border:1px solid #2a2f39;background:#151922;color:#eef1f5;padding:0 10px;font:500 13px var(--lib-font,system-ui);max-width:100%}
+.cmp-media-bar small{color:#7d8694;font-size:11px;margin-left:auto}
+.cmp-empty{grid-column:1/-1;align-self:center;text-align:center;color:#9aa3b1}
+.lp-cmp.on{border-color:#9be15d;color:#9be15d}
+@media (max-width:760px){
+  .cmp-tag b,.cmp-fig figcaption b{font-size:16px}.cmp-tag span,.cmp-fig figcaption span{font-size:10.5px}
+  .cmp-media{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) minmax(0,1fr) auto}
+  .cmp-media-bar small{display:none}
+  .cmp-seg button{padding:5px 9px;font-size:12px}
+  .cmp-bar{top:6px;right:6px}
+  .cmp-tag{bottom:6px}.cmp-tag span{display:none}
+  .scene-pane:has(.scene-wrap.cmp-model) .wave-wrap{display:none}
+}
+
+/* phone: one-row top bar, a compact heart monitor, and full-height media comparison */
+.lp-top{flex-wrap:nowrap!important}
+.lp-cmp-i{display:none}
+@media (max-width:760px){
+  .lp-cmp-t{display:none}.lp-cmp-i{display:inline;font-size:16px}.lp-cmp{padding:0 10px}
+  .app-b.has-reader .cardiac-views{display:none}
+  .app-b.has-reader .heart-ecg-strip.ecg-monitor{padding:6px 8px;gap:6px;min-height:0}
+  .app-b.has-reader .ecg-monitor .heart-strip-actions,.app-b.has-reader .ecg-monitor .heart-strip-info small{display:none}
+  .app-b.has-reader .ecg-monitor .heart-strip-info{flex:0 0 auto}
+  .app-b.has-reader .ecg-monitor .heart-strip-wave,.app-b.has-reader .heart-scene-pane .ecg-monitor .heart-strip-wave{height:54px!important}
+  .app-b.has-reader .ecg-leads button,.app-b.has-reader .ecg-leads select{min-height:30px}
+  .cmp-sheet{position:fixed;top:52px;left:0;right:0;bottom:0;z-index:150;background:#05070a}
+  .cmp-sheet .cmp-media{grid-template-rows:minmax(0,1fr) minmax(0,1fr) auto}
+  .cmp-sheet .cmp-bar{top:8px;right:8px}
+  .cmp-l{display:none}
+}

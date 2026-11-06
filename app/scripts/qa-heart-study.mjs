@@ -30,17 +30,26 @@ try {
     const study = page.getByRole('region', { name: 'Synchronized cardiac electrical study' });
     await page.getByText('Conduction study settings', { exact: true }).click();
     await expect(study).toBeVisible({ timeout: 30000 });
-    const heartCanvas = page.locator('.scene-pane canvas').first();
-    const strip = page.locator('section[aria-label="Cardiac live ECG strip"]');
+    const heartCanvas = page.locator('.scene-pane .scene-wrap canvas').first(); // (the ECG monitor is a 2D canvas too)
+    const strip = page.locator('section[aria-label="Cardiac monitor ECG"]');
     await expect(strip).toBeAttached();
     // On mobile the Lessons tab intentionally hides the Scene DOM from the accessibility tree.
     // Verify DOM presence now; verify actual visibility after switching to Scene below.
-    await expect(strip.locator('svg.heart-strip-wave')).toBeAttached();
-    await expect(strip.locator('.heart-strip-info strong')).toContainText('LIVE ECG');
+    await expect(strip.locator('canvas.heart-strip-wave')).toBeAttached();
+    await expect(strip.locator('.heart-strip-info strong')).toContainText('lead II');
     if (spec.name === 'desktop') {
       await expect(heartCanvas).toBeAttached({ timeout: 30000 });
       await expect(heartCanvas).toBeVisible({ timeout: 30000 });
       await expect(strip).toBeVisible();
+      // the monitor cycles leads and opens the paper 12-lead
+      await strip.getByRole('button', { name: 'Next lead' }).click();
+      await expect(strip.locator('.heart-strip-info strong')).toContainText('lead III');
+      await strip.getByRole('button', { name: '12-lead' }).click();
+      const twelve = page.getByRole('dialog', { name: '12-lead ECG' });
+      await expect(twelve).toBeVisible();
+      await twelve.getByRole('button', { name: 'Show lead V1 on the monitor' }).click();
+      await expect(twelve).toHaveCount(0);
+      await expect(strip.locator('.heart-strip-info strong')).toContainText('lead V1');
       const heartRect = await page.locator('.heart-scene-pane > .scene-wrap').boundingBox();
       const stripRect = await strip.boundingBox();
       if (!heartRect || !stripRect || stripRect.y < heartRect.y + heartRect.height - 3 || Math.abs(stripRect.width - heartRect.width) > 4) {

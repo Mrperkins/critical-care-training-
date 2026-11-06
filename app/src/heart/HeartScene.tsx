@@ -27,6 +27,7 @@ import { loadHeartInternals, loadPericardium, loadHeartHD, loadNerves, NERVE_IDS
 import { conductionMaterial, branchOf } from '../scene/conduction';
 import { wiggers, beatUniforms, partUniforms, addBeat, valveSpecs, heartRateFor, type BeatUniforms } from './beat';
 import { useHeartUI, type CutMode } from './heartStore';
+import { useIsTwin, useTwin } from '../scene/compare';
 import { useStudyClock } from './studyClock';
 import { solveShunt, type ShuntState } from './shunt';
 import { CENTRE, SCALE, toScene, LM, SEPTUM_N, ATRIAL_N, holesFor, holeRadius, lesionShape, pinch, shift, thicken, OVERRIDE, overrideWeight, flowPaths, type Hole, type FlowPathId, type Way, type LesionShape } from './heartGeometry';
@@ -353,7 +354,7 @@ function Nerves({ shared, planes }: { shared: BeatUniforms; planes: THREE.Plane[
 
 /* ------------------------------------------------------------------ labels (body frame, inside the heart group) */
 function Labels({ s, shape, cut }: { s: ShuntState; shape: LesionShape; cut: Exclude<CutMode, 'auto'> }) {
-  const on = useHeartUI((st) => st.labels); if (!on) return null; const L = s.input.lesion; const dir = s.direction === 'none' ? '' : ` · ${s.direction}`;
+  const on = useHeartUI((st) => st.labels); const twin = useIsTwin(); if (!on || twin) return null; const L = s.input.lesion; const dir = s.direction === 'none' ? '' : ` · ${s.direction}`;
   const tag = (p: THREE.Vector3, t: string, cls = '', info?: string) => <Html key={info ?? t} position={p} center zIndexRange={[20, 0]}><LabelChip className={`tag3d tk ${cls}`} text={t} info={info} important={!!info} /></Html>;
   const V = (x: number, y: number, z: number) => new THREE.Vector3(x, y, z);
   const closed = cut === 'closed';
@@ -416,7 +417,7 @@ function Rig() {
 
 export { CUT_LABEL };
 export function HeartScene() {
-  const input = useHeartUI((s) => s.input); const tier = useLabUI((s) => s.visualTier) as Tier;
+  const input = useTwin('heart.input', useHeartUI((s) => s.input)); const tier = useLabUI((s) => s.visualTier) as Tier;
   const s = useMemo(() => solveShunt(input), [input]);
   const [asset, setAsset] = useState<LinesAsset | null>(null); const [err, setErr] = useState('');
   useEffect(() => { loadLinesAsset().then(setAsset).catch((e) => setErr(String(e?.message || e))); }, []);

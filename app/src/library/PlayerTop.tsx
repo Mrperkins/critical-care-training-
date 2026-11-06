@@ -15,6 +15,7 @@ import { CASE_BY_ID } from '../challenge/sceneCases';
 import { useCaseRun } from './caseRun';
 import { titleOf } from '../curriculum/titles';
 import { useGame } from './game';
+import { useCompare } from '../scene/compare';
 
 export function PlayerTop() {
   const playing = useLibrary((s) => s.playing); const solo = useLibrary((s) => s.solo); const passed = useLibrary((s) => s.passed);
@@ -22,7 +23,8 @@ export function PlayerTop() {
   const steps = usePlayerUI((s) => s.steps); const details = usePlayerUI((s) => s.details); const set = usePlayerUI((s) => s.set);
   const caseId = useCaseRun((s) => s.id); const gameOn = useGame((s) => !!s.id); const debrief = useGame((s) => !!s.debrief); const readers = usePlayerUI((s) => s.readers);
   const drawer = (readers > 0 || gameOn) && !(caseId && CASE_BY_ID[caseId]);
-  const pop = useRef<HTMLDivElement>(null);
+  const pop = useRef<HTMLDivElement>(null); const cmpAvail = useCompare((s) => s.available); const cmpOn = useCompare((s) => s.on);
+  const cmpBtn = cmpAvail && <button className={`lp-pill lp-cmp${cmpOn ? ' on' : ''}`} aria-pressed={cmpOn} onClick={() => useCompare.getState().set({ on: !cmpOn, pair: 0 })} title="Compare with normal, side by side" aria-label="Compare with normal"><span className="lp-cmp-i" aria-hidden="true">◧</span><span className="lp-cmp-t">Compare</span></button>;
   useEffect(() => {
     if (!steps) return;
     const close = (e: PointerEvent) => { if (pop.current && !pop.current.contains(e.target as Node) && !(e.target as HTMLElement).closest('.lp-dots')) set({ steps: false }); };
@@ -38,6 +40,7 @@ export function PlayerTop() {
         <button className="lp-exit" onClick={() => exitPlayer()}><span aria-hidden="true">←</span> Cases</button>
         <div className="lp-where"><b>{title}</b><span>Case</span></div>
         <div className="lp-end">
+          {cmpBtn}
           {drawer && <button className={`lp-pill${details ? ' on' : ''}`} aria-pressed={details} onClick={() => set({ details: !details })}>Details</button>}
         </div>
       </header>
@@ -56,6 +59,7 @@ export function PlayerTop() {
         {m.steps.map((_, i) => <i key={i} className={i === playing.step ? 'on' : stepDone(m.id, i, completed, attempts, passed) ? 'done' : ''} />)}
       </button>
       <div className="lp-end">
+        {cmpBtn}
         {drawer && <button className={`lp-pill${details ? ' on' : ''}`} aria-pressed={details} onClick={() => set({ details: !details })}>Details</button>}
         <button className={`lp-next${onCase && !debrief ? ' quiet' : ''}`} onClick={() => { set({ steps: false, details: false }); nextStep(); }}>{nextLabel} <span aria-hidden="true">→</span></button>
       </div>

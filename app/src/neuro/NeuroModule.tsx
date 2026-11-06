@@ -21,6 +21,8 @@ import { NEURO_LESSONS as BASE_NEURO } from '../director/lessons/neuro';
 import { ICP_LESSON } from '../director/lessons/icp';
 import { IcpCard } from './IcpCard';
 import { SceneWrap } from '../scene/labels';
+import { COMPARE_MEDIA } from '../scene/compareMedia';
+import { emptyNeuro, DEFAULT_SYSTEMIC } from './perfusion';
 const NEURO_LESSONS = [...BASE_NEURO, ICP_LESSON];
 
 const hm = (m: number) => (m < 60 ? `${Math.round(m)} min` : `${Math.floor(m / 60)} h ${String(Math.round(m % 60)).padStart(2, '0')} min`);
@@ -30,7 +32,7 @@ export function NeuroModule() {
   useEffect(() => { loadBodyAsset().then(setBody).catch((e) => { console.error(e); setErr(String(e?.message || e)); }); }, []);
   useEffect(() => { (window as unknown as { __CCNeuro: unknown }).__CCNeuro = { store: useNeuroUI, load: loadNeuroPreset, minutes: setNeuroMinutes, recanalize, focus: (id: string) => useNeuroUI.getState().set({ target: id }), body: () => body }; }, [body]);
   useEvolutionClock();
-  const mode = useUI((s) => s.mode); const view = useNeuroUI((s) => s.view);
+  const mode = useUI((s) => s.mode); const view = useNeuroUI((s) => s.view); const preset = useNeuroUI((s) => s.preset);
   useExploreMemory('neuro', () => { const s = useNeuroUI.getState(); return { preset: s.preset, state: structuredClone(s.state), sys: { ...s.sys }, target: s.target, view: s.view, playing: false }; }, (m) => useNeuroUI.getState().set(m));
   // the Lesson Director's camera target drives the brain camera
   const dTarget = useDirector((s) => s.target);
@@ -38,7 +40,7 @@ export function NeuroModule() {
   return (
     <main className="stage">
       <section className="scene-pane">
-        <SceneWrap className="neuro-wrap">
+        <SceneWrap className="neuro-wrap" compare={view !== 'imaging' && body ? { twin: <NeuroScene body={body} />, state: { 'neuro.state': emptyNeuro(), 'neuro.sys': { ...DEFAULT_SYSTEMIC } }, finding: neuroFinding(preset), normalLabel: 'Intact circulation', healthy: preset === 'none', media: COMPARE_MEDIA.neuro } : undefined}>
           {view === 'imaging' ? <RealCtView /> : body ? <NeuroScene body={body} /> : <div className="loading">{err ? `Could not load anatomy: ${err}` : 'Loading anatomy…'}</div>}
           <NeuroOverlay />
         </SceneWrap>
@@ -174,3 +176,5 @@ function RealCtView() {
 }
 
 function IcpIfMass() { const h = useNeuroUI((s) => !!s.state.hemorrhage); return h ? <Fold group="neuro" id="icp" title="Intracranial pressure" summary="ICP, CPP, EVD"><IcpCard /></Fold> : null; }
+
+const neuroFinding = (p: string) => NEURO_PRESETS.find((x) => x.id === p)?.name ?? 'Current state';
