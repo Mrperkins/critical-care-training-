@@ -23,7 +23,7 @@ export function modalityOf(it: RealItem): ImagingModality | null {
   return null; // clinical photographs and miscellaneous procedures are not radiology studies
 }
 /** Published site mirrors SHA-1 pinned Commons originals; raw Commons URLs remain the fallback. */
-const MIRRORED_MRI = new Map(clinicalArchive.map((i) => [i.url, `imaging/curated/${i.name}`]));
+const MIRRORED_MRI = new Map<string,string>(clinicalArchive.map((i) => [i.url, `imaging/curated/${i.name}`] as const));
 export const sourceFor = (file: string) =>
   MIRRORED_MRI.get(file) ??
   (/^https:\/\/upload\.wikimedia\.org\/wikipedia\/commons\//.test(file) ? file : `imaging/real/${file}`);
