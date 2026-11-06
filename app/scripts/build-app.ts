@@ -36,6 +36,15 @@ const pub = path.join(out, 'pub'); fs.rmSync(pub, { recursive: true, force: true
 if (fs.existsSync(path.join(ROOT,'public/conferences'))) fs.cpSync(path.join(ROOT,'public/conferences'),path.join(pub,'conferences'),{recursive:true});
 // library card art: stills captured from the app's own scenes (scripts in UX_OVERHAUL_STATE.md)
 if (fs.existsSync(path.join(ROOT,'public/thumbs'))) fs.cpSync(path.join(ROOT,'public/thumbs'),path.join(pub,'thumbs'),{recursive:true});
+// MRI originals: verified SHA-1 pinned copies downloaded by prepare-clinical-archive.mjs.
+const curatedMri = path.join(ROOT,'public/imaging/curated');
+if (fs.existsSync(path.join(curatedMri,'manifest.json'))) {
+  for (const base of [out,pub]) {
+    const dest=path.join(base,'imaging/curated');
+    fs.mkdirSync(dest,{recursive:true});
+    fs.cpSync(curatedMri,dest,{recursive:true,force:true});
+  }
+}
 // page hero stills rendered from the same scenes (scripts/qa/capture-heroes.mjs + heroes-to-jpg.py)
 if (fs.existsSync(path.join(ROOT,'public/heroes'))) fs.cpSync(path.join(ROOT,'public/heroes'),path.join(pub,'heroes'),{recursive:true});
 for (const f of ['medical-ventilator.glb', 'medical-ventilator.provenance.json', 'bedside-airway.glb', 'bedside-airway.provenance.json', 'resp.glb', 'resp.mapping.json', 'micro.glb', 'micro.mapping.json', 'body.glb', 'body.mapping.json', 'body-f.glb', 'body-f.mapping.json', 'eyes.glb', 'eyes.mapping.json', 'lines.glb', 'lines.mapping.json', 'skeleton.glb', 'skeleton.mapping.json', 'pericardium.glb', 'pericardium.mapping.json', 'neuro.glb', 'neuro.mapping.json', 'heart-internals.glb', 'heart-internals.mapping.json', 'upper-airway.glb', 'upper-airway.mapping.json', 'coronary-heart.glb', 'coronary-heart.mapping.json', 'heart-hd.glb', 'heart-hd.mapping.json', 'nerves.glb', 'nerves.mapping.json', 'gut.glb', 'gut.mapping.json', 'cerebral-arteries.glb', 'cerebral-arteries.mapping.json', 'brain-volume.json']) { const p = path.join(ROOT, 'public/models', f); if (fs.existsSync(p)) { if (f.endsWith('.glb')) fs.writeFileSync(path.join(pub, 'models', f + '.txt'), fs.readFileSync(p).toString('base64')); else fs.copyFileSync(p, path.join(pub, 'models', f)); } }
@@ -130,6 +139,7 @@ pushPack('episodes', 'Audio episodes', 'Audio cases, quick listens and deep dive
   }
   if (files.length) packs.push({ id: 'imaging', title: 'Real clinical imaging', blurb: 'X-ray, CT and ultrasound images and clips used in the lessons and the imaging trainer.', files });
 }
+pushPack('mri', 'Clinical MRI (verified originals)', 'Seven CC BY 4.0 MRI teaching images, SHA-1 verified and packaged for offline study.', listDir('imaging/curated').filter(f=>/\.(png|jpg|jpeg)$/i.test(f)));
 pushPack('conferences', 'Case conferences', 'Conference slides, audio and transcripts.', ['conferences/audio', 'conferences/images', 'conferences/transcripts'].flatMap(listDir).filter((f) => !f.endsWith('.md')));
 pushPack('labs', 'Cell and molecule labs', 'The large cell model and protein structures.', [...listDir('models/molecular').filter((f) => f.endsWith('.glb')), 'models/cell/markdragan-human-cell/cell.opt.glb']);
 fs.writeFileSync(path.join(pub, 'offline-packs.json'), JSON.stringify({ version: ver, core: Object.entries(staticAssets).reduce((n, [rel]) => n + (located(rel) ? fs.statSync(located(rel)!).size : 0), 0), packs }));
