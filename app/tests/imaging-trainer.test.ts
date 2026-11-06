@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import { MODULE_BY_ID } from '../src/library/modules';
 import type { RealItem } from '../src/scene/imaging/RealExamples';
 import { MRI_STUDIES } from '../src/library/imaging/mriCatalog';
+import archive from '../clinical-archive.json';
 import { COURSE_STUDIES, modalityOf, studiesForCourse, sourceFor } from '../src/library/imaging/catalog';
 
 const man = JSON.parse(fs.readFileSync('../imaging/real/manifest.json', 'utf8')) as {
@@ -46,7 +47,7 @@ describe('Clinical Imaging Trainer catalog', () => {
       expect(it.license).toBe('CC BY 4.0');
       expect(it.licenseUrl).toBe('https://creativecommons.org/licenses/by/4.0/');
       expect(it.changes).toContain('network connection');
-      expect(sourceFor(it.file)).toBe(it.file);
+      expect(sourceFor(it.file)).toBe('imaging/curated/'+archive.find(x=>x.url===it.file)?.name);
     }
   });
   it('all local study image and clip paths are present', () => {
