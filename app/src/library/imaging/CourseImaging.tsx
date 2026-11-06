@@ -14,8 +14,8 @@ export function CourseImaging({ moduleId }: { moduleId: string }) {
   if (!studies.length) return null;
   return <section className="lib-course-imaging" aria-label="Real clinical images for this module">
     <div className="lib-row-h">
-      <div><h2>See it on real imaging</h2><p>Examples from other patients, not the simulated patient. Assess the image before seeing the answer.</p></div>
-      <button className="lib-link" onClick={() => openLibrary({ page: 'imaging', moduleId })}>Practice all {studies.length}</button>
+      <div><h2>Learn with real imaging</h2><p>Guided lessons: how to acquire, orient and interpret these views alongside rotatable 3D anatomy. Studies are from other patients.</p></div>
+      <button className="lib-link" onClick={() => openLibrary({ page: 'imaging', moduleId })}>Open imaging course</button>
     </div>
     <div className="lib-scroller">
       {studies.slice(0, 5).map((it) => {
@@ -25,7 +25,7 @@ export function CourseImaging({ moduleId }: { moduleId: string }) {
           <span className="img-course-thumb-picture">
             {src ? <img src={sourceFor(src)} alt="" loading="lazy" decoding="async" /> : <span>Clinical video</span>}
           </span>
-          <span><b>{it.title}</b><small>{MODALITY_LABEL[modalityOf(it)!]} · Real patient</small></span>
+          <span><b>{it.title}</b><small>{MODALITY_LABEL[modalityOf(it)!]} · {it.file.endsWith('.mp4') ? 'Video + still' : 'Still image'} · Real patient</small></span>
         </button>;
       })}
     </div>
