@@ -26,7 +26,7 @@ export function modalityOf(it: RealItem): ImagingModality | null {
 const MIRRORED_MRI = new Map<string,string>(clinicalArchive.map((i) => [i.url, `imaging/curated/${i.name}`] as const));
 export const sourceFor = (file: string) =>
   MIRRORED_MRI.get(file) ??
-  (/^https:\/\/upload\.wikimedia\.org\/wikipedia\/commons\//.test(file) ? file : `imaging/real/${file}`);
+  (/^https:\/\/upload\.wikimedia\.org\/wikipedia\/commons\/(?:transcoded\/)?/.test(file) ? file : `imaging/real/${file}`);
 export const needsMirrorFallback = (file: string) => MIRRORED_MRI.has(file);
 export const isRemoteStudy = (it: RealItem) => /^https:\/\//.test(it.file);
 
