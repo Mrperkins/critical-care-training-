@@ -25,6 +25,25 @@ function diseaseFor(it:RealItem, lesson?:ImagingLesson) {
 function viewOf(it:RealItem) {
   return it.modality || (modalityOf(it)==='ultrasound'?'Ultrasound':modalityOf(it)==='ct'?'CT':modalityOf(it)==='mri'?'MRI':'X-ray');
 }
+/** Spatial landmark teaching: approximate relationships only, not patient registration. */
+const LANDMARKS:Readonly<Record<string,string[]>>={
+ 'fast':['Probe window on right upper abdomen','Liver next to right kidney','Morison pouch at the interface'],
+ 'aorta-us':['Aorta runs anterior to spine','IVC usually lies to patient right','Follow proximal to distal vessel'],
+ 'lus':['Chest wall and rib shadows','Visceral/parietal pleural interface','Deep image is largely artifact in aerated lung'],
+ 'ptxlus':['Pleural surface between two rib shadows','Pleural movement assessed dynamically','Lung point when visible marks a boundary'],
+ 'pleuraleff':['Chest wall and diaphragm','Fluid in pleural space','Dependent lung may appear compressed'],
+ 'tamponade':['Liver acoustic window to heart','Pericardial space around chambers','Right heart filling and collapse'],
+ 'ivc':['IVC returning to right atrium','Liver adjacent to IVC','Respiratory motion changes caliber'],
+ 'ijv':['Internal jugular beside carotid','Short- and long-axis orientation','Probe compression and visible needle tip'],
+ 'ct-ischemic':['Axial slice convention: image left is patient right','Cortex, deep nuclei and ventricles','Cerebral arterial territories'],
+ 'ct-ich':['Axial brain and CSF compartments','Ventricles and basal cisterns','Location of intracranial hemorrhage'],
+ 'ct-aorta':['Aorta and branch vessel origins','Kidneys and retroperitoneum','Bowel and mesenteric vasculature'],
+ 'mri':['Match the same structure across sequences','Ventricles, cortex and deep nuclei','Orientation must be identified first'],
+ 'cxr':['Lungs and pleural edges','Mediastinum, heart and diaphragm','Central airways and visible devices'],
+ 'xray':['Lung fields, heart and pleura','Confirm projection and patient side','Compare volume and density'],
+ 'peds-xray':['Airways, lung fields and chest wall','Child anatomy differs from adult reference','Identify X-ray projection before conclusions'],
+};
+function landmarksOf(it:RealItem):string[]{return LANDMARKS[it.kind]??LANDMARKS[modalityOf(it)==='ct'?'ct-aorta':modalityOf(it)==='mri'?'mri':modalityOf(it)==='xray'?'xray':'fast'];}
 function MediaPane({it}:{it:RealItem}) {
   const movie = it.file.endsWith('.mp4');
   const hasStill = !!it.poster && movie;
@@ -72,6 +91,9 @@ function AnatomyPane({it,lesson}:{it:RealItem;lesson?:ImagingLesson}) {
     </div>
     <div className="img-correlation-legend"><span>Anatomical topic: <b>{disease.title}</b></span><span>Reference plane: <b>{plane}</b></span></div>
     {lesson?.probe && <p className="img-correlation-hint"><b>Probe/approach:</b> {lesson.probe}</p>}
+    <div className="img-spatial-key"><b>Locate these structures in the 3D reference</b>
+      <ol>{landmarksOf(it).map(x=><li key={x}>{x}</li>)}</ol>
+    </div>
     <p className="img-correlation-disclaimer">Spatial reference only: this is a rotatable anatomy model, not a voxel-based reconstruction of this patient's scan, not a tracked probe, and not a slice-synchronized representation. Organ sizes and pathology in the model are illustrative. Use the clinical image for actual findings.</p>
     <button className="lib-link" onClick={()=>setActive(x=>!x)}>{active?'Pause 3D rendering':'Resume 3D anatomy'}</button>
   </section>;
