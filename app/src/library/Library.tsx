@@ -121,7 +121,7 @@ function Home() {
 
       <section className="lib-tiles" aria-label="More ways to study">
         <a className="lib-tile" href="audio/"><span><b>Expert audio &amp; Mental Reps</b><small>Listen on the drive in</small></span><ContentFormatIcon kind="audio" size={26} /></a>
-        <button className="lib-tile" onClick={() => openLibrary({ page: 'imaging' })}><span><b>Imaging trainer</b><small>Real X-rays, CT, MRI &amp; ultrasound · interpret each study</small></span><ContentFormatIcon kind="visual" size={26} /></button>
+        <button className="lib-tile" onClick={() => openLibrary({ page: 'imaging' })}><span><b>Imaging academy</b><small>Guided X-ray, CT, MRI &amp; ultrasound courses with anatomy models</small></span><ContentFormatIcon kind="visual" size={26} /></button>
         <button className="lib-tile" onClick={() => openFree('fpc')}><span><b>FP-C exam prep</b><small>Blueprint and practice questions</small></span><Play /></button>
         <button className="lib-tile" onClick={() => openFree('videos')}><span><b>Videos &amp; skills</b><small>Equipment, pumps and procedures</small></span><ContentFormatIcon kind="visual" size={26} /></button>
         <button className="lib-tile" onClick={() => openFree('cases')}><span><b>Case conference</b><small>Slides and audio</small></span><Play /></button>
@@ -329,7 +329,7 @@ function PathPage({ id }: { id: string }) {
 }
 
 const AudioHome = lazy(() => import('./audio/AudioHome'));
-const ImagingTrainer = lazy(() => import('./imaging/ImagingTrainer').then((m) => ({ default: m.ImagingTrainer })));
+const ImagingAcademy = lazy(() => import('./imaging/ImagingAcademy').then((m) => ({ default: m.ImagingAcademy })));
 
 /** Lessons / Audio switch at the top of Browse: two separate home pages, the choice remembered */
 function ModeToggle() {
@@ -357,7 +357,7 @@ export function Library() {
       {view.page === 'paths' && <PathsPage />}
       {view.page === 'path' && <PathPage id={view.id} />}
       {view.page === 'imaging' && <Suspense fallback={<div className="module-loading" role="status">Loading imaging trainer…</div>}>
-        <ImagingTrainer key={`${view.moduleId ?? 'all'}:${view.modality ?? 'all'}:${view.id ?? 'start'}`} moduleId={view.moduleId} initialModality={view.modality} initialId={view.id} />
+        <ImagingAcademy key={`${view.moduleId ?? 'all'}:${view.modality ?? 'all'}:${view.id ?? 'start'}`} moduleId={view.moduleId} initialModality={view.modality} initialId={view.id} />
       </Suspense>}
     </main>
   );
