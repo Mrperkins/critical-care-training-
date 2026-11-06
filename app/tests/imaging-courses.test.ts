@@ -5,10 +5,11 @@ import {DISEASE_BY_ID} from '../src/atlas/registry';
 import {MODULE_BY_ID} from '../src/library/modules';
 import {IMAGING_COURSES,IMAGING_COURSE_BY_ID,COURSE_FOR_MODULE} from '../src/library/imaging/courseCurriculum';
 import {MRI_STUDIES} from '../src/library/imaging/mriCatalog';
+import {AORTA_CEUS} from '../src/library/imaging/ceusCatalog';
 import type {RealItem} from '../src/scene/imaging/RealExamples';
 
 const manifest=JSON.parse(fs.readFileSync('../imaging/real/manifest.json','utf8')) as {items:RealItem[];accepted:string[]};
-const media=new Map([...manifest.items,...MRI_STUDIES].map(it=>[it.id,it]));
+const media=new Map([...manifest.items,...MRI_STUDIES,AORTA_CEUS].map(it=>[it.id,it]));
 
 describe('Evidence-informed imaging courses',()=>{
  it('offers substantial original lessons per modality, not only image quizzes',()=>{
@@ -53,8 +54,8 @@ describe('Evidence-informed imaging courses',()=>{
   expect(video.length).toBeGreaterThanOrEqual(9);
   for(const item of video){
    expect(item.poster,item.id).toBeTruthy();
-   expect(fs.existsSync('../imaging/real/'+item.file),item.id).toBe(true);
-   expect(fs.existsSync('../imaging/real/'+item.poster),item.id).toBe(true);
+   if(!item.file.startsWith('https://'))expect(fs.existsSync('../imaging/real/'+item.file),item.id).toBe(true);
+   if(item.poster&&!item.poster.startsWith('https://'))expect(fs.existsSync('../imaging/real/'+item.poster),item.id).toBe(true);
    expect(manifest.accepted).toContain(item.license);
    expect(item.author,item.id).toBeTruthy();
    expect(item.licenseUrl,item.id).toMatch(/^https?:\/\//);
