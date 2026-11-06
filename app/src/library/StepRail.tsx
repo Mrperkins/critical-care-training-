@@ -7,7 +7,8 @@ import { useState } from 'react';
 import { useProgress } from '../curriculum/progress';
 import { KIND_LABEL, MODULE_BY_ID, SHELF_BY_ID, stepDone } from './modules';
 import { useLibrary } from './libraryStore';
-import { exitPlayer, nextStep, playStep, previousStep } from './launch';
+import { exitPlayer, nextStep, openLibrary, playStep, previousStep } from './launch';
+import { COURSE_STUDIES } from './imaging/catalog';
 import { stepTitle } from './Library';
 import { CaseRunner } from './CaseRunner';
 import { useCaseRun } from './caseRun';
@@ -52,6 +53,7 @@ export function StepRail() {
         </ol>}
       <div className="step-rail-foot">
         <p className="step-rail-now"><b className={`k-${cur.kind}`}>{KIND_LABEL[cur.kind]}</b> {stepTitle(cur)}</p>
+        {COURSE_STUDIES[m.id]?.length > 0 && <button className="lib-link step-rail-imaging" onClick={() => openLibrary({ page: 'imaging', moduleId: m.id })}>Practice real clinical images for this course</button>}
         <div className="step-rail-nav">
           <button className="lib-btn" disabled={playing.step === 0} onClick={previousStep}>Back</button>
           <button className={`lib-btn${onCase ? '' : ' primary'}`} onClick={nextStep}>{onCase ? (last ? 'Skip and finish' : 'Skip case') : last ? 'Finish module' : 'Next step'}</button>
