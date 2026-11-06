@@ -50,3 +50,6 @@ export function openLibrary(view: Parameters<ReturnType<typeof useLibrary.getSta
 
 /** Work one case in the case shell, outside any module (from Cases or search). */
 export function runCase(id: string) { useLibrary.getState().setSolo(id); startCase(id); }
+
+// semantic hook for automated checks (the same calls the buttons make)
+if (typeof window !== 'undefined') (window as unknown as { __CCLibrary: unknown }).__CCLibrary = { playStep, openLibrary, exitPlayer };

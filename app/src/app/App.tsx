@@ -28,7 +28,11 @@ import type { AtlasDomain } from '../atlas/types';
 import { conditionsFor, DISEASE_BY_ID } from '../atlas/registry';
 import { DomainIcon } from './icons';
 import { Library } from '../library/Library';
-import { StepRail } from '../library/StepRail';
+import { PlayerTop } from '../library/PlayerTop';
+import { usePlayerUI } from '../library/playerUI';
+import { GameHUD } from '../library/GameHUD';
+import { CaseGame } from '../library/CaseGame';
+import { useGame } from '../library/game';
 import { SearchButton } from '../library/Search';
 import { OfflineButton } from '../library/OfflineButton';
 import { PlayerBar } from '../library/audio/PlayerBar';
@@ -84,6 +88,12 @@ export function App() {
   const runningCase = useCaseRun((s) => s.id); const hasPlayer = usePlayer((s) => !!s.item);
   const libView = useLibrary((s) => s.view);
   const [mobilePane, setMobilePane] = useState<'scene' | 'context'>('context');
+  const readers = usePlayerUI((s) => s.readers); const details = usePlayerUI((s) => s.details); const gameOn = useGame((s) => !!s.id);
+  const [toolsOn, setToolsOn] = useState(false); const toolsT = useRef(0);
+  const readerRef = useRef<(el: HTMLElement | null) => void>((el) => usePlayerUI.getState().set({ reader: el }));
+  // a new step starts with the drawer and the step list closed
+  useEffect(() => { usePlayerUI.getState().set({ details: false, steps: false, allTraces: false }); }, [playing?.moduleId, playing?.step, solo]);
+  useEffect(() => { const esc = (e: KeyboardEvent) => { if (e.key === 'Escape' && usePlayerUI.getState().details) usePlayerUI.getState().set({ details: false }); }; document.addEventListener('keydown', esc); return () => document.removeEventListener('keydown', esc); }, []);
   const atlasDisease = useUI(s=>s.atlasDisease);
   const atlasDomain = ATLAS_DOMAINS[module];
   const showingAtlas = !!atlasDomain && (DISEASE_BY_ID[atlasDisease ?? '']?.domain === atlasDomain || module === 'pediatrics' || module === 'womens');
@@ -107,6 +117,10 @@ export function App() {
   const inDomain = module !== 'curriculum' && module !== 'videos' && module !== 'fpc' && module !== 'cases' && module !== 'library';
   const inPlayer = inDomain && (!!playing || !!solo);
   const sceneCase = inPlayer && !!runningCase && isSceneCase(runningCase);
+  const hasReader = inPlayer && readers > 0 && !sceneCase;
+  // the side pane becomes the Details drawer when a lesson reads in the reader column or a case plays on the HUD
+  const drawer = (hasReader || gameOn) && !sceneCase;
+  const revealTools = (e: React.PointerEvent) => { const el = e.target as HTMLElement; if (!(inPlayer || gameOn) || !el.closest('.scene-pane') || el.closest('.hud, .lp-chips')) return; setToolsOn(true); clearTimeout(toolsT.current); toolsT.current = window.setTimeout(() => setToolsOn(false), 4500); };
   const navOn = (k: 'home' | 'paths' | 'cases' | 'imaging' | 'offline') => module === 'library' && (
     k === 'offline' ? libView.page === 'offline'
     : k === 'imaging' ? libView.page === 'imaging'
@@ -125,9 +139,9 @@ export function App() {
     <DomainIcon module={d.module} /><span className="domain-label">{d.label}</span>
   </button>);
   return (
-    <div className={`app app-v2 app-b m-${module}${phone ? ' phone' : ''}${inPlayer ? ' playing' : ''}${inDomain ? ' in-domain' : ''}${sceneCase ? ' case-run' : ''}${hasPlayer ? ' has-player' : ''}`} data-mobile-pane={sceneCase ? 'scene' : mobilePane} data-equipment={module === 'vent' && mode === 'sim' && !showingAtlas ? true : undefined}>
+    <div className={`app app-v2 app-b m-${module}${phone ? ' phone' : ''}${inPlayer ? ' playing' : ''}${inDomain ? ' in-domain' : ''}${sceneCase ? ' scene-case' : ''}${hasPlayer ? ' has-player' : ''}${hasReader ? ' has-reader' : ''}${drawer ? ' drawer-mode' : ''}${drawer && details ? ' details-open' : ''}${gameOn ? ' game' : ''}${toolsOn ? ' tools-on' : ''}`} data-mobile-pane={sceneCase || hasReader || gameOn ? 'scene' : mobilePane} data-equipment={module === 'vent' && mode === 'sim' && !showingAtlas ? true : undefined}>
       <a className="skip-link" href="#workspace" onClick={(e) => { e.preventDefault(); const el = document.getElementById('workspace'); el?.focus(); el?.scrollIntoView({ block: 'start' }); }}>Skip to learning workspace</a>
-      <header className="topbar topbar-v2">
+      {inPlayer ? <PlayerTop /> : <header className="topbar topbar-v2">
         <button ref={menuTrigger} className="domain-menu-button" aria-label="Open body systems" aria-haspopup="dialog" onClick={() => menu.current?.showModal()}><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg></button>
         <button className="brand brand-home" onClick={() => { useLibrary.getState().setPlaying(null); openLibrary({ page: 'home' }); }} aria-label="Go to browse">
           <Mark /><h1 className="b1">Critical Care</h1>
@@ -162,14 +176,14 @@ export function App() {
           </nav>
         </details>
         </div>
-      </header>
+      </header>}
 
       <dialog ref={menu} className="domain-dialog" aria-labelledby="domain-dialog-title" onClose={() => menuTrigger.current?.focus()} onClick={(e) => { if (e.target === e.currentTarget) menu.current?.close(); }}>
         <div className="domain-dialog-header"><h2 id="domain-dialog-title">Body systems</h2><button aria-label="Close body systems" onClick={() => menu.current?.close()}>×</button></div>
         <nav className="domain-drawer-list" aria-label="Choose a body system">{domainItems}</nav>
       </dialog>
       <div className="product-shell">
-        <div id="workspace" tabIndex={-1} className="workspace">
+        <div id="workspace" tabIndex={-1} className="workspace" onPointerDown={revealTools}>
           {inDomain && !sceneCase && !(module === 'vent' && mode === 'sim' && !showingAtlas) && <nav className="mobile-workspace-tabs" aria-label="Workspace view">
             <button aria-pressed={mobilePane === 'scene'} data-scene-button onClick={() => setMobilePane('scene')}>Scene</button>
             <button data-context-button aria-pressed={mobilePane === 'context'} onClick={() => setMobilePane('context')}>{experience === 'learn' ? 'Lessons' : mode === 'challenge' ? 'Questions' : 'Controls'}</button>
@@ -191,8 +205,12 @@ export function App() {
           {module === 'videos' && <VideoLibrary />}
           {module === 'fpc' && <FpcModule />}</Suspense>
           {module === 'cases' && <Suspense fallback={<ModuleLoading />}><CasesModule /></Suspense>}
+          <GameHUD />
+          {drawer && details && <button className="lp-drawer-close" onClick={() => usePlayerUI.getState().set({ details: false })} aria-label="Close details">×</button>}
+          {drawer && details && <div className="lp-drawer-scrim" onClick={() => usePlayerUI.getState().set({ details: false })} aria-hidden="true" />}
         </div>
-        {inPlayer && <StepRail />}
+        {inPlayer && <aside className="lp-reader" ref={readerRef.current} aria-label="Lesson" />}
+        {inPlayer && <CaseGame />}
       </div>
       <PlayerBar />
     </div>

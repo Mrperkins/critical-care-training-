@@ -16,6 +16,30 @@ import { VentLearn } from './VentLearn';
 import { VentChallenge } from './VentChallenge';
 import { VentWorkbench } from './VentWorkbench';
 import { SceneWrap } from '../scene/labels';
+import { usePlayerUI, type Chip } from '../library/playerUI';
+import { useLibrary } from '../library/libraryStore';
+import { ventNumbers } from './numbers';
+
+/** In the module player: the two to four numbers this lesson scene is about, on the scene (abnormal ones lit). */
+function LessonChips() {
+  useUI((s) => s.pulse); const focus = usePlayerUI((s) => s.focus); const reading = usePlayerUI((s) => s.readers > 0); const inPlayer = useLibrary((s) => !!s.playing);
+  if (!inPlayer || !reading || !focus?.length) return null;
+  const n = ventNumbers(session); const out: Chip[] = []; const add = (c: Chip) => { if (out.length < 4 && !out.some((x) => x.label === c.label)) out.push(c); };
+  const r = (x: number) => String(Math.round(x));
+  if (focus.includes('pressure') || focus.includes('numbers')) { add({ label: 'Peak', value: r(n.pip), tone: n.pip > 30 ? 'hot' : undefined }); add({ label: 'Plateau', value: r(n.pplat), tone: n.pplat > 30 ? 'hot' : undefined }); }
+  if (focus.includes('pressure')) { const gap = n.pip - n.pplat; add({ label: 'Gap', value: r(gap), tone: gap > 10 ? 'hot' : undefined }); }
+  if (focus.includes('numbers')) { add({ label: 'Driving ΔP', value: r(n.dp), tone: n.dp > 15 ? 'hot' : undefined }); add({ label: 'Vt/kg', value: n.vtPerKg.toFixed(1), tone: n.vtPerKg > 8 ? 'hot' : undefined }); }
+  if (focus.includes('flow')) add(n.autoPeep > 0.5 ? { label: 'Auto-PEEP', value: n.autoPeep.toFixed(1), tone: n.autoPeep > 2 ? 'hot' : undefined } : { label: 'Rate', value: r(n.rr) });
+  if (focus.includes('volume')) add({ label: 'Vte', value: r(n.vte * 1000) });
+  if (focus.includes('gas')) { add({ label: 'SpO₂', value: `${Math.round(n.spo2 * 100)}%`, tone: n.spo2 < 0.9 ? 'bad' : undefined }); add({ label: 'pH', value: n.pH.toFixed(2), tone: n.pH < 7.25 ? 'bad' : undefined }); }
+  if (!out.length) return null;
+  return <div className="lp-chips" aria-label="Key numbers">{out.map((c) => <div key={c.label} className={`hud-chip${c.tone ? ` ${c.tone}` : ''}`}><small>{c.label}</small><b>{c.value}</b></div>)}</div>;
+}
+function TraceToggle() {
+  const traces = usePlayerUI((s) => s.traces); const all = usePlayerUI((s) => s.allTraces); const reading = usePlayerUI((s) => s.readers > 0); const inPlayer = useLibrary((s) => !!s.playing);
+  if (!inPlayer || !reading || !traces?.length || traces.length >= 3) return null;
+  return <button className="lp-trace-toggle" aria-pressed={all} onClick={() => usePlayerUI.getState().set({ allTraces: !all })}>{all ? 'Show only this scene’s trace' : 'All waveforms'}</button>;
+}
 
 export default function VentModule() {
   const mode = useUI((s) => s.mode);
@@ -33,8 +57,9 @@ export default function VentModule() {
         <SceneWrap className={alv ? 'alv-wrap' : ''}>
           {lus ? <LusScene /> : xray ? <CxrScene /> : alv ? <AlveolusScene /> : asset ? <LungScene asset={asset} /> : <div className="loading">{err ? `Could not load the lung model: ${err}` : 'Loading lungs…'}</div>}
           <SceneOverlay />
+          <LessonChips />
         </SceneWrap>
-        <div className="wave-wrap"><Scalars height={phone ? 210 : undefined} /></div>
+        <div className="wave-wrap"><Scalars height={phone ? 210 : undefined} /><TraceToggle /></div>
       </section>
       <aside id="controls" tabIndex={-1} className="side-pane contextual-pane" aria-label="Learning context and controls"><h2 className="sr-only">Learning context and controls</h2>
         {mode === 'explore' && <>
