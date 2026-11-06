@@ -262,7 +262,7 @@ export const IMAGING_COURSES:ImagingCourse[]=[
  'Distinguish focal from diffuse distribution, pleural irregularity and supporting clinical signs. B-lines do not establish a unique cause.'],
  ['Identify each vertical artifact’s origin at the pleural line.','Compare A-line, B-line and confluent white-lung loops.','Describe distribution across sampled lung zones.'],
  ['A single B-line is not necessarily pathologic; a pattern matters.'],
- ['blines','whitelung','lus-progression-h7n9'],'pulmonary-edema',
+ ['blines','whitelung','lus-progression-h7n9','lus-blines-gargani'],'pulmonary-edema',
  {q:'Are B-lines specific for cardiogenic pulmonary edema?',choices:['No, they occur in multiple interstitial and alveolar processes','Yes, always','Only if a CT is normal'],answer:0,why:'B-lines are a sonographic sign; diagnosis requires distribution and clinical integration.'},'Curvilinear · bilateral lung fields','surface'),
  L('pneumo','Absent sliding, lung point and limitations','Watch real clips side by side and recognize where uncertainty remains.',
  ['Absent sliding may occur with pneumothorax but also with apnea, adhesions, severe emphysema or other conditions. A true lung point changes between sliding and non-sliding pleura at the boundary of a pneumothorax.',
