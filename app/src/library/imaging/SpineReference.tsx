@@ -26,7 +26,7 @@ function Vertebrae({asset,level}:{asset:Skel;level:Level}) {
   useEffect(()=>()=>{materials.bone.dispose();materials.focus.dispose()},[materials]);
   const ids=SPINE.filter(id=>!!asset.meshes[id]);
   const current=LUMBAR.indexOf(level);
-  const highlight=new Set([level,...(current<4?[LUMBAR[current+1]]:[])]);
+  const highlight=new Set<string>([level,...(current<4?[LUMBAR[current+1]]:[])]);
   return <group>{ids.map(id=><mesh key={id} geometry={asset.meshes[id].geometry} material={highlight.has(id)?materials.focus:materials.bone} dispose={null}/>)}</group>;
 }
 export function SpineReference(){
