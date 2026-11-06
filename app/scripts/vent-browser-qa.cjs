@@ -15,7 +15,9 @@ mkdirSync(out, { recursive: true });
       const page = await browser.newPage({ viewport:{width,height}, deviceScaleFactor:1, hasTouch:width<=1024 });
       const errors=[]; page.on('pageerror',e=>errors.push(e.message));
       try {
-        await page.goto('http://127.0.0.1:8765/?module=vent&mode=sim');
+        // Wait for the application DOM, then assert the real bedside UI loads. WebKit can spend
+        // >30s waiting for all heavy model/voice subresources despite the UI being ready.
+        await page.goto('http://127.0.0.1:8765/?module=vent&mode=sim',{waitUntil:'domcontentloaded',timeout:45000});
         await page.locator('.equipment-workbench').waitFor();
         await page.getByLabel('Patient scenario').selectOption('ards');
         if(width<=1024) await page.getByRole('button',{name:'Patient',exact:true}).click();

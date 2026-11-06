@@ -6,10 +6,10 @@ This addition expands the library's real-patient training references without rep
 - **30 X-ray references** (including older unlabeled X-ray items).
 - **39 CT references** (brain, vessels, thoracoabdominal emergencies).
 - **31 ultrasound references** (lung US, FAST, vascular access, aorta, IVC and bedside echo).
-- **7 new MRI examples**, curated from Creative Commons Attribution 4.0 original-source pages. These MRI images are **online-only** until an authorized copy can be ingested and hash-verified under `imaging/real/`.
-- **107 imaging studies total**, with 101 structured quizzes. The 6 older references without quizzes use observation-and-reveal exercises.
+- **7 MRI examples** are CC BY 4.0 originals with a required SHA-1 verified site mirror in `imaging/curated/`, packaged for offline study after the release site build. Published mirrors fall back to original Commons URLs when network is available.
+- **108 imaging studies total** (100 local X-ray/CT/ultrasound + seven MRI + one advanced remote CEUS ultrasound cine), with 102 structured quizzes. Six older references without quizzes use observation-and-reveal exercises.
 
-This is a live renderer for one interpretation exercise per study. It does not pretend these are 107 unique patients: some examples represent different frames, slices or findings in the same publication.
+This is a live renderer for one interpretation exercise per study. It does not pretend these are 108 unique patients: some examples represent different frames, slices or findings in the same publication.
 
 ## In-app entry points
 - Browse → **Imaging trainer**.
@@ -28,9 +28,9 @@ Clinical photos and other non-imaging media are deliberately excluded. Original 
 
 ## Source controls and limitations
 - Existing local studies come from `imaging/real/manifest.json`, which tracks authorship, original published work, licensing, and any transformations. The accepted list excludes NC, ND and SA licenses.
-- All added MRI references are explicitly labeled as **Wikimedia Commons-hosted online images** with clickable original pages and CC BY 4.0 credits; no claim that they are shipped in the offline application.
+- MRI originals are published only after `app/scripts/prepare-clinical-archive.mjs` validates SHA-1 and byte count against `app/clinical-archive.json`; then they are mirrored into GitHub Pages and an optional offline pack. Each keeps its Commons original, creator and license links.
 - For all sources, the visible image is a different real patient from the simulation, not evidence about the simulated patient.
-- The online MRI entries should be downloaded, hash-verified, visually/clinically audited and migrated into the existing manifest before claiming offline production completion.
+- The pinned MRI archive requires a successful site build before claiming offline delivery. The original images and annotations still require clinical editorial review before the lessons are marketed for high-stakes education.
 - Clinical findings/interpretations are educational and must receive clinician review before deployment in a high-stakes training program.
 
 ## MRI references and licenses

@@ -121,7 +121,7 @@ function Home() {
 
       <section className="lib-banners" aria-label="More ways to study">
         <Banner img="neuro-stroke" title="FP-C exam prep" sub="Blueprint and practice questions" onClick={() => openFree('fpc')} />
-        <Banner img="abd-aorta" title="Imaging trainer" sub="Real X-ray, CT, MRI and ultrasound" onClick={() => openLibrary({ page: 'imaging' })} />
+        <Banner img="abd-aorta" title="Imaging academy" sub="Guided imaging courses with real studies and interactive 3D anatomy" onClick={() => openLibrary({ page: 'imaging' })} />
         <Banner img="lines-devices" title="Videos & skills" sub="Equipment, pumps and procedures" onClick={() => openFree('videos')} />
         <Banner img="cardiac-congenital" title="Case conference" sub="Slides and audio" onClick={() => openFree('cases')} />
       </section>
@@ -337,7 +337,7 @@ function PathPage({ id }: { id: string }) {
 }
 
 const AudioHome = lazy(() => import('./audio/AudioHome'));
-const ImagingTrainer = lazy(() => import('./imaging/ImagingTrainer').then((m) => ({ default: m.ImagingTrainer })));
+const ImagingAcademy = lazy(() => import('./imaging/ImagingAcademy').then((m) => ({ default: m.ImagingAcademy })));
 
 /** Lessons / Audio switch at the top of Browse: two separate home pages, the choice remembered */
 function ModeToggle() {
@@ -366,7 +366,7 @@ export function Library() {
       {view.page === 'offline' && <OfflinePage />}
       {view.page === 'path' && <PathPage id={view.id} />}
       {view.page === 'imaging' && <Suspense fallback={<div className="module-loading" role="status">Loading imaging trainer…</div>}>
-        <ImagingTrainer key={`${view.moduleId ?? 'all'}:${view.modality ?? 'all'}:${view.id ?? 'start'}`} moduleId={view.moduleId} initialModality={view.modality} initialId={view.id} />
+        <ImagingAcademy key={`${view.moduleId ?? 'all'}:${view.modality ?? 'all'}:${view.id ?? 'start'}`} moduleId={view.moduleId} initialModality={view.modality} initialId={view.id} />
       </Suspense>}
     </main>
   );

@@ -1,8 +1,8 @@
 /**
  * Curated real MRI references with source and CC BY 4.0 verified on their original
  * Wikimedia Commons file pages, 2026-11-05. These images are externally hosted
- * until their original bytes and hashes can be ingested into imaging/real.
- * Never present externally hosted studies as available offline.
+ * until the published build has mirrored and SHA-1 checked the originals.
+ * The raw Commons link remains a fallback for builds without the image archive.
  */
 import type { RealItem } from '../../scene/imaging/RealExamples';
 
@@ -15,7 +15,7 @@ const mri = (
   id, kind: 'mri', type: 'mri', modality: 'MRI', file,
   title, caption, quiz, look, teach,
   license: 'CC BY 4.0', licenseUrl: LICENSE, author,
-  source, changes: 'Unmodified original image served from Wikimedia Commons; network connection required.',
+  source, changes: 'SHA-1 verified original mirrored in published site and optional offline pack. Original Wikimedia Commons link requires network connection as a fallback.',
   credit: `${author} · CC BY 4.0`,
   provenance: { pageUrl, originalUrl: file, retrieved: '2026-11-05' },
 });

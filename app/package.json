@@ -6,7 +6,7 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "build": "node --import tsx scripts/build-app.ts",
-    "site": "node --import tsx scripts/audio-voice-lines.ts && node --import tsx scripts/audio-production-queue.ts && node --import tsx scripts/audio-completion-audit.ts && node --import tsx scripts/label-index.ts && node --import tsx scripts/review-packet.ts && node --import tsx scripts/build-app.ts && node scripts/copy-site.mjs",
+    "site": "node --import tsx scripts/audio-voice-lines.ts && node --import tsx scripts/audio-production-queue.ts && node --import tsx scripts/audio-completion-audit.ts && node --import tsx scripts/label-index.ts && node --import tsx scripts/review-packet.ts && node scripts/prepare-clinical-archive.mjs && node --import tsx scripts/build-app.ts && node scripts/copy-site.mjs",
     "asset:body": "node --import tsx pipeline/build-body.ts",
     "asset:resp": "node --import tsx pipeline/build-resp.ts",
     "asset:micro": "node --import tsx pipeline/build-micro.ts",
@@ -31,7 +31,8 @@
     "asset:gut": "node --max-old-space-size=12000 --import tsx pipeline/build-gut.ts",
     "asset:cerebral": "node --max-old-space-size=14000 --import tsx pipeline/build-cerebral.ts",
     "asset:brain-volume": "node --max-old-space-size=12000 --import tsx pipeline/build-brain-volume.ts",
-    "asset:rep-stills": "node --max-old-space-size=12000 --import tsx pipeline/build-rep-stills.ts"
+    "asset:rep-stills": "node --max-old-space-size=12000 --import tsx pipeline/build-rep-stills.ts",
+    "imaging:verify-media": "node scripts/prepare-clinical-archive.mjs"
   },
   "dependencies": {
     "@react-three/drei": "9.99.7",
