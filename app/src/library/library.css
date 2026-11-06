@@ -6,7 +6,7 @@
   --lib-bg:#0b0d12; --lib-card:#151922; --lib-line:#262c38; --lib-line2:#3a4352;
   --lib-ink:#f2f4f8; --lib-dim:#c9d1dd; --lib-mute:#a3acba; --lib-link:#7db4ff; --lib-sel:#2f6fe0;
   --k-lesson:#7db4ff; --k-procedure:#c9a7ff; --k-case:#ffb86b; --k-simulator:#5ee0c6; --k-module:#7db4ff;
-  --lib-display:"Barlow Condensed","Arial Narrow","Roboto Condensed",var(--fb);
+  --lib-display:"Space Grotesk",var(--fb); --lib-font:"Space Grotesk",var(--fb); --lib-yellow:#f2d20d;
 }
 .sr-only{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
@@ -36,7 +36,7 @@
 .lib-empty{padding:48px 32px;color:var(--lib-mute)}
 .lib-page{max-width:1320px;margin:0 auto;padding:28px 32px;display:flex;flex-direction:column;gap:16px}
 
-.lib-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:8px;border:1px solid var(--lib-line2);background:transparent;color:var(--lib-ink);font:600 15px var(--fb)}
+.lib-btn{text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:8px;border:1px solid var(--lib-line2);background:transparent;color:var(--lib-ink);font:600 15px var(--fb)}
 .lib-btn:hover{border-color:var(--lib-mute)}
 .lib-btn.primary{background:var(--lib-ink);color:#0b0d12;border-color:var(--lib-ink);font-weight:700}
 .lib-btn.primary:hover{background:#fff}
@@ -63,10 +63,7 @@
 .lib-scroller{display:flex;gap:16px;overflow-x:auto;padding:4px 32px 10px;scroll-padding-inline:32px;scroll-snap-type:x proximity;scrollbar-width:thin}
 .lib-scroller>*{scroll-snap-align:start}
 
-.lib-card{flex:0 0 280px;display:flex;flex-direction:column;gap:9px;border:0;background:none;padding:0;color:var(--lib-ink);text-align:left}
-.lib-card.wide{flex-basis:330px}
 .lib-art{position:relative;height:160px;border-radius:10px;border:1px solid var(--lib-line);overflow:hidden;display:flex;align-items:flex-end;padding:16px;transition:transform .15s,border-color .15s}
-.lib-card.wide .lib-art{height:186px}
 .lib-card:hover .lib-art,.lib-card:focus-visible .lib-art{border-color:var(--lib-mute);transform:translateY(-2px)}
 .lib-motif{position:absolute;left:0;top:26px;width:100%;height:60px;opacity:.38}
 .lib-art-title{position:relative;font:800 32px/.95 var(--lib-display);font-stretch:condensed;text-transform:uppercase;text-wrap:balance}
@@ -82,17 +79,10 @@
 .lib-card-title{font:600 16px/1.3 var(--fb)}
 .k-lesson{color:var(--k-lesson)} .k-procedure{color:var(--k-procedure)} .k-case{color:var(--k-case)} .k-simulator{color:var(--k-simulator)} .k-module{color:var(--k-module)}
 
-.lib-poster{flex:0 0 260px;height:360px;border-radius:12px;border:0;padding:22px;display:flex;flex-direction:column;justify-content:space-between;text-align:left;color:var(--lib-ink)}
 .lib-poster:hover{filter:brightness(1.12)}
 .lib-poster-k{font:700 13px var(--fb);letter-spacing:.08em;text-transform:uppercase;color:#e2e7ee}
 .lib-poster-sub{display:block;margin-top:10px;font-size:15px;line-height:1.45;color:#e2e7ee}
 
-.lib-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;padding:0 32px;margin-top:40px}
-.lib-tile{min-height:120px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:22px;border-radius:12px;border:1px solid var(--lib-line);background:var(--lib-card);color:var(--lib-ink);text-decoration:none;text-align:left}
-.lib-tile:hover{border-color:var(--lib-line2)}
-.lib-tile b{display:block;font:700 19px/1.25 var(--fb)}
-.lib-tile small{display:block;margin-top:4px;font-size:14px;color:var(--lib-mute)}
-.lib-tile svg{width:26px;height:26px;flex:none}
 
 /* ---- module & path pages */
 .lib-columns{max-width:1320px;margin:0 auto;padding:32px;display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start}
@@ -163,15 +153,9 @@
 }
 @media (max-width:760px){
   .lib-hero{padding:28px 16px}
-  .lib-row-h,.lib-tiles{padding:0 16px}
-  .lib-scroller{padding:4px 16px 10px;scroll-padding-inline:16px;gap:12px}
   .lib-nav button,.lib-nav a{padding:0 10px;font-size:14px}
   .lib-nav a{display:none}
   .app-b.in-domain .lib-nav{display:none}
-  .lib-card{flex-basis:220px}.lib-card.wide{flex-basis:250px}
-  .lib-art{height:130px}.lib-card.wide .lib-art{height:140px}
-  .lib-art-title{font-size:26px}
-  .lib-poster{flex-basis:200px;height:280px}
   .lib-page,.lib-columns{padding:20px 16px}
   .lib-hero-art{display:none}
   /* the step list folds into a bar under the workspace */
@@ -314,7 +298,6 @@ html:has(.app-b),body:has(.app-b){overflow:hidden}
 
 /* ---- audio cards */
 .k-audio{color:#c4bdf0}
-.aud-card{flex:0 0 240px;display:flex;flex-direction:column;gap:8px;border:0;background:none;padding:0;color:var(--lib-ink);text-align:left;text-decoration:none}
 .aud-art{position:relative;height:136px;border-radius:10px;border:1px solid var(--lib-line);overflow:hidden;display:flex;align-items:center;justify-content:center;transition:border-color .15s}
 .aud-card:hover .aud-art,.aud-card:focus-visible .aud-art,.aud-card.on .aud-art{border-color:var(--lib-mute)}
 .aud-card.on .aud-art{box-shadow:inset 0 0 0 2px #c4bdf0}
@@ -323,10 +306,7 @@ html:has(.app-b),body:has(.app-b){overflow:hidden}
 .aud-play{position:relative;width:46px;height:46px;border-radius:50%;background:var(--lib-ink);color:#0b0d12;display:flex;align-items:center;justify-content:center}
 .aud-dur{position:absolute;right:8px;bottom:8px;font:600 12.5px var(--fb);background:rgba(8,10,14,.82);border-radius:6px;padding:2px 7px;color:var(--lib-dim)}
 .aud-card .lib-card-title{font:600 15px/1.35 var(--fb)}
-.aud-hero-art{position:relative}
-.aud-hero-art .aud-wave{opacity:.55;top:18%;bottom:18%}
 .aud-poster{text-decoration:none}
-@media (max-width:760px){.aud-card{flex-basis:200px}.aud-art{height:116px}}
 
 /* ---- player bar (stays across Lessons and Audio) */
 .app-b.has-player{grid-template-rows:auto minmax(0,1fr) auto!important}
@@ -421,3 +401,137 @@ html:has(.app-b),body:has(.app-b){overflow:hidden}
  .img-trainer .rc-frame{min-height:180px}
  .lib-course-imaging .lib-row-h{flex-wrap:wrap}
 }
+
+/* =======================================================================
+   Home rows v2: one tile size everywhere (16:9, title on the art), a poster
+   row for paths/tracks, ‹ › paging, photo heroes and banners. Space Grotesk.
+   ======================================================================= */
+@font-face{font-family:"Space Grotesk";font-style:normal;font-display:swap;font-weight:300 700;src:url("./fonts/space-grotesk-latin.woff2") format("woff2-variations"),url("./fonts/space-grotesk-latin.woff2") format("woff2")}
+.library,.step-rail,.lib-search,.lib-player{--fb:var(--lib-font)}
+.library h1,.library h2{font-family:var(--lib-font)}
+.lib-display{font:700 clamp(36px,5vw,64px)/1 var(--lib-font);text-transform:none;letter-spacing:-.03em}
+.step-rail-module b{font:700 21px/1.1 var(--lib-font);text-transform:none;letter-spacing:-.02em}
+.case-score-n{font-family:var(--lib-font)}
+
+/* rows */
+.lib-row{margin-top:30px;gap:10px}
+.lib-row-h{align-items:baseline}
+.lib-row-h h2{font:500 22px/1.2 var(--lib-font);letter-spacing:-.01em}
+.lib-row-h .lib-link{color:var(--lib-yellow);text-decoration:none;font:500 15px var(--lib-font);min-height:32px}
+.lib-row-h .lib-link:hover{color:#fff07a}
+.lib-shelf{position:relative}
+.lib-scroller{--gap:12px;--full:4;--cols:4.3;gap:var(--gap);padding:4px 32px 12px;scroll-padding-inline:32px;scrollbar-width:none}
+.lib-scroller::-webkit-scrollbar{display:none}
+.lib-scroller>*{flex:0 0 calc((100% - var(--gap) * var(--full)) / var(--cols));min-width:0}
+.lib-arrow{position:absolute;top:calc(50% - 4px);transform:translateY(-50%);z-index:3;width:40px;height:40px;border-radius:50%;border:0;background:rgba(16,16,16,.9);color:#fff;display:flex;align-items:center;justify-content:center;padding:0;box-shadow:0 2px 12px #000a}
+.lib-arrow:hover{background:#262626}
+.lib-arrow.prev{left:10px}.lib-arrow.next{right:10px}
+
+/* the tile */
+.lib-tile-wrap{position:relative}
+.lib-card{width:100%;display:block;border:0;background:none;padding:0;color:var(--lib-ink);text-align:left}
+.lib-card:focus-visible{outline:none}
+.lib-card:focus-visible .lib-art,.aud-card:focus-visible .aud-art,.lib-poster:focus-visible,.lib-banner:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.lib-art{aspect-ratio:16/9;height:auto;border:0;border-radius:6px;padding:12px 14px}
+.lib-card:hover .lib-art,.lib-card:focus-visible .lib-art{transform:translateY(-2px)}
+.lib-art:has(.lib-thumb)::after{background:linear-gradient(180deg,rgba(0,0,0,0) 28%,rgba(0,0,0,.55) 58%,rgba(0,0,0,.9) 100%)}
+.lib-art-text{position:relative;z-index:1;display:flex;flex-direction:column;gap:5px;min-width:0;max-width:100%}
+.lib-art-title{font:700 clamp(17px,1.5vw,23px)/1.06 var(--lib-font);text-transform:none;letter-spacing:-.02em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-shadow:0 1px 8px #000a}
+.lib-art.sim .lib-art-title{font-size:clamp(17px,1.5vw,23px)}
+.lib-art-meta{display:flex;align-items:center;gap:6px;min-width:0;font:600 10.5px/1.2 var(--lib-font);letter-spacing:.1em;text-transform:uppercase;color:#d6dbe3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lib-art-meta svg{flex:none;color:#87baff}
+.lib-art-meta.k-simulator{color:var(--k-simulator)}
+.lib-art .lib-study-marker{right:auto;left:10px}
+.lib-art:has(.lib-study-marker) .lib-chip{top:38px}
+.lib-save{position:absolute;top:8px;right:8px;z-index:2;width:32px;height:32px;border-radius:50%;border:0;background:rgba(0,0,0,.62);color:#fff;font:500 19px/1 var(--lib-font);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .15s}
+.lib-save:hover{background:rgba(30,30,30,.9)}
+.lib-tile-wrap:hover .lib-save,.lib-save:focus-visible,.lib-save[aria-pressed="true"]{opacity:1}
+
+/* poster row: same width, 2:3 */
+.lib-poster{position:relative;overflow:hidden;aspect-ratio:2/3;height:auto;border-radius:6px;border:0;padding:16px;display:flex;flex-direction:column;justify-content:space-between;text-align:left;color:var(--lib-ink);text-decoration:none}
+.lib-poster-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5}
+.lib-poster::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,.82) 100%)}
+.lib-poster>span{position:relative;z-index:1}
+.lib-poster .lib-display.sm{font-size:clamp(24px,2.3vw,36px);line-height:1}
+.lib-poster-k{font:600 11px var(--lib-font);letter-spacing:.12em}
+.lib-poster-sub{font-size:14px;line-height:1.4}
+.lib-grid.posters .lib-poster{height:auto}
+
+/* audio tiles */
+.aud-card{display:block;width:100%;border:0;background:none;padding:0;color:var(--lib-ink);text-align:left;text-decoration:none}
+.aud-art{aspect-ratio:16/9;height:auto;border:0;border-radius:6px;display:flex;align-items:flex-end;justify-content:flex-start;padding:12px 14px}
+.aud-art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.75) 100%)}
+.aud-wave{top:14%;bottom:38%;left:56px}
+.aud-play{position:absolute;top:10px;left:10px;width:34px;height:34px;z-index:1}
+.aud-dur{top:12px;bottom:auto;right:10px;z-index:1}
+.aud-card .lib-art-text{z-index:1}
+.aud-card .lib-art-meta svg{color:#b9acf5}
+.aud-title{font:700 clamp(15px,1.3vw,19px)/1.12 var(--lib-font);letter-spacing:-.015em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* photo heroes (home, module, path, audio) */
+.lib-hero.has-img{position:relative;overflow:hidden;min-height:clamp(360px,36vw,520px);align-items:flex-end;border-bottom:0}
+.lib-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right center}
+.lib-hero.has-img::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(5,7,10,.96) 0%,rgba(5,7,10,.82) 30%,rgba(5,7,10,.2) 62%,rgba(5,7,10,0) 100%),linear-gradient(0deg,var(--lib-bg) 0%,rgba(11,13,18,0) 26%)}
+.lib-hero.has-img>:not(.lib-hero-img){position:relative;z-index:2}
+.lib-hero.has-img .lib-lede{color:#dfe4ea}
+.lib-hero.has-img .lib-path-progress{background:rgba(11,13,18,.86);backdrop-filter:blur(6px)}
+
+/* banners at the foot of a home page */
+.lib-banners{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;padding:0 32px;margin-top:40px}
+.lib-banner{position:relative;overflow:hidden;min-height:116px;min-width:0;border-radius:6px;border:1px solid #262626;background:#101318;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 22px;text-align:left;text-decoration:none}
+.lib-banner .lib-hero-img{opacity:.8;transition:opacity .15s}
+.lib-banner:hover .lib-hero-img{opacity:1}
+.lib-banner::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.5) 58%,rgba(0,0,0,.25) 100%)}
+.lib-banner>span{position:relative;z-index:2}
+.lib-banner-copy b{display:block;font:600 19px/1.2 var(--lib-font)}
+.lib-banner-copy small{display:block;margin-top:4px;font-size:14px;color:#d6dbe3}
+.lib-banner-play{flex:none;opacity:.9}
+
+@media (max-width:1100px){.lib-scroller{--full:3;--cols:3.3}}
+@media (max-width:760px){
+  .lib-row-h{padding:0 16px}
+  .lib-row-h h2{font-size:19px}
+  .lib-scroller{--gap:8px;--full:1;--cols:1.8;padding:2px 16px 10px;scroll-padding-inline:16px}
+  .lib-arrow{display:none}
+  .lib-art-title{font-size:16px}
+  .lib-meta-kind{display:none}
+  .lib-art,.aud-art{padding:10px 11px}
+  .lib-hero.has-img{min-height:0;padding-top:200px}
+  .lib-hero.has-img>.lib-hero-img{bottom:auto;height:250px;object-position:78% 50%}
+  .lib-hero.has-img::before{background:linear-gradient(0deg,var(--lib-bg) 0%,var(--lib-bg) calc(100% - 250px),rgba(11,13,18,.55) calc(100% - 170px),rgba(11,13,18,0) 100%)}
+  .lib-banner .lib-hero-img{object-position:78% 50%}
+  .lib-banners{padding:0 16px;gap:10px;margin-top:28px}
+}
+@media (hover:none){.lib-arrow{display:none}.lib-save{opacity:1}}
+/* a sideways shelf must never widen the page: on Android tablets a wider page makes Chrome zoom the whole app out */
+.library{min-width:0;max-width:100vw}
+.lib-row,.lib-shelf,.lib-scroller{min-width:0;max-width:100%}
+
+/* ---- cover tiles (A+C): the full scene still, a body-system colour panel from the left, a colour edge,
+   a kicker on top and a big caps title with its last word in the accent colour */
+.lib-art.cover{padding:12px 14px 12px 18px}
+.lib-art.cover::after,.lib-art.cover:has(.lib-thumb)::after{background:
+  linear-gradient(90deg,color-mix(in srgb,var(--tone) 94%,transparent) 0%,color-mix(in srgb,var(--tone) 72%,transparent) 30%,transparent 62%),
+  linear-gradient(180deg,rgba(0,0,0,.25) 0%,transparent 28%,transparent 50%,rgba(0,0,0,.7) 100%)}
+.lib-art.sim.cover::after{content:"";position:absolute;inset:0}
+.lib-edge{position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--acc);z-index:2}
+.lib-art-kicker{position:absolute;top:11px;left:18px;right:48px;z-index:2;font:700 10.5px/1.2 var(--lib-font);letter-spacing:.13em;text-transform:uppercase;color:var(--acc);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 1px 6px #000c}
+.lib-art.cover .lib-art-title{font:700 clamp(16px,1.45vw,23px)/.98 var(--lib-font);text-transform:uppercase;letter-spacing:-.01em;max-width:100%;-webkit-line-clamp:3;overflow-wrap:anywhere}
+.lib-art.cover .lib-art-title em,.lib-art.sim.cover .lib-art-title em{font-style:normal;color:var(--acc);display:block}
+.lib-art.cover .lib-chip{top:30px;left:18px}
+.lib-art.cover .lib-study-marker{left:auto;right:48px;top:9px}
+.lib-art.cover:has(.lib-study-marker) .lib-chip{top:30px}
+.aud-art.cover{padding:12px 14px 12px 18px}
+.aud-art.cover .aud-play{left:16px}
+@media (max-width:760px){
+  .lib-art.cover,.aud-art.cover{padding:10px 10px 10px 14px}
+  .lib-art-kicker{left:14px;top:9px;font-size:9.5px}
+  .lib-art.cover .lib-art-title{font-size:15px}
+  .lib-art.cover .lib-chip{left:14px;top:26px}
+}
+.lib-poster.cover{padding:16px 16px 16px 20px}
+.lib-poster.cover .lib-display.sm{text-transform:uppercase;line-height:.95;letter-spacing:-.015em}
+.lib-poster.cover .lib-display.sm em{font-style:normal;color:var(--acc);display:block}
+.lib-poster.cover .lib-poster-k{color:var(--acc)}
+.lib-poster>.lib-edge{position:absolute;z-index:2}
+.lib-poster.cover .lib-display.sm{font-size:clamp(22px,2vw,32px)}
