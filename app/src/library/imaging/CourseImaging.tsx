@@ -24,7 +24,11 @@ export function CourseImaging({ moduleId }: { moduleId: string }) {
         return <button className="img-course-thumb" key={it.id}
           onClick={() => openLibrary({ page: 'imaging', moduleId, id: it.id })}>
           <span className="img-course-thumb-picture">
-            {src ? <img src={sourceFor(src)} alt="" loading="lazy" decoding="async" /> : <span>Clinical video</span>}
+            {src ? <img src={sourceFor(src)} alt="" loading="lazy" decoding="async"
+              onError={(e) => { const img=e.currentTarget;
+                if (src.startsWith('https://') && img.dataset.backup !== '1') { img.dataset.backup='1'; img.src=src; }
+                else img.style.visibility='hidden';
+              }} /> : <span>Clinical video</span>}
           </span>
           <span><b>{it.title}</b><small>{MODALITY_LABEL[modalityOf(it)!]} · Real patient</small></span>
         </button>;
