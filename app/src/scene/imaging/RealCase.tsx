@@ -77,12 +77,12 @@ export function RealCaseCard({ it, teachingMode = false, practice = false, onCom
         {q && <div className="rc-quiz">
           <p className="rc-q">{q.q}</p>
           <div className="rc-opts">{q.options.map((o, i) => (
-            <button key={o} className={`rc-opt${pick == null ? '' : i === q.answer ? ' ok' : i === pick ? ' bad' : ' dim'}`} disabled={pick != null} onClick={() => { setPick(i); onComplete?.(i === q.answer); }}>{o}</button>))}</div>
+            <button key={o} className={`rc-opt${pick == null ? '' : i === q.answer ? ' ok' : i === pick ? ' bad' : ' dim'}`} disabled={pick != null || mediaFailed} onClick={() => { setPick(i); onComplete?.(i === q.answer); }}>{o}</button>))}</div>
           {pick != null && <p className={`explain ${pick === q.answer ? 'ok' : 'bad'}`}><b>{pick === q.answer ? 'Yes.' : 'Not quite.'}</b> {q.explain}</p>}
           {pick == null && <p className="muted small">Commit to an answer first — then the look-fors{(it.marks ?? []).length ? ' and overlays' : ''} open.</p>}
         </div>}
         {practice && !q && !reveal && <div className="rc-quiz"><p className="rc-q">Inspect the study. Identify the modality, anatomy, and most important visible finding before revealing the teaching notes.</p>
-          <button className="chip" onClick={() => { setReveal(true); onComplete?.(null); }}>Reveal findings</button></div>}
+          <button className="chip" disabled={mediaFailed} onClick={() => { setReveal(true); onComplete?.(null); }}>Reveal findings</button></div>}
         {answered && <>
           <p className="small">{it.caption}</p>
           <p className="small"><b>Look for:</b> {it.look.join(' · ')}</p>
