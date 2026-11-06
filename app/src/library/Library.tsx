@@ -358,7 +358,7 @@ export function Library() {
       {view.page === 'path' && <PathPage id={view.id} />}
       {view.page === 'imaging' && <Suspense fallback={<div className="module-loading" role="status">Loading imaging trainer…</div>}>
         <ImagingTrainer key={`${view.moduleId ?? 'all'}:${view.modality ?? 'all'}:${view.id ?? 'start'}`} moduleId={view.moduleId} initialModality={view.modality} initialId={view.id} />
-      </Suspense>
+      </Suspense>}
     </main>
   );
 }
