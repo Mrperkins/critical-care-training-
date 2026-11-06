@@ -35,7 +35,9 @@ jobs:
       - run: npm test
       - run: npm run typecheck
       - run: npm run audio:audit
-      - run: npm run site
+      # The audio workflow validates the standalone audio build; the clinical release
+      # workflow handles source-verified MRI media and complete site packaging.
+      - run: npm run build
       - name: Assert standalone audio build
         run: |
           test -s dist/pub/audio/index.html
