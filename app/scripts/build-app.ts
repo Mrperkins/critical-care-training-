@@ -103,6 +103,36 @@ fs.writeFileSync(path.join(audioDir, 'index.html'), `${audioHead}<div id="root">
 
 // offline support: service worker (versioned by the bundle hash), web manifest, icons
 const ver = (await import('node:crypto')).createHash('sha256').update(js).update(css).digest('hex').slice(0, 12);
-fs.writeFileSync(path.join(pub, 'sw.js'), fs.readFileSync(path.join(ROOT, 'site/sw.js'), 'utf8').replaceAll('__VERSION__', ver).replace("'__CHUNKS__'", chunks.map((c) => JSON.stringify(c)).join(', ')));
+// files that live beside the page: in dist/pub when this build wrote them, otherwise in the published site at the repo root
+const SITE = path.resolve(ROOT, '..');
+const located = (rel: string) => [path.join(pub, rel), path.join(SITE, rel)].find((p) => fs.existsSync(p) && fs.statSync(p).isFile()) ?? null;
+const listDir = (rel: string) => { for (const base of [pub, SITE]) { const d = path.join(base, rel); if (fs.existsSync(d)) return fs.readdirSync(d).filter((f) => fs.statSync(path.join(d, f)).isFile()).map((f) => `${rel}/${f}`); } return [] as string[]; };
+// precached on first visit and kept across versions by content revision: every model, card thumbnail and hero
+const staticAssets: Record<string, string> = {};
+for (const rel of [...listDir('models').filter((f) => /\.(glb\.txt|mapping\.json)$|brain-volume\.json$/.test(f)), ...listDir('thumbs'), ...listDir('heroes')]) {
+  const p = located(rel); if (p) staticAssets[rel] = createHash('sha1').update(fs.readFileSync(p)).digest('hex').slice(0, 10);
+}
+fs.writeFileSync(path.join(pub, 'sw.js'), fs.readFileSync(path.join(ROOT, 'site/sw.js'), 'utf8').replaceAll('__VERSION__', ver).replace("'__CHUNKS__'", chunks.map((c) => JSON.stringify(c)).join(', ')).replace("'__ASSETS__'", JSON.stringify(staticAssets)));
+// download packs for the Offline page, with exact sizes so the learner knows what each costs
+type PackFile = { u: string; b: number; alt?: { u: string; b: number } };
+const fileEntry = (rel: string): PackFile | null => { const p = located(rel); return p ? { u: rel, b: fs.statSync(p).size } : null; };
+const packs: { id: string; title: string; blurb: string; files: PackFile[] }[] = [];
+const pushPack = (id: string, title: string, blurb: string, rels: string[]) => { const files = [...new Set(rels)].map(fileEntry).filter((f): f is PackFile => !!f); if (files.length) packs.push({ id, title, blurb, files }); };
+pushPack('lessons', 'Lesson narration', 'The narrator for every guided lesson and procedure.', voIds.map((id) => `vo/${id}.mp3`));
+pushPack('reps', 'Mental Reps', 'Voice-guided procedure rehearsals.', Object.entries(audioVoiceAssets).filter(([k]) => k.startsWith('rep.')).map(([, a]) => `audio/${a.file.includes('/') ? a.file : `voice/${a.file}`}`));
+pushPack('episodes', 'Audio episodes', 'Audio cases, quick listens and deep dives.', Object.entries(audioVoiceAssets).filter(([k]) => !k.startsWith('rep.')).map(([, a]) => `audio/${a.file.includes('/') ? a.file : `voice/${a.file}`}`));
+{ // real clinical images and clips; a clip with a WebM copy lists the MP4 as the fallback for browsers that need it
+  const mp = located('imaging/real/manifest.json'); const files: PackFile[] = [];
+  if (mp) for (const it of (JSON.parse(fs.readFileSync(mp, 'utf8')).items ?? []) as { file: string; webm?: string; poster?: string }[]) {
+    const main = fileEntry(`imaging/real/${it.file}`); const webm = it.webm ? fileEntry(`imaging/real/${it.webm}`) : null;
+    if (webm && main) files.push({ ...webm, alt: main }); else if (main) files.push(main);
+    if (it.poster) { const p = fileEntry(`imaging/real/${it.poster}`); if (p) files.push(p); }
+  }
+  if (files.length) packs.push({ id: 'imaging', title: 'Real clinical imaging', blurb: 'X-ray, CT and ultrasound images and clips used in the lessons and the imaging trainer.', files });
+}
+pushPack('conferences', 'Case conferences', 'Conference slides, audio and transcripts.', ['conferences/audio', 'conferences/images', 'conferences/transcripts'].flatMap(listDir).filter((f) => !f.endsWith('.md')));
+pushPack('labs', 'Cell and molecule labs', 'The large cell model and protein structures.', [...listDir('models/molecular').filter((f) => f.endsWith('.glb')), 'models/cell/markdragan-human-cell/cell.opt.glb']);
+fs.writeFileSync(path.join(pub, 'offline-packs.json'), JSON.stringify({ version: ver, core: Object.entries(staticAssets).reduce((n, [rel]) => n + (located(rel) ? fs.statSync(located(rel)!).size : 0), 0), packs }));
+console.log('offline:', Object.keys(staticAssets).length, 'static assets ·', packs.map((p) => `${p.id} ${p.files.length} files ${(p.files.reduce((n, f) => n + f.b, 0) / 1e6).toFixed(0)} MB`).join(' · '));
 for (const f of ['manifest.webmanifest', 'icon-192.png', 'icon-512.png']) fs.copyFileSync(path.join(ROOT, 'site', f), path.join(pub, f));
 console.log('bundle', (js.length / 1e6).toFixed(2), 'MB · index.html', (html.length / 1e6).toFixed(2), 'MB');

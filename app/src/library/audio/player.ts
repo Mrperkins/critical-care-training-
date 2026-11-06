@@ -44,7 +44,7 @@ function audio(): HTMLAudioElement {
   el.addEventListener('timeupdate', () => { const t = el!.currentTime; usePlayer.getState().set({ t, dur: el!.duration || 0 }); if (Math.abs(t - lastSaved) >= 5) { lastSaved = t; save(); } });
   el.addEventListener('pause', () => { usePlayer.getState().set({ playing: false }); save(); });
   el.addEventListener('play', () => usePlayer.getState().set({ playing: true, error: null }));
-  el.addEventListener('error', () => usePlayer.getState().set({ playing: false, error: 'This audio file could not be loaded.' }));
+  el.addEventListener('error', () => usePlayer.getState().set({ playing: false, error: typeof navigator !== 'undefined' && !navigator.onLine ? 'Not saved on this device yet. Download it from the Offline page when you have signal.' : 'This audio file could not be loaded.' }));
   el.addEventListener('ended', () => {
     const s = usePlayer.getState(); if (!s.item) return; const p = useAudioProgress.getState();
     if (s.part + 1 < s.sources.length) { loadPart(s.part + 1, 0, true); return; }

@@ -26,6 +26,11 @@ try {
       await expect(canvas).toBeVisible({timeout:30000});
       if(module==='heart'){
         await expect(page.getByLabel('Blood flow')).toBeAttached({timeout:30000});
+        // the heart opens closed (whole organ, no flow drawn); open the 4-chamber section to see blood inside
+        await page.evaluate(() => {
+          const sel=[...document.querySelectorAll('select')].find((x)=>x.getAttribute('aria-label')==='Section'||x.closest('label')?.textContent?.trim().startsWith('Section'));
+          if(!sel) return; const set=Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype,'value').set; set.call(sel,'slice'); sel.dispatchEvent(new Event('change',{bubbles:true}));
+        });
         await page.waitForFunction(() => !!window.__heartFlowScene?.getObjectByName('bulk-blood-svc'),null,{timeout:30000});
         const active = await page.evaluate(() => {
           const mesh=window.__heartFlowScene?.getObjectByName('bulk-blood-svc');
