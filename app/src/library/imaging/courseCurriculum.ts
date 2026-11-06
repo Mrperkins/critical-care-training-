@@ -303,8 +303,15 @@ export const IMAGING_COURSES:ImagingCourse[]=[
  ['State that aneurysm is present or absent within visualized segments.','Identify clinical instability and urgency.','Explain why ultrasound alone cannot reliably rule out leak or rupture.'],
  ['A normal single aortic window does not exclude aneurysm elsewhere.'],
  ['aaa-us-sagittal-haggstrom','ct-aaa-rupture-96mm-2026'],'rupturing-aaa',
- {q:'What does bedside ultrasound reliably establish about a visualized AAA?',choices:['An aneurysmal diameter; rupture may remain uncertain','Rupture has definitely occurred','No retroperitoneal bleeding is present'],answer:0,why:'Ultrasound measures aortic diameter but cannot reliably determine rupture or retroperitoneal bleeding.'},'Curvilinear · aorta long axis','longitudinal')
- ],[ref.aorta,ref.aium]),
+ {q:'What does bedside ultrasound reliably establish about a visualized AAA?',choices:['An aneurysmal diameter; rupture may remain uncertain','Rupture has definitely occurred','No retroperitoneal bleeding is present'],answer:0,why:'Ultrasound measures aortic diameter but cannot reliably determine rupture or retroperitoneal bleeding.'},'Curvilinear · aorta long axis','longitudinal'),
+ L('ceus','Advanced comparison: contrast-enhanced aneurysm ultrasound','Distinguish a research CEUS video from routine emergency aorta POCUS.',
+ ['In an open-access 2016 case series, investigators used ultrasound contrast to visualize enhancement within mural thrombus in abdominal aortic aneurysms. The clip is a specialized CEUS study, not the grayscale transverse/longitudinal examination used to screen for AAA.',
+ 'The study observed mural thrombus enhancement in some participants, but it did not validate CEUS enhancement as a predictor of rupture or a new frontline decision rule.'],
+ ['Review normal and aneurysmal grayscale aorta images first.','Play the original contrast-enhanced cine and identify the vascular lumen and thrombus region.','Compare what CEUS shows with the separate 3D aortic anatomy and explain what cannot be concluded.'],
+ ['A specialized CEUS finding cannot substitute for standard diameter measurement or determine rupture risk alone.'],
+ ['aorta-ceus-thrombus-2016','aaa-us-thrombus-haggstrom'],'aaa',
+ {q:'Which conclusion follows from the research contrast-enhanced AAA ultrasound?',choices:['CEUS may visualize mural thrombus channels but is not a validated rupture-risk test','The study definitively proves aortic rupture','Contrast-enhanced images replace standard B-mode diameter screening'],answer:0,why:'The cited preliminary study demonstrated CEUS enhancement in some mural thrombi; the relationship to rupture risk remains uncertain.'},'Specialist contrast-enhanced examination · not routine bedside POCUS','longitudinal')
+ ],[ref.aorta,ref.aium,{title:'Łukasiewicz et al. · CEUS in AAA mural thrombus (2016)',url:'https://www.nature.com/articles/srep34152'}]),
 
  C('pocus-vascular','Vascular ultrasound: anatomy and needle visualization','ultrasound','Intermediate',
  'Connect anatomy, compression tests and real moving needle/vein clips to safer procedural decision making.',
