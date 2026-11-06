@@ -161,6 +161,15 @@ function Lungs({ asset }: { asset: RespAsset }) {
     mucus: mucusMaterial('uMucus'), plug: mucusMaterial('uPlug'),
   }), []);
   const lobes = ['lung_RUL', 'lung_RML', 'lung_RLL', 'lung_LUL', 'lung_LLL'];
+  // coronal cross-section: remove the lungs (and heart) in front of a plane so the cut lobes and the airway tree inside show
+  const ventCut = useUI((s) => s.ventCut); const gl = useThree((s) => s.gl);
+  const zRange = useMemo(() => { const b = new THREE.Box3(); for (const id of lobes) if (M[id]) { M[id].geometry.computeBoundingBox(); b.union(M[id].geometry.boundingBox!); } return [b.min.z, b.max.z] as const; }, [M]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    gl.localClippingEnabled = true;
+    const frac = { none: 0, front: 0.68, mid: 0.5, back: 0.32 }[ventCut];
+    const planes = ventCut === 'none' ? [] : [new THREE.Plane(new THREE.Vector3(0, 0, -1), zRange[0] + (zRange[1] - zRange[0]) * frac)];
+    for (const m of [mats.lung, mats.ghost, mats.heart, mats.vessel]) { m.clippingPlanes = planes; m.side = planes.length ? THREE.DoubleSide : THREE.FrontSide; m.needsUpdate = true; }
+  }, [ventCut, zRange, mats, gl]);
   useEffect(() => {
     const L = mapping.lobes; U.uHilR.value.set(...L.RUL.hilum); U.uHilL.value.set(...L.LUL.hilum);
     U.uLungH.value = mapping.lungBox.max[1] - mapping.lungBox.min[1];

@@ -2,6 +2,7 @@ import { createRoot } from 'react-dom/client';
 import { App } from './app/App';
 import './styles/app.css';
 import './cases/cases.css';
+import './library/library.css';
 import { useUI, type Module, type Mode } from './app/store';
 import { openLesson } from './app/navigate';
 import { session } from './vent/session';
@@ -15,7 +16,7 @@ const qp = new URLSearchParams(location.search);
 const linkedLesson = qp.get('lesson');
 if (linkedLesson) setTimeout(() => openLesson(linkedLesson), 0);
 else {
-  const modules: Module[] = ['vent','abg','labs','lines','neuro','moa','heart','abdomen','pediatrics','womens','curriculum','videos','fpc','cases'];
+  const modules: Module[] = ['vent','abg','labs','lines','neuro','moa','heart','abdomen','pediatrics','womens','curriculum','videos','fpc','cases','library'];
   const modes: Mode[] = ['explore','learn','challenge','sim'];
   const module = qp.get('module') as Module | null, mode = qp.get('mode') as Mode | null;
   const patch: Partial<ReturnType<typeof useUI.getState>> = {};
@@ -44,3 +45,13 @@ import { useLabUI } from './labs/labStore';
 (window as unknown as Record<string, unknown>).__bench = bench;
 (window as unknown as Record<string, unknown>).__labui = useLabUI;
 // window.__cell (cell scene QA hook) is set by labs/cell/CellScene.tsx when the Labs module loads
+// library QA hook: open a module step or a case directly from automated checks
+import { useLibrary } from './library/libraryStore';
+import { playStep, runCase } from './library/launch';
+(window as unknown as Record<string, unknown>).__library = { useLibrary, playStep, runCase };
+(window as unknown as Record<string, unknown>).__qa = {
+  heart: () => import('./heart/heartStore').then((m) => m.useHeartUI),
+  neuro: () => import('./neuro/neuroStore').then((m) => m.useNeuroUI),
+  abd: () => import('./abdomen/abdomenStore').then((m) => m.useAbdUI),
+  lines: () => import('./lines/linesStore').then((m) => m.useLinesUI),
+};

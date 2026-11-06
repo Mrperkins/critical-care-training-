@@ -27,13 +27,15 @@ add('__HEARTINT_GLB__', 'public/models/heart-internals.glb'); add('__HEARTINT_MA
 add('__UPPERAIRWAY_GLB__', 'public/models/upper-airway.glb'); add('__UPPERAIRWAY_MAP__', 'public/models/upper-airway.mapping.json', true);
 add('__HEARTHD_GLB__', 'public/models/heart-hd.glb'); add('__HEARTHD_MAP__', 'public/models/heart-hd.mapping.json', true); add('__NERVES_GLB__', 'public/models/nerves.glb'); add('__NERVES_MAP__', 'public/models/nerves.mapping.json', true); add('__GUT_GLB__', 'public/models/gut.glb'); add('__GUT_MAP__', 'public/models/gut.mapping.json', true); add('__CEREBRAL_GLB__', 'public/models/cerebral-arteries.glb'); add('__CEREBRAL_MAP__', 'public/models/cerebral-arteries.mapping.json', true); add('__BRAINVOL__', 'public/models/brain-volume.json', true);
 add('__CORONARY_GLB__', 'public/models/coronary-heart.glb'); add('__CORONARY_MAP__', 'public/models/coronary-heart.mapping.json', true);
-const head = `<!doctype html>\n<html lang="en">\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n<title>Critical Care Physiology</title>\n<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#05090d"><link rel="apple-touch-icon" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">\n<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;500;600&family=Atkinson+Hyperlegible+Next:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">\n<style>${css}</style>`;
+const head = `<!doctype html>\n<html lang="en">\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n<title>Critical Care Physiology</title>\n<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#05090d"><link rel="apple-touch-icon" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">\n<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;500;600&family=Atkinson+Hyperlegible+Next:wght@400;500;600;700&family=Barlow+Condensed:wght@700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">\n<style>${css}</style>`;
 const html = `${head}\n<div id="root"></div>\n<script>${inline.join('\n')}</script>\n<script>${js.replace(/<\/script/g, '<\\/script')}</script>\n`;
 fs.writeFileSync(path.join(out, 'index.html'), html);
 fs.writeFileSync(path.join(out, 'dev.html'), `${head}<div id="root"></div><script src="bundle.js"></script>`);
 // publishable multi-file version: small page + separate model / narration files
 const pub = path.join(out, 'pub'); fs.rmSync(pub, { recursive: true, force: true }); fs.mkdirSync(path.join(pub, 'models'), { recursive: true }); fs.mkdirSync(path.join(pub, 'vo'), { recursive: true });
 if (fs.existsSync(path.join(ROOT,'public/conferences'))) fs.cpSync(path.join(ROOT,'public/conferences'),path.join(pub,'conferences'),{recursive:true});
+// library card art: stills captured from the app's own scenes (scripts in UX_OVERHAUL_STATE.md)
+if (fs.existsSync(path.join(ROOT,'public/thumbs'))) fs.cpSync(path.join(ROOT,'public/thumbs'),path.join(pub,'thumbs'),{recursive:true});
 for (const f of ['medical-ventilator.glb', 'medical-ventilator.provenance.json', 'bedside-airway.glb', 'bedside-airway.provenance.json', 'resp.glb', 'resp.mapping.json', 'micro.glb', 'micro.mapping.json', 'body.glb', 'body.mapping.json', 'body-f.glb', 'body-f.mapping.json', 'eyes.glb', 'eyes.mapping.json', 'lines.glb', 'lines.mapping.json', 'skeleton.glb', 'skeleton.mapping.json', 'pericardium.glb', 'pericardium.mapping.json', 'neuro.glb', 'neuro.mapping.json', 'heart-internals.glb', 'heart-internals.mapping.json', 'upper-airway.glb', 'upper-airway.mapping.json', 'coronary-heart.glb', 'coronary-heart.mapping.json', 'heart-hd.glb', 'heart-hd.mapping.json', 'nerves.glb', 'nerves.mapping.json', 'gut.glb', 'gut.mapping.json', 'cerebral-arteries.glb', 'cerebral-arteries.mapping.json', 'brain-volume.json']) { const p = path.join(ROOT, 'public/models', f); if (fs.existsSync(p)) { if (f.endsWith('.glb')) fs.writeFileSync(path.join(pub, 'models', f + '.txt'), fs.readFileSync(p).toString('base64')); else fs.copyFileSync(p, path.join(pub, 'models', f)); } }
 // narration: clips live at repo-root vo/<id>.mp3 (scripts/narration_collect.py); only clips whose hash matches the current line play
 const narration = narrationJobs(ROOT); const want = new Map(narration.map((j) => [j.id, j.hash]));
@@ -67,21 +69,23 @@ const expectedRepHash = new Map<string, string>(MENTAL_REPS.flatMap((rep) => rep
   `rep.${rep.id}.${beat.id}`,
   createHash('sha256').update(beat.narration.replace(/\s+/g, ' ').trim()).digest('hex').slice(0, 16),
 ] as const)));
-let audioVoiceAssets: Record<string, { file: string; reviewed: boolean; transcriptHash?: string }> = {};
+let audioVoiceAssets: Record<string, { file: string; reviewed: boolean; transcriptHash?: string; seconds?: number }> = {};
 if (fs.existsSync(audioVoice)) {
   fs.cpSync(audioVoice, path.join(audioDir, 'voice'), { recursive: true, force: true });
   const voiceManifest = path.join(audioVoice, 'manifest.json');
   if (fs.existsSync(voiceManifest)) {
-    const parsed = JSON.parse(fs.readFileSync(voiceManifest, 'utf8')) as { assets?: { id: string; file: string; transcriptHash?: string; narrationHash?: string; reviewed?: boolean }[] };
+    const parsed = JSON.parse(fs.readFileSync(voiceManifest, 'utf8')) as { assets?: { id: string; file: string; transcriptHash?: string; narrationHash?: string; reviewed?: boolean; durationSeconds?: number }[] };
     audioVoiceAssets = Object.fromEntries((parsed.assets ?? []).filter((a) => {
       if (a.narrationHash) return want.get(a.id) === a.narrationHash; // natural narrator: current only if its line is unchanged
       if (!a.id.startsWith('rep.')) return true;
       const expected = expectedRepHash.get(a.id);
       return !!expected && a.transcriptHash === expected;
-    }).map((a) => [a.id, { file: a.file, reviewed: a.reviewed === true, transcriptHash: a.transcriptHash }]));
+    }).map((a) => [a.id, { file: a.file, reviewed: a.reviewed === true, transcriptHash: a.transcriptHash, ...(a.durationSeconds ? { seconds: Math.round(a.durationSeconds) } : {}) }]));
   }
 }
 fs.copyFileSync(path.join(ROOT, 'site', 'audio-manifest.webmanifest'), path.join(audioDir, 'manifest.webmanifest'));
+// the visual app's Audio mode reads the same natural-voice asset map (paths relative to audio/)
+fs.writeFileSync(path.join(audioDir, 'assets.json'), JSON.stringify(audioVoiceAssets));
 const audioHead = `<!doctype html>
 <html lang="en">
 <meta charset="utf-8">

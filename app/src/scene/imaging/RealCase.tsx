@@ -9,6 +9,9 @@ import { loadReal, type RealItem, type RealMark } from './RealExamples';
 
 const REDUCE = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
 const pct = (v: number) => `${(v * 100).toFixed(2)}%`;
+// Originals are local by default; the curated MRI extension uses verified Commons URLs.
+const mediaSrc = (file: string) => file.startsWith('https://upload.wikimedia.org/wikipedia/commons/')
+  ? file : `imaging/real/${file}`;
 
 function Overlay({ marks }: { marks: RealMark[] }) {
   if (!marks.length) return null;
@@ -27,8 +30,12 @@ function Overlay({ marks }: { marks: RealMark[] }) {
   );
 }
 
-export function RealCaseCard({ it, teachingMode = false }: { it: RealItem; teachingMode?: boolean }) {
-  const [pick, setPick] = useState<number | null>(null); const [layers, setLayers] = useState({ landmark: teachingMode, pathology: teachingMode });
+export function RealCaseCard({ it, teachingMode = false, practice = false, onComplete }: {
+  it: RealItem; teachingMode?: boolean; practice?: boolean; onComplete?: (correct: boolean | null) => void;
+}) {
+  const [pick, setPick] = useState<number | null>(null); const [reveal, setReveal] = useState(false);
+  const [mediaFailed, setMediaFailed] = useState(false);
+  const [layers, setLayers] = useState({ landmark: teachingMode, pathology: teachingMode });
   const [info, setInfo] = useState(false); const [playing, setPlaying] = useState(!REDUCE); const vid = useRef<HTMLVideoElement>(null);
   useEffect(() => { const v = vid.current; if (!v) return; if (playing) v.play().catch(() => setPlaying(false)); else v.pause(); }, [playing]);
   const toggle = (l: RealMark['layer']) => {
@@ -36,17 +43,19 @@ export function RealCaseCard({ it, teachingMode = false }: { it: RealItem; teach
     // overlays are drawn on the poster frame: hold the clip there while any are shown
     if (vid.current && (next.landmark || next.pathology)) { setPlaying(false); vid.current.currentTime = it.posterAt ?? 0; }
   };
-  const isVideo = it.file.endsWith('.mp4'); const q = teachingMode ? undefined : it.quiz; const answered = pick != null || !q;
+  const isVideo = it.file.endsWith('.mp4'); const q = teachingMode ? undefined : it.quiz;
+  const answered = pick != null || (!q && (!practice || reveal));
   const marks = (it.marks ?? []).filter((m) => layers[m.layer]); const has = (l: RealMark['layer']) => (it.marks ?? []).some((m) => m.layer === l);
   const cc0 = it.license === 'CC0';
   return (
-    <article className="rcase" aria-label={`Real clinical ${isVideo ? 'clip' : 'image'}: ${it.title}`}>
+    <article className="rcase" aria-label={practice && !answered ? 'Clinical imaging interpretation challenge' : `Real clinical ${isVideo ? 'clip' : 'image'}: ${it.title}`}>
       <div className="rc-frame"><div className="rc-media">
-        {isVideo
-          ? <video ref={vid} poster={it.poster ? `imaging/real/${it.poster}` : undefined} muted loop playsInline autoPlay={!REDUCE} preload="metadata" aria-label={answered ? it.caption : 'Real ultrasound clip — decide what you see first'}>
-              {it.webm && <source src={`imaging/real/${it.webm}`} type="video/webm" />}<source src={`imaging/real/${it.file}`} type="video/mp4" />
+        {mediaFailed ? <div role="status" className="img-unavailable">Study image could not load. <a href={it.provenance?.pageUrl ?? it.source} target="_blank" rel="noreferrer">Open original source</a></div>
+          : isVideo
+          ? <video ref={vid} poster={it.poster ? mediaSrc(it.poster) : undefined} muted loop playsInline autoPlay={!REDUCE} preload="metadata" onError={() => setMediaFailed(true)} aria-label={answered ? it.caption : 'Real clinical clip — decide what you see first'}>
+              {it.webm && <source src={mediaSrc(it.webm)} type="video/webm" />}<source src={mediaSrc(it.file)} type="video/mp4" />
             </video>
-          : <img src={`imaging/real/${it.file}`} alt={answered ? it.caption : `Real ${it.modality ?? 'clinical image'} — decide what you see first`} loading="lazy" />}
+          : <img src={mediaSrc(it.file)} onError={() => setMediaFailed(true)} alt={answered ? it.caption : `Real ${it.modality ?? 'clinical image'} — decide what you see first`} loading="lazy" />}
         {answered && <Overlay marks={marks} />}</div>
       </div>
       <div className="rc-bar">
@@ -64,14 +73,16 @@ export function RealCaseCard({ it, teachingMode = false }: { it: RealItem; teach
         <p className="muted">Changes: {it.changes} Teaching use only — not for diagnosis.</p>
       </div>}
       <div className="rc-body">
-        <h4>{it.title}</h4>
+        <h4>{practice && !answered ? 'Interpret this study' : it.title}</h4>
         {q && <div className="rc-quiz">
           <p className="rc-q">{q.q}</p>
           <div className="rc-opts">{q.options.map((o, i) => (
-            <button key={o} className={`rc-opt${pick == null ? '' : i === q.answer ? ' ok' : i === pick ? ' bad' : ' dim'}`} disabled={pick != null} onClick={() => setPick(i)}>{o}</button>))}</div>
+            <button key={o} className={`rc-opt${pick == null ? '' : i === q.answer ? ' ok' : i === pick ? ' bad' : ' dim'}`} disabled={pick != null || mediaFailed} onClick={() => { setPick(i); onComplete?.(i === q.answer); }}>{o}</button>))}</div>
           {pick != null && <p className={`explain ${pick === q.answer ? 'ok' : 'bad'}`}><b>{pick === q.answer ? 'Yes.' : 'Not quite.'}</b> {q.explain}</p>}
           {pick == null && <p className="muted small">Commit to an answer first — then the look-fors{(it.marks ?? []).length ? ' and overlays' : ''} open.</p>}
         </div>}
+        {practice && !q && !reveal && <div className="rc-quiz"><p className="rc-q">Inspect the study. Identify the modality, anatomy, and most important visible finding before revealing the teaching notes.</p>
+          <button className="chip" disabled={mediaFailed} onClick={() => { setReveal(true); onComplete?.(null); }}>Reveal findings</button></div>}
         {answered && <>
           <p className="small">{it.caption}</p>
           <p className="small"><b>Look for:</b> {it.look.join(' · ')}</p>

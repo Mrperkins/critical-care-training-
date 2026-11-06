@@ -13,6 +13,6 @@ export interface HeartUI {
   /** added anatomy: conduction system (animated) and the pericardial sac; papillary muscles + chordae are always drawn */ conduction: boolean; pericardium: boolean; /** autonomic (vagal, sympathetic, plexus) and phrenic nerves */ nerves: boolean;
   set: (p: Partial<HeartUI>) => void;
 }
-export const useHeartUI = create<HeartUI>((set) => ({ preset: 'vsdLarge', input: { ...HEART_PRESETS.vsdLarge }, mode: 'sat', flowDisplay: 'volume', section: 'structure', target: 'heart.four_chamber', labels: true, cut: 'auto', conduction: false, pericardium: false, nerves: false, set: (p) => set(p) }));
+export const useHeartUI = create<HeartUI>((set) => ({ preset: 'vsdLarge', input: { ...HEART_PRESETS.vsdLarge }, mode: 'sat', flowDisplay: 'volume', section: 'structure', target: 'heart.whole_heart', labels: true, cut: 'closed', conduction: false, pericardium: false, nerves: false, set: (p) => set(p) }));
 export const loadHeartPreset = (id: HeartPresetId) => useHeartUI.getState().set({ preset: id, input: { ...HEART_PRESETS[id] } });
 export const setHeartInput = (p: Partial<ShuntInput>) => { const s = useHeartUI.getState(); s.set({ input: { ...s.input, ...p }, preset: 'custom' }); };

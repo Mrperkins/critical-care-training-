@@ -57,7 +57,9 @@ export default function VentModule() {
 
 function SceneOverlay() {
   const view = useUI((s) => s.ventView); const pm = useUI((s) => s.showPmus); const loops = useUI((s) => s.showLoops); const flowDisplay = useUI((s) => s.ventFlowDisplay);
-  const [viewOpen, setViewOpen] = useState(false); const [moreOpen, setMoreOpen] = useState(false);
+  const [viewOpen, setViewOpen] = useState(false); const [moreOpen, setMoreOpen] = useState(false); const [cutOpen, setCutOpen] = useState(false);
+  const ventCut = useUI((s) => s.ventCut);
+  const cuts = [['none', 'Whole lungs'], ['front', 'Coronal · front'], ['mid', 'Coronal · middle'], ['back', 'Coronal · back']] as const;
   const set = useUI.getState().set;
   const views = [['front', 'Front'], ['side', 'Side'], ['airway', 'Airways'], ['base', 'Bases'], ['alveolus', 'Alveoli'], ['xray', 'X-ray'], ['lus', 'Lung US']] as const;
   const current = views.find(([k]) => k === view)?.[1] ?? 'View';
@@ -66,13 +68,19 @@ function SceneOverlay() {
     <>
       <div className="scene-primary-tools" role="toolbar" aria-label="Respiratory scene controls">
         <div className="scene-menu">
-          <button className={`st-btn scene-menu-trigger${viewOpen ? ' on' : ''}`} aria-expanded={viewOpen} onClick={() => { setViewOpen(!viewOpen); setMoreOpen(false); }}>
+          <button className={`st-btn scene-menu-trigger${viewOpen ? ' on' : ''}`} aria-expanded={viewOpen} onClick={() => { setViewOpen(!viewOpen); setMoreOpen(false); setCutOpen(false); }}>
             <span className="st-ico" aria-hidden="true">◫</span><span>View</span><small>{current}</small>
           </button>
           {viewOpen && <div className="scene-popover view-menu" role="menu">{views.map(([k, l]) => <button role="menuitemradio" aria-checked={view === k} key={k} className={view === k ? 'on' : ''} onClick={() => choose(k)}><span>{l}</span>{view === k && <b aria-hidden="true">✓</b>}</button>)}</div>}
         </div>
+        {view !== 'xray' && view !== 'lus' && view !== 'alveolus' && <div className="scene-menu">
+          <button className={`st-btn scene-menu-trigger${cutOpen ? ' on' : ''}`} aria-expanded={cutOpen} onClick={() => { setCutOpen(!cutOpen); setViewOpen(false); setMoreOpen(false); }}>
+            <span className="st-ico" aria-hidden="true">◧</span><span>Section</span><small>{cuts.find(([k]) => k === ventCut)?.[1]}</small>
+          </button>
+          {cutOpen && <div className="scene-popover view-menu" role="menu">{cuts.map(([k, l]) => <button role="menuitemradio" aria-checked={ventCut === k} key={k} className={ventCut === k ? 'on' : ''} onClick={() => { set({ ventCut: k, ...(k !== 'none' && view !== 'front' ? { ventView: 'front' as const } : {}) }); setCutOpen(false); }}><span>{l}</span>{ventCut === k && <b aria-hidden="true">✓</b>}</button>)}</div>}
+        </div>}
         {view !== 'xray' && view !== 'lus' && <div className="scene-menu">
-          <button className={`st-btn scene-menu-trigger${moreOpen ? ' on' : ''}`} aria-expanded={moreOpen} onClick={() => { setMoreOpen(!moreOpen); setViewOpen(false); }}>
+          <button className={`st-btn scene-menu-trigger${moreOpen ? ' on' : ''}`} aria-expanded={moreOpen} onClick={() => { setMoreOpen(!moreOpen); setViewOpen(false); setCutOpen(false); }}>
             <span className="st-ico" aria-hidden="true">•••</span><span>More</span>
           </button>
           {moreOpen && <div className="scene-popover more-menu">
