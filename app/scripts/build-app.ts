@@ -7,7 +7,7 @@ import { narrationJobs } from './narration-common';
 import { MENTAL_REPS } from '../src/audio/catalog';
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const out = path.join(ROOT, 'dist'); fs.mkdirSync(out, { recursive: true });
-const res = await build({ entryPoints: [path.join(ROOT, 'src/main.tsx')], bundle: true, minify: true, format: 'iife', target: ['es2020'], write: false, outdir: out, loader: { '.css': 'css' }, define: { 'process.env.NODE_ENV': '"production"' }, jsx: 'automatic', legalComments: 'none', logLevel: 'warning' });
+const res = await build({ entryPoints: [path.join(ROOT, 'src/main.tsx')], bundle: true, minify: true, format: 'iife', target: ['es2020'], write: false, outdir: out, loader: { '.css': 'css', '.woff2': 'dataurl' }, define: { 'process.env.NODE_ENV': '"production"' }, jsx: 'automatic', legalComments: 'none', logLevel: 'warning' });
 const js = res.outputFiles.find((f) => f.path.endsWith('.js'))!.text; const css = res.outputFiles.find((f) => f.path.endsWith('.css'))?.text ?? '';
 fs.writeFileSync(path.join(out, 'bundle.js'), js); fs.writeFileSync(path.join(out, 'bundle.css'), css);
 const inline: string[] = [];
@@ -36,6 +36,8 @@ const pub = path.join(out, 'pub'); fs.rmSync(pub, { recursive: true, force: true
 if (fs.existsSync(path.join(ROOT,'public/conferences'))) fs.cpSync(path.join(ROOT,'public/conferences'),path.join(pub,'conferences'),{recursive:true});
 // library card art: stills captured from the app's own scenes (scripts in UX_OVERHAUL_STATE.md)
 if (fs.existsSync(path.join(ROOT,'public/thumbs'))) fs.cpSync(path.join(ROOT,'public/thumbs'),path.join(pub,'thumbs'),{recursive:true});
+// page hero stills rendered from the same scenes (scripts/qa/capture-heroes.mjs + heroes-to-jpg.py)
+if (fs.existsSync(path.join(ROOT,'public/heroes'))) fs.cpSync(path.join(ROOT,'public/heroes'),path.join(pub,'heroes'),{recursive:true});
 for (const f of ['medical-ventilator.glb', 'medical-ventilator.provenance.json', 'bedside-airway.glb', 'bedside-airway.provenance.json', 'resp.glb', 'resp.mapping.json', 'micro.glb', 'micro.mapping.json', 'body.glb', 'body.mapping.json', 'body-f.glb', 'body-f.mapping.json', 'eyes.glb', 'eyes.mapping.json', 'lines.glb', 'lines.mapping.json', 'skeleton.glb', 'skeleton.mapping.json', 'pericardium.glb', 'pericardium.mapping.json', 'neuro.glb', 'neuro.mapping.json', 'heart-internals.glb', 'heart-internals.mapping.json', 'upper-airway.glb', 'upper-airway.mapping.json', 'coronary-heart.glb', 'coronary-heart.mapping.json', 'heart-hd.glb', 'heart-hd.mapping.json', 'nerves.glb', 'nerves.mapping.json', 'gut.glb', 'gut.mapping.json', 'cerebral-arteries.glb', 'cerebral-arteries.mapping.json', 'brain-volume.json']) { const p = path.join(ROOT, 'public/models', f); if (fs.existsSync(p)) { if (f.endsWith('.glb')) fs.writeFileSync(path.join(pub, 'models', f + '.txt'), fs.readFileSync(p).toString('base64')); else fs.copyFileSync(p, path.join(pub, 'models', f)); } }
 // narration: clips live at repo-root vo/<id>.mp3 (scripts/narration_collect.py); only clips whose hash matches the current line play
 const narration = narrationJobs(ROOT); const want = new Map(narration.map((j) => [j.id, j.hash]));
@@ -44,7 +46,7 @@ let voIds = Object.entries(voMeta).filter(([id, m]) => want.get(id) === m.hash).
 const voJson = path.join(ROOT, 'public/vo/vo.json'); // previous clip store, used until the natural narrator has covered every line
 if (!voIds.length && fs.existsSync(voJson)) { const vo: Record<string, string> = JSON.parse(fs.readFileSync(voJson, 'utf8')); voIds = Object.keys(vo); for (const [id, b64] of Object.entries(vo)) fs.writeFileSync(path.join(pub, 'vo', id + '.mp3'), Buffer.from(b64, 'base64')); }
 // the published page is code-split: Home loads the shell; each module (and three.js) loads when first opened
-const split = await build({ entryPoints: { app: path.join(ROOT, 'src/main.tsx') }, bundle: true, minify: true, format: 'esm', splitting: true, target: ['es2020'], write: false, outdir: path.join(pub, 'js'), entryNames: '[name]-[hash]', chunkNames: 'c-[hash]', loader: { '.css': 'css' }, define: { 'process.env.NODE_ENV': '"production"' }, jsx: 'automatic', legalComments: 'none', logLevel: 'warning' });
+const split = await build({ entryPoints: { app: path.join(ROOT, 'src/main.tsx') }, bundle: true, minify: true, format: 'esm', splitting: true, target: ['es2020'], write: false, outdir: path.join(pub, 'js'), entryNames: '[name]-[hash]', chunkNames: 'c-[hash]', loader: { '.css': 'css', '.woff2': 'dataurl' }, define: { 'process.env.NODE_ENV': '"production"' }, jsx: 'automatic', legalComments: 'none', logLevel: 'warning' });
 fs.mkdirSync(path.join(pub, 'js'), { recursive: true });
 const chunks: string[] = []; let entry = '';
 for (const o of split.outputFiles) { if (!o.path.endsWith('.js')) continue; fs.writeFileSync(o.path, o.text); const rel = 'js/' + path.basename(o.path); chunks.push(rel); if (path.basename(o.path).startsWith('app-')) entry = rel; }
@@ -56,7 +58,7 @@ console.log('split', chunks.length, 'chunks · entry', (entrySize / 1e6).toFixed
 // It intentionally does not load the heavy Three.js anatomy bundle; it links back to the physiology app.
 const audioRes = await build({
   entryPoints: [path.join(ROOT, 'src/audio/main.tsx')], bundle: true, minify: true, format: 'iife',
-  target: ['es2020'], write: false, outdir: out, loader: { '.css': 'css' },
+  target: ['es2020'], write: false, outdir: out, loader: { '.css': 'css', '.woff2': 'dataurl' },
   define: { 'process.env.NODE_ENV': '"production"' }, jsx: 'automatic', legalComments: 'none', logLevel: 'warning',
 });
 const audioJs = audioRes.outputFiles.find((f) => f.path.endsWith('.js'))!.text;

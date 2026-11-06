@@ -2,7 +2,7 @@
  * The library: browse shelves of modules (Home), read a module before starting it, see everything on one
  * shelf, and follow a learning path. Playing a step hands off to the clinical workspace (see launch.ts).
  */
-import { lazy, Suspense, useState, type ReactNode } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import { useUI, type Module } from '../app/store';
 import { useProgress } from '../curriculum/progress';
 import { CHALLENGE_CONCEPTS, challengeModule } from '../curriculum/catalog';
@@ -14,6 +14,7 @@ import { ContentFormatIcon } from './ContentFormatIcon';
 import { CourseImaging } from './imaging/CourseImaging';
 import { CLINICAL_THUMBS } from './clinicalThumbs';
 import { openLibrary, playModule, playStep, runCase } from './launch';
+import { Banner, HeroImage, PATH_HERO, Row } from './Shelf';
 
 /* ---------------------------------------------------------------- shared bits */
 function useModuleProgress() {
@@ -44,30 +45,26 @@ function Bar({ value, label }: { value: number; label: string }) {
   return <span className="lib-bar" role="progressbar" aria-valuenow={value} aria-valuemin={0} aria-valuemax={100} aria-label={label}><span style={{ width: `${value}%` }} /></span>;
 }
 
-function ModuleCard({ m, wide }: { m: LibraryModule; wide?: boolean }) {
+function ModuleCard({ m }: { m: LibraryModule }) {
   const prog = useModuleProgress()(m.id); const p = pct(prog.done, prog.total);
+  const saved = useLibrary((s) => s.myList.includes(m.id));
   return (
-    <button className={`lib-card${wide ? ' wide' : ''}`} onClick={() => openLibrary({ page: 'module', id: m.id })}>
-      <span className={`lib-art thumb-${m.id}`} style={{ background: SHELF_BY_ID[m.shelf].tone }}>
-        <Thumb id={m.id} shelf={m.shelf} />
-        {prog.done > 0 && prog.done < prog.total && <span className="lib-chip">In progress</span>}
-        {prog.done === prog.total && prog.total > 0 && <span className="lib-chip done">Done</span>}
-        {m.isNew && prog.done === 0 && <span className="lib-chip new">New</span>}
-        <span className="lib-art-title">{m.art}</span>
-        {prog.done > 0 && <Bar value={p} label={`${m.title} progress`} />}
-      </span>
-      <span className="lib-card-meta"><span className="lib-format-mark" title="Visual learning"><ContentFormatIcon kind="visual" size={16} /><span className="sr-only">Visual learning</span></span><b className="k-module">Module</b><span>{m.steps.length} steps · {minutesOf(m)} min</span></span>
-      {wide && <span className="lib-card-title">{m.title}</span>}
-    </button>
-  );
-}
-
-function Row({ title, sub, action, children }: { title: string; sub?: string; action?: ReactNode; children: ReactNode }) {
-  return (
-    <section className="lib-row" aria-label={title}>
-      <div className="lib-row-h"><div><h2>{title}</h2>{sub && <p>{sub}</p>}</div>{action}</div>
-      <div className="lib-scroller">{children}</div>
-    </section>
+    <div className="lib-tile-wrap">
+      <button className="lib-card" onClick={() => openLibrary({ page: 'module', id: m.id })}>
+        <span className={`lib-art thumb-${m.id}`} style={{ background: SHELF_BY_ID[m.shelf].tone }}>
+          <Thumb id={m.id} shelf={m.shelf} />
+          {prog.done > 0 && prog.done < prog.total && <span className="lib-chip">In progress</span>}
+          {prog.done === prog.total && prog.total > 0 && <span className="lib-chip done">Done</span>}
+          {m.isNew && prog.done === 0 && <span className="lib-chip new">New</span>}
+          <span className="lib-art-text">
+            <span className="lib-art-title">{m.art}</span>
+            <span className="lib-art-meta"><ContentFormatIcon kind="visual" size={13} /><span className="sr-only">Visual learning · </span><span className="lib-meta-kind">Module · </span>{m.steps.length} steps · {minutesOf(m)} min</span>
+          </span>
+          {prog.done > 0 && <Bar value={p} label={`${m.title} progress`} />}
+        </span>
+      </button>
+      <button className="lib-save" aria-pressed={saved} aria-label={saved ? `Remove ${m.title} from My list` : `Add ${m.title} to My list`} title={saved ? 'In my list' : 'Add to my list'} onClick={() => useLibrary.getState().toggleList(m.id)}>{saved ? '✓' : '+'}</button>
+    </div>
   );
 }
 
@@ -90,7 +87,8 @@ function Home() {
   const starters = ['vent-foundations', 'gas-basics', 'lines-artline', 'neuro-stroke'].map((id) => MODULE_BY_ID[id]);
   return (
     <>
-      <section className="lib-hero" style={{ background: SHELF_BY_ID[featured.shelf].tone }}>
+      <section className="lib-hero has-img" style={{ background: SHELF_BY_ID[featured.shelf].tone }}>
+        <HeroImage name={featured.id} />
         <div className="lib-hero-copy">
           <p className="lib-kicker">{featured.isNew ? 'New module' : 'Featured'} · {SHELF_BY_ID[featured.shelf].title}</p>
           <h1 className="lib-display">{featured.title}</h1>
@@ -100,13 +98,16 @@ function Home() {
             <button className="lib-btn" onClick={() => openLibrary({ page: 'module', id: featured.id })}>What’s inside</button>
           </div>
         </div>
-        <div className="lib-hero-art" aria-hidden="true"><Thumb id={featured.id} shelf={featured.shelf} /></div>
       </section>
 
       {going.length > 0
-        ? <Row title="Continue learning" sub="Pick up where you left off">{going.map((m) => <ModuleCard key={m.id} m={m} wide />)}</Row>
-        : <Row title="Start here" sub="Four short modules that the rest build on">{starters.map((m) => <ModuleCard key={m.id} m={m} wide />)}</Row>}
+        ? <Row title="Continue learning">{going.map((m) => <ModuleCard key={m.id} m={m} />)}</Row>
+        : <Row title="Start here">{starters.map((m) => <ModuleCard key={m.id} m={m} />)}</Row>}
       {myList.length > 0 && <Row title="My list">{myList.map((id) => MODULE_BY_ID[id]).filter(Boolean).map((m) => <ModuleCard key={m.id} m={m} />)}</Row>}
+
+      <Row title="Learning paths" posters action={<button className="lib-link" onClick={() => openLibrary({ page: 'paths' })}>View all<span className="sr-only"> learning paths</span></button>}>
+        {PATHS.map((p) => <PathPoster key={p.id} id={p.id} />)}
+      </Row>
 
       {SHELVES.map((s) => (
         <Row key={s.id} title={s.title} action={<button className="lib-link" onClick={() => openLibrary({ page: 'shelf', id: s.id })}>View all<span className="sr-only"> {s.title}</span></button>}>
@@ -115,16 +116,11 @@ function Home() {
         </Row>
       ))}
 
-      <Row title="Learning paths" sub="Modules in order, start to finish" action={<button className="lib-link" onClick={() => openLibrary({ page: 'paths' })}>View all<span className="sr-only"> learning paths</span></button>}>
-        {PATHS.map((p) => <PathPoster key={p.id} id={p.id} />)}
-      </Row>
-
-      <section className="lib-tiles" aria-label="More ways to study">
-        <a className="lib-tile" href="audio/"><span><b>Expert audio &amp; Mental Reps</b><small>Listen on the drive in</small></span><ContentFormatIcon kind="audio" size={26} /></a>
-        <button className="lib-tile" onClick={() => openLibrary({ page: 'imaging' })}><span><b>Imaging trainer</b><small>Real X-rays, CT, MRI &amp; ultrasound · interpret each study</small></span><ContentFormatIcon kind="visual" size={26} /></button>
-        <button className="lib-tile" onClick={() => openFree('fpc')}><span><b>FP-C exam prep</b><small>Blueprint and practice questions</small></span><Play /></button>
-        <button className="lib-tile" onClick={() => openFree('videos')}><span><b>Videos &amp; skills</b><small>Equipment, pumps and procedures</small></span><ContentFormatIcon kind="visual" size={26} /></button>
-        <button className="lib-tile" onClick={() => openFree('cases')}><span><b>Case conference</b><small>Slides and audio</small></span><Play /></button>
+      <section className="lib-banners" aria-label="More ways to study">
+        <Banner img="neuro-stroke" title="FP-C exam prep" sub="Blueprint and practice questions" onClick={() => openFree('fpc')} />
+        <Banner img="abd-aorta" title="Imaging trainer" sub="Real X-ray, CT, MRI and ultrasound" onClick={() => openLibrary({ page: 'imaging' })} />
+        <Banner img="lines-devices" title="Videos & skills" sub="Equipment, pumps and procedures" onClick={() => openFree('videos')} />
+        <Banner img="cardiac-congenital" title="Case conference" sub="Slides and audio" onClick={() => openFree('cases')} />
       </section>
     </>
   );
@@ -133,10 +129,13 @@ function Home() {
 function SimCard({ shelf }: { shelf: ShelfId }) {
   const s = SHELF_BY_ID[shelf];
   return (
-    <button className="lib-card" onClick={() => openFree(s.module, 'explore')}>
-      <span className="lib-art sim" style={{ background: s.tone }}><Motif shelf={shelf} /><span className="lib-art-title">Open the simulator</span></span>
-      <span className="lib-card-meta"><b className="k-simulator">Simulator</b><span>Free play, nothing graded</span></span>
-    </button>
+    <div className="lib-tile-wrap">
+      <button className="lib-card" onClick={() => openFree(s.module, 'explore')}>
+        <span className="lib-art sim" style={{ background: s.tone }}><Motif shelf={shelf} />
+          <span className="lib-art-text"><span className="lib-art-title">Open the simulator</span><span className="lib-art-meta k-simulator">Simulator · free play, nothing graded</span></span>
+        </span>
+      </button>
+    </div>
   );
 }
 
@@ -145,8 +144,9 @@ function PathPoster({ id }: { id: string }) {
   const done = p.modules.filter((m) => { const x = progressOf(m); return x.total > 0 && x.done === x.total; }).length;
   return (
     <button className="lib-poster" style={{ background: p.tone }} onClick={() => openLibrary({ page: 'path', id })}>
+      {PATH_HERO[id] && <img className="lib-poster-img" src={`thumbs/${PATH_HERO[id]}.jpg`} alt="" loading="lazy" decoding="async" onError={(e) => { e.currentTarget.style.display = 'none'; }} />}
       <span className="lib-poster-k">{p.modules.length} modules{done ? ` · ${done} done` : ''}</span>
-      <span><span className="lib-display sm">{p.title}</span><span className="lib-poster-sub">{p.blurb}</span></span>
+      <span className="lib-poster-copy"><span className="lib-display sm">{p.title}</span><span className="lib-poster-sub">{p.blurb}</span></span>
     </button>
   );
 }
@@ -161,7 +161,8 @@ function ModulePage({ id }: { id: string }) {
   const saved = myList.includes(id);
   return (
     <>
-      <section className="lib-hero" style={{ background: shelf.tone }}>
+      <section className="lib-hero has-img" style={{ background: shelf.tone }}>
+        <HeroImage name={id} />
         <div className="lib-hero-copy">
           <Crumbs items={[{ label: 'Browse', go: () => openLibrary({ page: 'home' }) }, { label: shelf.title, go: () => openLibrary({ page: 'shelf', id: m.shelf }) }, { label: m.title }]} />
           <p className="lib-kicker">Module · {m.steps.length} steps · about {minutesOf(m)} min{prog.done ? ` · ${prog.done} of ${prog.total} done` : ''}</p>
@@ -234,7 +235,7 @@ function ShelfPage({ id, initial }: { id: ShelfId | 'all'; initial?: Filter }) {
       </div>
       <p className="lib-count" aria-live="polite">{count} items</p>
       <div className="lib-grid">
-        {(filter === 'all' || filter === 'module') && mods.map((m) => <ModuleCard key={m.id} m={m} wide />)}
+        {(filter === 'all' || filter === 'module') && mods.map((m) => <ModuleCard key={m.id} m={m} />)}
         {(filter === 'all' || filter === 'simulator') && sims.map((s) => <SimCard key={s} shelf={s} />)}
         {(filter === 'all' || filter === 'case') && cases.map((c) => {
           const passedCase = attempts[c]?.some((a) => a.ok);
@@ -279,7 +280,8 @@ function PathPage({ id }: { id: string }) {
   const sectionOf = (m: LibraryModule) => sections.find((s) => s.modules.includes(m))?.title ?? SHELF_BY_ID[m.shelf].title;
   return (
     <>
-      <section className="lib-hero" style={{ background: p.tone }}>
+      <section className="lib-hero has-img" style={{ background: p.tone }}>
+        {PATH_HERO[id] && <HeroImage name={PATH_HERO[id]} />}
         <div className="lib-hero-copy">
           <Crumbs items={[{ label: 'Browse', go: () => openLibrary({ page: 'home' }) }, { label: 'Learning paths', go: () => openLibrary({ page: 'paths' }) }, { label: p.title }]} />
           <p className="lib-kicker">Learning path · {mods.length} modules</p>

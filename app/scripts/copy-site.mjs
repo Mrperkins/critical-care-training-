@@ -10,6 +10,7 @@ for (const dir of ['models', 'vo']) for (const f of fs.readdirSync(path.join(PUB
 // code-split chunks: hashed names, so replace the folder (no stale chunks left behind)
 fs.rmSync(path.join(SITE, 'js'), { recursive: true, force: true }); fs.cpSync(path.join(PUB, 'js'), path.join(SITE, 'js'), { recursive: true });
 if (fs.existsSync(path.join(PUB, 'thumbs'))) { fs.rmSync(path.join(SITE, 'thumbs'), { recursive: true, force: true }); fs.cpSync(path.join(PUB, 'thumbs'), path.join(SITE, 'thumbs'), { recursive: true }); }
+if (fs.existsSync(path.join(PUB, 'heroes'))) { fs.rmSync(path.join(SITE, 'heroes'), { recursive: true, force: true }); fs.cpSync(path.join(PUB, 'heroes'), path.join(SITE, 'heroes'), { recursive: true }); }
 if (fs.existsSync(path.join(PUB, 'audio'))) fs.cpSync(path.join(PUB, 'audio'), path.join(SITE, 'audio'), { recursive: true, force: true });
 if (fs.existsSync(path.join(PUB, 'conferences'))) {
   fs.rmSync(path.join(SITE, 'conferences'), { recursive: true, force: true });
