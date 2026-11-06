@@ -14,6 +14,7 @@ import { ContentFormatIcon } from './ContentFormatIcon';
 import { CourseImaging } from './imaging/CourseImaging';
 import { CLINICAL_THUMBS } from './clinicalThumbs';
 import { openLibrary, playModule, playStep, runCase } from './launch';
+import { OfflinePage } from './OfflinePage';
 import { AccentTitle, Banner, HeroImage, PATH_ACCENT, PATH_HERO, Row, SHELF_ACCENT, coverStyle } from './Shelf';
 
 /* ---------------------------------------------------------------- shared bits */
@@ -362,6 +363,7 @@ export function Library() {
       {view.page === 'module' && <ModulePage id={view.id} />}
       {view.page === 'shelf' && <ShelfPage key={`${view.id}-${view.filter ?? ''}`} id={view.id} initial={view.filter} />}
       {view.page === 'paths' && <PathsPage />}
+      {view.page === 'offline' && <OfflinePage />}
       {view.page === 'path' && <PathPage id={view.id} />}
       {view.page === 'imaging' && <Suspense fallback={<div className="module-loading" role="status">Loading imaging trainer…</div>}>
         <ImagingTrainer key={`${view.moduleId ?? 'all'}:${view.modality ?? 'all'}:${view.id ?? 'start'}`} moduleId={view.moduleId} initialModality={view.modality} initialId={view.id} />

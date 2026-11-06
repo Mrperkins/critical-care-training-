@@ -12,6 +12,7 @@ export type LibraryPage =
   | { page: 'module'; id: string }
   | { page: 'shelf'; id: ShelfId | 'all'; filter?: 'all' | 'module' | 'simulator' | 'case' }
   | { page: 'paths' }
+  | { page: 'offline' }
   | { page: 'path'; id: string }
   | { page: 'imaging'; moduleId?: string; modality?: 'xray' | 'ct' | 'mri' | 'ultrasound'; id?: string };
 

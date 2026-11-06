@@ -30,6 +30,7 @@ import { DomainIcon } from './icons';
 import { Library } from '../library/Library';
 import { StepRail } from '../library/StepRail';
 import { SearchButton } from '../library/Search';
+import { OfflineButton } from '../library/OfflineButton';
 import { PlayerBar } from '../library/audio/PlayerBar';
 import { usePlayer } from '../library/audio/player';
 import { useLibrary } from '../library/libraryStore';
@@ -106,8 +107,9 @@ export function App() {
   const inDomain = module !== 'curriculum' && module !== 'videos' && module !== 'fpc' && module !== 'cases' && module !== 'library';
   const inPlayer = inDomain && (!!playing || !!solo);
   const sceneCase = inPlayer && !!runningCase && isSceneCase(runningCase);
-  const navOn = (k: 'home' | 'paths' | 'cases' | 'imaging') => module === 'library' && (
-    k === 'imaging' ? libView.page === 'imaging'
+  const navOn = (k: 'home' | 'paths' | 'cases' | 'imaging' | 'offline') => module === 'library' && (
+    k === 'offline' ? libView.page === 'offline'
+    : k === 'imaging' ? libView.page === 'imaging'
     : k === 'home' ? libView.page === 'home' || libView.page === 'module' || (libView.page === 'shelf' && libView.filter !== 'case')
     : k === 'paths' ? libView.page === 'paths' || libView.page === 'path'
     : libView.page === 'shelf' && libView.filter === 'case'
@@ -144,6 +146,7 @@ export function App() {
           <div className="topbar-tools">{tools}</div>
         </div>}
         <div className="topbar-end">
+        <OfflineButton on={navOn('offline')} />
         <SearchButton />
         <details className="resources-menu" ref={resources} onKeyDown={(e) => { if (e.key === 'Escape') { resources.current?.removeAttribute('open'); resources.current?.querySelector('summary')?.focus(); } }}>
           <summary aria-label="Learning resources"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 4.5h4v15H5zM10.5 4.5h4v15h-4zM16 5.2l3.6-.9 3 14.5-3.6.9z" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" transform="translate(-1.5 0)" /></svg><span className="resource-label">Library</span></summary>
@@ -154,6 +157,7 @@ export function App() {
             <button onClick={() => chooseDomain('cases')}>Case conference · Slides &amp; audio</button>
             <button onClick={() => { useLibrary.getState().setMode('audio'); openLibrary({ page: 'home' }); resources.current?.removeAttribute('open'); }}>Audio &amp; Mental Reps</button>
             <a href="audio/">Open the audio app</a>
+            <button onClick={() => { openLibrary({ page: 'offline' }); resources.current?.removeAttribute('open'); }}>Download for offline</button>
             <button onClick={() => chooseDomain('curriculum')}>Progress &amp; bookmarks</button>
           </nav>
         </details>

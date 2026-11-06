@@ -27,3 +27,19 @@ describe('offline support', () => {
     expect(build).toMatch(/audio-manifest\.webmanifest/);
   });
 });
+
+describe('offline downloads', () => {
+  it('models, card art and heroes are revisioned so an update only fetches what changed', () => {
+    expect(sw).toMatch(/const ASSETS = '__ASSETS__'/);
+    expect(sw).toMatch(/cc-static-v1/); expect(sw).toMatch(/pruneStatic/);
+    const build = fs.readFileSync('scripts/build-app.ts', 'utf8');
+    expect(build).toMatch(/replace\("'__ASSETS__'"/);
+    expect(build).toMatch(/listDir\('thumbs'\)/); expect(build).toMatch(/listDir\('heroes'\)/);
+  });
+  it('data files fall back to the cached copy offline, and packs are published with the site', () => {
+    expect(sw).toMatch(/pathname\.endsWith\('\.json'\)/);
+    expect(sw).toMatch(/'audio\/assets\.json'/);
+    expect(fs.readFileSync('scripts/copy-site.mjs', 'utf8')).toMatch(/offline-packs\.json/);
+    expect(fs.readFileSync('../.github/workflows/site-sync.yml', 'utf8')).toMatch(/offline-packs\.json/);
+  });
+});
