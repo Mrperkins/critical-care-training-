@@ -21,6 +21,7 @@ const NeuroScene = lazy(() => import('../../neuro/NeuroScene').then(m => ({ defa
 const AbdomenScene = lazy(() => import('../../abdomen/AbdomenScene').then(m => ({ default: m.AbdomenScene })));
 const AtlasPatientScene = lazy(() => import('../../atlas/PatientScene'));
 const SpineReference = lazy(() => import('./SpineReference').then(m=>({default:m.SpineReference})));
+const NeckReference = lazy(() => import('./NeckReference').then(m=>({default:m.NeckReference})));
 
 function useBody(): { body: BodyAsset | null; error: boolean } {
   const [body, setBody] = useState<BodyAsset | null>(null);
@@ -107,10 +108,11 @@ export function AnatomyCorrelation({lesson,modality,study}:{lesson:ImagingLesson
   const spineMri = modality==='mri' && /epidural|lumbar/.test(study?.id??'');
   const brain = !spineMri && (modality==='mri' || (modality==='ct' && /^(lvo|ich|tbi)$/.test(lesson.anatomy)));
   const cardiacUs=modality==='ultrasound' && (kind==='tamponade'||/pericardial/.test(study?.id??''));
+  const neckUs=modality==='ultrasound' && kind==='ijv';
   const abdominal = !brain && !spineMri && !cardiacUs && (modality==='ct' || kind==='fast' || kind==='aorta-us' || kind==='ivc' || ['abdominal-hemorrhage','aaa','rupturing-aaa','aortic-dissection'].includes(lesson.anatomy));
   return <div className="imc-reference-3d">
     <div className="imc-media-topline"><span>Reference anatomy · actual app 3D model</span><span>Illustrative; different patient</span></div>
-    {spineMri?<SpineReference/>:brain?<BrainReference key={lesson.id} plane={lesson.plane}/>:abdominal?<AbdomenReference key={study?.id??lesson.id} lesson={lesson} modality={modality} study={study}/>:<AtlasReference key={lesson.id} lesson={lesson} modality={modality}/>}
+    {spineMri?<SpineReference/>:neckUs?<NeckReference/>:brain?<BrainReference key={lesson.id} plane={lesson.plane}/>:abdominal?<AbdomenReference key={study?.id??lesson.id} lesson={lesson} modality={modality} study={study}/>:<AtlasReference key={lesson.id} lesson={lesson} modality={modality}/>}
     {spineMri && <p className="imc-model-note">Spinal MRI: the selected lumbar vertebrae come from the app's BodyParts3D skeleton. No reconstructed canal, collection, or patient-specific MRI registration is claimed.</p>}
     <p className="imc-compare-disclaimer">No pixel-level registration or patient-specific 3D reconstruction is claimed. Compare organ position, orientation and structural relationships only. The probe plane is not tracked or synchronized to the source video.</p>
   </div>;
