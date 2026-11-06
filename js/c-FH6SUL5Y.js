@@ -1,0 +1,1 @@
+import{a as e}from"./c-ZYIGBBBU.js";var o=e(t=>({module:"library",mode:"learn",atlasFrame:null,atlasDisease:null,atlasSeverity:.5,atlasTarget:"body.whole",ventScenario:"normal",ventView:"front",ventFlowDisplay:"volume",ventTarget:"lung.whole",labels:!0,showPmus:!1,showLoops:!0,ventCut:"none",pulse:0,set:a=>t(a)}));export{o as a};

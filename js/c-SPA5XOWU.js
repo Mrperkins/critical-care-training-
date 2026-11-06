@@ -1,0 +1,1 @@
+import{a as o}from"./c-ZYIGBBBU.js";var s=o(e=>({view:"bed",labels:!0,skin:"solid",showTrue:!1,frozen:!1,flushLine:"art",toast:null,set:t=>e(t)})),i=(e,t="info")=>s.getState().set({toast:{text:e,tone:t,at:Date.now()}});export{s as a,i as b};
