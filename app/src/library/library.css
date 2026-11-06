@@ -36,7 +36,7 @@
 .lib-empty{padding:48px 32px;color:var(--lib-mute)}
 .lib-page{max-width:1320px;margin:0 auto;padding:28px 32px;display:flex;flex-direction:column;gap:16px}
 
-.lib-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:8px;border:1px solid var(--lib-line2);background:transparent;color:var(--lib-ink);font:600 15px var(--fb)}
+.lib-btn{text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:8px;border:1px solid var(--lib-line2);background:transparent;color:var(--lib-ink);font:600 15px var(--fb)}
 .lib-btn:hover{border-color:var(--lib-mute)}
 .lib-btn.primary{background:var(--lib-ink);color:#0b0d12;border-color:var(--lib-ink);font-weight:700}
 .lib-btn.primary:hover{background:#fff}
@@ -474,6 +474,7 @@ html:has(.app-b),body:has(.app-b){overflow:hidden}
 .lib-hero.has-img::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(5,7,10,.96) 0%,rgba(5,7,10,.82) 30%,rgba(5,7,10,.2) 62%,rgba(5,7,10,0) 100%),linear-gradient(0deg,var(--lib-bg) 0%,rgba(11,13,18,0) 26%)}
 .lib-hero.has-img>:not(.lib-hero-img){position:relative;z-index:2}
 .lib-hero.has-img .lib-lede{color:#dfe4ea}
+.lib-hero.has-img .lib-path-progress{background:rgba(11,13,18,.86);backdrop-filter:blur(6px)}
 
 /* banners at the foot of a home page */
 .lib-banners{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;padding:0 32px;margin-top:40px}
@@ -495,9 +496,10 @@ html:has(.app-b),body:has(.app-b){overflow:hidden}
   .lib-art-title{font-size:16px}
   .lib-meta-kind{display:none}
   .lib-art,.aud-art{padding:10px 11px}
-  .lib-hero.has-img{min-height:440px;padding-top:180px}
-  .lib-hero-img{object-position:70% 30%}
-  .lib-hero.has-img::before{background:linear-gradient(0deg,var(--lib-bg) 0%,rgba(11,13,18,.9) 42%,rgba(11,13,18,.1) 78%,rgba(11,13,18,0) 100%)}
+  .lib-hero.has-img{min-height:0;padding-top:200px}
+  .lib-hero.has-img>.lib-hero-img{bottom:auto;height:250px;object-position:78% 50%}
+  .lib-hero.has-img::before{background:linear-gradient(0deg,var(--lib-bg) 0%,var(--lib-bg) calc(100% - 250px),rgba(11,13,18,.55) calc(100% - 170px),rgba(11,13,18,0) 100%)}
+  .lib-banner .lib-hero-img{object-position:78% 50%}
   .lib-banners{padding:0 16px;gap:10px;margin-top:28px}
 }
 @media (hover:none){.lib-arrow{display:none}.lib-save{opacity:1}}

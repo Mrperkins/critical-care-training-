@@ -106,8 +106,8 @@ export default function AudioHome() {
       <Row title="Deep dives" href={audioAppHref('page=listen')}>{deep.map((e) => <EpisodeCard key={e.id} e={e} tone={TONE['deep-dive']} voiced={voiced(e.id)} secs={secs(e.id)} />)}</Row>
 
       <section className="lib-banners" aria-label="More ways to listen">
-        <Banner img="neuro-icp" title="Full audio player" sub="Transcripts, speed and offline listening" href={audioAppHref('page=home')} />
-        <Banner img="lines-artline" title="Mental Reps" sub="Rehearse a procedure beat by beat" href={audioAppHref('page=reps')} />
+        <Banner img="vent-ards" title="Full audio player" sub="Transcripts, speed and offline listening" href={audioAppHref('page=home')} />
+        <Banner img="lines-devices" title="Mental Reps" sub="Rehearse a procedure beat by beat" href={audioAppHref('page=reps')} />
         <Banner img="vent-foundations" title="Listening tracks" sub="Sessions in order, by system" href={audioAppHref('page=tracks')} />
       </section>
     </>

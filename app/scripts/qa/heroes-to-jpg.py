@@ -17,7 +17,9 @@ for f in sorted(glob.glob(os.path.join(src, '*.png'))):
     mh, mw = int((b - t) * 0.12), int((r - l) * 0.12)
     t, b, l, r = max(0, t - mh), min(a.shape[0], b + mh), max(0, l - mw), min(a.shape[1], r + mw)
     crop = im.crop((l, t, r, b))
-    s = min(H * 0.98 / crop.height, W * 0.62 / crop.width); crop = crop.resize((max(1, int(crop.width * s)), max(1, int(crop.height * s))), Image.LANCZOS)
+    ca = np.asarray(crop).astype(int); edge = np.concatenate([ca[:4].reshape(-1, 3), ca[-4:].reshape(-1, 3), ca[:, :4].reshape(-1, 3), ca[:, -4:].reshape(-1, 3)])
+    bg = np.median(edge, axis=0)  # match the backdrop where the crop meets the canvas, so no seam shows
+    s = min(H * 0.84 / crop.height, W * 0.58 / crop.width); crop = crop.resize((max(1, int(crop.width * s)), max(1, int(crop.height * s))), Image.LANCZOS)
     canvas = Image.new('RGB', (W, H), tuple(int(x) for x in bg))
     mask = Image.new('L', crop.size, 0); f_ = max(16, int(min(crop.size) * 0.14))
     mask.paste(255, (f_, f_, crop.width - f_, crop.height - f_)); mask = mask.filter(ImageFilter.GaussianBlur(f_ / 2))

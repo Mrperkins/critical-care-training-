@@ -15,7 +15,12 @@ export function Row({ title, action, posters, children }: { title: string; actio
     update(); const el = ref.current; if (!el || typeof ResizeObserver === 'undefined') return;
     const ro = new ResizeObserver(update); ro.observe(el); return () => ro.disconnect();
   }, []);
-  const page = (dir: number) => { const el = ref.current; if (el) el.scrollBy({ left: dir * el.clientWidth * 0.9, behavior: 'smooth' }); };
+  const page = (dir: number) => {
+    const el = ref.current; const first = el?.firstElementChild as HTMLElement | null; if (!el) return;
+    // move by whole tiles so the shelf never stops on half a tile
+    const step = first ? first.getBoundingClientRect().width + parseFloat(getComputedStyle(el).columnGap || '0') : el.clientWidth;
+    el.scrollBy({ left: dir * Math.max(1, Math.floor((el.clientWidth - 64) / step)) * step, behavior: 'smooth' });
+  };
   return (
     <section className={`lib-row${posters ? ' posters' : ''}`} aria-label={title}>
       <div className="lib-row-h"><h2>{title}</h2>{action}</div>
@@ -42,8 +47,9 @@ export function Banner({ img, title, sub, onClick, href }: { img: string; title:
   return href ? <a className="lib-banner" href={href}>{body}</a> : <button className="lib-banner" onClick={onClick}>{body}</button>;
 }
 
-/** Which render each page uses. Every module has its own; paths, audio and the study banners borrow one. */
-export const PATH_HERO: Record<string, string> = { fpc: 'vent-foundations', 'vent-mastery': 'vent-ards', shock: 'lines-shock', 'peds-ob': 'ob-pregnancy' };
+/** Which render each page uses. Most modules have their own (the line-placement and drug-mechanism scenes have
+ * no clean backdrop, so those pages keep their colour); paths, audio and the banners borrow one. */
+export const PATH_HERO: Record<string, string> = { fpc: 'vent-foundations', 'vent-mastery': 'vent-ards', shock: 'peds-newborn', 'peds-ob': 'ob-pregnancy' };
 export const AUDIO_HERO = 'cardiac-mi';
 /** Listening-track posters borrow the module still that shows the same body system (none where nothing fits). */
 export const TRACK_ART: Record<string, string> = {
