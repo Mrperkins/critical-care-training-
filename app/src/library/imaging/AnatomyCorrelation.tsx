@@ -15,6 +15,7 @@ import { DISEASE_BY_ID } from '../../atlas/registry';
 import { diseaseState } from '../../atlas/engine';
 import type { ImagingModality } from './catalog';
 import type { ImagingLesson } from './courseCurriculum';
+import type { RealItem } from '../../scene/imaging/RealExamples';
 
 const NeuroScene = lazy(() => import('../../neuro/NeuroScene').then(m => ({ default: m.NeuroScene })));
 const AbdomenScene = lazy(() => import('../../abdomen/AbdomenScene').then(m => ({ default: m.AbdomenScene })));
@@ -53,11 +54,15 @@ function BrainReference({ plane }: { plane?: ImagingLesson['plane'] }) {
   </>;
 }
 
-function AbdomenReference({ lesson, modality }: {lesson:ImagingLesson;modality:ImagingModality}) {
+function AbdomenReference({ lesson, modality, study }: {lesson:ImagingLesson;modality:ImagingModality;study?:RealItem}) {
   const {body,error}=useBody();
-  const target = /aorta|aaa|dissection/.test(lesson.anatomy) || /aort/i.test(lesson.title) ? 'abdomen.aorta' :
-    /spleen|splen|trauma|hemorrhage|abdfluid/.test(lesson.id+' '+lesson.title) ? 'abdomen.luq' :
-    /pelvis/.test(lesson.title) ? 'abdomen.pelvis' : 'abdomen.ruq';
+  const cue = `${study?.id ?? ''} ${study?.kind ?? ''}`.toLowerCase();
+  const target = /aorta|aaa|dissection|ivc/.test(cue) || /aorta|aaa|dissection/.test(lesson.anatomy) ? 'abdomen.aorta'
+    : /pelvis|suprapubic/.test(cue) ? 'abdomen.pelvis'
+    : /luq|splen|left.upper/.test(cue) ? 'abdomen.luq'
+    : /ruq|hepato|right.upper/.test(cue) ? 'abdomen.ruq'
+    : /spleen|splen|trauma|hemorrhage|abdfluid/.test(lesson.id+' '+lesson.title) ? 'abdomen.luq'
+    : /pelvis/.test(lesson.title) ? 'abdomen.pelvis' : 'abdomen.ruq';
   const [focused,setFocused]=useState(true);
   useEffect(() => {
     const state=useAbdUI.getState();
@@ -67,6 +72,7 @@ function AbdomenReference({ lesson, modality }: {lesson:ImagingLesson;modality:I
   }, [target]);
   return <>
     <div className="imc-model-viewport" aria-label="Interactive 3D anatomy of abdomen showing organ reference">
+      <span className="imc-window-label">{target==='abdomen.aorta'?'Aorta/IVC landmark':target==='abdomen.luq'?'LUQ / splenorenal window':target==='abdomen.pelvis'?'Pelvic acoustic window':'RUQ / hepatorenal window'} · approximate</span>
       {error ? <p role="status">3D reference anatomy unavailable.</p> : !body ? <p>Loading original 3D abdominal anatomy…</p> : <Suspense fallback={<p>Loading anatomical model…</p>}><AbdomenScene body={body}/></Suspense>}
     </div>
     <div className="imc-model-toolbar">
@@ -95,12 +101,16 @@ function AtlasReference({lesson,modality}:{lesson:ImagingLesson;modality:Imaging
   </>;
 }
 
-export function AnatomyCorrelation({lesson,modality}:{lesson:ImagingLesson;modality:ImagingModality}) {
-  const brain = modality==='mri' || (modality==='ct' && /^(lvo|ich|tbi)$/.test(lesson.anatomy));
-  const abdominal = !brain && (modality==='ct' || ['abdominal-hemorrhage','aaa','rupturing-aaa','aortic-dissection'].includes(lesson.anatomy));
+export function AnatomyCorrelation({lesson,modality,study}:{lesson:ImagingLesson;modality:ImagingModality;study?:RealItem}) {
+  const kind=study?.kind;
+  const spineMri = modality==='mri' && /epidural|lumbar/.test(study?.id??'');
+  const brain = !spineMri && (modality==='mri' || (modality==='ct' && /^(lvo|ich|tbi)$/.test(lesson.anatomy)));
+  const cardiacUs=modality==='ultrasound' && (kind==='tamponade'||/pericardial/.test(study?.id??''));
+  const abdominal = !brain && !spineMri && !cardiacUs && (modality==='ct' || kind==='fast' || kind==='aorta-us' || kind==='ivc' || ['abdominal-hemorrhage','aaa','rupturing-aaa','aortic-dissection'].includes(lesson.anatomy));
   return <div className="imc-reference-3d">
     <div className="imc-media-topline"><span>Reference anatomy · actual app 3D model</span><span>Illustrative; different patient</span></div>
-    {brain?<BrainReference key={lesson.id} plane={lesson.plane}/>:abdominal?<AbdomenReference key={lesson.id} lesson={lesson} modality={modality}/>:<AtlasReference key={lesson.id} lesson={lesson} modality={modality}/>}
-    <p className="imc-compare-disclaimer">No pixel-level registration or patient-specific 3D reconstruction is claimed. Compare the organ location, orientation and structural relationships, not the shape of the disease.</p>
+    {brain?<BrainReference key={lesson.id} plane={lesson.plane}/>:abdominal?<AbdomenReference key={study?.id??lesson.id} lesson={lesson} modality={modality} study={study}/>:<AtlasReference key={lesson.id} lesson={lesson} modality={modality}/>}
+    {spineMri && <p className="imc-model-note">Spinal epidural abscess: the available atlas can only show gross reference body anatomy. A dedicated spinal canal 3D segmentation is not present, so no disease-level 3D match is claimed.</p>}
+    <p className="imc-compare-disclaimer">No pixel-level registration or patient-specific 3D reconstruction is claimed. Compare organ position, orientation and structural relationships only. The probe plane is not tracked or synchronized to the source video.</p>
   </div>;
 }
