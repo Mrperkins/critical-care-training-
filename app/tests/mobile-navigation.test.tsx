@@ -60,18 +60,19 @@ describe('phone navigation interactions', () => {
       expect(useUI.getState().atlasTarget).toBe(disease.target);
     }
   });
-  it('Start module on Browse plays its first step in the clinical workspace with the step rail', async () => {
+  it('Start module on Browse plays its first step in the player: slim top bar, step dots, reader column', async () => {
     await act(async () => root.render(<App />)); await settle();
     expect(container.querySelector('#library-main')).toBeTruthy();
     await click('Start module');
     expect(useUI.getState().module).toBe('vent'); expect(useUI.getState().mode).toBe('learn');
-    expect(container.textContent).toContain('Respiratory lessons');
-    expect(container.querySelector('.step-rail')).toBeTruthy();
-    expect(container.querySelector('.app')?.getAttribute('data-mobile-pane')).toBe('context');
-    await click('Scene');
-    expect(container.querySelector('.app')?.getAttribute('data-mobile-pane')).toBe('scene');
-    await click('Lessons');
-    expect(container.querySelector('.app')?.getAttribute('data-mobile-pane')).toBe('context');
+    const top = container.querySelector('.lp-top'); expect(top).toBeTruthy();
+    expect(top!.querySelector('.lp-dots')?.children.length).toBeGreaterThan(1);
+    expect(top!.textContent).toMatch(/Step 1 of \d+/);
+    expect(container.querySelector('.lp-reader')).toBeTruthy();
+    expect(container.querySelector('.step-rail')).toBeNull();
+    // the step list opens from the dots
+    await act(async () => { top!.querySelector<HTMLButtonElement>('.lp-dots')!.click(); });
+    expect(container.querySelector('.lp-steps')?.textContent).toContain('Step 1');
   });
   it.each([320, 360, 390, 430, 768])('Learn interaction state enters the lesson pane at %ipx (DOM only)', async (width) => {
     Object.defineProperty(window, 'innerWidth', { configurable: true, value: width });

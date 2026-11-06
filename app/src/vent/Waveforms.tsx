@@ -7,6 +7,9 @@ import { useEffect, useRef } from 'react';
 import { session } from './session';
 import { useUI } from '../app/store';
 import { IS_PHONE } from '../scene/Studio';
+import { usePlayerUI } from '../library/playerUI';
+import { useLibrary } from '../library/libraryStore';
+import { useGame } from '../library/game';
 
 export const COL = { p: '#e9b949', q: '#5cc8b0', v: '#9fb2ff', mus: '#e0645a', grid: 'rgba(255,255,255,0.06)', axis: 'rgba(255,255,255,0.16)', text: '#8e8a84', insp: 'rgba(233,185,73,0.05)', hold: 'rgba(159,178,255,0.10)' };
 const FONT = '500 10px "Atkinson Hyperlegible Mono", ui-monospace, monospace';
@@ -32,11 +35,16 @@ const niceMax = (x: number, step: number, min: number) => Math.max(min, Math.cei
 
 export function Scalars({ height }: { height?: number }) {
   const showPmus = useUI((s) => s.showPmus);
+  // in the module player a lesson scene shows only the trace it is about (the learner can ask for all)
+  const inPlayer = useLibrary((s) => !!s.playing); const traces = usePlayerUI((s) => s.traces); const all = usePlayerUI((s) => s.allTraces); const reading = usePlayerUI((s) => s.readers > 0);
+  const caseTraces = useGame((s) => (s.id && !s.debrief ? s.traces : null));
+  const only = inPlayer && IS_PHONE && caseTraces?.length ? caseTraces : inPlayer && reading && !all && traces && traces.length ? traces : null;
+  const onlyRef = useRef(only); onlyRef.current = only;
   const scale = useRef({ p: 30, q: 60, v: 600, m: 10 });
   const ref = useCanvas((ctx, w, h) => {
     const S = session; const win = IS_PHONE ? 8 : 11; const n = S.count; if (n < 2) return;
     const tNew = S.t[S.at(0)];
-    const channels = showPmus ? 4 : 3; const padL = 44, padR = 54, gap = 6; const ch = (h - gap * (channels - 1)) / channels;
+    const keepN = onlyRef.current?.length; const channels = keepN ? keepN : showPmus ? 4 : 3; const padL = 44, padR = 54, gap = 6; const ch = (h - gap * (channels - 1)) / channels;
     // autoscale over the window (smoothly)
     let pMax = 0, qMax = 0, vMax = 0, mMax = 0; const maxBack = Math.min(n, Math.round(win / 0.01));
     for (let b = 0; b < maxBack; b++) { const i = S.at(b); pMax = Math.max(pMax, S.paw[i]); qMax = Math.max(qMax, Math.abs(S.flow[i])); vMax = Math.max(vMax, S.vol[i]); mMax = Math.max(mMax, S.pmus[i]); }
@@ -48,6 +56,7 @@ export function Scalars({ height }: { height?: number }) {
       { key: 'v', lo: 0, hi: sc.v, col: COL.v, label: 'Vol', unit: 'mL', arr: S.vol },
     ];
     if (showPmus) strips.push({ key: 'm', lo: 0, hi: sc.m, col: COL.mus, label: 'Pmus', unit: 'cmH₂O', arr: S.pmus });
+    const keep = onlyRef.current; if (keep) for (let k = strips.length - 1; k >= 0; k--) if (!(keep as string[]).includes(strips[k].key)) strips.splice(k, 1);
     ctx.font = FONT; ctx.textBaseline = 'middle';
     strips.forEach((st, si) => {
       const y0 = si * (ch + gap), y1 = y0 + ch; const Y = (v: number) => y1 - ((v - st.lo) / (st.hi - st.lo)) * (ch - 8) - 4;
@@ -79,7 +88,8 @@ export function Scalars({ height }: { height?: number }) {
       ctx.fillStyle = st.col; ctx.beginPath(); ctx.arc(X(tNew), Y(cur), 2.6, 0, Math.PI * 2); ctx.fill();
     });
   });
-  return <canvas ref={ref} className="scalars" style={{ height: height ?? (showPmus ? 300 : 240) }} aria-label="Pressure, flow and volume waveforms" />;
+  const h = only ? (only.length === 1 ? 118 : 176) : height ?? (showPmus ? 300 : 240);
+  return <canvas ref={ref} className="scalars" style={{ height: h }} aria-label={only ? `${only.map((k) => ({ p: 'Pressure', q: 'Flow', v: 'Volume' }[k])).join(' and ')} waveform` : 'Pressure, flow and volume waveforms'} />;
 }
 
 export function Loops() {

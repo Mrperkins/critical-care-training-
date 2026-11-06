@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { voice } from '../app/voice';
 /**
  * The course player. Three separate concerns, three separate controls:
@@ -15,6 +16,10 @@ import { useDirector, director } from './director';
 import { duration, steps, stepIndexAt } from './timeline';
 import { trackSummary, type CourseMeta, type SelfCheck, type Track } from './course';
 import { useCameraPolicy } from '../scene/cameraPolicy';
+import { usePlayerUI } from '../library/playerUI';
+import { useLibrary } from '../library/libraryStore';
+import { nextStep } from '../library/launch';
+import { MODULE_BY_ID } from '../library/modules';
 
 const mmss = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
 const Ico = ({ d, size = 18 }: { d: string; size?: number }) => <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden="true"><path d={d} fill="currentColor" /></svg>;
@@ -22,10 +27,22 @@ const PLAY = 'M8 5.5v13l10.5-6.5z', PAUSE = 'M7 5h3.6v14H7zM13.4 5H17v14h-3.6z',
 
 export function DirectorPlayer({ onExit }: { onExit?: () => void }) {
   const tl = useDirector((s) => s.tl); const track = useDirector((s) => s.track); const course = useDirector((s) => s.course); const source = useDirector((s) => s.source);
+  // while a library module plays, the lesson reads in the player's reader column (the rest of the panel becomes Details)
+  const reader = usePlayerUI((s) => s.reader); const inPlayer = useLibrary((s) => !!s.playing);
+  const portal = inPlayer && !!reader && !!tl;
+  useEffect(() => { if (!portal) return; usePlayerUI.setState((s) => ({ readers: s.readers + 1 })); return () => usePlayerUI.setState((s) => ({ readers: Math.max(0, s.readers - 1) })); }, [portal]);
   if (!tl) return null;
   const exit = onExit && (() => { director.unload(); onExit(); });
-  if (!track && course && source) return <CourseChoice onExit={exit} />;
-  return <CoursePlayer onExit={exit} />;
+  const body = !track && course && source ? <CourseChoice onExit={exit} /> : <CoursePlayer onExit={exit} />;
+  return portal ? createPortal(<div className="lp-lesson">{body}</div>, reader!) : body;
+}
+
+/** The narration with the sentence being spoken picked out (timed by sentence length across the scene). */
+function SayText({ say, from, to, t }: { say: string; from: number; to: number; t: number }) {
+  const parts = say.match(/[^.!?]+[.!?]+["”’)]*\s*|[^.!?]+$/g) ?? [say];
+  const total = parts.reduce((n, p) => n + p.length, 0) || 1; const f = Math.max(0, Math.min(0.999, (t - from) / Math.max(0.1, to - from)));
+  let acc = 0; let on = parts.length - 1; for (let i = 0; i < parts.length; i++) { acc += parts[i].length; if (f < acc / total) { on = i; break; } }
+  return <>{parts.map((p, i) => <span key={i} className={i === on ? 'say-on' : i < on ? 'say-past' : undefined}>{p}</span>)}</>;
 }
 
 /* ------------------------------------------------------------------ the choice */
@@ -71,7 +88,7 @@ function CoursePlayer({ onExit }: { onExit?: () => void }) {
       <p className="course-kicker">{tl.title}</p>
       <p className="course-count">Scene {Math.max(1, k + 1)} of {S.length}</p>
       <h2 className="course-title">{cur?.title ?? tl.title}</h2>
-      <p className="course-say" aria-live="polite">{cur?.say ?? tl.blurb}</p>
+      <p className="course-say" aria-live="polite">{cur?.say ? <SayText say={cur.say} from={cur.at} to={k + 1 < S.length ? S[k + 1].at : D} t={t} /> : tl.blurb}</p>
       {cur?.say && !voice.has(cur.voice ?? cur.id) && !muted && <p className="course-note">Captions only for this scene.</p>}
       {cur?.checkpoint && <Prediction key={cur.id} checkpoint={cur.checkpoint} />}
 
@@ -100,9 +117,17 @@ function CoursePlayer({ onExit }: { onExit?: () => void }) {
       </details>
 
       {finished && course && <Recap course={course} track={track} />}
+      {finished && <PlayerNext />}
       {(LESSON_DRUGS[tl.id]?.length ?? 0) > 0 && <div className="course-links"><span>Drug mechanisms in this lesson</span>{LESSON_DRUGS[tl.id].map((id) => <button key={id} className="chip" onClick={() => openDrug(id)}>{MECH[id]?.drug ?? id}</button>)}</div>}
     </section>
   );
+}
+
+/** At the end of a lesson inside a module: go straight on. */
+function PlayerNext() {
+  const p = useLibrary((s) => s.playing); if (!p) return null;
+  const m = MODULE_BY_ID[p.moduleId]; const last = !m || p.step + 1 >= m.steps.length;
+  return <button className="lib-btn primary lp-lesson-next" onClick={nextStep}>{last ? 'Finish the module' : 'Next step'} →</button>;
 }
 
 function TrackSwitch({ track }: { track: Track }) {
