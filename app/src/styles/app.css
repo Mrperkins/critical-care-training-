@@ -2250,3 +2250,43 @@ h2,h3,.h2,.card h3{font-weight:600;letter-spacing:-.006em}
   .fpc-lessons button,.fl-planned{grid-template-columns:38px minmax(0,1fr) auto;grid-template-areas:"r t l" "r t s"}
   .fl-ref{grid-area:r}.fl-t{grid-area:t}.fl-len{grid-area:l}.fl-score{grid-area:s}
 }
+
+/* ---- heart: bedside-monitor ECG strip and 12-lead printout */
+.heart-ecg-strip.ecg-monitor{background:#050807;border-top:1px solid #1d2a22}
+.ecg-monitor .heart-strip-info strong{color:#3cf07c;letter-spacing:.04em}
+.ecg-monitor .heart-strip-info small{color:#8fb79c}
+.ecg-hr{display:flex;align-items:baseline;gap:5px;color:#3cf07c;font-family:"Atkinson Hyperlegible Mono",ui-monospace,monospace;line-height:1}
+.ecg-hr b{font-size:34px;font-weight:600;font-variant-numeric:tabular-nums}
+.ecg-hr small{font-size:11px!important;color:#3cf07c!important;opacity:.7}
+.ecg-wave-col{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+.ecg-monitor .heart-strip-wave,.heart-scene-pane .ecg-monitor .heart-strip-wave{display:block;flex:0 0 auto!important;width:100%!important;height:92px!important;border-radius:6px;background:#020403;border:1px solid #14201a}
+.ecg-leads{display:flex;gap:5px;align-items:center}
+.ecg-leads button,.ecg-leads select{min-height:32px;border-radius:7px;border:1px solid #23362b;background:#0b130e;color:#bff5cf;font:600 12px "Atkinson Hyperlegible Mono",ui-monospace,monospace;padding:0 10px}
+.ecg-leads select{width:auto}
+.ecg-leads .ecg-12{margin-left:auto;border-color:#3cf07c;color:#3cf07c}
+.ecg-monitor .heart-strip-actions{flex-wrap:wrap;max-width:170px;justify-content:flex-end}
+.ecg-monitor .heart-strip-actions button,.ecg-monitor .heart-strip-actions select{background:#0b130e;border-color:#23362b}
+.ecg12-scrim{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.72);display:flex;align-items:center;justify-content:center;padding:16px}
+.ecg12{width:min(1180px,100%);max-height:100%;overflow:auto;background:#141821;border:1px solid #2a2f39;border-radius:14px;padding:14px 16px;color:#eef1f5}
+.ecg12 header{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.ecg12 header b{display:block;font-size:17px}.ecg12 header span{font-size:12.5px;color:#9aa3b1}
+.ecg12-act{display:flex;gap:8px}
+.ecg12-paper{overflow:auto;border-radius:6px;background:#fff6f4}
+.ecg12-paper svg{display:block;width:100%;min-width:760px;height:auto}
+.ecg12-lead{cursor:pointer}.ecg12-lead:hover rect{fill:rgba(80,140,255,.07)}
+.ecg12-hint{margin:8px 2px 0;font-size:12.5px;color:#9aa3b1}
+@media (max-width:760px){
+  .ecg-hr b{font-size:24px}
+  .ecg-monitor .heart-strip-wave,.heart-scene-pane .ecg-monitor .heart-strip-wave{height:72px!important}
+  .ecg-leads button,.ecg-leads select{min-height:34px;padding:0 8px}
+  .ecg-monitor .heart-strip-actions{max-width:none}
+  .ecg12-scrim{padding:0;align-items:stretch}.ecg12{border-radius:0}
+}
+@media (max-height:560px) and (min-width:641px){
+  .heart-ecg-strip.ecg-monitor{min-height:0;padding:6px 10px;gap:8px}
+  .ecg-monitor .heart-strip-wave,.heart-scene-pane .ecg-monitor .heart-strip-wave{height:54px!important}
+  .ecg-monitor .heart-strip-info small,.ecg-monitor .heart-strip-info strong span{display:none}
+  .ecg-hr b{font-size:22px}
+  .ecg-leads button,.ecg-leads select{min-height:28px}
+  .ecg-monitor .heart-strip-actions button,.ecg-monitor .heart-strip-actions select{min-height:34px}
+}

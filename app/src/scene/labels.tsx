@@ -12,6 +12,8 @@ import { forwardRef, useCallback, useEffect, useRef, useState, type CSSPropertie
 import { create } from 'zustand';
 import { describeLabel, labelKey } from './labelInfo';
 import { Glossary } from './Glossary';
+import { CompareButton, useCompareShell, type CompareSpec } from './CompareShell';
+import { SceneSlot } from './compare';
 
 export type LabelMode = 'all' | 'dots' | 'off';
 (globalThis as unknown as { __CCLabels?: unknown }).__CCLabels = { describe: describeLabel, key: labelKey };
@@ -198,8 +200,8 @@ function QualityButton() {
 }
 
 /** Scene container used by every module: full-screen button, label-mode switch, and the label info card. */
-export function SceneWrap({ className = '', children, labels = true }: { className?: string; children: ReactNode; labels?: boolean }) {
-  const ref = useRef<HTMLDivElement>(null); const fs = useFullscreen(ref); const mode = useSceneLabelMode(); const setMode = useLabels((s) => s.setMode);
+export function SceneWrap({ className = '', children, labels = true, compare }: { className?: string; children: ReactNode; labels?: boolean; compare?: CompareSpec }) {
+  const ref = useRef<HTMLDivElement>(null); const cmp = useCompareShell(compare, ref); const fs = useFullscreen(ref); const mode = useSceneLabelMode(); const setMode = useLabels((s) => s.setMode);
   const [gloss, setGloss] = useState(false);
   // bedside numbers drawn over the scene (.alv-hud) start folded away so the model is unobstructed
   const [hudOpen, setHudOpen] = useState(false); const [hasHud, setHasHud] = useState(false);
@@ -213,10 +215,13 @@ export function SceneWrap({ className = '', children, labels = true }: { classNa
   useEffect(() => { if (!hint) return; const t = setTimeout(() => setHint(null), 2400); return () => clearTimeout(t); }, [hint]);
   useEffect(() => setHost(ref.current), []);
   useEffect(() => { window.dispatchEvent(new Event('resize')); }, [fs.active]); // canvases re-measure on enter/exit
-  return (
-    <div ref={ref} className={`scene-wrap ${className}${fs.pseudo ? ' fs-pseudo' : ''}${fs.active ? ' fs-on' : ''}${hudOpen ? ' hud-open' : ''}`.trim()}>
-      {children}
+  return (<>
+    {cmp.twin}
+    <div ref={ref} className={`scene-wrap ${className}${fs.pseudo ? ' fs-pseudo' : ''}${fs.active ? ' fs-on' : ''}${hudOpen ? ' hud-open' : ''}${cmp.cls}`.trim()}>
+      <SceneSlot value="main">{children}</SceneSlot>
+      {cmp.overlay}
       <div className="scene-tools2" role="toolbar" aria-label="View options">
+        {compare && <CompareButton />}
         {labels && <button type="button" className={`st-btn st-lab m-${mode}`} onClick={() => { const m = NEXT[mode]; setMode(m); setHint(MODE_HINT[m]); }}
           title="Labels: names → dots (tap a dot for its name) → off" aria-label={`Labels: ${MODE_TEXT[mode]}. Change`}>
           <span className="st-ico" aria-hidden="true"><Ti k={mode === 'all' ? 'labels' : mode === 'dots' ? 'dots' : 'off'} /></span><span className="st-txt">{MODE_TEXT[mode]}</span>
@@ -241,7 +246,7 @@ export function SceneWrap({ className = '', children, labels = true }: { classNa
       {gloss && <Glossary onClose={() => setGloss(false)} />}
       <LabelInfoCard host={host} />
     </div>
-  );
+  </>);
 }
 
 /**

@@ -16,7 +16,8 @@ import { loadHeartHD } from '../asset/anatomy';
 import { registerHeartContext } from '../asset/anatomyConsistency';
 import { useLabUI } from '../labs/labStore';
 import { LabelChip } from '../scene/labels';
-import { session } from './session';
+import { session, VentSession } from './session';
+import { useIsTwin, useTwin } from '../scene/compare';
 import { useUI } from '../app/store';
 
 /* ------------------------------------------------------------------ shared uniforms */
@@ -101,10 +102,10 @@ export function airwayMaterial(kind: 'wall' | 'cart', UU: LungUniforms = U) {
   m.customProgramCacheKey = () => 'air' + kind;
   return m;
 }
-function diaphragmMaterial() {
+function diaphragmMaterial(UU: LungUniforms = U) {
   const m = new THREE.MeshPhysicalMaterial({ color: '#9a4a45', roughness: 0.5, sheen: 0.4, sheenColor: new THREE.Color('#ffc8c0'), clearcoat: 0.3 });
   m.onBeforeCompile = (sh) => {
-    Object.assign(sh.uniforms, U);
+    Object.assign(sh.uniforms, UU);
     sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nattribute float aDome; uniform vec2 uS; uniform float uLungH; varying vec3 vObj; varying vec3 vObjN;')
       .replace('#include <begin_vertex>', `#include <begin_vertex>\nfloat s = position.x < 0.0 ? uS.x : uS.y; transformed.y -= s * uLungH * 0.5 * (0.35 + 0.65 * aDome); vObj = position; vObjN = objectNormal;`);
     sh.uniforms.uTissue = { value: tissueTexture() };
@@ -113,10 +114,10 @@ function diaphragmMaterial() {
   };
   return m;
 }
-function mucusMaterial(uniform: 'uMucus' | 'uPlug') {
+function mucusMaterial(uniform: 'uMucus' | 'uPlug', UU: LungUniforms = U) {
   const m = new THREE.MeshPhysicalMaterial({ color: '#c8b46e', roughness: 0.25, clearcoat: 1, clearcoatRoughness: 0.15, transmission: 0, transparent: true });
   m.onBeforeCompile = (sh) => {
-    Object.assign(sh.uniforms, U);
+    Object.assign(sh.uniforms, UU);
     sh.uniforms.uTissue = { value: tissueTexture() };
     sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nvarying vec3 vObj; varying vec3 vObjN;').replace('#include <begin_vertex>', '#include <begin_vertex>\nvObj = position; vObjN = objectNormal;');
     sh.fragmentShader = sh.fragmentShader.replace('#include <common>', `#include <common>\nuniform float ${uniform}; varying vec3 vObj; varying vec3 vObjN;\n${GLSL_TRIPLANAR}`)
@@ -124,6 +125,16 @@ function mucusMaterial(uniform: 'uMucus' | 'uPlug') {
   };
   m.customProgramCacheKey = () => 'mucus' + uniform;
   return m;
+}
+
+/* ------------------------------------------------------------------ normal twin */
+/** A healthy lung on the patient's own ventilator settings, for "Compare with normal". */
+export interface LungEngine { S: VentSession; U: LungUniforms }
+export const makeNormalLungs = (): LungEngine => ({ S: new VentSession('normal'), U: makeLungUniforms() });
+function syncSettings(S: VentSession) {
+  const live = session.m.s as unknown as Record<string, unknown>; const own = S.m.s as unknown as Record<string, unknown>; const patch: Record<string, unknown> = {};
+  for (const k in live) if (typeof live[k] !== 'object' && live[k] !== own[k]) patch[k] = live[k];
+  if (Object.keys(patch).length) S.set(patch as never);
 }
 
 /* ------------------------------------------------------------------ scene */
@@ -138,7 +149,8 @@ export function LungScene({ asset }: { asset: RespAsset }) {
 
 function Lungs({ asset }: { asset: RespAsset }) {
   const { meshes: M, mapping } = asset;
-  const view = useUI((s) => s.ventView); const scId = useUI((s) => s.ventScenario); const flowDisplay = useUI((s) => s.ventFlowDisplay);
+  const engine = useTwin<LungEngine | null>('vent.engine', null); const S = engine?.S ?? session; const UU = engine?.U ?? U;
+  const view = useUI((s) => s.ventView); const scId = useTwin('vent.scenario', useUI((s) => s.ventScenario)); const flowDisplay = useUI((s) => s.ventFlowDisplay);
   const tier = useLabUI((s) => s.visualTier);
   const [highHeart, setHighHeart] = useState<Record<string, THREE.Mesh> | null>(null);
   useEffect(() => {
@@ -151,14 +163,14 @@ function Lungs({ asset }: { asset: RespAsset }) {
   }, [tier]);
   const heartRegistration = useMemo(() => M.heart && highHeart ? registerHeartContext(M.heart.geometry, highHeart) : null, [M, highHeart]);
   const mats = useMemo(() => ({
-    lung: lungMaterial(false), ghost: lungMaterial(true), wall: airwayMaterial('wall'), cart: airwayMaterial('cart'), dia: diaphragmMaterial(),
+    lung: lungMaterial(false, UU), ghost: lungMaterial(true, UU), wall: airwayMaterial('wall', UU), cart: airwayMaterial('cart', UU), dia: diaphragmMaterial(UU),
     ett: new THREE.MeshPhysicalMaterial({ color: '#e6eef2', roughness: 0.12, clearcoat: 1, transparent: true, opacity: 0.5, depthWrite: false }),
     cuff: new THREE.MeshPhysicalMaterial({ color: '#b8d4e6', roughness: 0.2, clearcoat: 1, transparent: true, opacity: 0.35, depthWrite: false }),
     heart: new THREE.MeshPhysicalMaterial({ color: '#7a2a2a', roughness: 0.45, clearcoat: 0.4, sheen: 0.3, sheenColor: new THREE.Color('#ffb0a0') }),
     vessel: new THREE.MeshPhysicalMaterial({ color: '#8a3a3c', roughness: 0.4, clearcoat: 0.4 }),
     larynx: new THREE.MeshPhysicalMaterial({ color: '#e9dfcf', roughness: 0.55, clearcoat: 0.3 }),
     skin: new THREE.MeshPhysicalMaterial({ color: '#c9b3a6', roughness: 0.8, transparent: true, opacity: 0.07, depthWrite: false, side: THREE.DoubleSide }),
-    mucus: mucusMaterial('uMucus'), plug: mucusMaterial('uPlug'),
+    mucus: mucusMaterial('uMucus', UU), plug: mucusMaterial('uPlug', UU),
   }), []);
   const lobes = ['lung_RUL', 'lung_RML', 'lung_RLL', 'lung_LUL', 'lung_LLL'];
   // coronal cross-section: remove the lungs (and heart) in front of a plane so the cut lobes and the airway tree inside show
@@ -171,13 +183,13 @@ function Lungs({ asset }: { asset: RespAsset }) {
     for (const m of [mats.lung, mats.ghost, mats.heart, mats.vessel]) { m.clippingPlanes = planes; m.side = planes.length ? THREE.DoubleSide : THREE.FrontSide; m.needsUpdate = true; }
   }, [ventCut, zRange, mats, gl]);
   useEffect(() => {
-    const L = mapping.lobes; U.uHilR.value.set(...L.RUL.hilum); U.uHilL.value.set(...L.LUL.hilum);
-    U.uLungH.value = mapping.lungBox.max[1] - mapping.lungBox.min[1];
+    const L = mapping.lobes; UU.uHilR.value.set(...L.RUL.hilum); UU.uHilL.value.set(...L.LUL.hilum);
+    UU.uLungH.value = mapping.lungBox.max[1] - mapping.lungBox.min[1];
   }, [mapping]);
   // translucent lungs to show the airways
   useEffect(() => {
     const x = view === 'airway';
-    mats.lung.transparent = x; mats.lung.depthWrite = !x; mats.lung.needsUpdate = true; U.uOpacity.value = x ? 0.22 : 1;
+    mats.lung.transparent = x; mats.lung.depthWrite = !x; mats.lung.needsUpdate = true; UU.uOpacity.value = x ? 0.22 : 1;
   }, [view, mats]);
 
   // secretion column inside the ETT and a plug in the right main bronchus
@@ -210,25 +222,27 @@ function Lungs({ asset }: { asset: RespAsset }) {
   const heart = useRef<THREE.Group>(null);
 
   useFrame((st, dtRaw) => {
-    const dt = (window as unknown as { __instant?: boolean }).__instant ? 1 : Math.min(0.05, dtRaw); const m = session.m; const reg = m.regional();
-    U.uTime.value += dt;
+    const dt = (window as unknown as { __instant?: boolean }).__instant ? 1 : Math.min(0.05, dtRaw);
+    if (S !== session) { syncSettings(S); S.tick(Math.min(0.05, dtRaw)); }
+    const m = S.m; const reg = m.regional();
+    UU.uTime.value += dt;
     for (let k = 0; k < 2; k++) {
       const V = m.V[k]; // litres above the relaxed (ZEEP) volume
       const s = (Math.cbrt(Math.max(0.2, (FRC[k] + V) / FRC[k])) - 1) * AMPLIFY;
       const key = k === 0 ? 'x' : 'y';
-      U.uS.value[key] = s;
-      const rec = m.lung.comps[k].recruitable; U.uClosed.value[key] = damp(U.uClosed.value[key], rec > 0 ? Math.min(0.95, (1 - reg[k].open) * 1.25) : 0, 6, dt);
-      U.uOver.value[key] = damp(U.uOver.value[key], Math.min(1, reg[k].overdist / 6), 6, dt);
-      U.uColl.value[key] = damp(U.uColl.value[key], reg[k].collapsed, 4, dt);
+      UU.uS.value[key] = s;
+      const rec = m.lung.comps[k].recruitable; UU.uClosed.value[key] = damp(UU.uClosed.value[key], rec > 0 ? Math.min(0.95, (1 - reg[k].open) * 1.25) : 0, 6, dt);
+      UU.uOver.value[key] = damp(UU.uOver.value[key], Math.min(1, reg[k].overdist / 6), 6, dt);
+      UU.uColl.value[key] = damp(UU.uColl.value[key], reg[k].collapsed, 4, dt);
     }
-    U.uSpasm.value = damp(U.uSpasm.value, session.spasmNow(), 5, dt);
-    U.uMucus.value = damp(U.uMucus.value, session.sc.id === 'ett' ? Math.max(0, (m.lung.Rett - 4) / 14) : 0, 4, dt);
-    U.uPlug.value = damp(U.uPlug.value, session.plugR != null && session.plugR > 20 ? 1 : 0, 4, dt);
-    U.uWet.value = session.sc.id === 'edema' ? 0.6 : 0;
+    UU.uSpasm.value = damp(UU.uSpasm.value, S.spasmNow(), 5, dt);
+    UU.uMucus.value = damp(UU.uMucus.value, S.sc.id === 'ett' ? Math.max(0, (m.lung.Rett - 4) / 14) : 0, 4, dt);
+    UU.uPlug.value = damp(UU.uPlug.value, S.plugR != null && S.plugR > 20 ? 1 : 0, 4, dt);
+    UU.uWet.value = S.sc.id === 'edema' ? 0.6 : 0;
     if (heart.current) { const b = 1 + 0.018 * Math.max(0, Math.sin(st.clock.elapsedTime * 7.5)) ** 3; heart.current.scale.setScalar(b); }
     // particles
     const inst = parts.current; if (inst && flowDisplay !== 'volume') {
-      const q = session.m.lastQ; const sp = q * 0.55; const col = q >= 0 ? tmp.c1 : tmp.c2;
+      const q = S.m.lastQ; const sp = q * 0.55; const col = q >= 0 ? tmp.c1 : tmp.c2;
       pmat.color.lerp(col, 0.2); pmat.opacity = Math.min(0.85, Math.abs(q) * 1.4);
       seeds.forEach((p, i) => {
         p.u = (p.u + sp * dt + 1) % 1;
@@ -266,8 +280,8 @@ function Lungs({ asset }: { asset: RespAsset }) {
       {flowDisplay !== 'particles' && <VolumeFlow label="bulk-air-through-ett-and-trachea" path={airColumn}
         color="#a6e0ff" width={0.82} opacity={0.93} layer={6}
         sample={() => {
-          const q = session.m.lastQ; const strength = Math.min(1, Math.abs(q) * 1.65);
-          return { time: U.uTime.value, activity: Math.max(view === 'airway' ? 0.09 : 0, strength),
+          const q = S.m.lastQ; const strength = Math.min(1, Math.abs(q) * 1.65);
+          return { time: UU.uTime.value, activity: Math.max(view === 'airway' ? 0.09 : 0, strength),
             direction: q >= 0 ? 1 : -1, speed: Math.min(2.3, Math.abs(q) * 1.2) };
         }}
       />}
@@ -278,8 +292,8 @@ function Lungs({ asset }: { asset: RespAsset }) {
 }
 
 function Callouts({ asset, plugPos }: { asset: RespAsset; plugPos: THREE.Vector3 }) {
-  const scId = useUI((s) => s.ventScenario); const show = useUI((s) => s.labels);
-  if (!show) return null;
+  const scId = useUI((s) => s.ventScenario); const show = useUI((s) => s.labels); const tw = useIsTwin();
+  if (!show || tw) return null;
   const mp = asset.mapping; const L = mp.lobes;
   const tag = (pos: THREE.Vector3 | [number, number, number], text: string, key: string) => (
     <Html key={key} position={pos as never} center distanceFactor={IS_PHONE ? 7 : 6} zIndexRange={[20, 0]}><LabelChip className="tag3d" text={text} /></Html>
@@ -301,7 +315,7 @@ const VIEWS: Record<string, { dir: [number, number, number]; tgt: [number, numbe
   base: { dir: [0.3, -0.45, 1], tgt: [0, -0.5, 0], size: [2.8, 2.4] },
 };
 function Rig() {
-  const three = useThree(); (window as unknown as Record<string, unknown>).__three = three;
+  const three = useThree(); const tw = useIsTwin(); if (!tw) (window as unknown as Record<string, unknown>).__three = three;
   const ref = useRef<CameraControls>(null); const view = useUI((s) => s.ventView); useCameraGate(ref);
   const aspect = three.size.width / Math.max(1, three.size.height);
   useEffect(() => {

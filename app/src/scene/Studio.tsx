@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { CameraLink } from './compare';
 import { Canvas } from '@react-three/fiber';
 import { Environment, Lightformer, PerformanceMonitor } from '@react-three/drei';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
@@ -68,6 +69,7 @@ export function StudioCanvas({ children, camera, className = 'scene-canvas', fog
       <color attach="background" args={['#05090d']} />
       {fog && <fog attach="fog" args={['#05090d', 24, 52]} />}
       <StudioLights />
+      <CameraLink />
       {children}
     </Canvas></SceneBoundary>
   );
