@@ -36,7 +36,8 @@ function Thumb({ id, shelf }: { id: string; shelf: ShelfId }) {
   const src = real && failed === 0 ? `imaging/real/${real.file}` : `thumbs/${id}.jpg`;
   return failed > (real ? 1 : 0)
     ? <Motif shelf={shelf} />
-    : <img className={`lib-thumb${real && failed === 0 ? ' lib-thumb-clinical' : ''}`} src={src} alt="" loading="lazy" decoding="async" onError={() => setFailed((n) => n + 1)} />;
+    : <><img className={`lib-thumb${real && failed === 0 ? ' lib-thumb-clinical' : ''}`} src={src} alt="" loading="lazy" decoding="async" onError={() => setFailed((n) => n + 1)} />
+        {real && failed === 0 && <span className="lib-study-marker">Real clinical image</span>}</>;
 }
 function Bar({ value, label }: { value: number; label: string }) {
   return <span className="lib-bar" role="progressbar" aria-valuenow={value} aria-valuemin={0} aria-valuemax={100} aria-label={label}><span style={{ width: `${value}%` }} /></span>;
@@ -48,7 +49,6 @@ function ModuleCard({ m, wide }: { m: LibraryModule; wide?: boolean }) {
     <button className={`lib-card${wide ? ' wide' : ''}`} onClick={() => openLibrary({ page: 'module', id: m.id })}>
       <span className={`lib-art thumb-${m.id}`} style={{ background: SHELF_BY_ID[m.shelf].tone }}>
         <Thumb id={m.id} shelf={m.shelf} />
-        {CLINICAL_THUMBS[m.id] && <span className="lib-study-marker">Real clinical image</span>}
         {prog.done > 0 && prog.done < prog.total && <span className="lib-chip">In progress</span>}
         {prog.done === prog.total && prog.total > 0 && <span className="lib-chip done">Done</span>}
         {m.isNew && prog.done === 0 && <span className="lib-chip new">New</span>}
