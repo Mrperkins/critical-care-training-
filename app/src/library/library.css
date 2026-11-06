@@ -348,3 +348,21 @@ html:has(.app-b),body:has(.app-b){overflow:hidden}
 .aud-card .lib-card-meta>span{overflow:hidden;text-overflow:ellipsis;min-width:0}
 .aud-card .lib-card-meta>b{flex:none}
 @media (max-width:760px){.lib-row-h h2{font-size:20px}}
+
+/* Thumbnail refinements: actual in-app scenes or the vetted /imaging/real/ catalog only. */
+.lib-format-mark{display:inline-flex;align-items:center;justify-content:center;flex:none;width:19px;height:19px;color:#87baff}
+.aud-card .lib-format-mark{color:#b9acf5}
+.lib-thumb-clinical{object-fit:contain;background:#0a0e14;filter:contrast(1.07)}
+.lib-art .lib-study-marker{position:absolute;right:10px;top:10px;z-index:2;background:rgba(5,9,15,.88);border:1px solid rgba(255,255,255,.2);color:#e0e5ec;font:600 11px/1.2 var(--fb);border-radius:5px;padding:4px 6px;letter-spacing:.012em}
+.lib-reference-credit p{margin:0;font-size:13px;line-height:1.5;color:var(--lib-dim)}
+.lib-reference-credit a{font-size:13px;color:var(--lib-link);width:fit-content;text-decoration:underline;text-underline-offset:2px}
+.lib-art.thumb-gas-dka .lib-thumb{object-fit:cover;object-position:center 50%;transform:scale(1.45)}
+.lib-art.thumb-gas-lytes .lib-thumb{object-fit:cover;object-position:center 45%;transform:scale(1.22)}
+.lib-art.thumb-lines-bleed .lib-thumb{object-fit:cover;transform:scale(1.28)}
+.lib-art.thumb-cardiac-mi .lib-thumb{object-fit:cover;transform:scale(1.13)}
+.lib-art.thumb-pharm-moa .lib-thumb{filter:brightness(1.6) contrast(1.16);object-position:center 32%}
+.lib-art.thumb-vent-waveforms .lib-thumb{object-position:center 55%}
+@media(prefers-reduced-motion:no-preference){
+ .lib-thumb{transition:filter .16s ease}
+ .lib-card:hover .lib-thumb:not(.lib-thumb-clinical){filter:brightness(1.09)}
+}
