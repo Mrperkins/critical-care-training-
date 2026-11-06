@@ -7,7 +7,7 @@ This addition expands the library's real-patient training references without rep
 - **39 CT references** (brain, vessels, thoracoabdominal emergencies).
 - **31 ultrasound references** (lung US, FAST, vascular access, aorta, IVC and bedside echo).
 - **7 new MRI examples**, curated from Creative Commons Attribution 4.0 original-source pages. These MRI images are **online-only** until an authorized copy can be ingested and hash-verified under `imaging/real/`.
-- **107 imaging studies total**, with 104 structured quizzes. The 3 older references without quizzes use observation-and-reveal exercises.
+- **107 imaging studies total**, with 101 structured quizzes. The 6 older references without quizzes use observation-and-reveal exercises.
 
 This is a live renderer for one interpretation exercise per study. It does not pretend these are 107 unique patients: some examples represent different frames, slices or findings in the same publication.
 
