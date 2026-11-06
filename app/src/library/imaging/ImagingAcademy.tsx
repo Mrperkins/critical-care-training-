@@ -34,7 +34,7 @@ export function ImagingAcademy({moduleId,initialModality,initialId}:{moduleId?:s
   const targetCourse=IMAGING_COURSES.find(c=>c.id===recommended);
   const targetChapter=targetCourse?.lesson.findIndex(l=>l.media.includes(initialId??''))??-1;
   const [courseId,setCourseId]=useState<string|null>(recommended??null);
-  const [screen,setScreen]=useState<Screen>(recommended?initialId?(targetChapter>=0?'chapter':'drills'):'syllabus':'catalog');
+  const [screen,setScreen]=useState<Screen>(recommended ? (initialId ? (targetChapter>=0?'chapter':'drills') : 'syllabus') : (initialId?'drills':'catalog'));
   const [modality,setModality]=useState<ImagingModality|'all'>(initialModality??'all');
   const [chapter,setChapter]=useState(targetChapter>=0?targetChapter:0);
   const [sampleId,setSampleId]=useState<string|null>(initialId??null);
