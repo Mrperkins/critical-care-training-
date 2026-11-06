@@ -48,5 +48,6 @@ export function SpineReference(){
       <span>{level}{level==='L5'?' to sacrum':`–L${Number(level[1])+1}`} highlighted · real vertebral surfaces, schematic level selection</span>
     </label>
     <p className="imc-model-note">The vertebral column shows bony landmarks only. Epidural fluid, thecal sac compression and nerve roots are visible on the original MRI, not in this 3D reference. No MRI slice or patient-specific lesion has been inferred.</p>
+    <p className="imc-model-note">Vertebral geometry: BodyParts3D 3.0, © Database Center for Life Science, <a href="https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en" target="_blank" rel="noreferrer">CC BY-SA 2.1 Japan</a>. Converted and fitted to the app's reference body, then simplified. <a href="https://doi.org/10.18908/lsdba.nbdc00837-000" target="_blank" rel="noreferrer">Original dataset</a>.</p>
   </>;
 }
