@@ -31,10 +31,12 @@ const FILTERS:Array<ImagingModality|'all'>=['all','ultrasound','xray','ct','mri'
 
 export function ImagingAcademy({moduleId,initialModality,initialId}:{moduleId?:string;initialModality?:ImagingModality;initialId?:string}) {
   const recommended=moduleId?COURSE_FOR_MODULE[moduleId]:undefined;
+  const targetCourse=IMAGING_COURSES.find(c=>c.id===recommended);
+  const targetChapter=targetCourse?.lesson.findIndex(l=>l.media.includes(initialId??''))??-1;
   const [courseId,setCourseId]=useState<string|null>(recommended??null);
-  const [screen,setScreen]=useState<Screen>(recommended?'syllabus':'catalog');
+  const [screen,setScreen]=useState<Screen>(recommended?initialId?(targetChapter>=0?'chapter':'drills'):'syllabus':'catalog');
   const [modality,setModality]=useState<ImagingModality|'all'>(initialModality??'all');
-  const [chapter,setChapter]=useState(0);
+  const [chapter,setChapter]=useState(targetChapter>=0?targetChapter:0);
   const [sampleId,setSampleId]=useState<string|null>(initialId??null);
   const [answer,setAnswer]=useState<number|null>(null);
   const [feedback,setFeedback]=useState(false);
@@ -120,7 +122,8 @@ export function ImagingAcademy({moduleId,initialModality,initialId}:{moduleId?:s
           <span><b>{l.title}</b><small>{l.goal}</small></span>
           <span className="img-chapter-check">{progress.completed[chapterKey(course,l)]?'Completed':'Learn'}</span>
         </button></li>)}</ol>
-        <button className="lib-btn" onClick={()=>{setCasePos(0);setScreen('practicum')}}>Final interpretation practicum</button>
+        <button className="lib-btn" disabled={progressFor(course,progress)!==course.lesson.length} onClick={()=>{setCasePos(0);setScreen('practicum')}}>Final interpretation practicum</button>
+        {progressFor(course,progress)!==course.lesson.length&&<p className="img-academy-lock-note">Complete the chapter knowledge checkpoints to unlock the final case practicum.</p>}
       </section>
       <aside className="img-course-reading">
         <h2>Sources and further reading</h2>
