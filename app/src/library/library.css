@@ -664,3 +664,5 @@ html:has(.app-b),body:has(.app-b){overflow:hidden}
 @media(max-width:760px){.imc-reference-3d{padding:10px}.imc-model-viewport{height:290px;min-height:230px}}
 
 .imc-window-label{position:absolute;top:9px;left:9px;z-index:6;pointer-events:none;max-width:85%;background:rgba(9,18,28,.9);color:#d1e5ee;border:1px solid #456078;border-radius:6px;padding:5px 8px;font:600 11px/1.4 var(--fb)}
+
+.imc-slice-slider select{background:#182638;color:#e2edf4;border:1px solid #47667c;border-radius:7px;padding:9px 12px;min-height:44px;font:600 13px var(--fb);width:100%}
