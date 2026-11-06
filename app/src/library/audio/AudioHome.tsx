@@ -8,6 +8,7 @@ import { EPISODES, MENTAL_REPS } from '../../audio/catalog';
 import { DOMAIN_LABELS } from '../../audio/mastery';
 import { EXPERT_TRACKS } from '../../audio/tracks';
 import { useAudioProgress } from '../../audio/progress';
+import { ContentFormatIcon } from '../ContentFormatIcon';
 import type { AudioEpisode, AudioFormat, MentalRep } from '../../audio/types';
 import { audioAppHref, audioAssets, episodeSeconds, episodeSources, playEpisode, usePlayer } from './player';
 
@@ -42,7 +43,7 @@ function EpisodeCard({ e, tone, voiced, left, secs }: { e: AudioEpisode; tone: s
         <span className="aud-dur">{left != null ? `${Math.max(1, Math.round(left / 60))} min left` : `${mins} min`}</span>
         {done && <span className="lib-chip done">Done</span>}
       </span>
-      <span className="lib-card-meta"><b className="k-audio">{FORMAT_LABEL[e.format]}</b><span>{DOMAIN_LABELS[e.domain]}{voiced ? '' : ' · read along'}</span></span>
+      <span className="lib-card-meta"><span className="lib-format-mark" title="Audio learning"><ContentFormatIcon kind="audio" size={16} /><span className="sr-only">Audio learning</span></span><b className="k-audio">{FORMAT_LABEL[e.format]}</b><span>{DOMAIN_LABELS[e.domain]}{voiced ? '' : ' · read along'}</span></span>
       <span className="lib-card-title">{e.title.replace(/^(Audio Case|ICU Literacy|Expert Case): /, '')}</span>
     </button>
   );
@@ -58,7 +59,7 @@ function RepCard({ r }: { r: MentalRep }) {
         <span className="aud-dur">{r.minutes} min</span>
         {done && <span className="lib-chip done">Done</span>}
       </span>
-      <span className="lib-card-meta"><b className="k-audio">Mental Rep</b><span>{r.beats.length} guided beats</span></span>
+      <span className="lib-card-meta"><span className="lib-format-mark" title="Audio learning"><ContentFormatIcon kind="audio" size={16} /><span className="sr-only">Audio learning</span></span><b className="k-audio">Mental Rep</b><span>{r.beats.length} guided beats</span></span>
       <span className="lib-card-title">{r.title}</span>
     </a>
   );
