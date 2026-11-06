@@ -8,7 +8,7 @@ const click = (t) => `[...document.querySelectorAll('.workspace button')].find(b
 const vent = (sc, view) => M('vent') + `||__CCVent.load('${sc}');__ui.getState().set({ventView:'${view}',ventCut:'none'})`;
 const R = {
   'vent-foundations': vent('normal', 'front'), 'vent-pressure': vent('ett', 'airway'), 'vent-ards': vent('ards', 'side'),
-  'vent-waveforms': vent('asthma', 'front') + `;__ui.getState().set({ventCut:'mid'})`, 'vent-ptx': vent('ptx', 'front'), 'vent-desat': vent('mainstem', 'airway'),
+  'vent-waveforms': vent('asthma', 'front'), 'vent-ptx': vent('ptx', 'front'), 'vent-desat': vent('mainstem', 'airway'),
   'gas-basics': M('abg') + '||' + click('Alveolus'), 'gas-dka': M('abg') + '||' + click('Kidney'), 'gas-lytes': M('labs') + '||' + click('Body'), 'gas-bleeding': M('labs') + '||' + click('Cells'),
   'lines-artline': M('lines') + '||' + click('Art line'), 'lines-cvp': M('lines') + '||' + click('CVC'), 'lines-shock': M('lines') + '||' + click('Heart'), 'lines-bleed': M('lines') + '||' + click('Vessels'), 'lines-devices': M('lines') + '||' + click('Bedside'),
   'cardiac-mi': M('heart') + `||(await __qa.heart()).getState().set({section:'coronary'})`,
@@ -21,7 +21,7 @@ const R = {
   'ob-pregnancy': M('womens') + `||__ui.getState().set({atlasDisease:'fetal-placental-circulation'})||` + click('Affected anatomy'),
   'pharm-moa': M('moa'),
 };
-const HIDE = `.scene-wrap button,.scene-pane button,.scene-tools2,.scene-primary-tools,.scene-tools,.alv-focus,.legend,.lchip,.view-btns,.st-hint,.alv-hud,.wave-wrap,.cardiac-views,.img-note,.credit,.label-info,.mi-hint{visibility:hidden!important}`;
+const HIDE = `.scene-wrap button,.scene-pane button,.scene-tools2,.scene-primary-tools,.scene-tools,.alv-focus,.legend,.lchip,.view-btns,.st-hint,.alv-hud,.cardiac-views,.img-note,.credit,.label-info,.mi-hint{visibility:hidden!important}`;
 const b = await chromium.launch({ args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
 for (const [id, js] of Object.entries(R)) {
   if (only && !only.includes(id)) continue;
@@ -30,7 +30,8 @@ for (const [id, js] of Object.entries(R)) {
   await p.goto('http://localhost:4173/'); await p.waitForSelector('#library-main');
   for (const part of js.split('||')) { await p.evaluate(`(async()=>{${part}})()`); await p.waitForTimeout(8000); }
   await p.addStyleTag({ content: HIDE }); await p.waitForTimeout(600);
-  const el = (await p.$('.atlas-visual-3d')) || (await p.$('.workspace .scene-wrap')) || (await p.$('.workspace canvas')) || (await p.$('.workspace .scene-pane'));
+  // For waveforms, capture the real pressure/flow/volume canvas rather than the lung model.
+  const el = (id === 'vent-waveforms' ? await p.$('.workspace .wave-wrap') : null) || (await p.$('.atlas-visual-3d')) || (await p.$('.workspace .scene-wrap')) || (await p.$('.workspace canvas')) || (await p.$('.workspace .scene-pane'));
   if (!el) { console.log('no scene', id); await p.close(); continue; }
   const bb = await el.boundingBox(); await p.screenshot({ path: `${out}/${id}.png`, clip: { x: bb.x, y: bb.y, width: Math.min(bb.width, 1440 - bb.x), height: Math.min(bb.height, 900 - bb.y) } }); await p.close(); console.log('ok', id);
 }
