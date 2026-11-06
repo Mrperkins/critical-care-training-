@@ -14,7 +14,7 @@ import { ApnoeaCard, AirwayCard, NeoCard, ObCard } from '../populations/Cards';
 import { PedsCard } from '../populations/PedsCard';
 import { STAGES, answer, endCase, fmtTime, nextQuestion, startCase, useCaseRun, type Stage } from './caseRun';
 import { useLibrary } from './libraryStore';
-const CARD = { apnoea: ApnoeaCard, airway: AirwayCard, neo: NeoCard, ob: ObCard, peds: PedsCard };
+export const CARD = { apnoea: ApnoeaCard, airway: AirwayCard, neo: NeoCard, ob: ObCard, peds: PedsCard };
 
 const shuffle = (n: number, seed: string) => { let h = 0; for (const c of seed) h = (h * 31 + c.charCodeAt(0)) >>> 0; const a = Array.from({ length: n }, (_, i) => i); for (let i = n - 1; i > 0; i--) { h = (h * 1103515245 + 12345) >>> 0; const j = h % (i + 1); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 
@@ -39,7 +39,7 @@ function Facts({ c }: { c: SceneCase }) {
 }
 
 /** Concepts the case tests, each with the lesson or drug that teaches it. */
-function Review({ id, ok }: { id: string; ok: boolean }) {
+export function Review({ id, ok }: { id: string; ok: boolean }) {
   const cs = CHALLENGE_CONCEPTS[id] ?? []; if (!cs.length) return null;
   const leave = (f: () => void) => { endCase(); useLibrary.getState().setPlaying(null); useLibrary.getState().setSolo(null); f(); };
   return (

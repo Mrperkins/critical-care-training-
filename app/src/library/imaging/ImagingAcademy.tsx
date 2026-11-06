@@ -123,7 +123,11 @@ export function ImagingAcademy({moduleId,initialModality,initialId}:{moduleId?:s
           <span><b>{l.title}</b><small>{l.goal}</small></span>
           <span className="img-chapter-check">{progress.completed[chapterKey(course,l)]?'Completed':'Learn'}</span>
         </button></li>)}</ol>
-        <button className="lib-btn" disabled={!allChaptersComplete} onClick={()=>{if(!allChaptersComplete)return;setCasePos(0);setScreen('practicum')}>Final interpretation practicum</button>
+        <button className="lib-btn" disabled={!allChaptersComplete} onClick={()=>{
+          if(!allChaptersComplete)return;
+          setCasePos(0);
+          setScreen('practicum');
+        }}>Final interpretation practicum</button>
         {progressFor(course,progress)!==course.lesson.length&&<p className="img-academy-lock-note">Complete the chapter knowledge checkpoints to unlock the final case practicum.</p>}
       </section>
       <aside className="img-course-reading">

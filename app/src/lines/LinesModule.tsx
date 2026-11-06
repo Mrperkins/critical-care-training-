@@ -20,6 +20,7 @@ import { LinesLearn } from './LinesLearn';
 import { LinesChallenge } from './LinesChallenge';
 import { LinesSim } from './LinesSim';
 import { SceneWrap } from '../scene/labels';
+import { COMPARE_MEDIA } from '../scene/compareMedia';
 
 export function LinesModule() {
   const [assets, setAssets] = useState<{ body: BodyAsset; lines: LinesAsset } | null>(null); const [err, setErr] = useState<string | null>(null);
@@ -30,7 +31,7 @@ export function LinesModule() {
   return (
     <main className="stage lines-stage">
       <section className="scene-pane">
-        <SceneWrap>
+        <SceneWrap compare={{ finding: 'Abnormal study', media: COMPARE_MEDIA.lines }}>
           {assets ? <LinesScene body={assets.body} asset={assets.lines} /> : <div className="loading">{err ? `Could not load anatomy: ${err}` : 'Loading anatomy…'}</div>}
           <SceneOverlay />
           <Toast />

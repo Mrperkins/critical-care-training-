@@ -22,6 +22,8 @@ import { UltrasoundScene } from './UltrasoundScene';
 import { useAbdUI, loadAbdPreset, currentAbdomen, ABD_PRESETS, type AbdPreset, type AbdView } from './abdomenStore';
 import { fastExam, shockClass, abdomenFindings, type AbdomenState } from './state';
 import { SceneWrap } from '../scene/labels';
+import { COMPARE_MEDIA } from '../scene/compareMedia';
+import { emptyAbdomen } from './state';
 
 const FOCUS: [string, string][] = [['abdomen.whole', 'Whole'], ['abdomen.ruq', 'RUQ'], ['abdomen.luq', 'LUQ'], ['abdomen.pelvis', 'Pelvis'], ['abdomen.aorta', 'Aorta'], ['abdomen.retroperitoneum', 'Retroperitoneum'], ['abdomen.pancreas', 'Pancreas'], ['abdomen.bowel', 'Bowel'], ['abdomen.diaphragm', 'Diaphragm']];
 const useAbdomen = () => { const base = useAbdUI((s) => s.base); const minutes = useAbdUI((s) => s.minutes); return useMemo(() => currentAbdomen({ base, minutes }), [base, minutes]); };
@@ -31,14 +33,14 @@ export function AbdomenModule() {
   const [body, setBody] = useState<BodyAsset | null>(null); const [err, setErr] = useState<string | null>(null);
   useEffect(() => { loadBodyAsset().then(setBody).catch((e) => { console.error(e); setErr(String(e?.message || e)); }); }, []);
   useEffect(() => { (window as unknown as { __CCAbd: unknown }).__CCAbd = { store: useAbdUI, load: loadAbdPreset, minutes: (m: number) => useAbdUI.getState().set({ minutes: m }), focus: (id: string) => useAbdUI.getState().set({ target: id }), state: () => currentAbdomen(), view: (v: AbdView) => useAbdUI.getState().set({ view: v }) }; }, []);
-  const view = useAbdUI((s) => s.view); const mode = useUI((s) => s.mode);
+  const view = useAbdUI((s) => s.view); const mode = useUI((s) => s.mode); const preset = useAbdUI((s) => s.preset);
   useExploreMemory('abd', () => { const s = useAbdUI.getState(); return { preset: s.preset, base: structuredClone(s.base), minutes: s.minutes, target: s.target, view: s.view }; }, (m) => useAbdUI.getState().set(m));
   const dTarget = useDirector((s) => s.target);
   useEffect(() => { if (dTarget?.startsWith('abdomen.')) useAbdUI.getState().set({ target: dTarget }); }, [dTarget]);
   return (
     <main className="stage">
       <section className="scene-pane">
-        <SceneWrap>{view === 'us' ? <UltrasoundScene /> : view === 'cta' ? <CtaScene /> : body ? <AbdomenScene body={body} /> : <div className="loading">{err ? `Could not load anatomy: ${err}` : 'Loading anatomy…'}</div>}<AbdOverlay /></SceneWrap>
+        <SceneWrap compare={{ twin: view === '3d' && body ? <AbdomenScene body={body} /> : undefined, state: { 'abd.base': emptyAbdomen(), 'abd.minutes': 0 }, finding: ABD_PRESETS.find((p) => p.id === preset)?.name ?? 'Current state', normalLabel: 'No free fluid, normal aorta', healthy: preset === 'normal', prefer: preset, media: COMPARE_MEDIA.abdomen }}>{view === 'us' ? <UltrasoundScene /> : view === 'cta' ? <CtaScene /> : body ? <AbdomenScene body={body} /> : <div className="loading">{err ? `Could not load anatomy: ${err}` : 'Loading anatomy…'}</div>}<AbdOverlay /></SceneWrap>
       </section>
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         {mode === 'challenge' ? <CaseChallenge module="abdomen" /> : mode === 'learn' ? <AbdLearn /> : <><PresetCard /><TimeCard /><Fold group="abd" id="find" title="Findings" defaultOpen><FindingsCard /></Fold><Fold group="abd" id="shock" title="Haemodynamics" summary="bleeding, shock class"><ShockCard /></Fold><Fold group="abd" id="fast" title="FAST" summary="where to look for fluid"><FastCard /></Fold></>}

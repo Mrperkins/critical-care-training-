@@ -15,13 +15,15 @@ import { HeartScene } from './HeartScene';
 import { heartRateFor } from './beat';
 import { HeartECGStudy } from './HeartECGStudy';
 import { HeartECGSceneStrip } from './HeartECGSceneStrip';
+import type { CompareSpec } from '../scene/CompareShell';
+import { COMPARE_MEDIA } from '../scene/compareMedia';
 import { useStudyClock } from './studyClock';
 import { useHeartUI, loadHeartPreset, setHeartInput, type FlowMode, type CutMode } from './heartStore';
 import { autoCut, CUT_LABEL } from './HeartScene';
 import { RealCase } from '../scene/imaging/RealCase';
 import { Picker, Fold } from '../scene/pane';
 import { useRealCount } from '../scene/imaging/RealExamples';
-import { solveShunt, type HeartPresetId, type LesionKind } from './shunt';
+import { solveShunt, HEART_PRESETS, type HeartPresetId, type LesionKind, type ShuntInput } from './shunt';
 import { director, useDirector } from '../director/director';
 import { DirectorPlayer } from '../director/Player';
 import { HEART_LESSONS } from '../director/lessons/heart';
@@ -85,12 +87,13 @@ export function HeartModule() {
   const dTarget = useDirector((s) => s.target);
   useEffect(() => { if (dTarget?.startsWith('heart.')) useHeartUI.getState().set({ target: dTarget }); }, [dTarget]);
   useEffect(() => { (window as unknown as { __CCHeart: unknown }).__CCHeart = { store: useHeartUI, load: loadHeartPreset, set: setHeartInput, focus: (id: string) => useHeartUI.getState().set({ target: id }) }; }, []);
+  const input = useHeartUI((s) => s.input);
   if (section === 'coronary') return <MILocator mode={MI_MODE[mode] ?? 'explore'} header={<CardiacViews />} mountScene={renderScene} />;
   return (
     <main className="stage">
       <section className="scene-pane heart-scene-pane">
         <CardiacViews />
-        <SceneWrap>{renderScene && <HeartScene />}<HeartOverlay /></SceneWrap>
+        <SceneWrap compare={heartCompare(input, renderScene)}>{renderScene && <HeartScene />}<HeartOverlay /></SceneWrap>
         <HeartECGSceneStrip />
       </section>
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
@@ -261,4 +264,12 @@ function HeartLearn() {
       <details className="lesson-group"><summary>Congenital &amp; circulation lessons</summary>{HEART_LEARN.map((l) => <button key={l.id} className="chal-item" onClick={() => director.load(l, true)}><span className={`lvl lvl-${l.level}`}>{l.level}</span><span className="ci-t">{l.title}<small className="ci-b">{l.blurb}</small></span><span className="ci-k"><LessonLength tl={l} /></span></button>)}</details>
     </div>
   );
+}
+
+const LESION: Record<string, string> = { vsd: 'Ventricular septal defect', asd: 'Atrial septal defect', pfo: 'Patent foramen ovale', pda: 'Patent ductus arteriosus', tof: 'Tetralogy of Fallot', coarct: 'Coarctation of the aorta' };
+/** Normal heart beside the lesion (same section and view), plus real echo loops where the library has them. */
+function heartCompare(input: ShuntInput, render: boolean): CompareSpec {
+  const name = LESION[input.lesion] ?? 'Neonatal circulation';
+  const size = input.sizeMm && input.lesion !== 'coarct' && input.lesion !== 'tof' ? ` · ${input.sizeMm} mm` : '';
+  return { twin: render ? <HeartScene /> : undefined, state: { 'heart.input': { ...HEART_PRESETS.normal } }, finding: `${name}${size}`, normalLabel: 'Structurally normal heart', healthy: input.lesion === 'none', media: COMPARE_MEDIA.heart };
 }
