@@ -52,6 +52,7 @@ export function ImagingAcademy({moduleId,initialModality,initialId}:{moduleId?:s
   const courses=IMAGING_COURSES.filter(c=>modality==='all'||c.modality===modality);
   const course=IMAGING_COURSES.find(c=>c.id===courseId);
   const lesson=course?.lesson[chapter];
+  const allChaptersComplete=!!course&&progressFor(course,progress)===course.lesson.length;
   const selected=useMemo(()=>lesson?.media.map(id=>items.find(i=>i.id===id)).filter((i):i is RealItem=>!!i)??[],[lesson,items]);
   const media=selected.find(x=>x.id===sampleId)??selected[0];
   const cases=useMemo(()=>course?studiesFor(course,items).filter(i=>!!i.quiz):[],[course,items]);
@@ -122,7 +123,7 @@ export function ImagingAcademy({moduleId,initialModality,initialId}:{moduleId?:s
           <span><b>{l.title}</b><small>{l.goal}</small></span>
           <span className="img-chapter-check">{progress.completed[chapterKey(course,l)]?'Completed':'Learn'}</span>
         </button></li>)}</ol>
-        <button className="lib-btn" disabled={progressFor(course,progress)!==course.lesson.length} onClick={()=>{setCasePos(0);setScreen('practicum')}}>Final interpretation practicum</button>
+        <button className="lib-btn" disabled={!allChaptersComplete} onClick={()=>{if(!allChaptersComplete)return;setCasePos(0);setScreen('practicum')}>Final interpretation practicum</button>
         {progressFor(course,progress)!==course.lesson.length&&<p className="img-academy-lock-note">Complete the chapter knowledge checkpoints to unlock the final case practicum.</p>}
       </section>
       <aside className="img-course-reading">
@@ -160,7 +161,7 @@ export function ImagingAcademy({moduleId,initialModality,initialId}:{moduleId?:s
       </section>
       <div className="img-trainer-actions">
         <button className="lib-btn" disabled={chapter===0} onClick={()=>openLesson(chapter-1)}>Previous chapter</button>
-        <button className="lib-btn primary" disabled={!progress.completed[chapterKey(course,lesson)]} onClick={()=>chapter+1<course.lesson.length?openLesson(chapter+1):(setCasePos(0),setScreen('practicum'))}>
+        <button className="lib-btn primary" disabled={!progress.completed[chapterKey(course,lesson)]||(chapter+1===course.lesson.length&&!allChaptersComplete)} onClick={()=>{if(chapter+1<course.lesson.length){openLesson(chapter+1)}else if(allChaptersComplete){setCasePos(0);setScreen('practicum')}}}>
           {chapter+1<course.lesson.length?'Next chapter':'Go to case practicum'}</button>
       </div>
       <details className="img-academy-sources"><summary>Sources for these skills</summary>{course.references.map(s=><p key={s.url}><a href={s.url} target="_blank" rel="noreferrer">{s.title}</a></p>)}</details>
