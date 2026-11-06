@@ -36,8 +36,8 @@ describe('Clinical Imaging Trainer catalog', () => {
         expect(it.quiz.explain.length, it.id).toBeGreaterThan(0);
       }
     }
-    expect(all.filter((i) => i.quiz).length).toBe(104);
-    expect(all.filter((i) => !i.quiz).length).toBe(3);
+    expect(all.filter((i) => i.quiz).length).toBe(101);
+    expect(all.filter((i) => !i.quiz).length).toBe(6);
   });
   it('only uses verified CC BY 4.0 Wikimedia Commons MRI originals, labeled external', () => {
     for (const it of MRI_STUDIES) {
