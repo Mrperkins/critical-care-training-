@@ -6,12 +6,12 @@
  */
 import { useEffect, useRef, useState } from 'react';
 import { loadReal, type RealItem, type RealMark } from './RealExamples';
+import { needsMirrorFallback, sourceFor } from '../../library/imaging/catalog';
 
 const REDUCE = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
 const pct = (v: number) => `${(v * 100).toFixed(2)}%`;
-// Originals are local by default; the curated MRI extension uses verified Commons URLs.
-const mediaSrc = (file: string) => file.startsWith('https://upload.wikimedia.org/wikipedia/commons/')
-  ? file : `imaging/real/${file}`;
+// Prefer the SHA-1 verified local MRI mirror; only then try the licensed original.
+const mediaSrc = (file:string, origin:boolean) => origin && needsMirrorFallback(file) ? file : sourceFor(file);
 
 function Overlay({ marks }: { marks: RealMark[] }) {
   if (!marks.length) return null;
@@ -35,6 +35,8 @@ export function RealCaseCard({ it, teachingMode = false, practice = false, onCom
 }) {
   const [pick, setPick] = useState<number | null>(null); const [reveal, setReveal] = useState(false);
   const [mediaFailed, setMediaFailed] = useState(false);
+  const [originFallback,setOriginFallback] = useState(false);
+  const onMediaError = () => { if (!originFallback && needsMirrorFallback(it.file)) setOriginFallback(true); else setMediaFailed(true); };
   const [layers, setLayers] = useState({ landmark: teachingMode, pathology: teachingMode });
   const [info, setInfo] = useState(false); const [playing, setPlaying] = useState(!REDUCE); const vid = useRef<HTMLVideoElement>(null);
   useEffect(() => { const v = vid.current; if (!v) return; if (playing) v.play().catch(() => setPlaying(false)); else v.pause(); }, [playing]);
@@ -52,10 +54,10 @@ export function RealCaseCard({ it, teachingMode = false, practice = false, onCom
       <div className="rc-frame"><div className="rc-media">
         {mediaFailed ? <div role="status" className="img-unavailable">Study image could not load. <a href={it.provenance?.pageUrl ?? it.source} target="_blank" rel="noreferrer">Open original source</a></div>
           : isVideo
-          ? <video ref={vid} poster={it.poster ? mediaSrc(it.poster) : undefined} muted loop playsInline autoPlay={!REDUCE} preload="metadata" onError={() => setMediaFailed(true)} aria-label={answered ? it.caption : 'Real clinical clip — decide what you see first'}>
-              {it.webm && <source src={mediaSrc(it.webm)} type="video/webm" />}<source src={mediaSrc(it.file)} type="video/mp4" />
+          ? <video ref={vid} poster={it.poster ? mediaSrc(it.poster,originFallback) : undefined} muted loop playsInline autoPlay={!REDUCE} preload="metadata" onError={onMediaError} aria-label={answered ? it.caption : 'Real clinical clip — decide what you see first'}>
+              {it.webm && <source src={mediaSrc(it.webm,originFallback)} type="video/webm" />}<source src={mediaSrc(it.file,originFallback)} type="video/mp4" />
             </video>
-          : <img src={mediaSrc(it.file)} onError={() => setMediaFailed(true)} alt={answered ? it.caption : `Real ${it.modality ?? 'clinical image'} — decide what you see first`} loading="lazy" />}
+          : <img src={mediaSrc(it.file,originFallback)} onError={onMediaError} alt={answered ? it.caption : `Real ${it.modality ?? 'clinical image'} — decide what you see first`} loading="lazy" />}
         {answered && <Overlay marks={marks} />}</div>
       </div>
       <div className="rc-bar">
