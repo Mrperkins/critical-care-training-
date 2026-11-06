@@ -5,6 +5,7 @@
 import { loadReal, type RealItem } from '../../scene/imaging/RealExamples';
 import { MRI_STUDIES } from './mriCatalog';
 import clinicalArchive from '../../../clinical-archive.json';
+import { AORTA_CEUS } from './ceusCatalog';
 
 export type ImagingModality = 'xray' | 'ct' | 'mri' | 'ultrasound';
 export const MODALITY_LABEL: Record<ImagingModality, string> = {
@@ -34,7 +35,7 @@ export function loadImagingStudies(): Promise<RealItem[]> {
   return (studiesPromise ??= loadReal().then((items) => {
     const eligible = items.filter((i) => modalityOf(i) !== null);
     if (eligible.length === 0) throw new Error('Local clinical imaging manifest unavailable');
-    const all = [...eligible, ...MRI_STUDIES];
+    const all = [...eligible, ...MRI_STUDIES, AORTA_CEUS];
     if (new Set(all.map((i) => i.id)).size !== all.length) throw new Error('Duplicate imaging study identifiers');
     return all;
   }));
