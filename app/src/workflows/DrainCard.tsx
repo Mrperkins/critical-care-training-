@@ -57,7 +57,7 @@ export function DrainCard({ quiz = true }: { quiz?: boolean }) {
           <p className="muted small">{k.question}</p>
           <div className="wf-opts">{k.options.map((o) => <button key={o.id} className={`wf-opt${answer === o.id ? (o.id === k.answer ? ' ok' : ' bad') : ''}`} onClick={() => set({ answer: o.id })}>{o.label}</button>)}</div>
           {answer && <p className={`explain ${answer === k.answer ? 'ok' : 'bad'}`}><b>{answer === k.answer ? '✓ ' : '✗ '}</b>{k.explain}</p>}
-          <div className="wf-foot"><button className="linkish" onClick={() => { const i = DRAIN_CASES.indexOf(k); set({ caseId: DRAIN_CASES[(i + 1) % DRAIN_CASES.length].id, answer: null, test: null }); }}>Next case →</button><button className="linkish" onClick={() => set({ caseId: null, answer: null, test: null })}>Back to the live drain</button></div>
+          <div className="wf-foot"><button className="linkish" onClick={() => { const i = DRAIN_CASES.indexOf(k); set({ caseId: DRAIN_CASES[(i + 1) % DRAIN_CASES.length].id, answer: null, test: null }); }}>Next case</button><button className="linkish" onClick={() => set({ caseId: null, answer: null, test: null })}>Back to the live drain</button></div>
         </div>
       ) : (<>
         <div className="chips">
@@ -70,7 +70,7 @@ export function DrainCard({ quiz = true }: { quiz?: boolean }) {
         </div>
         {(v.bubbling !== 'none') && <div className="wf-foot"><button className="linkish" onClick={() => clampTestFor('chest')}>Brief clamp at the chest</button><button className="linkish" onClick={() => clampTestFor('unit')}>Brief clamp at the unit</button></div>}
         {test && <p className="explain">{test}</p>}
-        {quiz && <button className="linkish" onClick={() => set({ caseId: DRAIN_CASES[0].id, answer: null, test: null })}>Drain assessment cases →</button>}
+        {quiz && <button className="linkish" onClick={() => set({ caseId: DRAIN_CASES[0].id, answer: null, test: null })}>Drain assessment cases</button>}
       </>)}
       <ul className="dr-find">{v.findings.map((f) => <li key={f} className={/tension|surgery|siphon|kink|Clot|Clamp|side hole/i.test(f) ? 'bad' : ''}>{f}</li>)}</ul>
     </section>

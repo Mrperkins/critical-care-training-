@@ -40,9 +40,12 @@ function durableVoiceParts(prefix: string) {
 
 
 export function AudioApp() {
-  const [page, setPage] = useState<Page>('home');
-  const [episode, setEpisode] = useState<AudioEpisode | null>(null);
-  const [rep, setRep] = useState<MentalRep | null>(null);
+  // deep links from the visual app's Audio mode: ?episode=<id>, ?rep=<id>, ?page=<tracks|listen|reps|review|mastery>
+  const qp = typeof location !== 'undefined' ? new URLSearchParams(location.search) : new URLSearchParams();
+  const pages: Page[] = ['home', 'tracks', 'listen', 'reps', 'review', 'mastery'];
+  const [page, setPage] = useState<Page>(() => (pages.includes(qp.get('page') as Page) ? qp.get('page') as Page : 'home'));
+  const [episode, setEpisode] = useState<AudioEpisode | null>(() => EPISODE_BY_ID[qp.get('episode') ?? ''] ?? null);
+  const [rep, setRep] = useState<MentalRep | null>(() => REP_BY_ID[qp.get('rep') ?? ''] ?? null);
   const [focus, setFocus] = useState<string | null>(null);
   const p = useAudioProgress();
   const done = Object.keys(p.completed).length + Object.keys(p.repCompleted).length;

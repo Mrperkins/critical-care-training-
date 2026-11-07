@@ -61,7 +61,7 @@ function Run({ c, onExit, onDone }: { c: LCase; onExit: () => void; onDone: () =
         {answered && !right && <Remediate id={`lines-${c.id}`} ok={false} />}
         {answered && right && c.kind === 'fix' && <p className="muted small">{solved ? '✓ Fixed — the monitor matches the true pressures again.' : 'Now fix it at the bedside with the controls below. The case is solved when the monitor matches the patient again.'}</p>}
         {answered && right && c.kind === 'goal' && <ul className="goals">{c.goals!.map((g) => <li key={g.label} className={g.test(lines) ? 'ok' : ''}>{g.test(lines) ? '✓' : '○'} {g.label}</li>)}{solved && <li className="ok">✓ Targets held — well done.</li>}</ul>}
-        {solved && <div className="actions"><button className="act primary" onClick={onExit}>Next challenge →</button></div>}
+        {solved && <div className="actions"><button className="act primary" onClick={onExit}>Next challenge</button></div>}
       </section>
       {c.kind === 'fix' && <><NumbersCard hideTrue={!solved} /><FlushCard /><SetupCard /><LineCard id="art" faults={false} /><LineCard id="cvp" faults={false} />{c.id === 'c-transport' && <TreatCard />}</>}
       {c.kind === 'goal' && answered && right && <><TreatCard /><BreathingCard /><NumbersCard /></>}

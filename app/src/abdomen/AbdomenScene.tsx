@@ -6,6 +6,7 @@
  * distension / ischaemia, pancreatitis.
  */
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCameraGate } from '../scene/cameraPolicy';
 import * as THREE from 'three';
 import { mergeVertices } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { useFrame, useThree } from '@react-three/fiber';
@@ -16,6 +17,7 @@ import { LabelChip } from '../scene/labels';
 import { approach, frameDt } from '../scene/effects';
 import { registerAnchors } from '../scene/cameraTargets';
 import { useAbdUI, currentAbdomen } from './abdomenStore';
+import { useIsTwin, useTwin } from '../scene/compare';
 import { fluidDistribution, type AbdomenState } from './state';
 import { loadGut, type Layer, type GutMapping } from '../asset/anatomy';
 
@@ -60,7 +62,7 @@ function Pathology({ st }: { st: AbdomenState }) {
 }
 
 function Abdomen({ body }: { body: BodyAsset }) {
-  const base = useAbdUI((s) => s.base); const minutes = useAbdUI((s) => s.minutes);
+  const base = useTwin('abd.base', useAbdUI((s) => s.base)); const minutes = useTwin('abd.minutes', useAbdUI((s) => s.minutes));
   const st = useMemo(() => currentAbdomen({ base, minutes }), [base, minutes]);
   const mats = useMemo(() => Object.fromEntries(Object.entries(ORGANS).map(([k, o]) => [k, new THREE.MeshPhysicalMaterial({ color: o.color, roughness: o.rough ?? 0.45, clearcoat: 0.4, sheen: 0.4, transparent: (o.opacity ?? 1) < 1, opacity: o.opacity ?? 1, depthWrite: (o.opacity ?? 1) >= 0.5 })])) as Record<string, THREE.MeshPhysicalMaterial>, []);
   const skin = useMemo(() => new THREE.MeshPhysicalMaterial({ color: '#d6a88f', roughness: 0.6, transparent: true, opacity: 0.1, depthWrite: false, side: THREE.DoubleSide }), []);
@@ -105,7 +107,7 @@ function Abdomen({ body }: { body: BodyAsset }) {
 }
 
 function Labels({ st }: { st: AbdomenState }) {
-  const on = useAbdUI((s) => s.labels); if (!on) return null; const d = fluidDistribution(st);
+  const tw = useIsTwin(); const on = useAbdUI((s) => s.labels) && !tw; if (!on) return null; const d = fluidDistribution(st);
   const tag = (p: THREE.Vector3, t: string, c = '', info?: string) => <Html key={info ?? t} position={p} center zIndexRange={[20, 0]}><LabelChip className={`tag3d tk ${c}`} text={t} info={info} important={c === 't-red' || !!info} /></Html>;
   return (<>
     {tag(V(-0.55, 4.05, 0.9), 'Liver')}{tag(V(1.15, 3.95, -0.3), 'Spleen')}{tag(V(0.62, 3.8, 0.55), 'Stomach')}{tag(V(0.3, 3.2, 0.4), 'Pancreas')}
@@ -133,7 +135,7 @@ const VIEW: Record<string, { tgt: THREE.Vector3; dir: THREE.Vector3; size: [numb
   'abdomen.diaphragm': { tgt: ABD.diaphragm, dir: V(0.1, 0.1, 1), size: [3.2, 1.6] },
 };
 function Rig() {
-  const cc = useRef<CameraControls>(null); const target = useAbdUI((s) => s.target); const first = useRef(true);
+  const cc = useRef<CameraControls>(null); const target = useAbdUI((s) => s.target); const first = useRef(true); useCameraGate(cc);
   const cam = useThree((s) => s.camera) as THREE.PerspectiveCamera; const aspect = useThree((s) => s.size.width / Math.max(1, s.size.height));
   useEffect(() => {
     const v = VIEW[target] ?? VIEW['abdomen.whole']; const t = Math.tan(THREE.MathUtils.degToRad(cam.fov / 2));

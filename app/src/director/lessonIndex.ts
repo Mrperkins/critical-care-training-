@@ -29,6 +29,6 @@ export const LESSON_HOSTS: { module: Module; timelines: Timeline[] }[] = [
   { module: 'abdomen', timelines: [...ABDOMEN_LESSONS, DISSECTION_LESSON, ...ABDOMEN_LESSONS_2] },
 ];
 export const lessonById = (id: string) => {
-  if(id.startsWith('atlas-')) { const d=DISEASE_BY_ID[id.slice(6)]; if(d) return {module:d.domain,tl:diseaseLesson(d,(atlasSeverity,atlasTarget)=>useUI.getState().set({atlasSeverity,atlasTarget}))}; }
+  if(id.startsWith('atlas-')) { const d=DISEASE_BY_ID[id.slice(6)]; if(d) return {module:d.domain,tl:diseaseLesson(d,(atlasSeverity,atlasTarget,atlasFrame)=>useUI.getState().set({atlasSeverity,atlasTarget,atlasFrame:atlasFrame ?? null}))}; }
   for (const h of LESSON_HOSTS) { const tl = h.timelines.find((t) => t.id === id); if (tl) return { tl, module: h.module }; } return null;
 };

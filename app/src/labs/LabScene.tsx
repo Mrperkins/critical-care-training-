@@ -4,6 +4,7 @@
  * ion / molecule counts, pump speed, cell volume, clot formation etc. from cellSpec().
  */
 import { useEffect, useMemo, useRef } from 'react';
+import { useCameraGate } from '../scene/cameraPolicy';
 import * as THREE from 'three';
 import { useFrame, useThree, type ThreeEvent } from '@react-three/fiber';
 import { CameraControls, Html } from '@react-three/drei';
@@ -297,7 +298,7 @@ function Particles({ spec, kind }: { spec: SpecRef; kind: Body }) {
 
 /* ================================================================== camera */
 function Rig({ body }: { body: BodyAsset }) {
-  const three = useThree(); (window as unknown as Record<string, unknown>).__three = three; const ref = useRef<CameraControls>(null);
+  const three = useThree(); (window as unknown as Record<string, unknown>).__three = three; const ref = useRef<CameraControls>(null); useCameraGate(ref);
   const view = useLabUI((s) => s.view); const sel = useLabUI((s) => s.lab); const cellView = useLabUI((s) => s.cellView); const cellType = useLabUI((s) => s.cellType); const target = useLabUI((s) => s.cameraTargetId); const aspect = three.size.width / Math.max(1, three.size.height);
   useEffect(() => {
     if (!(aspect > 0.05)) return; const cam = three.camera as THREE.PerspectiveCamera; const t = Math.tan(THREE.MathUtils.degToRad(cam.fov / 2));

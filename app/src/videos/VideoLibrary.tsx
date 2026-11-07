@@ -571,7 +571,7 @@ export function VideoLibrary() {
             <span className="video-channel-play" aria-hidden="true">▶</span>
             <b>{source.label}</b>
             <p>{source.description}</p>
-            <small>Play channel uploads →</small>
+            <small>Play channel uploads</small>
           </button>)}
         </div>
       </section>
@@ -586,7 +586,7 @@ export function VideoLibrary() {
             <span className="video-channel-play" aria-hidden="true">◎</span>
             <b>{item.label}</b>
             <p>{item.focus}</p>
-            <small>{item.count} indexed resource{item.count === 1 ? '' : 's'} →</small>
+            <small>{item.count} indexed resource{item.count === 1 ? '' : 's'}</small>
           </button>)}
         </div>
       </section>}
@@ -669,7 +669,7 @@ export function VideoLibrary() {
                 {externalOnly
                   ? <a className="video-watch-inapp" href={videoSourceUrl(video)} target="_blank" rel="noreferrer">↗ Open official training</a>
                   : <button className="video-watch-inapp" onClick={() => openVideo(video)}>▶ Watch in app</button>}
-                {pair && <button className="deep-link video-related" onClick={() => openVideo(pair)}>Full lesson: {pair.title} →</button>}
+                {pair && <button className="deep-link video-related" onClick={() => openVideo(pair)}>Full lesson: {pair.title}</button>}
                 <a href={videoSourceUrl(video)} target="_blank" rel="noreferrer">{video.sourceClass === 'manufacturer' ? 'Official source ↗' : 'Source ↗'}</a>
               </div>
             </div>

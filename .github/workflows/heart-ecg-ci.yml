@@ -7,7 +7,6 @@ on:
     branches:
       - feat/synchronized-heart-ecg-study
       - feat/volumetric-flow-anatomy-consistency
-      - feat/unified-cardiac-atlas-39
   pull_request:
     paths:
       - 'app/src/heart/**'
@@ -17,20 +16,19 @@ on:
       - 'app/src/app/App.tsx'
       - 'app/src/app/store.ts'
       - 'app/tests/volume-flow-regression.test.ts'
-      - 'app/src/infarct/ecg/**'
-      - 'app/src/infarct/asset/**'
-      - 'app/src/infarct/components/**'
-      - 'app/src/infarct/engine/clock.ts'
-      - 'app/tests/canonical-cardiac-atlas.test.ts'
-      - 'app/src/infarct/data/**'
+      - 'app/src/infarct/**'
       - 'app/tests/heart-study-*.test.ts'
+      - 'app/tests/mi-*.test.*'
+      - 'app/scripts/qa-mi-locator.mjs'
+      - 'app/scripts/qa-cardiac-atlas.mjs'
       - 'app/src/styles/app.css'
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    # Keep the locked Playwright browser suite on its supported runner image.
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     defaults:
       run:
@@ -63,19 +61,14 @@ jobs:
           if-no-files-found: warn
       - name: Render and test real cardiac interface on three viewports
         run: node scripts/qa-heart-study.mjs
+      - name: Render and test the MI Locator (heart + 12-lead side by side) on three viewports
+        run: node scripts/qa-mi-locator.mjs
+      - name: Render the intact and cutaway cardiac atlas
+        run: node scripts/qa-cardiac-atlas.mjs
       - name: Save visual QA screenshots
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: cardiac-study-visual-qa
           path: app/qa-output/
-          if-no-files-found: warn
-      - name: Verify unified high-detail atlas, dual 3D views, mobile and MI Locator
-        run: node scripts/qa-cardiac-atlas.mjs
-      - name: Save Unified Cardiac Atlas evidence
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: unified-cardiac-atlas-3d-screenshots
-          path: app/qa-cardiac-atlas/
           if-no-files-found: warn

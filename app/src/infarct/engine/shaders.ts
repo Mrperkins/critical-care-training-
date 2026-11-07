@@ -21,7 +21,25 @@ export const shared = {
   uLeadDir: { value: new THREE.Vector3(0, 0, 1) },
   uLeadOn: { value: 0 },
   uFade: { value: 0 },        // cutaway fade for RV/RA
+  /** territory highlight drawn on the myocardium itself (the shared high-detail heart has no separate mask meshes) */
+  uMaskOn: { value: 0 },
+  uHovA: { value: new THREE.Vector4() },
+  uHovB: { value: new THREE.Vector4() },
+  uHovOn: { value: 0 },
+  /** 0..1 see-through walls, to show the conduction system inside */
+  uXray: { value: 0 },
+  /** how much of the injury shows on the outer surface (subendocardial patterns: little; transmural STEMI: all) */
+  uSurf: { value: 1 },
+  /** depolarisation drawn on the walls while the impulse view is on: atrial wavefront radius from the SA node (dm,
+   *  <0 none), ventricular wavefront position from apex (1) to base (0) (<0 none) */
+  uSA: { value: new THREE.Vector3() },
+  uAtrWave: { value: -1 },
+  uVentWave: { value: -1 },
+  uImpulse: { value: 0 },
 };
+
+/** The short-axis slice plane, shared by every heart material (empty = no slice). Three recompiles on count change. */
+export const CLIP: THREE.Plane[] = [];
 
 const NOISE = /* glsl */ `
 float h13(vec3 p){ p = fract(p*0.1031); p += dot(p, p.zyx+31.32); return fract((p.x+p.y)*p.z); }
@@ -31,10 +49,11 @@ float vnoise(vec3 x){ vec3 i=floor(x), f=fract(x); f=f*f*(3.0-2.0*f);
 float fbm(vec3 p){ float a=0.5, s=0.0; for(int i=0;i<4;i++){ s+=a*vnoise(p); p*=2.03; a*=0.5; } return s; }
 `;
 
-const BEAT_VERT = /* glsl */ `
+export const BEAT_VERT = /* glsl */ `
 attribute vec4 aRegA; attribute vec4 aRegB; attribute float aCh;
-uniform float uVent, uAtr, uLen, uHypo; uniform vec3 uBase, uAxis, uAtrC; uniform vec4 uTerrA, uTerrB;
+uniform float uVent, uAtr, uLen, uHypo; uniform vec3 uBase, uAxis, uAtrC; uniform vec4 uTerrA, uTerrB, uHovA, uHovB;
 float terrW(){ return clamp(dot(aRegA,uTerrA)+dot(aRegB,uTerrB),0.0,1.0); }
+float hovW(){ return clamp(dot(aRegA,uHovA)+dot(aRegB,uHovB),0.0,1.0); }
 vec3 beat(vec3 p){
   if(aCh > 0.5 && aCh < 1.5){
     float k = uVent * (1.0 - 0.9 * terrW() * uHypo);
@@ -56,15 +75,16 @@ export function tissueMaterial(kind: TissueKind, opts: { fadeable?: boolean } = 
     greatVein: { color: '#5b3446', roughness: 0.5, clearcoat: 0.4, clearcoatRoughness: 0.4 },
     cardiacVein: { color: '#5a3a5e', roughness: 0.36, clearcoat: 0.6, clearcoatRoughness: 0.25 },
   };
-  const m = new THREE.MeshPhysicalMaterial({ ...base[kind], metalness: 0, envMapIntensity: 0.85 });
+  const m = new THREE.MeshPhysicalMaterial({ ...base[kind], metalness: 0, envMapIntensity: 0.85, clippingPlanes: CLIP });
   const local = { uKind: { value: ['myocardium', 'atrium', 'greatArtery', 'greatVein', 'cardiacVein'].indexOf(kind) }, uFadeable: { value: opts.fadeable ? 1 : 0 } };
   m.onBeforeCompile = (sh) => {
     Object.assign(sh.uniforms, shared, local);
     sh.vertexShader = sh.vertexShader
-      .replace('#include <common>', `#include <common>\n${BEAT_VERT}\nattribute float aAO; attribute float aFat; varying float vAO; varying float vFat; varying float vW; varying vec3 vPos; varying vec3 vWN;`)
-      .replace('#include <begin_vertex>', `vec3 transformed = beat(position); vAO = aAO; vFat = aFat; vW = terrW(); vPos = position; vWN = normalize(mat3(modelMatrix) * normal);`);
+      .replace('#include <common>', `#include <common>\n${BEAT_VERT}\nattribute float aAO; attribute float aFat; varying float vAO; varying float vFat; varying float vW; varying float vHov; varying vec3 vPos; varying vec3 vWN;`)
+      .replace('#include <begin_vertex>', `vec3 transformed = beat(position); vAO = aAO; vFat = aFat; vW = terrW(); vHov = hovW(); vPos = position; vWN = normalize(mat3(modelMatrix) * normal);`);
     sh.fragmentShader = sh.fragmentShader
-      .replace('#include <common>', `#include <common>\n${NOISE}\nuniform float uKind, uInjury, uLeadOn, uTime, uFade, uFadeable; uniform vec3 uLeadDir; varying float vAO; varying float vFat; varying float vW; varying vec3 vPos; varying vec3 vWN;`)
+      .replace('#include <common>', `#include <common>\n${NOISE}\nuniform float uKind, uInjury, uLeadOn, uTime, uFade, uFadeable, uMaskOn, uHovOn, uXray, uSurf, uAtrWave, uVentWave, uImpulse; uniform vec3 uSA, uBase, uAxis; uniform float uLen; uniform vec3 uLeadDir; varying float vAO; varying float vFat; varying float vW; varying float vHov; varying vec3 vPos; varying vec3 vWN;
+        float mEdge = 0.0, hEdge = 0.0;`)
       .replace('#include <color_fragment>', `#include <color_fragment>
         float n1 = fbm(vPos*9.0), n2 = fbm(vPos*34.0), n3 = vnoise(vPos*120.0);
         vec3 col = diffuseColor.rgb;
@@ -76,27 +96,43 @@ export function tissueMaterial(kind: TissueKind, opts: { fadeable?: boolean } = 
           vec3 fatC = mix(vec3(0.55,0.38,0.2), vec3(0.72,0.56,0.33), fbm(vPos*60.0)) * (0.88 + 0.12*n3);
           col = mix(muscle, fatC, fat);
           // ischemia → injury: dusky cyanotic, then pale and mottled
-          float w = vW * uInjury;
+          float w = vW * uInjury * uSurf;
           float mott = fbm(vPos*22.0 + 7.0);
           vec3 dusky = vec3(0.25,0.09,0.16);
           vec3 pale = vec3(0.50,0.36,0.36);
           vec3 inj = mix(dusky, pale, smoothstep(0.3, 0.8, mott) * smoothstep(0.5, 1.0, uInjury));
           col = mix(col, inj * (0.85 + 0.3*n2), w * (1.0 - 0.7*fat));
+          // territory highlight: violet veil with a crisp contour (steps back to the contour once injury shows)
+          vec3 violet = vec3(0.50, 0.36, 0.84);
+          float mw = smoothstep(0.08, 0.6, vW);
+          mEdge = smoothstep(0.1, 0.22, vW) * (1.0 - smoothstep(0.22, 0.36, vW)) * uMaskOn;
+          col = mix(col, violet, mw * 0.34 * (1.0 - 0.72*uInjury) * uMaskOn + mEdge * 0.6);
+          float hw = smoothstep(0.08, 0.6, vHov);
+          hEdge = smoothstep(0.1, 0.22, vHov) * (1.0 - smoothstep(0.22, 0.36, vHov)) * uHovOn;
+          col = mix(col, violet * 1.15, hw * 0.2 * uHovOn + hEdge * 0.5);
         } else {
           col *= (0.9 + 0.2*n1) * (0.95 + 0.1*n3);
         }
         diffuseColor.rgb = col * mix(0.38, 1.0, vAO);
-        if (uFadeable > 0.5) diffuseColor.a *= 1.0 - 0.82*uFade;`)
+        if (uFadeable > 0.5) diffuseColor.a *= 1.0 - 0.82*uFade;
+        diffuseColor.a *= 1.0 - (uKind < 1.5 ? 0.86 : 0.8) * uXray;`)
       .replace('#include <roughnessmap_fragment>', `#include <roughnessmap_fragment>\n roughnessFactor = clamp(roughnessFactor + (n2-0.5)*0.18 + fat*0.08, 0.2, 0.9);`)
       .replace('#include <emissivemap_fragment>', `#include <emissivemap_fragment>
         vec3 Vv = normalize(vViewPosition);
         float rim = pow(1.0 - abs(dot(normalize(vNormal), Vv)), 2.2);
         totalEmissiveRadiance += (uKind < 1.5 ? vec3(0.09,0.012,0.01) : vec3(0.05,0.02,0.02)) * rim * (1.0 - fat) * vAO;
         float face = smoothstep(0.72, 0.97, dot(normalize(vWN), uLeadDir));
-        totalEmissiveRadiance += vec3(0.42,0.66,0.74) * face * uLeadOn * 0.16 * (uKind < 1.5 ? 1.0 : 0.25);`);
+        totalEmissiveRadiance += vec3(0.42,0.66,0.74) * face * uLeadOn * 0.16 * (uKind < 1.5 ? 1.0 : 0.25);
+        totalEmissiveRadiance += vec3(0.55,0.42,0.95) * (mEdge * 0.22 + hEdge * 0.18);
+        totalEmissiveRadiance += vec3(0.16,0.05,0.05) * rim * uXray;
+        // the impulse crossing the muscle: a bright depolarisation front with a fading wake
+        if (uImpulse > 0.01) {
+          if (uKind > 0.5 && uKind < 1.5 && uAtrWave >= 0.0) { float d = distance(vPos, uSA) - uAtrWave; totalEmissiveRadiance += vec3(1.0, 0.82, 0.35) * (exp(-d*d/0.0025) * 1.4 + (d < 0.0 ? 0.12 * exp(d / 0.25) : 0.0)) * uImpulse; }
+          if (uKind < 0.5 && uVentWave >= 0.0) { float h = 1.0 - clamp(dot(vPos - uBase, uAxis) / uLen, 0.0, 1.0); float d = h - uVentWave; totalEmissiveRadiance += vec3(1.0, 0.8, 0.32) * (exp(-d*d/0.004) * 1.2 + (d < 0.0 ? 0.1 * exp(d / 0.3) : 0.0)) * uImpulse; }
+        }`);
   };
   if (opts.fadeable) { m.transparent = true; }
-  m.customProgramCacheKey = () => `tissue-${kind}-${opts.fadeable ? 1 : 0}`;
+  m.customProgramCacheKey = () => `tissue-v2-${kind}-${opts.fadeable ? 1 : 0}`;
   return m;
 }
 
@@ -106,7 +142,7 @@ export function coronaryMaterial() {
     uOccAt: { value: 2 }, uPerf: { value: 0 }, uDown: { value: 0 }, uFlow: { value: 0 }, uFlowSpeed: { value: 1 },
     uState: { value: 0 }, uMaxS: { value: 2 }, uDim: { value: 0 },
   };
-  const m = new THREE.MeshPhysicalMaterial({ color: '#c02a22', roughness: 0.32, clearcoat: 0.9, clearcoatRoughness: 0.2, metalness: 0, sheen: 0.5, sheenColor: new THREE.Color('#ff9a8a'), emissive: '#3a0604' });
+  const m = new THREE.MeshPhysicalMaterial({ color: '#c02a22', roughness: 0.32, clearcoat: 0.9, clearcoatRoughness: 0.2, metalness: 0, sheen: 0.5, sheenColor: new THREE.Color('#ff9a8a'), emissive: '#3a0604', clippingPlanes: CLIP });
   m.onBeforeCompile = (sh) => {
     Object.assign(sh.uniforms, shared, local);
     sh.vertexShader = sh.vertexShader
@@ -152,5 +188,52 @@ export function territoryMaterial() {
         #include <colorspace_fragment>
       }`,
   });
+  return Object.assign(m, { localUniforms: local });
+}
+
+/** Adds the heart's beat (same deformation as the myocardium) to another material, e.g. the conduction system. */
+export function withBeat<M extends THREE.Material>(m: M, key: string): M {
+  const prev = m.onBeforeCompile.bind(m);
+  m.onBeforeCompile = (sh, r) => {
+    prev(sh, r);
+    Object.assign(sh.uniforms, shared);
+    sh.vertexShader = sh.vertexShader.replace('#include <common>', `#include <common>\n${BEAT_VERT}`).replace('#include <begin_vertex>', '#include <begin_vertex>\ntransformed = beat(transformed);');
+  };
+  m.customProgramCacheKey = () => 'beat-' + key;
+  return m;
+}
+
+/**
+ * Short-axis slice cap: the cut face of the ventricular walls. `aDepth` runs 0 at the endocardium → 1 at the
+ * epicardium; ischaemia fills from the inner layer outward up to `uWave` in the territory (`uTerr*` weights), so the
+ * same slice shows a subendocardial band (left main, de Winter) or a transmural wedge (classic STEMI). Beats with the
+ * ventricles (radial part only: the slice plane itself does not move).
+ */
+export function sliceCapMaterial() {
+  const local = { uWave: { value: 0 }, uCapInjury: { value: 0 } };
+  const m = new THREE.MeshStandardMaterial({ color: '#7a2a22', roughness: 0.85, envMapIntensity: 0.5, side: THREE.DoubleSide, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 });
+  m.onBeforeCompile = (sh) => {
+    Object.assign(sh.uniforms, shared, local);
+    sh.vertexShader = sh.vertexShader
+      .replace('#include <common>', `#include <common>\n${BEAT_VERT}\nattribute float aDepth; varying float vDepth; varying float vTW; varying vec3 vP;`)
+      .replace('#include <begin_vertex>', `vec3 transformed = position; { float k = uVent * (1.0 - 0.9 * terrW() * uHypo); vec3 d = position - uBase; float h = dot(d, uAxis); vec3 ap = uBase + uAxis*h; transformed = ap + (position - ap) * (1.0 - 0.075*k); }
+        vDepth = aDepth; vTW = terrW(); vP = position;`);
+    sh.fragmentShader = sh.fragmentShader
+      .replace('#include <common>', `#include <common>\n${NOISE}\nuniform float uWave, uCapInjury, uTime; varying float vDepth; varying float vTW; varying vec3 vP;`)
+      .replace('#include <color_fragment>', `#include <color_fragment>
+        float fib = 0.9 + 0.2 * fbm(vP * 48.0);
+        vec3 healthy = vec3(0.30, 0.055, 0.045) * fib;
+        float terr = smoothstep(0.12, 0.5, vTW);
+        float filled = 1.0 - smoothstep(uWave - 0.05, uWave + 0.05, vDepth);
+        float mott = fbm(vP * 30.0 + 3.0);
+        vec3 injured = mix(vec3(0.26, 0.07, 0.27), vec3(0.50, 0.38, 0.40), smoothstep(0.4, 0.85, mott) * smoothstep(0.6, 1.0, uCapInjury));
+        float isch = terr * filled * smoothstep(0.0, 0.25, uCapInjury);
+        vec3 col = mix(healthy, injured * fib, isch);
+        // the advancing wavefront, and a fine endocardial / epicardial edge
+        col += vec3(0.55, 0.42, 0.95) * exp(-pow((vDepth - uWave) / 0.03, 2.0)) * terr * step(0.02, uWave) * 0.55;
+        col = mix(col, vec3(0.62, 0.42, 0.40), (1.0 - smoothstep(0.0, 0.03, vDepth)) * 0.3);
+        diffuseColor.rgb = col;`);
+  };
+  m.customProgramCacheKey = () => 'mi-slice-cap';
   return Object.assign(m, { localUniforms: local });
 }

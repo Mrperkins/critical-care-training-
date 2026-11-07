@@ -6,6 +6,7 @@
  * streams bicarbonate back at the rate renal compensation is actually happening.
  */
 import { useEffect, useMemo, useRef } from 'react';
+import { useCameraGate } from '../scene/cameraPolicy';
 import * as THREE from 'three';
 import { useFrame, useThree } from '@react-three/fiber';
 import { CameraControls, Html } from '@react-three/drei';
@@ -15,7 +16,12 @@ import type { MicroAsset, P3 } from '../asset/micro';
 import { StudioCanvas, GLSL_TRIPLANAR, tissueTexture, IS_PHONE, damp } from '../scene/Studio';
 import { LabelChip } from '../scene/labels';
 import { lungMaterial, airwayMaterial, makeLungUniforms } from '../vent/LungScene';
-import { lab } from './lab';
+import { lab as liveLab, AbgLab } from './lab';
+import { useIsTwin, useTwin } from '../scene/compare';
+/** the blood-gas engine this view draws: the patient's, or (in Compare) a healthy one */
+const useLab = () => useTwin<AbgLab>('abg.lab', liveLab);
+/** the healthy twin runs its own clock */
+function LabTicker() { const lab = useLab(); useFrame((_, dt) => { if (lab !== liveLab) lab.tick(Math.min(0.05, dt)); }); return null; }
 import { useAbgUI, type Station } from './abgStore';
 import { alveolarRoles } from './roles';
 
@@ -45,6 +51,7 @@ export function AbgScene({ resp, micro }: { resp: RespAsset; micro: MicroAsset }
       <Gate on={['tissue']}><Tissue micro={micro} /></Gate>
       <Gate on={['kidney']}><group position={KIDNEY_POS}><Kidney resp={resp} /></group></Gate>
       <Rig micro={micro} />
+      <LabTicker />
     </StudioCanvas>
   );
 }
@@ -59,6 +66,7 @@ function Gate({ on, children }: { on: Station[]; children: React.ReactNode }) {
 
 /* ------------------------------------------------------------------ lungs (macro) */
 function Lungs({ resp }: { resp: RespAsset }) {
+  const lab = useLab();
   const UU = useMemo(() => makeLungUniforms(), []);
   const mats = useMemo(() => ({ lung: lungMaterial(false, UU), wall: airwayMaterial('wall', UU), cart: airwayMaterial('cart', UU) }), [UU]);
   useEffect(() => { const L = resp.mapping.lobes; UU.uHilR.value.set(...L.RUL.hilum); UU.uHilL.value.set(...L.LUL.hilum); UU.uLungH.value = 2.3; }, [resp, UU]);
@@ -94,6 +102,7 @@ function Lungs({ resp }: { resp: RespAsset }) {
 
 /* ------------------------------------------------------------------ alveolus + pulmonary capillaries */
 function Alveolus({ micro }: { micro: MicroAsset }) {
+  const lab = useLab();
   const mp = micro.mapping; const M = micro.meshes; const nA = mp.alveoli.length;
   const U = useMemo(() => ({
     uAlvC: { value: mp.alveoli.map((a) => v3(a.c)).concat(Array.from({ length: MAXA - nA }, () => new THREE.Vector3())) },
@@ -240,6 +249,7 @@ function buildGas(mp: MicroAsset['mapping']) {
 
 /* ------------------------------------------------------------------ muscle capillary bed */
 function Tissue({ micro }: { micro: MicroAsset }) {
+  const lab = useLab();
   const mp = micro.mapping.tissue; const M = micro.meshes;
   const U = useMemo(() => ({ uSa: { value: 0.97 }, uSv: { value: 0.7 }, uTissue: { value: tissueTexture() }, uAerobic: { value: 1 } }), []);
   const capMat = useMemo(() => {
@@ -327,6 +337,7 @@ function buildFlux(mp: MicroAsset['mapping']['tissue']) {
 
 /* ------------------------------------------------------------------ kidney */
 function Kidney({ resp }: { resp: RespAsset }) {
+  const lab = useLab();
   const M = resp.meshes;
   const geo = useMemo(() => {
     const ks = ['kidney_L', 'kidney_R'].filter((k) => M[k]).map((k) => M[k].geometry.clone());
@@ -367,7 +378,7 @@ function Kidney({ resp }: { resp: RespAsset }) {
 
 /* ------------------------------------------------------------------ labels + camera */
 function Label({ pos, text, station, tone }: { pos: THREE.Vector3 | [number, number, number]; text: string; station: Station; tone?: string }) {
-  const cur = useAbgUI((s) => s.station); if (cur !== station) return null;
+  const cur = useAbgUI((s) => s.station); const tw = useIsTwin(); if (cur !== station || tw) return null;
   return <Html position={pos as never} center zIndexRange={[20, 0]}><LabelChip className={`tag3d${tone ? ' t-' + tone : ''}`} text={text} /></Html>;
 }
 export const STATIONS: Record<Station, { tgt: [number, number, number]; dir: [number, number, number]; size: [number, number] }> = {
@@ -378,7 +389,7 @@ export const STATIONS: Record<Station, { tgt: [number, number, number]; dir: [nu
   kidney: { tgt: [KIDNEY_POS.x, 0, 0], dir: [0.1, 0.1, 1], size: [5, 7.6] },
 };
 function Rig({ micro }: { micro: MicroAsset }) {
-  const three = useThree(); (window as unknown as Record<string, unknown>).__three = three; const ref = useRef<CameraControls>(null); const st = useAbgUI((s) => s.station);
+  const three = useThree(); (window as unknown as Record<string, unknown>).__three = three; const ref = useRef<CameraControls>(null); const st = useAbgUI((s) => s.station); useCameraGate(ref);
   useMemo(() => { const p = micro.mapping.paths[CAP_PATH]; const q = p.pts[Math.floor(p.pts.length / 2)]; const a = micro.mapping.alveoli[p.alv].c; STATIONS.capillary.tgt = q; STATIONS.capillary.dir = [q[0] - a[0], q[1] - a[1] + 0.3, q[2] - a[2]]; }, [micro]);
   const aspect = three.size.width / Math.max(1, three.size.height);
   useEffect(() => {

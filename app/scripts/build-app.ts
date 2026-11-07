@@ -7,7 +7,7 @@ import { narrationJobs } from './narration-common';
 import { MENTAL_REPS } from '../src/audio/catalog';
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const out = path.join(ROOT, 'dist'); fs.mkdirSync(out, { recursive: true });
-const res = await build({ entryPoints: [path.join(ROOT, 'src/main.tsx')], bundle: true, minify: true, format: 'iife', target: ['es2020'], write: false, outdir: out, loader: { '.css': 'css' }, define: { 'process.env.NODE_ENV': '"production"' }, jsx: 'automatic', legalComments: 'none', logLevel: 'warning' });
+const res = await build({ entryPoints: [path.join(ROOT, 'src/main.tsx')], bundle: true, minify: true, format: 'iife', target: ['es2020'], write: false, outdir: out, loader: { '.css': 'css', '.woff2': 'dataurl' }, define: { 'process.env.NODE_ENV': '"production"' }, jsx: 'automatic', legalComments: 'none', logLevel: 'warning' });
 const js = res.outputFiles.find((f) => f.path.endsWith('.js'))!.text; const css = res.outputFiles.find((f) => f.path.endsWith('.css'))?.text ?? '';
 fs.writeFileSync(path.join(out, 'bundle.js'), js); fs.writeFileSync(path.join(out, 'bundle.css'), css);
 const inline: string[] = [];
@@ -27,12 +27,26 @@ add('__HEARTINT_GLB__', 'public/models/heart-internals.glb'); add('__HEARTINT_MA
 add('__UPPERAIRWAY_GLB__', 'public/models/upper-airway.glb'); add('__UPPERAIRWAY_MAP__', 'public/models/upper-airway.mapping.json', true);
 add('__HEARTHD_GLB__', 'public/models/heart-hd.glb'); add('__HEARTHD_MAP__', 'public/models/heart-hd.mapping.json', true); add('__NERVES_GLB__', 'public/models/nerves.glb'); add('__NERVES_MAP__', 'public/models/nerves.mapping.json', true); add('__GUT_GLB__', 'public/models/gut.glb'); add('__GUT_MAP__', 'public/models/gut.mapping.json', true); add('__CEREBRAL_GLB__', 'public/models/cerebral-arteries.glb'); add('__CEREBRAL_MAP__', 'public/models/cerebral-arteries.mapping.json', true); add('__BRAINVOL__', 'public/models/brain-volume.json', true);
 add('__CORONARY_GLB__', 'public/models/coronary-heart.glb'); add('__CORONARY_MAP__', 'public/models/coronary-heart.mapping.json', true);
-const head = `<!doctype html>\n<html lang="en">\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n<title>Critical Care Physiology</title>\n<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#05090d"><link rel="apple-touch-icon" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">\n<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;500;600&family=Atkinson+Hyperlegible+Next:wght@400;500;600;700&display=swap" rel="stylesheet">\n<style>${css}</style>`;
+const head = `<!doctype html>\n<html lang="en">\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n<title>Critical Care Physiology</title>\n<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#05090d"><link rel="apple-touch-icon" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">\n<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;500;600&family=Atkinson+Hyperlegible+Next:wght@400;500;600;700&family=Barlow+Condensed:wght@700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">\n<style>${css}</style>`;
 const html = `${head}\n<div id="root"></div>\n<script>${inline.join('\n')}</script>\n<script>${js.replace(/<\/script/g, '<\\/script')}</script>\n`;
 fs.writeFileSync(path.join(out, 'index.html'), html);
 fs.writeFileSync(path.join(out, 'dev.html'), `${head}<div id="root"></div><script src="bundle.js"></script>`);
 // publishable multi-file version: small page + separate model / narration files
 const pub = path.join(out, 'pub'); fs.rmSync(pub, { recursive: true, force: true }); fs.mkdirSync(path.join(pub, 'models'), { recursive: true }); fs.mkdirSync(path.join(pub, 'vo'), { recursive: true });
+if (fs.existsSync(path.join(ROOT,'public/conferences'))) fs.cpSync(path.join(ROOT,'public/conferences'),path.join(pub,'conferences'),{recursive:true});
+// library card art: stills captured from the app's own scenes (scripts in UX_OVERHAUL_STATE.md)
+if (fs.existsSync(path.join(ROOT,'public/thumbs'))) fs.cpSync(path.join(ROOT,'public/thumbs'),path.join(pub,'thumbs'),{recursive:true});
+// MRI originals: verified SHA-1 pinned copies downloaded by prepare-clinical-archive.mjs.
+const curatedMri = path.join(ROOT,'public/imaging/curated');
+if (fs.existsSync(path.join(curatedMri,'manifest.json'))) {
+  for (const base of [out,pub]) {
+    const dest=path.join(base,'imaging/curated');
+    fs.mkdirSync(dest,{recursive:true});
+    fs.cpSync(curatedMri,dest,{recursive:true,force:true});
+  }
+}
+// page hero stills rendered from the same scenes (scripts/qa/capture-heroes.mjs + heroes-to-jpg.py)
+if (fs.existsSync(path.join(ROOT,'public/heroes'))) fs.cpSync(path.join(ROOT,'public/heroes'),path.join(pub,'heroes'),{recursive:true});
 for (const f of ['medical-ventilator.glb', 'medical-ventilator.provenance.json', 'bedside-airway.glb', 'bedside-airway.provenance.json', 'resp.glb', 'resp.mapping.json', 'micro.glb', 'micro.mapping.json', 'body.glb', 'body.mapping.json', 'body-f.glb', 'body-f.mapping.json', 'eyes.glb', 'eyes.mapping.json', 'lines.glb', 'lines.mapping.json', 'skeleton.glb', 'skeleton.mapping.json', 'pericardium.glb', 'pericardium.mapping.json', 'neuro.glb', 'neuro.mapping.json', 'heart-internals.glb', 'heart-internals.mapping.json', 'upper-airway.glb', 'upper-airway.mapping.json', 'coronary-heart.glb', 'coronary-heart.mapping.json', 'heart-hd.glb', 'heart-hd.mapping.json', 'nerves.glb', 'nerves.mapping.json', 'gut.glb', 'gut.mapping.json', 'cerebral-arteries.glb', 'cerebral-arteries.mapping.json', 'brain-volume.json']) { const p = path.join(ROOT, 'public/models', f); if (fs.existsSync(p)) { if (f.endsWith('.glb')) fs.writeFileSync(path.join(pub, 'models', f + '.txt'), fs.readFileSync(p).toString('base64')); else fs.copyFileSync(p, path.join(pub, 'models', f)); } }
 // narration: clips live at repo-root vo/<id>.mp3 (scripts/narration_collect.py); only clips whose hash matches the current line play
 const narration = narrationJobs(ROOT); const want = new Map(narration.map((j) => [j.id, j.hash]));
@@ -40,13 +54,20 @@ const voMetaP = path.join(ROOT, 'public/vo/narration.json'); const voMeta: Recor
 let voIds = Object.entries(voMeta).filter(([id, m]) => want.get(id) === m.hash).map(([id]) => id);
 const voJson = path.join(ROOT, 'public/vo/vo.json'); // previous clip store, used until the natural narrator has covered every line
 if (!voIds.length && fs.existsSync(voJson)) { const vo: Record<string, string> = JSON.parse(fs.readFileSync(voJson, 'utf8')); voIds = Object.keys(vo); for (const [id, b64] of Object.entries(vo)) fs.writeFileSync(path.join(pub, 'vo', id + '.mp3'), Buffer.from(b64, 'base64')); }
-fs.writeFileSync(path.join(pub, 'index.html'), `${head}\n<div id="root"></div>\n<script>window.__VO_IDS__=${JSON.stringify(voIds)};window.__B64_MODELS__=true;</script>\n<script>${js.replace(/<\/script/g, '<\\/script')}</script>\n`);
+// the published page is code-split: Home loads the shell; each module (and three.js) loads when first opened
+const split = await build({ entryPoints: { app: path.join(ROOT, 'src/main.tsx') }, bundle: true, minify: true, format: 'esm', splitting: true, target: ['es2020'], write: false, outdir: path.join(pub, 'js'), entryNames: '[name]-[hash]', chunkNames: 'c-[hash]', loader: { '.css': 'css', '.woff2': 'dataurl' }, define: { 'process.env.NODE_ENV': '"production"' }, jsx: 'automatic', legalComments: 'none', logLevel: 'warning' });
+fs.mkdirSync(path.join(pub, 'js'), { recursive: true });
+const chunks: string[] = []; let entry = '';
+for (const o of split.outputFiles) { if (!o.path.endsWith('.js')) continue; fs.writeFileSync(o.path, o.text); const rel = 'js/' + path.basename(o.path); chunks.push(rel); if (path.basename(o.path).startsWith('app-')) entry = rel; }
+const entrySize = split.outputFiles.find((o) => o.path.endsWith(path.basename(entry)))!.text.length;
+fs.writeFileSync(path.join(pub, 'index.html'), `${head}\n<div id="root"></div>\n<script>window.__VO_IDS__=${JSON.stringify(voIds)};window.__B64_MODELS__=true;</script>\n<script type="module" src="${entry}"></script>\n`);
+console.log('split', chunks.length, 'chunks · entry', (entrySize / 1e6).toFixed(2), 'MB');
 
 // Standalone Critical Care Audio / Mental Reps learner surface.
 // It intentionally does not load the heavy Three.js anatomy bundle; it links back to the physiology app.
 const audioRes = await build({
   entryPoints: [path.join(ROOT, 'src/audio/main.tsx')], bundle: true, minify: true, format: 'iife',
-  target: ['es2020'], write: false, outdir: out, loader: { '.css': 'css' },
+  target: ['es2020'], write: false, outdir: out, loader: { '.css': 'css', '.woff2': 'dataurl' },
   define: { 'process.env.NODE_ENV': '"production"' }, jsx: 'automatic', legalComments: 'none', logLevel: 'warning',
 });
 const audioJs = audioRes.outputFiles.find((f) => f.path.endsWith('.js'))!.text;
@@ -59,21 +80,23 @@ const expectedRepHash = new Map<string, string>(MENTAL_REPS.flatMap((rep) => rep
   `rep.${rep.id}.${beat.id}`,
   createHash('sha256').update(beat.narration.replace(/\s+/g, ' ').trim()).digest('hex').slice(0, 16),
 ] as const)));
-let audioVoiceAssets: Record<string, { file: string; reviewed: boolean; transcriptHash?: string }> = {};
+let audioVoiceAssets: Record<string, { file: string; reviewed: boolean; transcriptHash?: string; seconds?: number }> = {};
 if (fs.existsSync(audioVoice)) {
   fs.cpSync(audioVoice, path.join(audioDir, 'voice'), { recursive: true, force: true });
   const voiceManifest = path.join(audioVoice, 'manifest.json');
   if (fs.existsSync(voiceManifest)) {
-    const parsed = JSON.parse(fs.readFileSync(voiceManifest, 'utf8')) as { assets?: { id: string; file: string; transcriptHash?: string; narrationHash?: string; reviewed?: boolean }[] };
+    const parsed = JSON.parse(fs.readFileSync(voiceManifest, 'utf8')) as { assets?: { id: string; file: string; transcriptHash?: string; narrationHash?: string; reviewed?: boolean; durationSeconds?: number }[] };
     audioVoiceAssets = Object.fromEntries((parsed.assets ?? []).filter((a) => {
       if (a.narrationHash) return want.get(a.id) === a.narrationHash; // natural narrator: current only if its line is unchanged
       if (!a.id.startsWith('rep.')) return true;
       const expected = expectedRepHash.get(a.id);
       return !!expected && a.transcriptHash === expected;
-    }).map((a) => [a.id, { file: a.file, reviewed: a.reviewed === true, transcriptHash: a.transcriptHash }]));
+    }).map((a) => [a.id, { file: a.file, reviewed: a.reviewed === true, transcriptHash: a.transcriptHash, ...(a.durationSeconds ? { seconds: Math.round(a.durationSeconds) } : {}) }]));
   }
 }
 fs.copyFileSync(path.join(ROOT, 'site', 'audio-manifest.webmanifest'), path.join(audioDir, 'manifest.webmanifest'));
+// the visual app's Audio mode reads the same natural-voice asset map (paths relative to audio/)
+fs.writeFileSync(path.join(audioDir, 'assets.json'), JSON.stringify(audioVoiceAssets));
 const audioHead = `<!doctype html>
 <html lang="en">
 <meta charset="utf-8">
@@ -89,6 +112,37 @@ fs.writeFileSync(path.join(audioDir, 'index.html'), `${audioHead}<div id="root">
 
 // offline support: service worker (versioned by the bundle hash), web manifest, icons
 const ver = (await import('node:crypto')).createHash('sha256').update(js).update(css).digest('hex').slice(0, 12);
-fs.writeFileSync(path.join(pub, 'sw.js'), fs.readFileSync(path.join(ROOT, 'site/sw.js'), 'utf8').replaceAll('__VERSION__', ver));
+// files that live beside the page: in dist/pub when this build wrote them, otherwise in the published site at the repo root
+const SITE = path.resolve(ROOT, '..');
+const located = (rel: string) => [path.join(pub, rel), path.join(SITE, rel)].find((p) => fs.existsSync(p) && fs.statSync(p).isFile()) ?? null;
+const listDir = (rel: string) => { for (const base of [pub, SITE]) { const d = path.join(base, rel); if (fs.existsSync(d)) return fs.readdirSync(d).filter((f) => fs.statSync(path.join(d, f)).isFile()).map((f) => `${rel}/${f}`); } return [] as string[]; };
+// precached on first visit and kept across versions by content revision: every model, card thumbnail and hero
+const staticAssets: Record<string, string> = {};
+for (const rel of [...listDir('models').filter((f) => /\.(glb\.txt|mapping\.json)$|brain-volume\.json$/.test(f)), ...listDir('thumbs'), ...listDir('heroes')]) {
+  const p = located(rel); if (p) staticAssets[rel] = createHash('sha1').update(fs.readFileSync(p)).digest('hex').slice(0, 10);
+}
+fs.writeFileSync(path.join(pub, 'sw.js'), fs.readFileSync(path.join(ROOT, 'site/sw.js'), 'utf8').replaceAll('__VERSION__', ver).replace("'__CHUNKS__'", chunks.map((c) => JSON.stringify(c)).join(', ')).replace("'__ASSETS__'", JSON.stringify(staticAssets)));
+// download packs for the Offline page, with exact sizes so the learner knows what each costs
+type PackFile = { u: string; b: number; alt?: { u: string; b: number } };
+const fileEntry = (rel: string): PackFile | null => { const p = located(rel); return p ? { u: rel, b: fs.statSync(p).size } : null; };
+const packs: { id: string; title: string; blurb: string; files: PackFile[] }[] = [];
+const pushPack = (id: string, title: string, blurb: string, rels: string[]) => { const files = [...new Set(rels)].map(fileEntry).filter((f): f is PackFile => !!f); if (files.length) packs.push({ id, title, blurb, files }); };
+pushPack('lessons', 'Lesson narration', 'The narrator for every guided lesson and procedure.', voIds.map((id) => `vo/${id}.mp3`));
+pushPack('reps', 'Mental Reps', 'Voice-guided procedure rehearsals.', Object.entries(audioVoiceAssets).filter(([k]) => k.startsWith('rep.')).map(([, a]) => `audio/${a.file.includes('/') ? a.file : `voice/${a.file}`}`));
+pushPack('episodes', 'Audio episodes', 'Audio cases, quick listens and deep dives.', Object.entries(audioVoiceAssets).filter(([k]) => !k.startsWith('rep.')).map(([, a]) => `audio/${a.file.includes('/') ? a.file : `voice/${a.file}`}`));
+{ // real clinical images and clips; a clip with a WebM copy lists the MP4 as the fallback for browsers that need it
+  const mp = located('imaging/real/manifest.json'); const files: PackFile[] = [];
+  if (mp) for (const it of (JSON.parse(fs.readFileSync(mp, 'utf8')).items ?? []) as { file: string; webm?: string; poster?: string }[]) {
+    const main = fileEntry(`imaging/real/${it.file}`); const webm = it.webm ? fileEntry(`imaging/real/${it.webm}`) : null;
+    if (webm && main) files.push({ ...webm, alt: main }); else if (main) files.push(main);
+    if (it.poster) { const p = fileEntry(`imaging/real/${it.poster}`); if (p) files.push(p); }
+  }
+  if (files.length) packs.push({ id: 'imaging', title: 'Real clinical imaging', blurb: 'X-ray, CT and ultrasound images and clips used in the lessons and the imaging trainer.', files });
+}
+pushPack('mri', 'Clinical MRI (verified originals)', 'Seven CC BY 4.0 MRI teaching images, SHA-1 verified and packaged for offline study.', listDir('imaging/curated').filter(f=>/\.(png|jpg|jpeg)$/i.test(f)));
+pushPack('conferences', 'Case conferences', 'Conference slides, audio and transcripts.', ['conferences/audio', 'conferences/images', 'conferences/transcripts'].flatMap(listDir).filter((f) => !f.endsWith('.md')));
+pushPack('labs', 'Cell and molecule labs', 'The large cell model and protein structures.', [...listDir('models/molecular').filter((f) => f.endsWith('.glb')), 'models/cell/markdragan-human-cell/cell.opt.glb']);
+fs.writeFileSync(path.join(pub, 'offline-packs.json'), JSON.stringify({ version: ver, core: Object.entries(staticAssets).reduce((n, [rel]) => n + (located(rel) ? fs.statSync(located(rel)!).size : 0), 0), packs }));
+console.log('offline:', Object.keys(staticAssets).length, 'static assets ·', packs.map((p) => `${p.id} ${p.files.length} files ${(p.files.reduce((n, f) => n + f.b, 0) / 1e6).toFixed(0)} MB`).join(' · '));
 for (const f of ['manifest.webmanifest', 'icon-192.png', 'icon-512.png']) fs.copyFileSync(path.join(ROOT, 'site', f), path.join(pub, f));
 console.log('bundle', (js.length / 1e6).toFixed(2), 'MB · index.html', (html.length / 1e6).toFixed(2), 'MB');

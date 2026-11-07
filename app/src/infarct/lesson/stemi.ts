@@ -7,7 +7,7 @@ const MI: Partial<SceneDirectives> = { highlightVessel: true, flow: true, occlus
 function put(territoryId: string | null, dominance: Dominance, scene: Partial<SceneDirectives>, extra: { culpritIndex?: number; showExtra?: boolean } = {}) {
   useApp.getState().set({ territoryId, dominance, culpritIndex: extra.culpritIndex ?? 0, showExtra: !!extra.showExtra, seq: 0, seqPlaying: false, vesselId: null, leadId: null, scene: { ...NORMAL_SCENE, ...scene } });
 }
-const t0 = 0; let t = t0; const cue = (id: string, dur: number, title: string, say: string, apply: () => void) => { const c = { id, at: t, dur, title, say, apply }; t += dur + 0.5; return c; };
+const t0 = 0; let t = t0; const cue = (id: string, dur: number, title: string, say: string, apply: () => void) => { const c = { id, at: t, dur, title, say, apply, voice: `mi-stemi-${id}` }; t += dur + 0.5; return c; };
 
 export const STEMI_CULPRIT: Timeline = {
   id: 'stemi-culprit', title: 'STEMI: find the culprit', blurb: 'From an occluded artery to the ECG it writes: which vessel, why the anatomy can make it ambiguous, what the reciprocal and posterior leads add, and what reperfusion changes.',

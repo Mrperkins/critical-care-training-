@@ -22,15 +22,21 @@ try {
         const scene=page.getByRole('button',{name:'Scene',exact:true}).first();
         if(await scene.count()) await scene.click();
       }
-      const canvas=page.locator('.scene-pane canvas').first();
+      const canvas=page.locator('.scene-pane .scene-wrap canvas').first();
       await expect(canvas).toBeVisible({timeout:30000});
       if(module==='heart'){
         await expect(page.getByLabel('Blood flow')).toBeAttached({timeout:30000});
+        // the heart opens closed (whole organ, no flow drawn); open the 4-chamber section to see blood inside
+        await page.evaluate(() => {
+          const sel=[...document.querySelectorAll('select')].find((x)=>x.getAttribute('aria-label')==='Section'||x.closest('label')?.textContent?.trim().startsWith('Section'));
+          if(!sel) return; const set=Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype,'value').set; set.call(sel,'slice'); sel.dispatchEvent(new Event('change',{bubbles:true}));
+        });
         await page.waitForFunction(() => !!window.__heartFlowScene?.getObjectByName('bulk-blood-svc'),null,{timeout:30000});
-        const active = await page.evaluate(() => {
+        // the flow activity ramps up over the first frames (slow on software GL): poll rather than sample once
+        const active = await page.waitForFunction(() => {
           const mesh=window.__heartFlowScene?.getObjectByName('bulk-blood-svc');
           return !!mesh && mesh.material.depthTest===false && mesh.material.uniforms.uActivity.value>0;
-        });
+        },null,{timeout:20000}).then(()=>true,()=>false);
         if(!active) throw new Error('Cardiac bulk blood column is not visible or not driven by physiology');
         if(device.name==='desktop'){
           await page.getByLabel('Blood flow').selectOption('particles');

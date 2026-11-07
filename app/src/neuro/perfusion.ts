@@ -11,7 +11,7 @@
  *    vessels have lost autoregulation.
  *  - CO₂ reactivity ≈ 3 %/mmHg around 40 mmHg; autoregulation keeps normal tissue flat for MAP 60–150.
  */
-import { TERRITORIES, TERRITORY_ML, type TerritoryId } from './anatomy';
+import { TERRITORIES, TERRITORY_ML, type TerritoryId } from './territories';
 
 export type CollateralGrade = 'poor' | 'moderate' | 'good';
 export interface NeuroState {

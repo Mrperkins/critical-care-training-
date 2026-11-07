@@ -84,3 +84,6 @@ function Picker({ sims }: { sims: { cell: CellSim; patch: CellSim } }) {
   });
   return <group ref={tip}><Html zIndexRange={[30, 0]} style={{ pointerEvents: 'none' }}><div className="picktip" ref={tipEl} /></Html></group>;
 }
+
+// QA hook (main.tsx used to set this; it lives here so Home does not load three.js)
+if (typeof window !== 'undefined') (window as unknown as Record<string, unknown>).__cell = { live, CLIP };

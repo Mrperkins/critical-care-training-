@@ -3,7 +3,7 @@
  * Keeps clinical logic out of React components.
  */
 import type { CoronaryTerritory, CulpritOption, Dominance, RegionId, VesselId } from '../data/types';
-import { TERRITORY } from '../data/territories';
+import { FOCUS, lesionOf } from '../data/focus';
 import { VESSELS, DOMINANCE_EXTENT, ischemicBeyond, upstream, downstream, parentOf, type OriginTable } from '../data/vessels';
 import { primaryCulprit } from '../data/lessons';
 import type { SceneDirectives } from './store';
@@ -27,11 +27,13 @@ export function vesselTargets(args: {
   dominance: Dominance; scene: SceneDirectives; origins?: OriginTable;
 }): Record<VesselId, VesselRender> {
   const { territoryId, vesselId, hoverVessel, dominance, scene, origins } = args;
-  const t = territoryId ? TERRITORY[territoryId] : null;
+  const t = territoryId ? FOCUS[territoryId] ?? null : null;
   const c = t ? culpritFor(t, dominance, args.culpritIndex) : null;
   const beyond = c ? ischemicBeyond(c.vessel, c.at, dominance, origins) : [];
   const chain = c ? upstream(c.vessel, dominance) : vesselId ? upstream(vesselId, dominance) : [];
   const selectedTree = vesselId ? downstream(vesselId, dominance) : [];
+  /** a near-occlusion still lets some flow through */
+  const lf = lesionOf(t) === 'near-occlusion' ? 0.7 : 1;
   const out = {} as Record<VesselId, VesselRender>;
   for (const v of VESSELS) {
     const isCulprit = c?.vessel === v.id;
@@ -39,8 +41,8 @@ export function vesselTargets(args: {
     if (isCulprit && scene.highlightVessel) r.state = 3;
     else if (vesselId === v.id) r.state = 2;
     else if (hoverVessel === v.id) r.state = 1;
-    if (isCulprit) { r.occAt = scene.occlusion > 0.01 ? c!.at : 2; r.perf = scene.perfusionLoss; }
-    if (beyond.includes(v.id)) r.down = scene.perfusionLoss;
+    if (isCulprit) { r.occAt = scene.occlusion > 0.01 ? c!.at : 2; r.perf = scene.perfusionLoss * lf; }
+    if (beyond.includes(v.id)) r.down = scene.perfusionLoss * lf;
     const flowing = scene.flow && (chain.includes(v.id) || isCulprit || (c && parentOf(v.id, dominance) && chain.includes(parentOf(v.id, dominance)!) && !beyond.includes(v.id)));
     if (flowing || (vesselId && selectedTree.includes(v.id))) r.flow = 1;
     if (vesselId && !selectedTree.includes(v.id) && !chain.includes(v.id)) r.dim = 0.6;

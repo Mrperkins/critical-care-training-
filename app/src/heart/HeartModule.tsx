@@ -1,3 +1,5 @@
+import { DiseaseBrowser } from '../atlas/DiseaseBrowser';
+import { LessonLength } from '../app/LessonShell';
 import { useExploreMemory } from '../app/exploreMemory';
 /** Congenital heart module: shunt physiology on a live four-chamber heart. */
 import { MiniSelect } from '../scene/pane';
@@ -13,27 +15,31 @@ import { HeartScene } from './HeartScene';
 import { heartRateFor } from './beat';
 import { HeartECGStudy } from './HeartECGStudy';
 import { HeartECGSceneStrip } from './HeartECGSceneStrip';
+import type { CompareSpec } from '../scene/CompareShell';
+import { COMPARE_MEDIA } from '../scene/compareMedia';
 import { useStudyClock } from './studyClock';
 import { useHeartUI, loadHeartPreset, setHeartInput, type FlowMode, type CutMode } from './heartStore';
 import { autoCut, CUT_LABEL } from './HeartScene';
 import { RealCase } from '../scene/imaging/RealCase';
 import { Picker, Fold } from '../scene/pane';
 import { useRealCount } from '../scene/imaging/RealExamples';
-import { solveShunt, type HeartPresetId, type LesionKind } from './shunt';
+import { solveShunt, HEART_PRESETS, type HeartPresetId, type LesionKind, type ShuntInput } from './shunt';
 import { director, useDirector } from '../director/director';
 import { DirectorPlayer } from '../director/Player';
 import { HEART_LESSONS } from '../director/lessons/heart';
 import { SAT_PALETTE } from '../scene/effects';
 import { useLabUI, type VisualTier } from '../labs/labStore';
 import { SceneWrap } from '../scene/labels';
-import { App as CoronaryApp } from '../infarct/components/App';
+import { MILocator } from '../infarct/components/MILocator';
 import type { Mode as MiMode } from '../infarct/engine/store';
 const MI_MODE: Record<string, MiMode> = { explore: 'explore', learn: 'lesson', challenge: 'quiz' };
 
 const PRESETS: [HeartPresetId, string][] = [['normal', 'Normal'], ['vsdSmall', 'Small VSD'], ['vsdLarge', 'Large VSD'], ['vsdEisen', 'VSD · Eisenmenger'], ['asd', 'ASD'], ['pfo', 'PFO'], ['pfoValsalva', 'PFO · Valsalva'], ['pda', 'PDA'],
   ['tof', 'Tetralogy'], ['pinkTet', 'Tetralogy · "pink"'], ['tetSpell', 'Tet spell'], ['coarct', 'Coarctation'], ['coarctNeoDuct', 'Newborn coarctation · duct open'], ['coarctNeoClosed', 'Newborn coarctation · duct closing'], ['newborn', 'Newborn · closing duct'], ['pphn', 'Newborn · PPHN']];
-const FOCUS: [string, string][] = [['heart.four_chamber', '4-chamber'], ['heart.vsd', 'VSD'], ['heart.asd', 'ASD / PFO'], ['heart.lv', 'LV'], ['heart.rv', 'RV'], ['heart.pulmonary_outflow', 'RV outflow'], ['heart.pda', 'Duct'], ['heart.coarct', 'Isthmus']];
+const FOCUS: [string, string][] = [['heart.whole_heart', 'Whole heart'], ['heart.four_chamber', '4-chamber'], ['heart.vsd', 'VSD'], ['heart.asd', 'ASD / PFO'], ['heart.lv', 'LV'], ['heart.rv', 'RV'], ['heart.pulmonary_outflow', 'RV outflow'], ['heart.pda', 'Duct'], ['heart.coarct', 'Isthmus']];
 const CUTS: [CutMode, string][] = [['auto', 'Auto'], ['slice', '4-chamber slice'], ['sax_base', 'Short axis · base'], ['sax_mid', 'Short axis · mid'], ['sax_apex', 'Short axis · apex'], ['lvot', 'Long axis · LVOT'], ['rvot', 'RV inflow–outflow'], ['rv', 'RV open'], ['ra', 'RA open'], ['lv', 'LV open'], ['closed', 'Closed']];
+/** the cross-sections offered beside the scene: the whole heart first, then each standard cut */
+const SECTIONS: [CutMode, string][] = [['closed', 'Whole heart'], ['slice', '4-chamber'], ['sax_base', 'Short axis · base'], ['sax_mid', 'Short axis · mid'], ['sax_apex', 'Short axis · apex'], ['lvot', 'Long axis · LVOT'], ['rvot', 'RV inflow–outflow'], ['rv', 'RV opened'], ['ra', 'RA opened'], ['lv', 'LV opened'], ['front', 'Front wall removed']];
 /** a section plane brings its own camera (looking at the cut face) */
 const CUT_VIEW: Partial<Record<CutMode, string>> = { sax_base: 'heart.sax_base', sax_mid: 'heart.sax_mid', sax_apex: 'heart.sax_apex', lvot: 'heart.lvot', rvot: 'heart.rvot_section', slice: 'heart.four_chamber' };
 /** the best focus for a lesion, used when the lesion changes */
@@ -43,8 +49,8 @@ export function HeartModule() {
   const mode = useUI((s) => s.mode); const section = useHeartUI((s) => s.section);
   const presentation = useHeartUI((s) => s.atlasPresentation);
   const mobileFocus = useHeartUI((s) => s.atlasMobileFocus);
-  const [compact, setCompact] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 1024px)').matches);
-  useEffect(() => { const media = window.matchMedia('(max-width: 1024px)'); const update = () => setCompact(media.matches); media.addEventListener('change', update); return () => media.removeEventListener('change', update); }, []);
+  const [compact, setCompact] = useState(() => typeof window !== 'undefined' && !!window.matchMedia?.('(max-width: 1024px)').matches);
+  useEffect(() => { const media = window.matchMedia?.('(max-width: 1024px)'); if (!media) return; const update = () => setCompact(media.matches); media.addEventListener('change', update); return () => media.removeEventListener('change', update); }, []);
   const physiologicalOutput = useHeartUI((s) => s.input.qs);
   useEffect(() => {
     const state = useStudyClock.getState();
@@ -85,11 +91,13 @@ export function HeartModule() {
   const dTarget = useDirector((s) => s.target);
   useEffect(() => { if (dTarget?.startsWith('heart.')) useHeartUI.getState().set({ target: dTarget }); }, [dTarget]);
   useEffect(() => { (window as unknown as { __CCHeart: unknown }).__CCHeart = { store: useHeartUI, load: loadHeartPreset, set: setHeartInput, focus: (id: string) => useHeartUI.getState().set({ target: id }) }; }, []);
-  if (section === 'coronary') return <main className="stage mi-host" aria-label="Coronaries and ECG"><CoronaryApp mode={MI_MODE[mode] ?? 'explore'} onExit={() => useHeartUI.getState().set({ section: 'structure' })} /></main>;
+  const input = useHeartUI((s) => s.input);
+  if (section === 'coronary') return <MILocator mode={MI_MODE[mode] ?? 'explore'} header={<CardiacViews />} mountScene={renderScene} />;
   return (
     <main className="stage">
       <section className="scene-pane heart-scene-pane">
-        <SceneWrap>
+        <CardiacViews />
+        <SceneWrap compare={heartCompare(input, renderScene)}>
           <div className={presentation === 'split' && !compact ? 'heart-atlas-views is-dual' : 'heart-atlas-views'}>
             {renderScene && (presentation === 'split' && !compact ? <>
               <section className="heart-atlas-viewport" aria-label="3D intact cardiac heart"><HeartScene variant="whole" /><span className="heart-atlas-viewport-title">Exterior · whole heart</span></section>
@@ -104,7 +112,7 @@ export function HeartModule() {
       </section>
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
         <AtlasPanel />
-        <HeartECGStudy />
+        <details className="lesson-group"><summary>Conduction study settings</summary><HeartECGStudy /></details>
         {mode === 'challenge' ? <CaseChallenge module="heart" /> : mode === 'learn' ? <HeartLearn /> : <>
           <PresetCard />
           <ControlsCard />
@@ -120,6 +128,17 @@ export function HeartModule() {
   );
 }
 
+/** The two views of the Cardiac tab, always at the top of the scene: congenital structure & flow, and the MI Locator. */
+export function CardiacViews() {
+  const section = useHeartUI((s) => s.section); const set = useHeartUI.getState().set;
+  const views: [typeof section, string, string][] = [['structure', 'Heart & flow', 'Chambers, valves, shunts and blood flow'], ['coronary', 'MI Locator', 'Coronary territories with a live 12-lead ECG']];
+  return (
+    <nav className="cardiac-views" aria-label="Cardiac view">
+      {views.map(([id, label, hint]) => <button key={id} type="button" className={section === id ? 'on' : ''} aria-pressed={section === id} title={hint} onClick={() => { if (section !== id) set({ section: id }); }}>{label}</button>)}
+      <span className="cardiac-views-hint muted small">{views.find((v) => v[0] === section)?.[2]}</span>
+    </nav>
+  );
+}
 
 function AtlasPanel() {
   const presentation = useHeartUI((s) => s.atlasPresentation);
@@ -130,21 +149,21 @@ function AtlasPanel() {
   const coronaries = useHeartUI((s) => s.atlasShowCoronaries);
   const set = useHeartUI.getState().set;
   return <section className="card heart-atlas-panel" aria-label="Unified 3D cardiac atlas">
-    <div className="card-h"><h3>3D cardiac atlas</h3><span className="muted small">One anatomical source</span></div>
+    <div className="card-h"><h3>3D cardiac atlas</h3><span className="muted small">Shared ECG and heartbeat</span></div>
     <div className="heart-atlas-modes" role="group" aria-label="Heart visualization">
       {([['cutaway','Cutaway'],['whole','Whole heart'],['split','3D split view']] as const).map(([id,label]) =>
-        <button key={id} type="button" className={presentation===id?'on':''} aria-pressed={presentation===id} onClick={()=>set({atlasPresentation:id})}>{label}</button>)}
+        <button key={id} type="button" className={presentation===id?'on':''} aria-pressed={presentation===id} onClick={() => set({ atlasPresentation: id, ...(id === 'split' ? { conduction: true } : id === 'cutaway' ? { cut: 'slice', target: 'heart.four_chamber' } : {}) })}>{label}</button>)}
     </div>
     {presentation==='split' && <div className="heart-atlas-mobile-switch" role="group" aria-label="Mobile 3D view selection">
       <button aria-pressed={mobileFocus==='whole'} onClick={()=>set({atlasMobileFocus:'whole'})}>Whole</button>
       <button aria-pressed={mobileFocus==='conduction'} onClick={()=>set({atlasMobileFocus:'conduction'})}>Conduction</button>
     </div>}
-    <details className="heart-atlas-layer-settings"><summary>Verified anatomy layers</summary>
+    <details className="heart-atlas-layer-settings"><summary>Anatomy layers</summary>
       <label className="heart-atlas-toggle"><input type="checkbox" checked={showP} onChange={(e)=>set({pericardium:e.target.checked})}/>Pericardial sac (anatomy-derived outer surface)</label>
-      {showP && <label className="heart-atlas-range">Sac transparency <input aria-label="Pericardial sac opacity" type="range" min={0.08} max={0.85} step={0.05} value={opacity} onChange={(e)=>set({atlasPericardialOpacity:Number(e.target.value)})}/></label>}
+      {showP && <label className="heart-atlas-range">Sac opacity <input aria-label="Pericardial sac opacity" type="range" min={0.08} max={0.85} step={0.01} value={opacity} onChange={(e)=>set({atlasPericardialOpacity:Number(e.target.value)})}/></label>}
       <label className="heart-atlas-toggle"><input type="checkbox" checked={conduction} onChange={(e)=>set({conduction:e.target.checked})}/>Conduction network (schematic positions)</label>
       <label className="heart-atlas-toggle"><input type="checkbox" checked={coronaries} onChange={(e)=>set({atlasShowCoronaries:e.target.checked})}/>Coronary arteries and cardiac veins</label>
-      <p className="muted small">Myocardium: visible heart surfaces. Endocardial relief: view using Cutaway. The fibrous and parietal serous pericardial layers cannot be isolated independently with current validated source geometry; no invented nested shells are shown. Epicardium is the visceral serous pericardial covering, not an independent inflated heart mesh.</p>
+      <p className="muted small">Myocardium: visible heart surfaces. Endocardial relief: view using Cutaway. The pericardial control shows the available sac surface. The source model represents the epicardium on the heart surface.</p>
     </details>
     <button className="heart-atlas-mi-link" onClick={()=>set({section:'coronary'})}>Explore MI Locator · coronaries, STEMI and all leads <span aria-hidden="true">→</span></button>
   </section>;
@@ -161,7 +180,6 @@ function HeartOverlay() {
     <div className="scene-tools">
       <div className="seg small" role="group" aria-label="Flow colour">{([['sat', 'O₂ saturation'], ['doppler', 'Flow direction']] as [FlowMode, string][]).map(([k, l]) => <button key={k} className={flow === k ? 'on' : ''} onClick={() => set({ mode: k })}>{l}</button>)}</div>
 
-      <button className="tgl" onClick={() => set({ section: 'coronary' })}>Coronaries &amp; ECG →</button>
       <button className={`tgl${conduction ? ' on' : ''}`} aria-pressed={conduction} onClick={() => set({ conduction: !conduction })}>Conduction</button>
       <button className={`tgl${pericardium ? ' on' : ''}`} aria-pressed={pericardium} onClick={() => set({ pericardium: !pericardium })}>Pericardium</button>
       <button className={`tgl${nerves ? ' on' : ''}`} aria-pressed={nerves} onClick={() => set({ nerves: !nerves })}>Nerves</button>
@@ -179,12 +197,13 @@ function HeartOverlay() {
       <div className="alv-row"><span>SpO₂ (pre / post)</span><b>{pct(s.sat.ao)}{s.input.lesion === 'pda' || s.input.lesion === 'coarct' ? ` / ${pct(s.sat.aoPost)}` : ''}</b></div>
     </div>}
     <div className="alv-focus">
-      <MiniSelect label="View" value={target} options={FOCUS as [string, string][]} onChange={(v) => set({ target: v })} className="ch-focus" />
+      <MiniSelect label="Section" value={cut === 'auto' ? autoCut(target) : cut} options={SECTIONS} onChange={(v) => set({ cut: v, target: v === 'closed' ? 'heart.whole_heart' : CUT_VIEW[v] ?? (target === 'heart.whole_heart' ? 'heart.four_chamber' : target) })} className="ch-section" />
+      <MiniSelect label="Focus" value={target} options={FOCUS as [string, string][]} onChange={(v) => set({ target: v, ...(v === 'heart.whole_heart' ? { cut: 'closed' as CutMode } : cut === 'closed' ? { cut: 'auto' as CutMode } : {}) })} className="ch-focus" />
       <MiniSelect label="Blood flow" value={flowDisplay} options={ [['volume','Blood volume'],['both','Volume + tracers'],['particles','Tracers only']] as [typeof flowDisplay,string][] } onChange={(v) => set({ flowDisplay: v })} className="heart-bulk-flow-select" />
     </div>
-    <div className="legend">{flow === 'sat'
+    {cut === 'closed' ? <div className="legend"><span>Whole heart. Choose a Section to open it and see the blood flow inside.</span></div> : <div className="legend">{flow === 'sat'
       ? <><span><i style={{ background: SAT_PALETTE.teachArterial }} />Oxygenated</span><span><i style={{ background: SAT_PALETTE.teachVenous }} />Deoxygenated</span><span>▲ jet = shunt</span></>
-      : <><span><i style={{ background: '#e0322b' }} />Toward apical probe</span><span><i style={{ background: '#2f6be0' }} />Away</span><span><i style={{ background: 'linear-gradient(90deg,#e8c224,#4fd04a)' }} />Aliasing (fast jet)</span></>}</div>
+      : <><span><i style={{ background: '#e0322b' }} />Toward apical probe</span><span><i style={{ background: '#2f6be0' }} />Away</span><span><i style={{ background: 'linear-gradient(90deg,#e8c224,#4fd04a)' }} />Aliasing (fast jet)</span></>}</div>}
   </>);
 }
 
@@ -284,9 +303,17 @@ function HeartLearn() {
   useEffect(() => () => { if (HEART_LEARN.some((l) => l.id === useDirector.getState().tl?.id)) director.unload(); }, []);
   if (active) return <div className="chal-run"><DirectorPlayer onExit={() => undefined} />{tl.id === NEO_TRANSITION_LESSON.id && <NeoCard />}<HemoCard /></div>;
   return (
-    <div className="chal-list">
-      <section className="card"><div className="eyebrow">Guided learning</div><h2 className="h2">Congenital heart on a live circulation</h2><p className="muted">Narrated lessons that change the defect and the resistances while the heart, the flow and the numbers respond.</p></section>
-      {HEART_LEARN.map((l) => <button key={l.id} className="chal-item" onClick={() => director.load(l, true)}><span className={`lvl lvl-${l.level}`}>{l.level}</span><span className="ci-t">{l.title}<small className="ci-b">{l.blurb}</small></span><span className="ci-k">{l.cues.length} steps</span></button>)}
+    <div className="chal-list"><DiseaseBrowser domain="heart" />
+      <header className="learn-intro"><h2>Congenital heart on a live circulation</h2><p>Narrated lessons that change the defect and the resistances while the heart, the flow and the numbers respond. Every lesson comes as a full course or a short TL;DR.</p></header>
+      <details className="lesson-group"><summary>Congenital &amp; circulation lessons</summary>{HEART_LEARN.map((l) => <button key={l.id} className="chal-item" onClick={() => director.load(l, true)}><span className={`lvl lvl-${l.level}`}>{l.level}</span><span className="ci-t">{l.title}<small className="ci-b">{l.blurb}</small></span><span className="ci-k"><LessonLength tl={l} /></span></button>)}</details>
     </div>
   );
+}
+
+const LESION: Record<string, string> = { vsd: 'Ventricular septal defect', asd: 'Atrial septal defect', pfo: 'Patent foramen ovale', pda: 'Patent ductus arteriosus', tof: 'Tetralogy of Fallot', coarct: 'Coarctation of the aorta' };
+/** Normal heart beside the lesion (same section and view), plus real echo loops where the library has them. */
+function heartCompare(input: ShuntInput, render: boolean): CompareSpec {
+  const name = LESION[input.lesion] ?? 'Neonatal circulation';
+  const size = input.sizeMm && input.lesion !== 'coarct' && input.lesion !== 'tof' ? ` · ${input.sizeMm} mm` : '';
+  return { twin: render ? <HeartScene /> : undefined, state: { 'heart.input': { ...HEART_PRESETS.normal } }, finding: `${name}${size}`, normalLabel: 'Structurally normal heart', healthy: input.lesion === 'none', media: COMPARE_MEDIA.heart };
 }

@@ -14,6 +14,19 @@ import { VENT_TIMELINES } from '../director/lessons/vent';
 import { PEDS_AIRWAY_LESSON } from '../director/lessons/populations';
 import { AirwayCard } from '../populations/Cards';
 import { VentNormals } from '../app/Normals';
+import { useEffect } from 'react';
+import { usePlayerUI, type Trace } from '../library/playerUI';
+
+/** Tell the player what this scene is about: which traces to show and which numbers to put on the scene. */
+function LessonFocus({ focus }: { focus?: string[] }) {
+  const key = (focus ?? []).join(',');
+  useEffect(() => {
+    const f = focus ?? []; const tr = f.map((x) => ({ pressure: 'p', flow: 'q', volume: 'v' } as Record<string, Trace>)[x]).filter(Boolean) as Trace[];
+    usePlayerUI.getState().set({ focus: f, traces: tr.length ? tr : null, allTraces: false });
+    return () => usePlayerUI.getState().set({ focus: null, traces: null });
+  }, [key]); // eslint-disable-line react-hooks/exhaustive-deps
+  return null;
+}
 
 /** Apply a lesson up to step i: the last scenario load, then every settings change after it, then this step's action. */
 export function applyLessonStep(lesson: Lesson, i: number) {
@@ -34,6 +47,7 @@ export function VentLearn() {
   return (
     <LessonShell lessons={VENT_LESSONS} apply={applyLessonStep} timelines={[...VENT_TIMELINES, NEEDLE_LESSON, PEDS_AIRWAY_LESSON]} timelineChildren={() => <TimelineCards />} workflows={VENT_WORKFLOWS} workflowChildren={(w) => <>{w.id === 'wf-drain-check' && <DrainCard />}{w.id === 'wf-chest-tube' && <NeedleCard />}<VentNumbersCard /><GasFold group="vent-learn" /></>} reference={() => <VentNormals />} intro="The narrator changes the ventilator and the patient; everything you see is the simulation responding. Pause at any point and take the controls.">
       {(l, i) => { const st = l.steps[i]; return <>
+        <LessonFocus focus={st.focus} />
         {st.focus && <p className="focus">Watch: {st.focus.map((f) => ({ pressure: 'pressure trace', flow: 'flow trace', volume: 'volume trace', loops: 'loops', numbers: 'numbers', lungs: 'the lungs', gas: 'SpO₂ and blood gas' }[f])).join(' · ')}</p>}
         <VentNumbersCard />
         {st.focus?.includes('loops') && <section className="card"><Loops /></section>}

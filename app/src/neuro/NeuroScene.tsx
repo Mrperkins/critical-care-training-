@@ -4,6 +4,7 @@
  * primitives and brain.* semantic camera targets. All state comes from useNeuroUI — this file only draws.
  */
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCameraGate } from '../scene/cameraPolicy';
 import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
 import { CameraControls, Html } from '@react-three/drei';
@@ -14,6 +15,7 @@ import { tubeAlong, budget, approach, frameDt, type Tier } from '../scene/effect
 import { registerAnchors } from '../scene/cameraTargets';
 import { useLabUI } from '../labs/labStore';
 import { useNeuroUI } from './neuroStore';
+import { useIsTwin, useTwin } from '../scene/compare';
 import { buildCerebralVessels, brainFrameFromMesh, toBody, toLocal, TERRITORIES, TERRITORY_CORE, TERRITORY_RADIUS, type BrainFrame, type CerebralVessel, type TerritoryId } from './anatomy';
 import { territoryStates, hemorrhageShape, effectiveHemorrhage } from './perfusion';
 import { vesselPerfusion } from './vesselFlow';
@@ -120,7 +122,7 @@ function Vessels({ frame, tier, brain }: { frame: BrainFrame; tier: Tier; brain:
   const cut = useNeuroUI((s) => s.cut); const { plane } = useSlicePlane(frame);
   useEffect(() => { for (const m of [...mats.map((x) => x.m), clotMat]) { m.clippingPlanes = cut ? [plane] : []; m.needsUpdate = true; } }, [cut, plane, mats, clotMat]);
   const clotGeo = useMemo(() => new THREE.CapsuleGeometry(1, 2.2, 6, 12), []);
-  const state = useNeuroUI((s) => s.state);
+  const state = useTwin('neuro.state', useNeuroUI((s) => s.state));
   const perf = useMemo(() => vesselPerfusion(vs, state), [vs, state]);
   // flow particles along perfused vessels
   const NP = budget(tier, 300); const inst = useRef<THREE.InstancedMesh>(null);
@@ -154,7 +156,7 @@ function Vessels({ frame, tier, brain }: { frame: BrainFrame; tier: Tier; brain:
 }
 
 function VesselLabels({ vs }: { vs: CerebralVessel[] }) {
-  const on = useNeuroUI((s) => s.labels); const target = useNeuroUI((s) => s.target); if (!on) return null;
+  const tw = useIsTwin(); const on = useNeuroUI((s) => s.labels) && !tw; const target = useNeuroUI((s) => s.target); if (!on) return null;
   const pick: [string, number, string][] = target === 'brain.cow' || target === 'brain.basilar'
     ? [['a1_R', 0.5, 'A1'], ['acom', 0.5, 'ACoA'], ['pcom_L', 0.5, 'PCoA'], ['pcom_R', 0.5, 'PCoA'], ['p1_L', 0.6, 'P1'], ['m1_L', 0.6, 'M1'], ['basilar', 0.35, 'Basilar'], ['ica_R', 0.93, 'ICA'], ['sca_L', 0.7, 'SCA']]
     : IS_PHONE
@@ -178,7 +180,7 @@ function Brain({ body, frame }: { body: BodyAsset; frame: BrainFrame }) {
   const geo = useMemo(() => outwardGeometry(body.meshes.brain.geometry), [body]);
   const cut = useNeuroUI((s) => s.cut); const glass = useNeuroUI((s) => s.glass) && !cut; const { plane, y } = useSlicePlane(frame);
   const gl = useThree((s) => s.gl); useEffect(() => { gl.localClippingEnabled = true; }, [gl]);
-  useEffect(() => { mat.clippingPlanes = cut ? [plane] : []; mat.needsUpdate = true; }, [cut, plane, mat]); const state = useNeuroUI((s) => s.state); const sys = useNeuroUI((s) => s.sys);
+  useEffect(() => { mat.clippingPlanes = cut ? [plane] : []; mat.needsUpdate = true; }, [cut, plane, mat]); const state = useTwin('neuro.state', useNeuroUI((s) => s.state)); const sys = useTwin('neuro.sys', useNeuroUI((s) => s.sys));
   const ts = useMemo(() => territoryStates(state, sys), [state, sys]);
   const cur = useRef(TERRITORIES.map(() => ({ c: 0, p: 0 })));
   useFrame((st, dtRaw) => {
@@ -193,7 +195,7 @@ function Brain({ body, frame }: { body: BodyAsset; frame: BrainFrame }) {
 }
 
 function Hemorrhage({ frame }: { frame: BrainFrame }) {
-  const st = useNeuroUI((s) => s.state); const sys = useNeuroUI((s) => s.sys); const h = effectiveHemorrhage(st, sys); const cut = useNeuroUI((s) => s.cut);
+  const st = useTwin('neuro.state', useNeuroUI((s) => s.state)); const sys = useTwin('neuro.sys', useNeuroUI((s) => s.sys)); const h = effectiveHemorrhage(st, sys); const cut = useNeuroUI((s) => s.cut);
   const mat = useMemo(() => new THREE.MeshPhysicalMaterial({ color: '#5e0a10', roughness: 0.55, clearcoat: 0.4, transparent: true, opacity: 0.94 }), []);
   const sahMat = useMemo(() => new THREE.MeshPhysicalMaterial({ color: '#8a1219', roughness: 0.35, clearcoat: 0.5, transparent: true, opacity: 0.85, depthWrite: false }), []);
   const blob = useMemo(() => { const g = new THREE.IcosahedronGeometry(1, 12); const p = g.attributes.position as THREE.BufferAttribute; const v = new THREE.Vector3();
@@ -216,7 +218,7 @@ function DeepStructures({ frame }: { frame: BrainFrame }) {
   const [nd, setNd] = useState<Layer<NeuroMapping> | null>(null);
   useEffect(() => { let off = false; loadNeuroDeep().then((x) => { if (!off) setNd(x); }).catch(() => undefined); return () => { off = true; }; }, []);
   const on = useNeuroUI((s) => s.deep); const glass = useNeuroUI((s) => s.glass); const cut = useNeuroUI((s) => s.cut); const labels = useNeuroUI((s) => s.labels);
-  const st = useNeuroUI((s) => s.state); const sys = useNeuroUI((s) => s.sys); const h = effectiveHemorrhage(st, sys);
+  const st = useTwin('neuro.state', useNeuroUI((s) => s.state)); const sys = useTwin('neuro.sys', useNeuroUI((s) => s.sys)); const h = effectiveHemorrhage(st, sys);
   const { plane } = useSlicePlane(frame);
   const ids = useMemo(() => (nd ? [...VENTRICLES, ...DEEP_NUCLEI, ...BRAINSTEM].filter((id) => nd.meshes[id]) : []), [nd]);
   const mats = useMemo(() => Object.fromEntries(ids.map((id) => [id, new THREE.MeshStandardMaterial({ color: DEEP_COLOR(id), roughness: 0.45, transparent: true, opacity: 0.92, side: THREE.DoubleSide })])), [ids]);
@@ -242,7 +244,7 @@ function DeepStructures({ frame }: { frame: BrainFrame }) {
 }
 
 function TerritoryTags({ frame }: { frame: BrainFrame }) {
-  const on = useNeuroUI((s) => s.labels); const state = useNeuroUI((s) => s.state); const sys = useNeuroUI((s) => s.sys);
+  const tw = useIsTwin(); const on = useNeuroUI((s) => s.labels) && !tw; const state = useTwin('neuro.state', useNeuroUI((s) => s.state)); const sys = useTwin('neuro.sys', useNeuroUI((s) => s.sys));
   if (!on) return null; const ts = territoryStates(state, sys);
   return (<>{TERRITORIES.filter((t) => ts[t].coreMl + ts[t].penumbraMl > 0.5).map((t) => { const c = TERRITORY_CORE[t]; const p = toBody(frame, [c[0] * 1.5, c[1] + 0.35, c[2]]);
     return <Html key={t} position={p} center zIndexRange={[20, 0]}><LabelChip className="tag3d t-red" info="core and penumbra" important text={`Core ${Math.round(ts[t].coreMl)} mL · penumbra ${Math.round(ts[t].penumbraMl)} mL`} /></Html>; })}</>);
@@ -268,7 +270,7 @@ const VIEW: Record<string, (f: BrainFrame) => [THREE.Vector3, THREE.Vector3]> = 
   'brain.ica_r': () => [ANCH.ica_r.clone().add(new THREE.Vector3(-2.6, 0.2, 2.4)), ANCH.ica_r.clone().add(new THREE.Vector3(0, 0.4, 0))],
 };
 function Rig({ frame }: { frame: BrainFrame }) {
-  const cc = useRef<CameraControls>(null); const target = useNeuroUI((s) => s.target); const first = useRef(true);
+  const cc = useRef<CameraControls>(null); const target = useNeuroUI((s) => s.target); const first = useRef(true); useCameraGate(cc);
   const cut = useNeuroUI((s) => s.cut); const slice = useNeuroUI((s) => s.slice);
   useEffect(() => { const f = VIEW[cut && target === 'brain.whole' ? 'brain.slice' : target] ?? VIEW['brain.whole']; const [p, l] = f(frame); cc.current?.setLookAt(p.x, p.y, p.z, l.x, l.y, l.z, !first.current); first.current = false; }, [target, frame, cut, slice]);
   return <CameraControls ref={cc} makeDefault minDistance={0.8} maxDistance={14} smoothTime={0.6} />;

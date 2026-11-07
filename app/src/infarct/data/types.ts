@@ -74,6 +74,10 @@ export interface ECGPattern {
   /** Optional second injury vector (e.g. inferior + RV). */
   injury2?: Vec3;
   injury2Mv?: number;
+  /** Upsloping J-point depression toward these leads (de Winter: proximal LAD occlusion). */
+  jDep?: { dir: Vec3; mv: number };
+  /** T-wave change toward these leads: tall symmetric (de Winter), deep symmetric inversion (Wellens B) or biphasic (Wellens A). */
+  tWave?: { dir: Vec3; mv: number; shape: 'tall' | 'inverted' | 'biphasic' };
 }
 
 export interface CameraPose {

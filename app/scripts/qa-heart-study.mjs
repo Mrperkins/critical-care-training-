@@ -28,22 +28,32 @@ try {
     page.on('pageerror', (e) => fatal.push(e.message));
     await page.goto('http://127.0.0.1:8879/?module=heart', { waitUntil: 'domcontentloaded', timeout: 30000 });
     const study = page.getByRole('region', { name: 'Synchronized cardiac electrical study' });
+    await page.getByText('Conduction study settings', { exact: true }).click();
     await expect(study).toBeVisible({ timeout: 30000 });
-    const heartCanvas = page.locator('.scene-pane canvas').first();
-    const strip = page.locator('section[aria-label="Cardiac live ECG strip"]');
+    const heartCanvas = page.locator('.scene-pane .scene-wrap canvas').first(); // (the ECG monitor is a 2D canvas too)
+    const strip = page.locator('section[aria-label="Cardiac monitor ECG"]');
     await expect(strip).toBeAttached();
     // On mobile the Lessons tab intentionally hides the Scene DOM from the accessibility tree.
     // Verify DOM presence now; verify actual visibility after switching to Scene below.
-    await expect(strip.locator('svg.heart-strip-wave')).toBeAttached();
-    await expect(strip.locator('.heart-strip-info strong')).toContainText('LIVE ECG');
+    await expect(strip.locator('canvas.heart-strip-wave')).toBeAttached();
+    await expect(strip.locator('.heart-strip-info strong')).toContainText('lead II');
     if (spec.name === 'desktop') {
       await expect(heartCanvas).toBeAttached({ timeout: 30000 });
       await expect(heartCanvas).toBeVisible({ timeout: 30000 });
       await expect(strip).toBeVisible();
+      // the monitor cycles leads and opens the paper 12-lead
+      await strip.getByRole('button', { name: 'Next lead' }).click();
+      await expect(strip.locator('.heart-strip-info strong')).toContainText('lead III');
+      await strip.getByRole('button', { name: '12-lead' }).click();
+      const twelve = page.getByRole('dialog', { name: '12-lead ECG' });
+      await expect(twelve).toBeVisible();
+      await twelve.getByRole('button', { name: 'Show lead V1 on the monitor' }).click();
+      await expect(twelve).toHaveCount(0);
+      await expect(strip.locator('.heart-strip-info strong')).toContainText('lead V1');
       const heartRect = await page.locator('.heart-scene-pane > .scene-wrap').boundingBox();
       const stripRect = await strip.boundingBox();
-      if (!heartRect || !stripRect || stripRect.x < heartRect.x + heartRect.width - 3 || stripRect.y > heartRect.y + heartRect.height) {
-        throw new Error('ECG must be visible directly to the RIGHT of the 3D heart on desktop');
+      if (!heartRect || !stripRect || stripRect.y < heartRect.y + heartRect.height - 3 || Math.abs(stripRect.width - heartRect.width) > 4) {
+        throw new Error('ECG must span the full width below the 3D heart on desktop');
       }
     } else {
       // Mobile intentionally unmounts the WebGL canvas on Lessons for GPU/memory safety.
@@ -59,7 +69,7 @@ try {
     await expect(study.getByRole('button', { name: 'Play' })).toBeVisible();
     await study.getByLabel('ECG lead').selectOption('V1');
     await expect(study.getByRole('img', { name: /lead V1 electrocardiogram/i })).toBeVisible();
-    await study.getByText('View all 17 synchronized leads (12 + posterior/right)').click();
+    await study.getByText('View all 12 synchronized leads').click();
     await expect(study.getByRole('button', { name: 'Select lead V6' })).toBeVisible();
     await study.getByRole('button', { name: 'Select lead V6' }).click();
     await expect(study.getByRole('img', { name: /lead V6 electrocardiogram/i })).toBeVisible();
