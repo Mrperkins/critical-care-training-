@@ -141,9 +141,10 @@ function streams(s: ShuntState) {
 }
 
 /* ------------------------------------------------------------------ the heart */
-function Heart({ asset, s, tier, hd }: { asset: LinesAsset; s: ShuntState; tier: Tier; hd: Record<string, THREE.Mesh> | null }) {
+function Heart({ asset, s, tier, hd, variant = 'primary' }: { asset: LinesAsset; s: ShuntState; tier: Tier; hd: Record<string, THREE.Mesh> | null; variant?: 'primary' | 'whole' | 'conduction' }) {
   const mode = useHeartUI((st) => st.mode); const flowDisplay = useHeartUI((st) => st.flowDisplay); const cutSel = useHeartUI((st) => st.cut); const target = useHeartUI((st) => st.target);
-  const cut = cutSel === 'auto' ? autoCut(target) : cutSel;
+  const atlasShowCoronaries = useHeartUI((st) => st.atlasShowCoronaries);
+  const cut = variant === 'whole' ? 'closed' : variant === 'conduction' ? 'slice' : cutSel === 'auto' ? autoCut(target) : cutSel;
   const gl = useThree((st) => st.gl); const scene = useThree((st) => st.scene); useEffect(() => { gl.localClippingEnabled = true; }, [gl]);
   useEffect(() => {
     // Browser visual QA can verify real 3D column meshes, not just React control presence.
@@ -159,14 +160,14 @@ function Heart({ asset, s, tier, hd }: { asset: LinesAsset; s: ShuntState; tier:
   const valves = useMemo(() => valveSpecs({ mitral: asset.meshes.mitral?.geometry, tricuspid: asset.meshes.tricuspid?.geometry, aortic_valve: asset.meshes.aortic_valve?.geometry, pulm_valve: asset.meshes.pulm_valve?.geometry }), [asset]);
   // full-resolution chambers with endocardial relief replace lines.glb's when loaded; the septum is then the LV/RV
   // shells' own septal walls (HuBMAP's separate septum slab is hidden: it would bulge through the LV endocardium)
-  const parts = useMemo(() => PARTS.filter((id) => asset.meshes[id] && !(hd && id === 'septum')).map((id) => {
+  const parts = useMemo(() => PARTS.filter((id) => asset.meshes[id] && !(hd && id === 'septum') && (atlasShowCoronaries || (id !== 'coronary_art' && id !== 'cardiac_veins'))).map((id) => {
     const geo = (hd?.[id] ?? asset.meshes[id]).geometry.clone(); const base = (geo.getAttribute('position').array as Float32Array).slice();
     if (!geo.getAttribute('normal')) geo.computeVertexNormals(); const nrm = (geo.getAttribute('normal').array as Float32Array).slice();
     const { m, U } = heartMaterial(id, planes);
     const radial = /^(lv|rv|septum|coronary_art|cardiac_veins)$/.test(id) ? 1 : 0; const atr = id === 'ra' || id === 'la';
     addBeat(m, shared, partUniforms({ radial, atr: atr ? 1 : 0, atrC: atr ? CHAMBER[id] : undefined, valve: valves[id] }), id);
     return { id, geo, base, nrm, m, U };
-  }), [asset, planes, shared, valves, hd]);
+  }), [asset, planes, shared, valves, hd, atlasShowCoronaries]);
   const byId = useMemo(() => Object.fromEntries(parts.map((p) => [p.id, p])) as Record<PartId, (typeof parts)[number]>, [parts]);
   useEffect(() => () => parts.forEach((p) => { p.geo.dispose(); p.m.dispose(); }), [parts]);
   useEffect(() => { (window as unknown as { __heart3d?: unknown }).__heart3d = { byId }; }, [byId]); // automation / tests
@@ -297,9 +298,9 @@ function Heart({ asset, s, tier, hd }: { asset: LinesAsset; s: ShuntState; tier:
         }}
       />)}
       <instancedMesh key={NP} visible={cut !== 'closed' && flowDisplay !== 'volume'} ref={inst} args={[new THREE.SphereGeometry(0.0052, 8, 6), undefined, NP]} frustumCulled={false}><meshBasicMaterial toneMapped={false} clippingPlanes={planes} /></instancedMesh>
-      <Internals planes={planes} shared={shared} hr={hr} clock={t} />
+      <Internals planes={planes} shared={shared} hr={hr} clock={t} allowPericardium={variant !== 'conduction'} />
       <Nerves shared={shared} planes={planes} />
-      <Labels s={s} shape={shape} cut={cut} />
+      {variant !== 'conduction' && <Labels s={s} shape={shape} cut={cut} />}
     </group>
   );
 }
@@ -307,9 +308,10 @@ function Heart({ asset, s, tier, hd }: { asset: LinesAsset; s: ShuntState; tier:
 /* ------------------------------------------------------------------ heart internals (heart-internals.glb, pericardium.glb; body frame) */
 /** Papillary muscles and chordae are always drawn (they are what the cut opens onto); the conduction system lights a
  *  wavefront on the same 84/min clock as the beating chambers; the pericardium is a toggle (it hides the epicardium). */
-function Internals({ planes, shared, hr, clock }: { planes: THREE.Plane[]; shared: BeatUniforms; hr: number; clock: React.MutableRefObject<number> }) {
+function Internals({ planes, shared, hr, clock, allowPericardium = true }: { planes: THREE.Plane[]; shared: BeatUniforms; hr: number; clock: React.MutableRefObject<number>; allowPericardium?: boolean }) {
   const [hi, setHi] = useState<Layer<HeartInternalsMapping> | null>(null); const [pc, setPc] = useState<Layer<PericardiumMapping> | null>(null);
   const showC = useHeartUI((s) => s.conduction); const showP = useHeartUI((s) => s.pericardium);
+  const sacOpacity = useHeartUI((s) => s.atlasPericardialOpacity);
   useEffect(() => { let off = false; loadHeartInternals().then((x) => { if (!off) setHi(x); }).catch(() => undefined); return () => { off = true; }; }, []);
   useEffect(() => { if (!showP || pc) return; let off = false; loadPericardium().then((x) => { if (!off) setPc(x); }).catch(() => undefined); return () => { off = true; }; }, [showP, pc]);
   const mats = useMemo(() => ({
@@ -321,11 +323,12 @@ function Internals({ planes, shared, hr, clock }: { planes: THREE.Plane[]; share
   useMemo(() => { addBeat(mats.pap, shared, partUniforms({ radial: 1 }), 'pap'); addBeat(mats.chord, shared, partUniforms({ radial: 1 }), 'chord'); addBeat(mats.sac, shared, partUniforms({ radial: 0.6 }), 'sac'); }, [mats, shared]);
   useEffect(() => () => { mats.pap.dispose(); mats.chord.dispose(); mats.sac.dispose(); mats.cond.forEach((c) => c.material.dispose()); }, [mats]);
   useFrame(() => { const rr = 60 / hr; const ms = ((clock.current + 0.19) % rr) * 1000; /* electrical precedes mechanical: the SA node fires ~190 ms before ventricular systole (same clock as wiggers) */ for (const c of mats.cond) { c.uniforms.uT.value = ms; c.uniforms.uHisStart.value = hi?.mapping.activation.hisStart ?? 120; } });
+  useEffect(() => { mats.sac.opacity = sacOpacity; }, [mats, sacOpacity]);
   if (!hi) return null;
   return (<>
     {VALVE_APPARATUS.filter((id) => hi.meshes[id]).map((id) => <mesh key={id} geometry={hi.meshes[id].geometry} material={/^chordae/.test(id) ? mats.chord : mats.pap} dispose={null} />)}
     {showC && CONDUCTION.filter((id) => hi.meshes[id]).map((id) => <mesh key={id} geometry={hi.meshes[id].geometry} material={mats.cond[branchOf(id)].material} renderOrder={6} dispose={null} />)}
-    {showP && pc && <mesh geometry={pc.meshes.pericardium.geometry} material={mats.sac} renderOrder={7} dispose={null} />}
+    {showP && allowPericardium && pc && <mesh geometry={pc.meshes.pericardium.geometry} material={mats.sac} renderOrder={7} dispose={null} />}
   </>);
 }
 
@@ -409,14 +412,14 @@ export const HEART_VIEW: Record<string, () => [THREE.Vector3, THREE.Vector3]> = 
   'heart.coarct': () => look(new THREE.Vector3(1, 0.15, -0.25), LM.isthmus.clone().add(new THREE.Vector3(0, -0.05, 0)), 3.0 * D),
 };
 registerAnchors('heart', () => ({ four_chamber: W(new THREE.Vector3(0.2, 4.66, 0.38)), septum: W(LM.septum), vsd: W(LM.vsdPerimembranous), asd: W(LM.fossa), pfo: W(LM.fossa), lv: W(LM.lv), rv: W(LM.rv), outflow: W(LM.rvot), pda: W(LM.pdaAorta.clone().lerp(LM.pdaPa, 0.5)), coarct: W(LM.isthmus) }));
-function Rig() {
-  const cc = useRef<CameraControls>(null); const target = useHeartUI((s) => s.target); const first = useRef(true); useCameraGate(cc);
-  useEffect(() => { const [p, l] = (HEART_VIEW[target] ?? HEART_VIEW['heart.whole_heart'])(); cc.current?.setLookAt(p.x, p.y, p.z, l.x, l.y, l.z, !first.current); first.current = false; }, [target]);
+function Rig({ variant = 'primary' }: { variant?: 'primary' | 'whole' | 'conduction' }) {
+  const cc = useRef<CameraControls>(null); const selectedTarget = useHeartUI((s) => s.target); const target = variant === 'whole' ? 'heart.whole_heart' : variant === 'conduction' ? 'heart.four_chamber' : selectedTarget; const first = useRef(true); useCameraGate(cc);
+  useEffect(() => { const [p, l] = (HEART_VIEW[target] ?? HEART_VIEW['heart.four_chamber'])(); cc.current?.setLookAt(p.x, p.y, p.z, l.x, l.y, l.z, !first.current); first.current = false; }, [target]);
   return <CameraControls ref={cc} makeDefault minDistance={1} maxDistance={16} smoothTime={0.55} />;
 }
 
 export { CUT_LABEL };
-export function HeartScene() {
+export function HeartScene({ variant = 'primary' }: { variant?: 'primary' | 'whole' | 'conduction' } = {}) {
   const input = useTwin('heart.input', useHeartUI((s) => s.input)); const tier = useLabUI((s) => s.visualTier) as Tier;
   const s = useMemo(() => solveShunt(input), [input]);
   const [asset, setAsset] = useState<LinesAsset | null>(null); const [err, setErr] = useState('');
@@ -426,9 +429,9 @@ export function HeartScene() {
   const [p] = HEART_VIEW['heart.whole_heart']();
   if (err) return <p className="img-note" role="alert">The 3D heart could not be loaded: {err}</p>;
   return (
-    <StudioCanvas camera={{ position: [p.x, p.y, p.z], fov: 32 }} fog={false} label="Interactive 3D heart: whole, or cut along a chosen section">
-      {asset && <Heart asset={asset} s={s} tier={tier} hd={hd} />}
-      <Rig />
+    <StudioCanvas camera={{ position: [p.x, p.y, p.z], fov: 32 }} fog={false} label={variant === 'whole' ? 'Interactive intact 3D cardiac anatomy' : variant === 'conduction' ? 'Interactive 3D cutaway heart and electrical conduction' : 'Interactive 3D heart: whole, or cut along a chosen section'}>
+      {asset && <Heart asset={asset} s={s} tier={tier} hd={hd} variant={variant} />}
+      <Rig variant={variant} />
     </StudioCanvas>
   );
 }

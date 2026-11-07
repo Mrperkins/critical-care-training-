@@ -20,6 +20,7 @@ on:
       - 'app/tests/heart-study-*.test.ts'
       - 'app/tests/mi-*.test.*'
       - 'app/scripts/qa-mi-locator.mjs'
+      - 'app/scripts/qa-cardiac-atlas.mjs'
       - 'app/src/styles/app.css'
   workflow_dispatch:
 permissions:
@@ -62,6 +63,8 @@ jobs:
         run: node scripts/qa-heart-study.mjs
       - name: Render and test the MI Locator (heart + 12-lead side by side) on three viewports
         run: node scripts/qa-mi-locator.mjs
+      - name: Render the intact and cutaway cardiac atlas
+        run: node scripts/qa-cardiac-atlas.mjs
       - name: Save visual QA screenshots
         if: always()
         uses: actions/upload-artifact@v4

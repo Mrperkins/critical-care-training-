@@ -9,7 +9,7 @@ import { sample } from '../infarct/ecg/ecgModel';
 import type { LeadId } from '../infarct/data/types';
 
 export const ECG_SHIFT_SECONDS = 0.05;
-export const STUDY_LEADS: LeadId[] = ['I', 'II', 'III', 'aVR', 'aVL', 'aVF', 'V1', 'V2', 'V3', 'V4', 'V5', 'V6'];
+export const STUDY_LEADS: LeadId[] = ['I', 'II', 'III', 'aVR', 'aVL', 'aVF', 'V1', 'V2', 'V3', 'V4', 'V5', 'V6', 'V7', 'V8', 'V9', 'V3R', 'V4R'];
 export const ECG_EVENTS = [
   { id: 'sa', name: 'SA node', at: 0, end: 20, detail: 'The SA node fires; atrial depolarization is initiated.' },
   { id: 'p', name: 'P wave', at: 20, end: 105, detail: 'Depolarization spreads through the atrial myocardium.' },

@@ -102,7 +102,7 @@ export function HeartECGStudy() {
         </svg>
         <p className="muted small">Orange: aortic pressure proxy; pink: ventricular pressure proxy; blue: relative chamber emptying. All three use the heart model's Wiggers timing, aligned to the QRS. These are not calibrated measurements.</p>
       </details>
-      <details className="study-details"><summary>View all 12 synchronized leads</summary>
+      <details className="study-details"><summary>View all 17 synchronized leads (12 + posterior/right)</summary>
         <div className="study-lead-grid">{allPaths.map((item) => <button type="button" key={item.id} className={lead === item.id ? 'study-lead active' : 'study-lead'} aria-label={`Select lead ${item.id}`} aria-pressed={lead === item.id} onClick={() => setLead(item.id)}>
           <span>{item.id}</span><svg viewBox="0 0 340 100" role="img" aria-label={`Lead ${item.id} schematic waveform`}>
             <polyline points={item.points} fill="none" stroke="#16b8b5" strokeWidth="3"/>
