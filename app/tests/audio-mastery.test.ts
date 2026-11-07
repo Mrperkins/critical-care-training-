@@ -4,6 +4,8 @@ import { MASTERY, MASTERY_BY_ID } from '../src/audio/mastery';
 import { MASTERY_NOTES } from '../src/audio/masteryNotes';
 import { REVIEW_PROMPTS } from '../src/audio/review';
 
+import { hasProcedureSpecificVisual } from '../src/audio/repVisualRouting';
+
 describe('critical care audio mastery model', () => {
   it('has unique concept, episode and Mental Rep ids', () => {
     const unique = (ids: string[]) => new Set(ids).size === ids.length;
@@ -97,18 +99,28 @@ describe('critical care audio mastery model', () => {
     }
   });
 
+  it('gives each instructional beat procedure-specific visuals and a substantive script', () => {
+    for (const rep of MENTAL_REPS) {
+      for (const beat of rep.beats.filter((item) => item.phase !== 'debrief')) {
+        const id = `${rep.id}/${beat.id}`;
+        expect(hasProcedureSpecificVisual(rep.id, beat), id).toBe(true);
+        expect(beat.narration.trim().split(/\s+/).length, id).toBeGreaterThanOrEqual(25);
+      }
+    }
+  });
+
   it('core procedural Mental Reps keep literal hands-first choreography', () => {
     const required: Record<string, RegExp[]> = {
-      'rep-blood': [/pick up the blood product/i, /tubing and filter/i, /spike the verified unit/i, /stop the blood immediately/i],
+      'rep-blood': [/pick up the blood product/i, /blood-administration tubing.*in-line filter/i, /spike the verified unit/i, /stop flow immediately at the clamp or pump/i],
       'rep-art-line': [/flush bag/i, /stopcock/i, /select zero/i, /fast-flush/i],
-      'rep-chest-tube': [/lay out the tube/i, /skin incision/i, /bluntly dissect/i, /connect it immediately/i],
-      'rep-central-line': [/probe in one hand/i, /true tip/i, /before dilation/i, /guidewire/i],
-      'rep-io': [/stabilize the limb/i, /needle length/i, /extension set/i, /flush according to protocol/i],
+      'rep-chest-tube': [/lay out the tube/i, /skin incision/i, /bluntly spread the subcutaneous tissue/i, /connect the tube immediately/i],
+      'rep-central-line': [/hold the probe in your nondominant hand/i, /true needle tip/i, /before dilation/i, /guidewire/i],
+      'rep-io': [/stabilize the leg/i, /black depth mark.*needle set is too short/i, /extension set/i, /flush five to ten milliliters of normal saline.*watching and palpating/i],
       'rep-us-piv': [/choose a catheter/i, /true tip/i, /thread the catheter/i, /connect the extension/i],
-      'rep-rsi': [/suction within reach/i, /cuff checked/i, /label every syringe/i, /final sweep/i],
+      'rep-rsi': [/suction in your dominant-hand reach and turn it on/i, /cuff checked/i, /label every syringe/i, /final sweep/i],
       'rep-post-intubation': [/attach waveform capnography/i, /trace the tube and circuit/i, /predicted body weight/i, /analgesia and sedation/i],
-      'rep-pocus-shock': [/below the xiphoid/i, /two rib shadows/i, /IVC/i, /bladder as the anchor/i],
-      'rep-pac': [/trace the pressure system/i, /right-atrial waveform/i, /watch the waveform change/i, /dicrotic notch/i, /deflate promptly/i],
+      'rep-pocus-shock': [/below the xiphoid/i, /two rib shadows/i, /IVC/i, /find the fluid-filled bladder, then sweep behind and around it/i],
+      'rep-pac': [/trace the PA-catheter pressure system/i, /right-atrial waveform/i, /waveform transition.*distal port is sampling/i, /dicrotic notch/i, /deflate promptly/i],
       'rep-crrt': [/trace the blood path/i, /trace the non-blood fluids/i, /net patient-fluid-removal/i, /named pressure and its trend/i],
       'rep-ecmo': [/trace where blood is drained/i, /drainage limb/i, /pump speed and measured blood flow/i, /sweep-gas source/i, /return limb/i, /console in isolation/i],
       'rep-iabp': [/trigger source/i, /dicrotic notch/i, /assisted end-diastolic/i, /early inflation/i, /late deflation/i],
