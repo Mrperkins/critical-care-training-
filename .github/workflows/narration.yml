@@ -11,7 +11,7 @@ permissions:
   contents: write
 concurrency:
   group: narration-${{ github.ref_name }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 env:
   SHARDS: 20
 jobs:
@@ -32,6 +32,7 @@ jobs:
         with: { name: narration-jobs, path: app/narration/ }
 
   render:
+    timeout-minutes: 15
     needs: plan
     if: needs.plan.outputs.todo != '0'
     runs-on: ubuntu-latest
@@ -55,7 +56,12 @@ jobs:
           mkdir -p ~/kokoro && cd ~/kokoro
           curl -sSLf -o kokoro-v1.0.onnx https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.onnx
           curl -sSLf -o voices-v1.0.bin https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin
-      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install -q kokoro-onnx soundfile numpy
+      - name: Install narration dependencies without apt mirror access
+        run: |
+          pip install -q kokoro-onnx soundfile numpy imageio-ffmpeg
+          mkdir -p "$RUNNER_TEMP/narration-bin"
+          ln -s "$(python -c 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())')" "$RUNNER_TEMP/narration-bin/ffmpeg"
+          echo "$RUNNER_TEMP/narration-bin" >> "$GITHUB_PATH"
       - run: python scripts/narrate.py --model ~/kokoro/kokoro-v1.0.onnx --voices ~/kokoro/voices-v1.0.bin --jobs narration/jobs.json --skip narration/done.json --out "$RUNNER_TEMP/out" --shard ${{ matrix.shard }} --of $SHARDS
       - uses: actions/upload-artifact@v4
         with:
