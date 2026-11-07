@@ -13,6 +13,7 @@ import { AbgPresets, AbgStory, SampleCards, AbgControls, AbgTime, AbgInterpret, 
 import { AbgLearn } from './AbgLearn';
 import { AbgChallenge } from './AbgChallenge';
 import { AbgSim } from './AbgSim';
+import { AbgGuidedCourse } from './AbgGuidedCourse';
 import { SceneWrap } from '../scene/labels';
 
 export function AbgModule() {
@@ -45,7 +46,7 @@ export function AbgModule() {
           <Fold group="abg" id="apnoea" title="Apnoea: how fast SpO₂ falls"><ApnoeaCard /></Fold>
         </>}
         {mode === 'learn' && <AbgLearn />}
-        {mode === 'challenge' && <AbgChallenge />}
+        {mode === 'challenge' && <><AbgGuidedCourse /><AbgChallenge /></>}
         {mode === 'sim' && <AbgSim />}
         {assets && <details className="credit"><summary>Sources & model notes</summary>Lungs &amp; kidneys: {assets.resp.mapping.attribution.creators}, {assets.resp.mapping.attribution.data} — CC BY 4.0. Microanatomy: {assets.micro.mapping.attribution.data}; capillaries and RBCs to scale (1 alveolus ≈ 0.2 mm), blood flow slowed ~10×.</details>}
       </aside>
