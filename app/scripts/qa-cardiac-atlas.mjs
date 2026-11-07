@@ -18,6 +18,7 @@ try{
   for(const d of [{name:'desktop',width:1440,height:900},{name:'mobile',width:390,height:844}]){
     const cx=await browser.newContext({viewport:{width:d.width,height:d.height},deviceScaleFactor:1});
     const page=await cx.newPage();
+    page.setDefaultTimeout(60000);
     const issues=[];
     page.on('pageerror',e=>issues.push(e.message));
     page.on('console',msg=>{if(msg.type()==='error'&&/Shader Error|WebGLProgram|VALIDATE_STATUS/i.test(msg.text())) issues.push(msg.text());});

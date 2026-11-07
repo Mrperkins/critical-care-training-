@@ -16,6 +16,7 @@ import { heartRateFor } from './beat';
 import { HeartECGStudy } from './HeartECGStudy';
 import { HeartECGSceneStrip } from './HeartECGSceneStrip';
 import type { CompareSpec } from '../scene/CompareShell';
+import { useCompare } from '../scene/compare';
 import { COMPARE_MEDIA } from '../scene/compareMedia';
 import { useStudyClock } from './studyClock';
 import { useHeartUI, loadHeartPreset, setHeartInput, type FlowMode, type CutMode } from './heartStore';
@@ -49,6 +50,8 @@ export function HeartModule() {
   const mode = useUI((s) => s.mode); const section = useHeartUI((s) => s.section);
   const presentation = useHeartUI((s) => s.atlasPresentation);
   const mobileFocus = useHeartUI((s) => s.atlasMobileFocus);
+  const comparing = useCompare((s) => s.on);
+  const split = presentation === 'split' && !comparing;
   const [compact, setCompact] = useState(() => typeof window !== 'undefined' && !!window.matchMedia?.('(max-width: 1024px)').matches);
   useEffect(() => { const media = window.matchMedia?.('(max-width: 1024px)'); if (!media) return; const update = () => setCompact(media.matches); media.addEventListener('change', update); return () => media.removeEventListener('change', update); }, []);
   const physiologicalOutput = useHeartUI((s) => s.input.qs);
@@ -98,12 +101,12 @@ export function HeartModule() {
       <section className="scene-pane heart-scene-pane">
         <CardiacViews />
         <SceneWrap compare={heartCompare(input, renderScene)}>
-          <div className={presentation === 'split' && !compact ? 'heart-atlas-views is-dual' : 'heart-atlas-views'}>
-            {renderScene && (presentation === 'split' && !compact ? <>
+          <div className={split && !compact ? 'heart-atlas-views is-dual' : 'heart-atlas-views'}>
+            {renderScene && (split && !compact ? <>
               <section className="heart-atlas-viewport" aria-label="3D intact cardiac heart"><HeartScene variant="whole" /><span className="heart-atlas-viewport-title">Exterior · whole heart</span></section>
               <section className="heart-atlas-viewport" aria-label="3D cardiac conduction and cutaway"><HeartScene variant="conduction" /><span className="heart-atlas-viewport-title">Cutaway · conduction</span></section>
             </> : <div className="heart-atlas-viewport">
-              <HeartScene variant={presentation === 'whole' || presentation === 'split' && compact && mobileFocus === 'whole' ? 'whole' : presentation === 'split' ? 'conduction' : 'primary'} />
+              <HeartScene variant={split ? mobileFocus : presentation === 'whole' && !comparing ? 'whole' : 'primary'} />
             </div>)}
           </div>
           <HeartOverlay />
@@ -152,7 +155,7 @@ function AtlasPanel() {
     <div className="card-h"><h3>3D cardiac atlas</h3><span className="muted small">Shared ECG and heartbeat</span></div>
     <div className="heart-atlas-modes" role="group" aria-label="Heart visualization">
       {([['cutaway','Cutaway'],['whole','Whole heart'],['split','3D split view']] as const).map(([id,label]) =>
-        <button key={id} type="button" className={presentation===id?'on':''} aria-pressed={presentation===id} onClick={() => set({ atlasPresentation: id, ...(id === 'split' ? { conduction: true } : id === 'cutaway' ? { cut: 'slice', target: 'heart.four_chamber' } : {}) })}>{label}</button>)}
+        <button key={id} type="button" className={presentation===id?'on':''} aria-pressed={presentation===id} onClick={() => set({ atlasPresentation: id, ...(id === 'whole' ? { cut: 'closed', target: 'heart.whole_heart' } : { cut: 'slice', target: 'heart.four_chamber', ...(id === 'split' ? { conduction: true } : {}) }) })}>{label}</button>)}
     </div>
     {presentation==='split' && <div className="heart-atlas-mobile-switch" role="group" aria-label="Mobile 3D view selection">
       <button aria-pressed={mobileFocus==='whole'} onClick={()=>set({atlasMobileFocus:'whole'})}>Whole</button>
@@ -183,7 +186,7 @@ function HeartOverlay() {
       <button className={`tgl${conduction ? ' on' : ''}`} aria-pressed={conduction} onClick={() => set({ conduction: !conduction })}>Conduction</button>
       <button className={`tgl${pericardium ? ' on' : ''}`} aria-pressed={pericardium} onClick={() => set({ pericardium: !pericardium })}>Pericardium</button>
       <button className={`tgl${nerves ? ' on' : ''}`} aria-pressed={nerves} onClick={() => set({ nerves: !nerves })}>Nerves</button>
-      <MiniSelect label="Open" value={cut} options={CUTS.map(([k, l]) => [k, k === 'auto' ? `Auto · ${CUT_LABEL[autoCut(target)]}` : l]) as [CutMode, string][]} onChange={(v) => set({ cut: v, ...(CUT_VIEW[v] ? { target: CUT_VIEW[v] } : {}) })} />
+      <MiniSelect label="Open" value={cut} options={CUTS.map(([k, l]) => [k, k === 'auto' ? `Auto · ${CUT_LABEL[autoCut(target)]}` : l]) as [CutMode, string][]} onChange={(v) => set({ atlasPresentation: 'cutaway', cut: v, ...(CUT_VIEW[v] ? { target: CUT_VIEW[v] } : {}) })} />
     </div>
     {!hide && <div className="alv-hud">
       <div className="alv-row"><span>Shunt</span><b className={`dir dir-${s.direction === 'L→R' ? 'lr' : s.direction === 'R→L' ? 'rl' : s.direction === 'bidirectional' ? 'bi' : 'none'}`}>{s.direction === 'none' ? 'none' : s.direction}</b></div>
@@ -197,8 +200,8 @@ function HeartOverlay() {
       <div className="alv-row"><span>SpO₂ (pre / post)</span><b>{pct(s.sat.ao)}{s.input.lesion === 'pda' || s.input.lesion === 'coarct' ? ` / ${pct(s.sat.aoPost)}` : ''}</b></div>
     </div>}
     <div className="alv-focus">
-      <MiniSelect label="Section" value={cut === 'auto' ? autoCut(target) : cut} options={SECTIONS} onChange={(v) => set({ cut: v, target: v === 'closed' ? 'heart.whole_heart' : CUT_VIEW[v] ?? (target === 'heart.whole_heart' ? 'heart.four_chamber' : target) })} className="ch-section" />
-      <MiniSelect label="Focus" value={target} options={FOCUS as [string, string][]} onChange={(v) => set({ target: v, ...(v === 'heart.whole_heart' ? { cut: 'closed' as CutMode } : cut === 'closed' ? { cut: 'auto' as CutMode } : {}) })} className="ch-focus" />
+      <MiniSelect label="Section" value={cut === 'auto' ? autoCut(target) : cut} options={SECTIONS} onChange={(v) => set({ atlasPresentation: 'cutaway', cut: v, target: v === 'closed' ? 'heart.whole_heart' : CUT_VIEW[v] ?? (target === 'heart.whole_heart' ? 'heart.four_chamber' : target) })} className="ch-section" />
+      <MiniSelect label="Focus" value={target} options={FOCUS as [string, string][]} onChange={(v) => set({ atlasPresentation: 'cutaway', target: v, ...(v === 'heart.whole_heart' ? { cut: 'closed' as CutMode } : cut === 'closed' ? { cut: 'auto' as CutMode } : {}) })} className="ch-focus" />
       <MiniSelect label="Blood flow" value={flowDisplay} options={ [['volume','Blood volume'],['both','Volume + tracers'],['particles','Tracers only']] as [typeof flowDisplay,string][] } onChange={(v) => set({ flowDisplay: v })} className="heart-bulk-flow-select" />
     </div>
     {cut === 'closed' ? <div className="legend"><span>Whole heart. Choose a Section to open it and see the blood flow inside.</span></div> : <div className="legend">{flow === 'sat'
