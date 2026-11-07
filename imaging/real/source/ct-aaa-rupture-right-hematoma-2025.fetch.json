@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC12284653",
+ "pageUrl": "https://doi.org/10.1016/j.ijscr.2025.111685",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).",
+ "authors": "Taguchi S, Nakaji S, Matsumaru I, Hisatomi K, Teratani H, Miura T.",
+ "title": "Pulmonary embolism following endovascular aortic repair for a ruptured abdominal aortic aneurysm: A case report",
+ "publication": "International journal of surgery case reports",
+ "published": "2025-07-15",
+ "doi": "10.1016/j.ijscr.2025.111685",
+ "volume": "133",
+ "firstpage": "111685",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12284653.1/gr1.jpg",
+ "originalName": "gr1.jpg",
+ "description": "Fig. 1 Contrast-enhanced computed tomography revealed a ruptured abdominal aortic aneurysm with a massive right retroperitoneal hematoma.",
+ "thirdParty": false,
+ "figure": "f0005",
+ "licenseEvidence": "Europe PMC full text of PMC12284653 (doi 10.1016/j.ijscr.2025.111685), <license>: “This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).”; Fig. 1 caption checked for a separate credit.",
+ "id": "ct-aaa-rupture-right-hematoma-2025",
+ "retrieved": "2026-10-09T15:43Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

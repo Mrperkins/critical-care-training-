@@ -1,11 +1,8 @@
-/** Lung ultrasound of the ventilated patient: four probe zones (B-mode, animated), M-mode of the chosen zone, reading, and real clips. */
-import { useEffect, useMemo, useRef, useState } from 'react';
+/** Lung ultrasound of the ventilated patient: four probe zones read from the model; each zone shows the real clip of that pattern. */
+import { useEffect, useMemo, useState } from 'react';
 import { session } from './session';
-import { lusFromVent, lusSummary, lusScene, renderMmode, LUS_ZONES, LUS_W, LUS_D, type LusZone, type LusZoneId } from './lus';
-import { renderLinear } from '../scene/ultrasound/bmode';
-import { RealExamples } from '../scene/imaging/RealExamples';
-import { RealCase } from '../scene/imaging/RealCase';
-import { IS_PHONE } from '../scene/Studio';
+import { lusFromVent, lusSummary, LUS_ZONES, type LusZone, type LusZoneId } from './lus';
+import { RealStudy } from '../scene/imaging/RealStudy';
 import { useHideFindings } from '../challenge/caseStore';
 import { create } from 'zustand';
 /** selected probe zone (lessons can point the probe) */
@@ -17,40 +14,33 @@ function useZones() {
   useEffect(() => { const id = setInterval(() => { const n = key(lusFromVent(session)); setK((o) => (o === n ? o : n)); }, 700); return () => clearInterval(id); }, []);
   return useMemo(() => JSON.parse(k) as LusZone[], [k]);
 }
-function draw(c: HTMLCanvasElement | null, img: { rgba: Uint8ClampedArray; w: number; h: number }) { if (!c) return; if (c.width !== img.w) { c.width = img.w; c.height = img.h; } const ctx = c.getContext('2d')!; const d = ctx.createImageData(img.w, img.h); d.data.set(img.rgba); ctx.putImageData(d, 0, 0); }
 
-function Zone({ z, on, pick, hide }: { z: LusZone; on: boolean; pick: () => void; hide: boolean }) {
-  const ref = useRef<HTMLCanvasElement>(null); const size = IS_PHONE ? 110 : 150;
-  useEffect(() => {
-    let raf = 0, last = 0; const t0 = performance.now(); const reduce = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const every = reduce ? 1e9 : on ? 140 : 700; // the zone being read animates smoothly; the other three tick slowly (each frame costs ~10–20 ms)
-    const f = (now: number) => { if (now - last > every) { last = now; draw(ref.current, renderLinear(lusScene(z, (now - t0) / 1000), LUS_W, LUS_D, size)); } raf = requestAnimationFrame(f); };
-    draw(ref.current, renderLinear(lusScene(z, 0), LUS_W, LUS_D, size)); raf = requestAnimationFrame(f); return () => cancelAnimationFrame(raf);
-  }, [z, size, on]);
-  const name = LUS_ZONES.find((x) => x.id === z.id)!.name;
-  return (
-    <button className={`lus-zone${on ? ' on' : ''}`} onClick={pick} aria-pressed={on} aria-label={hide ? name : `${name}: ${z.pattern}`}>
-      <canvas ref={ref} />
-      <span className="lus-name">{name}</span>
-      {!hide && <span className={`lus-tag ${z.sliding ? 'ok' : 'bad'}`}>{z.sliding ? 'sliding' : z.lungPulse ? 'lung pulse' : 'no sliding'}{z.bLines >= 3 ? ` · ${z.white ? 'white lung' : `${z.bLines} B-lines`}` : ''}{z.lungPoint ? ' · lung point' : ''}</span>}
-    </button>
-  );
+/** Finding keys for one zone, most important first; the first is required of any clip shown. */
+export function lusKeys(z: LusZone): string[] {
+  if (z.lungPoint) return ['lung_point', 'ptx_us'];
+  if (!z.sliding && !z.lungPulse) return ['absent_sliding', 'ptx_us'];
+  if (z.lungPulse) return ['lung_pulse', 'consolidation'];
+  const k: string[] = [];
+  if (z.effusion > 0.2) k.push('pleural_effusion');
+  if (z.white) k.push('whitelung', 'blines'); else if (z.bLines >= 3) k.push('blines', 'interstitial_syndrome');
+  if (z.consolidation > 0.3) k.push('consolidation');
+  if (!k.length) k.push('alines', 'sliding');
+  return k;
 }
 
 export function LusScene() {
-  const hide = useHideFindings(); const zs = useZones(); const sel = useLusUI((s) => s.zone); const setSel = useLusUI.getState().set; const z = zs.find((x) => x.id === sel)!; const mref = useRef<HTMLCanvasElement>(null);
-  useEffect(() => draw(mref.current, renderMmode(z, 220, 150)), [z]);
+  const hide = useHideFindings(); const zs = useZones(); const sel = useLusUI((s) => s.zone); const setSel = useLusUI.getState().set; const z = zs.find((x) => x.id === sel)!;
+  const want = lusKeys(z); const name = LUS_ZONES.find((x) => x.id === sel)!.name;
   return (
     <div className="imaging lus-view">
-      <div className="lus-grid">{zs.map((x) => <Zone key={x.id} z={x} on={x.id === sel} pick={() => setSel(x.id)} hide={hide} />)}</div>
-      <div className="lus-side">
-        <figure className="img-panel lus-m"><canvas ref={mref} aria-label={hide ? 'M-mode' : `M-mode, ${z.mmode}`} /><figcaption>M-mode{hide ? '' : ` · ${z.mmode}`}</figcaption></figure>
-        <section className="cxr-find"><h4>{LUS_ZONES.find((x) => x.id === sel)!.name}</h4>{hide ? <p className="muted small">Reading hidden while you answer — tap each zone and watch the pleural line and the M-mode.</p> : <><p className="small">{z.pattern}.</p><h4>Reading</h4><ul>{lusSummary(zs).map((l) => <li key={l}>{l}</li>)}</ul></>}</section>
+      <div className="lus-zones" role="group" aria-label="Probe zone">
+        {zs.map((x) => { const nm = LUS_ZONES.find((l) => l.id === x.id)!.name; return <button key={x.id} className={x.id === sel ? 'on' : ''} aria-pressed={x.id === sel} onClick={() => setSel(x.id)}>
+          <span>{nm.replace(' (posterolateral)', '')}</span>{!hide && <small className={x.sliding || x.lungPulse ? '' : 'bad'}>{x.sliding ? (x.white ? 'white lung' : x.bLines >= 3 ? `${x.bLines} B-lines` : x.consolidation > 0.3 ? 'consolidation' : 'A-lines') : x.lungPoint ? 'lung point' : x.lungPulse ? 'lung pulse' : 'no sliding'}</small>}
+        </button>; })}
       </div>
-      {!hide && zs.some((x) => x.lungPoint || (!x.sliding && !x.lungPulse)) && <RealCase kind="ptxlus" title="Real pneumothorax ultrasound" />}
-      {!hide && zs.some((x) => x.effusion > 0.05) && <RealCase kind="pleuraleff" title="Real pleural effusion" />}
-      {!hide && <RealExamples kind="lus" title="Real lung ultrasound" />}
-      <div className="img-bar"><p className="img-note">Synthetic lung ultrasound drawn from the ventilator model’s state (linear probe, 4 × 6 cm). Patterns follow standard lung-ultrasound teaching; not patient images except the labelled real clips.</p></div>
+      <RealStudy kinds={['lus', 'ptxlus', 'pleuraleff']} want={want} required={[want[0]]} label="lung ultrasound clip" hide={hide}
+        reading={[`${name}: ${z.pattern}.`, `M-mode: ${z.mmode}.`, ...lusSummary(zs)]}
+        missing={want[0] === 'lung_pulse' ? 'A real lung-pulse clip has not been sourced yet. Lung pulse: no sliding, but the pleural line twitches with each heartbeat — the lung is touching the chest wall but not ventilated.' : undefined} />
     </div>
   );
 }

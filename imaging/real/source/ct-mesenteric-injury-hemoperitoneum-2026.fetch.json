@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC13135440",
+ "pageUrl": "https://doi.org/10.5811/cpcem.48848",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "This is an open access article distributed in accordance with the terms of the Creative Commons Attribution (CC BY 4.0) License. See: http://creativecommons.org/licenses/by/4.0/",
+ "authors": "Gottam B, McCoy CE.",
+ "title": "Bucket Handle Injury in Blunt Abdominal Trauma",
+ "publication": "Clinical practice and cases in emergency medicine",
+ "published": "2026-05-01",
+ "doi": "10.5811/cpcem.48848",
+ "volume": "10",
+ "firstpage": "219-221",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13135440.1/cpcem-10-219-g001.jpg",
+ "originalName": "cpcem-10-219-g001.jpg",
+ "description": "Image 1 Abdominal computed tomography (axial image) with active extravasation of contrast (arrows) and free fluid (asterisk) in the lower abdomen suggestive of mesenteric injury.",
+ "thirdParty": false,
+ "figure": "f1-cpcem-10-219",
+ "licenseEvidence": "Europe PMC full text of PMC13135440 (doi 10.5811/cpcem.48848), <license>: “This is an open access article distributed in accordance with the terms of the Creative Commons Attribution (CC BY 4.0) License. See: http://creativecommons.org/licenses/by/4.0/”; Image 1 caption checked for a separate credit.",
+ "id": "ct-mesenteric-injury-hemoperitoneum-2026",
+ "retrieved": "2026-10-09T17:10Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

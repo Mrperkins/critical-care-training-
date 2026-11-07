@@ -9,8 +9,9 @@ export interface RealMark { layer: 'landmark' | 'pathology'; label: string; shap
 export interface RealItem {
   file: string; poster?: string; webm?: string; posterAt?: number; /** display order within a kind */ order?: number;
   /** Media family used for filtering and state-matched teaching. */
-  kind: 'xray' | 'lus' | 'ptx' | 'fast' | 'ivc' | 'ijv' | 'ptxlus' | 'pleuraleff' | 'tamponade' | 'ptxseries' | 'ct-ischemic' | 'ct-ich' | 'cxr' | 'aorta-us';
-  type?: string; modality?: string; finding?: string; findings?: string[];
+  kind: 'xray' | 'lus' | 'ptx' | 'fast' | 'ivc' | 'ijv' | 'ptxlus' | 'pleuraleff' | 'tamponade' | 'ptxseries' | 'ct-ischemic' | 'ct-ich' | 'cxr' | 'aorta-us' | (string & {});
+  type?: string; modality?: string; finding?: string; /** simulator findings this image shows (state → real image) */ findings?: string[];
+  /** place on a stroke time course */ stage?: { course: 'ischemic' | 'ich'; fromMin: number; toMin: number; label: string };
   id: string; title: string; caption: string; look: string[];
   teach?: string[]; quiz?: { q: string; options: string[]; answer: number; explain: string }; marks?: RealMark[];
   license: string; licenseUrl: string; author: string; source: string; changes: string; credit?: string; /** button text for the pathology layer, e.g. “Show the collapse point” */ findingLabel?: string;
@@ -19,6 +20,12 @@ export interface RealItem {
 let cache: Promise<RealItem[]> | null = null;
 export function loadReal(): Promise<RealItem[]> {
   return (cache ??= fetch('imaging/real/manifest.json').then((r) => (r.ok ? r.json() : { items: [] })).then((m) => m.items as RealItem[]).catch(() => []));
+}
+/** how many shipped real items there are of a kind (0 while loading) */
+export function useRealCount(kind: string) {
+  const [n, setN] = useState(0);
+  useEffect(() => { let on = true; loadReal().then((x) => on && setN(x.filter((i) => i.kind === kind).length)); return () => { on = false; }; }, [kind]);
+  return n;
 }
 export function RealExamples({ kind, title }: { kind: RealItem['kind']; title: string }) {
   const [items, setItems] = useState<RealItem[] | null>(null); const [open, setOpen] = useState<string | null>(null);

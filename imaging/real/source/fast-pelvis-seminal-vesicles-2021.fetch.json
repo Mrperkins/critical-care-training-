@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC7919994",
+ "pageUrl": "https://doi.org/10.1186/s13089-021-00209-7",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C",
+ "authors": "Fasseaux A, Pès P, Steenebruggen F, Dupriez F.",
+ "title": "Are seminal vesicles a potential pitfall during pelvic exploration using point-of-care ultrasound (POCUS)?",
+ "publication": "The ultrasound journal",
+ "published": "2021-03-01",
+ "doi": "10.1186/s13089-021-00209-7",
+ "volume": "13",
+ "firstpage": "14",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC7919994.2/13089_2021_209_Fig1_HTML.jpg",
+ "originalName": "13089_2021_209_Fig1_HTML.jpg",
+ "description": "Fig. 1 Transverse ultrasound view of the male pelvis—probe oriented towards the seminal vesicles",
+ "thirdParty": false,
+ "figure": "Fig1",
+ "licenseEvidence": "Europe PMC full text of PMC7919994 (doi 10.1186/s13089-021-00209-7), <license>: “Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C”; Fig. 1 caption checked for a separate credit.",
+ "id": "fast-pelvis-seminal-vesicles-2021",
+ "retrieved": "2026-10-09T16:42Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

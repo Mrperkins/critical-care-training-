@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC10513010",
+ "pageUrl": "https://doi.org/10.1259/bjrcr.20220149",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "This is an open access article distributed under the terms of the Creative Commons Attribution 4.0 International License , which permits unrestricted use, distribution and reproduction in any medium, provided the original author and source are credited.",
+ "authors": "Aoki R, Kato S, Nakajima K, Sakai J, Yoshida K, Masui H, Ikeda S, Yoshigi J, Utsunomiya D.",
+ "title": "Superior mesenteric artery embolism associated with Cisplatin-induced aortic thrombosis",
+ "publication": "BJR case reports",
+ "published": "2023-09-12",
+ "doi": "10.1259/bjrcr.20220149",
+ "volume": "9",
+ "firstpage": "20220149",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10513010.1/bjrcr.20220149.g002.jpg",
+ "originalName": "bjrcr.20220149.g002.jpg",
+ "description": "Figure 2. Contrast-enhanced computed tomography shows an aortic thrombus in the ascending aorta ( a ) and SMA embolism (b: axial view, c: coronal view). The arrowhead indicates a floating thrombus and white arrows indicate SMA embolism. Contrast-enhanced computed tomography also showed decreased contrast enhancement in the small intestine (d: black arrows).",
+ "thirdParty": false,
+ "figure": "F2",
+ "licenseEvidence": "Europe PMC full text of PMC10513010 (doi 10.1259/bjrcr.20220149), <license>: “This is an open access article distributed under the terms of the Creative Commons Attribution 4.0 International License , which permits unrestricted use, distribution and reproduction in any medium, provided the original author and source are credited.”; Figure 2. caption checked for a separate credit.",
+ "id": "ct-sma-embolism-coronal-2023",
+ "retrieved": "2026-10-09T16:42Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

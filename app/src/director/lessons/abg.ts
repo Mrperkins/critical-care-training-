@@ -56,8 +56,8 @@ export const DKA_LESSON: Timeline = {
       say: 'The first treatment is fluid. Volume restores perfusion and lets the kidneys clear glucose and ketones.' },
     { id: 'dka-6', at: 61, dur: 12, hold: true, title: 'Insulin — and watch the potassium', apply: at({ preset: 'dka', seq: ['fluids', 'fluids', 60, 'insulin', 120, 'insulin', 60] }),
       say: 'Insulin stops ketone production and moves potassium back into the cells. Glucose and the anion gap fall — and so does potassium, often below normal. Check it before insulin, and replace it: if potassium is low, give potassium first.' },
-    { id: 'dka-7', at: 74, dur: 10, hold: true, title: 'Close the gap', apply: at({ preset: 'dka', seq: ['fluids', 'fluids', 60, 'insulin', 120, 'insulin', 120, 'insulin', 120, 'insulin', 120, 'insulin', 120] }),
-      say: 'Keep the insulin infusion running until the anion gap closes, adding dextrose as glucose falls. The glucose normalises long before the acidosis does.' },
+    { id: 'dka-7', at: 74, dur: 10, hold: true, title: 'Confirm ketone resolution', apply: at({ preset: 'dka', seq: ['fluids', 'fluids', 60, 'insulin', 120, 'insulin', 120, 'insulin', 120, 'insulin', 120, 'insulin', 120] }),
+      say: 'Glucose can normalize before ketoacidosis resolves. Continue insulin with dextrose as needed and reassess ketones, pH and bicarbonate. The anion gap alone is unreliable after saline-related hyperchloremic acidosis.' },
   ],
 };
 export const ABG_TIMELINES: Timeline[] = [ACIDOSIS_LESSON, DKA_LESSON];

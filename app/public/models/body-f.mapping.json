@@ -1,0 +1,120 @@
+{
+ "units": "decimetres, body-centred",
+ "frame": "+X patient left, +Y up, +Z anterior",
+ "centres": {
+  "skin": [
+   0,
+   0,
+   0
+  ],
+  "brain": [
+   -0.006,
+   7.452,
+   -0.074
+  ],
+  "heart": [
+   0.414,
+   4.045,
+   0.021
+  ],
+  "lung_R": [
+   -0.614,
+   4.471,
+   -0.221
+  ],
+  "lung_L": [
+   0.713,
+   4.408,
+   -0.23
+  ],
+  "airway": [
+   0.058,
+   5.341,
+   0.041
+  ],
+  "liver": [
+   -0.055,
+   3.091,
+   -0.058
+  ],
+  "kidney_L": [
+   0.824,
+   1.998,
+   -0.426
+  ],
+  "kidney_R": [
+   -0.662,
+   2.091,
+   -0.417
+  ],
+  "spleen": [
+   0.875,
+   2.98,
+   -0.607
+  ],
+  "bladder": [
+   -0.087,
+   -0.342,
+   0.291
+  ],
+  "aorta": [
+   0.141,
+   3.187,
+   -0.249
+  ],
+  "vena_cava": [
+   -0.132,
+   3.117,
+   -0.168
+  ],
+  "uterus": [
+   -0.078,
+   -0.087,
+   0.011
+  ],
+  "ovary_L": [
+   0.502,
+   0.225,
+   0.125
+  ],
+  "ovary_R": [
+   -0.647,
+   0.225,
+   0.125
+  ],
+  "tube_L": [
+   0.372,
+   0.246,
+   0.154
+  ],
+  "tube_R": [
+   -0.507,
+   0.237,
+   0.104
+  ],
+  "placenta": [
+   -0.144,
+   1.659,
+   2.104
+  ],
+  "amnion": [
+   -0.071,
+   1.564,
+   2.201
+  ],
+  "cord": [
+   -0.044,
+   1.155,
+   2.57
+  ]
+ },
+ "attribution": {
+  "title": "3D Reference Organs: Visible Human Female (skin, organs, airway, uterus, ovaries, uterine tubes, placenta)",
+  "creators": "HuBMAP / Human Reference Atlas consortium (brain: Allen Institute regions)",
+  "data": "Visible Human Female, U.S. National Library of Medicine",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "sourceUrl": "https://github.com/hubmapconsortium/ccf-3d-reference-object-library",
+  "changes": "Multi-part organs fused into single surfaces; meshes simplified; renamed by organ. The placenta, amnion and cord are the library’s term-pregnancy models in their published position; the skin is the non-pregnant reference."
+ }
+}

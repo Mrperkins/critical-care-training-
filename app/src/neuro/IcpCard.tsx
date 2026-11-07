@@ -1,6 +1,7 @@
 /** ICP monitoring on the same brain: pressure–volume curve, waveform, CPP, pupils and posture, Cushing response, EVD. */
 import { useEffect } from 'react';
 import { useNeuroUI } from './neuroStore';
+import { Pupils3D } from './Pupils3D';
 import { useIcpUI, setIcp, setEvd } from './icpStore';
 import { icpState, icpOfVolume, icpWave, icpFindings } from './icp';
 import { Knob } from '../vent/VentPanel';
@@ -15,7 +16,6 @@ export function IcpCard() {
   const curve = Array.from({ length: 91 }, (_, i) => i - 15).map((dv, i) => `${i ? 'L' : 'M'}${X(dv).toFixed(1)},${Y(icpOfVolume(dv, s.vol.buffer, inp.decompressed)).toFixed(1)}`).join('');
   const wave = [0, 1, 2].flatMap(() => icpWave(s, 60)); const WW = 250, WH = 70; const lo = Math.min(...wave) - 2, hi = Math.max(...wave) + 2;
   const wpath = wave.map((v, i) => `${i ? 'L' : 'M'}${((i / wave.length) * WW).toFixed(1)},${(WH - 6 - ((v - lo) / Math.max(1, hi - lo)) * (WH - 14)).toFixed(1)}`).join('');
-  const pupil = (side: 'L' | 'R', cx: number) => { const p = s.pupils[side]; return <g><circle cx={cx} cy={22} r={13} className="icp-iris" /><circle cx={cx} cy={22} r={p.mm * 1.35} className="icp-pupil" /><text x={cx} y={48} className="dr-lab c">{side === 'L' ? 'left' : 'right'} {p.mm} mm {p.reactive ? 'reacts' : 'FIXED'}</text></g>; };
   const e = inp.evd;
   return (
     <section className="card icp">
@@ -36,9 +36,7 @@ export function IcpCard() {
           <path d={wpath} className="icp-wave" /><text x={4} y={11} className="dr-lab">ICP waveform · P2/P1 {s.p2p1.toFixed(2)}</text>
         </svg>
       </div>
-      <svg viewBox="0 0 250 56" className="dr-svg icp-pupils" role="img" aria-label={`Pupils: right ${s.pupils.R.mm} millimetres ${s.pupils.R.reactive ? 'reactive' : 'fixed'}, left ${s.pupils.L.mm} ${s.pupils.L.reactive ? 'reactive' : 'fixed'}`}>
-        {pupil('R', 70)}{pupil('L', 180)}
-      </svg>
+      <Pupils3D R={s.pupils.R} L={s.pupils.L} />
       {s.posture !== 'none' && <p className="explain bad">Posture: {s.posture}. Herniation: {s.herniation}.</p>}
       <ul className="dr-find">{icpFindings(s).map((f) => <li key={f} className={/herniation|Cushing|overdrain|clamped|below about 60/i.test(f) ? 'bad' : ''}>{f}</li>)}</ul>
       <details className="icp-controls" open>

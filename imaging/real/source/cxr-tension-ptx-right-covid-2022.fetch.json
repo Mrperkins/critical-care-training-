@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC9083808",
+ "pageUrl": "https://doi.org/10.1002/ccr3.5852",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "This is an open access article under the terms of the http://creativecommons.org/licenses/by/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.",
+ "authors": "Ata F, Yousaf Z, Farsakoury R, Khan AA, Arshad A, Omran M, Ananthegowda DC, Khatib M, Chughtai TS.",
+ "title": "Spontaneous tension pneumothorax as a complication of Coronavirus disease 2019: Case report and literature review",
+ "publication": "Clinical case reports",
+ "published": "2022-05-09",
+ "doi": "10.1002/ccr3.5852",
+ "volume": "10",
+ "firstpage": "e05852",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC9083808.2/CCR3-10-0-g003.jpg",
+ "originalName": "CCR3-10-0-g003.jpg",
+ "description": "FIGURE 1 (A) Chest X‐ray on presentation with COVID‐19 pneumonia showing bilateral middle and lower zone infiltrates. (B) Chest X‐ray (day 22) postero‐anterior view showing development of right‐sided tension pneumothorax with collapsed right lung and pushed heart and mediastinum to the left side",
+ "thirdParty": false,
+ "figure": "ccr35852-fig-0001",
+ "licenseEvidence": "Europe PMC full text of PMC9083808 (doi 10.1002/ccr3.5852), <license>: “This is an open access article under the terms of the http://creativecommons.org/licenses/by/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.”; FIGURE 1 caption checked for a separate credit.",
+ "id": "cxr-tension-ptx-right-covid-2022",
+ "retrieved": "2026-10-09T17:10Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

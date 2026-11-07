@@ -1,0 +1,116 @@
+import type { ClinicalReview } from '../types';
+import { custom, f, R } from './references';
+const perfusion='Poor perfusion commonly causes cool skin, weak pulses, altered consciousness and oliguria; blood pressure and the bedside examination must be considered together.';
+const breathing='Respiratory compromise may produce accessory-muscle use, inability to speak comfortably, restlessness or later fatigue; a saturation reading alone cannot assess ventilation.';
+export const ADULT_REVIEWS:Record<string,ClinicalReview>={
+  'ards-after-pneumonia':{
+    diagnosis:'Severe ARDS due to pneumonia',
+    imaging:{ids:['cxr-ards-2019'],narration:'The real comparison portable chest film comes from a separate patient with viral ARDS. Both lungs contain diffuse airspace opacities instead of the usual more lucent aerated fields. This illustrates the bilateral lung injury described in our synthetic report. The appearance is not specific: edema, infection and other processes can overlap, so timing, oxygenation and exclusion of a primarily hydrostatic cause remain essential.'},
+    handoff:'The intensive care team requests transfer after pneumonia progresses over two days to diffuse lung injury and severe oxygenation failure. The synthetic imaging report describes bilateral opacities, while cardiac assessment does not support hydrostatic edema as the primary explanation. This is a pneumonia-associated ARDS case, with severity grounded in the measured oxygenation ratio.',
+    course:'The receiving unit continues lung-protective ventilation based on predicted rather than actual body weight, evaluates plateau and driving pressures, and uses prolonged prone positioning for severe ARDS when appropriate. Antimicrobial and source-directed care continue. Over the following days in this synthetic course, oxygen requirements decline and the patient eventually separates from invasive ventilation. No isolated improvement in saturation is used to justify injurious tidal volumes or to declare the lung injury resolved.',
+    findings:{
+      'Heart rate':f(R.hrAdult,'This is tachycardia in severe pneumonia and respiratory failure; fever, stress and circulatory factors can contribute.',perfusion),
+      'Blood pressure':f(R.bpAdult,'The pressure is currently maintained on support. A supported normal-looking value is not evidence of independence from resuscitation.',perfusion),
+      'SpO₂':f(R.sat,'This is hypoxemia despite substantial ventilator oxygen support, consistent with severe gas-exchange impairment.',breathing),
+      'FiO₂':f(custom('Room air has an inspired oxygen fraction of about 0.21; higher fractions are treatment, not a normal physiological measurement.','ards'),'A fraction of 0.80 means eighty percent inspired oxygen, demonstrating a high oxygen requirement.','Persistent low saturation on high inspired oxygen may accompany extensive shunt physiology; it does not identify ARDS without the clinical and imaging criteria.'),
+      'PEEP':f(custom('PEEP is a ventilator setting with no universal normal value. It must be selected with oxygenation, mechanics and hemodynamic tolerance.','ards'),'Ten centimeters of water is applied end-expiratory pressure; it helps limit alveolar collapse but does not guarantee safe pressures or adequate recruitment.','Excess pressure can accompany hypotension or overdistension; inadequate recruitment can accompany persistent hypoxemia.'),
+      'Arterial pH':f(R.apH,'This is acidemia. The raised carbon dioxide establishes a respiratory component, with full chemistry needed to assess additional metabolic causes.','Acidemia may accompany cardiovascular instability; in a sedated patient symptom reporting is unavailable and monitoring carries greater weight.'),
+      'PaCO₂':f(R.co2,'This is mild hypercapnia. A lung-protective strategy may accept some carbon dioxide elevation while balancing pH and contraindications.','Carbon dioxide retention can cause headache or drowsiness in an awake patient; sedation makes those signs unreliable here.'),
+      'PaO₂':f(R.po2,'This is arterial hypoxemia on eighty percent inspired oxygen. That support context makes the oxygenation failure substantial.',breathing),
+      'PaO₂ / FiO₂':f(custom('A healthy oxygenation ratio is generally above 400. In invasively ventilated ARDS with PEEP of at least five, a ratio of 100 or less is the severe category, provided the other diagnostic criteria are met.','ards'),'The rounded ratio of 73 meets the severe oxygenation category in this clinical context. It is not an arterial oxygen tension by itself.','Severe ARDS commonly accompanies bilateral opacities, poor compliance and high oxygen requirements; cardiac edema and other explanations still require evaluation.'),
+    },
+  },
+  'ards-peep-hypotension':{
+    diagnosis:'ARDS with hemodynamic intolerance after a PEEP increase',
+    imaging:{ids:['cxr-ards-2019'],narration:'A real comparison film from another patient shows diffuse bilateral airspace opacity associated with ARDS. Normal aerated lungs are more lucent. This image illustrates the underlying lung injury, but it cannot tell us how much PEEP our patient will tolerate or prove the cause of the sudden pressure drop. Those questions require the bedside intervention timeline and reassessment.'},
+    handoff:'The referring ICU raises PEEP during preparation for transfer because oxygenation remains poor. Saturation improves, but pressure falls immediately afterward. The timeline creates a specific question: did the intervention improve oxygenation at the expense of cardiac filling or right-ventricular performance?',
+    course:'The team reassesses ventilator mechanics, circulation, sedation, tube position and possible pneumothorax. No pneumothorax or new tube problem is found in this synthetic course. Returning to a better tolerated pressure strategy improves blood pressure, and oxygenation is supported through an individualized ARDS plan including positioning and hemodynamic support. The team documents both oxygenation and perfusion responses before transfer. The event is intervention-associated hemodynamic compromise, not proof that all PEEP is harmful.',
+    findings:{
+      'SpO₂':f(R.sat,'This is now within the usual reference, improved from hypoxemia at 89 percent. The improvement cannot be evaluated independently of the abrupt loss of pressure.',breathing),
+      'Blood pressure':f(R.bpAdult,'This is severe hypotension after the PEEP increase, a major deterioration from the earlier preserved pressure.',perfusion),
+      'Heart rate':f(R.hrAdult,'This is tachycardia in the setting of new hypotension, supporting a stressed circulation rather than uncomplicated respiratory improvement.',perfusion),
+      'PEEP':f(custom('PEEP is a treatment setting, not a lab value with a normal interval. Its effects depend on lung recruitability, right-heart function and circulating volume.','ards'),'The increase from ten to sixteen centimeters of water coincides with hypotension. Reduced venous return, increased right-heart load and overdistension are considerations, not assumptions.','Poor tolerance may show a pressure fall, tachycardia and reduced perfusion; a sudden unilateral chest finding would raise concern for pneumothorax.'),
+      'PaO₂':f(R.po2,'This remains below the cited room-air adult laboratory interval despite seventy percent inspired oxygen. Oxygen support must be stated before judging the improvement.',breathing),
+      'Lactate':f(R.lactate,'This is hyperlactatemia during circulatory compromise. Follow its trend with pressure, perfusion and the response to the revised ventilator plan.',perfusion),
+    },
+  },
+  'mi-inferior-rv':{
+    diagnosis:'Inferior STEMI with right-ventricular infarction and hemodynamic compromise',
+    handoff:'EMS finds chest pressure, nausea and diaphoresis with hypotension and a slow pulse. The synthetic ECG report describes inferior ST elevation with reciprocal changes and right-sided lead involvement. Right-ventricular infarction is named early because it changes how the team thinks about preload and hypotension; an initially negative biomarker does not erase the ECG emergency.',
+    course:'The team activates the reperfusion pathway, gives indicated antiplatelet treatment after contraindication review and avoids therapies that would further lower pressure. Bradycardia and perfusion are treated under the acute coronary and resuscitation pathways, with carefully reassessed support rather than unbounded fluid. In this synthetic course, catheterization finds an occluded right coronary artery, treated with percutaneous intervention. Pressure and heart rate recover after reperfusion. The angiographic result closes the loop on the inferior and right-ventricular presentation.',
+    findings:{
+      'Heart rate':f(R.hrAdult,'This is bradycardia with hypotension. Inferior infarction can affect nodal conduction and increase vagal influence; inspect the rhythm rather than assuming a particular block.','Symptomatic bradycardia may cause dizziness, syncope, weak pulses and reduced consciousness; here hypotension establishes clinical concern.'),
+      'Blood pressure':f(R.bpAdult,'This is hypotension in a patient with evidence of right-ventricular infarction. Preload dependence and rhythm disturbances may contribute.',perfusion),
+      'SpO₂':f(R.sat,'This is within the usual oxygenation reference on room air. It does not exclude myocardial ischemia or shock.',breathing),
+      'High-sensitivity troponin':f(R.troponin,'The early result is below the local cutoff. Myocardial injury biomarkers can lag symptom onset; reperfusion decisions in this clear STEMI presentation do not wait for a positive result.','Infarction may cause pressure-like chest pain, diaphoresis, nausea and hypotension while an early troponin is still below threshold.'),
+      'Potassium':f(R.k,'This is within the reference. A major measured potassium disturbance is not the explanation for the slow pulse, though serial assessment remains appropriate.','Potassium abnormalities can cause weakness and conduction changes; an in-range result does not exclude ischemic conduction disease.'),
+    },
+  },
+  'mi-anterior-shock':{
+    diagnosis:'Anterior STEMI complicated by cardiogenic shock and pulmonary edema',
+    handoff:'EMS receives a call for chest pressure followed by profound breathlessness. The synthetic ECG shows anterior ST elevation, and the bedside examination adds crackles, weak pulses and low pressure. We are presenting an anterior infarction with pump failure rather than an isolated abnormal ECG.',
+    course:'The team activates an immediate reperfusion and shock pathway while supporting oxygenation and perfusion. Antithrombotic and hemodynamic decisions account for bleeding risk and specialist guidance. Catheterization in this synthetic course identifies an acutely occluded proximal left anterior descending artery and achieves reperfusion. The patient requires intensive care for persistent ventricular dysfunction; pressure and urine output improve with ongoing support. Successful opening of the artery does not imply immediate recovery of pump function.',
+    findings:{
+      'Heart rate':f(R.hrAdult,'This is tachycardia with shock, consistent with compensation for impaired stroke volume.',perfusion),
+      'Blood pressure':f(R.bpAdult,'This is severe hypotension with pulmonary congestion, supporting cardiogenic shock in the infarction context.',perfusion),
+      'Respiratory rate':f(R.rrAdult,'This is tachypnea. Pulmonary edema and shock-related metabolic stress both increase respiratory demand.',breathing),
+      'SpO₂':f(R.sat,'This is hypoxemia on room air, consistent with clinically important gas-exchange impairment from pulmonary edema.',breathing),
+      'Lactate':f(R.lactate,'This is substantial hyperlactatemia with low-output shock, supporting the urgency of circulation and reperfusion care.',perfusion),
+      'Creatinine':f(R.adultCreatinine,'This is above the general adult reference. Baseline and urine output are needed to distinguish acute hypoperfusion injury from chronic impairment.','Renal hypoperfusion may cause oliguria and rising creatinine; laboratory elevation alone does not establish its exact duration.'),
+      'Troponin':f(R.troponin,'This qualitative report establishes elevation above the local cutoff. The ischemic symptoms and ECG connect myocardial injury to acute infarction.','Myocardial injury can also occur in other illnesses, so chest pain, ECG evolution and coronary findings matter more than the biomarker alone.'),
+    },
+  },
+  'sepsis-older-hypothermic':{
+    diagnosis:'Urinary-source sepsis with shock and acute kidney injury in an older adult',
+    handoff:'Family calls EMS because a previously interactive older adult becomes confused after dysuria and reduced intake. The skin is cool rather than febrile. Urinary infection is a provisional source, and the combination of shock and organ dysfunction drives immediate care while cultures and alternative sources are assessed.',
+    course:'The team obtains cultures without delaying broad-spectrum antimicrobials and gives reassessed crystalloid with early vasopressor support when indicated. Urine output and mental status improve only after sustained circulation support. In this synthetic receiving-unit course, matching Escherichia coli grows from blood and urine and therapy is narrowed to susceptibilities. Creatinine falls toward the documented baseline during recovery, supporting an acute kidney injury component. The absence of fever was a presentation feature, not an exclusion of infection.',
+    findings:{
+      'Heart rate':f(R.hrAdult,'This is tachycardia with hypotension and confusion, supporting a stressed circulation.',perfusion),
+      'Blood pressure':f(R.bpAdult,'This is hypotension in a patient with suspected infection and new organ dysfunction.',perfusion),
+      'Respiratory rate':f(R.rrAdult,'This is tachypnea, which may reflect infection and metabolic stress even without primary respiratory complaints.',breathing),
+      'Temperature':f(R.temp,'This is hypothermia rather than fever. Older adults with sepsis may present this way.','Infection in an older adult may present with confusion, reduced function or poor intake and little or no fever; hypothermia can accompany severe illness.'),
+      'Lactate':f(R.lactate,'This is marked hyperlactatemia in a poorly perfused patient. It supports urgency but does not independently identify infection or the source.',perfusion),
+      'Creatinine':f(R.adultCreatinine,'This is elevated and more than twice the documented baseline of 0.9, supporting acute kidney injury when the timing is confirmed.','Acute kidney injury may cause oliguria and fluid or electrolyte complications, but can be nonoliguric; measure output and repeat chemistry.'),
+      'Urinalysis':f(custom('A normal urine microscopy does not show pathological pyuria. Interpretation depends on collection method and the laboratory threshold.','lab'),'Pyuria means excess urinary white cells. With dysuria it supports a urinary source, but pyuria alone is not proof of urinary sepsis.','Urinary infection may cause dysuria, frequency or flank pain; older patients may instead present with systemic illness and confusion.'),
+    },
+  },
+  'sepsis-persistent-shock':{
+    diagnosis:'Perforated bowel with intra-abdominal sepsis and persistent septic shock',
+    handoff:'EMS brings a patient with worsening abdominal pain, diffuse tenderness and shock. The referring CT report describes free air and fluid consistent with bowel perforation. Antibiotics and circulation support have started, but the case cannot be resolved by improving the displayed pressure while the abdominal source remains uncontrolled.',
+    course:'The receiving surgical and critical care teams coordinate urgent source control while maintaining antibiotics and hemodynamic support. Laparotomy in this synthetic course identifies a perforated sigmoid colon with peritoneal contamination, which is treated surgically. After source control and continued resuscitation, perfusion improves, vasopressor need declines and lactate begins to fall. The established diagnosis is perforation-associated septic shock; a mean pressure near target was only one intermediate observation.',
+    findings:{
+      'Heart rate':f(R.hrAdult,'This is tachycardia during persistent infection and shock, requiring reassessment of perfusion, pain and ongoing source stress.',perfusion),
+      'Mean pressure':f(custom('For adults on vasopressors with septic shock, an initial mean arterial pressure target of 65 millimeters of mercury is recommended, individualized to the patient. This is a resuscitation target, not a normal reference interval.','sepsis'),'Sixty-eight meets the initial target only with vasopressor support. It does not establish recovery when lactate is rising and organ function remains impaired.',perfusion),
+      'Respiratory rate':f(R.rrAdult,'This is tachypnea in abdominal sepsis, potentially reflecting acidosis, pain and systemic inflammation.',breathing),
+      'Lactate':f(R.lactate,'This is marked hyperlactatemia and is rising from an already elevated value of 5.9. Reassess perfusion, clearance and source control rather than declaring success from the pressure.',perfusion),
+      'Arterial pH':f(R.apH,'This is acidemia. The shock and raised lactate support a metabolic contribution; carbon dioxide and chemistry are required to assess compensation and additional causes.','Metabolic acidosis commonly adds rapid breathing, fatigue or altered interaction; ventilatory support must preserve adequate compensation.'),
+      'Creatinine':f(R.adultCreatinine,'This is elevated, indicating renal impairment until baseline and serial measurements clarify its timing.','Renal dysfunction may accompany reduced urine output and electrolyte disturbances; organ recovery is assessed separately from pressure response.'),
+    },
+  },
+  'pe-preserved-pressure':{
+    diagnosis:'Acute pulmonary embolism with right-ventricular strain and preserved blood pressure',
+    handoff:'Eight days after hip surgery, the patient develops sudden breathlessness and pleuritic discomfort. EMS finds hypoxemia and a rapid pulse but preserved pressure. The synthetic CT pulmonary angiography report confirms bilateral pulmonary emboli and right-heart strain; the case is a confirmed embolic disease process rather than unexplained dyspnea.',
+    course:'After bleeding and surgical risks are reviewed, the team starts indicated anticoagulation and arranges monitored care with a pulmonary embolism response service. Right-ventricular strain and biomarker elevation raise risk even without hypotension, but do not automatically justify systemic thrombolysis. In this synthetic course, pressure remains stable, oxygen need declines and the patient transitions to a longer-term anticoagulation plan after specialist review. Escalation for deterioration remains explicit during the monitored period.',
+    findings:{
+      'Heart rate':f(R.hrAdult,'This is tachycardia in a confirmed pulmonary embolism, consistent with stress and increased right-heart workload.',perfusion),
+      'Blood pressure':f(R.bpAdult,'This is preserved pressure. It does not exclude important right-ventricular strain or the possibility of deterioration.',perfusion),
+      'Respiratory rate':f(R.rrAdult,'This is tachypnea accompanying acute pulmonary vascular obstruction.',breathing),
+      'SpO₂':f(R.sat,'This is hypoxemia on room air, compatible with ventilation-perfusion mismatch from embolic obstruction.',breathing),
+      'Troponin':f(R.troponin,'This is elevated above the local cutoff. In this confirmed embolic case, right-ventricular myocardial injury is a plausible mechanism; it does not automatically diagnose coronary occlusion.','Right-heart strain may accompany tachycardia, syncope or hypotension; biomarkers contribute to risk assessment with imaging and examination.'),
+      'Lactate':f(R.lactate,'This is mildly elevated. Preserved pressure does not guarantee normal tissue perfusion, but lactate alone does not establish obstructive shock.',perfusion),
+    },
+  },
+  'pe-circulatory-collapse':{
+    diagnosis:'High-risk pulmonary embolism causing obstructive shock',
+    handoff:'The patient collapses after sudden breathlessness and remains hypotensive and hypoxemic when EMS arrives. Bedside ultrasound shows a dilated right ventricle, but that alone is not specific for pulmonary embolism. The team uses the acute history and overall shock assessment while considering tamponade, infarction and other causes; definitive CT is unsafe during immediate collapse.',
+    course:'A pulmonary embolism response team coordinates urgent reperfusion after a rapid contraindication review, with anticoagulation and circulatory and respiratory support selected for the clinical context. In this synthetic course, expert catheter-based treatment demonstrates and removes a large pulmonary arterial clot burden. Perfusion and pressure improve after reperfusion, confirming the obstructive disease process, and the patient remains in intensive care. The ultrasound was an urgent supportive clue; the later procedural finding establishes the anatomical diagnosis.',
+    findings:{
+      'Heart rate':f(R.hrAdult,'This is marked tachycardia during collapse and shock.',perfusion),
+      'Blood pressure':f(R.bpAdult,'This is profound hypotension with clinical hypoperfusion, meeting the hemodynamic concern for a high-risk embolic presentation in context.',perfusion),
+      'Respiratory rate':f(R.rrAdult,'This is marked tachypnea during acute pulmonary vascular and circulatory failure.',breathing),
+      'SpO₂':f(R.sat,'This is severe hypoxemia despite oxygen. Ventilation and circulation must be assessed together, because positive pressure can worsen an already failing right heart.',breathing),
+      'Lactate':f(R.lactate,'This is marked hyperlactatemia, consistent with major circulatory stress and poor tissue delivery in this shock presentation.',perfusion),
+      'Arterial pH':f(R.apH,'This is acidemia. Elevated lactate supports a metabolic component, while the full gas is needed to identify respiratory compensation or mixed failure.','Acidosis in shock may accompany rapid breathing, confusion and weak pulses; these signs guide the response while reperfusion is organized.'),
+    },
+  },
+};

@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC13416251",
+ "pageUrl": "https://doi.org/10.3389/fmed.2026.1840332",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY) . The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journ",
+ "authors": "Zhang S, Zhang Z, Yang J, Peng J, Yang Y, Su L, Jiang J.",
+ "title": "Case Report: Navigating the bleeding-thrombosis paradox: regional nafamostat anticoagulation in a post-intracerebral hemorrhage patient on VV-ECMO",
+ "publication": "Frontiers in medicine",
+ "published": "2026-07-15",
+ "doi": "10.3389/fmed.2026.1840332",
+ "volume": "13",
+ "firstpage": "1840332",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13416251.1/fmed-13-1840332-g002.jpg",
+ "originalName": "fmed-13-1840332-g002.jpg",
+ "description": "Figure 2 Serial chest radiographs demonstrating lung recovery during ECMO support. (A) Chest X-ray on Day 21 (ECMO initiation) showing diffuse bilateral consolidation. (B) Chest X-ray on Day 29 (ECMO weaning) revealing significant resolution of pulmonary opacities and improved aeration. ECMO, extracorporeal membrane oxygenation.",
+ "thirdParty": false,
+ "figure": "fig2",
+ "licenseEvidence": "Europe PMC full text of PMC13416251 (doi 10.3389/fmed.2026.1840332), <license>: “This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY) . The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journ”; Figure 2 caption checked for a separate credit.",
+ "id": "cxr-ards-ecmo-recovery-2026",
+ "retrieved": "2026-10-09T15:42Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

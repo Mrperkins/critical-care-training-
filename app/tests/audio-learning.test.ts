@@ -40,3 +40,12 @@ describe('audio adaptive learning', () => {
     expect(recommendedRep(mastery, {})).toBeTruthy();
   });
 });
+
+describe('mental-rep visuals show rendered anatomy, not drawings', () => {
+  it('ships a rendered still for every anatomy visual key the reps use', async () => {
+    const fs = await import('node:fs');
+    for (const k of ['efast-map', 'io-landmark', 'piv', 'evd-level', 'airway-overview', 'pac-ra', 'pac-rv', 'pac-pa', 'pac-wedge']) expect(fs.existsSync(`public/audio/visuals/${k}.webp`), k).toBe(true);
+    const src = fs.readFileSync('src/audio/RepVisual.tsx', 'utf8');
+    for (const gone of ['function Airway', 'function Pac(', 'function Io(', 'function Evd(', 'function EfastMap', 'function ChestWall', 'function UsWindow']) expect(src).not.toContain(gone);
+  });
+});

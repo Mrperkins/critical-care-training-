@@ -1,4 +1,8 @@
+import { DiseaseBrowser } from '../atlas/DiseaseBrowser';
+import { LessonLength } from '../app/LessonShell';
+import { useExploreMemory } from '../app/exploreMemory';
 /** Abdomen module: trauma / vascular / surgical abdomen on the shared body, driven by one pure state. */
+import { MiniSelect, Picker, Fold } from '../scene/pane';
 import { CtaScene } from './CtaScene';
 import { CaseChallenge } from '../challenge/CaseChallenge';
 import { useHideFindings } from '../challenge/caseStore';
@@ -18,6 +22,8 @@ import { UltrasoundScene } from './UltrasoundScene';
 import { useAbdUI, loadAbdPreset, currentAbdomen, ABD_PRESETS, type AbdPreset, type AbdView } from './abdomenStore';
 import { fastExam, shockClass, abdomenFindings, type AbdomenState } from './state';
 import { SceneWrap } from '../scene/labels';
+import { COMPARE_MEDIA } from '../scene/compareMedia';
+import { emptyAbdomen } from './state';
 
 const FOCUS: [string, string][] = [['abdomen.whole', 'Whole'], ['abdomen.ruq', 'RUQ'], ['abdomen.luq', 'LUQ'], ['abdomen.pelvis', 'Pelvis'], ['abdomen.aorta', 'Aorta'], ['abdomen.retroperitoneum', 'Retroperitoneum'], ['abdomen.pancreas', 'Pancreas'], ['abdomen.bowel', 'Bowel'], ['abdomen.diaphragm', 'Diaphragm']];
 const useAbdomen = () => { const base = useAbdUI((s) => s.base); const minutes = useAbdUI((s) => s.minutes); return useMemo(() => currentAbdomen({ base, minutes }), [base, minutes]); };
@@ -27,17 +33,18 @@ export function AbdomenModule() {
   const [body, setBody] = useState<BodyAsset | null>(null); const [err, setErr] = useState<string | null>(null);
   useEffect(() => { loadBodyAsset().then(setBody).catch((e) => { console.error(e); setErr(String(e?.message || e)); }); }, []);
   useEffect(() => { (window as unknown as { __CCAbd: unknown }).__CCAbd = { store: useAbdUI, load: loadAbdPreset, minutes: (m: number) => useAbdUI.getState().set({ minutes: m }), focus: (id: string) => useAbdUI.getState().set({ target: id }), state: () => currentAbdomen(), view: (v: AbdView) => useAbdUI.getState().set({ view: v }) }; }, []);
-  const view = useAbdUI((s) => s.view); const mode = useUI((s) => s.mode);
+  const view = useAbdUI((s) => s.view); const mode = useUI((s) => s.mode); const preset = useAbdUI((s) => s.preset);
+  useExploreMemory('abd', () => { const s = useAbdUI.getState(); return { preset: s.preset, base: structuredClone(s.base), minutes: s.minutes, target: s.target, view: s.view }; }, (m) => useAbdUI.getState().set(m));
   const dTarget = useDirector((s) => s.target);
   useEffect(() => { if (dTarget?.startsWith('abdomen.')) useAbdUI.getState().set({ target: dTarget }); }, [dTarget]);
   return (
     <main className="stage">
       <section className="scene-pane">
-        <SceneWrap>{view === 'us' ? <UltrasoundScene /> : view === 'cta' ? <CtaScene /> : body ? <AbdomenScene body={body} /> : <div className="loading">{err ? `Could not load anatomy: ${err}` : 'Loading anatomy…'}</div>}<AbdOverlay /></SceneWrap>
+        <SceneWrap compare={{ twin: view === '3d' && body ? <AbdomenScene body={body} /> : undefined, state: { 'abd.base': emptyAbdomen(), 'abd.minutes': 0 }, finding: ABD_PRESETS.find((p) => p.id === preset)?.name ?? 'Current state', normalLabel: 'No free fluid, normal aorta', healthy: preset === 'normal', prefer: preset, media: COMPARE_MEDIA.abdomen }}>{view === 'us' ? <UltrasoundScene /> : view === 'cta' ? <CtaScene /> : body ? <AbdomenScene body={body} /> : <div className="loading">{err ? `Could not load anatomy: ${err}` : 'Loading anatomy…'}</div>}<AbdOverlay /></SceneWrap>
       </section>
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
-        {mode === 'challenge' ? <CaseChallenge module="abdomen" /> : mode === 'learn' ? <AbdLearn /> : <><PresetCard /><TimeCard /><FastCard /><ShockCard /><FindingsCard /></>}
-        <p className="credit">Solid organs: HuBMAP 3D reference organs (CC BY 4.0) via the shared body model. Stomach, bowel, diaphragm, peritoneal fluid and pathology are drawn procedurally. Bleeding rates, FAST thresholds and the haemorrhage-class table are teaching approximations, not clinical rules.</p>
+        {mode === 'challenge' ? <CaseChallenge module="abdomen" /> : mode === 'learn' ? <AbdLearn /> : <><PresetCard /><TimeCard /><Fold group="abd" id="find" title="Findings" defaultOpen><FindingsCard /></Fold><Fold group="abd" id="shock" title="Haemodynamics" summary="bleeding, shock class"><ShockCard /></Fold><Fold group="abd" id="fast" title="FAST" summary="where to look for fluid"><FastCard /></Fold></>}
+        <details className="credit"><summary>Sources & model notes</summary>Solid organs: HuBMAP 3D reference organs (CC BY 4.0) via the shared body model. Stomach, bowel, diaphragm, peritoneal fluid and pathology are drawn procedurally. Bleeding rates, FAST thresholds and the haemorrhage-class table are teaching approximations, not clinical rules.</details>
       </aside>
     </main>
   );
@@ -54,14 +61,18 @@ function AbdOverlay() {
       {st.retroMl > 0 && <div className="alv-row"><span>Retroperitoneal</span><b>{Math.round(st.retroMl)} mL</b></div>}
       <div className="alv-row"><span>Haemorrhage class</span><b>{['I', 'II', 'III', 'IV'][sc.cls - 1]}</b></div>
     </div>}
-    <div className="alv-focus"><div className="seg small ch-focus" role="group" aria-label="Focus">{FOCUS.map(([id, l]) => <button key={id} className={target === id ? 'on' : ''} onClick={() => set({ target: id })}>{l}</button>)}</div></div>
+    <div className="alv-focus"><MiniSelect label="View" value={target} options={FOCUS as [string, string][]} onChange={(v) => set({ target: v })} className="ch-focus" /></div>
     <div className="legend"><span><i style={{ background: '#b0101f' }} />Blood</span><span><i style={{ background: '#8a7a3a' }} />Enteric</span><span><i style={{ background: '#d9c77a' }} />Ascites</span><span><i style={{ background: '#dff4ff' }} />Free air</span></div>
   </>}</>);
 }
 
 function PresetCard() {
   const preset = useAbdUI((s) => s.preset); const p = ABD_PRESETS.find((x) => x.id === preset)!;
-  return <section className="card story"><div className="chips" role="group" aria-label="Presets">{ABD_PRESETS.map((x) => <button key={x.id} className={`chip${preset === x.id ? ' on' : ''}`} onClick={() => loadAbdPreset(x.id as AbdPreset)}>{x.name}</button>)}</div><p className="muted small" style={{ marginTop: 8 }}>{p.short}</p></section>;
+  const G: [string, string[]][] = [['Trauma', ['normal', 'spleen4', 'liver3']], ['Aorta', ['aaa6', 'aaaContained', 'aaaFree', 'dissectB', 'dissectA']], ['Acute abdomen', ['perforation', 'sbo', 'mesenteric', 'pancreatitis']]];
+  const it = (id: string) => { const x = ABD_PRESETS.find((y) => y.id === id); return x ? { id, name: x.name, hint: x.short } : null; };
+  const placed = new Set(G.flatMap(([, i]) => i)); const extra = ABD_PRESETS.filter((x) => !placed.has(x.id));
+  return <Picker label="Scenario" value={preset} onPick={(id) => loadAbdPreset(id as AbdPreset)} sub={p.short}
+    groups={[...G.map(([label, ids]) => ({ label, items: ids.map(it).filter((x): x is NonNullable<typeof x> => !!x) })), ...(extra.length ? [{ label: 'More', items: extra.map((x) => ({ id: x.id, name: x.name, hint: x.short })) }] : [])]} />;
 }
 function TimeCard() {
   const minutes = useAbdUI((s) => s.minutes); const base = useAbdUI((s) => s.base);
@@ -112,9 +123,9 @@ function AbdLearn() {
   useEffect(() => () => { if (ABDOMEN_LESSONS.some((l) => l.id === useDirector.getState().tl?.id)) director.unload(); }, []);
   if (active) return <div className="chal-run"><DirectorPlayer onExit={() => undefined} />{tl!.id === DISSECTION_LESSON.id ? <><ImpulseCard /><FindingsCard /></> : ['abd-mesenteric', 'abd-obstruction'].includes(tl!.id) ? <FindingsCard /> : <><FastCard /><ShockCard /><FindingsCard /></>}</div>;
   return (
-    <div className="chal-list">
-      <section className="card"><div className="eyebrow">Guided learning</div><h2 className="h2">The abdomen as a source of shock</h2><p className="muted">Narrated lessons that move one abdominal state through time while the anatomy, the ultrasound windows and the haemorrhage estimate respond.</p></section>
-      {ABDOMEN_LESSONS.map((l) => <button key={l.id} className="chal-item" onClick={() => director.load(l, true)}><span className={`lvl lvl-${l.level}`}>{l.level}</span><span className="ci-t">{l.title}<small className="ci-b">{l.blurb}</small></span><span className="ci-k">{l.cues.length} steps</span></button>)}
+    <div className="chal-list"><DiseaseBrowser domain="abdomen" />
+      <header className="learn-intro"><h2>The abdomen as a source of shock</h2><p>Narrated lessons that move one abdominal state through time while the anatomy, the ultrasound windows and the haemorrhage estimate respond. Every lesson comes as a full course or a short TL;DR.</p></header>
+      {ABDOMEN_LESSONS.map((l) => <button key={l.id} className="chal-item" onClick={() => director.load(l, true)}><span className={`lvl lvl-${l.level}`}>{l.level}</span><span className="ci-t">{l.title}<small className="ci-b">{l.blurb}</small></span><span className="ci-k"><LessonLength tl={l} /></span></button>)}
     </div>
   );
 }

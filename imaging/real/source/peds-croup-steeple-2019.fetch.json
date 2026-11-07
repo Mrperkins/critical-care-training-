@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC6884517",
+ "pageUrl": "https://doi.org/10.1038/s41598-019-54140-y",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C",
+ "authors": "Yang WC, Hsu YL, Chen CY, Peng YC, Chen JN, Fu YC, Chang YJ, Lee EP, Lin MJ, Wu HP.",
+ "title": "Initial radiographic tracheal ratio in predicting clinical outcomes in croup in children",
+ "publication": "Scientific reports",
+ "published": "2019-11-29",
+ "doi": "10.1038/s41598-019-54140-y",
+ "volume": "9",
+ "firstpage": "17893",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC6884517.1/41598_2019_54140_Fig2_HTML.jpg",
+ "originalName": "41598_2019_54140_Fig2_HTML.jpg",
+ "description": "Figure 2 The measurement of steeple shaped angle.",
+ "thirdParty": false,
+ "figure": "Fig2",
+ "licenseEvidence": "Europe PMC full text of PMC6884517 (doi 10.1038/s41598-019-54140-y), <license>: “Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C”; Figure 2 caption checked for a separate credit.",
+ "id": "peds-croup-steeple-2019",
+ "retrieved": "2026-10-09T16:41Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

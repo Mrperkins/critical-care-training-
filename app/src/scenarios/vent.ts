@@ -33,6 +33,25 @@ export const PASSIVE: PatientEffort = { pmax: 0, rate: 0, ti: 1, expPush: 0 };
 
 export const VENT_SCENARIOS: VentScenario[] = [
   {
+    id: 'pneumonia', name: 'Pneumonia / hypoxemic failure', short: 'Regional consolidation', story: 'Ventilated adult with right-sided pneumonia, worsening hypoxemia and reduced regional compliance.',
+    lung: { cFactor: .7, rFixed: 7, recruitable: .25, openP: 18, closeP: 7, right: { collapsed: .25 } }, spasm: 0, effort: PASSIVE,
+    settings: { mode: 'VC', vt: .45, rr: 18, peep: 5, fio2: .65, flow: 55 }, gas: { shunt: .18, lowVQ: .14, recruitShunt: .18, vco2: 230 }, fixes: [],
+    look: ['Asymmetric expansion and reduced aerated volume.', 'Oxygenation and pressure change with the settings.'], teach: ['Support gas exchange while limiting stretch of the remaining aerated lung.'],
+  },
+  {
+    id: 'post-intubation', name: 'Post-intubation hypotension', short: 'Preload-sensitive patient', story: 'Volume-depleted adult develops hypotension after positive-pressure ventilation. Inspect mechanics, circuit and perfusion together.',
+    lung: {}, spasm: 0, effort: PASSIVE, settings: { mode: 'VC', vt: .5, rr: 22, peep: 14, fio2: .5, flow: 50 },
+    gas: { volume: .55, co: 4.5, svr: 1050 }, fixes: [], look: ['Blood pressure responds to mean airway pressure and volume status.'],
+    teach: ['Positive intrathoracic pressure reduces venous return, especially with low effective circulating volume. Do not assume the vent is the only cause.'],
+  },
+  {
+    id: 'pediatric-asthma', name: 'Pediatric asthma', short: '20 kg child, obstruction', story: 'Five-year-old, 20 kg child with severe bronchospasm after intubation. Settings are illustrative and require pediatric assessment.',
+    lung: { cFactor: .3, Ccw: .065, rFixed: 8, rSpasm: 35, rExp: 1.8, Rett: 9 }, spasm: 1, effort: PASSIVE,
+    settings: { mode: 'VC', vt: .14, rr: 26, peep: 5, fio2: .5, flow: 15, ti: .6 },
+    gas: { age: 5, heightCm: 110, weightKg: 20, co: 2.4, hr: 115, svr: 1800, vo2: 130, vco2: 100, lowVQ: .12, vdAlv: .15, spontVt: .14 }, fixes: ['bronchodilator'],
+    look: ['Small delivered volume with high airway resistance.', 'Expiration may remain incomplete at a high rate.'], teach: ['Pediatric lung size and airway resistance change the usable settings; adult predicted-weight formulas do not apply.'],
+  },
+  {
     id: 'normal', name: 'Normal lungs', short: 'Post-op, healthy lungs', story: '48-year-old after an uncomplicated laparotomy, sedated, healthy lungs. PBW 70 kg.',
     lung: {}, spasm: 0, effort: PASSIVE, settings: { mode: 'VC', vt: 0.45, rr: 14, peep: 5, fio2: 0.4, flow: 50, pattern: 'square' },
     gas: {}, fixes: [],

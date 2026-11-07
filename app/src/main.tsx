@@ -1,6 +1,8 @@
 import { createRoot } from 'react-dom/client';
 import { App } from './app/App';
 import './styles/app.css';
+import './cases/cases.css';
+import './library/library.css';
 import { useUI, type Module, type Mode } from './app/store';
 import { openLesson } from './app/navigate';
 import { session } from './vent/session';
@@ -14,13 +16,21 @@ const qp = new URLSearchParams(location.search);
 const linkedLesson = qp.get('lesson');
 if (linkedLesson) setTimeout(() => openLesson(linkedLesson), 0);
 else {
-  const modules: Module[] = ['vent','abg','labs','lines','neuro','moa','heart','abdomen','curriculum'];
+  const modules: Module[] = ['vent','abg','labs','lines','neuro','moa','heart','abdomen','pediatrics','womens','curriculum','videos','fpc','cases','library'];
   const modes: Mode[] = ['explore','learn','challenge','sim'];
   const module = qp.get('module') as Module | null, mode = qp.get('mode') as Mode | null;
   const patch: Partial<ReturnType<typeof useUI.getState>> = {};
   if (module && modules.includes(module)) patch.module = module;
   if (mode && modes.includes(mode)) patch.mode = mode;
   if (Object.keys(patch).length) useUI.getState().set(patch);
+  const conference = qp.get('case');
+  if (conference) import('./cases/state').then(m=>m.openConference(conference));
+  // deep link into the MI Locator view of the cardiac module (?view=mi; the former Infarct Atlas page sends ?view=coronary)
+  const view = qp.get('view');
+  if (view === 'coronary' || view === 'mi') {
+    useUI.getState().set({ module: 'heart', ...(patch.mode ? {} : { mode: 'explore' }) });
+    import('./heart/heartStore').then((m) => m.useHeartUI.getState().set({ section: 'coronary' }));
+  }
 }
 // offline support (published site only: the service worker file sits next to index.html)
 if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost') && !(window as unknown as { __NO_SW__?: boolean }).__NO_SW__)
@@ -34,6 +44,14 @@ import { bench } from './labs/bench';
 import { useLabUI } from './labs/labStore';
 (window as unknown as Record<string, unknown>).__bench = bench;
 (window as unknown as Record<string, unknown>).__labui = useLabUI;
-import { live } from './labs/cell/live';
-import { CLIP } from './labs/cell/CellScene';
-(window as unknown as Record<string, unknown>).__cell = { live, CLIP };
+// window.__cell (cell scene QA hook) is set by labs/cell/CellScene.tsx when the Labs module loads
+// library QA hook: open a module step or a case directly from automated checks
+import { useLibrary } from './library/libraryStore';
+import { playStep, runCase } from './library/launch';
+(window as unknown as Record<string, unknown>).__library = { useLibrary, playStep, runCase };
+(window as unknown as Record<string, unknown>).__qa = {
+  heart: () => import('./heart/heartStore').then((m) => m.useHeartUI),
+  neuro: () => import('./neuro/neuroStore').then((m) => m.useNeuroUI),
+  abd: () => import('./abdomen/abdomenStore').then((m) => m.useAbdUI),
+  lines: () => import('./lines/linesStore').then((m) => m.useLinesUI),
+};

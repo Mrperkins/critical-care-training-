@@ -1,0 +1,21 @@
+{
+ "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Bronchiolitis_chest_X-ray.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+ "pageUrl": "https://commons.wikimedia.org/wiki/File:Bronchiolitis_chest_X-ray.jpg",
+ "originalName": "Bronchiolitis chest X-ray.jpg",
+ "mime": "image/jpeg",
+ "bytes": 22692,
+ "sha1": "ad0d54e001ef5923d687138ce7bb403a9151c01d",
+ "width": 364,
+ "height": 333,
+ "license": "CC BY 2.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+ "licenseEvidence": "Wikimedia Commons API extmetadata for File:Bronchiolitis chest X-ray.jpg: LicenseShortName = “CC BY 2.0”, UsageTerms = “Creative Commons Attribution 2.0” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3ABronchiolitis+chest+X-ray.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+ "authors": "Matteo Di Nardo, Daniela Perrotta, Francesca Stoppa, Corrado Cecchetti, Marco Marano and Nicola Pirozzi",
+ "credit": "Independent lung ventilation in a newborn with asymmetric acute lung injury due to respiratory syncytial virus: a case report",
+ "published": "Published: 19 June 2008",
+ "description": "A chest radiograph demonstrating lung hyperinflation with a flattened diaphragm and bilateral atelectasis in the right apical and left basal regions in a 16-day-old infant.",
+ "restrictions": "",
+ "id": "peds-bronchiolitis-hyperinflation-commons",
+ "retrieved": "2026-10-09T17:10Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

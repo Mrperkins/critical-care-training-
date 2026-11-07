@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC8588671",
+ "pageUrl": "https://doi.org/10.1186/s13256-021-03158-w",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C",
+ "authors": "Toda S, Iwasaki H, Murayama D, Isoda M, Nakayama H, Suganuma N, Masudo K.",
+ "title": "Pneumatosis intestinalis associated with lenvatinib during thyroid cancer treatment: a case report",
+ "publication": "Journal of medical case reports",
+ "published": "2021-11-12",
+ "doi": "10.1186/s13256-021-03158-w",
+ "volume": "15",
+ "firstpage": "556",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC8588671.1/13256_2021_3158_Fig3_HTML.jpg",
+ "originalName": "13256_2021_3158_Fig3_HTML.jpg",
+ "description": "Fig. 3 CT image taken 14 weeks after the introduction of lenvatinib showing pneumatosis intestinalis of the ascending colon. The arrows are pointing to emphysema in the intestinal wall of the ascending colon",
+ "thirdParty": false,
+ "figure": "Fig3",
+ "licenseEvidence": "Europe PMC full text of PMC8588671 (doi 10.1186/s13256-021-03158-w), <license>: “Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C”; Fig. 3 caption checked for a separate credit.",
+ "id": "ct-pneumatosis-colon-wall-2021",
+ "retrieved": "2026-10-09T17:10Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

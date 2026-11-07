@@ -5,7 +5,21 @@ import path from 'node:path';
 const APP = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const SITE = path.resolve(APP, '..'); const PUB = path.join(APP, 'dist/pub');
 if (!fs.existsSync(path.join(PUB, 'index.html'))) { console.error('run the build first'); process.exit(1); }
-for (const f of ['index.html', 'sw.js', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png']) fs.copyFileSync(path.join(PUB, f), path.join(SITE, f));
+for (const f of ['index.html', 'sw.js', 'offline-packs.json', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png']) fs.copyFileSync(path.join(PUB, f), path.join(SITE, f));
 for (const dir of ['models', 'vo']) for (const f of fs.readdirSync(path.join(PUB, dir))) fs.copyFileSync(path.join(PUB, dir, f), path.join(SITE, dir, f));
+// code-split chunks: hashed names, so replace the folder (no stale chunks left behind)
+fs.rmSync(path.join(SITE, 'js'), { recursive: true, force: true }); fs.cpSync(path.join(PUB, 'js'), path.join(SITE, 'js'), { recursive: true });
+if (fs.existsSync(path.join(PUB, 'thumbs'))) { fs.rmSync(path.join(SITE, 'thumbs'), { recursive: true, force: true }); fs.cpSync(path.join(PUB, 'thumbs'), path.join(SITE, 'thumbs'), { recursive: true }); }
+if (fs.existsSync(path.join(PUB, 'heroes'))) { fs.rmSync(path.join(SITE, 'heroes'), { recursive: true, force: true }); fs.cpSync(path.join(PUB, 'heroes'), path.join(SITE, 'heroes'), { recursive: true }); }
+if (fs.existsSync(path.join(PUB, 'imaging/curated/manifest.json'))) {
+  const dest=path.join(SITE,'imaging/curated');
+  fs.rmSync(dest,{recursive:true,force:true});
+  fs.mkdirSync(path.dirname(dest),{recursive:true});
+  fs.cpSync(path.join(PUB,'imaging/curated'),dest,{recursive:true});
+}
 if (fs.existsSync(path.join(PUB, 'audio'))) fs.cpSync(path.join(PUB, 'audio'), path.join(SITE, 'audio'), { recursive: true, force: true });
+if (fs.existsSync(path.join(PUB, 'conferences'))) {
+  fs.rmSync(path.join(SITE, 'conferences'), { recursive: true, force: true });
+  fs.cpSync(path.join(PUB, 'conferences'), path.join(SITE, 'conferences'), { recursive: true });
+}
 console.log('site updated from', PUB);

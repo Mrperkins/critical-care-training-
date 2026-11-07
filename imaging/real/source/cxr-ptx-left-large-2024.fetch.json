@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC11368579",
+ "pageUrl": "https://doi.org/10.7759/cureus.66037",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+ "authors": "Mohammed Adul Hai Amer, Saquib Siddiqui",
+ "title": "Tale of a Blocked Chest Drain Resulting in Tension Pneumothorax: Are We Always Competent Enough to Troubleshoot a Chest Drain?",
+ "publication": "Cureus",
+ "published": "2024-08-02",
+ "doi": "10.7759/cureus.66037",
+ "volume": "16",
+ "firstpage": "e66037",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC11368579.1/cureus-0016-00000066037-i01.jpg",
+ "originalName": "cureus-0016-00000066037-i01.jpg",
+ "description": "Figure 1 Large left-sided pneumothorax",
+ "thirdParty": false,
+ "figure": "FIG1",
+ "licenseEvidence": "Europe PMC full text of PMC11368579 (doi 10.7759/cureus.66037), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 1 caption checked for a separate credit.",
+ "id": "cxr-ptx-left-large-2024",
+ "retrieved": "2026-10-09T16:41Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC13221883",
+ "pageUrl": "https://doi.org/10.1016/j.jaccas.2026.107942",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).",
+ "authors": "Fahed J, Ganthan RR, Al-Zakhari R, Isber R, Isber N.",
+ "title": "Flash Pulmonary Edema From Brief Loss of Biventricular Pacing During CRT-D Generator Exchange",
+ "publication": "JACC. Case reports",
+ "published": "2026-04-16",
+ "doi": "10.1016/j.jaccas.2026.107942",
+ "volume": "31",
+ "firstpage": "107942",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13221883.1/gr2.jpg",
+ "originalName": "gr2.jpg",
+ "description": "Figure 2 Portable Anteroposterior Chest Radiograph Showing Bilateral Alveolar-Interstitial Infiltrates Predominantly in the Perihilar and Lower Lung Zones, Consistent With Acute Pulmonary Edema",
+ "thirdParty": false,
+ "figure": "fig2",
+ "licenseEvidence": "Europe PMC full text of PMC13221883 (doi 10.1016/j.jaccas.2026.107942), <license>: “This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).”; Figure 2 caption checked for a separate credit.",
+ "id": "cxr-flash-edema-portable-2026",
+ "retrieved": "2026-10-09T15:42Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

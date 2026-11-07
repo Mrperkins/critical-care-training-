@@ -6,6 +6,8 @@
  * interstitial thickening from the scenario's lung, and blood colour from the shared patient's
  * mixed-venous and end-capillary saturations. There is no second respiratory model here.
  */
+import { MiniSelect } from '../scene/pane';
+import { useCameraGate } from '../scene/cameraPolicy';
 import { useEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
@@ -406,7 +408,7 @@ const CAM: Record<string, (a: Record<string, THREE.Vector3>) => [THREE.Vector3, 
   'lung.recruited': (a) => [a.recruited.clone().add(new THREE.Vector3(0.45, 0.8, IS_PHONE ? 4.2 : 3.2)), a.recruited.clone()],
 };
 function Rig() {
-  const cc = useRef<CameraControls>(null); const target = useUI((s) => s.ventTarget); const first = useRef(true);
+  const cc = useRef<CameraControls>(null); const target = useUI((s) => s.ventTarget); const first = useRef(true); useCameraGate(cc);
   useEffect(() => {
     let raf = 0; const go = () => {
       const f = CAM[target] ?? CAM['lung.alveolus']; const a = alvLive.anchors;
@@ -448,8 +450,7 @@ export function AlveolusHud() {
       {target === 'lung.membrane' && row('Diffusion path', `×${(barrierWidths(st).reduce((a, b) => a + b, 0) / barrierWidths({ wet: 0, floodFrac: 0, surfactant: 1 }).reduce((a, b) => a + b, 0)).toFixed(1)} normal`)}
     </div>
     <div className="alv-focus">
-      <div className="seg small ch-focus" role="group" aria-label="Focus">{FOCUS.map(([id, l]) => <button key={id} className={target === id ? 'on' : ''} onClick={() => focusVentTarget(id)}>{l}</button>)}</div>
-      <div className="seg small ch-quality" role="group" aria-label="Visual quality">{(['high', 'medium', 'low'] as const).map((k) => <button key={k} className={tier === k ? 'on' : ''} onClick={() => setLab({ visualTier: k })}>{k[0].toUpperCase() + k.slice(1)}</button>)}</div>
+      <MiniSelect label="View" value={target} options={FOCUS as [string, string][]} onChange={(v) => focusVentTarget(v)} className="ch-focus" />
     </div>
     <div className="legend alv-legend">
       <span><i className="lg-air" />Aerated</span><span><i className="lg-col" />Collapsed</span><span><i style={{ background: '#e7a3a2' }} />Flooded</span><span><i style={{ background: '#8fd0ff' }} />O₂</span><span><i style={{ background: '#f2b35a' }} />CO₂</span><span><i style={{ background: SAT_PALETTE.teachVenous }} />Deoxygenated</span><span><i style={{ background: SAT_PALETTE.teachArterial }} />Oxygenated</span>
@@ -459,8 +460,5 @@ export function AlveolusHud() {
 }
 
 /** Semantic focus used by buttons, lessons and the Lesson Director: 'lung.whole' returns to the lungs. */
-export function focusVentTarget(id: string) {
-  const set = useUI.getState().set;
-  if (id === 'lung.whole') set({ ventView: 'front', ventTarget: 'lung.whole' });
-  else set({ ventView: 'alveolus', ventTarget: id });
-}
+import { focusVentTarget } from './focus';
+export { focusVentTarget };

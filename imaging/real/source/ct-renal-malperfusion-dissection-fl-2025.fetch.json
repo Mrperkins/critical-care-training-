@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC12926182",
+ "pageUrl": "https://doi.org/10.1016/j.jaccas.2025.106060",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).",
+ "authors": "Yang C, Shao S, Leng X, Qi W, Chen Y, Huang L, Xu L, Luo Y.",
+ "title": "Computational Fluid Dynamics in Predicting Renal Malperfusion After Aortic Dissection Repair",
+ "publication": "JACC. Case reports",
+ "published": "2025-11-17",
+ "doi": "10.1016/j.jaccas.2025.106060",
+ "volume": "31",
+ "firstpage": "106060",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12926182.1/gr2.jpg",
+ "originalName": "gr2.jpg",
+ "description": "Figure 2 Serial Computed Tomography Angiography Demonstrating Aortic Evolution and Progressive Renal Atrophy in Patient 2 (A) Preoperative: Stanford type B AD involved renal arteries. LRA originates from FL, RRA from TL with left renal hypoperfusion despite symmetric volumes. (B) Immediately postsurgery: Persistent hypoperfusion of the left kidney. (C) One-Month CTA: FL thrombosis with mild volume reduction. Left renal hypoperfusion persists, but volume remains preserved. (D) Twelve-Month CTA: Complete FL thrombosis extending to LRA origin causing critical inflow obstruction. The left kidney volume lost (18% preoperative volume) and cortical thinning. The right kidney showed compensatory hypertrophy.",
+ "thirdParty": false,
+ "figure": "fig2",
+ "licenseEvidence": "Europe PMC full text of PMC12926182 (doi 10.1016/j.jaccas.2025.106060), <license>: “This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).”; Figure 2 caption checked for a separate credit.",
+ "id": "ct-renal-malperfusion-dissection-fl-2025",
+ "retrieved": "2026-10-09T16:41Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

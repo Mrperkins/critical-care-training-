@@ -6,6 +6,7 @@
  * transducer's air–fluid interface to the phlebostatic axis.
  */
 import { useEffect, useMemo, useRef } from 'react';
+import { useCameraGate } from '../scene/cameraPolicy';
 import * as THREE from 'three';
 import { useFrame, useThree } from '@react-three/fiber';
 import { CameraControls, Html } from '@react-three/drei';
@@ -266,7 +267,7 @@ function Pole({ asset }: { asset: LinesAsset }) {
 
 /* ------------------------------------------------------------------ camera */
 function Rig({ asset }: { asset: LinesAsset }) {
-  const three = useThree(); const ref = useRef<CameraControls>(null); const view = useLinesUI((s) => s.view); const ver = useSetupVersion();
+  const three = useThree(); const ref = useRef<CameraControls>(null); const view = useLinesUI((s) => s.view); useCameraGate(ref); const ver = useSetupVersion();
   const aspect = three.size.width / Math.max(1, three.size.height);
   useEffect(() => {
     if (!(aspect > 0.05) || !isFinite(aspect)) return;

@@ -11,7 +11,7 @@
  *    ACA: leg > arm; PCA: contralateral hemianopia; vertebrobasilar: consciousness, both sides, ataxia, dysarthria.
  * Not a diagnostic tool.
  */
-import { TERRITORY_ML, type TerritoryId } from './anatomy';
+import { TERRITORY_ML, type TerritoryId } from './territories';
 import { territoryStates, effectiveHemorrhage, DEFAULT_SYSTEMIC, type NeuroState, type Systemic } from './perfusion';
 
 export type Side = 'L' | 'R';

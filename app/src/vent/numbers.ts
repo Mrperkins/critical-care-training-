@@ -1,6 +1,6 @@
 import type { VentSession } from './session';
 import type { VentNumbers } from '../knowledge/ventExplain';
-import { pbw } from '../physiology/patient';
+import { ventilationWeight } from '../physiology/patient';
 
 /** The monitored numbers, exactly as a ventilator would display them (Pplat only from a pause/hold, else estimated). */
 export function ventNumbers(S: VentSession): VentNumbers {
@@ -16,7 +16,7 @@ export function ventNumbers(S: VentSession): VentNumbers {
   const dp = Math.max(0, pplat - peepTot);
   const ti = last?.ti ?? 1; const te = last ? Math.max(0.1, last.te) : 2;
   const reg = m.regional(); const snap = S.snap;
-  const kg = pbw(S.pt.p.sex, S.pt.p.heightCm);
+  const kg = ventilationWeight(S.pt.p);
   return {
     pip, pplat, pplatMeasured: recentPlat != null, peep, peepTot, autoPeep, dp,
     cstat: dp > 0.5 ? (last?.vti ?? 0) / dp * 1000 : 0, cdyn: (last?.cdyn ?? 0) * 1000,

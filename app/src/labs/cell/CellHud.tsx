@@ -96,7 +96,7 @@ function VmPanel({ m, focus }: { m: CellModel; focus?: Focus }) {
       // threshold & resting lines
       ctx.setLineDash([3, 3]); ctx.strokeStyle = 'rgba(233,185,73,0.75)'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(0, Y(mm.threshold)); ctx.lineTo(w, Y(mm.threshold)); ctx.stroke();
       ctx.strokeStyle = 'rgba(255,255,255,0.18)'; ctx.beginPath(); ctx.moveTo(0, Y(0)); ctx.lineTo(w, Y(0)); ctx.stroke(); ctx.setLineDash([]);
-      ctx.fillStyle = 'rgba(233,185,73,0.9)'; ctx.font = '500 9.5px "IBM Plex Mono", monospace'; ctx.fillText(`threshold ${mm.threshold.toFixed(0)}`, 4, Y(mm.threshold) - 3);
+      ctx.fillStyle = 'rgba(233,185,73,0.9)'; ctx.font = '500 9.5px "Atkinson Hyperlegible Mono", monospace'; ctx.fillText(`threshold ${mm.threshold.toFixed(0)}`, 4, Y(mm.threshold) - 3);
       ctx.fillStyle = 'rgba(255,255,255,0.35)'; ctx.fillText('0 mV', w - 30, Y(0) - 3);
       // trace: last 3 s of sim time
       if (tr.n > 2) {

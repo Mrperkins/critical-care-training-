@@ -10,7 +10,7 @@ import { useLinesUI } from './linesStore';
 import { useLabels } from '../scene/labels';
 
 const COL = { ecg: '#46e08a', art: '#ff5a57', cvp: '#57b6ff', grid: 'rgba(255,255,255,0.07)', text: 'rgba(255,255,255,0.55)', trueA: 'rgba(255,190,188,0.75)', trueC: 'rgba(190,225,255,0.75)', insp: 'rgba(255,255,255,0.04)', ee: 'rgba(87,182,255,0.12)' };
-const MONO = '"IBM Plex Mono", ui-monospace, monospace';
+const MONO = '"Atkinson Hyperlegible Mono", ui-monospace, monospace';
 const N = 250 * 24;
 
 interface Src { t: Float64Array; ecg: Float32Array; art: Float32Array; cvp: Float32Array; artT: Float32Array; cvpT: Float32Array; insp: Uint8Array; head: number; count: number }

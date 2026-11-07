@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC11607288",
+ "pageUrl": "https://doi.org/10.1186/s13089-024-00397-y",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original auth",
+ "authors": "Suppawee Klangthamneam, Krissada Meemook, Tananchai Petnak, Anchana Sonkaew, Taweevat Assavapokee",
+ "title": "Correlation between right atrial pressure measured via right heart catheterization and venous excess ultrasound, inferior vena cava diameter, and ultrasound-measured jugular venous pressure: a prospective observational study",
+ "publication": "The ultrasound journal",
+ "published": "2024-11-29",
+ "doi": "10.1186/s13089-024-00397-y",
+ "volume": "16",
+ "firstpage": "50",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC11607288.1/13089_2024_397_Fig4_HTML.jpg",
+ "originalName": "13089_2024_397_Fig4_HTML.jpg",
+ "description": "Fig. 4 In the transverse view, the IJV can be visualized alongside the CCA; IJV Internal Jugular Vein. CCA Common Carotid Artery",
+ "thirdParty": false,
+ "figure": "Fig4",
+ "licenseEvidence": "Europe PMC full text of PMC11607288 (doi 10.1186/s13089-024-00397-y), <license>: “https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original auth”; Fig. 4 caption checked for a separate credit.",
+ "id": "ij-carotid-vexus-2024",
+ "retrieved": "2026-10-09T15:43Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

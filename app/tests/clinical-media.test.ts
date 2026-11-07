@@ -8,9 +8,10 @@ const all = [...man.items, ...(man.pending ?? [])];
 const src = (d: string): string[] => fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? src(path.join(d, e.name)) : /\.tsx?$/.test(e.name) ? [path.join(d, e.name)] : []));
 
 describe('real clinical media', () => {
-  it('every RealCase kind used in a lesson has shipped or staged media', () => {
-    const used = new Set(src('src').flatMap((f) => [...fs.readFileSync(f, 'utf8').matchAll(/<RealCase kind="(\w+)"/g)].map((m) => m[1])));
-    expect([...used].sort()).toEqual(['fast', 'ijv', 'ivc', 'pleuraleff', 'ptx', 'ptxlus', 'ptxseries', 'tamponade']);
+  it('every real-media kind used by a scene has shipped or staged media', () => {
+    const used = new Set(src('src').flatMap((f) => { const t = fs.readFileSync(f, 'utf8');
+      return [...[...t.matchAll(/<RealCase kind="([\w-]+)"/g)].map((m) => m[1]), ...[...t.matchAll(/<RealStudy[^>]*?kinds=\{\[([^\]]+)\]/g)].flatMap((m) => [...m[1].matchAll(/'([\w-]+)'/g)].map((x) => x[1]))]; }));
+    for (const k of ['cxr', 'lus', 'fast', 'ct-aorta', 'ijv']) expect(used.has(k), k).toBe(true);
     for (const k of used) expect(all.some((i) => i.kind === k), k).toBe(true);
   });
   it('teaching items commit before reveal: a quiz with a valid answer, look-fors and teaching points', () => {

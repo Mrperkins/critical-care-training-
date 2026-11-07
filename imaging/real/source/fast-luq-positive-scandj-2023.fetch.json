@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC10207757",
+ "pageUrl": "https://doi.org/10.1186/s13049-023-01088-8",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C",
+ "authors": "Latif RK, Clifford SP, Baker JA, Lenhardt R, Haq MZ, Huang J, Farah I, Businger JR.",
+ "title": "Traumatic hemorrhage and chain of survival",
+ "publication": "Scandinavian journal of trauma, resuscitation and emergency medicine",
+ "published": "2023-05-24",
+ "doi": "10.1186/s13049-023-01088-8",
+ "volume": "31",
+ "firstpage": "25",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10207757.1/13049_2023_1088_Fig3_HTML.jpg",
+ "originalName": "13049_2023_1088_Fig3_HTML.jpg",
+ "description": "Fig. 3 a Right upper quadrant view (RUQV) of the abdomen. Anechoic hemoperitoneum in the hepatorenal space. b Left upper quadrant view (LUQV) of the abdomen. Anechoic hemoperitoneum in the splenorenal space. c Pelvic sagittal view. Anechoic hemoperitoneum cephalad and posterior to the bladder. d Pelvic transverse view. Anechoic hemoperitoneum posterior to the bladder. B bladder, HP hemoperitoneum, L liver, LK left kidney, RL right kidney, S spleen",
+ "thirdParty": false,
+ "figure": "Fig3",
+ "licenseEvidence": "Europe PMC full text of PMC10207757 (doi 10.1186/s13049-023-01088-8), <license>: “Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C”; Fig. 3 caption checked for a separate credit.",
+ "id": "fast-luq-positive-scandj-2023",
+ "retrieved": "2026-10-09T16:42Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

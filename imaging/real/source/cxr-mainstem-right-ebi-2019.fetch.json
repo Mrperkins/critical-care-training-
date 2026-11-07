@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC6532927",
+ "pageUrl": "https://doi.org/10.1371/journal.pone.0217466",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "This is an open access article distributed under the terms of the Creative Commons Attribution License , which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+ "authors": "Hernandez Padilla AC, Trampont T, Lafon T, Daix T, Cailloce D, Barraud O, Dalmay F, Vignon P, François B.",
+ "title": "Is prehospital endobronchial intubation a risk factor for subsequent ventilator associated pneumonia? A retrospective analysis",
+ "publication": "PloS one",
+ "published": "2019-05-23",
+ "doi": "10.1371/journal.pone.0217466",
+ "volume": "14",
+ "firstpage": "e0217466",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC6532927.1/pone.0217466.g002.jpg",
+ "originalName": "pone.0217466.g002.jpg",
+ "description": "Fig 2 Chest X-ray obtained in a patient with an initial right endobronchial intubation and in another patient with initial proper tracheal intubation for comparison. The black arrow points to the tip of the endobronchial tube while the trachea and main right and left bronchi are underlined in black. On day 4, the patient with initial EBI developed basal lung infiltrates (predominant in the right base) compatible with VAP, whereas the patient with proper position of the tracheal tube on admission had an unremarkable chest X-ray.",
+ "thirdParty": false,
+ "figure": "pone.0217466.g002",
+ "licenseEvidence": "Europe PMC full text of PMC6532927 (doi 10.1371/journal.pone.0217466), <license>: “This is an open access article distributed under the terms of the Creative Commons Attribution License , which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Fig 2 caption checked for a separate credit.",
+ "id": "cxr-mainstem-right-ebi-2019",
+ "retrieved": "2026-10-09T15:42Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

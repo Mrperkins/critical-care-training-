@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC12400729",
+ "pageUrl": "https://doi.org/10.1186/s13256-025-05507-5",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C",
+ "authors": "Almutairi A, Althobaiti K, Antar M, Al Alem H, Kashgari A.",
+ "title": "Near-fatal asthma in a 12-year-old girl leading to life-threatening tonsillar herniation: a case report",
+ "publication": "Journal of medical case reports",
+ "published": "2025-09-01",
+ "doi": "10.1186/s13256-025-05507-5",
+ "volume": "19",
+ "firstpage": "435",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12400729.1/13256_2025_5507_Fig1_HTML.jpg",
+ "originalName": "13256_2025_5507_Fig1_HTML.jpg",
+ "description": "Fig. 1 Chest x-ray showing bilateral hyperinflation of the lung and right middle lobe infiltration",
+ "thirdParty": false,
+ "figure": "Fig1",
+ "licenseEvidence": "Europe PMC full text of PMC12400729 (doi 10.1186/s13256-025-05507-5), <license>: “Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C”; Fig. 1 caption checked for a separate credit.",
+ "id": "cxr-hyperinflation-asthma-2025",
+ "retrieved": "2026-10-09T15:42Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

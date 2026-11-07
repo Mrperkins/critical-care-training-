@@ -1,0 +1,10 @@
+import { ADULT_TOPICS } from './adult';
+import { PEDIATRIC_TOPICS } from './pediatric';
+import { NEONATAL_TOPICS } from './neonatal';
+import { OBSTETRIC_TOPICS } from './obstetric';
+import { buildConference } from './buildConference';
+export const CASE_TOPICS = [...PEDIATRIC_TOPICS, ...OBSTETRIC_TOPICS, ...NEONATAL_TOPICS, ...ADULT_TOPICS];
+export const CONFERENCES = CASE_TOPICS.flatMap(buildConference);
+export const CASE_BY_ID = Object.fromEntries(CONFERENCES.map(c => [c.id,c]));
+export const casesForDisease = (id: string) => CONFERENCES.filter(c => c.diseaseIds.includes(id));
+export const casesForLesson = (id: string) => CONFERENCES.filter(c => c.lessonIds.includes(id));

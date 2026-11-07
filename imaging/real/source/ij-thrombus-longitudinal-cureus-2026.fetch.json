@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC13296912",
+ "pageUrl": "https://doi.org/10.7759/cureus.109678",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+ "authors": "Nikolaos I Davanellos, Despoina Paraskeva, Dimitrios Argiropoulos, Michalis Apergis, Christina Pachi, Ioannis Maragkos, Nikolaos Palyvos",
+ "title": "Lemierre Syndrome Presenting With Septic Pulmonary Emboli: A Case Report and Diagnostic Challenges",
+ "publication": "Cureus",
+ "published": "2026-05-26",
+ "doi": "10.7759/cureus.109678",
+ "volume": "18",
+ "firstpage": "e109678",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13296912.1/cureus-0018-00000109678-i02.jpg",
+ "originalName": "cureus-0018-00000109678-i02.jpg",
+ "description": "Figure 2 Ultrasound findings of left internal jugular vein thrombosis Longitudinal duplex ultrasonography image of the left internal jugular vein demonstrating loss of normal venous compressibility and the presence of wall-adherent echogenic intraluminal thrombus (arrows), consistent with internal jugular vein thrombosis.",
+ "thirdParty": false,
+ "figure": "FIG2",
+ "licenseEvidence": "Europe PMC full text of PMC13296912 (doi 10.7759/cureus.109678), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 2 caption checked for a separate credit.",
+ "id": "ij-thrombus-longitudinal-cureus-2026",
+ "retrieved": "2026-10-09T17:10Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

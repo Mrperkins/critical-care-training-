@@ -27,6 +27,11 @@
    5.056,
    0.015
   ],
+  "airway": [
+   0.093,
+   6.018,
+   0.176
+  ],
   "liver": [
    -0.376,
    3.673,
@@ -84,7 +89,7 @@
   ]
  },
  "attribution": {
-  "title": "3D Reference Organs: Visible Human Male (united body, lung)",
+  "title": "3D Reference Organs: Visible Human Male (united body, lung, larynx, trachea, main bronchi)",
   "creators": "HuBMAP / Human Reference Atlas consortium (brain: Allen Institute regions)",
   "data": "Visible Human Male, U.S. National Library of Medicine",
   "license": "CC BY 4.0",

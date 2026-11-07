@@ -1,14 +1,16 @@
 /**
  * Ultrasound-guided right internal jugular access — a pure model of the neck at the cricoid level, the
- * linear probe, the needle and the Seldinger kit. Everything the learner sees (the B-mode image, the
- * flash, the transduced pressure) is a function of this state; the pressures come from the Lines
+ * linear probe, the needle and the Seldinger kit. Where the tip is, what the screen would show, the
+ * flash and the transduced pressure are functions of this state (the scan shown is a matched real one); the pressures come from the Lines
  * patient (`tMap` / `tCvp`), so a shocked patient's arterial blood can look "venous" and the waveform
  * is what settles it. Schematic, generic anatomy; distances are illustrative teaching values.
  *
  * Coordinates (cm): x lateral–medial across the neck (screen-LEFT = patient's RIGHT = lateral when the
  * probe marker points to the patient's right), y along the vessels (+ = cephalad), z depth from skin.
  */
-import { ell, band, vnoise, type UsPx, type UsScene } from '../scene/ultrasound/bmode';
+
+/** normalised ellipse distance: < 1 inside (x lateral, z depth) */
+const ell = (x: number, z: number, cx: number, cz: number, rx: number, rz: number) => ((x - cx) / rx) ** 2 + ((z - cz) / rz) ** 2;
 
 export type Axis = 'short' | 'long';
 export interface ClInput {
@@ -87,58 +89,3 @@ export function vesselCheck(flash: ClState['flash'], pt: { map: number; cvp: num
   };
 }
 
-/** The B-mode image of this state (linear probe, 4 cm wide, 4 cm deep). */
-export const CL_WIDTH = 4, CL_DEPTH = 4;
-export function clScene(c: ClInput, wire: 'none' | 'inVein' | 'inArtery' = 'none'): UsScene {
-  const s = clState(c); const A = s.anat; const n = s.ndl; const a = (c.angle * Math.PI) / 180;
-  // a guidewire is a bright echo lying in the lumen it entered (dot in short axis, line in long axis)
-  const wv = wire === 'inVein' ? { x: A.ij.x, z: A.ij.z + 0.35 * A.ij.rz, r: A.ij.rz } : wire === 'inArtery' ? { x: A.ca.x, z: A.ca.z + 0.3 * A.ca.r, r: A.ca.r } : null;
-  const vesselAt = (x: number, z: number): UsPx | null => {
-    const dIJ = Math.sqrt(ell(x, z, A.ij.x, A.ij.z, A.ij.rx, A.ij.rz));
-    if (dIJ < 1) return { e: s.tenting && Math.abs(x - n.tip.x) < 0.25 && z < n.tip.z + 0.1 ? 0.35 : 0.02, k: 'fluid' };
-    if (dIJ < 1 + 0.08 / Math.max(0.1, A.ij.rz)) return { e: 0.55, k: 'tissue' }; // thin venous wall
-    const dCA = Math.hypot(x - A.ca.x, z - A.ca.z) / A.ca.r;
-    if (dCA < 1) return { e: 0.02, k: 'fluid' };
-    if (dCA < 1.28) return { e: 0.9, k: 'tissue' }; // thick bright arterial wall
-    return null;
-  };
-  if (c.axis === 'long') {
-    // long axis along the IJ at x = aimX: vein as a horizontal channel; the needle, if in plane, is a bright line from the probe edge
-    const x0 = c.aimX; const half = A.ij.rz * Math.sqrt(Math.max(0, 1 - ((x0 - A.ij.x) / A.ij.rx) ** 2));
-    const caHalf = Math.sqrt(Math.max(0, A.ca.r ** 2 - (x0 - A.ca.x) ** 2));
-    return (y, z) => {
-      if (z < 0.18) return { e: 0.75, k: 'tissue' }; if (z < 0.45) return { e: 0.3, k: 'tissue' };
-      if (wv && Math.abs(z - wv.z) < 0.04 && (wire === 'inVein' ? half : caHalf) > 0.05) return { e: 1, k: 'tissue' };
-      if (c.plane === 'in') { // needle in plane: y along the screen, entering at y = −entry
-        const along = (y + c.entry) * Math.sin(a) - z * Math.cos(a), dist = Math.abs(along); const s0 = (y + c.entry) * Math.cos(a) + z * Math.sin(a);
-        if (dist < 0.05 && s0 >= 0 && s0 <= c.advance) return { e: 1, k: 'tissue' };
-        if (dist < 0.05 && s0 > c.advance && s0 < c.advance + 0.02) return { e: 1, k: 'tissue' };
-        // reverberation below a steep shaft
-        if (s0 >= 0 && s0 <= c.advance && along > 0.1 && along < 0.5 && Math.abs(((along * 10) % 1.5) - 0.2) < 0.12) return { e: 0.45, k: 'tissue' };
-      }
-      if (half > 0.02 && Math.abs(z - A.ij.z) < half) return { e: 0.02, k: 'fluid' };
-      if (half > 0.02 && Math.abs(Math.abs(z - A.ij.z) - half) < 0.06) return { e: 0.55, k: 'tissue' };
-      if (caHalf > 0.02 && Math.abs(z - A.ca.z) < caHalf) return { e: 0.02, k: 'fluid' };
-      if (caHalf > 0.02 && Math.abs(Math.abs(z - A.ca.z) - caHalf) < 0.1) return { e: 0.9, k: 'tissue' };
-      if (Math.abs(z - (A.scm.z)) < A.scm.rz * 0.8) return { e: 0.36 + 0.25 * band(((z * 9) % 1) - 0.5, 0.2), k: 'tissue' };
-      return { e: 0.3 + 0.1 * vnoise(y * 2, z * 3), k: 'tissue' };
-    };
-  }
-  return (x, z) => {
-    if (z < 0.18) return { e: 0.75, k: 'tissue' }; if (z < 0.45) return { e: 0.3, k: 'tissue' };
-    // needle: in-plane in short axis = a bright line across; out-of-plane = a bright dot (with reverberation "ring-down" beneath)
-    if (c.plane === 'out' && s.shownZ != null) {
-      const d = Math.hypot(x - c.aimX, z - s.shownZ);
-      if (d < 0.07) return { e: 1, k: 'tissue' };
-      if (Math.abs(x - c.aimX) < 0.05 && z > s.shownZ + 0.1 && z < s.shownZ + 0.8 && ((z - s.shownZ) * 7) % 1 < 0.3) return { e: 0.55, k: 'tissue' };
-    }
-    if (c.plane === 'in') { const zx = (x - (c.aimX - 1.2)) * Math.tan(a) + 0.2; const len = Math.hypot(x - (c.aimX - 1.2), zx - 0.2);
-      if (Math.abs(z - zx) < 0.05 && x >= c.aimX - 1.2 && len <= c.advance) return { e: 1, k: 'tissue' }; }
-    if (wv && Math.hypot(x - wv.x, z - wv.z) < 0.06) return { e: 1, k: 'tissue' };
-    const v = vesselAt(x, z); if (v) return v;
-    if (ell(x, z, A.scm.x, A.scm.z, A.scm.rx, A.scm.rz) < 1) return { e: 0.34 + 0.22 * band(((x * 5 + z * 2) % 1) - 0.5, 0.25), k: 'tissue' }; // striated muscle
-    if (ell(x, z, A.thyroid.x, A.thyroid.z, A.thyroid.rx, A.thyroid.rz) < 1) return { e: 0.6, k: 'tissue' };
-    if (z > 3.1) return { e: 0.42 + 0.15 * vnoise(x * 3, z * 3), k: 'tissue' }; // prevertebral / scalene
-    return { e: 0.26 + 0.1 * vnoise(x * 3, z * 3), k: 'tissue' };
-  };
-}

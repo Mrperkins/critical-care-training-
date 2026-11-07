@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC13285273",
+ "pageUrl": "https://doi.org/10.1016/j.jvscit.2026.102288",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).",
+ "authors": "van Schaik TG, Rastogi V, Vriens PWHE, Dinkelman MK, De Fijter MW, Heyligers JMM.",
+ "title": "Use of an artificial intelligence-driven software device to assist endovascular repair of a ruptured abdominal aortic aneurysm",
+ "publication": "Journal of vascular surgery cases and innovative techniques",
+ "published": "2026-04-30",
+ "doi": "10.1016/j.jvscit.2026.102288",
+ "volume": "12",
+ "firstpage": "102288",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13285273.1/gr1.jpg",
+ "originalName": "gr1.jpg",
+ "description": "Fig 1 Computed tomography angiography (CTA) of the aneurysm rupture. Displayed is a maximal diameter of 96 mm. The retroperitoneal hematoma is visible in the left flank.",
+ "thirdParty": false,
+ "figure": "fig1",
+ "licenseEvidence": "Europe PMC full text of PMC13285273 (doi 10.1016/j.jvscit.2026.102288), <license>: “This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).”; Fig 1 caption checked for a separate credit.",
+ "id": "ct-aaa-rupture-96mm-2026",
+ "retrieved": "2026-10-09T15:43Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

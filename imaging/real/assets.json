@@ -655,6 +655,765 @@
   }
  },
  {
+  "id": "cxr-mainstem-right-ebi-2019",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest radiograph",
+  "finding": "mainstem_right",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1371/journal.pone.0217466",
+  "localSources": {
+   "original": "imaging/real/source/cxr-mainstem-right-ebi-2019-source.jpg",
+   "image": "imaging/real/cxr-mainstem-right-ebi-2019.jpg"
+  }
+ },
+ {
+  "id": "cxr-ett-ok-ebi-2019",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest radiograph",
+  "finding": "ett_ok",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1371/journal.pone.0217466",
+  "localSources": {
+   "original": "imaging/real/source/cxr-ett-ok-ebi-2019-source.jpg",
+   "image": "imaging/real/cxr-ett-ok-ebi-2019.jpg"
+  }
+ },
+ {
+  "id": "cxr-normal-pa-haggstrom",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest radiograph",
+  "finding": "cxr_normal",
+  "license": "CC0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Normal_posteroanterior_(PA)_chest_radiograph_(X-ray).jpg",
+  "localSources": {
+   "image": "imaging/real/cxr-normal-pa-haggstrom.jpg"
+  }
+ },
+ {
+  "id": "cxr-hyperinflation-asthma-2025",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest radiograph",
+  "finding": "hyperinflation",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1186/s13256-025-05507-5",
+  "localSources": {
+   "image": "imaging/real/cxr-hyperinflation-asthma-2025.jpg"
+  }
+ },
+ {
+  "id": "cxr-flash-edema-portable-2026",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest radiograph",
+  "finding": "pulmonary_edema",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1016/j.jaccas.2026.107942",
+  "localSources": {
+   "image": "imaging/real/cxr-flash-edema-portable-2026.jpg"
+  }
+ },
+ {
+  "id": "cxr-ards-ecmo-recovery-2026",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest radiograph",
+  "finding": "ards",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.3389/fmed.2026.1840332",
+  "localSources": {
+   "image": "imaging/real/cxr-ards-ecmo-recovery-2026.jpg"
+  }
+ },
+ {
+  "id": "ct-aaa-rupture-96mm-2026",
+  "status": "ready",
+  "type": "ct",
+  "modality": "CT angiography",
+  "finding": "aaa_rupture",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1016/j.jvscit.2026.102288",
+  "localSources": {
+   "image": "imaging/real/ct-aaa-rupture-96mm-2026.jpg"
+  }
+ },
+ {
+  "id": "ct-aaa-rupture-right-hematoma-2025",
+  "status": "ready",
+  "type": "ct",
+  "modality": "CT",
+  "finding": "retroperitoneal_hematoma",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1016/j.ijscr.2025.111685",
+  "localSources": {
+   "image": "imaging/real/ct-aaa-rupture-right-hematoma-2025.jpg"
+  }
+ },
+ {
+  "id": "ct-dissection-type-b-flap-2026",
+  "status": "ready",
+  "type": "ct",
+  "modality": "CT angiography",
+  "finding": "dissection_type_b",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1093/ehjcr/ytag524",
+  "localSources": {
+   "original": "imaging/real/source/ct-dissection-type-b-flap-2026-source.jpg",
+   "image": "imaging/real/ct-dissection-type-b-flap-2026.jpg"
+  }
+ },
+ {
+  "id": "ct-renal-nonperfusion-aaa-2026",
+  "status": "ready",
+  "type": "ct",
+  "modality": "CT",
+  "finding": "renal_malperfusion",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1097/md.0000000000048285",
+  "localSources": {
+   "original": "imaging/real/source/ct-renal-nonperfusion-aaa-2026-source.jpg",
+   "image": "imaging/real/ct-renal-nonperfusion-aaa-2026.jpg"
+  }
+ },
+ {
+  "id": "ct-aorta-normal-coronal-haggstrom",
+  "status": "ready",
+  "type": "ct",
+  "modality": "CT",
+  "finding": "aorta_normal",
+  "license": "CC0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:CT_of_a_normal_abdomen_and_pelvis,_coronal_plane_60.png",
+  "localSources": {
+   "original": "imaging/real/source/ct-aorta-normal-coronal-haggstrom-source.png",
+   "image": "imaging/real/ct-aorta-normal-coronal-haggstrom.jpg"
+  }
+ },
+ {
+  "id": "fast-pelvis-positive-vats",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Point-of-care ultrasound",
+  "finding": "fast_pelvis_positive",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.3389/fsurg.2026.1883987",
+  "localSources": {
+   "original": "imaging/real/source/fast-pelvis-positive-vats-source.jpg",
+   "image": "imaging/real/fast-pelvis-positive-vats.jpg"
+  }
+ },
+ {
+  "id": "ij-carotid-vexus-2024",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Point-of-care ultrasound",
+  "finding": "ij_carotid",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1186/s13089-024-00397-y",
+  "localSources": {
+   "image": "imaging/real/ij-carotid-vexus-2024.jpg"
+  }
+ },
+ {
+  "id": "ij-needle-inplane-2025",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Point-of-care ultrasound",
+  "finding": "ij_needle",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1186/s13089-025-00405-9",
+  "localSources": {
+   "image": "imaging/real/ij-needle-inplane-2025.jpg"
+  }
+ },
+ {
+  "id": "cxr-tension-ptx-right-olv-2024",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest radiograph",
+  "finding": "tension_ptx",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.7759/cureus.61306",
+  "localSources": {
+   "image": "imaging/real/cxr-tension-ptx-right-olv-2024.jpg"
+  }
+ },
+ {
+  "id": "cxr-ptx-left-large-2024",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest radiograph",
+  "finding": "ptx",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.7759/cureus.66037",
+  "localSources": {
+   "image": "imaging/real/cxr-ptx-left-large-2024.jpg"
+  }
+ },
+ {
+  "id": "cxr-ptx-right-spontaneous-2026",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest radiograph",
+  "finding": "ptx",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.7759/cureus.110257",
+  "localSources": {
+   "image": "imaging/real/cxr-ptx-right-spontaneous-2026.jpg"
+  }
+ },
+ {
+  "id": "cxr-pigtail-drain-reexpanded-2026",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest radiograph",
+  "finding": "chest_tube",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.7759/cureus.110257",
+  "localSources": {
+   "original": "imaging/real/source/cxr-pigtail-drain-reexpanded-2026-source.jpg",
+   "image": "imaging/real/cxr-pigtail-drain-reexpanded-2026.jpg"
+  }
+ },
+ {
+  "id": "cxr-drain-persistent-ptx-2024",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest radiograph",
+  "finding": "chest_tube",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.7759/cureus.66037",
+  "localSources": {
+   "image": "imaging/real/cxr-drain-persistent-ptx-2024.jpg"
+  }
+ },
+ {
+  "id": "cxr-left-whiteout-mucus-plug-2026",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest radiograph",
+  "finding": "collapse_left",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.7759/cureus.108907",
+  "localSources": {
+   "image": "imaging/real/cxr-left-whiteout-mucus-plug-2026.jpg"
+  }
+ },
+ {
+  "id": "peds-croup-steeple-2019",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Neck radiograph (frontal)",
+  "finding": "croup_steeple",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1038/s41598-019-54140-y",
+  "localSources": {
+   "original": "imaging/real/source/peds-croup-steeple-2019-source.jpg",
+   "image": "imaging/real/peds-croup-steeple-2019.jpg"
+  }
+ },
+ {
+  "id": "peds-epiglottitis-thumb-2026",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Neck radiograph (lateral)",
+  "finding": "epiglottitis_thumb",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.7759/cureus.101680",
+  "localSources": {
+   "image": "imaging/real/peds-epiglottitis-thumb-2026.jpg"
+  }
+ },
+ {
+  "id": "peds-irds-preterm-haggstrom",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest radiograph",
+  "finding": "neonatal_rds",
+  "license": "CC0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:X-ray_of_infant_respiratory_distress_syndrome_(IRDS).png",
+  "localSources": {
+   "original": "imaging/real/source/peds-irds-preterm-haggstrom-source.png",
+   "image": "imaging/real/peds-irds-preterm-haggstrom.jpg"
+  }
+ },
+ {
+  "id": "ct-dissection-type-a-arch-flap-2025",
+  "status": "ready",
+  "type": "ct",
+  "modality": "CT angiography",
+  "finding": "dissection_type_a",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.7759/cureus.98241",
+  "localSources": {
+   "image": "imaging/real/ct-dissection-type-a-arch-flap-2025.jpg"
+  }
+ },
+ {
+  "id": "ct-aaa-intact-66mm-coronal-2025",
+  "status": "ready",
+  "type": "ct",
+  "modality": "CT abdomen (coronal reformat)",
+  "finding": "aaa",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.7759/cureus.78987",
+  "localSources": {
+   "original": "imaging/real/source/ct-aaa-intact-66mm-coronal-2025-source.jpg",
+   "image": "imaging/real/ct-aaa-intact-66mm-coronal-2025.jpg"
+  }
+ },
+ {
+  "id": "ct-renal-malperfusion-dissection-fl-2025",
+  "status": "ready",
+  "type": "ct",
+  "modality": "CT angiography (coronal)",
+  "finding": "renal_malperfusion",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1016/j.jaccas.2025.106060",
+  "localSources": {
+   "original": "imaging/real/source/ct-renal-malperfusion-dissection-fl-2025-source.jpg",
+   "image": "imaging/real/ct-renal-malperfusion-dissection-fl-2025.jpg"
+  }
+ },
+ {
+  "id": "ct-renal-hypoperfusion-type-b-renal-level-2026",
+  "status": "ready",
+  "type": "ct",
+  "modality": "CT angiography",
+  "finding": "renal_malperfusion",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1093/ehjcr/ytag336",
+  "localSources": {
+   "original": "imaging/real/source/ct-renal-hypoperfusion-type-b-renal-level-2026-source.jpg",
+   "image": "imaging/real/ct-renal-hypoperfusion-type-b-renal-level-2026.jpg"
+  }
+ },
+ {
+  "id": "ct-sma-embolism-coronal-2023",
+  "status": "ready",
+  "type": "ct",
+  "modality": "CT angiography (coronal)",
+  "finding": "sma_occlusion",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1259/bjrcr.20220149",
+  "localSources": {
+   "original": "imaging/real/source/ct-sma-embolism-coronal-2023-source.jpg",
+   "image": "imaging/real/ct-sma-embolism-coronal-2023.jpg"
+  }
+ },
+ {
+  "id": "ct-gastric-pneumatosis-portal-gas-2026",
+  "status": "ready",
+  "type": "ct",
+  "modality": "Contrast-enhanced CT",
+  "finding": "pneumatosis",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.7759/cureus.106116",
+  "localSources": {
+   "original": "imaging/real/source/ct-gastric-pneumatosis-portal-gas-2026-source.jpg",
+   "image": "imaging/real/ct-gastric-pneumatosis-portal-gas-2026.jpg"
+  }
+ },
+ {
+  "id": "ct-sbo-coronal-feces-sign-2026",
+  "status": "ready",
+  "type": "ct",
+  "modality": "Non-contrast CT (coronal)",
+  "finding": "sbo",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1093/jscr/rjag586",
+  "localSources": {
+   "original": "imaging/real/source/ct-sbo-coronal-feces-sign-2026-source.jpg",
+   "image": "imaging/real/ct-sbo-coronal-feces-sign-2026.jpg"
+  }
+ },
+ {
+  "id": "ct-pneumoperitoneum-large-2026",
+  "status": "ready",
+  "type": "ct",
+  "modality": "Contrast-enhanced CT",
+  "finding": "pneumoperitoneum",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.7759/cureus.109171",
+  "localSources": {
+   "image": "imaging/real/ct-pneumoperitoneum-large-2026.jpg"
+  }
+ },
+ {
+  "id": "ct-splenic-laceration-hemoperitoneum-2025",
+  "status": "ready",
+  "type": "ct",
+  "modality": "Contrast-enhanced CT",
+  "finding": "hemoperitoneum",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1093/jscr/rjaf940",
+  "localSources": {
+   "original": "imaging/real/source/ct-splenic-laceration-hemoperitoneum-2025-source.jpg",
+   "image": "imaging/real/ct-splenic-laceration-hemoperitoneum-2025.jpg"
+  }
+ },
+ {
+  "id": "ct-splenic-rupture-hemoperitoneum-axial-2026",
+  "status": "ready",
+  "type": "ct",
+  "modality": "Contrast-enhanced CT",
+  "finding": "hemoperitoneum",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.7759/cureus.111978",
+  "localSources": {
+   "image": "imaging/real/ct-splenic-rupture-hemoperitoneum-axial-2026.jpg"
+  }
+ },
+ {
+  "id": "fast-luq-positive-scandj-2023",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Point-of-care ultrasound",
+  "finding": "fast_luq_positive",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1186/s13049-023-01088-8",
+  "localSources": {
+   "original": "imaging/real/source/fast-luq-positive-scandj-2023-source.jpg",
+   "image": "imaging/real/fast-luq-positive-scandj-2023.jpg"
+  }
+ },
+ {
+  "id": "fast-pelvis-negative-pocus-2021",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Point-of-care ultrasound",
+  "finding": "fast_pelvis_negative",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1186/s13089-021-00209-7",
+  "localSources": {
+   "original": "imaging/real/source/fast-pelvis-negative-pocus-2021-source.jpg",
+   "image": "imaging/real/fast-pelvis-negative-pocus-2021.jpg"
+  }
+ },
+ {
+  "id": "fast-pelvis-seminal-vesicles-2021",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Point-of-care ultrasound",
+  "finding": "fast_pelvis_negative",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1186/s13089-021-00209-7",
+  "localSources": {
+   "original": "imaging/real/source/fast-pelvis-seminal-vesicles-2021-source.jpg",
+   "image": "imaging/real/fast-pelvis-seminal-vesicles-2021.jpg"
+  }
+ },
+ {
+  "id": "fast-pericardial-positive-focus-2026",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Point-of-care ultrasound",
+  "finding": "fast_pericardial_positive",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.3389/fcvm.2026.1753361",
+  "localSources": {
+   "original": "imaging/real/source/fast-pericardial-positive-focus-2026-source.jpg",
+   "image": "imaging/real/fast-pericardial-positive-focus-2026.jpg"
+  }
+ },
+ {
+  "id": "ij-compression-gillman-2010",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Point-of-care ultrasound",
+  "finding": "ij_compression",
+  "license": "CC BY 2.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ultrasound-confirmation-of-guidewire-position-may-eliminate-accidental-arterial-dilatation-during-1757-7241-18-39-S3.ogv",
+  "localSources": {
+   "original": "imaging/real/source/ij-compression-gillman-2010-source.ogv",
+   "webm": "imaging/real/ij-compression-gillman-2010.webm",
+   "poster": "imaging/real/ij-compression-gillman-2010.jpg",
+   "mp4": "imaging/real/ij-compression-gillman-2010.mp4"
+  }
+ },
+ {
+  "id": "chest-drain-unit-atrium",
+  "status": "ready",
+  "type": "photo",
+  "modality": "Clinical photograph",
+  "finding": "chest_drain_unit",
+  "license": "CC BY 2.5",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chest_drain_-_empty.jpg",
+  "localSources": {
+   "image": "imaging/real/chest-drain-unit-atrium.jpg"
+  }
+ },
+ {
+  "id": "chest-drain-unit-bedside",
+  "status": "ready",
+  "type": "photo",
+  "modality": "Clinical photograph",
+  "finding": "chest_drain_unit",
+  "license": "CC BY 2.5",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chest_drain_-_bedside_with_fluids.jpg",
+  "localSources": {
+   "image": "imaging/real/chest-drain-unit-bedside.jpg"
+  }
+ },
+ {
+  "id": "needle-decompression-site-cureus-2022",
+  "status": "ready",
+  "type": "photo",
+  "modality": "Clinical photograph",
+  "finding": "needle_decompression_site",
+  "license": "CC BY 3.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.7759/cureus.27013",
+  "localSources": {
+   "image": "imaging/real/needle-decompression-site-cureus-2022.jpg"
+  }
+ },
+ {
+  "id": "fast-pericardial-negative-subcostal-2020",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Point-of-care ultrasound",
+  "finding": "fast_pericardial_negative",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1186/s13089-020-00197-0",
+  "localSources": {
+   "original": "imaging/real/source/fast-pericardial-negative-subcostal-2020-source.jpg",
+   "image": "imaging/real/fast-pericardial-negative-subcostal-2020.jpg"
+  }
+ },
+ {
+  "id": "lus-lung-pulse-mmode-cureus-2025",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Point-of-care lung ultrasound (M-mode)",
+  "finding": "lung_pulse",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.7759/cureus.88584",
+  "localSources": {
+   "original": "imaging/real/source/lus-lung-pulse-mmode-cureus-2025-source.jpg",
+   "image": "imaging/real/lus-lung-pulse-mmode-cureus-2025.jpg"
+  }
+ },
+ {
+  "id": "ij-thrombus-compression-cureus-2025",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Point-of-care ultrasound",
+  "finding": "ij_thrombus",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.7759/cureus.95740",
+  "localSources": {
+   "image": "imaging/real/ij-thrombus-compression-cureus-2025.jpg"
+  }
+ },
+ {
+  "id": "ij-thrombus-longitudinal-cureus-2026",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Point-of-care ultrasound",
+  "finding": "ij_thrombus",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.7759/cureus.109678",
+  "localSources": {
+   "image": "imaging/real/ij-thrombus-longitudinal-cureus-2026.jpg"
+  }
+ },
+ {
+  "id": "cxr-tension-ptx-right-hydatid-2023",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest radiograph (portable AP)",
+  "finding": "tension_ptx",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1002/ccr3.7542",
+  "localSources": {
+   "original": "imaging/real/source/cxr-tension-ptx-right-hydatid-2023-source.jpg",
+   "image": "imaging/real/cxr-tension-ptx-right-hydatid-2023.jpg"
+  }
+ },
+ {
+  "id": "cxr-tension-ptx-right-covid-2022",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest radiograph (portable)",
+  "finding": "tension_ptx",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1002/ccr3.5852",
+  "localSources": {
+   "original": "imaging/real/source/cxr-tension-ptx-right-covid-2022-source.jpg",
+   "image": "imaging/real/cxr-tension-ptx-right-covid-2022.jpg"
+  }
+ },
+ {
+  "id": "peds-bronchiolitis-hyperinflation-commons",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest radiograph (infant)",
+  "finding": "bronchiolitis_hyperinflation",
+  "license": "CC BY 2.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bronchiolitis_chest_X-ray.jpg",
+  "localSources": {
+   "image": "imaging/real/peds-bronchiolitis-hyperinflation-commons.jpg"
+  }
+ },
+ {
+  "id": "peds-pneumonia-bocavirus-commons",
+  "status": "ready",
+  "type": "xray",
+  "modality": "Chest radiograph (toddler, intubated)",
+  "finding": "pediatric_pneumonia",
+  "license": "Public Domain",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Human_bocavirus_1_pneumonia.jpg",
+  "localSources": {
+   "image": "imaging/real/peds-pneumonia-bocavirus-commons.jpg"
+  }
+ },
+ {
+  "id": "ct-dissection-type-a-ascending-flap-2022",
+  "status": "ready",
+  "type": "ct",
+  "modality": "CT angiography (axial)",
+  "finding": "dissection_type_a",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1186/s12872-022-02596-8",
+  "localSources": {
+   "original": "imaging/real/source/ct-dissection-type-a-ascending-flap-2022-source.jpg",
+   "image": "imaging/real/ct-dissection-type-a-ascending-flap-2022.jpg"
+  }
+ },
+ {
+  "id": "ct-dissection-type-a-ascending-tear-2020",
+  "status": "ready",
+  "type": "ct",
+  "modality": "CT angiography (axial)",
+  "finding": "dissection_type_a",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1186/s12872-020-01440-1",
+  "localSources": {
+   "original": "imaging/real/source/ct-dissection-type-a-ascending-tear-2020-source.jpg",
+   "image": "imaging/real/ct-dissection-type-a-ascending-tear-2020.jpg"
+  }
+ },
+ {
+  "id": "ct-aaa-mural-thrombus-8cm-2021",
+  "status": "ready",
+  "type": "ct",
+  "modality": "CT angiography (axial)",
+  "finding": "aaa",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1186/s13256-021-02703-x",
+  "localSources": {
+   "original": "imaging/real/source/ct-aaa-mural-thrombus-8cm-2021-source.jpg",
+   "image": "imaging/real/ct-aaa-mural-thrombus-8cm-2021.jpg"
+  }
+ },
+ {
+  "id": "ct-pneumatosis-colon-wall-2021",
+  "status": "ready",
+  "type": "ct",
+  "modality": "CT (axial, lung window)",
+  "finding": "pneumatosis",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1186/s13256-021-03158-w",
+  "localSources": {
+   "image": "imaging/real/ct-pneumatosis-colon-wall-2021.jpg"
+  }
+ },
+ {
+  "id": "ct-pneumatosis-cystoides-coronal-2021",
+  "status": "ready",
+  "type": "ct",
+  "modality": "CT (coronal, lung window)",
+  "finding": "pneumatosis",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.1186/s13256-021-03183-9",
+  "localSources": {
+   "original": "imaging/real/source/ct-pneumatosis-cystoides-coronal-2021-source.jpg",
+   "image": "imaging/real/ct-pneumatosis-cystoides-coronal-2021.jpg"
+  }
+ },
+ {
+  "id": "ct-mesenteric-injury-hemoperitoneum-2026",
+  "status": "ready",
+  "type": "ct",
+  "modality": "Contrast CT (axial)",
+  "finding": "hemoperitoneum",
+  "license": "CC BY 4.0",
+  "licenseVerified": true,
+  "sourceUrl": "https://doi.org/10.5811/cpcem.48848",
+  "localSources": {
+   "image": "imaging/real/ct-mesenteric-injury-hemoperitoneum-2026.jpg"
+  }
+ },
+ {
+  "id": "aorta-normal-us-axial-haggstrom",
+  "status": "ready",
+  "type": "ultrasound",
+  "modality": "Point-of-care ultrasound",
+  "finding": "aorta_normal_us",
+  "license": "CC0",
+  "licenseVerified": true,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Axial_plane_ultrasound_at_the_navel.jpg",
+  "localSources": {
+   "image": "imaging/real/aorta-normal-us-axial-haggstrom.jpg"
+  }
+ },
+ {
   "id": "lus-confluent-tsung",
   "status": "pending",
   "type": "ultrasound",

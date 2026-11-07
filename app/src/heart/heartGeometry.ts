@@ -122,6 +122,13 @@ export function lesionShape(inp: ShuntInput, s: ShuntState): LesionShape {
 export interface Way { p: THREE.Vector3; r: number }
 const w = (x: number, y: number, z: number, r: number): Way => ({ p: v(x, y, z), r });
 const AV = (d: THREE.Vector3) => w(LM.aorticValve.x + d.x, LM.aorticValve.y + d.y, LM.aorticValve.z + d.z, 0.05);
+/** Measured vessel centrelines (body frame; r = lumen radius) for drawing pathology inside the real vessels:
+ *  ascending aorta + arch, descending thoracic aorta, pulmonary trunk (from the valve), right and left pulmonary arteries. */
+export function vesselCentrelines() {
+  const f = flowPaths({ coarct: 0, rvot: 0, override: 0, rvWall: 0 });
+  const ao = f.pvR.slice(-19); const pa = f.svc.slice(-13, -5); const rpa = f.svc.slice(-5); const lpa = f.ivc.slice(-7);
+  return { asc: ao.slice(0, 10), desc: ao.slice(10), trunk: pa.slice(3), rpa, lpa };
+}
 export function flowPaths(shape: LesionShape) {
   const o = OVERRIDE.clone().multiplyScalar(shape.override);
   // centrelines traced through the vessel meshes (slice centroids); r ≈ lumen radius

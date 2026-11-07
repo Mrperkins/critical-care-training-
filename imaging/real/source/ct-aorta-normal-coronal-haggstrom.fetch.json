@@ -1,0 +1,21 @@
+{
+ "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4b/CT_of_a_normal_abdomen_and_pelvis%2C_coronal_plane_60.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+ "pageUrl": "https://commons.wikimedia.org/wiki/File:CT_of_a_normal_abdomen_and_pelvis,_coronal_plane_60.png",
+ "originalName": "CT of a normal abdomen and pelvis, coronal plane 60.png",
+ "mime": "image/png",
+ "bytes": 310398,
+ "sha1": "d390ad5a9212ea4812f1e170a370a2156cb0f5c6",
+ "width": 790,
+ "height": 672,
+ "license": "CC0",
+ "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+ "licenseEvidence": "Wikimedia Commons API extmetadata for File:CT of a normal abdomen and pelvis, coronal plane 60.png: LicenseShortName = “CC0”, UsageTerms = “Creative Commons Zero, Public Domain Dedication” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3ACT+of+a+normal+abdomen+and+pelvis%2C+coronal+plane+60.png&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+ "authors": "Mikael Häggström, M.D.",
+ "credit": "Own work",
+ "published": "2019-03-16",
+ "description": "edit Computed tomography of the abdomen and pelvis , performed as a contrast CT , here presented in the coronal plane with 3 mm slice thickness. It shows normal anatomy, with no injuries. The subject is a 21 year old male who had blunt trauma to the upper abdomen during motocross .",
+ "restrictions": "",
+ "id": "ct-aorta-normal-coronal-haggstrom",
+ "retrieved": "2026-10-09T15:43Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

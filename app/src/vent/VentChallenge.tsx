@@ -4,13 +4,15 @@ import { session } from './session';
 import { useUI } from '../app/store';
 import { VENT_CHALLENGES, type VentChallenge as VC } from '../scenarios/ventChallenges';
 import { DYSS, DYSSYNCHRONIES } from '../scenarios/dyssynchrony';
-import { loadVentScenario, VentControls, VentNumbersCard, Interventions, GasCard } from './VentPanel';
+import { loadVentScenario, VentSettingsFold, VentNumbersCard, Interventions, GasFold } from './VentPanel';
+import { Fold } from '../scene/pane';
 import { Loops } from './Waveforms';
 import { ventNumbers } from './numbers';
 import { CaseList, CaseRun } from '../challenge/CaseChallenge';
 import { CASE_BY_ID, casesFor, type SceneCase } from '../challenge/sceneCases';
 import { Remediate } from '../challenge/Remediate';
 import { takePendingChallenge, usePendingOpen } from '../app/navigate';
+import { VentGame } from './VentGame';
 
 const store = { get: (k: string) => { try { return localStorage.getItem(k); } catch { return null; } }, set: (k: string, v: string) => { try { localStorage.setItem(k, v); } catch { /* private mode */ } } };
 const seeded = <T,>(arr: T[], seed: string) => { let h = 0; for (const c of seed) h = (h * 31 + c.charCodeAt(0)) >>> 0; const a = [...arr]; for (let i = a.length - 1; i > 0; i--) { h = (h * 1103515245 + 12345) >>> 0; const j = h % (i + 1); [a[i], a[j]] = [a[j], a[i]]; } return a; };
@@ -37,10 +39,10 @@ export function VentChallenge() {
       <CaseList module="vent" embedded onStart={setImg} />
     </div>
   );
-  return <ChallengeRun key={cur.id} c={cur} onExit={() => setCur(null)} onDone={() => { done.add(cur.id); store.set('ccp.vent.done', [...done].join(',')); }} />;
+  return <VentGame key={cur.id} c={cur} onExit={() => setCur(null)} onDone={() => { done.add(cur.id); store.set('ccp.vent.done', [...done].join(',')); }} />;
 }
 
-function ChallengeRun({ c, onExit, onDone }: { c: VC; onExit: () => void; onDone: () => void }) {
+export function ChallengeRun({ c, onExit, onDone }: { c: VC; onExit: () => void; onDone: () => void }) {
   useUI((s) => s.pulse);
   const [pick, setPick] = useState<number | null>(null); const [act, setAct] = useState<number | null>(null); const [solved, setSolved] = useState(false);
   const d = c.dyss ? DYSS[c.dyss] : null;
@@ -98,9 +100,10 @@ function ChallengeRun({ c, onExit, onDone }: { c: VC; onExit: () => void; onDone
       )}
       {status}
       <VentNumbersCard />
-      {c.kind === 'alarm' ? <Interventions /> : <><Interventions /><VentControls /></>}
-      <section className="card"><Loops /></section>
-      <GasCard />
+      <section className="card"><div className="card-h"><h3>Act</h3></div><Interventions /></section>
+      {c.kind !== 'alarm' && <VentSettingsFold group="vent-chal" />}
+      <Fold group="vent-chal" id="loops" title="Loops"><section className="card"><Loops /></section></Fold>
+      <GasFold group="vent-chal" />
     </div>
   );
 }

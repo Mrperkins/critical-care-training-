@@ -1,4 +1,0 @@
-{
-  "assets": [],
-  "note": "Populate only from the current mental-rep voice refresh queue. Every asset must include id, transcriptHash, hash-versioned file, url, voice and provider."
-}

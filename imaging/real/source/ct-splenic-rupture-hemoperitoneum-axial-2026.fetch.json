@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC13428986",
+ "pageUrl": "https://doi.org/10.7759/cureus.111978",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
+ "authors": "Kiara Sejfullai, Federica Giannini, Martina Sorrentino",
+ "title": "Spontaneous Splenic Rupture Associated With Cytomegalovirus Infection: A Case Report",
+ "publication": "Cureus",
+ "published": "2026-07-03",
+ "doi": "10.7759/cureus.111978",
+ "volume": "18",
+ "firstpage": "e111978",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13428986.1/cureus-0018-00000111978-i01.jpg",
+ "originalName": "cureus-0018-00000111978-i01.jpg",
+ "description": "Figure 1 Abdominal CT scan showing splenomegaly, subcapsular hematoma, and hemoperitoneum",
+ "thirdParty": false,
+ "figure": "FIG1",
+ "licenseEvidence": "Europe PMC full text of PMC13428986 (doi 10.7759/cureus.111978), <license>: “https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the terms of the Creative Commons Attribution License CC-BY 4.0., which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.”; Figure 1 caption checked for a separate credit.",
+ "id": "ct-splenic-rupture-hemoperitoneum-axial-2026",
+ "retrieved": "2026-10-09T16:42Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

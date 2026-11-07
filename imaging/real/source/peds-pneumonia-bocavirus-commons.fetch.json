@@ -1,0 +1,21 @@
+{
+ "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Human_bocavirus_1_pneumonia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+ "pageUrl": "https://commons.wikimedia.org/wiki/File:Human_bocavirus_1_pneumonia.jpg",
+ "originalName": "Human bocavirus 1 pneumonia.jpg",
+ "mime": "image/jpeg",
+ "bytes": 43815,
+ "sha1": "1435417ca8f4cf6d0bb6f9e84ac5b1eeab14a8b7",
+ "width": 600,
+ "height": 561,
+ "license": "Public Domain",
+ "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+ "licenseEvidence": "Wikimedia Commons API extmetadata for File:Human bocavirus 1 pneumonia.jpg: LicenseShortName = “Public domain”, UsageTerms = “Public domain” (https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&titles=File%3AHuman+bocavirus+1+pneumonia.jpg&iiprop=url%7Csha1%7Csize%7Cmime%7Cextmetadata)",
+ "authors": "Alma Jula, Matti Waris, Kalle Kantola, Ville Peltola, Maria Söderlund-Venermo, Klaus Hedman, and Olli Ruuskanen",
+ "credit": "Emerging Infectious Diseases, Volume 19, Number 8—August 2013, http://wwwnc.cdc.gov/eid/article/19/8/13-0074-f1.htm",
+ "published": "2013",
+ "description": "Figure. . Chest radiograph of the index patient, a 16-month-old boy in Finland with human bocavirus 1 pneumonia, on day 2 of hospitalization. Bilateral pulmonary infiltrations and atelectasis of the upper right lobe can be seen.",
+ "restrictions": "",
+ "id": "peds-pneumonia-bocavirus-commons",
+ "retrieved": "2026-10-09T17:10Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

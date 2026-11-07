@@ -1,0 +1,23 @@
+{
+ "pmcid": "PMC13124428",
+ "pageUrl": "https://doi.org/10.1097/md.0000000000048285",
+ "license": "CC BY 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "licenseText": "This is an open access article distributed under the Creative Commons Attribution License 4.0 (CCBY) , which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.",
+ "authors": "Jiang Y, Ni J, Zhang L, Jiang L, Li X.",
+ "title": "Refractory abdominal compartment syndrome secondary to ruptured abdominal aortic aneurysm treated with total colectomy and upper rectal resection: A case report and literature review",
+ "publication": "Medicine",
+ "published": "2026-04-01",
+ "doi": "10.1097/md.0000000000048285",
+ "volume": "105",
+ "firstpage": "e48285",
+ "originalUrl": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13124428.1/medi-105-e48285-g001.jpg",
+ "originalName": "medi-105-e48285-g001.jpg",
+ "description": "Figure 1. (A) Abdominal aortic aneurysmal dilation measuring 10.2 × 8.5 × 6 cm, with high-density attachment to the vessel wall. (B) Post-enhancement imaging reveals interrupted continuity of the left renal artery, with no significant enhancement observed in the left renal parenchyma.",
+ "thirdParty": false,
+ "figure": "F1",
+ "licenseEvidence": "Europe PMC full text of PMC13124428 (doi 10.1097/md.0000000000048285), <license>: “This is an open access article distributed under the Creative Commons Attribution License 4.0 (CCBY) , which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.”; Figure 1. caption checked for a separate credit.",
+ "id": "ct-renal-nonperfusion-aaa-2026",
+ "retrieved": "2026-10-09T15:43Z",
+ "verifiedBy": "tools/clinical_media.py fetch"
+}

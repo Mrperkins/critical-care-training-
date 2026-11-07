@@ -79,14 +79,11 @@ describe('ICP lesson ordering', async () => {
 });
 
 import { ventricleScale } from '../src/neuro/icp';
-import { render } from '../src/neuro/imaging/synth';
 describe('hydrocephalus', () => {
   it('adds trapped CSF even for a fresh haematoma; enlarges the ventricles; an EVD shrinks them; mass effect compresses them', () => {
     const ich = presetState('ich'); const hyd = { ...ICP_DEFAULT, hydrocephalus: true };
     expect(icpState(ich, DEFAULT_SYSTEMIC, hyd).icp).toBeGreaterThan(icpState(ich).icp + 10);
     const sah = { ...presetState('sah'), minutes: 180 }; const v = ventricleScale(sah, DEFAULT_SYSTEMIC, hyd), d = ventricleScale(sah, DEFAULT_SYSTEMIC, { ...hyd, evd: { open: true, heightCm: 15, levelErrorCm: 0 } });
     expect(v).toBeGreaterThan(1.8); expect(d).toBeLessThan(v - 0.4); expect(ventricleScale(ich)).toBeLessThan(1);
-    const dark = (vs: number) => { const r = render('ncct', presetState('none'), 0.02, 100, DEFAULT_SYSTEMIC, vs); let n = 0; for (let j = 25; j < 75; j++) for (let i = 25; i < 75; i++) { const v = r.rgba[(j * 100 + i) * 4]; if (v < 40) n++; } return n; };
-    expect(dark(2.2)).toBeGreaterThan(dark(1) * 1.3);
   });
 });
