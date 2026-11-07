@@ -15,7 +15,7 @@ let browser;
 try{
   await sleep(1000);
   browser=await chromium.launch({headless:true,args:['--use-gl=angle','--use-angle=swiftshader','--enable-webgl','--enable-unsafe-swiftshader']});
-  for(const d of [{name:'desktop',width:1440,height:900},{name:'mobile',width:390,height:844}]){
+  for(const d of [{name:'desktop',width:1440,height:900},{name:'tablet',width:820,height:1180},{name:'mobile',width:390,height:844}]){
     const cx=await browser.newContext({viewport:{width:d.width,height:d.height},deviceScaleFactor:1});
     const page=await cx.newPage();
     page.setDefaultTimeout(60000);
@@ -25,20 +25,22 @@ try{
     await page.goto('http://127.0.0.1:8899/?module=heart',{waitUntil:'domcontentloaded',timeout:30000});
     const panel=page.getByRole('region',{name:'Unified 3D cardiac atlas'});
     await expect(panel).toBeAttached({timeout:30000});
-    if(d.name==='mobile'){
+    if(d.name!=='desktop'){
       // Lessons visible by default while WebGL is unmounted.
       await expect(page.locator('.heart-atlas-viewport canvas')).toHaveCount(0);
       await panel.getByRole('button',{name:'3D split view'}).click();
       await page.getByRole('button',{name:'Scene',exact:true}).first().click();
       await expect(page.getByRole('img',{name:'Interactive intact 3D cardiac anatomy'})).toBeVisible({timeout:35000});
       if(await page.locator('.heart-atlas-viewport canvas').count()!==1)throw Error('Mobile split must mount exactly one 3D canvas');
-      await page.screenshot({path:path.join(out,'atlas-mobile-whole.png'),fullPage:false,timeout:45000});
+      await page.screenshot({path:path.join(out,`atlas-${d.name}-whole.png`),fullPage:false,timeout:45000});
       await page.getByRole('button',{name:/^(Lessons|Controls|Questions)$/}).first().click();
       await panel.getByRole('button',{name:'Conduction',exact:true}).click();
       await page.getByRole('button',{name:'Scene',exact:true}).first().click();
       await expect(page.getByRole('img',{name:'Interactive 3D cutaway heart and electrical conduction'})).toBeVisible({timeout:35000});
       if(await page.locator('.heart-atlas-viewport canvas').count()!==1)throw Error('Mobile conduction mode must mount exactly one 3D canvas');
-      await page.screenshot({path:path.join(out,'atlas-mobile-conduction.png'),fullPage:false,timeout:45000});
+      await page.waitForFunction(() => !!window.__heartFlowScene?.getObjectByName('bulk-blood-svc'), null, { timeout: 35000 });
+      await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+      await page.screenshot({path:path.join(out,`atlas-${d.name}-conduction.png`),fullPage:false,timeout:45000});
     }else{
       await expect(panel).toBeVisible();
       await panel.getByRole('button',{name:'Whole heart'}).click();

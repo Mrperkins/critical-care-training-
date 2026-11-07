@@ -69,10 +69,14 @@ try {
     await expect(study.getByRole('button', { name: 'Play' })).toBeVisible();
     await study.getByLabel('ECG lead').selectOption('V1');
     await expect(study.getByRole('img', { name: /lead V1 electrocardiogram/i })).toBeVisible();
-    await study.getByText('View all 12 synchronized leads').click();
+    await study.getByText(/View all 17 synchronized leads/).click();
     await expect(study.getByRole('button', { name: 'Select lead V6' })).toBeVisible();
     await study.getByRole('button', { name: 'Select lead V6' }).click();
     await expect(study.getByRole('img', { name: /lead V6 electrocardiogram/i })).toBeVisible();
+    for (const lead of ['V8', 'V4R']) {
+      await study.getByRole('button', { name: `Select lead ${lead}` }).click();
+      await expect(study.getByRole('img', { name: new RegExp(`lead ${lead} electrocardiogram`, 'i') })).toBeVisible();
+    }
     await study.scrollIntoViewIfNeeded();
     await page.screenshot({ path: path.join(output, 'heart-study-' + spec.name + '.png'), fullPage: true, animations: 'disabled' });
     if (spec.name !== 'desktop') {
