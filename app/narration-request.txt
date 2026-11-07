@@ -1,0 +1,1 @@
+Render the revised Mental Rep narration with the existing Kokoro voice.
