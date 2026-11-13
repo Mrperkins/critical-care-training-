@@ -109,7 +109,7 @@ export function CurriculumModule() {
         </div></details>
 
         <details className="offline-disclosure"><summary>Offline access</summary><OfflineCard /></details>
-        <p className="muted small" style={{ padding: '0 4px 20px' }}>Teaching tool, not a certification prep course or a protocol. <button className="linkish" onClick={() => { if (confirm('Clear your progress, bookmarks and challenge answers in this browser?')) p.reset(); }}>Reset progress</button></p>
+        <p className="muted small" style={{ padding: '0 4px 20px' }}>Teaching and exam-study tool. It does not replace your program’s protocols. <button className="linkish" onClick={() => { if (confirm('Clear your progress, bookmarks and challenge answers in this browser?')) p.reset(); }}>Reset progress</button></p>
       </div>
     </main>
   );

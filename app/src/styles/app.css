@@ -1503,10 +1503,10 @@ body{font:14px/1.5 var(--fb);background:var(--bezel)}
   .domain-rail{display:none}
   .workspace{grid-template-rows:auto minmax(0,1fr)}
   .m-curriculum .workspace,.m-videos .workspace{grid-template-rows:minmax(0,1fr)}
-  .mobile-workspace-tabs{display:flex;align-items:center;gap:6px;padding:6px 12px;border-bottom:1px solid var(--line);background:var(--bezel)}
+  .mobile-workspace-tabs{display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-width:0;padding:6px 12px;border-bottom:1px solid var(--line);background:var(--bezel)}
   .mobile-workspace-tabs>button{min-height:36px;padding:6px 14px;border:0;border-radius:8px;background:none;color:var(--dim);font:600 13.5px var(--fb)}
   .mobile-workspace-tabs>button[aria-pressed=true]{background:var(--accent-soft);color:var(--ink)}
-  .mobile-tools{display:flex;gap:6px;margin-left:auto}
+  .mobile-tools{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap;justify-content:flex-end;min-width:0}
   .mobile-tools .atlas-entry{min-height:34px;padding:4px 10px;font-size:12.5px}
   .mobile-workspace-tabs.sim-only .mobile-tools{margin-left:0}
 }

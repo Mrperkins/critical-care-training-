@@ -94,7 +94,7 @@ function Home({ onEpisode, onRep, navigate }: { onEpisode: (e: AudioEpisode) => 
   const mastery = Object.values(p.mastery).filter((x) => x.exposures).length; const due = duePrompts(p.mastery).length;
   return <div className="aa-page">
     <header className="aa-hero"><div><span className="aa-kicker">VOICE-FIRST CRITICAL CARE</span><h1>Build the way experts think.</h1><p>Natural-voice rounds, ICU literacy, unfolding cases and guided procedural mental rehearsal — all mapped to the same critical-care mastery graph.</p></div>
-      <div className="aa-voice"><span>VOICE STANDARD</span><b>Natural human-quality narration</b><small>No browser TTS. Production lessons require reviewed, pre-rendered premium neural voice or clinician-recorded audio.</small></div>
+      <div className="aa-voice"><span>VOICE STANDARD</span><b>Computer-narrated · clinical review in progress</b><small>Every session is pre-rendered with a neural voice (no browser TTS). Sessions are marked Reviewed once a clinician has signed them off.</small></div>
     </header>
     <section className="aa-grid aa-stats">
       <button onClick={() => navigate('tracks')}><span>EXPERT TRACKS</span><b>{EXPERT_TRACKS.length}</b><small>Ordered ICU domain pathways</small></button>
@@ -105,7 +105,7 @@ function Home({ onEpisode, onRep, navigate }: { onEpisode: (e: AudioEpisode) => 
     <section className="aa-section"><div className="aa-section-h"><div><span className="aa-kicker">RECOMMENDED FOR YOU</span><h2>{featured.title}</h2></div><button className="aa-primary" onClick={() => onEpisode(featured)}>▶ Start round</button></div>
       <div className="aa-feature">
         <div className="aa-orbit" aria-hidden="true"><i /><i /><i /><b>RV</b></div>
-        <div><p>{featured.subtitle}</p><div className="aa-tags"><span>Level {featured.level}</span><span>{featured.minutes} min</span><span>{featured.concepts.length} concepts</span>{featured.voice ? <span className="voice">{featured.voice.reviewed ? 'Reviewed natural voice' : 'Natural voice prototype'}</span> : <span>Script ready · voice pending</span>}</div>
+        <div><p>{featured.subtitle}</p><div className="aa-tags"><span>Level {featured.level}</span><span>{featured.minutes} min</span><span>{featured.concepts.length} concepts</span>{featured.voice ? <span className="voice">{featured.voice.reviewed ? 'Reviewed narration' : 'Computer-narrated · not yet reviewed'}</span> : <span>Script ready · voice pending</span>}</div>
           <h3>After this round</h3><ul>{featured.outcomes.map((x) => <li key={x}>{x}</li>)}</ul></div>
       </div>
     </section>
@@ -146,7 +146,7 @@ function Listen({ onEpisode }: { onEpisode: (e: AudioEpisode) => void }) {
     <div className="aa-pills">{formats.map((f) => <button key={f} className={f === format ? 'on' : ''} onClick={() => setFormat(f)}>{f.replace('-', ' ')}</button>)}</div>
     <div className="aa-list">{list.map((e) => <button className="aa-item" key={e.id} onClick={() => onEpisode(e)}>
       <span className="aa-play">▶</span><span className="aa-item-body"><b>{e.title}</b><small>{e.subtitle}</small><em>{DOMAIN_LABELS[e.domain]} · Level {e.level} · {e.minutes} min</em></span>
-      <span className={`aa-status ${e.status}`}>{e.status.replace('-', ' ')}</span>
+      <span className={`aa-status ${e.voice?.reviewed ? 'published' : 'scripted'}`}>{e.voice?.reviewed ? 'Reviewed' : 'Not yet reviewed'}</span>
     </button>)}</div>
     {!list.length && <div className="aa-pending">No sessions match those filters.</div>}
   </div>;
@@ -251,7 +251,7 @@ function EpisodePlayer({ episode, onBack, onReview, onFocus, onExample }: { epis
     <div className="aa-player-main">
       <div className="aa-cover"><span>{episode.format.replace('-', ' ')}</span><div className="aa-wave">{Array.from({ length: 28 }).map((_, i) => <i key={i} style={{ height: `${20 + ((i * 17) % 65)}%` }} />)}</div><b>LEVEL {episode.level}</b></div>
       <div className="aa-player-info"><span className="aa-kicker">{DOMAIN_LABELS[episode.domain]}</span><h1>{episode.title}</h1><p>{episode.subtitle}</p>
-        <div className="aa-tags"><span>{episode.minutes} min</span><span>{episode.chapters.length} chapters</span>{sources.length > 1 && <span>{safePart + 1}/{sources.length} audio parts</span>}{(durable || episode.voice) && <span className="voice">{durable?.reviewed || episode.voice?.reviewed ? 'Reviewed natural voice' : 'Natural voice · review pending'}</span>}</div>
+        <div className="aa-tags"><span>{episode.minutes} min</span><span>{episode.chapters.length} chapters</span>{sources.length > 1 && <span>{safePart + 1}/{sources.length} audio parts</span>}{(durable || episode.voice) && <span className="voice">{durable?.reviewed || episode.voice?.reviewed ? 'Reviewed narration' : 'Natural voice · review pending'}</span>}</div>
         {src ? <><audio key={src} ref={audio} src={src}
           onLoadedMetadata={(e) => { const a = e.currentTarget; if (safePart === savedPart && savedAt > 2 && savedAt < a.duration - 3) a.currentTime = savedAt; }}
           onCanPlay={(e) => { if (playing && e.currentTarget.paused) e.currentTarget.play().catch(() => setPlaying(false)); }}

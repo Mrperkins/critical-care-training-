@@ -1,8 +1,9 @@
 import {casesForDisease,casesForLesson} from './catalog';
 import {openConference} from './state';
-/** Deliberately present before teaching even when a case is still missing. No invented coverage. */
+/** Shown before teaching when a conference exists for the topic; nothing when there is none. No invented coverage. */
 export function CasePrimer({lessonId,diseaseId}:{lessonId?:string;diseaseId?:string}){
   const cases=lessonId?casesForLesson(lessonId):casesForDisease(diseaseId??'');
+  if(!cases.length) return null; // no placeholder card for topics without a conference yet
   return <section className="case-primer" aria-label="Start with a case conference">
     <span className="eyebrow">Patient first</span><h3>Start with a case conference</h3>
     <p>{cases.length?`${cases.length} synthetic case drafts · narrated slides or audio listening`:'A complete conference for this topic is in preparation.'}</p>
