@@ -3,6 +3,7 @@
  * grouped onto SHELVES (body systems) and chained into LEARNING PATHS. Data only — every step points at an
  * existing lesson, workflow, challenge or simulator, so no engine changes are needed to play a module.
  */
+import { LESSON_MINUTES } from './lessonMinutes';
 import type { Module, Mode } from '../app/store';
 import { BLUEPRINT, type DomainId } from '../fpc/blueprint';
 
@@ -33,7 +34,8 @@ export const SHELVES: Shelf[] = [
   { id: 'pharm', title: 'Pharmacology', blurb: 'From receptor to whole patient.', module: 'moa', tone: '#22182a', line: '#e0a6ff', motif: WAVE },
 ];
 
-const L = (ref: string, minutes = 8): Step => ({ kind: 'lesson', ref, minutes });
+/** A lesson's length is what the player reports for it (lessonMinutes.ts, generated), never an estimate. */
+const L = (ref: string, minutes = 8): Step => ({ kind: 'lesson', ref, minutes: LESSON_MINUTES[ref] ?? minutes });
 const P = (ref: string, minutes = 8): Step => ({ kind: 'procedure', ref, minutes });
 const C = (ref: string, minutes = 6): Step => ({ kind: 'case', ref, minutes });
 const SIM = (module: Module, title: string, mode: 'explore' | 'sim' = 'explore', scenario?: string, minutes = 6, heart?: 'structure' | 'coronary'): Step => ({ kind: 'simulator', module, mode, scenario, heart, title, minutes });

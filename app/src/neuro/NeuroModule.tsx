@@ -170,7 +170,7 @@ function RealCtView() {
   return (
     <div className="realct">
       <img src={`imaging/real/${it.file}`} alt={it.caption} />
-      <div className="realct-cap"><span className="eyebrow">{course === 'none' && !sah ? 'Real CT · choose a stroke scenario' : `Real CT · ${fmtTime(st.minutes)} · ${it.stage?.label ?? ''}`}</span><b>{it.title}</b><span>{it.caption}</span><small>{it.credit} · different real patients illustrate different stages · teaching use only</small></div>
+      <div className="realct-cap"><span className="eyebrow">{course === 'none' && !sah ? 'Example only · this scenario is Normal — choose a stroke or bleed to match the CT to it' : `Real CT · ${fmtTime(st.minutes)} · ${it.stage?.label ?? ''}`}</span><b>{it.title}</b><span>{it.caption}</span><small>{it.credit} · different real patients illustrate different stages · teaching use only</small></div>
     </div>
   );
 }

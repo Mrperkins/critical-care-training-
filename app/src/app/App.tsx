@@ -130,7 +130,7 @@ export function App() {
   );
   const tools = <>
     {atlasDomain && !showingAtlas && <AtlasEntry domain={atlasDomain} onOpen={() => useUI.getState().set({atlasDisease:conditionsFor(atlasDomain)[0].id})} />}
-    {experience === 'practice' && inDomain && !showingAtlas && <div className="practice-switch" role="group" aria-label="Practice type">
+    {experience === 'practice' && inDomain && !showingAtlas && module !== 'moa' && <div className="practice-switch" role="group" aria-label="Practice type">
       <button className={mode === 'challenge' ? 'on' : ''} aria-pressed={mode === 'challenge'} onClick={() => useUI.getState().set({ mode: 'challenge' })}>Cases</button>
       <button className={mode === 'sim' ? 'on' : ''} aria-pressed={mode === 'sim'} onClick={() => useUI.getState().set({ mode: 'sim' })}>Simulator</button>
     </div>}
@@ -154,7 +154,7 @@ export function App() {
         </nav>
         {inDomain && <div className="topbar-context">
           <h2 className="domain-title"><DomainIcon module={domain.module} /><span>{domain.label}</span></h2>
-          {!inPlayer && <nav className="experience-nav" aria-label="Learning mode">
+          {!inPlayer && module !== 'moa' && <nav className="experience-nav" aria-label="Learning mode">
             {EXPERIENCES.map((item) => <button key={item.key} className={inDomain && experience === item.key ? 'on' : ''} aria-pressed={inDomain && experience === item.key} onClick={() => chooseExperience(item.key)}>{item.label}</button>)}
           </nav>}
           <div className="topbar-tools">{tools}</div>
