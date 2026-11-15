@@ -28,7 +28,7 @@ export const SHARED_CHAMBERS: Record<string, { hd: string; from: string[] }> = {
 export const REPLACED = ['myocardium_LV', 'myocardium_septum', 'myocardium_RV', 'atrium_LA', 'atrium_RA'];
 const BLEND = ['aRegA', 'aRegB', 'aAO', 'aFat'] as const; // continuous: inverse-distance blend
 const NEAREST = ['aCh'] as const;                       // categorical: nearest vertex
-/** decimetres (body frame): 95% of high-detail vertices must lie within 4 mm of the coronary heart's surface */
+/** decimeters (body frame): 95% of high-detail vertices must lie within 4 mm of the coronary heart's surface */
 export const P95_LIMIT_DM = 0.04;
 export const COVERAGE_LIMIT_DM = 0.06;
 export const COVERAGE_MIN = 0.97;

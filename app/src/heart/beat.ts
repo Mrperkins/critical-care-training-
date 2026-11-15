@@ -1,12 +1,12 @@
 /**
- * Cardiac mechanics for the real heart (body frame, decimetres). One continuous deformation field drives every heart
+ * Cardiac mechanics for the real heart (body frame, decimeters). One continuous deformation field drives every heart
  * mesh — chambers, valves, great-vessel roots, coronaries, papillary muscles, conduction system, pericardium — so parts
  * attached to each other move together and no gaps open:
  *
  *  - long-axis shortening toward a fixed apex (the AV plane descends toward the apex in systole, the atria are pulled
  *    down with it and the great-vessel roots follow with a fall-off above the base),
  *  - radial squeeze toward the long axis over the ventricles, with a small base/apex counter-rotation (torsion),
- *  - atrial contraction about each atrium's centre,
+ *  - atrial contraction about each atrium's center,
  *  - valve motion: AV valves swing open toward the ventricle in diastole, semilunar cusps part to the sinus walls in
  *    ejection; annuli stay attached.
  *
@@ -35,13 +35,13 @@ export function wiggers(t: number, hr: number) {
 /* ------------------------------------------------------------------ geometry of the field */
 const v3 = (x: number, y: number, z: number) => new THREE.Vector3(x, y, z);
 export const APEX = LM.lvApex.clone();
-/** base centre: middle of the AV junction (between the mitral and tricuspid annuli) */
+/** base center: middle of the AV junction (between the mitral and tricuspid annuli) */
 export const BASE = LM.mitral.clone().lerp(LM.tricuspid, 0.5);
 export const AXIS = BASE.clone().sub(APEX).normalize(); // apex → base
 export const H_BASE = BASE.distanceTo(APEX);
 
 export interface ValveSpec { c: THREE.Vector3; ax: THREE.Vector3; r: number; kind: 1 | 2 } // kind 1 = AV, 2 = semilunar
-/** Valve centres and flow axes from the landmarks; the radius is measured from the valve mesh when available. */
+/** Valve centers and flow axes from the landmarks; the radius is measured from the valve mesh when available. */
 export function valveSpecs(geos: Partial<Record<'mitral' | 'tricuspid' | 'aortic_valve' | 'pulm_valve', THREE.BufferGeometry>>): Record<string, ValveSpec> {
   const rvApex = LM.rv.clone().add(LM.lvApex.clone().sub(LM.lv).multiplyScalar(0.9));
   const spec: Record<string, Omit<ValveSpec, 'r'>> = {
@@ -70,7 +70,7 @@ export function beatUniforms() {
   };
 }
 export type BeatUniforms = ReturnType<typeof beatUniforms>;
-/** Per-material uniforms: whether the part squeezes radially (ventricles), the atrial centre, and the valve it is. */
+/** Per-material uniforms: whether the part squeezes radially (ventricles), the atrial center, and the valve it is. */
 export function partUniforms(opts: { radial?: number; atrC?: THREE.Vector3; atr?: number; valve?: ValveSpec }) {
   return {
     uRadW: { value: opts.radial ?? 0 }, uAtrC: { value: (opts.atrC ?? v3(0, 0, 0)).clone() }, uAtrW: { value: opts.atr ?? 0 },
@@ -91,7 +91,7 @@ vec3 heartBeat(vec3 p) {
     float along = uVk < 1.5 ? 0.28 : 0.16; float out_ = uVk < 1.5 ? 0.24 : 0.3;
     p += (uVa * along + er * out_) * uVr * o * f;
   }
-  // atrial contraction about the atrium's centre
+  // atrial contraction about the atrium's center
   p = mix(p, uAtrC + (p - uAtrC) * (1.0 - 0.07 * uAtr), uAtrW);
   // long axis: below the base everything shortens toward the apex; above it the AV-plane descent fades out over ~3 cm
   vec3 d = p - uApex; float h = dot(d, uAxis); vec3 rad = d - uAxis * h;

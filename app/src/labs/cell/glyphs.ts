@@ -1,5 +1,5 @@
 /**
- * One texture atlas for every molecule sprite: a shaded bead in the species colour with its symbol
+ * One texture atlas for every molecule sprite: a shaded bead in the species color with its symbol
  * printed on it (Na⁺, K⁺ …), a water molecule, osmolytes, charges and ATP/ADP.
  * 4 × 3 cells of 256 px.
  */

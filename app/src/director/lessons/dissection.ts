@@ -9,7 +9,7 @@ import { useCtaUI } from '../../abdomen/ctaStore';
 import type { CtaLevel } from '../../abdomen/cta';
 import { shockScene } from './lines';
 
-/** haemodynamic states on the Lines patient */
+/** hemodynamic states on the Lines patient */
 export const DISSECTION_BP = {
   presentation: { svrMult: 1.5, coMult: 1.15, hr: 108 },
   betaBlocked: { svrMult: 1.5, coMult: 1.0, hr: 58 },

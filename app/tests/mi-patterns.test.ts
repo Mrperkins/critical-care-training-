@@ -24,7 +24,7 @@ describe('left main / aVR pattern', () => {
     expect(dep.length).toBeGreaterThanOrEqual(6);
     for (const l of ['I', 'II', 'V5', 'V6'] as LeadId[]) expect(dep).toContain(l);
   });
-  it('no localised ST elevation elsewhere and no Q waves (not a transmural territory)', () => {
+  it('no localized ST elevation elsewhere and no Q waves (not a transmural territory)', () => {
     for (const l of TWELVE.filter((x) => x !== 'aVR')) expect(stDeviationMm(l, p)).toBeLessThan(0.5);
     for (const l of TWELVE) expect(qDepthMm(l, p)).toBeCloseTo(qDepthMm(l, null), 3);
   });

@@ -1,5 +1,5 @@
 /**
- * Lead II ECG synthesised from electrolyte state. Morphology is driven by the *effective*
+ * Lead II ECG synthesized from electrolyte state. Morphology is driven by the *effective*
  * potassium (the K⁺ that would give the same resting-potential-to-threshold gap at normal
  * calcium), so IV calcium visibly narrows the QRS while the measured K⁺ is unchanged.
  * Calcium and magnesium set the ST/QT length; low K⁺ flattens T and adds a U wave.

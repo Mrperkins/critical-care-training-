@@ -5,7 +5,7 @@ const norm = (v: Vec3): Vec3 => { const l = Math.hypot(v[0], v[1], v[2]) || 1; r
 const frontal = (deg: number): Vec3 => { const r = (deg * Math.PI) / 180; return norm([Math.cos(r), -Math.sin(r), 0]); };
 /** Horizontal-plane angle: 0° = left lateral (V6), +90° = straight anterior, negative = posterior. */
 const horizontal = (deg: number, y = 0): Vec3 => { const r = (deg * Math.PI) / 180; return norm([Math.cos(r), y, Math.sin(r)]); };
-/** Torso ellipsoid used to place electrode markers (heart-centred units). */
+/** Torso ellipsoid used to place electrode markers (heart-centered units). */
 export const TORSO_RADII: Vec3 = [1.85, 2.4, 1.3];
 const onTorso = (v: Vec3): Vec3 => { const [a, b, c] = TORSO_RADII; const s = 1 / Math.sqrt((v[0] / a) ** 2 + (v[1] / b) ** 2 + (v[2] / c) ** 2); return [v[0] * s, v[1] * s, v[2] * s]; };
 

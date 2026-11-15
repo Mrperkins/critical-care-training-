@@ -69,7 +69,7 @@ export interface CellModel {
 
 const clamp = (x: number, a = 0, b = 1) => Math.min(b, Math.max(a, x));
 const f0 = (x: number) => x.toFixed(0), f1 = (x: number) => x.toFixed(1);
-/** Nav1.5 steady-state availability (h∞), centred on this engine's resting potential (−83 mV at K⁺ 4.2): ~80 % ready at rest, ~35 % at K⁺ 7.5, ~20 % at K⁺ 9. */
+/** Nav1.5 steady-state availability (h∞), centered on this engine's resting potential (−83 mV at K⁺ 4.2): ~80 % ready at rest, ~35 % at K⁺ 7.5, ~20 % at K⁺ 9. */
 export const naAvailability = (vm: number) => 1 / (1 + Math.exp((vm + 75) / 6));
 
 export function storyOf(labId: string): Story | null {
@@ -142,18 +142,18 @@ function membraneChain(labId: string, m: CellModel, s: Snapshot, pt: PatientStat
       push('More K⁺ drifts back in through the K⁺ channels, so less positive charge leaves the cell', { kind: 'transporter', t: 'kchan' });
       push(`The inside is less negative: resting potential ${f0(m.rmpNormal)} → ${f0(m.rmp)} mV${hasNa ? `, only ${f0(gap)} mV from threshold` : ''}`, { kind: 'vm' }, 'bad');
       if (hasNa) push(`Na⁺ channels inactivate at this voltage: ${Math.round(m.naAvail * 100)} % still ready to fire (normally ${Math.round(naAvailability(m.rmpNormal) * 100)} %)`, { kind: 'transporter', t: 'nachan' }, 'bad');
-      push(t === 'cardiac' ? (s.k > 7.5 ? 'Slow, weak depolarisation: wide QRS → sine wave → VF or asystole' : 'Peaked T waves first; PR lengthens and P flattens as K⁺ climbs')
+      push(t === 'cardiac' ? (s.k > 7.5 ? 'Slow, weak depolarization: wide QRS → sine wave → VF or asystole' : 'Peaked T waves first; PR lengthens and P flattens as K⁺ climbs')
         : t === 'neuron' ? 'Nerves (and skeletal muscle) fire weakly, then not at all — paraesthesia, ascending weakness'
-        : 'Every cell depolarises, but heart, nerve and muscle cells suffer: they need that voltage gap to fire', { kind: 'vm' }, 'bad');
+        : 'Every cell depolarizes, but heart, nerve and muscle cells suffer: they need that voltage gap to fire', { kind: 'vm' }, 'bad');
       return { chain: ch, headline: `High K⁺: resting potential ${f0(m.rmp)} mV${hasNa ? `, ${Math.round(m.naAvail * 100)} % of Na⁺ channels ready` : ''}` };
     }
     if (s.k < 3.5) {
       push(`Plasma K⁺ ${f1(s.k)} — fewer K⁺ ions outside`, { kind: 'species', key: 'k', side: 'out' }, 'bad');
       push(`The gradient steepens: 140 ÷ ${f1(s.k)} = ${f0(ratio)} : 1 (normal 33 : 1)`, { kind: 'species', key: 'k' });
       push('Almost nothing drifts back through the K⁺ channels, so more positive charge leaves', { kind: 'transporter', t: 'kchan' });
-      push(`The inside is more negative (hyperpolarised): ${f0(m.rmp)} mV`, { kind: 'vm' }, 'bad');
-      push(t === 'cardiac' ? 'Repolarisation slows: flat T waves, U waves, ectopy — worse with digoxin or low Mg²⁺' : t === 'neuron' ? 'Further from threshold: nerves and muscle are sluggish → weakness, ileus, cramps' : 'Heart and muscle cells feel it most: slow repolarisation, weakness, arrhythmias', { kind: 'vm' }, 'bad');
-      return { chain: ch, headline: `Low K⁺: hyperpolarised at ${f0(m.rmp)} mV` };
+      push(`The inside is more negative (hyperpolarized): ${f0(m.rmp)} mV`, { kind: 'vm' }, 'bad');
+      push(t === 'cardiac' ? 'Repolarization slows: flat T waves, U waves, ectopy — worse with digoxin or low Mg²⁺' : t === 'neuron' ? 'Further from threshold: nerves and muscle are sluggish → weakness, ileus, cramps' : 'Heart and muscle cells feel it most: slow repolarization, weakness, arrhythmias', { kind: 'vm' }, 'bad');
+      return { chain: ch, headline: `Low K⁺: hyperpolarized at ${f0(m.rmp)} mV` };
     }
     if (!ch.length) {
       push('The Na⁺/K⁺ pump spends one ATP to push 3 Na⁺ out and bring 2 K⁺ in', { kind: 'transporter', t: 'pump' });
@@ -167,7 +167,7 @@ function membraneChain(labId: string, m: CellModel, s: Snapshot, pt: PatientStat
     return { chain: ch, headline: `Resting potential ${f0(m.rmp)} mV · threshold ${f0(m.threshold)} mV` };
   }
   if (labId === 'ca') {
-    push(`Ionised Ca²⁺ ${p.ca.toFixed(2)} mmol/L outside the cell (normal 1.12–1.32)`, { kind: 'species', key: 'ca', side: 'out' }, p.ca < 1.12 || p.ca > 1.32 ? 'bad' : undefined);
+    push(`Ionized Ca²⁺ ${p.ca.toFixed(2)} mmol/L outside the cell (normal 1.12–1.32)`, { kind: 'species', key: 'ca', side: 'out' }, p.ca < 1.12 || p.ca > 1.32 ? 'bad' : undefined);
     push(`Outside Ca²⁺ sets the threshold: ${f0(m.threshold)} mV (normal ${f0(m.thrNormal)})`, { kind: 'threshold' });
     if (p.ca < 1.12) push(`Threshold drops toward rest — gap ${f0(gap)} mV (normal ${f0(gapN)}): nerves and muscle fire too easily → tetany, long QT`, { kind: 'vm' }, 'bad');
     else if (p.ca > 1.32) push(`Threshold moves away from rest — gap ${f0(gap)} mV: cells are harder to fire → weakness, short QT`, { kind: 'vm' }, 'bad');
@@ -177,13 +177,13 @@ function membraneChain(labId: string, m: CellModel, s: Snapshot, pt: PatientStat
   }
   if (labId === 'mg') {
     push(`Mg²⁺ ${f1(p.mg)} mg/dL — the pump runs on Mg-ATP`, { kind: 'species', key: 'mg', side: 'out' }, p.mg < 1.7 ? 'bad' : undefined);
-    push(p.mg < 1.7 ? `Low Mg²⁺ slows the pump to ×${f1(m.pumpRate)} and the kidney wastes K⁺ — hypokalaemia will not correct until Mg²⁺ is replaced` : `Pump turnover ×${f1(m.pumpRate)}`, { kind: 'transporter', t: 'pump' }, p.mg < 1.7 ? 'bad' : undefined);
-    push(p.mg < 1.7 ? 'Prolonged repolarisation → long QT → torsades de pointes' : 'Mg²⁺ also steadies repolarisation (why it treats torsades)', { kind: 'vm' });
+    push(p.mg < 1.7 ? `Low Mg²⁺ slows the pump to ×${f1(m.pumpRate)} and the kidney wastes K⁺ — hypokalemia will not correct until Mg²⁺ is replaced` : `Pump turnover ×${f1(m.pumpRate)}`, { kind: 'transporter', t: 'pump' }, p.mg < 1.7 ? 'bad' : undefined);
+    push(p.mg < 1.7 ? 'Prolonged repolarization → long QT → torsades de pointes' : 'Mg²⁺ also steadies repolarization (why it treats torsades)', { kind: 'vm' });
     return { chain: ch, headline: `Pump ×${f1(m.pumpRate)}` };
   }
   if (labId === 'phos') {
     push(`Phosphate ${f1(p.phos)} mg/dL — the P in ATP`, { kind: 'species', key: 'pi', side: 'out' }, p.phos < 2.5 ? 'bad' : undefined);
-    push(p.phos < 2.5 ? `Too little ATP: pump ×${f1(m.pumpRate)}, weak muscle (diaphragm → failure to wean), haemolysis` : 'Enough ATP for the pump and for contraction', { kind: 'transporter', t: 'pump' }, p.phos < 2.5 ? 'bad' : undefined);
+    push(p.phos < 2.5 ? `Too little ATP: pump ×${f1(m.pumpRate)}, weak muscle (diaphragm → failure to wean), hemolysis` : 'Enough ATP for the pump and for contraction', { kind: 'transporter', t: 'pump' }, p.phos < 2.5 ? 'bad' : undefined);
     return { chain: ch, headline: `Pump ×${f1(m.pumpRate)}` };
   }
   // chloride
@@ -206,7 +206,7 @@ function volumeChain(m: CellModel, s: Snapshot, pt: PatientState): { chain: Chai
     }
     push('Inside is now saltier than outside, so water moves in through aquaporins', { kind: 'transporter', t: 'aqp' });
     push(`The cell swells, heading for ${vol} % of normal size`, { kind: 'volume' }, 'bad');
-    push(brain ? 'Inside a rigid skull: cerebral oedema → headache, vomiting, confusion, seizures, herniation' : 'Every cell swells like this; it matters most in the brain, boxed in by the skull → headache, confusion, seizures', { kind: 'volume' }, 'bad');
+    push(brain ? 'Inside a rigid skull: cerebral edema → headache, vomiting, confusion, seizures, herniation' : 'Every cell swells like this; it matters most in the brain, boxed in by the skull → headache, confusion, seizures', { kind: 'volume' }, 'bad');
     push(`If this lasts > 48 h the cell sheds osmolytes (brain adapted to ${f0(nb)} now)`, { kind: 'transporter', t: 'vrac' }, 'info');
     return { chain: ch, headline: `Acute low Na⁺ · cell volume ${vol} %` };
   }

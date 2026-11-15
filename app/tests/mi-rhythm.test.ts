@@ -1,6 +1,6 @@
 /**
  * Rhythms drive the ECG, the beat and the conduction impulse from one schedule. These tests check the schedules
- * (PR behaviour, dropped beats, AV dissociation), the QRS morphologies (bundle branch blocks, escape rhythms) and that
+ * (PR behavior, dropped beats, AV dissociation), the QRS morphologies (bundle branch blocks, escape rhythms) and that
  * the impulse, the contraction and the ECG agree in time.
  */
 import { describe, it, expect } from 'vitest';

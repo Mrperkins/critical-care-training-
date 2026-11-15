@@ -20,7 +20,7 @@ describe('shock-states lesson on the real Lines session', () => {
     expect(tamp.cvp).toBeGreaterThan(normal.cvp + 8); expect(tampPara.spv).toBeGreaterThan(10); expect(tamp.co).toBeLessThan(normal.co * 0.75);
     expect(tampTap.cvp).toBeLessThan(tamp.cvp - 6); expect(tampTap.co).toBeGreaterThan(tamp.co * 1.3); expect(tampTap.spv).toBeLessThan(tampPara.spv);
   });
-  it('hypovolaemic: low CVP, narrow PP, high PPV on the ventilator; volume + blood reverse it', () => {
+  it('hypovolemic: low CVP, narrow PP, high PPV on the ventilator; volume + blood reverse it', () => {
     expect(hypo.cvp).toBeLessThan(normal.cvp); expect(hypo.pp).toBeLessThan(normal.pp * 0.6); expect(hypo.ppv).toBeGreaterThan(13);
     expect(hypoT.map).toBeGreaterThan(hypo.map + 8); expect(hypoT.ppv).toBeLessThan(hypo.ppv); expect(hypoT.hr).toBeLessThan(hypo.hr); expect(lines.pt.p.hb).toBeGreaterThan(0);
   });

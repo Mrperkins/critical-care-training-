@@ -14,7 +14,7 @@ export const ECG_EVENTS = [
   { id: 'sa', name: 'SA node', at: 0, end: 20, detail: 'The SA node fires; atrial depolarization is initiated.' },
   { id: 'p', name: 'P wave', at: 20, end: 105, detail: 'Depolarization spreads through the atrial myocardium.' },
   { id: 'pr', name: 'PR segment', at: 105, end: 132, detail: 'AV nodal conduction slows before rapid His–Purkinje activation.' },
-  { id: 'qrs', name: 'QRS complex', at: 132, end: 220, detail: 'Ventricular myocardium depolarizes through bundle branches and Purkinje fibres.' },
+  { id: 'qrs', name: 'QRS complex', at: 132, end: 220, detail: 'Ventricular myocardium depolarizes through bundle branches and Purkinje fibers.' },
   { id: 'st', name: 'ST segment', at: 220, end: 310, detail: 'Most ventricular myocardium is depolarized; ejection is underway.' },
   { id: 't', name: 'T wave', at: 310, end: 500, detail: 'Ventricular repolarization precedes mechanical relaxation.' },
 ] as const;

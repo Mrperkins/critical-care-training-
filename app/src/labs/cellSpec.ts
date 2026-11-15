@@ -13,7 +13,7 @@ export interface CellSpec {
   species: Species[];
   cellScale: number;      // neuron / cell volume (1 = normal)
   pump: number;           // Na⁺/K⁺-ATPase activity (1 = baseline)
-  caShield: number;       // 0–1 calcium gathered at the membrane (stabilisation)
+  caShield: number;       // 0–1 calcium gathered at the membrane (stabilization)
   depol: number;          // 0–1 how close resting potential is to threshold
   rbc: number; rbcSat: number; wbc: number; plt: number;
   clotSpeed: number; fibrin: number;

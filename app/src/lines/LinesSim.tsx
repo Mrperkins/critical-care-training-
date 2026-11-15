@@ -1,7 +1,7 @@
 /**
  * Simulate: an interfacility transport of a ventilated septic patient on norepinephrine. Things
  * happen to the monitoring system on the way (and one real deterioration). Each event is solved
- * by what you actually do at the bedside; titrating the drip to an artefact is recorded.
+ * by what you actually do at the bedside; titrating the drip to an artifact is recorded.
  */
 import { useEffect, useRef, useState } from 'react';
 import { useUI } from '../app/store';
@@ -38,13 +38,13 @@ export function LinesSim() {
       if (fired.current.has(i) && next.solvedAt[i] == null && e.done(lines, next)) { next.solvedAt[i] = t; changed = true; }
     });
     if (lines.art.flush.t0 !== lastFlush.current.art) { lastFlush.current.art = lines.art.flush.t0; next.flushes++; changed = true; }
-    const dose = lines.noreDose; if (dose !== next.lastNore) { const artefact = Math.abs(lines.num.map - lines.num.tMap) > 7; if (artefact) next.penalties.push(`Norepinephrine changed to ${dose} µg/kg/min while the monitor MAP (${Math.round(lines.num.map)}) was wrong by ${Math.round(lines.num.map - lines.num.tMap)} mmHg — titrating to an artefact.`); next.lastNore = dose; changed = true; }
+    const dose = lines.noreDose; if (dose !== next.lastNore) { const artefact = Math.abs(lines.num.map - lines.num.tMap) > 7; if (artefact) next.penalties.push(`Norepinephrine changed to ${dose} µg/kg/min while the monitor MAP (${Math.round(lines.num.map)}) was wrong by ${Math.round(lines.num.map - lines.num.tMap)} mmHg — titrating to an artifact.`); next.lastNore = dose; changed = true; }
     if (changed) setSt(next);
   });
   if (!st) return (
     <div className="chal-list">
       <section className="card"><div className="eyebrow">Simulate</div><h2 className="h2">Interfacility transport</h2>
-        <p className="muted">A ventilated patient in septic shock on norepinephrine, from the emergency department to a tertiary ICU by air. On the way the monitoring system will be disturbed — and the patient will genuinely deteriorate once. Keep the lines honest and the MAP at or above 65, and don’t titrate the drip to an artefact.</p>
+        <p className="muted">A ventilated patient in septic shock on norepinephrine, from the emergency department to a tertiary ICU by air. On the way the monitoring system will be disturbed — and the patient will genuinely deteriorate once. Keep the lines honest and the MAP at or above 65, and don’t titrate the drip to an artifact.</p>
         <p className="muted small">Tools: the fast-flush test, levelling, the stopcocks, the bedside fixes, the NIBP cuff and the norepinephrine pump. Events arrive in real time (about 3 minutes in all).</p>
         <div className="actions"><button className="act primary" onClick={start}>Start transport</button></div>
       </section>
@@ -59,7 +59,7 @@ export function LinesSim() {
         <ol className="sim-ev">{EVENTS.map((e, i) => { const on = st.startedAt[i] != null; if (!on) return null; const ok = st.solvedAt[i] != null; return (
           <li key={i} className={ok ? 'ok' : 'open'}><b>{e.title}</b><span>{e.text}</span>{ok && <em>✓ sorted in {Math.round(st.solvedAt[i] - st.startedAt[i])} s — {e.lesson}</em>}</li>); })}</ol>
         {st.penalties.length > 0 && <ul className="ln-explain">{st.penalties.map((p, i) => <li key={i} className="tone-bad">{p}</li>)}</ul>}
-        {allDone && <div className="sim-done"><h3>Handed over safely.</h3><p className="muted">{EVENTS.length} events managed · {st.penalties.length ? `${st.penalties.length} artefact titration${st.penalties.length > 1 ? 's' : ''}` : 'no titration to artefact'} · total {Math.round(t)} s.</p><div className="actions"><button className="act primary" onClick={start}>Run it again</button></div></div>}
+        {allDone && <div className="sim-done"><h3>Handed over safely.</h3><p className="muted">{EVENTS.length} events managed · {st.penalties.length ? `${st.penalties.length} artifact titration${st.penalties.length > 1 ? 's' : ''}` : 'no titration to artifact'} · total {Math.round(t)} s.</p><div className="actions"><button className="act primary" onClick={start}>Run it again</button></div></div>}
       </section>
       <NumbersCard hideTrue={!allDone} />
       <TreatCard />

@@ -85,7 +85,7 @@ function NeuroOverlay() {
 
 function PresetCard() {
   const preset = useNeuroUI((s) => s.preset); const cur = NEURO_PRESETS.find((p) => p.id === preset)!;
-  const G: [string, NeuroPreset[]][] = [['', ['none']], ['Ischaemic', ['m1_L', 'm1_R', 'm2s_L', 'ica_L', 'ica_L_iso', 'basilar', 'p2_R']], ['Haemorrhagic', ['ich', 'sah']]];
+  const G: [string, NeuroPreset[]][] = [['', ['none']], ['Ischemic', ['m1_L', 'm1_R', 'm2s_L', 'ica_L', 'ica_L_iso', 'basilar', 'p2_R']], ['Hemorrhagic', ['ich', 'sah']]];
   const it = (id: NeuroPreset) => { const p = NEURO_PRESETS.find((x) => x.id === id)!; return { id, name: p.name, hint: p.short }; };
   return <Picker label="Scenario" value={preset} sub={cur.short} onPick={(id) => loadNeuroPreset(id as NeuroPreset)} groups={G.map(([label, ids]) => ({ label: label || undefined, items: ids.filter((i) => NEURO_PRESETS.some((p) => p.id === i)).map(it) }))} />;
 }
@@ -124,7 +124,7 @@ function SystemicCard() {
   return (
     <section className="card">
       <div className="card-h"><h3>Patient</h3><span className="muted small">drives collateral flow</span></div>
-      <Knob label="MAP" value={sys.map} min={40} max={160} step={5} unit=" mmHg" onChange={(v) => set({ sys: { ...sys, map: v } })} hint="Collateral flow into ischaemic tissue is pressure-passive" />
+      <Knob label="MAP" value={sys.map} min={40} max={160} step={5} unit=" mmHg" onChange={(v) => set({ sys: { ...sys, map: v } })} hint="Collateral flow into ischemic tissue is pressure-passive" />
       <Knob label="PaCO₂" value={sys.paco2} min={20} max={70} step={1} unit=" mmHg" onChange={(v) => set({ sys: { ...sys, paco2: v } })} hint="CBF changes ≈3% per mmHg" />
     </section>
   );
@@ -139,7 +139,7 @@ function NeuroExplain() {
     ica_L: 'With an intact ACoA and PCoA the circle refills the left MCA and ACA — the patient may have no deficit at all.',
     ica_L_iso: 'Without communicating arteries the left hemisphere depends on leptomeningeal collaterals alone.',
     basilar: 'The posterior communicating arteries can back-fill the top of the basilar and the PCAs; the brainstem below the clot has little else.',
-    ich: 'Intraparenchymal haemorrhage: volume (ABC/2) and location drive outcome; mass effect grows steeply beyond ~30 mL.',
+    ich: 'Intraparenchymal hemorrhage: volume (ABC/2) and location drive outcome; mass effect grows steeply beyond ~30 mL.',
     sah: 'Aneurysmal SAH: blood fills the basal cisterns around the circle and tracks up the Sylvian fissures.',
   };
   return <section className="card"><div className="card-h"><h3>Why</h3></div><p className="muted">{txt[preset] ?? 'Posterior circulation stroke: occipital cortex loses its supply; the MCA may partly cover the border.'}</p></section>;

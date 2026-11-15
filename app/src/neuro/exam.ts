@@ -1,7 +1,7 @@
 /**
  * Synthetic neurological examination derived from the SAME lesion state the brain, imaging and
  * perfusion views use. Pure and deterministic. Principles (teaching model):
- *  - tissue that is core OR still-ischaemic penumbra does not work → deficit now;
+ *  - tissue that is core OR still-ischemic penumbra does not work → deficit now;
  *    after reperfusion only the core keeps its deficit (penumbra recovers);
  *  - findings are contralateral to the lesion; language lives in the dominant hemisphere, spatial
  *    attention (neglect) mainly in the non-dominant one;
@@ -56,7 +56,7 @@ export function neuroExam(st: NeuroState, sys: Systemic = DEFAULT_SYSTEMIC, o: E
   };
   const H = { L: hemi('L'), R: hemi('R') };
   const vb = d.VB.now;
-  // haemorrhage: deep (basal ganglia / capsule) haematoma on the side of its x coordinate
+  // hemorrhage: deep (basal ganglia / capsule) hematoma on the side of its x coordinate
   const h = effectiveHemorrhage(st, sys); let ichSide: Side | null = null, ich = 0;
   if (h?.kind === 'ich') { ichSide = h.at[0] >= 0 ? 'L' : 'R'; ich = clamp(h.volumeMl / 45); }
   const sah = h?.kind === 'sah' ? clamp(h.volumeMl / 25) : 0;
@@ -89,7 +89,7 @@ export function neuroExam(st: NeuroState, sys: Systemic = DEFAULT_SYSTEMIC, o: E
   const sensory = Math.max(sensL, sensR) > 0.3 ? (sensR >= sensL ? 'R' as Side : 'L' as Side) : null;
   const dysarthria = (Math.max(fw * 0.7, vb) < 0.25 ? 0 : Math.max(fw * 0.7, vb) < 0.6 ? 1 : 2) as 0 | 1 | 2;
   const ataxia = vb > 0.2;
-  // consciousness: brainstem, very large hemispheric lesions, large haematoma or SAH
+  // consciousness: brainstem, very large hemispheric lesions, large hematoma or SAH
   const bigHemi = Math.max(H.L.sup + H.L.inf + H.L.deep, H.R.sup + H.R.inf + H.R.deep) / 3;
   const gcs = Math.round(clamp(15 - 11 * vb - 4 * clamp(bigHemi - 0.5, 0, 0.5) * 2 - 6 * clamp(ich - 0.6, 0, 0.4) / 0.4 - 5 * sah, 3, 15));
   const drift = Math.min(power.armL, power.armR) <= 4 ? (power.armL < power.armR ? 'L' : 'R') : null;

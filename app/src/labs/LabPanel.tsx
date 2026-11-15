@@ -100,7 +100,7 @@ export function Membrane() {
   );
 }
 
-const K_STEPS: [DrugId, string, string][] = [['calcium', '1 · Stabilise', 'Calcium gluconate 3 g / chloride 1 g'], ['insulin', '2 · Shift', 'Insulin 10 U + dextrose'], ['albuterol', '2 · Shift', 'Nebulised salbutamol'], ['binder', '3 · Remove', 'K⁺ binder'], ['dialysis', '3 · Remove', 'Haemodialysis']];
+const K_STEPS: [DrugId, string, string][] = [['calcium', '1 · Stabilize', 'Calcium gluconate 3 g / chloride 1 g'], ['insulin', '2 · Shift', 'Insulin 10 U + dextrose'], ['albuterol', '2 · Shift', 'Nebulized salbutamol'], ['binder', '3 · Remove', 'K⁺ binder'], ['dialysis', '3 · Remove', 'Hemodialysis']];
 export function KTreat() {
   useUI((s) => s.pulse); const id = useLabUI((s) => s.lab); if (id !== 'k') return null;
   const t = bench.pt.t;

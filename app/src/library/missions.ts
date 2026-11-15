@@ -1,6 +1,6 @@
 /**
  * Missions: a shift of related calls played back to back. Each leg is an existing case (its own patient);
- * the mission keeps a running result and unlocks nothing — it is a way to practise a run of decisions without
+ * the mission keeps a running result and unlocks nothing — it is a way to practice a run of decisions without
  * going back to the list between cases.
  */
 import { create } from 'zustand';

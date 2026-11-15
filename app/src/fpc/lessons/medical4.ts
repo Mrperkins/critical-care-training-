@@ -20,17 +20,17 @@ export const LABS: FpcLesson = {
         caption: 'Common adult reference values (approximate)',
         head: ['Test', 'Normal', 'Critical clues'],
         rows: [
-          ['Haemoglobin', '12–16 (F), 13.5–17.5 (M) g/dL', 'Lags behind acute bleeding'],
+          ['Hemoglobin', '12–16 (F), 13.5–17.5 (M) g/dL', 'Lags behind acute bleeding'],
           ['WBC', '4–11 × 10⁹/L', '> 12 or < 4 in SIRS; left shift in infection'],
           ['Platelets', '150–400 × 10⁹/L', '< 50 bleeding risk with procedures; < 20 spontaneous'],
           ['Sodium', '135–145 mmol/L', '< 120 or > 160 dangerous'],
           ['Potassium', '3.5–5.0 mmol/L', '> 6.5 or ECG changes: emergency'],
           ['Chloride / HCO₃⁻', '98–106 / 22–28 mmol/L', 'Anion gap = Na − (Cl + HCO₃), ≈ 8–12'],
           ['BUN / creatinine', '7–20 / 0.6–1.2 mg/dL', 'BUN:Cr > 20 suggests pre-renal or upper GI bleed'],
-          ['Glucose', '70–100 mg/dL fasting', '< 70 hypoglycaemia'],
+          ['Glucose', '70–100 mg/dL fasting', '< 70 hypoglycemia'],
           ['PT / INR', '11–13.5 s / 0.8–1.2', 'Warfarin target 2–3'],
           ['aPTT', '25–35 s', 'Prolonged with heparin, factor deficits'],
-          ['Fibrinogen', '200–400 mg/dL', '< 150–200 replace in haemorrhage'],
+          ['Fibrinogen', '200–400 mg/dL', '< 150–200 replace in hemorrhage'],
           ['Lactate', '< 2 mmol/L', '> 4 high risk'],
           ['Troponin', 'Below the 99th percentile (assay specific)', 'Rise and/or fall indicates myocardial injury'],
           ['ABG', 'pH 7.35–7.45, PaCO₂ 35–45, PaO₂ 80–100, HCO₃⁻ 22–26', 'Interpret with compensation'],
@@ -40,9 +40,9 @@ export const LABS: FpcLesson = {
     {
       id: 'cbc', title: 'CBC and coagulation in context', core: true,
       body: [
-        'Haemoglobin is a concentration. In acute haemorrhage it stays near normal until fluid shifts in or crystalloid is given, so a normal first haemoglobin does not exclude major bleeding. Conversely, dilution after crystalloid can lower it without further bleeding.',
+        'Hemoglobin is a concentration. In acute hemorrhage it stays near normal until fluid shifts in or crystalloid is given, so a normal first hemoglobin does not exclude major bleeding. Conversely, dilution after crystalloid can lower it without further bleeding.',
         'White cell counts rise with infection, stress, steroids and epinephrine. A low count in sepsis is ominous. Thrombocytopenia has many causes: consumption (DIC, massive bleeding), sequestration (splenomegaly), destruction (immune, heparin-induced thrombocytopenia) and dilution.',
-        'PT/INR tests the extrinsic and common pathways (factor VII and vitamin K–dependent factors: warfarin, liver disease); aPTT tests the intrinsic and common pathways (heparin, haemophilia). DIC prolongs both, lowers platelets and fibrinogen and raises D-dimer. Viscoelastic tests (TEG, ROTEM) guide targeted product replacement in haemorrhage where available.',
+        'PT/INR tests the extrinsic and common pathways (factor VII and vitamin K–dependent factors: warfarin, liver disease); aPTT tests the intrinsic and common pathways (heparin, hemophilia). DIC prolongs both, lowers platelets and fibrinogen and raises D-dimer. Viscoelastic tests (TEG, ROTEM) guide targeted product replacement in hemorrhage where available.',
       ],
     },
     {
@@ -50,13 +50,13 @@ export const LABS: FpcLesson = {
       body: [
         'Creatinine reflects filtration but rises late; a normal value does not mean normal function in an elderly, small or malnourished patient. A BUN-to-creatinine ratio above about 20 suggests pre-renal states or blood digested from an upper GI bleed.',
         'Troponin rises within hours of myocardial injury; high-sensitivity assays detect smaller injuries earlier, and serial values distinguish acute injury (a rise and/or fall) from chronic elevation (renal failure, heart failure). Troponin elevation is not the same as myocardial infarction: sepsis, pulmonary embolism, myocarditis and tachyarrhythmia also cause it. BNP rises with ventricular stretch and supports a diagnosis of heart failure; it is higher with renal failure and lower in obesity.',
-        'Liver tests: AST and ALT rise with hepatocellular injury (ischaemic "shock liver" and acetaminophen produce very high values); bilirubin and alkaline phosphatase rise with obstruction. Ammonia rises in liver failure but does not correlate tightly with encephalopathy severity.',
+        'Liver tests: AST and ALT rise with hepatocellular injury (ischemic "shock liver" and acetaminophen produce very high values); bilirubin and alkaline phosphatase rise with obstruction. Ammonia rises in liver failure but does not correlate tightly with encephalopathy severity.',
       ],
     },
     {
       id: 'story', title: 'Reading labs as a story',
       body: [
-        'Ask what process could produce all the abnormalities at once. A low bicarbonate, high anion gap, high glucose and high potassium tell the story of DKA. Low platelets, low fibrinogen and prolonged clotting times after major trauma tell the story of consumptive coagulopathy. Low sodium with seizures in a marathon runner tells the story of exercise-associated hyponatraemia.',
+        'Ask what process could produce all the abnormalities at once. A low bicarbonate, high anion gap, high glucose and high potassium tell the story of DKA. Low platelets, low fibrinogen and prolonged clotting times after major trauma tell the story of consumptive coagulopathy. Low sodium with seizures in a marathon runner tells the story of exercise-associated hyponatremia.',
       ],
       example: {
         case: 'A 68-year-old with fever and confusion: WBC 2.8, platelets 62, INR 1.9, fibrinogen 120, lactate 6.4, creatinine 2.4.',
@@ -71,27 +71,27 @@ export const LABS: FpcLesson = {
   ],
   keyPoints: [
     'Potassium > 6.5 or ECG changes: emergency; sodium < 120 or > 160: dangerous.',
-    'Haemoglobin lags behind acute bleeding.',
+    'Hemoglobin lags behind acute bleeding.',
     'PT/INR = extrinsic (warfarin, liver); aPTT = intrinsic (heparin); DIC prolongs both, lowers platelets and fibrinogen.',
     'Troponin rise/fall = acute myocardial injury, not necessarily MI.',
     'BUN:Cr > 20 suggests pre-renal states or upper GI bleeding.',
   ],
   pearls: ['Divide glucose in mg/dL by 18 for mmol/L.', 'A low WBC in sepsis is a bad sign.'],
-  pitfalls: ['Reassurance from a normal haemoglobin early in haemorrhage.', 'Calling every troponin rise a heart attack.'],
+  pitfalls: ['Reassurance from a normal hemoglobin early in hemorrhage.', 'Calling every troponin rise a heart attack.'],
   live: [{ id: 'labs-coag', label: 'Reversing anticoagulation' }, { id: 'lactate', label: 'Lactate: made and cleared' }],
   questions: [
     { q: 'Normal anion gap is about:', options: ['2–4', '8–12', '20–24', '30–34'], answer: 1, why: 'Na − (Cl + HCO₃).' },
     { q: 'Warfarin prolongs mainly:', options: ['aPTT', 'PT/INR', 'Bleeding time only', 'Platelet count'], answer: 1, why: 'Vitamin K–dependent factors, especially VII.' },
     { q: 'Unfractionated heparin prolongs mainly:', options: ['PT', 'aPTT', 'Fibrinogen', 'Hb'], answer: 1, why: 'Intrinsic pathway via antithrombin.' },
     { q: 'DIC typically shows:', options: ['High platelets, high fibrinogen', 'Low platelets, low fibrinogen, prolonged PT/aPTT', 'Normal coagulation', 'Isolated high INR'], answer: 1, why: 'Consumption of factors and platelets.' },
-    { q: 'Hb 14 ten minutes after a stab wound with BP 80/50:', options: ['Excludes bleeding', 'Does not exclude major haemorrhage', 'Means polycythaemia', 'Means dehydration only'], answer: 1, why: 'Concentration lags.' },
+    { q: 'Hb 14 ten minutes after a stab wound with BP 80/50:', options: ['Excludes bleeding', 'Does not exclude major hemorrhage', 'Means polycythemia', 'Means dehydration only'], answer: 1, why: 'Concentration lags.' },
     { q: 'BUN:Cr ratio above 20 suggests:', options: ['Intrinsic renal disease', 'Pre-renal state or upper GI bleed', 'Liver failure', 'Normal'], answer: 1, why: 'BUN rises disproportionately.' },
     { q: 'Glucose 180 mg/dL in mmol/L:', options: ['5', '10', '18', '32'], answer: 1, why: '180 ÷ 18 = 10.' },
-    { q: 'Troponin elevation without MI can occur in:', options: ['Pulmonary embolism', 'Ankle sprain', 'Hypoglycaemia only', 'Asthma always'], answer: 0, why: 'RV strain causes myocardial injury.' },
+    { q: 'Troponin elevation without MI can occur in:', options: ['Pulmonary embolism', 'Ankle sprain', 'Hypoglycemia only', 'Asthma always'], answer: 0, why: 'RV strain causes myocardial injury.' },
     { q: 'BNP is falsely lower in:', options: ['Renal failure', 'Obesity', 'Heart failure', 'Old age'], answer: 1, why: 'Adipose tissue clears natriuretic peptides.' },
     { q: 'Platelet count below which spontaneous bleeding risk rises sharply:', options: ['150', '100', '20', '400'], answer: 2, why: 'Below about 10–20 × 10⁹/L.' },
-    { q: 'Very high AST/ALT after prolonged hypotension suggests:', options: ['Biliary obstruction', 'Ischaemic hepatitis (shock liver)', 'Pancreatitis', 'Normal'], answer: 1, why: 'Hepatocellular injury.' },
-    { q: 'Fibrinogen threshold commonly prompting replacement in haemorrhage:', options: ['< 400', '< 150–200 mg/dL', '< 50', 'Never'], answer: 1, why: 'Low fibrinogen predicts bleeding.' },
+    { q: 'Very high AST/ALT after prolonged hypotension suggests:', options: ['Biliary obstruction', 'Ischemic hepatitis (shock liver)', 'Pancreatitis', 'Normal'], answer: 1, why: 'Hepatocellular injury.' },
+    { q: 'Fibrinogen threshold commonly prompting replacement in hemorrhage:', options: ['< 400', '< 150–200 mg/dL', '< 50', 'Never'], answer: 1, why: 'Low fibrinogen predicts bleeding.' },
     { q: 'Normal PaCO₂ range:', options: ['25–35', '35–45', '45–55', '60–80'], answer: 1, why: 'Standard reference.' },
     { q: 'Lactate above which risk of death rises markedly in sepsis:', options: ['1', '2', '4', '0.5 mmol/L'], answer: 2, why: 'Lactate ≥ 4 triggers aggressive resuscitation.' },
     { q: 'Leukopenia in sepsis indicates:', options: ['Good prognosis', 'Severe illness and worse prognosis', 'Viral infection only', 'Lab error'], answer: 1, why: 'Bone marrow overwhelmed.' },
@@ -105,7 +105,7 @@ export const LABS: FpcLesson = {
 export const ADV_ASSESS: FpcLesson = {
   id: 'fpc-adv-assess', domain: 'medical', ref: 'IV.11',
   title: 'Advanced medical assessment',
-  summary: 'Structured assessment of the critically ill transport patient: the primary survey, focused history, haemodynamic and perfusion assessment, point-of-care ultrasound, and handover.',
+  summary: 'Structured assessment of the critically ill transport patient: the primary survey, focused history, hemodynamic and perfusion assessment, point-of-care ultrasound, and handover.',
   objectives: [
     'Perform a structured primary and secondary assessment adapted to transport.',
     'Assess perfusion beyond blood pressure.',
@@ -115,23 +115,23 @@ export const ADV_ASSESS: FpcLesson = {
     {
       id: 'primary', title: 'Primary survey and the referral handover', core: true,
       body: [
-        'Begin with what threatens life in the next few minutes: airway patency and protection, breathing and oxygenation, circulation and haemorrhage, disability (GCS, pupils, glucose), and exposure (temperature, rashes, wounds, lines). In medical patients, catastrophic haemorrhage is less common but GI and obstetric bleeding are not.',
-        'At an inter-facility transfer, take a structured handover from the sending team (for example SBAR or a programme-specific format), then assess the patient yourself before leaving. Reconcile infusions, ventilator settings, lines and drains against what you were told. Many transport adverse events trace to unreconciled information.',
+        'Begin with what threatens life in the next few minutes: airway patency and protection, breathing and oxygenation, circulation and hemorrhage, disability (GCS, pupils, glucose), and exposure (temperature, rashes, wounds, lines). In medical patients, catastrophic hemorrhage is less common but GI and obstetric bleeding are not.',
+        'At an inter-facility transfer, take a structured handover from the sending team (for example SBAR or a program-specific format), then assess the patient yourself before leaving. Reconcile infusions, ventilator settings, lines and drains against what you were told. Many transport adverse events trace to unreconciled information.',
       ],
-      list: { caption: 'Before leaving the referring facility', items: ['Airway secure and confirmed with waveform capnography', 'Adequate IV access (two reliable lines), drips labelled and on transport pumps', 'Oxygen, battery and drug quantities calculated for the trip plus reserve', 'Imaging and records sent; consent and family informed', 'Patient packaged: temperature, padding, restraints, tubes secured'] },
+      list: { caption: 'Before leaving the referring facility', items: ['Airway secure and confirmed with waveform capnography', 'Adequate IV access (two reliable lines), drips labeled and on transport pumps', 'Oxygen, battery and drug quantities calculated for the trip plus reserve', 'Imaging and records sent; consent and family informed', 'Patient packaged: temperature, padding, restraints, tubes secured'] },
     },
     {
       id: 'perfusion', title: 'Perfusion beyond the blood pressure', core: true,
       body: [
         'Blood pressure is a late and imperfect marker. Assess end-organ perfusion: mental status, capillary refill (more than about 3 seconds is abnormal in adults), skin temperature and mottling, urine output, and lactate trends. A shock index (heart rate ÷ systolic BP) above about 0.9–1.0 suggests significant shock even with a "normal" pressure.',
-        'Classify shock to choose treatment: hypovolaemic (low filling, low output), cardiogenic (high filling, low output), obstructive (tamponade, tension pneumothorax, PE: high filling, low output, obstructed), distributive (low SVR: sepsis, anaphylaxis, neurogenic). Mixed states are common.',
+        'Classify shock to choose treatment: hypovolemic (low filling, low output), cardiogenic (high filling, low output), obstructive (tamponade, tension pneumothorax, PE: high filling, low output, obstructed), distributive (low SVR: sepsis, anaphylaxis, neurogenic). Mixed states are common.',
       ],
     },
     {
       id: 'pocus', title: 'Point-of-care ultrasound', core: true,
       body: [
         'Focused ultrasound answers specific questions quickly. RUSH-style protocols look at the pump (pericardial effusion, gross LV function, RV dilation), the tank (IVC size and collapsibility, FAST for free fluid, pleural effusions) and the pipes (aortic aneurysm, DVT). Lung ultrasound identifies pneumothorax (absent sliding, lung point), interstitial syndrome (B-lines) and consolidation.',
-        'Ultrasound findings support decisions; they do not replace clinical judgement. IVC size is unreliable in ventilated patients and those with raised intra-abdominal pressure. In flight, vibration and limited space make scanning harder; scan before departure when possible.',
+        'Ultrasound findings support decisions; they do not replace clinical judgment. IVC size is unreliable in ventilated patients and those with raised intra-abdominal pressure. In flight, vibration and limited space make scanning harder; scan before departure when possible.',
       ],
       example: {
         case: 'Hypotension of unclear cause: BP 78/44, HR 122, JVP raised, clear lungs.',
@@ -146,7 +146,7 @@ export const ADV_ASSESS: FpcLesson = {
     {
       id: 'secondary', title: 'Secondary survey and history',
       body: [
-        'A focused history (SAMPLE or OPQRST for pain) and a head-to-toe examination follow stabilisation. In medical transports, the medication list is a diagnostic tool: anticoagulants, beta-blockers masking tachycardia, steroids (adrenal suppression), insulin and sulfonylureas, recent antibiotics.',
+        'A focused history (SAMPLE or OPQRST for pain) and a head-to-toe examination follow stabilization. In medical transports, the medication list is a diagnostic tool: anticoagulants, beta-blockers masking tachycardia, steroids (adrenal suppression), insulin and sulfonylureas, recent antibiotics.',
         'Reassess after every intervention and at regular intervals in flight. Trends — a rising heart rate, falling EtCO₂, widening pulse pressure — often warn before absolute values cross thresholds.',
       ],
     },
@@ -154,7 +154,7 @@ export const ADV_ASSESS: FpcLesson = {
   keyPoints: [
     'Primary survey first; take a structured handover and reassess everything yourself before leaving.',
     'Perfusion: mentation, capillary refill, mottling, urine, lactate; shock index > 0.9 is a warning.',
-    'Classify shock: hypovolaemic, cardiogenic, obstructive, distributive.',
+    'Classify shock: hypovolemic, cardiogenic, obstructive, distributive.',
     'POCUS: pump, tank, pipes; lung sliding and B-lines.',
     'Reassess after every intervention; trends warn early.',
   ],
@@ -163,13 +163,13 @@ export const ADV_ASSESS: FpcLesson = {
   live: [{ id: 'lines-shock-states', label: 'Shock states at the bedside' }, { id: 'abd-fast', label: 'FAST: where free blood goes' }],
   questions: [
     { q: 'Shock index of HR 120, SBP 100:', options: ['0.8', '1.2', '2.0', '0.5'], answer: 1, why: 'Shock index = 120 ÷ 100 = 1.2.' },
-    { q: 'Raised JVP with hypotension suggests:', options: ['Hypovolaemia', 'Cardiogenic or obstructive shock', 'Distributive only', 'Normal'], answer: 1, why: 'High filling pressure with low output.' },
+    { q: 'Raised JVP with hypotension suggests:', options: ['Hypovolemia', 'Cardiogenic or obstructive shock', 'Distributive only', 'Normal'], answer: 1, why: 'High filling pressure with low output.' },
     { q: 'Normal adult capillary refill is under about:', options: ['1 s', '3 s', '6 s', '10 s'], answer: 1, why: 'Beyond about 3 s is delayed.' },
     { q: 'Pericardial effusion with RV diastolic collapse indicates:', options: ['Massive PE', 'Tamponade', 'Cardiogenic shock', 'Pneumothorax'], answer: 1, why: 'Ultrasound sign of tamponade.' },
-    { q: 'A dilated RV with septal flattening in shock suggests:', options: ['Tamponade', 'Massive PE', 'Hypovolaemia', 'Sepsis'], answer: 1, why: 'Acute RV pressure overload.' },
-    { q: 'Absent lung sliding with a lung point indicates:', options: ['Pneumonia', 'Pneumothorax', 'Effusion', 'Oedema'], answer: 1, why: 'Lung point is specific.' },
+    { q: 'A dilated RV with septal flattening in shock suggests:', options: ['Tamponade', 'Massive PE', 'Hypovolemia', 'Sepsis'], answer: 1, why: 'Acute RV pressure overload.' },
+    { q: 'Absent lung sliding with a lung point indicates:', options: ['Pneumonia', 'Pneumothorax', 'Effusion', 'Edema'], answer: 1, why: 'Lung point is specific.' },
     { q: 'IVC size is unreliable in:', options: ['Spontaneously breathing healthy patients', 'Ventilated patients', 'Children always', 'Never'], answer: 1, why: 'Positive pressure alters IVC dynamics.' },
-    { q: 'Distributive shock includes:', options: ['Tamponade', 'Sepsis, anaphylaxis, neurogenic', 'Haemorrhage', 'MI'], answer: 1, why: 'Low SVR states.' },
+    { q: 'Distributive shock includes:', options: ['Tamponade', 'Sepsis, anaphylaxis, neurogenic', 'Hemorrhage', 'MI'], answer: 1, why: 'Low SVR states.' },
     { q: 'Before leaving the referring hospital you should confirm:', options: ['Only the BP', 'Airway, access, drips, oxygen and battery reserves', 'Nothing — trust the handover', 'Lab results only'], answer: 1, why: 'Reconcile and prepare.' },
     { q: 'Which medication may mask tachycardia in shock?', options: ['Beta-blocker', 'Insulin', 'Furosemide', 'Statin'], answer: 0, why: 'Blunts heart rate response.' },
     { q: 'B-lines on lung ultrasound indicate:', options: ['Pneumothorax', 'Interstitial fluid', 'Normal lung', 'Consolidation only'], answer: 1, why: 'Interstitial syndrome.' },
@@ -189,7 +189,7 @@ export const TREATMENT: FpcLesson = {
   title: 'Treatment modalities: infusions, drips and transport pharmacology',
   summary: 'Vasopressors and inotropes, infusion calculations, sedation and analgesia drips, anticoagulants and reversal, and managing pumps and drug supplies during transport.',
   objectives: [
-    'Choose and titrate vasoactive infusions by haemodynamic goal.',
+    'Choose and titrate vasoactive infusions by hemodynamic goal.',
     'Calculate infusion rates accurately.',
     'Manage anticoagulated patients and reversal agents.',
   ],
@@ -228,7 +228,7 @@ export const TREATMENT: FpcLesson = {
       id: 'anticoag', title: 'Anticoagulants and reversal', core: true,
       body: [
         'Warfarin: four-factor prothrombin complex concentrate (PCC) plus IV vitamin K for life-threatening bleeding; plasma if PCC is unavailable. Heparin: protamine (about 1 mg per 100 units given in the last few hours; partial effect for low-molecular-weight heparin). Dabigatran: idarucizumab. Factor Xa inhibitors (apixaban, rivaroxaban): andexanet alfa where available, or PCC per protocol.',
-        'Thrombolytics (alteplase, tenecteplase) cause bleeding that may need cryoprecipitate and antifibrinolytics. Antiplatelet drugs are not reversed by PCC; platelet transfusion has a limited and selective role. In intracranial haemorrhage, reversal is time-critical.',
+        'Thrombolytics (alteplase, tenecteplase) cause bleeding that may need cryoprecipitate and antifibrinolytics. Antiplatelet drugs are not reversed by PCC; platelet transfusion has a limited and selective role. In intracranial hemorrhage, reversal is time-critical.',
       ],
     },
     {

@@ -38,9 +38,9 @@ const b64ToBuf = (b64: string) => { const bin = atob(b64); const u = new Uint8Ar
 const RENAME: Record<string, string> = { _rega: 'aRegA', _regb: 'aRegB', _ao: 'aAO', _fat: 'aFat', _s: 'aS', _ch: 'aCh', _w: 'aW' };
 
 /**
- * The GLB stores quantised positions under a per-node de-quantisation matrix. Every shader here (beat, hypokinesis,
+ * The GLB stores quantized positions under a per-node de-quantization matrix. Every shader here (beat, hypokinesis,
  * lead facing) and the coronary centerlines work in the body frame, so bake that matrix into float positions and
- * normals and leave each mesh with an identity transform. Without this the beat was computed in quantised space
+ * normals and leave each mesh with an identity transform. Without this the beat was computed in quantized space
  * and sheared the heart instead of contracting it toward the LV long axis.
  */
 export function bakeToBodyFrame(m: THREE.Mesh) {

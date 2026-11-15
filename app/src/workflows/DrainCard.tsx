@@ -10,7 +10,7 @@ import { drainView, clampTest, DRAIN_CASES, caseConfig, type LeakGrade } from '.
 import { useDrain, setDrain } from './drainStore';
 import { RealStudy } from '../scene/imaging/RealStudy';
 
-/** Pleural pressure over time: the vent session when ventilated; a labelled spontaneous teaching trace otherwise. */
+/** Pleural pressure over time: the vent session when ventilated; a labeled spontaneous teaching trace otherwise. */
 function usePleural(ppv: boolean) {
   const buf = useRef<number[]>([]); const [s, setS] = useState({ p: 0, lo: 0, hi: 0, t: 0 });
   useEffect(() => {

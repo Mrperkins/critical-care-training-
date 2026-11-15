@@ -33,7 +33,7 @@ describe('real clinical media', () => {
     expect(ivc.teach!.join(' ')).toMatch(/does not reliably predict/);
     expect(ivc.quiz!.options[ivc.quiz!.answer]).not.toMatch(/respond/);
   });
-  it('only accepted licences, share-alike and non-commercial excluded', () => {
+  it('only accepted licenses, share-alike and non-commercial excluded', () => {
     for (const it of man.items) expect(man.accepted).toContain(it.license);
     for (const it of man.pending ?? []) expect(man.accepted).toContain(it.licenseClaimed);
     expect(all.some((i) => /\b(NC|ND|SA)\b/.test(i.license ?? (i as { licenseClaimed?: string }).licenseClaimed ?? ''))).toBe(false);

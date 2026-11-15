@@ -48,7 +48,7 @@ export function makeFlowColumn(path: readonly FlowPoint[], width = 0.72) {
 export const clampFlow = (v: number) => Number.isFinite(v) ? THREE.MathUtils.clamp(v, 0, 1) : 0;
 
 /**
- * Translucent body-filling stream with a contiguous bright travelling bolus.
+ * Translucent body-filling stream with a contiguous bright traveling bolus.
  * This is a surface representation of a 3D column; not quantitative CFD.
  * Time is supplied by the patient's existing simulation clock.
  */
@@ -67,7 +67,7 @@ export function VolumeFlow({ path, color, sample, width = 0.72, label, opacity =
   const material = useMemo(() => new THREE.ShaderMaterial({
     uniforms, side: THREE.DoubleSide, transparent: true, depthWrite: false,
     // Deliberate educational X-ray overlay: bulk flow must remain readable through opaque tissue.
-    // This does not modify the anatomy, occlusion physics, or haemodynamic calculation.
+    // This does not modify the anatomy, occlusion physics, or hemodynamic calculation.
     depthTest: false,
     clipping: !!clippingPlanes, clippingPlanes,
     vertexShader: `varying float vAlong; varying vec3 vNormal;

@@ -1,15 +1,15 @@
 /**
- * Haemostasis drugs. The patient response comes from the coagulation engine inside the shared patient
+ * Hemostasis drugs. The patient response comes from the coagulation engine inside the shared patient
  * (physiology/coag.ts) through coagAdapter — INR, aPTT, fibrinogen, clot strength and lysis. Original teaching text.
  */
 import type { MechanismDefinition } from '../types';
 import { coagAdapter } from '../coagAdapter';
 
 export const TXA: MechanismDefinition = {
-  id: 'txa', drug: 'Tranexamic acid', drugClass: 'Antifibrinolytic (lysine analogue)',
-  blurb: 'Traumatic haemorrhage within three hours of injury. Tranexamic acid is given with blood.',
+  id: 'txa', drug: 'Tranexamic acid', drugClass: 'Antifibrinolytic (lysine analog)',
+  blurb: 'Traumatic hemorrhage within three hours of injury. Tranexamic acid is given with blood.',
   nodes: [
-    { id: 'txa', kind: 'drug', label: 'Tranexamic acid', sub: '1 g IV, then 1 g over 8 h', explain: 'Tranexamic acid is a lysine analogue.' },
+    { id: 'txa', kind: 'drug', label: 'Tranexamic acid', sub: '1 g IV, then 1 g over 8 h', explain: 'Tranexamic acid is a lysine analog.' },
     { id: 'lbs', kind: 'receptor', label: 'Lysine-binding sites', sub: 'on plasminogen', explain: 'It occupies the lysine-binding sites plasminogen uses to attach to fibrin.' },
     { id: 'plg', kind: 'enzyme', label: 'Plasminogen on fibrin ↓' },
     { id: 'pl', kind: 'enzyme', label: 'Plasmin on the clot ↓' },
@@ -31,14 +31,14 @@ export const TXA: MechanismDefinition = {
 
 export const PCC: MechanismDefinition = {
   id: 'pcc', drug: '4-factor PCC', drugClass: 'Prothrombin complex concentrate (factors II, VII, IX, X)',
-  blurb: 'Warfarin-associated intracranial haemorrhage, INR 3.4. Four-factor PCC and IV vitamin K are given.',
+  blurb: 'Warfarin-associated intracranial hemorrhage, INR 3.4. Four-factor PCC and IV vitamin K are given.',
   nodes: [
     { id: 'pcc', kind: 'drug', label: '4F-PCC', sub: 'dose by weight and INR', explain: 'The concentrate contains the four vitamin-K-dependent clotting factors, already made and carboxylated.' },
     { id: 'f', kind: 'enzyme', label: 'Factors II · VII · IX · X replaced', explain: 'Warfarin left these factors low or non-functional. PCC replaces them directly, within minutes.' },
     { id: 'pcs', kind: 'enzyme', label: 'Proteins C and S', sub: 'also in the concentrate' },
     { id: 'thr', kind: 'messenger', label: 'Thrombin generation ↑' },
     { id: 'inr', kind: 'vital', label: 'INR ↓ (minutes)' },
-    { id: 'clot', kind: 'organ', label: 'Haemostasis restored' },
+    { id: 'clot', kind: 'organ', label: 'Hemostasis restored' },
     { id: 'vk', kind: 'drug', label: 'IV vitamin K (with it)', explain: 'Factor VII lasts only hours, so vitamin K is given at the same time for the liver to make its own factors.' },
     { id: 'thromb', kind: 'organ', label: 'Thrombosis risk' },
   ],
@@ -94,8 +94,8 @@ export const PROTAMINE: MechanismDefinition = {
   ],
   contexts: [
     { id: 'ufh', label: 'UFH, infusion stopped', note: 'Protamine binds heparin at once: the aPTT returns to normal within minutes.', patient: coagAdapter({ scenario: 'Heparin bolus, bleeding', preset: 'heparinHigh', drugs: ['protamine'], minutes: 120 }) },
-    { id: 'running', label: 'UFH, infusion still running', note: 'Protamine only neutralises the heparin already there: if the infusion keeps running, the aPTT climbs again.', patient: coagAdapter({ scenario: 'Heparin infusion', preset: 'heparin', drugs: ['protamine'], minutes: 120 }) },
+    { id: 'running', label: 'UFH, infusion still running', note: 'Protamine only neutralizes the heparin already there: if the infusion keeps running, the aPTT climbs again.', patient: coagAdapter({ scenario: 'Heparin infusion', preset: 'heparin', drugs: ['protamine'], minutes: 120 }) },
     { id: 'lmwh', label: 'LMWH', note: 'Protamine reverses only about 60 % of low-molecular-weight heparin: the anti-Xa effect and aPTT stay partly raised.', patient: coagAdapter({ scenario: 'Treatment-dose LMWH', preset: 'lmwh', drugs: ['protamine'], minutes: 120 }) },
   ],
-  summary: 'A charge-based antidote: it neutralises unfractionated heparin completely and low-molecular-weight heparin only partly. Too much protamine is itself anticoagulant; fast injection causes hypotension.',
+  summary: 'A charge-based antidote: it neutralizes unfractionated heparin completely and low-molecular-weight heparin only partly. Too much protamine is itself anticoagulant; fast injection causes hypotension.',
 };

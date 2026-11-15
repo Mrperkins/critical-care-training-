@@ -1,6 +1,6 @@
 /**
  * Blood scenes. A cut-open venule over a slab of tissue:
- *  - red cells flow (faster in the centre), darkening from arterial SaO₂ at the inlet to venous
+ *  - red cells flow (faster in the center), darkening from arterial SaO₂ at the inlet to venous
  *    SvO₂ at the outlet as O₂ leaves through the wall for the tissue;
  *  - neutrophils (lobed nucleus) and lymphocytes (round nucleus) roll along the wall;
  *  - platelets travel near the wall;
@@ -104,7 +104,7 @@ export function BloodScene({ micro }: { micro: MicroAsset }) {
     blood.plugFill = isClot ? Math.min(1, T / ((isFinite(S) ? S : 30) * 0.6)) * m.plug : 0;
     const onset = (isFinite(S) ? S : 20) * 0.35; blood.fibrinFill = isClot ? Math.max(0, Math.min(1, (T - onset) / Math.max(0.5, (isFinite(S) ? S : 30) * 0.65))) * m.fibrin : 0;
     blood.bleeding = isClot ? Math.pow(1 - prog, 1.5) : 0; if (isClot && prog >= 1 && blood.sealedAt == null) blood.sealedAt = S;
-    // red cells: parabolic flow profile, colour from arterial → venous saturation along the vessel
+    // red cells: parabolic flow profile, color from arterial → venous saturation along the vessel
     const vmax = 1.7 * m.flow; const rbc = rbcRef.current;
     if (rbc) {
       R_.forEach((c, i) => {

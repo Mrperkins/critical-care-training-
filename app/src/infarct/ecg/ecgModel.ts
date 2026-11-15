@@ -74,14 +74,14 @@ function tBiphasic(t: number) { return 0.35 * g(t, T_TPEAK - 0.05, 0.026) - g(t,
 
 /** How the ventricles are activated: normally (narrow), with a right or left bundle branch block, or from an escape focus in the ventricle. */
 export type QrsKind = 'narrow' | 'rbbb' | 'lbbb' | 'ventricular';
-/** extra QRS duration (s): repolarisation (ST–T) starts this much later */
+/** extra QRS duration (s): repolarization (ST–T) starts this much later */
 export const QRS_EXTRA: Record<QrsKind, number> = { narrow: 0, rbbb: 0.045, lbbb: 0.06, ventricular: 0.075 };
 const RBBB_TERM = nrm([-0.78, 0.1, 0.62]);   // late, slow activation of the RV: R' in V1, slurred S in I and V6
 const LBBB_SEPT = nrm([0.7, -0.1, -0.7]);    // septum activated right → left
 const LBBB_MAIN = nrm([0.82, -0.22, -0.53]); // slow, notched LV activation toward the lateral wall
 const VENT_MAIN = nrm([0.25, 0.72, -0.65]);  // escape focus low in the ventricle: wide, superiorly directed
 
-/** P wave only (atrial depolarisation), t relative to the beat's timeline (P peak at T_P). */
+/** P wave only (atrial depolarization), t relative to the beat's timeline (P peak at T_P). */
 export function pPart(leadId: LeadId, t: number): number {
   const lead = LEAD[leadId];
   return 0.14 * proj(P_DIR, lead) * g(t, T_P, 0.022) * (lead.group === 'limb' ? 1 : 0.6);
@@ -89,13 +89,13 @@ export function pPart(leadId: LeadId, t: number): number {
 
 /**
  * QRS–ST–T only (ventricular activation and recovery), t relative to the beat's timeline (QRS onset at T_QRS).
- * The MI pattern rides on repolarisation; with a wide QRS the ST–T is shifted later and the T wave is discordant.
+ * The MI pattern rides on repolarization; with a wide QRS the ST–T is shifted later and the T wave is discordant.
  */
 export function ventricularPart(leadId: LeadId, t: number, pattern: ECGPattern | null, morph: number, rep = 0, kind: QrsKind = 'narrow'): number {
   const lead = LEAD[leadId];
   const k = lead.gain;
   const q0 = T_QRS;
-  const tr = t - QRS_EXTRA[kind]; // repolarisation clock
+  const tr = t - QRS_EXTRA[kind]; // repolarization clock
   let v = 0;
   if (kind === 'narrow' || kind === 'rbbb') {
     v += k * 0.22 * proj(Q_SEPT, lead) * g(t, q0 + 0.016, 0.0075);
@@ -132,7 +132,7 @@ export function ventricularPart(leadId: LeadId, t: number, pattern: ECGPattern |
       return w;
     };
     v += inj(pattern.injury, pattern.injuryMv);
-    // STEMI-equivalent morphologies: present once the ischaemia is established, no Q-wave evolution
+    // STEMI-equivalent morphologies: present once the ischemia is established, no Q-wave evolution
     const pres = sstep(0.15, 0.75, morph);
     if (pattern.jDep) v -= pres * pattern.jDep.mv * localProj(pattern.jDep.dir, lead) * k * jUpslope(tr);
     if (pattern.tWave) {
@@ -156,7 +156,7 @@ export function sample(leadId: LeadId, t: number, pattern: ECGPattern | null, mo
   return pPart(leadId, t) + ventricularPart(leadId, t, pattern, morph, rep, kind);
 }
 
-/** ST deviation in millimetres (10 mm/mV) at J+60 ms. */
+/** ST deviation in millimeters (10 mm/mV) at J+60 ms. */
 export function stDeviationMm(leadId: LeadId, pattern: ECGPattern | null, morph = 1, rep = 0): number {
   const base = sample(leadId, T_J - 0.12, pattern, morph, rep); // PR baseline ≈ 0
   return (sample(leadId, T_ST, pattern, morph, rep) - base) * 10;
@@ -176,7 +176,7 @@ export function rHeightMm(leadId: LeadId, pattern: ECGPattern | null, morph = 1)
   return m * 10;
 }
 
-/** J-point deviation in millimetres (de Winter is defined there, not at J+60). */
+/** J-point deviation in millimeters (de Winter is defined there, not at J+60). */
 export function jPointMm(leadId: LeadId, pattern: ECGPattern | null, morph = 1): number {
   return (sample(leadId, T_J + 0.004, pattern, morph) - sample(leadId, T_J - 0.12, pattern, morph)) * 10;
 }

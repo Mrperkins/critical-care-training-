@@ -19,7 +19,7 @@ describe('arterial waveform physiology', () => {
   it('every scenario settles to its engine MAP and a plausible pulse', () => {
     for (const sc of SCENARIOS) { s.load(sc.id); run(10); const n = snap(); expect(Math.abs(n.tMap - s.snap.map), sc.id).toBeLessThan(6); expect(n.pp, sc.id).toBeGreaterThan(10); }
   });
-  it('hypovolaemia on PPV has a high pulse-pressure variation; cardiogenic shock does not', () => {
+  it('hypovolemia on PPV has a high pulse-pressure variation; cardiogenic shock does not', () => {
     s.load('hypovol'); run(14); const h = snap(); s.load('cardiogenic'); run(14); const c = snap();
     expect(h.ppv!).toBeGreaterThan(13); expect(c.ppv!).toBeLessThan(10);
   });
@@ -39,13 +39,13 @@ describe('arterial waveform physiology', () => {
 });
 
 describe('transducer: level, zero and damping', () => {
-  it('10 cm below the axis reads +7.4 mmHg on both lines; levelling fixes it', () => {
+  it('10 cm below the axis reads +7.4 mmHg on both lines; leveling fixes it', () => {
     s.load('normal'); run(8); const t = snap(); s.setup.transH -= 10; run(8); const low = snap();
     expect(low.map - t.map).toBeGreaterThan(6.5); expect(low.map - t.map).toBeLessThan(8.5);
     expect(low.cvp - t.cvp).toBeGreaterThan(6.5); expect(low.cvp - t.cvp).toBeLessThan(8.5);
     s.levelToAxis(); run(8); expect(Math.abs(snap().map - t.map)).toBeLessThan(1.5);
   });
-  it('raising the head of the bed moves the axis up: an unlevelled transducer then reads high', () => {
+  it('raising the head of the bed moves the axis up: an unleveled transducer then reads high', () => {
     expect(axisHeight(70, 45) - axisHeight(70, 0)).toBeGreaterThan(25);
   });
   it('zeroing open to air removes drift; zeroing open to the patient wipes out the pressure', () => {

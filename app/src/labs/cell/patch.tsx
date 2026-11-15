@@ -1,4 +1,4 @@
-/** Membrane close-up: a strip of lipid bilayer with named proteins, labelled ions, the charge layer and the pump's ATP. */
+/** Membrane close-up: a strip of lipid bilayer with named proteins, labeled ions, the charge layer and the pump's ATP. */
 import { useEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
 import { LabelChip } from '../../scene/labels';

@@ -1,4 +1,4 @@
-/** Shared GLB loading: meshopt decode, bake the de-quantisation node transforms, rename custom attributes. */
+/** Shared GLB loading: meshopt decode, bake the de-quantization node transforms, rename custom attributes. */
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js';
@@ -7,7 +7,7 @@ export const b64ToBuf = (b64: string) => { const bin = atob(b64); const u = new 
 /** glTF custom attributes arrive lower-cased with a leading underscore; give them shader-friendly names. */
 const RENAME: Record<string, string> = { _seg: 'aSeg', _dep: 'aDep', _base: 'aBase', _lobe: 'aLobe', _gen: 'aGen', _s: 'aS', _dome: 'aDome', _alv: 'aAlv', _kind: 'aKind', _eff: 'aEff', _act: 'aAct', _ch: 'aCh', _vt: 'aT' };
 
-/** Meshopt-quantised glTF stores positions in a normalised box with the de-quantisation in the node matrix: bake it into float geometry. */
+/** Meshopt-quantized glTF stores positions in a normalized box with the de-quantization in the node matrix: bake it into float geometry. */
 function bakeWorld(m: THREE.Mesh) {
   const g = m.geometry; const toFloat = (name: string, size: number) => {
     const a = g.getAttribute(name) as THREE.BufferAttribute | undefined; if (!a) return;

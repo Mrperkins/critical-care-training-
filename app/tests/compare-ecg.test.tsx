@@ -38,7 +38,7 @@ describe('Heart monitor ECG', () => {
     expect(peak('aVR', -1)).toBeGreaterThan(peak('aVR', 1));
     expect(peak('V1', -1)).toBeGreaterThan(peak('V1', 1));
   });
-  it('adds only a little artefact (baseline wander and noise stay under 0.1 mV)', () => {
+  it('adds only a little artifact (baseline wander and noise stay under 0.1 mV)', () => {
     for (let t = 0; t < 5000; t += 37) expect(Math.abs(ecgAt('II', t, 70) - ecgAt('II', t, 70, true))).toBeLessThan(0.1);
   });
 });

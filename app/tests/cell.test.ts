@@ -18,7 +18,7 @@ describe('cell model', () => {
     expect(m.story).toBe('membrane'); expect(m.cellType).toBe('cardiac'); expect(m.rmp).toBeLessThan(-80); expect(m.naAvail).toBeGreaterThan(0.7);
     expect(m.chain[0].focus).toEqual({ kind: 'transporter', t: 'pump' });
   });
-  it('high K⁺ depolarises and inactivates Na⁺ channels; low K⁺ hyperpolarises', () => {
+  it('high K⁺ depolarizes and inactivates Na⁺ channels; low K⁺ hyperpolarizes', () => {
     const hi = setup('k', false, (b) => b.set('k', 7.5)).m, lo = setup('k', false, (b) => b.set('k', 2.5)).m, n = setup('k').m;
     expect(hi.rmp).toBeGreaterThan(n.rmp + 10); expect(hi.naAvail).toBeLessThan(0.4); expect(hi.kReturn).toBeGreaterThan(n.kReturn);
     expect(lo.rmp).toBeLessThan(n.rmp - 5); expect(hi.chain.some((c) => c.focus.kind === 'transporter' && c.focus.t === 'nachan')).toBe(true);
@@ -65,7 +65,7 @@ describe('cell simulator', () => {
     expect(sim.count('k', 'out')).toBeGreaterThanOrEqual(sim.targets.k!.out - 2); expect(sim.targets.k!.out).toBeGreaterThan(n0 + 2);
     expect(sim.sites.filter((s) => s.kind === 'nachan' && s.inactivated).length).toBeGreaterThan(5);
   });
-  it('acute hyponatraemia: water flows in through aquaporins and the neuron swells', () => {
+  it('acute hyponatremia: water flows in through aquaporins and the neuron swells', () => {
     const { b, sim } = setup('na'); run(sim, 5); const w0 = sim.count('w', 'in'), a0 = siteCount(sim, 'aqp');
     b.set('na', 118); const m = cellModel('na', b.snap, b.pt)!; sim.setModel(m, targetCounts(m, 1)); run(sim, 15);
     expect(sim.vol).toBeGreaterThan(1.1); expect(sim.count('w', 'in')).toBeGreaterThan(w0 + 1); expect(siteCount(sim, 'aqp')).toBeGreaterThan(a0 + 4);

@@ -144,7 +144,7 @@ function AlarmRun({ c, onExit, onDone, replay }: RunProps) {
         { id: 'hold', label: 'Inspiratory hold', sub: 'see the plateau', icon: '⏸', primary: true },
         { id: 'bag', label: 'Bag off the vent', sub: 'DOPE', icon: '🫁' },
         { id: 'tube', label: 'Check the tube', sub: 'depth · kinks · biting', icon: '🔍' },
-        { id: 'sedate', label: 'Sedate', sub: 'or paralyse', icon: '💊' },
+        { id: 'sedate', label: 'Sedate', sub: 'or paralyze', icon: '💊' },
       ],
       onAction: (id) => {
         if (id === 'hold') { session.hold('i'); heldAt.current = { breath: session.breathN, at: Date.now() }; bonus(practice() ? 0 : 50); useGame.getState().set({ decaying: false }); toast(true, 'Holding — the plateau shows when the next breath pauses.'); setPhase('holding'); return; }

@@ -9,7 +9,7 @@ describe('neck anatomy and probe pressure', () => {
     const a = anatomy(C({})); expect(a.ij.x).toBeLessThan(a.ca.x); expect(a.ij.z).toBeLessThan(a.ca.z);
     const pressed = anatomy(C({ compress: 0.8 })); expect(pressed.ij.rz).toBeLessThan(0.05); expect(pressed.ca.r).toBeGreaterThan(a.ca.r * 0.85);
   });
-  it('head-down tilt and volume distend the vein; hypovolaemia shrinks it', () => {
+  it('head-down tilt and volume distend the vein; hypovolemia shrinks it', () => {
     expect(anatomy(C({ trendelenburg: true })).ij.rz).toBeGreaterThan(anatomy(C({ trendelenburg: false })).ij.rz);
     expect(anatomy(C({ volume: 0.5, trendelenburg: false })).ij.rz).toBeLessThan(anatomy(C({ trendelenburg: false })).ij.rz * 0.6);
   });
@@ -45,7 +45,7 @@ describe('needle, tip and what the screen shows', () => {
 });
 
 describe('vessel confirmation from the patient’s own pressures', () => {
-  it('pressure and pulsatility separate artery from vein; colour can mislead', () => {
+  it('pressure and pulsatility separate artery from vein; color can mislead', () => {
     const pt = { map: 72, cvp: 9, sao2: 0.84, svo2: 0.55 };
     const v = vesselCheck('venous', pt)!, a = vesselCheck('arterial', pt)!;
     expect(v.pressure).toBe(9); expect(v.pulsatile).toBe(false); expect(a.pressure).toBe(72); expect(a.pulsatile).toBe(true);

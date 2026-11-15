@@ -12,17 +12,17 @@ export const ORGAN_COURSES: Record<string, CourseMeta> = {
       'Collateral flow is pressure-passive: hypotension grows the core.',
       'Reperfusion saves whatever is still penumbra. Final infarct size is set by collaterals, pressure and time.',
     ],
-    pitfalls: ['Lowering blood pressure aggressively before reperfusion in ischaemic stroke.'],
+    pitfalls: ['Lowering blood pressure aggressively before reperfusion in ischemic stroke.'],
     bedside: 'In suspected large-vessel stroke, avoid hypotension and move fast to imaging and thrombectomy.',
     selfCheck: [
-      q('Why does a fall in MAP enlarge the infarct in acute ischaemic stroke?', ['It causes bleeding', 'Collateral flow follows pressure in ischaemic tissue', 'It raises ICP', 'It lowers CO₂'], 1, 'Ischaemic vessels lose autoregulation.'),
+      q('Why does a fall in MAP enlarge the infarct in acute ischemic stroke?', ['It causes bleeding', 'Collateral flow follows pressure in ischemic tissue', 'It raises ICP', 'It lowers CO₂'], 1, 'Ischemic vessels lose autoregulation.'),
     ],
   },
   'neuro-time-machine': {
     objectives: ['Follow a stroke from onset to reperfusion.', 'Know what each scan answers.'],
     essentials: ['tm-3', 'tm-4', 'tm-5', 'tm-7'],
     keyPoints: [
-      'Non-contrast CT excludes haemorrhage first.',
+      'Non-contrast CT excludes hemorrhage first.',
       'CT angiography shows the occlusion — the thrombectomy target.',
       'CT perfusion separates core from salvageable tissue: a mismatch means brain to save.',
       'The final infarct is the core at the moment of reperfusion; every hour costs brain.',
@@ -33,61 +33,61 @@ export const ORGAN_COURSES: Record<string, CourseMeta> = {
     ],
   },
   'neuro-lvo': {
-    objectives: ['Recognise cortical signs of a large-vessel occlusion.', 'Explain fast and slow progressors.', 'Weigh transport time against capability.'],
+    objectives: ['Recognize cortical signs of a large-vessel occlusion.', 'Explain fast and slow progressors.', 'Weigh transport time against capability.'],
     essentials: ['lvo-1', 'lvo-2', 'lvo-4', 'lvo-5'],
     keyPoints: [
       'Left MCA: aphasia, right face-and-arm weakness, gaze toward the left (the lesion).',
       'Right MCA: left weakness with neglect.',
       'Poor collaterals: core grows fast. Good collaterals: penumbra lasts hours.',
-      'Detours to a centre without thrombectomy usually cost an hour of brain.',
+      'Detours to a center without thrombectomy usually cost an hour of brain.',
     ],
     bedside: 'Cortical signs plus a dense deficit: think large vessel and route accordingly.',
     selfCheck: [
-      q('Aphasia, right arm weakness and eyes deviated to the left. Likely occlusion?', ['Right MCA', 'Left MCA', 'Basilar', 'Lacunar'], 1, 'The eyes look toward the lesion; aphasia localises to the dominant hemisphere.'),
+      q('Aphasia, right arm weakness and eyes deviated to the left. Likely occlusion?', ['Right MCA', 'Left MCA', 'Basilar', 'Lacunar'], 1, 'The eyes look toward the lesion; aphasia localizes to the dominant hemisphere.'),
     ],
   },
   'neuro-ich': {
-    objectives: ['Recognise ICH on CT and estimate volume.', 'Limit haematoma growth.', 'Recognise mass effect.'],
+    objectives: ['Recognize ICH on CT and estimate volume.', 'Limit hematoma growth.', 'Recognize mass effect.'],
     essentials: ['ich-1', 'ich-3', 'ich-4', 'ich-5'],
     keyPoints: [
       'Fresh blood is bright on non-contrast CT; every stroke is scanned before thrombolysis.',
       'Volume ≈ A × B × C ÷ 2 (cm). Around 30 mL predicts a worse outcome.',
-      'Haematomas grow in the first hours, more so at high pressure.',
+      'Hematomas grow in the first hours, more so at high pressure.',
       'Early smooth BP control (systolic about 140) and anticoagulant reversal are the first-hour priorities.',
       'Falling consciousness, a new blown pupil or vomiting means mass effect is winning.',
     ],
     pitfalls: ['Delaying reversal of anticoagulation while waiting for other tests.'],
     bedside: 'ICH: lower the systolic smoothly and reverse anticoagulants in the first hour.',
     selfCheck: [
-      q('Haematoma 4 × 3 cm on 5 slices of 1 cm. Volume?', ['15 mL', '30 mL', '60 mL', '12 mL'], 1, '4 × 3 × 5 ÷ 2 = 30 mL.'),
+      q('Hematoma 4 × 3 cm on 5 slices of 1 cm. Volume?', ['15 mL', '30 mL', '60 mL', '12 mL'], 1, '4 × 3 × 5 ÷ 2 = 30 mL.'),
     ],
   },
   'neuro-sah': {
-    objectives: ['Recognise SAH on CT.', 'Know where aneurysms arise.', 'Anticipate and manage vasospasm.'],
+    objectives: ['Recognize SAH on CT.', 'Know where aneurysms arise.', 'Anticipate and manage vasospasm.'],
     essentials: ['sah-1', 'sah-3', 'sah-4'],
     keyPoints: [
       'Sudden worst-ever headache; blood in the basal cisterns on CT.',
       'Aneurysms sit at branch points of the circle; securing one early prevents re-bleeding.',
-      'Vasospasm peaks between days 3 and 14 with delayed ischaemia.',
-      'Euvolaemia, avoid hypotension, nimodipine, and close neuro checks.',
+      'Vasospasm peaks between days 3 and 14 with delayed ischemia.',
+      'Euvolemia, avoid hypotension, nimodipine, and close neuro checks.',
     ],
     bedside: 'Days 3–14 after SAH: a new deficit is vasospasm until proven otherwise.',
     selfCheck: [
-      q('Day 6 after SAH, a new arm weakness appears. Most likely cause?', ['Re-bleed', 'Vasospasm with delayed ischaemia', 'Seizure', 'Hyponatraemia only'], 1, 'Classic timing for vasospasm.'),
+      q('Day 6 after SAH, a new arm weakness appears. Most likely cause?', ['Re-bleed', 'Vasospasm with delayed ischemia', 'Seizure', 'Hyponatremia only'], 1, 'Classic timing for vasospasm.'),
     ],
   },
   'neuro-icp': {
-    objectives: ['Explain the Monro–Kellie doctrine and the pressure–volume curve.', 'Calculate CPP and recognise herniation.', 'Manage ICP and run an EVD safely.'],
+    objectives: ['Explain the Monro–Kellie doctrine and the pressure–volume curve.', 'Calculate CPP and recognize herniation.', 'Manage ICP and run an EVD safely.'],
     essentials: ['icp-1', 'icp-3', 'icp-4', 'icp-5', 'icp-7', 'icp-10'],
     keyPoints: [
       'Skull volume is fixed: new volume must displace CSF or blood, until the buffers run out.',
-      'Past the knee of the curve, each millilitre raises ICP steeply.',
-      'CPP = MAP − ICP; hypotension causes ischaemia without any blocked artery.',
+      'Past the knee of the curve, each milliliter raises ICP steeply.',
+      'CPP = MAP − ICP; hypotension causes ischemia without any blocked artery.',
       'Uncal herniation: ipsilateral blown pupil, contralateral weakness, falling consciousness. Cushing’s triad is late.',
       'Head up 30°, hyperosmolar therapy, brief hyperventilation as a bridge, then remove the volume.',
       'An EVD is zeroed at the tragus; re-level whenever the bed moves, and never leave it clamped by accident.',
     ],
-    pitfalls: ['Prolonged hyperventilation.', 'Raising the bed without re-levelling the EVD.'],
+    pitfalls: ['Prolonged hyperventilation.', 'Raising the bed without re-leveling the EVD.'],
     bedside: 'Check EVD level and clamp status every time the patient or bed is moved.',
     selfCheck: [
       q('MAP 70, ICP 30. CPP?', ['100', '40', '70', '30'], 1, '70 − 30 = 40 mmHg — too low.'),
@@ -99,7 +99,7 @@ export const ORGAN_COURSES: Record<string, CourseMeta> = {
     essentials: ['vsd-3', 'vsd-4', 'vsd-6', 'vsd-8'],
     keyPoints: [
       'Small VSD: high gradient, fast jet, loud murmur, small shunt.',
-      'Large VSD: pressures equalise, softer murmur, Qp:Qs above 2.',
+      'Large VSD: pressures equalize, softer murmur, Qp:Qs above 2.',
       'Shunted blood returns to the left atrium and ventricle: a VSD volume-loads the left heart.',
       'Years of overcirculation raise pulmonary resistance until the shunt reverses (Eisenmenger) — repair is then no longer possible.',
       'Repair in infancy, before pulmonary vessels remodel.',
@@ -111,7 +111,7 @@ export const ORGAN_COURSES: Record<string, CourseMeta> = {
     ],
   },
   'neo-transition': {
-    objectives: ['Describe fetal-to-newborn circulatory transition.', 'Use pre-ductal saturation targets.', 'Recognise and treat PPHN.'],
+    objectives: ['Describe fetal-to-newborn circulatory transition.', 'Use pre-ductal saturation targets.', 'Recognize and treat PPHN.'],
     essentials: ['nt-2', 'nt-3', 'nt-5', 'nt-7'],
     keyPoints: [
       'First breaths drop pulmonary resistance; ductal flow reverses to left-to-right.',
@@ -127,7 +127,7 @@ export const ORGAN_COURSES: Record<string, CourseMeta> = {
     ],
   },
   'abd-fast': {
-    objectives: ['Know where free blood collects when supine.', 'Interpret positive and negative FAST correctly.', 'Recognise retroperitoneal bleeding that FAST cannot see.'],
+    objectives: ['Know where free blood collects when supine.', 'Interpret positive and negative FAST correctly.', 'Recognize retroperitoneal bleeding that FAST cannot see.'],
     essentials: ['fast-1', 'fast-3', 'fast-4', 'fast-8', 'fast-10'],
     keyPoints: [
       'FAST looks at Morison’s pouch, perisplenic space, pelvis and pericardium.',
@@ -143,7 +143,7 @@ export const ORGAN_COURSES: Record<string, CourseMeta> = {
     ],
   },
   'abd-aaa': {
-    objectives: ['Define and measure an AAA.', 'Recognise contained rupture.', 'Prioritise aortic control.'],
+    objectives: ['Define and measure an AAA.', 'Recognize contained rupture.', 'Prioritize aortic control.'],
     essentials: ['aaa-2', 'aaa-4', 'aaa-5', 'aaa-8'],
     keyPoints: [
       'AAA ≥ 3 cm; repair usually considered above about 5.5 cm.',
@@ -155,11 +155,11 @@ export const ORGAN_COURSES: Record<string, CourseMeta> = {
     pitfalls: ['Mistaking back pain and a faint for renal colic in an older patient.'],
     bedside: 'Older patient with back pain and collapse: scan the aorta.',
     selfCheck: [
-      q('Why can a ruptured AAA appear haemodynamically stable at first?', ['It is not bleeding', 'Retroperitoneal tissue temporarily tamponades the leak', 'The heart compensates fully', 'Blood pools in the pericardium'], 1, 'Contained rupture.'),
+      q('Why can a ruptured AAA appear hemodynamically stable at first?', ['It is not bleeding', 'Retroperitoneal tissue temporarily tamponades the leak', 'The heart compensates fully', 'Blood pools in the pericardium'], 1, 'Contained rupture.'),
     ],
   },
   'abd-dissection': {
-    objectives: ['Classify dissection (Stanford A vs B).', 'Recognise malperfusion.', 'Treat with impulse control: rate before pressure.'],
+    objectives: ['Classify dissection (Stanford A vs B).', 'Recognize malperfusion.', 'Treat with impulse control: rate before pressure.'],
     essentials: ['ad-2', 'ad-3', 'ad-5', 'ad-7', 'ad-9'],
     keyPoints: [
       'Type A involves the ascending aorta: surgical emergency.',
@@ -180,8 +180,8 @@ export const ORGAN_COURSES: Record<string, CourseMeta> = {
     keyPoints: [
       'Stable patients with low-grade injury: CT and non-operative management with close observation.',
       'Response to blood sorts patients: responders, transient responders, non-responders.',
-      'Transient responders are still bleeding: angioembolisation if immediately available and safe, otherwise theatre.',
-      'Non-responders go to theatre now with damage control and massive transfusion.',
+      'Transient responders are still bleeding: angioembolization if immediately available and safe, otherwise operating room.',
+      'Non-responders go to the operating room now with damage control and massive transfusion.',
     ],
     bedside: 'Reassess after every unit; a transient response is a decision point.',
     selfCheck: [
@@ -189,26 +189,26 @@ export const ORGAN_COURSES: Record<string, CourseMeta> = {
     ],
   },
   'abd-mesenteric': {
-    objectives: ['Recognise acute mesenteric ischaemia early.', 'Know the limits of lactate.', 'Prioritise revascularisation.'],
+    objectives: ['Recognize acute mesenteric ischemia early.', 'Know the limits of lactate.', 'Prioritize revascularization.'],
     essentials: ['me-1', 'me-2', 'me-3', 'me-5'],
     keyPoints: [
       'Pain out of proportion to a soft abdomen is the early sign.',
       'AF with embolus to the SMA is a classic cause.',
-      'Lactate can be normal early; do not use it to rule out ischaemia.',
-      'Treatment is time: revascularise, resect dead bowel, fluids, antibiotics and anticoagulation.',
+      'Lactate can be normal early; do not use it to rule out ischemia.',
+      'Treatment is time: revascularize, resect dead bowel, fluids, antibiotics and anticoagulation.',
     ],
     pitfalls: ['Waiting for peritonism or a high lactate.'],
     bedside: 'Severe pain with a soft abdomen in a patient with AF: CT angiogram now.',
     selfCheck: [
-      q('Which finding should NOT reassure you in suspected mesenteric ischaemia?', ['Normal lactate', 'Soft abdomen', 'Both', 'Neither'], 2, 'Both are typical early on.'),
+      q('Which finding should NOT reassure you in suspected mesenteric ischemia?', ['Normal lactate', 'Soft abdomen', 'Both', 'Neither'], 2, 'Both are typical early on.'),
     ],
   },
   'abd-obstruction': {
-    objectives: ['Recognise small-bowel obstruction and its fluid losses.', 'Recognise perforation on ultrasound and CT.'],
+    objectives: ['Recognize small-bowel obstruction and its fluid losses.', 'Recognize perforation on ultrasound and CT.'],
     essentials: ['sb-1', 'sb-3', 'sb-4', 'sb-6'],
     keyPoints: [
       'Adhesions and hernias cause most small-bowel obstruction.',
-      'Litres are lost into bowel and vomit: decompress, replace fluid, watch for strangulation.',
+      'Liters are lost into bowel and vomit: decompress, replace fluid, watch for strangulation.',
       'Perforation puts free air in the peritoneum — under the diaphragm when upright, anterior when supine.',
       'Perforation with peritonitis needs resuscitation, antibiotics and surgery.',
     ],

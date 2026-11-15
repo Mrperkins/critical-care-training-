@@ -48,7 +48,7 @@ export function Banner({ img, title, sub, onClick, href }: { img: string; title:
 }
 
 /** Which render each page uses. Most modules have their own (the line-placement and drug-mechanism scenes have
- * no clean backdrop, so those pages keep their colour); paths, audio and the banners borrow one. */
+ * no clean backdrop, so those pages keep their color); paths, audio and the banners borrow one. */
 export const PATH_HERO: Record<string, string> = { fpc: 'vent-foundations', 'vent-mastery': 'vent-ards', shock: 'peds-newborn', 'peds-ob': 'ob-pregnancy' };
 export const AUDIO_HERO = 'cardiac-mi';
 export const PATH_ACCENT: Record<string, string> = { fpc: '#7db4ff', 'vent-mastery': '#ffb86b', shock: '#ff6b7a', 'peds-ob': '#5ee0c6' };
@@ -60,7 +60,7 @@ export const TRACK_ART: Record<string, string> = {
   multisystem: 'lines-bleed',
 };
 
-/** Cover style for tiles: each body system's accent colour and short label (the colour edge and kicker). */
+/** Cover style for tiles: each body system's accent color and short label (the color edge and kicker). */
 export const SHELF_ACCENT: Record<string, { c: string; label: string }> = {
   resp: { c: '#7db4ff', label: 'Resp & vent' }, gas: { c: '#5ee0c6', label: 'Gas & labs' }, hemo: { c: '#ffb86b', label: 'Hemo & lines' },
   cardiac: { c: '#ff6b7a', label: 'Cardiac' }, neuro: { c: '#b7a6ff', label: 'Neuro' }, abdomen: { c: '#ffd166', label: 'Abdomen & trauma' },

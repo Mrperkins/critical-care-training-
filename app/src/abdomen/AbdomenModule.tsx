@@ -43,7 +43,7 @@ export function AbdomenModule() {
         <SceneWrap compare={{ twin: view === '3d' && body ? <AbdomenScene body={body} /> : undefined, state: { 'abd.base': emptyAbdomen(), 'abd.minutes': 0 }, finding: ABD_PRESETS.find((p) => p.id === preset)?.name ?? 'Current state', normalLabel: 'No free fluid, normal aorta', healthy: preset === 'normal', prefer: preset, media: COMPARE_MEDIA.abdomen }}>{view === 'us' ? <UltrasoundScene /> : view === 'cta' ? <CtaScene /> : body ? <AbdomenScene body={body} /> : <div className="loading">{err ? `Could not load anatomy: ${err}` : 'Loading anatomy…'}</div>}<AbdOverlay /></SceneWrap>
       </section>
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
-        {mode === 'challenge' ? <CaseChallenge module="abdomen" /> : mode === 'learn' ? <AbdLearn /> : <><PresetCard /><TimeCard /><Fold group="abd" id="find" title="Findings" defaultOpen><FindingsCard /></Fold><Fold group="abd" id="shock" title="Haemodynamics" summary="bleeding, shock class"><ShockCard /></Fold><Fold group="abd" id="fast" title="FAST" summary="where to look for fluid"><FastCard /></Fold></>}
+        {mode === 'challenge' ? <CaseChallenge module="abdomen" /> : mode === 'learn' ? <AbdLearn /> : <><PresetCard /><TimeCard /><Fold group="abd" id="find" title="Findings" defaultOpen><FindingsCard /></Fold><Fold group="abd" id="shock" title="Hemodynamics" summary="bleeding, shock class"><ShockCard /></Fold><Fold group="abd" id="fast" title="FAST" summary="where to look for fluid"><FastCard /></Fold></>}
         <details className="credit"><summary>Sources & model notes</summary>Solid organs: HuBMAP 3D reference organs (CC BY 4.0) via the shared body model. Stomach, bowel, diaphragm, peritoneal fluid and pathology are drawn procedurally. Bleeding rates, FAST thresholds and the haemorrhage-class table are teaching approximations, not clinical rules.</details>
       </aside>
     </main>
@@ -59,7 +59,7 @@ function AbdOverlay() {
       <div className="alv-row"><span>Time</span><b>{Math.round(st.minutes)} min</b></div>
       <div className="alv-row"><span>Free fluid</span><b>{Math.round(st.freeFluidMl)} mL</b></div>
       {st.retroMl > 0 && <div className="alv-row"><span>Retroperitoneal</span><b>{Math.round(st.retroMl)} mL</b></div>}
-      <div className="alv-row"><span>Haemorrhage class</span><b>{['I', 'II', 'III', 'IV'][sc.cls - 1]}</b></div>
+      <div className="alv-row"><span>Hemorrhage class</span><b>{['I', 'II', 'III', 'IV'][sc.cls - 1]}</b></div>
     </div>}
     <div className="alv-focus"><MiniSelect label="View" value={target} options={FOCUS as [string, string][]} onChange={(v) => set({ target: v })} className="ch-focus" /></div>
     <div className="legend"><span><i style={{ background: '#b0101f' }} />Blood</span><span><i style={{ background: '#8a7a3a' }} />Enteric</span><span><i style={{ background: '#d9c77a' }} />Ascites</span><span><i style={{ background: '#dff4ff' }} />Free air</span></div>
@@ -79,7 +79,7 @@ function TimeCard() {
   return (
     <section className="card">
       <div className="card-h"><h3>Time & severity</h3></div>
-      <Knob label="Time since event" value={minutes} min={0} max={240} step={5} unit=" min" onChange={(v) => useAbdUI.getState().set({ minutes: v })} hint="Untreated bleeding accumulates; ischaemia progresses" />
+      <Knob label="Time since event" value={minutes} min={0} max={240} step={5} unit=" min" onChange={(v) => useAbdUI.getState().set({ minutes: v })} hint="Untreated bleeding accumulates; ischemia progresses" />
       {base.injury.spleen != null && <Knob label="Splenic injury grade" value={base.injury.spleen} min={0} max={5} step={1} onChange={(v) => setBase({ injury: { ...base.injury, spleen: v } })} />}
       {base.injury.liver != null && <Knob label="Liver injury grade" value={base.injury.liver} min={0} max={5} step={1} onChange={(v) => setBase({ injury: { ...base.injury, liver: v } })} />}
       {base.aaa.diameterCm > 3 && <Knob label="Aneurysm diameter" value={base.aaa.diameterCm} min={3} max={10} step={0.5} unit=" cm" onChange={(v) => setBase({ aaa: { ...base.aaa, diameterCm: v } })} hint="Normal infrarenal aorta ≈ 2 cm; rupture risk climbs steeply above 5.5 cm" />}
@@ -100,7 +100,7 @@ export function ShockCard() {
   const st = useAbdomen(); const s = shockClass(st);
   return (
     <section className="card nums">
-      <div className="card-h"><h3>Haemorrhage class {['I', 'II', 'III', 'IV'][s.cls - 1]}</h3></div>
+      <div className="card-h"><h3>Hemorrhage class {['I', 'II', 'III', 'IV'][s.cls - 1]}</h3></div>
       <div className="numgrid">
         <div className="num"><span className="nl">Loss</span><span className="nv">{Math.round(s.lossMl)}</span><span className="nu">mL ({Math.round(s.lossPct)}%)</span></div>
         <div className="num"><span className="nl">HR</span><span className="nv">{s.hr}</span><span className="nu">/min</span></div>

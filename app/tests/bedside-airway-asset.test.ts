@@ -23,7 +23,7 @@ it('ships a detailed self-contained airway aligned inside the adult body frame',
     }
   }
   expect(vertices).toBeGreaterThan(120000);
-  // The source is in decimetres, body-centred: thorax/neck, not metres or a second translated patient.
+  // The source is in decimeters, body-centered: thorax/neck, not meters or a second translated patient.
   expect(bounds.min.y).toBeGreaterThan(3);expect(bounds.max.y).toBeLessThan(8.5);
   expect(bounds.min.x).toBeGreaterThan(-1.6);expect(bounds.max.x).toBeLessThan(1.6);
   expect(doc.getRoot().listTextures()).toHaveLength(0);

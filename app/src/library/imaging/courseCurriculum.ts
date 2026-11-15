@@ -32,7 +32,7 @@ const ref = {
   appropriateness: {title:'ACR — Appropriateness Criteria',url:'https://www.acr.org/clinical-resources/clinical-tools-and-reference/appropriateness-criteria'},
   stroke: {title:'ACR — Acute ischemic stroke initial imaging',url:'https://www.acr.org/clinical-resources/clinical-tools-and-reference/appropriateness-criteria'},
   physics: {title:'LITFL — POCUS physics',url:'https://litfl.com/pocus-physics-101/'},
-  artifacts: {title:'LITFL — Ultrasound artefacts',url:'https://litfl.com/ultrasound-library/basics/'},
+  artifacts: {title:'LITFL — Ultrasound artifacts',url:'https://litfl.com/ultrasound-library/basics/'},
   lung: {title:'LITFL — Lung ultrasound technique',url:'https://litfl.com/lung-ultrasound-technique-overview/'},
   lungGuide: {title:'LITFL — POCUS made easy: lung',url:'https://litfl.com/pocus-made-easy-lung/'},
   fast: {title:'LITFL — POCUS made easy: eFAST',url:'https://litfl.com/pocus-made-easy-efast/'},

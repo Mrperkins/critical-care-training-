@@ -8,7 +8,7 @@ import { loadBodyAsset, type BodyAsset } from '../asset/body';
 import { StudioCanvas } from '../scene/Studio';
 import type { NeuroExam } from './exam';
 
-/** Region of a skin vertex in the body frame (decimetres, centred; +X patient left, +Y up). */
+/** Region of a skin vertex in the body frame (decimeters, centered; +X patient left, +Y up). */
 export function regionOf(x: number, y: number): { side: 'R' | 'L'; part: 'face' | 'arm' | 'leg' | null } {
   const side = x < 0 ? 'R' : 'L'; const ax = Math.abs(x);
   if (y > 7.2) return { side, part: ax > 0.15 && y < 8.6 ? 'face' : null };

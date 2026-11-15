@@ -3,11 +3,11 @@ import type { FpcLesson } from '../types';
 
 export const AIR_EMERGENCIES: FpcLesson = {
   id: 'fpc-air-emergencies', domain: 'safety', ref: 'I.4',
-  title: 'In-flight emergencies: fire, depressurisation, IIMC and emergency landing',
+  title: 'In-flight emergencies: fire, depressurization, IIMC and emergency landing',
   summary: 'What the medical crew does when something goes wrong in the air: cabin fire and smoke, rapid decompression, inadvertent instrument meteorological conditions, engine failure and the brace position, and egress after landing.',
   objectives: [
     'Respond to cabin fire, smoke and fumes as a crew member.',
-    'Recognise and manage rapid and slow decompression in pressurised aircraft.',
+    'Recognize and manage rapid and slow decompression in pressurized aircraft.',
     'Describe IIMC recovery, emergency landing preparation, bracing and egress.',
   ],
   sections: [
@@ -20,9 +20,9 @@ export const AIR_EMERGENCIES: FpcLesson = {
       ],
     },
     {
-      id: 'decomp', title: 'Decompression in pressurised aircraft', core: true,
+      id: 'decomp', title: 'Decompression in pressurized aircraft', core: true,
       body: [
-        'Rapid (explosive) decompression follows a sudden loss of cabin pressure — a failed window or door seal. Signs: a loud bang, a rush of air, fog in the cabin (water vapour condensing as temperature falls), flying debris and cold. Cabin altitude climbs toward aircraft altitude within seconds, and the time of useful consciousness at 25 000 feet is only 3–5 minutes (much less with activity). Slow decompression is insidious: a gradually rising cabin altitude, ear pressure and hypoxia symptoms in crew, detected by the cabin altitude warning.',
+        'Rapid (explosive) decompression follows a sudden loss of cabin pressure — a failed window or door seal. Signs: a loud bang, a rush of air, fog in the cabin (water vapor condensing as temperature falls), flying debris and cold. Cabin altitude climbs toward aircraft altitude within seconds, and the time of useful consciousness at 25 000 feet is only 3–5 minutes (much less with activity). Slow decompression is insidious: a gradually rising cabin altitude, ear pressure and hypoxia symptoms in crew, detected by the cabin altitude warning.',
         'Response: crew put on their own oxygen masks first — you cannot help a patient if you are hypoxic — then secure the patient\'s oxygen (increase FiO₂ to 100 %), check ventilator function, and stay seated and restrained. The pilot performs an emergency descent to a safe altitude (usually 10 000 feet or lower). Afterwards, reassess the patient for gas expansion effects: pneumothorax, ETT cuff over-inflation, and air in infusion lines and drains.',
       ],
     },
@@ -51,7 +51,7 @@ export const AIR_EMERGENCIES: FpcLesson = {
     'Report fire or smoke immediately and precisely; isolate power and oxygen; extinguish at the base.',
     'Rapid decompression: bang, fog, cold — crew masks on first, then patient; pilot descends.',
     'After decompression, check for gas expansion: pneumothorax, cuffs, lines.',
-    'IIMC: prevention is the defence; crew support instrument recovery.',
+    'IIMC: prevention is the defense; crew support instrument recovery.',
     'Emergency landing: secure, helmets, restraints, brace; egress after rotors stop, move upwind.',
   ],
   pearls: ['Fog in the cabin after a bang means decompression.', 'Know how every exit opens.'],
@@ -62,10 +62,10 @@ export const AIR_EMERGENCIES: FpcLesson = {
     { q: 'Fog in the cabin after a loud bang suggests:', options: ['Fire', 'Rapid decompression', 'Air conditioning fault only', 'Normal'], answer: 1, why: 'Condensation from cooling.' },
     { q: 'After rapid decompression, the crew should:', options: ['Treat the patient first', 'Don their own oxygen first', 'Unbuckle and move', 'Open windows'], answer: 1, why: 'Avoid crew incapacitation.' },
     { q: 'Time of useful consciousness at 25 000 ft (at rest):', options: ['30 minutes', '3–5 minutes', '10 seconds', '1 hour'], answer: 1, why: 'Rapidly incapacitating.' },
-    { q: 'After decompression, check the patient for:', options: ['Hypothermia only', 'Gas expansion effects (pneumothorax, cuff pressure)', 'Hyperglycaemia', 'Nothing'], answer: 1, why: 'Boyle\'s law.' },
+    { q: 'After decompression, check the patient for:', options: ['Hypothermia only', 'Gas expansion effects (pneumothorax, cuff pressure)', 'Hyperglycemia', 'Nothing'], answer: 1, why: 'Boyle\'s law.' },
     { q: 'IIMC means:', options: ['Planned instrument flight', 'Unintentionally entering cloud/fog and losing visual reference', 'Engine failure', 'Fire'], answer: 1, why: 'Leading cause of fatal HAA accidents.' },
-    { q: 'The best defence against IIMC is:', options: ['Recovery skills only', 'Conservative weather decisions and turning back early', 'Faster flight', 'Lower altitude'], answer: 1, why: 'Prevention.' },
-    { q: 'Pilot IIMC recovery includes:', options: ['Descending to find the ground', 'Transitioning to instruments, levelling and climbing', 'Turning off instruments', 'Landing immediately'], answer: 1, why: 'Standard procedure.' },
+    { q: 'The best defense against IIMC is:', options: ['Recovery skills only', 'Conservative weather decisions and turning back early', 'Faster flight', 'Lower altitude'], answer: 1, why: 'Prevention.' },
+    { q: 'Pilot IIMC recovery includes:', options: ['Descending to find the ground', 'Transitioning to instruments, leveling and climbing', 'Turning off instruments', 'Landing immediately'], answer: 1, why: 'Standard procedure.' },
     { q: 'Before an emergency landing, crew should:', options: ['Continue all care', 'Secure equipment, helmets on, restraints tight, brace', 'Stand by the door', 'Remove helmets'], answer: 1, why: 'Survive the impact.' },
     { q: 'After an emergency landing without fire, exit when:', options: ['Immediately while rotors turn', 'The aircraft has stopped and rotors have stopped', 'After 1 hour', 'Never'], answer: 1, why: 'Rotor strike risk.' },
     { q: 'After egress, move:', options: ['Downwind', 'Upwind and away from the aircraft', 'Under the tail', 'Into the aircraft'], answer: 1, why: 'Away from fuel and smoke.' },
@@ -92,7 +92,7 @@ export const LZ_OPS: FpcLesson = {
     {
       id: 'select', title: 'Selecting and preparing the LZ', core: true,
       body: [
-        'A typical recommended landing zone is at least 100 × 100 feet (about 30 × 30 metres) by day, often larger at night or for larger aircraft — operators set their own minimums. The surface should be firm, level (slope less than about 8–10°) and free of loose debris that the rotor wash will lift — blankets, sheets, plastic, gravel, snow and dust. Approach and departure paths should be clear of wires, towers, trees and poles; wires are the hardest hazard to see from the air.',
+        'A typical recommended landing zone is at least 100 × 100 feet (about 30 × 30 meters) by day, often larger at night or for larger aircraft — operators set their own minimums. The surface should be firm, level (slope less than about 8–10°) and free of loose debris that the rotor wash will lift — blankets, sheets, plastic, gravel, snow and dust. Approach and departure paths should be clear of wires, towers, trees and poles; wires are the hardest hazard to see from the air.',
         'Mark the corners with weighted cones or lights, and for night landings use lights that do not dazzle — never shine lights or spotlights at the aircraft. Do not use flares where there is fire risk. Keep vehicles and bystanders at least 100–200 feet away, with emergency vehicles positioned to protect the site but outside the rotor arc. Wet the ground in dusty conditions if possible.',
         'Ground crews should brief the aircraft by radio with: the LZ location (GPS coordinates or a landmark), size and surface, obstacles (wires, poles, trees, towers), wind direction and strength, the slope, other aircraft or drones, and any hazards such as hazardous materials or crowds.',
       ],
@@ -101,9 +101,9 @@ export const LZ_OPS: FpcLesson = {
     {
       id: 'approach', title: 'Working around the helicopter', core: true,
       body: [
-        'Approach a running helicopter only when signalled by the pilot or crew, and only from the front or side within the pilot\'s view — the "safe zone" is typically from the 10 o\'clock to the 2 o\'clock position, or as specified by the aircraft type. Never approach from the rear: the tail rotor is invisible when turning and lethal. On sloping ground, approach and leave on the downhill side, because the main rotor is closer to the ground on the uphill side.',
+        'Approach a running helicopter only when signaled by the pilot or crew, and only from the front or side within the pilot\'s view — the "safe zone" is typically from the 10 o\'clock to the 2 o\'clock position, or as specified by the aircraft type. Never approach from the rear: the tail rotor is invisible when turning and lethal. On sloping ground, approach and leave on the downhill side, because the main rotor is closer to the ground on the uphill side.',
         'Wear helmet and eye protection, secure loose clothing and items, carry long objects (IV poles, splints) horizontally below waist height, and never raise anything above your head. Do not run. Hold onto stretcher linen and loose equipment. No smoking within 50–100 feet of the aircraft.',
-        'Hot loading (with rotors turning) shortens scene times but increases risk; many programmes restrict it to trained crews and critical patients. Cold loading (engines shut down) is safer and used when the patient is not time critical or the ground crew is unfamiliar with the aircraft.',
+        'Hot loading (with rotors turning) shortens scene times but increases risk; many programs restrict it to trained crews and critical patients. Cold loading (engines shut down) is safer and used when the patient is not time critical or the ground crew is unfamiliar with the aircraft.',
       ],
     },
     {
@@ -116,25 +116,25 @@ export const LZ_OPS: FpcLesson = {
       table: {
         caption: 'LZ quick reference',
         head: ['Item', 'Typical guideline'],
-        rows: [['Size (day)', '≥ 100 × 100 ft (30 × 30 m)'], ['Slope', '< 8–10°'], ['Bystanders and vehicles', '≥ 100–200 ft away'], ['Approach the aircraft', 'Front or side, when signalled; downhill side on slopes'], ['Never', 'Approach the tail; raise objects; shine lights at the pilot']],
+        rows: [['Size (day)', '≥ 100 × 100 ft (30 × 30 m)'], ['Slope', '< 8–10°'], ['Bystanders and vehicles', '≥ 100–200 ft away'], ['Approach the aircraft', 'Front or side, when signaled; downhill side on slopes'], ['Never', 'Approach the tail; raise objects; shine lights at the pilot']],
       },
     },
     {
       id: 'case', title: 'Scenario: the motorway LZ at night',
-      body: ['Fire crews have closed a motorway and propose an LZ on the carriageway near an overpass, with power lines crossing 200 metres to the east. Wind is from the west. There is loose debris from a crash and two drones overhead from bystanders.'],
+      body: ['Fire crews have closed a motorway and propose an LZ on the carriageway near an overpass, with power lines crossing 200 meters to the east. Wind is from the west. There is loose debris from a crash and two drones overhead from bystanders.'],
       example: { case: 'What must the ground brief and preparation include?', steps: [
         'Coordinates and description; size and surface (paved, debris present).',
         'Wires to the east — the aircraft will approach into wind from the east over them, so call them first and clearly.',
         'Clear debris; mark corners with low lights; no spotlights toward the aircraft.',
         'Drones must be grounded before the aircraft arrives; police to clear bystanders.',
-        'Vehicles and people outside the safe distance; approach the aircraft only when signalled.',
+        'Vehicles and people outside the safe distance; approach the aircraft only when signaled.',
       ] },
     },
   ],
   keyPoints: [
     'LZ ≥ 100 × 100 ft by day, firm, level, debris-free, clear approach paths.',
     'Brief wires first; give wind, slope, hazards and contact.',
-    'Approach from the front/side when signalled; never the tail; downhill side on slopes.',
+    'Approach from the front/side when signaled; never the tail; downhill side on slopes.',
     'Carry long objects low; no running; eye and head protection.',
     'Brownout/whiteout, hazmat (upwind, uphill), drones and night all add risk.',
   ],
@@ -143,7 +143,7 @@ export const LZ_OPS: FpcLesson = {
   questions: [
     { q: 'A typical minimum day LZ size:', options: ['20 × 20 ft', '100 × 100 ft', '500 × 500 ft', '10 × 10 m'], answer: 1, why: 'Common guideline; operators vary.' },
     { q: 'The obstacle most difficult to see from the air:', options: ['Trees', 'Wires', 'Buildings', 'Vehicles'], answer: 1, why: 'Thin and often invisible.' },
-    { q: 'Approach a running helicopter:', options: ['From the rear', 'From the front or side when signalled', 'Any direction', 'Running quickly'], answer: 1, why: 'Within pilot view.' },
+    { q: 'Approach a running helicopter:', options: ['From the rear', 'From the front or side when signaled', 'Any direction', 'Running quickly'], answer: 1, why: 'Within pilot view.' },
     { q: 'On sloping ground, approach from:', options: ['The uphill side', 'The downhill side', 'Underneath the tail', 'Any side'], answer: 1, why: 'Rotor is lower uphill.' },
     { q: 'Long objects such as IV poles should be carried:', options: ['Vertically above the head', 'Horizontally below waist height', 'Over the shoulder', 'Not carried'], answer: 1, why: 'Avoid rotor strike.' },
     { q: 'Lights at a night LZ should:', options: ['Shine at the aircraft', 'Mark the LZ without dazzling the pilot', 'Be flashing strobes at the cockpit', 'Not be used'], answer: 1, why: 'Avoid blinding the pilot.' },
@@ -154,7 +154,7 @@ export const LZ_OPS: FpcLesson = {
     { q: 'Drones near a scene should be:', options: ['Ignored', 'Grounded and reported to the aircraft', 'Used for lighting', 'Followed'], answer: 1, why: 'Collision risk.' },
     { q: 'Cold loading means:', options: ['Loading in winter', 'Loading with engines shut down', 'Loading with rotors turning', 'Loading without a stretcher'], answer: 1, why: 'Safer option.' },
     { q: 'Loose items near an LZ (sheets, blankets) are dangerous because:', options: ['They are untidy', 'Rotor wash can lift them into the rotors', 'They are heavy', 'They block radios'], answer: 1, why: 'Foreign object damage.' },
-    { q: 'Smoking near the aircraft is prohibited within about:', options: ['5 ft', '50–100 ft', '1 mile', 'Not prohibited'], answer: 1, why: 'Fuel vapour.' },
+    { q: 'Smoking near the aircraft is prohibited within about:', options: ['5 ft', '50–100 ft', '1 mile', 'Not prohibited'], answer: 1, why: 'Fuel vapor.' },
     { q: 'The tail rotor is dangerous because:', options: ['It is loud', 'It is nearly invisible when turning', 'It is hot', 'It is high'], answer: 1, why: 'Lethal strikes.' },
   ],
   sources: [
@@ -177,7 +177,7 @@ export const OBSTACLES: FpcLesson = {
       id: 'hazards', title: 'What helicopters hit', core: true,
       body: [
         'Air medical helicopters spend much of their time below 1000 feet, often at night, near scenes and hospitals surrounded by wires, towers, cranes, trees and buildings. Wire strikes are a leading cause of helicopter accidents: wires are thin, often unmarked, span valleys and roads, and blend into the background. Towers are usually lit and charted; the guy wires that support them are not.',
-        'Controlled flight into terrain (CFIT) — an airworthy aircraft flown into the ground, water or an obstacle without the crew realising — occurs most often at night, in poor visibility and in unfamiliar terrain. Mid-air collisions occur near hospitals, airports and scenes where several aircraft (other air ambulances, police, news helicopters and drones) converge.',
+        'Controlled flight into terrain (CFIT) — an airworthy aircraft flown into the ground, water or an obstacle without the crew realizing — occurs most often at night, in poor visibility and in unfamiliar terrain. Mid-air collisions occur near hospitals, airports and scenes where several aircraft (other air ambulances, police, news helicopters and drones) converge.',
         'Clues to wires: poles or pylons on either side of a road or river, cleared strips through trees, and buildings that must have power. Assume wires exist between any two poles, and around any farm, building or road.',
       ],
     },
@@ -185,7 +185,7 @@ export const OBSTACLES: FpcLesson = {
       id: 'tech', title: 'Technology and its limits', core: true,
       body: [
         'Helicopter terrain awareness and warning systems (HTAWS), required for US helicopter air ambulances since the 2014 FAA rule, compare the aircraft\'s position and altitude with a terrain and obstacle database and give aural and visual alerts. Traffic collision avoidance or traffic advisory systems (TCAS/TAS) and ADS-B show nearby transponder-equipped aircraft. Radar altimeters give height above the ground. Wire-strike protection systems (cutters above and below the cockpit) can cut some wires on impact.',
-        'Databases are incomplete — new cranes, temporary towers and most wires are not included — and drones are usually invisible to traffic systems. Technology supplements but does not replace a disciplined visual scan, especially during low-level manoeuvring and landing.',
+        'Databases are incomplete — new cranes, temporary towers and most wires are not included — and drones are usually invisible to traffic systems. Technology supplements but does not replace a disciplined visual scan, especially during low-level maneuvering and landing.',
         'Night vision goggles extend vision at night but have a limited field of view and poor contrast for thin wires; they are discussed in their own lesson.',
       ],
     },
@@ -193,7 +193,7 @@ export const OBSTACLES: FpcLesson = {
       id: 'scan', title: 'Scanning and call-outs', core: true,
       body: [
         'The human eye detects movement and objects best when it stops: use a systematic scan of 10–15° sectors, pausing about one second in each, across the field of view. An aircraft on a collision course appears stationary in the windscreen while growing larger — "constant bearing, decreasing range" — which makes it hard to notice.',
-        'Use clock positions relative to the aircraft\'s nose (12 o\'clock straight ahead, 3 o\'clock right, 9 o\'clock left), with a high/low/level indication and range: "Traffic, 2 o\'clock, high, two miles, converging." "Wires, 12 o\'clock low, crossing the road ahead." Speak calmly, clearly and early; the pilot will acknowledge. If you see an immediate threat, the call should be direct: "Climb!", "Stop!", or as agreed by your programme.',
+        'Use clock positions relative to the aircraft\'s nose (12 o\'clock straight ahead, 3 o\'clock right, 9 o\'clock left), with a high/low/level indication and range: "Traffic, 2 o\'clock, high, two miles, converging." "Wires, 12 o\'clock low, crossing the road ahead." Speak calmly, clearly and early; the pilot will acknowledge. If you see an immediate threat, the call should be direct: "Climb!", "Stop!", or as agreed by your program.',
         'Medical crew are expected to stop patient care to look out during take-off, approach and landing, and when the pilot asks for help — patient care is paused for the minute it takes to land safely. Clear your side of the aircraft verbally at the LZ: "Clear left, tail clear."',
       ],
       table: {
@@ -223,7 +223,7 @@ export const OBSTACLES: FpcLesson = {
   pearls: ['Tower guy wires are rarely lit.', '"Constant bearing, decreasing range" means collision course.'],
   pitfalls: ['Trusting the obstacle database for wires.', 'Being head-down in patient care during landing.'],
   questions: [
-    { q: 'A leading cause of helicopter accidents at low level:', options: ['Bird strikes only', 'Wire strikes', 'Engine overheating', 'Tyre failure'], answer: 1, why: 'Thin, unmarked obstacles.' },
+    { q: 'A leading cause of helicopter accidents at low level:', options: ['Bird strikes only', 'Wire strikes', 'Engine overheating', 'Tire failure'], answer: 1, why: 'Thin, unmarked obstacles.' },
     { q: 'CFIT means:', options: ['Engine failure', 'An airworthy aircraft flown into terrain unintentionally', 'Fire in flight', 'Fuel exhaustion'], answer: 1, why: 'Controlled flight into terrain.' },
     { q: 'Between two pylons you should assume:', options: ['Nothing', 'Wires', 'Birds', 'A runway'], answer: 1, why: 'Conservative assumption.' },
     { q: 'HTAWS:', options: ['Detects all wires', 'Alerts to terrain and database obstacles', 'Shows weather', 'Controls the aircraft'], answer: 1, why: 'Database limitations.' },
@@ -235,7 +235,7 @@ export const OBSTACLES: FpcLesson = {
     { q: 'During landing, medical crew should:', options: ['Continue all care', 'Pause care and look out', 'Sleep', 'Use the radio'], answer: 1, why: 'Critical phase.' },
     { q: 'Tower guy wires are:', options: ['Always lit', 'Often unlit and hard to see', 'Not dangerous', 'Charted always'], answer: 1, why: 'Hidden hazard.' },
     { q: 'CFIT most often occurs:', options: ['On clear days', 'At night and in poor visibility', 'Only over water', 'At high altitude'], answer: 1, why: 'Reduced visual cues.' },
-    { q: 'Wire-strike protection systems:', options: ['Detect wires', 'Can cut some wires on impact', 'Prevent all strikes', 'Are radar'], answer: 1, why: 'Last line of defence.' },
+    { q: 'Wire-strike protection systems:', options: ['Detect wires', 'Can cut some wires on impact', 'Prevent all strikes', 'Are radar'], answer: 1, why: 'Last line of defense.' },
     { q: 'Clues to unseen wires include:', options: ['Clouds', 'Cleared strips through trees and poles beside roads', 'Rivers only', 'Birds'], answer: 1, why: 'Infrastructure.' },
     { q: 'Mid-air collision risk is highest near:', options: ['Open ocean', 'Hospitals, airports and busy scenes', 'Deserts', 'Mountain tops'], answer: 1, why: 'Converging traffic.' },
   ],

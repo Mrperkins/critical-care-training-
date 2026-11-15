@@ -17,11 +17,11 @@ const CARD = { apnoea: ApnoeaCard, airway: AirwayCard, neo: NeoCard, ob: ObCard,
 const shuffle = (n: number, seed: string) => { let h = 0; for (const c of seed) h = (h * 31 + c.charCodeAt(0)) >>> 0; const a = Array.from({ length: n }, (_, i) => i); for (let i = n - 1; i > 0; i--) { h = (h * 1103515245 + 12345) >>> 0; const j = h % (i + 1); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const HEAD: Record<CaseModule, [string, string]> = {
   abdomen: ['Read the scan, treat the patient', 'FAST and CT angiography drawn from the abdominal model. Findings text is hidden until you answer.'],
-  neuro: ['Localise, then decide', 'Stroke and raised-ICP cases from the brain model: the exam and vital signs come from the same state as the 3D brain.'],
-  heart: ['Follow the blood', 'Shunt cases from the two-circuit heart model. Watch where the flow goes and what colour it is.'],
+  neuro: ['Localize, then decide', 'Stroke and raised-ICP cases from the brain model: the exam and vital signs come from the same state as the 3D brain.'],
+  heart: ['Follow the blood', 'Shunt cases from the two-circuit heart model. Watch where the flow goes and what color it is.'],
   vent: ['Imaging and airway', 'Films and scans drawn from the live ventilator patient, and the child’s airway. The written reading is hidden until you answer.'],
-  abg: ['Oxygen reserve', 'Apnoea cases for infants and pregnancy, drawn from the oxygen-store model on the blood-gas patient.'],
-  lines: ['Pregnancy', 'Obstetric cases on the live circulation: position and postpartum haemorrhage.'],
+  abg: ['Oxygen reserve', 'Apnea cases for infants and pregnancy, drawn from the oxygen-store model on the blood-gas patient.'],
+  lines: ['Pregnancy', 'Obstetric cases on the live circulation: position and postpartum hemorrhage.'],
   labs: ['Labs', 'Panels read on the lab bench.'],
 };
 

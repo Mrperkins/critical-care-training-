@@ -208,7 +208,7 @@ function OptionsCard({ practice = false }: { practice?: boolean }) {
         <button type="button" className={`tgl${showLeads ? ' on' : ''}`} aria-pressed={showLeads} onClick={() => set({ showLeads: !showLeads })}>Leads around the torso</button>
         <button type="button" className={`tgl${cut ? ' on' : ''}`} aria-pressed={cut} onClick={() => set({ cutaway: !cut })} title="Fade the right ventricle to show the septum">Septal cutaway</button>
         <button type="button" className={`tgl${cond ? ' on' : ''}`} aria-pressed={cond} onClick={() => set({ conduction: !cond })} title="See-through walls with the conduction system firing in time with the ECG">Conduction system</button>
-        <button type="button" className={`tgl${slice ? ' on' : ''}`} aria-pressed={slice} onClick={() => set({ slice: !slice })} title="Cut across both ventricles to see how deep into the wall the ischaemia reaches">Short-axis slice</button>
+        <button type="button" className={`tgl${slice ? ' on' : ''}`} aria-pressed={slice} onClick={() => set({ slice: !slice })} title="Cut across both ventricles to see how deep into the wall the ischemia reaches">Short-axis slice</button>
       </div>
       <div className="mi-opt"><span className="muted small">Pane size</span>
         <Seg small value={focus} options={[['heart', 'Heart'], ['split', 'Equal'], ['ecg', 'ECG']]} onChange={(f) => set({ focus: f })} /></div>
@@ -301,7 +301,7 @@ function EquivalentPanel({ e }: { e: STEMIEquivalent }) {
       </dl>
       <p className="mi-explain">{e.explanation}</p>
       <Fold group="mi-t" id="pearls" title="Clinical pearls"><ul className="mi-pearls">{e.clinicalPearls.map((p) => <li key={p}>{p}</li>)}</ul></Fold>
-      <p className="muted small">Turn on <b>Short-axis slice</b> in View options to see how deep into the wall the ischaemia reaches. ECG morphology is a teaching model.</p>
+      <p className="muted small">Turn on <b>Short-axis slice</b> in View options to see how deep into the wall the ischemia reaches. ECG morphology is a teaching model.</p>
       <button type="button" className="tgl" onClick={clearTerritory}>Back to a normal heart</button>
     </section>
   );
@@ -416,7 +416,7 @@ function isRight(q: ReturnType<typeof buildQuestions>[number], a: unknown) {
 /** stages named under the track (the rest are ticks, named in the stage readout as the playhead passes them) */
 const labelledKeys = (keys: { at: number; label: string }[]) => { const out = new Set<string>(); let last = -1; for (const k of keys) if (k.at - last >= 0.25 || last < 0) { out.add(k.label); last = k.at; } return out; };
 
-/** Select a territory or a STEMI equivalent. Equivalents open the short-axis slice: the depth of ischaemia is their point. */
+/** Select a territory or a STEMI equivalent. Equivalents open the short-axis slice: the depth of ischemia is their point. */
 export function selectFocus(id: string) {
   selectTerritory(id);
   const e = EQUIVALENT[id]; if (e && e.transmural >= 0.25 && e.transmural < 0.7) useApp.getState().set({ slice: true });

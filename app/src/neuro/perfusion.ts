@@ -7,7 +7,7 @@
  *    within minutes (core). Tissue between 10 and 20 survives for a time that shrinks as flow falls
  *    (τ ≈ 20 min at CBF 8, ≈ 70 min at 12, ≈ 5 h at 17).
  *  - Circle of Willis collaterals (ACoA, PCoA) and leptomeningeal collaterals refill a territory
- *    from its border inward; collateral flow is pressure-passive (∝ MAP) because ischaemic
+ *    from its border inward; collateral flow is pressure-passive (∝ MAP) because ischemic
  *    vessels have lost autoregulation.
  *  - CO₂ reactivity ≈ 3 %/mmHg around 40 mmHg; autoregulation keeps normal tissue flat for MAP 60–150.
  */
@@ -123,7 +123,7 @@ export function territoryStates(st: NeuroState, sys: Systemic = DEFAULT_SYSTEMIC
     const deep = CBF_NORMAL * f.direct * systemicFactor(sys, false);
     const border = CBF_NORMAL * Math.min(1, f.direct + f.collateral) * (isch ? (f.direct * systemicFactor(sys, false) + f.collateral * systemicFactor(sys, true)) / Math.max(1e-6, f.direct + f.collateral) : systemicFactor(sys, false));
     const t0 = { cbfDeep: deep, cbfBorder: Math.max(deep, border) };
-    // tissue fate: core where it infarcted during the ischaemic interval; penumbra where still at risk (only while occluded)
+    // tissue fate: core where it infarcted during the ischemic interval; penumbra where still at risk (only while occluded)
     let core = 0, pen = 0;
     for (let i = 0; i < SAMPLES; i++) {
       const w = (i + 0.5) / SAMPLES; const c = cbfAt(t0, w);
@@ -146,7 +146,7 @@ export function territoryStates(st: NeuroState, sys: Systemic = DEFAULT_SYSTEMIC
 }
 
 /**
- * Haematoma expansion (ICH): most growth happens in the first hours and more of it at high systolic
+ * Hematoma expansion (ICH): most growth happens in the first hours and more of it at high systolic
  * pressure. Teaching approximation: V(t) = V₀ · (1 + g · (1 − e^(−t/90))), g = 0.08 + 0.45 · clamp((SBP − 140)/80).
  * SBP is estimated from MAP (≈ MAP × 1.45). SAH volume is taken as given.
  */

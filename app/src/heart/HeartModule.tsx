@@ -134,7 +134,7 @@ function HeartOverlay() {
   const pct = (x: number) => `${Math.round(x * 100)}%`; const hide = useHideFindings();
   return (<>
     <div className="scene-tools">
-      <div className="seg small" role="group" aria-label="Flow colour">{([['sat', 'O₂ saturation'], ['doppler', 'Flow direction']] as [FlowMode, string][]).map(([k, l]) => <button key={k} className={flow === k ? 'on' : ''} onClick={() => set({ mode: k })}>{l}</button>)}</div>
+      <div className="seg small" role="group" aria-label="Flow color">{([['sat', 'O₂ saturation'], ['doppler', 'Flow direction']] as [FlowMode, string][]).map(([k, l]) => <button key={k} className={flow === k ? 'on' : ''} onClick={() => set({ mode: k })}>{l}</button>)}</div>
 
       <button className={`tgl${conduction ? ' on' : ''}`} aria-pressed={conduction} onClick={() => set({ conduction: !conduction })}>Conduction</button>
       <button className={`tgl${pericardium ? ' on' : ''}`} aria-pressed={pericardium} onClick={() => set({ pericardium: !pericardium })}>Pericardium</button>
@@ -237,7 +237,7 @@ function WhyCard() {
   const L = useHeartUI((s) => s.input.lesion);
   const t: Record<LesionKind, string> = {
     none: 'Two circuits in series: the right heart pumps venous blood through the low-resistance lungs, the left heart pumps oxygenated blood through the high-resistance body. Equal flows, very different pressures.',
-    vsd: 'Blood crosses the ventricular septum in systole from the higher-pressure side. A small hole keeps a big gradient (a fast, loud jet but little flow); a large hole lets the pressures equalise, so flow is set by the ratio of pulmonary to systemic resistance. The extra pulmonary flow returns to the LEFT atrium and ventricle, which dilate.',
+    vsd: 'Blood crosses the ventricular septum in systole from the higher-pressure side. A small hole keeps a big gradient (a fast, loud jet but little flow); a large hole lets the pressures equalize, so flow is set by the ratio of pulmonary to systemic resistance. The extra pulmonary flow returns to the LEFT atrium and ventricle, which dilate.',
     asd: 'Atrial pressures differ by only a few mmHg, so flow depends on the size of the hole and on how easily each ventricle fills. The thin, compliant right ventricle fills more easily, so blood goes left-to-right and the RIGHT atrium and ventricle take the volume load.',
     pfo: 'A flap left over from the fetal foramen ovale. Higher left atrial pressure normally holds it shut; anything that raises right atrial pressure (straining, coughing, pulmonary embolism) opens it right-to-left — the route for paradoxical embolism.',
     tof: 'Four features from one developmental shift (the outlet septum displaced forward): a large malaligned VSD, an aorta overriding it, a narrowed right-ventricular outflow, and a thick RV wall. Both ventricles eject at the same pressure into two parallel outlets, so the balance between outflow narrowing and systemic resistance decides how much blood reaches the lungs. A fall in SVR or outflow spasm starts a spell; knee-chest position, oxygen, morphine, fluids and phenylephrine raise SVR or relax the outflow.',

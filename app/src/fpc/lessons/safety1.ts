@@ -4,7 +4,7 @@ import type { FpcLesson } from '../types';
 export const AIRCRAFT_OPS: FpcLesson = {
   id: 'fpc-aircraft-ops', domain: 'safety', ref: 'I.1',
   title: 'Aircraft operations: rotor-wing, fixed-wing and the rules that govern them',
-  summary: 'How air medical services are organised and regulated, the strengths and limits of helicopters and airplanes, operational control, and the medical crew\'s role in a safe flight.',
+  summary: 'How air medical services are organized and regulated, the strengths and limits of helicopters and airplanes, operational control, and the medical crew\'s role in a safe flight.',
   objectives: [
     'Compare rotor-wing and fixed-wing aircraft for patient transport.',
     'Describe the regulatory framework and operational control of air medical flights.',
@@ -14,20 +14,20 @@ export const AIRCRAFT_OPS: FpcLesson = {
     {
       id: 'types', title: 'Rotor-wing and fixed-wing', core: true,
       body: [
-        'Helicopters (rotor-wing) take off and land vertically, reach scenes and hospital helipads directly, and are fastest over roughly 40–250 km (25–150 miles). Their cabins are small, noisy and often unpressurised, they fly at low altitudes where weather and obstacles matter most, and their range and payload are limited. Single-engine helicopters are common in air medical service; twin-engine aircraft add redundancy, payload and often instrument flight capability.',
-        'Fixed-wing aircraft (turboprops and jets) need runways, so every transfer involves ground ambulance legs at each end. They are faster and more economical over long distances, fly above most weather, and have pressurised cabins, so the cabin altitude can be controlled — usually 6000–8000 feet, or lower on request for patients sensitive to altitude. Larger cabins allow more equipment and crew.',
+        'Helicopters (rotor-wing) take off and land vertically, reach scenes and hospital helipads directly, and are fastest over roughly 40–250 km (25–150 miles). Their cabins are small, noisy and often unpressurized, they fly at low altitudes where weather and obstacles matter most, and their range and payload are limited. Single-engine helicopters are common in air medical service; twin-engine aircraft add redundancy, payload and often instrument flight capability.',
+        'Fixed-wing aircraft (turboprops and jets) need runways, so every transfer involves ground ambulance legs at each end. They are faster and more economical over long distances, fly above most weather, and have pressurized cabins, so the cabin altitude can be controlled — usually 6000–8000 feet, or lower on request for patients sensitive to altitude. Larger cabins allow more equipment and crew.',
         'The choice depends on distance, weather, the patient\'s condition and time-critical treatments at the destination, the availability of landing sites, and cost. For distances where ground transport would be similar in total time, the risks of flight should be weighed against the benefit.',
       ],
       table: {
         caption: 'Rotor-wing vs fixed-wing',
         head: ['', 'Rotor-wing', 'Fixed-wing'],
-        rows: [['Typical range', 'Up to ~250 km (150 mi)', 'Long distance, interfacility'], ['Landing', 'Scenes, helipads', 'Airports only (ground legs at each end)'], ['Cabin', 'Small, usually unpressurised', 'Larger, pressurised'], ['Altitude', 'Low (typically < 3000 ft AGL)', 'High cruise; cabin 6000–8000 ft'], ['Weather', 'More limited', 'Flies above much weather']],
+        rows: [['Typical range', 'Up to ~250 km (150 mi)', 'Long distance, interfacility'], ['Landing', 'Scenes, helipads', 'Airports only (ground legs at each end)'], ['Cabin', 'Small, usually unpressurized', 'Larger, pressurized'], ['Altitude', 'Low (typically < 3000 ft AGL)', 'High cruise; cabin 6000–8000 ft'], ['Weather', 'More limited', 'Flies above much weather']],
       },
     },
     {
       id: 'regs', title: 'Regulation and operational control', core: true,
       body: [
-        'In the United States, air ambulance operations with patients on board are generally conducted under FAA Part 135 (commuter and on-demand operations), which imposes stricter weather minimums, crew rest and maintenance requirements than Part 91 (general operations). The 2014 FAA helicopter air ambulance rule followed a cluster of fatal accidents and requires, among other things: operations control centres for larger operators, pre-flight risk analysis, helicopter terrain awareness and warning systems (HTAWS), flight data monitoring, safety briefings for medical crew, and instrument flight training for pilots.',
+        'In the United States, air ambulance operations with patients on board are generally conducted under FAA Part 135 (commuter and on-demand operations), which imposes stricter weather minimums, crew rest and maintenance requirements than Part 91 (general operations). The 2014 FAA helicopter air ambulance rule followed a cluster of fatal accidents and requires, among other things: operations control centers for larger operators, pre-flight risk analysis, helicopter terrain awareness and warning systems (HTAWS), flight data monitoring, safety briefings for medical crew, and instrument flight training for pilots.',
         'Operational control means one person — the pilot in command, supported by an operations control specialist — has the final authority to accept, decline or terminate a flight. Weather and safety decisions are made without knowledge of the patient\'s condition ("blind" acceptance) so that pressure to help a sick patient does not influence the decision to fly. A flight declined by one service because of weather should be disclosed to any other service asked to take it ("helicopter shopping" is dangerous).',
         'Accreditation bodies such as CAMTS (Commission on Accreditation of Medical Transport Systems) set standards above the regulatory minimum for medical and aviation safety, training and quality.',
       ],
@@ -52,7 +52,7 @@ export const AIRCRAFT_OPS: FpcLesson = {
     },
   ],
   keyPoints: [
-    'Rotor-wing for scenes and shorter distances; fixed-wing for long distances, with pressurised cabins.',
+    'Rotor-wing for scenes and shorter distances; fixed-wing for long distances, with pressurized cabins.',
     'Part 135 governs patient-carrying flights with stricter minimums than Part 91.',
     'The 2014 FAA HAA rule: OCCs, risk analysis, HTAWS, flight data monitoring, safety briefings.',
     'Weather decisions are made blind to patient condition; disclose prior declines.',
@@ -62,7 +62,7 @@ export const AIRCRAFT_OPS: FpcLesson = {
   pitfalls: ['"Helicopter shopping" after a weather decline.', 'Letting the patient\'s condition drive the decision to fly.'],
   questions: [
     { q: 'Patient-carrying air ambulance flights in the US are generally conducted under:', options: ['Part 91', 'Part 135', 'Part 121', 'Part 107'], answer: 1, why: 'Stricter on-demand rules.' },
-    { q: 'An advantage of fixed-wing over rotor-wing:', options: ['Lands at scenes', 'Pressurised cabin and long range', 'No ground legs', 'Lower altitude'], answer: 1, why: 'Suits long distances.' },
+    { q: 'An advantage of fixed-wing over rotor-wing:', options: ['Lands at scenes', 'Pressurized cabin and long range', 'No ground legs', 'Lower altitude'], answer: 1, why: 'Suits long distances.' },
     { q: 'Weather acceptance should be made:', options: ['After hearing the patient\'s condition', 'Without knowledge of the patient\'s condition', 'By the referring physician', 'By the family'], answer: 1, why: 'Removes pressure to fly.' },
     { q: '"Helicopter shopping" refers to:', options: ['Buying aircraft', 'Calling another service after one declined for weather without disclosure', 'Choosing the cheapest service', 'Fuel purchasing'], answer: 1, why: 'Dangerous practice.' },
     { q: '"Three to go, one to say no" means:', options: ['Three aircraft are needed', 'All crew must agree; any one can decline', 'Three patients maximum', 'Three hours rest'], answer: 1, why: 'Safety culture.' },
@@ -70,11 +70,11 @@ export const AIRCRAFT_OPS: FpcLesson = {
     { q: 'The final authority for accepting a flight rests with:', options: ['The flight nurse', 'The pilot in command (with operational control)', 'The patient', 'The referring hospital'], answer: 1, why: 'Operational control.' },
     { q: 'The 2014 FAA HAA rule required:', options: ['Jet engines', 'HTAWS and flight data monitoring', 'Three pilots', 'Night flights only'], answer: 1, why: 'Response to accidents.' },
     { q: 'CAMTS is:', options: ['A regulatory agency', 'An accreditation body for medical transport', 'An aircraft manufacturer', 'A weather service'], answer: 1, why: 'Standards above minimums.' },
-    { q: 'Typical pressurised fixed-wing cabin altitude:', options: ['Sea level always', '6000–8000 ft', '15 000 ft', '25 000 ft'], answer: 1, why: 'Can be lowered on request.' },
-    { q: 'A disadvantage of rotor-wing transport:', options: ['Lands at scenes', 'Limited payload, noise, weather sensitivity', 'Pressurised cabin', 'Unlimited range'], answer: 1, why: 'Operational limits.' },
+    { q: 'Typical pressurized fixed-wing cabin altitude:', options: ['Sea level always', '6000–8000 ft', '15 000 ft', '25 000 ft'], answer: 1, why: 'Can be lowered on request.' },
+    { q: 'A disadvantage of rotor-wing transport:', options: ['Lands at scenes', 'Limited payload, noise, weather sensitivity', 'Pressurized cabin', 'Unlimited range'], answer: 1, why: 'Operational limits.' },
     { q: 'If the patient deteriorates and needs diversion, the decision to divert is:', options: ['Medical crew alone', 'A crew discussion; the pilot decides if it can be flown safely', 'Dispatch only', 'Never possible'], answer: 1, why: 'Aviation decision.' },
     { q: 'Medical crew members during flight should:', options: ['Sit silently', 'Act as additional eyes, call out hazards', 'Navigate', 'Fly the aircraft'], answer: 1, why: 'Crew resource management.' },
-    { q: 'An operations control centre supports:', options: ['Billing', 'Flight following, weather and risk decisions', 'Patient care', 'Maintenance only'], answer: 1, why: 'Operational control.' },
+    { q: 'An operations control center supports:', options: ['Billing', 'Flight following, weather and risk decisions', 'Patient care', 'Maintenance only'], answer: 1, why: 'Operational control.' },
     { q: 'Rotor-wing is typically most time-efficient at about:', options: ['< 5 km', '40–250 km', '> 1000 km', 'Any distance'], answer: 1, why: 'Beyond ground and short of fixed-wing.' },
   ],
   sources: [
@@ -105,7 +105,7 @@ export const AERODYNAMICS: FpcLesson = {
       id: 'heli', title: 'How helicopters fly', core: true,
       body: [
         'The main rotor is a set of rotating wings. The pilot changes lift with the collective (altering the pitch of all blades together — up or down) and the direction with the cyclic (tilting the rotor disc so that thrust points forward, backward or sideways). Torque from the main rotor tries to spin the fuselage the opposite way; the tail rotor (or an equivalent system) counteracts it and is controlled with the anti-torque pedals. Losing the tail rotor causes the aircraft to spin — which is why people must never approach the tail.',
-        'Dissymmetry of lift: in forward flight, the advancing blade meets air at rotor speed plus airspeed, while the retreating blade meets air at rotor speed minus airspeed. Blade flapping equalises lift. At high forward speed the retreating blade can stall (retreating blade stall), limiting the helicopter\'s maximum speed.',
+        'Dissymmetry of lift: in forward flight, the advancing blade meets air at rotor speed plus airspeed, while the retreating blade meets air at rotor speed minus airspeed. Blade flapping equalizes lift. At high forward speed the retreating blade can stall (retreating blade stall), limiting the helicopter\'s maximum speed.',
         'Translational lift: above about 16–24 knots of airspeed, the rotor moves into undisturbed air and becomes markedly more efficient — the aircraft shudders briefly and then climbs more easily. Ground effect: within about one rotor diameter of a firm, level surface, downwash is cushioned and less power is needed to hover. Hovering out of ground effect (over long grass, water, or high above a scene) requires far more power.',
       ],
     },
@@ -120,7 +120,7 @@ export const AERODYNAMICS: FpcLesson = {
     },
     {
       id: 'case', title: 'Scenario: the confined scene',
-      body: ['Ground crews have set up a landing zone in a small clearing surrounded by 25-metre trees, on a slight slope, on a hot afternoon. The pilot circles twice, then elects to land at a field 1 km away.'],
+      body: ['Ground crews have set up a landing zone in a small clearing surrounded by 25-meter trees, on a slight slope, on a hot afternoon. The pilot circles twice, then elects to land at a field 1 km away.'],
       example: { case: 'Why?', steps: [
         'A vertical descent into a confined area at low airspeed risks settling with power.',
         'Hot air reduces density and available power; hovering out of ground effect over tall trees may exceed performance.',
@@ -164,7 +164,7 @@ export const AERODYNAMICS: FpcLesson = {
 export const AIRCRAFT_PERFORMANCE: FpcLesson = {
   id: 'fpc-aircraft-performance', domain: 'safety', ref: 'I.3',
   title: 'Aircraft performance: density altitude, weight and balance',
-  summary: 'Why hot, high and heavy aircraft perform poorly, how weight and centre of gravity limit what you can carry, fuel planning, and the medical crew\'s part in keeping the aircraft within limits.',
+  summary: 'Why hot, high and heavy aircraft perform poorly, how weight and center of gravity limit what you can carry, fuel planning, and the medical crew\'s part in keeping the aircraft within limits.',
   objectives: [
     'Explain density altitude and its effect on lift, engine power and rotor performance.',
     'Describe weight and balance limits and how patients, crew and equipment affect them.',
@@ -182,16 +182,16 @@ export const AIRCRAFT_PERFORMANCE: FpcLesson = {
     {
       id: 'weight', title: 'Weight and balance', core: true,
       body: [
-        'Every aircraft has a maximum gross weight (for take-off and landing) and a centre of gravity (CG) envelope. Exceeding weight reduces performance and structural margins; a CG outside limits can make the aircraft uncontrollable, especially in helicopters, where cyclic authority to correct an out-of-limit CG is limited.',
+        'Every aircraft has a maximum gross weight (for take-off and landing) and a center of gravity (CG) envelope. Exceeding weight reduces performance and structural margins; a CG outside limits can make the aircraft uncontrollable, especially in helicopters, where cyclic authority to correct an out-of-limit CG is limited.',
         'The medical crew influence both: crew weights, the patient\'s weight (including obese patients and those with heavy equipment such as balloon pumps, ECMO or incubators), family members, additional providers, blood coolers and bags. Report accurate weights before the flight and before adding anything. Secure equipment where the configuration places it; moving heavy items changes the CG.',
-        'Fuel is part of the weight calculation. On a hot day at a high helipad, the pilot may carry less fuel to stay within limits, which shortens range and requires a refuelling plan.',
+        'Fuel is part of the weight calculation. On a hot day at a high helipad, the pilot may carry less fuel to stay within limits, which shortens range and requires a refueling plan.',
       ],
     },
     {
       id: 'fuel', title: 'Fuel and range planning', core: true,
       body: [
         'Fuel planning includes the trip, contingencies, a reserve and, in instrument conditions, fuel to fly to an alternate airport. Under FAA rules, helicopters operating under visual flight rules need enough fuel to reach the first intended landing plus at least 20 minutes at normal cruise (Part 135), and many air medical operators require 30 minutes or more; instrument flights require fuel to the destination, then to an alternate, plus 30 minutes. Many air medical operators set stricter reserves.',
-        'Fuel consumption rises with weight, wind, hovering and high power settings. A long scene hover, a diversion or a headwind can shorten range unexpectedly. The medical crew can help by being ready when the aircraft lands (minimising ground running time) and by understanding that a "minimum fuel" call means the plan must change — not that the pilot is being cautious for no reason.',
+        'Fuel consumption rises with weight, wind, hovering and high power settings. A long scene hover, a diversion or a headwind can shorten range unexpectedly. The medical crew can help by being ready when the aircraft lands (minimizing ground running time) and by understanding that a "minimum fuel" call means the plan must change — not that the pilot is being cautious for no reason.',
       ],
       table: {
         caption: 'What changes performance',
@@ -205,7 +205,7 @@ export const AIRCRAFT_PERFORMANCE: FpcLesson = {
       example: { case: 'What does the pilot have to consider?', steps: [
         'Density altitude is very high (around 9500 ft or more); hover and climb performance are reduced.',
         'Total weight — patient, three crew, equipment and fuel — may exceed limits; the additional provider may not fit.',
-        'Options: reduce fuel and plan a refuelling stop, leave non-essential equipment, fly in the cooler evening, use a larger or fixed-wing aircraft, or ground transport.',
+        'Options: reduce fuel and plan a refueling stop, leave non-essential equipment, fly in the cooler evening, use a larger or fixed-wing aircraft, or ground transport.',
         'Report accurate weights; never guess low to make a flight work.',
       ] },
     },
@@ -224,15 +224,15 @@ export const AIRCRAFT_PERFORMANCE: FpcLesson = {
     { q: 'High density altitude causes:', options: ['Better performance', 'Reduced lift, power and climb', 'More fuel efficiency', 'No change'], answer: 1, why: 'Less dense air.' },
     { q: 'Standard sea-level temperature:', options: ['0 °C', '15 °C', '25 °C', '30 °C'], answer: 1, why: 'ISA standard.' },
     { q: 'Standard temperature lapse rate:', options: ['2 °C per 1000 ft', '10 °C per 1000 ft', '0.5 °C per 1000 ft', 'None'], answer: 0, why: 'Approximate standard.' },
-    { q: 'An out-of-limits centre of gravity can:', options: ['Improve speed', 'Make the aircraft uncontrollable', 'Reduce noise', 'Increase fuel'], answer: 1, why: 'Limited control authority.' },
-    { q: 'The medical crew affect weight and balance by:', options: ['Nothing', 'Patient, crew and equipment weights and positions', 'Radio use', 'Seat colour'], answer: 1, why: 'Report accurately.' },
+    { q: 'An out-of-limits center of gravity can:', options: ['Improve speed', 'Make the aircraft uncontrollable', 'Reduce noise', 'Increase fuel'], answer: 1, why: 'Limited control authority.' },
+    { q: 'The medical crew affect weight and balance by:', options: ['Nothing', 'Patient, crew and equipment weights and positions', 'Radio use', 'Seat color'], answer: 1, why: 'Report accurately.' },
     { q: 'On a hot day at a high helipad, a pilot may:', options: ['Add fuel', 'Reduce fuel or payload', 'Fly faster', 'Ignore limits'], answer: 1, why: 'Stay within performance.' },
     { q: 'A headwind on take-off:', options: ['Worsens performance', 'Improves take-off performance', 'Has no effect', 'Increases weight'], answer: 1, why: 'More airflow over rotor.' },
     { q: 'IFR fuel requirement generally includes:', options: ['Destination only', 'Destination, alternate, plus 30 min reserve', '10 min reserve', 'No reserve'], answer: 1, why: 'Regulatory minimum.' },
     { q: 'Fuel consumption increases with:', options: ['Lighter loads', 'Hovering and high power settings', 'Tailwinds in cruise', 'Lower weight'], answer: 1, why: 'More power demand.' },
-    { q: 'Humidity affects air density by:', options: ['Increasing it', 'Slightly decreasing it', 'No effect', 'Doubling it'], answer: 1, why: 'Water vapour is lighter than air.' },
+    { q: 'Humidity affects air density by:', options: ['Increasing it', 'Slightly decreasing it', 'No effect', 'Doubling it'], answer: 1, why: 'Water vapor is lighter than air.' },
     { q: 'If the total weight exceeds limits, the safe response is:', options: ['Under-report', 'Reduce weight or choose another option', 'Fly anyway', 'Add fuel'], answer: 1, why: 'Limits are absolute.' },
-    { q: 'Moving a heavy ECMO console within the cabin:', options: ['Has no effect', 'Shifts the centre of gravity', 'Improves performance', 'Is required'], answer: 1, why: 'Changes balance.' },
+    { q: 'Moving a heavy ECMO console within the cabin:', options: ['Has no effect', 'Shifts the center of gravity', 'Improves performance', 'Is required'], answer: 1, why: 'Changes balance.' },
     { q: 'Every degree above standard temperature raises density altitude by about:', options: ['12 ft', '120 ft', '1200 ft', '12 000 ft'], answer: 1, why: 'Rule of thumb.' },
     { q: 'A "minimum fuel" declaration means:', options: ['Continue as planned', 'The plan must change to protect reserves', 'Refuel next week', 'Normal operations'], answer: 1, why: 'Fuel priority.' },
   ],

@@ -6,7 +6,7 @@ import { ecgShape } from '../src/physiology/ecg';
 
 const at = (t: number) => { resolve(HYPERKALEMIA, t); const s = bench.snap; return { k: s.k, qrs: ecgShape({ kEff: s.kEffective, k: s.k, ca: bench.pt.p.ca, mg: bench.pt.p.mg }).qrs }; };
 
-describe('hyperkalaemia signature lesson (labs bench, Lesson Director)', () => {
+describe('hyperkalemia signature lesson (labs bench, Lesson Director)', () => {
   it('walks K⁺ up to a sine wave and treats it in the right order', () => {
     const t0 = at(0), tHi = at(34), tSine = at(41.9), tCa = at(51.9), tIns = at(61.9), tRb = at(71.9), tHd = at(82.9);
     expect(t0.k).toBeCloseTo(4.2, 1);

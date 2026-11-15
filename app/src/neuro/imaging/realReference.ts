@@ -20,14 +20,14 @@ export function selectNeuroRealFinding(st: NeuroState, sys: Systemic = DEFAULT_S
       id: 'sah-ct-mirza',
       stage: 'sah',
       label: 'Real reference · subarachnoid blood',
-      reason: 'The model contains subarachnoid haemorrhage, so a real non-contrast CT example of cisternal and sulcal blood is the closest licensed reference.',
+      reason: 'The model contains subarachnoid hemorrhage, so a real non-contrast CT example of cisternal and sulcal blood is the closest licensed reference.',
     };
   }
   if (st.hemorrhage?.kind === 'ich') {
     return {
       id: 'ich-deep-locations-2016',
       stage: 'ich',
-      label: 'Real reference · deep intracerebral haemorrhage',
+      label: 'Real reference · deep intracerebral hemorrhage',
       reason: 'The model contains a deep spontaneous ICH. This reference demonstrates the typical deep locations and CT density of acute intraparenchymal blood without inventing ventricular extension or a CTA spot sign.',
     };
   }
@@ -58,24 +58,24 @@ export function selectNeuroRealFinding(st: NeuroState, sys: Systemic = DEFAULT_S
       id: 'stroke-ctp-mismatch-2025',
       stage: 'perfusion',
       label: 'Real reference · perfusion mismatch',
-      reason: 'At this early stage the model still contains threatened but potentially salvageable tissue, so a real core–penumbra mismatch study is the closest visual analogue.',
+      reason: 'At this early stage the model still contains threatened but potentially salvageable tissue, so a real core–penumbra mismatch study is the closest visual analog.',
     };
   }
   if (st.minutes < 480 || (reopened && core < 10 && st.minutes < 720)) {
     return {
       id: 'stroke-early-change-2025',
       stage: 'early-infarct',
-      label: 'Real reference · early ischaemic change',
+      label: 'Real reference · early ischemic change',
       reason: reopened
         ? 'Flow has been restored in the model, but any tissue already injured can lag behind reperfusion on non-contrast CT; this is an early parenchymal reference, not proof of a large completed infarct.'
-        : 'The model has progressed beyond the earliest vessel/perfusion phase, so loss of grey–white differentiation is a better real-world reference than a normal-looking early CT.',
+        : 'The model has progressed beyond the earliest vessel/perfusion phase, so loss of gray–white differentiation is a better real-world reference than a normal-looking early CT.',
     };
   }
   if (core >= 55 && st.minutes < 1080) {
     return {
       id: 'stroke-malignant-edema-2023',
       stage: 'mass-effect',
-      label: 'Real reference · malignant MCA oedema',
+      label: 'Real reference · malignant MCA edema',
       reason: 'The simulated completed core is large and several hours old. A real example of space-occupying MCA infarction demonstrates the mass-effect pattern that becomes the major late threat.',
     };
   }
@@ -91,6 +91,6 @@ export function selectNeuroRealFinding(st: NeuroState, sys: Systemic = DEFAULT_S
     id: 'stroke-mass-effect-2021',
     stage: 'mass-effect',
     label: 'Real reference · evolving large infarct',
-    reason: 'The model is several hours into an anterior-circulation stroke with a meaningful completed core; this reference shows the evolving hypodensity and swelling pattern without assuming haemorrhagic transformation.',
+    reason: 'The model is several hours into an anterior-circulation stroke with a meaningful completed core; this reference shows the evolving hypodensity and swelling pattern without assuming hemorrhagic transformation.',
   };
 }

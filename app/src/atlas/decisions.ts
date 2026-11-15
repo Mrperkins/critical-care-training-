@@ -3,7 +3,7 @@ import type { Decision } from './types';
 /** Consequences show a specific mechanism; they are not a treatment protocol or a drug-dose model. */
 export const DECISIONS = {
   airway: [
-    { id: 'relieve', label: 'Relieve bronchospasm and allow more time to exhale', outcome: 'stabilize', change: { obstruction: -0.3, overdistension: -0.2, pressure: -0.15 }, explanation: 'Airway calibre improves and retained gas decreases. Underlying airway disease remains; reassess ventilation and perfusion.' },
+    { id: 'relieve', label: 'Relieve bronchospasm and allow more time to exhale', outcome: 'stabilize', change: { obstruction: -0.3, overdistension: -0.2, pressure: -0.15 }, explanation: 'Airway caliber improves and retained gas decreases. Underlying airway disease remains; reassess ventilation and perfusion.' },
     { id: 'faster', label: 'Increase rate while keeping the same inspiratory time', outcome: 'deteriorate', change: { overdistension: 0.25, pressure: 0.2, flowLoss: 0.15 }, explanation: 'Shorter expiration adds trapped gas. Intrathoracic pressure can impede venous return even when minute ventilation appears larger.' },
     { id: 'oxygen', label: 'Change oxygen alone', outcome: 'unchanged', change: {}, explanation: 'Oxygen does not relieve obstruction or dynamic hyperinflation. The mechanical problem persists.' },
   ],

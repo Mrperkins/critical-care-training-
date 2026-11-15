@@ -47,7 +47,7 @@ export function IcpCard() {
           <button className={`chip${inp.decompressed ? ' on' : ''}`} onClick={() => setIcp({ decompressed: !inp.decompressed })}>Evacuate / decompress</button>
           <button className={`chip${e ? ' on' : ''}`} onClick={() => setEvd(e ? null : { open: true })}>EVD</button>
           {e && <button className={`chip${e.open ? ' on' : ''}`} onClick={() => setEvd({ open: !e.open })}>{e.open ? 'Open' : 'Clamped'}</button>}
-          {e && <button className={`chip${e.levelErrorCm ? ' on' : ''}`} onClick={() => setEvd({ levelErrorCm: e.levelErrorCm ? 0 : 15 })}>Head raised, not re-levelled</button>}
+          {e && <button className={`chip${e.levelErrorCm ? ' on' : ''}`} onClick={() => setEvd({ levelErrorCm: e.levelErrorCm ? 0 : 15 })}>Head raised, not re-leveled</button>}
         </div>
         {e && <Knob label="EVD chamber above the tragus" value={e.heightCm} min={0} max={25} step={1} unit=" cmH₂O" onChange={(v) => setEvd({ heightCm: v })} hint={`≈ ${Math.round(e.heightCm / 1.36)} mmHg`} />}
         <p className="muted small">PaCO₂ and MAP are in the Patient card; brief hyperventilation lowers ICP by constricting vessels — and lowers blood flow too.</p>

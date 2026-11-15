@@ -81,7 +81,7 @@ export interface ECGPattern {
 }
 
 export interface CameraPose {
-  /** Direction from the heart centre toward the camera (body frame). */
+  /** Direction from the heart center toward the camera (body frame). */
   dir: Vec3;
   distance: number;
 }

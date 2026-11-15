@@ -1,5 +1,5 @@
 /**
- * Oxygen stores during apnoea (no breathing, airway closed: no apnoeic oxygenation). Built on the SAME blood
+ * Oxygen stores during apnea (no breathing, airway closed: no apneic oxygenation). Built on the SAME blood
  * chemistry as the SyntheticPatient (blood.ts: Severinghaus dissociation, Bohr-shifted P50, O₂ content,
  * Henderson–Hasselbalch) — it is the patient's oxygen bookkeeping with ventilation switched off, not a
  * separate physiology.
@@ -11,7 +11,7 @@
  *
  * Each step solves store(PAO₂) = remaining O₂ for PAO₂ (bisection). Because the dissociation curve is flat at
  * the top, SpO₂ barely moves while the lung store drains — then falls off a cliff once PAO₂ nears 60.
- * Profiles are teaching values (supine, anaesthetised FRC; resting VO₂). Published apnoea studies give ranges
+ * Profiles are teaching values (supine, anesthetized FRC; resting VO₂). Published apnea studies give ranges
  * around these times; individual patients differ widely.
  */
 import { PATM, PH2O, sat, p50, o2Content, hh } from './blood';
@@ -26,7 +26,7 @@ export const APNOEA_PROFILES: ApnoeaProfile[] = [
   { id: 'adult', name: 'Healthy adult (70 kg)', short: 'Adult', weightKg: 70, frcL: 2.5, vo2: 250, hb: 14.5, bloodL: 5, co: 5,
     why: 'FRC ≈ 35 mL/kg holds ≈ 2 L of oxygen after pre-oxygenation; VO₂ ≈ 3.5 mL/kg/min.' },
   { id: 'pregnant', name: 'Term pregnancy', short: 'Pregnancy', weightKg: 75, frcL: 1.95, vo2: 320, hb: 11.5, bloodL: 6.5, co: 6.8,
-    why: 'The uterus pushes the diaphragm up: FRC ≈ 20 % lower. VO₂ ≈ 20–30 % higher (mother + fetus + placenta). Dilutional anaemia.' },
+    why: 'The uterus pushes the diaphragm up: FRC ≈ 20 % lower. VO₂ ≈ 20–30 % higher (mother + fetus + placenta). Dilutional anemia.' },
   { id: 'obese', name: 'Obesity (130 kg)', short: 'Obese', weightKg: 130, frcL: 1.35, vo2: 330, hb: 14.5, bloodL: 6.5, co: 6.5,
     why: 'Abdominal and chest-wall mass collapses FRC when supine; more tissue consumes more oxygen.' },
   { id: 'child', name: 'Child (4 y, 18 kg)', short: 'Child', weightKg: 18, frcL: 0.36, vo2: 108, hb: 12, bloodL: 1.4, co: 2.6,
@@ -34,7 +34,7 @@ export const APNOEA_PROFILES: ApnoeaProfile[] = [
   { id: 'infant', name: 'Infant (3 months, 6 kg)', short: 'Infant', weightKg: 6, frcL: 0.09, vo2: 48, hb: 11, bloodL: 0.48, co: 1.1,
     why: 'VO₂ ≈ 8 mL/kg/min; a compliant chest wall lets FRC collapse to ≈ 15 mL/kg after induction.' },
   { id: 'newborn', name: 'Term newborn (3.5 kg)', short: 'Newborn', weightKg: 3.5, frcL: 0.06, vo2: 28, hb: 16.5, bloodL: 0.3, co: 0.7,
-    why: 'Highest VO₂ per kilo and the smallest FRC; fetal haemoglobin binds oxygen tightly (low P50).' },
+    why: 'Highest VO₂ per kilo and the smallest FRC; fetal hemoglobin binds oxygen tightly (low P50).' },
 ];
 export const APNOEA_BY_ID = Object.fromEntries(APNOEA_PROFILES.map((p) => [p.id, p])) as Record<string, ApnoeaProfile>;
 
@@ -47,7 +47,7 @@ export interface ApnoeaCurve { t: number[]; spo2: number[]; pao2: number[]; paco
 
 const PB = PATM - PH2O; const HB_F = (id: string) => (id === 'newborn' ? 0.72 : 1); // fetal Hb: P50 ≈ 19 vs 26.8
 
-/** SpO₂ over time from the start of apnoea. Pure and deterministic. */
+/** SpO₂ over time from the start of apnea. Pure and deterministic. */
 export function apnoeaCurve(p: ApnoeaProfile, o: ApnoeaOptions = {}): ApnoeaCurve {
   const fao2 = o.fao2 ?? 0.87; const minutes = o.minutes ?? 12; const dt = (o.stepS ?? 2) / 60;
   const frc = p.frcL * (o.headUp ? 1.15 : 1) * 1000; // mL
@@ -69,5 +69,5 @@ export function apnoeaCurve(p: ApnoeaProfile, o: ApnoeaOptions = {}): ApnoeaCurv
   }
   return out;
 }
-/** Minutes of apnoea until SpO₂ < 90 % (null if it stays above within the window). */
+/** Minutes of apnea until SpO₂ < 90 % (null if it stays above within the window). */
 export const safeApnoea = (p: ApnoeaProfile, o: ApnoeaOptions = {}) => apnoeaCurve(p, { minutes: 15, ...o }).t90;

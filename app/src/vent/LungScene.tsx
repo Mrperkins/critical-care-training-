@@ -72,7 +72,7 @@ const lungColor = /* glsl */ `
   float speck = max(t1.b, t2.b) * step(0.35, septa);
   c = mix(c, vec3(0.06, 0.055, 0.06), speck * 0.55);                // anthracotic pigment along septa
   c = mix(c, c * vec3(0.95, 0.9, 0.95), smoothstep(0.4, 1.0, vDep) * 0.25); // gravity-dependent congestion
-  c = mix(c, vec3(0.42, 0.14, 0.14), uWet * smoothstep(0.35, 0.9, vDep)); // oedema pooling
+  c = mix(c, vec3(0.42, 0.14, 0.14), uWet * smoothstep(0.35, 0.9, vDep)); // edema pooling
   c = mix(c, vec3(0.19, 0.035, 0.045) * (0.8 + 0.4 * mott), vAtel);   // atelectatic: dark, airless, liver-like
   c = mix(c, vec3(0.86, 0.66, 0.60), clamp(vOver, 0.0, 1.0) * 0.75); // overdistended: pale, stretched
   diffuseColor.rgb = mix(c, vec3(0.55, 0.62, 0.7), uGhost);
@@ -203,7 +203,7 @@ function Lungs({ asset }: { asset: RespAsset }) {
 
   // flow particles along the tube into the trachea
   const path = useMemo(() => [...ettLine, mapping.ett.carina], [ettLine, mapping.ett.carina]);
-  // ETT exports contain overlapping tube-centreline segments. Reorder them by
+  // ETT exports contain overlapping tube-centerline segments. Reorder them by
   // actual superior-to-inferior position so bulk flow never jumps from carina
   // back to the top of the tube (the original particle path can stay optional).
   const airColumn = useMemo<FlowPoint[]>(() => {
@@ -227,7 +227,7 @@ function Lungs({ asset }: { asset: RespAsset }) {
     const m = S.m; const reg = m.regional();
     UU.uTime.value += dt;
     for (let k = 0; k < 2; k++) {
-      const V = m.V[k]; // litres above the relaxed (ZEEP) volume
+      const V = m.V[k]; // liters above the relaxed (ZEEP) volume
       const s = (Math.cbrt(Math.max(0.2, (FRC[k] + V) / FRC[k])) - 1) * AMPLIFY;
       const key = k === 0 ? 'x' : 'y';
       UU.uS.value[key] = s;

@@ -1,8 +1,8 @@
 /**
  * Invasive-lines 3D bedside: patient supine on a bed (head of bed adjustable), see-through skin,
- * the heart's chambers and valves beating in time with the synthesiser, the great vessels, a
+ * the heart's chambers and valves beating in time with the synthesizer, the great vessels, a
  * right radial arterial line and a right internal-jugular central line with its tip at the
- * cavo-atrial junction, the transducer pole with pressure bag, and the levelling line from the
+ * cavo-atrial junction, the transducer pole with pressure bag, and the leveling line from the
  * transducer's air–fluid interface to the phlebostatic axis.
  */
 import { useEffect, useMemo, useRef } from 'react';
@@ -142,7 +142,7 @@ function Patient({ body, asset }: { body: BodyAsset; asset: LinesAsset }) {
     // pressure cues: RA glow ∝ CVP, aorta ∝ central pressure
     mats.ra.emissiveIntensity = Math.min(1, Math.max(0, (h.ra - 2) / 22)) * 0.9;
     mats.aorta.emissiveIntensity = Math.min(1, Math.max(0, (h.ao - 60) / 90)) * 0.7;
-    // pulse wavefront travelling to the wrist in the pulse transit time
+    // pulse wavefront traveling to the wrist in the pulse transit time
     // pulse front: reaches the radial cannula in the pulse transit time, and keeps going to the feet
     if (lv) { const u = t - lv.tq - lv.pep; wave.uFront.value = (u / c.ptt) * wDist; wave.uAmp.value = u < c.ptt * 3.2 ? Math.min(1, lv.sv / 70) : 0; }
     // skin: see-through / solid / off (close anatomical views always cut away)
@@ -252,7 +252,7 @@ function Pole({ asset }: { asset: LinesAsset }) {
     <mesh geometry={cvpTube} material={cF === 'lowBag' ? bloody : clear} />
     {bubble(aF, tA)}{bubble(cF, tC)}
     {aF === 'disconnect' && <mesh position={[wristW.x + 0.3, lines.setup.bedH / 10 + 0.02, wristW.z + 0.3]} rotation={[-Math.PI / 2, 0, 0]}><circleGeometry args={[0.9, 24]} /><meshStandardMaterial color="#6d0b12" roughness={0.2} /></mesh>}
-    {/* levelling line and the phlebostatic axis */}
+    {/* leveling line and the phlebostatic axis */}
     <primitive object={dashLine} />
     <mesh position={axisWorld}><sphereGeometry args={[0.12, 16, 12]} /><meshBasicMaterial color="#e9b949" /></mesh>
     {Math.abs(levelErr) >= 1.5 && <mesh position={[axisWorld.x, (th + axisH) / 2, axisWorld.z]}><cylinderGeometry args={[0.02, 0.02, Math.abs(axisH - th), 6]} /><meshBasicMaterial color="#e0645a" /></mesh>}

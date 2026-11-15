@@ -27,7 +27,7 @@ export function mechanics(time: number) {
 }
 
 /**
- * The SA node fires 50 ms into each modelled beat, as the P wave begins; His activation (117 ms after SA in
+ * The SA node fires 50 ms into each modeled beat, as the P wave begins; His activation (117 ms after SA in
  * heart-internals.glb's activation map) lands at ~167 ms and the Purkinje network finishes by ~236 ms, inside the
  * QRS the ECG model draws (180–270 ms).
  */

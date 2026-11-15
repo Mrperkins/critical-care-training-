@@ -131,7 +131,7 @@ export const TERRITORIES: CoronaryTerritory[] = [
     ecgPattern: { id: 'inferior', injury: n([-0.3, -0.95, -0.05]), injuryMv: 0.2, necrosisMv: 0.2, hyperacuteMv: 0.12 },
     explanation: 'The inferior wall rests on the diaphragm. Leads II, III and aVF all have their positive electrode on the left leg, so they look up at that wall from below. When it is injured, the ST vector points down toward them and they elevate. I and aVL look from above and to the left, the opposite direction, so they show reciprocal depression.',
     clinicalPearls: [
-      'ST elevation greater in III than II, with depression in I, favours the RCA; II ≥ III without I depression favours the circumflex.',
+      'ST elevation greater in III than II, with depression in I, favors the RCA; II ≥ III without I depression favors the circumflex.',
       'Always record right-sided leads (V4R). RV involvement changes management: avoid nitrates and give fluid.',
       'Bradycardia and AV block are common. The RCA usually supplies the SA and AV nodes.',
     ],

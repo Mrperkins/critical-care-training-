@@ -1,5 +1,5 @@
 /**
- * Ventilator graphics: synchronised pressure / flow / volume (and optional patient-effort)
+ * Ventilator graphics: synchronized pressure / flow / volume (and optional patient-effort)
  * scalars, plus pressure–volume and flow–volume loops. Drawn straight from the session's
  * ring buffer every animation frame.
  */

@@ -16,7 +16,7 @@ export const MECH_VENT: FpcLesson = {
       body: [
         'In volume control (VC), you set the tidal volume, rate, flow (or inspiratory time), PEEP and FiO₂. The ventilator guarantees the volume; airway pressure is the result and rises when compliance falls or resistance rises. Watch the peak and plateau pressures.',
         'In pressure control (PC), you set the inspiratory pressure above PEEP, inspiratory time, rate, PEEP and FiO₂. Pressure is capped; tidal volume is the result and falls when the lungs stiffen or the airways narrow. Watch the exhaled tidal volume and minute ventilation.',
-        'Assist-control (AC) delivers a full mandatory breath, volume- or pressure-targeted, every time the patient triggers, plus backup breaths at the set rate. SIMV delivers set mandatory breaths synchronised with patient effort and allows spontaneous breaths between them, usually with pressure support. Pressure support (PS) alone requires the patient to trigger every breath and is not appropriate for a paralysed or apnoeic patient.',
+        'Assist-control (AC) delivers a full mandatory breath, volume- or pressure-targeted, every time the patient triggers, plus backup breaths at the set rate. SIMV delivers set mandatory breaths synchronized with patient effort and allows spontaneous breaths between them, usually with pressure support. Pressure support (PS) alone requires the patient to trigger every breath and is not appropriate for a paralyzed or apneic patient.',
       ],
     },
     {
@@ -42,7 +42,7 @@ export const MECH_VENT: FpcLesson = {
       body: [
         'Peak inspiratory pressure (PIP) is the pressure needed to push the tidal volume through the airways and stretch the lungs and chest wall. Plateau pressure (Pplat), measured with an inspiratory hold of about 0.5 seconds when flow is zero, reflects only the elastic component. Keep the plateau at or below 30 cmH₂O.',
         'Driving pressure is plateau minus PEEP. It expresses how hard the tidal volume stretches the available lung; lower driving pressures (below about 15 cmH₂O) are associated with better outcomes in ARDS. Static compliance is tidal volume divided by driving pressure.',
-        'High peak with a normal plateau (a large peak–plateau gap) is a resistance problem: kinked or bitten tube, secretions, bronchospasm, small tube. High peak with a high plateau is a compliance problem: pneumothorax, mainstem intubation, pulmonary oedema, ARDS, abdominal distension, chest wall rigidity, auto-PEEP.',
+        'High peak with a normal plateau (a large peak–plateau gap) is a resistance problem: kinked or bitten tube, secretions, bronchospasm, small tube. High peak with a high plateau is a compliance problem: pneumothorax, mainstem intubation, pulmonary edema, ARDS, abdominal distension, chest wall rigidity, auto-PEEP.',
       ],
     },
     {
@@ -55,10 +55,10 @@ export const MECH_VENT: FpcLesson = {
     {
       id: 'disease', title: 'Disease-specific strategies',
       body: [
-        'ARDS: VT 6 mL/kg PBW (4–8), plateau ≤ 30, PEEP set by an oxygenation table or response (often 10–16 or higher), accept PaCO₂ elevation if pH > 7.20–7.25, and consider prone positioning and neuromuscular blockade in severe disease at the receiving centre.',
+        'ARDS: VT 6 mL/kg PBW (4–8), plateau ≤ 30, PEEP set by an oxygenation table or response (often 10–16 or higher), accept PaCO₂ elevation if pH > 7.20–7.25, and consider prone positioning and neuromuscular blockade in severe disease at the receiving center.',
         'Asthma and COPD: the danger is air trapping. Use a low rate (8–12), a normal tidal volume, a short inspiratory time with a high flow, and an I:E ratio of 1:4 or longer so expiratory flow returns to zero before the next breath. Accept hypercapnia. Measure auto-PEEP with an expiratory hold; if the blood pressure falls, disconnect and allow the chest to empty.',
         'Severe metabolic acidosis (DKA, salicylates, sepsis): set a high minute ventilation that matches the patient\'s own pre-intubation effort — often a rate of 28–35 with an adequate volume — and check a gas early. Over-ventilating a salicylate patient is protective; under-ventilating can cause arrest.',
-        'Raised ICP: aim for normocapnia (PaCO₂ 35–40 mmHg, using EtCO₂ trends) and normal oxygenation. Brief hyperventilation to PaCO₂ about 30–35 is a temporising measure only for signs of herniation; prolonged hyperventilation causes cerebral vasoconstriction and ischaemia.',
+        'Raised ICP: aim for normocapnia (PaCO₂ 35–40 mmHg, using EtCO₂ trends) and normal oxygenation. Brief hyperventilation to PaCO₂ about 30–35 is a temporizing measure only for signs of herniation; prolonged hyperventilation causes cerebral vasoconstriction and ischemia.',
       ],
       example: {
         case: 'A 175 cm woman with asthma, intubated; VC with VT 450, RR 20, PEEP 5. Peak 52, plateau 24. BP falls to 76/40.',
@@ -73,7 +73,7 @@ export const MECH_VENT: FpcLesson = {
     {
       id: 'altitude', title: 'Transport specifics',
       body: [
-        'Altitude reduces the partial pressure of oxygen; in unpressurised aircraft or at high cabin altitudes, expect to raise FiO₂ to maintain the same saturation. Gas in the endotracheal tube cuff expands with altitude (Boyle\'s law) — monitor cuff pressure and adjust, or fill the cuff with saline on long or high flights if your protocol allows.',
+        'Altitude reduces the partial pressure of oxygen; in unpressurized aircraft or at high cabin altitudes, expect to raise FiO₂ to maintain the same saturation. Gas in the endotracheal tube cuff expands with altitude (Boyle\'s law) — monitor cuff pressure and adjust, or fill the cuff with saline on long or high flights if your protocol allows.',
         'Transport ventilators differ: some compensate for altitude in delivered volume, some do not; know your device. Secure the tube and circuit before moving, carry a BVM with PEEP valve, and calculate oxygen requirement for the flight with a reserve.',
       ],
     },
@@ -86,7 +86,7 @@ export const MECH_VENT: FpcLesson = {
     'Obstruction: low rate, long expiration; acidosis: high minute ventilation; raised ICP: normocapnia.',
   ],
   pearls: ['Height, not weight, decides the tidal volume.', 'Disconnecting the circuit is diagnostic and therapeutic in auto-PEEP.', 'Cuff pressure rises at altitude.'],
-  pitfalls: ['Pressure support in a paralysed patient.', 'Fast rates in asthma.', 'Normal settings in severe metabolic acidosis.'],
+  pitfalls: ['Pressure support in a paralyzed patient.', 'Fast rates in asthma.', 'Normal settings in severe metabolic acidosis.'],
   live: [{ id: 'eom', label: 'One equation runs the ventilator' }, { id: 'rc', label: 'Resistance or compliance?' }, { id: 'vent-ards-signature', label: 'ARDS: open the lung' }, { id: 'auto', label: 'Auto-PEEP and the time constant' }],
   questions: [
     { q: 'PBW for a 180 cm man is about:', options: ['60 kg', '75 kg', '90 kg', 'Equal to actual weight'], answer: 1, why: '50 + 0.91 × (180 − 152.4) ≈ 75 kg.' },
@@ -94,11 +94,11 @@ export const MECH_VENT: FpcLesson = {
     { q: 'Upper limit for plateau pressure in lung-protective ventilation:', options: ['20', '30', '40', '50 cmH₂O'], answer: 1, why: 'Keep plateau ≤ 30 cmH₂O.' },
     { q: 'In pressure control, a falling exhaled VT suggests:', options: ['Improving compliance', 'Worsening compliance or resistance', 'Leak only', 'Normal'], answer: 1, why: 'Pressure is capped; stiffer lungs receive less volume.' },
     { q: 'First action for sudden desaturation on the ventilator:', options: ['Increase PEEP', 'Disconnect and bag with 100 % oxygen', 'Order a chest X-ray', 'Increase rate'], answer: 1, why: 'Separates machine from patient and relieves stacking.' },
-    { q: 'Best initial strategy for intubated status asthmaticus:', options: ['RR 24, I:E 1:1', 'RR 10, short inspiratory time, long expiration', 'High PEEP 15', 'Large VT 10 mL/kg'], answer: 1, why: 'Minimise air trapping.' },
+    { q: 'Best initial strategy for intubated status asthmaticus:', options: ['RR 24, I:E 1:1', 'RR 10, short inspiratory time, long expiration', 'High PEEP 15', 'Large VT 10 mL/kg'], answer: 1, why: 'Minimize air trapping.' },
     { q: 'Driving pressure equals:', options: ['PIP − PEEP', 'Pplat − PEEP', 'PIP − Pplat', 'VT ÷ PEEP'], answer: 1, why: 'Plateau minus PEEP.' },
     { q: 'A ventilated DKA patient with pH 7.05 should have:', options: ['Low minute ventilation', 'Minute ventilation matching their pre-intubation effort', 'Permissive hypercapnia', 'PS only'], answer: 1, why: 'Preserve respiratory compensation.' },
     { q: 'Target PaCO₂ in severe TBI without herniation signs:', options: ['25–30', '35–40', '45–50', '>55'], answer: 1, why: 'Normocapnia; hyperventilation only as a bridge for herniation.' },
-    { q: 'ETT cuff pressure during ascent in an unpressurised aircraft:', options: ['Falls', 'Rises', 'Unchanged', 'Becomes negative'], answer: 1, why: 'Boyle\'s law: gas expands as ambient pressure falls.' },
+    { q: 'ETT cuff pressure during ascent in an unpressurized aircraft:', options: ['Falls', 'Rises', 'Unchanged', 'Becomes negative'], answer: 1, why: 'Boyle\'s law: gas expands as ambient pressure falls.' },
   ],
   sources: [
     { title: 'ARDS Network. Ventilation with lower tidal volumes. NEJM (2000)', url: 'https://www.nejm.org/doi/full/10.1056/NEJM200005043421801' },
@@ -127,7 +127,7 @@ export const ALT_AIRWAY: FpcLesson = {
       id: 'sga', title: 'Supraglottic airways', core: true,
       body: [
         'Supraglottic airways (SGAs) sit above the glottis and seal around the laryngeal inlet. First-generation devices (classic laryngeal mask airway) have a single lumen. Second-generation devices (such as the i-gel or LMA Supreme) add a gastric drainage channel, a bite block and a higher seal pressure, making them better rescue devices and allowing gastric decompression.',
-        'Retroglottic devices such as the King LT sit with the distal tip in the oesophagus and balloons above and below the larynx. They are quick to place blind but can cause tongue swelling with prolonged use and are sometimes difficult to exchange.',
+        'Retroglottic devices such as the King LT sit with the distal tip in the esophagus and balloons above and below the larynx. They are quick to place blind but can cause tongue swelling with prolonged use and are sometimes difficult to exchange.',
         'Sizing is by weight (or height for some devices) — check the device. Insert with the head in a neutral or sniffing position, the device lubricated on its back, along the hard palate until resistance. Confirm with capnography, chest rise and absence of a large leak.',
         'SGAs do not protect fully against aspiration, can leak at high airway pressures (poor lungs, obesity, bronchospasm), and fail with obstruction at or below the larynx. They are an excellent bridge and a reasonable transport airway when intubation is not possible.',
       ],
@@ -148,8 +148,8 @@ export const ALT_AIRWAY: FpcLesson = {
     {
       id: 'bougie', title: 'Bougies, stylets and exchange',
       body: [
-        'A bougie (tracheal tube introducer) has an angled tip that can be steered anterior to the arytenoids in a limited view. Tracheal placement is suggested by clicks against tracheal rings and hold-up at the small airways; oesophageal placement passes without resistance. First-pass success with a bougie on every attempt was higher than with a stylet in some emergency trials.',
-        'To convert an SGA to an endotracheal tube, intubating SGAs and fibreoptic or airway-exchange-catheter techniques exist; they are skills best practised before needed. In transport, a functioning SGA is often safer to keep than to exchange in a moving aircraft.',
+        'A bougie (tracheal tube introducer) has an angled tip that can be steered anterior to the arytenoids in a limited view. Tracheal placement is suggested by clicks against tracheal rings and hold-up at the small airways; esophageal placement passes without resistance. First-pass success with a bougie on every attempt was higher than with a stylet in some emergency trials.',
+        'To convert an SGA to an endotracheal tube, intubating SGAs and fiberoptic or airway-exchange-catheter techniques exist; they are skills best practiced before needed. In transport, a functioning SGA is often safer to keep than to exchange in a moving aircraft.',
       ],
     },
   ],
@@ -170,8 +170,8 @@ export const ALT_AIRWAY: FpcLesson = {
     { q: 'SGAs are most likely to fail with:', options: ['Edentulous patients', 'Obstruction below the glottis', 'Normal lungs', 'Neutral head position'], answer: 1, why: 'They seal above the glottis.' },
     { q: 'Hyperangulated video laryngoscopy requires:', options: ['A straight stylet', 'A rigid stylet shaped to the blade curve', 'No stylet', 'Cricoid pressure'], answer: 1, why: 'The tube must follow the steep curve.' },
     { q: 'Main field limitation of video laryngoscopy:', options: ['Needs neck extension', 'Blood and secretions on the camera', 'Cannot use a bougie', 'Slower than direct'], answer: 1, why: 'Contamination blinds the lens.' },
-    { q: 'Retroglottic devices like the King LT sit with the tip in the:', options: ['Trachea', 'Oesophagus', 'Nasopharynx', 'Vallecula'], answer: 1, why: 'Distal tip and balloon in the oesophagus.' },
-    { q: 'Absence of resistance as a bougie is advanced deeply suggests:', options: ['Tracheal placement', 'Oesophageal placement', 'Bronchospasm', 'Mainstem'], answer: 1, why: 'Trachea gives clicks and hold-up; the oesophagus does not.' },
+    { q: 'Retroglottic devices like the King LT sit with the tip in the:', options: ['Trachea', 'Esophagus', 'Nasopharynx', 'Vallecula'], answer: 1, why: 'Distal tip and balloon in the esophagus.' },
+    { q: 'Absence of resistance as a bougie is advanced deeply suggests:', options: ['Tracheal placement', 'Esophageal placement', 'Bronchospasm', 'Mainstem'], answer: 1, why: 'Trachea gives clicks and hold-up; the esophagus does not.' },
     { q: 'A patient with a strong gag reflex needs an airway adjunct while awaiting RSI. Best choice:', options: ['OPA', 'NPA', 'SGA', 'None'], answer: 1, why: 'NPAs are tolerated with an intact gag.' },
   ],
   sources: [

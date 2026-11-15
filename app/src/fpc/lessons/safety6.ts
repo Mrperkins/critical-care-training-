@@ -8,7 +8,7 @@ export const RISK_ASSESSMENT: FpcLesson = {
   objectives: [
     'Complete and act on a pre-flight risk analysis.',
     'Apply crew resource management and assertive communication.',
-    'Recognise hazardous attitudes and their antidotes.',
+    'Recognize hazardous attitudes and their antidotes.',
   ],
   sections: [
     {
@@ -36,17 +36,17 @@ export const RISK_ASSESSMENT: FpcLesson = {
       id: 'dynamic', title: 'Dynamic risk and decision traps', core: true,
       body: [
         'Risk changes during a mission: weather deteriorates, a scene LZ turns out to be tighter than described, fuel is lower than expected, or fatigue sets in. Reassess at each phase and set "decision points" in advance — for example, a minimum ceiling at which the aircraft will turn back.',
-        'Decision traps include plan continuation bias ("get-there-itis") — the tendency to continue a plan despite changing conditions, which strengthens as the destination nears; sunk cost thinking; mission pressure from a critically ill patient; and normalisation of deviance, in which small rule-bending becomes routine because nothing bad has happened yet.',
-        'A culture where any crew member can call "abort" without explanation or criticism — and where management supports conservative decisions — is the most effective defence.',
+        'Decision traps include plan continuation bias ("get-there-itis") — the tendency to continue a plan despite changing conditions, which strengthens as the destination nears; sunk cost thinking; mission pressure from a critically ill patient; and normalization of deviance, in which small rule-bending becomes routine because nothing bad has happened yet.',
+        'A culture where any crew member can call "abort" without explanation or criticism — and where management supports conservative decisions — is the most effective defense.',
       ],
     },
     {
       id: 'case', title: 'Scenario: get-there-itis',
-      body: ['Returning from a scene at night with a critically injured child, the ceiling ahead lowers and light rain begins. The trauma centre is 15 minutes away; a community hospital is 5 minutes away. The pilot says, "We\'re nearly there — I think we can make it."'],
+      body: ['Returning from a scene at night with a critically injured child, the ceiling ahead lowers and light rain begins. The trauma center is 15 minutes away; a community hospital is 5 minutes away. The pilot says, "We\'re nearly there — I think we can make it."'],
       example: { case: 'What should the medical crew do?', steps: [
-        'Recognise plan continuation bias, intensified by proximity and the patient\'s condition.',
+        'Recognize plan continuation bias, intensified by proximity and the patient\'s condition.',
         'Speak up with graded assertiveness: "I\'m concerned about the weather; I\'m uncomfortable continuing; can we divert?"',
-        'Support a diversion to the community hospital, with ground transfer to the trauma centre if needed.',
+        'Support a diversion to the community hospital, with ground transfer to the trauma center if needed.',
         'Debrief afterwards and report through the SMS.',
       ] },
     },
@@ -56,7 +56,7 @@ export const RISK_ASSESSMENT: FpcLesson = {
     'Risk decisions are made blind to the patient\'s condition and repeated when conditions change.',
     'CRM: situational awareness, closed-loop communication, workload, leadership and followership.',
     'CUS and the two-challenge rule help crew speak up.',
-    'Beware plan continuation bias, mission pressure and normalisation of deviance.',
+    'Beware plan continuation bias, mission pressure and normalization of deviance.',
   ],
   pearls: ['Set turn-back decision points before departure.', 'Debrief every mission.'],
   pitfalls: ['Treating the risk form as paperwork.', 'Pressing on because the destination is close.'],
@@ -70,7 +70,7 @@ export const RISK_ASSESSMENT: FpcLesson = {
     { q: 'Plan continuation bias is:', options: ['Good planning', 'Continuing a plan despite changing conditions', 'Diverting early', 'Checklist use'], answer: 1, why: '"Get-there-itis".' },
     { q: 'The antidote to "It won\'t happen to me":', options: ['Follow the rules', 'It could happen to me', 'Not so fast', 'I\'m not helpless'], answer: 1, why: 'Invulnerability.' },
     { q: 'The antidote to "Don\'t tell me":', options: ['Follow the rules', 'It could happen to me', 'Taking chances is foolish', 'Not so fast'], answer: 0, why: 'Anti-authority.' },
-    { q: 'Normalisation of deviance:', options: ['Following rules strictly', 'Small rule-bending becoming routine because nothing bad happened', 'A medical diagnosis', 'Standard procedure'], answer: 1, why: 'Erodes safety margins.' },
+    { q: 'Normalization of deviance:', options: ['Following rules strictly', 'Small rule-bending becoming routine because nothing bad happened', 'A medical diagnosis', 'Standard procedure'], answer: 1, why: 'Erodes safety margins.' },
     { q: 'Situational awareness includes:', options: ['Only current state', 'Perceiving, understanding and projecting the future', 'Only weather', 'Only patient vitals'], answer: 1, why: 'Three levels.' },
     { q: 'Threat and error management aims to:', options: ['Eliminate all errors', 'Anticipate threats, trap errors and manage undesired states', 'Punish errors', 'Avoid checklists'], answer: 1, why: 'TEM framework.' },
     { q: 'Risk analysis should be repeated:', options: ['Never', 'When conditions change', 'Only annually', 'After landing only'], answer: 1, why: 'Dynamic risk.' },
@@ -90,7 +90,7 @@ export const NVG: FpcLesson = {
   objectives: [
     'Explain how NVGs work and their visual limitations.',
     'Describe NVG-compatible cabin lighting and medical crew procedures.',
-    'Recognise NVG hazards and use correct scanning technique.',
+    'Recognize NVG hazards and use correct scanning technique.',
   ],
   sections: [
     {
@@ -98,7 +98,7 @@ export const NVG: FpcLesson = {
       body: [
         'Night vision goggles are image intensifiers: they collect ambient light (starlight, moonlight, cultural lighting) including near-infrared, convert photons to electrons at a photocathode, multiply the electrons through a microchannel plate, and strike a phosphor screen that produces a green (or white phosphor) image. They need some light — in total darkness or under heavy cloud with no ground lights, performance falls sharply.',
         'NVGs improve the ability to see terrain, obstacles, weather and other aircraft at night and have been associated with reduced night accident risk in helicopter air ambulance operations. The 2014 FAA rule allows lower weather minimums when NVGs or HTAWS are used in some circumstances.',
-        'Limitations: a field of view of about 40° (compared with nearly 180° for the naked eye), visual acuity of about 20/25 to 20/40 at best, reduced depth perception, no colour discrimination, and degraded images in rain, fog, snow and smoke. Moving the head is essential to compensate for the narrow field.',
+        'Limitations: a field of view of about 40° (compared with nearly 180° for the naked eye), visual acuity of about 20/25 to 20/40 at best, reduced depth perception, no color discrimination, and degraded images in rain, fog, snow and smoke. Moving the head is essential to compensate for the narrow field.',
       ],
     },
     {
@@ -113,9 +113,9 @@ export const NVG: FpcLesson = {
     {
       id: 'hazards', title: 'NVG illusions and hazards', core: true,
       body: [
-        'Halos form around bright light sources and can obscure objects nearby. Wires remain very hard to see; poles and towers give clues. Reduced depth perception and absent colour make it difficult to judge distance and closure rate — scan the instruments and use radar altimeters. Brownout and whiteout are harder to manage with NVGs because of the narrow field.',
+        'Halos form around bright light sources and can obscure objects nearby. Wires remain very hard to see; poles and towers give clues. Reduced depth perception and absent color make it difficult to judge distance and closure rate — scan the instruments and use radar altimeters. Brownout and whiteout are harder to manage with NVGs because of the narrow field.',
         'Fatigue increases with goggle use: neck strain from the weight on the helmet, eye strain and the mental effort of interpreting a monochrome image. The "dark adaptation" of the unaided eye (needed when looking under the goggles at instruments or outside) takes 20–30 minutes and is lost with any bright white light.',
-        'Scanning technique: move the head deliberately to sweep the field (the eyes alone cannot move far within a 40° view), look under or around the goggles to the instruments, and use off-centre viewing with the unaided eye in low light, because the centre of the retina (cones) is less sensitive at night than the periphery (rods).',
+        'Scanning technique: move the head deliberately to sweep the field (the eyes alone cannot move far within a 40° view), look under or around the goggles to the instruments, and use off-center viewing with the unaided eye in low light, because the center of the retina (cones) is less sensitive at night than the periphery (rods).',
       ],
     },
     {
@@ -131,28 +131,28 @@ export const NVG: FpcLesson = {
   ],
   keyPoints: [
     'NVGs intensify ambient light; they need some light to work.',
-    'Field of view ~40°, reduced acuity and depth perception, no colour.',
+    'Field of view ~40°, reduced acuity and depth perception, no color.',
     'Only NVG-compatible cabin lighting; warn the pilot before any white light.',
     'Halo, wires, brownout and fatigue are key hazards.',
     'Move the head to scan; dark adaptation takes 20–30 minutes.',
   ],
-  pearls: ['Off-centre viewing improves unaided night vision.', 'Dim every screen before take-off.'],
+  pearls: ['Off-center viewing improves unaided night vision.', 'Dim every screen before take-off.'],
   pitfalls: ['A phone screen or white torch in the cabin.', 'Assuming NVGs show wires.'],
   questions: [
     { q: 'NVGs work by:', options: ['Emitting infrared light', 'Intensifying ambient light', 'Radar', 'Thermal imaging only'], answer: 1, why: 'Image intensifiers.' },
     { q: 'NVG field of view is about:', options: ['180°', '40°', '10°', '90°'], answer: 1, why: 'Narrow field.' },
     { q: 'White light in the cabin during NVG flight:', options: ['Improves vision', 'Blooms goggles and destroys night adaptation', 'Has no effect', 'Is required'], answer: 1, why: 'Washes out the image.' },
     { q: 'Before using white light in the cabin:', options: ['Just switch it on', 'Warn the pilot and wait for acknowledgement', 'Open the door', 'Turn off the engine'], answer: 1, why: 'Protects the pilot.' },
-    { q: 'NVGs provide:', options: ['Full colour vision', 'Monochrome image without colour', 'Better depth perception', 'Unlimited acuity'], answer: 1, why: 'Green/white phosphor.' },
-    { q: 'Halos around lights can:', options: ['Improve detection', 'Obscure nearby objects', 'Show wires', 'Indicate weather'], answer: 1, why: 'NVG artefact.' },
+    { q: 'NVGs provide:', options: ['Full color vision', 'Monochrome image without color', 'Better depth perception', 'Unlimited acuity'], answer: 1, why: 'Green/white phosphor.' },
+    { q: 'Halos around lights can:', options: ['Improve detection', 'Obscure nearby objects', 'Show wires', 'Indicate weather'], answer: 1, why: 'NVG artifact.' },
     { q: 'Dark adaptation of the unaided eye takes about:', options: ['1 minute', '20–30 minutes', '3 hours', '5 seconds'], answer: 1, why: 'Rod adaptation.' },
     { q: 'NVG scanning requires:', options: ['Eye movement only', 'Deliberate head movement', 'Staring ahead', 'Closing one eye'], answer: 1, why: 'Narrow field of view.' },
     { q: 'NVG performance falls in:', options: ['Clear moonlit nights', 'Rain, fog, snow and total darkness', 'Urban areas', 'Starlight'], answer: 1, why: 'Less light, obscuration.' },
-    { q: 'Off-centre viewing improves unaided night vision because:', options: ['Cones are more sensitive at night', 'Rods in the periphery are more sensitive in low light', 'It reduces glare', 'It is a habit'], answer: 1, why: 'Retinal physiology.' },
+    { q: 'Off-center viewing improves unaided night vision because:', options: ['Cones are more sensitive at night', 'Rods in the periphery are more sensitive in low light', 'It reduces glare', 'It is a habit'], answer: 1, why: 'Retinal physiology.' },
     { q: 'NVG visual acuity at best is about:', options: ['20/10', '20/25 to 20/40', '20/200', 'Perfect'], answer: 1, why: 'Reduced acuity.' },
     { q: 'NVG-compatible cabin lighting is:', options: ['Bright white', 'Filtered blue-green', 'Red only', 'Ultraviolet'], answer: 1, why: 'Not detected by goggles.' },
     { q: 'Wires seen through NVGs are:', options: ['Clearly visible', 'Still very hard to see', 'Highlighted', 'Shown in red'], answer: 1, why: 'Thin, low contrast.' },
-    { q: 'A source of NVG-related fatigue:', options: ['Light weight', 'Neck strain and eye strain', 'Colour overload', 'Noise'], answer: 1, why: 'Helmet-mounted weight.' },
+    { q: 'A source of NVG-related fatigue:', options: ['Light weight', 'Neck strain and eye strain', 'Color overload', 'Noise'], answer: 1, why: 'Helmet-mounted weight.' },
     { q: 'Medical crew wearing NVGs:', options: ['Are passengers', 'Act as additional lookouts', 'Navigate', 'Fly the aircraft'], answer: 1, why: 'Extra eyes.' },
   ],
   sources: [
@@ -175,7 +175,7 @@ export const GPS_NAV: FpcLesson = {
       id: 'how', title: 'How GPS works', core: true,
       body: [
         'The Global Positioning System uses a constellation of satellites (about 31 operational) in medium Earth orbit. Each transmits its position and a precise time signal. A receiver calculates its distance from each satellite from the signal travel time; signals from at least four satellites give a three-dimensional position (latitude, longitude, altitude) and correct the receiver\'s clock. Other constellations (GLONASS, Galileo, BeiDou) improve coverage when receivers use them.',
-        'Accuracy is typically within a few metres; augmentation systems such as WAAS (Wide Area Augmentation System) improve accuracy and integrity enough to fly instrument approaches. Errors arise from satellite geometry (poor dilution of precision when satellites are bunched), signal reflection off buildings and terrain (multipath), atmospheric delays, obstruction in valleys and urban canyons, and interference or jamming.',
+        'Accuracy is typically within a few meters; augmentation systems such as WAAS (Wide Area Augmentation System) improve accuracy and integrity enough to fly instrument approaches. Errors arise from satellite geometry (poor dilution of precision when satellites are bunched), signal reflection off buildings and terrain (multipath), atmospheric delays, obstruction in valleys and urban canyons, and interference or jamming.',
         'RAIM (receiver autonomous integrity monitoring) checks the consistency of signals and alerts the pilot when the position cannot be trusted. Databases must be current — an outdated database can show obstacles, frequencies and procedures that no longer match reality.',
       ],
     },
@@ -183,7 +183,7 @@ export const GPS_NAV: FpcLesson = {
       id: 'coords', title: 'Coordinates and scene location', core: true,
       body: [
         'Latitude measures north–south position from the equator (0–90° N or S); longitude measures east–west position from the prime meridian (0–180° E or W). Coordinates can be written as degrees–minutes–seconds (35° 12\' 30" N), degrees and decimal minutes (35° 12.50\' N — the format most aviation GPS units use) or decimal degrees (35.2083° N — the format most phones use). Mixing formats is a common source of error — always state the format.',
-        'One degree of latitude is about 60 nautical miles; one minute is about 1 nautical mile; one second is about 30 metres. An error in the minutes or seconds column can put a helicopter in the wrong valley. Confirm coordinates by reading them back, and cross-check with a landmark, road name or mile marker.',
+        'One degree of latitude is about 60 nautical miles; one minute is about 1 nautical mile; one second is about 30 meters. An error in the minutes or seconds column can put a helicopter in the wrong valley. Confirm coordinates by reading them back, and cross-check with a landmark, road name or mile marker.',
         'Other location systems include the US National Grid / MGRS used by some public safety agencies, what3words, and street addresses. Scene coordinates from mobile phones are often accurate, but phone-reported locations at the time of a 911 call may be approximate. When the location is uncertain, ask ground crews for a landmark and to describe what the aircraft will see.',
       ],
       table: {
@@ -205,7 +205,7 @@ export const GPS_NAV: FpcLesson = {
       body: ['Dispatch gives scene coordinates as "36 15 30 north, 82 40 15 west". The pilot enters 36° 15.30\' N, 82° 40.15\' W. On arrival, there is no sign of the incident; ground crews report they can hear the helicopter somewhere to the south-east.'],
       example: { case: 'What went wrong?', steps: [
         'The coordinates were given in degrees–minutes–seconds but entered as decimal minutes.',
-        '30 seconds = 0.50 minutes, not 0.30; 15 seconds = 0.25 minutes, not 0.15 — an error of several hundred metres in each axis.',
+        '30 seconds = 0.50 minutes, not 0.30; 15 seconds = 0.25 minutes, not 0.15 — an error of several hundred meters in each axis.',
         'Correct entry: 36° 15.50\' N, 82° 40.25\' W.',
         'Prevent: always state the format, read back, and confirm with a landmark.',
       ] },
@@ -225,8 +225,8 @@ export const GPS_NAV: FpcLesson = {
     { q: 'WAAS:', options: ['Weather radar', 'Augmentation system improving GPS accuracy and integrity', 'Radio frequency', 'Collision avoidance'], answer: 1, why: 'Wide Area Augmentation System.' },
     { q: 'RAIM:', options: ['Weather system', 'Integrity monitoring that alerts when GPS position is unreliable', 'Fuel monitor', 'Engine sensor'], answer: 1, why: 'Receiver autonomous integrity monitoring.' },
     { q: 'Multipath error is caused by:', options: ['Satellite clock', 'Signals reflecting off buildings and terrain', 'Old maps', 'Battery failure'], answer: 1, why: 'Reflected signals.' },
-    { q: 'One minute of latitude is about:', options: ['1 metre', '1 nautical mile', '60 miles', '1 km'], answer: 1, why: 'Navigation basics.' },
-    { q: 'One second of latitude is about:', options: ['30 metres', '1 mile', '1 km', '3 metres'], answer: 0, why: '1/60 of a nautical mile.' },
+    { q: 'One minute of latitude is about:', options: ['1 meter', '1 nautical mile', '60 miles', '1 km'], answer: 1, why: 'Navigation basics.' },
+    { q: 'One second of latitude is about:', options: ['30 meters', '1 mile', '1 km', '3 meters'], answer: 0, why: '1/60 of a nautical mile.' },
     { q: '35° 12\' 30" in degrees and decimal minutes is:', options: ['35° 12.30\'', '35° 12.50\'', '35° 12.03\'', '35° 13.00\''], answer: 1, why: '30 seconds = 0.5 minutes.' },
     { q: 'The coordinate format most aviation GPS units use:', options: ['Decimal degrees', 'Degrees and decimal minutes', 'MGRS only', 'Street addresses'], answer: 1, why: 'Common default.' },
     { q: 'The best way to prevent coordinate errors:', options: ['Speak quickly', 'State the format, read back, and confirm with a landmark', 'Guess', 'Use only addresses'], answer: 1, why: 'Verification.' },

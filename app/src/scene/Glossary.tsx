@@ -18,7 +18,7 @@ export function Glossary({ onClose }: { onClose: () => void }) {
       .sort((a, b) => (t ? Number(!norm(a.title).startsWith(t)) - Number(!norm(b.title).startsWith(t)) : 0) || a.title.localeCompare(b.title));
   }, [q, mod]);
   return (
-    <div className="gloss" role="dialog" aria-label="Glossary of labelled structures" onKeyDown={(e) => { if (e.key === 'Escape') onClose(); }}>
+    <div className="gloss" role="dialog" aria-label="Glossary of labeled structures" onKeyDown={(e) => { if (e.key === 'Escape') onClose(); }}>
       <div className="gloss-h">
         <b>Glossary</b><span className="muted small">{list.length} of {INDEX.length} structures</span>
         <button type="button" className="linfo-x" aria-label="Close glossary" onClick={onClose}>×</button>

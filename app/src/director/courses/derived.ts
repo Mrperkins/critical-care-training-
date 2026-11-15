@@ -3,7 +3,7 @@
  *  - disease explainers (atlas-*) use the disease definition: mechanism, distinction, findings and the
  *    bedside decisions with their reviewed explanations;
  *  - drug mechanisms (moa-*) use the mechanism blurb, summary, time course and adverse-effect notes.
- * Nothing here is new clinical content: it reorganises reviewed text into the two tracks.
+ * Nothing here is new clinical content: it reorganizes reviewed text into the two tracks.
  */
 import { registerCourseResolver, type CourseMeta } from '../course';
 import { steps, type Cue, type Timeline } from '../timeline';
@@ -34,7 +34,7 @@ function diseaseCourse(tl: Timeline): CourseMeta | null {
   const best = d.decisions.find((x) => x.outcome === 'stabilize'); const bad = d.decisions.filter((x) => x.outcome === 'deteriorate');
   const findings = d.findings.map((f) => lowerKeepAcronyms(f.label));
   return {
-    objectives: [ex?.outcome ?? sentence(d.mechanism), `Recognise the picture: ${findings.join(', ')}.`, best ? `Choose the first move and say why: ${lowerKeepAcronyms(best.label)}.` : sentence(d.question)].filter(Boolean),
+    objectives: [ex?.outcome ?? sentence(d.mechanism), `Recognize the picture: ${findings.join(', ')}.`, best ? `Choose the first move and say why: ${lowerKeepAcronyms(best.label)}.` : sentence(d.question)].filter(Boolean),
     essentials: ex ? essentialScenes(s, jump) : s.filter((c) => /-(zoom|understand|apply)$/.test(c.id)).map((c) => c.id),
     keyPoints: [sentence(d.mechanism), sentence(d.distinction), `Look for ${findings.join(', ')}.`, ...(best ? [`${best.label}: ${best.explanation}`] : [])],
     pearls: ex?.chapters.filter((c) => c.checkpoint).map((c) => c.checkpoint!.answer) ?? [],

@@ -18,7 +18,7 @@ export const CLEVIDIPINE: MechanismDefinition = {
     { id: 'map', kind: 'vital', label: 'BP ↓', explain: 'Afterload falls with little change in venous return, and pressure can be walked down in small steps.' },
   ],
   edges: [
-    { from: 'clev', to: 'lt', sign: -1 }, { from: 'clev', to: 'est', sign: 1, label: 'hydrolysed by' }, { from: 'lt', to: 'ca', sign: 1 }, { from: 'ca', to: 'mlck', sign: 1 },
+    { from: 'clev', to: 'lt', sign: -1 }, { from: 'clev', to: 'est', sign: 1, label: 'hydrolyzed by' }, { from: 'lt', to: 'ca', sign: 1 }, { from: 'ca', to: 'mlck', sign: 1 },
     { from: 'mlck', to: 'dil', sign: -1 }, { from: 'dil', to: 'svr', sign: -1 }, { from: 'svr', to: 'map', sign: 1 }, { from: 'map', to: 'hr', sign: -1, label: 'baroreflex' },
   ],
   patient: hemoAdapter({ scenario: 'stiff', svr: -0.3, hr: 0.07, co: 0.05, dose: (u) => `${(8 * u).toFixed(1)} mg/h` }),
@@ -77,7 +77,7 @@ export const LABETALOL: MechanismDefinition = {
 
 export const NITROGLYCERIN: MechanismDefinition = {
   id: 'nitroglycerin', drug: 'Nitroglycerin', drugClass: 'Organic nitrate — nitric-oxide donor (veins > arteries at low dose)',
-  blurb: 'Acute pulmonary oedema from a failing left ventricle, or ischaemic chest pain. A nitroglycerin infusion is started.',
+  blurb: 'Acute pulmonary edema from a failing left ventricle, or ischemic chest pain. A nitroglycerin infusion is started.',
   selectivity: [{ receptor: 'Veins', activity: 1 }, { receptor: 'Coronary arteries', activity: 0.7 }, { receptor: 'Arterioles', activity: 0.4 }],
   nodes: [
     { id: 'ntg', kind: 'drug', label: 'Nitroglycerin', sub: 'IV / sublingual', explain: 'Nitroglycerin is converted inside smooth-muscle cells into nitric oxide.' },
@@ -89,7 +89,7 @@ export const NITROGLYCERIN: MechanismDefinition = {
     { id: 'art', kind: 'organ', label: 'Arteriolar / coronary dilation', sub: 'higher dose' },
     { id: 'pre', kind: 'vital', label: 'Preload ↓ (CVP, wedge)' },
     { id: 'svr', kind: 'vital', label: 'SVR ↓ (mild)' },
-    { id: 'co', kind: 'vital', label: 'Cardiac output', sub: '↑ LV failure · ↓ preload-dependent', explain: 'A congested, failing ventricle ejects more when filling pressure and afterload fall. A preload-dependent heart — right-ventricular infarction, obstruction, hypovolaemia — loses output and pressure.' },
+    { id: 'co', kind: 'vital', label: 'Cardiac output', sub: '↑ LV failure · ↓ preload-dependent', explain: 'A congested, failing ventricle ejects more when filling pressure and afterload fall. A preload-dependent heart — right-ventricular infarction, obstruction, hypovolemia — loses output and pressure.' },
     { id: 'map', kind: 'vital', label: 'MAP' },
   ],
   edges: [

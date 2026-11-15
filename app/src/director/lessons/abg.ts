@@ -50,7 +50,7 @@ export const DKA_LESSON: Timeline = {
     { id: 'dka-1', at: 0, dur: 11, hold: true, title: 'No insulin', apply: at({ preset: 'dka' }),
       say: 'Without insulin, cells cannot take up glucose, so the liver makes more and fat is broken down. Fatty acids are turned into ketoacids. Glucose is over five hundred; the patient is vomiting and breathing deeply.' },
     { id: 'dka-2', at: 12, dur: 11, hold: true, title: 'An anion-gap acidosis', say: 'Ketoacids use up bicarbonate. The unmeasured ketone anions widen the anion gap. The lungs compensate with Kussmaul breathing, driving the CO2 down.' },
-    { id: 'dka-3', at: 24, dur: 11, hold: true, title: 'Osmotic diuresis', say: 'Glucose spills into the urine and drags water and sodium with it. By the time the patient arrives, several litres have been lost, and the kidneys are underperfused.' },
+    { id: 'dka-3', at: 24, dur: 11, hold: true, title: 'Osmotic diuresis', say: 'Glucose spills into the urine and drags water and sodium with it. By the time the patient arrives, several liters have been lost, and the kidneys are underperfused.' },
     { id: 'dka-4', at: 36, dur: 12, hold: true, title: 'Potassium: high in the blood, low in the body', say: 'Plasma potassium is high, because acidosis and the lack of insulin push potassium out of cells. But the diuresis has been washing it out for days: total-body potassium is low. Insulin will reveal the deficit.' },
     { id: 'dka-5', at: 49, dur: 11, hold: true, title: 'Fluids first', apply: at({ preset: 'dka', drugs: ['fluids', 'fluids'], ff: 60 }),
       say: 'The first treatment is fluid. Volume restores perfusion and lets the kidneys clear glucose and ketones.' },

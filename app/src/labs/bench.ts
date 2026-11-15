@@ -53,7 +53,7 @@ export class LabBench {
   }
   /** Give the patient a coagulation state (engine on): its INR, aPTT, fibrinogen and platelets now come from the engine. */
   startCoag(id: CoagPresetId) { this.pt.coag = COAG_PRESETS[id].make(); syncCoag(this.pt); this.snap = derive(this.pt); this.version++; }
-  /** Haemostatic drug or blood product into the coagulation engine (starts it at normal if it was off). */
+  /** Hemostatic drug or blood product into the coagulation engine (starts it at normal if it was off). */
   coag(d: CoagDrug, dose = 1) { if (!this.pt.coag) this.startCoag('normal'); coagGive(this.pt.coag!, d, dose); syncCoag(this.pt); this.running = true; this.snap = derive(this.pt); this.version++; }
   give(d: DrugId, dose = 1) { give(this.pt, d, dose); this.running = true; this.snap = derive(this.pt); this.version++; }
   tick(realDt: number) { if (!this.running) return; this.acc += Math.min(0.1, realDt) * this.physioSpeed; if (this.acc > 3) { advance(this.pt, this.acc / 60); this.snap = derive(this.pt); this.acc = 0; this.version++; } }

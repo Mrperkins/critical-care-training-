@@ -83,7 +83,7 @@ if (!gl_FrontFacing) diffuseColor.rgb = uCut;`);
 
 /* ------------------------------------------------------------------ cut planes */
 const CUT_LABEL: Record<Exclude<CutMode, 'auto'>, string> = { rv: 'Right ventricle opened', ra: 'Right atrium opened', lv: 'Left ventricle opened', slice: 'Four-chamber slice', front: 'Front wall removed', closed: 'Closed', sax_base: 'Short axis · base (mitral level)', sax_mid: 'Short axis · mid (papillary level)', sax_apex: 'Short axis · apex', lvot: 'Long axis · LV outflow (3-chamber)', rvot: 'RV inflow–outflow' };
-/** standard section planes from the measured landmarks: the LV long axis (mitral centre → apex), the aortic valve, the RV inflow and outflow */
+/** standard section planes from the measured landmarks: the LV long axis (mitral center → apex), the aortic valve, the RV inflow and outflow */
 const LAX = LM.lvApex.clone().sub(LM.mitral).normalize(); const H_LAX = LM.lvApex.clone().sub(LM.mitral).dot(LAX);
 const saxPoint = (f: number) => LM.mitral.clone().addScaledVector(LAX, f * H_LAX);
 const LVOT_N = LAX.clone().cross(LM.aorticValve.clone().sub(LM.mitral)).normalize();
@@ -226,7 +226,7 @@ function Heart({ asset, s, tier, hd }: { asset: LinesAsset; s: ShuntState; tier:
     for (; k < NP; k++) pts[k].alive = false;
   }, [s, pts, NP]);
 
-  // Shared measured centreline geometry: the volume columns travel through existing
+  // Shared measured centerline geometry: the volume columns travel through existing
   // chamber/valve/vessel paths, never arbitrary screen-space arrows.
   const volumeStreams = useMemo(() => {
     const paths = flowPaths(shape);

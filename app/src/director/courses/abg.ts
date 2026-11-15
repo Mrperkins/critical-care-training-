@@ -1,4 +1,4 @@
-/** Blood gas and lab courses: acid–base, oxygenation, potassium, sodium, coagulation, anaemia and lactate. */
+/** Blood gas and lab courses: acid–base, oxygenation, potassium, sodium, coagulation, anemia and lactate. */
 import type { CourseMeta } from '../course';
 const q = (question: string, options: string[], answer: number, why: string) => ({ q: question, options, answer, why });
 
@@ -13,7 +13,7 @@ export const ABG_COURSES: Record<string, CourseMeta> = {
       'If compensation is not what you expect, there is a second process.',
       'A ventilated patient with metabolic acidosis needs a high minute ventilation, not a normal one.',
     ],
-    pearls: ['Compensation never fully normalises the pH; a normal pH with abnormal values suggests a mixed disorder.'],
+    pearls: ['Compensation never fully normalizes the pH; a normal pH with abnormal values suggests a mixed disorder.'],
     pitfalls: ['Setting “normal” ventilator settings after intubating a patient with severe metabolic acidosis — the pH can crash.'],
     bedside: 'Before intubating a patient with metabolic acidosis, note their CO₂ and match it on the ventilator.',
     selfCheck: [
@@ -26,26 +26,26 @@ export const ABG_COURSES: Record<string, CourseMeta> = {
     essentials: ['dka-2', 'dka-4', 'dka-5', 'dka-6'],
     keyPoints: [
       'No insulin → ketoacids → high anion-gap metabolic acidosis with Kussmaul breathing.',
-      'Osmotic diuresis loses litres of water and sodium.',
+      'Osmotic diuresis loses liters of water and sodium.',
       'Plasma potassium is often high but total-body potassium is low; insulin will reveal the deficit.',
       'Fluids first. Check potassium before insulin, and replace it if low.',
-      'Glucose normalises before ketones clear: continue insulin with dextrose until ketones, pH and bicarbonate recover.',
+      'Glucose normalizes before ketones clear: continue insulin with dextrose until ketones, pH and bicarbonate recover.',
     ],
-    pearls: ['After saline resuscitation a hyperchloraemic acidosis can keep the bicarbonate low even when ketones have cleared.'],
+    pearls: ['After saline resuscitation a hyperchloremic acidosis can keep the bicarbonate low even when ketones have cleared.'],
     pitfalls: ['Starting insulin with a low potassium.', 'Stopping insulin when the glucose is normal but ketones persist.'],
     bedside: 'Get a potassium result before the insulin infusion starts.',
     selfCheck: [
-      q('DKA: K⁺ 3.0 mmol/L. What comes first?', ['Insulin infusion', 'Potassium replacement before insulin', 'Bicarbonate', 'Stop fluids'], 1, 'Insulin drives potassium into cells and can cause dangerous hypokalaemia.'),
+      q('DKA: K⁺ 3.0 mmol/L. What comes first?', ['Insulin infusion', 'Potassium replacement before insulin', 'Bicarbonate', 'Stop fluids'], 1, 'Insulin drives potassium into cells and can cause dangerous hypokalemia.'),
       q('Glucose is 9 mmol/L but ketones remain high. What do you do?', ['Stop insulin', 'Continue insulin and add dextrose', 'Give bicarbonate', 'Switch to subcutaneous insulin now'], 1, 'Ketosis, not glucose, defines resolution; dextrose lets insulin continue safely.'),
     ],
   },
   'ob-gas': {
-    objectives: ['State normal blood gas values at term.', 'Recognise CO₂ retention in a pregnant woman whose values look normal.'],
+    objectives: ['State normal blood gas values at term.', 'Recognize CO₂ retention in a pregnant woman whose values look normal.'],
     essentials: ['og-2', 'og-5', 'og-6'],
     keyPoints: [
       'At term, PaCO₂ is about 30 and HCO₃⁻ about 20 — a compensated respiratory alkalosis that is normal for her.',
       'The low maternal CO₂ helps the fetus offload CO₂ across the placenta.',
-      'Haemoglobin falls to about 11 from dilution; cardiac output rises to compensate.',
+      'Hemoglobin falls to about 11 from dilution; cardiac output rises to compensate.',
       'A PaCO₂ of 40 in a pregnant asthmatic is retention, with little buffer — she is tiring.',
       'Treat early and keep SpO₂ at 95 % or more: the baby’s oxygen depends on hers.',
     ],
@@ -56,39 +56,39 @@ export const ABG_COURSES: Record<string, CourseMeta> = {
     ],
   },
   'pop-apnoea': {
-    objectives: ['Explain why pre-oxygenation buys the most time.', 'Compare safe apnoea time across adults, pregnancy, obesity, children and infants.', 'Plan to stop before the desaturation cliff.'],
+    objectives: ['Explain why pre-oxygenation buys the most time.', 'Compare safe apnea time across adults, pregnancy, obesity, children and infants.', 'Plan to stop before the desaturation cliff.'],
     essentials: ['ap-2', 'ap-3', 'ap-4', 'ap-7', 'ap-8'],
     keyPoints: [
-      'During apnoea the body uses oxygen stored in the FRC and blood.',
+      'During apnea the body uses oxygen stored in the FRC and blood.',
       'Pre-oxygenating with a tight seal fills the FRC with oxygen: about 8 minutes above 90 % in a healthy adult instead of about 1.',
       'Saturation holds, then falls off a cliff once alveolar PO₂ reaches the steep part of the curve.',
       'Pregnancy, obesity, children and infants have smaller stores and higher oxygen use: minutes, not many minutes.',
       'Buy time: tight seal, head-up, nasal oxygen during the attempt, and an agreed stop point.',
     ],
-    pearls: ['Apnoeic oxygenation through nasal cannulae extends safe time during laryngoscopy.'],
+    pearls: ['Apneic oxygenation through nasal cannulae extends safe time during laryngoscopy.'],
     pitfalls: ['Pressing on when the saturation starts to fall — it will fall fast.'],
     bedside: 'Before every intubation, say aloud the saturation or time at which you will stop and ventilate.',
     selfCheck: [
-      q('Why does saturation drop suddenly late in apnoea?', ['The heart fails', 'Alveolar PO₂ reaches the steep part of the dissociation curve', 'CO₂ rises', 'The probe fails'], 1, 'The flat top of the curve hides the fall until PO₂ reaches about 60.'),
+      q('Why does saturation drop suddenly late in apnea?', ['The heart fails', 'Alveolar PO₂ reaches the steep part of the dissociation curve', 'CO₂ rises', 'The probe fails'], 1, 'The flat top of the curve hides the fall until PO₂ reaches about 60.'),
     ],
   },
   o2path: {
-    objectives: ['Use the alveolar gas equation.', 'Describe oxygen loading in the capillary and delivery to tissues.', 'Explain why SpO₂ misses anaemia.'],
+    objectives: ['Use the alveolar gas equation.', 'Describe oxygen loading in the capillary and delivery to tissues.', 'Explain why SpO₂ misses anemia.'],
     essentials: ['ox1', 'ox3', 'ox4', 'ox5'],
     keyPoints: [
       'PAO₂ = FiO₂ × 713 − PaCO₂ ÷ 0.8: about 100 mmHg on room air.',
       'Red cells load fully in the first third of their capillary transit — a reserve for exercise.',
       'DO₂ = CaO₂ × cardiac output, about 1000 mL/min; tissues use about a quarter.',
-      'Anaemia halves content while SpO₂ stays normal.',
+      'Anemia halves content while SpO₂ stays normal.',
     ],
     pitfalls: ['Judging oxygen delivery from SpO₂ alone.'],
-    bedside: 'Look at haemoglobin and cardiac output, not just saturation, when judging oxygen delivery.',
+    bedside: 'Look at hemoglobin and cardiac output, not just saturation, when judging oxygen delivery.',
     selfCheck: [
       q('Room air, PaCO₂ 40. Approximate PAO₂?', ['50', '100', '150', '713'], 1, '0.21 × 713 − 40/0.8 ≈ 150 − 50 = 100 mmHg.'),
     ],
   },
   hypox: {
-    objectives: ['Classify hypoxaemia by mechanism.', 'Use the A–a gradient and the response to oxygen.'],
+    objectives: ['Classify hypoxemia by mechanism.', 'Use the A–a gradient and the response to oxygen.'],
     essentials: ['hy1', 'hy2', 'hy4', 'hy5'],
     keyPoints: [
       'Hypoventilation: high CO₂, normal A–a gradient — ventilate.',
@@ -97,13 +97,13 @@ export const ABG_COURSES: Record<string, CourseMeta> = {
       'Dead space wastes ventilation: CO₂ clearance falls and the PaCO₂–EtCO₂ gap widens.',
     ],
     pitfalls: ['Escalating FiO₂ indefinitely for shunt instead of recruiting lung.'],
-    bedside: 'Calculate the A–a gradient when the cause of hypoxaemia is unclear.',
+    bedside: 'Calculate the A–a gradient when the cause of hypoxemia is unclear.',
     selfCheck: [
       q('PaO₂ rises from 55 to 60 on FiO₂ 1.0. Mechanism?', ['Hypoventilation', 'V/Q mismatch', 'Shunt', 'High altitude'], 2, 'A poor response to 100 % oxygen defines shunt.'),
     ],
   },
   resp: {
-    objectives: ['Describe acute and chronic respiratory acidosis.', 'Recognise post-hypercapnic alkalosis.'],
+    objectives: ['Describe acute and chronic respiratory acidosis.', 'Recognize post-hypercapnic alkalosis.'],
     essentials: ['rs1', 'rs3', 'rs4'],
     keyPoints: [
       'Acute: HCO₃⁻ rises about 1 per 10 mmHg CO₂ — chemical buffering only.',
@@ -113,7 +113,7 @@ export const ABG_COURSES: Record<string, CourseMeta> = {
     pitfalls: ['Ventilating a chronic CO₂ retainer to a PaCO₂ of 40.'],
     bedside: 'Ventilate a chronic retainer to their usual pH, not to a normal CO₂.',
     selfCheck: [
-      q('COPD patient, usual PaCO₂ 60, ventilated to PaCO₂ 40. Likely result?', ['Acidosis', 'Alkalaemia', 'Normal pH', 'Hypoxia'], 1, 'Retained bicarbonate is unopposed once CO₂ falls.'),
+      q('COPD patient, usual PaCO₂ 60, ventilated to PaCO₂ 40. Likely result?', ['Acidosis', 'Alkalemia', 'Normal pH', 'Hypoxia'], 1, 'Retained bicarbonate is unopposed once CO₂ falls.'),
     ],
   },
   metab: {
@@ -139,14 +139,14 @@ export const ABG_COURSES: Record<string, CourseMeta> = {
       'Venous PO₂ is what tissues left behind — it does not measure oxygenation.',
       'In low-flow states and CPR, venous and arterial values diverge widely.',
     ],
-    pitfalls: ['Calling a venous PO₂ of 40 hypoxaemia.'],
+    pitfalls: ['Calling a venous PO₂ of 40 hypoxemia.'],
     bedside: 'Pair a venous gas with SpO₂ for oxygenation.',
     selfCheck: [
       q('Which is NOT reliably estimated from a venous gas in a stable patient?', ['pH', 'Bicarbonate', 'Lactate', 'Arterial oxygenation'], 3, 'Venous PO₂ reflects tissue extraction, not lung oxygenation.'),
     ],
   },
   'hyperk-signature': {
-    objectives: ['Link plasma potassium to the resting membrane potential and the ECG.', 'Treat in order: stabilise, shift, remove.', 'Anticipate rebound.'],
+    objectives: ['Link plasma potassium to the resting membrane potential and the ECG.', 'Treat in order: stabilize, shift, remove.', 'Anticipate rebound.'],
     essentials: ['hks-3', 'hks-5', 'hks-6', 'hks-8'],
     keyPoints: [
       'The K⁺ gradient sets the resting potential near −85 mV; high plasma K⁺ moves it toward threshold.',
@@ -157,14 +157,14 @@ export const ABG_COURSES: Record<string, CourseMeta> = {
     ],
     pearls: ['Calcium may need repeating if ECG changes return.'],
     pitfalls: ['Waiting for a repeat potassium before giving calcium to a patient with ECG changes.', 'Forgetting the glucose check hours after insulin.'],
-    bedside: 'Hyperkalaemia with ECG changes: calcium now, then shift, then remove.',
+    bedside: 'Hyperkalemia with ECG changes: calcium now, then shift, then remove.',
     selfCheck: [
-      q('What does IV calcium do in hyperkalaemia?', ['Lowers plasma potassium', 'Raises threshold potential, stabilising the membrane', 'Drives potassium into cells', 'Increases renal excretion'], 1, 'Calcium restores the gap between resting and threshold potential; potassium is unchanged.'),
-      q('Four hours after insulin–dextrose, K⁺ rises again. Why?', ['Lab error', 'Rebound as the shift wears off', 'Calcium wore off', 'Hypoglycaemia'], 1, 'Shifting is temporary; potassium leaks back out.'),
+      q('What does IV calcium do in hyperkalemia?', ['Lowers plasma potassium', 'Raises threshold potential, stabilizing the membrane', 'Drives potassium into cells', 'Increases renal excretion'], 1, 'Calcium restores the gap between resting and threshold potential; potassium is unchanged.'),
+      q('Four hours after insulin–dextrose, K⁺ rises again. Why?', ['Lab error', 'Rebound as the shift wears off', 'Calcium wore off', 'Hypoglycemia'], 1, 'Shifting is temporary; potassium leaks back out.'),
     ],
   },
   'labs-coag': {
-    objectives: ['Reverse warfarin with PCC plus vitamin K.', 'Reverse heparin with protamine.', 'Recognise hyperfibrinolysis and treat with TXA and fibrinogen.'],
+    objectives: ['Reverse warfarin with PCC plus vitamin K.', 'Reverse heparin with protamine.', 'Recognize hyperfibrinolysis and treat with TXA and fibrinogen.'],
     essentials: ['co-2', 'co-3', 'co-5', 'co-7', 'co-9'],
     keyPoints: [
       'Warfarin leaves factors II, VII, IX and X non-functional: INR rises.',
@@ -176,7 +176,7 @@ export const ABG_COURSES: Record<string, CourseMeta> = {
     pitfalls: ['Giving PCC without vitamin K.', 'Giving TXA late after injury.'],
     bedside: 'For warfarin-associated bleeding, order PCC and IV vitamin K together.',
     selfCheck: [
-      q('INR 6.5 with intracranial haemorrhage. Best reversal?', ['Vitamin K alone', 'PCC plus IV vitamin K', 'Protamine', 'Platelets'], 1, 'PCC works fast; vitamin K sustains the correction.'),
+      q('INR 6.5 with intracranial hemorrhage. Best reversal?', ['Vitamin K alone', 'PCC plus IV vitamin K', 'Protamine', 'Platelets'], 1, 'PCC works fast; vitamin K sustains the correction.'),
     ],
   },
   hyperk: {
@@ -191,34 +191,34 @@ export const ABG_COURSES: Record<string, CourseMeta> = {
     pitfalls: ['Treating the number and forgetting the ECG.'],
     bedside: 'Get an ECG with every high potassium.',
     selfCheck: [
-      q('Which therapy actually removes potassium from the body?', ['Calcium gluconate', 'Insulin', 'Salbutamol', 'Dialysis'], 3, 'The others stabilise or shift; dialysis removes.'),
+      q('Which therapy actually removes potassium from the body?', ['Calcium gluconate', 'Insulin', 'Salbutamol', 'Dialysis'], 3, 'The others stabilize or shift; dialysis removes.'),
     ],
   },
   hypona: {
-    objectives: ['Explain brain swelling in acute hyponatraemia.', 'Treat symptomatic acute hyponatraemia.', 'Avoid overcorrection of chronic hyponatraemia.'],
+    objectives: ['Explain brain swelling in acute hyponatremia.', 'Treat symptomatic acute hyponatremia.', 'Avoid overcorrection of chronic hyponatremia.'],
     essentials: ['hn2', 'hn3', 'hn4'],
     keyPoints: [
-      'Water moves to equalise osmolality; low sodium swells cells, and the brain has no room.',
-      'Acute symptomatic hyponatraemia: a small hypertonic bolus raising sodium by 4–6 is treatment.',
+      'Water moves to equalize osmolality; low sodium swells cells, and the brain has no room.',
+      'Acute symptomatic hyponatremia: a small hypertonic bolus raising sodium by 4–6 is treatment.',
       'Over days the brain adapts by exporting osmolytes.',
-      'Correcting chronic hyponatraemia too fast risks osmotic demyelination: limit to about 8–10 per 24 hours.',
+      'Correcting chronic hyponatremia too fast risks osmotic demyelination: limit to about 8–10 per 24 hours.',
     ],
-    pitfalls: ['Overcorrection after the cause (e.g. hypovolaemia or a drug) resolves and the kidneys dump water.'],
+    pitfalls: ['Overcorrection after the cause (e.g. hypovolemia or a drug) resolves and the kidneys dump water.'],
     bedside: 'Check sodium every few hours during correction and have a plan to stop or reverse it.',
     selfCheck: [
-      q('Chronic Na 116 rises to 132 in 24 hours. Risk?', ['Cerebral oedema', 'Osmotic demyelination', 'Hyperkalaemia', 'None'], 1, 'A rise of 16 in a day exceeds safe limits for chronic hyponatraemia.'),
+      q('Chronic Na 116 rises to 132 in 24 hours. Risk?', ['Cerebral edema', 'Osmotic demyelination', 'Hyperkalemia', 'None'], 1, 'A rise of 16 in a day exceeds safe limits for chronic hyponatremia.'),
     ],
   },
   anaemia: {
-    objectives: ['Explain why SpO₂ is normal in anaemia.', 'Relate haemoglobin to oxygen content.'],
+    objectives: ['Explain why SpO₂ is normal in anemia.', 'Relate hemoglobin to oxygen content.'],
     essentials: ['an2', 'an3'],
     keyPoints: [
-      'Each red cell stays fully saturated, so SpO₂ is normal even when haemoglobin halves.',
+      'Each red cell stays fully saturated, so SpO₂ is normal even when hemoglobin halves.',
       'Oxygen content halves; the heart and tissues compensate, and venous saturation falls.',
-      'One unit of red cells raises haemoglobin by about 1 g/dL.',
+      'One unit of red cells raises hemoglobin by about 1 g/dL.',
     ],
     pitfalls: ['Taking a normal SpO₂ as proof of adequate oxygen delivery.'],
-    bedside: 'Interpret SpO₂ alongside the haemoglobin.',
+    bedside: 'Interpret SpO₂ alongside the hemoglobin.',
     selfCheck: [
       q('Hb 6.5 g/dL, SpO₂ 98 %. Oxygen content compared with normal?', ['Normal', 'About half', 'Double', 'Zero'], 1, 'Content ≈ 1.34 × Hb × SaO₂; halving Hb halves content.'),
     ],

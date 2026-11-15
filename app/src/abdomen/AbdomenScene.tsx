@@ -27,7 +27,7 @@ const ORGANS: Record<string, { color: string; rough?: number; opacity?: number }
   kidney_L: { color: '#8b3a34' }, kidney_R: { color: '#8b3a34' }, bladder: { color: '#d7b9a6', opacity: 0.85 }, colon: { color: '#c9978a', opacity: 0.9 },
   aorta: { color: '#c0392b' }, vena_cava: { color: '#4b3a74' }, lung_R: { color: '#d59a92', opacity: 0.08 }, lung_L: { color: '#d59a92', opacity: 0.08 },
 };
-/** where things are (body decimetres) */
+/** where things are (body decimeters) */
 export const ABD = {
   whole: V(0.05, 2.4, 0.2), ruq: V(-0.78, 3.12, -0.12), luq: V(0.95, 3.35, -0.5), pelvis: V(0, 0.62, 0.1), gutterR: V(-1.05, 1.9, 0.15), gutterL: V(1.1, 1.9, 0.15),
   aaa: V(0.05, 2.25, -0.02), retro: V(0.42, 2.35, -0.45), liver: V(-0.45, 3.7, 0.2), spleen: V(0.82, 3.7, -0.37), pancreas: V(0.2, 3.4, 0.1), bowel: V(0, 1.8, 0.6), diaphragm: V(0, 4.3, 0.2),
@@ -74,7 +74,7 @@ function Abdomen({ body }: { body: BodyAsset }) {
   const [gut, setGut] = useState<Layer<GutMapping> | null>(null);
   useEffect(() => { let on = true; loadGut().then((g) => on && setGut(g)).catch(() => undefined); return () => { on = false; }; }, []);
   // obstruction dilates the small-bowel loops in place: the wall is pushed out along its normal (same course, wider lumen;
-  // > 3 cm calibre at full distension)
+  // > 3 cm caliber at full distension)
   const dil = Math.min(1, st.distension + (st.obstruction === 'small' ? 0.3 : 0));
   const dilU = useMemo(() => ({ value: 0 }), []);
   useMemo(() => { bowelMat.onBeforeCompile = (sh) => { sh.uniforms.uDil = dilU; sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nuniform float uDil;').replace('#include <begin_vertex>', '#include <begin_vertex>\ntransformed += normal * uDil;'); }; bowelMat.customProgramCacheKey = () => 'bowel-dilate'; }, [bowelMat, dilU]);
@@ -114,7 +114,7 @@ function Labels({ st }: { st: AbdomenState }) {
     {!IS_PHONE && tag(V(-0.85, 2.7, -0.4), 'R kidney')}{!IS_PHONE && tag(V(0.95, 2.75, -0.5), 'L kidney')}{tag(V(0.25, 1.6, -0.1), 'Aorta', 't-art')}{!IS_PHONE && tag(V(-0.4, 1.6, -0.1), 'IVC', 't-ven')}
     {tag(V(0.0, 1.35, 0.95), 'Small bowel')}{!IS_PHONE && tag(V(1.25, 1.1, 0.7), 'Colon')}{tag(V(0.0, 0.25, 0.6), 'Bladder')}{!IS_PHONE && tag(V(-1.25, 4.35, 0.2), 'Diaphragm')}
     {d.ruq > 45 && tag(ABD.ruq.clone().add(V(-0.45, 0.15, 0.6)), 'Morison’s pouch', 't-red')}{d.luq > 45 && tag(ABD.luq.clone().add(V(0.3, -0.35, 0.3)), 'Splenorenal', 't-red')}{d.pelvis > 36 && tag(ABD.pelvis.clone().add(V(0.5, -0.1, 0.4)), 'Pelvic fluid', 't-red')}
-    {st.retroMl > 200 && tag(ABD.retro.clone().add(V(0.6, -0.4, -0.2)), 'Retroperitoneal haematoma', 't-red')}
+    {st.retroMl > 200 && tag(ABD.retro.clone().add(V(0.6, -0.4, -0.2)), 'Retroperitoneal hematoma', 't-red')}
     {st.aaa.diameterCm > 3 && tag(ABD.aaa.clone().add(V(0.45, 0.2, 0.3)), `AAA ${st.aaa.diameterCm.toFixed(1)} cm`, 't-art', 'aaa')}
     {st.freeAir && tag(V(0, 4.55, 0.5), 'Free air', 't-teal', 'free air')}
   </>);

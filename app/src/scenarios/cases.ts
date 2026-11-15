@@ -19,15 +19,15 @@ export interface SimCase {
 export const SIM_CASES: SimCase[] = [
   {
     id: 'copd', title: 'Hypercapnic COPD exacerbation', level: 'Advanced',
-    story: '68-year-old with severe COPD (home O₂ 2 L). Three days of increasing sputum and dyspnoea. Given oxygen at 6 L/min by ambulance crew. Now drowsy, GCS 9.',
+    story: '68-year-old with severe COPD (home O₂ 2 L). Three days of increasing sputum and dyspnea. Given oxygen at 6 L/min by ambulance crew. Now drowsy, GCS 9.',
     exam: 'Barrel chest, quiet breath sounds, prolonged expiration. RR 8, SpO₂ 88 % on 6 L, EtCO₂ 68.',
     pre: { params: { sex: 'M', age: 68, heightCm: 172, weightKg: 64, setCO2: 55, maxVE: 9, drive: 0.53, lowVQ: 0.3, vdAlv: 0.15, shunt: 0.05, fio2: 0.3, vco2: 210, spontVt: 0.5 }, init: { paco2: 82, renalAdj: 6 }, settleMin: 60 },
     scenario: 'copd', startSettings: { mode: 'VC', vt: 0.55, rr: 20, peep: 5, fio2: 0.6, flow: 50, pattern: 'square', pause: 0 },
     targets: ['pH 7.30–7.40 — not a "normal" PaCO₂', 'SpO₂ 88–92 %', 'Auto-PEEP < 3', 'Pplat < 30'],
     review: (n, g) => {
       const F: Feedback[] = [];
-      if (g.pH > 7.45) F.push({ level: 'bad', text: `pH ${g.pH.toFixed(2)}: post-hypercapnic alkalosis. The kidneys have been holding bicarbonate for days — blowing PaCO₂ down to "normal" makes this patient alkalaemic (arrhythmias, seizures, low K⁺ and Ca²⁺). Aim for their usual PaCO₂.` });
-      else if (g.pH < 7.25) F.push({ level: 'bad', text: `pH ${g.pH.toFixed(2)}: still severely acidaemic. Increase alveolar ventilation (Vt or RR) — while watching for trapping.` });
+      if (g.pH > 7.45) F.push({ level: 'bad', text: `pH ${g.pH.toFixed(2)}: post-hypercapnic alkalosis. The kidneys have been holding bicarbonate for days — blowing PaCO₂ down to "normal" makes this patient alkalemic (arrhythmias, seizures, low K⁺ and Ca²⁺). Aim for their usual PaCO₂.` });
+      else if (g.pH < 7.25) F.push({ level: 'bad', text: `pH ${g.pH.toFixed(2)}: still severely acidemic. Increase alveolar ventilation (Vt or RR) — while watching for trapping.` });
       else F.push({ level: 'ok', text: `pH ${g.pH.toFixed(2)} with PaCO₂ ${g.paco2.toFixed(0)}: acceptable for a chronic retainer.` });
       if (n.autoPeep > 3) F.push({ level: 'bad', text: `Auto-PEEP ≈ ${n.autoPeep.toFixed(0)} cmH₂O: expiratory time too short for this lung (τ ${n.tau.toFixed(1)} s). Lower RR, higher flow, smaller Vt.` });
       if (g.spo2 > 0.95) F.push({ level: 'warn', text: `SpO₂ ${Math.round(g.spo2 * 100)} %: more oxygen than needed. In COPD target 88–92 % — excess O₂ worsens V/Q matching and CO₂ retention.` });
@@ -51,7 +51,7 @@ export const SIM_CASES: SimCase[] = [
       if (n.dp > 15) F.push({ level: 'bad', text: `Driving pressure ${n.dp.toFixed(0)} — the breath is too big for the open lung. Recruit (PEEP) or reduce Vt.` });
       if (g.spo2 < 0.88) F.push({ level: 'bad', text: `SpO₂ ${Math.round(g.spo2 * 100)} %: shunt through collapsed lung. PEEP recruits; FiO₂ alone barely helps a shunt.` });
       if (g.pH < 7.25) F.push({ level: 'warn', text: `pH ${g.pH.toFixed(2)}: raise RR (up to ~35) to keep minute ventilation with a small Vt.` });
-      if (g.map < 65) F.push({ level: 'warn', text: `MAP ${g.map.toFixed(0)}: high PEEP can reduce venous return in a vasodilated patient — balance PEEP against haemodynamics.` });
+      if (g.map < 65) F.push({ level: 'warn', text: `MAP ${g.map.toFixed(0)}: high PEEP can reduce venous return in a vasodilated patient — balance PEEP against hemodynamics.` });
       if (!F.length) F.push({ level: 'ok', text: 'Lung-protective and adequately oxygenated. This is what the ARDSNet protocol is aiming for.' });
       return F;
     },

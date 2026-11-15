@@ -1,7 +1,7 @@
 /**
  * STEMI equivalents: high-risk occlusion or near-occlusion patterns that do not meet the classic ST-elevation rules.
  * They use the same shape as a coronary territory (so the heart, the coronaries, the ECG and the timeline work the same
- * way) plus what makes them different: which ECG criteria define them, how much of the wall thickness is ischaemic
+ * way) plus what makes them different: which ECG criteria define them, how much of the wall thickness is ischemic
  * (shown in the short-axis slice) and whether the culprit is an occlusion, a near-occlusion or a stenosis.
  *
  * They are kept out of TERRITORIES on purpose: territory lessons and practice cases are generated from that list.
@@ -21,7 +21,7 @@ export interface STEMIEquivalent extends CoronaryTerritory {
   kind: 'equivalent';
   /** the defining ECG criteria, each with the leads that show it (for highlighting and lesson/case writing) */
   criteria: { text: string; leads: LeadId[] }[];
-  /** how far through the wall the ischaemia reaches at its worst: 0 inner layer only → 1 transmural */
+  /** how far through the wall the ischemia reaches at its worst: 0 inner layer only → 1 transmural */
   transmural: number;
   /** what the culprit lesion is at the moment the ECG is recorded */
   lesion: 'occlusion' | 'near-occlusion' | 'stenosis';
@@ -34,7 +34,7 @@ export interface STEMIEquivalent extends CoronaryTerritory {
 
 export const EQUIVALENTS: STEMIEquivalent[] = [
   {
-    kind: 'equivalent', id: 'leftMain', name: 'Left main / three-vessel ischaemia (aVR pattern)', short: 'Left main · aVR',
+    kind: 'equivalent', id: 'leftMain', name: 'Left main / three-vessel ischemia (aVR pattern)', short: 'Left main · aVR',
     affectedLeads: ['aVR'], reciprocalLeads: ['I', 'II', 'aVL', 'aVF', 'V4', 'V5', 'V6'], extraLeads: [],
     criteria: [
       { text: 'ST elevation in aVR (≥ 1 mm), usually greater than in V1', leads: ['aVR'] },
@@ -42,17 +42,17 @@ export const EQUIVALENTS: STEMIEquivalent[] = [
     ],
     commonCulpritVessels: [
       { vessel: 'LM', at: 0.5, likelihood: 'common', note: 'Critical left main stenosis or subtotal occlusion: the whole left ventricle is under-perfused.' },
-      { vessel: 'LAD', at: 0.06, likelihood: 'possible', note: 'Severe proximal LAD disease, often with three-vessel disease. Supply–demand ischaemia (tachyarrhythmia, anaemia, hypotension) can give the same ECG.' },
+      { vessel: 'LAD', at: 0.06, likelihood: 'possible', note: 'Severe proximal LAD disease, often with three-vessel disease. Supply–demand ischemia (tachyarrhythmia, anemia, hypotension) can give the same ECG.' },
     ],
     myocardialRegion: ['septum', 'anterior', 'apex', 'lateral', 'highLateral', 'inferior', 'posterior'],
     cameraPosition: { dir: [0.45, 0.25, 0.85], distance: 4.5 },
     heartHighlightRegion: { septum: 0.95, anterior: 0.95, apex: 0.9, lateral: 0.95, highLateral: 0.9, inferior: 0.75, posterior: 0.75 },
     ecgPattern: { id: 'leftMain', injury: TOWARD_AVR, injuryMv: 0.2, necrosisMv: 0, hyperacuteMv: 0 },
     transmural: 0.35, lesion: 'near-occlusion',
-    explanation: 'When the whole left ventricle is starved at once, the inner layer (subendocardium) is injured all the way round. Its injury current points inward, toward the cavity — up and to the right, the direction aVR looks from. So aVR records ST elevation while every lead facing the left ventricle records ST depression. No single wall is injured through its full thickness, so there is no localised ST elevation.',
+    explanation: 'When the whole left ventricle is starved at once, the inner layer (subendocardium) is injured all the way round. Its injury current points inward, toward the cavity — up and to the right, the direction aVR looks from. So aVR records ST elevation while every lead facing the left ventricle records ST depression. No single wall is injured through its full thickness, so there is no localized ST elevation.',
     clinicalPearls: [
-      'aVR elevation with diffuse depression is a pattern of global subendocardial ischaemia, not of one territory: left main or three-vessel disease if it fits the story.',
-      'The same ECG appears with demand ischaemia — fast arrhythmias, severe anaemia, shock — so read it with the patient.',
+      'aVR elevation with diffuse depression is a pattern of global subendocardial ischemia, not of one territory: left main or three-vessel disease if it fits the story.',
+      'The same ECG appears with demand ischemia — fast arrhythmias, severe anemia, shock — so read it with the patient.',
       'These patients often go on to need emergent angiography, and sometimes surgery rather than stenting.',
     ],
     action: 'Treat as high-risk ACS: urgent cardiology and angiography; look for and treat a demand cause.',
@@ -99,14 +99,14 @@ export const EQUIVALENTS: STEMIEquivalent[] = [
     heartHighlightRegion: { septum: 0.9, anterior: 1, apex: 0.8 },
     ecgPattern: { id: 'wellensA', injury: ANTERIOR, injuryMv: 0.015, necrosisMv: 0, hyperacuteMv: 0, tWave: { dir: ANTERIOR, mv: 0.24, shape: 'biphasic' } },
     transmural: 0.15, lesion: 'stenosis',
-    explanation: 'A tight plaque near the start of the LAD closed, caused chest pain, and opened again. The anterior wall it starved is now reperfused but stunned, and its repolarisation is disturbed: the T waves in V2 and V3 go up and then down. The ST segments are flat, the R waves are preserved and there are no Q waves, because little muscle has died — yet.',
+    explanation: 'A tight plaque near the start of the LAD closed, caused chest pain, and opened again. The anterior wall it starved is now reperfused but stunned, and its repolarization is disturbed: the T waves in V2 and V3 go up and then down. The ST segments are flat, the R waves are preserved and there are no Q waves, because little muscle has died — yet.',
     clinicalPearls: [
       'Wellens is a warning sign, not an infarct: the next occlusion may not re-open.',
       'Stress testing can provoke a large anterior MI. These patients need angiography.',
-      'The pattern is seen in the pain-free period; during pain the T waves may pseudo-normalise or the ST segments may rise.',
+      'The pattern is seen in the pain-free period; during pain the T waves may pseudo-normalize or the ST segments may rise.',
     ],
     action: 'Admit for urgent angiography; avoid stress testing.',
-    seqKeys: [{ at: 0, label: 'Normal' }, { at: 0.14, label: 'Plaque' }, { at: 0.3, label: 'Occludes' }, { at: 0.46, label: 'Ischaemic pain' }, { at: 0.62, label: 'Re-opens' }, { at: 0.8, label: 'T waves change' }, { at: 0.94, label: 'Pain-free' }],
+    seqKeys: [{ at: 0, label: 'Normal' }, { at: 0.14, label: 'Plaque' }, { at: 0.3, label: 'Occludes' }, { at: 0.46, label: 'Ischemic pain' }, { at: 0.62, label: 'Re-opens' }, { at: 0.8, label: 'T waves change' }, { at: 0.94, label: 'Pain-free' }],
     sequence: wellensSequence,
   },
   {
@@ -125,14 +125,14 @@ export const EQUIVALENTS: STEMIEquivalent[] = [
     heartHighlightRegion: { septum: 0.9, anterior: 1, apex: 0.8 },
     ecgPattern: { id: 'wellensB', injury: ANTERIOR, injuryMv: 0.015, necrosisMv: 0, hyperacuteMv: 0, tWave: { dir: ANTERIOR, mv: 0.5, shape: 'inverted' } },
     transmural: 0.15, lesion: 'stenosis',
-    explanation: 'The same story as type A, a little further on: a critical proximal LAD plaque occluded and re-opened, and the stunned anterior wall now repolarises in reverse. The T waves in the anterior chest leads are deep and symmetric; ST segments flat, R waves preserved, no Q waves. Type B is the more common form.',
+    explanation: 'The same story as type A, a little further on: a critical proximal LAD plaque occluded and re-opened, and the stunned anterior wall now repolarizes in reverse. The T waves in the anterior chest leads are deep and symmetric; ST segments flat, R waves preserved, no Q waves. Type B is the more common form.',
     clinicalPearls: [
       'Deep symmetric anterior T-wave inversion in a patient whose pain has settled is Wellens until proven otherwise.',
       'Do not stress test. Arrange angiography.',
       'Other causes of deep T inversion (raised intracranial pressure, pulmonary embolism, hypertrophic cardiomyopathy) look similar: the history decides.',
     ],
     action: 'Admit for urgent angiography; avoid stress testing.',
-    seqKeys: [{ at: 0, label: 'Normal' }, { at: 0.14, label: 'Plaque' }, { at: 0.3, label: 'Occludes' }, { at: 0.46, label: 'Ischaemic pain' }, { at: 0.62, label: 'Re-opens' }, { at: 0.8, label: 'T waves invert' }, { at: 0.94, label: 'Pain-free' }],
+    seqKeys: [{ at: 0, label: 'Normal' }, { at: 0.14, label: 'Plaque' }, { at: 0.3, label: 'Occludes' }, { at: 0.46, label: 'Ischemic pain' }, { at: 0.62, label: 'Re-opens' }, { at: 0.8, label: 'T waves invert' }, { at: 0.94, label: 'Pain-free' }],
     sequence: wellensSequence,
   },
 ];

@@ -277,7 +277,7 @@ function Particles({ spec, kind }: { spec: SpecRef; kind: Body }) {
           else { const rr = inside ? inR * Math.cbrt(sd.r) : outA + (outB - outA) * sd.r; p = sd.u.clone().multiplyScalar(rr); }
           // crossing: a fraction of outside particles drift through the membrane (direction by sign)
           if (!inside && sp.cross !== 0 && sd.r < Math.abs(sp.cross) * 0.5 && kind !== 'vessel') { const f = (t * 0.25 + sd.ph) % 1; const e = sp.cross > 0 ? f : 1 - f; p.multiplyScalar(1 - e * 0.6); }
-          // calcium shield: Ca²⁺ gathers at the membrane surface when stabilised
+          // calcium shield: Ca²⁺ gathers at the membrane surface when stabilized
           if (sp.key === 'ca' && !inside && sd.r < s.caShield * 0.8) p.setLength(inR + 0.35 + 0.05 * Math.sin(t + sd.ph));
           // filtration: creatinine / urea flow into the tubule at the GFR
           if (kind === 'nephron' && inside) { const f = (t * 0.3 * s.gfr + sd.ph) % 1; p.x = 1.1 + f * 2.6; }

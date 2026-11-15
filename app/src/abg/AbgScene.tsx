@@ -1,6 +1,6 @@
 /**
  * The blood-gas journey: lungs → alveolus & pulmonary capillary → muscle capillary bed → kidney.
- * Everything is driven by the AbgLab snapshot: RBC colour is the local saturation, the number
+ * Everything is driven by the AbgLab snapshot: RBC color is the local saturation, the number
  * of gas molecules is the local partial pressure, which alveoli are collapsed / unperfused
  * follows shunt and dead space, mitochondria dim when O₂ supply falls short, and the kidney
  * streams bicarbonate back at the rate renal compensation is actually happening.
@@ -197,7 +197,7 @@ function Alveolus({ micro }: { micro: MicroAsset }) {
       <instancedMesh ref={rbcRef} args={[M.rbc.geometry, rbcMat, NR]} frustumCulled={false} />
       <primitive object={gas.o2} /><primitive object={gas.co2} />
       <Label pos={v3(mp.arteriole[Math.floor(mp.arteriole.length * 0.42)])} station="alveolus" text="Pulmonary arteriole: mixed venous blood" tone="ven" />
-      <Label pos={v3(mp.venule[Math.floor(mp.venule.length * 0.58)])} station="alveolus" text="Pulmonary venule: arterialised blood" tone="art" />
+      <Label pos={v3(mp.venule[Math.floor(mp.venule.length * 0.58)])} station="alveolus" text="Pulmonary venule: arterialized blood" tone="art" />
       <Label pos={[0, 3.6, 0]} station="alveolus" text="Alveolar duct" />
       <Label pos={v3(mp.paths[CAP_PATH].pts[Math.floor(mp.paths[CAP_PATH].pts.length / 2)])} station="capillary" text="Capillary: RBCs load O₂ in the first third of their transit" />
     </group>
@@ -305,7 +305,7 @@ function Tissue({ micro }: { micro: MicroAsset }) {
   );
 }
 
-/** O₂ leaving capillaries into fibres, CO₂ leaving fibres into capillaries, lactate leaking out when O₂ falls short. */
+/** O₂ leaving capillaries into fibers, CO₂ leaving fibers into capillaries, lactate leaking out when O₂ falls short. */
 function buildFlux(mp: MicroAsset['mapping']['tissue']) {
   const N = IS_PHONE ? 260 : 420; const pos = new Float32Array(N * 3); const col = new Float32Array(N * 3); const vis = new Float32Array(N);
   const kinds: number[] = []; const from: THREE.Vector3[] = []; const to: THREE.Vector3[] = []; const phase: number[] = [];

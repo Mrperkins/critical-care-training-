@@ -33,10 +33,10 @@ export interface CellDef {
   type: CellType; name: string;
   /** the cell itself (ions inside / outside) */
   sdf: (p: THREE.Vector3) => number;
-  /** what is drawn: the cell plus pieces of its neighbours (heart); defaults to sdf */
+  /** what is drawn: the cell plus pieces of its neighbors (heart); defaults to sdf */
   meshSdf?: (p: THREE.Vector3) => number;
   cut: number; box: THREE.Box3;
-  /** outside region: ellipse in x–z (centre cx) */
+  /** outside region: ellipse in x–z (center cx) */
   out: { cx: number; rx: number; rz: number };
   shape: Shape;
   /** where transporters may sit (visible on the rim just under the slice) */
@@ -79,7 +79,7 @@ const CARD_DISCS: Disc[] = [
   { pos: CARD.oA.clone().addScaledVector(dir(CARD.angA), CARD.lenA), dir: dir(CARD.angA), hw: 0.5, hh: 0.62 },
   { pos: CARD.oB.clone().addScaledVector(dir(CARD.angB), CARD.lenB), dir: dir(CARD.angB), hw: 0.46, hh: 0.58 },
 ];
-/** the neighbouring heart cells, joined at each intercalated disc (drawn for context, 1 unit long) */
+/** the neighboring heart cells, joined at each intercalated disc (drawn for context, 1 unit long) */
 export const NEIGHBOUR_LEN = 1.0;
 const neighbours = (p: THREE.Vector3) => { let d = 1e9; for (const c of CARD_DISCS) { const q = p.clone().sub(c.pos); const along = q.dot(c.dir); const side = new THREE.Vector3(-c.dir.z, 0, c.dir.x); d = Math.min(d, sdRoundBox(along - 0.03 - NEIGHBOUR_LEN / 2, q.y, q.dot(side), NEIGHBOUR_LEN / 2, c.hh, c.hw, 0.3)); } return d; };
 export const cardiacDrawn = (p: THREE.Vector3) => Math.min(cardiacSdf(p), neighbours(p));

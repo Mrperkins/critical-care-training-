@@ -12,7 +12,7 @@ describe('Monro–Kellie ICP on the neuro state', () => {
     const d1 = icpOfVolume(10, 25) - icpOfVolume(0, 25), d2 = icpOfVolume(45, 25) - icpOfVolume(35, 25);
     expect(d1).toBeLessThan(1.5); expect(d2).toBeGreaterThan(8 * d1); expect(icpOfVolume(-10, 25)).toBeLessThan(10);
   });
-  it('a growing haematoma: compensated, then high ICP with P2 > P1, falling CPP, midline shift, uncal then tonsillar herniation', () => {
+  it('a growing hematoma: compensated, then high ICP with P2 > P1, falling CPP, midline shift, uncal then tonsillar herniation', () => {
     const a = icpState(ich(20), sys()), b = icpState(ich(48), sys()), c = icpState(ich(57), sys()), d = icpState(ich(70), sys());
     expect(a.icp).toBeLessThan(15); expect(a.p2p1).toBeLessThan(1); expect(a.herniation).toBe('none'); expect(a.pupils.L.reactive).toBe(true);
     expect(b.icp).toBeGreaterThan(22); expect(b.p2p1).toBeGreaterThan(1); expect(b.cpp).toBeLessThan(a.cpp - 10); expect(b.shiftMm).toBeGreaterThan(a.shiftMm);
@@ -24,7 +24,7 @@ describe('Monro–Kellie ICP on the neuro state', () => {
     expect(icpState(ich(48), sys()).cushing).toBe(false);
     const c = icpState(ich(62), sys()); expect(c.cushing).toBe(true); expect(c.map).toBeGreaterThan(110); expect(c.hr).toBeLessThan(60); expect(c.resp).not.toBe('regular');
   });
-  it('temporising measures act on the same volume: head-up, brief hyperventilation, osmotherapy, evacuation', () => {
+  it('temporizing measures act on the same volume: head-up, brief hyperventilation, osmotherapy, evacuation', () => {
     const base = icpState(ich(50), sys(), I({ headUp: 0 })).icp;
     expect(icpState(ich(50), sys(), I({ headUp: 30 })).icp).toBeLessThan(base);
     expect(icpState(ich(50), sys({ paco2: 32 }), I({ headUp: 0 })).icp).toBeLessThan(base);
@@ -32,10 +32,10 @@ describe('Monro–Kellie ICP on the neuro state', () => {
     expect(icpState(ich(50), sys(), I({ headUp: 0, osmoMl: 15 })).icp).toBeLessThan(base - 8);
     expect(icpState(ich(50), sys(), I({ decompressed: true })).icp).toBeLessThan(15);
   });
-  it('the haematoma grows at high blood pressure → higher ICP later (same state, same model)', () => {
+  it('the hematoma grows at high blood pressure → higher ICP later (same state, same model)', () => {
     expect(icpState(ich(40, 180), sys({ map: 130 })).icp).toBeGreaterThan(icpState(ich(40, 180), sys({ map: 95 })).icp);
   });
-  it('hydrocephalus: CSF accumulates → central herniation; an EVD holds ICP at the chamber height; levelling errors and clamping', () => {
+  it('hydrocephalus: CSF accumulates → central herniation; an EVD holds ICP at the chamber height; leveling errors and clamping', () => {
     const sah = { ...presetState('sah'), minutes: 180 }; const h = I({ hydrocephalus: true });
     const noEvd = icpState(sah, sys(), h); expect(noEvd.icp).toBeGreaterThan(30); expect(noEvd.herniation).toBe('central'); expect(noEvd.shiftMm).toBe(0);
     const open = icpState(sah, sys(), I({ hydrocephalus: true, evd: { open: true, heightCm: 15, levelErrorCm: 0 } }));
@@ -80,7 +80,7 @@ describe('ICP lesson ordering', async () => {
 
 import { ventricleScale } from '../src/neuro/icp';
 describe('hydrocephalus', () => {
-  it('adds trapped CSF even for a fresh haematoma; enlarges the ventricles; an EVD shrinks them; mass effect compresses them', () => {
+  it('adds trapped CSF even for a fresh hematoma; enlarges the ventricles; an EVD shrinks them; mass effect compresses them', () => {
     const ich = presetState('ich'); const hyd = { ...ICP_DEFAULT, hydrocephalus: true };
     expect(icpState(ich, DEFAULT_SYSTEMIC, hyd).icp).toBeGreaterThan(icpState(ich).icp + 10);
     const sah = { ...presetState('sah'), minutes: 180 }; const v = ventricleScale(sah, DEFAULT_SYSTEMIC, hyd), d = ventricleScale(sah, DEFAULT_SYSTEMIC, { ...hyd, evd: { open: true, heightCm: 15, levelErrorCm: 0 } });

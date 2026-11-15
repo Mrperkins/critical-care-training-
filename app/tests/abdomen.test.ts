@@ -74,7 +74,7 @@ describe('abdomen state', () => {
   it('non-blood fluid is not counted as blood loss', () => {
     expect(bloodLoss({ ...emptyAbdomen(), freeFluidMl: 800, fluidKind: 'ascites' })).toBe(0);
   });
-  it('mesenteric ischaemia progresses with time', () => {
+  it('mesenteric ischemia progresses with time', () => {
     const p = ABD_PRESETS.find((x) => x.id === 'mesenteric')!.make();
     expect(evolve(p, 240).ischaemia).toBeGreaterThan(p.ischaemia);
     expect(abdomenFindings(evolve(p, 240)).join(' ')).toMatch(/out of proportion/);

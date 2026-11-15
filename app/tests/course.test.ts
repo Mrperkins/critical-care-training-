@@ -1,6 +1,6 @@
 /**
  * Every lesson offers a full course and an 80/20 TL;DR. These checks keep the course content in step with
- * the lessons it summarises: the TL;DR scenes exist, it is genuinely shorter, it replays the same world
+ * the lessons it summarizes: the TL;DR scenes exist, it is genuinely shorter, it replays the same world
  * state the full lesson has at each kept scene, and the self-check answers point at real options.
  */
 import { describe, it, expect } from 'vitest';

@@ -4,7 +4,7 @@
  */
 import { useEffect, useState } from 'react';
 
-/** Overlay mark, normalised 0–1 to the media frame. Landmarks = normal anatomy; pathology = the finding. */
+/** Overlay mark, normalized 0–1 to the media frame. Landmarks = normal anatomy; pathology = the finding. */
 export interface RealMark { layer: 'landmark' | 'pathology'; label: string; shape: 'ellipse' | 'line' | 'point'; x: number; y: number; rx?: number; ry?: number; pts?: [number, number][]; lx?: number; ly?: number }
 export interface RealItem {
   file: string; poster?: string; webm?: string; posterAt?: number; /** display order within a kind */ order?: number;
