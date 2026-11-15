@@ -4,7 +4,7 @@
  "models": [
   {
    "band": "infant",
-   "patient": "Pediatric-CT-SEG-356",
+   "patient": "Pediatric-CT-SEG-357",
    "age": "000Y",
    "sex": "F",
    "screened": 2,
@@ -12,277 +12,257 @@
    "slice_mm": 2.0,
    "structures": {
     "adrenal_l": {
-     "ml": 0.6,
-     "slices": 7,
-     "tris": 1232,
+     "ml": 0.5,
+     "slices": 6,
+     "tris": 1264,
      "bounds_cm": [
-      0.9,
-      1.3,
-      1.9
-     ]
-    },
-    "adrenal_r": {
-     "ml": 0.4,
-     "slices": 7,
-     "tris": 916,
-     "bounds_cm": [
-      1.0,
-      1.2,
-      1.4
-     ]
-    },
-    "bladder": {
-     "ml": 4.8,
-     "slices": 8,
-     "tris": 2500,
-     "bounds_cm": [
-      2.8,
-      1.6,
-      2.6
-     ]
-    },
-    "bones": {
-     "ml": 106.3,
-     "slices": 95,
-     "tris": 22000,
-     "bounds_cm": [
-      15.8,
-      18.8,
-      9.4
-     ]
-    },
-    "breast_l": {
-     "ml": 0.8,
-     "slices": 5,
-     "tris": 1296,
-     "bounds_cm": [
-      1.1,
-      1.0,
-      1.6
-     ]
-    },
-    "breast_r": {
-     "ml": 0.7,
-     "slices": 5,
-     "tris": 1200,
-     "bounds_cm": [
-      1.1,
-      1.0,
-      1.4
-     ]
-    },
-    "duodenum": {
-     "ml": 14.0,
-     "slices": 21,
-     "tris": 2500,
-     "bounds_cm": [
-      4.0,
-      4.2,
-      3.6
-     ]
-    },
-    "esophagus": {
-     "ml": 2.5,
-     "slices": 15,
-     "tris": 2500,
-     "bounds_cm": [
-      1.4,
-      3.0,
-      1.6
-     ]
-    },
-    "femur_head_l": {
-     "ml": 6.8,
-     "slices": 16,
-     "tris": 2500,
-     "bounds_cm": [
-      4.0,
-      3.2,
-      2.7
-     ]
-    },
-    "femur_head_r": {
-     "ml": 5.4,
-     "slices": 15,
-     "tris": 2500,
-     "bounds_cm": [
-      2.1,
-      2.8,
-      2.3
-     ]
-    },
-    "gall_bladder": {
-     "ml": 3.3,
-     "slices": 15,
-     "tris": 2500,
-     "bounds_cm": [
-      3.2,
-      3.0,
-      3.0
-     ]
-    },
-    "gonads": {
-     "ml": 2.8,
-     "slices": 9,
-     "tris": 2500,
-     "bounds_cm": [
-      3.5,
       1.8,
-      3.9
-     ]
-    },
-    "heart": {
-     "ml": 39.8,
-     "slices": 10,
-     "tris": 4000,
-     "bounds_cm": [
-      6.0,
-      2.0,
-      5.3
-     ]
-    },
-    "kidney_l": {
-     "ml": 26.2,
-     "slices": 29,
-     "tris": 2500,
-     "bounds_cm": [
-      3.4,
-      5.7,
-      3.1
-     ]
-    },
-    "kidney_r": {
-     "ml": 26.4,
-     "slices": 27,
-     "tris": 2500,
-     "bounds_cm": [
-      3.1,
-      5.4,
-      3.8
-     ]
-    },
-    "large_intestine": {
-     "ml": 164.4,
-     "slices": 53,
-     "tris": 6000,
-     "bounds_cm": [
-      11.1,
-      10.4,
-      9.0
-     ]
-    },
-    "liver": {
-     "ml": 176.3,
-     "slices": 42,
-     "tris": 5000,
-     "bounds_cm": [
-      10.2,
-      8.2,
-      9.1
-     ]
-    },
-    "lung_l": {
-     "ml": 46.0,
-     "slices": 16,
-     "tris": 5000,
-     "bounds_cm": [
-      5.4,
-      3.1,
-      7.9
-     ]
-    },
-    "lung_r": {
-     "ml": 68.5,
-     "slices": 17,
-     "tris": 5000,
-     "bounds_cm": [
-      6.6,
-      3.2,
-      8.2
-     ]
-    },
-    "pancreas": {
-     "ml": 3.0,
-     "slices": 19,
-     "tris": 2500,
-     "bounds_cm": [
-      3.3,
-      3.8,
+      1.1,
       2.0
      ]
     },
-    "rectum": {
-     "ml": 8.6,
-     "slices": 21,
-     "tris": 2500,
+    "adrenal_r": {
+     "ml": 0.5,
+     "slices": 5,
+     "tris": 956,
      "bounds_cm": [
-      1.9,
-      4.2,
-      2.7
+      0.7,
+      0.8,
+      1.8
      ]
     },
-    "skin": {
-     "ml": 3515.2,
-     "slices": 95,
-     "tris": 14000,
-     "bounds_cm": [
-      17.5,
-      18.3,
-      16.8
-     ]
-    },
-    "small_intestine": {
-     "ml": 225.0,
-     "slices": 56,
-     "tris": 6000,
-     "bounds_cm": [
-      8.6,
-      11.0,
-      7.3
-     ]
-    },
-    "spinal_canal": {
-     "ml": 9.4,
-     "slices": 38,
-     "tris": 2500,
-     "bounds_cm": [
-      1.5,
-      7.6,
-      1.4
-     ]
-    },
-    "spleen": {
-     "ml": 31.6,
+    "bladder": {
+     "ml": 52.2,
      "slices": 22,
      "tris": 2500,
      "bounds_cm": [
+      4.6,
+      4.3,
+      5.2
+     ]
+    },
+    "bones": {
+     "ml": 196.6,
+     "slices": 116,
+     "tris": 40000,
+     "bounds_cm": [
+      15.2,
+      23.1,
+      13.5
+     ]
+    },
+    "duodenum": {
+     "ml": 10.0,
+     "slices": 17,
+     "tris": 2500,
+     "bounds_cm": [
+      5.3,
+      3.4,
+      3.8
+     ]
+    },
+    "esophagus": {
+     "ml": 3.5,
+     "slices": 19,
+     "tris": 2500,
+     "bounds_cm": [
+      1.5,
+      3.8,
+      1.7
+     ]
+    },
+    "femur_head_l": {
+     "ml": 12.4,
+     "slices": 20,
+     "tris": 2500,
+     "bounds_cm": [
+      2.7,
       4.0,
-      4.4,
-      6.4
+      3.0
+     ]
+    },
+    "femur_head_r": {
+     "ml": 13.0,
+     "slices": 20,
+     "tris": 2500,
+     "bounds_cm": [
+      2.7,
+      4.0,
+      3.1
+     ]
+    },
+    "gall_bladder": {
+     "ml": 3.8,
+     "slices": 12,
+     "tris": 2500,
+     "bounds_cm": [
+      2.7,
+      2.4,
+      2.3
+     ]
+    },
+    "gonads": {
+     "ml": 1.7,
+     "slices": 8,
+     "tris": 2500,
+     "bounds_cm": [
+      3.7,
+      1.6,
+      2.0
+     ]
+    },
+    "heart": {
+     "ml": 65.5,
+     "slices": 12,
+     "tris": 4000,
+     "bounds_cm": [
+      7.3,
+      2.4,
+      6.6
+     ]
+    },
+    "kidney_l": {
+     "ml": 40.8,
+     "slices": 33,
+     "tris": 2500,
+     "bounds_cm": [
+      4.5,
+      6.5,
+      3.2
+     ]
+    },
+    "kidney_r": {
+     "ml": 39.3,
+     "slices": 30,
+     "tris": 2500,
+     "bounds_cm": [
+      3.7,
+      5.9,
+      4.2
+     ]
+    },
+    "large_intestine": {
+     "ml": 390.9,
+     "slices": 79,
+     "tris": 6000,
+     "bounds_cm": [
+      12.4,
+      15.5,
+      10.5
+     ]
+    },
+    "liver": {
+     "ml": 344.9,
+     "slices": 56,
+     "tris": 5000,
+     "bounds_cm": [
+      10.6,
+      10.9,
+      10.3
+     ]
+    },
+    "lung_l": {
+     "ml": 69.1,
+     "slices": 23,
+     "tris": 5000,
+     "bounds_cm": [
+      6.1,
+      4.3,
+      8.4
+     ]
+    },
+    "lung_r": {
+     "ml": 78.4,
+     "slices": 18,
+     "tris": 5000,
+     "bounds_cm": [
+      6.5,
+      3.5,
+      10.2
+     ]
+    },
+    "pancreas": {
+     "ml": 8.0,
+     "slices": 20,
+     "tris": 2500,
+     "bounds_cm": [
+      5.2,
+      4.0,
+      3.2
+     ]
+    },
+    "rectum": {
+     "ml": 29.3,
+     "slices": 28,
+     "tris": 2500,
+     "bounds_cm": [
+      3.3,
+      5.6,
+      3.6
+     ]
+    },
+    "skin": {
+     "ml": 5372.1,
+     "slices": 116,
+     "tris": 10134,
+     "bounds_cm": [
+      16.6,
+      18.2,
+      15.5
+     ]
+    },
+    "small_intestine": {
+     "ml": 401.0,
+     "slices": 71,
+     "tris": 6000,
+     "bounds_cm": [
+      11.2,
+      13.8,
+      9.9
+     ]
+    },
+    "spinal_canal": {
+     "ml": 14.9,
+     "slices": 51,
+     "tris": 2500,
+     "bounds_cm": [
+      1.9,
+      10.2,
+      1.7
+     ]
+    },
+    "spleen": {
+     "ml": 53.8,
+     "slices": 29,
+     "tris": 2500,
+     "bounds_cm": [
+      5.0,
+      5.7,
+      5.9
      ]
     },
     "stomach": {
-     "ml": 43.0,
-     "slices": 18,
+     "ml": 37.5,
+     "slices": 19,
      "tris": 2500,
      "bounds_cm": [
-      5.9,
-      3.5,
-      7.5
+      5.8,
+      3.8,
+      4.5
      ]
     },
     "uterocervix": {
-     "ml": 1.5,
-     "slices": 7,
-     "tris": 2116,
+     "ml": 1.2,
+     "slices": 6,
+     "tris": 2192,
      "bounds_cm": [
-      1.8,
-      1.4,
-      1.1
+      2.7,
+      1.2,
+      0.9
      ]
     }
    },
-   "bytes": 2182912
+   "bytes": 2408844
   },
   {
    "band": "toddler",
@@ -316,11 +296,11 @@
     "bones": {
      "ml": 401.1,
      "slices": 170,
-     "tris": 22000,
+     "tris": 40000,
      "bounds_cm": [
       19.4,
-      33.5,
-      12.8
+      33.7,
+      13.3
      ]
     },
     "duodenum": {
@@ -476,11 +456,11 @@
     "skin": {
      "ml": 7864.2,
      "slices": 170,
-     "tris": 13998,
+     "tris": 6030,
      "bounds_cm": [
       19.0,
-      33.3,
-      12.9
+      29.1,
+      13.1
      ]
     },
     "small_intestine": {
@@ -534,7 +514,7 @@
      ]
     }
    },
-   "bytes": 2099200
+   "bytes": 2296588
   },
   {
    "band": "child",
@@ -578,11 +558,11 @@
     "bones": {
      "ml": 607.5,
      "slices": 171,
-     "tris": 22000,
+     "tris": 40000,
      "bounds_cm": [
-      18.9,
-      34.1,
-      13.7
+      19.2,
+      33.9,
+      13.8
      ]
     },
     "duodenum": {
@@ -748,11 +728,11 @@
     "skin": {
      "ml": 10081.5,
      "slices": 171,
-     "tris": 14000,
+     "tris": 9120,
      "bounds_cm": [
-      22.5,
-      35.8,
-      16.9
+      22.0,
+      26.4,
+      15.7
      ]
     },
     "small_intestine": {
@@ -796,7 +776,7 @@
      ]
     }
    },
-   "bytes": 2208984
+   "bytes": 2453544
   }
  ],
  "candidates": [
@@ -807,7 +787,7 @@
    "band": "infant",
    "n": 27,
    "span_mm": 188.0,
-   "why": "chosen: most typical organ sizes for the band",
+   "why": "usable",
    "deviation": 0.224
   },
   {
@@ -817,7 +797,7 @@
    "band": "infant",
    "n": 25,
    "span_mm": 230.0,
-   "why": "usable",
+   "why": "chosen: most typical organ sizes for the band",
    "deviation": 0.224
   },
   {
