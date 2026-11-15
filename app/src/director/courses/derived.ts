@@ -9,6 +9,7 @@ import { registerCourseResolver, type CourseMeta } from '../course';
 import { steps, type Cue, type Timeline } from '../timeline';
 import { DISEASE_BY_ID, lowerKeepAcronyms } from '../../atlas/registry';
 import { EXPLAINERS } from '../../atlas/explainers';
+import { PATIENTS } from '../../atlas/patients';
 import { MECH } from '../../moa/registry';
 import { ADVERSE, TIMECOURSE } from '../../moa/meta';
 
@@ -39,6 +40,8 @@ function diseaseCourse(tl: Timeline): CourseMeta | null {
     pearls: ex?.chapters.filter((c) => c.checkpoint).map((c) => c.checkpoint!.answer) ?? [],
     pitfalls: bad.map((x) => `${x.label}: ${x.explanation}`),
     bedside: best ? sentence(best.label) : undefined,
+    patient: PATIENTS[d.id],
+    predict: { prompt: 'Where is the problem, and what do you expect to find on this patient?', answer: `${sentence(d.mechanism)} Look for ${findings.join(', ')}.` },
     selfCheck: d.decisions.length >= 2 && best ? [{ q: d.question, options: d.decisions.map((x) => x.label), answer: d.decisions.indexOf(best), why: best.explanation }] : [],
   };
 }

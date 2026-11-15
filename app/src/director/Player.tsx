@@ -14,7 +14,7 @@ import { useProgress } from '../curriculum/progress';
 import { CATALOG_BY_ID } from '../curriculum/catalog';
 import { useDirector, director } from './director';
 import { duration, steps, stepIndexAt } from './timeline';
-import { trackSummary, type CourseMeta, type SelfCheck, type Track } from './course';
+import { BEATS, trackSummary, type Beat, type CourseMeta, type SelfCheck, type Track } from './course';
 import { useCameraPolicy } from '../scene/cameraPolicy';
 import { usePlayerUI } from '../library/playerUI';
 import { useLibrary } from '../library/libraryStore';
@@ -45,6 +45,13 @@ function SayText({ say, from, to, t }: { say: string; from: number; to: number; 
   return <>{parts.map((p, i) => <span key={i} className={i === on ? 'say-on' : i < on ? 'say-past' : undefined}>{p}</span>)}</>;
 }
 
+/** Where the learner is in the lesson: Patient → Predict → Watch → Your turn → Check → Recap. */
+function BeatRail({ at, has }: { at: Beat; has: (b: Beat) => boolean }) {
+  const list = BEATS.filter(has); const k = list.indexOf(at);
+  return <ol className="beats" aria-label="Lesson steps">{list.map((b, i) => <li key={b} className={i === k ? 'on' : i < k ? 'past' : ''} aria-current={i === k ? 'step' : undefined}><span aria-hidden="true">{i < k ? '✓' : i + 1}</span>{b}</li>)}</ol>;
+}
+const hasBeat = (c: CourseMeta | null, track: Track) => (b: Beat) => b === 'Watch' || b === 'Recap' || (!!c && (b === 'Patient' ? true : track === 'tldr' ? false : b === 'Predict' ? !!c.predict : b === 'Your turn' ? !!c.yourTurn : (c.selfCheck?.length ?? 0) > 0));
+
 /* ------------------------------------------------------------------ the choice */
 function CourseChoice({ onExit }: { onExit?: () => void }) {
   const src = useDirector((s) => s.source)!; const course = useDirector((s) => s.course)!;
@@ -52,8 +59,10 @@ function CourseChoice({ onExit }: { onExit?: () => void }) {
   return (
     <section className="course course-choice" aria-labelledby="course-choice-title" data-lesson-transport>
       {onExit && <button className="course-back" onClick={onExit}>All lessons</button>}
+      <BeatRail at="Patient" has={hasBeat(course, 'full')} />
       <h2 id="course-choice-title" className="course-title">{src.title}</h2>
-      {src.blurb && <p className="course-blurb">{src.blurb}</p>}
+      {course.patient ? <section className="beat-card patient"><h3>The patient</h3><p>{course.patient}</p></section> : src.blurb && <p className="course-blurb">{src.blurb}</p>}
+      {course.predict && <section className="beat-card predict"><h3>Before you watch, predict</h3><p>{course.predict.prompt}</p><small>Hold your answer. The lesson will show you, and the recap checks it.</small></section>}
       <div className="track-options" role="group" aria-label="Choose how to take this lesson">
         <button className="track-option" onClick={() => director.choose('full')}>
           <span className="track-name">Full course</span>
@@ -85,6 +94,7 @@ function CoursePlayer({ onExit }: { onExit?: () => void }) {
         {onExit && <button className="course-back" onClick={onExit}>All lessons</button>}
         {course && <TrackSwitch track={track} />}
       </div>
+      {!finished && <BeatRail at="Watch" has={hasBeat(course, track)} />}
       <p className="course-kicker">{tl.title}</p>
       <p className="course-count">Scene {Math.max(1, k + 1)} of {S.length}</p>
       <h2 className="course-title">{cur?.title ?? tl.title}</h2>
@@ -116,8 +126,8 @@ function CoursePlayer({ onExit }: { onExit?: () => void }) {
         <ol>{S.map((c, i) => <li key={c.id}><button className={i === k ? 'on' : i < k ? 'past' : ''} aria-current={i === k ? 'step' : undefined} onClick={() => director.seek(c.at, playing)}><span>{c.title ?? `Scene ${i + 1}`}</span><small>{mmss(c.at)}</small></button></li>)}</ol>
       </details>
 
-      {finished && course && <Recap course={course} track={track} />}
-      {finished && <PlayerNext />}
+      {finished && course && <After key={`${tl.id}:${track}`} course={course} track={track} />}
+      {finished && !course && <PlayerNext />}
       {(LESSON_DRUGS[tl.id]?.length ?? 0) > 0 && <div className="course-links"><span>Drug mechanisms in this lesson</span>{LESSON_DRUGS[tl.id].map((id) => <button key={id} className="chip" onClick={() => openDrug(id)}>{MECH[id]?.drug ?? id}</button>)}</div>}
     </section>
   );
@@ -149,6 +159,22 @@ function CameraBar() {
   </div>;
 }
 
+/** After the watch: try it, check yourself, then the recap — one at a time. */
+function After({ course, track }: { course: CourseMeta; track: Track }) {
+  const has = hasBeat(course, track); const order = (['Your turn', 'Check', 'Recap'] as Beat[]).filter(has);
+  const [i, setI] = useState(0); const beat = order[Math.min(i, order.length - 1)]; const drawer = usePlayerUI((s) => s.readers > 0);
+  const next = order[i + 1];
+  return <div className="after">
+    <BeatRail at={beat} has={has} />
+    {beat === 'Your turn' && <section className="beat-card turn" aria-labelledby="turn-title"><h3 id="turn-title">Your turn</h3><p>{course.yourTurn}</p>
+      <div className="beat-act">{drawer && <button className="act" onClick={() => usePlayerUI.getState().set({ details: true })}>Open the controls</button>}<button className="act primary" onClick={() => setI(i + 1)}>I’ve tried it — {next === 'Check' ? 'check me' : 'recap'}</button></div></section>}
+    {beat === 'Check' && <section className="beat-card check" aria-labelledby="check-title"><h3 id="check-title">Check</h3>
+      {course.selfCheck!.map((s, k) => <Question key={k} n={k + 1} s={s} />)}
+      <div className="beat-act"><button className="act primary" onClick={() => setI(i + 1)}>See the recap</button></div></section>}
+    {beat === 'Recap' && <><Recap course={course} track={track} /><PlayerNext /></>}
+  </div>;
+}
+
 function Recap({ course, track }: { course: CourseMeta; track: Track }) {
   return <section className="recap" aria-labelledby="recap-title">
     <h3 id="recap-title">{track === 'tldr' ? 'What to remember' : 'Summary'}</h3>
@@ -157,7 +183,7 @@ function Recap({ course, track }: { course: CourseMeta; track: Track }) {
     {track === 'full' && <>
       {(course.pearls?.length ?? 0) > 0 && <><h4>Pearls</h4><ul className="recap-list">{course.pearls!.map((p) => <li key={p}>{p}</li>)}</ul></>}
       {(course.pitfalls?.length ?? 0) > 0 && <><h4>Pitfalls</h4><ul className="recap-list pitfalls">{course.pitfalls!.map((p) => <li key={p}>{p}</li>)}</ul></>}
-      {(course.selfCheck?.length ?? 0) > 0 && <><h4>Self-check</h4>{course.selfCheck!.map((s, i) => <Question key={i} n={i + 1} s={s} />)}</>}
+      {course.predict && <p className="recap-predict"><b>Your prediction.</b> {course.predict.prompt} <span>{course.predict.answer}</span></p>}
     </>}
     {track === 'tldr' && <button className="act primary" onClick={() => director.choose('full')}>Take the full course</button>}
   </section>;

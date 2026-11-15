@@ -2,6 +2,7 @@ import { EXPLAINERS } from './explainers';
 import type { DiseaseDefinition, DiseaseState, Decision } from './types';
 import { stepTimeline, type Timeline } from '../director/timeline';
 import { lowerKeepAcronyms } from './registry';
+import { PATIENTS } from './patients';
 
 export const HEALTHY: Readonly<DiseaseState> = Object.freeze({ obstruction: 0, collapse: 0, overdistension: 0, fluid: 0, bleeding: 0, edema: 0, inflammation: 0, ischemia: 0, pressure: 0, flowLoss: 0, volumeLoss: 0, pumpLoss: 0, shunt: 0, electrical: 0, metabolic: 0, endocrine: 0 });
 const fraction = (v: number) => Number.isFinite(v) ? Math.max(0, Math.min(1, v)) : 0;
@@ -35,11 +36,17 @@ export function diseaseLesson(d: DiseaseDefinition, set: (severity: number, targ
     })), () => setFrame(0, 0));
     return { ...tl, module:d.domain, blurb:explainer.outcome };
   }
+  // conditions without a hand-written explainer: the patient, what goes wrong, what you would find, what makes it
+  // worse and the first move — all from the condition's own reviewed fields (ids kept so progress still matches)
+  const best = d.decisions.find((x) => x.outcome === 'stabilize'); const bad = d.decisions.find((x) => x.outcome === 'deteriorate');
+  const findings = d.findings.map(f => lowerKeepAcronyms(f.label)); const list = findings.length > 1 ? `${findings.slice(0, -1).join(', ')} and ${findings[findings.length - 1]}` : findings[0];
+  const patient = PATIENTS[d.id];
   const tl = stepTimeline(`atlas-${d.id}`, d.title, [
-    { id: `${d.id}-see`, title: 'See · the patient', target: 'body.whole', say: `${d.title}. Locate the affected ${d.anatomy.replaceAll('-', ' ')} within the patient. ${d.distinction}`, apply: () => set(0.15, 'body.whole') },
-    { id: `${d.id}-zoom`, title: 'Zoom · the affected anatomy', target: d.target, say: d.mechanism, apply: () => set(0.4, d.target) },
-    { id: `${d.id}-understand`, title: 'Understand · the mechanism', target: d.target, say: `Follow the highlighted changes: ${d.findings.map(f => lowerKeepAcronyms(f.label)).join(', ')}. Compare the baseline with the progressive state.`, apply: () => set(0.4, d.target), tween: u => set(0.4 + 0.5 * u, d.target) },
-    { id: `${d.id}-apply`, title: 'Apply · predict a consequence', target: d.target, say: d.question, apply: () => set(0.75, d.target) },
+    { id: `${d.id}-see`, title: 'The patient', target: 'body.whole', say: patient ? `${patient} ${d.distinction}` : `${d.title}. ${d.distinction}`, apply: () => set(0.15, 'body.whole') },
+    { id: `${d.id}-zoom`, title: 'What goes wrong', target: d.target, say: d.mechanism, apply: () => set(0.4, d.target) },
+    { id: `${d.id}-understand`, title: 'What you would find', target: d.target, say: `Watch it progress. The picture is ${list}.`, apply: () => set(0.4, d.target), tween: u => set(0.4 + 0.5 * u, d.target),
+      checkpoint: bad ? { prompt: `What would make this worse? Think about: ${lowerKeepAcronyms(bad.label)}.`, answer: bad.explanation } : undefined },
+    { id: `${d.id}-apply`, title: 'The first move', target: d.target, say: best ? `${best.label}. ${best.explanation}` : d.question, apply: () => set(best ? 0.45 : 0.75, d.target) },
   ], () => set(0.15, 'body.whole'));
   return { ...tl, module: d.domain, blurb: d.mechanism };
 }

@@ -23,7 +23,24 @@ export interface CourseMeta {
   /** the one thing to do differently at the bedside */ bedside?: string;
   /** extra pause-and-predict prompts for the full course, keyed by scene id */ checkpoints?: Record<string, { prompt: string; answer: string }>;
   selfCheck?: SelfCheck[];
+  /** the patient this lesson is about: read before anything plays */ patient?: string;
+  /** asked before the watch and answered at the recap */ predict?: { prompt: string; answer: string };
+  /** hands-on after the watch: what to try in the live scene */ yourTurn?: string;
 }
+/** The six beats of a full lesson, in order. */
+export const BEATS = ['Patient', 'Predict', 'Watch', 'Your turn', 'Check', 'Recap'] as const;
+export type Beat = (typeof BEATS)[number];
+/** What to try after watching, when a lesson has not written its own: one concrete thing per scene. */
+const TURN: Record<string, string> = {
+  vent: 'Open Details and change one ventilator setting the lesson used. Say what the peak and plateau pressure will do before you look.',
+  abg: 'Open Details and change one cause: the breathing, the shunt or the acid load. Say which way the pH and the PaCO₂ will move before you draw the gas.',
+  lines: 'Open Details, reproduce the problem on the monitor, then fix it. Check the monitor against the true pressure.',
+  heart: 'Turn the heart and follow one drop of blood through it. Say out loud where it goes and what color it is when it gets there.',
+  neuro: 'Change the lesion or the head position under Details. Say what the exam will show before you read it.',
+  abdomen: 'Switch to the ultrasound view and find the window the lesson described before you read the findings.',
+  labs: 'Change the value this lesson was about under Details. Watch which organ and which cell respond first.',
+};
+const ATLAS_TURN = 'Scrub back through the scenes with the voice off. At each one, say in your own words what has changed and what you would see on this patient.';
 
 const authored: Record<string, CourseMeta> = {};
 const resolvers: ((tl: Timeline) => CourseMeta | null)[] = [];
@@ -32,6 +49,11 @@ export function registerCourses(c: Record<string, CourseMeta>) { Object.assign(a
 /** register a way to derive a course from a lesson's own data (disease explainers, drug mechanisms) */
 export function registerCourseResolver(r: (tl: Timeline) => CourseMeta | null) { resolvers.push(r); }
 export function courseFor(tl: Timeline): CourseMeta | null {
+  const m = baseCourse(tl); if (!m) return null;
+  const cp = steps(tl).find((c) => c.checkpoint)?.checkpoint ?? Object.values(m.checkpoints ?? {})[0];
+  return { ...m, predict: m.predict ?? cp, yourTurn: m.yourTurn ?? (tl.id.startsWith('atlas-') ? ATLAS_TURN : TURN[tl.module ?? '']) };
+}
+function baseCourse(tl: Timeline): CourseMeta | null {
   const a = authored[tl.id]; if (a) return a;
   for (const r of resolvers) { const m = r(tl); if (m) return m; }
   return generic(tl);
