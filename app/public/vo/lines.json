@@ -1545,7 +1545,7 @@
  },
  {
   "id": "simple-pneumothorax-apply",
-  "t": "For simple pneumothorax, which decision best addresses the illustrated mechanism?"
+  "t": "There is no single treatment to show here. Combine the anatomy with symptoms and physiologic assessment: the picture only means something alongside the patient in front of you."
  },
  {
   "id": "tension-pneumothorax-see",
@@ -1785,7 +1785,7 @@
  },
  {
   "id": "aaa-apply",
-  "t": "For abdominal aortic aneurysm, which decision best addresses the illustrated mechanism?"
+  "t": "There is no single treatment to show here. Combine the anatomy with symptoms and physiologic assessment: the picture only means something alongside the patient in front of you."
  },
  {
   "id": "rupturing-aaa-see",
@@ -2217,7 +2217,7 @@
  },
  {
   "id": "pediatric-airway-apply",
-  "t": "For pediatric airway differences, which decision best addresses the illustrated mechanism?"
+  "t": "There is no single treatment to show here. Combine the anatomy with symptoms and physiologic assessment: the picture only means something alongside the patient in front of you."
  },
  {
   "id": "croup-see",
@@ -2409,7 +2409,7 @@
  },
  {
   "id": "congenital-heart-apply",
-  "t": "For congenital-heart physiology foundations, which decision best addresses the illustrated mechanism?"
+  "t": "There is no single treatment to show here. Combine the anatomy with symptoms and physiologic assessment: the picture only means something alongside the patient in front of you."
  },
  {
   "id": "left-right-shunt-see",
@@ -2425,7 +2425,7 @@
  },
  {
   "id": "left-right-shunt-apply",
-  "t": "For left-to-right shunt concepts, which decision best addresses the illustrated mechanism?"
+  "t": "There is no single treatment to show here. Combine the anatomy with symptoms and physiologic assessment: the picture only means something alongside the patient in front of you."
  },
  {
   "id": "right-left-shunt-see",
@@ -2441,7 +2441,7 @@
  },
  {
   "id": "right-left-shunt-apply",
-  "t": "For right-to-left shunt concepts, which decision best addresses the illustrated mechanism?"
+  "t": "There is no single treatment to show here. Combine the anatomy with symptoms and physiologic assessment: the picture only means something alongside the patient in front of you."
  },
  {
   "id": "neonatal-rds-see",
@@ -2489,7 +2489,7 @@
  },
  {
   "id": "transitional-circulation-apply",
-  "t": "For transitional circulation, which decision best addresses the illustrated mechanism?"
+  "t": "There is no single treatment to show here. Combine the anatomy with symptoms and physiologic assessment: the picture only means something alongside the patient in front of you."
  },
  {
   "id": "duct-dependent-circulation-see",
@@ -2521,7 +2521,7 @@
  },
  {
   "id": "pcos-apply",
-  "t": "For PCOS, which decision best addresses the illustrated mechanism?"
+  "t": "There is no single treatment to show here. Combine the anatomy with symptoms and physiologic assessment: the picture only means something alongside the patient in front of you."
  },
  {
   "id": "endometriosis-see",
@@ -2537,7 +2537,7 @@
  },
  {
   "id": "endometriosis-apply",
-  "t": "For endometriosis, which decision best addresses the illustrated mechanism?"
+  "t": "There is no single treatment to show here. Combine the anatomy with symptoms and physiologic assessment: the picture only means something alongside the patient in front of you."
  },
  {
   "id": "ectopic-pregnancy-see",
@@ -2601,7 +2601,7 @@
  },
  {
   "id": "maternal-physiology-apply",
-  "t": "For normal maternal physiologic changes, which decision best addresses the illustrated mechanism?"
+  "t": "There is no single treatment to show here. Combine the anatomy with symptoms and physiologic assessment: the picture only means something alongside the patient in front of you."
  },
  {
   "id": "fetal-placental-circulation-see",
@@ -2617,7 +2617,7 @@
  },
  {
   "id": "fetal-placental-circulation-apply",
-  "t": "For normal fetal / placental circulation, which decision best addresses the illustrated mechanism?"
+  "t": "There is no single treatment to show here. Combine the anatomy with symptoms and physiologic assessment: the picture only means something alongside the patient in front of you."
  },
  {
   "id": "placenta-previa-see",

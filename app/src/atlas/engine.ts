@@ -46,7 +46,7 @@ export function diseaseLesson(d: DiseaseDefinition, set: (severity: number, targ
     { id: `${d.id}-zoom`, title: 'What goes wrong', target: d.target, say: d.mechanism, apply: () => set(0.4, d.target) },
     { id: `${d.id}-understand`, title: 'What you would find', target: d.target, say: `Watch it progress. The picture is ${list}.`, apply: () => set(0.4, d.target), tween: u => set(0.4 + 0.5 * u, d.target),
       checkpoint: bad ? { prompt: `What would make this worse? Think about: ${lowerKeepAcronyms(bad.label)}.`, answer: bad.explanation } : undefined },
-    { id: `${d.id}-apply`, title: 'The first move', target: d.target, say: best ? `${best.label}. ${best.explanation}` : d.question, apply: () => set(best ? 0.45 : 0.75, d.target) },
+    { id: `${d.id}-apply`, title: 'The first move', target: d.target, say: best ? `${best.label}. ${best.explanation}` : `There is no single treatment to show here. ${d.decisions[0] ? `${d.decisions[0].label}: the picture only means something alongside the patient in front of you.` : d.question}`, apply: () => set(best ? 0.45 : 0.75, d.target) },
   ], () => set(0.15, 'body.whole'));
   return { ...tl, module: d.domain, blurb: d.mechanism };
 }
