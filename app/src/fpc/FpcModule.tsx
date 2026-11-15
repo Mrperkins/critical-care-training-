@@ -12,13 +12,15 @@ import { voice } from '../app/voice';
 import { openLesson, openDrug } from '../app/navigate';
 import { useProgress } from '../curriculum/progress';
 import { CasePrimer } from '../cases/CasePrimer';
+import { ExamHome, ExamSession } from './ExamMode';
+import { loadHistory, record, saveHistory, type ExamPlan } from './exam';
 
 /* ------------------------------------------------------------------ state: where you are and your best scores */
 const SCORE_KEY = 'cc.fpc.scores.v1';
 const readScores = (): Record<string, number> => { try { return JSON.parse(localStorage.getItem(SCORE_KEY) ?? '{}'); } catch { return {}; } };
-interface FpcUI { domain: DomainId | null; lesson: string | null; track: 'full' | 'tldr' | null; scores: Record<string, number>; set: (p: Partial<FpcUI>) => void; score: (id: string, pct: number) => void }
+interface FpcUI { domain: DomainId | null; lesson: string | null; track: 'full' | 'tldr' | null; exam: ExamPlan | null; scores: Record<string, number>; set: (p: Partial<FpcUI>) => void; score: (id: string, pct: number) => void }
 export const useFpc = create<FpcUI>((set, get) => ({
-  domain: null, lesson: null, track: null, scores: readScores(), set: (p) => set(p),
+  domain: null, lesson: null, track: null, exam: null, scores: readScores(), set: (p) => set(p),
   score: (id, pct) => { const scores = { ...get().scores, [id]: Math.max(pct, get().scores[id] ?? 0) }; try { localStorage.setItem(SCORE_KEY, JSON.stringify(scores)); } catch { /* storage unavailable */ } set({ scores }); },
 }));
 const PASS = 80;
@@ -26,7 +28,9 @@ const PASS = 80;
 export default function FpcModule() {
   const domain = useFpc((s) => s.domain); const lesson = useFpc((s) => s.lesson); const track = useFpc((s) => s.track);
   useEffect(() => () => voice.stop(), []);
-  const l = lesson ? FPC_BY_ID[lesson] : null;
+  const l = lesson ? FPC_BY_ID[lesson] : null; const exam = useFpc((s) => s.exam);
+  const toLesson = (id: string) => useFpc.getState().set({ exam: null, domain: FPC_BY_ID[id]?.domain ?? null, lesson: id, track: null });
+  if (exam && !l) return <main id="controls" tabIndex={-1} className="stage fpc-stage"><div className="fpc-page"><ExamSession key={exam.items[0]?.key + exam.kind} plan={exam} onExit={() => useFpc.getState().set({ exam: null })} onLesson={toLesson} /></div></main>;
   return (
     <main id="controls" tabIndex={-1} className="stage fpc-stage">
       <div className="fpc-page">
@@ -43,10 +47,11 @@ function CourseHome() {
     <>
       <header className="fpc-head">
         <h2>Certified Flight Paramedic exam prep</h2>
-        <p>Organized on the IBSC FP-C content outline: {TOTAL_ITEMS} scored items across ten domains. Each domain is weighted the way the exam weights it, and every lesson comes as a full course or a TL;DR.</p>
+        <p>Organized on the IBSC FP-C content outline: {TOTAL_ITEMS} scored items across ten domains. Practise on the question bank, or study a domain lesson by lesson.</p>
       </header>
+      <ExamHome onLesson={(id) => useFpc.getState().set({ domain: FPC_BY_ID[id]?.domain ?? null, lesson: id, track: null })} onStart={(exam) => useFpc.getState().set({ exam })} />
       <section className="fpc-blueprint" aria-labelledby="bp-title">
-        <h3 id="bp-title">Domains, by exam weight</h3>
+        <h3 id="bp-title">Study the domains, by exam weight</h3>
         <ul>{BY_WEIGHT.map((d) => {
           const ls = lessonsFor(d.id); const passed = ls.filter((l) => (scores[l.id] ?? 0) >= PASS).length;
           return <li key={d.id}><button onClick={() => useFpc.getState().set({ domain: d.id })} disabled={!ls.length} aria-describedby={`bp-${d.id}`}>
@@ -180,7 +185,9 @@ function Quiz({ l, questions }: { l: FpcLesson; questions: Question[] }) {
   const [picks, setPicks] = useState<(number | null)[]>(() => questions.map(() => null));
   const answered = picks.filter((p) => p != null).length; const right = picks.filter((p, i) => p === questions[i].answer).length;
   const pct = Math.round((100 * right) / questions.length); const done = answered === questions.length;
-  useEffect(() => { if (done) { useFpc.getState().score(l.id, pct); if (pct >= PASS) useProgress.getState().markComplete(l.id); } }, [done]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { if (done) { useFpc.getState().score(l.id, pct); if (pct >= PASS) useProgress.getState().markComplete(l.id);
+    // the lesson's questions are part of the exam bank: keep them in the same history
+    saveHistory(record(loadHistory(), questions.map((q) => ({ key: `${l.id}:${l.questions.indexOf(q)}`, lesson: l.id, lessonTitle: l.title, domain: l.domain, q })), picks)); } }, [done]); // eslint-disable-line react-hooks/exhaustive-deps
   const order = useMemo(() => questions.map((q) => q.options.map((_, i) => i)), [questions]);
   return (
     <section className="fpc-quiz" aria-labelledby={`quiz-${l.id}`}>
