@@ -1035,3 +1035,8 @@ html:has(.app-b),body:has(.app-b){overflow:hidden}
 .ms-card small.ok{color:#7fe0a8;opacity:1}
 .ms-sec{margin:18px 0 22px}.ms-sec h2 small{font:400 13px var(--lib-font);color:var(--lib-mute);margin-left:8px}
 .hud-lead{margin:0 0 8px;padding:8px 10px;border-left:3px solid #f0b34a;background:rgba(240,179,74,.1);border-radius:6px;font:500 13.5px/1.4 var(--lib-font);color:#ffe2b0}
+@media (max-width:760px){
+  /* phone: the key numbers sit just above the question, clear of the module's own view tabs */
+  .hud:has(>.hud-chips)>.hud-chips,.hud:has(>.hud-goals)>.hud-goals{margin-top:auto;background:rgba(8,11,16,.72);border-radius:10px;padding:4px}
+  .hud:has(>.hud-chips)>.hud-bottom,.hud:has(>.hud-goals)>.hud-bottom{margin-top:0}
+}
