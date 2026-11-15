@@ -1,0 +1,63 @@
+{
+  "verified": true,
+  "source": "Wikimedia Commons pinned MRI originals",
+  "license": "CC BY 4.0",
+  "items": [
+    {
+      "id": "mri-dwi-adc-stroke",
+      "file": "mri-dwi-adc-stroke.png",
+      "sha1": "a702f6c0653af66c52c4180fbc3b096496e7eee9",
+      "bytes": 128462,
+      "license": "CC BY 4.0",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:DWE_MRI_of_cerebral_infarction.png"
+    },
+    {
+      "id": "mri-t2star-microbleed",
+      "file": "mri-t2star-microbleed.jpg",
+      "sha1": "15e86b68011ace8b5fe642d90ab4f98581053dfd",
+      "bytes": 44469,
+      "license": "CC BY 4.0",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Effective_T2-weighted_MRI_of_the_brain_with_a_small_hemorrhages.jpg"
+    },
+    {
+      "id": "mri-ms-psir",
+      "file": "mri-ms-psir.jpg",
+      "sha1": "2a82879dbade21e305e1ac2658c2aeea000cc859",
+      "bytes": 190322,
+      "license": "CC BY 4.0",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Axial_PSIR_MRI_of_a_brain_with_multiple_sclerosis_lesions.jpg"
+    },
+    {
+      "id": "mri-ms-dir",
+      "file": "mri-ms-dir.jpg",
+      "sha1": "8d1c67d6c5b100a103c6b0ad386b94c4858a93ad",
+      "bytes": 196392,
+      "license": "CC BY 4.0",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Axial_DIR_MRI_of_a_brain_with_multiple_sclerosis_lesions.jpg"
+    },
+    {
+      "id": "mri-epidural-abscess",
+      "file": "mri-epidural-abscess.jpg",
+      "sha1": "41fa69b086677325e8d24fdf5a970a7f6fbe7def",
+      "bytes": 162104,
+      "license": "CC BY 4.0",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:MRI_of_the_lumbar_spine_with_abscess_in_the_posterior_epidural_space,_causing_cauda_equina_syndrome.jpg"
+    },
+    {
+      "id": "mri-peds-midline-glioma",
+      "file": "mri-peds-midline-glioma.jpg",
+      "sha1": "fe2fab7f9e71636c3649a8b626ec88581de1d8d5",
+      "bytes": 124550,
+      "license": "CC BY 4.0",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Diffuse_midline_glioma_MRI_(cropped).jpg"
+    },
+    {
+      "id": "mri-normal-t1-anatomy",
+      "file": "mri-normal-t1-anatomy.png",
+      "sha1": "b280476aadf5a29c7848c69f21eb261c640c9930",
+      "bytes": 781682,
+      "license": "CC BY 4.0",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Brain_regions_on_T1_MRI.png"
+    }
+  ]
+}

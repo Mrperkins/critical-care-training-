@@ -1,5 +1,0 @@
-[{"js":"__app.getState().set({showLeads:true,leadId:'aVF'})","wait":8000},
- {"js":"__app.getState().set({showLeads:false,leadId:null});document.querySelectorAll('.tabs button, nav button, header button').forEach(b=>{if(b.textContent.trim()==='Guided lesson')b.click()})","wait":6000},
- {"js":"document.querySelectorAll('button').forEach(b=>{if(/^Next/.test(b.textContent.trim()))b.click()});","wait":3000},
- {"js":"for(let i=0;i<3;i++)document.querySelectorAll('button').forEach(b=>{if(/^Next/.test(b.textContent.trim()))b.click()});","wait":8000},
- {"js":"document.querySelectorAll('header button').forEach(b=>{if(b.textContent.trim()==='Challenge')b.click()})","wait":6000}]

@@ -153,7 +153,7 @@ export class LinesSession {
   setPressor(on: boolean) { this.setNore(on ? 0.1 : 0); }
   get dobutamineDose() { return Math.round(this.inoTarget * 5 * 10) / 10; }
   setDobutamine(dose: number) { const was = this.dobutamineDose; this.inoTarget = Math.max(0, Math.min(2, dose / 5)); this.note(dose === 0 ? 'Dobutamine stopped' : was === 0 ? `Dobutamine started at ${dose} µg/kg/min` : `Dobutamine ${dose > was ? 'increased' : 'decreased'} to ${dose} µg/kg/min`); this.version++; }
-  /** 1 unit packed red cells: the volume effect of a bolus plus ≈ 1 g/dL haemoglobin */
+  /** 1 unit packed red cells: the volume effect of a bolus plus ≈ 1 g/dL hemoglobin */
   transfuse() { const p = this.pt.p; p.hb = Math.min(16, p.hb + 1); this.fluid(); this.log[0] = { ...this.log[0], text: 'PRBC 1 unit given' }; }
   /** jump therapy responses to their targets (used by lessons for a deterministic steady state) */
   settleTherapy() { this.pressor = this.pressorTarget; this.ino = this.inoTarget; this.relief = this.reliefTarget; this.recompute(); }
@@ -180,7 +180,7 @@ export class LinesSession {
   act(id: LineId, a: Action): { ok: boolean; text: string } {
     const L = this.line(id); const f = L.fault; const name = id === 'art' ? 'arterial' : 'CVP';
     let res: { ok: boolean; text: string };
-    if (a === 'flushForward' && f === 'clot') res = { ok: false, text: 'Never flush a clot forward: it can embolise into the hand (radial) or the lungs. Aspirate first.' };
+    if (a === 'flushForward' && f === 'clot') res = { ok: false, text: 'Never flush a clot forward: it can embolize into the hand (radial) or the lungs. Aspirate first.' };
     else if (a === 'flushForward' && (f === 'largeBubble' || f === 'smallBubble')) res = { ok: false, text: `Never flush air toward the patient: from a radial line it can travel back up to the brain; from a central line it is a venous air embolism. Turn the stopcock off to the patient and flush the bubble out of the side port to waste.` };
     else if (ACTIONS[a].fixes.includes(f)) { res = { ok: true, text: `${ACTIONS[a].label}: ${FAULTS[f].name.toLowerCase()} fixed on the ${name} line.` }; if (a === 'inflateBag') L.bag = 300; L.setFault('none'); }
     else res = { ok: false, text: `${ACTIONS[a].label} did not change the ${name} trace — that was not the problem.` };
@@ -236,7 +236,7 @@ export class LinesSession {
     let sumA = 0, sumT = 0, sumO = 0, nM = 0;
     for (let k = 0; k < bs.length - 1; k++) {
       const t0 = bs[k].tq + ptt - 0.05, t1 = bs[k + 1].tq + ptt - 0.05; if (t1 > tNow - 0.02) break;
-      if (this.flushOverlap(t0, t1)) continue; // monitors discard fast-flush artefact
+      if (this.flushOverlap(t0, t1)) continue; // monitors discard fast-flush artifact
       let aMax = -1e9, aMin = 1e9, tMax = -1e9, tMin = 1e9, oMax = -1e9, oMin = 1e9;
       this.scan(t0, t1, (i) => { const a = this.artD[i], tr = this.artT[i], o = this.ao[i]; aMax = Math.max(aMax, a); aMin = Math.min(aMin, a); tMax = Math.max(tMax, tr); tMin = Math.min(tMin, tr); oMax = Math.max(oMax, o); oMin = Math.min(oMin, o); sumA += a; sumT += tr; sumO += o; nM++; });
       if (aMax < -1e8) continue;

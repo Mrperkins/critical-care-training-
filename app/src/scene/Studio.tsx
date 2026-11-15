@@ -1,13 +1,14 @@
 import * as THREE from 'three';
+import { CameraLink } from './compare';
 import { Canvas } from '@react-three/fiber';
-import { Environment, Lightformer } from '@react-three/drei';
+import { Environment, Lightformer, PerformanceMonitor } from '@react-three/drei';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { SceneBoundary, SceneUnavailable, supportsWebGL } from './SceneBoundary';
 
 export const IS_PHONE = typeof window !== 'undefined' && window.matchMedia('(max-width: 640px)').matches;
 export const damp = (cur: number, tgt: number, rate: number, dt: number) => THREE.MathUtils.lerp(cur, tgt, 1 - Math.exp(-rate * dt));
 
-/** Soft, neutral studio lighting shared by every 3D view (photographic key/fill/rim, no coloured glow). */
+/** Soft, neutral studio lighting shared by every 3D view (photographic key/fill/rim, no colored glow). */
 export function StudioLights({ warm = 1 }: { warm?: number }) {
   return (
     <>
@@ -47,6 +48,11 @@ export function StudioCanvas({ children, camera, className = 'scene-canvas', fog
     mq.addEventListener('change', resized); document.addEventListener('visibilitychange', changed);
     return () => { mq.removeEventListener('change', resized); document.removeEventListener('visibilitychange', changed); };
   }, []);
+  // Start at 1× so initial anatomy and shader compilation stay responsive on slow GPUs.
+  // Earn higher resolution through measured performance, without exceeding native display density.
+  const maxDpr = Math.min(small ? 1.25 : 1.75, Math.max(1, window.devicePixelRatio || 1));
+  const [dpr, setDpr] = useState(1);
+  useEffect(() => setDpr(1), [maxDpr]);
   const retry = () => { setAvailable(supportsWebGL()); setGeneration((v) => v + 1); };
   if (!available) return <SceneUnavailable label={label} onRetry={retry} />;
   return (
@@ -55,13 +61,15 @@ export function StudioCanvas({ children, camera, className = 'scene-canvas', fog
       role="img" aria-label={label}
       frameloop={onScreen && visible ? 'always' : 'never'}
       className={className}
-      dpr={small ? [1, 1.25] : [1, 1.75]}
+      dpr={dpr}
       gl={{ antialias: true, alpha: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 0.93, powerPreference: 'high-performance', preserveDrawingBuffer: false }}
       camera={{ fov: camera.fov ?? 30, near: 0.05, far: 80, position: camera.position }}
     >
+      <PerformanceMonitor onDecline={() => setDpr(1)} onIncline={() => setDpr(maxDpr)} flipflops={4} onFallback={() => setDpr(1)} />
       <color attach="background" args={['#05090d']} />
       {fog && <fog attach="fog" args={['#05090d', 24, 52]} />}
       <StudioLights />
+      <CameraLink />
       {children}
     </Canvas></SceneBoundary>
   );

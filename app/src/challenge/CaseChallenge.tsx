@@ -9,6 +9,7 @@ import { useCaseUI } from './caseStore';
 import { useProgress } from '../curriculum/progress';
 import { takePendingChallenge, usePendingOpen } from '../app/navigate';
 import { Remediate } from './Remediate';
+import { runCase } from '../library/launch';
 import { ApnoeaCard, AirwayCard, NeoCard, ObCard } from '../populations/Cards';
 import { PedsCard } from '../populations/PedsCard';
 const CARD = { apnoea: ApnoeaCard, airway: AirwayCard, neo: NeoCard, ob: ObCard, peds: PedsCard };
@@ -16,11 +17,12 @@ const CARD = { apnoea: ApnoeaCard, airway: AirwayCard, neo: NeoCard, ob: ObCard,
 const shuffle = (n: number, seed: string) => { let h = 0; for (const c of seed) h = (h * 31 + c.charCodeAt(0)) >>> 0; const a = Array.from({ length: n }, (_, i) => i); for (let i = n - 1; i > 0; i--) { h = (h * 1103515245 + 12345) >>> 0; const j = h % (i + 1); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const HEAD: Record<CaseModule, [string, string]> = {
   abdomen: ['Read the scan, treat the patient', 'FAST and CT angiography drawn from the abdominal model. Findings text is hidden until you answer.'],
-  neuro: ['Localise, then decide', 'Stroke and raised-ICP cases from the brain model: the exam and vital signs come from the same state as the 3D brain.'],
-  heart: ['Follow the blood', 'Shunt cases from the two-circuit heart model. Watch where the flow goes and what colour it is.'],
+  neuro: ['Localize, then decide', 'Stroke and raised-ICP cases from the brain model: the exam and vital signs come from the same state as the 3D brain.'],
+  heart: ['Follow the blood', 'Shunt cases from the two-circuit heart model. Watch where the flow goes and what color it is.'],
   vent: ['Imaging and airway', 'Films and scans drawn from the live ventilator patient, and the child’s airway. The written reading is hidden until you answer.'],
-  abg: ['Oxygen reserve', 'Apnoea cases for infants and pregnancy, drawn from the oxygen-store model on the blood-gas patient.'],
-  lines: ['Pregnancy', 'Obstetric cases on the live circulation: position and postpartum haemorrhage.'],
+  abg: ['Oxygen reserve', 'Apnea cases for infants and pregnancy, drawn from the oxygen-store model on the blood-gas patient.'],
+  lines: ['Pregnancy', 'Obstetric cases on the live circulation: position and postpartum hemorrhage.'],
+  labs: ['Labs', 'Panels read on the lab bench.'],
 };
 
 export function CaseList({ module, onStart, embedded }: { module: CaseModule; onStart: (c: SceneCase) => void; embedded?: boolean }) {
@@ -30,7 +32,7 @@ export function CaseList({ module, onStart, embedded }: { module: CaseModule; on
       <section className="card"><div className="eyebrow">{embedded ? 'More cases' : 'Challenge'}</div><h2 className="h2">{HEAD[module][0]}</h2><p className="muted">{HEAD[module][1]}</p></section>
       {cases.map((c) => { const a = attempts[c.id]; const last = a?.[a.length - 1]; return (
         <button key={c.id} className="chal-item" onClick={() => onStart(c)}>
-          <span className={`lvl lvl-${c.level}`}>{c.level}</span><span className="ci-t">{c.title}</span><span className="ci-k">{c.questions.length} questions</span>
+          <span className={`lvl lvl-${c.level}`}>{c.level}</span><span className="ci-t">{c.title}</span><span className="ci-k">{c.questions.length} decisions</span>
           {last && <span className={`tick${last.ok ? '' : ' miss'}`} aria-label={last.ok ? 'last attempt right' : 'last attempt missed'}>{last.ok ? '✓' : '✕'}</span>}
         </button>); })}
     </>
@@ -60,25 +62,21 @@ export function CaseRun({ c, onExit, onNext }: { c: SceneCase; onExit: () => voi
         <h3>{q.q}</h3>
         <div className="opts" role="group" aria-label="Answers">{order.map((k) => <button key={k} disabled={pick != null} className={`opt${pick != null && k === q.answer ? ' right' : ''}${pick === k && k !== q.answer ? ' wrong' : ''}`} onClick={() => choose(k)}>{q.options[k]}</button>)}</div>
         {pick != null && <div className="reveal" aria-live="polite"><b>{pick === q.answer ? 'Right.' : `Best: ${q.options[q.answer]}.`}</b> {q.explain}</div>}
-        {pick != null && !done && <div className="actions" style={{ marginTop: 10 }}><button className="act primary" onClick={() => setQi(qi + 1)}>Next question →</button></div>}
+        {pick != null && !done && <div className="actions" style={{ marginTop: 10 }}><button className="act primary" onClick={() => setQi(qi + 1)}>Next question</button></div>}
         {done && <>
           <div className="case-score"><b>{right} of {c.questions.length}</b> right. {right === c.questions.length ? 'The written findings are now shown beside the image.' : 'The written findings are now shown — compare them with what you read.'}</div>
           <Remediate id={c.id} ok={right === c.questions.length} />
           {c.card && (() => { const Card = CARD[c.card]; return <div style={{ marginTop: 10 }}><Card /></div>; })()}
-          <div className="actions" style={{ marginTop: 10 }}>{onNext && <button className="act primary" onClick={onNext}>Next case →</button>}<button className="act" onClick={onExit}>All cases</button></div>
+          <div className="actions" style={{ marginTop: 10 }}>{onNext && <button className="act primary" onClick={onNext}>Next case</button>}<button className="act" onClick={onExit}>All cases</button></div>
         </>}
       </section>
     </div>
   );
 }
 
-/** The whole Challenge side pane for a module whose challenges are all scene cases. */
+/** The whole Challenge side pane for a module whose challenges are all scene cases: pick one, it plays on the HUD. */
 export function CaseChallenge({ module }: { module: CaseModule }) {
-  const [cur, setCur] = useState<SceneCase | null>(null);
   const pend = usePendingOpen((s) => s.id);
-  useEffect(() => { const id = takePendingChallenge((x) => CASE_BY_ID[x]?.module === module); if (id) setCur(CASE_BY_ID[id]); }, [pend, module]);
-  const list = casesFor(module);
-  if (!cur) return <div className="chal-list"><CaseList module={module} onStart={setCur} /></div>;
-  const i = list.indexOf(cur); const next = list[i + 1];
-  return <CaseRun key={cur.id} c={cur} onExit={() => setCur(null)} onNext={next ? () => setCur(next) : undefined} />;
+  useEffect(() => { takePendingChallenge((x) => CASE_BY_ID[x]?.module === module); }, [pend, module]);
+  return <div className="chal-list"><CaseList module={module} onStart={(c) => runCase(c.id)} /></div>;
 }

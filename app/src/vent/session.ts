@@ -85,7 +85,7 @@ export class VentSession {
   }
   /** Bronchodilator effect 0–1. Time-compressed for teaching: full effect in ~12 s of screen time (≈15 min at the bedside). */
   bdEffect() { return this.bdT < 0 ? 0 : Math.min(1, this.bdT / 12) ** 1.4; }
-  /** Current bronchospasm 0–1 (drives resistance AND airway calibre in 3D). */
+  /** Current bronchospasm 0–1 (drives resistance AND airway caliber in 3D). */
   spasmNow() { return this.spasm * (1 - 0.85 * this.bdEffect()); }
 
   private applyTimeVarying(dt: number) {

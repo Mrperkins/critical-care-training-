@@ -99,7 +99,7 @@ describe('defects drawn into the real heart', () => {
     const c = lesionShape(HEART_PRESETS.coarct, solveShunt(HEART_PRESETS.coarct)); expect(c.coarct).toBeGreaterThan(0.5);
   });
   it('pinch narrows a tube around its axis and leaves far vertices alone', () => {
-    // a ring at the centre of the narrowing and one far away along a test axis
+    // a ring at the center of the narrowing and one far away along a test axis
     const ax = new THREE.Vector3(0, 1, 0); const ring = (dy: number) => { const p: number[] = []; for (let a = 0; a < 12; a++) { const t = (a / 12) * Math.PI * 2; p.push(0.06 * Math.cos(t), dy, 0.06 * Math.sin(t)); } return p; };
     const out = pinch(new Float32Array([...ring(0), ...ring(0.5)]), new THREE.Vector3(), ax, 0.07, 0.12, 0.6);
     expect(Math.hypot(out[0], out[2])).toBeLessThan(0.03); expect(Math.hypot(out[36], out[38])).toBeCloseTo(0.06, 5);

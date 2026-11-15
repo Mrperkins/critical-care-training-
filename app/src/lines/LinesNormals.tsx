@@ -9,7 +9,7 @@ export const LINES_NORMALS: { title: string; blurb?: string; rows: Row[] }[] = [
     { label: 'Diastolic', normal: '60–90', unit: 'mmHg', live: () => lines.num.dia, band: [60, 90] },
     { label: 'Mean arterial pressure', normal: '70–105 (target ≥ 65)', unit: 'mmHg', note: '≈ diastolic + ⅓ pulse pressure; the monitor integrates the waveform.', live: () => lines.num.map, band: [65, 105] },
     { label: 'Pulse pressure', normal: '30–60', unit: 'mmHg', note: 'Narrow: low stroke volume, tamponade, AS. Wide: AR, stiff arteries, sepsis, heart block.', live: () => lines.num.pp, band: [30, 60] },
-    { label: 'Pulse-pressure variation', normal: '< 9 (grey zone 9–13, > 13 = fluid-responsive)', unit: '%', note: 'Valid only with controlled ventilation ≥ 8 mL/kg, no spontaneous effort, sinus rhythm, closed chest, HR/RR > 3.6, compliance > 30 mL/cmH₂O, no RV failure or intra-abdominal hypertension.', live: () => lines.num.ppv, band: [null, 13] },
+    { label: 'Pulse-pressure variation', normal: '< 9 (gray zone 9–13, > 13 = fluid-responsive)', unit: '%', note: 'Valid only with controlled ventilation ≥ 8 mL/kg, no spontaneous effort, sinus rhythm, closed chest, HR/RR > 3.6, compliance > 30 mL/cmH₂O, no RV failure or intra-abdominal hypertension.', live: () => lines.num.ppv, band: [null, 13] },
     { label: 'Systolic fall on inspiration (spontaneous)', normal: '< 10', unit: 'mmHg', note: '> 10 = pulsus paradoxus: tamponade, severe asthma/COPD, massive PE.', live: () => (lines.resp.mode === 'spont' ? lines.num.spv : null), band: [null, 10] },
   ] },
   { title: 'Central venous pressure', blurb: 'Read at end-expiration, at the base of the c wave (or the mean of the a wave).', rows: [

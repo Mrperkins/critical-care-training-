@@ -20,7 +20,7 @@ export const MOA_GROUPS: { label: string; ids: string[] }[] = [
   { label: 'Blood pressure & rate', ids: ['nicardipine', 'clevidipine', 'esmolol', 'labetalol', 'nitroglycerin'] },
   { label: 'Induction, sedation, analgesia, paralysis', ids: ['etomidate', 'propofol', 'ketamine', 'midazolam', 'fentanyl', 'dexmedetomidine', 'rocuronium', 'succinylcholine'] },
   { label: 'Airway, brain, osmotic', ids: ['albuterol', 'ipratropium', 'hypertonic', 'mannitol', 'nimodipine', 'thrombolytic'] },
-  { label: 'Electrolytes & haemostasis', ids: ['calcium', 'insulin', 'txa', 'pcc', 'vitamink', 'protamine'] },
+  { label: 'Electrolytes & hemostasis', ids: ['calcium', 'insulin', 'txa', 'pcc', 'vitamink', 'protamine'] },
 ];
 export const MECH: Record<string, MechanismDefinition> = Object.fromEntries(MECHANISMS.map((m) => [m.id, m]));
 

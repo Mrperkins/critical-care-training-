@@ -10,8 +10,8 @@ export function Remediate({ id, ok }: { id: string; ok: boolean }) {
     <div className="remediate" role="note">
       <b className="small">Review:</b>
       {cs.map((k) => <div key={k} className="rem-row"><span className="muted small">{CONCEPTS[k].name}</span><div className="chips">{CONCEPTS[k].remediate.map((r) => 'lesson' in r
-        ? <button key={r.lesson} className="chip" onClick={() => openLesson(r.lesson)}>Learn: {titleOf(r.lesson)} →</button>
-        : <button key={r.drug} className="chip" onClick={() => openDrug(r.drug)}>Drug: {MECH[r.drug]?.drug ?? r.drug} →</button>)}</div></div>)}
+        ? <button key={r.lesson} className="chip" onClick={() => openLesson(r.lesson)}>Learn: {titleOf(r.lesson)}</button>
+        : <button key={r.drug} className="chip" onClick={() => openDrug(r.drug)}>Drug: {MECH[r.drug]?.drug ?? r.drug}</button>)}</div></div>)}
     </div>
   );
 }

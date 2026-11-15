@@ -12,13 +12,13 @@ describe('flagship neuro lessons', () => {
     resolve(LVO_LESSON, 38); const poor = core(); resolve(LVO_LESSON, 48); const good = core(); expect(poor).toBeGreaterThan(good * 2);
     resolve(LVO_LESSON, 12); expect(S().state.occlusion.m1_R).toBe(1);
   });
-  it('ICH: the haematoma grows more at high blood pressure', () => {
+  it('ICH: the hematoma grows more at high blood pressure', () => {
     resolve(ICH_LESSON, 31); const hi = effectiveHemorrhage(S().state, S().sys)!.volumeMl;
     resolve(ICH_LESSON, 44); const lo = effectiveHemorrhage(S().state, S().sys)!.volumeMl;
     expect(hi).toBeGreaterThan(lo + 4); expect(lo).toBeGreaterThan(30);
     expect(hemorrhageVolume({ kind: 'ich', at: [0, 0, 0], volumeMl: 30 }, 0)).toBe(30);
   });
-  it('SAH: vasospasm causes delayed ischaemia in the spastic territory (no clot)', () => {
+  it('SAH: vasospasm causes delayed ischemia in the spastic territory (no clot)', () => {
     resolve(SAH_LESSON, 31); const t = territoryStates(S().state, S().sys); expect(t.MCA_L.penumbraMl + t.MCA_L.coreMl).toBeGreaterThan(20); expect(Object.keys(S().state.occlusion)).toHaveLength(0);
   });
   it('every neuro lesson seeks deterministically', () => {

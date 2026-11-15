@@ -63,7 +63,7 @@ export function lusSummary(z: LusZone[]): string[] {
     if (a.lungPulse) out.push(`${name}: no sliding but a lung pulse → the lung is collapsed, not separated from the chest wall.`);
   }
   const bZones = z.filter((x) => x.bLines >= 3).length;
-  if (bZones >= 3) out.push('B-lines in most zones on both sides → diffuse interstitial syndrome (oedema, ARDS, pneumonia).');
+  if (bZones >= 3) out.push('B-lines in most zones on both sides → diffuse interstitial syndrome (edema, ARDS, pneumonia).');
   if (z.some((x) => x.consolidation > 0.3 && !x.lungPulse)) out.push('Subpleural consolidation in the dependent zones.');
   if (z.some((x) => x.effusion > 0.2)) out.push('Pleural effusion in the posterolateral zones.');
   if (!out.length) out.push('Sliding with A-lines in all four zones → aerated lung, pneumothorax very unlikely at the probe sites.');

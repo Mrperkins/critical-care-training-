@@ -1,0 +1,164 @@
+{
+ "units": "decimetres, body-centred",
+ "frame": "+X patient left, +Y up, +Z anterior",
+ "centres": {
+  "vagus_R": [
+   0.189,
+   5.3024,
+   0.0503
+  ],
+  "vagus_L": [
+   0.2132,
+   6.529,
+   0.0655
+  ],
+  "sympathetic_trunk_R": [
+   -0.1548,
+   5.0867,
+   -0.2433
+  ],
+  "sympathetic_trunk_L": [
+   0.1811,
+   5.0979,
+   -0.242
+  ],
+  "sympathetic_ganglia_R": [
+   -0.1392,
+   5.1174,
+   -0.2428
+  ],
+  "sympathetic_ganglia_L": [
+   0.1638,
+   5.1266,
+   -0.2425
+  ],
+  "sympathetic_nerves_R": [
+   -0.1662,
+   5.1723,
+   -0.453
+  ],
+  "sympathetic_nerves_L": [
+   0.1718,
+   5.1854,
+   -0.4516
+  ],
+  "cardiac_nerves": [
+   -0.0175,
+   6.089,
+   0.1108
+  ],
+  "cardiac_plexus_deep": [
+   -0.0415,
+   5.3306,
+   0.0831
+  ],
+  "cardiac_plexus_superficial": [
+   0.0066,
+   5.2548,
+   0.1562
+  ],
+  "cardiac_plexus_extensions": [
+   0.2416,
+   4.7834,
+   0.3674
+  ],
+  "phrenic_R": [
+   -0.3224,
+   5.4936,
+   0.3556
+  ],
+  "phrenic_L": [
+   0.4552,
+   5.4938,
+   0.3738
+  ]
+ },
+ "anchors": {
+  "vagus_R": [
+   -0.207,
+   5.5855,
+   0.0924
+  ],
+  "vagus_L": [
+   0.0991,
+   5.4515,
+   0.0497
+  ],
+  "phrenic_R": [
+   -0.4227,
+   4.948,
+   0.3473
+  ],
+  "phrenic_L": [
+   0.7259,
+   4.8458,
+   0.338
+  ],
+  "sympathetic_trunk_R": [
+   -0.1709,
+   5.7799,
+   -0.3689
+  ],
+  "sympathetic_trunk_L": [
+   0.1255,
+   5.7762,
+   -0.3671
+  ],
+  "cardiac_nerves": [
+   -0.2576,
+   6.3545,
+   0.0395
+  ],
+  "cardiac_plexus_deep": [
+   -0.0408,
+   5.3302,
+   0.0837
+  ],
+  "cardiac_plexus_superficial": [
+   0.0105,
+   5.2564,
+   0.1595
+  ]
+ },
+ "labels": {
+  "vagus_R": "Right vagus nerve (X)",
+  "vagus_L": "Left vagus nerve (X)",
+  "sympathetic_trunk_R": "Right sympathetic trunk",
+  "sympathetic_trunk_L": "Left sympathetic trunk",
+  "sympathetic_ganglia_R": "Ganglia of the right sympathetic trunk",
+  "sympathetic_ganglia_L": "Ganglia of the left sympathetic trunk",
+  "sympathetic_nerves_R": "Right sympathetic nerves",
+  "sympathetic_nerves_L": "Left sympathetic nerves",
+  "cardiac_nerves": "Cardiac nerves (cervical sympathetic + vagal cardiac branches)",
+  "cardiac_plexus_deep": "Deep cardiac plexus",
+  "cardiac_plexus_superficial": "Superficial cardiac plexus",
+  "cardiac_plexus_extensions": "Plexus extensions: atrial (SA, AV) and coronary plexuses",
+  "phrenic_R": "Right phrenic nerve (C3–C5)",
+  "phrenic_L": "Left phrenic nerve (C3–C5)"
+ },
+ "registration": {
+  "similarityScale": 0.09679,
+  "reflection": false
+ },
+ "schematic": "Vagus nerves, sympathetic trunks, ganglia and sympathetic nerves are Z-Anatomy meshes registered to this body. Cardiac nerves, the deep and superficial cardiac plexuses, their atrial/coronary extensions and the phrenic nerves are placed on measured landmarks (vertebral levels, carina, aortic arch, SA/AV nodes, coronary origins, pericardium) and are schematic in course.",
+ "attribution": [
+  {
+   "title": "Z-Anatomy — the open source atlas of anatomy (vagus nerves, sympathetic trunks, ganglia, sympathetic nerves)",
+   "creators": "Z-Anatomy (Lluís Vinent)",
+   "notice": "Z-Anatomy - The open source atlas of anatomy - CC-BY-SA 4.0; BodyParts3D - The Database Center for Life Science - CC-BY-SA 2.1 Japan",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "sourceUrl": "https://github.com/LluisV/Z-Anatomy",
+   "changes": "Registered to BodyParts3D (similarity + ICP on shared bones), fitted to the Visible Human Male with the skeleton fit, simplified."
+  },
+  {
+   "title": "Landmarks: HuBMAP / Visible Human Male (carina, aortic arch, SVC, heart)",
+   "creators": "HuBMAP / Human Reference Atlas consortium",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "sourceUrl": "https://github.com/hubmapconsortium/ccf-3d-reference-object-library",
+   "changes": "Used only to place the schematic plexus and phrenic courses."
+  }
+ ],
+ "license": "nerves.glb as a whole is distributed under CC BY-SA 4.0 (Z-Anatomy-derived geometry)."
+}

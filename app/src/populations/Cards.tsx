@@ -13,15 +13,15 @@ import { useUI } from '../app/store';
 const COLOR: Record<string, string> = { adult: '#9fb2ff', pregnant: '#e9b949', obese: '#c79bd8', child: '#5cc8b0', infant: '#e0645a', newborn: '#f0a6c0' };
 const fmtMin = (m: number | null) => (m == null ? '> 15 min' : m < 1 ? `${Math.round(m * 60)} s` : `${m.toFixed(1)} min`);
 
-/* ------------------------------------------------------------------ apnoea */
+/* ------------------------------------------------------------------ apnea */
 export function ApnoeaCard() {
   const a = usePopUI((s) => s.apnoea);
   const curves = useMemo(() => APNOEA_PROFILES.map((p) => ({ p, c: apnoeaCurve(p, { fao2: a.preox ? 0.87 : 0.14, headUp: a.headUp, minutes: 10 }) })), [a.preox, a.headUp]);
   const W = 360, H = 190, L = 34, R = 10, T = 10, B = 26; const x = (t: number) => L + (t / 10) * (W - L - R); const y = (s: number) => T + (1 - (s * 100 - 50) / 50) * (H - T - B);
   return (
     <section className="card pop-card">
-      <div className="card-h"><h3>Apnoea: how long the oxygen lasts</h3><span className="muted small">SpO₂ vs minutes since the last breath</span></div>
-      <svg viewBox={`0 0 ${W} ${H}`} className="pop-svg" role="img" aria-label={`SpO₂ during apnoea. ${curves.filter(({ p }) => a.shown.includes(p.id)).map(({ p, c }) => `${p.short} below 90 % at ${fmtMin(c.t90)}`).join('; ')}`}>
+      <div className="card-h"><h3>Apnea: how long the oxygen lasts</h3><span className="muted small">SpO₂ vs minutes since the last breath</span></div>
+      <svg viewBox={`0 0 ${W} ${H}`} className="pop-svg" role="img" aria-label={`SpO₂ during apnea. ${curves.filter(({ p }) => a.shown.includes(p.id)).map(({ p, c }) => `${p.short} below 90 % at ${fmtMin(c.t90)}`).join('; ')}`}>
         {[50, 60, 70, 80, 90, 100].map((v) => <g key={v}><line x1={L} x2={W - R} y1={y(v / 100)} y2={y(v / 100)} className={v === 90 ? 'pop-thr' : 'pop-grid'} /><text x={L - 5} y={y(v / 100) + 3} className="pop-ax" textAnchor="end">{v}</text></g>)}
         {[0, 2, 4, 6, 8, 10].map((t) => <text key={t} x={x(t)} y={H - 8} className="pop-ax" textAnchor="middle">{t}</text>)}
         {curves.filter(({ p }) => a.shown.includes(p.id)).map(({ p, c }, k) => {
@@ -46,7 +46,7 @@ export function ApnoeaCard() {
   );
 }
 
-/* ------------------------------------------------------------------ paediatric airway */
+/* ------------------------------------------------------------------ pediatric airway */
 export function AirwayCard() {
   const a = usePopUI((s) => s.airway); const rows = compareAirways(a.swellMm);
   return (
@@ -102,7 +102,7 @@ export function ObCard() {
   return (
     <section className="card pop-card">
       <div className="card-h"><h3>The pregnant circulation</h3><span className="muted small">{ob.supine ? 'supine — uterus on the IVC' : 'left uterine displacement'}</span></div>
-      <svg viewBox={`0 0 ${W} 46`} className="pop-svg" role="img" aria-label={`Blood volume ${TERM_BLOOD_L} litres at term; ${loss} mL lost (${lossPct(loss).toFixed(0)} %)`}>
+      <svg viewBox={`0 0 ${W} 46`} className="pop-svg" role="img" aria-label={`Blood volume ${TERM_BLOOD_L} liters at term; ${loss} mL lost (${lossPct(loss).toFixed(0)} %)`}>
         <rect x={0} y={6} width={W} height={16} rx={4} className="pop-bv" />
         <rect x={0} y={6} width={5000 * scale} height={16} rx={4} className="pop-bv-np" />
         {loss > 0 && <rect x={W - loss * scale} y={6} width={loss * scale} height={16} className="pop-loss" />}

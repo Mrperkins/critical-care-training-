@@ -55,3 +55,9 @@ export function domainProgress(completed: Record<string, string>, filter: (e: En
 }
 /** Prerequisites not yet completed for an entry. */
 export const missingPrereqs = (e: Entry, completed: Record<string, string>) => e.prereq.filter((p) => !completed[p]);
+
+/** Recommend an available foundation before dependent lessons. */
+export function recommendedLesson(completed:Record<string,string>) {
+  if (!completed.eom) return CATALOG.find(e => e.id === 'eom') ?? null;
+  return CATALOG.find(e => !completed[e.id] && missingPrereqs(e,completed).length === 0) ?? null;
+}

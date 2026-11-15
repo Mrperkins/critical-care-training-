@@ -17,7 +17,7 @@
  */
 export type LeakGrade = 0 | 1 | 2 | 3; // none · with positive pressure / cough only · every breath · continuous
 export interface DrainConfig {
-  suction: boolean; /** suction-control water column, cmH₂O (wet) */ suctionSet: number; /** wall source vigour 0–1 */ source: number;
+  suction: boolean; /** suction-control water column, cmH₂O (wet) */ suctionSet: number; /** wall source vigor 0–1 */ source: number;
   leak: LeakGrade; leakSource: 'patient' | 'system';
   kink: boolean; clot: boolean; clamped: boolean;
   /** fluid lying in a dependent loop of tubing (mL); its height opposes drainage */ loopMl: number;
@@ -41,7 +41,7 @@ export interface DrainView {
   suctionChamber: 'still' | 'gentle' | 'vigorous';
   /** drainage mL/h at present (0 if blocked) and total collected */ rate: number; total: number;
   siphonBack: boolean; subcutEmphysema: boolean; /** tension will re-accumulate */ tensionRisk: boolean;
-  /** escalate to surgery (haemothorax thresholds) */ surgical: boolean;
+  /** escalate to surgery (hemothorax thresholds) */ surgical: boolean;
   findings: string[];
 }
 
@@ -89,7 +89,7 @@ export function drainView(c: DrainConfig, pl: PleuralSample): DrainView {
   if (c.unitHigh) findings.push('The unit is above the chest: drained fluid can siphon back into the pleura.');
   if (c.sideHoleOut) findings.push('Subcutaneous emphysema around the site — a side hole has come out of the chest.');
   if (suctionChamber === 'vigorous') findings.push('Vigorous bubbling in the suction-control chamber adds noise and evaporation, not suction — the water depth sets the pressure. Turn the wall source down to gentle bubbling.');
-  if (surgical) findings.push(c.initialMl >= 1500 ? `${c.initialMl} mL of blood on insertion: massive haemothorax — call surgery.` : `${c.rateMlH} mL/h of blood for ${c.hours} h: ongoing haemorrhage — call surgery.`);
+  if (surgical) findings.push(c.initialMl >= 1500 ? `${c.initialMl} mL of blood on insertion: massive hemothorax — call surgery.` : `${c.rateMlH} mL/h of blood for ${c.hours} h: ongoing hemorrhage — call surgery.`);
   return { patent, swing, level, bubblingNow, bubbling, suctionChamber, rate, total, siphonBack: c.unitHigh && total > 0, subcutEmphysema: c.sideHoleOut, tensionRisk, surgical, findings };
 }
 
@@ -110,7 +110,7 @@ export interface DrainCase { id: string; title: string; story: string; cfg: Part
 const O = (ids: [string, string][]) => ids.map(([id, label]) => ({ id, label }));
 const ACTIONS = O([
   ['observe', 'Expected — document and keep observing'], ['unkink', 'Find and relieve the obstruction (kink / clot / clamp)'], ['loop', 'Straighten the tubing and drain the loop into the chamber'],
-  ['leakCheck', 'Clamp briefly at the chest to locate the leak, then check connections'], ['surgeon', 'Escalate: surgical review for haemorrhage'], ['lower', 'Lower the unit below the chest'],
+  ['leakCheck', 'Clamp briefly at the chest to locate the leak, then check connections'], ['surgeon', 'Escalate: surgical review for hemorrhage'], ['lower', 'Lower the unit below the chest'],
   ['source', 'Turn the suction source down to gentle bubbling'], ['site', 'Check the site: side hole out — secure, dress, arrange replacement'],
 ]);
 export const DRAIN_CASES: DrainCase[] = [
@@ -118,10 +118,10 @@ export const DRAIN_CASES: DrainCase[] = [
   { id: 'leak-ppv', title: 'Bubbles with every breath', story: 'Ventilated, 6 h after a drain for traumatic pneumothorax. Bubbles pass through the water seal with each ventilator breath; SpO₂ stable.', cfg: { leak: 2, expanded: 0.6 }, question: 'Best response?', options: ACTIONS, answer: 'observe', explain: 'A patient air leak with each positive-pressure breath is expected early. Grade and trend it; never clamp a bubbling drain — the air has nowhere else to go.' },
   { id: 'kink', title: 'Nothing moves', story: 'Ventilated patient with a known air leak. The water seal is suddenly still, no bubbling, and peak pressures and heart rate are climbing.', cfg: { leak: 2, kink: true, expanded: 0.6 }, question: 'Most likely problem and action?', options: ACTIONS, answer: 'unkink', explain: 'Loss of swing AND of a known leak with deteriorating pressures means the drain is occluded — here a kink under the patient. Tension is re-accumulating. Relieve it now.' },
   { id: 'expanded', title: 'Still water, well patient', story: 'Day 3, spontaneous breathing, no bubbling for 24 h, chest X-ray shows the lung fully up. The column barely moves; tubing checked and patent.', cfg: { leak: 0, expanded: 1, ppv: false, fluid: 'serous', rateMlH: 5 }, question: 'Interpretation?', options: ACTIONS, answer: 'observe', explain: 'With a patent, well-positioned system, tidaling fades as the lung re-expands against the tube. Absent tidaling is only reassuring when the patient and the tubing say so.' },
-  { id: 'loop', title: 'Fluid in the tubing', story: 'Haemothorax drain. Drainage has slowed; a loop of tubing hangs off the bed below the unit inlet and is full of blood.', cfg: { fluid: 'blood', rateMlH: 60, loopMl: 90, expanded: 0.5 }, question: 'What do you do?', options: ACTIONS, answer: 'loop', explain: 'A fluid-filled dependent loop is a column of fluid the pleura has to push against. Straighten the tubing, let the loop drain into the chamber, keep the tubing coiled flat on the bed.' },
+  { id: 'loop', title: 'Fluid in the tubing', story: 'Hemothorax drain. Drainage has slowed; a loop of tubing hangs off the bed below the unit inlet and is full of blood.', cfg: { fluid: 'blood', rateMlH: 60, loopMl: 90, expanded: 0.5 }, question: 'What do you do?', options: ACTIONS, answer: 'loop', explain: 'A fluid-filled dependent loop is a column of fluid the pleura has to push against. Straighten the tubing, let the loop drain into the chamber, keep the tubing coiled flat on the bed.' },
   { id: 'system', title: 'Continuous bubbling, new', story: 'Spontaneously breathing patient whose leak had stopped. Now there is continuous bubbling in the water seal; the patient is comfortable, no subcutaneous emphysema.', cfg: { leak: 1, leakSource: 'system', ppv: false, expanded: 0.95 }, question: 'Next step?', options: ACTIONS, answer: 'leakCheck', explain: 'A NEW continuous leak in a well patient is often the system. A brief clamp at the chest: if it keeps bubbling, the leak is between the clamp and the unit — check every connection.' },
   { id: 'site', title: 'Crackling skin', story: 'After a transfer the tube looks longer at the skin; there is new crackling under the skin around the site and continuous bubbling.', cfg: { leak: 1, sideHoleOut: true, ppv: false }, question: 'Most likely problem?', options: ACTIONS, answer: 'site', explain: 'A side hole outside the pleura draws air in at the site and pushes it into the tissues. Do not push the tube back in; secure it, occlusive dressing, and arrange replacement.' },
-  { id: 'massive', title: 'Blood on insertion', story: 'Stab wound, drain inserted: 1600 mL of blood into the collection chamber immediately. HR 128, BP 86/50.', cfg: { fluid: 'blood', initialMl: 1600, rateMlH: 150, hours: 0, expanded: 0.5, ppv: false }, question: 'What now?', options: ACTIONS, answer: 'surgeon', explain: 'About 1500 mL on insertion (or around 200 mL/h for several hours) is haemorrhage the drain cannot fix. Resuscitate with blood and call surgery.' },
+  { id: 'massive', title: 'Blood on insertion', story: 'Stab wound, drain inserted: 1600 mL of blood into the collection chamber immediately. HR 128, BP 86/50.', cfg: { fluid: 'blood', initialMl: 1600, rateMlH: 150, hours: 0, expanded: 0.5, ppv: false }, question: 'What now?', options: ACTIONS, answer: 'surgeon', explain: 'About 1500 mL on insertion (or around 200 mL/h for several hours) is hemorrhage the drain cannot fix. Resuscitate with blood and call surgery.' },
   { id: 'high', title: 'On the stretcher', story: 'During a transfer the unit has been placed on the patient’s legs, level with the chest; fluid is running back up the tubing.', cfg: { fluid: 'serous', initialMl: 400, unitHigh: true, ppv: false }, question: 'Correct action?', options: ACTIONS, answer: 'lower', explain: 'Keep the unit upright and below the chest at all times; above it, drained fluid siphons back into the pleura. Do not clamp for the move.' },
   { id: 'vigorous', title: 'Roaring suction chamber', story: 'Wet-suction unit at −20 cmH₂O. The suction-control chamber is bubbling violently and the water level keeps dropping.', cfg: { suction: true, source: 0.95, leak: 0 }, question: 'What is the fix?', options: ACTIONS, answer: 'source', explain: 'In a wet system the water depth sets the suction; more wall vacuum only makes it bubble harder and evaporate. Turn the source down until the bubbling is gentle, and top up to the ordered level.' },
 ];

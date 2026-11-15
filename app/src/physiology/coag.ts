@@ -57,13 +57,13 @@ export function stepCoag(c: CoagState, dt: number, hepatic = 1) {
 }
 
 export type CoagDrug = 'pcc' | 'vitkIV' | 'vitkOral' | 'protamine' | 'txa' | 'ffp' | 'cryo' | 'platelets' | 'tpa' | 'heparinStop';
-/** Give a haemostatic drug or product (dose 1 = a standard adult dose). */
+/** Give a hemostatic drug or product (dose 1 = a standard adult dose). */
 export function coagGive(c: CoagState, d: CoagDrug, dose = 1) {
   switch (d) {
     case 'pcc': c.f7 = Math.min(1.1, c.f7 + 0.75 * dose); c.fx = Math.min(1.2, c.fx + 0.85 * dose); break; // 4F-PCC ≈ 25–50 IU/kg
     case 'vitkIV': c.vitK = clamp(c.vitK + dose); break;                  // 10 mg IV
     case 'vitkOral': c.vitKGut += 0.8 * dose; break;                       // oral: absorbed over hours
-    case 'protamine': { // 1 mg per ~100 units: dose 1 neutralises ≈ 1.2 IU/mL anti-Xa of UFH, ≈ 60 % of LMWH at most
+    case 'protamine': { // 1 mg per ~100 units: dose 1 neutralizes ≈ 1.2 IU/mL anti-Xa of UFH, ≈ 60 % of LMWH at most
       let cap = 1.2 * dose; const u = Math.min(c.hep, cap); c.hep -= u; cap -= u;
       const l = Math.min(c.lmwh * 0.6, cap); c.lmwh -= l; cap -= l; c.protFree += cap * 0.25; break;
     }

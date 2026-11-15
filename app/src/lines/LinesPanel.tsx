@@ -34,7 +34,7 @@ export function SetupCard() {
   const ok = Math.abs(err) < 1.5;
   return (
     <section className="card">
-      <div className="card-h"><h3>Bed & transducer level</h3><span className={`badge ${ok ? 'ok' : 'bad'}`}>{ok ? 'Levelled' : `${Math.abs(err).toFixed(0)} cm ${err > 0 ? 'below' : 'above'} axis`}</span></div>
+      <div className="card-h"><h3>Bed & transducer level</h3><span className={`badge ${ok ? 'ok' : 'bad'}`}>{ok ? 'Leveled' : `${Math.abs(err).toFixed(0)} cm ${err > 0 ? 'below' : 'above'} axis`}</span></div>
       <label className="sl"><span>Bed height</span><input type="range" min={50} max={110} step={1} value={st.bedH} onChange={(e) => set({ bedH: +e.target.value })} /><b>{r0(st.bedH)} cm</b></label>
       <label className="sl"><span>Head of bed</span><input type="range" min={0} max={60} step={1} value={st.hob} onChange={(e) => set({ hob: +e.target.value })} /><b>{r0(st.hob)}°</b></label>
       <label className="sl"><span>Transducer height</span><input type="range" min={60} max={180} step={1} value={st.transH} onChange={(e) => set({ transH: +e.target.value })} /><b>{r0(st.transH)} cm</b></label>
@@ -42,7 +42,7 @@ export function SetupCard() {
         <div>Phlebostatic axis <b>{r0(lines.axis)} cm</b> above the floor (4th intercostal space, mid-axillary line)</div>
         <div className={ok ? 'ok' : 'bad'}>{ok ? 'Air–fluid interface at the axis: no hydrostatic error.' : `Every reading is ${mm > 0 ? '+' : '−'}${Math.abs(mm).toFixed(1)} mmHg ${mm > 0 ? 'too high' : 'too low'} (${Math.abs(err).toFixed(0)} cm × 0.74 mmHg/cm) — the CVP error matters most.`}</div>
       </div>
-      <button className="act primary" onClick={() => { lines.levelToAxis(); toast('Transducer levelled to the phlebostatic axis', 'good'); bump(); }}>Level transducer to the axis</button>
+      <button className="act primary" onClick={() => { lines.levelToAxis(); toast('Transducer leveled to the phlebostatic axis', 'good'); bump(); }}>Level transducer to the axis</button>
     </section>
   );
 }
@@ -112,7 +112,7 @@ export function NumbersCard({ hideTrue }: { hideTrue?: boolean } = {}) {
         <tr><td>MAP</td><td className={d(n.map, n.tMap) ? 'bad' : ''}>{r0(n.map)}</td><td>{r0(n.tMap)}</td><td>{r0(n.aoMap)}</td></tr>
         <tr><td>CVP (mean)</td><td className={Math.abs(n.cvp - n.tCvp) > 2 ? 'bad' : ''}>{r1(n.cvp)}</td><td>{r1(n.tCvp)}</td><td /></tr>
         <tr><td>CVP end-expiration</td><td className={Math.abs(n.cvpEE - n.tCvpEE) > 2 ? 'bad' : ''}>{r1(n.cvpEE)}</td><td>{r1(n.tCvpEE)}</td><td /></tr>
-        <tr><td>Pulse-pressure variation</td><td>{n.ppv == null ? '—' : `${r0(n.ppv)} %`}</td><td colSpan={2} className="muted small">{lines.resp.mode === 'ppv' ? (lines.circ.rhythm !== 'sinus' ? 'irregular rhythm — PPV not valid' : n.ppv != null && n.ppv > 13 ? '> 13 %: likely fluid-responsive' : n.ppv != null && n.ppv > 9 ? '9–13 %: grey zone' : '< 9 %: unlikely to respond') : 'spontaneous breathing — PPV not valid'}</td></tr>
+        <tr><td>Pulse-pressure variation</td><td>{n.ppv == null ? '—' : `${r0(n.ppv)} %`}</td><td colSpan={2} className="muted small">{lines.resp.mode === 'ppv' ? (lines.circ.rhythm !== 'sinus' ? 'irregular rhythm — PPV not valid' : n.ppv != null && n.ppv > 13 ? '> 13 %: likely fluid-responsive' : n.ppv != null && n.ppv > 9 ? '9–13 %: gray zone' : '< 9 %: unlikely to respond') : 'spontaneous breathing — PPV not valid'}</td></tr>
       </tbody></table>
       <label className="tgl-line"><input type="checkbox" checked={useLinesUI((s) => s.showTrue)} onChange={(e) => useLinesUI.getState().set({ showTrue: e.target.checked })} /> Overlay the true pressure on the monitor (dashed)</label>
     </section>
@@ -178,7 +178,7 @@ export function ExplainCard() {
     const zErr = L.drift - L.zeroRef; if (Math.abs(zErr) > 2) out.push({ t: `${nm} zero is off by ${zErr > 0 ? '+' : '−'}${Math.abs(zErr).toFixed(0)} mmHg${L.zeroRef > 10 ? ' — it was zeroed while open to the patient, so the patient’s own pressure is being subtracted' : ''}. Re-zero open to air.`, tone: 'bad' });
     if (L.fault !== 'none' && L.fault !== 'drift') out.push({ t: `${nm}: ${FAULTS[L.fault].name}. ${FAULTS[L.fault].sign} Fix: ${FAULTS[L.fault].fix}`, tone: 'bad' });
   }
-  if (!out.length) out.push({ t: 'Both lines levelled, zeroed and optimally damped: the monitor matches the true pressures.', tone: 'ok' });
+  if (!out.length) out.push({ t: 'Both lines leveled, zeroed and optimally damped: the monitor matches the true pressures.', tone: 'ok' });
   if (lines.resp.mode === 'spont' && lines.circ.rhythm === 'sinus' && n.spv != null && n.spv > 10) out.push({ t: `Systolic falls ${r0(n.spv)} mmHg with each breath in: pulsus paradoxus (> 10 mmHg).`, tone: 'bad' });
   return (
     <section className="card">

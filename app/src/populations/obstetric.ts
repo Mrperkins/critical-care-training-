@@ -1,7 +1,7 @@
 /**
  * Pregnancy on the shared SyntheticPatient (causes, not typed-in numbers): a term woman's circulation, the
- * supine (aortocaval) position, and postpartum haemorrhage graded by loss. Blood volume ≈ 6.5 L at term
- * (+≈ 45 %), so a litre is only ≈ 15 %. Compensation (heart rate, vasoconstriction) is set from the loss;
+ * supine (aortocaval) position, and postpartum hemorrhage graded by loss. Blood volume ≈ 6.5 L at term
+ * (+≈ 45 %), so a liter is only ≈ 15 %. Compensation (heart rate, vasoconstriction) is set from the loss;
  * the patient engine and the Lines beat model turn it into pressure. Teaching values, not clinical rules.
  */
 import type { PatientParams } from '../physiology/patient';

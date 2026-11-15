@@ -59,7 +59,7 @@ describe('cerebral perfusion primitives', () => {
     const lo = territoryStates(st({ occlusion: { m1_L: 1 }, minutes: 180 }), { map: 60, paco2: 40, sao2: 0.98 }).MCA_L;
     expect(lo.coreMl).toBeGreaterThan(hi.coreMl);
   });
-  it('infarct time shrinks as flow falls; haemorrhage volume sets the radius', () => {
+  it('infarct time shrinks as flow falls; hemorrhage volume sets the radius', () => {
     expect(timeToInfarct(25)).toBe(Infinity); expect(timeToInfarct(12)).toBeLessThan(timeToInfarct(17));
     expect(hemorrhageShape({ kind: 'ich', at: [0, 0, 0], volumeMl: 30 }).rCm).toBeCloseTo(1.93, 1);
   });

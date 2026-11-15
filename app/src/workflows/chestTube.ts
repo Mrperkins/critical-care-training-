@@ -10,15 +10,15 @@ import { useDrain, setDrain } from './drainStore';
 export const CHEST_TUBE: Workflow = {
   id: 'wf-chest-tube', module: 'vent', level: 'advanced',
   title: 'Tension pneumothorax: decompress, then drain',
-  blurb: 'Recognise tension on the ventilator, decompress immediately, then place a chest drain safely — and watch the lung, pressures and blood pressure respond.',
+  blurb: 'Recognize tension on the ventilator, decompress immediately, then place a chest drain safely — and watch the lung, pressures and blood pressure respond.',
   context: 'Ventilated trauma patient. Sudden high-pressure alarm: peak AND plateau pressures up, SpO₂ falling, BP 70/40, no breath sounds on the right, trachea deviating left.',
   setup: () => { session.load('ptx'); },
   steps: [
-    { id: 'recognise', label: 'Call it: tension pneumothorax (clinical diagnosis)', why: 'High peak and plateau pressures with hypotension, hypoxaemia and one silent side on a ventilated patient is tension until proven otherwise. It is treated before any imaging.' },
+    { id: 'recognise', label: 'Call it: tension pneumothorax (clinical diagnosis)', why: 'High peak and plateau pressures with hypotension, hypoxemia and one silent side on a ventilated patient is tension until proven otherwise. It is treated before any imaging.' },
     { id: 'fio2', label: 'FiO₂ 1.0', why: 'Buys oxygen reserve while you decompress.' },
     { id: 'needle', label: 'Needle / finger decompression on the affected side', why: 'Releases pleural pressure at once — venous return and blood pressure recover. Sites: 4th–5th intercostal space just anterior to the mid-axillary line, or 2nd space mid-clavicular; in a ventilated patient a finger thoracostomy at the lateral site is common.', critical: true },
     { id: 'site', label: 'Choose the site: triangle of safety, 4th–5th space', why: 'Bounded by the lateral edge of pectoralis major, the anterior edge of latissimus dorsi and a line at the level of the nipple. Lower sites risk diaphragm, liver and spleen.' },
-    { id: 'prep', label: 'Position (arm up), aseptic prep, local anaesthetic', why: 'Arm abducted opens the space; asepsis prevents empyema; infiltrate down to the pleura and the periosteum.' },
+    { id: 'prep', label: 'Position (arm up), aseptic prep, local anesthetic', why: 'Arm abducted opens the space; asepsis prevents empyema; infiltrate down to the pleura and the periosteum.' },
     { id: 'dissect', label: 'Incise, then blunt-dissect over the TOP of the rib into the pleura', why: 'The intercostal artery, vein and nerve run in the groove under each rib. Going over the upper edge of the rib below avoids them.', critical: true },
     { id: 'sweep', label: 'Finger sweep inside the pleura', why: 'Confirms you are in the pleural space and there are no adhesions or organs in the way.' },
     { id: 'tube', label: 'Guide the tube in (no sharp trocar), all side holes inside', why: 'Directed apically for air. A side hole outside the chest wall leaks air into the tissues.', critical: true },
@@ -61,7 +61,7 @@ export const DOPES: Workflow = {
   distractors: [
     { id: 'alarm', label: 'Raise the high-pressure alarm limit', why: 'The alarm is telling you the tube is blocking. Silencing it removes the warning, not the problem.', critical: true },
     { id: 'sedate', label: 'Give more sedation for “fighting the ventilator”', why: 'Treats the patient’s response to a blocked tube, not the tube. Check the machine and the airway first.' },
-    { id: 'paralyse', label: 'Paralyse to bring the pressures down', why: 'Masks the cause; with a blocked tube the peak pressure stays high anyway.', critical: true },
+    { id: 'paralyse', label: 'Paralyze to bring the pressures down', why: 'Masks the cause; with a blocked tube the peak pressure stays high anyway.', critical: true },
     { id: 'peep', label: 'Raise PEEP for the desaturation', why: 'A blocked tube is a resistance problem; more PEEP adds pressure without opening the tube.' },
   ],
   effects: {
@@ -91,7 +91,7 @@ export const CHEST_DRAIN_CHECK: Workflow = {
     { id: 'suction', label: 'Suction as ordered (or water seal only): gentle bubbling in the suction chamber', why: 'In a wet system the water depth sets the suction; vigorous bubbling adds nothing but noise and evaporation.' },
     { id: 'swing', label: 'Water seal at its level; watch for tidaling (suction briefly off if needed)', why: 'Tidaling means the tube is patent and in the pleural space. On the ventilator the column falls with each breath.' },
     { id: 'leak', label: 'Air leak: pattern and grade — with breaths, every breath, continuous', why: 'A leak that is getting smaller means the lung is sealing; a new continuous leak means check the system.' },
-    { id: 'output', label: 'Drainage: volume, colour and rate; mark the level with the time', why: 'Trends matter: a sudden fall in bloody output with worsening vital signs is a blocked tube, not a stopped bleed.' },
+    { id: 'output', label: 'Drainage: volume, color and rate; mark the level with the time', why: 'Trends matter: a sudden fall in bloody output with worsening vital signs is a blocked tube, not a stopped bleed.' },
   ],
   anyOrder: [['suction', 'swing', 'leak', 'output']],
   distractors: [
@@ -126,7 +126,7 @@ export const LOW_PRESSURE: Workflow = {
   ],
   anyOrder: [['trace', 'bag']],
   distractors: [
-    { id: 'silence', label: 'Silence the alarm and carry on with the transfer', why: 'A low-pressure alarm on a paralysed patient is a disconnection until proven otherwise. The alarm is the only warning before hypoxia.', critical: true },
+    { id: 'silence', label: 'Silence the alarm and carry on with the transfer', why: 'A low-pressure alarm on a paralyzed patient is a disconnection until proven otherwise. The alarm is the only warning before hypoxia.', critical: true },
     { id: 'limit', label: 'Lower the low-pressure alarm limit so it stops sounding', why: 'The limit exists to catch exactly this. Set it a few cmH₂O below the patient’s usual peak, never to zero.', critical: true },
     { id: 'vt', label: 'Increase the set tidal volume to make up the lost volume', why: 'With the circuit open the extra volume goes into the room; once reconnected it becomes a high tidal volume in an ARDS lung.' },
     { id: 'sedate', label: 'Give more sedation', why: 'The patient is not the problem — the circuit is.' },

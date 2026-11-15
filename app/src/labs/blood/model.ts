@@ -1,6 +1,6 @@
 /**
  * Blood scenes (Hb/Hct/RBC/WBC/Plt and PT/INR/aPTT/fibrinogen): what to draw, computed from the
- * shared patient. Counts are LINEAR in the lab value so anaemia, polycythaemia, leukocytosis or
+ * shared patient. Counts are LINEAR in the lab value so anemia, polycythemia, leukocytosis or
  * thrombocytopenia are obvious at a glance (white cells and platelets are over-represented
  * relative to red cells so a handful are always on screen; the HUD prints the real numbers).
  */
@@ -45,7 +45,7 @@ function bloodChain(m: BloodModel): { chain: BloodStep[]; headline: string } {
   const ch: BloodStep[] = []; const push = (text: string, focus: BloodFocus, tone?: BloodStep['tone']) => ch.push({ text, focus, tone });
   const sat = Math.round(m.sao2 * 100), sv = Math.round(m.svo2 * 100);
   if (m.labId === 'wbc') {
-    if (m.wbc > 11) { push(`WBC ${f1(m.wbc)} — more white cells in every drop (normal 4–11)`, 'wbc', 'bad'); push('They roll along the vessel wall (margination), then squeeze out into infected tissue', 'wbc'); push('Causes: infection, steroids, stress, leukaemia. Very high counts thicken the blood (leukostasis)', 'wbc', 'info'); }
+    if (m.wbc > 11) { push(`WBC ${f1(m.wbc)} — more white cells in every drop (normal 4–11)`, 'wbc', 'bad'); push('They roll along the vessel wall (margination), then squeeze out into infected tissue', 'wbc'); push('Causes: infection, steroids, stress, leukemia. Very high counts thicken the blood (leukostasis)', 'wbc', 'info'); }
     else if (m.wbc < 4) { push(`WBC ${f1(m.wbc)} — few white cells patrolling (normal 4–11)`, 'wbc', 'bad'); push('Neutrophils < 1.5 → bacterial infection risk; < 0.5 → neutropenic fever is an emergency', 'wbc', 'bad'); push('Causes: chemotherapy, marrow failure, overwhelming sepsis, some drugs and viruses', 'wbc', 'info'); }
     else { push(`WBC ${f1(m.wbc)} — about 1 white cell for every 700 red cells`, 'wbc'); push('Neutrophils (lobed nucleus) fight bacteria; lymphocytes (round nucleus) drive immunity', 'wbc'); push('They travel slowly along the wall, ready to leave the vessel where they are needed', 'wall'); }
     return { chain: ch, headline: `WBC ${f1(m.wbc)} ×10⁹/L` };
@@ -58,7 +58,7 @@ function bloodChain(m: BloodModel): { chain: BloodStep[]; headline: string } {
     push(`The heart pumps harder to compensate: cardiac output ${f1(m.co)} L/min`, 'rbc', 'info');
     push(`Tissues strip more O₂ from each cell: blood leaves at ${sv} % saturation (normal ≈ 70 %) — see it darken along the vessel`, 'tissue', sv < 60 ? 'bad' : 'info');
   } else if (m.hb > 17) {
-    push('Thicker blood flows more slowly and clots more easily (stroke, DVT) — causes: dehydration, COPD, polycythaemia vera', 'rbc', 'bad');
+    push('Thicker blood flows more slowly and clots more easily (stroke, DVT) — causes: dehydration, COPD, polycythemia vera', 'rbc', 'bad');
   } else push(`Blood gives up about a quarter of its O₂ to the tissue: in at ${sat} %, out at ${sv} %`, 'tissue');
   return { chain: ch, headline: `Hb ${f1(m.hb)} · CaO₂ ${f1(m.cao2)} mL/dL · SvO₂ ${sv} %` };
 }

@@ -7,7 +7,7 @@
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
   "sourceFile": "Medical_Ventilator.usdz",
   "sourceSha256": "8d3be957b16af49ac52a24c91af59a0b2df960d4aaea605df4958824e0216a5c",
-  "changes": "Converted user-supplied USDZ to GLB; baked world transforms and centimeter units; inverted UV V for glTF; packed source metalness and roughness maps. Original triangles, normals and 1024px textures retained. No decimation or generated geometry. Application adds a live educational display.",
+  "changes": "Converted user-supplied USDZ to GLB; baked world transforms and centimeter units; inverted UV V for glTF; packed source metalness and roughness maps. Original triangles, normals and 1024px textures retained. No decimation or generated geometry. Application adds a live educational display. Delivery copy: quantised + meshopt geometry (triangles unchanged) and WebP (q90) textures at the original 1024px resolution; the unoptimised conversion is kept as medical-ventilator.src.glb.",
   "vertices": 51012,
   "triangles": 66944,
   "reference": "Visual training equipment; authored device markings and hose routing are not a clinical device specification."

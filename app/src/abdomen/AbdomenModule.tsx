@@ -1,3 +1,5 @@
+import { DiseaseBrowser } from '../atlas/DiseaseBrowser';
+import { LessonLength } from '../app/LessonShell';
 import { useExploreMemory } from '../app/exploreMemory';
 /** Abdomen module: trauma / vascular / surgical abdomen on the shared body, driven by one pure state. */
 import { MiniSelect, Picker, Fold } from '../scene/pane';
@@ -20,6 +22,8 @@ import { UltrasoundScene } from './UltrasoundScene';
 import { useAbdUI, loadAbdPreset, currentAbdomen, ABD_PRESETS, type AbdPreset, type AbdView } from './abdomenStore';
 import { fastExam, shockClass, abdomenFindings, type AbdomenState } from './state';
 import { SceneWrap } from '../scene/labels';
+import { COMPARE_MEDIA } from '../scene/compareMedia';
+import { emptyAbdomen } from './state';
 
 const FOCUS: [string, string][] = [['abdomen.whole', 'Whole'], ['abdomen.ruq', 'RUQ'], ['abdomen.luq', 'LUQ'], ['abdomen.pelvis', 'Pelvis'], ['abdomen.aorta', 'Aorta'], ['abdomen.retroperitoneum', 'Retroperitoneum'], ['abdomen.pancreas', 'Pancreas'], ['abdomen.bowel', 'Bowel'], ['abdomen.diaphragm', 'Diaphragm']];
 const useAbdomen = () => { const base = useAbdUI((s) => s.base); const minutes = useAbdUI((s) => s.minutes); return useMemo(() => currentAbdomen({ base, minutes }), [base, minutes]); };
@@ -29,17 +33,17 @@ export function AbdomenModule() {
   const [body, setBody] = useState<BodyAsset | null>(null); const [err, setErr] = useState<string | null>(null);
   useEffect(() => { loadBodyAsset().then(setBody).catch((e) => { console.error(e); setErr(String(e?.message || e)); }); }, []);
   useEffect(() => { (window as unknown as { __CCAbd: unknown }).__CCAbd = { store: useAbdUI, load: loadAbdPreset, minutes: (m: number) => useAbdUI.getState().set({ minutes: m }), focus: (id: string) => useAbdUI.getState().set({ target: id }), state: () => currentAbdomen(), view: (v: AbdView) => useAbdUI.getState().set({ view: v }) }; }, []);
-  const view = useAbdUI((s) => s.view); const mode = useUI((s) => s.mode);
+  const view = useAbdUI((s) => s.view); const mode = useUI((s) => s.mode); const preset = useAbdUI((s) => s.preset);
   useExploreMemory('abd', () => { const s = useAbdUI.getState(); return { preset: s.preset, base: structuredClone(s.base), minutes: s.minutes, target: s.target, view: s.view }; }, (m) => useAbdUI.getState().set(m));
   const dTarget = useDirector((s) => s.target);
   useEffect(() => { if (dTarget?.startsWith('abdomen.')) useAbdUI.getState().set({ target: dTarget }); }, [dTarget]);
   return (
     <main className="stage">
       <section className="scene-pane">
-        <SceneWrap>{view === 'us' ? <UltrasoundScene /> : view === 'cta' ? <CtaScene /> : body ? <AbdomenScene body={body} /> : <div className="loading">{err ? `Could not load anatomy: ${err}` : 'Loading anatomy…'}</div>}<AbdOverlay /></SceneWrap>
+        <SceneWrap compare={{ twin: view === '3d' && body ? <AbdomenScene body={body} /> : undefined, state: { 'abd.base': emptyAbdomen(), 'abd.minutes': 0 }, finding: ABD_PRESETS.find((p) => p.id === preset)?.name ?? 'Current state', normalLabel: 'No free fluid, normal aorta', healthy: preset === 'normal', prefer: preset, media: COMPARE_MEDIA.abdomen }}>{view === 'us' ? <UltrasoundScene /> : view === 'cta' ? <CtaScene /> : body ? <AbdomenScene body={body} /> : <div className="loading">{err ? `Could not load anatomy: ${err}` : 'Loading anatomy…'}</div>}<AbdOverlay /></SceneWrap>
       </section>
       <aside id="controls" tabIndex={-1} className="side-pane" aria-label="Controls and readings"><h2 className="sr-only">Controls and readings</h2>
-        {mode === 'challenge' ? <CaseChallenge module="abdomen" /> : mode === 'learn' ? <AbdLearn /> : <><PresetCard /><TimeCard /><Fold group="abd" id="find" title="Findings" defaultOpen><FindingsCard /></Fold><Fold group="abd" id="shock" title="Haemodynamics" summary="bleeding, shock class"><ShockCard /></Fold><Fold group="abd" id="fast" title="FAST" summary="where to look for fluid"><FastCard /></Fold></>}
+        {mode === 'challenge' ? <CaseChallenge module="abdomen" /> : mode === 'learn' ? <AbdLearn /> : <><PresetCard /><TimeCard /><Fold group="abd" id="find" title="Findings" defaultOpen><FindingsCard /></Fold><Fold group="abd" id="shock" title="Hemodynamics" summary="bleeding, shock class"><ShockCard /></Fold><Fold group="abd" id="fast" title="FAST" summary="where to look for fluid"><FastCard /></Fold></>}
         <details className="credit"><summary>Sources & model notes</summary>Solid organs: HuBMAP 3D reference organs (CC BY 4.0) via the shared body model. Stomach, bowel, diaphragm, peritoneal fluid and pathology are drawn procedurally. Bleeding rates, FAST thresholds and the haemorrhage-class table are teaching approximations, not clinical rules.</details>
       </aside>
     </main>
@@ -55,7 +59,7 @@ function AbdOverlay() {
       <div className="alv-row"><span>Time</span><b>{Math.round(st.minutes)} min</b></div>
       <div className="alv-row"><span>Free fluid</span><b>{Math.round(st.freeFluidMl)} mL</b></div>
       {st.retroMl > 0 && <div className="alv-row"><span>Retroperitoneal</span><b>{Math.round(st.retroMl)} mL</b></div>}
-      <div className="alv-row"><span>Haemorrhage class</span><b>{['I', 'II', 'III', 'IV'][sc.cls - 1]}</b></div>
+      <div className="alv-row"><span>Hemorrhage class</span><b>{['I', 'II', 'III', 'IV'][sc.cls - 1]}</b></div>
     </div>}
     <div className="alv-focus"><MiniSelect label="View" value={target} options={FOCUS as [string, string][]} onChange={(v) => set({ target: v })} className="ch-focus" /></div>
     <div className="legend"><span><i style={{ background: '#b0101f' }} />Blood</span><span><i style={{ background: '#8a7a3a' }} />Enteric</span><span><i style={{ background: '#d9c77a' }} />Ascites</span><span><i style={{ background: '#dff4ff' }} />Free air</span></div>
@@ -75,7 +79,7 @@ function TimeCard() {
   return (
     <section className="card">
       <div className="card-h"><h3>Time & severity</h3></div>
-      <Knob label="Time since event" value={minutes} min={0} max={240} step={5} unit=" min" onChange={(v) => useAbdUI.getState().set({ minutes: v })} hint="Untreated bleeding accumulates; ischaemia progresses" />
+      <Knob label="Time since event" value={minutes} min={0} max={240} step={5} unit=" min" onChange={(v) => useAbdUI.getState().set({ minutes: v })} hint="Untreated bleeding accumulates; ischemia progresses" />
       {base.injury.spleen != null && <Knob label="Splenic injury grade" value={base.injury.spleen} min={0} max={5} step={1} onChange={(v) => setBase({ injury: { ...base.injury, spleen: v } })} />}
       {base.injury.liver != null && <Knob label="Liver injury grade" value={base.injury.liver} min={0} max={5} step={1} onChange={(v) => setBase({ injury: { ...base.injury, liver: v } })} />}
       {base.aaa.diameterCm > 3 && <Knob label="Aneurysm diameter" value={base.aaa.diameterCm} min={3} max={10} step={0.5} unit=" cm" onChange={(v) => setBase({ aaa: { ...base.aaa, diameterCm: v } })} hint="Normal infrarenal aorta ≈ 2 cm; rupture risk climbs steeply above 5.5 cm" />}
@@ -96,7 +100,7 @@ export function ShockCard() {
   const st = useAbdomen(); const s = shockClass(st);
   return (
     <section className="card nums">
-      <div className="card-h"><h3>Haemorrhage class {['I', 'II', 'III', 'IV'][s.cls - 1]}</h3></div>
+      <div className="card-h"><h3>Hemorrhage class {['I', 'II', 'III', 'IV'][s.cls - 1]}</h3></div>
       <div className="numgrid">
         <div className="num"><span className="nl">Loss</span><span className="nv">{Math.round(s.lossMl)}</span><span className="nu">mL ({Math.round(s.lossPct)}%)</span></div>
         <div className="num"><span className="nl">HR</span><span className="nv">{s.hr}</span><span className="nu">/min</span></div>
@@ -119,9 +123,9 @@ function AbdLearn() {
   useEffect(() => () => { if (ABDOMEN_LESSONS.some((l) => l.id === useDirector.getState().tl?.id)) director.unload(); }, []);
   if (active) return <div className="chal-run"><DirectorPlayer onExit={() => undefined} />{tl!.id === DISSECTION_LESSON.id ? <><ImpulseCard /><FindingsCard /></> : ['abd-mesenteric', 'abd-obstruction'].includes(tl!.id) ? <FindingsCard /> : <><FastCard /><ShockCard /><FindingsCard /></>}</div>;
   return (
-    <div className="chal-list">
-      <section className="card"><div className="eyebrow">Guided learning</div><h2 className="h2">The abdomen as a source of shock</h2><p className="muted">Narrated lessons that move one abdominal state through time while the anatomy, the ultrasound windows and the haemorrhage estimate respond.</p></section>
-      {ABDOMEN_LESSONS.map((l) => <button key={l.id} className="chal-item" onClick={() => director.load(l, true)}><span className={`lvl lvl-${l.level}`}>{l.level}</span><span className="ci-t">{l.title}<small className="ci-b">{l.blurb}</small></span><span className="ci-k">{l.cues.length} steps</span></button>)}
+    <div className="chal-list"><DiseaseBrowser domain="abdomen" />
+      <header className="learn-intro"><h2>The abdomen as a source of shock</h2><p>Narrated lessons that move one abdominal state through time while the anatomy, the ultrasound windows and the haemorrhage estimate respond. Every lesson comes as a full course or a short TL;DR.</p></header>
+      {ABDOMEN_LESSONS.map((l) => <button key={l.id} className="chal-item" onClick={() => director.load(l, true)}><span className={`lvl lvl-${l.level}`}>{l.level}</span><span className="ci-t">{l.title}<small className="ci-b">{l.blurb}</small></span><span className="ci-k"><LessonLength tl={l} /></span></button>)}
     </div>
   );
 }

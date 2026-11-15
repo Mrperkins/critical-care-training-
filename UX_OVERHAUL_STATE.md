@@ -110,3 +110,55 @@ Still present before this branch:
 - Do not mark unreviewed audio as clinically reviewed.
 - Preserve real-media attribution and licenses.
 - Preserve accessibility, keyboard navigation and reduced-motion support.
+
+## Library layout (Option B) — branch `ux-library-layout`
+Updated: 2026-11-05
+
+Direction chosen by the owner: a streaming-library layout (shelves → modules → steps), replacing the
+global Learn / Explore / Practice modes as the front door. Engines, lessons and cases are unchanged.
+
+- `app/src/library/modules.ts`: 26 modules on 8 shelves and 4 learning paths. Every step points at an
+  existing catalog lesson / workflow, challenge id or simulator (module + mode); `tests/library.test.tsx`
+  fails if a reference goes stale.
+- Browse (`module: 'library'`) is the new default landing: featured module, Continue learning / Start here,
+  one shelf per body system with View all, learning-path posters, and tiles for Audio, FP-C, Videos and
+  Case conference.
+- Module page → Start/Continue plays steps in the real workspace with a step rail on the right (a
+  collapsible bar on phones). Next marks a step passed; finishing returns to the module page.
+- The permanent domain rail is gone; body systems live in the menu. Learn / Explore / Practice still
+  appear inside a body system when not playing a module.
+- Progress for modules = catalog completions + passed challenges + steps moved past in the player
+  (`ccp.library.v1` in browser storage, optional).
+
+Next slices: per-module thumbnail art; restyle challenge views into the Patient → Assess → Decide →
+Intervene → Debrief shell; search.
+
+### Library layout — slice 2 (2026-11-05)
+- Case shell (`library/caseRun.ts`, `library/CaseRunner.tsx`): Patient → Assess → Decide → Debrief beside the
+  live scene. Scene cases run end to end in the shell (the module's own side panel is hidden while it runs);
+  engine cases (vent-, abg-, lab-, lines-) keep their own panel and get the shell's debrief once the attempt is
+  recorded. Debrief: score, each decision with time and explanation, concepts tested with review links, attempt
+  history, Next step / Run again.
+- Search (`library/Search.tsx`, `library/searchIndex.ts`): header button and "/" shortcut across modules,
+  lessons, procedures, cases, conditions and drugs.
+- FP-C Study Plan is grouped and ordered by the ten IBSC content-outline domains (`FPC_DOMAIN_OF` in
+  `library/modules.ts`, outline in `fpc/blueprint.ts` — June 2023 handbook; IBSC now lists a 2026 handbook,
+  re-check the domain list and item counts against it). Domains with no module point to FP-C exam prep.
+- Card art: real stills from the app's own scenes in `app/public/thumbs/` (copied to the site by build-app and
+  copy-site). Recapture with `scripts/qa/capture-thumbs.mjs` + `scripts/qa/thumbs-to-jpg.py`.
+- Whole organs by default, sections on request: the heart opens whole and opaque (`cut: 'closed'`,
+  `heart.whole_heart` camera) with a visible Section control; lungs gain a coronal Section (front / middle /
+  back, `ventCut`); the brain's axial levels are a visible Section control. Scene number overlays (`.alv-hud`)
+  fold behind a "Numbers" toolbar button so the model is unobstructed.
+
+### Library layout — slice 3: Lessons / Audio (2026-11-05)
+- Browse has a Lessons / Audio switch (remembered, `mode` in `ccp.library.v1`). Audio is its own home page
+  (`library/audio/AudioHome.tsx`, code-split): featured session, Continue listening, Mental Reps, Audio cases,
+  Quick listens (≤ 20 recorded minutes), Deep dives, Listening tracks. The top-bar Audio link is gone; the
+  Library menu keeps "Audio & Mental Reps" and a link to the full audio app.
+- One player bar for the whole app (`library/audio/player.ts`, `PlayerBar.tsx`): plays the same natural-voice
+  files as the audio app from `audio/assets.json` (written by build-app, now with recorded lengths), keeps
+  playing across Lessons, Audio and the clinical workspaces, and saves position/completion to the audio app's
+  progress store. Mental Reps (narration plus a visual cue per beat) open in the audio app, which now accepts
+  `?episode=`, `?rep=` and `?page=` deep links.
+- Search covers audio sessions and Mental Reps (loaded when the search box opens).

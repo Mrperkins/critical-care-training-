@@ -16,7 +16,7 @@ export const VSD_LESSON: Timeline = {
     { id: 'vsd-2', at: 10, dur: 8, hold: true, target: 'heart.vsd', title: 'The defect', apply: () => put(V(4, 1.5)),
       say: 'Here is the cause: a small hole in the ventricular septum, just below the aortic valve.' },
     { id: 'vsd-3', at: 19, dur: 11, hold: true, target: 'heart.vsd', title: 'A big gradient makes a fast jet', apply: () => put(V(4, 1.5), 'doppler'),
-      say: 'In systole the left ventricle generates about one hundred and twenty millimetres of mercury, the right about twenty-five. Across a small hole that gradient drives a jet near five metres per second. On colour Doppler it aliases into a mosaic. Loud murmur, small shunt.' },
+      say: 'In systole the left ventricle generates about one hundred and twenty millimeters of mercury, the right about twenty-five. Across a small hole that gradient drives a jet near five meters per second. On color Doppler it aliases into a mosaic. Loud murmur, small shunt.' },
     { id: 'vsd-4', at: 31, dur: 11, hold: true, target: 'heart.four_chamber', title: 'A large defect: more flow, less noise', apply: () => put(V(12, 2.5)),
       say: 'Now a large defect. Pressures on the two sides move closer, so the jet is slower and the murmur can be softer — yet far more blood crosses. Pulmonary flow is more than twice systemic flow.' },
     { id: 'vsd-5', at: 43, dur: 10, hold: true, target: 'heart.pulmonary_outflow', title: 'The lungs are flooded', apply: () => put(V(12, 2.5)),

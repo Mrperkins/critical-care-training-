@@ -1,6 +1,6 @@
 /**
  * Intracranial pressure (Monro–Kellie) on the SAME neuro state: the extra volume inside the fixed skull
- * — haematoma (as it grows), perihaematomal / infarct oedema, CSF trapped by obstructive hydrocephalus,
+ * — hematoma (as it grows), perihematomal / infarct edema, CSF trapped by obstructive hydrocephalus,
  * cerebral blood volume from PaCO₂ — is buffered at first by displacing CSF and venous blood, then ICP
  * rises exponentially. Treatments act on the same terms (head-up, ventilation, osmotherapy, CSF drainage
  * through an EVD, evacuation). Pure and seekable; values are illustrative teaching numbers.
@@ -8,12 +8,12 @@
 import { effectiveHemorrhage, neuroSummary, DEFAULT_SYSTEMIC, type NeuroState, type Systemic } from './perfusion';
 
 export interface EvdSettings { open: boolean; /** drip-chamber height above the reference (tragus ≈ foramen of Monro), cmH₂O */ heightCm: number;
-  /** the reference moved without re-levelling: + = the tragus is now ABOVE the zero (head of bed raised), so the chamber is effectively lower */ levelErrorCm: number }
+  /** the reference moved without re-leveling: + = the tragus is now ABOVE the zero (head of bed raised), so the chamber is effectively lower */ levelErrorCm: number }
 export interface IcpInput {
   /** head-of-bed elevation, degrees */ headUp: number; /** brain water removed by osmotherapy, mL */ osmoMl: number;
   /** obstructive hydrocephalus (blood in the ventricles / aqueduct after SAH or IVH) */ hydrocephalus: boolean;
   /** minutes since CSF outflow blocked (default: the state's minutes, at least 2 h — so switching it on for a fresh bleed shows established hydrocephalus) */ hydroMin?: number;
-  evd: EvdSettings | null; /** the haematoma has been evacuated / decompressive craniectomy */ decompressed: boolean; age: 'young' | 'old';
+  evd: EvdSettings | null; /** the hematoma has been evacuated / decompressive craniectomy */ decompressed: boolean; age: 'young' | 'old';
 }
 export const ICP_DEFAULT: IcpInput = { headUp: 30, osmoMl: 0, hydrocephalus: false, evd: null, decompressed: false, age: 'young' };
 
@@ -33,7 +33,7 @@ export interface IcpVolumes { mass: number; edema: number; csf: number; cbv: num
 export function icpVolumes(st: NeuroState, sys: Systemic, inp: IcpInput, evdRemoved = 0): IcpVolumes {
   const h = effectiveHemorrhage(st, sys); const ich = h && h.kind === 'ich' && !inp.decompressed ? h.volumeMl : 0;
   const hrs = st.minutes / 60;
-  const periHaem = ich * 0.6 * (1 - Math.exp(-hrs / 24)); // perihaematomal oedema over the first day(s)
+  const periHaem = ich * 0.6 * (1 - Math.exp(-hrs / 24)); // perihematomal edema over the first day(s)
   const core = neuroSummary(st, { ...sys, icp: 10 }).coreMl; // infarct swelling from the stroke itself — not fed back from this ICP (that would be circular)
   const infarctOedema = core * 0.22 * Math.max(0, Math.min(1, (hrs - 12) / 48)); // malignant swelling after large infarcts, day 2–4
   const csf = inp.hydrocephalus ? Math.min(60, 0.3 * (inp.hydroMin ?? Math.max(st.minutes, 120))) : 0; // CSF keeps being made (~20 mL/h) with nowhere to go
@@ -45,7 +45,7 @@ export function icpVolumes(st: NeuroState, sys: Systemic, inp: IcpInput, evdRemo
 
 export type Herniation = 'none' | 'early uncal' | 'uncal' | 'central' | 'tonsillar';
 export interface IcpState {
-  icp: number; cpp: number; map: number; hr: number; resp: 'regular' | 'irregular' | 'apnoeic';
+  icp: number; cpp: number; map: number; hr: number; resp: 'regular' | 'irregular' | 'apneic';
   vol: IcpVolumes; elastance: number; /** ICP waveform P2 / P1 (> 1 = poor compliance) */ p2p1: number;
   herniation: Herniation; side: 'L' | 'R'; shiftMm: number;
   pupils: { L: { mm: number; reactive: boolean }; R: { mm: number; reactive: boolean } }; posture: 'none' | 'decorticate' | 'decerebrate' | 'flaccid'; gcsCap: number;
@@ -72,7 +72,7 @@ export function icpState(st: NeuroState, sys: Systemic = DEFAULT_SYSTEMIC, inp: 
   const vol = removed ? icpVolumes(st, sys, inp, removed) : base;
   const icp = icpOfVolume(vol.total, vol.buffer, inp.decompressed);
   const el = elastance(vol.total, vol.buffer, inp.decompressed);
-  // Cushing: brainstem ischaemia drives the pressure up and the heart rate down (a late sign)
+  // Cushing: brainstem ischemia drives the pressure up and the heart rate down (a late sign)
   const cushing = icp > 45 && sys.map - icp < 50;
   const map = cushing ? sys.map + Math.min(60, (icp - 40) * 2.5) : sys.map;
   const hr = cushing ? Math.max(38, 80 - (icp - 40) * 2) : 80;
@@ -93,7 +93,7 @@ export function icpState(st: NeuroState, sys: Systemic = DEFAULT_SYSTEMIC, inp: 
   void contra;
   const posture = herniation === 'tonsillar' ? (icp > 70 ? 'flaccid' : 'decerebrate') : herniation === 'uncal' || herniation === 'central' ? 'decorticate' : 'none';
   const gcsCap = herniation === 'tonsillar' ? 4 : herniation === 'uncal' || herniation === 'central' ? 7 : herniation === 'early uncal' ? 11 : icp > 20 ? 13 : 15;
-  const resp = herniation === 'tonsillar' ? (icp > 70 ? 'apnoeic' : 'irregular') : cushing ? 'irregular' : 'regular';
+  const resp = herniation === 'tonsillar' ? (icp > 70 ? 'apneic' : 'irregular') : cushing ? 'irregular' : 'regular';
   const p2p1 = Math.min(1.8, 0.7 + el * 0.35);
   return { icp, cpp, map, hr, resp, vol, elastance: el, p2p1, herniation, side, shiftMm, pupils, posture, gcsCap, cushing, evd: evdOut };
 }
@@ -108,8 +108,8 @@ export function icpWave(s: IcpState, n = 120): number[] {
 
 export function icpFindings(s: IcpState): string[] {
   const f: string[] = [`ICP ${Math.round(s.icp)} mmHg, CPP ${Math.round(s.cpp)} mmHg (MAP ${Math.round(s.map)} − ICP).`];
-  f.push(s.vol.total < s.vol.buffer ? 'On the flat part of the pressure–volume curve: CSF and venous blood are still being displaced.' : 'Past the knee of the curve: every extra millilitre raises the pressure more; the waveform’s second peak (P2) is taller than the first.');
-  if (s.cpp < 60) f.push('CPP below about 60: the brain is at risk of ischaemia even without a blocked artery.');
+  f.push(s.vol.total < s.vol.buffer ? 'On the flat part of the pressure–volume curve: CSF and venous blood are still being displaced.' : 'Past the knee of the curve: every extra milliliter raises the pressure more; the waveform’s second peak (P2) is taller than the first.');
+  if (s.cpp < 60) f.push('CPP below about 60: the brain is at risk of ischemia even without a blocked artery.');
   if (s.shiftMm > 2) f.push(`Midline shift about ${s.shiftMm.toFixed(0)} mm away from the ${s.side === 'L' ? 'left' : 'right'}-sided mass.`);
   if (s.herniation === 'early uncal') f.push(`Early uncal herniation: ${s.side === 'L' ? 'left' : 'right'} pupil enlarging and sluggish, drowsier.`);
   if (s.herniation === 'uncal') f.push(`Uncal herniation: ${s.side === 'L' ? 'left' : 'right'} pupil fixed and dilated (third nerve), opposite-side weakness, GCS ≤ 8.`);
@@ -126,7 +126,7 @@ export function icpFindings(s: IcpState): string[] {
 
 /**
  * Relative size of the lateral ventricles on CT (1 = normal): trapped CSF enlarges them (drained CSF shrinks them
- * back); swelling from a mass or oedema compresses them toward slits.
+ * back); swelling from a mass or edema compresses them toward slits.
  */
 export function ventricleScale(st: NeuroState, sys: Systemic = DEFAULT_SYSTEMIC, inp: IcpInput = ICP_DEFAULT): number {
   const s = icpState(st, sys, inp); const trapped = Math.max(0, s.vol.csf - (s.evd?.removedMl ?? 0));

@@ -1,3 +1,4 @@
+import { EXPLAINERS } from '../src/atlas/explainers';
 /**
  * Clinical review packet: every teaching claim a clinician should check, one row each, with empty Verdict and
  * Comment columns. Writes ../review/clinical-review-packet.csv and .json (run: npx tsx scripts/review-packet.ts).
@@ -57,6 +58,11 @@ for (const g of gloss) add({ section: '5 Label descriptions', id: `label:${g.tit
 // 6 disease atlas: include distinctions and every simulated decision, not just the lesson title.
 for (const d of DISEASES) {
   const base = { section: '6 Disease atlas', where: `${modName(d.domain)} › ${d.group} › ${d.title}`, source: d.sources.map(s => `${s.title} (${s.url})`).join('; ') };
+  for (const [i,c] of (EXPLAINERS[d.id]?.chapters ?? []).entries()) {
+    const source = [...d.sources,...(EXPLAINERS[d.id]?.sources ?? [])].map(s=>`${s.title} (${s.url})`).join('; ');
+    add({...base,source,id:`atlas:${d.id}:chapter:${i+1}`,item:c.title,content:c.say});
+    if(c.checkpoint) add({...base,source,id:`atlas:${d.id}:prediction:${i+1}`,item:c.checkpoint.prompt,content:c.checkpoint.answer});
+  }
   add({ ...base, id: `atlas:${d.id}:mechanism`, item: 'Mechanism and visual findings', content: `${d.mechanism} Visual findings: ${d.findings.map(f => f.label).join('; ')}.` });
   add({ ...base, id: `atlas:${d.id}:distinction`, item: 'Clinical distinction', content: d.distinction });
   for (const choice of d.decisions) add({ ...base, id: `atlas:${d.id}:${choice.id}`, item: `${d.question} — ${choice.label}`, content: choice.explanation });

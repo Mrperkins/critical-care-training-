@@ -67,7 +67,7 @@ export const VENT_SCENARIOS: VentScenario[] = [
     teach: ['Low Vt (6 mL/kg PBW), Pplat ≤ 30, driving pressure ≤ 15.', 'PEEP recruits collapsed units — watch the posterior lung open and shunt fall.', 'Too much PEEP overdistends the open units and can drop cardiac output.'],
   },
   {
-    id: 'asthma', name: 'Severe asthma', short: 'Bronchospasm, dynamic hyperinflation', story: '24-year-old with status asthmaticus, intubated, paralysed. Wheeze audible across the room.',
+    id: 'asthma', name: 'Severe asthma', short: 'Bronchospasm, dynamic hyperinflation', story: '24-year-old with status asthmaticus, intubated, paralyzed. Wheeze audible across the room.',
     lung: { rFixed: 5, rSpasm: 32, rExp: 1.6 }, spasm: 1, effort: PASSIVE,
     settings: { mode: 'VC', vt: 0.5, rr: 22, peep: 5, fio2: 0.5, flow: 50, pattern: 'square' },
     gas: { lowVQ: 0.18, vdAlv: 0.15, volume: 0.8 }, fixes: ['bronchodilator'],
@@ -83,7 +83,7 @@ export const VENT_SCENARIOS: VentScenario[] = [
     teach: ['Intrinsic PEEP is a threshold load the patient must overcome before the vent sees an effort.', 'Applied PEEP ≈ 80 % of intrinsic PEEP can "counterbalance" it and restore triggering.', 'Longer expiratory time beats everything.'],
   },
   {
-    id: 'edema', name: 'Pulmonary oedema', short: 'Wet, heavy lungs', story: '66-year-old with acute cardiogenic pulmonary oedema, frothy secretions, intubated.',
+    id: 'edema', name: 'Pulmonary edema', short: 'Wet, heavy lungs', story: '66-year-old with acute cardiogenic pulmonary edema, frothy secretions, intubated.',
     lung: { cFactor: 0.55, rFixed: 7, recruitable: 0.35, openP: 16, closeP: 6, overdistP: 30 }, spasm: 0, effort: PASSIVE,
     settings: { mode: 'VC', vt: 0.45, rr: 18, peep: 5, fio2: 0.8, flow: 55, pattern: 'square' },
     gas: { shunt: 0.12, lowVQ: 0.12, recruitShunt: 0.3, co: 3.8 }, fixes: [],
@@ -104,7 +104,7 @@ export const VENT_SCENARIOS: VentScenario[] = [
     settings: { mode: 'VC', vt: 0.45, rr: 16, peep: 5, fio2: 0.6, flow: 55, pattern: 'square' },
     gas: { shunt: 0.05 }, fixes: ['decompress'],
     look: ['PIP AND Pplat rise together (elastic load, not resistance).', 'Right lung small and immobile; volume goes to the left.'],
-    teach: ['Pleural pressure compresses the lung and the great veins: hypoxaemia + obstructive shock.', 'Treatment is decompression, not ventilator changes.'],
+    teach: ['Pleural pressure compresses the lung and the great veins: hypoxemia + obstructive shock.', 'Treatment is decompression, not ventilator changes.'],
   },
   {
     id: 'ett', name: 'ETT obstruction', short: 'Secretions in the tube', story: 'Day 5 of ventilation, thick secretions. Pressure alarms keep ringing.',
@@ -112,7 +112,7 @@ export const VENT_SCENARIOS: VentScenario[] = [
     settings: { mode: 'VC', vt: 0.45, rr: 16, peep: 5, fio2: 0.4, flow: 55, pattern: 'square' },
     gas: {}, fixes: ['suction'],
     look: ['PIP up, Pplat normal: the gap is resistance.', 'In PC mode the same problem shows as a falling Vt instead of a rising PIP.'],
-    teach: ['High PIP + normal Pplat → airway/tube: kink, bite, secretions, bronchospasm.', 'High PIP + high Pplat → lung/chest: pneumothorax, mainstem intubation, oedema, abdomen.'],
+    teach: ['High PIP + normal Pplat → airway/tube: kink, bite, secretions, bronchospasm.', 'High PIP + high Pplat → lung/chest: pneumothorax, mainstem intubation, edema, abdomen.'],
   },
   {
     id: 'plug', name: 'Mucus plug (R main bronchus)', short: 'One lung does all the work', story: 'Sudden desaturation after turning. Breath sounds absent on the right.',
@@ -134,7 +134,7 @@ export const VENT_SCENARIOS: VentScenario[] = [
 export const VENT_SCENARIO = Object.fromEntries(VENT_SCENARIOS.map((s) => [s.id, s])) as Record<string, VentScenario>;
 /**
  * The same healthy lungs behind a smaller endotracheal tube (internal diameter, mm; reference 8.0). Laminar term
- * ∝ 1/r⁴, turbulent term ∝ 1/r⁵. Not listed in the picker — used by the paediatric airway lesson.
+ * ∝ 1/r⁴, turbulent term ∝ 1/r⁵. Not listed in the picker — used by the pediatric airway lesson.
  */
 export const ettScenarioId = (idMm: number) => `normal-ett${Math.round(idMm * 10)}`;
 for (const idMm of [7, 6]) VENT_SCENARIO[ettScenarioId(idMm)] = { ...VENT_SCENARIO.normal, id: ettScenarioId(idMm), name: `Normal lungs, ${idMm}.0 mm tube`, short: `${idMm}.0 mm tube`, lung: { Rett: 4 * (8 / idMm) ** 4, RettQ: 1.5 * (8 / idMm) ** 5 } };

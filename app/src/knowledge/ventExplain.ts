@@ -34,7 +34,7 @@ export function explainVent(n: VentNumbers, s: VentSettings, r: Recent, patientA
     if (r.delayedCycle > 1) F.push({ key: 'dc', level: 'warn', title: 'Delayed cycling', text: 'The vent keeps inflating after the patient has finished — they push against it. Raise the cycle-off % or lower PS.' });
   }
   // gas exchange
-  if (n.spo2 < 0.88) F.push({ key: 'o2', level: 'bad', title: `SpO₂ ${Math.round(n.spo2 * 100)} %`, text: n.openFrac < 0.85 ? 'Hypoxaemia from shunt through collapsed lung: FiO₂ alone helps little — recruit with PEEP.' : 'Raise FiO₂; look for the cause (V/Q mismatch, shunt, low cardiac output).' });
+  if (n.spo2 < 0.88) F.push({ key: 'o2', level: 'bad', title: `SpO₂ ${Math.round(n.spo2 * 100)} %`, text: n.openFrac < 0.85 ? 'Hypoxemia from shunt through collapsed lung: FiO₂ alone helps little — recruit with PEEP.' : 'Raise FiO₂; look for the cause (V/Q mismatch, shunt, low cardiac output).' });
   else if (n.fio2 >= 0.6 && n.spo2 > 0.97) F.push({ key: 'o2hi', level: 'info', title: 'Room to wean oxygen', text: `SpO₂ ${Math.round(n.spo2 * 100)} % on FiO₂ ${n.fio2.toFixed(2)} — hyperoxia has no benefit. Wean toward SpO₂ 92–96 %.` });
   if (n.pH < 7.25 && n.paco2 > 50) F.push({ key: 'co2', level: 'warn', title: `Respiratory acidosis (pH ${n.pH.toFixed(2)})`, text: `PaCO₂ ${n.paco2.toFixed(0)}. Alveolar ventilation = (Vt − dead space) × RR. Increase RR — unless air trapping says the lung needs more time to empty.` });
   if (n.map < 60) F.push({ key: 'map', level: 'bad', title: `MAP ${n.map.toFixed(0)}`, text: 'Positive intrathoracic pressure (PEEP, auto-PEEP, tension) impedes venous return. Check for trapping or tension before giving more PEEP.' });

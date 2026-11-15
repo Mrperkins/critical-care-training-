@@ -1,9 +1,9 @@
 /**
  * Congenital lesions drawn into the real heart: landmarks, defects and deformations on the HuBMAP / Visible Human
- * Male heart (models/lines.glb, CC BY 4.0). Body frame, decimetres: +X patient left, +Y up, +Z anterior.
+ * Male heart (models/lines.glb, CC BY 4.0). Body frame, decimeters: +X patient left, +Y up, +Z anterior.
  *
  * Every landmark was measured from the meshes themselves (chamber and valve centroids, the septal slab's principal
- * axes, the closest approach of the right- and left-atrial walls at the fossa ovalis, the aortic centreline at the
+ * axes, the closest approach of the right- and left-atrial walls at the fossa ovalis, the aortic centerline at the
  * isthmus). The model is an adult heart at true scale, so a 10 mm defect is drawn 0.10 dm across; for a newborn the
  * holes are drawn relative to a heart about 2.5× smaller.
  *
@@ -13,7 +13,7 @@ import * as THREE from 'three';
 import type { ShuntInput, ShuntState } from './shunt';
 
 const v = (x: number, y: number, z: number) => new THREE.Vector3(x, y, z);
-/** heart bounding-box centre and the display scale (scene units per decimetre) */
+/** heart bounding-box center and the display scale (scene units per decimeter) */
 export const CENTRE = v(0.187, 4.761, 0.376);
 export const SCALE = 2.6;
 export const toScene = (p: THREE.Vector3) => p.clone().sub(CENTRE).multiplyScalar(SCALE);
@@ -35,7 +35,7 @@ export const LM = {
   fossa: v(-0.05, 4.82, 0.128).addScaledVector(ATRIAL_N, 0.038),
   /** ductus arteriosus: aortic isthmus (underside, beyond the left subclavian) → proximal left pulmonary artery */
   pdaAorta: v(0.19, 5.43, -0.128), pdaPa: v(0.31, 5.345, -0.044),
-  /** aortic isthmus centreline point and the local axis of the aorta there (coarctation site) */
+  /** aortic isthmus centerline point and the local axis of the aorta there (coarctation site) */
   isthmus: v(0.158, 5.48, -0.115), isthmusAxis: v(0, -0.56, -0.83).normalize(),
   /** right-ventricular outflow (infundibulum) just below the pulmonary valve and its axis toward the valve */
   rvot: v(0.22, 4.95, 0.5), rvotAxis: v(-0.26, 0.87, -0.44).normalize(),
@@ -46,7 +46,7 @@ export const LM = {
  *  tube lines the tunnel. `u`/`squash` stretch the cross-section along u into a slit (PFO). */
 export interface Hole { id: 'vsd' | 'asd' | 'pfo'; c: THREE.Vector3; ax: THREE.Vector3; r: number; half: number; u?: THREE.Vector3; squash?: number; meshes: string[] }
 
-/** mm → drawing radius in decimetres; newborn defects drawn relative to a heart ~2.5× smaller */
+/** mm → drawing radius in decimeters; newborn defects drawn relative to a heart ~2.5× smaller */
 export const holeRadius = (mm: number, neo: boolean) => Math.max(0.008, (mm / 200) * (neo ? 2.5 : 1));
 
 export function holesFor(inp: ShuntInput, s?: ShuntState): Hole[] {
@@ -76,7 +76,7 @@ export function inHole(p: THREE.Vector3, h: Hole) {
 type P3 = Float32Array;
 const smooth = (x: number) => (x <= 0 ? 0 : x >= 1 ? 1 : x * x * (3 - 2 * x));
 
-/** narrow a tube toward its local axis: radius × (1 − amount) at the centre, easing out over ±len */
+/** narrow a tube toward its local axis: radius × (1 − amount) at the center, easing out over ±len */
 export function pinch(pos: P3, c: THREE.Vector3, axis: THREE.Vector3, len: number, maxR: number, amount: number) {
   if (amount <= 0) return pos; const out = pos.slice(); const d = new THREE.Vector3();
   for (let i = 0; i < out.length; i += 3) {
@@ -107,7 +107,7 @@ export const OVERRIDE = SEPTUM_N.clone().multiplyScalar(0.05).add(v(0, 0.008, 0)
 export const overrideWeight = (x: number, y: number, z: number) => (z > 0.1 && y < 5.4 && y > 4.8 ? 1 - smooth((y - 5.0) / 0.35) : 0);
 
 export interface LesionShape { coarct: number; rvot: number; override: number; rvWall: number }
-/** how much of each deformation the current physiology asks for (0–1, RV wall in decimetres) */
+/** how much of each deformation the current physiology asks for (0–1, RV wall in decimeters) */
 export function lesionShape(inp: ShuntInput, s: ShuntState): LesionShape {
   const tof = inp.lesion === 'tof';
   return {
@@ -122,9 +122,16 @@ export function lesionShape(inp: ShuntInput, s: ShuntState): LesionShape {
 export interface Way { p: THREE.Vector3; r: number }
 const w = (x: number, y: number, z: number, r: number): Way => ({ p: v(x, y, z), r });
 const AV = (d: THREE.Vector3) => w(LM.aorticValve.x + d.x, LM.aorticValve.y + d.y, LM.aorticValve.z + d.z, 0.05);
+/** Measured vessel centerlines (body frame; r = lumen radius) for drawing pathology inside the real vessels:
+ *  ascending aorta + arch, descending thoracic aorta, pulmonary trunk (from the valve), right and left pulmonary arteries. */
+export function vesselCentrelines() {
+  const f = flowPaths({ coarct: 0, rvot: 0, override: 0, rvWall: 0 });
+  const ao = f.pvR.slice(-19); const pa = f.svc.slice(-13, -5); const rpa = f.svc.slice(-5); const lpa = f.ivc.slice(-7);
+  return { asc: ao.slice(0, 10), desc: ao.slice(10), trunk: pa.slice(3), rpa, lpa };
+}
 export function flowPaths(shape: LesionShape) {
   const o = OVERRIDE.clone().multiplyScalar(shape.override);
-  // centrelines traced through the vessel meshes (slice centroids); r ≈ lumen radius
+  // centerlines traced through the vessel meshes (slice centroids); r ≈ lumen radius
   const ASC = [AV(o), w(-0.004 + o.x * 0.8, 5.061, 0.274 + o.z * 0.8, 0.065), w(-0.026 + o.x * 0.5, 5.141, 0.286 + o.z * 0.5, 0.07), w(-0.052, 5.22, 0.284, 0.07), w(-0.047, 5.342, 0.273, 0.07), w(-0.017, 5.456, 0.247, 0.065),
     w(0.052, 5.534, 0.181, 0.065), w(0.084, 5.579, 0.147, 0.065), w(0.127, 5.567, 0.074, 0.06), w(0.151, 5.557, 0.011, 0.06)];
   const nar = 1 - shape.coarct;

@@ -121,7 +121,7 @@ Mental Rep engine:
 - `scripts/audio-voice-lines.ts`: canonical narration inventory + transcript hashes.
 - `public/audio/voice/pronunciations.json`: provider-neutral medical pronunciation glossary.
 - `scripts/audio_voice_validate.py`: checks transcript hash, file hash, duration and review state for durable assets.
-- `scripts/audio_voice_import.py` + `audio-voice-import.yml`: imports explicitly approved public voice files, validates them, then commits durable assets to `audio-mastery`.
+- The old prototype importer (`audio_voice_import.py` + `audio-voice-import.yml`) is retired: every clip now comes from `narration.yml` (Kokoro).
 - `scripts/audio-review-packet.ts`: generates clinical, pronunciation and listening-QA review rows.
 - Production publish gate requires reviewed durable audio before an episode may be `published`.
 - `npm run site` generates the premium-voice inventory and packages the standalone audio app.

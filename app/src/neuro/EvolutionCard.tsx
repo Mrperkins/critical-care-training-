@@ -72,7 +72,7 @@ export function EvolutionCard() {
           <div className="num"><span className="nl">On CT</span><span className="nv">{st.minutes < 180 ? 'mixed' : ev.clotDensity > 0.9 ? 'bright' : ev.clotDensity > 0.62 ? 'fading' : 'near iso'}</span><span className="nu">{ev.active > 0.3 ? 'still bleeding' : 'clot'}</span></div>
         </>}
       </div>
-      {(ev.ht > 0.15 || ev.ivh > 0.35 || ev.hydro > 0.2) && <div className="evo-flags">{ev.ht > 0.15 && <span className="pill bad">Haemorrhagic transformation</span>}{ev.ivh > 0.35 && <span className="pill bad">Blood in the ventricles</span>}{ev.hydro > 0.2 && <span className="pill bad">Hydrocephalus</span>}</div>}
+      {(ev.ht > 0.15 || ev.ivh > 0.35 || ev.hydro > 0.2) && <div className="evo-flags">{ev.ht > 0.15 && <span className="pill bad">Hemorrhagic transformation</span>}{ev.ivh > 0.35 && <span className="pill bad">Blood in the ventricles</span>}{ev.hydro > 0.2 && <span className="pill bad">Hydrocephalus</span>}</div>}
       <StageCT ct={ct} shown={shown} course={c} />
       {preset && <p className="muted small evo-note">The 3D cut shows the model of the tissue; the image above is a real patient at this stage.</p>}
     </section>
@@ -89,7 +89,7 @@ function StageCT({ ct, shown, course }: { ct: { now: RealItem[]; all: RealItem[]
         <img src={`imaging/real/${shown.file}`} alt={shown.caption} loading="lazy" />
         <span className="evo-ct-cap"><b>{shown.title}</b> {shown.caption}<small>{shown.credit} · tap to study</small></span>
       </button> : <p className="muted small">No openly licensed real image for exactly this moment — pick one from the timeline below.</p>}
-      <div className="evo-strip" role="list" aria-label={`Real ${course === 'ischemic' ? 'ischaemic' : 'haemorrhagic'} stroke images across time`}>
+      <div className="evo-strip" role="list" aria-label={`Real ${course === 'ischemic' ? 'ischemic' : 'hemorrhagic'} stroke images across time`}>
         {ct.all.map((i) => <button key={i.id} role="listitem" type="button" className={`evo-th${shown?.id === i.id ? ' on' : ''}`} title={`${i.title} · ${i.stage!.label}`}
           onClick={() => { useNeuroUI.getState().set({ playing: false }); setNeuroMinutes(Math.max(i.stage!.fromMin, Math.min(i.stage!.toMin, Math.sqrt((i.stage!.fromMin + 1) * (i.stage!.toMin + 1))))); }}>
           <img src={`imaging/real/${i.file}`} alt="" loading="lazy" /><span>{i.stage!.label}</span></button>)}

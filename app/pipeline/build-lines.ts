@@ -7,7 +7,8 @@
 import * as THREE from 'three';
 import fs from 'node:fs';
 import path from 'node:path';
-import { ROOT, log, readGLB, simplify, writeGLB, mergeGeos, MeshoptSimplifier, type OutPart, V3 } from './common';
+import { ROOT, log, readGLB, simplify, writeGLB, mergeGeos, subdivide, MeshoptSimplifier, type OutPart, V3 } from './common';
+import { taubin } from './voxel';
 await MeshoptSimplifier.ready;
 
 const body = await readGLB('assets/source/VH_M_United.glb');
@@ -25,7 +26,10 @@ const add = (id: string, role: string, re: RegExp, ratio: number) => {
 add('ra', 'atrium', /VH_M_right_cardiac_atrium$/, 0.5);
 add('la', 'atrium', /VH_M_left_cardiac_atrium$/, 0.45);
 add('rv', 'ventricle', /VH_M_heart_right_ventricle$/, 0.5);
-add('lv', 'ventricle', /VH_M_heart_left_ventricle$/, 0.5);
+// the source LV is the coarsest chamber (9.3k triangles vs 24–48k for the atria), so it is kept whole, subdivided once
+// and Taubin-smoothed (non-shrinking) instead of being halved like the others
+add('lv', 'ventricle', /VH_M_heart_left_ventricle$/, 1);
+{ const lvp = parts[parts.length - 1]; const g = subdivide(lvp.geo); taubin(g, 4); g.computeVertexNormals(); lvp.geo = g; log('lv (subdivided)', g.attributes.position.count); }
 add('septum', 'ventricle', /VH_M_interventricular_septum$/, 0.5);
 add('tricuspid', 'valve', /VH_M_tricuspid_valve$/, 0.6);
 add('mitral', 'valve', /VH_M_mitral_valve$/, 0.6);

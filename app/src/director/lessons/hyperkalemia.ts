@@ -20,7 +20,7 @@ const mark = (key: string, drug?: DrugId) => { if (drug) bench.give(drug); bench
 const after = (key: string, minutes: number) => (u: number) => { const s = snaps[key]; if (!s) return; bench.pt = structuredClone(s); if (u > 0) bench.fastForward(minutes * u); bench.running = false; refresh(); };
 
 export const HYPERKALEMIA: Timeline = {
-  id: 'hyperk-signature', title: 'Hyperkalaemia: the membrane, the ECG, the rescue', level: 'core', module: 'labs',
+  id: 'hyperk-signature', title: 'Hyperkalemia: the membrane, the ECG, the rescue', level: 'core', module: 'labs',
   blurb: 'One patient from normal potassium to a sine wave and back: why calcium works without lowering K⁺, why shifting is temporary, and why removal is the cure.',
   setup: () => { bench.reset(); bench.pt.p.renal = 0.1; bench.set('k', 4.2); bench.running = false; focus('membrane.overview'); refresh(); },
   cues: [
@@ -32,14 +32,14 @@ export const HYPERKALEMIA: Timeline = {
       say: 'With the kidneys failing, plasma potassium rises. The outward leak weakens, the resting potential creeps toward threshold, and the ECG changes in order: tall peaked T waves, then a longer PR and flattened P waves, then a widening QRS.' },
     { id: 'hks-4', at: 35, dur: 6, hold: true, title: 'A sine wave is a pre-arrest rhythm', tween: (u) => { bench.set('k', 8.4 + 0.8 * u); bench.running = false; refresh(); },
       say: 'Above about nine, the widened QRS runs into the T wave. This sine-wave pattern comes just before ventricular fibrillation or asystole.' },
-    { id: 'hks-5', at: 42, dur: 9, hold: true, title: 'Stabilise: calcium', apply: () => { focus('membrane.nav'); mark('ca', 'calcium'); }, tween: after('ca', 3),
+    { id: 'hks-5', at: 42, dur: 9, hold: true, title: 'Stabilize: calcium', apply: () => { focus('membrane.nav'); mark('ca', 'calcium'); }, tween: after('ca', 3),
       say: 'Calcium goes in first. Potassium stays exactly where it was. Calcium raises the threshold potential, re-opening the gap between rest and threshold, and the QRS narrows within minutes. It buys roughly thirty to sixty minutes.' },
     { id: 'hks-6', at: 52, dur: 10, hold: true, title: 'Shift: insulin and dextrose', apply: () => { focus('membrane.nak_atpase'); mark('ins', 'insulin'); }, tween: after('ins', 45),
-      say: 'Insulin with dextrose drives the sodium potassium pump harder, moving potassium back into cells. Plasma potassium falls by about one. Nebulised salbutamol works the same way. None of it has left the body.' },
+      say: 'Insulin with dextrose drives the sodium potassium pump harder, moving potassium back into cells. Plasma potassium falls by about one. Nebulized salbutamol works the same way. None of it has left the body.' },
     { id: 'hks-7', at: 63, dur: 9, hold: true, title: 'The rebound', apply: () => mark('rb'), tween: after('rb', 300),
       say: 'Hours later the insulin has worn off and potassium leaks back out of the cells. Shifting is temporary.' },
     { id: 'hks-8', at: 73, dur: 10, hold: true, title: 'Remove: dialysis', apply: () => { focus('membrane.overview'); mark('hd', 'dialysis'); }, tween: after('hd', 240),
-      say: 'Removal is the cure: dialysis, gut binders, or diuretics if the kidneys still work. Stabilise, shift, remove. Then repeat the ECG and the potassium.' },
+      say: 'Removal is the cure: dialysis, gut binders, or diuretics if the kidneys still work. Stabilize, shift, remove. Then repeat the ECG and the potassium.' },
   ],
 };
 export const LAB_TIMELINES: Timeline[] = [HYPERKALEMIA];

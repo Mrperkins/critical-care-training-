@@ -1018,7 +1018,7 @@ export const VIDEO_LIBRARY: ClinicalVideo[] = [
   {
     id: 'evd-quick-overview',
     title: 'External Ventricular Drain (EVD), ICP monitoring and CSF drainage',
-    channel: 'Two Minute Anaesthesia & Critical Care',
+    channel: 'Two Minute Anesthesia & Critical Care',
     youtubeId: 'xUbMVNoeEcM',
     format: 'long',
     category: 'neuro',

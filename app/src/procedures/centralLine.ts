@@ -9,7 +9,7 @@
  * probe marker points to the patient's right), y along the vessels (+ = cephalad), z depth from skin.
  */
 
-/** normalised ellipse distance: < 1 inside (x lateral, z depth) */
+/** normalized ellipse distance: < 1 inside (x lateral, z depth) */
 const ell = (x: number, z: number, cx: number, cz: number, rx: number, rz: number) => ((x - cx) / rx) ** 2 + ((z - cz) / rz) ** 2;
 
 export type Axis = 'short' | 'long';
@@ -17,7 +17,7 @@ export interface ClInput {
   axis: Axis; /** in-plane (whole shaft visible along the beam) vs out-of-plane (needle crosses the beam) */ plane: 'in' | 'out';
   /** probe slid to keep the tip in view (out-of-plane "walk-down") */ track: boolean;
   /** probe pressure 0–1 */ compress: number; /** head-down tilt / Valsalva distend the vein */ trendelenburg: boolean;
-  /** vein filling 0.4 (hypovolaemic) … 1.3 (overloaded) */ volume: number;
+  /** vein filling 0.4 (hypovolemic) … 1.3 (overloaded) */ volume: number;
   /** anatomy variant: IJ lateral to the carotid (usual) or overlying it */ variant: 'lateral' | 'overlying';
   /** needle: aim across the neck (x at the skin), angle to the skin (deg), distance of the skin entry from the probe (cm), length advanced (cm) */
   aimX: number; angle: number; entry: number; advance: number;
@@ -76,7 +76,7 @@ export function clState(c: ClInput): ClState {
   return { anat: anatomy(c), ndl, tipIn, tenting, seesTip, shownZ, trueZ: t.z, flash, throughAndThrough, compressible: { ij: true, carotid: false } };
 }
 
-/** What confirms the vessel: colour is unreliable, pulsatility and a TRANSDUCED pressure are not. Uses the Lines patient's true pressures and saturations. */
+/** What confirms the vessel: color is unreliable, pulsatility and a TRANSDUCED pressure are not. Uses the Lines patient's true pressures and saturations. */
 export function vesselCheck(flash: ClState['flash'], pt: { map: number; cvp: number; sao2: number; svo2: number }) {
   if (flash === 'none') return null;
   const art = flash === 'arterial';

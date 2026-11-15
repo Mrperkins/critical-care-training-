@@ -188,7 +188,7 @@ function solveCoarct(inp: ShuntInput): ShuntState {
   const direction: Direction = rl > 0.03 * Qs ? 'R→L' : lr > 0.03 * Qs ? 'L→R' : 'none';
   const flags = { ...NOFLAGS, lvPressure: Pu > (neo ? 55 : 110), cyanosis: post < 0.92, lowerHypoperfusion: lowerFrac < 0.7, rvPressure: neo && paSys > 45 };
   const murmur = lowerFrac < 0.7 && neo
-    ? 'Weak or absent femoral pulses, grey and mottled below the waist; murmur may be faint — the duct is closing on a critical narrowing.'
+    ? 'Weak or absent femoral pulses, gray and mottled below the waist; murmur may be faint — the duct is closing on a critical narrowing.'
     : rl > 0.03 * Qs ? 'Differential cyanosis: right hand pinker than the feet (the duct is feeding the lower body); femoral pulses relatively preserved while the duct stays open.'
     : 'Systolic murmur between the shoulder blades; arm blood pressure higher than leg, radio-femoral delay; continuous murmurs over collaterals in older children.';
   return { input: inp, qp: Qs - qd, qs: Qs, qpqs: (Qs - qd) / Qs, lr, rl, net: lr - rl, direction, velocity: Math.sqrt(gradient / 4), gradient,

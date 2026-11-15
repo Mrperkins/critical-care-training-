@@ -37,6 +37,19 @@ export async function readGLB(file: string, filter?: RegExp): Promise<Map<string
   return out;
 }
 
+/** Read a meshopt-compressed / quantised GLB written by writeGLB (positions already in the body frame). */
+export async function readGLBDecoded(file: string): Promise<Map<string, THREE.BufferGeometry>> {
+  const { MeshoptDecoder } = await import('meshoptimizer'); await MeshoptDecoder.ready;
+  const io = new NodeIO().registerExtensions(ALL_EXTENSIONS).registerDependencies({ 'meshopt.decoder': MeshoptDecoder });
+  const doc = await io.read(path.join(ROOT, file)); const out = new Map<string, THREE.BufferGeometry>();
+  for (const node of doc.getRoot().listNodes()) {
+    const mesh = node.getMesh(); if (!mesh) continue; const m = new THREE.Matrix4().fromArray(node.getWorldMatrix()); const pr = mesh.listPrimitives()[0];
+    const a = pr.getAttribute('POSITION')!; const pos = new Float32Array(a.getCount() * 3); const t: number[] = []; for (let i = 0; i < a.getCount(); i++) { a.getElement(i, t); pos.set(t, i * 3); }
+    const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(pos, 3)); g.setIndex(Array.from(pr.getIndices()!.getArray()!)); g.applyMatrix4(m); g.computeVertexNormals(); out.set(node.getName(), g);
+  }
+  return out;
+}
+
 export function mergeGeos(gs: THREE.BufferGeometry[]) {
   const pos: number[] = []; const idx: number[] = []; let off = 0;
   for (const g of gs) { const a = g.attributes.position; for (let i = 0; i < a.count; i++) pos.push(a.getX(i), a.getY(i), a.getZ(i)); const ix = g.index ? g.index.array : [...Array(a.count).keys()]; for (let i = 0; i < ix.length; i++) idx.push(ix[i] + off); off += a.count; }
@@ -51,6 +64,14 @@ export function simplify(g: THREE.BufferGeometry, ratio: number, err = 0.01) {
   const remap = new Map<number, number>(); const np: number[] = []; const ni: number[] = [];
   for (const i of out) { let j = remap.get(i); if (j === undefined) { j = remap.size; remap.set(i, j); np.push(pos[i * 3], pos[i * 3 + 1], pos[i * 3 + 2]); } ni.push(j); }
   const r = new THREE.BufferGeometry(); r.setAttribute('position', new THREE.Float32BufferAttribute(np, 3)); r.setIndex(ni); r.computeVertexNormals(); return r;
+}
+
+/** Midpoint subdivision (each triangle → 4) without moving original vertices; follow with Taubin smoothing. */
+export function subdivide(g: THREE.BufferGeometry) {
+  const p = g.attributes.position; const ix = g.index!.array; const pos: number[] = Array.from(p.array as Float32Array); const mid = new Map<string, number>(); const out: number[] = [];
+  const m = (a: number, b: number) => { const k = a < b ? a + '_' + b : b + '_' + a; let v = mid.get(k); if (v === undefined) { v = pos.length / 3; pos.push((pos[a * 3] + pos[b * 3]) / 2, (pos[a * 3 + 1] + pos[b * 3 + 1]) / 2, (pos[a * 3 + 2] + pos[b * 3 + 2]) / 2); mid.set(k, v); } return v; };
+  for (let t = 0; t < ix.length; t += 3) { const a = ix[t], b = ix[t + 1], c = ix[t + 2]; const ab = m(a, b), bc = m(b, c), ca = m(c, a); out.push(a, ab, ca, ab, b, bc, ca, bc, c, ab, bc, ca); }
+  const r = new THREE.BufferGeometry(); r.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); r.setIndex(out); r.computeVertexNormals(); return r;
 }
 
 export const centroid = (g: THREE.BufferGeometry) => { const a = g.attributes.position; const c = new V3(); for (let i = 0; i < a.count; i++) c.add(new V3().fromBufferAttribute(a, i)); return c.divideScalar(a.count); };

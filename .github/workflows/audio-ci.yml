@@ -27,11 +27,17 @@ jobs:
           node-version: 20
           cache: npm
           cache-dependency-path: app/package-lock.json
+      - uses: actions/cache@v4
+        with:
+          path: app/public/imaging/curated
+          key: verified-clinical-mri-${{ hashFiles('app/clinical-archive.json') }}
       - run: npm ci
       - run: npm test
       - run: npm run typecheck
       - run: npm run audio:audit
-      - run: npm run site
+      # The audio workflow validates the standalone audio build; the clinical release
+      # workflow handles source-verified MRI media and complete site packaging.
+      - run: npm run build
       - name: Assert standalone audio build
         run: |
           test -s dist/pub/audio/index.html

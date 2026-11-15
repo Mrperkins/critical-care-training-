@@ -13,7 +13,7 @@ describe('blood chemistry', () => {
     expect(satStd(60)).toBeGreaterThan(0.88); expect(satStd(60)).toBeLessThan(0.92);
     expect(satStd(100)).toBeGreaterThan(0.97);
   });
-  it('Bohr shift: acidaemia raises P50 and lowers saturation at the same PO2', () => {
+  it('Bohr shift: acidemia raises P50 and lowers saturation at the same PO2', () => {
     expect(p50(7.2)).toBeGreaterThan(p50(7.4)); expect(sat(50, p50(7.2))).toBeLessThan(sat(50, p50(7.4)));
   });
   it('CaO2 = 1.34·Hb·SaO2 + 0.003·PaO2', () => { expect(o2Content(15, 1, 100)).toBeCloseTo(20.4, 1); expect(o2Content(7.5, 1, 100)).toBeCloseTo(10.35, 1); });
@@ -85,7 +85,7 @@ describe('synthetic patient', () => {
     const vqGain = d({ lowVQ: 0.4, fio2: 0.6 }) - d({ lowVQ: 0.4 }); const shGain = d({ shunt: 0.4, fio2: 0.6 }) - d({ shunt: 0.4 });
     expect(vqGain).toBeGreaterThan(shGain * 2);
   });
-  it('anaemia: SpO2 normal while CaO2 falls', () => {
+  it('anemia: SpO2 normal while CaO2 falls', () => {
     const a = settle(createPatient({ hb: 6 }), 60), n = settle(createPatient(), 60);
     expect(a.spo2).toBeGreaterThan(0.93); expect(a.cao2).toBeLessThan(n.cao2 * 0.5);
   });
@@ -108,7 +108,7 @@ describe('synthetic patient', () => {
   it('shock → O2 debt → lactate rises', () => {
     const st = createPatient({ co: 1.8, hb: 8 }); const s = advance(st, 90); expect(s.lactate).toBeGreaterThan(3);
   });
-  it('hyperkalaemia: calcium restores the membrane gap without lowering K; insulin lowers K; dialysis removes it', () => {
+  it('hyperkalemia: calcium restores the membrane gap without lowering K; insulin lowers K; dialysis removes it', () => {
     const st = createPatient({ renal: 0.1, acidIsMineral: 0.8 }, { k: 7.4 }); const s0 = derive(st);
     give(st, 'calcium'); const s1 = advance(st, 5);
     expect(s1.gap).toBeGreaterThan(s0.gap + 4); expect(Math.abs(s1.k - s0.k)).toBeLessThan(0.2); expect(s1.kEffective).toBeLessThan(s0.kEffective - 1);
@@ -116,13 +116,13 @@ describe('synthetic patient', () => {
     const s3 = advance(st, 360); expect(s3.k).toBeGreaterThan(s2.k + 0.3); // shift wears off → rebound
     give(st, 'dialysis'); const s4 = advance(st, 240); expect(s4.k).toBeLessThan(4.5);
   });
-  it('resting membrane potential depolarises as K rises', () => { expect(restingPotential(7)).toBeGreaterThan(restingPotential(4) + 8); });
+  it('resting membrane potential depolarizes as K rises', () => { expect(restingPotential(7)).toBeGreaterThan(restingPotential(4) + 8); });
   it('CKD-EPI 2021 and PBW', () => { expect(egfr(1.0, 50, 'M')).toBeGreaterThan(85); expect(egfr(3, 60, 'F')).toBeLessThan(20); expect(pbw('M', 175)).toBeCloseTo(70.6, 0); });
-  it('apnoea raises PaCO2 ~3 mmHg/min', () => {
+  it('apnea raises PaCO2 ~3 mmHg/min', () => {
     const st = createPatient(); advance(st, 0.1, { vte: 0, rr: 0, fio2: 1, peep: 0, pmean: 0, pplat: 0, autoPeep: 0 }); const a = st.paco2; advance(st, 5);
     expect((st.paco2 - a) / 5).toBeGreaterThan(2); expect((st.paco2 - a) / 5).toBeLessThan(5);
   });
-  it('hyponatraemia swells cells; fast correction of chronic hyponatraemia flags ODS risk', () => {
+  it('hyponatremia swells cells; fast correction of chronic hyponatremia flags ODS risk', () => {
     const st = createPatient({ na: 118 }, { naBrain: 118 }); let s = derive(st); expect(s.cellVolume).toBeCloseTo(1, 1);
     st.p.na = 132; s = advance(st, 60); expect(s.odsRisk).toBeGreaterThan(0.3);
     const ac = createPatient({ na: 120 }, { naBrain: 140 }); expect(derive(ac).cellVolume).toBeGreaterThan(1.1);

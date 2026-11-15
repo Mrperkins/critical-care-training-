@@ -10,7 +10,7 @@ export const ETOMIDATE: MechanismDefinition = {
   nodes: [
     { id: 'eto', kind: 'drug', label: 'Etomidate', sub: '0.3 mg/kg IV', explain: 'Etomidate makes GABA-A receptors open more readily in response to GABA.' },
     { id: 'gaba', kind: 'receptor', label: 'GABA-A receptor', sub: 'β2/β3 subunits' },
-    { id: 'cl', kind: 'channel', label: 'Cl⁻ influx ↑ → hyperpolarisation', explain: 'Chloride flows in and neurons are held further from threshold: rapid loss of consciousness.' },
+    { id: 'cl', kind: 'channel', label: 'Cl⁻ influx ↑ → hyperpolarization', explain: 'Chloride flows in and neurons are held further from threshold: rapid loss of consciousness.' },
     { id: 'hyp', kind: 'organ', label: 'Hypnosis within a circulation time' },
     { id: 'noan', kind: 'cell', label: 'No analgesia', explain: 'It provides no analgesia — laryngoscopy still hurts and still drives the sympathetic response.' },
     { id: 'hemo', kind: 'vital', label: 'SVR and contractility — little change', explain: 'It has little effect on vascular tone or contractility, which is why it is used when pressure is borderline.' },
@@ -23,7 +23,7 @@ export const ETOMIDATE: MechanismDefinition = {
     { from: 'eto', to: 'hemo', sign: 1, effect: 'none' }, { from: 'eto', to: 'cyp', sign: -1 }, { from: 'cyp', to: 'cort', sign: 1 }, { from: 'gaba', to: 'myo', sign: 1 },
   ],
   patient: hemoAdapter({ scenario: 'sepsis', svr: -0.03, co: -0.02, dose: (u) => (u <= 0 ? 'before induction' : '0.3 mg/kg') }),
-  summary: 'Hypnosis with haemodynamic stability, no analgesia, and transient adrenal suppression. The laryngoscopy and positive-pressure ventilation that follow still move the pressure.',
+  summary: 'Hypnosis with hemodynamic stability, no analgesia, and transient adrenal suppression. The laryngoscopy and positive-pressure ventilation that follow still move the pressure.',
 };
 
 export const PROPOFOL: MechanismDefinition = {
@@ -38,9 +38,9 @@ export const PROPOFOL: MechanismDefinition = {
     { id: 'symp', kind: 'organ', label: 'Sympathetic outflow ↓', explain: 'It lowers sympathetic tone centrally…' },
     { id: 'vd', kind: 'organ', label: 'Arterial + venous dilation', explain: '…and relaxes vascular smooth muscle directly, arterial and venous.' },
     { id: 'myo', kind: 'cell', label: 'Contractility ↓ (mild)' },
-    { id: 'resp', kind: 'organ', label: 'Respiratory drive ↓', sub: 'apnoea at induction doses' },
+    { id: 'resp', kind: 'organ', label: 'Respiratory drive ↓', sub: 'apnea at induction doses' },
     { id: 'svr', kind: 'vital', label: 'SVR ↓' }, { id: 'co', kind: 'vital', label: 'Cardiac output ↓' },
-    { id: 'map', kind: 'vital', label: 'MAP ↓', explain: 'The pressure falls — modestly in a well-filled patient, sharply in one who is hypovolaemic or relying on sympathetic tone.' },
+    { id: 'map', kind: 'vital', label: 'MAP ↓', explain: 'The pressure falls — modestly in a well-filled patient, sharply in one who is hypovolemic or relying on sympathetic tone.' },
   ],
   edges: [
     { from: 'pro', to: 'gaba', sign: 1 }, { from: 'gaba', to: 'cl', sign: 1 }, { from: 'cl', to: 'hyp', sign: 1 }, { from: 'cl', to: 'symp', sign: -1 }, { from: 'cl', to: 'resp', sign: -1 },
@@ -49,7 +49,7 @@ export const PROPOFOL: MechanismDefinition = {
   ],
   contexts: [
     { id: 'normal', label: 'Well-filled, normal heart', note: 'A modest fall in pressure.', patient: hemoAdapter({ scenario: 'normal', svr: -0.22, co: -0.1, hr: -0.02, dose: (u) => `${Math.round(2 * u * 10) / 10} mg/kg` }) },
-    { id: 'hypo', label: 'Hypovolaemic, sympathetically driven', note: 'The tone that was holding the pressure up is removed: a much bigger fall.', patient: hemoAdapter({ scenario: 'hypovol', svr: -0.38, co: -0.2, hr: -0.03, dose: (u) => `${Math.round(2 * u * 10) / 10} mg/kg` }) },
+    { id: 'hypo', label: 'Hypovolemic, sympathetically driven', note: 'The tone that was holding the pressure up is removed: a much bigger fall.', patient: hemoAdapter({ scenario: 'hypovol', svr: -0.38, co: -0.2, hr: -0.03, dose: (u) => `${Math.round(2 * u * 10) / 10} mg/kg` }) },
   ],
   summary: 'GABA-A hypnosis with vasodilation, sympatholysis and respiratory depression. No analgesia. Prolonged high doses risk propofol-infusion syndrome; count the lipid calories.',
 };
@@ -62,7 +62,7 @@ export const MIDAZOLAM: MechanismDefinition = {
     { id: 'mid', kind: 'drug', label: 'Midazolam', explain: 'Midazolam binds the benzodiazepine site between the alpha and gamma-2 subunits of the GABA-A receptor.' },
     { id: 'gaba', kind: 'receptor', label: 'GABA-A receptor', sub: 'benzodiazepine site' },
     { id: 'freq', kind: 'channel', label: 'Cl⁻ channel opening frequency ↑', explain: 'It does not open the channel by itself; it makes GABA open it more often.' },
-    { id: 'hyp', kind: 'cell', label: 'Neuronal hyperpolarisation' },
+    { id: 'hyp', kind: 'cell', label: 'Neuronal hyperpolarization' },
     { id: 'eff', kind: 'organ', label: 'Anxiolysis · amnesia · sedation · anticonvulsant' },
     { id: 'resp', kind: 'organ', label: 'Respiratory depression', sub: 'synergy with opioids', explain: 'Alone it depresses breathing modestly; with an opioid the effect is multiplied.' },
     { id: 'map', kind: 'vital', label: 'BP ↓ (mild)' },
@@ -89,7 +89,7 @@ export const FENTANYL: MechanismDefinition = {
     { id: 'rc', kind: 'organ', label: 'Brainstem CO₂ response ↓', explain: 'In the brainstem it blunts the response to carbon dioxide: slower, then absent, breathing.' },
     { id: 'vag', kind: 'organ', label: 'Vagal tone ↑' },
     { id: 'symp', kind: 'organ', label: 'Sympathetic drive ↓ (pain / stress removed)' },
-    { id: 'rr', kind: 'vital', label: 'Respiratory rate ↓ · apnoea' },
+    { id: 'rr', kind: 'vital', label: 'Respiratory rate ↓ · apnea' },
     { id: 'hr', kind: 'vital', label: 'Heart rate ↓' }, { id: 'map', kind: 'vital', label: 'BP ↓ if tone was pain-driven' },
     { id: 'nal', kind: 'drug', label: 'Naloxone', sub: 'competitive antagonist' },
   ],
@@ -100,7 +100,7 @@ export const FENTANYL: MechanismDefinition = {
   ],
   contexts: [
     { id: 'calm', label: 'Comfortable, well-filled', note: 'Little change: a mild vagal slowing.', patient: hemoAdapter({ scenario: 'normal', hr: -0.1, svr: -0.04, dose: (u) => `${Math.round(100 * u)} µg` }) },
-    { id: 'stress', label: 'Hypovolaemic, in pain', note: 'The pain-driven sympathetic tone that held the pressure is removed.', patient: hemoAdapter({ scenario: 'hypovol', hr: -0.12, svr: -0.2, co: -0.05, dose: (u) => `${Math.round(100 * u)} µg` }) },
+    { id: 'stress', label: 'Hypovolemic, in pain', note: 'The pain-driven sympathetic tone that held the pressure is removed.', patient: hemoAdapter({ scenario: 'hypovol', hr: -0.12, svr: -0.2, co: -0.05, dose: (u) => `${Math.round(100 * u)} µg` }) },
   ],
   summary: 'Mu-receptor activation: analgesia, respiratory depression and vagal slowing; the blood pressure falls when it was being held up by pain and fear. Rapid large doses can stiffen the chest wall.',
 };
@@ -128,26 +128,26 @@ export const DEXMEDETOMIDINE: MechanismDefinition = {
 };
 
 export const SUCCINYLCHOLINE: MechanismDefinition = {
-  id: 'succinylcholine', drug: 'Succinylcholine', drugClass: 'Depolarising neuromuscular blocker',
+  id: 'succinylcholine', drug: 'Succinylcholine', drugClass: 'Depolarizing neuromuscular blocker',
   blurb: 'Rapid-sequence intubation. Succinylcholine is the paralytic — in two very different patients.',
   selectivity: [{ receptor: 'nAChR (end-plate)', activity: 1 }, { receptor: 'Extrajunctional nAChR', activity: 1 }, { receptor: 'Muscarinic (cardiac)', activity: 0.3 }],
   nodes: [
     { id: 'sux', kind: 'drug', label: 'Succinylcholine', sub: '1.5 mg/kg IV', explain: 'Succinylcholine is two acetylcholine molecules joined together. It activates the nicotinic receptor at the end-plate — and stays there.' },
-    { id: 'nach', kind: 'receptor', label: 'Nicotinic ACh receptor', sub: 'end-plate', explain: 'The channel opens and the membrane depolarises, causing visible fasciculations.' },
-    { id: 'dep', kind: 'channel', label: 'Sustained depolarisation', explain: 'Because it is not broken down by acetylcholinesterase, the end-plate stays depolarised.' },
+    { id: 'nach', kind: 'receptor', label: 'Nicotinic ACh receptor', sub: 'end-plate', explain: 'The channel opens and the membrane depolarizes, causing visible fasciculations.' },
+    { id: 'dep', kind: 'channel', label: 'Sustained depolarization', explain: 'Because it is not broken down by acetylcholinesterase, the end-plate stays depolarized.' },
     { id: 'nav', kind: 'channel', label: 'Na⁺ channels inactivated', explain: 'The surrounding sodium channels inactivate and cannot fire again: flaccid paralysis follows the fasciculations.' },
     { id: 'para', kind: 'organ', label: 'Fasciculation → flaccid paralysis', sub: 'no sedation' },
-    { id: 'kout', kind: 'messenger', label: 'K⁺ efflux from muscle', explain: 'Every open channel lets potassium out. Normally plasma potassium rises by about half a millimole per litre. With up-regulated receptors all over the muscle — burns, denervation, crush, long immobility — it can rise several-fold.' },
+    { id: 'kout', kind: 'messenger', label: 'K⁺ efflux from muscle', explain: 'Every open channel lets potassium out. Normally plasma potassium rises by about half a millimole per liter. With up-regulated receptors all over the muscle — burns, denervation, crush, long immobility — it can rise several-fold.' },
     { id: 'k', kind: 'vital', label: 'Plasma K⁺ ↑' },
     { id: 'pche', kind: 'enzyme', label: 'Plasma cholinesterase', sub: 'ends the block in minutes' },
   ],
   edges: [
     { from: 'sux', to: 'nach', sign: 1 }, { from: 'nach', to: 'dep', sign: 1 }, { from: 'dep', to: 'nav', sign: 1 }, { from: 'nav', to: 'para', sign: 1 },
-    { from: 'dep', to: 'kout', sign: 1 }, { from: 'kout', to: 'k', sign: 1 }, { from: 'sux', to: 'pche', sign: 1, label: 'hydrolysed by' }, { from: 'pche', to: 'para', sign: -1, label: 'ends the block' },
+    { from: 'dep', to: 'kout', sign: 1 }, { from: 'kout', to: 'k', sign: 1 }, { from: 'sux', to: 'pche', sign: 1, label: 'hydrolyzed by' }, { from: 'pche', to: 'para', sign: -1, label: 'ends the block' },
   ],
   contexts: [
     { id: 'normal', label: 'Healthy muscle', note: 'Potassium rises about 0.5.', patient: kRiseAdapter({ scenario: 'normal K 4.2', k0: 4.2, rise: 0.5, label: 'after 1.5 mg/kg' }) },
     { id: 'upreg', label: 'Burns > 48 h / denervation', note: 'Extrajunctional receptors everywhere: a dangerous potassium surge. Use rocuronium instead.', patient: kRiseAdapter({ scenario: 'burn day 5, K 4.2', k0: 4.2, rise: 3.6, label: 'after 1.5 mg/kg' }) },
   ],
-  summary: 'Fast, short paralysis by depolarisation, with a potassium rise that is small in healthy muscle and life-threatening in up-regulated muscle. It is also a malignant-hyperthermia trigger, and repeat doses can slow the heart.',
+  summary: 'Fast, short paralysis by depolarization, with a potassium rise that is small in healthy muscle and life-threatening in up-regulated muscle. It is also a malignant-hyperthermia trigger, and repeat doses can slow the heart.',
 };

@@ -7,9 +7,9 @@ import { emptyAbdomen, abdomenFindings } from '../src/abdomen/state';
 const P = (id: string) => ABD_PRESETS.find((p) => p.id === id)!.make();
 
 describe('CT angiogram reading from the abdominal state (real CT chosen by these keys)', () => {
-  it('normal: a ~2 cm aorta, no flap, no haematoma → a real normal CTA', () => {
+  it('normal: a ~2 cm aorta, no flap, no hematoma → a real normal CTA', () => {
     const st = emptyAbdomen(); const d = aorticDiameter(st, 'infrarenal'); expect(d).toBeGreaterThan(1.6); expect(d).toBeLessThan(2.6);
-    expect(ctaFindings(st, 'infrarenal')[0]).toMatch(/Normal calibre/); expect(ctaKeys(st, 'infrarenal')).toEqual(['aorta_normal']);
+    expect(ctaFindings(st, 'infrarenal')[0]).toMatch(/Normal caliber/); expect(ctaKeys(st, 'infrarenal')).toEqual(['aorta_normal']);
   });
   it('AAA: diameter matches the state and is read with mural thrombus', () => {
     const st = P('aaa6'); expect(aorticDiameter(st, 'infrarenal')).toBeCloseTo(6, 1);

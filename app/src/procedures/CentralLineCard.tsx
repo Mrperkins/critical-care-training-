@@ -64,11 +64,11 @@ export function CentralLineCard() {
       <div className="chips">
         <button className={`chip${input.track ? ' on' : ''}`} aria-pressed={input.track} onClick={() => setCl({ track: !input.track })}>Slide the probe with the tip</button>
         <button className={`chip${input.trendelenburg ? ' on' : ''}`} aria-pressed={input.trendelenburg} onClick={() => setCl({ trendelenburg: !input.trendelenburg })}>Head-down tilt</button>
-        {([[0.5, 'Hypovolaemic'], [1, 'Normal'], [1.3, 'Full']] as const).map(([v, l]) => <button key={l} className={`chip${input.volume === v ? ' on' : ''}`} onClick={() => setCl({ volume: v })}>{l}</button>)}
+        {([[0.5, 'Hypovolemic'], [1, 'Normal'], [1.3, 'Full']] as const).map(([v, l]) => <button key={l} className={`chip${input.volume === v ? ' on' : ''}`} onClick={() => setCl({ volume: v })}>{l}</button>)}
         <button className={`chip${input.variant === 'overlying' ? ' on' : ''}`} aria-pressed={input.variant === 'overlying'} onClick={() => setCl({ variant: input.variant === 'overlying' ? 'lateral' : 'overlying' })}>IJ over the carotid</button>
       </div>
       <Knob label="Probe pressure" value={Math.round(input.compress * 100)} min={0} max={100} step={5} unit=" %" onChange={(v) => setCl({ compress: v / 100 })} hint="The vein collapses; the artery stays round and pulses" />
-      <Knob label="Aim (lateral − / medial +)" value={input.aimX} min={-1.6} max={1.6} step={0.05} unit=" cm" onChange={(v) => setCl({ aimX: v })} hint="Centre of the IJ in this view" />
+      <Knob label="Aim (lateral − / medial +)" value={input.aimX} min={-1.6} max={1.6} step={0.05} unit=" cm" onChange={(v) => setCl({ aimX: v })} hint="Center of the IJ in this view" />
       <Knob label="Needle angle to skin" value={input.angle} min={20} max={70} step={5} unit="°" onChange={(v) => setCl({ angle: v })} />
       <Knob label="Advance" value={input.advance} min={0} max={5} step={0.1} unit=" cm" onChange={(v) => setCl({ advance: v })} />
       <p className="muted small" style={{ marginTop: 6 }}>Real scans from different patients illustrate each step; distances in the model are illustrative. Follow your institution’s procedure and supervision requirements.</p>

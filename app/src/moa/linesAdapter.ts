@@ -1,5 +1,5 @@
 /**
- * Patient adapters onto the EXISTING Lines haemodynamic session (the same class the Lines module runs).
+ * Patient adapters onto the EXISTING Lines hemodynamic session (the same class the Lines module runs).
  * A private instance is used so a drug demo never disturbs the Lines module's patient. Exposure is
  * applied as a steady state (parameters set directly, circulation rebuilt) so a seek is exact.
  * The drug layer only moves the session's own inputs (pressor level, SVR, HR, contractility→CO);

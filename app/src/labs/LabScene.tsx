@@ -4,6 +4,7 @@
  * ion / molecule counts, pump speed, cell volume, clot formation etc. from cellSpec().
  */
 import { useEffect, useMemo, useRef } from 'react';
+import { useCameraGate } from '../scene/cameraPolicy';
 import * as THREE from 'three';
 import { useFrame, useThree, type ThreeEvent } from '@react-three/fiber';
 import { CameraControls, Html } from '@react-three/drei';
@@ -276,7 +277,7 @@ function Particles({ spec, kind }: { spec: SpecRef; kind: Body }) {
           else { const rr = inside ? inR * Math.cbrt(sd.r) : outA + (outB - outA) * sd.r; p = sd.u.clone().multiplyScalar(rr); }
           // crossing: a fraction of outside particles drift through the membrane (direction by sign)
           if (!inside && sp.cross !== 0 && sd.r < Math.abs(sp.cross) * 0.5 && kind !== 'vessel') { const f = (t * 0.25 + sd.ph) % 1; const e = sp.cross > 0 ? f : 1 - f; p.multiplyScalar(1 - e * 0.6); }
-          // calcium shield: Ca²⁺ gathers at the membrane surface when stabilised
+          // calcium shield: Ca²⁺ gathers at the membrane surface when stabilized
           if (sp.key === 'ca' && !inside && sd.r < s.caShield * 0.8) p.setLength(inR + 0.35 + 0.05 * Math.sin(t + sd.ph));
           // filtration: creatinine / urea flow into the tubule at the GFR
           if (kind === 'nephron' && inside) { const f = (t * 0.3 * s.gfr + sd.ph) % 1; p.x = 1.1 + f * 2.6; }
@@ -297,7 +298,7 @@ function Particles({ spec, kind }: { spec: SpecRef; kind: Body }) {
 
 /* ================================================================== camera */
 function Rig({ body }: { body: BodyAsset }) {
-  const three = useThree(); (window as unknown as Record<string, unknown>).__three = three; const ref = useRef<CameraControls>(null);
+  const three = useThree(); (window as unknown as Record<string, unknown>).__three = three; const ref = useRef<CameraControls>(null); useCameraGate(ref);
   const view = useLabUI((s) => s.view); const sel = useLabUI((s) => s.lab); const cellView = useLabUI((s) => s.cellView); const cellType = useLabUI((s) => s.cellType); const target = useLabUI((s) => s.cameraTargetId); const aspect = three.size.width / Math.max(1, three.size.height);
   useEffect(() => {
     if (!(aspect > 0.05)) return; const cam = three.camera as THREE.PerspectiveCamera; const t = Math.tan(THREE.MathUtils.degToRad(cam.fov / 2));

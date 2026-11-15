@@ -50,14 +50,14 @@ export const DKA_LESSON: Timeline = {
     { id: 'dka-1', at: 0, dur: 11, hold: true, title: 'No insulin', apply: at({ preset: 'dka' }),
       say: 'Without insulin, cells cannot take up glucose, so the liver makes more and fat is broken down. Fatty acids are turned into ketoacids. Glucose is over five hundred; the patient is vomiting and breathing deeply.' },
     { id: 'dka-2', at: 12, dur: 11, hold: true, title: 'An anion-gap acidosis', say: 'Ketoacids use up bicarbonate. The unmeasured ketone anions widen the anion gap. The lungs compensate with Kussmaul breathing, driving the CO2 down.' },
-    { id: 'dka-3', at: 24, dur: 11, hold: true, title: 'Osmotic diuresis', say: 'Glucose spills into the urine and drags water and sodium with it. By the time the patient arrives, several litres have been lost, and the kidneys are underperfused.' },
+    { id: 'dka-3', at: 24, dur: 11, hold: true, title: 'Osmotic diuresis', say: 'Glucose spills into the urine and drags water and sodium with it. By the time the patient arrives, several liters have been lost, and the kidneys are underperfused.' },
     { id: 'dka-4', at: 36, dur: 12, hold: true, title: 'Potassium: high in the blood, low in the body', say: 'Plasma potassium is high, because acidosis and the lack of insulin push potassium out of cells. But the diuresis has been washing it out for days: total-body potassium is low. Insulin will reveal the deficit.' },
     { id: 'dka-5', at: 49, dur: 11, hold: true, title: 'Fluids first', apply: at({ preset: 'dka', drugs: ['fluids', 'fluids'], ff: 60 }),
       say: 'The first treatment is fluid. Volume restores perfusion and lets the kidneys clear glucose and ketones.' },
     { id: 'dka-6', at: 61, dur: 12, hold: true, title: 'Insulin — and watch the potassium', apply: at({ preset: 'dka', seq: ['fluids', 'fluids', 60, 'insulin', 120, 'insulin', 60] }),
       say: 'Insulin stops ketone production and moves potassium back into the cells. Glucose and the anion gap fall — and so does potassium, often below normal. Check it before insulin, and replace it: if potassium is low, give potassium first.' },
-    { id: 'dka-7', at: 74, dur: 10, hold: true, title: 'Close the gap', apply: at({ preset: 'dka', seq: ['fluids', 'fluids', 60, 'insulin', 120, 'insulin', 120, 'insulin', 120, 'insulin', 120, 'insulin', 120] }),
-      say: 'Keep the insulin infusion running until the anion gap closes, adding dextrose as glucose falls. The glucose normalises long before the acidosis does.' },
+    { id: 'dka-7', at: 74, dur: 10, hold: true, title: 'Confirm ketone resolution', apply: at({ preset: 'dka', seq: ['fluids', 'fluids', 60, 'insulin', 120, 'insulin', 120, 'insulin', 120, 'insulin', 120, 'insulin', 120] }),
+      say: 'Glucose can normalize before ketoacidosis resolves. Continue insulin with dextrose as needed and reassess ketones, pH and bicarbonate. The anion gap alone is unreliable after saline-related hyperchloremic acidosis.' },
   ],
 };
 export const ABG_TIMELINES: Timeline[] = [ACIDOSIS_LESSON, DKA_LESSON];

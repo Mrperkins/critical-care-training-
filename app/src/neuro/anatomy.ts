@@ -9,7 +9,7 @@
 import * as THREE from 'three';
 
 export interface BrainFrame { c: THREE.Vector3; h: THREE.Vector3 }
-/** Brain centre and half-extents in body decimetres (measured from body.glb; used when the mesh is not at hand). */
+/** Brain center and half-extents in body decimeters (measured from body.glb; used when the mesh is not at hand). */
 export const DEFAULT_BRAIN_FRAME: BrainFrame = { c: new THREE.Vector3(0, 8.29, -0.02), h: new THREE.Vector3(0.734, 0.766, 0.875) };
 export function brainFrameFromMesh(mesh: THREE.Mesh): BrainFrame {
   // body.glb geometry is already baked into body space (asset/gltf.ts) — read the geometry box, not the node transform
@@ -21,17 +21,10 @@ export const toBody = (f: BrainFrame, l: THREE.Vector3 | [number, number, number
 };
 export const toLocal = (f: BrainFrame, p: THREE.Vector3, out = new THREE.Vector3()) => out.copy(p).sub(f.c).divide(f.h);
 
-export type Side = 'R' | 'L' | 'M';
-export type TerritoryId = 'MCA_R' | 'MCA_L' | 'ACA_R' | 'ACA_L' | 'PCA_R' | 'PCA_L' | 'VB';
-export const TERRITORIES: TerritoryId[] = ['MCA_R', 'MCA_L', 'ACA_R', 'ACA_L', 'PCA_R', 'PCA_L', 'VB'];
-/** approximate adult territory volumes, mL (teaching values) */
-export const TERRITORY_ML: Record<TerritoryId, number> = { MCA_R: 280, MCA_L: 280, ACA_R: 90, ACA_L: 90, PCA_R: 80, PCA_L: 80, VB: 150 };
-export const TERRITORY_NAME: Record<TerritoryId, string> = { MCA_R: 'Right MCA', MCA_L: 'Left MCA', ACA_R: 'Right ACA', ACA_L: 'Left ACA', PCA_R: 'Right PCA', PCA_L: 'Left PCA', VB: 'Brainstem / cerebellum' };
-/** deepest (least collateralised) point of each territory in local coordinates — tissue far from it is fed first by collaterals */
-export const TERRITORY_CORE: Record<TerritoryId, [number, number, number]> = {
-  MCA_R: [-0.5, -0.3, 0.05], MCA_L: [0.5, -0.3, 0.05], ACA_R: [-0.1, 0.15, 0.45], ACA_L: [0.1, 0.15, 0.45],
-  PCA_R: [-0.25, -0.35, -0.72], PCA_L: [0.25, -0.35, -0.72], VB: [0, -0.8, -0.45],
-};
+export type { Side, TerritoryId } from './territories';
+export { TERRITORIES, TERRITORY_ML, TERRITORY_NAME, TERRITORY_CORE } from './territories';
+import type { Side, TerritoryId } from './territories';
+import { TERRITORY_CORE } from './territories';
 
 /** Which arterial territory a point (local coordinates) belongs to — mirrored in the scene shader. */
 export function territoryAt(l: THREE.Vector3): TerritoryId {
@@ -51,10 +44,10 @@ export function peripheryAt(t: TerritoryId, l: THREE.Vector3) {
 export interface CerebralVessel {
   id: string; name: string; side: Side; parent: string | null;
   /** body-space points (dm) */ pts: THREE.Vector3[]; r0: number; r1: number;
-  /** territory this vessel feeds (for colouring downstream flow) */ territory?: TerritoryId;
+  /** territory this vessel feeds (for coloring downstream flow) */ territory?: TerritoryId;
   kind: 'neck' | 'circle' | 'trunk' | 'cortical';
 }
-const K = 1.6; // calibre exaggeration
+const K = 1.6; // caliber exaggeration
 const r = (mm: number) => (mm / 2 / 100) * K; // diameter mm → radius dm
 
 /** Build the arterial tree. Right side is patient's right (−x). */

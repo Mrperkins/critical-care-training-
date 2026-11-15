@@ -32,8 +32,8 @@ export const MODE_INFO: Record<VMode, string> = {
   VC: 'Volume control (A/C): you set Vt and flow; pressure is the result — it rises when the lung stiffens or the airway narrows.',
   PC: 'Pressure control (A/C): you set the pressure and Ti; tidal volume is the result — it falls when the lung stiffens or the airway narrows.',
   PRVC: 'Pressure-regulated volume control: pressure-shaped breaths whose pressure the vent adjusts breath-by-breath to hit a target Vt.',
-  PSV: 'Pressure support: every breath is patient-triggered and patient-cycled (when flow falls to the cycle %). No backup rate beyond apnoea.',
-  SIMV: 'SIMV: a set number of volume breaths synchronised to effort; extra breaths get pressure support only.',
+  PSV: 'Pressure support: every breath is patient-triggered and patient-cycled (when flow falls to the cycle %). No backup rate beyond apnea.',
+  SIMV: 'SIMV: a set number of volume breaths synchronized to effort; extra breaths get pressure support only.',
   CPAP: 'CPAP: a constant pressure; the patient does all the breathing.',
   APRV: 'APRV: long high-pressure phase with brief releases; recruits and allows spontaneous breathing at P-high.',
 };

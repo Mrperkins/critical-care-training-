@@ -6,7 +6,7 @@ import { osmoAdapter, lysisAdapter } from '../neuroAdapter';
 
 export const MANNITOL: MechanismDefinition = {
   id: 'mannitol', drug: 'Mannitol', drugClass: 'Osmotic agent',
-  blurb: 'A haematoma past the knee of the pressure–volume curve, with a pupil starting to dilate. Mannitol is given as a bolus.',
+  blurb: 'A hematoma past the knee of the pressure–volume curve, with a pupil starting to dilate. Mannitol is given as a bolus.',
   nodes: [
     { id: 'man', kind: 'drug', label: 'Mannitol 20 %', sub: '0.5–1 g/kg', explain: 'Mannitol is a sugar alcohol that stays in the blood and extracellular fluid: it does not cross an intact blood–brain barrier.' },
     { id: 'osm', kind: 'messenger', label: 'Plasma osmolality ↑' },
@@ -21,19 +21,19 @@ export const MANNITOL: MechanismDefinition = {
     { from: 'man', to: 'osm', sign: 1 }, { from: 'osm', to: 'bbb', sign: 1 }, { from: 'bbb', to: 'water', sign: -1 }, { from: 'man', to: 'visc', sign: -1 },
     { from: 'water', to: 'icp', sign: 1 }, { from: 'visc', to: 'icp', sign: 1 }, { from: 'icp', to: 'cpp', sign: -1 }, { from: 'man', to: 'kid', sign: 1 }, { from: 'kid', to: 'vol', sign: -1 },
   ],
-  patient: osmoAdapter({ scenario: 'left basal-ganglia haematoma 54 mL', ml: 54, maxMl: 18 }),
+  patient: osmoAdapter({ scenario: 'left basal-ganglia hematoma 54 mL', ml: 54, maxMl: 18 }),
   summary: 'An osmotic gradient across an intact barrier draws water out of the brain; the kidneys then lose that water. It works on the same pressure–volume curve as every other ICP treatment, and it buys time rather than removing the cause.',
 };
 
 export const NIMODIPINE: MechanismDefinition = {
   id: 'nimodipine', drug: 'Nimodipine', drugClass: 'Lipophilic dihydropyridine calcium-channel blocker',
-  blurb: 'Aneurysmal subarachnoid haemorrhage, day 1. Oral nimodipine is started for three weeks.',
+  blurb: 'Aneurysmal subarachnoid hemorrhage, day 1. Oral nimodipine is started for three weeks.',
   selectivity: [{ receptor: 'L-type (cerebral)', activity: 1 }, { receptor: 'L-type (systemic)', activity: 0.5 }],
   nodes: [
     { id: 'nim', kind: 'drug', label: 'Nimodipine', sub: 'enteral, every 4 h', explain: 'Nimodipine is a lipid-soluble dihydropyridine that reaches the brain well.' },
     { id: 'lt', kind: 'channel', label: 'L-type Ca²⁺ channels', sub: 'vascular smooth muscle · neurons' },
     { id: 'ca', kind: 'messenger', label: 'Ca²⁺ entry ↓' },
-    { id: 'dci', kind: 'organ', label: 'Delayed cerebral ischaemia ↓', explain: 'After aneurysmal bleeding it lowers delayed ischaemia and improves outcome — probably through the microcirculation and neuroprotection.' },
+    { id: 'dci', kind: 'organ', label: 'Delayed cerebral ischemia ↓', explain: 'After aneurysmal bleeding it lowers delayed ischemia and improves outcome — probably through the microcirculation and neuroprotection.' },
     { id: 'spasm', kind: 'organ', label: 'Large-artery (angiographic) spasm', explain: 'It does not reliably widen the large arteries that go into spasm; the benefit is not measured on the angiogram.' },
     { id: 'svr', kind: 'vital', label: 'Systemic SVR ↓' },
     { id: 'map', kind: 'vital', label: 'BP ↓', explain: 'The systemic side effect matters: a fall in pressure lowers cerebral perfusion. Smaller, more frequent doses help.' },
@@ -54,7 +54,7 @@ export const THROMBOLYTIC: MechanismDefinition = {
     { id: 'fib', kind: 'receptor', label: 'Fibrin in the clot', explain: 'Bound to fibrin, it converts nearby plasminogen much more efficiently than plasminogen floating free in plasma.' },
     { id: 'plg', kind: 'enzyme', label: 'Plasminogen → plasmin' },
     { id: 'lys', kind: 'cell', label: 'Fibrin degraded', sub: 'clot dissolves' },
-    { id: 'rec', kind: 'organ', label: 'Recanalisation', sub: 'less likely for large, proximal clots', explain: 'The clot dissolves from its surface. Large proximal clots often do not fully open, which is why thrombectomy follows.' },
+    { id: 'rec', kind: 'organ', label: 'Recanalization', sub: 'less likely for large, proximal clots', explain: 'The clot dissolves from its surface. Large proximal clots often do not fully open, which is why thrombectomy follows.' },
     { id: 'cbf', kind: 'vital', label: 'Territory blood flow ↑' },
     { id: 'core', kind: 'vital', label: 'Core growth slowed · penumbra saved' },
     { id: 'bleed', kind: 'organ', label: 'Bleeding (incl. intracranial)', explain: 'Plasmin does not know which fibrin is the stroke clot: bleeding, including into the infarct, is the main risk.' },
@@ -72,12 +72,12 @@ export const IPRATROPIUM: MechanismDefinition = {
   blurb: 'A ventilated COPD patient with high airway resistance. Ipratropium is added to the bronchodilator.',
   selectivity: [{ receptor: 'M3', activity: 1 }, { receptor: 'M1', activity: 1 }, { receptor: 'M2', activity: 1 }],
   nodes: [
-    { id: 'ipr', kind: 'drug', label: 'Ipratropium', sub: 'nebulised / inline', explain: 'Ipratropium blocks muscarinic receptors in the airway, where vagal acetylcholine keeps the smooth muscle toned and the glands secreting.' },
+    { id: 'ipr', kind: 'drug', label: 'Ipratropium', sub: 'nebulized / inline', explain: 'Ipratropium blocks muscarinic receptors in the airway, where vagal acetylcholine keeps the smooth muscle toned and the glands secreting.' },
     { id: 'm3', kind: 'receptor', label: 'M3 receptor', sub: 'airway smooth muscle · glands' },
     { id: 'gq', kind: 'transducer', label: 'Gq → IP₃ → Ca²⁺ ↓', explain: 'With M3 blocked, acetylcholine can no longer raise calcium through Gq.' },
     { id: 'relax', kind: 'cell', label: 'Smooth-muscle relaxation' },
     { id: 'sec', kind: 'cell', label: 'Mucus secretion ↓' },
-    { id: 'calib', kind: 'organ', label: 'Airway calibre ↑', explain: 'Wider airways and less mucus lower the resistance to flow — on the ventilator the peak pressure falls toward the plateau.' },
+    { id: 'calib', kind: 'organ', label: 'Airway caliber ↑', explain: 'Wider airways and less mucus lower the resistance to flow — on the ventilator the peak pressure falls toward the plateau.' },
     { id: 'raw', kind: 'vital', label: 'Airway resistance ↓' }, { id: 'pip', kind: 'vital', label: 'PIP − Pplat gap ↓' },
   ],
   edges: [

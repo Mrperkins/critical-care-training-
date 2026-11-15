@@ -13,7 +13,9 @@ usage: python3 scripts/narrate.py --model kokoro-v1.0.onnx --voices voices-v1.0.
                                   --out OUT [--shard i --of n] [--skip narration/done.json] [--only id,id]
 Writes OUT/<target>/<id>.mp3 and OUT/meta-<shard>.json ({id: {hash, seconds, bytes, target}}).
 """
-import argparse, json, re, subprocess, sys, tempfile, time
+import argparse, json, re, subprocess, sys, tempfile, time, os
+# Disable runtime telemetry before any ONNX imports or initialization.
+os.environ['ORT_DISABLE_TELEMETRY'] = '1'
 from pathlib import Path
 
 # ------------------------------------------------------------------ text → speech-ready text
@@ -112,6 +114,8 @@ def main():
     ap.add_argument('--skip'); ap.add_argument('--only'); ap.add_argument('--glossary', default='public/audio/voice/pronunciations.json')
     a = ap.parse_args()
     import numpy as np, soundfile as sf
+    import onnxruntime as ort
+    ort.disable_telemetry_events()
     from kokoro_onnx import Kokoro
     spec = json.loads(Path(a.jobs).read_text()); narr = spec['narrator']; jobs = spec['jobs']
     done = json.loads(Path(a.skip).read_text()) if a.skip and Path(a.skip).exists() else {}
@@ -122,7 +126,9 @@ def main():
     for j in todo: k = load.index(min(load)); shards[k].append(j); load[k] += len(j['text'])
     mine = shards[a.shard]
     gl = json.loads(Path(a.glossary).read_text()).get('terms', {}) if Path(a.glossary).exists() else {}
-    k = Kokoro(a.model, a.voices); lang = 'en-us' if narr['voice'][0] == 'a' else 'en-gb'
+    opts = ort.SessionOptions(); opts.intra_op_num_threads = 2; opts.inter_op_num_threads = 1
+    k = Kokoro.from_session(ort.InferenceSession(a.model, sess_options=opts, providers=['CPUExecutionProvider']), a.voices)
+    lang = 'en-us' if narr['voice'][0] == 'a' else 'en-gb'
     out = Path(a.out); meta = {}; t0 = time.time()
     print(f'shard {a.shard}/{a.of}: {len(mine)} of {len(todo)} jobs, {sum(len(j["text"]) for j in mine)} chars', flush=True)
     for n, j in enumerate(mine, 1):

@@ -1,3 +1,5 @@
+import { DiseaseBrowser } from '../atlas/DiseaseBrowser';
+import { LessonLength } from '../app/LessonShell';
 import { useExploreMemory } from '../app/exploreMemory';
 import { MiniSelect, Picker, Fold } from '../scene/pane';
 import { useEffect, useState } from 'react';
@@ -19,6 +21,8 @@ import { NEURO_LESSONS as BASE_NEURO } from '../director/lessons/neuro';
 import { ICP_LESSON } from '../director/lessons/icp';
 import { IcpCard } from './IcpCard';
 import { SceneWrap } from '../scene/labels';
+import { COMPARE_MEDIA } from '../scene/compareMedia';
+import { emptyNeuro, DEFAULT_SYSTEMIC } from './perfusion';
 const NEURO_LESSONS = [...BASE_NEURO, ICP_LESSON];
 
 const hm = (m: number) => (m < 60 ? `${Math.round(m)} min` : `${Math.floor(m / 60)} h ${String(Math.round(m % 60)).padStart(2, '0')} min`);
@@ -28,7 +32,7 @@ export function NeuroModule() {
   useEffect(() => { loadBodyAsset().then(setBody).catch((e) => { console.error(e); setErr(String(e?.message || e)); }); }, []);
   useEffect(() => { (window as unknown as { __CCNeuro: unknown }).__CCNeuro = { store: useNeuroUI, load: loadNeuroPreset, minutes: setNeuroMinutes, recanalize, focus: (id: string) => useNeuroUI.getState().set({ target: id }), body: () => body }; }, [body]);
   useEvolutionClock();
-  const mode = useUI((s) => s.mode); const view = useNeuroUI((s) => s.view);
+  const mode = useUI((s) => s.mode); const view = useNeuroUI((s) => s.view); const preset = useNeuroUI((s) => s.preset);
   useExploreMemory('neuro', () => { const s = useNeuroUI.getState(); return { preset: s.preset, state: structuredClone(s.state), sys: { ...s.sys }, target: s.target, view: s.view, playing: false }; }, (m) => useNeuroUI.getState().set(m));
   // the Lesson Director's camera target drives the brain camera
   const dTarget = useDirector((s) => s.target);
@@ -36,7 +40,7 @@ export function NeuroModule() {
   return (
     <main className="stage">
       <section className="scene-pane">
-        <SceneWrap className="neuro-wrap">
+        <SceneWrap className="neuro-wrap" compare={view !== 'imaging' && body ? { twin: <NeuroScene body={body} />, state: { 'neuro.state': emptyNeuro(), 'neuro.sys': { ...DEFAULT_SYSTEMIC } }, finding: neuroFinding(preset), normalLabel: 'Intact circulation', healthy: preset === 'none', media: COMPARE_MEDIA.neuro } : undefined}>
           {view === 'imaging' ? <RealCtView /> : body ? <NeuroScene body={body} /> : <div className="loading">{err ? `Could not load anatomy: ${err}` : 'Loading anatomy…'}</div>}
           <NeuroOverlay />
         </SceneWrap>
@@ -51,7 +55,7 @@ export function NeuroModule() {
         <IcpIfMass />
         <Fold group="neuro" id="why" title="Why"><NeuroExplain /></Fold>
         </>}
-        {body && <details className="credit"><summary>Sources & model notes</summary>Brain: {body.mapping.attribution.creators}, {body.mapping.attribution.data} — CC BY 4.0. Cerebral arteries are drawn from standard neurovascular anatomy onto that brain (schematic; calibres ×1.6). Perfusion thresholds (CBF ≈ 50 normal, &lt;20 penumbra, &lt;10 core) and infarct timing are teaching approximations, not a prediction for any patient.</details>}
+        {body && <details className="credit"><summary>Sources & model notes</summary>Brain: {body.mapping.attribution.creators}, {body.mapping.attribution.data} — CC BY 4.0. Cerebral arteries: Z-Anatomy (BodyParts3D-derived), CC BY-SA 4.0 — registered onto that brain, true calibre, with centrelines measured from the meshes. Perfusion thresholds (CBF ≈ 50 normal, &lt;20 penumbra, &lt;10 core) and infarct timing are teaching approximations, not a prediction for any patient.</details>}
       </aside>
     </main>
   );
@@ -59,7 +63,7 @@ export function NeuroModule() {
 
 const FOCUS: [string, string][] = [['brain.whole', 'Brain'], ['brain.cow', 'Circle of Willis'], ['brain.mca_l', 'L MCA'], ['brain.mca_r', 'R MCA'], ['brain.aca', 'ACA'], ['brain.pca', 'PCA'], ['brain.basilar', 'Basilar'], ['brain.ica_l', 'L ICA']];
 function NeuroOverlay() {
-  const target = useNeuroUI((s) => s.target); const glass = useNeuroUI((s) => s.glass); const cut = useNeuroUI((s) => s.cut); const slice = useNeuroUI((s) => s.slice); const set = useNeuroUI.getState().set;
+  const target = useNeuroUI((s) => s.target); const glass = useNeuroUI((s) => s.glass); const cut = useNeuroUI((s) => s.cut); const slice = useNeuroUI((s) => s.slice); const deep = useNeuroUI((s) => s.deep); const set = useNeuroUI.getState().set;
   const tier = useLabUI((s) => s.visualTier); const view3d = useNeuroUI((s) => s.view) === '3d';
   return (<>
     <div className="view-btns"><button className={view3d ? 'on' : ''} onClick={() => set({ view: '3d' })}>3D brain</button><button className={!view3d ? 'on' : ''} onClick={() => set({ view: 'imaging' })}>Real CT</button></div>
@@ -68,18 +72,20 @@ function NeuroOverlay() {
       <button className={`tgl${cut ? ' on' : ''}`} aria-pressed={cut} onClick={() => set({ cut: !cut })}>{cut ? 'Cut open' : 'Whole brain'}</button>
       {cut ? <MiniSelect label="Level" value={String(slice)} options={[['-0.45', 'Brainstem'], ['-0.15', 'Basal ganglia'], ['0.05', 'Ventricles'], ['0.3', 'Above ventricles']]} onChange={(v) => set({ slice: +v })} />
         : <button className={`tgl${glass ? ' on' : ''}`} onClick={() => set({ glass: !glass })}>{glass ? 'Glass brain' : 'Solid brain'}</button>}
+      {(cut || glass) && <button className={`tgl${deep ? ' on' : ''}`} aria-pressed={deep} onClick={() => set({ deep: !deep })}>{deep ? 'Deep structures' : 'Surface only'}</button>}
     </div>
     <div className="alv-focus">
-      <MiniSelect label="View" value={target} options={FOCUS as [string, string][]} onChange={(v) => set({ target: v })} className="ch-focus" />
+      <MiniSelect label="Section" value={cut ? String(slice) : 'whole'} options={[['whole', 'Whole brain'], ['-0.45', 'Axial · brainstem'], ['-0.15', 'Axial · basal ganglia'], ['0.05', 'Axial · ventricles'], ['0.3', 'Axial · above ventricles']]} onChange={(v) => set(v === 'whole' ? { cut: false } : { cut: true, slice: +v })} className="ch-section" />
+      <MiniSelect label="Focus" value={target} options={FOCUS as [string, string][]} onChange={(v) => set({ target: v })} className="ch-focus" />
     </div>
-    <div className="legend"><span><i style={{ background: '#c81e2a' }} />Perfused</span><span><i style={{ background: '#3a2a3e' }} />No flow</span><span><i style={{ background: '#ed9e2e' }} />Penumbra</span><span><i style={{ background: '#c71f52' }} />Core</span><span><i style={{ background: '#4b0c12' }} />Clot / blood</span></div>
+    <div className="legend"><span><i style={{ background: '#c81e2a' }} />Perfused</span><span><i style={{ background: '#3a2a3e' }} />No flow</span><span><i style={{ background: '#ed9e2e' }} />Penumbra</span><span><i style={{ background: '#c71f52' }} />Core</span><span><i style={{ background: '#4b0c12' }} />Clot / blood</span>{deep && (glass || cut) && <><span><i style={{ background: '#5d9fdc' }} />CSF (ventricles)</span><span><i style={{ background: '#a07a94' }} />Basal ganglia</span><span><i style={{ background: '#9483a8' }} />Thalamus</span></>}</div>
   </>}
   </>);
 }
 
 function PresetCard() {
   const preset = useNeuroUI((s) => s.preset); const cur = NEURO_PRESETS.find((p) => p.id === preset)!;
-  const G: [string, NeuroPreset[]][] = [['', ['none']], ['Ischaemic', ['m1_L', 'm1_R', 'm2s_L', 'ica_L', 'ica_L_iso', 'basilar', 'p2_R']], ['Haemorrhagic', ['ich', 'sah']]];
+  const G: [string, NeuroPreset[]][] = [['', ['none']], ['Ischemic', ['m1_L', 'm1_R', 'm2s_L', 'ica_L', 'ica_L_iso', 'basilar', 'p2_R']], ['Hemorrhagic', ['ich', 'sah']]];
   const it = (id: NeuroPreset) => { const p = NEURO_PRESETS.find((x) => x.id === id)!; return { id, name: p.name, hint: p.short }; };
   return <Picker label="Scenario" value={preset} sub={cur.short} onPick={(id) => loadNeuroPreset(id as NeuroPreset)} groups={G.map(([label, ids]) => ({ label: label || undefined, items: ids.filter((i) => NEURO_PRESETS.some((p) => p.id === i)).map(it) }))} />;
 }
@@ -118,7 +124,7 @@ function SystemicCard() {
   return (
     <section className="card">
       <div className="card-h"><h3>Patient</h3><span className="muted small">drives collateral flow</span></div>
-      <Knob label="MAP" value={sys.map} min={40} max={160} step={5} unit=" mmHg" onChange={(v) => set({ sys: { ...sys, map: v } })} hint="Collateral flow into ischaemic tissue is pressure-passive" />
+      <Knob label="MAP" value={sys.map} min={40} max={160} step={5} unit=" mmHg" onChange={(v) => set({ sys: { ...sys, map: v } })} hint="Collateral flow into ischemic tissue is pressure-passive" />
       <Knob label="PaCO₂" value={sys.paco2} min={20} max={70} step={1} unit=" mmHg" onChange={(v) => set({ sys: { ...sys, paco2: v } })} hint="CBF changes ≈3% per mmHg" />
     </section>
   );
@@ -133,7 +139,7 @@ function NeuroExplain() {
     ica_L: 'With an intact ACoA and PCoA the circle refills the left MCA and ACA — the patient may have no deficit at all.',
     ica_L_iso: 'Without communicating arteries the left hemisphere depends on leptomeningeal collaterals alone.',
     basilar: 'The posterior communicating arteries can back-fill the top of the basilar and the PCAs; the brainstem below the clot has little else.',
-    ich: 'Intraparenchymal haemorrhage: volume (ABC/2) and location drive outcome; mass effect grows steeply beyond ~30 mL.',
+    ich: 'Intraparenchymal hemorrhage: volume (ABC/2) and location drive outcome; mass effect grows steeply beyond ~30 mL.',
     sah: 'Aneurysmal SAH: blood fills the basal cisterns around the circle and tracks up the Sylvian fissures.',
   };
   return <section className="card"><div className="card-h"><h3>Why</h3></div><p className="muted">{txt[preset] ?? 'Posterior circulation stroke: occipital cortex loses its supply; the MCA may partly cover the border.'}</p></section>;
@@ -144,9 +150,9 @@ function NeuroLearn() {
   useEffect(() => () => { if (NEURO_LESSONS.some((l) => l.id === useDirector.getState().tl?.id)) director.unload(); }, []);
   if (active) return <div className="chal-run"><DirectorPlayer onExit={() => undefined} />{tl!.id === ICP_LESSON.id ? <IcpCard /> : <><NeuroExamCard /><TissueCard /></>}</div>;
   return (
-    <div className="chal-list">
-      <section className="card"><div className="eyebrow">Guided learning</div><h2 className="h2">Narrated lessons on the live brain</h2><p className="muted">Each lesson is a timeline: scrub it, pause it, or jump between steps — the brain is rebuilt exactly for that moment.</p></section>
-      {NEURO_LESSONS.map((l) => <button key={l.id} className="chal-item" onClick={() => director.load(l, true)}><span className={`lvl lvl-${l.level}`}>{l.level}</span><span className="ci-t">{l.title}<small className="ci-b">{l.blurb}</small></span><span className="ci-k">{l.cues.length} steps</span></button>)}
+    <div className="chal-list"><DiseaseBrowser domain="neuro" />
+      <header className="learn-intro"><h2>Narrated lessons on the live brain</h2><p>Each lesson is a timeline: scrub it, pause it, or jump between steps — the brain is rebuilt exactly for that moment. Every lesson comes as a full course or a short TL;DR.</p></header>
+      {NEURO_LESSONS.map((l) => <button key={l.id} className="chal-item" onClick={() => director.load(l, true)}><span className={`lvl lvl-${l.level}`}>{l.level}</span><span className="ci-t">{l.title}<small className="ci-b">{l.blurb}</small></span><span className="ci-k"><LessonLength tl={l} /></span></button>)}
     </div>
   );
 }
@@ -164,9 +170,11 @@ function RealCtView() {
   return (
     <div className="realct">
       <img src={`imaging/real/${it.file}`} alt={it.caption} />
-      <div className="realct-cap"><span className="eyebrow">{course === 'none' && !sah ? 'Real CT · choose a stroke scenario' : `Real CT · ${fmtTime(st.minutes)} · ${it.stage?.label ?? ''}`}</span><b>{it.title}</b><span>{it.caption}</span><small>{it.credit} · different real patients illustrate different stages · teaching use only</small></div>
+      <div className="realct-cap"><span className="eyebrow">{course === 'none' && !sah ? 'Example only · this scenario is Normal — choose a stroke or bleed to match the CT to it' : `Real CT · ${fmtTime(st.minutes)} · ${it.stage?.label ?? ''}`}</span><b>{it.title}</b><span>{it.caption}</span><small>{it.credit} · different real patients illustrate different stages · teaching use only</small></div>
     </div>
   );
 }
 
 function IcpIfMass() { const h = useNeuroUI((s) => !!s.state.hemorrhage); return h ? <Fold group="neuro" id="icp" title="Intracranial pressure" summary="ICP, CPP, EVD"><IcpCard /></Fold> : null; }
+
+const neuroFinding = (p: string) => NEURO_PRESETS.find((x) => x.id === p)?.name ?? 'Current state';

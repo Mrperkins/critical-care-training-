@@ -1,6 +1,10 @@
 import { useProgress } from '../curriculum/progress';
-import { useEffect, useMemo, useState } from 'react';
-import { Remediate } from '../challenge/Remediate';
+import { useEffect, useMemo } from 'react';
+import type { SceneCase } from '../challenge/sceneCases';
+import { titleOf } from '../curriculum/titles';
+import { useCaseRun } from '../library/caseRun';
+import { HudCase } from '../library/CaseGame';
+import { runCase } from '../library/launch';
 import { takePendingChallenge, usePendingOpen } from '../app/navigate';
 
 import { bench } from './bench';
@@ -15,27 +19,35 @@ function load(c: LabCase) {
   for (const [id, v] of Object.entries(c.values)) bench.set(id, v);
   useLabUI.getState().set({ lab: c.focus }); useUI.getState().set({ pulse: useUI.getState().pulse + 1 });
 }
+const asCase = (c: LabCase): SceneCase => ({
+  id: `lab-${c.id}`, module: 'labs', level: c.level as SceneCase['level'], title: titleOf(`lab-${c.id}`), story: c.story,
+  setup: () => load(c), facts: () => Object.keys(c.values).map((id) => { const l = LAB[id]; return [l.abbr, `${fmt(l, bench.value(id))} ${l.unit}`] as [string, string]; }),
+  questions: [{ q: c.q, options: c.options, answer: c.answer, explain: c.explain }], verify: () => true,
+});
+/** Lab cases: pick one and it plays over the scene; the consequences of the panel stay here under Details. */
 export function LabChallenge() {
-  useUI((s) => s.pulse);
-  const [i, setI] = useState(0); const [pick, setPick] = useState<number | null>(null); const [score, setScore] = useState({ r: 0, n: 0 });
-  const pend = usePendingOpen((s) => s.id);
-  useEffect(() => { const id = takePendingChallenge((x) => x.startsWith('lab-')); const k = id ? LAB_CASES.findIndex((x) => `lab-${x.id}` === id) : -1; if (k >= 0) { setPick(null); setI(k); } }, [pend]);
-  const c = LAB_CASES[i % LAB_CASES.length];
-  const order = useMemo(() => { load(c); return [0, 1, 2, 3].sort(() => Math.random() - 0.5); }, [c]);
-  const shown = Object.keys(c.values);
-  return (
+  useUI((s) => s.pulse); const attempts = useProgress((s) => s.attempts);
+  const runId = useCaseRun((s) => s.id); const pend = usePendingOpen((s) => s.id);
+  useEffect(() => { takePendingChallenge((x) => x.startsWith('lab-')); }, [pend]);
+  const cur = runId ? LAB_CASES.find((x) => `lab-${x.id}` === runId) : undefined;
+  const def = useMemo(() => (cur ? asCase(cur) : null), [cur]);
+  if (cur && def) return (
     <div className="chal-run">
-      <section className="card"><div className="card-h"><div className="eyebrow">{c.level} · case {(i % LAB_CASES.length) + 1} of {LAB_CASES.length}</div><span className="pill">{score.r}/{score.n}</span></div>
-        <h2 className="h2">{c.story}</h2>
-        <div className="panelrow">{shown.map((id) => { const l = LAB[id]; const v = bench.value(id); return <span key={id} className={`labchip f-${flagOf(l, v)}`}><span>{l.abbr}</span><b>{fmt(l, v)}</b><small>{l.unit}</small></span>; })}</div>
-      </section>
-      <section className="card"><h3>{c.q}</h3>
-        <div className="opts">{order.map((k) => <button key={k} disabled={pick != null} className={`opt${pick != null && k === c.answer ? ' right' : ''}${pick === k && k !== c.answer ? ' wrong' : ''}`} onClick={() => { setPick(k); useProgress.getState().record(`lab-${c.id}`, k === c.answer); setScore((s) => ({ r: s.r + (k === c.answer ? 1 : 0), n: s.n + 1 })); }}>{c.options[k]}</button>)}</div>
-        {pick != null && <div className="reveal"><b>{pick === c.answer ? 'Right.' : `Best: ${c.options[c.answer]}.`}</b> {c.explain}</div>}
-        {pick != null && <Remediate id={`lab-${c.id}`} ok={pick === c.answer} />}
-        {pick != null && <div className="actions" style={{ marginTop: 10 }}><button className="act primary" onClick={() => { setPick(null); setI(i + 1); }}>Next case →</button></div>}
+      <HudCase c={def} />
+      <section className="card"><div className="eyebrow">{cur.level} case · details</div><h2 className="h2">{def.title}</h2><p>{cur.story}</p>
+        <div className="panelrow">{Object.keys(cur.values).map((id) => { const l = LAB[id]; const v = bench.value(id); return <span key={id} className={`labchip f-${flagOf(l, v)}`}><span>{l.abbr}</span><b>{fmt(l, v)}</b><small>{l.unit}</small></span>; })}</div>
       </section>
       <Consequences />
+    </div>
+  );
+  return (
+    <div className="chal-list">
+      <section className="card"><div className="eyebrow">Cases</div><h2 className="h2">Read the panel, make the first move</h2><p className="muted">Each case loads its values on the lab bench, so the organs and cells show what the numbers mean.</p></section>
+      {LAB_CASES.map((c) => { const a = attempts[`lab-${c.id}`]; const last = a?.[a.length - 1]; return (
+        <button key={c.id} className="chal-item" onClick={() => runCase(`lab-${c.id}`)}>
+          <span className={`lvl lvl-${c.level}`}>{c.level}</span><span className="ci-t">{titleOf(`lab-${c.id}`)}</span><span className="ci-k">{c.story.split('.')[0]}</span>
+          {last && <span className={`tick${last.ok ? '' : ' miss'}`} aria-label={last.ok ? 'last attempt right' : 'last attempt missed'}>{last.ok ? '✓' : '✕'}</span>}
+        </button>); })}
     </div>
   );
 }

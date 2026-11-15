@@ -42,6 +42,7 @@ export const CAMERA_TARGETS = Object.freeze({
   'membrane.kir': { scene: 'cell', anchor: 'kchan', view: 'zoom' },
   'membrane.aqp': { scene: 'cell', anchor: 'aqp', view: 'zoom' },
   'heart.whole': { scene: 'body', anchor: 'heart' },
+  'heart.whole_heart': { scene: 'heart', anchor: 'four_chamber', view: 'whole' },
   'heart.four_chamber': { scene: 'heart', anchor: 'four_chamber', view: 'whole' },
   'heart.septum': { scene: 'heart', anchor: 'septum', view: 'zoom' },
   'heart.vsd': { scene: 'heart', anchor: 'vsd', view: 'zoom' },

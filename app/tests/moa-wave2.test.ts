@@ -46,12 +46,12 @@ describe('MOA second wave', () => {
     expect(lo.b.svr).toBeLessThan(lo.a.svr); expect(mid.b.co).toBeGreaterThan(mid.a.co * 1.15); expect(hi.b.svr).toBeGreaterThan(hi.a.svr * 1.2);
     expect(hi.b.map - hi.a.map).toBeGreaterThan(lo.b.map - lo.a.map + 10); expect(hi.b.hr).toBeGreaterThan(hi.a.hr + 10);
   });
-  it('etomidate barely moves the pressure; propofol drops it, much more in hypovolaemia', () => {
+  it('etomidate barely moves the pressure; propofol drops it, much more in hypovolemia', () => {
     const e = endOf(MECH.etomidate); expect(Math.abs(e.b.map - e.a.map)).toBeLessThan(4);
     const n = ctx('propofol', 'normal'), h = ctx('propofol', 'hypo'); expect(n.b.map).toBeLessThan(n.a.map); expect(h.a.map - h.b.map).toBeGreaterThan(n.a.map - n.b.map + 5);
     expect(MECH.propofol.nodes.some((x) => x.id === 'resp')).toBe(true);
   });
-  it('midazolam, fentanyl, dexmedetomidine: expected haemodynamic directions; dexmedetomidine spares breathing', () => {
+  it('midazolam, fentanyl, dexmedetomidine: expected hemodynamic directions; dexmedetomidine spares breathing', () => {
     const m = endOf(MECH.midazolam); expect(m.b.map).toBeLessThan(m.a.map);
     const fc = ctx('fentanyl', 'calm'), fs = ctx('fentanyl', 'stress'); expect(fc.b.hr).toBeLessThan(fc.a.hr); expect(fs.a.map - fs.b.map).toBeGreaterThan(fc.a.map - fc.b.map);
     const d = endOf(MECH.dexmedetomidine); expect(d.b.hr).toBeLessThan(d.a.hr - 12); expect(MECH.dexmedetomidine.edges.find((e) => e.to === 'resp')?.effect).toBe('none');

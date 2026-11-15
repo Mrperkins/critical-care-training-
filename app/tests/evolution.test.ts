@@ -10,7 +10,7 @@ describe('stroke evolution to day 14', () => {
     for (const m of [0, 30, 270, 1440, 10080]) expect(fromU(toU(m))).toBeCloseTo(m, 3);
     expect(toU(EVO_MAX)).toBeCloseTo(1, 6); expect(toU(360)).toBeGreaterThan(0.55); // the first 6 h get more than half the slider
   });
-  it('ischaemic: core grows then plateaus; CT turns dark over hours; swelling peaks days 2–5 then settles', () => {
+  it('ischemic: core grows then plateaus; CT turns dark over hours; swelling peaks days 2–5 then settles', () => {
     const c = [30, 120, 360, 1440].map((m) => at('m1_L', m).coreMl); for (let i = 1; i < c.length; i++) expect(c[i]).toBeGreaterThanOrEqual(c[i - 1]);
     expect(at('m1_L', 30).ctVisible).toBeLessThan(0.1); expect(at('m1_L', 1440).ctVisible).toBeGreaterThan(0.9);
     expect(swellingCurve(4320)).toBeGreaterThan(0.9); expect(swellingCurve(600)).toBeLessThan(0.1); expect(swellingCurve(EVO_MAX)).toBeLessThan(0.15);
@@ -20,7 +20,7 @@ describe('stroke evolution to day 14', () => {
     const early = at('m1_L', 4320, { recanalizedAt: 90 }), never = at('m1_L', 4320);
     expect(early.coreMl).toBeLessThan(never.coreMl); expect(early.midlineShiftMm).toBeLessThanOrEqual(never.midlineShiftMm);
   });
-  it('ICH: actively bleeding early, expansion over hours, oedema keeps rising for days, clot fades by two weeks', () => {
+  it('ICH: actively bleeding early, expansion over hours, edema keeps rising for days, clot fades by two weeks', () => {
     const h0 = at('ich', 10), h6 = at('ich', 360), d3 = at('ich', 4320), d14 = at('ich', EVO_MAX);
     expect(h0.active).toBeGreaterThan(0.5); expect(h6.active).toBeLessThan(0.1); expect(h6.hematomaMl).toBeGreaterThan(h0.hematomaMl);
     expect(d3.hematomaMl).toBeCloseTo(h6.hematomaMl, 0); expect(d3.pheMl).toBeGreaterThan(h6.pheMl * 2);

@@ -5,7 +5,7 @@ import { useUI } from '../app/store';
 import { EcgStrip, Membrane, KTreat } from './LabPanel';
 import { ecgShape } from '../physiology/ecg';
 
-/** Hyperkalaemia emergency in real time: the ECG and potassium evolve while you act; delay has consequences. */
+/** Hyperkalemia emergency in real time: the ECG and potassium evolve while you act; delay has consequences. */
 export function LabSim() {
   useUI((s) => s.pulse);
   const lastT = useRef(0);
@@ -22,7 +22,7 @@ export function LabSim() {
   const t = bench.pt.t; const s = bench.snap;
   return (
     <div className="chal-run">
-      <section className="card"><div className="eyebrow">Simulation · real time ×20</div><h2 className="h2">Hyperkalaemia on the monitor</h2>
+      <section className="card"><div className="eyebrow">Simulation · real time ×20</div><h2 className="h2">Hyperkalemia on the monitor</h2>
         <p>Rhabdomyolysis after a long lie; kidneys shut down. Potassium is {started ? s.k.toFixed(1) : '7.6'} and still rising as muscle breaks down. The ECG and potassium keep evolving while you decide.</p>
         {!started ? <button className="act primary" onClick={start}>Start</button> : <div className="actions"><span className="clock">{Math.floor(t)} min</span><span className="pill">{`K⁺ ${s.k.toFixed(1)} · effective ${s.kEffective.toFixed(1)}`}</span><button className="act" onClick={start}>Restart</button></div>}
         {arrest && <div className="reveal"><b>Cardiac arrest.</b> The membrane lost its safety margin. In the real world: calcium first — it works in minutes — then shift, then remove.</div>}

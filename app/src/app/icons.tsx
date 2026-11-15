@@ -2,7 +2,9 @@
 import type { Module } from './store';
 
 const P: Partial<Record<Module, string>> = {
-  curriculum: 'M4 11l8-7 8 7M6 9.5V20h4.5v-5.5h3V20H18V9.5',
+  cases: 'M4 4h16v12H4zM9 20h6M12 16v4M10 7.5l5 3-5 3z',
+  library: 'M4 11l8-7 8 7M6 9.5V20h4.5v-5.5h3V20H18V9.5',
+  curriculum: 'M8.5 12l2.5 2.5 4.5-5M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z',
   vent: 'M12 3v7.5M12 10.5c-1.2 0-2 .8-2.6 1.8M12 10.5c1.2 0 2 .8 2.6 1.8M8.6 6.2C6 6.8 4 10 4 15c0 3 1.1 5 3.1 5 2.4 0 2.9-1.9 2.9-4V8.8c0-1.6-.4-2.8-1.4-2.6zM15.4 6.2C18 6.8 20 10 20 15c0 3-1.1 5-3.1 5-2.4 0-2.9-1.9-2.9-4V8.8c0-1.6.4-2.8 1.4-2.6z',
   abg: 'M12 3.5s6 6.4 6 10.9a6 6 0 0 1-12 0C6 9.9 12 3.5 12 3.5zM9.2 15h5.6',
   labs: 'M9 3h6M10 3v6.2L5.2 17.6A2.3 2.3 0 0 0 7.2 21h9.6a2.3 2.3 0 0 0 2-3.4L14 9.2V3M7.4 15h9.2',
@@ -14,9 +16,11 @@ const P: Partial<Record<Module, string>> = {
   pediatrics: 'M12 8.5a2.8 2.8 0 1 0 0-5.6 2.8 2.8 0 0 0 0 5.6zM8.6 21l.9-6.2h5l.9 6.2M9.5 14.8 6.4 11.6M14.5 14.8l3.1-3.2M9.5 14.8v-2.3a2.5 2.5 0 0 1 5 0v2.3',
   womens: 'M12 13.5a4.8 4.8 0 1 0 0-9.6 4.8 4.8 0 0 0 0 9.6zM12 13.5V21M8.8 17.5h6.4',
   videos: 'M4 6.5h16v11H4zM10.3 9.6v4.8l4.1-2.4z',
+  // rotor disc over a cross: flight medicine
+  fpc: 'M3 6.5h18M12 6.5v3M9.5 12.5h5M12 10v5M7 9.5h10l-1.6 9H8.6z',
 };
 
 export function DomainIcon({ module }: { module: Module }) {
-  const d = P[module] ?? P.curriculum!;
+  const d = P[module] ?? P.library!;
   return <svg className="domain-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d={d} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>;
 }

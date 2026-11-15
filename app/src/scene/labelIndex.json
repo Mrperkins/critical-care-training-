@@ -227,8 +227,8 @@
   "aka": []
  },
  {
-  "title": "Branch to a neighbouring cell",
-  "desc": "Junction to a neighbouring cell.",
+  "title": "Branch to a neighboring cell",
+  "desc": "Junction to a neighboring cell.",
   "modules": [
    "labs"
   ],
@@ -292,7 +292,7 @@
  },
  {
   "title": "Centrioles",
-  "desc": "Organises the spindle that separates chromosomes when the cell divides.",
+  "desc": "Organizes the spindle that separates chromosomes when the cell divides.",
   "modules": [
    "labs"
   ],
@@ -420,7 +420,7 @@
  },
  {
   "title": "Dependent lung",
-  "desc": "The lowest lung regions (the back, when supine), where oedema and collapse concentrate under gravity.",
+  "desc": "The lowest lung regions (the back, when supine), where edema and collapse concentrate under gravity.",
   "modules": [
    "vent"
   ],
@@ -543,7 +543,7 @@
  },
  {
   "title": "Flooded",
-  "desc": "Alveolus filled with fluid (oedema or pus): no gas exchange, a shunt that extra oxygen barely helps.",
+  "desc": "Alveolus filled with fluid (edema or pus): no gas exchange, a shunt that extra oxygen barely helps.",
   "modules": [
    "vent"
   ],
@@ -695,7 +695,7 @@
  },
  {
   "title": "Interstitium",
-  "desc": "Space between alveolus and capillary. It swells with fluid in oedema and thickens in fibrosis, slowing gas diffusion.",
+  "desc": "Space between alveolus and capillary. It swells with fluid in edema and thickens in fibrosis, slowing gas diffusion.",
   "modules": [
    "vent"
   ],
@@ -751,7 +751,7 @@
  },
  {
   "title": "Lining fluid",
-  "desc": "Thin liquid layer on the alveolar surface. It thickens and floods in pulmonary oedema.",
+  "desc": "Thin liquid layer on the alveolar surface. It thickens and floods in pulmonary edema.",
   "modules": [
    "vent"
   ],
@@ -962,7 +962,7 @@
  },
  {
   "title": "O₂ leaving for the tissue",
-  "desc": "Oxygen unloads from haemoglobin where tissue oxygen levels are low.",
+  "desc": "Oxygen unloads from hemoglobin where tissue oxygen levels are low.",
   "modules": [
    "labs"
   ],
@@ -1029,7 +1029,7 @@
  },
  {
   "title": "Phlebostatic axis",
-  "desc": "Fourth intercostal space, mid-axillary line — the level of the right atrium. Transducers are levelled here.",
+  "desc": "Fourth intercostal space, mid-axillary line — the level of the right atrium. Transducers are leveled here.",
   "modules": [
    "lines"
   ],
@@ -1102,7 +1102,7 @@
  },
  {
   "title": "Pressure bag",
-  "desc": "Pressurised flush bag (about 300 mmHg) that keeps the line open with a slow continuous flush. Below about 250 mmHg blood can back up the line.",
+  "desc": "Pressurized flush bag (about 300 mmHg) that keeps the line open with a slow continuous flush. Below about 250 mmHg blood can back up the line.",
   "modules": [
    "lines"
   ],
@@ -1134,7 +1134,7 @@
   "aka": []
  },
  {
-  "title": "Pulmonary venule: arterialised blood",
+  "title": "Pulmonary venule: arterialized blood",
   "desc": "Blood leaving the lung after gas exchange, now carrying oxygen at arterial levels.",
   "modules": [
    "abg"
@@ -1175,7 +1175,7 @@
  },
  {
   "title": "Recruited",
-  "desc": "An alveolus reopened by pressure (PEEP or a recruitment manoeuvre).",
+  "desc": "An alveolus reopened by pressure (PEEP or a recruitment maneuver).",
   "modules": [
    "vent"
   ],
@@ -1183,7 +1183,7 @@
  },
  {
   "title": "Red blood cell",
-  "desc": "Carries oxygen bound to haemoglobin and gives some of it up in the tissues.",
+  "desc": "Carries oxygen bound to hemoglobin and gives some of it up in the tissues.",
   "modules": [
    "labs"
   ],
@@ -1191,7 +1191,7 @@
  },
  {
   "title": "Red cell",
-  "desc": "Red blood cell — carries oxygen bound to haemoglobin.",
+  "desc": "Red blood cell — carries oxygen bound to hemoglobin.",
   "modules": [
    "vent"
   ],
@@ -1214,7 +1214,7 @@
   "aka": []
  },
  {
-  "title": "Retroperitoneal haematoma",
+  "title": "Retroperitoneal hematoma",
   "desc": "Blood behind the peritoneum (e.g. from the aorta, kidney or pelvis). FAST cannot see it; CT can.",
   "modules": [
    "abdomen"
@@ -1287,7 +1287,7 @@
  },
  {
   "title": "Small bowel",
-  "desc": "About 6 m of bowel in the middle of the abdomen; obstruction or loss of blood supply (mesenteric ischaemia) makes it dilate and leak.",
+  "desc": "About 6 m of bowel in the middle of the abdomen; obstruction or loss of blood supply (mesenteric ischemia) makes it dilate and leak.",
   "modules": [
    "abdomen"
   ],

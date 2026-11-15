@@ -29,7 +29,7 @@ export function applyAbgStep(lesson: AbgLesson, i: number) {
 function PopCards() { const id = useDirector((s) => s.tl?.id); return id === APNOEA_LESSON.id ? <ApnoeaCard /> : null; }
 export function AbgLearn() {
   return (
-    <LessonShell lessons={ABG_LESSONS} apply={applyAbgStep} timelines={[...ABG_TIMELINES, OB_GAS_LESSON, APNOEA_LESSON]} timelineChildren={() => <><PopCards /><SampleCards /><AcidBaseMap /><AbgInterpret /></>} intro="The narrator changes causes — drive, V/Q, shunt, haemoglobin, acid load, time — and the patient model produces the gases. The anatomy on the left follows the same numbers.">
+    <LessonShell lessons={ABG_LESSONS} apply={applyAbgStep} timelines={[...ABG_TIMELINES, OB_GAS_LESSON, APNOEA_LESSON]} timelineChildren={() => <><PopCards /><SampleCards /><AcidBaseMap /><AbgInterpret /></>} intro="The narrator changes causes — drive, V/Q, shunt, hemoglobin, acid load, time — and the patient model produces the gases. The anatomy on the left follows the same numbers.">
       {() => <><SampleCards /><StationCard /><AcidBaseMap /><AbgInterpret /></>}
     </LessonShell>
   );
