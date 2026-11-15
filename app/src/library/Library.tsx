@@ -334,10 +334,11 @@ function ReferencePage() {
       <p className="lib-lede">Imaging, audio, case conferences, videos and your own records.</p>
       <section className="lib-banners ref" aria-label="Reference">
         <Banner img="abd-aorta" title="Imaging academy" sub="Ten courses with real X-ray, CT, MRI and ultrasound" onClick={() => openLibrary({ page: 'imaging' })} />
-        <Banner img="cardiac-mi" title="Listen" sub="Expert sessions and voice-guided mental reps" onClick={() => openLibrary({ page: 'listen' })} />
+        <Banner img="cardiac-mi" title="Listen" sub="Computer-narrated sessions and voice-guided mental reps" onClick={() => openLibrary({ page: 'listen' })} />
         <Banner img="cardiac-congenital" title="Case conference" sub="Slides and audio · clinical review pending" onClick={() => openFree('cases')} />
         <Banner img="lines-devices" title="Videos & skills" sub="Equipment, pumps and procedures (needs a connection)" onClick={() => openFree('videos')} />
         <Banner img="vent-foundations" title="Progress & bookmarks" sub="What you have finished, saved and missed" onClick={() => openFree('curriculum')} />
+        <Banner img="neuro-stroke" title="Clinical review" sub="New wording waiting for sign-off" onClick={() => openLibrary({ page: 'review' })} />
         <Banner img="gas-basics" title="Download for offline" sub="Lessons, audio and imaging packs" onClick={() => openLibrary({ page: 'offline' })} />
       </section>
     </div>
@@ -551,6 +552,7 @@ function PathPage({ id }: { id: string }) {
   );
 }
 
+const ReviewPage = lazy(() => import('./ReviewPage').then((m) => ({ default: m.ReviewPage })));
 const AudioHome = lazy(() => import('./audio/AudioHome'));
 const ImagingAcademy = lazy(() => import('./imaging/ImagingAcademy').then((m) => ({ default: m.ImagingAcademy })));
 
@@ -562,6 +564,7 @@ export function Library() {
       {view.page === 'learn' && <LearnPage />}
       {view.page === 'practice' && <PracticePage key={view.shelf ?? 'all'} initial={view.shelf} />}
       {view.page === 'reference' && <ReferencePage />}
+      {view.page === 'review' && <Suspense fallback={<div className="module-loading" role="status"><span>Loading</span></div>}><ReviewPage /></Suspense>}
       {view.page === 'listen' && <Suspense fallback={<div className="module-loading" role="status"><span>Loading</span></div>}><AudioHome /></Suspense>}
       {view.page === 'module' && <ModulePage id={view.id} />}
       {view.page === 'shelf' && (view.id !== 'all' && !view.filter ? <SystemHub key={view.id} id={view.id} /> : <ShelfPage key={`${view.id}-${view.filter ?? ''}`} id={view.id} initial={view.filter} />)}
