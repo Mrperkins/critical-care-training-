@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useMemo, useState } from 'react';
 import { useUI } from '../app/store';
 import { director, useDirector } from '../director/director';
 import { PATIENTS } from './patients';
+import { AgeScene } from './AgeScene';
 import { EXPLAINERS } from './explainers';
 import { matchesDisease } from './DiseaseBrowser';
 import { steps, stepIndexAt } from '../director/timeline';
@@ -39,6 +40,7 @@ export function AtlasModule({ domain, onExit, onOpenVent }: { domain: AtlasDomai
   useEffect(() => { setResult(null); setMediaOpen(false); setQuery(''); const current = useDirector.getState().tl?.id; if (current !== `atlas-${disease.id}`) { reset(); if (current?.startsWith('atlas-')) director.unload(); } }, [disease.id, mode]);
   useEffect(() => () => { if (useDirector.getState().tl?.id.startsWith('atlas-')) director.unload(); }, []);
   const practice = mode === 'challenge' || mode === 'sim';
+  const small = disease.population === 'child' || disease.population === 'neonate'; const [ages, setAges] = useState(false);
   const choose = (decision: Decision) => {
     if (result) return;
     const before = diseaseState(disease, .75); setSeverity(.75); setTarget(disease.target);
@@ -56,11 +58,11 @@ export function AtlasModule({ domain, onExit, onOpenVent }: { domain: AtlasDomai
       </div>
       <div className="atlas-visual">
         <div className="atlas-visual-3d" role="figure" aria-label={`${disease.title}: ${disease.findings.map(f => f.label).join(', ')}`} data-organs={affectedOrgans(disease).join(' ')}>
-          <Suspense fallback={<p className="loading">Loading 3D anatomy…</p>}><PatientScene disease={disease} state={state} target={target} /></Suspense>
+          <Suspense fallback={<p className="loading">Loading 3D anatomy…</p>}>{ages && small ? <AgeScene focus={disease.population === 'neonate' ? 'infant' : 'child'} /> : <PatientScene disease={disease} state={state} target={target} />}</Suspense>
         </div>
       </div>
-      <div className="atlas-camera-actions" role="group" aria-label="Clinical focus"><button aria-pressed={target === 'body.whole'} onClick={() => { director.pause(); setTarget('body.whole'); }}>Whole patient</button><button aria-pressed={target === disease.target} onClick={() => { director.pause(); setTarget(disease.target); }}>Affected anatomy</button>{mode === 'learn' && <button onClick={openContext}>Lesson &amp; progress</button>}</div>
-      <p className="atlas-caption">{target === 'body.whole' ? disease.distinction : disease.mechanism}</p>
+      <div className="atlas-camera-actions" role="group" aria-label="Clinical focus"><button aria-pressed={!(ages && small) && target === 'body.whole'} onClick={() => { director.pause(); setAges(false); setTarget('body.whole'); }}>Whole patient</button><button aria-pressed={!(ages && small) && target === disease.target} onClick={() => { director.pause(); setAges(false); setTarget(disease.target); }}>Affected anatomy</button>{small && <button aria-pressed={ages} onClick={() => { director.pause(); setAges(true); }}>{disease.population === 'neonate' ? 'Infant' : 'Child'} vs adult body</button>}{mode === 'learn' && <button onClick={openContext}>Lesson &amp; progress</button>}</div>
+      <p className="atlas-caption">{ages && small ? 'Real body models at true scale. A small child has a proportionally larger head, a shorter neck and a smaller, more anterior airway; organ views in this lesson are still drawn on the adult reference.' : target === 'body.whole' ? disease.distinction : disease.mechanism}</p>
       {active && chapter && <section className="atlas-scene-lesson" aria-label="Scene chapter controls"><span className="eyebrow">Chapter {stepIndexAt(tl,t)+1} of {steps(tl).length}</span><h3>{chapter.title}</h3><p>{chapter.say}</p><div className="actions"><button className="act" disabled={stepIndexAt(tl,t)<=0} onClick={()=>director.step(-1)}>Previous</button><button className="act primary" onClick={()=>director.toggle()}>{playing?'Pause':'Play'}</button><button className="act" disabled={stepIndexAt(tl,t)>=steps(tl).length-1} onClick={()=>director.step(1)}>Next</button></div>{chapter.checkpoint && <Prediction key={chapter.id} checkpoint={chapter.checkpoint}/>}</section>}
       <details className="atlas-findings-disclosure"><summary>Illustrative findings</summary><div className="atlas-findings" aria-label="Visual findings">{disease.findings.map(f => <div key={f.channel}><span>{f.label}</span><meter min="0" max="1" value={state[f.channel]} aria-label={`${f.label}, illustrative intensity`} /><span className="sr-only">{Math.round(state[f.channel] * 100)}% of illustrative range</span></div>)}</div>
       <p className="credit">Finding bars show illustrative intensity, not measured values. Each finding also appears in the written lesson.</p></details>
