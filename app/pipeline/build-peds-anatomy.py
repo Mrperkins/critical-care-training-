@@ -19,7 +19,7 @@ CAND = json.load(open(os.path.join(HERE, 'peds-candidates.json')))
 MUST = ['lung_l', 'lung_r', 'heart', 'liver', 'spleen', 'kidney_l', 'kidney_r', 'skin', 'bones']
 KEY = ['lung_l', 'lung_r', 'heart', 'liver', 'spleen', 'kidney_l', 'kidney_r']
 # triangle budget per structure (the body surface and skeleton carry the shape; small organs need few)
-BUDGET = {'skin': 14000, 'bones': 22000, 'lung_l': 5000, 'lung_r': 5000, 'liver': 5000, 'heart': 4000, 'small_intestine': 6000, 'large_intestine': 6000}
+BUDGET = {'skin': 12000, 'bones': 40000, 'lung_l': 5000, 'lung_r': 5000, 'liver': 5000, 'heart': 4000, 'small_intestine': 6000, 'large_intestine': 6000}
 COLOR = {'skin': [222, 184, 160], 'bones': [226, 220, 204], 'lung_l': [222, 150, 150], 'lung_r': [222, 150, 150], 'heart': [176, 48, 48], 'liver': [128, 62, 44], 'spleen': [112, 52, 84],
          'kidney_l': [150, 74, 58], 'kidney_r': [150, 74, 58], 'stomach': [214, 150, 128], 'small_intestine': [222, 170, 140], 'large_intestine': [196, 140, 112], 'bladder': [222, 200, 120],
          'thymus': [232, 196, 150], 'esophagus': [196, 128, 110], 'pancreas': [226, 190, 120], 'spinal_canal': [240, 226, 150], 'gall_bladder': [90, 130, 70], 'duodenum': [214, 160, 130],
@@ -53,11 +53,11 @@ def volume_ml(cs, dz):
     for _, p in cs: x, y = p[:, 0], p[:, 1]; a += abs(np.dot(x, np.roll(y, 1)) - np.dot(y, np.roll(x, 1))) / 2
     return a * dz / 1000.0
 
-def mesh(cs, dz, target, px=None):
+def mesh(cs, dz, target, px=None, solid=False, sigma=1.0):
     """Planar contours -> voxel mask (even-odd fill, so holes stay holes) -> smoothed marching-cubes surface in mm."""
     from skimage.draw import polygon
     from skimage.measure import marching_cubes
-    from scipy.ndimage import gaussian_filter, zoom
+    from scipy.ndimage import binary_fill_holes, gaussian_filter, zoom
     import trimesh
     pts = np.concatenate([p for _, p in cs]); lo = pts.min(0) - 4; hi = pts.max(0) + 4
     ext = float(max(hi - lo)); px = px or (1.0 if ext < 140 else 1.5 if ext < 260 else 2.0)
@@ -65,9 +65,14 @@ def mesh(cs, dz, target, px=None):
     nx = int(np.ceil((hi[0] - lo[0]) / px)) + 1; ny = int(np.ceil((hi[1] - lo[1]) / px)) + 1
     vol = np.zeros((nz, ny, nx), dtype=bool)
     for z, p in cs:
-        k = int(round((z - z0) / dz)); rr, cc = polygon((p[:, 1] - lo[1]) / px, (p[:, 0] - lo[0]) / px, (ny, nx)); vol[k, rr, cc] ^= True
+        k = int(round((z - z0) / dz)); rr, cc = polygon((p[:, 1] - lo[1]) / px, (p[:, 0] - lo[0]) / px, (ny, nx))
+        if solid: vol[k, rr, cc] = True
+        else: vol[k, rr, cc] ^= True
+    if solid:                                                        # the body outline: one closed surface, whatever was drawn inside it
+        for k in range(nz):
+            if vol[k].any(): vol[k] = binary_fill_holes(vol[k])
     f = max(1, int(round(dz / px)))                                  # resample between slices so the surface is not stair-stepped
-    v = zoom(vol.astype(np.float32), (f, 1, 1), order=1); v = gaussian_filter(v, (0.9 * f / 2 + 0.4, 1.0, 1.0))
+    v = zoom(vol.astype(np.float32), (f, 1, 1), order=1); v = gaussian_filter(v, (0.9 * f / 2 + 0.4, sigma, sigma))
     if v.max() < 0.5: return None
     vs, fs, _, _ = marching_cubes(v, 0.5, spacing=(dz / f, px, px))
     m = trimesh.Trimesh(vertices=np.c_[vs[:, 2] + lo[0], vs[:, 1] + lo[1], vs[:, 0] + z0], faces=fs, process=True)
@@ -75,6 +80,9 @@ def mesh(cs, dz, target, px=None):
         try: m = m.simplify_quadric_decimation(face_count=target)
         except Exception as e: print('  decimation skipped:', e)
     trimesh.smoothing.filter_taubin(m, lamb=0.5, nu=-0.53, iterations=8)
+    if solid:                                                        # drop specks outside the body (table, tubing)
+        parts = m.split(only_watertight=False)
+        if len(parts) > 1: m = max(parts, key=lambda x: len(x.faces))
     return m
 
 def build(structs, band, who):
@@ -83,7 +91,7 @@ def build(structs, band, who):
     ref = structs.get('skin') or max(structs.values(), key=len); rp = np.concatenate([p for _, p in ref]); rz = [c[0] for c in ref]
     centre = np.array([rp[:, 0].mean(), rp[:, 1].mean(), min(rz)])
     for name, cs in sorted(structs.items()):
-        m = mesh(cs, dz, BUDGET.get(name, 2500))
+        m = mesh(cs, dz, BUDGET.get(name, 2500), px=1.0 if name == 'bones' else None, solid=name == 'skin', sigma=0.6 if name == 'bones' else 1.0)
         if m is None or len(m.faces) < 20: continue
         # patient (x: to the patient's left, y: to the back, z: to the head), mm -> app (x right of screen = patient left, y up, z to the front), meters
         v = (m.vertices - centre) / 1000.0; m.vertices = np.c_[v[:, 0], v[:, 2], -v[:, 1]]; m.fix_normals()
@@ -117,7 +125,7 @@ def typical(rows):
     rel = lambda r: np.array([np.log(r['ml'][k] / (r['ml']['skin'] / r['span_mm'])) for k in KEY])
     M = np.array([rel(r) for r in ok]); med = np.median(M, 0)
     for r, m in zip(ok, M): r['deviation'] = round(float(np.abs(m - med).max()), 3); r['why'] = 'usable'
-    best = min(ok, key=lambda r: (r['deviation'], -r['n'])); best['why'] = 'chosen: most typical organ sizes for the band'
+    best = min(ok, key=lambda r: (round(r['deviation'], 2), -r['span_mm'], -r['n'])); best['why'] = 'chosen: most typical organ sizes for the band'
     return best
 
 def main():
