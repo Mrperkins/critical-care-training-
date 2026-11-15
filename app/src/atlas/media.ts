@@ -16,7 +16,7 @@ export const ATLAS_MEDIA: Record<string, { ids:string[]; context:string }> = {
   aaa:{ids:['aaa-us-sagittal-haggstrom','aaa-us-axial-haggstrom','ct-aaa-intact-66mm-coronal-2025'],context:'Compare the aneurysmal abdominal aorta on ultrasound in two views and on CT.'},
   'rupturing-aaa':{ids:['ct-aaa-rupture-96mm-2026','ct-aaa-rupture-right-hematoma-2025','aaa-us-sagittal-haggstrom'],context:'Compare a ruptured aneurysm with retroperitoneal blood on CT; the ultrasound shows aneurysmal anatomy only. Retroperitoneal blood may be missed by FAST.'},
   'abdominal-hemorrhage':{ids:['fast-ruq-positive','fast-pelvis-positive-vats','fast-luq-positive-scandj-2023','ct-splenic-laceration-hemoperitoneum-2025'],context:'Compare free fluid in the right upper quadrant; the image alone does not identify its source.'},
-  'acute-heart-failure':{ids:['cxr-flash-edema-portable-2026'],context:'Compare acute cardiogenic pulmonary oedema on a portable film with the model.'},
+  'acute-heart-failure':{ids:['cxr-flash-edema-portable-2026'],context:'Compare acute cardiogenic pulmonary edema on a portable film with the model.'},
   'aortic-dissection':{ids:['ct-dissection-type-a-arch-flap-2025','ct-dissection-type-b-flap-2026','ct-renal-malperfusion-dissection-fl-2025'],context:'Compare an intimal flap reaching the arch (type A), one confined to the descending aorta (type B), and a kidney starved by the false lumen.'},
   'pediatric-asthma':{ids:['cxr-hyperinflation-asthma-2025'],context:'Compare hyperinflation in near-fatal asthma in a 12-year-old: flat diaphragms, long lung fields.'},
   croup:{ids:['peds-croup-steeple-2019'],context:'Compare the tapered subglottic narrowing (steeple sign) on a frontal neck film; the diagnosis is clinical and most children need no film.'},

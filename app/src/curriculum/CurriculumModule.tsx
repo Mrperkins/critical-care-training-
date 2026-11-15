@@ -66,7 +66,7 @@ export function CurriculumModule() {
         {doms.map((d) => (
           <section key={d.domain} className="card cur-dom">
             <div className="card-h"><h3>{d.domain}</h3><span className="muted small">{d.entries.length ? `${d.done}/${d.entries.length}` : ''}</span></div>
-            {d.entries.length === 0 ? <p className="muted small">{['Paediatric', 'Neonatal', 'OB'].includes(d.domain) ? 'No lessons yet — planned.' : 'Nothing matches these filters.'}</p> : <>
+            {d.entries.length === 0 ? <p className="muted small">{['Pediatric', 'Neonatal', 'OB'].includes(d.domain) ? 'No lessons yet — planned.' : 'Nothing matches these filters.'}</p> : <>
               <div className="cur-bar"><i style={{ width: `${(100 * d.done) / d.entries.length}%` }} /></div>
               <ul className="cur-list">{d.entries.map((e) => { const key = `${d.domain}:${e.id}`; const miss = missingPrereqs(e, p.completed); return (
                 <li key={e.id} className={p.completed[e.id] ? 'done' : ''}>
@@ -145,11 +145,11 @@ const SYSTEMS: { module: Module; label: string; scope: string; atlas?: AtlasDoma
   { module: 'labs', label: 'Labs', scope: 'Potassium, sodium, coagulation, lactate', atlas: 'labs' },
   { module: 'lines', label: 'Hemodynamics', scope: 'Shock, oxygen delivery, arterial and central lines', atlas: 'lines' },
   { module: 'heart', label: 'Cardiac', scope: 'Shunts, newborn transition, the MI Locator', atlas: 'heart' },
-  { module: 'abdomen', label: 'Abdomen', scope: 'FAST, aorta, solid organs, ischaemic bowel', atlas: 'abdomen' },
-  { module: 'neuro', label: 'Neuro', scope: 'Stroke, haemorrhage, ICP and the EVD', atlas: 'neuro' },
+  { module: 'abdomen', label: 'Abdomen', scope: 'FAST, aorta, solid organs, ischemic bowel', atlas: 'abdomen' },
+  { module: 'neuro', label: 'Neuro', scope: 'Stroke, hemorrhage, ICP and the EVD', atlas: 'neuro' },
   { module: 'moa', label: 'Pharmacology', scope: 'Vasopressors, sedation, reversal agents' },
-  { module: 'pediatrics', label: 'Pediatrics', scope: 'The child’s airway, shock and apnoea', atlas: 'pediatrics' },
-  { module: 'womens', label: 'Women’s Health / OB', scope: 'The pregnant circulation, haemorrhage, gases', atlas: 'womens' },
+  { module: 'pediatrics', label: 'Pediatrics', scope: 'The child’s airway, shock and apnea', atlas: 'pediatrics' },
+  { module: 'womens', label: 'Women’s Health / OB', scope: 'The pregnant circulation, hemorrhage, gases', atlas: 'womens' },
   { module: 'fpc', label: 'FP-C exam prep', scope: 'The IBSC blueprint as a course: 10 domains, exam-style questions' },
 ];
 /** Every system at a glance: what it covers and how much there is. */

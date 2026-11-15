@@ -6,11 +6,11 @@ import { sodiumAdapter } from '../benchAdapter';
 
 export const NICARDIPINE: MechanismDefinition = {
   id: 'nicardipine', drug: 'Nicardipine', drugClass: 'Dihydropyridine calcium-channel blocker (arteriolar)',
-  blurb: 'A patient whose blood pressure must come down smoothly — for example after an intracerebral haemorrhage. A nicardipine infusion is titrated.',
+  blurb: 'A patient whose blood pressure must come down smoothly — for example after an intracerebral hemorrhage. A nicardipine infusion is titrated.',
   selectivity: [{ receptor: 'L-type (vascular)', activity: 1 }, { receptor: 'L-type (cardiac)', activity: 0.1 }],
   nodes: [
     { id: 'nic', kind: 'drug', label: 'Nicardipine', sub: 'IV infusion', explain: 'Nicardipine is a dihydropyridine: it blocks L-type calcium channels, with strong selectivity for vascular smooth muscle over heart muscle.' },
-    { id: 'lt', kind: 'channel', label: 'L-type Ca²⁺ channel', sub: 'arteriolar smooth muscle', explain: 'It binds the L-type channel in arteriolar smooth muscle and keeps it from opening when the membrane depolarises.' },
+    { id: 'lt', kind: 'channel', label: 'L-type Ca²⁺ channel', sub: 'arteriolar smooth muscle', explain: 'It binds the L-type channel in arteriolar smooth muscle and keeps it from opening when the membrane depolarizes.' },
     { id: 'ca', kind: 'messenger', label: 'Ca²⁺ entry ↓', explain: 'Less calcium enters each smooth-muscle cell.' },
     { id: 'mlck', kind: 'enzyme', label: 'Ca²⁺–calmodulin → MLCK ↓', explain: 'With less calcium–calmodulin, myosin light-chain kinase is less active and the muscle relaxes.' },
     { id: 'dil', kind: 'organ', label: 'Arteriolar dilation', sub: 'little venodilation', explain: 'Arterioles dilate; veins much less, so preload is largely preserved.' },
@@ -29,15 +29,15 @@ export const NICARDIPINE: MechanismDefinition = {
 
 export const ALBUTEROL: MechanismDefinition = {
   id: 'albuterol', drug: 'Albuterol (salbutamol)', drugClass: 'Short-acting β2 agonist',
-  blurb: 'A ventilated patient in status asthmaticus: high peak pressures, prolonged expiration, air trapping. Nebulised albuterol is given in-line.',
+  blurb: 'A ventilated patient in status asthmaticus: high peak pressures, prolonged expiration, air trapping. Nebulized albuterol is given in-line.',
   selectivity: [{ receptor: 'β2', activity: 1 }, { receptor: 'β1', activity: 0.25 }, { receptor: 'α', activity: 0 }],
   nodes: [
-    { id: 'alb', kind: 'drug', label: 'Albuterol', sub: 'nebulised / MDI', explain: 'Albuterol, called salbutamol outside North America, is a selective beta-2 agonist delivered straight to the airways.' },
+    { id: 'alb', kind: 'drug', label: 'Albuterol', sub: 'nebulized / MDI', explain: 'Albuterol, called salbutamol outside North America, is a selective beta-2 agonist delivered straight to the airways.' },
     { id: 'b2', kind: 'receptor', label: 'β2 receptor', sub: 'airway smooth muscle', explain: 'It binds beta-2 receptors on bronchial smooth muscle.' },
     { id: 'gs', kind: 'transducer', label: 'Gs → adenylyl cyclase', explain: 'Beta-2 couples to Gs, which switches on adenylyl cyclase.' },
     { id: 'camp', kind: 'messenger', label: 'cAMP → PKA' },
     { id: 'mlck', kind: 'enzyme', label: 'MLCK inhibited · Ca²⁺ ↓', explain: 'Cyclic AMP and protein kinase A switch off myosin light-chain kinase and lower intracellular calcium, so the smooth muscle relaxes.' },
-    { id: 'pump', kind: 'enzyme', label: 'Na⁺/K⁺-ATPase ↑', sub: 'skeletal muscle', target: 'membrane.nak_atpase', explain: 'Absorbed drug also stimulates the sodium potassium pump in skeletal muscle, moving potassium into cells — useful in hyperkalaemia, a cause of hypokalaemia in repeated dosing.' },
+    { id: 'pump', kind: 'enzyme', label: 'Na⁺/K⁺-ATPase ↑', sub: 'skeletal muscle', target: 'membrane.nak_atpase', explain: 'Absorbed drug also stimulates the sodium potassium pump in skeletal muscle, moving potassium into cells — useful in hyperkalemia, a cause of hypokalemia in repeated dosing.' },
     { id: 'relax', kind: 'cell', label: 'Bronchial smooth muscle relaxes' },
     { id: 'rad', kind: 'organ', label: 'Airway radius ↑', explain: 'The airways widen. Resistance depends on the fourth power of the radius, so a small widening makes a large difference.' },
     { id: 'k', kind: 'vital', label: 'Plasma K⁺ ↓' },
@@ -53,7 +53,7 @@ export const ALBUTEROL: MechanismDefinition = {
 };
 
 export const KETAMINE: MechanismDefinition = {
-  id: 'ketamine', drug: 'Ketamine', drugClass: 'NMDA-receptor antagonist (dissociative anaesthetic)',
+  id: 'ketamine', drug: 'Ketamine', drugClass: 'NMDA-receptor antagonist (dissociative anesthetic)',
   blurb: 'Induction for intubation. Ketamine is often chosen because it usually supports blood pressure — but not in every patient.',
   selectivity: [{ receptor: 'NMDA', activity: 1 }, { receptor: 'NE reuptake', activity: 0.45 }, { receptor: 'Opioid (μ)', activity: 0.15 }],
   nodes: [
@@ -61,7 +61,7 @@ export const KETAMINE: MechanismDefinition = {
     { id: 'nmda', kind: 'receptor', label: 'NMDA receptor (channel block)', sub: 'thalamo-cortical, limbic', explain: 'It plugs the open NMDA channel. Thalamo-cortical and limbic circuits are functionally dissociated.' },
     { id: 'net', kind: 'transducer', label: 'Catecholamine reuptake ↓', sub: 'sympathetic outflow ↑', explain: 'Separately, it increases sympathetic outflow and blocks the reuptake of norepinephrine.' },
     { id: 'myo', kind: 'cell', label: 'Direct myocardial depression', explain: 'Ketamine also depresses the heart muscle directly. Normally the sympathetic effect hides this.' },
-    { id: 'diss', kind: 'organ', label: 'Dissociative anaesthesia', sub: 'eyes may open, nystagmus', explain: 'The result is dissociative anaesthesia and strong analgesia, with airway reflexes and breathing largely preserved.' },
+    { id: 'diss', kind: 'organ', label: 'Dissociative anesthesia', sub: 'eyes may open, nystagmus', explain: 'The result is dissociative anesthesia and strong analgesia, with airway reflexes and breathing largely preserved.' },
     { id: 'anal', kind: 'organ', label: 'Analgesia', sub: 'also at low doses' },
     { id: 'emer', kind: 'organ', label: 'Emergence phenomena', sub: 'less with benzodiazepine' },
     { id: 'bronch', kind: 'organ', label: 'Bronchodilation' },
@@ -82,17 +82,17 @@ export const KETAMINE: MechanismDefinition = {
 };
 
 export const ROCURONIUM: MechanismDefinition = {
-  id: 'rocuronium', drug: 'Rocuronium', drugClass: 'Non-depolarising neuromuscular blocker',
+  id: 'rocuronium', drug: 'Rocuronium', drugClass: 'Non-depolarizing neuromuscular blocker',
   blurb: 'Rapid-sequence intubation, then a patient fighting the ventilator. Rocuronium stops the muscles — and nothing else.',
   selectivity: [{ receptor: 'nAChR (NMJ)', activity: 1 }, { receptor: 'Brain', activity: 0 }, { receptor: 'Pain', activity: 0 }],
   nodes: [
-    { id: 'roc', kind: 'drug', label: 'Rocuronium', sub: 'IV 1.2 mg/kg (RSI)', explain: 'Rocuronium is a non-depolarising neuromuscular blocker.' },
+    { id: 'roc', kind: 'drug', label: 'Rocuronium', sub: 'IV 1.2 mg/kg (RSI)', explain: 'Rocuronium is a non-depolarizing neuromuscular blocker.' },
     { id: 'nach', kind: 'receptor', label: 'Nicotinic ACh receptor', sub: 'motor end-plate', explain: 'It competes with acetylcholine for the nicotinic receptors on the motor end-plate, without opening them.' },
     { id: 'epp', kind: 'channel', label: 'No end-plate potential', explain: 'Acetylcholine still arrives, but too few receptors open, so the end-plate never reaches threshold.' },
     { id: 'ap', kind: 'cell', label: 'No muscle action potential' },
     { id: 'par', kind: 'organ', label: 'Flaccid paralysis', sub: 'incl. diaphragm', explain: 'Every skeletal muscle goes flaccid, including the diaphragm: the patient cannot breathe or move.' },
     { id: 'effort', kind: 'vital', label: 'Patient effort → 0', explain: 'On the ventilator, all patient effort disappears and every breath is machine-delivered.' },
-    { id: 'nosed', kind: 'vital', label: 'NO sedation', explain: 'It has no effect on the brain: no sedation, no analgesia, no amnesia. A paralysed patient can be fully awake and in pain — always give sedation and analgesia first and keep them going.' },
+    { id: 'nosed', kind: 'vital', label: 'NO sedation', explain: 'It has no effect on the brain: no sedation, no analgesia, no amnesia. A paralyzed patient can be fully awake and in pain — always give sedation and analgesia first and keep them going.' },
     { id: 'noanal', kind: 'vital', label: 'NO analgesia' },
     { id: 'noamn', kind: 'vital', label: 'NO amnesia' },
     { id: 'rev', kind: 'drug', label: 'Sugammadex', sub: 'encapsulates rocuronium', rank: 3 },
@@ -107,10 +107,10 @@ export const ROCURONIUM: MechanismDefinition = {
 
 export const HYPERTONIC: MechanismDefinition = {
   id: 'hypertonic', drug: 'Hypertonic saline (3 %)', drugClass: 'Osmotic therapy',
-  blurb: 'Acute hyponatraemia with seizures: sodium 118 and swollen brain cells. Hypertonic saline is given in small boluses.',
+  blurb: 'Acute hyponatremia with seizures: sodium 118 and swollen brain cells. Hypertonic saline is given in small boluses.',
   nodes: [
-    { id: 'hts', kind: 'drug', label: '3 % sodium chloride', sub: '100–150 mL boluses', explain: 'Three-percent saline carries about five hundred millimoles of sodium per litre, far more than plasma.' },
-    { id: 'na', kind: 'messenger', label: 'Plasma Na⁺ ↑', explain: 'Each hundred-millilitre bolus raises plasma sodium by roughly two.' },
+    { id: 'hts', kind: 'drug', label: '3 % sodium chloride', sub: '100–150 mL boluses', explain: 'Three-percent saline carries about five hundred millimoles of sodium per liter, far more than plasma.' },
+    { id: 'na', kind: 'messenger', label: 'Plasma Na⁺ ↑', explain: 'Each hundred-milliliter bolus raises plasma sodium by roughly two.' },
     { id: 'osm', kind: 'messenger', label: 'Extracellular osmolality ↑', explain: 'Extracellular fluid becomes more concentrated than the inside of the cells.' },
     { id: 'bbb', kind: 'channel', label: 'Intact blood–brain barrier', sub: 'Na⁺ cannot follow', explain: 'Sodium cannot cross an intact blood–brain barrier quickly, but water can, through aquaporin-4.' , target: 'membrane.aqp' },
     { id: 'water', kind: 'cell', label: 'Water leaves brain cells' },
@@ -121,6 +121,6 @@ export const HYPERTONIC: MechanismDefinition = {
   edges: [
     { from: 'hts', to: 'na', sign: 1 }, { from: 'na', to: 'osm', sign: 1 }, { from: 'osm', to: 'bbb', sign: 1 }, { from: 'bbb', to: 'water', sign: 1 }, { from: 'water', to: 'vol', sign: -1 }, { from: 'vol', to: 'icp', sign: 1 }, { from: 'na', to: 'limit', sign: 1 },
   ],
-  patient: sodiumAdapter({ scenario: 'acute hyponatraemia 118', na: 118, maxDoses: 3 }),
-  summary: 'A small rise in sodium is enough to shrink swollen brain cells. In chronic hyponatraemia the brain has already adapted, so correct slowly: too fast a rise risks osmotic demyelination.',
+  patient: sodiumAdapter({ scenario: 'acute hyponatremia 118', na: 118, maxDoses: 3 }),
+  summary: 'A small rise in sodium is enough to shrink swollen brain cells. In chronic hyponatremia the brain has already adapted, so correct slowly: too fast a rise risks osmotic demyelination.',
 };

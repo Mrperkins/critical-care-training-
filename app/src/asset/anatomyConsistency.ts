@@ -1,6 +1,6 @@
 /**
  * Rigid translation-only registration of the same HuBMAP/Visible Human Male heart
- * across the respiratory (lung-centred) and cardiac (body-centred) export frames.
+ * across the respiratory (lung-centered) and cardiac (body-centered) export frames.
  * No rescaling, rotation, morphing or fabricated anatomical geometry is allowed.
  */
 import * as THREE from 'three';

@@ -28,7 +28,7 @@ describe('chest X-ray from the vent session', () => {
     expect(has(p.st, /Right lung collapse/)).toBe(true);
     const b = film('plug', () => session.intervene('bronchoscopy'), 8); expect(b.st.side[0].atelectasis).toBeLessThan(0.05);
   });
-  it('pulmonary oedema: perihilar opacity, big heart, effusions', () => {
+  it('pulmonary edema: perihilar opacity, big heart, effusions', () => {
     const e = film('edema'); expect(e.st.edema).toBeGreaterThan(0); expect(e.keys).toContain('pulmonary_edema');
     expect(e.st.ctr).toBeGreaterThan(0.55); expect(has(e.st, /bat-wing/)).toBe(true); expect(has(e.st, /effusion/)).toBe(true);
   });

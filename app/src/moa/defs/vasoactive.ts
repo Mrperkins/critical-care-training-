@@ -16,7 +16,7 @@ export const EPINEPHRINE: MechanismDefinition = {
     { id: 'gq', kind: 'transducer', label: 'Gq → IP₃ → Ca²⁺' },
     { id: 'ino', kind: 'cell', label: 'Contractility ↑ · rate ↑', explain: 'Cyclic AMP in heart cells raises contractility and heart rate.' },
     { id: 'relax', kind: 'cell', label: 'MLCK inhibited → relaxation', explain: 'In smooth muscle, cyclic AMP relaxes the muscle: muscle-bed arterioles dilate and the bronchi open.' },
-    { id: 'glyco', kind: 'cell', label: 'Glycogenolysis · lactate ↑', explain: 'In the liver and muscle it mobilises glucose and raises lactate, even when perfusion is fine. Remember this when you read a lactate on epinephrine.' },
+    { id: 'glyco', kind: 'cell', label: 'Glycogenolysis · lactate ↑', explain: 'In the liver and muscle it mobilizes glucose and raises lactate, even when perfusion is fine. Remember this when you read a lactate on epinephrine.' },
     { id: 'cons', kind: 'organ', label: 'Skin / gut vasoconstriction', explain: 'Alpha-1 constricts the skin and splanchnic beds.' },
     { id: 'dil', kind: 'organ', label: 'Muscle-bed vasodilation' },
     { id: 'co', kind: 'vital', label: 'Cardiac output ↑' },
@@ -46,7 +46,7 @@ export const VASOPRESSIN: MechanismDefinition = {
     { id: 'v2', kind: 'receptor', label: 'V2 receptor', sub: 'collecting duct', explain: 'In the kidney it acts on V2 receptors in the collecting duct.' },
     { id: 'gq', kind: 'transducer', label: 'Gq → PLC → IP₃', explain: 'V1a couples to Gq, releasing intracellular calcium.' },
     { id: 'gs', kind: 'transducer', label: 'Gs → cAMP', explain: 'V2 couples to Gs and cyclic AMP.' },
-    { id: 'katp', kind: 'channel', label: 'K-ATP channels closed', sub: 'membrane depolarised', explain: 'It also closes the ATP-sensitive potassium channels that sepsis and acidosis hold open, so vessels respond again.' },
+    { id: 'katp', kind: 'channel', label: 'K-ATP channels closed', sub: 'membrane depolarized', explain: 'It also closes the ATP-sensitive potassium channels that sepsis and acidosis hold open, so vessels respond again.' },
     { id: 'ca', kind: 'messenger', label: 'Cytosolic Ca²⁺ ↑' },
     { id: 'aqp', kind: 'cell', label: 'Aquaporin-2 inserted', explain: 'Aquaporin-2 channels move into the duct membrane and water is reabsorbed.' },
     { id: 'con', kind: 'organ', label: 'Vasoconstriction', explain: 'The result is vasoconstriction that still works when acidosis blunts the response to catecholamines.' },
@@ -60,7 +60,7 @@ export const VASOPRESSIN: MechanismDefinition = {
     { from: 'ca', to: 'con', sign: 1 }, { from: 'aqp', to: 'water', sign: 1 }, { from: 'con', to: 'svr', sign: 1 }, { from: 'svr', to: 'map', sign: 1 },
   ],
   patient: hemoAdapter({ scenario: 'sepsis', svr: 0.35, hr: -0.03, co: -0.03, dose: (u) => `${(0.03 * u).toFixed(3)} U/min` }),
-  summary: 'Vasopressin raises resistance through a separate receptor and restores vascular responsiveness, so it adds to norepinephrine rather than competing with it. It is not titrated like a catecholamine. At higher doses, gut, skin and coronary ischaemia become the limit.',
+  summary: 'Vasopressin raises resistance through a separate receptor and restores vascular responsiveness, so it adds to norepinephrine rather than competing with it. It is not titrated like a catecholamine. At higher doses, gut, skin and coronary ischemia become the limit.',
 };
 
 export const PHENYLEPHRINE: MechanismDefinition = {

@@ -1,10 +1,10 @@
 /**
- * The brain cut open along an axial plane, with the cut face painted by the live pathology: grey/white matter,
+ * The brain cut open along an axial plane, with the cut face painted by the live pathology: gray/white matter,
  * deep nuclei, internal capsule, corpus callosum, hippocampus, brainstem, cerebellum and ventricles read from the real
- * structures (brain-volume.json, voxelised from neuro.glb; the cortical ribbon from depth below this brain's surface —
- * the old ellipsoids are only a fallback while it loads), the ischaemic core and penumbra per
- * territory, swelling and haemorrhagic transformation (from evolution.ts), the haematoma with its age-dependent
- * density, swirl while still bleeding, perihaematomal oedema, ventricular blood and enlargement, and the midline
+ * structures (brain-volume.json, voxelized from neuro.glb; the cortical ribbon from depth below this brain's surface —
+ * the old ellipsoids are only a fallback while it loads), the ischemic core and penumbra per
+ * territory, swelling and hemorrhagic transformation (from evolution.ts), the hematoma with its age-dependent
+ * density, swirl while still bleeding, perihematomal edema, ventricular blood and enlargement, and the midline
  * pushed across. This is a model of the tissue, not a picture of a CT — the real CT for the stage is beside it.
  *
  * Classic stencil capping: back faces of the clipped brain increment the stencil, front faces decrement, and the
@@ -35,7 +35,7 @@ export function loadBrainVolume() {
     if (data.length !== nx * ny * nz) throw new Error('brain volume size mismatch');
     const tex = new THREE.Data3DTexture(data, nx, ny, nz); tex.format = THREE.RedFormat; tex.type = THREE.UnsignedByteType; tex.minFilter = tex.magFilter = THREE.NearestFilter; tex.unpackAlignment = 1; tex.needsUpdate = true;
     const min = new THREE.Vector3(...f.min); const size = new THREE.Vector3(nx, ny, nz).multiplyScalar(f.voxel);
-    // centre of the ventricular system (lateral + third), for hydrocephalic enlargement
+    // center of the ventricular system (lateral + third), for hydrocephalic enlargement
     const c = new THREE.Vector3(); let n = 0; for (let k = 0; k < nz; k++) for (let j = 0; j < ny; j++) for (let i = 0; i < nx; i++) { const v = data[i + nx * (j + ny * k)]; if (v !== 255 && v >> 4 === 1) { c.x += i; c.y += j; c.z += k; n++; } }
     const ventC = n ? c.divideScalar(n).addScalar(0.5).multiplyScalar(f.voxel).add(min) : min.clone().addScaledVector(size, 0.5);
     return { tex, min, size, ventC };
@@ -49,7 +49,7 @@ uniform float uSwell, uShift, uHt, uCtVis; uniform vec4 uHem; uniform float uPhe
 uniform highp sampler3D uVol; uniform vec3 uVolMin; uniform vec3 uVolSize; uniform vec3 uVolDims; uniform float uHasVol; uniform vec3 uVentC;
 varying vec3 vW;
 // trilinear blend of the 8 surrounding voxels' class indicators: smooth boundaries from a label volume
-// out: x = CSF, y = grey nuclei, z = white tracts (capsule, callosum), w = depth below the surface (0.5 mm units)
+// out: x = CSF, y = gray nuclei, z = white tracts (capsule, callosum), w = depth below the surface (0.5 mm units)
 // out2: x = pallidum, y = brainstem, z = cerebellum, w = inside the brain
 void volSample(vec3 p, out vec4 a, out vec4 b){
   vec3 g = (p - uVolMin) / uVolSize * uVolDims - 0.5; vec3 f = fract(g); ivec3 i0 = ivec3(floor(g)); a = vec4(0.0); b = vec4(0.0);
@@ -79,20 +79,20 @@ void main(){
   float fall = exp(-pow(l.x * 1.7, 2.0)) * smoothstep(-0.7, -0.2, l.y);
   vec3 q = l + vec3(uShift * fall, 0.0, 0.0);
   float n = fbm(q * 9.0), n2 = fbm(q * 26.0 + 3.0);
-  vec3 grey = vec3(0.6, 0.48, 0.46), white = vec3(0.88, 0.81, 0.75), csf = vec3(0.16, 0.2, 0.29);
+  vec3 gray = vec3(0.6, 0.48, 0.46), white = vec3(0.88, 0.81, 0.75), csf = vec3(0.16, 0.2, 0.29);
   vec3 col; float cortex; float inVent; float vs = 1.0 + 0.9 * uHydro;
   if (uHasVol > 0.5) {
     // real anatomy: smooth class fields from the label volume + depth below the cortical surface
     vec3 pos = q * uH + uC; vec4 A, B; volSample(pos, A, B);
     cortex = B.w < 0.5 ? 1.0 : 1.0 - smoothstep(4.5, 6.5, A.w / max(B.w, 0.001) + 1.2 * (n - 0.5));   // within ~2.5–3 mm of the folded pial surface
-    col = mix(white, grey, cortex);
-    col = mix(col, grey * 0.97, smoothstep(0.4, 0.6, A.y));                    // caudate, putamen, thalamus, hippocampus, amygdala
-    col = mix(col, mix(grey, white, 0.45), smoothstep(0.4, 0.6, B.x));          // globus pallidus: paler (myelinated)
+    col = mix(white, gray, cortex);
+    col = mix(col, gray * 0.97, smoothstep(0.4, 0.6, A.y));                    // caudate, putamen, thalamus, hippocampus, amygdala
+    col = mix(col, mix(gray, white, 0.45), smoothstep(0.4, 0.6, B.x));          // globus pallidus: paler (myelinated)
     col = mix(col, white * 1.03, smoothstep(0.4, 0.6, A.z));                    // internal capsule, corpus callosum
-    col = mix(col, mix(white, grey, 0.35), smoothstep(0.4, 0.6, B.y));          // brainstem
-    col = mix(col, mix(grey, white, 0.2 + 0.3 * step(0.55, fbm(q * 30.0))), smoothstep(0.4, 0.6, B.z));  // cerebellum: folia
+    col = mix(col, mix(white, gray, 0.35), smoothstep(0.4, 0.6, B.y));          // brainstem
+    col = mix(col, mix(gray, white, 0.2 + 0.3 * step(0.55, fbm(q * 30.0))), smoothstep(0.4, 0.6, B.z));  // cerebellum: folia
     col *= 0.9 + 0.14 * n2;
-    // ventricles (enlarged about their centre in hydrocephalus)
+    // ventricles (enlarged about their center in hydrocephalus)
     vec4 Av, Bv; volSample(uVentC + (pos - uVentC) / vs, Av, Bv); inVent = smoothstep(0.4, 0.6, Av.x);
   } else {
     // fallback while the volume loads: schematic cortex ribbon, white matter, deep nuclei, ventricles
@@ -100,12 +100,12 @@ void main(){
     cortex = smoothstep(0.74, 0.8, rr + 0.05 * (n - 0.5));
     float nuclei = min(min(ell(vec3(abs(q.x), q.yz), vec3(0.23, -0.12, 0.1), vec3(0.11, 0.16, 0.2)), ell(vec3(abs(q.x), q.yz), vec3(0.09, -0.13, -0.12), vec3(0.08, 0.12, 0.11))), 9.0);
     float vent = min(min(ell(vec3(abs(q.x), q.yz), vec3(0.085 * vs, 0.05, 0.0), vec3(0.055 * vs, 0.15, 0.34)), ell(vec3(abs(q.x), q.yz), vec3(0.1 * vs, -0.06, 0.2), vec3(0.06 * vs, 0.15, 0.13))), ell(q, vec3(0.0, -0.12, -0.04), vec3(0.02 * vs, 0.08, 0.12)));
-    col = mix(white, grey, max(cortex, 1.0 - smoothstep(0.9, 1.05, nuclei)));
+    col = mix(white, gray, max(cortex, 1.0 - smoothstep(0.9, 1.05, nuclei)));
     col *= 0.9 + 0.14 * n2;
     inVent = 1.0 - smoothstep(0.92, 1.0, vent);
   }
   col = mix(col, mix(csf, vec3(0.7, 0.06, 0.08) * (0.6 + 0.4 * uClot), uIvh), inVent);
-  // ischaemia: core (dead), penumbra (at risk, pulsing while the artery is shut), swelling rim, haemorrhagic transformation
+  // ischemia: core (dead), penumbra (at risk, pulsing while the artery is shut), swelling rim, hemorrhagic transformation
   if (uOcc > 0.5) {
     vec3 lq = q + (vec3(fbm(q * 2.3), fbm(q * 2.3 + 5.1), fbm(q * 2.3 + 9.7)) - 0.5) * 0.2;
     int t = territory(lq); float cw = 0.0, pw = 0.0, reg = 0.0, rad = 1.0; vec3 ctr = vec3(0.0);
@@ -125,7 +125,7 @@ void main(){
       col = mix(col, vec3(0.78, 0.04, 0.06), speck * uHt);
     }
   }
-  // haematoma, perihaematomal oedema
+  // hematoma, perihematomal edema
   if (uHem.w > 0.0) {
     float d = length((q - uHem.xyz) * vec3(1.0, 1.15, 0.9)) / uHem.w;
     float edge = d + 0.12 * (fbm(q * 7.0) - 0.5);

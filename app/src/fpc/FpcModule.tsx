@@ -43,7 +43,7 @@ function CourseHome() {
     <>
       <header className="fpc-head">
         <h2>Certified Flight Paramedic exam prep</h2>
-        <p>Organised on the IBSC FP-C content outline: {TOTAL_ITEMS} scored items across ten domains. Each domain is weighted the way the exam weights it, and every lesson comes as a full course or a TL;DR.</p>
+        <p>Organized on the IBSC FP-C content outline: {TOTAL_ITEMS} scored items across ten domains. Each domain is weighted the way the exam weights it, and every lesson comes as a full course or a TL;DR.</p>
       </header>
       <section className="fpc-blueprint" aria-labelledby="bp-title">
         <h3 id="bp-title">Domains, by exam weight</h3>
@@ -57,7 +57,7 @@ function CourseHome() {
           </button></li>;
         })}</ul>
       </section>
-      <p className="fpc-note">Lesson text is this app’s own, written to the published FP-C outline and cited to open guidelines and references. It is a study aid, not a substitute for your programme’s protocols.</p>
+      <p className="fpc-note">Lesson text is this app’s own, written to the published FP-C outline and cited to open guidelines and references. It is a study aid, not a substitute for your program’s protocols.</p>
     </>
   );
 }

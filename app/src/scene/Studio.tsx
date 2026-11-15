@@ -8,7 +8,7 @@ import { SceneBoundary, SceneUnavailable, supportsWebGL } from './SceneBoundary'
 export const IS_PHONE = typeof window !== 'undefined' && window.matchMedia('(max-width: 640px)').matches;
 export const damp = (cur: number, tgt: number, rate: number, dt: number) => THREE.MathUtils.lerp(cur, tgt, 1 - Math.exp(-rate * dt));
 
-/** Soft, neutral studio lighting shared by every 3D view (photographic key/fill/rim, no coloured glow). */
+/** Soft, neutral studio lighting shared by every 3D view (photographic key/fill/rim, no colored glow). */
 export function StudioLights({ warm = 1 }: { warm?: number }) {
   return (
     <>

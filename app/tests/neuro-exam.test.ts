@@ -26,7 +26,7 @@ describe('synthetic neuro exam from the lesion state', () => {
     expect(o.reopened!.nihss.total).toBeLessThan(o.never!.nihss.total); expect(o.reopened!.nihss.total).toBeGreaterThan(0);
     const late = examOutcomes({ ...presetState('m1_L'), minutes: 360 }); expect(late.reopened!.nihss.total).toBeGreaterThan(o.reopened!.nihss.total);
   });
-  it('collateral quality and haemorrhage change the exam', () => {
+  it('collateral quality and hemorrhage change the exam', () => {
     const good = neuroExam({ ...presetState('m1_L'), collaterals: 'good', minutes: 60 }), poor = neuroExam({ ...presetState('m1_L'), collaterals: 'poor', minutes: 60 });
     expect(neuroExam({ ...presetState('m1_L'), collaterals: 'good', minutes: 1440, recanalizedAt: 60 }).nihss.total).toBeLessThan(neuroExam({ ...presetState('m1_L'), collaterals: 'poor', minutes: 1440, recanalizedAt: 60 }).nihss.total);
     expect(good.nihss.total).toBeGreaterThan(0); expect(poor.nihss.total).toBeGreaterThan(0);

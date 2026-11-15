@@ -16,7 +16,7 @@ import { shockIndex } from '../src/populations/obstetric';
 import { ABG_ACTIONS } from '../src/scenarios/abgChallenges';
 import { ABG_PRESET } from '../src/scenarios/abg';
 
-describe('apnoea oxygen stores', () => {
+describe('apnea oxygen stores', () => {
   const t = (id: string, o = {}) => safeApnoea(APNOEA_BY_ID[id], o)!;
   it('times to SpO₂ < 90 % sit in the published ranges and in the right order', () => {
     expect(t('adult')).toBeGreaterThan(7); expect(t('adult')).toBeLessThan(10);
@@ -34,7 +34,7 @@ describe('apnoea oxygen stores', () => {
   });
 });
 
-describe('paediatric airway', () => {
+describe('pediatric airway', () => {
   it('1 mm of swelling: infant ×16 (×32 crying), adult ≈ ×3', () => {
     const [inf, ad] = compareAirways(1); expect(inf.laminar).toBeCloseTo(16, 6); expect(inf.turbulent).toBeCloseTo(32, 6); expect(ad.laminar).toBeCloseTo(3.16, 2);
     expect(resistanceRatio(8, 4)).toBe(16);
@@ -80,7 +80,7 @@ describe('pregnancy', () => {
 });
 
 describe('special-population lessons seek exactly', () => {
-  it('apnoea card state and lab state are rebuilt on seek', () => {
+  it('apnea card state and lab state are rebuilt on seek', () => {
     resolve(APNOEA_LESSON, 41); expect(usePopUI.getState().apnoea.highlight).toBe('pregnant'); expect(lab.preset.id).toBe('pregnant');
     resolve(APNOEA_LESSON, 2); expect(usePopUI.getState().apnoea.preox).toBe(false); resolve(APNOEA_LESSON, 94); expect(usePopUI.getState().apnoea.headUp).toBe(true);
     const a = (() => { resolve(OB_CIRCULATION_LESSON, 55); return lines.num.tMap; })(); resolve(OB_CIRCULATION_LESSON, 2); resolve(OB_CIRCULATION_LESSON, 55); expect(lines.num.tMap).toBeCloseTo(a, 6);
@@ -90,7 +90,7 @@ describe('special-population lessons seek exactly', () => {
 import { PEDS_SHOCK_LESSON } from '../src/director/lessons/populations';
 import { CHILD_NORMS } from '../src/populations/paediatric';
 import { SCENARIO } from '../src/lines/hemo';
-describe('paediatric shock on the Lines monitor', () => {
+describe('pediatric shock on the Lines monitor', () => {
   it('size-scaled engine: a child has a child’s pulse and rate; adults are unchanged', () => {
     lines.load('child'); for (let i = 0; i < 320; i++) lines.tick(0.05); const c = { ...lines.num };
     expect(c.hr).toBeGreaterThan(95); expect(c.hr).toBeLessThan(115); expect(c.tSys).toBeGreaterThan(85); expect(c.tSys - c.tDia).toBeGreaterThan(30);

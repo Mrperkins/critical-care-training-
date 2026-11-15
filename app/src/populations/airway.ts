@@ -1,5 +1,5 @@
 /**
- * Airway calibre and resistance (pure physics). Laminar flow (Hagen–Poiseuille): R ∝ 1 / r⁴.
+ * Airway caliber and resistance (pure physics). Laminar flow (Hagen–Poiseuille): R ∝ 1 / r⁴.
  * Turbulent flow (crying, high flow): pressure drop ∝ 1 / r⁵ at the same flow.
  * Classic comparison: 1 mm of circumferential swelling in a 4 mm infant airway vs an 8 mm adult airway.
  */

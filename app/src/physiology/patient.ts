@@ -9,7 +9,7 @@
  *
  * Gas exchange uses three parallel lung compartments (normal V/Q, low V/Q, shunt) with an
  * iterated mixed-venous content, so supplemental O₂ corrects V/Q mismatch but not shunt,
- * anaemia lowers CaO₂ without touching SaO₂, and falling cardiac output lowers ScvO₂.
+ * anemia lowers CaO₂ without touching SaO₂, and falling cardiac output lowers ScvO₂.
  */
 import { PATM, PH2O, sat, p50, o2Content, alveolarPO2, solveAcidBase, po2ForSat, satStd } from './blood';
 import { stepCoag, coagLabs, type CoagState, type CoagLabs } from './coag';
@@ -124,15 +124,15 @@ const bump = (t: number, onset: number, peak: number, dur: number) => { if (t < 
 export const DRUGS: Record<DrugId, { name: string; course: (t: number) => number; what: string }> = {
   calcium: { name: 'Calcium gluconate / chloride', course: (t) => bump(t, 1, 3, 50), what: 'Raises the threshold potential of cardiac cells — restores the gap between resting potential and threshold. Does NOT lower potassium.' },
   insulin: { name: 'Insulin 10 U + dextrose', course: (t) => bump(t, 10, 45, 300), what: 'Activates Na⁺/K⁺-ATPase: shifts K⁺ into cells (~0.6–1.0 mEq/L). Total-body K⁺ unchanged.' },
-  albuterol: { name: 'Nebulised albuterol', course: (t) => bump(t, 15, 60, 180), what: 'β₂ stimulation drives Na⁺/K⁺-ATPase: shifts K⁺ into cells (~0.5 mEq/L). Also bronchodilates.' },
+  albuterol: { name: 'Nebulized albuterol', course: (t) => bump(t, 15, 60, 180), what: 'β₂ stimulation drives Na⁺/K⁺-ATPase: shifts K⁺ into cells (~0.5 mEq/L). Also bronchodilates.' },
   bicarb: { name: 'Sodium bicarbonate', course: () => 0, what: 'Adds HCO₃⁻ (raises SBE). Generates CO₂ that must be exhaled; small K⁺ shift in acidosis.' },
   naloxone: { name: 'Naloxone', course: (t) => (t < 0 ? 0 : t < 2 ? t / 2 : t < 45 ? 1 : Math.max(0, 1 - (t - 45) / 45)), what: 'Reverses opioid respiratory depression — restores drive for 30–90 min.' },
   binder: { name: 'K⁺ binder (SZC / patiromer)', course: (t) => bump(t, 60, 240, 1440), what: 'Binds K⁺ in the gut — removes K⁺ from the body over hours.' },
-  dialysis: { name: 'Haemodialysis (4 h)', course: (t) => (t >= 0 && t <= 240 ? 1 : 0), what: 'Removes K⁺, urea, acid and volume directly from blood.' },
+  dialysis: { name: 'Hemodialysis (4 h)', course: (t) => (t >= 0 && t <= 240 ? 1 : 0), what: 'Removes K⁺, urea, acid and volume directly from blood.' },
   fluids: { name: 'Balanced crystalloid 1 L', course: (t) => bump(t, 0, 20, 180), what: 'Restores intravascular volume and preload.' },
   hypertonic: { name: '3% saline 100 mL', course: () => 0, what: 'Raises serum Na⁺ ≈2 mEq/L per 100 mL — pulls water out of swollen brain cells.' },
   bronchodilator: { name: 'Bronchodilator', course: (t) => bump(t, 3, 15, 240), what: 'Relaxes bronchial smooth muscle: airway radius ↑ → resistance ↓ (R ∝ 1/r⁴).' },
-  diuretic: { name: 'Loop diuretic', course: (t) => bump(t, 5, 60, 360), what: 'Natriuresis and kaliuresis; unloads pulmonary oedema.' },
+  diuretic: { name: 'Loop diuretic', course: (t) => bump(t, 5, 60, 360), what: 'Natriuresis and kaliuresis; unloads pulmonary edema.' },
   transfusion: { name: 'PRBC 1 unit', course: () => 0, what: 'Raises Hb ≈1 g/dL — raises CaO₂ and DO₂.' },
 };
 export function drugEffect(st: PatientState, id: DrugId) { let e = 0; for (const d of st.drugs) if (d.id === id) e += DRUGS[id].course(st.t - d.t0) * d.dose; return e; }
@@ -214,7 +214,7 @@ function oxygen(st: PatientState, fio2: number, paco2: number, va: number, co: n
 
 /** GHK-style resting membrane potential of a cardiac myocyte (mV). */
 export const restingPotential = (k: number) => 61.5 * Math.log10((k + 0.015 * 140) / (140 + 0.015 * 12));
-/** Threshold potential (mV): raised (less negative) by ionised calcium and by a calcium dose. */
+/** Threshold potential (mV): raised (less negative) by ionized calcium and by a calcium dose. */
 export const thresholdPotential = (ca: number, caDose = 0) => -65 + (ca - 1.2) * 12 + 7 * Math.min(1.5, caDose);
 /** Potassium that would produce the same RMP–threshold gap at normal calcium: what the ECG "sees". */
 export function kEffective(k: number, ca: number, caDose: number) {
@@ -250,7 +250,7 @@ export function derive(st: PatientState): Snapshot {
   // PEEP recruits shunt units; a low PEEP in a recruitable lung leaves them closed (the vent module passes its own shunt modifier via p.shunt)
   const ox = oxygen(st, fio2, st.paco2, va, co, ab.pH);
   const sao2 = ox.sao2;
-  // SpO₂: two-wavelength oximetry reads COHb as oxyhaemoglobin
+  // SpO₂: two-wavelength oximetry reads COHb as oxyhemoglobin
   const spo2 = Math.min(1, sat(ox.pao2, ox.P50) * (1 - p.cohb) + p.cohb * 0.9);
   const fAlv = alvDeadFrac(st, v);
   const etco2 = ve > 0.3 ? st.paco2 * (1 - fAlv) * Math.min(1, vt / 0.25) : 0;
@@ -287,7 +287,7 @@ export function derive(st: PatientState): Snapshot {
   };
 }
 
-/** Plasma K⁺ = balance + transcellular shifts (acidaemia, insulin, β₂). */
+/** Plasma K⁺ = balance + transcellular shifts (acidemia, insulin, β₂). */
 function kNow(st: PatientState, pH: number) {
   const shiftAcid = pH < 7.4 ? (7.4 - pH) * 10 * (0.2 + 0.5 * st.p.acidIsMineral) : -(pH - 7.4) * 10 * 0.25;
   const shiftIn = 0.9 * drugEffect(st, 'insulin') + 0.55 * drugEffect(st, 'albuterol');
@@ -311,7 +311,7 @@ export function advance(st: PatientState, minutes: number, vent: VentInput | nul
     const perf = Math.min(1, s.co / 4.5);
     const prod = 0.03 * p.lactateProd + s.o2debt * 0.0008 + 0.02 * Math.max(0, p.tempC - 38.5);
     st.lactate = Math.max(0.3, st.lactate + (prod - 0.03 * p.hepatic * perf * st.lactate) * dt);
-    // ketones: production suppressed by insulin; oxidised when insulin present
+    // ketones: production suppressed by insulin; oxidized when insulin present
     const ins = drugEffect(st, 'insulin') + (p.ketoneProd > 0 ? 0 : 1);
     st.ketones = Math.max(0, st.ketones + (p.ketoneProd * 0.02 * Math.max(0, 1 - ins) - 0.004 * st.ketones * (0.3 + ins)) * dt);
     // glucose falls with insulin

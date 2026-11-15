@@ -51,7 +51,7 @@ export const CLINICAL_THUMBS: Readonly<Record<string, ClinicalThumb>> = {
   "neuro-icp": {
     "id": "ich-deep-locations-2016",
     "file": "ich-deep-locations-2016.jpg",
-    "title": "Hypertensive haemorrhage sites",
+    "title": "Hypertensive hemorrhage sites",
     "credit": "Manoel et al., Critical care (London, England), 2016 · CC BY 4.0",
     "license": "CC BY 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",

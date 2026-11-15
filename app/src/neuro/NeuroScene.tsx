@@ -1,6 +1,6 @@
 /**
  * Neuro foundation scene: the HuBMAP brain (body.glb) with its real arterial supply (cerebral-arteries.glb, Z-Anatomy,
- * on the vessel tree of anatomy.ts — the schematic layout is only a fallback while it loads), territory perfusion shading (core / penumbra) from perfusion.ts, haemorrhage
+ * on the vessel tree of anatomy.ts — the schematic layout is only a fallback while it loads), territory perfusion shading (core / penumbra) from perfusion.ts, hemorrhage
  * primitives and brain.* semantic camera targets. All state comes from useNeuroUI — this file only draws.
  */
 import { useEffect, useMemo, useRef, useState } from 'react';
@@ -56,7 +56,7 @@ vec3 ischTint = vec3(0.0);
   float pulse = 0.85 + 0.15 * sin(uT * 2.5);
   diffuseColor.rgb = mix(diffuseColor.rgb, vec3(0.93, 0.62, 0.18), pen * 0.62 * pulse);
   diffuseColor.rgb = mix(diffuseColor.rgb, vec3(0.78, 0.12, 0.32), core * 0.78);
-  // ischaemic tissue glows and turns opaque so it reads through the glass brain
+  // ischemic tissue glows and turns opaque so it reads through the glass brain
   ischTint = vec3(0.55, 0.3, 0.05) * pen * pulse * 0.55 + vec3(0.5, 0.04, 0.16) * core * 0.6;
   diffuseColor.a = mix(diffuseColor.a, 0.9, max(pen * 0.75, core));
 }`;
@@ -78,7 +78,7 @@ function useBrainMaterial(frame: BrainFrame) {
   }, [frame]);
 }
 
-/* ------------------------------------------------------------------ per-vessel perfusion (for colour + flow particles) */
+/* ------------------------------------------------------------------ per-vessel perfusion (for color + flow particles) */
 /* ------------------------------------------------------------------ vessels */
 const PERF = new THREE.Color('#c81e2a'), DEAD = new THREE.Color('#3a2a3e');
 /** Pial arteries run on the cortex: push cortical points out onto the real brain surface (the layout uses an ellipsoid). */
@@ -97,7 +97,7 @@ function snapToCortex(vs: CerebralVessel[], frame: BrainFrame, brain: THREE.Buff
 function Vessels({ frame, tier, brain }: { frame: BrainFrame; tier: Tier; brain: THREE.BufferGeometry }) {
   const [real, setReal] = useState<Layer<CerebralMapping> | null>(null);
   useEffect(() => { let on = true; loadCerebral().then((x) => on && setReal(x)).catch(() => undefined); return () => { on = false; }; }, []);
-  // the same tree (ids, parents, territories) on the real arteries: measured centrelines and calibres replace the layout
+  // the same tree (ids, parents, territories) on the real arteries: measured centerlines and calibers replace the layout
   const vs = useMemo(() => {
     const tree = buildCerebralVessels(frame); if (!real) return snapToCortex(tree, frame, brain);
     for (const v of tree) { const m = real.mapping.vessels[v.id]; if (!m) continue; v.pts = m.pts.map((p) => new THREE.Vector3(p[0], p[1], p[2])); v.r0 = m.r0; v.r1 = m.r1; }
@@ -212,7 +212,7 @@ function Hemorrhage({ frame }: { frame: BrainFrame }) {
 /* ------------------------------------------------------------------ deep structures (neuro.glb, Allen regions in the same brain) */
 const DEEP_COLOR = (id: string) => (VENTRICLES.includes(id) ? '#5d9fdc' : /^(caudate|putamen)/.test(id) ? '#a07a94' : /^pallidus/.test(id) ? '#bd9ea8' : /^thalamus/.test(id) ? '#9483a8' : /^internal_capsule/.test(id) ? '#efe9dc' : '#b39a9a');
 const DEEP_LABEL: [string, string][] = [['lat_ventricle', 'Lateral ventricle'], ['thalamus', 'Thalamus'], ['putamen', 'Putamen'], ['internal_capsule', 'Internal capsule']];
-/** A haematoma pushes the midline away from itself (hemorrhageShape.shiftMm) and squeezes the ipsilateral lateral
+/** A hematoma pushes the midline away from itself (hemorrhageShape.shiftMm) and squeezes the ipsilateral lateral
  *  ventricle; everything else is the atlas anatomy as measured. */
 function DeepStructures({ frame }: { frame: BrainFrame }) {
   const [nd, setNd] = useState<Layer<NeuroMapping> | null>(null);

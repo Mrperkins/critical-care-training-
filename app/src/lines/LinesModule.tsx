@@ -46,7 +46,7 @@ export function LinesModule() {
           <PregSlot />
           <Fold group="lines" id="numbers" title="Monitor vs true pressure" defaultOpen><NumbersCard /></Fold>
           <Fold group="lines" id="treat" title="Treat & check" summary="fluids, pressors, checks"><TreatCard /></Fold>
-          <Fold group="lines" id="level" title="Bed & transducer level" summary="levelling, zeroing"><SetupCard /></Fold>
+          <Fold group="lines" id="level" title="Bed & transducer level" summary="leveling, zeroing"><SetupCard /></Fold>
           <Fold group="lines" id="art" title="Arterial line" summary="bag, faults"><LineCard id="art" /></Fold>
           <Fold group="lines" id="cvp" title="CVP line" summary="bag, faults"><LineCard id="cvp" /></Fold>
           <Fold group="lines" id="flush" title="Fast-flush test" summary="damping"><FlushCard /></Fold>

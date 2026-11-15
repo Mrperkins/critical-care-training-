@@ -13,13 +13,13 @@ import { interpret } from '../src/physiology/interpret';
 import { alveolarRoles } from '../src/abg/roles';
 
 describe('ECG follows the membrane', () => {
-  it('hyperkalaemia widens QRS and peaks T; calcium narrows QRS without lowering K', () => {
+  it('hyperkalemia widens QRS and peaks T; calcium narrows QRS without lowering K', () => {
     const n = ecgShape({ kEff: 4.2, k: 4.2, ca: 1.2, mg: 2 }); const hi = ecgShape({ kEff: 7.5, k: 7.5, ca: 1.2, mg: 2 });
     expect(hi.qrs).toBeGreaterThan(n.qrs + 0.03); expect(hi.tAmp).toBeGreaterThan(n.tAmp); expect(hi.pAmp).toBeLessThan(n.pAmp);
     const st = createPatient({ renal: 0.1 }, { k: 7.5 }); const s0 = derive(st); give(st, 'calcium'); const s1 = advance(st, 5);
     expect(ecgShape({ kEff: s1.kEffective, k: s1.k, ca: 1.2, mg: 2 }).qrs).toBeLessThan(ecgShape({ kEff: s0.kEffective, k: s0.k, ca: 1.2, mg: 2 }).qrs);
   });
-  it('hypokalaemia gives U waves; hypocalcaemia lengthens QT', () => {
+  it('hypokalemia gives U waves; hypocalcemia lengthens QT', () => {
     expect(ecgShape({ kEff: 2.6, k: 2.6, ca: 1.2, mg: 2 }).u).toBeGreaterThan(0.05);
     expect(ecgShape({ kEff: 4.2, k: 4.2, ca: 0.8, mg: 2 }).qt).toBeGreaterThan(ecgShape({ kEff: 4.2, k: 4.2, ca: 1.2, mg: 2 }).qt + 0.05);
   });
@@ -30,7 +30,7 @@ describe('lab bench writes causes into the shared patient', () => {
     for (const l of LABS) { const b = new LabBench(); const target = (l.normal[0] + l.range[1]) / 2; b.set(l.id, target); const v = b.value(l.id);
       expect(Math.abs(v - target) / Math.max(1, Math.abs(target)), l.id).toBeLessThan(0.08); }
   });
-  it('hyponatraemia swells cells without creating an acid–base disorder', () => {
+  it('hyponatremia swells cells without creating an acid–base disorder', () => {
     const b = new LabBench(); b.set('na', 118); expect(b.snap.cellVolume).toBeGreaterThan(1.1); expect(Math.abs(b.snap.hco3 - 24.4)).toBeLessThan(1);
   });
   it('cell scene counts follow the numbers', () => {

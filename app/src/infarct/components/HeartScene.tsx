@@ -317,7 +317,7 @@ export function slicePlaneBody(asset: HeartAsset) {
 /**
  * The cut face of the ventricles. The apical part of the heart is clipped away (every heart material shares CLIP) and
  * the real cross-section of the LV and RV walls is capped and shaded from the endocardium outward, so the depth of the
- * ischaemia — inner layer only, or the full thickness of the wall — can be seen as the MI evolves.
+ * ischemia — inner layer only, or the full thickness of the wall — can be seen as the MI evolves.
  */
 function SliceCaps({ asset, from }: { asset: HeartAsset; from: THREE.Mesh[] }) {
   const on = useApp((s) => s.slice);
@@ -330,10 +330,10 @@ function SliceCaps({ asset, from }: { asset: HeartAsset; from: THREE.Mesh[] }) {
   const wave = useRef(0);
   useFrame((_, dt) => {
     const st = useApp.getState(); const T = focusOf(st.territoryId);
-    // the group is offset by −centre, and clipping planes live in world space
+    // the group is offset by −center, and clipping planes live in world space
     if (on) { world.setFromNormalAndCoplanarPoint(plane.normal, plane.point.clone().sub(asset.center)); if (CLIP[0] !== world) { CLIP.length = 0; CLIP.push(world); } }
     else if (CLIP.length) CLIP.length = 0;
-    // ischaemia starts in the inner layer and spreads outward with time; how far it gets depends on the lesion
+    // ischemia starts in the inner layer and spreads outward with time; how far it gets depends on the lesion
     const target = T ? transmuralOf(T) * THREE.MathUtils.smoothstep(st.scene.injury, 0.02, 0.95) : 0;
     wave.current = damp(wave.current, target, 1.6, dt);
     mat.localUniforms.uWave.value = wave.current; mat.localUniforms.uCapInjury.value = shared.uInjury.value;
@@ -347,12 +347,12 @@ function SliceCaps({ asset, from }: { asset: HeartAsset; from: THREE.Mesh[] }) {
  * The impulse, beat by beat, from the rhythm schedule (engine/rhythm.ts) on the same clock as the ECG and the beat:
  * the SA node fires and a front crosses the atria (P wave) with sparks along the internodal routes and Bachmann's
  * bundle; the AV node conducts slowly and holds the impulse for the PR (amber), or blocks it (red) in AV block; then
- * the His bundle, bundle branches and Purkinje fibres light (QRS) — the right or left bundle late in a bundle branch
+ * the His bundle, bundle branches and Purkinje fibers light (QRS) — the right or left bundle late in a bundle branch
  * block, nothing above the ventricles for a ventricular escape — and a front sweeps the ventricular walls apex → base.
  * Walls turn see-through while it is on. Pathway positions are schematic; timing follows heart-internals' map.
  */
 const ATRIAL_MS = 80;  // SA node → last atrial muscle
-const VENT_MS = [117, 200] as const; // ventricular depolarisation window on the ventricular clock
+const VENT_MS = [117, 200] as const; // ventricular depolarization window on the ventricular clock
 type Group = 'sa' | 'av' | 'his' | 'right' | 'left';
 const GROUP: Record<string, Group> = { sa_node: 'sa', av_node: 'av', his: 'his', rbb: 'right', purkinje_rv: 'right', lbb: 'left', lbb_anterior: 'left', lbb_posterior: 'left', lbb_septal: 'left', purkinje_lv: 'left' };
 const BRANCH: Record<Group, 0 | 1 | 2> = { sa: 0, av: 0, his: 0, right: 1, left: 2 };

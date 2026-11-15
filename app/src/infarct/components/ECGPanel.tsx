@@ -14,7 +14,7 @@ import { selectLead } from './HeartScene';
 
 /** Limb leads left, chest leads right (6 × 2): used when the ECG column is too narrow for 3 × 4 at a readable scale. */
 export const NARROW_GRID: LeadId[][] = [['I', 'V1'], ['II', 'V2'], ['III', 'V3'], ['aVR', 'V4'], ['aVL', 'V5'], ['aVF', 'V6']];
-/** below this many pixels per millimetre of paper, 1 mm of ST elevation is too small to see: switch to 6 × 2 */
+/** below this many pixels per millimeter of paper, 1 mm of ST elevation is too small to see: switch to 6 × 2 */
 export const MIN_PX_PER_MM = 2.4;
 export const NATURAL_QUERY = '(max-width: 1024px)';
 

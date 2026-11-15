@@ -24,20 +24,20 @@ describe('lab bench drives the shared patient', () => {
   it('every lab slider round-trips through the patient model', () => {
     for (const l of LABS) { const b = new LabBench(); const target = (l.normal[0] + l.range[1]) / 2; b.set(l.id, target); const got = b.value(l.id); expect(Math.abs(got - target) / Math.max(1, Math.abs(target)), l.id).toBeLessThan(0.08); }
   });
-  it('hyperkalaemia: calcium fixes the ECG without changing K⁺', () => {
+  it('hyperkalemia: calcium fixes the ECG without changing K⁺', () => {
     const b = new LabBench(); b.pt.p.renal = 0.1; b.set('k', 7.5); const e0 = ecgShape({ kEff: b.snap.kEffective, k: b.snap.k, ca: b.pt.p.ca, mg: b.pt.p.mg });
     b.give('calcium'); b.fastForward(4); const e1 = ecgShape({ kEff: b.snap.kEffective, k: b.snap.k, ca: b.pt.p.ca, mg: b.pt.p.mg });
     expect(Math.abs(b.snap.k - 7.5)).toBeLessThan(0.2); expect(e1.qrs).toBeLessThan(e0.qrs); expect(e1.tAmp).toBeLessThan(e0.tAmp);
   });
-  it('hypokalaemia gives U waves; hypocalcaemia a long QT', () => {
+  it('hypokalemia gives U waves; hypocalcemia a long QT', () => {
     expect(ecgShape({ kEff: 2.6, k: 2.6, ca: 1.2, mg: 2 }).u).toBeGreaterThan(0.05);
     expect(ecgShape({ kEff: 4, k: 4, ca: 0.8, mg: 2 }).qt).toBeGreaterThan(ecgShape({ kEff: 4, k: 4, ca: 1.2, mg: 2 }).qt + 0.08);
   });
-  it('hyponatraemia swells brain cells; the cell scene follows', () => {
+  it('hyponatremia swells brain cells; the cell scene follows', () => {
     const b = new LabBench(); b.set('na', 118); const s = cellSpec('na', b.snap, b.pt); expect(s.cellScale).toBeGreaterThan(1.1);
     expect(b.snap.hco3).toBeGreaterThan(22); // sodium change alone does not create an acid–base disorder
   });
-  it('anaemia: SpO₂ normal, content falls; insulin speeds the pump', () => {
+  it('anemia: SpO₂ normal, content falls; insulin speeds the pump', () => {
     const b = new LabBench(); b.set('hb', 6); expect(b.snap.spo2).toBeGreaterThan(0.93); expect(b.snap.cao2).toBeLessThan(10);
     const k = new LabBench(); const p0 = cellSpec('k', k.snap, k.pt).pump; k.give('insulin'); k.fastForward(40); expect(cellSpec('k', k.snap, k.pt).pump).toBeGreaterThan(p0 + 0.5);
   });

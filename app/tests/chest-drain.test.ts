@@ -46,7 +46,7 @@ describe('chest drain reading (pure) on the patient’s pleural pressure', () =>
     expect(drainView(cfg({ leak: 1, ppv: false }), hi).bubbling).toBe('with breaths');
     expect(drainView(cfg({ leak: 2 }), lo).bubblingNow).toBe(false); expect(drainView(cfg({ leak: 2 }), hi).bubblingNow).toBe(true);
   });
-  it('clamp test separates patient from system leaks; haemothorax thresholds; unit above chest siphons', () => {
+  it('clamp test separates patient from system leaks; hemothorax thresholds; unit above chest siphons', () => {
     expect(clampTest(cfg({ leak: 2 }), 'chest').bubblingStops).toBe(true);
     expect(clampTest(cfg({ leak: 1, leakSource: 'system' }), 'chest').bubblingStops).toBe(false);
     expect(drainView(cfg({ leak: 1, leakSource: 'system', clamped: true }), hi).bubbling).toBe('none');

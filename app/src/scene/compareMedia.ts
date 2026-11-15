@@ -17,7 +17,7 @@ const CXR: MediaPair[] = [
   { normal: 'cxr-normal-pa-haggstrom', abnormal: 'cxr-tension-ptx-right-olv-2024', label: 'Chest X-ray · normal vs tension pneumothorax', tags: ['ptx'] },
   { normal: 'cxr-normal-pa-haggstrom', abnormal: 'cxr-hyperinflation-asthma-2025', label: 'Chest X-ray · normal vs hyperinflation (asthma)', tags: ['asthma', 'copd', 'pregAsthma'] },
   { normal: 'cxr-normal-pa-haggstrom', abnormal: 'cxr-left-whiteout-mucus-plug-2026', label: 'Chest X-ray · normal vs left lung collapse (mucus plug)', tags: ['plug'] },
-  { normal: 'cxr-normal-pa-haggstrom', abnormal: 'cxr-flash-edema-portable-2026', label: 'Chest X-ray · normal vs pulmonary oedema', tags: ['edema'] },
+  { normal: 'cxr-normal-pa-haggstrom', abnormal: 'cxr-flash-edema-portable-2026', label: 'Chest X-ray · normal vs pulmonary edema', tags: ['edema'] },
   { normal: 'cxr-ett-ok-ebi-2019', abnormal: 'cxr-mainstem-right-ebi-2019', label: 'Chest X-ray · tube in the trachea vs right mainstem', tags: ['mainstem'] },
 ];
 const FAST_HEART: MediaPair[] = [

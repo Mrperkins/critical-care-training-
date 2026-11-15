@@ -11,7 +11,7 @@ const clamp = (v: number, lo = 0, hi = 1) => Math.max(lo, Math.min(hi, v));
 export interface CxrSide { /** pleural air: fraction of the hemithorax width lost to air */ ptx: number; /** lobar/lung collapse from airway obstruction */ atelectasis: number; /** diffuse airspace opacity 0–1 */ opacity: number; /** effusion 0–1 */ effusion: number }
 export interface CxrState {
   side: [CxrSide, CxrSide]; // 0 = right, 1 = left
-  tension: number; /** interstitial / alveolar oedema pattern (perihilar, Kerley lines) */ edema: number; /** patchy bilateral airspace disease with air bronchograms */ ards: number;
+  tension: number; /** interstitial / alveolar edema pattern (perihilar, Kerley lines) */ edema: number; /** patchy bilateral airspace disease with air bronchograms */ ards: number;
   hyperinflation: number; habitus: number; /** cardiothoracic ratio */ ctr: number;
   ett: { aboveCarinaCm: number } | null; drain: boolean; needle: boolean;
 }
@@ -56,7 +56,7 @@ export function cxrFindings(st: CxrState): string[] {
     if (s.effusion > 0.2) f.push(`${nm[k]} effusion: dependent haze and a blunted costophrenic angle.`);
   });
   if (Math.abs(g.shift) > 0.05) f.push(`Mediastinum shifted to the ${g.shift > 0 ? 'left' : 'right'} (${st.tension > 2 ? 'pushed away by tension' : 'pulled toward collapse'}).`);
-  if (st.edema) f.push('Perihilar "bat-wing" opacity, septal lines at the bases and an enlarged heart: pulmonary oedema.');
+  if (st.edema) f.push('Perihilar "bat-wing" opacity, septal lines at the bases and an enlarged heart: pulmonary edema.');
   const op = (st.side[0].opacity + st.side[1].opacity) / 2;
   if (st.ards) f.push(op > 0.45 ? 'Bilateral patchy airspace opacities with air bronchograms, normal heart size: ARDS pattern.' : 'Bilateral opacities, less dense as the lung is recruited.');
   else if (!st.edema && op > 0.12) f.push('Basal opacity from dependent collapse (low lung volumes).');
@@ -64,6 +64,6 @@ export function cxrFindings(st: CxrState): string[] {
   if (st.habitus) f.push('Soft-tissue shadow over both lungs and low volumes (habitus) — do not over-read as consolidation.');
   if (st.ett) f.push(st.ett.aboveCarinaCm < 0 ? `Endotracheal tube tip ${Math.abs(st.ett.aboveCarinaCm).toFixed(1)} cm BELOW the carina, in the right main bronchus — too deep.` : `Endotracheal tube tip ${st.ett.aboveCarinaCm.toFixed(1)} cm above the carina.`);
   if (st.drain) f.push('Right chest drain directed toward the apex.'); if (st.needle && !st.drain) f.push('Decompression catheter in the right 2nd intercostal space.');
-  if (!f.some((l) => /pneumothorax|collapse|oedema|ARDS|opacit|Hyperinflated|effusion|shift/.test(l))) f.push('Clear lungs, normal heart size, no pneumothorax.');
+  if (!f.some((l) => /pneumothorax|collapse|edema|ARDS|opacit|Hyperinflated|effusion|shift/.test(l))) f.push('Clear lungs, normal heart size, no pneumothorax.');
   return f;
 }

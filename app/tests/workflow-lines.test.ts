@@ -27,7 +27,7 @@ describe('Lines workflows', () => {
       const ids = new Set([...wf.steps, ...wf.distractors].map((a) => a.id)); for (const k of Object.keys(wf.effects ?? {})) expect(ids.has(k)).toBe(true);
     }
   });
-  it('transfusion raises Hb and MAP on the haemorrhage patient', () => {
+  it('transfusion raises Hb and MAP on the hemorrhage patient', () => {
     BLOOD_ADMIN.setup(); const a = run(4); BLOOD_ADMIN.effects!.start(); BLOOD_ADMIN.effects!.reassess(); const b = run(20);
     expect(b.hb).toBeCloseTo(a.hb + 2, 6); expect(b.map).toBeGreaterThan(a.map + 3);
   });

@@ -12,16 +12,16 @@ export const AIRWAY_EXTRAS: Record<string, Extra> = {
       id: 'case', title: 'Transport case: the trapped driver',
       body: [
         'You land at a rural crash. A 58-year-old man is pinned in a vehicle on its side, GCS 9, snoring respirations, SpO₂ 90 % on a non-rebreather, BP 102/64, HR 112. He has a thick neck, a beard, blood in the mouth, and fire crews estimate 20 minutes to extricate.',
-        'The assessment drives the plan. Anatomically, he predicts difficult mask ventilation (beard, obesity, blood) and difficult laryngoscopy (blood, limited access, spinal precautions). Physiologically, he is borderline hypoxaemic and his shock index is above 1. The environment — a vehicle on its side — makes intubation in place a poor choice.',
+        'The assessment drives the plan. Anatomically, he predicts difficult mask ventilation (beard, obesity, blood) and difficult laryngoscopy (blood, limited access, spinal precautions). Physiologically, he is borderline hypoxemic and his shock index is above 1. The environment — a vehicle on its side — makes intubation in place a poor choice.',
       ],
       example: {
         case: 'What do you do while he is still trapped, and what changes once he is out?',
         steps: [
           'Trapped: jaw thrust, suction, a nasopharyngeal airway (tolerated with a gag), high-flow oxygen; keep him breathing spontaneously rather than inducing in the wreck.',
-          'Prepare in parallel: drugs drawn and labelled, video laryngoscope and bougie, second-generation SGA sized and open, cricothyrotomy kit opened, the membrane palpated and marked when you can reach the neck.',
-          'Once out: on the stretcher at waist height, head up with in-line stabilisation, pre-oxygenate with a sealed BVM and PEEP valve plus nasal cannula at 15 L/min.',
+          'Prepare in parallel: drugs drawn and labeled, video laryngoscope and bougie, second-generation SGA sized and open, cricothyrotomy kit opened, the membrane palpated and marked when you can reach the neck.',
+          'Once out: on the stretcher at waist height, head up with in-line stabilization, pre-oxygenate with a sealed BVM and PEEP valve plus nasal cannula at 15 L/min.',
           'Resuscitate before induction: blood or fluid per trauma protocol, a push-dose vasopressor ready; reduced-dose ketamine, full-dose rocuronium.',
-          'Verbalise: "Plan A video with bougie, two attempts; Plan B i-gel 5; Plan C two-person mask with adjuncts; Plan D scalpel–bougie–tube. Stop at 93 %."',
+          'Verbalize: "Plan A video with bougie, two attempts; Plan B i-gel 5; Plan C two-person mask with adjuncts; Plan D scalpel–bougie–tube. Stop at 93 %."',
           'After intubation: waveform capnography, depth documented, analgesia and sedation started before loading.',
         ],
       },
@@ -29,25 +29,25 @@ export const AIRWAY_EXTRAS: Record<string, Extra> = {
     questions: [
       Q('Which most clearly predicts a difficult surgical airway?', ['Edentulism', 'Previous neck radiation', 'Mallampati II', 'Age 30'], 1, 'Radiation (the R of SMART) fibroses tissue and obscures landmarks.'),
       Q('Before induction in a predicted difficult airway, an important step is to:', ['Skip the checklist to save time', 'Palpate and mark the cricothyroid membrane', 'Remove nasal oxygen', 'Give a larger induction dose'], 1, 'Marking speeds front-of-neck access if needed.'),
-      Q('A patient trapped in a vehicle with a patent but snoring airway is best managed initially with:', ['RSI in the vehicle', 'Basic manoeuvres, NPA, oxygen and preparation', 'Immediate cricothyrotomy', 'No intervention'], 1, 'Keep spontaneous breathing until a controlled setting is available.'),
-      Q('Obstructive sleep apnoea primarily predicts difficulty with:', ['Surgical airway', 'Mask ventilation', 'IV access', 'Capnography'], 1, 'OSA is part of ROMAN (obstruction).'),
-      Q('Which "physiologic" factor is most commonly associated with peri-intubation arrest?', ['Mild anaemia', 'Hypotension before induction', 'Hyperglycaemia', 'Bradypnoea'], 1, 'Pre-induction hypotension predicts arrest.'),
+      Q('A patient trapped in a vehicle with a patent but snoring airway is best managed initially with:', ['RSI in the vehicle', 'Basic maneuvers, NPA, oxygen and preparation', 'Immediate cricothyrotomy', 'No intervention'], 1, 'Keep spontaneous breathing until a controlled setting is available.'),
+      Q('Obstructive sleep apnea primarily predicts difficulty with:', ['Surgical airway', 'Mask ventilation', 'IV access', 'Capnography'], 1, 'OSA is part of ROMAN (obstruction).'),
+      Q('Which "physiologic" factor is most commonly associated with peri-intubation arrest?', ['Mild anemia', 'Hypotension before induction', 'Hyperglycemia', 'Bradypnea'], 1, 'Pre-induction hypotension predicts arrest.'),
     ],
   },
   'fpc-airway-anatomy': {
     sections: [{
       id: 'case', title: 'Transport case: the 14-month-old with stridor',
       body: [
-        'A 14-month-old with three days of cough now has inspiratory stridor at rest, intercostal recession and SpO₂ 93 % on blow-by oxygen. Weight about 10 kg. The referring hospital has given nebulised adrenaline with partial improvement.',
-        'The anatomy explains the danger: a subglottic airway of a few millimetres, a cricoid ring that cannot expand, and resistance rising with the fourth power of the radius. Agitation converts laminar to turbulent flow and worsens the obstruction. Oxygen consumption per kilogram is roughly double an adult\'s, so if the airway closes, desaturation is fast.',
+        'A 14-month-old with three days of cough now has inspiratory stridor at rest, intercostal recession and SpO₂ 93 % on blow-by oxygen. Weight about 10 kg. The referring hospital has given nebulized adrenaline with partial improvement.',
+        'The anatomy explains the danger: a subglottic airway of a few millimeters, a cricoid ring that cannot expand, and resistance rising with the fourth power of the radius. Agitation converts laminar to turbulent flow and worsens the obstruction. Oxygen consumption per kilogram is roughly double an adult\'s, so if the airway closes, desaturation is fast.',
       ],
       example: {
         case: 'How does anatomy shape your management?',
         steps: [
           'Keep the child calm on a parent\'s lap where possible; avoid unnecessary procedures that provoke crying.',
-          'Treat the swelling: dexamethasone (if not given) and nebulised adrenaline, recognising rebound after about 2 hours.',
+          'Treat the swelling: dexamethasone (if not given) and nebulized adrenaline, recognizing rebound after about 2 hours.',
           'Prepare for intubation by the most skilled operator: a tube 0.5–1.0 mm smaller than the age-predicted size, a straight blade available for the floppy epiglottis, a shoulder roll for the large occiput.',
-          'Plan oxygenation rescue: a paediatric SGA, two-person mask technique, and needle cricothyrotomy equipment (surgical cricothyrotomy is not appropriate at this age).',
+          'Plan oxygenation rescue: a pediatric SGA, two-person mask technique, and needle cricothyrotomy equipment (surgical cricothyrotomy is not appropriate at this age).',
           'In flight: continuous SpO₂ and capnography if intubated; bradycardia is a pre-arrest sign of hypoxia.',
         ],
       },
@@ -55,7 +55,7 @@ export const AIRWAY_EXTRAS: Record<string, Extra> = {
     questions: [
       Q('Why does crying worsen upper airway obstruction in a child?', ['It reduces oxygen consumption', 'Turbulent flow raises resistance further', 'It opens the cricoid', 'It reduces dead space'], 1, 'Turbulent flow resistance rises with about the fifth power of radius.'),
       Q('In a 1-year-old with croup needing intubation, choose a tube:', ['Age-predicted size', '0.5–1.0 mm smaller than predicted', '2 sizes larger', 'An SGA only'], 1, 'Subglottic swelling narrows the lumen.'),
-      Q('The hyoepiglottic ligament is the reason a curved blade:', ['Lifts the epiglottis indirectly from the vallecula', 'Must be used in infants', 'Cannot see the cords', 'Enters the oesophagus'], 0, 'Pressure in the vallecula tenses the ligament.'),
+      Q('The hyoepiglottic ligament is the reason a curved blade:', ['Lifts the epiglottis indirectly from the vallecula', 'Must be used in infants', 'Cannot see the cords', 'Enters the esophagus'], 0, 'Pressure in the vallecula tenses the ligament.'),
       Q('The carina lies approximately at:', ['C6', 'T4–T5 (angle of Louis)', 'T10', 'L1'], 1, 'At the sternal angle level.'),
       Q('Oxygen consumption of an infant is roughly:', ['Half an adult\'s per kg', 'Equal per kg', 'Double per kg', 'Ten times per kg'], 2, 'About 6–8 vs 3–4 mL/kg/min.'),
     ],
@@ -70,15 +70,15 @@ export const AIRWAY_EXTRAS: Record<string, Extra> = {
         case: 'Patient A: 70 kg septic shock, BP 80/45 on norepinephrine. Patient B: 70 kg isolated severe TBI, BP 150/90. Patient C: 70 kg crush injury trapped 6 hours, K⁺ unknown, ECG with peaked T waves.',
         steps: [
           'A: ketamine at a reduced dose (around 0.5–1 mg/kg) or etomidate; rocuronium 1.2 mg/kg (full dose in slow circulation); push-dose pressor ready; avoid propofol.',
-          'B: avoid both hypotension and the sympathetic surge of laryngoscopy — an opioid such as fentanyl, a haemodynamically neutral induction agent at full dose, rocuronium; post-intubation propofol infusion if BP allows, MAP maintained for cerebral perfusion.',
-          'C: avoid succinylcholine (crush, likely hyperkalaemia); give calcium for the ECG changes, rocuronium for paralysis, and plan hyperkalaemia treatment and fluids.',
+          'B: avoid both hypotension and the sympathetic surge of laryngoscopy — an opioid such as fentanyl, a hemodynamically neutral induction agent at full dose, rocuronium; post-intubation propofol infusion if BP allows, MAP maintained for cerebral perfusion.',
+          'C: avoid succinylcholine (crush, likely hyperkalemia); give calcium for the ECG changes, rocuronium for paralysis, and plan hyperkalemia treatment and fluids.',
           'All three: analgesia and sedation started within minutes of confirmation; reassess before each move and at altitude.',
         ],
       },
     }],
     questions: [
-      Q('Fentanyl\'s main role around intubation of a hypertensive head-injured patient is to:', ['Paralyse', 'Blunt the sympathetic response to laryngoscopy', 'Raise BP', 'Reverse rocuronium'], 1, 'Reduces the pressor response that raises ICP.'),
-      Q('Malignant hyperthermia can be triggered by:', ['Rocuronium', 'Succinylcholine', 'Ketamine', 'Fentanyl'], 1, 'Succinylcholine and volatile anaesthetics trigger MH.'),
+      Q('Fentanyl\'s main role around intubation of a hypertensive head-injured patient is to:', ['Paralyze', 'Blunt the sympathetic response to laryngoscopy', 'Raise BP', 'Reverse rocuronium'], 1, 'Reduces the pressor response that raises ICP.'),
+      Q('Malignant hyperthermia can be triggered by:', ['Rocuronium', 'Succinylcholine', 'Ketamine', 'Fentanyl'], 1, 'Succinylcholine and volatile anesthetics trigger MH.'),
       Q('Ketamine may cause hypotension in:', ['Every patient', 'Catecholamine-depleted shock', 'Hypertensive patients', 'Asthma'], 1, 'Its direct myocardial depression is unmasked.'),
       Q('Duration of succinylcholine block:', ['1–2 min', '6–10 min', '45–70 min', '3–4 h'], 1, 'Rapid hydrolysis by plasma cholinesterase.'),
       Q('Sugammadex dose for immediate reversal of deep rocuronium block:', ['2 mg/kg', '4 mg/kg', '16 mg/kg', '50 mg/kg'], 2, '16 mg/kg for rescue reversal.'),
@@ -89,21 +89,21 @@ export const AIRWAY_EXTRAS: Record<string, Extra> = {
       id: 'case', title: 'Transport case: the term pregnant patient',
       body: [
         'A 38-week pregnant woman with eclampsia has a further seizure and remains obtunded after magnesium; she is vomiting and must be intubated before transport. SpO₂ 95 % on a non-rebreather.',
-        'Pregnancy compresses the tank and speeds the drain: FRC falls by about a fifth as the uterus pushes up the diaphragm, oxygen consumption rises, and safe apnoea time is shorter than in a non-pregnant adult. Airway oedema and breast tissue make laryngoscopy harder, and aspiration risk is high.',
+        'Pregnancy compresses the tank and speeds the drain: FRC falls by about a fifth as the uterus pushes up the diaphragm, oxygen consumption rises, and safe apnea time is shorter than in a non-pregnant adult. Airway edema and breast tissue make laryngoscopy harder, and aspiration risk is high.',
       ],
       example: {
         case: 'Plan the oxygenation.',
         steps: [
           'Position: head up 20–30° with left uterine displacement to preserve venous return.',
           'Pre-oxygenate for at least three minutes with a sealed BVM and PEEP valve, or NIV if she tolerates it; nasal cannula at 15 L/min underneath.',
-          'Choose a smaller tube (6.0–7.0) for airway oedema; video laryngoscope; suction running.',
+          'Choose a smaller tube (6.0–7.0) for airway edema; video laryngoscope; suction running.',
           'Agree a stop point (for example 93 %); if reached, gentle mask ventilation with low pressures or an SGA.',
           'After intubation, ventilate to her normal pregnancy CO₂ (about 30 mmHg) and keep SpO₂ ≥ 95 % for the fetus.',
         ],
       },
     }],
     questions: [
-      Q('Safe apnoea time in a term pregnant patient compared with a non-pregnant adult is:', ['Longer', 'Shorter', 'The same', 'Unaffected by pre-oxygenation'], 1, 'Smaller FRC and higher consumption.'),
+      Q('Safe apnea time in a term pregnant patient compared with a non-pregnant adult is:', ['Longer', 'Shorter', 'The same', 'Unaffected by pre-oxygenation'], 1, 'Smaller FRC and higher consumption.'),
       Q('Which position best aids pre-oxygenation at term?', ['Supine flat', 'Head up with left uterine displacement', 'Trendelenburg', 'Prone'], 1, 'Improves FRC and venous return.'),
       Q('The end-tidal oxygen target for ideal pre-oxygenation is about:', ['50 %', '70 %', '90 %', '21 %'], 2, 'EtO₂ near 90 % indicates good denitrogenation.'),
       Q('High-flow nasal oxygen during laryngoscopy works best when:', ['The mouth is closed', 'The airway is patent (jaw thrust or blade)', 'The patient is breathing fast', 'The cuff is inflated'], 1, 'Patency allows bulk flow.'),
@@ -115,16 +115,16 @@ export const AIRWAY_EXTRAS: Record<string, Extra> = {
       id: 'case', title: 'Transport case: the anaphylaxis airway',
       body: [
         'A 44-year-old with anaphylaxis after a bee sting has stridor, a swollen tongue and SpO₂ 88 % despite IM adrenaline twice and an adrenaline infusion. The receiving hospital is 45 minutes away.',
-        'This is a predicted difficult airway that may fail quickly: oedema distorts anatomy, mask ventilation may be impossible, and SGAs may not seal over a swollen larynx. The plan must assume failure is likely.',
+        'This is a predicted difficult airway that may fail quickly: edema distorts anatomy, mask ventilation may be impossible, and SGAs may not seal over a swollen larynx. The plan must assume failure is likely.',
       ],
       example: {
         case: 'Structure the attempt.',
         steps: [
-          'Maximise medical therapy: adrenaline infusion titrated, fluids, nebulised adrenaline.',
+          'Maximize medical therapy: adrenaline infusion titrated, fluids, nebulized adrenaline.',
           'Most experienced operator; video laryngoscope and a smaller tube (6.0–6.5); bougie; suction.',
           'Mark the cricothyroid membrane before induction; open the scalpel–bougie–tube kit; assign a second clinician to the neck.',
           'Consider an awake technique if skills allow; if RSI, double setup.',
-          'If the first attempt fails and oxygenation fails, move to the neck without delay — oedema worsens with every attempt.',
+          'If the first attempt fails and oxygenation fails, move to the neck without delay — edema worsens with every attempt.',
         ],
       },
     }],
@@ -140,7 +140,7 @@ export const AIRWAY_EXTRAS: Record<string, Extra> = {
     sections: [{
       id: 'case', title: 'Transport case: massive facial trauma',
       body: [
-        'A motorcyclist without a helmet has severe midface and mandibular fractures. Blood pours from the mouth, the face is unstable, and SpO₂ is 80 % despite suction and positioning. Mask ventilation is impossible and the oropharynx is unrecognisable.',
+        'A motorcyclist without a helmet has severe midface and mandibular fractures. Blood pours from the mouth, the face is unstable, and SpO₂ is 80 % despite suction and positioning. Mask ventilation is impossible and the oropharynx is unrecognizable.',
         'Oral intubation and SGA placement are likely to fail; front-of-neck access may be the primary airway rather than a rescue. Sitting the patient forward may help drainage while preparing, if the spine assessment allows.',
       ],
       example: {
@@ -150,7 +150,7 @@ export const AIRWAY_EXTRAS: Record<string, Extra> = {
           'Extend the neck if possible; laryngeal handshake to find the membrane.',
           'Transverse stab through skin and membrane, rotate the blade caudally, open the hole.',
           'Bougie along the blade, 6.0 cuffed tube over the bougie, inflate cuff.',
-          'Confirm with capnography, ventilate, secure; suction the trachea through the tube; continue haemorrhage control and resuscitation.',
+          'Confirm with capnography, ventilate, secure; suction the trachea through the tube; continue hemorrhage control and resuscitation.',
         ],
       },
     }],
@@ -166,7 +166,7 @@ export const AIRWAY_EXTRAS: Record<string, Extra> = {
     sections: [{
       id: 'case', title: 'Transport case: inter-facility ARDS transfer',
       body: [
-        'A 40-year-old woman, 165 cm, with influenza pneumonia is on VC: VT 550, RR 18, PEEP 8, FiO₂ 0.8. SpO₂ 89 %, peak 38, plateau 33. ABG pH 7.31, PaCO₂ 52, PaO₂ 58. You are transferring her to an ECMO centre.',
+        'A 40-year-old woman, 165 cm, with influenza pneumonia is on VC: VT 550, RR 18, PEEP 8, FiO₂ 0.8. SpO₂ 89 %, peak 38, plateau 33. ABG pH 7.31, PaCO₂ 52, PaO₂ 58. You are transferring her to an ECMO center.',
         'Her PBW is 45.5 + 0.91 × (165 − 152.4) ≈ 57 kg. A VT of 550 is about 9.6 mL/kg PBW, and the plateau of 33 exceeds the target. P/F ratio is 58/0.8 ≈ 73: severe ARDS.',
       ],
       example: {
@@ -207,23 +207,23 @@ export const AIRWAY_EXTRAS: Record<string, Extra> = {
     }],
     questions: [
       Q('During CPR, a functioning SGA with a capnography waveform should usually be:', ['Removed immediately', 'Left in place while CPR continues', 'Replaced with a needle cric', 'Converted without regard to compressions'], 1, 'Avoid interrupting compressions.'),
-      Q('Prolonged King LT use can cause:', ['Tongue engorgement', 'Hyperkalaemia', 'Hypothermia', 'Pneumothorax'], 0, 'Venous congestion of the tongue.'),
+      Q('Prolonged King LT use can cause:', ['Tongue engorgement', 'Hyperkalemia', 'Hypothermia', 'Pneumothorax'], 0, 'Venous congestion of the tongue.'),
       Q('An NPA traditionally avoided in:', ['Asthma', 'Suspected basilar skull fracture', 'Seizure', 'Obesity'], 1, 'Theoretical risk of intracranial passage.'),
       Q('Video laryngoscopy in sunlight may be limited by:', ['Glare on the screen', 'Battery overheating only', 'Bougie size', 'Cuff pressure'], 0, 'Screen visibility is reduced.'),
-      Q('The i-gel cuff is:', ['Inflatable', 'Non-inflatable gel', 'Absent', 'Oesophageal'], 1, 'A soft thermoplastic non-inflatable cuff.'),
+      Q('The i-gel cuff is:', ['Inflatable', 'Non-inflatable gel', 'Absent', 'Esophageal'], 1, 'A soft thermoplastic non-inflatable cuff.'),
     ],
   },
   'fpc-peri-arrest': {
     sections: [{
       id: 'case', title: 'Transport case: massive pulmonary embolism',
       body: [
-        'A 55-year-old after hip surgery with sudden dyspnoea: SpO₂ 84 % on a non-rebreather, BP 86/52, HR 128, distended neck veins, RV dilation on bedside ultrasound. He is tiring and the team considers intubation before transfer to a centre for catheter-directed therapy.',
-        'This patient is at extreme risk of arrest at induction: a failing, pressure-loaded right ventricle that depends on sympathetic tone and preload, combined with hypoxaemia. Positive pressure raises RV afterload and reduces venous return.',
+        'A 55-year-old after hip surgery with sudden dyspnea: SpO₂ 84 % on a non-rebreather, BP 86/52, HR 128, distended neck veins, RV dilation on bedside ultrasound. He is tiring and the team considers intubation before transfer to a center for catheter-directed therapy.',
+        'This patient is at extreme risk of arrest at induction: a failing, pressure-loaded right ventricle that depends on sympathetic tone and preload, combined with hypoxemia. Positive pressure raises RV afterload and reduces venous return.',
       ],
       example: {
         case: 'Should you intubate, and if so how?',
         steps: [
-          'First ask whether intubation can be avoided: high-flow oxygen or HFNO, cautious NIV, and urgent reperfusion therapy per the receiving centre.',
+          'First ask whether intubation can be avoided: high-flow oxygen or HFNO, cautious NIV, and urgent reperfusion therapy per the receiving center.',
           'If intubation is unavoidable: norepinephrine running to a robust MAP before induction; avoid large fluid boluses that dilate the RV further.',
           'Minimal-dose induction (for example ketamine at reduced dose), full-dose paralytic, the most skilled operator, first-pass success.',
           'Ventilate with modest VT and low PEEP; avoid hypercapnia and hypoxia which raise PVR.',
@@ -236,7 +236,7 @@ export const AIRWAY_EXTRAS: Record<string, Extra> = {
       Q('Which worsens pulmonary vascular resistance?', ['Normocapnia', 'Hypoxia and hypercapnia', 'Normal pH', 'Oxygen'], 1, 'Both cause pulmonary vasoconstriction.'),
       Q('In massive PE with shock, large fluid boluses may:', ['Always help', 'Dilate the RV further and worsen septal shift', 'Lower PVR', 'Treat the clot'], 1, 'Over-distension of the RV compromises the LV.'),
       Q('Timing of most peri-intubation arrests:', ['Hours later', 'Within minutes of induction', 'Before pre-oxygenation', 'At extubation'], 1, 'Most occur early.'),
-      Q('Bicarbonate in severe acidaemia before intubation is:', ['Evidence-based standard', 'A bridge some consider; evidence is limited', 'Contraindicated', 'Used to induce anaesthesia'], 1, 'Limited evidence.'),
+      Q('Bicarbonate in severe acidemia before intubation is:', ['Evidence-based standard', 'A bridge some consider; evidence is limited', 'Contraindicated', 'Used to induce anesthesia'], 1, 'Limited evidence.'),
     ],
   },
   'fpc-trach': {
@@ -261,7 +261,7 @@ export const AIRWAY_EXTRAS: Record<string, Extra> = {
       Q('A spare tracheostomy tube one size smaller is carried because:', ['It fits more easily if the stoma has narrowed', 'It ventilates better', 'Parents prefer it', 'It has no cuff'], 0, 'A narrowed stoma may not accept the same size.'),
       Q('A suction catheter can guide reinsertion by:', ['Acting like a bougie through the new tube', 'Measuring cuff pressure', 'Providing oxygen', 'None'], 0, 'It guides the tube into the tract.'),
       Q('Hereditary angioedema is treated specifically with:', ['Antihistamines only', 'C1-esterase inhibitor or bradykinin-pathway drugs', 'Steroids only', 'Calcium'], 1, 'Targeted therapies address bradykinin excess.'),
-      Q('In a burned patient, airway swelling typically peaks:', ['Within 1 minute', 'Over hours, worsened by fluids', 'Never', 'After 2 weeks'], 1, 'Progressive oedema over the first day.'),
+      Q('In a burned patient, airway swelling typically peaks:', ['Within 1 minute', 'Over hours, worsened by fluids', 'Never', 'After 2 weeks'], 1, 'Progressive edema over the first day.'),
       Q('Air bubbling from an open neck wound with obvious tracheal injury may allow:', ['Intubation through the wound in extremis', 'Ignoring the airway', 'NPA only', 'Bag through the mouth only'], 0, 'Direct cannulation through the defect.'),
     ],
   },
@@ -293,9 +293,9 @@ export const AIRWAY_EXTRAS: Record<string, Extra> = {
     questions: [
       Q('Colorimetric CO₂ detectors change from purple to:', ['Blue', 'Yellow (with CO₂)', 'Red', 'Green'], 1, 'Yellow indicates CO₂ ("yellow is yes").'),
       Q('A colorimetric detector may give false negatives during:', ['Normal ventilation', 'Cardiac arrest with low pulmonary flow', 'Hyperventilation', 'Fever'], 1, 'Low CO₂ delivery during low-flow states.'),
-      Q('Ultrasound evidence of tracheal intubation includes:', ['A second "double tract" in the neck', 'Bilateral lung sliding with ventilation', 'Absent sliding on both sides', 'Pericardial effusion'], 1, 'Bilateral sliding supports tracheal placement; a double tract suggests oesophageal.'),
-      Q('Unilateral absent breath sounds on the left after intubation suggest:', ['Oesophageal intubation', 'Right mainstem intubation', 'Normal', 'Pneumothorax on the right'], 1, 'The tube is in the right main bronchus.'),
-      Q('Over-inflated cuff pressure (> 30 cmH₂O) risks:', ['Aspiration', 'Tracheal mucosal ischaemia', 'Hyperventilation', 'Bronchospasm'], 1, 'Capillary perfusion pressure is exceeded.'),
+      Q('Ultrasound evidence of tracheal intubation includes:', ['A second "double tract" in the neck', 'Bilateral lung sliding with ventilation', 'Absent sliding on both sides', 'Pericardial effusion'], 1, 'Bilateral sliding supports tracheal placement; a double tract suggests esophageal.'),
+      Q('Unilateral absent breath sounds on the left after intubation suggest:', ['Esophageal intubation', 'Right mainstem intubation', 'Normal', 'Pneumothorax on the right'], 1, 'The tube is in the right main bronchus.'),
+      Q('Over-inflated cuff pressure (> 30 cmH₂O) risks:', ['Aspiration', 'Tracheal mucosal ischemia', 'Hyperventilation', 'Bronchospasm'], 1, 'Capillary perfusion pressure is exceeded.'),
     ],
   },
   'fpc-suction': {
@@ -303,8 +303,8 @@ export const AIRWAY_EXTRAS: Record<string, Extra> = {
       id: 'checks', title: 'Equipment checks and complications',
       body: [
         'Check suction at the start of every shift and before every airway: power or battery, canister seated and empty, tubing connected, a rigid catheter and soft catheters of the right sizes, and the vacuum reading with the tubing occluded. Portable units lose strength as batteries drain; a manual hand-powered suction is a useful backup.',
-        'Complications are mostly preventable. Hypoxaemia is limited by pre-oxygenation and short passes. Mucosal trauma and bleeding are limited by appropriate pressures, not jabbing the catheter, and stopping 1 cm short of the carina. Atelectasis is limited by catheter size no more than half the tube lumen and by closed systems that preserve PEEP. Infection risk is reduced by sterile technique for endotracheal suction.',
-        'Document what you removed — volume, colour, blood or particulate matter — because it informs the receiving team about aspiration, pneumonia or haemorrhage.',
+        'Complications are mostly preventable. Hypoxemia is limited by pre-oxygenation and short passes. Mucosal trauma and bleeding are limited by appropriate pressures, not jabbing the catheter, and stopping 1 cm short of the carina. Atelectasis is limited by catheter size no more than half the tube lumen and by closed systems that preserve PEEP. Infection risk is reduced by sterile technique for endotracheal suction.',
+        'Document what you removed — volume, color, blood or particulate matter — because it informs the receiving team about aspiration, pneumonia or hemorrhage.',
       ],
     }, 
       {
@@ -338,7 +338,7 @@ export const AIRWAY_EXTRAS: Record<string, Extra> = {
       Q('In neonates, suction the mouth before the nose because:', ['The nose is larger', 'Nasal suction can trigger a gasp and aspiration', 'It is faster', 'It avoids bradycardia entirely'], 1, 'Clear the mouth first.'),
       Q('Rising peak pressure with unchanged plateau and a shark-fin waveform suggests:', ['Pneumothorax', 'Secretions or bronchospasm', 'Mainstem intubation', 'ARDS'], 1, 'A resistance problem.'),
       Q('Suction catheter size for an infant with a 4.0 ETT:', ['5 Fr', '8 Fr', '14 Fr', '18 Fr'], 1, 'About 2 × tube size.'),
-      Q('Suction in a patient with raised ICP should be:', ['Prolonged and vigorous', 'Brief, with adequate sedation and pre-oxygenation', 'Avoided entirely', 'Performed with saline lavage'], 1, 'Minimise ICP surges.'),
+      Q('Suction in a patient with raised ICP should be:', ['Prolonged and vigorous', 'Brief, with adequate sedation and pre-oxygenation', 'Avoided entirely', 'Performed with saline lavage'], 1, 'Minimize ICP surges.'),
       Q('A heat and moisture exchanger helps by:', ['Increasing FiO₂', 'Humidifying inspired gas, limiting thick secretions', 'Lowering CO₂', 'Measuring EtCO₂'], 1, 'Humidification keeps secretions thinner.'),
     ],
   },
@@ -370,7 +370,7 @@ export const AIRWAY_EXTRAS: Record<string, Extra> = {
     questions: [
       Q('With constant ventilation, a falling EtCO₂ most often reflects:', ['Rising metabolism', 'Falling cardiac output', 'Rebreathing', 'Bronchospasm'], 1, 'Less CO₂ is delivered to the lungs.'),
       Q('Malignant hyperthermia causes EtCO₂ to:', ['Fall', 'Rise sharply', 'Stay normal', 'Become zero'], 1, 'Hypermetabolism raises CO₂ production.'),
-      Q('Nasal-oral capnography in a sedated, spontaneously breathing patient detects:', ['Tube placement', 'Hypoventilation and apnoea early', 'Cardiac output exactly', 'PaO₂'], 1, 'Before desaturation.'),
+      Q('Nasal-oral capnography in a sedated, spontaneously breathing patient detects:', ['Tube placement', 'Hypoventilation and apnea early', 'Cardiac output exactly', 'PaO₂'], 1, 'Before desaturation.'),
       Q('Phase II of the capnogram reflects:', ['Dead-space gas only', 'Mixing of dead-space and alveolar gas', 'Inspiration', 'Rebreathing'], 1, 'The expiratory upstroke.'),
       Q('In DKA before intubation, a low EtCO₂ reflects:', ['Hypoventilation', 'Respiratory compensation', 'Equipment error', 'Rebreathing'], 1, 'Kussmaul breathing lowers CO₂.'),
     ],
@@ -385,10 +385,10 @@ export const AIRWAY_EXTRAS: Record<string, Extra> = {
         'Gastric distension, eye irritation, nasal bridge pressure injury and aspiration are the common complications; a gastric tube may be needed on long transports.',
       ],
     }, {
-      id: 'case', title: 'Transport case: flash pulmonary oedema',
+      id: 'case', title: 'Transport case: flash pulmonary edema',
       body: [
         'A 72-year-old with hypertension is sitting bolt upright, frothy sputum, SpO₂ 82 % on a non-rebreather, BP 210/120, HR 118, crackles to the apices. She is alert and frightened.',
-        'Sympathetic crashing acute pulmonary oedema: high afterload drives fluid into the lungs. CPAP or BiPAP lowers preload and afterload and recruits flooded alveoli, while high-dose nitrates lower afterload. Intubation can often be avoided.',
+        'Sympathetic crashing acute pulmonary edema: high afterload drives fluid into the lungs. CPAP or BiPAP lowers preload and afterload and recruits flooded alveoli, while high-dose nitrates lower afterload. Intubation can often be avoided.',
       ],
       example: {
         case: 'Treat it.',
@@ -403,10 +403,10 @@ export const AIRWAY_EXTRAS: Record<string, Extra> = {
     }],
     questions: [
       Q('CPAP improves oxygenation primarily by:', ['Increasing CO₂', 'Recruiting alveoli and raising FRC', 'Raising heart rate', 'Lowering FiO₂'], 1, 'Reduces shunt.'),
-      Q('First-line pharmacological adjunct with NIV for hypertensive pulmonary oedema:', ['Fluids', 'High-dose nitroglycerin', 'Beta-agonist', 'Calcium'], 1, 'Reduces afterload and preload.'),
+      Q('First-line pharmacological adjunct with NIV for hypertensive pulmonary edema:', ['Fluids', 'High-dose nitroglycerin', 'Beta-agonist', 'Calcium'], 1, 'Reduces afterload and preload.'),
       Q('Which patient is the best NIV candidate?', ['Obtunded with vomiting', 'Alert COPD patient with pH 7.28', 'Facial burns', 'Cardiac arrest'], 1, 'Cooperative hypercapnic patient.'),
       Q('If CO₂ remains high on BiPAP 10/5, a reasonable change is:', ['Lower IPAP', 'Increase IPAP', 'Remove EPAP', 'Lower FiO₂ to 0.21'], 1, 'More pressure support increases VT.'),
-      Q('Positive pressure may worsen:', ['Hypertension', 'Hypovolaemic hypotension', 'Oxygenation', 'Pulmonary oedema'], 1, 'It reduces venous return.'),
+      Q('Positive pressure may worsen:', ['Hypertension', 'Hypovolemic hypotension', 'Oxygenation', 'Pulmonary edema'], 1, 'It reduces venous return.'),
     ],
   },
 };

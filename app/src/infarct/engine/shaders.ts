@@ -30,7 +30,7 @@ export const shared = {
   uXray: { value: 0 },
   /** how much of the injury shows on the outer surface (subendocardial patterns: little; transmural STEMI: all) */
   uSurf: { value: 1 },
-  /** depolarisation drawn on the walls while the impulse view is on: atrial wavefront radius from the SA node (dm,
+  /** depolarization drawn on the walls while the impulse view is on: atrial wavefront radius from the SA node (dm,
    *  <0 none), ventricular wavefront position from apex (1) to base (0) (<0 none) */
   uSA: { value: new THREE.Vector3() },
   uAtrWave: { value: -1 },
@@ -125,7 +125,7 @@ export function tissueMaterial(kind: TissueKind, opts: { fadeable?: boolean } = 
         totalEmissiveRadiance += vec3(0.42,0.66,0.74) * face * uLeadOn * 0.16 * (uKind < 1.5 ? 1.0 : 0.25);
         totalEmissiveRadiance += vec3(0.55,0.42,0.95) * (mEdge * 0.22 + hEdge * 0.18);
         totalEmissiveRadiance += vec3(0.16,0.05,0.05) * rim * uXray;
-        // the impulse crossing the muscle: a bright depolarisation front with a fading wake
+        // the impulse crossing the muscle: a bright depolarization front with a fading wake
         if (uImpulse > 0.01) {
           if (uKind > 0.5 && uKind < 1.5 && uAtrWave >= 0.0) { float d = distance(vPos, uSA) - uAtrWave; totalEmissiveRadiance += vec3(1.0, 0.82, 0.35) * (exp(-d*d/0.0025) * 1.4 + (d < 0.0 ? 0.12 * exp(d / 0.25) : 0.0)) * uImpulse; }
           if (uKind < 0.5 && uVentWave >= 0.0) { float h = 1.0 - clamp(dot(vPos - uBase, uAxis) / uLen, 0.0, 1.0); float d = h - uVentWave; totalEmissiveRadiance += vec3(1.0, 0.8, 0.32) * (exp(-d*d/0.004) * 1.2 + (d < 0.0 ? 0.1 * exp(d / 0.3) : 0.0)) * uImpulse; }

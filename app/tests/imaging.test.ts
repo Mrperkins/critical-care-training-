@@ -29,7 +29,7 @@ describe('state-matched real neuro references', () => {
     expect(selectNeuroRealFinding(st)?.id).toBe('stroke-early-change-2025');
   });
 
-  it('maps haemorrhage only to findings actually present in state', () => {
+  it('maps hemorrhage only to findings actually present in state', () => {
     expect(selectNeuroRealFinding(presetState('ich'))?.id).toBe('ich-deep-locations-2016');
     expect(selectNeuroRealFinding(presetState('sah'))?.id).toBe('sah-ct-mirza');
   });

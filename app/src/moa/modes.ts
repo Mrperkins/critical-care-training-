@@ -1,6 +1,6 @@
 /**
  * MOA product modes as pure functions over the SAME mechanism graph: view levels (which node kinds are
- * emphasised), receptor branches (a receptor and everything downstream of it), upstream / downstream
+ * emphasized), receptor branches (a receptor and everything downstream of it), upstream / downstream
  * exploration from any node, adverse-effect highlighting, and a side-by-side comparison of two drugs on
  * their own patient adapters. The UI only renders what these return.
  */

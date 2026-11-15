@@ -39,7 +39,7 @@ interface State {
   cutaway: boolean;
   /** see-through walls with the conduction system lit on the same clock as the ECG */
   conduction: boolean;
-  /** short-axis slice through the ventricles, showing how deep into the wall the ischaemia reaches */
+  /** short-axis slice through the ventricles, showing how deep into the wall the ischemia reaches */
   slice: boolean;
   /** heart rhythm (conduction disturbance) drawn on the ECG, the heartbeat and the conduction-system impulse */
   rhythm: import('./rhythm').RhythmId;

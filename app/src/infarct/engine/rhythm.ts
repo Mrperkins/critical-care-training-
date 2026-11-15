@@ -36,22 +36,22 @@ const ANTERIOR = ['anterior', 'anteroseptal', 'extensiveAnterior', 'septal', 'de
 
 export const RHYTHMS: RhythmDef[] = [
   { id: 'sinus', name: 'Normal sinus rhythm', short: 'Sinus 72', ...sinus(72), seenWith: [],
-    explanation: 'The SA node fires 72 times a minute. Each impulse crosses the atria (P wave), pauses in the AV node (PR interval) and races down the His bundle, bundle branches and Purkinje fibres (QRS).', pearl: 'Every P is followed by a QRS at a constant PR.' },
+    explanation: 'The SA node fires 72 times a minute. Each impulse crosses the atria (P wave), pauses in the AV node (PR interval) and races down the His bundle, bundle branches and Purkinje fibers (QRS).', pearl: 'Every P is followed by a QRS at a constant PR.' },
   { id: 'sinusBrady', name: 'Sinus bradycardia', short: 'Sinus brady', ...sinus(46), seenWith: INFERIOR,
     explanation: 'Common early in inferior MI: the RCA usually supplies the SA node, and the inferior wall is rich in vagal afferents (the Bezold–Jarisch reflex), so the SA node slows.', pearl: 'Treat only if it causes hypotension: atropine works because the problem is vagal and nodal.' },
   { id: 'sinusTach', name: 'Sinus tachycardia', short: 'Sinus tach', ...sinus(112, 0.12), seenWith: ANTERIOR,
-    explanation: 'In a large anterior MI, sinus tachycardia is often the heart compensating for a failing pump — a warning sign of shock rather than a rhythm to slow down.', pearl: 'Look for the cause (pump failure, pain, hypovolaemia); do not simply rate-control it.' },
+    explanation: 'In a large anterior MI, sinus tachycardia is often the heart compensating for a failing pump — a warning sign of shock rather than a rhythm to slow down.', pearl: 'Look for the cause (pump failure, pain, hypovolemia); do not simply rate-control it.' },
   { id: 'firstDegree', name: 'First-degree AV block', short: '1st-degree', ...sinus(70, 0.3), seenWith: INFERIOR,
-    explanation: 'Every impulse gets through the AV node, but slowly: the PR interval is longer than 200 ms. The AV nodal artery comes from the RCA in most people, so ischaemia in an inferior MI slows the node.', pearl: 'Usually benign and transient after inferior MI; watch for progression.' },
+    explanation: 'Every impulse gets through the AV node, but slowly: the PR interval is longer than 200 ms. The AV nodal artery comes from the RCA in most people, so ischemia in an inferior MI slows the node.', pearl: 'Usually benign and transient after inferior MI; watch for progression.' },
   { id: 'wenckebach', name: 'Second-degree AV block, Mobitz I (Wenckebach)', short: 'Wenckebach',
     period: 3.0, atrial: every(3.0, 0.75), ventricular: conducted(every(3.0, 0.75), [0.16, 0.27, 0.33, null]), seenWith: INFERIOR,
     explanation: 'The AV node tires a little more with each beat: the PR lengthens until one P wave is not conducted, then the cycle restarts. The block is in the AV node itself — typical of inferior MI.', pearl: 'Nodal block: usually transient, responds to atropine, rarely needs pacing.' },
   { id: 'mobitz2', name: 'Second-degree AV block, Mobitz II', short: 'Mobitz II',
     period: 3.0, atrial: every(3.0, 0.75), ventricular: conducted(every(3.0, 0.75), [0.16, 0.16, 0.16, null], 'rbbb'), seenWith: ANTERIOR,
-    explanation: 'The PR stays the same, then a P wave suddenly fails to conduct. The block is below the AV node, in the bundle branches — which is why the conducted QRS complexes are wide. In anterior MI it means the septum and its bundles are ischaemic.', pearl: 'Infranodal block can progress to complete heart block without warning: pads on, prepare to pace. Atropine does not help.' },
+    explanation: 'The PR stays the same, then a P wave suddenly fails to conduct. The block is below the AV node, in the bundle branches — which is why the conducted QRS complexes are wide. In anterior MI it means the septum and its bundles are ischemic.', pearl: 'Infranodal block can progress to complete heart block without warning: pads on, prepare to pace. Atropine does not help.' },
   { id: 'chbJunctional', name: 'Complete heart block, junctional escape', short: 'CHB · junctional',
     period: 12, atrial: every(12, 0.75), ventricular: every(12, 12 / 9).map((at) => ({ at: +(at + 0.31).toFixed(6), kind: 'narrow' as QrsKind, origin: 'junctional' as const, fromP: null })), seenWith: INFERIOR,
-    explanation: 'No impulse crosses the AV node. The atria keep their own rate (P waves marching through) while a backup pacemaker in the AV junction drives the ventricles at about 45 a minute with narrow QRS complexes. In inferior MI the block is nodal.', pearl: 'Narrow escape, often haemodynamically tolerated and transient after inferior MI; pace if unstable.' },
+    explanation: 'No impulse crosses the AV node. The atria keep their own rate (P waves marching through) while a backup pacemaker in the AV junction drives the ventricles at about 45 a minute with narrow QRS complexes. In inferior MI the block is nodal.', pearl: 'Narrow escape, often hemodynamically tolerated and transient after inferior MI; pace if unstable.' },
   { id: 'chbVentricular', name: 'Complete heart block, ventricular escape', short: 'CHB · ventricular',
     period: 9, atrial: every(9, 0.75), ventricular: every(9, 1.8).map((at) => ({ at: +(at + 0.47).toFixed(6), kind: 'ventricular' as QrsKind, origin: 'ventricular' as const, fromP: null })), seenWith: ANTERIOR,
     explanation: 'The block is below the AV node, so the only backup left is a slow focus in the ventricle itself: about 33 a minute with wide, bizarre QRS complexes, unrelated to the P waves. In anterior MI this means extensive septal necrosis.', pearl: 'Unstable and unreliable escape: pace now.' },
@@ -128,8 +128,8 @@ export function rhythmState(r: RhythmDef, t: number, saToAvMs = 40): RhythmState
     else if (dp < avAt + 0.35) avBlocked = 1 - ss(avAt + 0.2, avAt + 0.35, dp);
   }
   let phase = 'Electrical diastole';
-  if (dq < 0.09 + x) phase = q?.origin === 'ventricular' ? 'Escape impulse from the ventricle — slow, wide QRS' : q?.origin === 'junctional' ? 'Junctional escape — His–Purkinje fires on its own (narrow QRS)' : kind === 'rbbb' ? 'QRS — right bundle blocked: RV activated late' : kind === 'lbbb' ? 'QRS — left bundle blocked: LV activated late' : 'QRS — His bundle, bundle branches, Purkinje fibres';
-  else if (dq < 0.45 + x) phase = 'ST–T — ventricles contract, then repolarise';
+  if (dq < 0.09 + x) phase = q?.origin === 'ventricular' ? 'Escape impulse from the ventricle — slow, wide QRS' : q?.origin === 'junctional' ? 'Junctional escape — His–Purkinje fires on its own (narrow QRS)' : kind === 'rbbb' ? 'QRS — right bundle blocked: RV activated late' : kind === 'lbbb' ? 'QRS — left bundle blocked: LV activated late' : 'QRS — His bundle, bundle branches, Purkinje fibers';
+  else if (dq < 0.45 + x) phase = 'ST–T — ventricles contract, then repolarize';
   if (dp < avAt) phase = 'P wave — impulse spreading across the atria';
   else if (avHold) phase = (next && next.at - p!.at > 0.2) ? 'PR — impulse held in the AV node (prolonged)' : 'PR — impulse delayed in the AV node';
   else if (avBlocked > 0.3) phase = 'Blocked — the impulse stops at the AV node: no QRS';

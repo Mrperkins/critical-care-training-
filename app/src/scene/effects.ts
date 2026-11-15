@@ -19,7 +19,7 @@ const OXY = new THREE.Color('#d8141a'), DEOXY = new THREE.Color('#5a0d24');
 /** Teaching palette: deoxygenated blood drawn blue-violet so O₂ loading is obvious (textbook convention). */
 const T_OXY = new THREE.Color('#e3262b'), T_DEOXY = new THREE.Color('#47307e');
 export const SAT_PALETTE = { venous: '#5a0d24', arterial: '#d8141a', teachVenous: '#47307e', teachArterial: '#e3262b' } as const;
-/** Blood colour for an O₂ saturation (0–1): dark venous → bright arterial (or the blue→red teaching palette). */
+/** Blood color for an O₂ saturation (0–1): dark venous → bright arterial (or the blue→red teaching palette). */
 export function saturationColor(sat: number, out = new THREE.Color(), teaching = false) {
   const x = Math.max(0, Math.min(1, (sat - 0.45) / 0.53));
   return teaching ? out.copy(T_DEOXY).lerp(T_OXY, x ** 2.2) : out.copy(DEOXY).lerp(OXY, x ** 1.25);

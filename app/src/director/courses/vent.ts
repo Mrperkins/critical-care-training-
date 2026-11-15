@@ -1,10 +1,10 @@
-/** Respiratory courses: ventilator mechanics, ARDS, obstruction, pneumothorax and the paediatric airway. */
+/** Respiratory courses: ventilator mechanics, ARDS, obstruction, pneumothorax and the pediatric airway. */
 import type { CourseMeta } from '../course';
 const q = (question: string, options: string[], answer: number, why: string) => ({ q: question, options, answer, why });
 
 export const VENT_COURSES: Record<string, CourseMeta> = {
   'vent-ards-signature': {
-    objectives: ['Explain why ARDS hypoxaemia is mainly shunt and why FiO₂ alone barely helps.', 'Describe what PEEP recruits and what it overstretches.', 'Set protective ventilation from predicted body weight and plateau pressure.'],
+    objectives: ['Explain why ARDS hypoxemia is mainly shunt and why FiO₂ alone barely helps.', 'Describe what PEEP recruits and what it overstretches.', 'Set protective ventilation from predicted body weight and plateau pressure.'],
     essentials: ['ards-1', 'ards-3', 'ards-5', 'ards-6', 'ards-7'],
     keyPoints: [
       'ARDS lungs are small, heavy and stiff: the dependent lung collapses and floods.',
@@ -19,15 +19,15 @@ export const VENT_COURSES: Record<string, CourseMeta> = {
     checkpoints: { 'ards-5': { prompt: 'PEEP goes from 5 to 16. What should happen to the driving pressure if lung is recruited?', answer: 'It falls: the same tidal volume now fills more open alveoli, so compliance rises and less pressure is needed above PEEP.' } },
     selfCheck: [
       q('A patient with ARDS has SpO₂ 86 % on FiO₂ 0.6. FiO₂ goes to 1.0 and SpO₂ reaches 88 %. What is the main mechanism?', ['Hypoventilation', 'Shunt', 'Diffusion limitation', 'Dead space'], 1, 'Blood passing alveoli that receive no gas never meets the extra oxygen, so a large shunt barely responds to FiO₂.'),
-      q('After raising PEEP from 12 to 20, plateau rises from 26 to 34 cmH₂O and blood pressure falls. Best next step?', ['Raise PEEP further to recruit more', 'Reduce PEEP back toward the previous level', 'Increase tidal volume', 'Start a diuretic'], 1, 'Rising plateau plus haemodynamic compromise points to overdistension; step PEEP back down.'),
+      q('After raising PEEP from 12 to 20, plateau rises from 26 to 34 cmH₂O and blood pressure falls. Best next step?', ['Raise PEEP further to recruit more', 'Reduce PEEP back toward the previous level', 'Increase tidal volume', 'Start a diuretic'], 1, 'Rising plateau plus hemodynamic compromise points to overdistension; step PEEP back down.'),
     ],
   },
   'vent-ards-vs-obstruction': {
-    objectives: ['Split peak pressure into resistive and elastic parts with an inspiratory hold.', 'Tell a compliance problem from a resistance problem at the bedside.', 'Recognise and measure auto-PEEP, and fix it with expiratory time.'],
+    objectives: ['Split peak pressure into resistive and elastic parts with an inspiratory hold.', 'Tell a compliance problem from a resistance problem at the bedside.', 'Recognize and measure auto-PEEP, and fix it with expiratory time.'],
     essentials: ['cr-1', 'cr-2', 'cr-3', 'cr-4', 'cr-5'],
     keyPoints: [
       'Peak = PEEP + elastic pressure + resistive pressure. An inspiratory hold removes the resistive part and leaves the plateau.',
-      'High peak, high plateau, normal gap: stiff lung (ARDS, oedema, pneumothorax).',
+      'High peak, high plateau, normal gap: stiff lung (ARDS, edema, pneumothorax).',
       'High peak, near-normal plateau, big gap: narrow airways (asthma, secretions, a kinked tube).',
       'Expiratory flow that does not reach zero means trapped gas. Measure auto-PEEP with an expiratory hold.',
       'Treat obstruction with bronchodilators and time to exhale: a lower rate and a shorter inspiration.',
@@ -41,7 +41,7 @@ export const VENT_COURSES: Record<string, CourseMeta> = {
     ],
   },
   'vent-tension-ptx': {
-    objectives: ['Recognise tension pneumothorax on the ventilator from pressures, saturation and blood pressure.', 'Explain why it causes obstructive shock.', 'Decompress first; use ultrasound and films to confirm, never to delay.'],
+    objectives: ['Recognize tension pneumothorax on the ventilator from pressures, saturation and blood pressure.', 'Explain why it causes obstructive shock.', 'Decompress first; use ultrasound and films to confirm, never to delay.'],
     essentials: ['ptx-2', 'ptx-4', 'ptx-5', 'ptx-6'],
     keyPoints: [
       'Positive pressure pumps air into the pleural space with every breath, and it cannot escape.',
@@ -60,7 +60,7 @@ export const VENT_COURSES: Record<string, CourseMeta> = {
     ],
   },
   'vent-needle': {
-    objectives: ['Choose a safe needle decompression site.', 'Avoid the neurovascular bundle and the internal thoracic artery.', 'Recognise a failed decompression and follow with definitive drainage.'],
+    objectives: ['Choose a safe needle decompression site.', 'Avoid the neurovascular bundle and the internal thoracic artery.', 'Recognize a failed decompression and follow with definitive drainage.'],
     essentials: ['nd-2', 'nd-3', 'nd-5', 'nd-7'],
     keyPoints: [
       'Two sites: 2nd intercostal space mid-clavicular line, or 4th–5th space anterior to mid-axillary line (safe triangle).',
@@ -82,7 +82,7 @@ export const VENT_COURSES: Record<string, CourseMeta> = {
     essentials: ['pa-1', 'pa-2', 'pa-3', 'pa-6'],
     keyPoints: [
       'Resistance rises with the fourth power of the radius: halve the radius and resistance rises 16 times.',
-      'One millimetre of swelling triples resistance in an adult airway but raises it 16-fold in an infant’s.',
+      'One millimeter of swelling triples resistance in an adult airway but raises it 16-fold in an infant’s.',
       'Crying makes flow turbulent and resistance worse: keep the child calm, with a parent.',
       'The cricoid ring cannot expand, so swelling there narrows the lumen.',
       'A small tube with a little secretion loses a large share of its radius: check the tube first.',
@@ -117,7 +117,7 @@ export const VENT_COURSES: Record<string, CourseMeta> = {
     essentials: ['rc1', 'rc3', 'rc4'],
     keyPoints: [
       'High peak with a normal plateau is a resistance problem: bronchospasm, secretions, a kinked or bitten tube.',
-      'High peak with a high plateau is a compliance problem: pneumothorax, mainstem intubation, oedema, abdominal distension.',
+      'High peak with a high plateau is a compliance problem: pneumothorax, mainstem intubation, edema, abdominal distension.',
       'Resistance falls with the fourth power of the radius, so a little bronchodilation drops pressure a lot.',
     ],
     pearls: ['Pass a suction catheter: if it will not go, the tube is the problem.'],
@@ -143,7 +143,7 @@ export const VENT_COURSES: Record<string, CourseMeta> = {
     ],
   },
   peep: {
-    objectives: ['Explain recruitment and why opening pressure exceeds closing pressure.', 'Recognise overdistension and its haemodynamic cost.', 'Find a PEEP that balances the two.'],
+    objectives: ['Explain recruitment and why opening pressure exceeds closing pressure.', 'Recognize overdistension and its hemodynamic cost.', 'Find a PEEP that balances the two.'],
     essentials: ['pe2', 'pe3', 'pe4'],
     keyPoints: [
       'Dependent ARDS lung collapses and causes shunt.',
@@ -158,7 +158,7 @@ export const VENT_COURSES: Record<string, CourseMeta> = {
     ],
   },
   auto: {
-    objectives: ['Recognise auto-PEEP on the flow trace.', 'Measure it with an expiratory hold.', 'Treat it by increasing expiratory time.'],
+    objectives: ['Recognize auto-PEEP on the flow trace.', 'Measure it with an expiratory hold.', 'Treat it by increasing expiratory time.'],
     essentials: ['au1', 'au3'],
     keyPoints: [
       'Expiratory flow that is still negative when the next breath begins means trapped gas.',
@@ -173,7 +173,7 @@ export const VENT_COURSES: Record<string, CourseMeta> = {
     ],
   },
   sync: {
-    objectives: ['Describe triggering and cycling in pressure support.', 'Recognise premature and delayed cycling and ineffective efforts.'],
+    objectives: ['Describe triggering and cycling in pressure support.', 'Recognize premature and delayed cycling and ineffective efforts.'],
     essentials: ['sy1', 'sy3', 'sy4'],
     keyPoints: [
       'Pressure support starts when the patient triggers and stops when flow falls to the cycle-off percentage.',

@@ -1,7 +1,7 @@
 /**
  * Builds a sliced-open cell: membrane (with a rounded lip at the cut), the glassy cytosol surface,
  * and organelles at textbook proportions for three cell types.
- *  - cardiac: branched brick joined to neighbours by intercalated discs; myofibrils with sarcomeres
+ *  - cardiac: branched brick joined to neighbors by intercalated discs; myofibrils with sarcomeres
  *    in register, T-tubules at every Z line, SR, rows of mitochondria, central elongated nucleus.
  *  - neuron: soma with a large pale nucleus and prominent nucleolus, Nissl bodies (rough ER) that
  *    stop at the axon hillock, perinuclear Golgi, spiny branching dendrites, myelinated axon.
@@ -144,7 +144,7 @@ function buildCardiac(def: CellDef, add: (p: Part) => Part, inside: (p: THREE.Ve
       for (let k = 0; k < 3; k++) gj.push(TRS(c.clone().add(V(0, (R() - 0.3) * d.hh, 0)).addScaledVector(d.dir, 0.02), alignY(d.dir), 1)); }
   }
   const discGrp = new THREE.Group(); discGrp.add(new THREE.Mesh(merge(discG), discM), instanced(new THREE.CylinderGeometry(0.028, 0.028, 0.012, 10), gjM, gj)); void stubs; void stubM;
-  const d0 = def.discs![0]; add({ obj: discGrp, mats: [discM, gjM, stubM], anchors: [{ key: 'disc', label: 'Intercalated disc → next heart cell', pos: d0.pos.clone().add(V(0.1, cut + 0.2, 0.55)) }, { key: 'branch', label: 'Branch to a neighbouring cell', pos: def.discs![1].pos.clone().add(V(-0.3, cut + 0.15, 0.2)) }] });
+  const d0 = def.discs![0]; add({ obj: discGrp, mats: [discM, gjM, stubM], anchors: [{ key: 'disc', label: 'Intercalated disc → next heart cell', pos: d0.pos.clone().add(V(0.1, cut + 0.2, 0.55)) }, { key: 'branch', label: 'Branch to a neighboring cell', pos: def.discs![1].pos.clone().add(V(-0.3, cut + 0.15, 0.2)) }] });
   void root;
 }
 

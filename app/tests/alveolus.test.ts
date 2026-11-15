@@ -27,7 +27,7 @@ describe('alveolar close-up reads the vent engine', () => {
     expect(eHi).toBeGreaterThan(eLo); // PEEP holds alveoli bigger at end-expiration
     expect(lo.wet).toBeGreaterThan(0); expect(lo.surfactant).toBeLessThan(1);
   });
-  it('pulmonary oedema floods dependent units whose blood stays venous', () => {
+  it('pulmonary edema floods dependent units whose blood stays venous', () => {
     const S = new VentSession('edema'); run(S, 8); const a = alveolarState(S, R);
     const flooded = a.units.filter((u) => u.kind === 'flooded');
     expect(flooded.length).toBeGreaterThan(0);

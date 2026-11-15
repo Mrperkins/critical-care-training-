@@ -6,7 +6,7 @@ export type FlowMode = 'sat' | 'doppler';
 export type CutMode = 'auto' | 'rv' | 'ra' | 'lv' | 'slice' | 'front' | 'closed' | 'sax_base' | 'sax_mid' | 'sax_apex' | 'lvot' | 'rvot';
 export interface HeartUI {
   preset: HeartPresetId | 'custom'; input: ShuntInput;
-  /** colour flow by oxygen saturation, or Doppler-style by velocity toward/away from an apical probe */ mode: FlowMode;
+  /** color flow by oxygen saturation, or Doppler-style by velocity toward/away from an apical probe */ mode: FlowMode;
   /** Draw bulk flow, small tracers, or both (bulk volume default). */ flowDisplay: 'volume' | 'particles' | 'both';
   /** which heart view: congenital structure & flow, or the MI Locator (coronary territories + live 12-lead ECG) */ section: 'structure' | 'coronary';
   target: string; labels: boolean; cut: CutMode;

@@ -20,7 +20,7 @@ export interface Morph {
   ar?: number;
   /** tricuspid regurgitation 0–1 (giant c-v wave, loss of x descent) */
   tr?: number;
-  /** pericardial tamponade 0–1 (high equalised CVP, lost y descent, pulsus paradoxus) */
+  /** pericardial tamponade 0–1 (high equalized CVP, lost y descent, pulsus paradoxus) */
   tamponade?: number;
   /** stiff RV / RV pressure load 0–1 (big a wave, high RV systolic pressure) */
   rvLoad?: number;
@@ -50,21 +50,21 @@ export const SCENARIOS: LinesScenario[] = [
     blurb: 'Resting adult, sinus rhythm, breathing spontaneously.',
     story: ['Each heartbeat ejects ~65 mL into a stretchy aorta: pressure rises fast, then runs off through the arterioles', 'The aortic valve closes → dicrotic notch on the downstroke', 'Right atrial pressure follows the heart: a (atrial kick), c (tricuspid bulges), x, v (atrium fills), y (tricuspid opens)'],
     look: ['Sharp upstroke, rounded peak, dicrotic notch about one-third down the downstroke', 'CVP 2–8 mmHg with a > v', 'CVP dips with each spontaneous breath — read it at end-expiration'] },
-  { id: 'hypovol', name: 'Haemorrhage (hypovolaemic shock)', short: 'Hypovolaemia', group: 'Shock', params: { volume: 0.62, hr: 118, svr: 1650, cvp: 1 }, morph: {},
+  { id: 'hypovol', name: 'Hemorrhage (hypovolemic shock)', short: 'Hypovolemia', group: 'Shock', params: { volume: 0.62, hr: 118, svr: 1650, cvp: 1 }, morph: {},
     blurb: 'About 1.5 L blood loss. Intubated and on positive-pressure ventilation.',
     story: ['Less blood returns to the heart → smaller stroke volume → narrow pulse pressure', 'Vasoconstriction (high SVR) and tachycardia hold the mean pressure up for a while', 'On the ventilator each breath squeezes the underfilled heart → large pulse-pressure variation (fluid-responsive)', 'CVP is low, but a low CVP alone does not prove fluid will help — the variation is the better sign'],
     look: ['Narrow, peaked pulse', 'Pulse pressure swings beat to beat with each ventilator breath (PPV > 13 %)', 'Low CVP with small waves'] },
   { id: 'sepsis', name: 'Septic shock (vasodilated)', short: 'Sepsis', group: 'Shock', params: { svr: 650, co: 7.2, hr: 116, cvp: 4, volume: 0.85 }, morph: { stiff: -0.2 },
     blurb: 'Warm, vasodilated septic shock on the ventilator.',
     story: ['Arterioles dilate → systemic vascular resistance falls → blood runs off fast', 'Diastolic pressure falls and the dicrotic notch drops low on the downstroke', 'Cardiac output is high but MAP is low — perfusion pressure, not flow, is the problem', 'Norepinephrine raises SVR: watch the notch climb and diastolic pressure rise'],
-    look: ['Low diastolic pressure, low MAP', 'Dicrotic notch low (near the diastolic level)', 'Moderate pulse-pressure variation — relative hypovolaemia'] },
+    look: ['Low diastolic pressure, low MAP', 'Dicrotic notch low (near the diastolic level)', 'Moderate pulse-pressure variation — relative hypovolemia'] },
   { id: 'cardiogenic', name: 'Cardiogenic shock (LV failure)', short: 'Cardiogenic', group: 'Shock', params: { co: 3.0, hr: 106, svr: 1500, cvp: 14 }, morph: { lvFail: 0.8 },
     blurb: 'Large anterior MI with a failing left ventricle.',
     story: ['The weak ventricle ejects slowly → sluggish upstroke and small stroke volume', 'Intense vasoconstriction keeps MAP near 65 at the cost of perfusion', 'Raised filling pressures (volume load, RV involvement) raise the CVP; fluids will not help (little variation)'],
     look: ['Slow upstroke, narrow pulse pressure', 'Little pulse-pressure variation despite shock', 'High CVP'] },
   { id: 'tamponade', name: 'Cardiac tamponade', short: 'Tamponade', group: 'Valves & pericardium', params: { co: 3.1, hr: 122, svr: 1500, cvp: 18 }, morph: { tamponade: 1 },
     blurb: 'Pericardial effusion compressing the heart. Breathing spontaneously.',
-    story: ['Fluid in the pericardium squeezes all four chambers: the heart can only fill so far', 'Pressures rise and equalise (CVP ≈ 18) and the y descent disappears (no rapid early filling)', 'On inspiration the right heart fills and bulges the septum left → LV stroke volume falls', 'Pulsus paradoxus: systolic drops > 10 mmHg with every spontaneous breath', 'Pericardiocentesis removes the fluid and everything reverses'],
+    story: ['Fluid in the pericardium squeezes all four chambers: the heart can only fill so far', 'Pressures rise and equalize (CVP ≈ 18) and the y descent disappears (no rapid early filling)', 'On inspiration the right heart fills and bulges the septum left → LV stroke volume falls', 'Pulsus paradoxus: systolic drops > 10 mmHg with every spontaneous breath', 'Pericardiocentesis removes the fluid and everything reverses'],
     look: ['High CVP with a prominent x descent and no y descent', 'Systolic falls > 10 mmHg on each breath in', 'Narrow pulse pressure, tachycardia'] },
   { id: 'rvfail', name: 'Massive PE / RV failure', short: 'RV failure', group: 'Shock', params: { co: 3.4, hr: 118, svr: 1350, cvp: 17 }, morph: { rvLoad: 1, tr: 0.45 },
     blurb: 'Large pulmonary embolus: the right ventricle is pressure-loaded and dilating.',
@@ -84,7 +84,7 @@ export const SCENARIOS: LinesScenario[] = [
     look: ['Small pulse after each wide QRS', 'Bigger pulse after the pause'] },
   { id: 'tr', name: 'Severe tricuspid regurgitation', short: 'TR', group: 'Valves & pericardium', params: { cvp: 14, co: 4.2 }, morph: { tr: 1, rhythm: 'af' },
     blurb: 'Torrential TR (often with AF).',
-    story: ['The leaking tricuspid valve lets the RV pump backwards into the right atrium every systole', 'The x descent is filled in and replaced by a giant c-v wave', 'The CVP looks "ventricularised" — it can be mistaken for the catheter being in the RV'],
+    story: ['The leaking tricuspid valve lets the RV pump backwards into the right atrium every systole', 'The x descent is filled in and replaced by a giant c-v wave', 'The CVP looks "ventricularized" — it can be mistaken for the catheter being in the RV'],
     look: ['Giant c-v wave in systole', 'No x descent; steep y descent'] },
   { id: 'as', name: 'Severe aortic stenosis', short: 'AS', group: 'Valves & pericardium', params: { co: 3.6, hr: 72, svr: 1700 }, morph: { as: 1 },
     blurb: 'Calcified, narrowed aortic valve (area < 1 cm²).',

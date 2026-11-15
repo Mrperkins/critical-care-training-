@@ -7,7 +7,7 @@ import { presetState } from '../neuro/neuroStore';
 import { DEFAULT_SYSTEMIC, neuroSummary, territoryStates, type NeuroState } from '../neuro/perfusion';
 import type { PatientAdapter, Readout } from './types';
 
-/** Osmotherapy: brain water drawn out (mL) in a patient with a haematoma past the knee of the curve. */
+/** Osmotherapy: brain water drawn out (mL) in a patient with a hematoma past the knee of the curve. */
 export function osmoAdapter(o: { scenario: string; ml: number; maxMl: number }): PatientAdapter {
   let u = 0; const st = (): NeuroState => { const s = presetState('ich'); return { ...s, hemorrhage: { ...s.hemorrhage!, volumeMl: o.ml } }; };
   const now = () => icpState(st(), DEFAULT_SYSTEMIC, { ...ICP_DEFAULT, headUp: 30, osmoMl: o.maxMl * u });

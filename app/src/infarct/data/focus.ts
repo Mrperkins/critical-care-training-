@@ -12,7 +12,7 @@ export const FOCUS: Record<string, Focus> = { ...TERRITORY, ...EQUIVALENT };
 export const focusOf = (id: string | null | undefined): Focus | null => (id ? FOCUS[id] ?? null : null);
 export const asEquivalent = (f: Focus | null): STEMIEquivalent | null => (f && (f as STEMIEquivalent).kind === 'equivalent' ? (f as STEMIEquivalent) : null);
 
-/** how far through the wall the ischaemia reaches at its worst (classic STEMI: transmural) */
+/** how far through the wall the ischemia reaches at its worst (classic STEMI: transmural) */
 export const transmuralOf = (f: Focus | null) => asEquivalent(f)?.transmural ?? 1;
 /** culprit lesion kind (classic STEMI: an occluding thrombus) */
 export const lesionOf = (f: Focus | null) => asEquivalent(f)?.lesion ?? 'occlusion';

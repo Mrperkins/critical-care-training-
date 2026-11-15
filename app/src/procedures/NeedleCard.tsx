@@ -14,7 +14,7 @@ export function NeedleCard() {
     <section className="card needle">
       <div className="card-h"><h3>Needle thoracostomy</h3><span className="muted small">{SITES[input.site].short} · wall {r.wall.toFixed(1)} cm</span></div>
       <RealStudy compact kinds={['procedure']} want={['needle_decompression_site']} required={['needle_decompression_site']} label="decompression site photo" reading={[`${SITES[input.site].short}: chest wall ${r.wall.toFixed(1)} cm here.`, r.summary]} />
-      <div className="depth-chart" role="img" aria-label={`Depth chart: chest wall ${r.wall.toFixed(1)} centimetres, catheter ${input.length} centimetres${inserted ? `, tip reached ${r.depth.toFixed(1)} centimetres` : ''}`}>
+      <div className="depth-chart" role="img" aria-label={`Depth chart: chest wall ${r.wall.toFixed(1)} centimeters, catheter ${input.length} centimeters${inserted ? `, tip reached ${r.depth.toFixed(1)} centimetres` : ''}`}>
         <div className="dc-bar">{r.layers.filter((l) => l.from < span).map((l) => <span key={l.id} style={{ left: pct(l.from), width: pct(Math.min(l.to, span) - l.from), background: LAYER_COL[l.id] ?? '#777' }} title={`${l.name}: ${l.from.toFixed(1)}–${Math.min(l.to, span).toFixed(1)} cm`} />)}</div>
         <div className="dc-cath" style={{ width: pct(input.length) }}><i>{input.length} cm catheter</i></div>
         {inserted && <div className={`dc-tip ${r.outcome}`} style={{ left: pct(r.depth) }} title={`tip at ${r.depth.toFixed(1)} cm`} />}

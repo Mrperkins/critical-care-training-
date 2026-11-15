@@ -42,7 +42,7 @@ export function AbgModule() {
           <Fold group="abg" id="station" title="What's happening here" summary="the station on screen"><StationCard /></Fold>
           <Fold group="abg" id="story" title="Teaching points"><AbgStory /></Fold>
           <Fold group="abg" id="time" title="Time & compensation"><AbgTime /></Fold>
-          <Fold group="abg" id="apnoea" title="Apnoea: how fast SpO₂ falls"><ApnoeaCard /></Fold>
+          <Fold group="abg" id="apnoea" title="Apnea: how fast SpO₂ falls"><ApnoeaCard /></Fold>
         </>}
         {mode === 'learn' && <AbgLearn />}
         {mode === 'challenge' && <AbgChallenge />}

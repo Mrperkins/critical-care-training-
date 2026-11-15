@@ -2,7 +2,7 @@
  * Mechanism-of-action data model. A mechanism is a small signed graph from drug to patient:
  * drug → receptor → transducer / second messenger → cell effect → organ effect → vital sign.
  * Content lives in data (defs/*), never in the view; the patient response comes from an adapter
- * onto an EXISTING physiology session — the MOA layer never computes haemodynamics itself.
+ * onto an EXISTING physiology session — the MOA layer never computes hemodynamics itself.
  */
 export type MechKind = 'drug' | 'receptor' | 'transducer' | 'messenger' | 'channel' | 'enzyme' | 'cell' | 'organ' | 'vital';
 export interface MechNode {

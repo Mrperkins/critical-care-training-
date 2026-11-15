@@ -1,9 +1,9 @@
 /**
  * A 4-year-old (16 kg) on the shared SyntheticPatient and the Lines beat model (now size-scaled: smaller aortic
- * compliance, BSA-scaled normal output, refractory period that allows fast sinus rates). Haemorrhage is graded
+ * compliance, BSA-scaled normal output, refractory period that allows fast sinus rates). Hemorrhage is graded
  * by the fraction of circulating volume lost (≈ 80 mL/kg); compensation — a strong rise in heart rate and
  * vasoconstriction — holds the pressure until ≈ a third is lost, then fails abruptly; bradycardia is pre-arrest.
- * Teaching values, not a paediatric protocol.
+ * Teaching values, not a pediatric protocol.
  */
 import type { PatientParams } from '../physiology/patient';
 

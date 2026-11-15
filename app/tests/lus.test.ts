@@ -25,7 +25,7 @@ describe('lung ultrasound from the vent state', () => {
     const zs = zones('plug'); const ra = Z(zs, 'R-ant'); expect(ra.sliding).toBe(false); expect(ra.lungPulse).toBe(true); expect(ra.consolidation).toBeGreaterThan(0.5);
     const s = lusSummary(zs).join(' '); expect(s).toMatch(/lung pulse/); expect(s).not.toMatch(/Right: absent anterior sliding/);
   });
-  it('pulmonary oedema: B-lines everywhere, worse laterally, effusions', () => {
+  it('pulmonary edema: B-lines everywhere, worse laterally, effusions', () => {
     const zs = zones('edema'); for (const z of zs) expect(z.bLines).toBeGreaterThanOrEqual(3); expect(Z(zs, 'R-lat').bLines).toBeGreaterThanOrEqual(Z(zs, 'R-ant').bLines); expect(Z(zs, 'R-lat').effusion).toBeGreaterThan(0.2);
     expect(lusSummary(zs).join(' ')).toMatch(/interstitial syndrome/);
   });

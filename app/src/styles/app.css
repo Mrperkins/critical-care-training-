@@ -2290,3 +2290,20 @@ h2,h3,.h2,.card h3{font-weight:600;letter-spacing:-.006em}
   .ecg-leads button,.ecg-leads select{min-height:28px}
   .ecg-monitor .heart-strip-actions button,.ecg-monitor .heart-strip-actions select{min-height:34px}
 }
+
+/* ---------- six-beat lesson: Patient → Predict → Watch → Your turn → Check → Recap ---------- */
+.beats{list-style:none;margin:0 0 14px;padding:0;display:flex;flex-wrap:wrap;gap:4px 6px;font:600 11.5px/1 var(--fb,system-ui);letter-spacing:.02em}
+.beats li{display:inline-flex;align-items:center;gap:5px;padding:5px 9px 5px 5px;border-radius:999px;border:1px solid var(--line2,rgba(255,255,255,.14));color:var(--mut,#9aa5b5)}
+.beats li span{display:inline-grid;place-items:center;width:17px;height:17px;border-radius:50%;background:rgba(255,255,255,.08);font-size:10.5px}
+.beats li.past{color:var(--ink,#e8edf4)}.beats li.past span{background:rgba(111,214,160,.22);color:#8fe3b8}
+.beats li.on{color:#0b0e13;background:#f2f4f8;border-color:#f2f4f8}.beats li.on span{background:rgba(0,0,0,.14);color:inherit}
+.beat-card{margin:14px 0 0;padding:14px 16px;border-radius:10px;border:1px solid var(--line2,rgba(255,255,255,.14));background:rgba(255,255,255,.04)}
+.beat-card h3{margin:0 0 6px;font:700 11.5px/1 var(--fb,system-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--mut,#9aa5b5)}
+.beat-card p{margin:0;font-size:15.5px;line-height:1.5}
+.beat-card small{display:block;margin-top:6px;font-size:12.5px;color:var(--mut,#9aa5b5)}
+.beat-card.patient{border-left:3px solid #6fb7ff}.beat-card.predict{border-left:3px solid #f0b34a}.beat-card.turn{border-left:3px solid #8fe3b8}
+.beat-act{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.after{margin-top:18px;padding-top:16px;border-top:1px solid var(--line2,rgba(255,255,255,.14))}
+.after .recap{border-top:0;padding-top:0;margin-top:6px}
+.recap-predict{margin:12px 0 0;padding:10px 12px;border-left:3px solid #f0b34a;background:rgba(240,179,74,.08);border-radius:6px;font-size:14.5px;line-height:1.45}
+.recap-predict span{display:block;margin-top:4px}

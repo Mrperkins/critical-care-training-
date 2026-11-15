@@ -22,7 +22,7 @@ uniform float uT, uAvDelay, uHisStart, uRbbDelay, uLbbDelay; varying float vAct;
 float act = vAct + (vAct >= uHisStart ? uAvDelay : 0.0) + ${branch === 1 ? 'uRbbDelay' : branch === 2 ? 'uLbbDelay' : '0.0'};
 float dt = uT - act;
 float front = exp(-pow(dt / 9.0, 2.0));              // the wavefront (~9 ms wide)
-float wake = dt > 0.0 ? 0.35 * exp(-dt / 140.0) : 0.0; // depolarised tissue fading toward repolarisation
+float wake = dt > 0.0 ? 0.35 * exp(-dt / 140.0) : 0.0; // depolarized tissue fading toward repolarization
 totalEmissiveRadiance = emissive * (0.18 + 2.2 * front + wake); // faint baseline so the pathway always reads`);
   };
   material.customProgramCacheKey = () => 'conduction-v1-' + branch;

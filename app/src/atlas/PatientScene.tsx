@@ -7,7 +7,7 @@ import { EXPLAINERS } from './explainers';
  * Atlas anatomy in 3D: the HuBMAP Visible Human Male or Female reference body (CC BY 4.0) with the organs that
  * carry the condition highlighted and the rest ghosted. Maternal conditions show the library's term placenta,
  * amnion and cord in place; pediatric congenital-heart conditions open the real 3D congenital heart instead.
- * Pathology marks (blood, clot, oedema) are 3D overlays sized by the illustrative state, not measurements.
+ * Pathology marks (blood, clot, edema) are 3D overlays sized by the illustrative state, not measurements.
  */
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
@@ -48,7 +48,7 @@ function Camera({ body, focus, whole, boost = 1 }: { body: BodyAsset; focus: str
   return <CameraControls ref={controls} makeDefault smoothTime={0.65} minDistance={0.8} maxDistance={60} />;
 }
 
-/** Per-organ deformation for the condition (scale about the organ's own centre; placenta repositioned for previa). */
+/** Per-organ deformation for the condition (scale about the organ's own center; placenta repositioned for previa). */
 function organPose(id: OrganId, d: DiseaseDefinition, s: DiseaseState, body: BodyAsset): { scale: number; offset?: THREE.Vector3; rotX?: number } {
   const unilateral = ['tension', 'pleural-air', 'pleural-blood', 'trauma'].includes(d.variant);
   if (id.startsWith('lung') && affectedOrgans(d).includes(id) && (!unilateral || id === 'lung_R')) return { scale: 1 - 0.42 * s.collapse + 0.15 * s.overdistension };
@@ -126,7 +126,7 @@ function Pathology({ body, d, s, layered = false }: { body: BodyAsset; d: Diseas
   return <group>{out}</group>;
 }
 
-/** Which added anatomy each condition uses (male body). Effusion and haematoma volumes are illustrative, from the state. */
+/** Which added anatomy each condition uses (male body). Effusion and hematoma volumes are illustrative, from the state. */
 export function atlasLayers(d: DiseaseDefinition, s: DiseaseState) {
   const out: { bones: string[]; xray: OrganId[]; pericardium?: number; conduction?: { hr: number; avDelay?: number; dropEvery?: number }; brain?: { highlight?: string[]; ventricleScale?: number; ich?: string; ichMl?: number; show?: 'all' | 'ventricles' }; airway?: { edema: number; site?: 'supraglottic' | 'subglottic' }; pe?: { extent: number; flowLoss:number }; dissection?: { compression: number; wallStress: number }; aneurysm?: { dilation: number; bleeding: number }; pleural?: { air: number; blood: number }; coronary?: { territory: string; ischemia: number } } = { bones: [], xray: [] };
   if (d.variant === 'tension' || d.variant === 'pleural-air') out.bones = ['rib_R2', 'rib_R3', 'rib_R4', 'rib_R5']; // 2nd ICS MCL · 4th–5th ICS AAL

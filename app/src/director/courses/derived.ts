@@ -3,12 +3,13 @@
  *  - disease explainers (atlas-*) use the disease definition: mechanism, distinction, findings and the
  *    bedside decisions with their reviewed explanations;
  *  - drug mechanisms (moa-*) use the mechanism blurb, summary, time course and adverse-effect notes.
- * Nothing here is new clinical content: it reorganises reviewed text into the two tracks.
+ * Nothing here is new clinical content: it reorganizes reviewed text into the two tracks.
  */
 import { registerCourseResolver, type CourseMeta } from '../course';
 import { steps, type Cue, type Timeline } from '../timeline';
 import { DISEASE_BY_ID, lowerKeepAcronyms } from '../../atlas/registry';
 import { EXPLAINERS } from '../../atlas/explainers';
+import { PATIENTS } from '../../atlas/patients';
 import { MECH } from '../../moa/registry';
 import { ADVERSE, TIMECOURSE } from '../../moa/meta';
 
@@ -33,12 +34,14 @@ function diseaseCourse(tl: Timeline): CourseMeta | null {
   const best = d.decisions.find((x) => x.outcome === 'stabilize'); const bad = d.decisions.filter((x) => x.outcome === 'deteriorate');
   const findings = d.findings.map((f) => lowerKeepAcronyms(f.label));
   return {
-    objectives: [ex?.outcome ?? sentence(d.mechanism), `Recognise the picture: ${findings.join(', ')}.`, best ? `Choose the first move and say why: ${lowerKeepAcronyms(best.label)}.` : sentence(d.question)].filter(Boolean),
+    objectives: [ex?.outcome ?? sentence(d.mechanism), `Recognize the picture: ${findings.join(', ')}.`, best ? `Choose the first move and say why: ${lowerKeepAcronyms(best.label)}.` : sentence(d.question)].filter(Boolean),
     essentials: ex ? essentialScenes(s, jump) : s.filter((c) => /-(zoom|understand|apply)$/.test(c.id)).map((c) => c.id),
     keyPoints: [sentence(d.mechanism), sentence(d.distinction), `Look for ${findings.join(', ')}.`, ...(best ? [`${best.label}: ${best.explanation}`] : [])],
     pearls: ex?.chapters.filter((c) => c.checkpoint).map((c) => c.checkpoint!.answer) ?? [],
     pitfalls: bad.map((x) => `${x.label}: ${x.explanation}`),
     bedside: best ? sentence(best.label) : undefined,
+    patient: PATIENTS[d.id],
+    predict: { prompt: 'Where is the problem, and what do you expect to find on this patient?', answer: `${sentence(d.mechanism)} Look for ${findings.join(', ')}.` },
     selfCheck: d.decisions.length >= 2 && best ? [{ q: d.question, options: d.decisions.map((x) => x.label), answer: d.decisions.indexOf(best), why: best.explanation }] : [],
   };
 }

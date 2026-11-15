@@ -15,14 +15,14 @@ export const CHECKPOINTS: CP = {
     'cr-4': p('Expiratory flow is still flowing when the next breath starts. What will an expiratory hold show?', 'Pressure above set PEEP: the trapped gas, or auto-PEEP.'),
   },
   'vent-tension-ptx': {
-    'ptx-2': p('What happens to the peak pressure as pleural air accumulates?', 'It rises: the same tidal volume now goes into a compressed lung against a stiff, pressurised chest.'),
+    'ptx-2': p('What happens to the peak pressure as pleural air accumulates?', 'It rises: the same tidal volume now goes into a compressed lung against a stiff, pressurized chest.'),
     'ptx-5': p('After decompression, which number recovers first?', 'Blood pressure and peak pressure change within seconds as the pleural pressure falls; saturation follows as the lung re-expands.'),
   },
   'vent-needle': {
     'nd-4': p('A 5 cm catheter at the 2nd space gives no air in a muscular patient. Tension gone, or a failed attempt?', 'Probably a failed attempt: the catheter may have ended in the chest wall. Try the lateral site with a longer catheter.'),
   },
   'peds-airway': {
-    'pa-2': p('One millimetre of swelling in an 8 mm adult airway and a 4 mm infant airway. Which loses more?', 'The infant: radius halves, so resistance rises about 16-fold versus about 3-fold in the adult.'),
+    'pa-2': p('One millimeter of swelling in an 8 mm adult airway and a 4 mm infant airway. Which loses more?', 'The infant: radius halves, so resistance rises about 16-fold versus about 3-fold in the adult.'),
     'pa-5': p('Swap an 8 mm tube for a 7 mm one in the same lungs. What changes: peak, plateau, or both?', 'Peak only: the lungs are unchanged, so the plateau stays; the resistive gap widens.'),
   },
   'abg-resp-vs-metabolic': {
@@ -51,15 +51,15 @@ export const CHECKPOINTS: CP = {
   'lines-shock-states': {
     'sh-1': p('Septic shock: will the diastolic pressure be high or low?', 'Low: arterioles relax, so blood runs off quickly and the dicrotic notch sits low.'),
     'sh-5': p('Tamponade: will the CVP be high or low?', 'High: the heart cannot fill, so pressure backs up while stroke volume falls.'),
-    'sh-8': p('Haemorrhage on the ventilator: large or small pulse-pressure variation?', 'Large: each breath squeezes an underfilled heart further.'),
+    'sh-8': p('Hemorrhage on the ventilator: large or small pulse-pressure variation?', 'Large: each breath squeezes an underfilled heart further.'),
   },
   'lines-oxygen-delivery': {
-    'do-2': p('Haemoglobin halves. What does the pulse oximeter show?', 'Still about 97 %: each haemoglobin is full, there is just half as much.'),
+    'do-2': p('Hemoglobin halves. What does the pulse oximeter show?', 'Still about 97 %: each hemoglobin is full, there is just half as much.'),
     'do-6': p('Septic shock with high delivery and a high ScvO₂. Can the tissues still be hypoxic?', 'Yes: maldistribution and cellular dysfunction mean oxygen is delivered but not used.'),
   },
   'lines-haemorrhage-transfusion': {
-    'ht-2': p('Ten minutes into rapid bleeding, will the haemoglobin be low?', 'Not yet: whole blood is lost, so the concentration barely changes until fluid is given or shifts in.'),
-    'ht-3': p('After two litres of crystalloid, what happens to the haemoglobin?', 'It falls: the remaining red cells are diluted.'),
+    'ht-2': p('Ten minutes into rapid bleeding, will the hemoglobin be low?', 'Not yet: whole blood is lost, so the concentration barely changes until fluid is given or shifts in.'),
+    'ht-3': p('After two liters of crystalloid, what happens to the hemoglobin?', 'It falls: the remaining red cells are diluted.'),
   },
   'lines-iabp': {
     'iabp-3': p('Which should be lower: the assisted or the unassisted end-diastolic pressure?', 'The assisted one: deflation empties the aorta just before the next beat.'),
@@ -71,18 +71,18 @@ export const CHECKPOINTS: CP = {
   },
   'ob-circulation': {
     'oc-2': p('A term woman is laid flat on her back. What happens to cardiac output?', 'It can fall by up to a third as the uterus compresses the vena cava.'),
-    'oc-5': p('Nearly two litres lost, systolic 90. Is she stable?', 'No: she is compensating hard. A shock index well above 1 shows it before the pressure falls.'),
+    'oc-5': p('Nearly two liters lost, systolic 90. Is she stable?', 'No: she is compensating hard. A shock index well above 1 shows it before the pressure falls.'),
   },
   'peds-shock': {
     'ps-3': p('Pale, mottled, HR 155, refill 4 s, normal systolic. Shocked?', 'Yes: compensated shock. Children hold their pressure until late.'),
     'ps-5': p('The heart rate falls from 170 to 70 in a shocked child. Better?', 'No: bradycardia means the heart is failing and arrest is close.'),
   },
   'neuro-time-is-brain': {
-    'tib-3': p('Which tissue survives longer: the deep territory or the cortex near the border?', 'The border cortex: it gets collateral flow from the neighbouring arteries.'),
+    'tib-3': p('Which tissue survives longer: the deep territory or the cortex near the border?', 'The border cortex: it gets collateral flow from the neighboring arteries.'),
     'tib-5': p('MAP falls to 60 before reperfusion. What happens to the core?', 'It grows faster: collateral flow is pressure-passive.'),
   },
   'neuro-time-machine': {
-    'tm-3': p('Why is the first scan a non-contrast CT?', 'To exclude haemorrhage before any clot-dissolving drug.'),
+    'tm-3': p('Why is the first scan a non-contrast CT?', 'To exclude hemorrhage before any clot-dissolving drug.'),
     'tm-5': p('Small core, large delayed area. Worth reperfusing?', 'Yes: that mismatch is salvageable brain.'),
   },
   'neuro-lvo': {
@@ -90,14 +90,14 @@ export const CHECKPOINTS: CP = {
     'lvo-5': p('Good collaterals, six hours since onset. Too late?', 'Not necessarily: a small core with a large penumbra can still benefit.'),
   },
   'neuro-ich': {
-    'ich-3': p('Systolic 190 versus 140: which haematoma grows more?', 'The one at 190: high pressure favours early expansion.'),
+    'ich-3': p('Systolic 190 versus 140: which hematoma grows more?', 'The one at 190: high pressure favors early expansion.'),
   },
   'neuro-sah': {
     'sah-3': p('Day 5 after SAH, a new arm weakness. Re-bleed or vasospasm?', 'Vasospasm is likely at this timing; it peaks between days 3 and 14.'),
   },
   'neuro-icp': {
-    'icp-2': p('A 20 mL haematoma. Will the ICP rise much?', 'Barely: CSF and venous blood are displaced first — the flat part of the curve.'),
-    'icp-4': p('ICP 30 and MAP 70. What is the CPP?', '40 mmHg: low enough to cause ischaemia without any blocked artery.'),
+    'icp-2': p('A 20 mL hematoma. Will the ICP rise much?', 'Barely: CSF and venous blood are displaced first — the flat part of the curve.'),
+    'icp-4': p('ICP 30 and MAP 70. What is the CPP?', '40 mmHg: low enough to cause ischemia without any blocked artery.'),
     'icp-11': p('The bed head goes up but the drain chamber does not move. Over- or under-drainage?', 'Overdrainage: the drain is now effectively lower than the reference point.'),
   },
   'heart-vsd': {
@@ -110,7 +110,7 @@ export const CHECKPOINTS: CP = {
   },
   'abd-fast': {
     'fast-3': p('Two minutes after a liver laceration, the FAST is negative. Bleeding ruled out?', 'No: too little blood to see yet. Repeat the scan.'),
-    'fast-8': p('A ruptured AAA with a litre lost. Will the FAST be positive?', 'Usually not: the blood is retroperitoneal.'),
+    'fast-8': p('A ruptured AAA with a liter lost. Will the FAST be positive?', 'Usually not: the blood is retroperitoneal.'),
   },
   'abd-aaa': {
     'aaa-5': p('Contained rupture, heart rate rising, pressure near normal. Is there time?', 'A short window: get the patient to aortic repair now.'),
@@ -120,10 +120,10 @@ export const CHECKPOINTS: CP = {
     'ad-9': p('Vasodilator alone, no beta-blocker. What happens to the heart rate?', 'It rises reflexly, increasing the shear on the flap.'),
   },
   'abd-solid-organ': {
-    'so-4': p('Better after a litre of blood, worse 45 minutes later. Which category?', 'Transient responder: still bleeding, needs haemorrhage control.'),
+    'so-4': p('Better after a liter of blood, worse 45 minutes later. Which category?', 'Transient responder: still bleeding, needs hemorrhage control.'),
   },
   'abd-mesenteric': {
-    'me-3': p('Lactate is normal. Can the bowel still be ischaemic?', 'Yes: early in the course lactate is often normal.'),
+    'me-3': p('Lactate is normal. Can the bowel still be ischemic?', 'Yes: early in the course lactate is often normal.'),
   },
   'abd-obstruction': {
     'sb-4': p('Perforation in a supine patient: where does the free air go?', 'To the front of the abdomen, over the liver.'),
@@ -139,17 +139,17 @@ export const CHECKPOINTS: CP = {
   sync: { sy2: p('Cycle-off at 60 %. Will the breath end before or after the patient finishes inhaling?', 'Before: premature cycling.') },
   o2path: { ox3: p('Transit time halves during exercise. Will the blood still load fully?', 'In health, yes: loading is complete in the first third of the transit.') },
   hypox: { hy3: p('V/Q mismatch: does the PaO₂ respond to FiO₂ 0.4?', 'Yes, well: poorly ventilated units still fill with oxygen-rich gas.') },
-  resp: { rs4: p('The opioid is reversed in a patient retaining CO₂ for days. What happens to the pH?', 'It overshoots into alkalaemia: the extra bicarbonate takes days to clear.') },
+  resp: { rs4: p('The opioid is reversed in a patient retaining CO₂ for days. What happens to the pH?', 'It overshoots into alkalemia: the extra bicarbonate takes days to clear.') },
   metab: { mt2: p('HCO₃⁻ 10, PaCO₂ 35. Appropriate compensation?', 'No: expected is 23 ± 2. A CO₂ of 35 means a second, respiratory, problem.') },
-  vbg: { vb2: p('Venous PO₂ 40. Is the patient hypoxaemic?', 'Not from that number: venous PO₂ shows what tissues left behind.') },
-  hyperk: { hk3: p('After calcium, will the potassium be lower?', 'No: calcium stabilises the membrane; potassium is unchanged.') },
-  hypona: { hn4: p('Chronic hyponatraemia corrected by 16 in a day. Risk?', 'Osmotic demyelination: limit to about 8–10 in 24 hours.') },
+  vbg: { vb2: p('Venous PO₂ 40. Is the patient hypoxemic?', 'Not from that number: venous PO₂ shows what tissues left behind.') },
+  hyperk: { hk3: p('After calcium, will the potassium be lower?', 'No: calcium stabilizes the membrane; potassium is unchanged.') },
+  hypona: { hn4: p('Chronic hyponatremia corrected by 16 in a day. Risk?', 'Osmotic demyelination: limit to about 8–10 in 24 hours.') },
   anaemia: { an2: p('Hb halves. Does SpO₂ change?', 'No: each red cell is still saturated.') },
   lactate: { lc3: p('Perfusion is restored. How fast will the lactate fall?', 'Over hours, as the liver clears it.') },
   'ln-setup': { 'ln-setup-5': p('The transducer sits below the right atrium. High or low readings?', 'High: the extra column of saline adds pressure.') },
   'ln-art': { 'ln-art-2': p('Radial versus aortic: which number is nearly the same?', 'The mean pressure.') },
   'ln-cvp': { 'ln-cvp-4': p('On the ventilator, when do you read the CVP?', 'At end-expiration, just before the next breath — now the lowest part of the cycle.') },
-  'ln-level': { 'ln-level-3': p('Bed head raised without re-levelling. High or low readings?', 'High, by about 20 mmHg in this example.') },
+  'ln-level': { 'ln-level-3': p('Bed head raised without re-leveling. High or low readings?', 'High, by about 20 mmHg in this example.') },
   'ln-damp': { 'ln-damp-2': p('Underdamped line: systolic too high or too low?', 'Too high: the line rings and overshoots.') },
   'ln-heartlung': { 'ln-hl-3': p('High PPV in a spontaneously breathing patient. Give fluid?', 'Not on that basis: PPV is invalid without controlled breaths.') },
   'ln-disease': { 'ln-dz-1': p('Slow, late, small upstroke. Which valve lesion?', 'Aortic stenosis: parvus et tardus.') },

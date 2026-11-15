@@ -21,7 +21,7 @@ describe('solid-organ injury and the response to blood', () => {
     expect(evolve(evolve(b, 25), 60).freeFluidMl).toBeCloseTo(evolve(b, 85).freeFluidMl, 8); expect(evolve(b, 200).freeFluidMl).toBeCloseTo(evolve(b, 40).freeFluidMl, 8);
   });
 });
-describe('mesenteric ischaemia and obstruction on CT', () => {
+describe('mesenteric ischemia and obstruction on CT', () => {
   it('SMA does not fill; the wall stops enhancing; infarction shows gas in the wall', () => {
     const s2 = at(MESENTERIC_LESSON, 15); expect(useCtaUI.getState().level).toBe('renal'); expect(ctaFindings(s2, 'renal').join(' ')).toMatch(/does not fill/);
     expect(ctaFindings(at(MESENTERIC_LESSON, 28), 'renal').join(' ')).toMatch(/enhancing poorly/);

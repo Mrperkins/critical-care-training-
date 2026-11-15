@@ -73,7 +73,7 @@ const examFacts = (): [string, string][] => {
 };
 const icpFacts = (): [string, string][] => {
   const s = curIcp(); const pup = (k: 'L' | 'R') => `${s.pupils[k].mm} mm ${s.pupils[k].reactive ? 'reactive' : 'fixed'}`;
-  return [['BP (MAP)', `${Math.round(s.map)} mmHg`], ['HR', `${Math.round(s.hr)}`], ['Breathing', s.resp], ['Pupils', `L ${pup('L')} · R ${pup('R')}`], ['Motor', s.posture === 'none' ? 'localises' : s.posture], ['GCS', `≤ ${s.gcsCap}`], ...(s.evd ? [['EVD reads', `${Math.round(s.evd.readsIcp)} mmHg`] as [string, string], ['EVD output', s.evd.overdrainage ? 'brisk, continuous' : s.evd.drainingMlH ? `${s.evd.drainingMlH} mL/h` : 'none']] as [string, string][] : [])];
+  return [['BP (MAP)', `${Math.round(s.map)} mmHg`], ['HR', `${Math.round(s.hr)}`], ['Breathing', s.resp], ['Pupils', `L ${pup('L')} · R ${pup('R')}`], ['Motor', s.posture === 'none' ? 'localizes' : s.posture], ['GCS', `≤ ${s.gcsCap}`], ...(s.evd ? [['EVD reads', `${Math.round(s.evd.readsIcp)} mmHg`] as [string, string], ['EVD output', s.evd.overdrainage ? 'brisk, continuous' : s.evd.drainingMlH ? `${s.evd.drainingMlH} mL/h` : 'none']] as [string, string][] : [])];
 };
 
 /* ------------------------------------------------------------------ heart */
@@ -112,7 +112,7 @@ const BASE_CASES: SceneCase[] = [
     questions: [
       { q: 'Which windows show free fluid?', options: ['RUQ, LUQ and pelvis', 'LUQ only', 'Pericardium only', 'None — it is retroperitoneal'], answer: 0,
         explain: 'With several hundred mL the fluid has filled the left upper quadrant, run down the left paracolic gutter into the pelvis and reached Morison’s pouch.' },
-      { q: 'Estimated haemorrhage class?', options: ['Class II — tachycardic, pressure still held', 'Class I', 'Class III', 'Class IV'], answer: 0,
+      { q: 'Estimated hemorrhage class?', options: ['Class II — tachycardic, pressure still held', 'Class I', 'Class III', 'Class IV'], answer: 0,
         explain: 'Blood loss of roughly 15–30 %: the heart rate climbs and the pulse pressure narrows, but systolic pressure is still maintained. Waiting for hypotension means waiting for class III.' },
       { update: '45 minutes later, still 15 minutes out. He is now confused and his pressure is falling.', scene: () => abd('spleen4', 75, 'us'),
         q: 'What has changed?', options: ['Class III — compensation has failed and the pressure is now falling', 'Still class II — the heart rate is only anxiety', 'Class I — he is improving', 'Neurogenic shock from a spinal injury'], answer: 0,
@@ -120,22 +120,22 @@ const BASE_CASES: SceneCase[] = [
       { q: 'What do you give?', options: ['Blood first (whole blood or balanced components), tranexamic acid if within 3 hours, very little crystalloid', 'Two liters of crystalloid wide open to restore a normal pressure', 'A vasopressor infusion to hold the pressure', 'Nothing until the surgeon has seen him'], answer: 0,
         explain: 'Replace what is being lost. Crystalloid dilutes clotting factors and a normal pressure pushes more blood out of the spleen; a pressor squeezes vessels that are already clamped down. Aim for a pressure that keeps him awake until the bleeding is controlled.' },
       { q: 'What is the one message for the trauma team?', options: ['Positive FAST in three windows with class III shock and worsening: he needs bleeding control now, not a CT first', 'Stable blunt trauma for routine imaging', 'Possible head injury — CT head first', 'Pain is controlled; no urgent needs'], answer: 0,
-        explain: 'An unstable patient with free fluid goes to bleeding control (operating room or angio-embolisation). Calling it ahead lets the team have blood and a room ready.' },
+        explain: 'An unstable patient with free fluid goes to bleeding control (operating room or angio-embolization). Calling it ahead lets the team have blood and a room ready.' },
     ],
     verify: () => { abd('spleen4', 30, 'us'); const s = currentAbdomen(); const f = fastExam(s); return ['ruq', 'luq', 'pelvis'].every((id) => f.find((w) => w.id === id)!.positive) && shockClass(s).cls === 2 && (abd('spleen4', 75, 'us'), shockClass(currentAbdomen()).cls === 3); },
   },
   {
     id: 'case-abd-aaa', module: 'abdomen', level: 'Advanced', title: 'Back pain, pulsatile mass, negative FAST',
-    story: '74-year-old, sudden back and left flank pain, near-syncope at home. The FAST is negative. The receiving centre sends the CT angiogram through before you land.',
+    story: '74-year-old, sudden back and left flank pain, near-syncope at home. The FAST is negative. The receiving center sends the CT angiogram through before you land.',
     setup: () => { abd('aaaContained', 30, 'cta', 'infrarenal'); mode('abdomen'); }, facts: abdVitals,
     questions: [
-      { q: 'What does the CT show at the infrarenal level?', options: ['A 7 cm aneurysm with a retroperitoneal haematoma — contained rupture', 'An intact aneurysm, no bleeding', 'Free intraperitoneal rupture', 'A dissection flap'], answer: 0,
+      { q: 'What does the CT show at the infrarenal level?', options: ['A 7 cm aneurysm with a retroperitoneal hematoma — contained rupture', 'An intact aneurysm, no bleeding', 'Free intraperitoneal rupture', 'A dissection flap'], answer: 0,
         explain: 'A large aneurysm with eccentric thrombus and blood beside it in the retroperitoneum: a contained rupture. It can become free rupture at any moment.' },
-      { q: 'Why was the FAST negative?', options: ['FAST sees intraperitoneal fluid; this blood is retroperitoneal', 'The haematoma is too small to matter', 'The scan was done too early — repeat it to rule out rupture', 'Aneurysms cannot be seen on ultrasound'], answer: 0,
+      { q: 'Why was the FAST negative?', options: ['FAST sees intraperitoneal fluid; this blood is retroperitoneal', 'The hematoma is too small to matter', 'The scan was done too early — repeat it to rule out rupture', 'Aneurysms cannot be seen on ultrasound'], answer: 0,
         explain: 'The retroperitoneum is invisible to FAST. A negative FAST in a patient with a known or suspected AAA and pain does not rule out rupture.' },
-      { q: 'Pressure strategy en route?', options: ['Permissive hypotension: enough pressure for mentation, no push to normal, straight to a vascular centre', 'Fluid bolus to a normal blood pressure', 'Start a vasodilator to protect the aneurysm', 'Divert to the nearest hospital for a formal CT first'], answer: 0,
+      { q: 'Pressure strategy en route?', options: ['Permissive hypotension: enough pressure for mentation, no push to normal, straight to a vascular center', 'Fluid bolus to a normal blood pressure', 'Start a vasodilator to protect the aneurysm', 'Divert to the nearest hospital for a formal CT first'], answer: 0,
         explain: 'Raising the pressure can turn a contained rupture into a free one. Accept a low pressure while the patient is awake, give blood rather than crystalloid when needed, and get to definitive repair.' },
-      { update: 'Ten minutes from landing he goes grey, the abdomen distends and the pressure collapses.', scene: () => abd('aaaFree', 30, 'us'),
+      { update: 'Ten minutes from landing he goes gray, the abdomen distends and the pressure collapses.', scene: () => abd('aaaFree', 30, 'us'),
         q: 'What has happened?', options: ['The contained rupture has become a free rupture into the abdomen', 'A vasovagal episode from pain', 'Anaphylaxis to the contrast', 'A second, unrelated bleed in the chest'], answer: 0,
         explain: 'The retroperitoneum was holding the bleed. Once it gives way, blood pours into the peritoneal cavity — the FAST is now positive and the loss is class IV.' },
       { q: 'What now?', options: ['Blood products, call ahead for straight-to-operating-room, no stops for imaging; only enough pressure to keep him conscious', 'Crystalloid until the systolic pressure is 120', 'Divert for a repeat CT to confirm', 'Start CPR now in case he arrests'], answer: 0,
@@ -160,7 +160,7 @@ const BASE_CASES: SceneCase[] = [
     story: 'Known type B dissection on esmolol and nicardipine. Pain persists, urine output is falling. Step to the renal level of the CTA.',
     setup: () => { abd('dissectB', 30, 'cta', 'renal'); mode('abdomen'); }, facts: abdVitals,
     questions: [
-      { q: 'What is the new finding at the renal level?', options: ['The left kidney enhances poorly — its artery arises from the false lumen', 'Both kidneys are normal', 'A retroperitoneal haematoma', 'The flap has extended into the ascending aorta'], answer: 0,
+      { q: 'What is the new finding at the renal level?', options: ['The left kidney enhances poorly — its artery arises from the false lumen', 'Both kidneys are normal', 'A retroperitoneal hematoma', 'The flap has extended into the ascending aorta'], answer: 0,
         explain: 'The branch fed by a poorly flowing false lumen is under-perfused: renal malperfusion.' },
       { q: 'What does malperfusion change?', options: ['It is now a complicated type B: urgent endovascular repair, not medical therapy alone', 'Nothing — continue anti-impulse therapy', 'It becomes a type A dissection', 'Stop the β-blocker to raise renal perfusion'], answer: 0,
         explain: 'Malperfusion, rupture, refractory pain or uncontrolled hypertension turn an uncomplicated type B into a complicated one, which is treated by covering the entry tear.' },
@@ -169,12 +169,12 @@ const BASE_CASES: SceneCase[] = [
   },
   {
     id: 'case-abd-transient', module: 'abdomen', level: 'Advanced', title: 'Better after blood — then worse',
-    story: 'Grade IV splenic injury. After one litre of blood half an hour ago her heart rate had settled. It is climbing again and the FAST stripes are wider.',
+    story: 'Grade IV splenic injury. After one liter of blood half an hour ago her heart rate had settled. It is climbing again and the FAST stripes are wider.',
     setup: () => { loadAbdPreset('spleen4'); useAbdUI.getState().set({ base: { ...useAbdUI.getState().base, transfusedMl: 1000 }, minutes: 75, view: '3d', target: 'abdomen.luq' }); mode('abdomen'); }, facts: abdVitals,
     questions: [
       { q: 'How has she responded to blood?', options: ['Transient responder: she improved, then bled the blood away — still bleeding', 'Responder: stable, observe', 'Non-responder: no change at all', 'Over-transfused'], answer: 0,
-        explain: 'A transient response means ongoing haemorrhage at a rate the transfusion only briefly matched.' },
-      { q: 'What does she need?', options: ['Haemorrhage control: embolisation if immediately available and safe, otherwise the operating room', 'Another litre of crystalloid and a repeat FAST in an hour', 'Observation on the ward', 'A CT of the head first'], answer: 0,
+        explain: 'A transient response means ongoing hemorrhage at a rate the transfusion only briefly matched.' },
+      { q: 'What does she need?', options: ['Hemorrhage control: embolization if immediately available and safe, otherwise the operating room', 'Another liter of crystalloid and a repeat FAST in an hour', 'Observation on the ward', 'A CT of the head first'], answer: 0,
         explain: 'Blood buys time; only stopping the bleeding fixes it. Unstable patients go to the operating room rather than the CT or angiography suite.' },
     ],
     verify: () => { const b = { ...ABD_PRESETS_BY('spleen4'), transfusedMl: 1000 }; return shockClass(currentAbdomen({ base: b, minutes: 30 })).cls === 1 && shockClass(currentAbdomen({ base: b, minutes: 75 })).cls >= 2; },
@@ -186,8 +186,8 @@ const BASE_CASES: SceneCase[] = [
     questions: [
       { q: 'What does the CT show?', options: ['The superior mesenteric artery does not fill: embolic occlusion', 'A normal CT — the pain is functional', 'An aortic dissection', 'Free air'], answer: 0,
         explain: 'The SMA should be a bright dot in front of the aorta. An embolus from the left atrium has blocked it.' },
-      { q: 'The lactate is normal. Is that reassuring?', options: ['No — lactate often stays normal until the bowel is infarcting', 'Yes — ischaemia always raises lactate early', 'Yes — it excludes infarction', 'Only if the pain improves'], answer: 0,
-        explain: 'Early ischaemia may not raise the systemic lactate. Pain out of proportion plus an embolic source needs urgent CT angiography and revascularisation.' },
+      { q: 'The lactate is normal. Is that reassuring?', options: ['No — lactate often stays normal until the bowel is infarcting', 'Yes — ischemia always raises lactate early', 'Yes — it excludes infarction', 'Only if the pain improves'], answer: 0,
+        explain: 'Early ischemia may not raise the systemic lactate. Pain out of proportion plus an embolic source needs urgent CT angiography and revascularization.' },
     ],
     verify: () => { const b = { ...ABD_PRESETS_BY('normal'), ischaemia: 0.05 }; return ctaFindings(currentAbdomen({ base: b, minutes: 60 }), 'renal').some((f) => /does not fill/.test(f)); },
   },
@@ -200,7 +200,7 @@ const BASE_CASES: SceneCase[] = [
       { q: 'Where is the occlusion?', options: ['Left middle cerebral artery (M1)', 'Right middle cerebral artery', 'Basilar artery', 'Left posterior cerebral artery'], answer: 0,
         explain: 'Right face, arm and leg weakness with global aphasia, gaze toward the left and a right field defect: the whole left MCA territory in a left-dominant patient — a proximal (M1) occlusion.' },
       { q: 'Next step?', options: ['CT with CT angiography (± perfusion) to confirm a large-vessel occlusion for thrombectomy', 'MRI before any decision', 'Wait for the deficit to settle — it may be a TIA', 'Lumbar puncture'], answer: 0,
-        explain: 'A severe cortical deficit predicts a large-vessel occlusion. Non-contrast CT excludes haemorrhage; CTA shows the clot; perfusion shows how much is still salvageable. Go to a thrombectomy-capable centre.' },
+        explain: 'A severe cortical deficit predicts a large-vessel occlusion. Non-contrast CT excludes hemorrhage; CTA shows the clot; perfusion shows how much is still salvageable. Go to a thrombectomy-capable center.' },
       { update: 'CT shows no bleeding. CT angiography confirms a left M1 clot. Last known well was 1 hour ago; glucose is 110 mg/dL.',
         q: 'Thrombolysis?', options: ['Yes, if there is no contraindication — he is inside the 4.5-hour window, and it should not wait for thrombectomy', 'No — thrombectomy replaces thrombolysis', 'Only after an MRI', 'Only if the deficit is still there in an hour'], answer: 0,
         explain: 'Eligible patients get intravenous thrombolysis as fast as possible and go on to thrombectomy. Neither treatment waits for the other.' },
@@ -245,13 +245,13 @@ const BASE_CASES: SceneCase[] = [
       { q: 'Which vessel?', options: ['Basilar artery', 'Left middle cerebral artery', 'Both anterior cerebral arteries', 'Right internal carotid'], answer: 0,
         explain: 'Reduced consciousness, gaze palsy, four-limb weakness, dysarthria and ataxia: the brainstem and cerebellum, supplied by the basilar artery.' },
       { q: 'Priorities?', options: ['Protect the airway, then emergent CTA and thrombectomy — the window is often wider for basilar occlusion', 'Supportive care only — prognosis is fixed', 'MRI first to confirm', 'Wait for a second opinion before imaging'], answer: 0,
-        explain: 'Untreated basilar occlusion is usually fatal or devastating. The airway is at risk from the depressed consciousness and bulbar weakness; reperfusion is offered later than for anterior strokes in many centres.' },
+        explain: 'Untreated basilar occlusion is usually fatal or devastating. The airway is at risk from the depressed consciousness and bulbar weakness; reperfusion is offered later than for anterior strokes in many centers.' },
     ],
     verify: () => { const e = neuroExam(presetState('basilar')); return e.gcs <= 8 && e.gaze.palsy && e.ataxia && e.power.armL <= 2 && e.power.armR <= 2; },
   },
   {
     id: 'case-neuro-uncal', module: 'neuro', level: 'Advanced', title: 'A blown pupil after an ICH',
-    story: 'Left basal-ganglia haemorrhage, intubated for transfer. The haematoma has grown. Look at the pupils and the motor response.',
+    story: 'Left basal-ganglia hemorrhage, intubated for transfer. The hematoma has grown. Look at the pupils and the motor response.',
     setup: () => { brain(ICH(54), 'ich'); mode('neuro'); }, facts: icpFacts,
     questions: [
       { q: 'What is happening?', options: ['Left uncal herniation: the temporal lobe is compressing the left third nerve', 'Right uncal herniation', 'Tonsillar herniation', 'An eye drop was given'], answer: 0,
@@ -271,7 +271,7 @@ const BASE_CASES: SceneCase[] = [
     story: 'Same patient, twenty minutes later. The pressure is climbing, the heart is slowing, and a colleague reaches for a vasodilator.',
     setup: () => { brain(ICH(58), 'ich'); mode('neuro'); }, facts: icpFacts,
     questions: [
-      { q: 'What is this pattern?', options: ['The Cushing response — brainstem ischaemia from very high ICP', 'Autonomic dysreflexia', 'Pain — needs more analgesia', 'Hypertensive emergency causing the bleed'], answer: 0,
+      { q: 'What is this pattern?', options: ['The Cushing response — brainstem ischemia from very high ICP', 'Autonomic dysreflexia', 'Pain — needs more analgesia', 'Hypertensive emergency causing the bleed'], answer: 0,
         explain: 'High pressure, falling heart rate and irregular breathing: the brainstem is raising the MAP to force blood into a brain whose pressure is near arterial. It is a late, pre-terminal sign.' },
       { q: 'Should you drop the blood pressure?', options: ['No — the MAP is holding the CPP; treat the ICP (osmotherapy, surgery)', 'Yes, to a systolic below 140', 'Yes, with a vasodilator and a β-blocker', 'Yes, because bradycardia means the pressure is too high'], answer: 0,
         explain: 'CPP = MAP − ICP. Lowering the MAP now drops cerebral perfusion further. The fix is to lower the ICP.' },
@@ -280,14 +280,14 @@ const BASE_CASES: SceneCase[] = [
   },
   {
     id: 'case-neuro-evd', module: 'neuro', level: 'Expert', title: 'The EVD suddenly drains fast',
-    story: 'Left basal-ganglia haemorrhage with an EVD open at 15 cmH₂O. The nurse raised the head of the bed for transfer; now the drain is running quickly and the patient has a headache.',
+    story: 'Left basal-ganglia hemorrhage with an EVD open at 15 cmH₂O. The nurse raised the head of the bed for transfer; now the drain is running quickly and the patient has a headache.',
     setup: () => { brain(ICH(30), 'ich', { evd: { open: true, heightCm: 15, levelErrorCm: 15 } }); mode('neuro'); }, facts: icpFacts,
     questions: [
       { q: 'Why is it over-draining?', options: ['The chamber was not moved with the head: it is now level with the ventricles, so it drains until pressure is near zero', 'The ICP has risen suddenly', 'The catheter is blocked', 'The transducer needs zeroing to air'], answer: 0,
         explain: 'The drip chamber height is measured from the tragus (foramen of Monro). Raising the head lifted the ventricles to the chamber, removing the pressure the drain was set to hold. Over-drainage risks ventricular collapse and bleeding.' },
       { q: 'What do you do?', options: ['Clamp briefly, re-level the zero to the tragus and reset the height, then reopen', 'Lower the chamber to drain even more', 'Leave it open — CSF drainage is always good', 'Flush the catheter'], answer: 0,
-        explain: 'Every position change needs the reference re-levelled. Many services clamp the drain for moves and re-level before reopening.' },
-      { update: 'Re-levelled and reopened. Ten minutes later the drain has stopped completely and the pressure trace is flat. He is more drowsy.',
+        explain: 'Every position change needs the reference re-leveled. Many services clamp the drain for moves and re-level before reopening.' },
+      { update: 'Re-leveled and reopened. Ten minutes later the drain has stopped completely and the pressure trace is flat. He is more drowsy.',
         q: 'What do you check?', options: ['Trace the system from the head to the bag: clamps, kinks, a wet air filter, clot in the tubing — and call neurosurgery', 'Flush the catheter towards the patient', 'Lower the chamber to the floor to restart flow', 'Nothing — no drainage means the pressure is normal'], answer: 0,
         explain: 'A drain that stops with a flat trace is blocked or clamped until proven otherwise, and the ICP may be rising behind it. Flushing towards the brain is a neurosurgical decision, not a transport one.' },
     ],
@@ -353,7 +353,7 @@ const BASE_CASES: SceneCase[] = [
     story: 'Ventilated trauma patient, new subclavian line. Peak pressures alarm, saturation and blood pressure fall. A film happened to be taken for line position.',
     setup: () => { img('ptx', 'xray'); mode('vent'); }, facts: ventFacts,
     questions: [
-      { q: 'What does the film show?', options: ['Right tension pneumothorax — pleural edge, no markings beyond it, flat hemidiaphragm, mediastinum pushed left', 'Right lung collapse from a plugged bronchus', 'Bilateral pulmonary oedema', 'A normal film'], answer: 0,
+      { q: 'What does the film show?', options: ['Right tension pneumothorax — pleural edge, no markings beyond it, flat hemidiaphragm, mediastinum pushed left', 'Right lung collapse from a plugged bronchus', 'Bilateral pulmonary edema', 'A normal film'], answer: 0,
         explain: 'Air outside the lung with the mediastinum pushed away and the hemidiaphragm flattened: pleural pressure is high.' },
       { q: 'Next time this happens, what comes first?', options: ['Decompress on clinical grounds — do not wait for a film in an unstable patient', 'Always get a film first to confirm', 'Increase PEEP to re-expand the lung', 'Give a fluid bolus and reassess'], answer: 0,
         explain: 'Tension pneumothorax is a clinical diagnosis. The film here is a teaching picture; in practice needle or finger thoracostomy comes before imaging when the patient is crashing.' },
@@ -383,7 +383,7 @@ const BASE_CASES: SceneCase[] = [
     story: 'Intubated asthmatic. Peak pressures are high and the blood pressure is falling. Is it a pneumothorax? Scan all four zones.',
     setup: () => { img('asthma', 'lus'); mode('vent'); }, facts: ventFacts,
     questions: [
-      { q: 'What does the scan show?', options: ['Sliding with A-lines in all four zones — pneumothorax very unlikely at these sites', 'Absent sliding on the right — pneumothorax', 'B-lines everywhere — oedema', 'A lung point on the left'], answer: 0,
+      { q: 'What does the scan show?', options: ['Sliding with A-lines in all four zones — pneumothorax very unlikely at these sites', 'Absent sliding on the right — pneumothorax', 'B-lines everywhere — edema', 'A lung point on the left'], answer: 0,
         explain: 'Sliding at the anterior chest excludes a pneumothorax under the probe with high certainty. The lungs are hyperinflated, not separated from the chest wall.' },
       { q: 'What is the likely cause and first move?', options: ['Dynamic hyperinflation (auto-PEEP): disconnect briefly to let the air out, then slow the rate', 'Needle both sides', 'Increase the rate to clear CO₂', 'Fluid bolus and more PEEP'], answer: 0,
         explain: 'Trapped gas raises intrathoracic pressure and cuts venous return. A short disconnection lets it escape; then lengthen expiratory time.' },
@@ -395,19 +395,19 @@ const BASE_CASES: SceneCase[] = [
     story: '66-year-old intubated with pink frothy secretions after a large anterior MI.',
     setup: () => { img('edema', 'xray'); mode('vent'); }, facts: ventFacts,
     questions: [
-      { q: 'What pattern is this?', options: ['Cardiogenic oedema — perihilar opacity, septal lines, big heart, effusions', 'ARDS — peripheral patchy opacities with a normal heart', 'Tension pneumothorax', 'Hyperinflation'], answer: 0,
+      { q: 'What pattern is this?', options: ['Cardiogenic edema — perihilar opacity, septal lines, big heart, effusions', 'ARDS — peripheral patchy opacities with a normal heart', 'Tension pneumothorax', 'Hyperinflation'], answer: 0,
         explain: 'A large heart, a central “bat-wing” distribution, septal (Kerley) lines and effusions point to raised left-atrial pressure.' },
       { q: 'What would lung ultrasound show?', options: ['Many B-lines in both lungs, confluent in places, with effusions', 'A-lines everywhere', 'Absent sliding', 'A lung point'], answer: 0,
-        explain: 'Interstitial water turns the lung surface into vertical B-lines. They fall as the oedema clears — a quick bedside trend.' },
+        explain: 'Interstitial water turns the lung surface into vertical B-lines. They fall as the edema clears — a quick bedside trend.' },
     ],
     verify: () => { img('edema', 'xray'); const f = cxrFindings(cxrFromVent(session)); const z = lusFromVent(session); return f.some((x) => /bat-wing/.test(x)) && z.every((x) => x.bLines >= 3) && z.some((x) => x.effusion > 0.2); },
   },
   {
-    id: 'case-img-cxr-ards', module: 'vent', level: 'Advanced', title: 'Pneumonia, worsening hypoxaemia',
+    id: 'case-img-cxr-ards', module: 'vent', level: 'Advanced', title: 'Pneumonia, worsening hypoxemia',
     story: '36-year-old with pneumonia, now P/F well below 150 on high FiO₂.',
     setup: () => { img('ards', 'xray'); mode('vent'); }, facts: ventFacts,
     questions: [
-      { q: 'What does the film show?', options: ['Bilateral patchy opacities with air bronchograms and a normal heart — ARDS pattern', 'Cardiogenic oedema', 'Right lung collapse', 'Normal film'], answer: 0,
+      { q: 'What does the film show?', options: ['Bilateral patchy opacities with air bronchograms and a normal heart — ARDS pattern', 'Cardiogenic edema', 'Right lung collapse', 'Normal film'], answer: 0,
         explain: 'Bilateral opacities not explained by effusion, collapse or heart failure, with a normal heart size, fit ARDS.' },
       { q: 'Ventilation strategy?', options: ['Tidal volume ≈ 6 mL/kg predicted body weight, plateau ≤ 30, PEEP to keep the lung open', '10 mL/kg to recruit the lung', 'Zero PEEP to protect the heart', 'High rate, low PEEP'], answer: 0,
         explain: 'Lung-protective ventilation limits stretch of the small “baby lung” that remains aerated.' },
@@ -424,10 +424,10 @@ const BASE_CASES: SceneCase[] = [
     story: 'Intubated at the scene. After moving to the aircraft stretcher the saturation falls and the peak pressure has risen. Breath sounds are quieter on the left. A film was taken on arrival.',
     setup: () => { img('mainstem', 'xray'); mode('vent'); }, facts: ventFacts,
     questions: [
-      { q: 'What does the film show?', options: ['The tube tip is below the carina in the right main bronchus, and the left lung is collapsing', 'A left tension pneumothorax', 'A left pleural effusion', 'The tube is in the oesophagus'], answer: 0,
+      { q: 'What does the film show?', options: ['The tube tip is below the carina in the right main bronchus, and the left lung is collapsing', 'A left tension pneumothorax', 'A left pleural effusion', 'The tube is in the esophagus'], answer: 0,
         explain: 'The right main bronchus is wider and more vertical, so a tube pushed too far goes right. The left lung gets no ventilation and collapses as its gas is absorbed.' },
       { q: 'What do you do?', options: ['Deflate the cuff, withdraw the tube 1–2 cm, re-check depth and breath sounds, then recruit', 'Needle decompress the left chest', 'Increase the PEEP and FiO₂ only', 'Exchange the tube for a larger one'], answer: 0,
-        explain: 'Pulling the tip back above the carina re-opens the left main bronchus; the collapsed lung then needs a few breaths or a recruitment manoeuvre. Note the depth at the teeth.' },
+        explain: 'Pulling the tip back above the carina re-opens the left main bronchus; the collapsed lung then needs a few breaths or a recruitment maneuver. Note the depth at the teeth.' },
     ],
     verify: () => { img('mainstem', 'xray'); const f = cxrFindings(cxrFromVent(session)); const z = lusFromVent(session); return f.some((x) => /BELOW the carina/.test(x)) && f.some((x) => /^Left lung collapse/.test(x)) && z.find((x) => x.id === 'L-ant')!.lungPulse; },
   },

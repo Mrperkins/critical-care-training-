@@ -1,5 +1,5 @@
 /**
- * Special-population lessons on the existing engines: apnoea oxygen stores (ABG patient + apnoea model),
+ * Special-population lessons on the existing engines: apnea oxygen stores (ABG patient + apnea model),
  * the child's airway (Poiseuille card + the vent engine with smaller tubes), newborn transition and PPHN
  * (two-circuit heart model on the newborn scale), and pregnancy (ABG patient; Lines circulation). Every cue
  * rebuilds its state from scratch, so seeking is exact. Narration is this app's own wording.
@@ -16,10 +16,10 @@ import { pphParams } from '../../populations/obstetric';
 import { setApnoea, setAirway, setNeo, setOb, setPeds } from '../../populations/popStore';
 import { childParams } from '../../populations/paediatric';
 
-/* ------------------------------------------------------------------ apnoea (Blood gas module) */
+/* ------------------------------------------------------------------ apnea (Blood gas module) */
 const ap = (shown: string[], highlight: string | null, preox = true, headUp = false, preset = 'normal') => () => { abgScene({ preset }); setApnoea({ shown, highlight, preox, headUp }); };
 export const APNOEA_LESSON: Timeline = {
-  id: 'pop-apnoea', title: 'Apnoea: how long the oxygen lasts — child, newborn, pregnancy', level: 'core', module: 'abg',
+  id: 'pop-apnoea', title: 'Apnea: how long the oxygen lasts — child, newborn, pregnancy', level: 'core', module: 'abg',
   blurb: 'Why pre-oxygenation matters, why saturation falls off a cliff, and why children, infants, pregnant and obese patients desaturate so much faster.',
   setup: ap(['adult'], 'adult', false),
   cues: [
@@ -36,7 +36,7 @@ export const APNOEA_LESSON: Timeline = {
     { id: 'ap-6', at: 66, dur: 12, hold: true, title: 'The child', apply: ap(['adult', 'child'], 'child'),
       say: 'A four year old uses nearly twice as much oxygen per kilo as an adult, from a smaller lung volume per kilo. Pre-oxygenated, the saturation holds for about three minutes. On room air, it is seconds.' },
     { id: 'ap-7', at: 79, dur: 13, hold: true, title: 'Infant and newborn', apply: ap(['child', 'infant', 'newborn'], 'infant'),
-      say: 'Infants are faster still. Their soft chest wall lets the lung volume collapse once they are asleep or paralysed, and their oxygen use per kilo is the highest of any age. Under two minutes is typical. Fetal haemoglobin holds oxygen tightly, which helps the newborn a little, but the reserve is tiny.' },
+      say: 'Infants are faster still. Their soft chest wall lets the lung volume collapse once they are asleep or paralyzed, and their oxygen use per kilo is the highest of any age. Under two minutes is typical. Fetal hemoglobin holds oxygen tightly, which helps the newborn a little, but the reserve is tiny.' },
     { id: 'ap-8', at: 93, dur: 13, hold: true, title: 'Buying time', apply: ap(['adult', 'pregnant', 'obese', 'child', 'infant', 'newborn'], null, true, true),
       say: 'What buys time: a good seal and full pre-oxygenation, head-up positioning in obesity and pregnancy, oxygen flowing through the nose during the attempt, and a plan agreed beforehand: the time or saturation at which you stop, and ventilate.' },
   ],
@@ -46,23 +46,23 @@ export const APNOEA_LESSON: Timeline = {
 const pa = (scenario: string, swellMm: number, crying: boolean) => () => { ventScene(scenario, {}, { view: 'airway' }); setAirway({ swellMm, crying }); };
 export const PEDS_AIRWAY_LESSON: Timeline = {
   id: 'peds-airway', title: 'The child’s airway: radius to the fourth power', level: 'core', module: 'vent',
-  blurb: 'Why a millimetre of swelling matters so much more in an infant, why crying makes it worse, and the same law inside an endotracheal tube.',
+  blurb: 'Why a millimeter of swelling matters so much more in an infant, why crying makes it worse, and the same law inside an endotracheal tube.',
   setup: pa('normal', 1, false),
   cues: [
     { id: 'pa-1', at: 0, dur: 12, hold: true, target: 'lung.whole', title: 'Radius to the fourth power', apply: pa('normal', 1, false),
       say: 'A child’s airway is not just a smaller copy of an adult’s. It is narrower and softer, and resistance to flow depends on the radius raised to the fourth power. Halve the radius, and the resistance rises sixteen times.' },
-    { id: 'pa-2', at: 13, dur: 13, hold: true, title: 'One millimetre of swelling', apply: pa('normal', 1, false),
-      say: 'Take one millimetre of swelling all the way round. In an adult airway of eight millimetres, the lumen falls to six, and resistance rises about three times. In an infant airway of four millimetres, it falls to two, and resistance rises sixteen times. The same swelling, a very different child.' },
+    { id: 'pa-2', at: 13, dur: 13, hold: true, title: 'One millimeter of swelling', apply: pa('normal', 1, false),
+      say: 'Take one millimeter of swelling all the way round. In an adult airway of eight millimeters, the lumen falls to six, and resistance rises about three times. In an infant airway of four millimeters, it falls to two, and resistance rises sixteen times. The same swelling, a very different child.' },
     { id: 'pa-3', at: 27, dur: 11, hold: true, title: 'Crying makes it worse', apply: pa('normal', 1, true),
       say: 'When a frightened child cries and gasps, flow through the narrowed segment turns turbulent, and the pressure needed rises with the fifth power of the radius: thirty two times. Keeping the child calm, on a parent’s lap, is part of the treatment.' },
     { id: 'pa-4', at: 39, dur: 12, hold: true, title: 'The narrowest ring', apply: pa('normal', 1, false),
       say: 'Just below the vocal cords sits the cricoid, the only complete ring of cartilage in the airway. Swelling there, from infection or from a tube that is too big, has nowhere to go but inward.' },
     { id: 'pa-5', at: 52, dur: 13, hold: true, title: 'The same law in the tube', apply: pa(ettScenarioId(7), 1, false),
-      say: 'The same law applies to the endotracheal tube. These lungs are healthy and unchanged; only the tube is smaller, seven millimetres instead of eight. Watch the peak pressure: the gap between peak and plateau, the pressure spent on resistance, grows.' },
-    { id: 'pa-6', at: 66, dur: 13, hold: true, title: 'Six millimetres', apply: pa(ettScenarioId(6), 1, false),
-      say: 'At six millimetres that resistive pressure has roughly tripled. A child’s tube may be three and a half millimetres, so a little secretion or a kink takes away a large share of its radius. That is why the tube is the first thing to check when a ventilated child deteriorates.' },
+      say: 'The same law applies to the endotracheal tube. These lungs are healthy and unchanged; only the tube is smaller, seven millimeters instead of eight. Watch the peak pressure: the gap between peak and plateau, the pressure spent on resistance, grows.' },
+    { id: 'pa-6', at: 66, dur: 13, hold: true, title: 'Six millimeters', apply: pa(ettScenarioId(6), 1, false),
+      say: 'At six millimeters that resistive pressure has roughly tripled. A child’s tube may be three and a half millimeters, so a little secretion or a kink takes away a large share of its radius. That is why the tube is the first thing to check when a ventilated child deteriorates.' },
     { id: 'pa-7', at: 80, dur: 10, hold: true, title: 'Back to eight', apply: pa('normal', 1, false),
-      say: 'Back to the eight millimetre tube, and the resistive gap closes. Check the tube, then the patient, then the machine.' },
+      say: 'Back to the eight millimeter tube, and the resistive gap closes. Check the tube, then the patient, then the machine.' },
   ],
 };
 
@@ -101,11 +101,11 @@ export const OB_GAS_LESSON: Timeline = {
     { id: 'og-1', at: 0, dur: 10, hold: true, title: 'The reference', apply: () => abgScene({ preset: 'normal' }),
       say: 'First, a non-pregnant adult breathing room air: a pH of seven point four, a carbon dioxide of forty, a bicarbonate of about twenty four.' },
     { id: 'og-2', at: 11, dur: 13, hold: true, title: 'Normal at term', apply: () => abgScene({ preset: 'pregnant' }),
-      say: 'Now a healthy woman at thirty eight weeks. Progesterone makes the respiratory centre more sensitive, so she breathes more: carbon dioxide about thirty. Over weeks her kidneys excrete bicarbonate, down to about twenty, and the pH sits just above normal. For her, this is normal.' },
+      say: 'Now a healthy woman at thirty eight weeks. Progesterone makes the respiratory center more sensitive, so she breathes more: carbon dioxide about thirty. Over weeks her kidneys excrete bicarbonate, down to about twenty, and the pH sits just above normal. For her, this is normal.' },
     { id: 'og-3', at: 25, dur: 11, hold: true, title: 'Why it helps the baby', apply: () => abgScene({ preset: 'pregnant' }),
       say: 'The low maternal carbon dioxide widens the gradient across the placenta, so the fetus can offload its own. Her oxygen is normal or a little high, because less carbon dioxide in the alveoli leaves room for more oxygen.' },
     { id: 'og-4', at: 37, dur: 11, hold: true, title: 'Thinner blood', apply: () => abgScene({ preset: 'pregnant' }),
-      say: 'Plasma volume rises by nearly half and red cell mass by about a quarter, so haemoglobin falls to around eleven. Oxygen content is lower, and a higher cardiac output makes up the difference.' },
+      say: 'Plasma volume rises by nearly half and red cell mass by about a quarter, so hemoglobin falls to around eleven. Oxygen content is lower, and a higher cardiac output makes up the difference.' },
     { id: 'og-5', at: 49, dur: 14, hold: true, title: 'The trap: a normal carbon dioxide', apply: () => abgScene({ preset: 'pregAsthma' }),
       say: 'Now a pregnant woman with severe asthma. Her carbon dioxide reads in the forties, which looks normal, but her own normal is thirty. She is retaining carbon dioxide, and with little bicarbonate to buffer it, her pH has already fallen to about seven point three. She is tiring.' },
     { id: 'og-6', at: 64, dur: 13, hold: true, title: 'Act early', apply: () => abgScene({ preset: 'pregAsthma', knobs: { lowVQ: 0.12, vdAlv: 0.12, maxVE: 40, drive: 1 }, ff: 45 }),
@@ -116,28 +116,28 @@ export const OB_GAS_LESSON: Timeline = {
 /* ------------------------------------------------------------------ pregnancy: the circulation (Lines module) */
 const oc = (id: 'pregnant' | 'pregSupine', lossMl: number | null, prbc = 0) => () => { shockScene({ id, view: 'bed', ...(lossMl != null ? { params: pphParams(lossMl) } : {}), prbc }); setOb({ lossMl, supine: id === 'pregSupine' }); };
 export const OB_CIRCULATION_LESSON: Timeline = {
-  id: 'ob-circulation', title: 'The pregnant circulation: position and postpartum haemorrhage', level: 'core', module: 'lines',
+  id: 'ob-circulation', title: 'The pregnant circulation: position and postpartum hemorrhage', level: 'core', module: 'lines',
   blurb: 'The term circulation, aortocaval compression and left uterine displacement, and why a bleeding young mother holds her blood pressure until very late.',
   setup: oc('pregnant', null),
   cues: [
     { id: 'oc-1', at: 0, dur: 13, hold: true, title: 'The term circulation', apply: oc('pregnant', null),
-      say: 'At term the heart pumps about forty percent more blood: a bigger stroke volume, and a heart rate fifteen beats faster. The placenta is a low resistance circuit and progesterone relaxes vessels, so diastolic pressure runs a little low. Her blood volume is about six and a half litres.' },
+      say: 'At term the heart pumps about forty percent more blood: a bigger stroke volume, and a heart rate fifteen beats faster. The placenta is a low resistance circuit and progesterone relaxes vessels, so diastolic pressure runs a little low. Her blood volume is about six and a half liters.' },
     { id: 'oc-2', at: 14, dur: 13, hold: true, title: 'Flat on her back', apply: oc('pregSupine', null),
       say: 'Lay her flat, and the heavy uterus compresses the inferior vena cava against the spine. Less blood returns to the heart, output falls by up to a third, and the pressure drops. The placenta cannot autoregulate, so the baby feels the fall first.' },
     { id: 'oc-3', at: 28, dur: 11, hold: true, title: 'Displace the uterus', apply: oc('pregnant', null),
       say: 'Push the uterus up and to her left, or tilt her fifteen to thirty degrees, and venous return comes back within a minute. In a collapsed woman beyond about twenty weeks, this goes with the first compressions.' },
-    { id: 'oc-4', at: 40, dur: 13, hold: true, title: 'A litre lost', apply: oc('pregnant', 1000),
-      say: 'After delivery she bleeds. A litre is only about fifteen percent of her expanded volume, so the pressure barely changes and the heart rate creeps up. The shock index, heart rate divided by systolic pressure, is already close to one.' },
-    { id: 'oc-5', at: 54, dur: 13, hold: true, title: 'Nearly two litres', apply: oc('pregnant', 1800),
-      say: 'At nearly two litres she is compensating hard: a fast heart rate, a narrow pulse pressure, cool hands. The systolic pressure is still around ninety. Young pregnant women hold their pressure until very late; a shock index well above one tells the truth.' },
+    { id: 'oc-4', at: 40, dur: 13, hold: true, title: 'A liter lost', apply: oc('pregnant', 1000),
+      say: 'After delivery she bleeds. A liter is only about fifteen percent of her expanded volume, so the pressure barely changes and the heart rate creeps up. The shock index, heart rate divided by systolic pressure, is already close to one.' },
+    { id: 'oc-5', at: 54, dur: 13, hold: true, title: 'Nearly two liters', apply: oc('pregnant', 1800),
+      say: 'At nearly two liters she is compensating hard: a fast heart rate, a narrow pulse pressure, cool hands. The systolic pressure is still around ninety. Young pregnant women hold their pressure until very late; a shock index well above one tells the truth.' },
     { id: 'oc-6', at: 68, dur: 11, hold: true, title: 'Decompensation', apply: oc('pregnant', 2600),
       say: 'Beyond about a third of her volume the vasoconstriction runs out, and the pressure falls fast. This is late. She needs blood, not more crystalloid, and the bleeding stopped.' },
     { id: 'oc-7', at: 80, dur: 14, hold: true, title: 'Stop the bleeding, replace blood', apply: oc('pregnant', 1800, 3),
-      say: 'Treat the cause and the volume together: uterine massage and uterotonic drugs for an atonic uterus, the commonest cause; tranexamic acid early; warmed blood and products; calcium; and early obstetric and anaesthetic help. Here, blood restores her output.' },
+      say: 'Treat the cause and the volume together: uterine massage and uterotonic drugs for an atonic uterus, the commonest cause; tranexamic acid early; warmed blood and products; calcium; and early obstetric and anesthetic help. Here, blood restores her output.' },
   ],
 };
 
-/* ------------------------------------------------------------------ paediatric shock (Lines module) */
+/* ------------------------------------------------------------------ pediatric shock (Lines module) */
 const ps = (lossFrac: number, bloodMlKg = 0) => () => { shockScene({ id: 'child', view: 'bed', params: childParams(lossFrac, bloodMlKg) }); setPeds({ lossFrac, bloodMlKg }); };
 export const PEDS_SHOCK_LESSON: Timeline = {
   id: 'peds-shock', title: 'Shock in a child: the pressure is the last thing to go', level: 'core', module: 'lines',
@@ -145,16 +145,16 @@ export const PEDS_SHOCK_LESSON: Timeline = {
   setup: ps(0),
   cues: [
     { id: 'ps-1', at: 0, dur: 13, hold: true, title: 'A well four year old', apply: ps(0),
-      say: 'A well four year old weighing sixteen kilos. The heart rate is about a hundred and the systolic pressure about ninety. Her whole blood volume is only about eighty millilitres per kilo, around one point three litres. A child’s small heart cannot raise its stroke volume much, so output depends on heart rate.' },
+      say: 'A well four year old weighing sixteen kilos. The heart rate is about a hundred and the systolic pressure about ninety. Her whole blood volume is only about eighty milliliters per kilo, around one point three liters. A child’s small heart cannot raise its stroke volume much, so output depends on heart rate.' },
     { id: 'ps-2', at: 14, dur: 12, hold: true, title: 'Fifteen percent lost', apply: ps(0.15),
-      say: 'She has lost about two hundred millilitres, fifteen percent of her volume. The heart rate climbs past the normal range, the pulse pressure narrows, and capillary refill slows. The blood pressure has not fallen at all.' },
+      say: 'She has lost about two hundred milliliters, fifteen percent of her volume. The heart rate climbs past the normal range, the pulse pressure narrows, and capillary refill slows. The blood pressure has not fallen at all.' },
     { id: 'ps-3', at: 27, dur: 13, hold: true, title: 'Compensated shock', apply: ps(0.25),
-      say: 'At a quarter of her volume she is pale, mottled and tachycardic above one hundred and fifty, with a capillary refill of four seconds. Her systolic pressure is still normal. This is compensated shock, and it must be recognised now, from the heart rate and the skin.' },
+      say: 'At a quarter of her volume she is pale, mottled and tachycardic above one hundred and fifty, with a capillary refill of four seconds. Her systolic pressure is still normal. This is compensated shock, and it must be recognized now, from the heart rate and the skin.' },
     { id: 'ps-4', at: 41, dur: 13, hold: true, title: 'Decompensation', apply: ps(0.38),
       say: 'Beyond about a third, vasoconstriction can no longer hold the pressure, and it falls below seventy plus twice her age. Hypotension in a child is a late sign: she has lost nearly forty percent of her blood.' },
     { id: 'ps-5', at: 55, dur: 12, hold: true, title: 'Bradycardia: arrest is close', apply: ps(0.46),
       say: 'Now the heart rate falls. In a shocked child, bradycardia is not improvement: it means the heart is failing from lack of oxygen, and cardiac arrest is close.' },
     { id: 'ps-6', at: 68, dur: 13, hold: true, title: 'Blood, in small measured boluses', apply: ps(0.38, 20),
-      say: 'Treat with blood in boluses of about ten millilitres per kilo, reassessing heart rate, pressure and refill after each, while the bleeding is controlled. After two boluses her pressure and heart rate have recovered. Doses and volumes follow your paediatric protocol.' },
+      say: 'Treat with blood in boluses of about ten milliliters per kilo, reassessing heart rate, pressure and refill after each, while the bleeding is controlled. After two boluses her pressure and heart rate have recovered. Doses and volumes follow your pediatric protocol.' },
   ],
 };

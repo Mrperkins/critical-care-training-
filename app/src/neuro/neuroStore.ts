@@ -12,8 +12,8 @@ export const NEURO_PRESETS: { id: NeuroPreset; name: string; short: string }[] =
   { id: 'm1_R', name: 'Right M1 occlusion', short: 'Left hemiparesis, neglect, gaze to the right' },
   { id: 'basilar', name: 'Basilar occlusion', short: 'Brainstem and cerebellum at risk; PCoAs feed the PCAs' },
   { id: 'p2_R', name: 'Right PCA (P2)', short: 'Left homonymous hemianopia' },
-  { id: 'ich', name: 'Left basal ganglia ICH', short: '30 mL haematoma with mass effect' },
-  { id: 'sah', name: 'Subarachnoid haemorrhage', short: 'Blood in the basal cisterns around the circle' },
+  { id: 'ich', name: 'Left basal ganglia ICH', short: '30 mL hematoma with mass effect' },
+  { id: 'sah', name: 'Subarachnoid hemorrhage', short: 'Blood in the basal cisterns around the circle' },
 ];
 export function presetState(id: NeuroPreset, prev?: NeuroState): NeuroState {
   const s: NeuroState = { ...emptyNeuro(), collaterals: prev?.collaterals ?? 'moderate', minutes: id === 'none' ? 0 : 60 };

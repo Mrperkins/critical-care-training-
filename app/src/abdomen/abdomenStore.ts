@@ -11,7 +11,7 @@ export const ABD_PRESETS: { id: AbdPreset; name: string; short: string; make: ()
   { id: 'aaaFree', name: 'Ruptured AAA (free)', short: 'Free intraperitoneal rupture', make: () => ({ ...emptyAbdomen(), aaa: { diameterCm: 7.5, rupture: 'free' }, retroMl: 300 }) },
   { id: 'perforation', name: 'Perforated viscus', short: 'Free air and enteric fluid', make: () => ({ ...emptyAbdomen(), freeAir: true, freeFluidMl: 250, fluidKind: 'enteric', injury: { bowel: 2 } }) },
   { id: 'sbo', name: 'Small-bowel obstruction', short: 'Dilated loops, vomiting', make: () => ({ ...emptyAbdomen(), obstruction: 'small', distension: 0.8 }) },
-  { id: 'mesenteric', name: 'Mesenteric ischaemia', short: 'Pain out of proportion; SMA occlusion', make: () => ({ ...emptyAbdomen(), ischaemia: 0.35 }) },
+  { id: 'mesenteric', name: 'Mesenteric ischemia', short: 'Pain out of proportion; SMA occlusion', make: () => ({ ...emptyAbdomen(), ischaemia: 0.35 }) },
   { id: 'dissectB', name: 'Aortic dissection (type B)', short: 'Tearing back pain; flap from beyond the left subclavian to the iliacs; left kidney malperfused', make: () => ({ ...emptyAbdomen(), dissection: { type: 'B', extent: 'iliac', falseLumen: 'patent', malperfusion: { renalL: true } } }) },
   { id: 'dissectA', name: 'Aortic dissection (type A)', short: 'Ascending aorta involved, extending to the renal arteries', make: () => ({ ...emptyAbdomen(), dissection: { type: 'A', extent: 'renal', falseLumen: 'patent', malperfusion: {} } }) },
   { id: 'pancreatitis', name: 'Acute pancreatitis', short: 'Epigastric pain to the back', make: () => ({ ...emptyAbdomen(), pancreatitis: 0.8, freeFluidMl: 150, fluidKind: 'ascites' }) },

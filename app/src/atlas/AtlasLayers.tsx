@@ -93,7 +93,7 @@ export function DeepBrainLayer({ highlight = [], ventricleScale = 1, ich, ichMl 
   const vRefs = useRef<Record<string, THREE.Mesh | null>>({});
   useFrame((_, dt) => { const k = (useDirector.getState().tl?.id.startsWith('atlas-') || window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 1 : 1 - Math.exp(-3 * Math.min(dt, 0.1))); for (const [id, m] of Object.entries(vRefs.current)) { if (!m) continue; const s = m.scale.x + (ventricleScale - m.scale.x) * k; m.scale.setScalar(s); m.userData.c && m.position.copy((m.userData.c as THREE.Vector3).clone().multiplyScalar(1 - s)); void id; } });
   if (!nd) return null;
-  // haematoma volume → radius (sphere-equivalent; mL = 4/3 π r³ with r in cm)
+  // hematoma volume → radius (sphere-equivalent; mL = 4/3 π r³ with r in cm)
   const r = ichMl > 0 ? Math.cbrt((3 * ichMl) / (4 * Math.PI)) / 10 : 0; const ichC = ich && nd.meshes[ich] ? centreOf(nd.meshes[ich]) : null;
   return <group>
     {ids.map((id) => {
@@ -174,7 +174,7 @@ export function DissectionLayer({ compression, wallStress }: { compression: numb
   const centre = useMemo(() => ao.reduce((a, w) => a.add(w.p), new THREE.Vector3()).divideScalar(ao.length), [ao]);
   const tl = useDisposable(() => lumenTube(ao, 1 - 0.4 * compression), [ao, Math.round(compression * 20)]);
   const fl = useDisposable(() => {
-    // offset each way point outward (away from the arch's centre, perpendicular to the vessel)
+    // offset each way point outward (away from the arch's center, perpendicular to the vessel)
     const curve = new THREE.CatmullRomCurve3(ao.map((w) => w.p), false, 'centripetal');
     const off: W[] = ao.map((w, i) => { const t = curve.getTangentAt(i / (ao.length - 1)); const out = w.p.clone().sub(centre); out.addScaledVector(t, -out.dot(t)).normalize(); return { p: w.p.clone().addScaledVector(out, w.r * (0.45 + 0.15 * wallStress)), r: w.r }; });
     return lumenTube(off, 0.45 + 0.2 * wallStress);
@@ -225,7 +225,7 @@ function mergeTubes(gs: THREE.BufferGeometry[]) {
 
 /* ------------------------------------------------------------------ STEMI on the coronary heart (merged Infarct Atlas) */
 /** The coronary heart sits exactly where the body's heart is (same body frame), so the Atlas shows the real coronary
- *  tree, a thrombus at the territory's usual culprit site and the ischaemic territory, in the patient. */
+ *  tree, a thrombus at the territory's usual culprit site and the ischemic territory, in the patient. */
 export function CoronaryLayer({ territory = 'anterior', ischemia }: { territory?: string; ischemia: number }) {
   const [asset, setAsset] = useState<HeartAsset | null>(null);
   useEffect(() => { let off = false; loadHeartAsset().then((a) => { if (!off) setAsset(a); }).catch(() => undefined); return () => { off = true; }; }, []);

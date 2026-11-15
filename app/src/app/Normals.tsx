@@ -38,10 +38,10 @@ export function VentNormals() {
 }
 
 const LAB_NOTES: Record<string, string> = {
-  na: 'Correct chronic low Na⁺ no faster than 8–10 mEq/L in 24 h.', k: '> 6.5 or ECG changes → treat immediately.', cl: 'Rises with normal saline (hyperchloraemic acidosis).', hco3: 'Low = metabolic acidosis; high = metabolic alkalosis, or compensation for chronic CO₂ retention.',
-  ca: 'Ionised. Total calcium 8.5–10.5 mg/dL (corrects with albumin).', mg: '< 1.2 severe — torsades risk; low Mg²⁺ keeps K⁺ low.', phos: '< 1.0 severe — respiratory muscle weakness.',
+  na: 'Correct chronic low Na⁺ no faster than 8–10 mEq/L in 24 h.', k: '> 6.5 or ECG changes → treat immediately.', cl: 'Rises with normal saline (hyperchloremic acidosis).', hco3: 'Low = metabolic acidosis; high = metabolic alkalosis, or compensation for chronic CO₂ retention.',
+  ca: 'Ionized. Total calcium 8.5–10.5 mg/dL (corrects with albumin).', mg: '< 1.2 severe — torsades risk; low Mg²⁺ keeps K⁺ low.', phos: '< 1.0 severe — respiratory muscle weakness.',
   bun: 'BUN : Cr > 20 suggests pre-renal failure or GI bleeding.', cr: 'Women 0.5–1.1. A rise of ≥ 0.3 in 48 h = acute kidney injury.', egfr: '< 60 for > 3 months = chronic kidney disease.',
-  glu: 'Fasting 70–99; random < 140. < 70 hypoglycaemia; > 250 with ketones → DKA.', ag: 'Na⁺ − (Cl⁻ + HCO₃⁻). Add 2.5 for every 1 g/dL albumin below 4.', lac: '≥ 2 abnormal in sepsis; ≥ 4 = shock.', ket: '> 3 with acidosis = DKA.',
+  glu: 'Fasting 70–99; random < 140. < 70 hypoglycemia; > 250 with ketones → DKA.', ag: 'Na⁺ − (Cl⁻ + HCO₃⁻). Add 2.5 for every 1 g/dL albumin below 4.', lac: '≥ 2 abnormal in sepsis; ≥ 4 = shock.', ket: '> 3 with acidosis = DKA.',
   hb: 'Women 12–15.5. Transfuse most ICU patients below 7.', hct: 'Women 36–46.', rbc: 'Women 4.0–5.2.', wbc: 'Neutropenia: ANC < 1.5.', plt: '< 50 bleeding risk with procedures; < 10–20 spontaneous bleeding.',
   pt: 'Extrinsic pathway (factor VII); reported as INR.', inr: 'Therapeutic on warfarin 2–3 (2.5–3.5 mechanical valves).', aptt: 'Intrinsic pathway; therapeutic heparin ≈ 1.5–2.5 × control.', fib: '< 150–200 in bleeding → cryoprecipitate / fibrinogen.',
   trop: '99th-percentile upper limit for hs-TnT; the rise and fall matters more than one value.', bnp: '< 100 makes heart failure unlikely; NT-proBNP uses different cut-offs.',

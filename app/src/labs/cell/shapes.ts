@@ -27,7 +27,7 @@ export const slabShape: Shape = {
 };
 
 /* ------------------------------------------------------------------ transporter placement */
-/** Points spread over the membrane by casting rays from the centre (the shapes are star-shaped around it). */
+/** Points spread over the membrane by casting rays from the center (the shapes are star-shaped around it). */
 export function surfaceSites(shape: Shape, kinds: [TransporterKind, number][], seed: number, accept: (p: THREE.Vector3) => boolean = () => true): SiteSpec[] {
   let s = seed >>> 0; const r = () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296);
   const all: SiteSpec[] = []; const total = kinds.reduce((a, [, n]) => a + n, 0);

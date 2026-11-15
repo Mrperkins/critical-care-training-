@@ -9,7 +9,7 @@
 import * as THREE from 'three';
 
 export interface BrainFrame { c: THREE.Vector3; h: THREE.Vector3 }
-/** Brain centre and half-extents in body decimetres (measured from body.glb; used when the mesh is not at hand). */
+/** Brain center and half-extents in body decimeters (measured from body.glb; used when the mesh is not at hand). */
 export const DEFAULT_BRAIN_FRAME: BrainFrame = { c: new THREE.Vector3(0, 8.29, -0.02), h: new THREE.Vector3(0.734, 0.766, 0.875) };
 export function brainFrameFromMesh(mesh: THREE.Mesh): BrainFrame {
   // body.glb geometry is already baked into body space (asset/gltf.ts) — read the geometry box, not the node transform
@@ -44,10 +44,10 @@ export function peripheryAt(t: TerritoryId, l: THREE.Vector3) {
 export interface CerebralVessel {
   id: string; name: string; side: Side; parent: string | null;
   /** body-space points (dm) */ pts: THREE.Vector3[]; r0: number; r1: number;
-  /** territory this vessel feeds (for colouring downstream flow) */ territory?: TerritoryId;
+  /** territory this vessel feeds (for coloring downstream flow) */ territory?: TerritoryId;
   kind: 'neck' | 'circle' | 'trunk' | 'cortical';
 }
-const K = 1.6; // calibre exaggeration
+const K = 1.6; // caliber exaggeration
 const r = (mm: number) => (mm / 2 / 100) * K; // diameter mm → radius dm
 
 /** Build the arterial tree. Right side is patient's right (−x). */

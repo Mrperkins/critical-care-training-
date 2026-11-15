@@ -3,7 +3,7 @@
  * red cells, and a cross-section of the alveolar–capillary barrier. Every visible state is read
  * from the running VentSession through `alveolarState` (see alveolarMap.ts): alveolar size from
  * regional volume, collapse / recruitment from the engine's open fraction, flooding and
- * interstitial thickening from the scenario's lung, and blood colour from the shared patient's
+ * interstitial thickening from the scenario's lung, and blood color from the shared patient's
  * mixed-venous and end-capillary saturations. There is no second respiratory model here.
  */
 import { MiniSelect } from '../scene/pane';
@@ -99,7 +99,7 @@ interface HoleU { uMouth: { value: THREE.Vector3 }; uCut: { value: THREE.Vector3
 interface UnitRuntime { group: THREE.Group; hole: HoleU; wallU: HoleU & { uCol: { value: number }; uBloodV: { value: THREE.Color }; uBloodA: { value: THREE.Color }; uWet: { value: number } }; fluidU: HoleU & { uLevel: { value: number } }; surfU: HoleU & { uSurf: { value: number } }; arcs: THREE.Vector3[][]; cap: THREE.BufferGeometry; wall: THREE.MeshPhysicalMaterial; cur: { s: number; col: number; flood: number; over: number; low: number }; lastSat: number }
 
 // Wall: thin septal tissue whose surface carries the dense capillary sheet (Voronoi network). Blood in the
-// sheet runs from the arteriole side (below) to the venule side (above) and is coloured from venous to the
+// sheet runs from the arteriole side (below) to the venule side (above) and is colored from venous to the
 // unit's end-capillary saturation — so shunt units stay blue and aerated units turn red.
 const WALL_COLOR = /* glsl */ `
 {
@@ -138,7 +138,7 @@ function Alveoli({ tier, units }: { tier: Tier; units: UnitRuntime[] }) {
     return { surf, fluid, cap };
   }, [fluidColor]);
   const perUnit = useMemo(() => units.map((r) => ({
-    // surfactant film: breaks into islands as its function falls (ARDS, oedema fluid inactivates it)
+    // surfactant film: breaks into islands as its function falls (ARDS, edema fluid inactivates it)
     surf: patch(mats.surf.clone(), r.surfU, { head: GLSL_NOISE, discard: HOLE + ' if (vnoise(vLocal * 4.5) * 0.7 + vnoise(vLocal * 11.0) * 0.3 > uSurf + 0.08) discard;' }),
     fluid: patch(mats.fluid.clone(), r.fluidU, { discard: HOLE + ' if (vLocal.y > uLevel) discard;' }),
   })), [units, mats]);
@@ -209,7 +209,7 @@ function AlveolusWorld() {
       r.fluidU.uLevel.value = c.flood > 0.01 ? -1 + 2.05 * Math.min(0.96, c.flood) : -2;
       const men = r.group.getObjectByName(`meniscus${i}`) as THREE.Mesh | undefined;
       if (men) { const lv = r.fluidU.uLevel.value * R0 * 0.93; const rr = Math.sqrt(Math.max(0, (R0 * 0.93) ** 2 - lv * lv)); men.visible = c.flood > 0.02 && c.flood < 0.95; men.position.set(0, lv, 0); men.scale.setScalar(rr * 0.98); }
-      // capillary blood colour: venous in, end-capillary out (equilibrates in the first third of the capillary normally)
+      // capillary blood color: venous in, end-capillary out (equilibrates in the first third of the capillary normally)
       if (Math.abs(u.endSat - r.lastSat) > 0.004 || Math.abs(st.svo2 - (r.cap.userData.sv ?? -1)) > 0.004) {
         const S = r.cap.attributes.aS as THREE.BufferAttribute; const C = r.cap.attributes.color as THREE.BufferAttribute; const eq = u.lowvq > 0.5 ? 0.9 : 0.35;
         for (let k = 0; k < S.count; k++) { saturationColor(st.svo2 + (u.endSat - st.svo2) * THREE.MathUtils.smoothstep(S.getX(k), 0, eq), tmp.c); C.setXYZ(k, tmp.c.r, tmp.c.g, tmp.c.b); }
@@ -246,7 +246,7 @@ function AlveolusWorld() {
     }
     if (o2.current) pools.o2.update(dt, o2.current, 0.022, tmp.o);
     if (co2.current) pools.co2.update(dt, co2.current, 0.022, tmp.o);
-    // --- froth at the fluid surface of flooded units (oedema)
+    // --- froth at the fluid surface of flooded units (edema)
     const fm = froth.current; if (fm) {
       const flooded = units.map((r, i) => ({ r, i })).filter(({ r }) => r.cur.flood > 0.05 && r.cur.flood < 0.96);
       frothSeeds.forEach((b, k) => {
@@ -297,7 +297,7 @@ function AlveolusWorld() {
 }
 
 /* ------------------------------------------------------------------ alveolar–capillary barrier cross-section */
-// base thicknesses are schematic (the real barrier is ~0.2–0.6 µm); interstitium and lining fluid thicken with oedema / ARDS
+// base thicknesses are schematic (the real barrier is ~0.2–0.6 µm); interstitium and lining fluid thicken with edema / ARDS
 const LAYERS = [
   { k: 'surf', label: 'Surfactant', w: 0.035, c: '#f3e3a4', o: 0.9 },
   { k: 'lining', label: 'Lining fluid', w: 0.06, c: '#a9cbe0', o: 0.45 },
@@ -430,7 +430,7 @@ export function AlveolusScene() {
 }
 
 /* ------------------------------------------------------------------ HUD (DOM, outside the canvas) */
-const FOCUS: [string, string][] = [['lung.whole', 'Whole lung'], ['lung.alveolus', 'Alveoli'], ['lung.capillary', 'Capillary'], ['lung.rbc', 'Red cell'], ['lung.membrane', 'Membrane'], ['lung.edema', 'Oedema'], ['lung.collapsed', 'Collapsed'], ['lung.recruited', 'Recruited']];
+const FOCUS: [string, string][] = [['lung.whole', 'Whole lung'], ['lung.alveolus', 'Alveoli'], ['lung.capillary', 'Capillary'], ['lung.rbc', 'Red cell'], ['lung.membrane', 'Membrane'], ['lung.edema', 'Edema'], ['lung.collapsed', 'Collapsed'], ['lung.recruited', 'Recruited']];
 export function AlveolusHud() {
   useUI((s) => s.pulse); const target = useUI((s) => s.ventTarget);
   const tier = useLabUI((s) => s.visualTier); const setLab = useLabUI.getState().set;

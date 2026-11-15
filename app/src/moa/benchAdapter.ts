@@ -40,7 +40,7 @@ export function electrolyteAdapter(o: { scenario: string; k: number; drug: DrugI
   };
 }
 
-/** Hypertonic saline on the labs bench: acute hyponatraemia with swollen brain cells (existing Na / cell-volume model). */
+/** Hypertonic saline on the labs bench: acute hyponatremia with swollen brain cells (existing Na / cell-volume model). */
 export function sodiumAdapter(o: { scenario: string; na: number; maxDoses: number }): PatientAdapter {
   let pre: PatientState | null = null;
   const start = () => { bench.reset(); bench.naMode = 'acute'; bench.set('na', o.na); bench.running = false; pre = structuredClone(bench.pt); };

@@ -46,10 +46,10 @@ export function lessonVoiceId(t: CoronaryTerritory, dominance: Dominance, stepId
 export const QUIZ_CASES: QuizCase[] = [
   { id: 'q-inferior', title: 'Chest pain and bradycardia', vignette: '64-year-old man, crushing chest pain for 40 minutes. HR 52, BP 104/66.', territoryId: 'inferior', dominance: 'right' },
   { id: 'q-anterior', title: 'Pain at rest', vignette: '58-year-old woman, 30 minutes of central chest pressure radiating to the jaw.', territoryId: 'anterior', dominance: 'right' },
-  { id: 'q-anteroseptal', title: 'Diaphoretic and pale', vignette: '52-year-old man, sudden chest pain while shovelling snow.', territoryId: 'anteroseptal', dominance: 'right' },
+  { id: 'q-anteroseptal', title: 'Diaphoretic and pale', vignette: '52-year-old man, sudden chest pain while shoveling snow.', territoryId: 'anteroseptal', dominance: 'right' },
   { id: 'q-lateral', title: 'Vague discomfort', vignette: '71-year-old diabetic woman with nausea and left arm heaviness.', territoryId: 'lateral', dominance: 'right' },
   { id: 'q-posterior', title: '“Just ST depression”', vignette: '60-year-old man with ongoing chest pain. The first read says anterior ischemia.', territoryId: 'posterior', dominance: 'right' },
   { id: 'q-rv', title: 'Hypotension after nitroglycerin', vignette: '67-year-old man; BP fell from 118 to 78 systolic after one sublingual nitro. Clear lungs, raised JVP.', territoryId: 'rv', dominance: 'right' },
-  { id: 'q-extensive', title: 'Cardiogenic shock', vignette: '49-year-old smoker, grey and clammy. BP 84/50, crackles to mid-lung fields.', territoryId: 'extensiveAnterior', dominance: 'right' },
+  { id: 'q-extensive', title: 'Cardiogenic shock', vignette: '49-year-old smoker, gray and clammy. BP 84/50, crackles to mid-lung fields.', territoryId: 'extensiveAnterior', dominance: 'right' },
   { id: 'q-highlateral', title: 'Easy to miss', vignette: '55-year-old woman with epigastric pain. The inferior leads look “only depressed”.', territoryId: 'highLateral', dominance: 'right' },
 ];

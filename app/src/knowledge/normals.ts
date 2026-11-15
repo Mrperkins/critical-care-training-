@@ -40,7 +40,7 @@ export const VENT_NORMALS: RefGroup[] = [
       { label: 'Peak inspiratory pressure', normal: '< 35', unit: 'cmH₂O', note: 'PIP − Pplat ≤ 5 is normal; > 10 = high airway resistance (kinked tube, secretions, bronchospasm).', band: [null, 35], live: (n) => n.pip },
       { label: 'PIP − Pplat', normal: '≤ 5', unit: 'cmH₂O', note: 'Resistive pressure. Rises with airway problems; Pplat rises with lung/chest-wall problems.', band: [null, 10], live: (n) => Math.max(0, n.pip - n.pplat) },
       { label: 'Auto-PEEP (intrinsic)', normal: '0', unit: 'cmH₂O', note: 'Any value means exhalation is not finishing — measure with an expiratory hold.', band: [null, 1], live: (n) => n.autoPeep, digits: 1 },
-      { label: 'Static compliance', normal: '50–100', unit: 'mL/cmH₂O', note: 'Vt ÷ (Pplat − PEEP). ARDS, oedema, obesity, pneumothorax often < 40.', band: [40, null], live: (n) => (n.cstat > 0 ? n.cstat : null) },
+      { label: 'Static compliance', normal: '50–100', unit: 'mL/cmH₂O', note: 'Vt ÷ (Pplat − PEEP). ARDS, edema, obesity, pneumothorax often < 40.', band: [40, null], live: (n) => (n.cstat > 0 ? n.cstat : null) },
       { label: 'Airway resistance', normal: '5–10', unit: 'cmH₂O/L/s', note: 'Intubated adult (the tube adds resistance). > 15–20 is high.', band: [null, 15], live: (n) => n.raw, digits: 1 },
       { label: 'Time constant τ (R × C)', normal: '≈ 0.5', unit: 's', note: 'Exhalation needs about 3τ; long τ (obstruction) → air trapping.', band: [null, 0.8], live: (n) => n.tau, digits: 2 },
     ],

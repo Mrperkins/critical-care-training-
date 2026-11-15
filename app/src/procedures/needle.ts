@@ -44,7 +44,7 @@ export function needlePath(n: NeedleInput): NeedleResult {
   const full = n.length * cos; const stop = n.stopAtAir !== false && n.tension && full > wall; // air returns on entering the space: stop there
   const depth = stop ? Math.min(full, wall + 0.5) : full; const margin = full - wall;
   const injuries: string[] = [];
-  if (n.rib === 'underUpper') injuries.push('Intercostal artery, vein and nerve: they run in the groove under each rib — bleeding (haemothorax) and neuralgia.');
+  if (n.rib === 'underUpper') injuries.push('Intercostal artery, vein and nerve: they run in the groove under each rib — bleeding (hemothorax) and neuralgia.');
   if (n.site === 'parasternal') injuries.push('Internal thoracic artery 1–2 cm from the sternal edge; deeper, the heart and great vessels.');
   if (n.site === 'low') injuries.push('Diaphragm, and below it the liver (right) or spleen (left).');
   if (n.angle > 30) injuries.push(`Angled ${Math.round(n.angle)}°: the path through the wall lengthens and the tip ends up away from the intended space.`);

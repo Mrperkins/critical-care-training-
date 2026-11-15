@@ -92,7 +92,7 @@ function nextTarget(q: Quiz): Quiz {
 }
 export function startQuiz(host: HTMLElement) {
   const n = poolOf(host).length; const st = useLabels.getState();
-  if (n < 3) { st.setQuiz({ host, target: null, asked: [], right: 0, total: 0, tries: 0, flash: null, done: true, note: 'Not enough labelled structures in this view — switch view or condition and try again.' }); return; }
+  if (n < 3) { st.setQuiz({ host, target: null, asked: [], right: 0, total: 0, tries: 0, flash: null, done: true, note: 'Not enough labeled structures in this view — switch view or condition and try again.' }); return; }
   st.setQuiz(nextTarget({ host, target: null, asked: [], right: 0, total: 0, tries: 0, flash: null, done: false }));
 }
 function answerQuiz(name: string) {
@@ -230,7 +230,7 @@ export function SceneWrap({ className = '', children, labels = true, compare }: 
           title="Name that structure — find each named structure among the dots" aria-label={quizOn ? 'Stop the name-that-structure drill' : 'Name that structure drill'}>
           <span className="st-ico" aria-hidden="true"><Ti k="quiz" /></span><span className="st-txt">{quizOn ? 'Stop drill' : 'Name it'}</span>
         </button>}
-        {labels && <button type="button" className={`st-btn st-gloss${gloss ? ' on' : ''}`} aria-pressed={gloss} onClick={() => setGloss(!gloss)} title="Glossary — search every labelled structure" aria-label="Glossary">
+        {labels && <button type="button" className={`st-btn st-gloss${gloss ? ' on' : ''}`} aria-pressed={gloss} onClick={() => setGloss(!gloss)} title="Glossary — search every labeled structure" aria-label="Glossary">
           <span className="st-ico" aria-hidden="true"><Ti k="gloss" /></span><span className="st-txt">Glossary</span>
         </button>}
         {hasHud && <button type="button" className={`st-btn st-hud${hudOpen ? ' on' : ''}`} aria-pressed={hudOpen} onClick={() => setHudOpen(!hudOpen)} title={hudOpen ? 'Hide the numbers over the scene' : 'Show the numbers over the scene'} aria-label={hudOpen ? 'Hide scene numbers' : 'Show scene numbers'}>

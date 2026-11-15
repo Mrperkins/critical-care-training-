@@ -30,7 +30,7 @@ export const RESTRAINTS: FpcLesson = {
     {
       id: 'combative', title: 'Agitated and combative patients', core: true,
       body: [
-        'A combative patient in flight can strike the pilot, controls or doors and endanger the aircraft. Assess the risk before departure: intoxication, psychosis, head injury, hypoxia, hypoglycaemia and pain all cause agitation. Treat the cause where possible, and use adequate chemical sedation (and intubation if needed) before flight rather than relying on physical restraints in the air.',
+        'A combative patient in flight can strike the pilot, controls or doors and endanger the aircraft. Assess the risk before departure: intoxication, psychosis, head injury, hypoxia, hypoglycemia and pain all cause agitation. Treat the cause where possible, and use adequate chemical sedation (and intubation if needed) before flight rather than relying on physical restraints in the air.',
         'Physical restraints should be soft, applied to all four limbs if used, and never prone — prone restraint can cause positional asphyxia and cardiac arrest. Monitor restrained patients continuously: airway, breathing, circulation, and distal perfusion of restrained limbs. Document the indication, type, time and checks.',
         'Law enforcement custody patients may need an officer to accompany them if policy allows, and handcuffs must be removable by the crew in an emergency (keys on board) or replaced with soft restraints. Weapons are never allowed on board except per specific policy for law enforcement.',
       ],
@@ -38,9 +38,9 @@ export const RESTRAINTS: FpcLesson = {
     },
     {
       id: 'case', title: 'Scenario: the intoxicated head injury',
-      body: ['A 28-year-old with a scalp laceration and a GCS of 13 after a fall is intoxicated, shouting and pulling at his collar. He is protecting his airway. The flight to the trauma centre is 30 minutes.'],
+      body: ['A 28-year-old with a scalp laceration and a GCS of 13 after a fall is intoxicated, shouting and pulling at his collar. He is protecting his airway. The flight to the trauma center is 30 minutes.'],
       example: { case: 'Is he safe to fly?', steps: [
-        'Agitation in a small cabin is a flight safety risk; exclude hypoxia and hypoglycaemia.',
+        'Agitation in a small cabin is a flight safety risk; exclude hypoxia and hypoglycemia.',
         'If he cannot be calmed reliably, sedate adequately — and if sedation would compromise his airway or neuro exam, intubate before departure.',
         'Do not rely on physical restraint alone; never prone.',
         'If restrained, document and check perfusion and breathing throughout.',
@@ -54,7 +54,7 @@ export const RESTRAINTS: FpcLesson = {
     'Equipment that cannot be secured cannot fly.',
     'Combative patients: treat the cause, sedate or intubate before flight; never prone restraint.',
   ],
-  pearls: ['Practise releasing your harness inverted.', 'Keys to handcuffs must be on board.'],
+  pearls: ['Practice releasing your harness inverted.', 'Keys to handcuffs must be on board.'],
   pitfalls: ['Unrestrained crew during "just a short" care task at landing.', 'Unsecured referring-hospital equipment.'],
   questions: [
     { q: 'The most common cause of death in survivable helicopter crashes:', options: ['Burns only', 'Head injury and striking the cabin interior', 'Drowning', 'Hypothermia'], answer: 1, why: 'Restraints and helmets help.' },
@@ -70,7 +70,7 @@ export const RESTRAINTS: FpcLesson = {
     { q: 'Handcuffed patients in the aircraft require:', options: ['Nothing special', 'Keys on board or soft restraints instead', 'Additional handcuffs', 'Prone positioning'], answer: 1, why: 'Emergency egress.' },
     { q: 'Crashworthy (stroking) seats:', options: ['Recline for comfort', 'Absorb vertical impact energy', 'Rotate', 'Eject'], answer: 1, why: 'Reduce spinal injury.' },
     { q: 'Oxygen cylinders in the aircraft should be:', options: ['Loose on the floor', 'Secured in brackets with valves protected', 'Held by the crew', 'Placed on the stretcher'], answer: 1, why: 'Projectile and fire risk.' },
-    { q: 'A cause of agitation to exclude before sedation:', options: ['Hypoxia and hypoglycaemia', 'Tall stature', 'Blood type', 'Allergies'], answer: 0, why: 'Reversible causes.' },
+    { q: 'A cause of agitation to exclude before sedation:', options: ['Hypoxia and hypoglycemia', 'Tall stature', 'Blood type', 'Allergies'], answer: 0, why: 'Reversible causes.' },
     { q: 'Patient restraint on the stretcher should include:', options: ['Lap strap only', 'Shoulder and lap straps', 'None', 'Ankle straps only'], answer: 1, why: 'Prevents ejection.' },
   ],
   sources: [
@@ -92,7 +92,7 @@ export const PREFLIGHT: FpcLesson = {
     {
       id: 'walk', title: 'The walk-around', core: true,
       body: [
-        'The pilot is responsible for the airworthiness inspection, but medical crew take part in a daily walk-around, often with the pilot, and check the cabin before every flight. Look for: fluid leaks, damage to the skin, rotor blades and tail rotor, open or unlatched panels and doors, foreign objects near the aircraft or in intakes, condition of tyres or skids, and tie-downs and covers removed. Report anything unusual — the pilot decides its significance.',
+        'The pilot is responsible for the airworthiness inspection, but medical crew take part in a daily walk-around, often with the pilot, and check the cabin before every flight. Look for: fluid leaks, damage to the skin, rotor blades and tail rotor, open or unlatched panels and doors, foreign objects near the aircraft or in intakes, condition of tires or skids, and tie-downs and covers removed. Report anything unusual — the pilot decides its significance.',
         'In the cabin: seats and harnesses serviceable, helmets present and working (communications, visor), emergency exits clear and their release handles understood, fire extinguisher present and charged, first aid and survival kit present, lighting working, and the stretcher mount and locks functional.',
         'After the walk-around, remove covers, tie-downs and any equipment from around the aircraft. A final "foreign object" check before start-up prevents rotor wash from lifting debris into the rotors.',
       ],
@@ -112,7 +112,7 @@ export const PREFLIGHT: FpcLesson = {
     {
       id: 'brief', title: 'Pre-flight briefing and checklists', core: true,
       body: [
-        'Before each mission, the crew briefs: the mission (destination, patient, special equipment), weather and any concerns, fuel and possible refuelling, LZ or destination hazards, crew roles for the flight, and the plan for an in-flight emergency. Each crew member confirms readiness — including fitness for duty.',
+        'Before each mission, the crew briefs: the mission (destination, patient, special equipment), weather and any concerns, fuel and possible refueling, LZ or destination hazards, crew roles for the flight, and the plan for an in-flight emergency. Each crew member confirms readiness — including fitness for duty.',
         'Checklists prevent omissions when people are tired, busy or interrupted; they do not replace knowledge but protect against memory failures. Use them for start-up, pre-departure ("doors closed and latched, belts on, equipment secured, ready for take-off"), and before landing. Read-do or challenge-and-response formats both work if used consistently.',
         'A pre-departure "last look" by each crew member around their side of the aircraft — doors, latches, tie-downs and people clear — is a final barrier against common incidents such as doors opening in flight.',
       ],
@@ -187,7 +187,7 @@ export const PAX_BRIEFING: FpcLesson = {
     {
       id: 'family', title: 'Family members and ride-alongs', core: true,
       body: [
-        'Allowing a parent to accompany a child, or a family member to accompany a patient, can reduce distress and help consent and history-taking. But each additional person adds weight, takes space and may become a second patient or a distraction. Programmes have criteria: the person must be calm, sober, able to follow instructions, within weight limits, not need medical care themselves, and fit in an approved seat without impeding patient care or exits.',
+        'Allowing a parent to accompany a child, or a family member to accompany a patient, can reduce distress and help consent and history-taking. But each additional person adds weight, takes space and may become a second patient or a distraction. Programs have criteria: the person must be calm, sober, able to follow instructions, within weight limits, not need medical care themselves, and fit in an approved seat without impeding patient care or exits.',
         'The final decision rests with the pilot (weight, balance and safety) and the medical crew (impact on patient care). A distraught or intoxicated family member should travel by ground. In a deteriorating situation — for example a cardiac arrest in flight — the crew should tell the family member what is happening and what they need from them.',
         'Students, observers and accompanying providers (a neonatal nurse, a perfusionist) must be trained or briefed in aircraft safety and their role. Specialist teams such as ECMO crews need extra briefing on aircraft limits for their equipment.',
       ],
@@ -224,7 +224,7 @@ export const PAX_BRIEFING: FpcLesson = {
     { q: 'Who must receive a safety briefing?', options: ['Only the pilot', 'All non-crew occupants, including family and observers', 'Only patients', 'Nobody'], answer: 1, why: 'Regulatory requirement.' },
     { q: 'A passenger briefing includes:', options: ['Billing', 'Emergency exits, belts, brace and approach rules', 'Patient\'s diagnosis', 'Weather history'], answer: 1, why: 'Standard content.' },
     { q: 'Passengers should approach the aircraft:', options: ['From the tail', 'Only when directed, from the front or side', 'Running', 'Whenever ready'], answer: 1, why: 'Rotor safety.' },
-    { q: 'A family member may fly if they are:', options: ['Intoxicated but insistent', 'Calm, sober, within weight limits and do not need care', 'Distraught', 'Carrying heavy luggage'], answer: 1, why: 'Programme criteria.' },
+    { q: 'A family member may fly if they are:', options: ['Intoxicated but insistent', 'Calm, sober, within weight limits and do not need care', 'Distraught', 'Carrying heavy luggage'], answer: 1, why: 'Program criteria.' },
     { q: 'The final decision on a family ride-along involves:', options: ['Only the family', 'The pilot and medical crew', 'The referring physician only', 'Dispatch alone'], answer: 1, why: 'Safety and care impact.' },
     { q: 'Briefing a conscious patient helps by:', options: ['Increasing anxiety', 'Reducing anxiety and oxygen demand', 'Lengthening the flight', 'Nothing'], answer: 1, why: 'Calmer patients.' },
     { q: 'A deaf patient in flight should be communicated with using:', options: ['Shouting', 'Writing boards and agreed gestures', 'The intercom', 'Nothing'], answer: 1, why: 'Visual methods.' },

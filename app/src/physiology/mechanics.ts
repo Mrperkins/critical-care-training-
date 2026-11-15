@@ -352,7 +352,7 @@ export class Mechanics {
   }
   /**
    * Neural-breath bookkeeping. Each patient effort is followed from onset to end so that
-   * dyssynchrony is classified from timing, the way an oesophageal-pressure tracing would:
+   * dyssynchrony is classified from timing, the way an esophageal-pressure tracing would:
    *  - an effort that begins in expiration and never triggers = ineffective effort
    *  - machine cycles off before the effort ends = premature cycling (cycleLag < 0)
    *  - machine keeps inflating after the effort ends = delayed cycling (cycleLag > 0)

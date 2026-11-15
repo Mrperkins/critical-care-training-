@@ -12,7 +12,7 @@ export const live = {
   vm: -83,
 };
 
-/** Cardiac action potential shape after a beat: upstroke, plateau, repolarisation back to rest. */
+/** Cardiac action potential shape after a beat: upstroke, plateau, repolarization back to rest. */
 export function actionPotential(tSince: number, rmp: number, strength: number): number {
   if (strength <= 0.02 || tSince < 0) return rmp;
   const peak = rmp + (30 - rmp) * strength; // ~+30 mV overshoot when healthy, blunted when Na⁺ channels are inactivated
@@ -29,7 +29,7 @@ export function resolveFocus(m: CellModel | null, step: number, chip: Focus | nu
   return m.chain[((step % m.chain.length) + m.chain.length) % m.chain.length].focus;
 }
 
-/** Neuronal action potential (drawn ~10× slower than life so it can be seen): fast upstroke, overshoot, after-hyperpolarisation. */
+/** Neuronal action potential (drawn ~10× slower than life so it can be seen): fast upstroke, overshoot, after-hyperpolarization. */
 export function neuronSpike(tSince: number, rmp: number, strength: number): number {
   if (strength <= 0.02 || tSince < 0) return rmp;
   const peak = rmp + (35 - rmp) * strength;

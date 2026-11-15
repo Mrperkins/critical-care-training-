@@ -16,24 +16,24 @@ export const WELLNESS: FpcLesson = {
       body: [
         'Fatigue degrades reaction time, attention, memory, decision-making and communication — the skills that matter most at 03:00 on a hard mission. Being awake for 17–19 hours impairs performance about as much as a blood alcohol concentration of 0.05 %, and 24 hours awake is comparable to 0.1 %. Fatigued people are poor judges of their own impairment.',
         'The circadian low occurs between roughly 02:00 and 06:00, when alertness is lowest regardless of how much sleep you had; a smaller dip occurs mid-afternoon. Night shifts, 24-hour shifts and rotating schedules disrupt sleep and accumulate sleep debt, which only sleep repays. Microsleeps — brief lapses of a few seconds — can occur without awareness.',
-        'Long-term shift work is associated with cardiovascular disease, metabolic disorders, mood disturbances and accidents on the drive home. Air medical programmes manage fatigue through scheduling, rest facilities, limits on duty time and policies that allow crew to decline flights when fatigued.',
+        'Long-term shift work is associated with cardiovascular disease, metabolic disorders, mood disturbances and accidents on the drive home. Air medical programs manage fatigue through scheduling, rest facilities, limits on duty time and policies that allow crew to decline flights when fatigued.',
       ],
     },
     {
       id: 'imsafe', title: 'Fitness for duty: IMSAFE', core: true,
       body: [
-        'Pilots and crew use the IMSAFE checklist before each shift and flight: Illness (any symptoms, including colds that block the ears and sinuses — barotrauma risk at altitude), Medication (prescription and over-the-counter drugs that cause drowsiness, such as antihistamines), Stress (personal, financial, work), Alcohol (FAA pilots: no alcohol within 8 hours of flight — "8 hours bottle to throttle" — and a blood alcohol concentration below 0.04 %; many programmes extend this to 12 hours and apply it to all crew), Fatigue, and Emotion (or Eating — dehydration and hypoglycaemia also impair performance).',
+        'Pilots and crew use the IMSAFE checklist before each shift and flight: Illness (any symptoms, including colds that block the ears and sinuses — barotrauma risk at altitude), Medication (prescription and over-the-counter drugs that cause drowsiness, such as antihistamines), Stress (personal, financial, work), Alcohol (FAA pilots: no alcohol within 8 hours of flight — "8 hours bottle to throttle" — and a blood alcohol concentration below 0.04 %; many programs extend this to 12 hours and apply it to all crew), Fatigue, and Emotion (or Eating — dehydration and hypoglycemia also impair performance).',
         'Recent scuba diving is a specific risk: flying soon after diving can cause decompression sickness. Common guidance is to wait at least 12 hours after a single no-decompression dive and 18 hours after multiple dives or multiple days of diving, longer after dives requiring decompression stops. Recent blood donation can reduce tolerance to hypoxia.',
-        'Physical fitness matters: crew lift stretchers and patients in awkward positions, often at night and in poor weather, and must be able to egress the aircraft in an emergency. Many programmes set weight limits (for aircraft performance and seat certification) and fitness standards.',
+        'Physical fitness matters: crew lift stretchers and patients in awkward positions, often at night and in poor weather, and must be able to egress the aircraft in an emergency. Many programs set weight limits (for aircraft performance and seat certification) and fitness standards.',
       ],
       list: { caption: 'IMSAFE', items: ['Illness', 'Medication', 'Stress', 'Alcohol', 'Fatigue', 'Emotion / Eating'] },
     },
     {
       id: 'counter', title: 'Countermeasures and standing down', core: true,
       body: [
-        'Prioritise sleep: protect a 7–9 hour sleep opportunity before shifts, use dark, quiet, cool rooms, and keep a consistent routine on days off where possible. Strategic naps of 20–30 minutes improve alertness without deep-sleep grogginess; a longer nap of about 90 minutes covers a full sleep cycle. Caffeine helps when timed before the expected low and avoided within several hours of planned sleep. Bright light helps alertness during night shifts; dark glasses on the drive home help sleep afterwards.',
-        'Hydrate and eat regularly — small, balanced meals rather than heavy meals on night shifts. Team strategies include cross-checking each other, verbalising plans, and using checklists during the circadian low.',
-        'Standing down because of fatigue or illness is a professional decision. A just culture supports crew who remove themselves from duty without penalty; programmes should have backup procedures so that the service is not compromised. If you are too tired to drive home after a shift, use the rest facility or arrange transport.',
+        'Prioritize sleep: protect a 7–9 hour sleep opportunity before shifts, use dark, quiet, cool rooms, and keep a consistent routine on days off where possible. Strategic naps of 20–30 minutes improve alertness without deep-sleep grogginess; a longer nap of about 90 minutes covers a full sleep cycle. Caffeine helps when timed before the expected low and avoided within several hours of planned sleep. Bright light helps alertness during night shifts; dark glasses on the drive home help sleep afterwards.',
+        'Hydrate and eat regularly — small, balanced meals rather than heavy meals on night shifts. Team strategies include cross-checking each other, verbalizing plans, and using checklists during the circadian low.',
+        'Standing down because of fatigue or illness is a professional decision. A just culture supports crew who remove themselves from duty without penalty; programs should have backup procedures so that the service is not compromised. If you are too tired to drive home after a shift, use the rest facility or arrange transport.',
       ],
     },
     {
@@ -42,7 +42,7 @@ export const WELLNESS: FpcLesson = {
       example: { case: 'What do you do?', steps: [
         'Run IMSAFE honestly: fatigue is significant, and it is the circadian low.',
         'Say so: "I\'m too fatigued to fly this safely" — one to say no.',
-        'The programme activates backup crew or delays a non-time-critical transfer.',
+        'The program activates backup crew or delays a non-time-critical transfer.',
         'Rest before driving home; report the scheduling issue so it can be addressed.',
       ] },
     },
@@ -51,7 +51,7 @@ export const WELLNESS: FpcLesson = {
     'Fatigue impairs like alcohol: ~18 h awake ≈ 0.05 % BAC.',
     'The circadian low (02:00–06:00) affects everyone.',
     'IMSAFE before every shift and flight.',
-    'Alcohol: at least 8 h and BAC < 0.04 % for pilots; many programmes require 12 h for all crew.',
+    'Alcohol: at least 8 h and BAC < 0.04 % for pilots; many programs require 12 h for all crew.',
     'Naps, caffeine timing, light, hydration and standing down without penalty.',
   ],
   pearls: ['A 20–30 minute nap avoids grogginess.', 'Wait ≥ 12–18 h after scuba diving before flying.'],
@@ -62,7 +62,7 @@ export const WELLNESS: FpcLesson = {
     { q: 'IMSAFE stands for:', options: ['Illness, Medication, Stress, Alcohol, Fatigue, Emotion/Eating', 'Insurance, Maintenance, Safety, Airspace, Fuel, Engine', 'Instruments, Map, Speed, Altitude, Fuel, Engine', 'None of these'], answer: 0, why: 'Self-assessment checklist.' },
     { q: 'FAA rule for pilots: no alcohol within:', options: ['1 hour', '8 hours of flight', '24 hours', '30 minutes'], answer: 1, why: '"Bottle to throttle".' },
     { q: 'FAA BAC limit for pilots:', options: ['0.08 %', 'Below 0.04 %', '0.1 %', 'None'], answer: 1, why: 'Regulatory limit.' },
-    { q: 'Flying with a head cold risks:', options: ['Nothing', 'Ear and sinus barotrauma', 'Better hearing', 'Hypoglycaemia'], answer: 1, why: 'Blocked Eustachian tubes.' },
+    { q: 'Flying with a head cold risks:', options: ['Nothing', 'Ear and sinus barotrauma', 'Better hearing', 'Hypoglycemia'], answer: 1, why: 'Blocked Eustachian tubes.' },
     { q: 'Wait before flying after a single no-decompression dive:', options: ['1 hour', 'At least 12 hours', '1 week', 'No wait'], answer: 1, why: 'Decompression sickness risk.' },
     { q: 'An effective short nap length:', options: ['5 minutes', '20–30 minutes', '3 hours', '60 minutes'], answer: 1, why: 'Avoids deep-sleep inertia.' },
     { q: 'Sleep debt is repaid by:', options: ['Caffeine', 'Sleep', 'Exercise', 'Bright light'], answer: 1, why: 'Only sleep restores.' },
@@ -93,17 +93,17 @@ export const HAZARD_REPORTING: FpcLesson = {
     {
       id: 'sms', title: 'Safety management systems', core: true,
       body: [
-        'A safety management system (SMS) is a structured, organisation-wide approach to managing risk. Its four pillars are safety policy (leadership commitment and accountability), safety risk management (identifying hazards and controlling risk), safety assurance (monitoring, auditing and measuring performance) and safety promotion (training and communication). The FAA requires SMS for some operators and encourages it across air medical services; accreditation bodies expect it.',
-        'Heinrich\'s pyramid illustrates the idea that for every serious accident there are many minor incidents and hundreds of near-misses and unsafe acts. Accidents are usually the end of a chain of hazards and errors (Reason\'s "Swiss cheese" model): defences have holes, and an accident happens when the holes line up. Reporting near-misses allows the holes to be found and closed before they align.',
-        'A hazard is a condition that could cause harm (an unmarked wire near a regular LZ, a faulty stretcher lock); risk is the combination of the likelihood and severity of harm from that hazard. Risk matrices help prioritise action.',
+        'A safety management system (SMS) is a structured, organization-wide approach to managing risk. Its four pillars are safety policy (leadership commitment and accountability), safety risk management (identifying hazards and controlling risk), safety assurance (monitoring, auditing and measuring performance) and safety promotion (training and communication). The FAA requires SMS for some operators and encourages it across air medical services; accreditation bodies expect it.',
+        'Heinrich\'s pyramid illustrates the idea that for every serious accident there are many minor incidents and hundreds of near-misses and unsafe acts. Accidents are usually the end of a chain of hazards and errors (Reason\'s "Swiss cheese" model): defenses have holes, and an accident happens when the holes line up. Reporting near-misses allows the holes to be found and closed before they align.',
+        'A hazard is a condition that could cause harm (an unmarked wire near a regular LZ, a faulty stretcher lock); risk is the combination of the likelihood and severity of harm from that hazard. Risk matrices help prioritize action.',
       ],
     },
     {
       id: 'reporting', title: 'Reporting culture', core: true,
       body: [
-        'People report only when it is safe to do so. Non-punitive reporting systems protect people who report honest errors and hazards, while still holding individuals accountable for reckless behaviour — the balance of a just culture. Reports can be confidential or anonymous, and the programme should feed back what was learned and changed; reporting that disappears into a void stops quickly.',
+        'People report only when it is safe to do so. Non-punitive reporting systems protect people who report honest errors and hazards, while still holding individuals accountable for reckless behavior — the balance of a just culture. Reports can be confidential or anonymous, and the program should feed back what was learned and changed; reporting that disappears into a void stops quickly.',
         'What to report: near-misses (a wire noticed late on approach, a door that opened in flight), equipment failures, medication errors, communication breakdowns, LZ problems, fatigue-related events, and any unsafe condition. Report promptly, factually and without blame: what happened, where, when, contributing factors, and suggestions.',
-        'The NASA Aviation Safety Reporting System (ASRS) accepts confidential reports from anyone in aviation; filing a report within 10 days of an incident can provide limited protection from FAA penalties for unintentional violations. Many programmes also participate in industry databases and safety networks to share lessons.',
+        'The NASA Aviation Safety Reporting System (ASRS) accepts confidential reports from anyone in aviation; filing a report within 10 days of an incident can provide limited protection from FAA penalties for unintentional violations. Many programs also participate in industry databases and safety networks to share lessons.',
       ],
     },
     {
@@ -123,7 +123,7 @@ export const HAZARD_REPORTING: FpcLesson = {
       body: ['On a night approach to a regular hospital helipad, the pilot sees a new construction crane late and makes an abrupt turn to avoid it. Nobody is hurt. Back at base, everyone is shaken; someone suggests not mentioning it to avoid trouble.'],
       example: { case: 'What should happen?', steps: [
         'Report through the SMS: time, location, the crane\'s position and lighting, what helped and what didn\'t.',
-        'The programme notifies the hospital and other operators, updates obstacle data and approach procedures, and requests lighting on the crane.',
+        'The program notifies the hospital and other operators, updates obstacle data and approach procedures, and requests lighting on the crane.',
         'Consider an ASRS report for confidential industry sharing.',
         'Debrief and offer peer support; feed back what changed to the reporting crew.',
       ] },
@@ -132,7 +132,7 @@ export const HAZARD_REPORTING: FpcLesson = {
   keyPoints: [
     'SMS pillars: policy, risk management, assurance, promotion.',
     'Near-misses outnumber accidents — reporting them prevents accidents.',
-    'Swiss cheese model: accidents occur when holes in defences align.',
+    'Swiss cheese model: accidents occur when holes in defenses align.',
     'Non-punitive, just-culture reporting; feedback keeps reporting alive.',
     'Accidents → NTSB immediately; ASRS for confidential reports within 10 days.',
   ],
@@ -141,9 +141,9 @@ export const HAZARD_REPORTING: FpcLesson = {
   questions: [
     { q: 'The four pillars of SMS:', options: ['Policy, risk management, assurance, promotion', 'Pilots, nurses, medics, mechanics', 'Fuel, weather, maintenance, training', 'Report, punish, retrain, fire'], answer: 0, why: 'ICAO/FAA framework.' },
     { q: 'Heinrich\'s pyramid suggests:', options: ['Accidents are random', 'Many near-misses precede each serious accident', 'Near-misses are irrelevant', 'Only fatal accidents matter'], answer: 1, why: 'Report near-misses.' },
-    { q: 'Reason\'s Swiss cheese model describes:', options: ['Aircraft design', 'Accidents occurring when holes in multiple defences align', 'Food safety', 'Weather patterns'], answer: 1, why: 'Systems view.' },
+    { q: 'Reason\'s Swiss cheese model describes:', options: ['Aircraft design', 'Accidents occurring when holes in multiple defenses align', 'Food safety', 'Weather patterns'], answer: 1, why: 'Systems view.' },
     { q: 'Risk is:', options: ['Any hazard', 'Likelihood combined with severity of harm', 'Only severity', 'An accident'], answer: 1, why: 'Definition.' },
-    { q: 'A non-punitive reporting system:', options: ['Protects reckless behaviour', 'Protects honest error reporting while holding reckless behaviour accountable', 'Punishes all errors', 'Is anonymous only'], answer: 1, why: 'Just culture.' },
+    { q: 'A non-punitive reporting system:', options: ['Protects reckless behavior', 'Protects honest error reporting while holding reckless behavior accountable', 'Punishes all errors', 'Is anonymous only'], answer: 1, why: 'Just culture.' },
     { q: 'Aircraft accidents in the US are reported to:', options: ['OSHA', 'The NTSB', 'The FDA', 'CAMTS'], answer: 1, why: 'Investigation authority.' },
     { q: 'NASA ASRS:', options: ['Investigates crashes', 'Accepts confidential safety reports', 'Certifies pilots', 'Writes regulations'], answer: 1, why: 'Voluntary reporting.' },
     { q: 'An ASRS report filed within ___ can offer limited protection for unintentional violations:', options: ['1 day', '10 days', '1 year', 'No limit'], answer: 1, why: 'FAA policy.' },
@@ -196,19 +196,19 @@ export const RADIO_COMMS: FpcLesson = {
     {
       id: 'following', title: 'Flight following and patient reports', core: true,
       body: [
-        'Flight following tracks the aircraft\'s position throughout the mission — by satellite tracking (automatic position reports every few minutes) and verbal position reports to the communications centre (typically every 15 minutes). If a scheduled report is missed and the aircraft cannot be contacted, the centre begins the overdue aircraft or post-accident incident plan.',
+        'Flight following tracks the aircraft\'s position throughout the mission — by satellite tracking (automatic position reports every few minutes) and verbal position reports to the communications center (typically every 15 minutes). If a scheduled report is missed and the aircraft cannot be contacted, the center begins the overdue aircraft or post-accident incident plan.',
         'A radio patient report should be short and structured: who you are and your ETA, age and sex, chief complaint or mechanism, key findings and vital signs, interventions and response, and specific requests (team activation, blood, cath lab, CT). For example: "City General, Life Flight 2, ETA 12 minutes with a 54-year-old male, inferior STEMI, BP 96/60, heart rate 52, on oxygen, aspirin and heparin given; request cath lab activation." Avoid patient names on open channels.',
         'If communications fail: try other radios and frequencies, relay through another aircraft or ground unit, use phones or satellite messaging, and follow lost-communication procedures. The pilot squawks 7600 if ATC communication is lost.',
       ],
     },
     {
       id: 'case', title: 'Scenario: the overdue position report',
-      body: ['You are working in the communications centre. A helicopter on a night scene flight missed its 15-minute position report. The satellite tracker shows its last position 6 minutes ago, stationary over a rural area away from the planned LZ. Calls on the company frequency are unanswered.'],
+      body: ['You are working in the communications center. A helicopter on a night scene flight missed its 15-minute position report. The satellite tracker shows its last position 6 minutes ago, stationary over a rural area away from the planned LZ. Calls on the company frequency are unanswered.'],
       example: { case: 'What happens next?', steps: [
         'Try all methods: company radio, satellite messaging, crew mobile phones, other agencies in the area.',
         'Activate the post-accident incident plan at the specified time — do not wait.',
         'Notify ATC, local emergency services and search and rescue with the last known position.',
-        'Monitor 121.5 MHz and ELT alerts; prepare to support crew families and the organisation.',
+        'Monitor 121.5 MHz and ELT alerts; prepare to support crew families and the organization.',
       ] },
     },
   ],

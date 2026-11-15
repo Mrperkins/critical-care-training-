@@ -6,7 +6,7 @@ export const PATM = 760;
 export const PH2O = 47;
 export const RQ = 0.8;
 
-/** Severinghaus (1979) oxyhaemoglobin dissociation, standard conditions (P50 26.8). */
+/** Severinghaus (1979) oxyhemoglobin dissociation, standard conditions (P50 26.8). */
 export function satStd(po2: number): number {
   const p = Math.max(0.1, po2);
   return 1 / (23400 / (p ** 3 + 150 * p) + 1);

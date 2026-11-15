@@ -116,7 +116,7 @@ describe('atlas layers', () => {
     const v = vesselCentrelines();
     expect(v.lpa[v.lpa.length - 1].p.x).toBeGreaterThan(0.3); expect(v.rpa[v.rpa.length - 1].p.x).toBeLessThan(-0.1); // patient left / right
     expect(v.desc[v.desc.length - 1].p.z).toBeLessThan(v.asc[0].p.z); // descending aorta is posterior to the root
-    expect(v.asc.every((w) => w.r > 0.04 && w.r < 0.09)).toBe(true); // ~1.6–3.6 cm calibre
+    expect(v.asc.every((w) => w.r > 0.04 && w.r < 0.09)).toBe(true); // ~1.6–3.6 cm caliber
   });
   it('shows the right-sided decompression ribs in tension pneumothorax', () => {
     expect(atlasLayers(DISEASE_BY_ID['tension-pneumothorax'], s({})).bones).toEqual(['rib_R2', 'rib_R3', 'rib_R4', 'rib_R5']);
@@ -162,7 +162,7 @@ describe('heart interior and conduction (measured landmarks)', () => {
     expect(P.lbb.centre[0]).toBeGreaterThan(P.rbb.centre[0] - 0.02);
     expect(P.purkinje_lv.centre[0]).toBeGreaterThan(P.purkinje_rv.centre[0]);
   });
-  it('has the interior architecture as separate, labelled structures', () => {
+  it('has the interior architecture as separate, labeled structures', () => {
     for (const id of ['moderator_band', 'limbus_fossa_ovalis', 'fossa_ovalis', 'valve_eustachian', 'valve_thebesian', 'tendon_todaro', 'supraventricular_crest', 'bachmann_bundle', 'internodal_anterior', 'internodal_middle', 'internodal_posterior', 'av_node_inferior_extension']) expect(P[id], id).toBeDefined();
   });
   it('ships full-resolution chambers with sculpted relief and no separate septum slab', async () => {
@@ -226,12 +226,12 @@ describe('gut and diaphragm (gut.glb)', () => {
 
 describe('cerebral arteries (cerebral-arteries.glb)', () => {
   const m = json('cerebral-arteries.mapping.json'); const V = m.vessels;
-  it('covers every vessel of the app tree with a real mesh and a measured centreline', async () => {
+  it('covers every vessel of the app tree with a real mesh and a measured centerline', async () => {
     const { buildCerebralVessels } = await import('../src/neuro/anatomy');
     const n = await names('cerebral-arteries.glb');
     for (const v of buildCerebralVessels()) { expect(n, v.id).toContain(v.id); expect(V[v.id]?.pts.length, v.id).toBeGreaterThan(1); }
   });
-  it('has adult calibres (diameter, mm) in the right order: ICA > M1 > A1/P1 > PComm', () => {
+  it('has adult calibers (diameter, mm) in the right order: ICA > M1 > A1/P1 > PComm', () => {
     const d = (id: string) => V[id].r0 * 200;
     for (const S of ['R', 'L']) {
       expect(d('ica_' + S)).toBeGreaterThan(4); expect(d('ica_' + S)).toBeLessThan(7.5);

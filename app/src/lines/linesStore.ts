@@ -13,7 +13,7 @@ export interface LinesUI {
   frozen: boolean;
   /** which line the fast-flush card shows */
   flushLine: 'art' | 'cvp';
-  /** transient message from an action (e.g. "flushing a clot forward can embolise") */
+  /** transient message from an action (e.g. "flushing a clot forward can embolize") */
   toast: { text: string; tone: 'good' | 'bad' | 'info'; at: number } | null;
   set: (p: Partial<Omit<LinesUI, 'set'>>) => void;
 }

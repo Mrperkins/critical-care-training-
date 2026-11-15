@@ -6,7 +6,7 @@ export type Disorder = 'resp acidosis' | 'resp alkalosis' | 'met acidosis' | 'me
 export interface AbgInput { pH: number; paco2: number; hco3: number; pao2?: number; fio2?: number; na?: number; cl?: number; albumin?: number; age?: number; lactate?: number }
 export interface Step { key: string; title: string; text: string; tone: 'ok' | 'warn' | 'bad' }
 export interface Interpretation {
-  status: 'acidaemia' | 'alkalaemia' | 'normal pH';
+  status: 'acidemia' | 'alkalemia' | 'normal pH';
   primary: Disorder[]; secondary: Disorder[]; chronicity: 'acute' | 'chronic' | 'acute-on-chronic' | null;
   expectedPaco2: [number, number] | null; expectedHco3: [number, number] | null;
   ag: number | null; agCorr: number | null; deltaRatio: number | null; hagma: boolean;
@@ -19,12 +19,12 @@ const r1 = (x: number) => Math.round(x * 10) / 10;
 export function interpret(g: AbgInput): Interpretation {
   const steps: Step[] = []; const primary: Disorder[] = []; const secondary: Disorder[] = [];
   const { pH, paco2, hco3 } = g;
-  const status: Interpretation['status'] = pH < 7.35 ? 'acidaemia' : pH > 7.45 ? 'alkalaemia' : 'normal pH';
+  const status: Interpretation['status'] = pH < 7.35 ? 'acidemia' : pH > 7.45 ? 'alkalemia' : 'normal pH';
   steps.push({ key: 'ph', title: '1 · pH', text: `pH ${pH.toFixed(2)} → ${status}.`, tone: status === 'normal pH' ? 'ok' : 'bad' });
 
   const co2Hi = paco2 > 45, co2Lo = paco2 < 35, hHi = hco3 > 26, hLo = hco3 < 22;
-  if (status === 'acidaemia') { if (co2Hi) primary.push('resp acidosis'); if (hLo) primary.push('met acidosis'); }
-  else if (status === 'alkalaemia') { if (co2Lo) primary.push('resp alkalosis'); if (hHi) primary.push('met alkalosis'); }
+  if (status === 'acidemia') { if (co2Hi) primary.push('resp acidosis'); if (hLo) primary.push('met acidosis'); }
+  else if (status === 'alkalemia') { if (co2Lo) primary.push('resp alkalosis'); if (hHi) primary.push('met alkalosis'); }
   else {
     // normal pH with abnormal values: the side matching the pH direction from 7.40 is primary
     if (co2Hi && hHi) primary.push(pH < 7.4 ? 'resp acidosis' : 'met alkalosis');
@@ -71,10 +71,10 @@ export function interpret(g: AbgInput): Interpretation {
     if (g.albumin != null && Math.abs(g.albumin - 4) > 0.3) txt += `; corrected for albumin ${g.albumin.toFixed(1)} → ${agCorr.toFixed(0)}`;
     if (hagma) {
       deltaRatio = (agCorr - 12) / Math.max(0.5, 24 - hco3);
-      const dd = deltaRatio < 0.4 ? 'a coexisting normal-AG (hyperchloraemic) acidosis' : deltaRatio < 0.8 ? 'a mixed high- and normal-AG acidosis' : deltaRatio <= 2 ? 'a pure high-AG acidosis' : 'a coexisting metabolic alkalosis';
+      const dd = deltaRatio < 0.4 ? 'a coexisting normal-AG (hyperchloremic) acidosis' : deltaRatio < 0.8 ? 'a mixed high- and normal-AG acidosis' : deltaRatio <= 2 ? 'a pure high-AG acidosis' : 'a coexisting metabolic alkalosis';
       if (deltaRatio > 2 && !secondary.includes('met alkalosis') && !primary.includes('met alkalosis')) secondary.push('met alkalosis');
-      txt += ` — HIGH. Δ-ratio (ΔAG/ΔHCO₃⁻) = ${deltaRatio.toFixed(1)} → ${dd}. Think MUDPILES / GOLDMARK: lactate, ketones, toxins, uraemia.`;
-    } else txt += ' — normal.' + (hco3 < 22 ? ' A normal-AG acidosis points to HCO₃⁻ loss (diarrhoea) or Cl⁻ gain (saline).' : '');
+      txt += ` — HIGH. Δ-ratio (ΔAG/ΔHCO₃⁻) = ${deltaRatio.toFixed(1)} → ${dd}. Think MUDPILES / GOLDMARK: lactate, ketones, toxins, uremia.`;
+    } else txt += ' — normal.' + (hco3 < 22 ? ' A normal-AG acidosis points to HCO₃⁻ loss (diarrhea) or Cl⁻ gain (saline).' : '');
     steps.push({ key: 'ag', title: '4 · Anion gap', text: txt, tone: hagma ? 'bad' : 'ok' });
   }
 

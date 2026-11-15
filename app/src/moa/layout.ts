@@ -16,7 +16,7 @@ export function ranks(def: MechanismDefinition): Record<string, number> {
 export function layout(def: MechanismDefinition, W = 1000, H = 520, vertical = false): Placed[] {
   const r = ranks(def); const maxR = Math.max(...Object.values(r)); const cols: MechNode[][] = Array.from({ length: maxR + 1 }, () => []);
   def.nodes.forEach((n) => cols[r[n.id]].push(n));
-  // order rows by the mean row of parents (one barycentre sweep keeps edges from crossing much)
+  // order rows by the mean row of parents (one barycenter sweep keeps edges from crossing much)
   const rowOf: Record<string, number> = {};
   cols.forEach((col, c) => {
     if (c > 0) col.sort((a, b) => bary(a.id) - bary(b.id));

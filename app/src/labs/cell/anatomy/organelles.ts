@@ -103,7 +103,7 @@ export function smoothER(c: THREE.Vector3, spread: number, y: number, inside: (p
 export function golgi(c: THREE.Vector3, toNucleus: number, y: number, seed: number, scale = 1): Part {
   const R = rng(seed); const n = 6; const sheets: THREE.BufferGeometry[] = []; const ves: THREE.Matrix4[] = []; const q = new THREE.Quaternion();
   const u = V(Math.cos(toNucleus), 0, Math.sin(toNucleus));
-  // centre of curvature on the trans side (away from the nucleus): the stack is convex toward the nucleus (cis) and concave away (trans)
+  // center of curvature on the trans side (away from the nucleus): the stack is convex toward the nucleus (cis) and concave away (trans)
   const r0 = 0.34 * scale, dr = 0.075 * scale; const pivot = c.clone().addScaledVector(u, -(r0 + dr * (n - 1) / 2));
   for (let k = 0; k < n; k++) {
     const rad = r0 + k * dr; const span = 0.8 + k * 0.07; const pts: THREE.Vector3[] = []; // k = 0 trans (innermost), k = n-1 cis (outermost, faces the nucleus)

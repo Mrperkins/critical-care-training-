@@ -19,7 +19,7 @@ export function bronchodilatorAdapter(scenario = 'asthma', maxSeconds = 20): Pat
     readouts: (): Readout[] => { const n = ventNumbers(S());
       return [{ id: 'pip', label: 'PIP', value: n.pip, unit: 'cmH₂O' }, { id: 'pplat', label: 'Pplat', value: n.pplat, unit: 'cmH₂O' }, { id: 'gap', label: 'PIP − Pplat', value: n.pip - n.pplat, unit: 'cmH₂O' },
         { id: 'raw', label: 'Airway resistance', value: n.raw ?? NaN, unit: 'cmH₂O/L/s' }, { id: 'autopeep', label: 'Auto-PEEP', value: n.autoPeep, unit: 'cmH₂O', digits: 1 }]; },
-    doseLabel: (u) => (u <= 0 ? 'before the nebuliser' : `${Math.round(u * 15)} min after the nebuliser (compressed)`),
+    doseLabel: (u) => (u <= 0 ? 'before the nebulizer' : `${Math.round(u * 15)} min after the nebulizer (compressed)`),
   };
 }
 
