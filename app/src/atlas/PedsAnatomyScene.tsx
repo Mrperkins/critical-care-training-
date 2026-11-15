@@ -12,7 +12,7 @@ import { StudioCanvas } from '../scene/Studio';
 import { ORGANS, PEDS, type PedsBand } from './pedsAnatomy';
 
 const cache: Partial<Record<PedsBand, Promise<Record<string, THREE.Mesh>>>> = {};
-const load = (b: PedsBand) => (cache[b] ??= loadMeshes(undefined, `models/peds-${b}.glb`).then((m) => { for (const x of Object.values(m)) { x.geometry.computeVertexNormals(); x.geometry.computeBoundingBox(); } return m; }));
+const load = (b: PedsBand) => (cache[b] ??= Promise.all([loadMeshes(undefined, `models/peds-${b}.glb`), PEDS[b].airway ? loadMeshes(undefined, `models/peds-${b}-airway.glb`).catch(() => ({})) : Promise.resolve({})]).then(([organs, air]) => { const m: Record<string, THREE.Mesh> = { ...organs, ...air }; for (const x of Object.values(m)) { x.geometry.computeVertexNormals(); x.geometry.computeBoundingBox(); } return m; }));
 const BANDS: PedsBand[] = ['infant', 'toddler', 'child'];
 
 function Body({ meshes, pick, skin, bones }: { meshes: Record<string, THREE.Mesh>; pick: string | null; skin: boolean; bones: boolean }) {
@@ -29,7 +29,8 @@ export function PedsAnatomyScene({ start }: { start: PedsBand }) {
   const [band, setBand] = useState<PedsBand>(start); const [m, setM] = useState<Record<string, THREE.Mesh> | null>(null); const [err, setErr] = useState(false);
   const [pick, setPick] = useState<string | null>(null); const [skin, setSkin] = useState(true); const [bones, setBones] = useState(true);
   useEffect(() => { let on = true; setM(null); setErr(false); load(band).then((x) => on && setM(x)).catch(() => on && setErr(true)); return () => { on = false; }; }, [band]);
-  const info = PEDS[band]; const list = Object.keys(info.ml).filter((k) => ORGANS[k] && k !== 'skin' && k !== 'bones').sort((a, b) => info.ml[b] - info.ml[a]);
+  const info = PEDS[band]; const ml: Record<string, number> = { ...info.ml, ...(info.airway ? { airway: info.airway.ml } : {}) };
+  const list = [...(info.airway ? ['airway'] : []), ...Object.keys(info.ml).filter((k) => ORGANS[k] && k !== 'skin' && k !== 'bones').sort((a, b) => info.ml[b] - info.ml[a])];
   return (
     <div className="peds-anat">
       <div className="peds-bar" role="group" aria-label="Which child">{BANDS.map((b) => <button key={b} type="button" aria-pressed={band === b} onClick={() => { setBand(b); setPick(null); }}><b>{PEDS[b].label}</b><span>{PEDS[b].who}</span></button>)}</div>
@@ -43,7 +44,8 @@ export function PedsAnatomyScene({ start }: { start: PedsBand }) {
         <div className="peds-toggles"><button type="button" aria-pressed={skin} onClick={() => setSkin(!skin)}>Skin</button><button type="button" aria-pressed={bones} onClick={() => setBones(!bones)}>Bones</button></div>
         <p className="peds-scale">{info.wholeChest ? 'Chest, abdomen and pelvis' : 'Abdomen and pelvis; this scan stops at the lower chest'} · {info.heightCm} cm of trunk, {info.widthCm} cm wide · same scale for all three</p>
       </div>
-      <ul className="peds-organs" aria-label="Organs, with the volume measured on this scan">{list.map((k) => <li key={k}><button type="button" aria-pressed={pick === k} onClick={() => setPick(pick === k ? null : k)}><i style={{ background: ORGANS[k].color }} />{ORGANS[k].label}<span>{info.ml[k] >= 10 ? Math.round(info.ml[k]) : info.ml[k].toFixed(1)} mL</span></button></li>)}</ul>
+      <p className="peds-air">{info.airway ? `Windpipe on this scan: ${info.airway.diameterMm} mm wide, ${Math.round(info.airway.lengthSeenMm)} mm from the ${info.airway.cutAtTop ? 'top of the scan' : 'top of the airway'} to the carina, then the two main bronchi. Taken from the air on this child’s own CT.` : `No windpipe for this child: ${info.noAirway}.`}</p>
+      <ul className="peds-organs" aria-label="Organs, with the volume measured on this scan">{list.map((k) => <li key={k}><button type="button" aria-pressed={pick === k} onClick={() => setPick(pick === k ? null : k)}><i style={{ background: ORGANS[k].color }} />{ORGANS[k].label}<span>{ml[k] >= 10 ? Math.round(ml[k]) : ml[k].toFixed(1)} mL</span></button></li>)}</ul>
     </div>
   );
 }

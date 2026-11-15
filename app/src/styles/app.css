@@ -2349,7 +2349,7 @@ h2,h3,.h2,.card h3{font-weight:600;letter-spacing:-.006em}
 .age-tag{display:grid;gap:1px;text-align:center;white-space:nowrap;padding:5px 9px;border-radius:8px;background:rgba(10,13,18,.82);border:1px solid rgba(255,255,255,.16);color:#dfe5ee;font:500 11px/1.25 var(--fb,system-ui);pointer-events:none}.age-tag b{font-size:12.5px}.age-tag.on{border-color:#f0b34a}.age-tag.on b{color:#f0b34a}
 
 /* ---------- real pediatric anatomy ---------- */
-.peds-anat{display:grid;gap:10px;height:100%;grid-template-rows:auto minmax(0,1fr) auto;padding:10px;box-sizing:border-box}
+.peds-anat{display:grid;gap:10px;height:100%;grid-template-rows:auto minmax(0,1fr) auto auto;padding:10px;box-sizing:border-box}
 .peds-bar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
 .peds-bar button{display:grid;gap:1px;text-align:left;padding:7px 10px;border-radius:9px;border:1px solid rgba(255,255,255,.16);background:rgba(10,13,18,.7);color:#dfe5ee;cursor:pointer;min-height:44px}
 .peds-bar button b{font:600 13.5px/1.2 var(--fb,system-ui)}.peds-bar button span{font-size:11.5px;color:#9aa5b5}
@@ -2363,3 +2363,4 @@ h2,h3,.h2,.card h3{font-weight:600;letter-spacing:-.006em}
 .peds-organs{list-style:none;margin:0;padding:0 0 4px;display:flex;flex-wrap:nowrap;gap:5px;overflow-x:auto;overscroll-behavior-x:contain}.peds-organs li{flex:none}
 .peds-organs button{display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:0 10px}.peds-organs button i{width:9px;height:9px;border-radius:50%}.peds-organs button span{color:#9aa5b5}
 .peds-organs button[aria-pressed="true"]{border-color:#f0b34a;color:#f0b34a}
+.peds-air{margin:0;font-size:12.5px;line-height:1.4;color:#bcd7e0}

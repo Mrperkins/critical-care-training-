@@ -1,0 +1,28 @@
+# Builds the airway of the pediatric anatomy models from the same children's CT (Pediatric-CT-SEG, CC BY 4.0). Runs on the peds-airway branch or by hand.
+name: Pediatric airway
+on:
+  workflow_dispatch:
+  push:
+    branches: [peds-airway]
+    paths: ['app/pipeline/build-peds-airway.py', 'app/pipeline/peds-airway-series.json', '.github/workflows/peds-airway.yml']
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install idc-index pydicom pillow numpy scipy scikit-image trimesh fast-simplification
+      - name: Build the models
+        working-directory: app/pipeline
+        run: python build-peds-airway.py
+      - name: Commit the models
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A app/public/models app/pipeline/previews
+          git diff --cached --quiet || git commit -m "Pediatric airway models"
+          git push
