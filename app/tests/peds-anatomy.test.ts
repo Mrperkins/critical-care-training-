@@ -20,6 +20,12 @@ describe('real pediatric anatomy', () => {
     // adult liver is about 1,500 mL: every child here is well under it
     for (const b of ['infant', 'toddler', 'child'] as const) expect(PEDS[b].ml.liver).toBeLessThan(1100);
   });
+  it('the windpipe is only shown where the scan really shows it, with plausible measurements', () => {
+    const a = PEDS.child.airway!; expect(a).toBeTruthy(); expect(existsSync(resolve(models, 'peds-child-airway.glb'))).toBe(true);
+    expect(a.diameterMm).toBeGreaterThan(5); expect(a.diameterMm).toBeLessThan(12); expect(a.lengthSeenMm).toBeGreaterThan(50); expect(a.lengthSeenMm).toBeLessThan(130);
+    for (const b of ['infant', 'toddler'] as const) { expect(PEDS[b].airway).toBeNull(); expect(PEDS[b].noAirway).toBeTruthy(); expect(existsSync(resolve(models, `peds-${b}-airway.glb`))).toBe(false); }
+    expect(ORGANS.airway).toBeTruthy();
+  });
   it('abnormal scans were screened out and the reasons are on record', () => {
     const why = report.candidates.map((c: { why: string }) => c.why); expect(report.candidates.length).toBeGreaterThan(80);
     expect(why.some((w: string) => w.startsWith('kidneys differ'))).toBe(true); expect(why.filter((w: string) => w.startsWith('chosen')).length).toBe(3);

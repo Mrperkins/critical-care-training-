@@ -119,9 +119,13 @@ def main():
             if lungs is not None and lungs.any(): info['ct_above_lung_apex_mm'] = round(float(z[-1] - z[np.nonzero(lungs.any((1, 2)))[0].max()]), 1)
             preview(hu, z, geo, a, lungs, os.path.join(PREV, f'{band or "scan"}-{pid[-8:]}.jpg')); print(band, pid, info)
             if band and a is None: report['models'][band] = {**info, 'airway': False, 'why': 'this scan starts below the windpipe'}
+            out_glb = os.path.join(OUT, f'peds-{band}-airway.glb')
+            if band and a is not None and not info.get('carina_found'):                 # a fragment is not a model: say so instead of shipping it
+                if os.path.exists(out_glb): os.remove(out_glb)
+                report['models'][band] = {**info, 'airway': False, 'why': 'the windpipe is too blurred on this scan to follow to the carina'}; continue
             if band and a is not None:
                 ref = structs.get('skin') or max(structs.values(), key=len); rp = np.concatenate([p for _, p in ref]); centre = np.array([rp[:, 0].mean(), rp[:, 1].mean(), min(zz for zz, _ in ref)])
-                m = mesh(a, z, geo, centre); info['tris'] = int(len(m.faces)); sc = trimesh.Scene(); sc.add_geometry(m, node_name='airway', geom_name='airway'); sc.export(os.path.join(OUT, f'peds-{band}-airway.glb'))
+                m = mesh(a, z, geo, centre); info['tris'] = int(len(m.faces)); sc = trimesh.Scene(); sc.add_geometry(m, node_name='airway', geom_name='airway'); sc.export(out_glb); info['airway'] = True
                 report['models'][band] = info
             elif not band: report['other_scans'].append(info)
         except Exception as e:
