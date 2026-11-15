@@ -12,7 +12,7 @@ export type LibraryPage =
   | { page: 'learn' }
   | { page: 'practice'; shelf?: ShelfId }
   | { page: 'reference' }
-  | { page: 'listen' }
+  | { page: 'listen' } | { page: 'review' }
   | { page: 'module'; id: string }
   | { page: 'shelf'; id: ShelfId | 'all'; filter?: 'all' | 'module' | 'simulator' | 'case' }
   | { page: 'paths' }

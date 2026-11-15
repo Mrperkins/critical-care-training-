@@ -1040,3 +1040,15 @@ html:has(.app-b),body:has(.app-b){overflow:hidden}
   .hud:has(>.hud-chips)>.hud-chips,.hud:has(>.hud-goals)>.hud-goals{margin-top:auto;background:rgba(8,11,16,.72);border-radius:10px;padding:4px}
   .hud:has(>.hud-chips)>.hud-bottom,.hud:has(>.hud-goals)>.hud-bottom{margin-top:0}
 }
+
+/* ---------- Phase 6: clinical review ---------- */
+.rv-top{display:flex;gap:14px;align-items:center;margin:6px 0 10px}.rv-bar{flex:1;height:8px;border-radius:99px;background:rgba(255,255,255,.1)}.rv-bar i{display:block;height:100%;border-radius:99px;background:#6fd6a0}
+.rv-note{font-size:13.5px;color:var(--lib-mute);max-width:80ch;margin:0 0 18px}
+.rv-group{border:1px solid var(--lib-line);border-radius:12px;margin-bottom:10px;background:var(--lib-card)}
+.rv-head{width:100%;display:flex;justify-content:space-between;align-items:center;min-height:52px;padding:0 16px;background:none;border:0;color:inherit;font:600 16px var(--lib-font);cursor:pointer}.rv-head span{color:var(--lib-mute);font-weight:500}
+.rv-about{margin:0 16px 10px;font-size:14px;color:var(--lib-dim)}
+.rv-list{list-style:none;margin:0;padding:0 16px 12px;display:grid;gap:10px}
+.rv-list li{padding:12px 14px;border-radius:10px;border:1px solid var(--lib-line);border-left:3px solid var(--lib-line)}.rv-list li.ok{border-left-color:#6fd6a0}.rv-list li.change{border-left-color:#f07d6a}
+.rv-list b{font:600 14px var(--lib-font)}.rv-list p{margin:4px 0 0;font-size:14.5px;line-height:1.5}.rv-detail{color:var(--lib-mute);font-size:13.5px!important}
+.rv-acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.rv-acts button{min-height:40px;padding:0 12px;border-radius:8px;border:1px solid var(--lib-line);background:none;color:inherit;font:500 13.5px var(--lib-font);cursor:pointer}
+.rv-acts button[aria-pressed="true"]{background:#f2f4f8;color:#0b0e13;border-color:#f2f4f8}.rv-acts input{flex:1;min-width:160px;min-height:40px;padding:0 10px;border-radius:8px;border:1px solid var(--lib-line);background:rgba(0,0,0,.25);color:inherit;font:400 14px var(--lib-font)}

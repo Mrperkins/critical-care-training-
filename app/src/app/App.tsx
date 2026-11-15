@@ -117,7 +117,7 @@ export function App() {
   const dest: Dest | null = module === 'fpc' ? 'exam' : module === 'cases' || module === 'videos' || module === 'curriculum' ? 'reference'
     : module !== 'library' ? (inPlayerNow(playing, solo) ? null : experience === 'practice' ? 'practice' : 'learn')
     : libView.page === 'home' ? 'home' : libView.page === 'practice' || (libView.page === 'shelf' && libView.filter === 'case') ? 'practice'
-    : libView.page === 'offline' ? 'offline' : libView.page === 'reference' || libView.page === 'imaging' || libView.page === 'listen' ? 'reference' : 'learn';
+    : libView.page === 'offline' ? 'offline' : libView.page === 'reference' || libView.page === 'imaging' || libView.page === 'listen' || libView.page === 'review' ? 'reference' : 'learn';
   const navOn = (k: Dest) => dest === k;
   const DESTS: { k: Dest; label: string; short?: string; go: () => void }[] = [
     { k: 'home', label: 'Today', go: () => openLibrary({ page: 'home' }) },
