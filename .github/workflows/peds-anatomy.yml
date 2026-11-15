@@ -1,0 +1,31 @@
+# Builds the pediatric organ models from expert-contoured CT (Pediatric-CT-SEG, CC BY 4.0).
+# Runs when the pipeline or its shortlist changes on the peds-anatomy branch, or by hand.
+name: Pediatric anatomy
+on:
+  workflow_dispatch:
+  push:
+    branches: [peds-anatomy]
+    paths: ['app/pipeline/build-peds-anatomy.py', 'app/pipeline/peds-candidates.json', '.github/workflows/peds-anatomy.yml']
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install idc-index pydicom numpy scipy scikit-image trimesh fast-simplification
+      - name: Download the contours and build the models
+        working-directory: app/pipeline
+        run: python build-peds-anatomy.py --download
+      - uses: actions/upload-artifact@v4
+        with: { name: peds-anatomy, path: 'app/public/models/peds-*' }
+      - name: Commit the models
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/public/models/peds-*
+          git diff --cached --quiet || git commit -m "Pediatric anatomy models from Pediatric-CT-SEG (CC BY 4.0)"
+          git push
