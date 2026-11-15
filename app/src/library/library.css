@@ -1021,3 +1021,22 @@ html:has(.app-b),body:has(.app-b){overflow:hidden}
   .app-b.in-domain .experience-nav{order:3;flex:1 1 100%}
   .app-b.in-domain .topbar-tools{display:none}
 }
+
+/* ---------- Phase 3: missions ---------- */
+.ms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.ms-card{display:flex;flex-direction:column;gap:8px;text-align:left;background:var(--lib-card);border:1px solid var(--lib-line);border-radius:14px;padding:16px 18px;color:inherit;cursor:pointer;min-width:0}
+.ms-card:hover,.ms-card:focus-visible{border-color:rgba(255,255,255,.4)}
+.ms-card b{font:600 17px/1.2 var(--lib-font)}
+.ms-card span{font-size:13px;line-height:1.45;color:var(--lib-dim,#a9b3c2)}
+.ms-card ol{margin:2px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px;counter-reset:leg}
+.ms-card li{font-size:11.5px;padding:3px 8px;border-radius:999px;border:1px solid var(--lib-line);counter-increment:leg}
+.ms-card li::before{content:counter(leg) " · ";opacity:.6}
+.ms-card small{margin-top:auto;font-size:12px;opacity:.75}
+.ms-card small.ok{color:#7fe0a8;opacity:1}
+.ms-sec{margin:18px 0 22px}.ms-sec h2 small{font:400 13px var(--lib-font);color:var(--lib-mute);margin-left:8px}
+.hud-lead{margin:0 0 8px;padding:8px 10px;border-left:3px solid #f0b34a;background:rgba(240,179,74,.1);border-radius:6px;font:500 13.5px/1.4 var(--lib-font);color:#ffe2b0}
+@media (max-width:760px){
+  /* phone: the key numbers sit just above the question, clear of the module's own view tabs */
+  .hud:has(>.hud-chips)>.hud-chips,.hud:has(>.hud-goals)>.hud-goals{margin-top:auto;background:rgba(8,11,16,.72);border-radius:10px;padding:4px}
+  .hud:has(>.hud-chips)>.hud-bottom,.hud:has(>.hud-goals)>.hud-bottom{margin-top:0}
+}

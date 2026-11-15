@@ -14,7 +14,7 @@ import { create } from 'zustand';
 import { usePlayerUI, type Chip, type Trace } from './playerUI';
 
 export interface Tile { label: string; sub?: string; icon?: string }
-export interface HudQuestion { key: string; q: string; tiles: Tile[]; answer: number; explain: string; picked: number | null; shownAt: number }
+export interface HudQuestion { key: string; /** what has just changed, shown above the question */ lead?: string; q: string; tiles: Tile[]; answer: number; explain: string; picked: number | null; shownAt: number }
 export interface HudAction { id: string; label: string; sub?: string; icon?: string; primary?: boolean; disabled?: boolean }
 export interface HudControl { key: string; label: string; value: string; dec: () => void; inc: () => void }
 export interface HudTool { label: string; icon?: string; onClick: () => void; primary?: boolean }

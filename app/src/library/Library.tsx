@@ -13,7 +13,8 @@ import { useLibrary } from './libraryStore';
 import { ContentFormatIcon } from './ContentFormatIcon';
 import { CourseImaging } from './imaging/CourseImaging';
 import { CLINICAL_THUMBS } from './clinicalThumbs';
-import { openLibrary, playModule, playStep, runCase } from './launch';
+import { openLibrary, playModule, playStep, runCase, runMission } from './launch';
+import { MISSIONS, missionResults } from './missions';
 import { OfflinePage } from './OfflinePage';
 import { AccentTitle, Banner, HeroImage, PATH_ACCENT, PATH_HERO, Row, SHELF_ACCENT, coverStyle } from './Shelf';
 import { LEVELS, bestStars, caseLevel, caseShelf, dailyCase, streak, type CaseLevel } from './caseMeta';
@@ -280,7 +281,7 @@ function SystemHub({ id }: { id: ShelfId }) {
 
 /** Practice: today's case, the whole case library with filters, and the simulators. */
 function PracticePage({ initial }: { initial?: ShelfId }) {
-  const cases = useCaseState(); const stars = useMemo(bestStars, []);
+  const cases = useCaseState(); const stars = useMemo(bestStars, []); const results = useMemo(missionResults, []);
   const [shelf, setShelf] = useState<ShelfId | 'all'>(initial ?? 'all'); const [level, setLevel] = useState<CaseLevel | 'all'>('all'); const [todo, setTodo] = useState(false);
   const shelves = SHELVES.filter((s) => cases.all.some((c) => caseShelf(c) === s.id));
   const shown = cases.all.filter((c) => (shelf === 'all' || caseShelf(c) === shelf) && (level === 'all' || caseLevel(c) === level) && (!todo || !cases.passed(c)));
@@ -301,6 +302,15 @@ function PracticePage({ initial }: { initial?: ShelfId }) {
             <button className="lib-btn" onClick={() => openFree('heart', 'explore')}>Heart &amp; MI Locator</button>
           </div></section>
       </div>
+      <section className="ms-sec" aria-labelledby="ms-h">
+        <h2 id="ms-h" className="sys-h2">Missions <small>a shift of four calls, played back to back</small></h2>
+        <div className="ms-grid">{MISSIONS.map((m) => { const r = results[m.id]; return (
+          <button key={m.id} className="ms-card" onClick={() => runMission(m.id)}>
+            <b>{m.title}</b><span>{m.brief}</span>
+            <ol>{m.legs.map((l) => <li key={l.caseId}>{l.label}</li>)}</ol>
+            <small className={r ? 'ok' : ''}>{r ? `Best ${r.right}/${r.total} decisions` : `${m.legs.length} calls · not flown yet`}</small>
+          </button>); })}</div>
+      </section>
       <div className="lib-filters" role="group" aria-label="Filter by system">
         <button aria-pressed={shelf === 'all'} className={shelf === 'all' ? 'on' : ''} onClick={() => setShelf('all')}>All systems</button>
         {shelves.map((s) => <button key={s.id} aria-pressed={shelf === s.id} className={shelf === s.id ? 'on' : ''} onClick={() => setShelf(s.id)}>{SHELF_ACCENT[s.id].label}</button>)}

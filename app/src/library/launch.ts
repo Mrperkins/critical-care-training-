@@ -7,6 +7,7 @@ import { openLesson } from '../app/navigate';
 import { endCase, startCase } from './caseRun';
 import { MODULE_BY_ID, stepKey } from './modules';
 import { useLibrary } from './libraryStore';
+import { MISSION_BY_ID, saveMission, useMission } from './missions';
 
 export function playStep(moduleId: string, index: number) {
   const m = MODULE_BY_ID[moduleId]; const s = m?.steps[index]; if (!s) return;
@@ -34,7 +35,7 @@ export function previousStep() { const p = useLibrary.getState().playing; if (p 
 
 /** Leave the player and go back to the module's page in the library. */
 export function exitPlayer(finished = false) {
-  const p = useLibrary.getState().playing; endCase();
+  const p = useLibrary.getState().playing; endCase(); useMission.getState().set({ id: null });
   useLibrary.getState().setPlaying(null); useLibrary.getState().setSolo(null);
   if (p) useLibrary.getState().go({ page: 'module', id: p.moduleId });
   useUI.getState().set({ module: 'library', atlasDisease: null });
@@ -49,7 +50,24 @@ export function openLibrary(view: Parameters<ReturnType<typeof useLibrary.getSta
 }
 
 /** Work one case in the case shell, outside any module (from Cases or search). */
-export function runCase(id: string) { useLibrary.getState().setSolo(id); startCase(id); }
+export function runCase(id: string) { useMission.getState().set({ id: null }); useLibrary.getState().setSolo(id); startCase(id); }
+
+/** Play a mission: its cases one after another, with a running result. */
+export function runMission(id: string, leg = 0) {
+  const m = MISSION_BY_ID[id]; if (!m?.legs[leg]) return;
+  useMission.getState().set(leg === 0 ? { id, leg, right: 0, total: 0 } : { id, leg });
+  useLibrary.getState().setSolo(m.legs[leg].caseId); startCase(m.legs[leg].caseId);
+}
+/** What the debrief's main button does: the next step of a module, the next leg of a mission, or back to the cases. */
+export function afterCase(result?: { right: number; total: number }): { onNext: () => void; nextLabel: string } {
+  const p = useLibrary.getState().playing;
+  if (p) { const m = MODULE_BY_ID[p.moduleId]; return { onNext: () => nextStep(), nextLabel: p.step + 1 < m.steps.length ? 'Next step' : 'Finish module' }; }
+  const ms = useMission.getState(); const m = ms.id ? MISSION_BY_ID[ms.id] : null;
+  if (!m) return { onNext: () => exitPlayer(), nextLabel: 'Back to cases' };
+  const right = ms.right + (result?.right ?? 0); const total = ms.total + (result?.total ?? 0);
+  if (ms.leg + 1 < m.legs.length) return { onNext: () => { useMission.getState().set({ right, total }); runMission(m.id, ms.leg + 1); }, nextLabel: `Next call: ${m.legs[ms.leg + 1].label}` };
+  return { onNext: () => { saveMission(m.id, right, total); useMission.getState().set({ id: null }); openLibrary({ page: 'practice' }); }, nextLabel: `Finish mission · ${right}/${total}` };
+}
 
 // semantic hook for automated checks (the same calls the buttons make)
-if (typeof window !== 'undefined') (window as unknown as { __CCLibrary: unknown }).__CCLibrary = { playStep, openLibrary, exitPlayer };
+if (typeof window !== 'undefined') (window as unknown as { __CCLibrary: unknown }).__CCLibrary = { playStep, openLibrary, exitPlayer, runCase, runMission };

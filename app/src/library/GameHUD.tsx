@@ -100,6 +100,7 @@ function HUD() {
           {(g.card.cta || g.card.secondary) && <div className="hud-card-act">{g.card.secondary && <button className="lib-btn" onClick={g.card.secondary.onClick}>{g.card.secondary.label}</button>}{g.card.cta && <button className="lib-btn primary" onClick={g.card.cta.onClick}>{g.card.cta.label}</button>}</div>}
         </section>}
         {q && <section className="hud-q" aria-labelledby="hud-q-h">
+          {q.lead && <p className="hud-lead">{q.lead}</p>}
           <h2 id="hud-q-h">{q.q}</h2>
           <div className={`hud-tiles n${q.tiles.length}`} role="group" aria-labelledby="hud-q-h">
             {q.tiles.map((t, i) => {

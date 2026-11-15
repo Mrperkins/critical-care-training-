@@ -9,6 +9,7 @@ import { useCaseUI } from './caseStore';
 import { useProgress } from '../curriculum/progress';
 import { takePendingChallenge, usePendingOpen } from '../app/navigate';
 import { Remediate } from './Remediate';
+import { runCase } from '../library/launch';
 import { ApnoeaCard, AirwayCard, NeoCard, ObCard } from '../populations/Cards';
 import { PedsCard } from '../populations/PedsCard';
 const CARD = { apnoea: ApnoeaCard, airway: AirwayCard, neo: NeoCard, ob: ObCard, peds: PedsCard };
@@ -21,6 +22,7 @@ const HEAD: Record<CaseModule, [string, string]> = {
   vent: ['Imaging and airway', 'Films and scans drawn from the live ventilator patient, and the child’s airway. The written reading is hidden until you answer.'],
   abg: ['Oxygen reserve', 'Apnoea cases for infants and pregnancy, drawn from the oxygen-store model on the blood-gas patient.'],
   lines: ['Pregnancy', 'Obstetric cases on the live circulation: position and postpartum haemorrhage.'],
+  labs: ['Labs', 'Panels read on the lab bench.'],
 };
 
 export function CaseList({ module, onStart, embedded }: { module: CaseModule; onStart: (c: SceneCase) => void; embedded?: boolean }) {
@@ -30,7 +32,7 @@ export function CaseList({ module, onStart, embedded }: { module: CaseModule; on
       <section className="card"><div className="eyebrow">{embedded ? 'More cases' : 'Challenge'}</div><h2 className="h2">{HEAD[module][0]}</h2><p className="muted">{HEAD[module][1]}</p></section>
       {cases.map((c) => { const a = attempts[c.id]; const last = a?.[a.length - 1]; return (
         <button key={c.id} className="chal-item" onClick={() => onStart(c)}>
-          <span className={`lvl lvl-${c.level}`}>{c.level}</span><span className="ci-t">{c.title}</span><span className="ci-k">{c.questions.length} questions</span>
+          <span className={`lvl lvl-${c.level}`}>{c.level}</span><span className="ci-t">{c.title}</span><span className="ci-k">{c.questions.length} decisions</span>
           {last && <span className={`tick${last.ok ? '' : ' miss'}`} aria-label={last.ok ? 'last attempt right' : 'last attempt missed'}>{last.ok ? '✓' : '✕'}</span>}
         </button>); })}
     </>
@@ -72,13 +74,9 @@ export function CaseRun({ c, onExit, onNext }: { c: SceneCase; onExit: () => voi
   );
 }
 
-/** The whole Challenge side pane for a module whose challenges are all scene cases. */
+/** The whole Challenge side pane for a module whose challenges are all scene cases: pick one, it plays on the HUD. */
 export function CaseChallenge({ module }: { module: CaseModule }) {
-  const [cur, setCur] = useState<SceneCase | null>(null);
   const pend = usePendingOpen((s) => s.id);
-  useEffect(() => { const id = takePendingChallenge((x) => CASE_BY_ID[x]?.module === module); if (id) setCur(CASE_BY_ID[id]); }, [pend, module]);
-  const list = casesFor(module);
-  if (!cur) return <div className="chal-list"><CaseList module={module} onStart={setCur} /></div>;
-  const i = list.indexOf(cur); const next = list[i + 1];
-  return <CaseRun key={cur.id} c={cur} onExit={() => setCur(null)} onNext={next ? () => setCur(next) : undefined} />;
+  useEffect(() => { takePendingChallenge((x) => CASE_BY_ID[x]?.module === module); }, [pend, module]);
+  return <div className="chal-list"><CaseList module={module} onStart={(c) => runCase(c.id)} /></div>;
 }

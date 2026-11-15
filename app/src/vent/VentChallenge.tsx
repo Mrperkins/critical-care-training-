@@ -8,8 +8,9 @@ import { loadVentScenario, VentSettingsFold, VentNumbersCard, Interventions, Gas
 import { Fold } from '../scene/pane';
 import { Loops } from './Waveforms';
 import { ventNumbers } from './numbers';
-import { CaseList, CaseRun } from '../challenge/CaseChallenge';
-import { CASE_BY_ID, casesFor, type SceneCase } from '../challenge/sceneCases';
+import { CaseList } from '../challenge/CaseChallenge';
+import { CASE_BY_ID } from '../challenge/sceneCases';
+import { runCase } from '../library/launch';
 import { Remediate } from '../challenge/Remediate';
 import { takePendingChallenge, usePendingOpen } from '../app/navigate';
 import { VentGame } from './VentGame';
@@ -20,14 +21,12 @@ const seeded = <T,>(arr: T[], seed: string) => { let h = 0; for (const c of seed
 export function VentChallenge() {
   const [cur, setCur] = useState<VC | null>(null);
   const done = useMemo(() => new Set((store.get('ccp.vent.done') ?? '').split(',').filter(Boolean)), [cur]);
-  const [img, setImg] = useState<SceneCase | null>(null);
   const start = (c: VC) => { loadVentScenario(c.scenario, c.dyss ?? null); if (c.settings) session.set(c.settings); useUI.getState().set({ showPmus: false }); setCur(c); };
   const pend = usePendingOpen((s) => s.id);
   useEffect(() => {
     const id = takePendingChallenge((x) => x.startsWith('vent-') || CASE_BY_ID[x]?.module === 'vent'); if (!id) return;
-    if (CASE_BY_ID[id]) { setCur(null); setImg(CASE_BY_ID[id]); } else { const c = VENT_CHALLENGES.find((x) => `vent-${x.id}` === id); if (c) { setImg(null); start(c); } }
+    if (CASE_BY_ID[id]) setCur(null); else { const c = VENT_CHALLENGES.find((x) => `vent-${x.id}` === id); if (c) start(c); }
   }, [pend]); // eslint-disable-line react-hooks/exhaustive-deps
-  if (img) { const list = casesFor('vent'); const next = list[list.indexOf(img) + 1]; return <CaseRun key={img.id} c={img} onExit={() => { setImg(null); useUI.getState().set({ ventView: 'front' }); }} onNext={next ? () => setImg(next) : undefined} />; }
   if (!cur) return (
     <div className="chal-list">
       <section className="card"><div className="eyebrow">Challenge</div><h2 className="h2">Read the machine, fix the patient</h2><p className="muted">Each case runs on the live lung model. Nothing is scripted: when you change a setting, the problem gets better or worse because the physics says so.</p></section>
@@ -36,7 +35,7 @@ export function VentChallenge() {
           <span className={`lvl lvl-${c.level}`}>{c.level}</span><span className="ci-t">{c.title}</span><span className="ci-k">{c.kind === 'dyss' ? 'Dyssynchrony' : c.kind === 'alarm' ? 'Alarm' : 'Targets'}</span>{done.has(c.id) && <span className="tick">✓</span>}
         </button>
       ))}
-      <CaseList module="vent" embedded onStart={setImg} />
+      <CaseList module="vent" embedded onStart={(c) => runCase(c.id)} />
     </div>
   );
   return <VentGame key={cur.id} c={cur} onExit={() => setCur(null)} onDone={() => { done.add(cur.id); store.set('ccp.vent.done', [...done].join(',')); }} />;
