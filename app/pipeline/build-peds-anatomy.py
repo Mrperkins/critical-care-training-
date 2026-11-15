@@ -122,10 +122,15 @@ def typical(rows):
         if r['span_mm'] < 0.75 * np.median([x['span_mm'] for x in rows]) and len(rows) > 2: r['why'] = 'short scan range'; continue
         ok.append(r)
     if not ok: return None
+    # prefer scans that show the whole chest (something is drawn above the lung apex) inside a full body outline
+    whole = [r for r in ok if r['apex_gap_mm'] >= 6 and r['skin_frac'] >= 0.9]
+    for r in ok:
+        if whole and r not in whole: r['why'] = 'usable, but the lung apices or the body outline are cut off'
+    pool = whole or ok
     rel = lambda r: np.array([np.log(r['ml'][k] / (r['ml']['skin'] / r['span_mm'])) for k in KEY])
     M = np.array([rel(r) for r in ok]); med = np.median(M, 0)
-    for r, m in zip(ok, M): r['deviation'] = round(float(np.abs(m - med).max()), 3); r['why'] = 'usable'
-    best = min(ok, key=lambda r: (round(r['deviation'], 2), -r['span_mm'], -r['n'])); best['why'] = 'chosen: most typical organ sizes for the band'
+    for r, m in zip(ok, M): r['deviation'] = round(float(np.abs(m - med).max()), 3); r.setdefault('why', 'usable')
+    best = min(pool, key=lambda r: (round(r['deviation'], 2), -r['span_mm'], -r['n'])); best['why'] = 'chosen: most typical organ sizes for the band'
     return best
 
 def main():
@@ -140,13 +145,16 @@ def main():
             try: s = read_rtstruct(files[0])
             except Exception as e: print('unreadable', c['patient'], e); continue
             dz = spacing(s); zs = [z for cs in s.values() for z, _ in cs]
-            rows.append({**c, 'band': band, 'n': len(s), 'complete': all(k in s for k in MUST), 'span_mm': round(max(zs) - min(zs), 1), 'ml': {k: round(volume_ml(v, dz), 1) for k, v in s.items()}}); data[c['patient']] = s
+            top = max(zs); lung_top = max(z for k in ('lung_l', 'lung_r') if k in s for z, _ in s[k]) if ('lung_l' in s or 'lung_r' in s) else top
+            sk = [z for z, _ in s.get('skin', [])]
+            cover = {'apex_gap_mm': round(top - lung_top, 1), 'skin_frac': round((max(sk) - min(sk)) / max(1.0, top - min(zs)), 2) if sk else 0.0}
+            rows.append({**c, **cover, 'band': band, 'n': len(s), 'complete': all(k in s for k in MUST), 'span_mm': round(max(zs) - min(zs), 1), 'ml': {k: round(volume_ml(v, dz), 1) for k, v in s.items()}}); data[c['patient']] = s
         best = typical(rows)
         for r in rows: print(band, r['patient'], r['age'], r['sex'], r['n'], r.get('deviation', ''), r.get('why', ''))
-        report['candidates'] += [{k: r[k] for k in ('patient', 'age', 'sex', 'band', 'n', 'span_mm', 'why') if k in r} | {'deviation': r.get('deviation')} for r in rows]
+        report['candidates'] += [{k: r[k] for k in ('patient', 'age', 'sex', 'band', 'n', 'span_mm', 'apex_gap_mm', 'skin_frac', 'why') if k in r} | {'deviation': r.get('deviation')} for r in rows]
         if best is None: print('no usable scan for', band); continue
         print('->', band, 'uses', best['patient'])
-        report['models'].append(build(data[best['patient']], band, {'patient': best['patient'], 'age': best['age'], 'sex': best['sex'], 'screened': len(rows), 'usable': sum(1 for r in rows if 'deviation' in r)}))
+        report['models'].append(build(data[best['patient']], band, {'patient': best['patient'], 'age': best['age'], 'sex': best['sex'], 'screened': len(rows), 'usable': sum(1 for r in rows if 'deviation' in r), 'whole_chest': best['apex_gap_mm'] >= 6}))
     json.dump(report, open(os.path.join(OUT, 'peds-anatomy.json'), 'w'), indent=1)
     if not report['models']: sys.exit('no models were built')
 
