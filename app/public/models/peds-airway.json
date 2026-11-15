@@ -115,8 +115,8 @@
   },
   {
    "slice_mm": 2.0,
-   "airway_ml": 1.24,
-   "trachea_diameter_mm": 4.8,
+   "airway_ml": 2.18,
+   "trachea_diameter_mm": 5.7,
    "trachea_length_seen_mm": 54.0,
    "carina_found": true,
    "cut_at_top_of_scan": true,
