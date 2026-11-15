@@ -38,25 +38,27 @@ def airway(hu, z, geo, lungs):
     for i in range(len(hu)):
         lab, n = ndi.label(hu[i] > -350)
         if n: body[i] = ndi.binary_fill_holes(lab == (np.argmax(np.bincount(lab.ravel())[1:]) + 1))
-    air = (hu < -800) & ndi.binary_erosion(body, structure=np.ones((1, 3, 3), bool), iterations=2)
-    if lungs is not None and lungs.any(): air &= ~ndi.binary_dilation(lungs, structure=np.ones((1, 3, 3), bool), iterations=2)
-    air = ndi.binary_opening(air, structure=np.ones((1, 2, 2), bool))
-    lab, n = ndi.label(air)
-    if not n: return None, {}
-    # the windpipe: a tall, thin, central column of air (bowel gas is low in the body; lung remnants are off the midline)
-    apex = float(z[np.nonzero(lungs.any((1, 2)))[0].max()]) if lungs is not None and lungs.any() else None
-    ys, xs = np.nonzero(body.any(0)); cx = xs.mean(); width = xs.max() - xs.min(); best = None
-    for k, sl in enumerate(ndi.find_objects(lab), 1):
-        if sl is None: continue
-        h = (sl[0].stop - sl[0].start) * dz; vox = int((lab[sl] == k).sum())
-        if h < 25 or vox < 200: continue
-        top = lab[sl[0].stop - 1] == k; tx = np.nonzero(top)[1].mean(); ta = top.sum() * dx * dy
-        if abs(tx - cx) > 0.18 * width or ta > 600: continue                      # top end must be a small central lumen
-        if apex is not None and z[sl[0].stop - 1] < apex - 15: continue           # the windpipe reaches the level of the lung apices; bowel gas does not
-        score = h + (30 if sl[0].stop > 0.6 * len(z) else 0)
-        if best is None or score > best[0]: best = (score, k)
-    if best is None: return None, {}
-    a = lab == best[1]
+    inner = ndi.binary_erosion(body, structure=np.ones((1, 3, 3), bool), iterations=2)
+    apex_i = int(np.nonzero(lungs.any((1, 2)))[0].max()) if lungs is not None and lungs.any() else None
+    if apex_i is None or z[-1] - z[apex_i] < 4: return None, {}                 # no lung apex in the scan: it starts below the windpipe
+    ys, xs = np.nonzero(body.any(0)); cx = xs.mean(); width = xs.max() - xs.min(); a = None
+    for thr in (-800, -700, -600):                                              # a small child's windpipe is a few voxels wide: allow for blurring
+        air = (hu < thr) & inner
+        if lungs is not None: air &= ~ndi.binary_dilation(lungs, structure=np.ones((1, 3, 3), bool), iterations=1)
+        lab, n = ndi.label(air)
+        if not n: continue
+        # seed: just above the lung apices the only central pocket of air is the windpipe
+        votes = {}
+        for i in range(apex_i, min(len(z), apex_i + max(2, int(12 / dz)))):
+            l2, m = ndi.label(air[i])
+            for k in range(1, m + 1):
+                blob = l2 == k; area = blob.sum() * dx * dy; by, bx = np.nonzero(blob)
+                if 6 <= area <= 400 and abs(bx.mean() - cx) < 0.15 * width: g = int(lab[i][blob][0]); votes[g] = votes.get(g, 0) + 1
+        if not votes: continue
+        k = max(votes, key=votes.get); cand = lab == k; ml = cand.sum() * dx * dy * dz / 1000
+        if ml > 60: continue                                                    # leaked into a lung: not usable at this threshold
+        a = cand; break
+    if a is None: return None, {}
     # measurements: walk down from the top; the carina is where one lumen becomes two for good
     area = a.sum((1, 2)) * dx * dy; idx = np.nonzero(area)[0]; top, bot = idx.max(), idx.min(); carina = None
     for i in range(top, bot - 1, -1):
