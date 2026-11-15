@@ -191,7 +191,7 @@ function BodyScene({ disease, state, target }: { disease: DiseaseDefinition; sta
       <Camera body={body} focus={focus} whole={target === 'body.whole'} boost={Math.max(1, ...focus.map((id) => organPose(id as OrganId, disease, state, body).scale))} />
     </StudioCanvas>
     <details className="credit"><summary>Sources &amp; model notes</summary>{a.title} — {a.creators}; {a.data}. <a href={a.licenseUrl} target="_blank" rel="noreferrer">{a.license}</a>. {a.changes}
-      {usesAdultReference(disease) && ' Children are shown on the adult reference body: a child has a proportionally larger head, a shorter neck and a narrower, more anterior airway.'}
+      {usesAdultReference(disease) && ' Organs here are shown on the adult reference body. Use “Child vs adult body” for real child and infant body models (MakeHuman, CC0) at true scale.'}
       {' '}Chamber size and moving flow are exaggerated qualitative comparisons, not measured volumes, cardiac output or a computational fluid model. Blood, clot, fluid and lesion marks are 3D overlays sized by the illustrative state, not measurements.
       {male && <> Bones: BodyParts3D, © The Database Center for Life Science, <a href="https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en" target="_blank" rel="noreferrer">CC BY-SA 2.1 JP</a>, fitted onto the Visible Human Male (skull, spine, ribs, sternum, shoulder girdle, humeri); pelvis and legs from HuBMAP. Pericardium, deep brain and conduction system are built on the HuBMAP heart and Allen brain regions; the conduction fibre pattern is schematic, and the internal capsule is reconstructed from the surrounding white matter.</>}</details>
   </>;
