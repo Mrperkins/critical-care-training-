@@ -16,7 +16,8 @@ import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__)); DATA = os.path.join(HERE, '.peds-data'); OUT = os.path.join(HERE, '..', 'public', 'models')
 CAND = json.load(open(os.path.join(HERE, 'peds-candidates.json')))
-MUST = ['lung_l', 'lung_r', 'heart', 'liver', 'kidney_l', 'kidney_r', 'skin']
+MUST = ['lung_l', 'lung_r', 'heart', 'liver', 'spleen', 'kidney_l', 'kidney_r', 'skin', 'bones']
+KEY = ['lung_l', 'lung_r', 'heart', 'liver', 'spleen', 'kidney_l', 'kidney_r']
 # triangle budget per structure (the body surface and skeleton carry the shape; small organs need few)
 BUDGET = {'skin': 14000, 'bones': 22000, 'lung_l': 5000, 'lung_r': 5000, 'liver': 5000, 'heart': 4000, 'small_intestine': 6000, 'large_intestine': 6000}
 COLOR = {'skin': [222, 184, 160], 'bones': [226, 220, 204], 'lung_l': [222, 150, 150], 'lung_r': [222, 150, 150], 'heart': [176, 48, 48], 'liver': [128, 62, 44], 'spleen': [112, 52, 84],
@@ -27,7 +28,7 @@ COLOR = {'skin': [222, 184, 160], 'bones': [226, 220, 204], 'lung_l': [222, 150,
 def norm(name):
     n = re.sub(r'[^a-z0-9]+', '_', name.lower()).strip('_')
     n = re.sub(r'^(left|l)_(.*)$', r'\2_l', n); n = re.sub(r'^(right|r)_(.*)$', r'\2_r', n)
-    n = re.sub(r'_(left|lt)$', '_l', n); n = re.sub(r'_(right|rt)$', '_r', n)
+    n = re.sub(r'_(left|lef|lt)$', '_l', n); n = re.sub(r'_(right|rig|rt)$', '_r', n)
     return {'gallbladder': 'gall_bladder', 'lungs_l': 'lung_l', 'lungs_r': 'lung_r', 'body': 'skin', 'external': 'skin', 'bone': 'bones', 'spinal_cord': 'spinal_canal', 'small_bowel': 'small_intestine', 'large_bowel': 'large_intestine', 'femoral_head_l': 'femur_head_l', 'femoral_head_r': 'femur_head_r'}.get(n, n)
 
 def read_rtstruct(path):
@@ -97,25 +98,47 @@ def download():
     uids = [x['rtstruct'] for v in CAND.values() for x in v]; os.makedirs(DATA, exist_ok=True)
     IDCClient().download_from_selection(seriesInstanceUID=uids, downloadDir=DATA, dirTemplate='%PatientID')
 
+def typical(rows):
+    """
+    These are oncology patients, so an organ can be enlarged, displaced or missing. Keep only scans where the paired
+    organs match (kidneys within 30 %, right lung not smaller than the left and not more than 1.7x it), then take
+    the child whose organ sizes, relative to their own trunk, are closest to the middle of the age band.
+    """
+    ok = []
+    for r in rows:
+        v = r['ml']
+        if not r['complete']: r['why'] = 'missing a key organ'; continue
+        k = v['kidney_l'] / v['kidney_r']; lr = v['lung_r'] / v['lung_l']
+        if not 0.77 <= k <= 1.3: r['why'] = f'kidneys differ ({v["kidney_l"]:.0f} vs {v["kidney_r"]:.0f} mL)'; continue
+        if not 0.95 <= lr <= 1.7: r['why'] = f'lungs differ ({v["lung_l"]:.0f} vs {v["lung_r"]:.0f} mL)'; continue
+        if r['span_mm'] < 0.75 * np.median([x['span_mm'] for x in rows]) and len(rows) > 2: r['why'] = 'short scan range'; continue
+        ok.append(r)
+    if not ok: return None
+    rel = lambda r: np.array([np.log(r['ml'][k] / (r['ml']['skin'] / r['span_mm'])) for k in KEY])
+    M = np.array([rel(r) for r in ok]); med = np.median(M, 0)
+    for r, m in zip(ok, M): r['deviation'] = round(float(np.abs(m - med).max()), 3); r['why'] = 'usable'
+    best = min(ok, key=lambda r: (r['deviation'], -r['n'])); best['why'] = 'chosen: most typical organ sizes for the band'
+    return best
+
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('--download', action='store_true'); a = ap.parse_args()
     if a.download: download()
     report = {'source': 'Pediatric-CT-SEG, The Cancer Imaging Archive, doi:10.7937/TCIA.X0H0-1706', 'license': 'CC BY 4.0', 'models': [], 'candidates': []}
     for band, cands in CAND.items():
-        best = None
+        rows = []; data = {}
         for c in cands:
             files = glob.glob(os.path.join(DATA, c['patient'], '**', '*.dcm'), recursive=True)
             if not files: print('missing', c['patient']); continue
             try: s = read_rtstruct(files[0])
             except Exception as e: print('unreadable', c['patient'], e); continue
-            zs = [z for cs in s.values() for z, _ in cs]; full = all(k in s for k in MUST)
-            row = {**c, 'band': band, 'n': len(s), 'complete': full, 'span_mm': round(max(zs) - min(zs), 1), 'names': sorted(s)}
-            report['candidates'].append(row); print(band, c['patient'], c['age'], c['sex'], 'structures', len(s), 'complete', full, 'span', row['span_mm'])
-            score = (full, len(s), row['span_mm'])
-            if best is None or score > best[0]: best = (score, c, s)
+            dz = spacing(s); zs = [z for cs in s.values() for z, _ in cs]
+            rows.append({**c, 'band': band, 'n': len(s), 'complete': all(k in s for k in MUST), 'span_mm': round(max(zs) - min(zs), 1), 'ml': {k: round(volume_ml(v, dz), 1) for k, v in s.items()}}); data[c['patient']] = s
+        best = typical(rows)
+        for r in rows: print(band, r['patient'], r['age'], r['sex'], r['n'], r.get('deviation', ''), r.get('why', ''))
+        report['candidates'] += [{k: r[k] for k in ('patient', 'age', 'sex', 'band', 'n', 'span_mm', 'why') if k in r} | {'deviation': r.get('deviation')} for r in rows]
         if best is None: print('no usable scan for', band); continue
-        _, c, s = best; print('->', band, 'uses', c['patient'])
-        report['models'].append(build(s, band, {'patient': c['patient'], 'age': c['age'], 'sex': c['sex']}))
+        print('->', band, 'uses', best['patient'])
+        report['models'].append(build(data[best['patient']], band, {'patient': best['patient'], 'age': best['age'], 'sex': best['sex'], 'screened': len(rows), 'usable': sum(1 for r in rows if 'deviation' in r)}))
     json.dump(report, open(os.path.join(OUT, 'peds-anatomy.json'), 'w'), indent=1)
     if not report['models']: sys.exit('no models were built')
 
