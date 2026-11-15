@@ -4,34 +4,20 @@
  "method": "air inside the body on CT, connected to the windpipe, outside the expert lung outlines",
  "models": {
   "infant": {
-   "slice_mm": 2.0,
-   "airway_ml": 204.2,
-   "trachea_diameter_mm": 52.4,
-   "trachea_length_seen_mm": 26.0,
-   "carina_found": true,
-   "cut_at_top_of_scan": false,
-   "ct_above_airway_top_mm": 20.0,
-   "scan_mm": 230.0,
    "patient": "Pediatric-CT-SEG-357",
    "age": "000Y",
    "sex": "F",
    "ct_above_lung_apex_mm": 0.0,
-   "tris": 9000
+   "airway": false,
+   "why": "this scan starts below the windpipe"
   },
   "toddler": {
-   "slice_mm": 2.0,
-   "airway_ml": 1.07,
-   "trachea_diameter_mm": 7.4,
-   "trachea_length_seen_mm": null,
-   "carina_found": false,
-   "cut_at_top_of_scan": false,
-   "ct_above_airway_top_mm": 200.0,
-   "scan_mm": 338.0,
    "patient": "Pediatric-CT-SEG-9EC8B17D",
    "age": "001Y",
    "sex": "M",
    "ct_above_lung_apex_mm": 10.0,
-   "tris": 9000
+   "airway": false,
+   "why": "this scan starts below the windpipe"
   },
   "child": {
    "slice_mm": 0.62,
@@ -94,12 +80,12 @@
   },
   {
    "slice_mm": 2.0,
-   "airway_ml": 0.39,
-   "trachea_diameter_mm": 3.1,
+   "airway_ml": 0.56,
+   "trachea_diameter_mm": 5.4,
    "trachea_length_seen_mm": null,
    "carina_found": false,
-   "cut_at_top_of_scan": false,
-   "ct_above_airway_top_mm": 70.0,
+   "cut_at_top_of_scan": true,
+   "ct_above_airway_top_mm": 0.0,
    "scan_mm": 362.0,
    "patient": "Pediatric-CT-SEG-40FEFEF6",
    "age": "001Y",
@@ -107,14 +93,6 @@
    "ct_above_lung_apex_mm": 26.0
   },
   {
-   "slice_mm": 2.0,
-   "airway_ml": 7.16,
-   "trachea_diameter_mm": 15.5,
-   "trachea_length_seen_mm": null,
-   "carina_found": false,
-   "cut_at_top_of_scan": false,
-   "ct_above_airway_top_mm": 182.0,
-   "scan_mm": 338.0,
    "patient": "Pediatric-CT-SEG-F77ACFBB",
    "age": "001Y",
    "sex": "M",
