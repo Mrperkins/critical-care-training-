@@ -2347,3 +2347,19 @@ h2,h3,.h2,.card h3{font-weight:600;letter-spacing:-.006em}
 @media (max-width:760px){.ex-acts{grid-template-columns:repeat(2,minmax(0,1fr))}.ex-act{min-height:118px;padding:13px}.ex-ready{flex-direction:column;align-items:flex-start;padding:16px}.ex-domains li{grid-template-columns:minmax(0,1fr) 70px 40px;gap:8px}.ex-q legend{font-size:18px}.ex-results h2{font-size:44px}}
 
 .age-tag{display:grid;gap:1px;text-align:center;white-space:nowrap;padding:5px 9px;border-radius:8px;background:rgba(10,13,18,.82);border:1px solid rgba(255,255,255,.16);color:#dfe5ee;font:500 11px/1.25 var(--fb,system-ui);pointer-events:none}.age-tag b{font-size:12.5px}.age-tag.on{border-color:#f0b34a}.age-tag.on b{color:#f0b34a}
+
+/* ---------- real pediatric anatomy ---------- */
+.peds-anat{display:grid;gap:10px;height:100%;grid-template-rows:auto minmax(0,1fr) auto;padding:10px;box-sizing:border-box}
+.peds-bar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.peds-bar button{display:grid;gap:1px;text-align:left;padding:7px 10px;border-radius:9px;border:1px solid rgba(255,255,255,.16);background:rgba(10,13,18,.7);color:#dfe5ee;cursor:pointer;min-height:44px}
+.peds-bar button b{font:600 13.5px/1.2 var(--fb,system-ui)}.peds-bar button span{font-size:11.5px;color:#9aa5b5}
+.peds-bar button[aria-pressed="true"]{border-color:#f0b34a;background:rgba(240,179,74,.12)}.peds-bar button[aria-pressed="true"] b{color:#f0b34a}
+.peds-view{position:relative;min-height:0;border-radius:10px;overflow:hidden}
+.peds-view .scene-canvas,.peds-view canvas{position:absolute;inset:0}
+.peds-toggles{position:absolute;right:8px;top:8px;display:flex;gap:6px}
+.peds-toggles button,.peds-organs button{border:1px solid rgba(255,255,255,.16);background:rgba(10,13,18,.72);color:#dfe5ee;border-radius:999px;font:500 12px var(--fb,system-ui);cursor:pointer}
+.peds-toggles button{min-height:36px;padding:0 12px}.peds-toggles button[aria-pressed="true"]{background:#f2f4f8;color:#0b0e13}
+.peds-scale{position:absolute;left:10px;bottom:6px;margin:0;font-size:11.5px;color:#9aa5b5;pointer-events:none}
+.peds-organs{list-style:none;margin:0;padding:0 0 4px;display:flex;flex-wrap:nowrap;gap:5px;overflow-x:auto;overscroll-behavior-x:contain}.peds-organs li{flex:none}
+.peds-organs button{display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:0 10px}.peds-organs button i{width:9px;height:9px;border-radius:50%}.peds-organs button span{color:#9aa5b5}
+.peds-organs button[aria-pressed="true"]{border-color:#f0b34a;color:#f0b34a}
