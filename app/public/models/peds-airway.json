@@ -24,7 +24,6 @@
    "age": "001Y",
    "sex": "M",
    "ct_above_lung_apex_mm": 10.0,
-   "tris": 3032,
    "airway": false,
    "why": "the windpipe is too blurred on this scan to follow to the carina"
   },
