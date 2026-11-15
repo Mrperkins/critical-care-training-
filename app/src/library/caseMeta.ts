@@ -3,6 +3,7 @@ import { challengeModule } from '../curriculum/catalog';
 import { VENT_CHALLENGES } from '../scenarios/ventChallenges';
 import { LINES_CASES } from '../lines/cases';
 import { SCENE_CASES } from '../challenge/sceneCases';
+import { LAB_CASES } from '../scenarios/labCases';
 import type { ShelfId } from './modules';
 
 export type CaseLevel = 'Novice' | 'Intermediate' | 'Advanced' | 'Expert';
@@ -10,6 +11,7 @@ const LEVEL: Record<string, CaseLevel> = {};
 for (const c of VENT_CHALLENGES) LEVEL[`vent-${c.id}`] = c.level;
 for (const c of LINES_CASES) LEVEL[`lines-${c.id}`] = c.level;
 for (const c of SCENE_CASES) LEVEL[c.id] = c.level;
+for (const c of LAB_CASES) LEVEL[`lab-${c.id}`] = c.level as CaseLevel;
 const SHELF_OF: Record<string, ShelfId> = { vent: 'resp', abg: 'gas', labs: 'gas', lines: 'hemo', heart: 'cardiac', neuro: 'neuro', abdomen: 'abdomen' };
 export const caseLevel = (id: string): CaseLevel | null => LEVEL[id] ?? null;
 /** Scene cases about children and pregnancy run in other systems' scenes; they still file under their engine's shelf. */

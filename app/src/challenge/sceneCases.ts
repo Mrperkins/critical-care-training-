@@ -26,8 +26,18 @@ import { lusFromVent } from '../vent/lus';
 import { ventNumbers } from '../vent/numbers';
 import { POP_CASES } from './populationCases';
 
-export type CaseModule = 'abdomen' | 'neuro' | 'heart' | 'vent' | 'abg' | 'lines';
-export interface CaseQ { q: string; options: [string, string, string, string]; answer: 0 | 1 | 2 | 3; explain: string }
+export type CaseModule = 'abdomen' | 'neuro' | 'heart' | 'vent' | 'abg' | 'lines' | 'labs';
+export interface CaseQ {
+  q: string; options: string[]; answer: number; explain: string;
+  /** the case moves on before this decision: what the learner is told ("Ten minutes later…") */
+  update?: string;
+  /** …and the state the module's own engine is put in, so the picture and the numbers change with it */
+  scene?: () => void;
+  /** runs once the decision is made (an engine case applies the treatment and lets the model respond) */
+  after?: (ok: boolean) => void;
+}
+/** Hands-on part after the decisions: the learner fixes or treats with the module's own controls until every goal holds. */
+export interface CaseTask { title: string; text: string; goals: { label: string; test: () => boolean }[]; holdMs: number }
 export interface SceneCase {
   /** 'case-<abd|neuro|heart|img|vent|abg|lines>-…' — the middle part says which module it runs in */
   id: string; module: CaseModule; level: 'Novice' | 'Intermediate' | 'Advanced' | 'Expert';
@@ -36,6 +46,7 @@ export interface SceneCase {
   facts: () => [string, string][];
   questions: CaseQ[];
   verify: () => boolean;
+  task?: CaseTask;
   /** teaching card shown once the case has been answered */
   card?: 'apnoea' | 'airway' | 'neo' | 'ob' | 'peds';
 }
@@ -103,8 +114,15 @@ const BASE_CASES: SceneCase[] = [
         explain: 'With several hundred mL the fluid has filled the left upper quadrant, run down the left paracolic gutter into the pelvis and reached Morison’s pouch.' },
       { q: 'Estimated haemorrhage class?', options: ['Class II — tachycardic, pressure still held', 'Class I', 'Class III', 'Class IV'], answer: 0,
         explain: 'Blood loss of roughly 15–30 %: the heart rate climbs and the pulse pressure narrows, but systolic pressure is still maintained. Waiting for hypotension means waiting for class III.' },
+      { update: '45 minutes later, still 15 minutes out. He is now confused and his pressure is falling.', scene: () => abd('spleen4', 75, 'us'),
+        q: 'What has changed?', options: ['Class III — compensation has failed and the pressure is now falling', 'Still class II — the heart rate is only anxiety', 'Class I — he is improving', 'Neurogenic shock from a spinal injury'], answer: 0,
+        explain: 'More than 30 % of the blood volume is gone. Confusion and a falling systolic pressure mean the reserve is used up; the next step down is arrest.' },
+      { q: 'What do you give?', options: ['Blood first (whole blood or balanced components), tranexamic acid if within 3 hours, very little crystalloid', 'Two liters of crystalloid wide open to restore a normal pressure', 'A vasopressor infusion to hold the pressure', 'Nothing until the surgeon has seen him'], answer: 0,
+        explain: 'Replace what is being lost. Crystalloid dilutes clotting factors and a normal pressure pushes more blood out of the spleen; a pressor squeezes vessels that are already clamped down. Aim for a pressure that keeps him awake until the bleeding is controlled.' },
+      { q: 'What is the one message for the trauma team?', options: ['Positive FAST in three windows with class III shock and worsening: he needs bleeding control now, not a CT first', 'Stable blunt trauma for routine imaging', 'Possible head injury — CT head first', 'Pain is controlled; no urgent needs'], answer: 0,
+        explain: 'An unstable patient with free fluid goes to bleeding control (operating room or angio-embolisation). Calling it ahead lets the team have blood and a room ready.' },
     ],
-    verify: () => { abd('spleen4', 30, 'us'); const s = currentAbdomen(); const f = fastExam(s); return ['ruq', 'luq', 'pelvis'].every((id) => f.find((w) => w.id === id)!.positive) && shockClass(s).cls === 2; },
+    verify: () => { abd('spleen4', 30, 'us'); const s = currentAbdomen(); const f = fastExam(s); return ['ruq', 'luq', 'pelvis'].every((id) => f.find((w) => w.id === id)!.positive) && shockClass(s).cls === 2 && (abd('spleen4', 75, 'us'), shockClass(currentAbdomen()).cls === 3); },
   },
   {
     id: 'case-abd-aaa', module: 'abdomen', level: 'Advanced', title: 'Back pain, pulsatile mass, negative FAST',
@@ -117,8 +135,13 @@ const BASE_CASES: SceneCase[] = [
         explain: 'The retroperitoneum is invisible to FAST. A negative FAST in a patient with a known or suspected AAA and pain does not rule out rupture.' },
       { q: 'Pressure strategy en route?', options: ['Permissive hypotension: enough pressure for mentation, no push to normal, straight to a vascular centre', 'Fluid bolus to a normal blood pressure', 'Start a vasodilator to protect the aneurysm', 'Divert to the nearest hospital for a formal CT first'], answer: 0,
         explain: 'Raising the pressure can turn a contained rupture into a free one. Accept a low pressure while the patient is awake, give blood rather than crystalloid when needed, and get to definitive repair.' },
+      { update: 'Ten minutes from landing he goes grey, the abdomen distends and the pressure collapses.', scene: () => abd('aaaFree', 30, 'us'),
+        q: 'What has happened?', options: ['The contained rupture has become a free rupture into the abdomen', 'A vasovagal episode from pain', 'Anaphylaxis to the contrast', 'A second, unrelated bleed in the chest'], answer: 0,
+        explain: 'The retroperitoneum was holding the bleed. Once it gives way, blood pours into the peritoneal cavity — the FAST is now positive and the loss is class IV.' },
+      { q: 'What now?', options: ['Blood products, call ahead for straight-to-operating-room, no stops for imaging; only enough pressure to keep him conscious', 'Crystalloid until the systolic pressure is 120', 'Divert for a repeat CT to confirm', 'Start CPR now in case he arrests'], answer: 0,
+        explain: 'Only clamping or stenting the aorta stops this. Every minute and every unit of blood before the operating room counts; chasing a normal pressure with fluid makes the bleeding faster.' },
     ],
-    verify: () => { abd('aaaContained', 30, 'cta'); const s = currentAbdomen(); return ctaFindings(s, 'infrarenal').some((f) => /contained rupture/.test(f)) && fastExam(s).every((w) => !w.positive); },
+    verify: () => { abd('aaaContained', 30, 'cta'); const s = currentAbdomen(); return ctaFindings(s, 'infrarenal').some((f) => /contained rupture/.test(f)) && fastExam(s).every((w) => !w.positive) && (abd('aaaFree', 30, 'us'), shockClass(currentAbdomen()).cls === 4 && fastExam(currentAbdomen()).some((w) => w.positive)); },
   },
   {
     id: 'case-abd-dissect-a', module: 'abdomen', level: 'Advanced', title: 'Tearing chest pain to the back',
@@ -178,6 +201,15 @@ const BASE_CASES: SceneCase[] = [
         explain: 'Right face, arm and leg weakness with global aphasia, gaze toward the left and a right field defect: the whole left MCA territory in a left-dominant patient — a proximal (M1) occlusion.' },
       { q: 'Next step?', options: ['CT with CT angiography (± perfusion) to confirm a large-vessel occlusion for thrombectomy', 'MRI before any decision', 'Wait for the deficit to settle — it may be a TIA', 'Lumbar puncture'], answer: 0,
         explain: 'A severe cortical deficit predicts a large-vessel occlusion. Non-contrast CT excludes haemorrhage; CTA shows the clot; perfusion shows how much is still salvageable. Go to a thrombectomy-capable centre.' },
+      { update: 'CT shows no bleeding. CT angiography confirms a left M1 clot. Last known well was 1 hour ago; glucose is 110 mg/dL.',
+        q: 'Thrombolysis?', options: ['Yes, if there is no contraindication — he is inside the 4.5-hour window, and it should not wait for thrombectomy', 'No — thrombectomy replaces thrombolysis', 'Only after an MRI', 'Only if the deficit is still there in an hour'], answer: 0,
+        explain: 'Eligible patients get intravenous thrombolysis as fast as possible and go on to thrombectomy. Neither treatment waits for the other.' },
+      { update: 'Before the drug is given, his blood pressure is 196/104.',
+        q: 'What do you do about the pressure?', options: ['Lower it to under 185/110 before the drug, then keep it under 180/105', 'Leave it — high pressure helps the brain', 'Lower it quickly to 120/80', 'Give the drug first and treat the pressure afterwards'], answer: 0,
+        explain: 'Thrombolysis with a pressure above 185/110 raises the risk of bleeding into the brain. Lower it gently with a titratable agent; dropping it to normal would starve the tissue that is still alive.' },
+      { update: 'In flight, 40 minutes into the infusion: sudden severe headache, vomiting, and he becomes drowsy.', scene: () => brain(ICH(30), 'ich'),
+        q: 'What first?', options: ['Stop the infusion — treat this as bleeding into the brain: airway, urgent CT at the receiving center, reversal per protocol', 'Give an anti-emetic and continue the infusion', 'Increase the infusion rate to finish sooner', 'Give aspirin'], answer: 0,
+        explain: 'New headache, vomiting or a falling level of consciousness during or after thrombolysis is a hemorrhage until proven otherwise. Stopping the drug is the one thing only you can do in the aircraft.' },
     ],
     verify: () => { const e = neuroExam(presetState('m1_L')); return e.aphasia === 'global' && e.power.armR <= 2 && e.gaze.deviation === 'L'; },
   },
@@ -226,8 +258,13 @@ const BASE_CASES: SceneCase[] = [
         explain: 'The pupil on the side of the mass dilates and stops reacting first, as the uncus is pushed over the tentorial edge onto the third nerve.' },
       { q: 'Bridge to surgery?', options: ['Head up 30°, hyperosmolar therapy, keep MAP up; brief hyperventilation only as a bridge', 'Prolonged hyperventilation to a PaCO₂ of 25', 'Lower the blood pressure to a MAP of 60', 'Lie the patient flat to improve cerebral blood flow'], answer: 0,
         explain: 'Hypertonic saline or mannitol draws water out; head-up improves venous drainage. Hyperventilation lowers ICP by constricting vessels, which also cuts blood flow — minutes, not hours. CPP = MAP − ICP, so keep the MAP.' },
+      { update: 'You give hypertonic saline and check the head is up 30° and midline. Five minutes later:', scene: () => brain(ICH(54), 'ich', { osmoMl: 10 }),
+        q: 'The left pupil is smaller and reacting again. What does that mean?', options: ['Pressure on the third nerve has eased — you have bought time, but the hematoma is still there', 'The problem is solved; routine transfer', 'The hypertonic saline has damaged the nerve', 'It was never herniation'], answer: 0,
+        explain: 'Osmotherapy pulls water out of the brain and lowers ICP for a while. The mass that caused the herniation has not changed, so the destination and the urgency stay the same.' },
+      { q: 'Carbon dioxide target for the flight?', options: ['Low-normal (about 35 mmHg) by end-tidal CO₂; hyperventilate briefly only if herniation signs return', 'Keep the PaCO₂ at 25 the whole way', 'Let the CO₂ rise to 50 to improve blood flow', 'It does not matter'], answer: 0,
+        explain: 'Low CO₂ narrows brain vessels: ICP falls, but so does blood flow. Sustained hyperventilation causes ischemia; a high CO₂ dilates vessels and raises ICP again.' },
     ],
-    verify: () => { const s = icpState(ICH(54), DEFAULT_SYSTEMIC, ICP_DEFAULT); return s.herniation === 'uncal' && s.side === 'L' && s.pupils.L.mm > 6 && !s.pupils.L.reactive && s.pupils.R.reactive; },
+    verify: () => { const s = icpState(ICH(54), DEFAULT_SYSTEMIC, ICP_DEFAULT); return s.herniation === 'uncal' && s.side === 'L' && s.pupils.L.mm > 6 && !s.pupils.L.reactive && s.pupils.R.reactive && icpState(ICH(54), DEFAULT_SYSTEMIC, { ...ICP_DEFAULT, osmoMl: 10 }).pupils.L.reactive; },
   },
   {
     id: 'case-neuro-cushing', module: 'neuro', level: 'Expert', title: 'Hypertension and bradycardia',
@@ -250,6 +287,9 @@ const BASE_CASES: SceneCase[] = [
         explain: 'The drip chamber height is measured from the tragus (foramen of Monro). Raising the head lifted the ventricles to the chamber, removing the pressure the drain was set to hold. Over-drainage risks ventricular collapse and bleeding.' },
       { q: 'What do you do?', options: ['Clamp briefly, re-level the zero to the tragus and reset the height, then reopen', 'Lower the chamber to drain even more', 'Leave it open — CSF drainage is always good', 'Flush the catheter'], answer: 0,
         explain: 'Every position change needs the reference re-levelled. Many services clamp the drain for moves and re-level before reopening.' },
+      { update: 'Re-levelled and reopened. Ten minutes later the drain has stopped completely and the pressure trace is flat. He is more drowsy.',
+        q: 'What do you check?', options: ['Trace the system from the head to the bag: clamps, kinks, a wet air filter, clot in the tubing — and call neurosurgery', 'Flush the catheter towards the patient', 'Lower the chamber to the floor to restart flow', 'Nothing — no drainage means the pressure is normal'], answer: 0,
+        explain: 'A drain that stops with a flat trace is blocked or clamped until proven otherwise, and the ICP may be rising behind it. Flushing towards the brain is a neurosurgical decision, not a transport one.' },
     ],
     verify: () => { const s = icpState(ICH(30), DEFAULT_SYSTEMIC, { ...ICP_DEFAULT, evd: { open: true, heightCm: 15, levelErrorCm: 15 } }); const ok = icpState(ICH(30), DEFAULT_SYSTEMIC, { ...ICP_DEFAULT, evd: { open: true, heightCm: 15, levelErrorCm: 0 } }); return !!s.evd?.overdrainage && !ok.evd?.overdrainage; },
   },
@@ -263,8 +303,13 @@ const BASE_CASES: SceneCase[] = [
         explain: 'Blood crosses the VSD in systole straight into the pulmonary artery, goes round the lungs and returns to the LEFT atrium and ventricle, which dilate.' },
       { q: 'Roughly what is Qp:Qs?', options: ['≈ 2 : 1', '1 : 1', '≈ 0.8 : 1', '≈ 5 : 1'], answer: 0,
         explain: 'The lungs receive about twice the systemic flow — pulmonary overcirculation, which is why the infant is breathless and fails to thrive.' },
+      { update: 'His saturation dips to 93 % with a feed and a colleague turns the oxygen up to high flow.', scene: () => useHeartUI.getState().set({ input: { ...HEART_PRESETS.vsdLarge, pvr: HEART_PRESETS.vsdLarge.pvr * 0.6 } }),
+        q: 'What does high-flow oxygen do to this heart?', options: ['It relaxes the lung vessels, so even more blood shunts left-to-right and the lungs flood further', 'It closes the defect', 'It reverses the shunt', 'Nothing — oxygen never harms'], answer: 0,
+        explain: 'Oxygen is a pulmonary vasodilator. With a large VSD, lower lung resistance means more flow to the lungs and less to the body. Use the least oxygen that keeps an acceptable saturation.' },
+      { q: 'What actually helps his breathlessness while he waits for repair?', options: ['A diuretic and high-calorie feeds, with a plan for surgical closure', 'More oxygen', 'A fluid bolus', 'A beta-blocker to slow the heart'], answer: 0,
+        explain: 'The problem is too much lung blood flow. Diuretics take volume off the lungs and extra calories cover the work of breathing until the hole is closed.' },
     ],
-    verify: () => { const s = solveShunt(HEART_PRESETS.vsdLarge); return s.direction === 'L→R' && s.flags.lvVolume && !s.flags.rvVolume && s.qpqs > 1.7 && s.qpqs < 2.7; },
+    verify: () => { const s = solveShunt(HEART_PRESETS.vsdLarge); return s.direction === 'L→R' && s.flags.lvVolume && !s.flags.rvVolume && s.qpqs > 1.7 && s.qpqs < 2.7 && solveShunt({ ...HEART_PRESETS.vsdLarge, pvr: HEART_PRESETS.vsdLarge.pvr * 0.6 }).qpqs > s.qpqs; },
   },
   {
     id: 'case-heart-asd', module: 'heart', level: 'Intermediate', title: 'A big right heart',
@@ -312,6 +357,12 @@ const BASE_CASES: SceneCase[] = [
         explain: 'Air outside the lung with the mediastinum pushed away and the hemidiaphragm flattened: pleural pressure is high.' },
       { q: 'Next time this happens, what comes first?', options: ['Decompress on clinical grounds — do not wait for a film in an unstable patient', 'Always get a film first to confirm', 'Increase PEEP to re-expand the lung', 'Give a fluid bolus and reassess'], answer: 0,
         explain: 'Tension pneumothorax is a clinical diagnosis. The film here is a teaching picture; in practice needle or finger thoracostomy comes before imaging when the patient is crashing.' },
+      { update: 'You decompress the right chest. Air rushes out, the peak pressure falls and the blood pressure recovers.', scene: () => ventScene('ptx', {}, { view: 'xray', fix: 'decompress' }),
+        q: 'What comes next?', options: ['A chest tube (or finger thoracostomy then tube): the needle is only a bridge', 'Nothing more — the problem is fixed', 'Remove the needle and observe', 'Raise PEEP to keep the lung up'], answer: 0,
+        explain: 'A needle or cannula kinks, blocks and falls out, and positive-pressure ventilation keeps feeding the leak. A definitive drain is needed before a long transfer.' },
+      { update: 'Twenty minutes into the flight the peak-pressure alarm returns and the saturation drifts down.',
+        q: 'Most likely cause, and first move?', options: ['The decompression has stopped working (kinked, blocked or dislodged) — reassess the chest and decompress again', 'The ventilator has failed — change the machine', 'He needs more sedation', 'Altitude — descend and wait'], answer: 0,
+        explain: 'Tension can come back whenever air keeps leaking and cannot get out. Work through the patient first: chest rise, breath sounds, the drain or cannula — then the tube and the circuit.' },
     ],
     verify: () => { img('ptx', 'xray'); const f = cxrFindings(cxrFromVent(session)); return f.some((x) => /^Right pneumothorax/.test(x)) && f.some((x) => /pushed away by tension/.test(x)); },
   },
@@ -360,6 +411,11 @@ const BASE_CASES: SceneCase[] = [
         explain: 'Bilateral opacities not explained by effusion, collapse or heart failure, with a normal heart size, fit ARDS.' },
       { q: 'Ventilation strategy?', options: ['Tidal volume ≈ 6 mL/kg predicted body weight, plateau ≤ 30, PEEP to keep the lung open', '10 mL/kg to recruit the lung', 'Zero PEEP to protect the heart', 'High rate, low PEEP'], answer: 0,
         explain: 'Lung-protective ventilation limits stretch of the small “baby lung” that remains aerated.' },
+      { update: 'On 6 mL/kg with PEEP 10 and FiO₂ 0.8, the SpO₂ is 86 % and the plateau pressure is 29.',
+        q: 'What is the next step for oxygenation?', options: ['Work up the PEEP while watching plateau and driving pressure, and plan for prone positioning', 'Raise the tidal volume to 10 mL/kg', 'Take the PEEP off to rest the lung', 'Accept it — nothing more can be done'], answer: 0,
+        explain: 'In moderate-to-severe ARDS (P/F under 150), more PEEP can recruit collapsed lung, and prone positioning for long sessions improves survival. Bigger breaths only stretch the small part of the lung that is still open.' },
+      { q: 'Before a 90-minute flight, what must you do with the ventilator?', options: ['Trial him on the transport ventilator with the same settings before leaving, clamp the tube for every circuit change, and carry more oxygen than the calculation says', 'Switch at the aircraft door to save time', 'Bag him for the whole flight', 'Lower the PEEP for transport so the alarms stay quiet'], answer: 0,
+        explain: 'An ARDS lung derecruits in seconds when PEEP is lost, and it can take hours to win back. Prove the transport ventilator can hold him while you still have the ICU around you, and never open the circuit unclamped.' },
     ],
     verify: () => { img('ards', 'xray'); return cxrFindings(cxrFromVent(session)).some((x) => /ARDS pattern/.test(x)); },
   },
