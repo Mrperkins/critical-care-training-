@@ -9,6 +9,10 @@ import type { ShelfId } from './modules';
 
 export type LibraryPage =
   | { page: 'home' }
+  | { page: 'learn' }
+  | { page: 'practice'; shelf?: ShelfId }
+  | { page: 'reference' }
+  | { page: 'listen' }
   | { page: 'module'; id: string }
   | { page: 'shelf'; id: ShelfId | 'all'; filter?: 'all' | 'module' | 'simulator' | 'case' }
   | { page: 'paths' }

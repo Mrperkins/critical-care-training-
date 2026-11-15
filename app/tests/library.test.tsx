@@ -106,7 +106,7 @@ describe('library pages render', () => {
   it('continue learning replaces the starter row once a module is under way', async () => {
     useLibrary.getState().touch('lines-artline');
     await act(async () => root.render(<Library />));
-    expect(container.textContent).toContain('Continue learning');
+    expect(container.querySelector('.td-continue')?.textContent).toContain(MODULE_BY_ID['lines-artline'].title);
   });
   it('a module card opens the module page with every step listed', async () => {
     await act(async () => root.render(<Library />));
@@ -117,13 +117,17 @@ describe('library pages render', () => {
     await act(async () => buttonByText('+ My list')!.click());
     expect(useLibrary.getState().myList).toContain(m.id);
   });
-  it('the shelf page filters by type', async () => {
+  it('a system hub lists its modules in order, its cases and a way into the scene', async () => {
     await act(async () => root.render(<Library />));
     await act(async () => useLibrary.getState().go({ page: 'shelf', id: 'resp' }));
-    const all = container.querySelectorAll('.lib-grid > *').length;
-    await act(async () => buttonByText('Cases')!.click());
-    const cases = container.querySelectorAll('.lib-grid > .lib-case').length;
-    expect(cases).toBe(casesOn('resp').length); expect(cases).toBeLessThan(all);
+    expect(container.querySelectorAll('.lib-steps li')).toHaveLength(MODULES.filter((m) => m.shelf === 'resp').length);
+    expect(container.querySelectorAll('.sys-cases .lib-case').length).toBe(Math.min(4, casesOn('resp').length));
+    expect(buttonByText('Open the scene')).toBeTruthy();
+  });
+  it('the case list of a system still filters by type', async () => {
+    await act(async () => root.render(<Library />));
+    await act(async () => useLibrary.getState().go({ page: 'shelf', id: 'resp', filter: 'case' }));
+    expect(container.querySelectorAll('.lib-grid > .lib-case').length).toBe(casesOn('resp').length);
     expect(container.querySelectorAll('.lib-grid > .lib-card')).toHaveLength(0);
   });
   it('a learning path lists its modules and filters by section', async () => {

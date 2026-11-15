@@ -17,7 +17,7 @@ describe('audio sources', () => {
   });
 });
 
-describe('Browse › Lessons / Audio', () => {
+describe('Listen', () => {
   let container: HTMLDivElement; let root: Root;
   beforeEach(() => {
     (globalThis as unknown as { IS_REACT_ACT_ENVIRONMENT: boolean }).IS_REACT_ACT_ENVIRONMENT = true;
@@ -28,14 +28,13 @@ describe('Browse › Lessons / Audio', () => {
   afterEach(async () => { await act(async () => root.unmount()); container.remove(); vi.unstubAllGlobals(); });
   const settle = async () => { for (let i = 0; i < 100 && container.querySelector('.module-loading'); i++) await act(async () => { await new Promise((r) => setTimeout(r, 10)); }); };
 
-  it('starts on Lessons and switches to a separate audio home, remembering the choice', async () => {
+  it('Listen is its own page inside the app, reached from Reference', async () => {
     await act(async () => root.render(<Library />));
-    expect(container.querySelector('[aria-pressed="true"]')?.textContent).toContain('Lessons');
-    expect(container.textContent).toContain('Start here');
-    const audio = [...container.querySelectorAll('button')].find((b) => b.textContent?.trim() === 'Audio')!;
-    await act(async () => audio.click()); await settle();
-    expect(useLibrary.getState().mode).toBe('audio');
-    expect(container.textContent).not.toContain('Start here');
+    expect(container.textContent).not.toContain('Mental Reps · voice-guided procedures');
+    await act(async () => useLibrary.getState().go({ page: 'reference' }));
+    const listen = [...container.querySelectorAll('button')].find((b) => b.textContent?.includes('Listen'))!;
+    await act(async () => listen.click()); await settle();
+    expect(useLibrary.getState().view.page).toBe('listen');
     expect(container.textContent).toContain('Mental Reps · voice-guided procedures');
     expect(container.querySelectorAll('a.aud-card[href*="rep="]')).toHaveLength(MENTAL_REPS.length);
     const caseRow = [...container.querySelectorAll('.lib-row')].find((r) => r.getAttribute('aria-label')?.startsWith('Audio cases'))!;
