@@ -1,0 +1,133 @@
+{
+ "source": "Pediatric-CT-SEG, The Cancer Imaging Archive, doi:10.7937/TCIA.X0H0-1706",
+ "license": "CC BY 4.0",
+ "method": "air inside the body on CT, connected to the windpipe, outside the expert lung outlines",
+ "models": {
+  "infant": {
+   "patient": "Pediatric-CT-SEG-357",
+   "age": "000Y",
+   "sex": "F",
+   "ct_above_lung_apex_mm": 0.0,
+   "airway": false,
+   "why": "this scan starts below the windpipe"
+  },
+  "toddler": {
+   "slice_mm": 2.0,
+   "airway_ml": 0.11,
+   "trachea_diameter_mm": 3.1,
+   "trachea_length_seen_mm": null,
+   "carina_found": false,
+   "cut_at_top_of_scan": true,
+   "ct_above_airway_top_mm": 0.0,
+   "scan_mm": 338.0,
+   "patient": "Pediatric-CT-SEG-9EC8B17D",
+   "age": "001Y",
+   "sex": "M",
+   "ct_above_lung_apex_mm": 10.0,
+   "airway": false,
+   "why": "the windpipe is too blurred on this scan to follow to the carina"
+  },
+  "child": {
+   "slice_mm": 0.62,
+   "airway_ml": 4.32,
+   "trachea_diameter_mm": 7.6,
+   "trachea_length_seen_mm": 86.2,
+   "carina_found": true,
+   "cut_at_top_of_scan": true,
+   "ct_above_airway_top_mm": 0.0,
+   "scan_mm": 480.0,
+   "patient": "Pediatric-CT-SEG-31E880AF",
+   "age": "008Y",
+   "sex": "M",
+   "ct_above_lung_apex_mm": 27.5,
+   "tris": 9000,
+   "airway": true
+  }
+ },
+ "other_scans": [
+  {
+   "slice_mm": 2.0,
+   "airway_ml": 1.28,
+   "trachea_diameter_mm": 5.0,
+   "trachea_length_seen_mm": 60.0,
+   "carina_found": true,
+   "cut_at_top_of_scan": false,
+   "ct_above_airway_top_mm": 8.0,
+   "scan_mm": 372.0,
+   "patient": "Pediatric-CT-SEG-0C74FB06",
+   "age": "001Y",
+   "sex": "F",
+   "ct_above_lung_apex_mm": 36.0
+  },
+  {
+   "slice_mm": 2.0,
+   "airway_ml": 0.53,
+   "trachea_diameter_mm": 3.4,
+   "trachea_length_seen_mm": null,
+   "carina_found": false,
+   "cut_at_top_of_scan": true,
+   "ct_above_airway_top_mm": 0.0,
+   "scan_mm": 312.0,
+   "patient": "Pediatric-CT-SEG-B01E38C9",
+   "age": "001Y",
+   "sex": "M",
+   "ct_above_lung_apex_mm": 30.0
+  },
+  {
+   "slice_mm": 2.0,
+   "airway_ml": 1.29,
+   "trachea_diameter_mm": 4.8,
+   "trachea_length_seen_mm": 52.0,
+   "carina_found": true,
+   "cut_at_top_of_scan": true,
+   "ct_above_airway_top_mm": 0.0,
+   "scan_mm": 322.0,
+   "patient": "Pediatric-CT-SEG-57A2E054",
+   "age": "001Y",
+   "sex": "F",
+   "ct_above_lung_apex_mm": 30.0
+  },
+  {
+   "slice_mm": 2.0,
+   "airway_ml": 0.56,
+   "trachea_diameter_mm": 5.4,
+   "trachea_length_seen_mm": null,
+   "carina_found": false,
+   "cut_at_top_of_scan": true,
+   "ct_above_airway_top_mm": 0.0,
+   "scan_mm": 362.0,
+   "patient": "Pediatric-CT-SEG-40FEFEF6",
+   "age": "001Y",
+   "sex": "M",
+   "ct_above_lung_apex_mm": 26.0
+  },
+  {
+   "slice_mm": 2.0,
+   "airway_ml": 6.72,
+   "trachea_diameter_mm": 21.7,
+   "trachea_length_seen_mm": 14.0,
+   "carina_found": true,
+   "cut_at_top_of_scan": false,
+   "ct_above_airway_top_mm": 10.0,
+   "scan_mm": 338.0,
+   "patient": "Pediatric-CT-SEG-F77ACFBB",
+   "age": "001Y",
+   "sex": "M",
+   "ct_above_lung_apex_mm": 24.0
+  },
+  {
+   "slice_mm": 2.0,
+   "airway_ml": 2.18,
+   "trachea_diameter_mm": 5.7,
+   "trachea_length_seen_mm": 54.0,
+   "carina_found": true,
+   "cut_at_top_of_scan": true,
+   "ct_above_airway_top_mm": 0.0,
+   "scan_mm": 332.0,
+   "patient": "Pediatric-CT-SEG-4CC9C8B4",
+   "age": "001Y",
+   "sex": "M",
+   "ct_above_lung_apex_mm": 24.0
+  }
+ ]
+}
