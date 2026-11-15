@@ -41,8 +41,8 @@ def airway(hu, z, geo, lungs):
     inner = ndi.binary_erosion(body, structure=np.ones((1, 3, 3), bool), iterations=2)
     apex_i = int(np.nonzero(lungs.any((1, 2)))[0].max()) if lungs is not None and lungs.any() else None
     if apex_i is None or z[-1] - z[apex_i] < 4: return None, {}                 # no lung apex in the scan: it starts below the windpipe
-    ys, xs = np.nonzero(body.any(0)); cx = xs.mean(); width = xs.max() - xs.min(); a = None
-    for thr in (-800, -700, -600):                                              # a small child's windpipe is a few voxels wide: allow for blurring
+    ys, xs = np.nonzero(body.any(0)); cx = xs.mean(); width = xs.max() - xs.min(); a = None; best_h = 0
+    for thr in (-800, -700, -600, -500):                                              # a small child's windpipe is a few voxels wide: allow for blurring
         air = (hu < thr) & inner
         if lungs is not None: air &= ~ndi.binary_dilation(lungs, structure=np.ones((1, 3, 3), bool), iterations=1)
         lab, n = ndi.label(air)
@@ -57,7 +57,8 @@ def airway(hu, z, geo, lungs):
         if not votes: continue
         k = max(votes, key=votes.get); cand = lab == k; ml = cand.sum() * dx * dy * dz / 1000
         if ml > 60: continue                                                    # leaked into a lung: not usable at this threshold
-        a = cand; break
+        zi = np.nonzero(cand.any((1, 2)))[0]; h = zi.max() - zi.min()
+        if a is None or h > best_h * 1.15: a, best_h = cand, h                  # keep the threshold that follows the windpipe furthest
     if a is None: return None, {}
     # measurements: walk down from the top; the carina is where one lumen becomes two for good
     area = a.sum((1, 2)) * dx * dy; idx = np.nonzero(area)[0]; top, bot = idx.max(), idx.min(); carina = None
