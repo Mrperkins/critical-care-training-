@@ -12,18 +12,25 @@
    "why": "this scan starts below the windpipe"
   },
   "toddler": {
+   "slice_mm": 2.0,
+   "airway_ml": 0.11,
+   "trachea_diameter_mm": 3.1,
+   "trachea_length_seen_mm": null,
+   "carina_found": false,
+   "cut_at_top_of_scan": true,
+   "ct_above_airway_top_mm": 0.0,
+   "scan_mm": 338.0,
    "patient": "Pediatric-CT-SEG-9EC8B17D",
    "age": "001Y",
    "sex": "M",
    "ct_above_lung_apex_mm": 10.0,
-   "airway": false,
-   "why": "this scan starts below the windpipe"
+   "tris": 3032
   },
   "child": {
    "slice_mm": 0.62,
-   "airway_ml": 4.19,
-   "trachea_diameter_mm": 7.5,
-   "trachea_length_seen_mm": 88.1,
+   "airway_ml": 4.32,
+   "trachea_diameter_mm": 7.6,
+   "trachea_length_seen_mm": 86.2,
    "carina_found": true,
    "cut_at_top_of_scan": true,
    "ct_above_airway_top_mm": 0.0,
@@ -38,12 +45,12 @@
  "other_scans": [
   {
    "slice_mm": 2.0,
-   "airway_ml": 1.26,
+   "airway_ml": 1.28,
    "trachea_diameter_mm": 5.0,
-   "trachea_length_seen_mm": 58.0,
+   "trachea_length_seen_mm": 60.0,
    "carina_found": true,
    "cut_at_top_of_scan": false,
-   "ct_above_airway_top_mm": 10.0,
+   "ct_above_airway_top_mm": 8.0,
    "scan_mm": 372.0,
    "patient": "Pediatric-CT-SEG-0C74FB06",
    "age": "001Y",
@@ -52,7 +59,7 @@
   },
   {
    "slice_mm": 2.0,
-   "airway_ml": 0.52,
+   "airway_ml": 0.53,
    "trachea_diameter_mm": 3.4,
    "trachea_length_seen_mm": null,
    "carina_found": false,
@@ -66,7 +73,7 @@
   },
   {
    "slice_mm": 2.0,
-   "airway_ml": 1.28,
+   "airway_ml": 1.29,
    "trachea_diameter_mm": 4.8,
    "trachea_length_seen_mm": 52.0,
    "carina_found": true,
@@ -93,6 +100,14 @@
    "ct_above_lung_apex_mm": 26.0
   },
   {
+   "slice_mm": 2.0,
+   "airway_ml": 6.72,
+   "trachea_diameter_mm": 21.7,
+   "trachea_length_seen_mm": 14.0,
+   "carina_found": true,
+   "cut_at_top_of_scan": false,
+   "ct_above_airway_top_mm": 10.0,
+   "scan_mm": 338.0,
    "patient": "Pediatric-CT-SEG-F77ACFBB",
    "age": "001Y",
    "sex": "M",
@@ -100,7 +115,7 @@
   },
   {
    "slice_mm": 2.0,
-   "airway_ml": 1.23,
+   "airway_ml": 1.24,
    "trachea_diameter_mm": 4.8,
    "trachea_length_seen_mm": 54.0,
    "carina_found": true,
