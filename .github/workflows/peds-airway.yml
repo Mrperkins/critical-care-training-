@@ -1,0 +1,31 @@
+# Builds the pediatric head, neck and airway models from openly licensed CT. Runs on the peds-airway branch or by hand.
+name: Pediatric airway
+on:
+  workflow_dispatch:
+  push:
+    branches: [peds-airway]
+    paths: ['app/pipeline/find-peds-airway.py', 'app/pipeline/build-peds-airway.py', '.github/workflows/peds-airway.yml']
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install numpy scipy scikit-image trimesh fast-simplification nibabel remotezip
+      - name: Find children whose CT covers the head and neck
+        working-directory: app/pipeline
+        run: python find-peds-airway.py
+      - name: Build the models
+        working-directory: app/pipeline
+        run: if [ -f build-peds-airway.py ]; then python build-peds-airway.py; fi
+      - name: Commit the models
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A app/public/models app/pipeline/peds-airway-candidates.json 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "Pediatric airway models"
+          git push
