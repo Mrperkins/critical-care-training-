@@ -9,7 +9,9 @@ REC = 'https://zenodo.org/api/records/10047292'
 def main():
     rec = json.load(urllib.request.urlopen(REC)); files = {f['key']: f['links']['self'] for f in rec['files']}
     print('license', rec['metadata'].get('license'), 'files', {k: f['size'] for k, f in ((f['key'], f) for f in rec['files'])})
-    meta = urllib.request.urlopen(files['meta.csv']).read().decode('utf-8', 'replace')
+    from remotezip import RemoteZip
+    z = RemoteZip(next(v for k, v in files.items() if k.endswith('.zip'))); names = z.namelist()
+    meta = z.read(next(n for n in names if n.endswith('meta.csv'))).decode('utf-8', 'replace')
     rows = list(csv.DictReader(io.StringIO(meta), delimiter=';')); print('columns', list(rows[0].keys()), 'subjects', len(rows))
     def age(r):
         try: return float(r.get('age') or 'nan')
@@ -18,9 +20,7 @@ def main():
     kids = [r for r in rows if age(r) <= 12]; print('children <= 12:', len(kids))
     for r in kids: print(' ', {k: r[k] for k in r if k in ('image_id', 'age', 'gender', 'study_type', 'scanner_model', 'pathology', 'pathology_location', 'split')})
     if not kids: return
-    from remotezip import RemoteZip
-    import nibabel as nib, gzip, tempfile, os
-    z = RemoteZip(next(v for k, v in files.items() if k.endswith('.zip'))); names = z.namelist()
+    import nibabel as nib, tempfile, os
     out = []
     for r in kids:
         sid = r['image_id']; info = {'id': sid, 'age': r['age'], 'sex': r.get('gender'), 'study': r.get('study_type')}
