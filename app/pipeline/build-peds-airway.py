@@ -44,6 +44,7 @@ def airway(hu, z, geo, lungs):
     lab, n = ndi.label(air)
     if not n: return None, {}
     # the windpipe: a tall, thin, central column of air (bowel gas is low in the body; lung remnants are off the midline)
+    apex = float(z[np.nonzero(lungs.any((1, 2)))[0].max()]) if lungs is not None and lungs.any() else None
     ys, xs = np.nonzero(body.any(0)); cx = xs.mean(); width = xs.max() - xs.min(); best = None
     for k, sl in enumerate(ndi.find_objects(lab), 1):
         if sl is None: continue
@@ -51,6 +52,7 @@ def airway(hu, z, geo, lungs):
         if h < 25 or vox < 200: continue
         top = lab[sl[0].stop - 1] == k; tx = np.nonzero(top)[1].mean(); ta = top.sum() * dx * dy
         if abs(tx - cx) > 0.18 * width or ta > 600: continue                      # top end must be a small central lumen
+        if apex is not None and z[sl[0].stop - 1] < apex - 15: continue           # the windpipe reaches the level of the lung apices; bowel gas does not
         score = h + (30 if sl[0].stop > 0.6 * len(z) else 0)
         if best is None or score > best[0]: best = (score, k)
     if best is None: return None, {}
@@ -113,6 +115,7 @@ def main():
             a, info = airway(hu, z, geo, lungs); info.update({'patient': pid, 'age': CAND.get(pid, {}).get('age'), 'sex': CAND.get(pid, {}).get('sex')})
             if lungs is not None and lungs.any(): info['ct_above_lung_apex_mm'] = round(float(z[-1] - z[np.nonzero(lungs.any((1, 2)))[0].max()]), 1)
             preview(hu, z, geo, a, lungs, os.path.join(PREV, f'{band or "scan"}-{pid[-8:]}.jpg')); print(band, pid, info)
+            if band and a is None: report['models'][band] = {**info, 'airway': False, 'why': 'this scan starts below the windpipe'}
             if band and a is not None:
                 ref = structs.get('skin') or max(structs.values(), key=len); rp = np.concatenate([p for _, p in ref]); centre = np.array([rp[:, 0].mean(), rp[:, 1].mean(), min(zz for zz, _ in ref)])
                 m = mesh(a, z, geo, centre); info['tris'] = int(len(m.faces)); sc = trimesh.Scene(); sc.add_geometry(m, node_name='airway', geom_name='airway'); sc.export(os.path.join(OUT, f'peds-{band}-airway.glb'))
