@@ -19,7 +19,9 @@ const OUT='browser-qa/imaging';mkdirSync(OUT,{recursive:true});
       const errors=[];page.on('pageerror',e=>errors.push(e.message));
       try {
         await page.goto('http://127.0.0.1:8765/',{waitUntil:'domcontentloaded',timeout:45000});
-        await page.getByRole('navigation',{name:'Primary'}).getByRole('button',{name:'Imaging',exact:true}).click({timeout:30000});
+        // Reference is in the top bar on a computer and in the bottom tab bar (as "More") on a phone
+        await page.locator('.lib-nav button:visible, .tabbar button:visible').filter({hasText:/^(Reference|More)$/}).first().click({timeout:30000});
+        await page.getByRole('button',{name:/Imaging academy/}).first().click({timeout:30000});
         await page.getByRole('heading',{name:'Imaging academy',exact:true}).waitFor({timeout:30000});
         await page.getByRole('button',{name:/eFAST: probe windows and trauma decisions/i}).click();
         await page.getByRole('button',{name:'Start or resume lessons'}).click();

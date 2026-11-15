@@ -97,23 +97,15 @@ export function App() {
   const atlasDisease = useUI(s=>s.atlasDisease);
   const atlasDomain = ATLAS_DOMAINS[module];
   const showingAtlas = !!atlasDomain && (DISEASE_BY_ID[atlasDisease ?? '']?.domain === atlasDomain || module === 'pediatrics' || module === 'womens');
-  const menu = useRef<HTMLDialogElement>(null);
-  const menuTrigger = useRef<HTMLButtonElement>(null);
-  const resources = useRef<HTMLDetailsElement>(null);
   const chooseDomain = (next: Module) => {
     useLibrary.getState().setPlaying(null); useLibrary.getState().setSolo(null); endCase();
-    if (next === 'library') { openLibrary({ page: 'home' }); menu.current?.close(); resources.current?.removeAttribute('open'); return; }
+    if (next === 'library') { openLibrary({ page: 'home' }); return; }
     useUI.getState().set({ module: next, atlasDisease: null }); setMobilePane('context');
-    menu.current?.close(); resources.current?.removeAttribute('open');
   };
   const chooseExperience = (next: typeof experience) => {
-    selectExperience(next); setMobilePane(next === 'explore' ? 'scene' : 'context'); resources.current?.removeAttribute('open');
+    selectExperience(next); setMobilePane(next === 'explore' ? 'scene' : 'context');
   };
   useEffect(() => { setMobilePane(mode === 'explore' ? 'scene' : 'context'); }, [module, mode]);
-  useEffect(() => {
-    const close = (e: PointerEvent) => { if (resources.current && !resources.current.contains(e.target as Node)) resources.current.removeAttribute('open'); };
-    document.addEventListener('pointerdown', close); return () => document.removeEventListener('pointerdown', close);
-  }, []);
   const inDomain = module !== 'curriculum' && module !== 'videos' && module !== 'fpc' && module !== 'cases' && module !== 'library';
   const inPlayer = inDomain && (!!playing || !!solo);
   const sceneCase = inPlayer && !!runningCase && isSceneCase(runningCase);
@@ -121,13 +113,19 @@ export function App() {
   // the side pane becomes the Details drawer when a lesson reads in the reader column or a case plays on the HUD
   const drawer = (hasReader || gameOn) && !sceneCase;
   const revealTools = (e: React.PointerEvent) => { const el = e.target as HTMLElement; if (!(inPlayer || gameOn) || !el.closest('.scene-pane') || el.closest('.hud, .lp-chips')) return; setToolsOn(true); clearTimeout(toolsT.current); toolsT.current = window.setTimeout(() => setToolsOn(false), 4500); };
-  const navOn = (k: 'home' | 'paths' | 'cases' | 'imaging' | 'offline') => module === 'library' && (
-    k === 'offline' ? libView.page === 'offline'
-    : k === 'imaging' ? libView.page === 'imaging'
-    : k === 'home' ? libView.page === 'home' || libView.page === 'module' || (libView.page === 'shelf' && libView.filter !== 'case')
-    : k === 'paths' ? libView.page === 'paths' || libView.page === 'path'
-    : libView.page === 'shelf' && libView.filter === 'case'
-  );
+  type Dest = 'home' | 'learn' | 'practice' | 'exam' | 'reference' | 'offline';
+  const dest: Dest | null = module === 'fpc' ? 'exam' : module === 'cases' || module === 'videos' || module === 'curriculum' ? 'reference'
+    : module !== 'library' ? (inPlayerNow(playing, solo) ? null : experience === 'practice' ? 'practice' : 'learn')
+    : libView.page === 'home' ? 'home' : libView.page === 'practice' || (libView.page === 'shelf' && libView.filter === 'case') ? 'practice'
+    : libView.page === 'offline' ? 'offline' : libView.page === 'reference' || libView.page === 'imaging' || libView.page === 'listen' ? 'reference' : 'learn';
+  const navOn = (k: Dest) => dest === k;
+  const DESTS: { k: Dest; label: string; short?: string; go: () => void }[] = [
+    { k: 'home', label: 'Today', go: () => openLibrary({ page: 'home' }) },
+    { k: 'learn', label: 'Learn', go: () => openLibrary({ page: 'learn' }) },
+    { k: 'practice', label: 'Practice', go: () => openLibrary({ page: 'practice' }) },
+    { k: 'exam', label: 'Exam prep', short: 'Exam', go: () => chooseDomain('fpc') },
+    { k: 'reference', label: 'Reference', short: 'More', go: () => openLibrary({ page: 'reference' }) },
+  ];
   const tools = <>
     {atlasDomain && !showingAtlas && <AtlasEntry domain={atlasDomain} onOpen={() => useUI.getState().set({atlasDisease:conditionsFor(atlasDomain)[0].id})} />}
     {experience === 'practice' && inDomain && !showingAtlas && module !== 'moa' && <div className="practice-switch" role="group" aria-label="Practice type">
@@ -135,22 +133,15 @@ export function App() {
       <button className={mode === 'sim' ? 'on' : ''} aria-pressed={mode === 'sim'} onClick={() => useUI.getState().set({ mode: 'sim' })}>Simulator</button>
     </div>}
   </>;
-  const domainItems = DOMAINS.map((d) => <button key={d.module} data-ch={d.module} className={module === d.module ? 'on' : ''} onClick={() => chooseDomain(d.module)} aria-current={module === d.module ? 'page' : undefined}>
-    <DomainIcon module={d.module} /><span className="domain-label">{d.label}</span>
-  </button>);
   return (
     <div className={`app app-v2 app-b m-${module}${phone ? ' phone' : ''}${inPlayer ? ' playing' : ''}${inDomain ? ' in-domain' : ''}${sceneCase ? ' scene-case' : ''}${hasPlayer ? ' has-player' : ''}${hasReader ? ' has-reader' : ''}${drawer ? ' drawer-mode' : ''}${drawer && details ? ' details-open' : ''}${gameOn ? ' game' : ''}${toolsOn ? ' tools-on' : ''}`} data-mobile-pane={sceneCase || hasReader || gameOn ? 'scene' : mobilePane} data-equipment={module === 'vent' && mode === 'sim' && !showingAtlas ? true : undefined}>
       <a className="skip-link" href="#workspace" onClick={(e) => { e.preventDefault(); const el = document.getElementById('workspace'); el?.focus(); el?.scrollIntoView({ block: 'start' }); }}>Skip to learning workspace</a>
       {inPlayer ? <PlayerTop /> : <header className="topbar topbar-v2">
-        <button ref={menuTrigger} className="domain-menu-button" aria-label="Open body systems" aria-haspopup="dialog" onClick={() => menu.current?.showModal()}><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg></button>
         <button className="brand brand-home" onClick={() => { useLibrary.getState().setPlaying(null); openLibrary({ page: 'home' }); }} aria-label="Go to browse">
           <Mark /><h1 className="b1">Critical Care</h1>
         </button>
         <nav className="lib-nav" aria-label="Primary">
-          <button className={navOn('home') ? 'on' : ''} aria-current={navOn('home') ? 'page' : undefined} onClick={() => openLibrary({ page: 'home' })}>Browse</button>
-          <button className={navOn('paths') ? 'on' : ''} aria-current={navOn('paths') ? 'page' : undefined} onClick={() => openLibrary({ page: 'paths' })}>Learning paths</button>
-          <button className={navOn('cases') ? 'on' : ''} aria-current={navOn('cases') ? 'page' : undefined} onClick={() => openLibrary({ page: 'shelf', id: 'all', filter: 'case' })}>Cases</button>
-          <button className={navOn('imaging') ? 'on' : ''} aria-current={navOn('imaging') ? 'page' : undefined} onClick={() => openLibrary({ page: 'imaging' })}>Imaging</button>
+          {DESTS.map((d) => <button key={d.k} className={navOn(d.k) ? 'on' : ''} aria-current={navOn(d.k) ? 'page' : undefined} onClick={d.go}>{d.label}</button>)}
         </nav>
         {inDomain && <div className="topbar-context">
           <h2 className="domain-title"><DomainIcon module={domain.module} /><span>{domain.label}</span></h2>
@@ -162,26 +153,9 @@ export function App() {
         <div className="topbar-end">
         <OfflineButton on={navOn('offline')} />
         <SearchButton />
-        <details className="resources-menu" ref={resources} onKeyDown={(e) => { if (e.key === 'Escape') { resources.current?.removeAttribute('open'); resources.current?.querySelector('summary')?.focus(); } }}>
-          <summary aria-label="Learning resources"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 4.5h4v15H5zM10.5 4.5h4v15h-4zM16 5.2l3.6-.9 3 14.5-3.6.9z" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" transform="translate(-1.5 0)" /></svg><span className="resource-label">Library</span></summary>
-          <nav aria-label="Learning resources">
-            <button onClick={() => openLibrary({ page: 'imaging' })}>Real imaging trainer</button>
-            <button onClick={() => chooseDomain('videos')}>Videos &amp; Skills</button>
-            <button onClick={() => chooseDomain('fpc')}>FP-C exam prep</button>
-            <button onClick={() => chooseDomain('cases')}>Case conference · Slides &amp; audio</button>
-            <button onClick={() => { useLibrary.getState().setMode('audio'); openLibrary({ page: 'home' }); resources.current?.removeAttribute('open'); }}>Audio &amp; Mental Reps</button>
-            <a href="audio/">Open the audio app</a>
-            <button onClick={() => { openLibrary({ page: 'offline' }); resources.current?.removeAttribute('open'); }}>Download for offline</button>
-            <button onClick={() => chooseDomain('curriculum')}>Progress &amp; bookmarks</button>
-          </nav>
-        </details>
         </div>
       </header>}
 
-      <dialog ref={menu} className="domain-dialog" aria-labelledby="domain-dialog-title" onClose={() => menuTrigger.current?.focus()} onClick={(e) => { if (e.target === e.currentTarget) menu.current?.close(); }}>
-        <div className="domain-dialog-header"><h2 id="domain-dialog-title">Body systems</h2><button aria-label="Close body systems" onClick={() => menu.current?.close()}>×</button></div>
-        <nav className="domain-drawer-list" aria-label="Choose a body system">{domainItems}</nav>
-      </dialog>
       <div className="product-shell">
         <div id="workspace" tabIndex={-1} className="workspace" onPointerDown={revealTools}>
           {inDomain && !sceneCase && !(module === 'vent' && mode === 'sim' && !showingAtlas) && <nav className="mobile-workspace-tabs" aria-label="Workspace view">
@@ -212,11 +186,23 @@ export function App() {
         {inPlayer && <aside className="lp-reader" ref={readerRef.current} aria-label="Lesson" />}
         {inPlayer && <CaseGame />}
       </div>
+      {!inPlayer && <nav className="tabbar" aria-label="Primary, phone">
+        {DESTS.map((d) => <button key={d.k} className={navOn(d.k) ? 'on' : ''} aria-current={navOn(d.k) ? 'page' : undefined} onClick={d.go}><TabIcon k={d.k} /><span>{d.short ?? d.label}</span></button>)}
+      </nav>}
       <PlayerBar />
     </div>
   );
 }
 
+const inPlayerNow = (playing: unknown, solo: unknown) => !!playing || !!solo;
+const TAB_ICON: Record<string, string> = {
+  home: 'M4 11l8-7 8 7v8a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z',
+  learn: 'M4 5h7a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4zM20 5h-5a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h5z',
+  practice: 'M3 12h4l2-6 4 12 2-6h6',
+  exam: 'M6 3h9l4 4v14H6zM9 12l2 2 4-4M9 17h6',
+  reference: 'M5 4h4v16H5zM10.5 4h4v16h-4zM16 5l3.5-.8 3 15-3.5.8z',
+};
+function TabIcon({ k }: { k: string }) { return <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d={TAB_ICON[k]} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>; }
 function Mark() {
   return (<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4v10M16 14c-3 0-4 2-6 4s-5 3-5 7c0 2 1 3 3 3 3 0 5-3 6-6M16 14c3 0 4 2 6 4s5 3 5 7c0 2-1 3-3 3-3 0-5-3-6-6" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>);
 }
