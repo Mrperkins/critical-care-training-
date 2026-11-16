@@ -71,9 +71,11 @@ jobs:
           QA_BROWSER: ${{ matrix.browser }}
           QA_HEADED: 1
         run: |
-          python3 -m http.server 8765 --directory dist > /tmp/bedside-preview.log 2>&1 &
-          mkdir -p dist/imaging
-          ln -s ../../../imaging/real dist/imaging/real
+          # test the build that is actually published (dist/pub, split into small files), not the 36 MB single-file offline copy:
+          # WebKit could not even finish loading that one file inside the time limit
+          python3 -m http.server 8765 --directory dist/pub > /tmp/bedside-preview.log 2>&1 &
+          mkdir -p dist/pub/imaging
+          ln -s ../../../../imaging/real dist/pub/imaging/real
           xvfb-run --auto-servernum node scripts/vent-browser-qa.cjs
           xvfb-run --auto-servernum node scripts/imaging-browser-qa.cjs
       - uses: actions/upload-artifact@v4
