@@ -8,22 +8,12 @@
  * In the patient view that returns the live value; inside the twin it returns the healthy value the module put in
  * the TwinState. Scenes that run their own physics (ventilator, blood gas) pass a separate engine the same way.
  */
-import { createContext, useContext, useEffect, useRef, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
-import { create } from 'zustand';
 
-export type CompareView = 'model' | 'media';
-interface CompareState { on: boolean; view: CompareView; pair: number; /** the scene on screen can compare */ available: boolean; set: (p: Partial<Omit<CompareState, 'set'>>) => void }
-export const useCompare = create<CompareState>((set) => ({ on: false, view: 'model', pair: 0, available: false, set: (p) => set(p) }));
-
-/** Healthy values for the twin, keyed by what the scene reads (e.g. 'heart.input'). */
-export type TwinState = Record<string, unknown>;
-const TwinCtx = createContext<TwinState | null>(null);
-export function TwinProvider({ state, children }: { state: TwinState; children: ReactNode }) { return <TwinCtx.Provider value={state}>{children}</TwinCtx.Provider>; }
-/** The value a scene should draw: the live one, or (in the normal twin) the healthy one. */
-export function useTwin<T>(key: string, live: T): T { const t = useContext(TwinCtx); return t && key in t ? (t[key] as T) : live; }
-export const useIsTwin = () => useContext(TwinCtx) !== null;
+export * from './compareStore';
+import { useCompare } from './compareStore';
 
 /** Which side of the split a canvas belongs to (only the module's main scene links its camera). */
 const SlotCtx = createContext<'main' | 'twin' | null>(null);

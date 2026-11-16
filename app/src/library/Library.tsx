@@ -15,6 +15,7 @@ import { CourseImaging } from './imaging/CourseImaging';
 import { CLINICAL_THUMBS } from './clinicalThumbs';
 import { openLibrary, playModule, playStep, runCase, runMission } from './launch';
 import { MISSIONS, missionResults } from './missions';
+import { downloadBackup, readBackup, restoreBackup } from './backup';
 import { OfflinePage } from './OfflinePage';
 import { AccentTitle, Banner, HeroImage, PATH_ACCENT, PATH_HERO, Row, SHELF_ACCENT, coverStyle } from './Shelf';
 import { LEVELS, bestStars, caseLevel, caseShelf, dailyCase, streak, type CaseLevel } from './caseMeta';
@@ -182,7 +183,7 @@ function Home() {
           <p className="lib-kicker">FP-C readiness</p>
           {ready ? <div className="td-ready">
             <span className="td-ring" style={{ background: `conic-gradient(var(--lib-yellow) 0 ${ready.pct}%, #262b36 0)` }} role="img" aria-label={`${ready.pct} percent ready`}><i>{ready.pct}%</i></span>
-            <div><p className="td-sub">{ready.pct === 0 ? 'Pass lesson quizzes to build your score.' : 'Weighted by the exam’s 110 scored items.'}</p>
+            <div><p className="td-sub">{ready.pct === 0 ? 'Answer exam questions to build your score.' : 'Weighted by the exam’s 110 scored items.'}</p>
               {ready.pct > 0 && weakest.length > 0 && <p className="td-weak">Weakest: {weakest.map((d) => d.title).join(' · ')}</p>}</div>
           </div> : <p className="td-sub">Loading…</p>}
           <div className="lib-actions"><button className="lib-btn" onClick={() => openFree('fpc')}>Open exam prep</button></div>
@@ -190,8 +191,14 @@ function Home() {
         <section className="td-card" aria-label="Listen">
           <p className="lib-kicker">On the drive in</p>
           <h2>Listen</h2>
-          <p className="td-sub">79 expert sessions and 20 voice-guided mental reps. Computer-narrated; clinical review in progress.</p>
+          <p className="td-sub">79 sessions and 20 voice-guided mental reps. Computer-narrated; clinical review in progress.</p>
           <div className="lib-actions"><button className="lib-btn" onClick={() => openLibrary({ page: 'listen' })}>Open Listen</button></div>
+        </section>
+        <section className="td-card" aria-label="Transport simulator">
+          <p className="lib-kicker">Fly it</p>
+          <h2>Interfacility transport</h2>
+          <p className="td-sub">A septic patient on norepinephrine, by air. Manage the lines, the pressure and the altitude from pickup to handover.</p>
+          <div className="lib-actions"><button className="lib-btn" onClick={() => openFree('lines', 'sim')}>Start the transport</button></div>
         </section>
       </div>
 
@@ -341,7 +348,25 @@ function ReferencePage() {
         <Banner img="neuro-stroke" title="Clinical review" sub="New wording waiting for sign-off" onClick={() => openLibrary({ page: 'review' })} />
         <Banner img="gas-basics" title="Download for offline" sub="Lessons, audio and imaging packs" onClick={() => openLibrary({ page: 'offline' })} />
       </section>
+      <BackupCard />
     </div>
+  );
+}
+
+/** Save progress to a file, or load it on another device. */
+function BackupCard() {
+  const [msg, setMsg] = useState<string | null>(null); const [last] = useState(() => { try { return localStorage.getItem('ccp.backup.at'); } catch { return null; } });
+  const pick = (f: File | undefined) => { if (!f) return; void f.text().then((t) => { const b = readBackup(t);
+    if (!window.confirm(`Replace the progress on this device with the backup from ${new Date(b.savedAt).toLocaleDateString()}?`)) return;
+    restoreBackup(b); window.location.reload(); }).catch((e: Error) => setMsg(e.message)); };
+  return (
+    <section className="td-card bk" aria-labelledby="bk-h">
+      <p className="lib-kicker">Your progress</p><h2 id="bk-h">Back up or move your progress</h2>
+      <p>Your progress is stored only in this browser. Save a backup file to keep it safe, or load one to continue on another phone or computer. Nothing is uploaded.{last ? ` Last backup: ${new Date(last).toLocaleDateString()}.` : ' No backup saved from this device yet.'}</p>
+      <div className="bk-acts"><button className="lib-btn accent" onClick={() => setMsg(`Saved a backup with ${downloadBackup()} items.`)}>Save a backup file</button>
+        <label className="lib-btn bk-file">Load a backup file<input type="file" accept="application/json,.json" onChange={(e) => pick(e.target.files?.[0])} /></label></div>
+      {msg && <p className="bk-msg" role="status">{msg}</p>}
+    </section>
   );
 }
 

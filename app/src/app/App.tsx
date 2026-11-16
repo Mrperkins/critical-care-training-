@@ -1,3 +1,4 @@
+import { keepStorage } from '../library/backup';
 import { CurriculumModule } from '../curriculum/CurriculumModule';
 import { initProgressTracking } from '../curriculum/track';
 import { lazy, Suspense, useEffect, useRef, useState } from 'react';
@@ -76,6 +77,7 @@ const DOMAINS: { module: Module; label: string; eyebrow: string }[] = [
   { module: 'cases', label: 'Case conference', eyebrow: 'Synthetic cases · Slides & audio' },
 ];
 const ATLAS_DOMAINS: Partial<Record<Module, AtlasDomain>> = { vent: 'vent', heart: 'heart', neuro: 'neuro', lines: 'lines', abdomen: 'abdomen', labs: 'labs', pediatrics: 'pediatrics', womens: 'womens' };
+keepStorage();
 export function App() {
   useEngine(); useEffect(() => initProgressTracking(), []);
   const module = useUI((s) => s.module); const mode = useUI((s) => s.mode); const phone = useIsPhone();
@@ -134,7 +136,7 @@ export function App() {
     </div>}
   </>;
   return (
-    <div className={`app app-v2 app-b m-${module}${phone ? ' phone' : ''}${inPlayer ? ' playing' : ''}${inDomain ? ' in-domain' : ''}${sceneCase ? ' scene-case' : ''}${hasPlayer ? ' has-player' : ''}${hasReader ? ' has-reader' : ''}${drawer ? ' drawer-mode' : ''}${drawer && details ? ' details-open' : ''}${gameOn ? ' game' : ''}${toolsOn ? ' tools-on' : ''}`} data-mobile-pane={sceneCase || hasReader || gameOn ? 'scene' : mobilePane} data-equipment={module === 'vent' && mode === 'sim' && !showingAtlas ? true : undefined}>
+    <div className={`app app-v2 app-b m-${module}${phone ? ' phone' : ''}${inPlayer ? ' playing' : ''}${inDomain ? ' in-domain' : ''}${sceneCase ? ' scene-case' : ''}${hasPlayer ? ' has-player' : ''}${hasReader ? ' has-reader' : ''}${drawer ? ' drawer-mode' : ''}${drawer && details ? ' details-open' : ''}${gameOn ? ' game' : ''}${toolsOn ? ' tools-on' : ''}${inDomain && !inPlayer && (mode === 'explore' || mode === 'sim') ? ' live-controls' : ''}`} data-mobile-pane={sceneCase || hasReader || gameOn ? 'scene' : mobilePane} data-equipment={module === 'vent' && mode === 'sim' && !showingAtlas ? true : undefined}>
       <a className="skip-link" href="#workspace" onClick={(e) => { e.preventDefault(); const el = document.getElementById('workspace'); el?.focus(); el?.scrollIntoView({ block: 'start' }); }}>Skip to learning workspace</a>
       {inPlayer ? <PlayerTop /> : <header className="topbar topbar-v2">
         <button className="brand brand-home" onClick={() => { useLibrary.getState().setPlaying(null); openLibrary({ page: 'home' }); }} aria-label="Go to browse">
