@@ -1057,3 +1057,6 @@ html:has(.app-b),body:has(.app-b){overflow:hidden}
 .bk{margin-top:22px;max-width:760px}.bk h2{margin:2px 0 6px;font:600 19px/1.2 var(--lib-font)}.bk p{margin:0;font-size:14.5px;line-height:1.5;color:var(--lib-dim)}
 .bk-acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}.bk-file{position:relative;overflow:hidden;cursor:pointer}.bk-file input{position:absolute;inset:0;opacity:0;cursor:pointer}
 .bk-file:focus-within{outline:2px solid #fff;outline-offset:2px}.bk-msg{margin-top:10px!important;color:#8fe3b8!important}
+
+/* one type family everywhere: the serif that marked the older screens (case conferences, FP-C, progress) is retired */
+.app-b{--fs:"Space Grotesk",var(--fb)}
