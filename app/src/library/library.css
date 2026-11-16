@@ -1060,3 +1060,12 @@ html:has(.app-b),body:has(.app-b){overflow:hidden}
 
 /* one type family everywhere: the serif that marked the older screens (case conferences, FP-C, progress) is retired */
 .app-b{--fs:"Space Grotesk",var(--fb)}
+
+/* ---------- labels and scene tools during a case ---------- */
+/* a report, question or debrief is up: the scene is background, so its labels and its own tools step aside */
+[data-hud=busy] .lchip{visibility:hidden!important}
+[data-hud] .mon-tools,[data-hud] .scene-tools2,[data-hud] .legend{display:none!important}
+/* hands-on goals sit with the key numbers at the top left, not across the middle of the scene */
+.hud .hud-goals{left:14px;transform:none;top:58px;justify-content:flex-start;width:auto;max-width:calc(100% - 220px)}
+.hud-goals .hud-chip b:empty{display:none}
+@media (max-width:760px){.hud .hud-goals{max-width:none}.hud-goals .hud-chip{display:flex;align-items:center;gap:8px}.hud-goals .hud-chip small{white-space:nowrap}}

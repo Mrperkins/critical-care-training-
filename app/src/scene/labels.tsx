@@ -255,23 +255,30 @@ export function SceneWrap({ className = '', children, labels = true, compare }: 
  * slides up or down by whole rows (CSS `translate`, which composes with the positioning transforms) to the
  * nearest free slot, at most five rows away.
  */
+/** Things drawn over the scene that a label must never sit on or under: the case HUD and the scene's own controls. */
+const OBSTACLES = '.hud-chips, .hud-goals, .hud-card, .hud-q, .hud-top, .hud-patient, .hud-banner, .view-btns, .scene-primary-tools, .alv-focus, .mon-tools, .scene-tools2';
 export function declutter(root: HTMLElement) {
   const els = [...root.querySelectorAll<HTMLElement>('.lchip:not(.ldot):not(.olabel)')].filter((e) => e.offsetParent !== null);
   const boxes = els.map((e) => { const r = e.getBoundingClientRect(); const dy = Number(e.dataset.dy || 0); return { e, x: r.left, y: r.top - dy, w: r.width, h: r.height, pri: e.matches('.b-bad, .t-red') ? 0 : 1 }; })
     .filter((b) => b.w > 0).sort((a, b) => a.pri - b.pri || a.y - b.y);
-  const placed: { x: number; y: number; w: number; h: number }[] = [];
+  const area = root.getBoundingClientRect();
+  const placed: { x: number; y: number; w: number; h: number }[] = [...document.querySelectorAll<HTMLElement>(OBSTACLES)].filter((o) => o.offsetParent !== null && !o.closest('.lchip'))
+    .map((o) => { const r = o.getBoundingClientRect(); return { x: r.left, y: r.top, w: r.width, h: r.height }; })
+    .filter((r) => r.w > 0 && r.h > 0 && r.x < area.right && r.x + r.w > area.left && r.y < area.bottom && r.y + r.h > area.top);
   const hit = (b: { x: number; y: number; w: number; h: number }) => placed.some((q) => b.x < q.x + q.w + 3 && q.x < b.x + b.w + 3 && b.y < q.y + q.h + 2 && q.y < b.y + b.h + 2);
   for (const b of boxes) {
-    const step = Math.round(b.h + 3); let dy = 0;
-    for (const k of [0, -1, 1, -2, 2, -3, 3, -4, 4, -5, 5]) { if (!hit({ ...b, y: b.y + k * step })) { dy = k * step; break; } }
-    placed.push({ x: b.x, y: b.y + dy, w: b.w, h: b.h });
-    if (Number(b.e.dataset.dy || 0) !== dy) { b.e.dataset.dy = String(dy); b.e.style.translate = dy ? `0 ${dy}px` : ''; }
+    const step = Math.round(b.h + 3); let dy: number | null = null;
+    for (const k of [0, -1, 1, -2, 2, -3, 3]) { const y = b.y + k * step; if (y >= area.top && y + b.h <= area.bottom && !hit({ ...b, y })) { dy = k * step; break; } }
+    // no free place near its anchor: leave the label out rather than stack it on another label or on the case screen
+    const hide = dy === null; if (!hide) placed.push({ x: b.x, y: b.y + dy!, w: b.w, h: b.h });
+    if ((b.e.dataset.hide === '1') !== hide) { if (hide) b.e.dataset.hide = '1'; else delete b.e.dataset.hide; b.e.style.visibility = hide ? 'hidden' : ''; }
+    const d = dy ?? 0; if (Number(b.e.dataset.dy || 0) !== d) { b.e.dataset.dy = String(d); b.e.style.translate = d ? `0 ${d}px` : ''; }
   }
 }
 function useDeclutter(ref: React.RefObject<HTMLElement>, mode: LabelMode) {
   useEffect(() => {
     const root = ref.current; if (!root) return;
-    if (mode !== 'all') { root.querySelectorAll<HTMLElement>('.lchip').forEach((e) => { e.style.translate = ''; delete e.dataset.dy; }); return; }
+    if (mode !== 'all') { root.querySelectorAll<HTMLElement>('.lchip').forEach((e) => { e.style.translate = ''; e.style.visibility = ''; delete e.dataset.dy; delete e.dataset.hide; }); return; }
     const id = window.setInterval(() => { if (document.visibilityState === 'visible') declutter(root); }, 160);
     return () => window.clearInterval(id);
   }, [ref, mode]);
