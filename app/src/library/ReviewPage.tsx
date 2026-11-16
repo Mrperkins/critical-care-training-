@@ -13,7 +13,8 @@ type Mark = { ok?: boolean; note?: string };
 const KEY = 'ccp.review.v1';
 const load = (): Record<string, Mark> => { try { return JSON.parse(localStorage.getItem(KEY) ?? '{}'); } catch { return {}; } };
 /** cases that gained new decisions in the rebuild, and how many decisions each had before */
-export const EXTENDED: Record<string, number> = { 'case-abd-fast-spleen': 2, 'case-abd-aaa': 3, 'case-neuro-m1l': 2, 'case-neuro-uncal': 2, 'case-neuro-evd': 2, 'case-heart-vsd': 2, 'case-img-cxr-tension': 2, 'case-img-cxr-ards': 2, 'case-lines-pph': 2 };
+export const EXTENDED: Record<string, number> = { 'case-abd-fast-spleen': 2, 'case-abd-aaa': 3, 'case-neuro-m1l': 2, 'case-neuro-uncal': 2, 'case-neuro-evd': 2, 'case-heart-vsd': 2, 'case-img-cxr-tension': 2, 'case-img-cxr-ards': 2, 'case-lines-pph': 2,
+  ...Object.fromEntries(['case-abd-fast-early', 'case-abd-dissect-a', 'case-abd-dissect-b', 'case-abd-transient', 'case-abd-mesenteric', 'case-neuro-m1r', 'case-neuro-p2r', 'case-neuro-basilar', 'case-neuro-cushing', 'case-heart-asd', 'case-heart-eisenmenger', 'case-heart-pfo', 'case-img-lus-plug', 'case-img-lus-asthma', 'case-img-cxr-edema', 'case-img-mainstem', 'case-abg-apnoea-infant', 'case-vent-croup', 'case-lines-child-shock', 'case-heart-pphn', 'case-heart-pphn-atrial', 'case-abg-apnoea-preg', 'case-lines-aortocaval'].map((id) => [id, 2])) };
 interface Item { id: string; title: string; text: string; detail?: string }
 export function reviewGroups(): { key: string; title: string; about: string; items: Item[] }[] {
   const cases: Item[] = Object.entries(EXTENDED).flatMap(([id, from]) => { const c = CASE_BY_ID[id]; return c ? c.questions.slice(from).map((q, i) => ({ id: `${id}:${from + i}`, title: `${c.title} · decision ${from + i + 1}`, text: `${q.update ? `${q.update} ` : ''}${q.q} → ${q.options[q.answer]}`, detail: `${q.explain} Other choices: ${q.options.filter((_, k) => k !== q.answer).join(' / ')}` })) : []; });

@@ -58,7 +58,7 @@ export function StudioCanvas({ children, camera, className = 'scene-canvas', fog
   return (
     <SceneBoundary key={generation} label={label} onRetry={retry}><Canvas
       ref={ref as never}
-      role="img" aria-label={label}
+      role="group" aria-label={label}
       frameloop={onScreen && visible ? 'always' : 'never'}
       className={className}
       dpr={dpr}
