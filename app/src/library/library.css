@@ -1052,3 +1052,8 @@ html:has(.app-b),body:has(.app-b){overflow:hidden}
 .rv-list b{font:600 14px var(--lib-font)}.rv-list p{margin:4px 0 0;font-size:14.5px;line-height:1.5}.rv-detail{color:var(--lib-mute);font-size:13.5px!important}
 .rv-acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.rv-acts button{min-height:40px;padding:0 12px;border-radius:8px;border:1px solid var(--lib-line);background:none;color:inherit;font:500 13.5px var(--lib-font);cursor:pointer}
 .rv-acts button[aria-pressed="true"]{background:#f2f4f8;color:#0b0e13;border-color:#f2f4f8}.rv-acts input{flex:1;min-width:160px;min-height:40px;padding:0 10px;border-radius:8px;border:1px solid var(--lib-line);background:rgba(0,0,0,.25);color:inherit;font:400 14px var(--lib-font)}
+
+/* ---------- progress backup ---------- */
+.bk{margin-top:22px;max-width:760px}.bk h2{margin:2px 0 6px;font:600 19px/1.2 var(--lib-font)}.bk p{margin:0;font-size:14.5px;line-height:1.5;color:var(--lib-dim)}
+.bk-acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}.bk-file{position:relative;overflow:hidden;cursor:pointer}.bk-file input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.bk-file:focus-within{outline:2px solid #fff;outline-offset:2px}.bk-msg{margin-top:10px!important;color:#8fe3b8!important}

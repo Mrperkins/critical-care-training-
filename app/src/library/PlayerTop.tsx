@@ -15,7 +15,7 @@ import { CASE_BY_ID } from '../challenge/sceneCases';
 import { useCaseRun } from './caseRun';
 import { titleOf } from '../curriculum/titles';
 import { useGame } from './game';
-import { useCompare } from '../scene/compare';
+import { useCompare } from '../scene/compareStore';
 
 export function PlayerTop() {
   const playing = useLibrary((s) => s.playing); const solo = useLibrary((s) => s.solo); const passed = useLibrary((s) => s.passed);

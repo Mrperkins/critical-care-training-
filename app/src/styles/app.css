@@ -2364,3 +2364,13 @@ h2,h3,.h2,.card h3{font-weight:600;letter-spacing:-.006em}
 .peds-organs button{display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:0 10px}.peds-organs button i{width:9px;height:9px;border-radius:50%}.peds-organs button span{color:#9aa5b5}
 .peds-organs button[aria-pressed="true"]{border-color:#f0b34a;color:#f0b34a}
 .peds-air{margin:0;font-size:12.5px;line-height:1.4;color:#bcd7e0}
+
+/* ---------- phone: watch the scene while changing the controls (Explore and simulators) ---------- */
+@media (max-width:760px){
+  .live-controls[data-mobile-pane=context] .stage>.scene-pane{display:flex;flex-direction:column;position:sticky;top:0;z-index:6;min-height:0;height:auto;max-height:48svh;overflow:hidden;border-bottom:1px solid var(--line);background:#06080c}
+  .live-controls[data-mobile-pane=context] .stage>.scene-pane .scene-wrap{flex:none;height:27svh;min-height:0}
+  .live-controls[data-mobile-pane=context] .stage>.scene-pane :is(.scene-primary-tools,.scene-tools,.scene-tools2,.view-btns,.alv-focus,.alv-hud,.legend,.mon-tools,.scene-popover,.cardiac-views,.heart-strip-actions,.ecg-leads,.cmp-bar,.atlas-view-buttons,.atlas-caption){display:none!important}
+  .live-controls[data-mobile-pane=context] .stage>.scene-pane .wave-wrap{flex:none;max-height:19svh;overflow:hidden}
+  .live-controls[data-mobile-pane=context] .stage>.scene-pane .heart-ecg-strip{flex:none;max-height:92px;overflow:hidden}
+  .live-controls[data-mobile-pane=context] .stage>.side-pane{min-height:0}
+}

@@ -1,7 +1,7 @@
 /** FP-C exam practice: the exam home (readiness, the three ways to practise) and a running session. */
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { FPC_LESSONS } from './index';
-import { bank, domainStats, loadHistory, loadMocks, plan, readiness, record, saveHistory, saveMock, score, TARGET, type BankItem, type ExamKind, type ExamPlan, type ExamResult, type History } from './exam';
+import { rng, shuffle, bank, domainStats, loadHistory, loadMocks, plan, readiness, record, saveHistory, saveMock, score, TARGET, type BankItem, type ExamKind, type ExamPlan, type ExamResult, type History } from './exam';
 import { TOTAL_ITEMS } from './blueprint';
 
 const mmss = (s: number) => `${Math.floor(s / 60)}:${String(Math.max(0, Math.floor(s % 60))).padStart(2, '0')}`;
@@ -49,7 +49,9 @@ export function ExamSession({ plan: p, onExit, onLesson }: { plan: ExamPlan; onE
   useEffect(() => { if (!timed || result) return; const t = setInterval(() => { const s = (p.minutes ?? 0) * 60 - (Date.now() - t0.current) / 1000; setLeft(s); if (s <= 0) finish(); }, 500); return () => clearInterval(t); }); // eslint-disable-line react-hooks/exhaustive-deps
   if (!items.length) return <section className="ex-run"><p>No questions to show yet.</p><button className="act" onClick={onExit}>Back</button></section>;
   if (result) return <Results kind={p.kind} res={result} ms={Date.now() - t0.current} onExit={onExit} onLesson={onLesson} />;
-  const b = items[i]; const pick = picks[i]; const shown = !timed && pick != null; const answered = picks.filter((x) => x != null).length;
+  // answer order is shuffled per question for this sitting, so position never gives the answer away
+  const orders = useMemo(() => { const r = rng(t0.current); return items.map((x) => shuffle(x.q.options.map((_, k) => k), r)); }, [items]);
+  const b = items[i]; const pick = picks[i]; const ord = orders[i]; const shown = !timed && pick != null; const answered = picks.filter((x) => x != null).length;
   const choose = (k: number) => { if (shown) return; setPicks((x) => x.map((v, j) => (j === i ? k : v))); };
   return (
     <section className={`ex-run${timed ? ' timed' : ''}`} aria-label={NAME[p.kind]}>
@@ -63,8 +65,8 @@ export function ExamSession({ plan: p, onExit, onLesson }: { plan: ExamPlan; onE
       <div className="ex-progress" aria-hidden="true"><i style={{ width: `${((i + 1) / items.length) * 100}%` }} /></div>
       <fieldset className="ex-q">
         <legend>{b.q.q}</legend>
-        {b.q.options.map((o, k) => <button key={k} type="button" className={`ex-opt${shown ? (k === b.q.answer ? ' right' : k === pick ? ' wrong' : ' dim') : pick === k ? ' picked' : ''}`} aria-pressed={pick === k} disabled={shown} onClick={() => choose(k)}><span aria-hidden="true">{'ABCD'[k]}</span>{o}</button>)}
-        {shown && <p className={`ex-why${pick === b.q.answer ? ' ok' : ''}`} role="status"><b>{pick === b.q.answer ? 'Correct.' : `Answer: ${'ABCD'[b.q.answer]}.`}</b> {b.q.why} <button className="linkish" onClick={() => onLesson(b.lesson)}>From: {b.lessonTitle}</button></p>}
+        {ord.map((k, pos) => <button key={k} type="button" className={`ex-opt${shown ? (k === b.q.answer ? ' right' : k === pick ? ' wrong' : ' dim') : pick === k ? ' picked' : ''}`} aria-pressed={pick === k} disabled={shown} onClick={() => choose(k)}><span aria-hidden="true">{'ABCDEF'[pos]}</span>{b.q.options[k]}</button>)}
+        {shown && <p className={`ex-why${pick === b.q.answer ? ' ok' : ''}`} role="status"><b>{pick === b.q.answer ? 'Correct.' : `Answer: ${'ABCDEF'[ord.indexOf(b.q.answer)]}.`}</b> {b.q.why} <button className="linkish" onClick={() => onLesson(b.lesson)}>From: {b.lessonTitle}</button></p>}
       </fieldset>
       <footer className="ex-nav">
         {timed && <button className="act" disabled={i === 0} onClick={() => setI(i - 1)}>Back</button>}
