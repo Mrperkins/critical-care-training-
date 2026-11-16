@@ -73,8 +73,11 @@ function HUD() {
   const [toastOn, setToastOn] = useState(false);
   useEffect(() => { if (!g.toast) return; setToastOn(true); const t = setTimeout(() => setToastOn(false), 4200); return () => clearTimeout(t); }, [g.toast?.at]); // eslint-disable-line react-hooks/exhaustive-deps
   const q = g.question;
+  // the report, a question or the debrief is on screen: the scene behind it is background, so its labels and tools step aside
+  const busy = !!q || !!g.debrief || (!!g.card && !g.card.compact);
+  useEffect(() => { const r = document.documentElement; r.dataset.hud = busy ? 'busy' : 'open'; return () => { delete r.dataset.hud; }; }, [busy]);
   return (
-    <div className={`hud${q ? ' has-q' : ''}${g.debrief ? ' has-debrief' : ''}`} aria-label={`${g.title} case`}>
+    <div className={`hud${q ? ' has-q' : ''}${g.debrief ? ' has-debrief' : ''}${busy ? ' busy' : ''}`} aria-label={`${g.title} case`}>
       <div className="hud-top">
         {g.onExit && <button className="hud-exit" onClick={g.onExit} aria-label={g.exitLabel ?? 'Leave the case'}>←</button>}
         <b className="hud-title">{g.title}{g.level && <small>{g.level}</small>}</b>
